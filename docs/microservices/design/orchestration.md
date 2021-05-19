@@ -74,19 +74,19 @@ The container orchestrator:
 
 Here are some options for implementing microservices container orchestration in Azure:
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed [Kubernetes](https://kubernetes.io/)-based container orchestration service in Azure that simplifies deployment and management of containerized applications. AKS provides elastic provisioning, fast end to end deployment, and advanced identity and access management.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed [Kubernetes](https://kubernetes.io/) container orchestration service in Azure that simplifies deployment and management of containerized applications. AKS provides elastic provisioning, fast end to end deployment, and advanced identity and access management.
 
-- [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) is Microsoft's container orchestrator for deploying and managing microservices across a cluster of machines. Service Fabric comes with a lightweight run time that supports building stateless and stateful microservices.
+- [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) is a container orchestrator for deploying and managing microservices across a cluster of machines. The lightweight Service Fabric run time supports building stateless and stateful microservices.
   
   A key Service Fabric differentiator is its robust support for building stateful services.  You can use the built-in stateful services programming model, or run containerized stateful services written in any language or code.
 
-- [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/) is the fastest and simplest way to run a container in Azure. With ACI, you don't have to manage virtual machines or adapt any higher-level service offerings.
+- [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/) is the quickest and simplest way to run a container in Azure. With ACI, you don't have to manage virtual machines or adapt higher-level services.
   
-  ACI lets you run Docker containers in a managed, serverless cloud environment. For simple orchestration scenarios, use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally. Then deploy the app as a container group on ACI. For full container orchestration scenarios, ACI integrates with AKS to create virtual nodes for AKS orchestration.
+  For simple orchestration scenarios, you can use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally. Then, deploy the Docker containers as an ACI container group in a managed, serverless Azure environment. For full container orchestration scenarios, ACI can integrate with AKS to create virtual nodes for AKS orchestration.
 
 - [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) is an enterprise-ready, fully managed service for [Spring Boot](https://spring.io/projects/spring-boot) apps. Spring Cloud lets you focus on building and running apps without having to manage infrastructure. Spring Cloud comes with built-in lifecycle management, ease of monitoring, and full integration with Azure.
 
-- [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/services/openshift/) service allows deployment of fully managed [OpenShift](https://www.openshift.com/) clusters on Azure. Running Kubernetes production containers requires image registries, storage management, monitoring, and integration with various tools and frameworks. ARO extends Kubernetes by combining all these tools into a single platform for easier operations.
+- [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/services/openshift/) supports deployment of fully managed [OpenShift](https://www.openshift.com/) clusters on Azure. Running Kubernetes production containers requires integration with frameworks and tools like image registries, storage management, monitoring, and DevOps. ARO extends Kubernetes by combining these components into a single container platform as a service (PaaS).
 
 ## Next steps
 
