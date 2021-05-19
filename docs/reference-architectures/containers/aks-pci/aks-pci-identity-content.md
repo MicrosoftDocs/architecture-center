@@ -67,7 +67,9 @@ Here are some best practices to harden access.
 
 - Set up [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane. With conditional access policies, you can require multi-factor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts. Apply these policies to Azure AD groups that are mapped with to Kubernetes roles with high privilege. 
 
-    > ![NOTE] Both JIT and conditional access technology choices require Azure AD Premium.
+> [!NOTE]
+> Both JIT and conditional access technology choices require Azure AD Premium.
+
 
 - Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are JIT and  standing.
 
@@ -89,13 +91,17 @@ Assign access based on individual personnel’s job classification and function.
 ##### Your responsibilities
 Grant permissions based on the clearly assigned job duties of the individual. Avoid parameters such as the system, tenure of the employee.
 
-Have a regular cadence for reviewing permissions. Responsibilities might change when there are changes on the team such as employee leaving the company or there are need for roles that are temporary. Make sure you maintain documentation that keeps track of the changes.
+Strive for consistency with your RBAC implementation. Define common roles and apply group assignments appropriately that align with your team structure. A consistent approach will help in detecting changes and and provide justification for new access requirements that may develop.
+
+Have a regular cadence for reviewing permissions. Responsibilities might change when there are changes on the team such as employee leaving the company or there are need for roles that are temporary. In some cases, the reviews might show  need for changes. One way is to review the `kube-audit-admin` logs to ensure access patterns are being followed. Outside of identity provider emergencies, the built-in `cluster admin` user should never be used. Consider including a review of these logs to detect unexpected admin user usage; as that might indicate reinforced training on your identity governance policies.
+
+Make sure you maintain documentation that keeps track of the changes.
 
 Consider using dedicated tenants for seperation of responsibilities between Kubernetes RBAC and Azure RBAC if appropriate (this tenant still would need to be a fully managed enterprise resource, do not create ""shadow identitys stores"").
 
 <Ask chad: Please explain>
 
-Be clear and consistent in naming of Azure BRAC and Kubernetes RBAC roles.
+Be clear and consistent in naming of Azure RBAC and Kubernetes RBAC roles so that it's easier to audit.
 
 #### Requirement 7.1.4
 Require documented approval by authorized parties specifying required privileges.
@@ -155,6 +161,7 @@ Default “deny-all” setting.
 Ensure that security policies and operational procedures for restricting access to cardholder data are documented, in use, and known to all affected parties.
 
 #### Your responsibilities
+It's critical that you maintain thorough documentation about the processes and policies. Especially RBAC policies (both Kubernetes and Azure), <Todo> People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
 
 
 
