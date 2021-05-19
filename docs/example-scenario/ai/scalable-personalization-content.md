@@ -102,6 +102,7 @@ To see how pricing differs for your use case, change the variables to match your
 
 - For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml).
 - To see more examples, tutorials, and tools to help you build your own recommendation system visit the [Microsoft Recommenders] GitHub repository.
+- See the blog post [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service/)
 
 <!-- links -->
 
