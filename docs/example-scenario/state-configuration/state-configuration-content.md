@@ -69,7 +69,7 @@ You can also browse to the public IP address of any virtual machine to verify th
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Azure Automation State Configuration ARM Templates](samples/mspnp/samples/azure-automation-state-configuration/)
+> [Azure Automation State Configuration ARM Templates](/samples/mspnp/samples/azure-automation-state-configuration/)
 
 ## Components
 
