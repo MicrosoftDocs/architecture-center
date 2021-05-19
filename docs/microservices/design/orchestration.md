@@ -44,7 +44,7 @@ To manage the cluster, the DevOps team must:
 - Establish communication between dependent component instances.
 - Maintain the desired AKS cluster state.
 
-Running three containers on a single development machine might not be too hard. But a production environment has more containers running at scale. Managing a production cluster at scale in high-availability mode quickly becomes challenging.
+Running three containers on a single development machine isn't too hard, but a production environment has more containers. Managing a production cluster at scale in high-availability mode quickly becomes challenging.
 
 With container orchestration, the DevOps team can represent the desired state of the cluster as a configuration. A container orchestration engine enforces the desired configuration and automates all the management tasks.
 
@@ -58,17 +58,18 @@ The container orchestrator:
 
 - Automatically scales the number of microservice instances, based on traffic or resource utilization. In the example, the orchestrator automatically adds another Microservice A instance in response to increased traffic.
 
-- Manages the container to reflect the configured desired state. In the example, Microservice B is configured to have two instances. One instance has become unhealthy or stopped working, so the orchestrator maintains the desired state by creating another instance.
+- Manages the containers to reflect the configured desired state. In the example, Microservice B is configured to have two instances. One instance has become unhealthy, so the orchestrator maintains the desired state by creating another instance.
 
 - Wraps the containers for each microservice in a simple service layer. The service layer:
   
   - Abstracts out complexities like IP address, port, and number of instances.
   - Load balances traffic between microservice instances.
-  - Allows easy orchestration of communication between dependent microservices.
+  - Supports easy communication orchestration between dependent microservices instances.
 
-- Can release a new version or roll back to an old version of a microservice or set of microservices, with no downtime.
+Container orchestrators also provide flexibility and traffic control to:
 
-- Provides flexibility and traffic control to enable side-by-side testing of different microservice versions.
+- Release new versions or roll back to old versions of microservices or sets of microservices, without downtime.
+- Enable side-by-side testing of different microservice versions.
 
 ## Choose an Azure container orchestrator technology
 
