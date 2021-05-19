@@ -5,23 +5,23 @@
 
 Recommendations are a main revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.
 
-There are two main types of recommendation systems: collaborative filtering and content-based. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this document focuses on the content-based recommendation system.
+There are two main types of recommendation systems: collaborative filtering and content-based. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this article focuses on a content-based recommendation system.
 
-This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, we use [Azure Databricks] to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using [Azure Kubernetes Service]. In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume.
+This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, you use an [Azure Databricks] to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using [Azure Kubernetes Service]. In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume.
 
 ## Relevant use cases
 
 This scenario is relevant to the following use cases:
 
-- Content recommendations on a website or in a mobile application.
-- Product recommendation on an e-commerce site.
-- Displayed ad recommendation on a website.
+- Content recommendations on websites or in mobile apps.
+- Product recommendation on e-commerce sites.
+- Displayed ad recommendation on websites.
 
-## Architecture
+## Architecture for a content-based recommender system
 
-![Scalable personalization architecture diagram](./media/architecture-scalable-personalization.png)
+![Architectural diagram: training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using Azure Databricks.](./media/architecture-scalable-personalization.png)
 
-This scenario covers the training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using [Azure Databricks]. In this case, a model is trained with a supervised classification algorithm on a dataset containing user and item features. The label for each example is a binary value indicating that the user engaged with (for example, clicked) an item. This scenario covers a subset of the steps required for a full end-to-end recommendation system workload. The broader context of this scenario is based on a generic e-commerce website with a front end that serves rapidly changing content to its users. This website uses cookies and user profiles to personalize the content for that user. Along with user profiles, the website may have information about every item it serves to each user. Once that data is available, the following steps are executed to build and operationalize a recommendation system:
+This example scenario covers the training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using [Azure Databricks]. In this case, a model is trained with a supervised classification algorithm on a dataset containing user and item features. The label for each example is a binary value indicating that the user engaged with (for example, clicked) an item. This scenario covers a subset of the steps required for a full end-to-end recommendation system workload. The broader context of this scenario is based on a generic e-commerce website with a front end that serves rapidly changing content to its users. This website uses cookies and user profiles to personalize the content for that user. Along with user profiles, the website may have information about every item it serves to each user. Once that data is available, the following steps are executed to build and operationalize a recommendation system:
 
 1. The sets of distinct user and item data are preprocessed and joined, which results in a mixture of numeric and categorical features to be used for predicting user-item interactions (clicks). This table is uploaded to [Azure Blob Storage]. For demonstration purposes, the [Criteo display advertising challenge dataset](https://labs.criteo.com/2014/02/download-dataset/) is used. This dataset matches the described anonymized table, as it contains a binary label for observed user clicks, 13 numerical features, and another 26 categorical features.
 2. The [MMLSpark] library enables training a [LightGBM] classifier on [Azure Databricks] to predict the click probability as a function of the numeric and categorical features that were created in the previous step. [LightGBM] is a highly efficient machine learning algorithm, and [MMLSpark] enables distributed training of [LightGBM] models over large datasets.
@@ -35,8 +35,8 @@ This scenario covers the training, evaluation, and deployment of a machine learn
 
 This architecture makes use of the following components:
 
-- [Azure Blob Storage] is a storage service optimized for storing massive amounts of unstructured data. In this case, the input data is stored here.
-- [Azure Databricks] is a managed Apache Spark cluster for model training and evaluation. We also use [MMLSpark], a Spark-based framework designed for large-scale machine learning.
+- [Azure Blob Storage] is a storage service optimized for storing massive amounts of unstructured data. In this example scenario, the input data is stored here.
+- [Azure Databricks] is a managed Apache Spark cluster for model training and evaluation. The scenario also uses [MMLSpark], a Spark-based framework designed for large-scale machine learning.
 - [Azure Container Registry] is used to package the scoring script as a container image, which is used to serve the model in production.
 - [Azure Kubernetes Service] is used to deploy the trained model to web or app services.
 - [Azure Machine Learning] is used in this scenario to register the machine learning model and to deploy AKS.
@@ -87,7 +87,7 @@ To run the notebooks for training and deploying the recommendation model on [Azu
 
 ## Pricing
 
-To better understand the cost of running this scenario on Azure, we provide a [pricing estimator](https://azure.com/e/ce86a34735d64f1280812233b0071c4e) based on the following assumptions:
+To better understand the cost of running this scenario on Azure, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Good starting assumptions are:
 
 - Training data is of the same scale as the example dataset used (45.8 million rows).
 - Training needs to happen daily to update the serving model.
