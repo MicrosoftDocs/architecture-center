@@ -1550,6 +1550,8 @@ items:
                     href: example-scenario/iot/monitor-manage-loop.yml
                   - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
+              - name: Choosing an Internet of Things (IoT) solution in Azure
+                href: example-scenario/iot/iot-central-iothub-cheat-sheet.yml      
           - name: Architectures
             items:
               - name: IoT reference architecture
