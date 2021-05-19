@@ -8,7 +8,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 >
 > The guidance in this article builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the card holder environment (CDE) and hosts the PCI DSS workload. 
 >
-> ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated environment. The implementation illustrates the set up malware scanning tools. Every node in the cluster (in-scope and out-of-scope) has placeholder `DaemonSet` deployments for antivirus, FIM, Kubernetes-aware security agent (Falco), and reboot agent (kured). Place your choice of software in this deployment.
+> ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated environment. The implementation illustrates <To do add identity blurb>.
 
 ## Implement Strong Access Control Measures
 
@@ -57,7 +57,7 @@ Define a list of access for each role. Think about the roles and functions in yo
 - Do you need an emergency break-glass cluster admin user?
 - Who can administer a cluster?
 - Who can create or update resources within a namespace?
-
+<Ask chad: Please check the preceding/make better>
 Based on that assessment, assign user or administrator roles. Kubernetes has built-in, user-facing RBAC roles, such `cluster-admin` that are applied at the namespace levels. If you are integrating Azure AD roles and Kubernetes roles, create a mapping between the two roles.
 
 An example use case of that role is if you need a group that needs complete access to the cluster.  This role has the highest privilege. Members of this group will have complete access throughout the cluster. You can mapping the role to an existing AD RBAC role that has administrative access to the Azure control plane. In that case, make sure you have strategy in place to create separation of duties. An alternate way is to create a separate group dedicated for cluster administrative access. Of the two approaches, the second one is recommended and demonstrated in the reference implementation.
@@ -67,7 +67,7 @@ Here are some best practices to harden access.
 
 - Set up [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane. With conditional access policies, you can require multi-factor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts. Apply these policies to Azure AD groups that are mapped with to Kubernetes roles with high privilege. 
 
-    > [!NOTE] Both JIT and conditional access technology choices require Azure AD Premium.
+    > ![NOTE] Both JIT and conditional access technology choices require Azure AD Premium.
 
 - Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are JIT and  standing.
 
@@ -87,11 +87,13 @@ Regular review and audit users and groups that have access in your subscriptions
 Assign access based on individual personnel’s job classification and function.
 
 ##### Your responsibilities
-Permissions should be based on the clearly assigned job duties of the individual wrt this paticular system, not based on tenure, company importance, or job title.
+Grant permissions based on the clearly assigned job duties of the individual. Avoid parameters such as the system, tenure of the employee.
 
-Responsibility changes should be documented, even if they are temporary (filling in for someone that called in sick).
+Have a regular cadence for reviewing permissions. Responsibilities might change when there are changes on the team such as employee leaving the company or there are need for roles that are temporary. Make sure you maintain documentation that keeps track of the changes.
 
 Consider using dedicated tenants for seperation of responsibilities between Kubernetes RBAC and Azure RBAC if appropriate (this tenant still would need to be a fully managed enterprise resource, do not create ""shadow identitys stores"").
+
+<Ask chad: Please explain>
 
 Be clear and consistent in naming of Azure BRAC and Kubernetes RBAC roles.
 
@@ -99,32 +101,54 @@ Be clear and consistent in naming of Azure BRAC and Kubernetes RBAC roles.
 Require documented approval by authorized parties specifying required privileges.
 
 ##### Your responsibilities
-TBD
+Have a gated process for approving changes in roles and permissions.
 
 ### Requirement 7.2
 Establish an access control system for systems components that restricts access based on a user’s need to know, and is set to “deny all” unless specifically allowed.
 
 #### Your responsibilities
-Jump Boxes should only be accessed by authorized users. Do not create generic "team" logins to jump boxes, they should be tied to inviduals. Ideally disable SSH access to the cluster nodes (this RI does not generate SSH connection details for that purpose). k8s rbac implements this by default, do not counter measure this by adding cluster role bindings that inverse the "deny all" relationship. Azure RBAC implements this by default, do bot counter measure this by adding RBAC assignments that inverse the "deny all relationship".  All services, KeyVault, Container Registry, etc by default start with "no permissions" and is additative.
 
+All components in the architecture that are in-scope must have restricted access. This includes the AKS nodes that run the workload, data storage, network access, and all other services that participate in processing the card holder data (CHD). 
 
 #### Requirement 7.2.1
 Coverage of all system components
 
 ##### Your responsibilities
-TBD
+
+Here are some best practices to maintain access control measures:
+
+- Ideally disable SSH access to the cluster nodes. This reference implementation doesn't generate SSH connection details for that purpose. 
+
+- Any additional compute, such as jumpboxes, must be accessed by authorized users. Do not create generic logins available to the entire team. 
+
 
 #### Requirement 7.2.2
 Assignment of privileges to individuals based on job classification and function.
 
 ##### Your responsibilities
-Again, solved with RBAC
+There are many roles involved in cluster operations. Beyond the standard Azure resource roles, you'll need to now define the extent and process of access. 
+
+For example, consider the cluster operator role. They should have a clearly-defined playbook for cluster triage activities. How different is that access from workload team. Depending on your organization they may be the same. Here are some points:
+- How should they access the cluster
+- Which sources are allowed for access
+- What permissions should they have on the cluster
+- When are those permissions assigned
+
+Make sure the definitions are documented in  governance documentation, policy, and training materials around workload operator and cluster operator. 
 
 #### Requirement 7.2.3
 Default “deny-all” setting.
 
 ##### Your responsibilities
-Ensure NSGs have a short circuit "deny-all" in their rules to override default rules. Be consistent on the naming, so that it can be audited for its existance. Azure firewall implements "deny all" by default.
+- Kubernetes RBAC implements _deny all_ by default. Don't override by adding cluster role bindings that inverse the deny all setting.
+
+- Azure RBAC also implements _deny all_ by default. Don't override by adding RBAC assignments that inverse the deny all setting. 
+
+- All Azure services, Key Vault, Container Registry, by default have deny all set of permissions.
+
+- Ensure network security groups (NSGs) have a short circuit "deny-all" in their rules to override default rules. Be consistent on the naming, so that it's easier to audit. Azure firewall implements "deny all" by default.
+
+<Ask Chad: need more information on the last one>
 
 
 ### Requirement 7.3
