@@ -30,7 +30,7 @@ Consider a simple three-tier web application:
 2. Another container hosts the middle tier or REST API layer.
 3. The middle tier communicates with a globally-distributed database in a third container.
 
-![Conceptual diagram of a simple containerized microservices web application.](../images/multi-container-cluster-with-orchestrator.png)
+![Conceptual diagram of a simple containerized microservices web application.](images/orchestration/multi-container-cluster-with-orchestrator.png)
 
 Running three containers on a single development machine might not be hard, but a microservices architecture for a production environment has more containers running at scale. Running a production cluster at scale in high-availability mode quickly becomes challenging.
 
@@ -42,7 +42,7 @@ With container orchestration, the DevOps team can represent the desired state of
 
 The following example shows how container orchestration can help manage cluster deployment, networking, and scaling. This management capability is extremely useful for maintaining large and dynamic production environments.
 
-![Diagram of an example microservices cluster showing container orchestrator scenarios.](../images/container-orchestrator-usecases.png)
+![Diagram of an example microservices cluster showing container orchestrator scenarios.](images/orchestration/container-orchestrator-example.png)
 
 The container orchestrator:
 
