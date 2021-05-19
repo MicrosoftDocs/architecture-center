@@ -142,7 +142,7 @@ SAS platforms can use local user accounts or via an LDAP server. It is recommend
 SAS solutions often need to access data from multiple systems. These data sources are separated into SAS datasets (often called SASDATA) and databases that will need to be accessed. Often times, SAS will create a heavy load on these systems. For the best performance, it is recommended that your data sources are as close as possible to the SAS infrastructure. This includes limiting the number of network hops / appliances between your SAS infrastructure and the data sources.
 
 > [!NOTE]
-Avoid executing analytics against data sources under stress or at distance, instead do ETL first and analytics later. Strongly consider bringing these systems closer to your SAS infrastructure.
+> Avoid executing analytics against data sources under stress or at distance, instead do ETL first and analytics later. Strongly consider bringing these systems closer to your SAS infrastructure.
 
 ### Permanent remote storage for SAS Data
 
