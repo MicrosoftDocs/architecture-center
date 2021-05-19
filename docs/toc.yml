@@ -1370,6 +1370,8 @@ items:
                 href: hybrid/azure-automation-hybrid.yml
               - name: Azure Automation update management
                 href: hybrid/azure-update-mgmt.yml
+              - name: Azure Automation State Configuration
+                href: example-scenario/state-configuration/state-configuration.yml
               - name: Azure enterprise cloud file share
                 href: hybrid/azure-files-private.yml
               - name: Azure Functions in a hybrid environment
