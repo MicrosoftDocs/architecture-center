@@ -1,6 +1,6 @@
 ---
 title: What is the CQRS pattern?
-description: Segregate operations that read data from those that update data.
+description: Learn how to segregate operations that read data from those that update data, using the CQRS (Command and Query Responsibility Segregation) pattern.
 author: dragon119
 ms.date: 02/11/2020
 ms.topic: conceptual
@@ -8,13 +8,19 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern
+  - seo-aac-fy21q3
 keywords:
-  - design pattern
+  - "design pattern"
+  - "CQRS"
+  - "CQRS pattern"
+  - "CQRS event sourcing"
+  - "event sourcing pattern"
+  - "microservices event sourcing"
 ---
 
-# What is the Command and Query Responsibility Segregation (CQRS) pattern?
+# What is the CQRS pattern?
 
-CQRS means Command and Query Responsibility Segregation, a pattern that separates read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexibility created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
+CQRS stands for Command and Query Responsibility Segregation, a pattern that separates read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexibility created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
 
 ## The problem
 
@@ -76,7 +82,7 @@ Some challenges of implementing this pattern include:
 
 - **Eventual consistency**. If you separate the read and write databases, the read data may be stale. The read model store must be updated to reflect changes to the write model store, and it can be difficult to detect when a user has issued a request based on stale read data.
 
-## When to use this pattern
+## When to use CQRS pattern
 
 Consider CQRS for the following scenarios:
 
@@ -100,7 +106,7 @@ This pattern isn't recommended when:
 
 Consider applying CQRS to limited sections of your system where it will be most valuable.
 
-## Event Sourcing and CQRS
+## Event Sourcing and CQRS pattern
 
 The CQRS pattern is often used along with the Event Sourcing pattern. CQRS-based systems use separate read and write data models, each tailored to relevant tasks and often located in physically separate stores. When used with the [Event Sourcing pattern](./event-sourcing.md), the store of events is the write model, and is the official source of information. The read model of a CQRS-based system provides materialized views of the data, typically as highly denormalized views. These views are tailored to the interfaces and display requirements of the application, which helps to maximize both display and query performance.
 
@@ -116,7 +122,7 @@ When using CQRS combined with the Event Sourcing pattern, consider the following
 
 - Generating materialized views for use in the read model or projections of the data by replaying and handling the events for specific entities or collections of entities can require significant processing time and resource usage. This is especially true if it requires summation or analysis of values over long periods, because all the associated events might need to be examined. Resolve this by implementing snapshots of the data at scheduled intervals, such as a total count of the number of a specific action that has occurred, or the current state of an entity.
 
-## Example
+## Example of CQRS pattern
 
 The following code shows some extracts from an example of a CQRS implementation that uses different definitions for the read and the write models. The model interfaces don't dictate any features of the underlying data stores, and they can evolve and be fine-tuned independently because these interfaces are separated.
 
