@@ -23,6 +23,17 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 **Requirement 8**&mdash;Identify and authenticate access to system components
 
+|Requirement|Responsibility|
+|---|---|
+|[Requirement 8.1](#requirement-81)|Define and implement policies and procedures to ensure proper user identification management for non-consumer users and administrators on all system components as follows:|
+|[Requirement 8.2](#requirement-82)| In addition to assigning a unique ID, ensure proper user-authentication management for non-consumer users and administrators on all system components by employing at least one of the following methods to authenticate all users:|
+|[Requirement 8.3](#requirement-83)|Secure all individual non-console administrative access and all remote access to the CDE using multi-factor authentication.|
+|[Requirement 8.4](#requirement-84)|Document and communicate authentication procedures and policies and procedures to all users including:|
+|[Requirement 8.5](#requirement-85)| Do not use group, shared, or generic IDs, passwords, or other authentication methods as follows:|
+|[Requirement 8.6](#requirement-86)| Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, etc.), use of these mechanisms must be assigned as follows:|
+|[Requirement 8.7](#requirement-87)| All access to any database containing cardholder data (including access by applications, administrators, and all other users) is restricted as follows:|
+|[Requirement 8.8](#requirement-87)|Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.|
+
 **Requirement 9**&mdash;Restrict physical access to cardholder data
 ***
 
@@ -163,6 +174,193 @@ Ensure that security policies and operational procedures for restricting access 
 #### Your responsibilities
 It's critical that you maintain thorough documentation about the processes and policies. Especially RBAC policies (both Kubernetes and Azure), <Todo> People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
 
+***
+
+### Requirement 8.1
+Define and implement policies and procedures to ensure proper user identification management for non-consumer users and administrators on all system components as follows:
+
+#### Your responsibilities
+
+TBD
+
+#### Requirement 8.1.1
+Assign all users a unique ID before allowing them to access system components or cardholder data.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.1.2
+Control addition, deletion, and modification of user IDs, credentials, and other identifier objects.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.1.3
+Immediately revoke access for any terminated users.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.1.4
+Remove/disable inactive user accounts within 90 days.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.1.5
+Manage IDs used by thid parties to access, support, or maintain system components via remote access as follows:
+- Enabled only during the time period needed and disabled when not in use.
+- Monitored when in use.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.1.6
+Limit repeated access attempts by locking out the user ID after not more than six attempts.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.1.7
+Set the lockout duration to a minimum of 30 minutes or until an administrator enables the user ID.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.1.8
+If a session has been idle for more than 15 minutes, require the user to re-authenticate to re-activate the terminal or session.
+
+##### Your responsibilities
+
+TBD
+
+TBD
+
+### Requirement 8.2
+ In addition to assigning a unique ID, ensure proper user-authentication management for non-consumer users and administrators on all system components by employing at least one of the following methods to authenticate all users:
+- Something you know, such as a password or passphrase
+- Something you have, such as a token device or smart card
+- Something you are, such as a biometric.
+
+#### Your responsibilities
+
+TBD
+
+#### Requirement 8.2.1
+Using strong cryptography, render all authentication credentials (such as passwords/phrases) unreadable during transmission and storage on all system components.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.2.2
+Verify user identity before modifying any authentication credential—for example, performing password resets, provisioning new tokens, or generating new keys.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.2.3
+Passwords/phrases must meet the following:
+- Require a minimum length of at least seven characters.
+- Contain both numeric and alphabetic characters.
+Alternatively, the passwords/phrases must have complexity and strength at least equivalent to the parameters specified above.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.2.4
+Change user passwords/passphrases at least once every 90 days.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.2.5
+Do not allow an individual to submit a new password/phrase that is the same as any of the last four passwords/phrases he or she has used.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.2.6
+Set passwords/phrases for first-time use and upon reset to a unique value for each user, and change immediately after the first use.
+
+##### Your responsibilities
+
+TBD
+
+### Requirement 8.3
+Secure all individual non-console administrative access and all remote access to the CDE using multi-factor authentication.
+Note: Multi-factor authentication requires that a minimum of two of the three authentication methods (see Requirement 8.2 for descriptions of authentication methods) be used for authentication. Using one factor twice (for example, using two separate passwords) is not considered multi-factor
+authentication.
+
+#### Your responsibilities
+
+TBD
+
+#### Requirement 8.3.1
+Incorporate multi-factor authentication for all non-console access into the CDE for personnel with administrative access.
+
+##### Your responsibilities
+
+TBD
+
+#### Requirement 8.3.2
+Incorporate multi-factor authentication for all remote network access (both user and administrator, and including third-party access for support or maintenance) originating from outside the entity’s network.
+##### Your responsibilities
+
+TBD
+
+### Requirement 8.4
+Document and communicate authentication procedures and policies and procedures to all users including:
+- Guidance on selecting strong authentication credentials
+- Guidance for how users should protect their authentication credentials
+- Instructions not to reuse previously used passwords
+- Instructions to change passwords if there is any suspicion the password could be compromised.
+#### Your responsibilities
+
+TBD
+
+### Requirement 8.5
+Do not use group, shared, or generic IDs, passwords, or other authentication methods as follows:
+- Generic user IDs are disabled or removed.
+- Shared user IDs do not exist for system administration and other critical functions.
+- Shared and generic user IDs are not used to administer any system components.
+#### Your responsibilities
+
+TBD
+
+### Requirement 8.6
+Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, etc.), use of these mechanisms must be assigned as follows:
+- Authentication mechanisms must be assigned to an individual account and not shared among multiple accounts.
+- Physical and/or logical controls must be in place to ensure only the intended account can use that mechanism to gain access.
+#### Your responsibilities
+
+TBD
+
+### Requirement 8.7
+All access to any database containing cardholder data (including access by applications, administrators, and all other users) is restricted as follows:
+- All user access to, user queries of, and user actions on databases are through programmatic methods.
+- Only database administrators have the ability to directly access or query databases.
+- Application IDs for database applications can only be used by the applications (and not by individual users or other non-application processes).
+#### Your responsibilities
+
+TBD
+
+### Requirement 8.8
+Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.
+#### Your responsibilities
+
+TBD
 
 
 ## Next
