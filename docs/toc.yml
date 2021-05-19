@@ -1199,6 +1199,8 @@ items:
                         href: microservices/ci-cd.md
                       - name: CI/CD for microservices on Kubernetes
                         href: microservices/ci-cd-kubernetes.md
+                      - name: Container orchestration for microservices
+                        href: microservices/design/orchestration.md
                   - name: Migrate to a microservices architecture
                     items:
                       - name: Migrate a monolith application to microservices
