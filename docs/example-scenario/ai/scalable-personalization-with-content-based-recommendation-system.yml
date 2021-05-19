@@ -31,4 +31,4 @@ products:
   - azure-machine-learning
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-scalable-personalization.png
 content: |
-  [!include[](scalable-personalization-content.md)]
+  [!include[](scalable-personalization-with-content-based-recommendation-system-content.md)]

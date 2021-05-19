@@ -78,7 +78,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 [!INCLUDE [Image classification on Azure](../../includes/cards/intelligent-apps-image-processing.md)]
 [!INCLUDE [Predictive Marketing with Machine Learning](../../includes/cards/predictive-marketing-campaigns-with-machine-learning-and-spark.md)]
-[!INCLUDE [Scalable personalization on Azure](../../includes/cards/scalable-personalization.md)]
+[!INCLUDE [Scalable personalization on Azure](../../includes/cards/scalable-personalization-with-content-based-recommendation-system.md)]
 
 </ul>
 

@@ -609,7 +609,7 @@ items:
           - name: Movie recommendations on Azure
             href: example-scenario/ai/movie-recommendations.yml
           - name: Scalable personalization on Azure
-            href: example-scenario/ai/scalable-personalization.yml
+            href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
           - name: Data warehousing and analytics
             href: example-scenario/data/data-warehouse.yml
           - name: Stream processing with Azure Databricks
@@ -722,7 +722,7 @@ items:
               - name: Real-time scoring R models
                 href: reference-architectures/ai/realtime-scoring-r.yml
               - name: Scalable personalization
-                href: example-scenario/ai/scalable-personalization.yml
+                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: Speech to text conversion
                 href: reference-architectures/ai/speech-ai-ingestion.yml
               - name: Training Python models
