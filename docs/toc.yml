@@ -1813,6 +1813,8 @@ items:
                     href: hybrid/hybrid-dns-infra.yml
                   - name: Hybrid availability and performance monitoring
                     href: hybrid/hybrid-perf-monitoring.yml
+              - name: Hub-spoke network topology with Azure Virtual WAN
+                href: networking/hub-spoke-vwan-architecture.yml   
       - name: SAP
         items:
           - name: Get started
