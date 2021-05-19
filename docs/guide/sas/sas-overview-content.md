@@ -101,7 +101,7 @@ _**Possible workaround:** set /sys/block/nvme0n1/queue/max_sectors_kb to the val
 
 We _recommend_ you work with the SAS Sizing Team to get the correct sizing of your SAS deployments. Please work with your SAS support team to get the sizing completed before continuing with your deployment on Azure. The following VM SKUs are frequently used:
 
-* **Eds_v4** - often using constrained cores; Good CPU-to-Memory ratio and a high throughput locally attached disk for SASWORK or CAS_CACHE. This is the default SAS machine.
+* **Edsv4** - often using constrained cores; Good CPU-to-Memory ratio and a high throughput locally attached disk for SASWORK or CAS_CACHE. This is the default SAS machine.
 * **Mv1** - using constrained cores; This machine gives high memory for heavy memory based workloads and high throughput to remote disk for SASWORK. Very often used for SPRE with Viya or specific Grid workloads.
 * **LSv2** - used when fast and large SASWORK or CAS_CACHE are needed.
 
@@ -109,7 +109,7 @@ We _recommend_ you work with the SAS Sizing Team to get the correct sizing of yo
 > SAS has been optimized for the Intel Math Kernel Library. Non Intel based SKUs should be avoided for math heavy workloads. Validate the performance and use of MKL when selecting your CPU.
 
 > [!WARNING]
-> Avoid using the Es_v3 VMs because the CPU generations can be different per node in your cluster.
+> Avoid using the Lsv2 VMs because the CPU generations can be different per node in your cluster.
 
 Azure allows you to scale your SAS Viya 4.0 systems based on demand. You can increase the compute capacity of the node pool or scale horizontally by adding more nodes using the AKS [Cluster Autoscaler](/azure/aks/cluster-autoscaler). You may also scale up your infrastructure temporarily to accelerate a SAS workload to meet deadlines. Scaling horizontally or vertically is not supported for Viya 3.5 and Grid workloads.
 
