@@ -23,7 +23,9 @@ ms.custom:
 
 # Container orchestration for microservices
 
-In a microservices architecture, each instance of a microservice is typically packaged and deployed to run inside a single container. Containers are lightweight and ephemeral, making them easy to create and destroy, but difficult to coordinate and network. This article discusses the challenges of running a microservice architecture in containers at production scale, and how container orchestration can help. The article presents several Azure container orchestration options.
+In a microservices architecture, each instance of a microservice is typically packaged and deployed to run inside a single container. Containers are lightweight and ephemeral, making them easy to create and destroy, but difficult to coordinate and network.
+
+This article discusses the challenges of running a microservice architecture in containers at production scale, and how container orchestration can help. The article presents several Azure container orchestration options.
 
 ## Containerized microservices architecture
 
@@ -48,7 +50,7 @@ With container orchestration, the DevOps team can represent the desired state of
 
 ## Advantages of container orchestration
 
-The following example shows how container orchestration can help manage cluster deployment, networking, and scaling. This capability is extremely useful in large and dynamic production environments.
+The following example shows how container orchestration can help manage cluster deployment, networking, and scaling. This capability is crucial for large and dynamic production environments.
 
 ![Diagram of an example microservices cluster showing container orchestrator scenarios.](images/orchestration/container-orchestrator-example.png)
 
@@ -56,7 +58,7 @@ The container orchestrator:
 
 - Automatically scales the number of microservice instances, based on traffic or resource utilization. In the example, the orchestrator automatically adds another Microservice A instance in response to increased traffic.
 
-- Manages the container to reflect the configured desired state. In the example, Microservice B is configured to have two instances. One instance has become unhealthy or stopped working, so the orchestrator has maintained the desired state by creating another instance.
+- Manages the container to reflect the configured desired state. In the example, Microservice B is configured to have two instances. One instance has become unhealthy or stopped working, so the orchestrator maintains the desired state by creating another instance.
 
 - Wraps the containers for each microservice in a simple service layer. The service layer:
   
@@ -80,7 +82,7 @@ Here are some options for implementing microservices container orchestration in 
 
 - [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/) is the fastest and simplest way to run a container in Azure. With ACI, you don't have to manage virtual machines or adapt any higher-level service offerings.
   
-  With ACI, you can run Docker containers in a managed, serverless cloud environment. For simple orchestration scenarios, use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally. Then deploy the app as a container group on ACI. For full container orchestration scenarios, ACI integrates with AKS to create virtual nodes for AKS orchestration.
+  ACI lets you run Docker containers in a managed, serverless cloud environment. For simple orchestration scenarios, use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally. Then deploy the app as a container group on ACI. For full container orchestration scenarios, ACI integrates with AKS to create virtual nodes for AKS orchestration.
 
 - [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) is an enterprise-ready, fully managed service for [Spring Boot](https://spring.io/projects/spring-boot) apps. Spring Cloud lets you focus on building and running apps without having to manage infrastructure. Spring Cloud comes with built-in lifecycle management, ease of monitoring, and full integration with Azure.
 
