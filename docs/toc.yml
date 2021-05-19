@@ -1895,6 +1895,8 @@ items:
                 href: example-scenario/secrets/secure-refresh-tokens.yml
               - name: Securely managed web apps
                 href: example-scenario/apps/fully-managed-secure-apps.yml
+              - name: Securing your Microsoft Teams channel bot
+                href: example-scenario/teams/securing-bot-teams-channel.yml
               - name: Virtual network integrated microservices
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Virtual Network security options
