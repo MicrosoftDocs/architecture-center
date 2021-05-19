@@ -13,9 +13,9 @@ This example scenario shows how your business can use machine learning to automa
 
 This scenario is relevant to the following use cases:
 
-- Content recommendations on websites or in mobile apps.
-- Product recommendation on e-commerce sites.
-- Displayed ad recommendation on websites.
+- Content recommendations for websites or mobile apps.
+- Product recommendations for e-commerce sites.
+- Displayed ad recommendations for websites.
 
 ## Architecture for a content-based recommender system
 
