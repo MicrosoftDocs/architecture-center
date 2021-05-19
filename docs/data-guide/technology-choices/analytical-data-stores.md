@@ -59,25 +59,28 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | SQL Database | Azure Synapse | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Is managed service | Yes | Yes |  Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
-| Primary database model | Relational (columnar format when using columnstore indexes) | Relational tables with columnar storage | Relational (column store), telemetry, and time series store | Wide column store | Hive/In-Memory | Tabular semantic models | Document store, graph, key-value store, wide column store |
-| SQL language support | Yes | Yes | Yes | Yes (using [Phoenix](https://phoenix.apache.org/) JDBC driver) | Yes | No | Yes |
-| Optimized for speed serving layer | Yes <sup>2</sup> | No | Yes | Yes | Yes | No | Yes |
+| Capability | SQL Database | Azure Synapse SQL Pool | Azure Synapse Spark Pool | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Is managed service | Yes | Yes |Yes |  Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
+| Primary database model | Relational (columnar format when using columnstore indexes) | Relational tables with columnar storage | Wide column store | Relational (column store), telemetry, and time series store | Wide column store | Hive/In-Memory | Tabular semantic models | Document store, graph, key-value store, wide column store |
+| SQL language support | Yes | Yes | Yes | Yes | Yes (using [Phoenix](https://phoenix.apache.org/) JDBC driver) | Yes | No | Yes |
+| Optimized for speed serving layer | Yes <sup>2</sup> | Yes <sup>3</sup> |Yes | Yes | Yes | Yes | No | Yes |
+
 
 [1] With manual configuration and scaling.
 
 [2] Using memory-optimized tables and hash or nonclustered indexes.
 
+[3] Supported as an Azure Stream Analytics output.
+
 ### Scalability capabilities
 
-| Capability | SQL Database | Azure Synapse | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
-|--------------------------------------------------|--------------|--------------------|----------------------------|------------------------|-------------------------|-----------|-----------|
-| Redundant regional servers for high availability |     Yes      |        Yes         |       Yes   |            Yes             |           No           |           No            |    Yes    |
-|             Supports query scale out             |      No      |        Yes         |         Yes         |         Yes             |          Yes           |           Yes           |    Yes    |
-|          Dynamic scalability (scale up)          |     Yes      |        Yes       |        Yes           |             No             |           No           |           Yes           |    Yes    |
-|        Supports in-memory caching of data        |     Yes      |        Yes         |            Yes         |        No             |          Yes           |           Yes           |    No     |
+| Capability | SQL Database | Azure Synapse SQL Pool | Azure Synapse Spark Pool | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+|--------------------------------------------------|--------------|--------------------|---------------------------|----------------------------|------------------------|-------------------------|-----------|-----------|
+| Redundant regional servers for high availability |     Yes      |        No         |        No         |       Yes   |            Yes             |           No           |           No            |    Yes    |
+|             Supports query scale out             |      No      |        Yes         |        Yes         |         Yes         |         Yes             |          Yes           |           Yes           |    Yes    |
+|          Dynamic scalability (scale up)          |     Yes      |        Yes       |        Yes         |        Yes           |             No             |           No           |           Yes           |    Yes    |
+|        Supports in-memory caching of data        |     Yes      |        Yes         |        Yes         |            Yes         |        No             |          Yes           |           Yes           |    No     |
 
 ### Security capabilities
 
@@ -85,7 +88,7 @@ The following tables summarize the key differences in capabilities.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Authentication  | SQL / Azure Active Directory (Azure AD) | SQL / Azure AD | Azure AD | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> | Azure AD | database users / Azure AD via access control (IAM) |
 | Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
-| Row-level security | Yes | Yes <sup>3</sup> | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | No |
+| Row-level security | Yes | Yes <sup>3</sup> | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | No |
 | Supports firewalls | Yes | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes |
 | Dynamic data masking | Yes | Yes | Yes | Yes <sup>1</sup> | Yes | No | No |
 
