@@ -50,7 +50,7 @@ For an in-depth guide to building and scaling a recommender service, see the art
 
 ### Availability
 
-Apps based on machine learning are typically split into two resource components: resources for training, and resources for serving. Resources required for training generally do not need high availability, as live production requests do not directly hit these resources. Resources required for serving need to have high availability to serve customer requests.
+Resources for apps based on machine learning are typically split into resources for training and resources for serving. Resources required for training generally don't need high availability, as live production requests don't directly hit these resources. Resources required for serving need to have high availability to serve customer requests.
 
 For training, the DSVM is available in [multiple regions][regions] around the globe and meets the [service level agreement][sla] (SLA) for virtual machines. For serving, Azure Kubernetes Service provides a [highly available][ha] infrastructure. Agent nodes also follow the [SLA][sla-aks] for virtual machines.
 
