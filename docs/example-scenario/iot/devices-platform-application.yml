@@ -21,6 +21,6 @@ products:
   - azure-iot
   - azure-event-hubs
   - azure-iot-hub
-thumbnailUrl: /azure/architecture/browse/thumbs/devices-platform-application.png
+thumbnailUrl: /azure/architecture/browse/thumbs/devices-platform-application.svg
 content: |
    [!include[](devices-platform-application-content.md)]
