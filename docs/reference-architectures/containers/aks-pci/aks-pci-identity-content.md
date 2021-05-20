@@ -75,9 +75,23 @@ Define access needs for each role, including:
 Define a list of access for each role. Think about the roles and functions in your organization. For example:
 - Who needs complete access to the cluster?
 - Do you need an emergency break-glass cluster admin user?
-- Who can administer a cluster?
+- Who needs access for triage?
 - Who can create or update resources within a namespace?
-<Ask chad: Please check the preceding/make better>
+
+
+What is your security roles going to be responsible, network ops, IT, application team 
+- central pivot is cluster.
+
+then minimize access per group. 
+
+waf rules, nsg rules, dns configuraiton. 
+az policy 
+az defender, sentinel config (enablement and reacting)
+in cluster. k8 rbac (who can do what)
+in cluster network policies
+reach out: container reg 
+<To do>
+
 Based on that assessment, assign user or administrator roles. Kubernetes has built-in, user-facing RBAC roles, such `cluster-admin` that are applied at the namespace levels. If you are integrating Azure AD roles and Kubernetes roles, create a mapping between the two roles.
 
 An example use case of that role is if you need a group that needs complete access to the cluster.  This role has the highest privilege. Members of this group will have complete access throughout the cluster. You can mapping the role to an existing AD RBAC role that has administrative access to the Azure control plane. In that case, make sure you have strategy in place to create separation of duties. An alternate way is to create a separate group dedicated for cluster administrative access. Of the two approaches, the second one is recommended and demonstrated in the reference implementation.
@@ -117,9 +131,18 @@ Have a regular cadence for reviewing permissions. Responsibilities might change 
 
 Make sure you maintain documentation that keeps track of the changes.
 
-Consider using dedicated tenants for seperation of responsibilities between Kubernetes RBAC and Azure RBAC if appropriate (this tenant still would need to be a fully managed enterprise resource, do not create ""shadow identitys stores"").
+Consider using dedicated tenants for seperation of responsibilities between Kubernetes RBAC and Azure RBAC if appropriate (this tenant still would need to be a fully managed enterprise resource, do not create ""shadow identitys stores""). Follow org governance policies. 
 
-<Ask chad: Please explain>
+<To Do>
+one tenant. it has rbac. it can do azure things with aks cluste.r  Also do native k8 things. 
+say that's comporomized. you can use tenant's permis to do bad things. 
+
+two tenants: one for azure; another for k8 rbac
+if one is comporomised, the other will block. 
+
+separate accounts or tenant. 
+
+cons: overhead in managmeent. 
 
 Be clear and consistent in naming of Azure RBAC and Kubernetes RBAC roles so that it's easier to audit.
 
@@ -166,14 +189,23 @@ Make sure the definitions are documented in  governance documentation, policy, a
 Default “deny-all” setting.
 
 ##### Your responsibilities
+
+<TODO>
+By defaulut, zero trust is available. All exceptions should be documented. 
+
 - Kubernetes RBAC implements _deny all_ by default. Don't override by adding cluster role bindings that inverse the deny all setting.
 
 - Azure RBAC also implements _deny all_ by default. Don't override by adding RBAC assignments that inverse the deny all setting. 
 
 - All Azure services, Key Vault, Container Registry, by default have deny all set of permissions.
 
-- Ensure network security groups (NSGs) have a short circuit "deny-all" in their rules to override default rules. Be consistent on the naming, so that it's easier to audit. Azure firewall implements "deny all" by default.
+- Ensure network security groups (NSGs) have a short circuit "deny-all" in their rules to override default rules. Be consistent on the naming, so that it's easier to audit. 
+  
+  deny all has to be explicit. (1) then with add lower number for exceptions. 
 
+- Azure firewall implements "deny all" by default.
+
+- Any administrative access points , JB, that support deny all setting should be enabled. All elevated permissions are defined explicitly to the deny all rule.  
 <Ask Chad: need more information on the last one>
 
 
@@ -209,7 +241,14 @@ Don't share identities, such as, using a team account to access data or cluster 
 
 Strongly recommend extending this past user identities, and apply similar to system identities such as user and system-managed identities. Ensure single purpose identity associations, do not reuse user managed identities for functionally different parts of the system or pods in the system.
 
-<Ask Chad: Please explain>
+<To Do.>
+
+system managed identity: when resource created that has a principal.
+user: identity lives before something is created and lives outside. 
+
+pod identity (user). many things deployed inside the cluster using the same pod identity. this is fine. 
+
+two pods must not be identified with the same identity if the workload they a re running don't need to interact. "discrete items" pod or azure service. 
 
 [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
 
@@ -381,10 +420,11 @@ All access to any database containing cardholder data (including access by appli
 
 If possible, access database from applications through managed identity. Otherwise, limit exposure to connection strings and credentials. Use Kubernetes secrets to store sensitive information instead of keeping them places where they are easily discovered, such as pod definition. Another way is to store and load secrets to and from a managed store, such as Azure Key Vault. With managed identities enabled on an AKS cluster, it has to authenticate itself against Key Vault to get access. 
 
-A connection string must be generated by the application instead of being generated by the user. 
+A connection string must be generated by the application instead of being generated by the user. *** - ask chad
 
 All users directly accessing the database should be doing so at their own user, not any application identities.
 <Ask chad: the last line needs explanation>
+<if you are a human, assume human identty instead of principal. if you want to do system things, use your prnc.>
 
 ### Requirement 8.8
 Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.
