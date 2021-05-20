@@ -15,7 +15,7 @@ The rich functionality is not confined to Excel. It is driven by web services th
 
 ## Architecture
 
-![Architecture Diagram](../media/interactive-price-analytics.png)
+![Architecture diagram: overview of components for pricing model using machine learning.](../media/interactive-price-analytics.png)
 *Download an [SVG](../media/interactive-price-analytics.svg) of this architecture.*
 
 ## Description
