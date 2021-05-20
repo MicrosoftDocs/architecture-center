@@ -58,6 +58,6 @@ This solution combines several Azure services to provide powerful advantages:
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Azure Machine Learning documentation](/azure/machine-learning/)
-* [Movie recommendations on Azure](/azure/architecture/example-scenario/ai/movie-recommendations)
+* [Movie recommendations on Azure](/azure/architecture/example-scenario/ai/movie-recommendations-with-machine-learning)
 * [Personalized marketing solutions](./personalized-marketing.yml)
 * [Product recommendations for retail using Azure](./product-recommendations.yml)

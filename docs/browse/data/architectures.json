@@ -7668,8 +7668,8 @@
                 "shell"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/ai/movie-recommendations.md",
-            "http_url": "/azure/architecture/example-scenario/ai/movie-recommendations",
+            "file_url": "example-scenario/ai/movie-recommendations-with-machine-learning.md",
+            "http_url": "/azure/architecture/example-scenario/ai/movie-recommendations-with-machine-learning",
             "word_count": 937,
             "read_time": "4 min read",
             "Title": "Movie recommendations on Azure",
@@ -7695,7 +7695,7 @@
             "code_languages": [
                 "shell"
             ],
-            "name": "movie-recommendations",
+            "name": "movie-recommendations-with-machine-learning",
             "popularity": 76,
             "topic": "AI + Machine Learning"
         },
