@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Customer Churn Prediction uses Cortana Intelligence Suite components to predict churn probability, and it helps find patterns in existing data that's associated with the predicted churn rate.
+Customer Churn Prediction uses Cortana Intelligence Suite components to predict churn probability, and it helps find patterns in existing data that are associated with the predicted churn rate.
 
 ## Architecture
 
