@@ -1,4 +1,4 @@
-This hub-spoke reference architecture provides an alternate solution to the
+This hub-spoke architecture provides an alternate solution to the
 reference architectures [hub-spoke network topology in
 Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 and [implement a secure hybrid
@@ -12,7 +12,7 @@ gateway connection. The main differentiator of this approach is the use of
 [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan/)
 (VWAN) to replace hubs as a managed service.
 
-This reference architecture includes the benefits of standard hub-spoke network
+This architecture includes the benefits of standard hub-spoke network
 topology and introduces new benefits:
 
 -   **Less operational overhead** by replacing existing hubs with a fully
@@ -42,8 +42,6 @@ Typical uses for this architecture include cases in which:
 ## Architecture
 
 ![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-001.png)
-
-### Components
 
 The architecture consists of:
 
@@ -86,6 +84,14 @@ The architecture consists of:
     hub-spoke network topology, you use virtual network peering to connect the
     hub to each spoke. Azure Virtual WAN enables transitivity among hubs, which
     is not possible solely using peering.
+
+### Components
+
+* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/)
+* [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan/)
+* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
+* [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)
 
 ### Alternatives
 
@@ -132,7 +138,7 @@ and branch-to-VNet connectivity in a **single hub**.
 A virtual hub is a Microsoft-managed virtual network. The hub contains various
 service endpoints to enable connectivity. The hub is the core of your network in
 a region. There can only be one hub per Azure region. When you create a hub
-using Azure Portal, it creates a virtual hub VNet and a virtual hub VPN gateway.
+using the Azure portal, it creates a virtual hub VNet and a virtual hub VPN gateway.
 A Virtual WAN Hub requires an address range minimum of /24. This IP address
 space will be used for reserving a subnet for gateway and other components.
 
@@ -152,7 +158,7 @@ architectures, depending on your connection type:
     ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute)
 
 -   [Hybrid network using a VPN
-    gateway](/azure/architecture/reference-architectures/hybrid-networking/vpn)
+    Gateway](/azure/architecture/reference-architectures/hybrid-networking/vpn)
 
 For greater availability, you can use ExpressRoute plus a VPN for failover. See
 [Connect an on-premises network to Azure using ExpressRoute with VPN
@@ -263,40 +269,40 @@ pricing](https://azure.microsoft.com/pricing/details/virtual-wan/).
 Learn more:
 
 -   [Hub-spoke network topology in
-    Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+    Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 
 -   [Design a hybrid Domain Name System solution with
-    Azure](/azure/architecture/hybrid/hybrid-dns-infra).
+    Azure](/azure/architecture/hybrid/hybrid-dns-infra)
 
 -   [Implement a secure hybrid
-    network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+    network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
 
 -   [What is Azure
     ExpressRoute?](/azure/expressroute/expressroute-introduction)
 
 -   [Connect an on-premises network to Azure using
-    ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover).
+    ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover)
 
 -   [Firewall and Application Gateway for virtual
-    networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
+    networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 
 -   [Extend an on-premises network using
-    VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn).
+    VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn)
 
 -   [Secure and govern workloads with network level
-    segmentation](/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation).
+    segmentation](/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation)
 
 ## Related resources
 
 -   [Strengthen your security posture with
-    Azure](https://azure.microsoft.com/overview/security/).
+    Azure](https://azure.microsoft.com/overview/security/)
 
 -   [Virtual Network](https://azure.microsoft.com/services/virtual-network/)
 
 -   [Azure
-    ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+    ExpressRoute](https://azure.microsoft.com/services/expressroute/)
 
--   [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/).
+-   [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
 
 -   [Azure
-    Firewall](https://azure.microsoft.com/services/azure-firewall/).
+    Firewall](https://azure.microsoft.com/services/azure-firewall/)
