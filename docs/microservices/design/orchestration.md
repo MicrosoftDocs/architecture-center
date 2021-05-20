@@ -2,6 +2,7 @@
 title: Container orchestration for microservices
 description: Learn how container orchestration makes it easy to manage complex multi-container microservice deployments, scaling, and cluster health.
 author: veerashayyagari
+ms.author: veeray
 ms.date: 05/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -23,30 +24,32 @@ ms.custom:
 
 # Container orchestration for microservices
 
-In a microservices architecture, each instance of a microservice is typically packaged and deployed to run inside a single container. Containers are lightweight and ephemeral, making them easy to create and destroy, but difficult to coordinate and network.
+In a microservices architecture, many instances of the microservices might be running. Each microservice instance is packaged and deployed inside a single container. Containers are lightweight and short-lived, making them easy to create and destroy, but difficult to coordinate and communicate between.
 
-This article discusses the challenges of running a microservice architecture in containers at production scale, and how container orchestration can help. The article presents several Azure container orchestration options.
+This article discusses the challenges of running a containerized microservices architecture at production scale, and how container orchestration can help. The article presents several Azure container orchestration options.
 
 ## Containerized microservices architecture
 
 Consider a three-tier web application running in an Azure Kubernetes Service (AKS) cluster:
 
-1. One container hosts the front-end component.
-2. Another container hosts the middle tier or REST API layer.
-3. The middle tier communicates with a globally distributed database in a third container.
+1. One AKS node hosts the front-end component.
+2. Another node hosts the middle tier or REST API layer.
+3. The middle tier communicates with globally distributed databases in a third node.
+
+Containerized [reverse proxy servers](https://www.magalix.com/blog/implemeting-a-reverse-proxy-server-in-kubernetes-using-the-sidecar-pattern) also run in Nodes 1 and 2, to distribute traffic to different microservices.
 
 ![Conceptual diagram of a simple containerized microservices web application.](images/orchestration/multi-container-cluster-with-orchestrator.png)
 
-To manage the cluster, the DevOps team must:
+To manage the cluster, the DevOps team has to:
 
-- Run multiple container instances for each component.
-- Load balance the traffic between the instances.
-- Establish communication between dependent component instances.
+- Run multiple container instances in each node.
+- Load balance traffic between the instances.
+- Manage communication between dependent instances in separate nodes.
 - Maintain the desired AKS cluster state.
 
-Running three containers on a single development machine isn't too hard, but a production environment has more containers. Managing a production cluster at scale in high-availability mode quickly becomes challenging.
+Running the application in three containers on a single development machine might not be too hard, but a production environment has many more instances. Managing a production cluster at scale in high-availability mode quickly becomes challenging.
 
-With container orchestration, the DevOps team can represent the desired state of the cluster as a configuration. A container orchestration engine enforces the desired configuration and automates all the management tasks.
+With container orchestration, the DevOps team can represent the cluster's desired state as a configuration. A container orchestration engine enforces the desired configuration and automates all the management tasks.
 
 ## Advantages of container orchestration
 
@@ -64,14 +67,14 @@ The container orchestrator:
   
   - Abstracts out complexities like IP address, port, and number of instances.
   - Load balances traffic between microservice instances.
-  - Supports easy communication orchestration between dependent microservices instances.
+  - Supports easy communication between dependent microservice instances.
 
 Container orchestrators also provide flexibility and traffic control to:
 
 - Release new versions or roll back to old versions of microservices or sets of microservices, without downtime.
 - Enable side-by-side testing of different microservice versions.
 
-## Choose an Azure container orchestrator technology
+## Choose an Azure container orchestrator
 
 Here are some options for implementing microservices container orchestration in Azure:
 
