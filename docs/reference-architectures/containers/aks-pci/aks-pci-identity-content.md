@@ -10,6 +10,15 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 >
 > ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated environment. The implementation illustrates <To do add identity blurb>.
 
+## AKS features to support access controls
+
+Kubernetes has native role-based access control (RBAC) that manages permissions to the Kubernetes API. There are several built-in roles with specific permissions or actions on Kubernetes resources. Azure Kubernetes Service (AKS) supports those built-in roles and custom roles for granular control. Those actions can be authorized (or denied) to a user through Kubernetes RBAC. 
+
+Azure Kubernetes Service (AKS) is fully integrated with Azure Active Directory (AD) as the identity provider. You don't have to manage separate user identities and credentials for Kubernetes. You can add Azure AD users for Kubernetes RBAC. This integration makes it possible to do role assignments to Azure AD users. 
+
+For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
+
+
 ## Implement Strong Access Control Measures
 
 **Requirement 7**&mdash;Restrict access to cardholder data by business need to know
@@ -78,8 +87,8 @@ Here are some best practices to harden access.
 
 - Set up [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane. With conditional access policies, you can require multi-factor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts. Apply these policies to Azure AD groups that are mapped with to Kubernetes roles with high privilege. 
 
-> [!NOTE]
-> Both JIT and conditional access technology choices require Azure AD Premium.
+    > [!NOTE]
+    > Both JIT and conditional access technology choices require Azure AD Premium.
 
 
 - Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are JIT and  standing.
@@ -181,21 +190,37 @@ Define and implement policies and procedures to ensure proper user identificatio
 
 #### Your responsibilities
 
-TBD
+When you create the AKS cluster, consider enabling Azure Active Directory (AD) for user authentication. Create role bindings to use Kubernetes role-based access control (Kubernetes RBAC) to limit access to cluster resources, data, and runtime enviroments based a user's identity or group membership. 
+
+A strategy to limit access is to minimize standing permissions. Opt for [ Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks) in Azure Active Directory (AD) through Privileged Identity Management. This approach is appropriate for situations where SREs need to interact with your cluster temporararily. 
+
+Add extra restrictions on authentication for privileged access through [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks) where possible. 
+
+Always do deployments through authorized build and release pipelines. The pipelines should also minimize exposure to individuals high prividlege access. 
+
+Make sure RBAC assignments are scoped appropriately for least access.
 
 #### Requirement 8.1.1
 Assign all users a unique ID before allowing them to access system components or cardholder data.
 
 ##### Your responsibilities
 
-TBD
+Don't share identities, such as, using a team account to access data or cluster resources. Make sure the identity onboarding documentation is clear about not using shared accounts.
+
+Strongly recommend extending this past user identities, and apply similar to system identities such as user and system-managed identities. Ensure single purpose identity associations, do not reuse user managed identities for functionally different parts of the system or pods in the system.
+
+<Ask Chad: Please explain>
+
+[Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
 
 #### Requirement 8.1.2
 Control addition, deletion, and modification of user IDs, credentials, and other identifier objects.
 
 ##### Your responsibilities
 
-TBD
+"Handled as part of your Azure AD identity governance.
+
+Strongly recommend extending this past user identities, and apply similar to system identities such as user and system-managed identities. Components of your system or your workload (pods) will have their own identities, they too should be controled, as they can be granted RBAC access and be potentially assigned to malacious resources and will inherit their permissions."
 
 #### Requirement 8.1.3
 Immediately revoke access for any terminated users.
@@ -354,7 +379,12 @@ All access to any database containing cardholder data (including access by appli
 - Application IDs for database applications can only be used by the applications (and not by individual users or other non-application processes).
 #### Your responsibilities
 
-TBD
+If possible, access database from applications through managed identity. Otherwise, limit exposure to connection strings and credentials. Use Kubernetes secrets to store sensitive information instead of keeping them places where they are easily discovered, such as pod definition. Another way is to store and load secrets to and from a managed store, such as Azure Key Vault. With managed identities enabled on an AKS cluster, it has to authenticate itself against Key Vault to get access. 
+
+A connection string must be generated by the application instead of being generated by the user. 
+
+All users directly accessing the database should be doing so at their own user, not any application identities.
+<Ask chad: the last line needs explanation>
 
 ### Requirement 8.8
 Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.
