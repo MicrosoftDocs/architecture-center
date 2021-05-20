@@ -146,41 +146,41 @@ account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
     used by Teams is
     [52.112.0.0/14](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide#skype-for-business-online-and-microsoft-teams).
 
-```azurecli
-# Declare variables (bash syntax)
-export PREFIX='SecureBot'
-export RG_NAME='rg-'${PREFIX}
-export VNET_NAME='vnet-'${PREFIX}
-export SUBNET_INT_NAME='VnetIntegrationSubnet'
-export SUBNET_PVT_NAME='PrivateEndpointSubnet'
-export LOCATION='eastus'
-export TEAMS_IP_RANGE=' 52.112.0.0/14'
+   ```azurecli
+   # Declare variables (bash syntax)
+   export PREFIX='SecureBot'
+   export RG_NAME='rg-'${PREFIX}
+   export VNET_NAME='vnet-'${PREFIX}
+   export SUBNET_INT_NAME='VnetIntegrationSubnet'
+   export SUBNET_PVT_NAME='PrivateEndpointSubnet'
+   export LOCATION='eastus'
+   export TEAMS_IP_RANGE=' 52.112.0.0/14'
 
-# Create a resource group
-az group create --name ${RG_NAME} --location ${LOCATION}
+   # Create a resource group
+   az group create --name ${RG_NAME} --location ${LOCATION}
 
-# Create a virtual network with a subnet for the firewall az network vnet create \
-  --name ${VNET_NAME} \
-  --resource-group ${RG_NAME} \
-  --location ${LOCATION} \
-  --address-prefix 10.0.0.0/16 \
-  --subnet-name AzureFirewallSubnet \
-  --subnet-prefix 10.0.1.0/26
+   # Create a virtual network with a subnet for the firewall az network vnet create \
+     --name ${VNET_NAME} \
+     --resource-group ${RG_NAME} \
+     --location ${LOCATION} \
+     --address-prefix 10.0.0.0/16 \
+     --subnet-name AzureFirewallSubnet \
+     --subnet-prefix 10.0.1.0/26
 
-# Add a subnet for the Virtual Network Integration
-az network vnet subnet create \
-  --name ${SUBNET_INT_NAME} \
-  --resource-group ${RG_NAME} \
-  --vnet-name ${VNET_NAME} \
-  --address-prefix 10.0.2.0/24
+   # Add a subnet for the Virtual Network Integration
+   az network vnet subnet create \
+     --name ${SUBNET_INT_NAME} \
+     --resource-group ${RG_NAME} \
+     --vnet-name ${VNET_NAME} \
+     --address-prefix 10.0.2.0/24
 
-# Add a subnet where the private endpoint will be deployed for the app service
-az network vnet subnet create \
-  --name ${SUBNET_PVT_NAME} \
-  --resource-group ${RG_NAME} \
-  --vnet-name ${VNET_NAME} \
-  --address-prefix 10.0.3.0/24
- ```
+   # Add a subnet where the private endpoint will be deployed for the app service
+   az network vnet subnet create \
+     --name ${SUBNET_PVT_NAME} \
+     --resource-group ${RG_NAME} \
+     --vnet-name ${VNET_NAME} \
+     --address-prefix 10.0.3.0/24
+   ```
 
 > When complete, you should see the following subnets within your virtual network:
 
@@ -190,39 +190,39 @@ az network vnet subnet create \
 2.  Using the following CLI commands, deploy an Azure Firewall into the firewall
     subnet created in step 1.
 
-```azurecli                                                                                                                                             
-# Create a firewall
-az network firewall create \
-  --name ${FIREWALL_NAME} \
-  --resource-group ${RG_NAME} \
-  --location ${LOCATION}
+   ```azurecli                                                                                                                                             
+   # Create a firewall
+   az network firewall create \
+     --name ${FIREWALL_NAME} \
+     --resource-group ${RG_NAME} \
+     --location ${LOCATION}
 
-# Create a public IP for the firewall
-az network public-ip create \
-  --name ${FIREWALL_NAME}-pip \
-  --resource-group ${RG_NAME} \
-  --location ${LOCATION} \
-  --allocation-method static \
-  --sku standard
+   # Create a public IP for the firewall
+   az network public-ip create \
+     --name ${FIREWALL_NAME}-pip \
+     --resource-group ${RG_NAME} \
+     --location ${LOCATION} \
+     --allocation-method static \
+     --sku standard
 
-# Associate the IP with the firewall
-az network firewall ip-config create \
-  --firewall-name ${FIREWALL_NAME} \
-  --name ${FIREWALL_NAME}-Config \
-  --public-ip-address ${FIREWALL_NAME}-pip \
-  --resource-group ${RG_NAME} \
-  --vnet-name ${VNET_NAME}
+   # Associate the IP with the firewall
+   az network firewall ip-config create \
+     --firewall-name ${FIREWALL_NAME} \
+     --name ${FIREWALL_NAME}-Config \
+     --public-ip-address ${FIREWALL_NAME}-pip \
+     --resource-group ${RG_NAME} \
+     --vnet-name ${VNET_NAME}
 
-# Update the firewall
-az network firewall update \
-  --name ${FIREWALL_NAME} \
-  --resource-group ${RG_NAME}
+   # Update the firewall
+   az network firewall update \
+     --name ${FIREWALL_NAME} \
+     --resource-group ${RG_NAME}
 
-# Get the public IP address for the firewall and take note of it as it will be needed in a later step
-az network public-ip show \
-  --name ${FIREWALL_NAME}-pip \
-  --resource-group ${RG_NAME}
- ```
+   # Get the public IP address for the firewall and take note of it as it will be needed in a later step
+   az network public-ip show \
+     --name ${FIREWALL_NAME}-pip \
+     --resource-group ${RG_NAME}
+   ```
 
 > Your firewall configuration should look something like this:
 
@@ -269,52 +269,52 @@ az network public-ip show \
     connecting it to your virtual network’s integration subnet.
 
 
-```azurecli                                                                                       
-# Disable private endpoint network policies (this step is not required if using the portal)
-az network vnet subnet update \
-  --name ${SUBNET_PVT_NAME} \
-  --resource-group ${RG_NAME} \
-  --vnet-name ${VNET_NAME} \
-  --disable-private-endpoint-network-policies true
+   ```azurecli                                                                                       
+   # Disable private endpoint network policies (this step is not required if using the portal)
+   az network vnet subnet update \
+     --name ${SUBNET_PVT_NAME} \
+     --resource-group ${RG_NAME} \
+     --vnet-name ${VNET_NAME} \
+     --disable-private-endpoint-network-policies true
 
-# Create the private endpoint. Make sure you copy the correct resource ID from your deployment of the bot App Service
-# The ID can be viewed by using the following CLI command:
-# az resource show --name wapp-securebot --resource-group rg-securebot --resource-type Microsoft.web/sites --query "id" 
-az network private-endpoint create \
-  --name pvt-${PREFIX}Endpoint \
-  --resource-group ${RG_NAME} \
-  --vnet-name ${VNET_NAME} \
-  --subnet ${SUBNET_PVT_NAME} \
-  --connection-name conn-${PREFIX} \
-  --private-connection-resource-id /subscriptions/cad87d9e-c941-4519-a638-c9804a0577b9/resourceGroups/rg-securebot/providers/Microsoft.Web/sites/wapp-securebot \
-  --group-id sites
+   # Create the private endpoint. Make sure you copy the correct resource ID from your deployment of the bot App Service
+   # The ID can be viewed by using the following CLI command:
+   # az resource show --name wapp-securebot --resource-group rg-securebot --resource-type Microsoft.web/sites --query "id" 
+   az network private-endpoint create \
+     --name pvt-${PREFIX}Endpoint \
+     --resource-group ${RG_NAME} \
+     --vnet-name ${VNET_NAME} \
+     --subnet ${SUBNET_PVT_NAME} \
+     --connection-name conn-${PREFIX} \
+     --private-connection-resource-id /subscriptions/cad87d9e-c941-4519-a638-c9804a0577b9/resourceGroups/rg-securebot/providers/Microsoft.Web/sites/wapp-securebot \
+     --group-id sites
 
-# Create a private DNS zone to resolve the name of the app service
-az network private-dns zone create \
-  --name ${PREFIX}privatelink.azurewebsites.net \
-  --resource-group ${RG_NAME}
+   # Create a private DNS zone to resolve the name of the app service
+   az network private-dns zone create \
+     --name ${PREFIX}privatelink.azurewebsites.net \
+     --resource-group ${RG_NAME}
 
-az network private-dns link vnet create \
-  --name ${PREFIX}-DNSLink \
-  --resource-group ${RG_NAME} \
-  --registration-enabled false \
-  --virtual-network ${VNET_NAME} \
-  --zone-name ${PREFIX}privatelink.azurewebsites.net
+   az network private-dns link vnet create \
+     --name ${PREFIX}-DNSLink \
+     --resource-group ${RG_NAME} \
+     --registration-enabled false \
+     --virtual-network ${VNET_NAME} \
+     --zone-name ${PREFIX}privatelink.azurewebsites.net
 
-az network private-endpoint dns-zone-group create \
-  --name chatBotZoneGroup \
-  --resource-group ${RG_NAME} \
-  --endpoint-name pvt-${PREFIX}Endpoint \
-  --private-dns-zone ${PREFIX}privatelink.azurewebsites.net \
-  --zone-name ${PREFIX}privatelink.azurewebsites.net
+   az network private-endpoint dns-zone-group create \
+     --name chatBotZoneGroup \
+     --resource-group ${RG_NAME} \
+     --endpoint-name pvt-${PREFIX}Endpoint \
+     --private-dns-zone ${PREFIX}privatelink.azurewebsites.net \
+     --zone-name ${PREFIX}privatelink.azurewebsites.net
 
-# Establish VNET integration for outbound traffic
-az webapp vnet-integration add \
-  -g ${RG_NAME} \
-  -n wapp-${PREFIX} \
-  --vnet ${VNET_NAME} \
-  --subnet ${SUBNET_INT_NAME}
-```
+   # Establish VNET integration for outbound traffic
+   az webapp vnet-integration add \
+     -g ${RG_NAME} \
+     -n wapp-${PREFIX} \
+     --vnet ${VNET_NAME} \
+     --subnet ${SUBNET_INT_NAME}
+   ```
 
 > After completing these commands, you should see the following resources in your resource group:
 
@@ -336,33 +336,33 @@ az webapp vnet-integration add \
     subnet goes through the firewall. You’ll need the private IP address of the
     firewall you created in the previous step.
 
-```azurecli                                                                                                                                                       
-# Create a route table
-az network route-table create \
-  -g ${RG_NAME} \
-  -n rt-${PREFIX}RouteTable
+   ```azurecli                                                                                                                                                       
+   # Create a route table
+   az network route-table create \
+     -g ${RG_NAME} \
+     -n rt-${PREFIX}RouteTable
 
-# Create a default route with 0.0.0.0/0 prefix and the next hop as the Azure firewall virtual appliance to inspect all traffic. Make sure you use your firewall’s internal IP address instead of 10.0.1.4
-az network route-table route create -g ${RG_NAME} \
-  --route-table-name rt-${PREFIX}RouteTable -n default \
-  --next-hop-type VirtualAppliance \
-  --address-prefix 0.0.0.0/0 \
-  --next-hop-ip-address 10.0.1.4
+   # Create a default route with 0.0.0.0/0 prefix and the next hop as the Azure firewall virtual appliance to inspect all traffic. Make sure you use your firewall’s internal IP address instead of 10.0.1.4
+   az network route-table route create -g ${RG_NAME} \
+     --route-table-name rt-${PREFIX}RouteTable -n default \
+     --next-hop-type VirtualAppliance \
+     --address-prefix 0.0.0.0/0 \
+     --next-hop-ip-address 10.0.1.4
 
-# Associate the two subnets with the route table
-az network vnet subnet update -g ${RG_NAME} \
-  -n ${SUBNET_INT_NAME} --vnet-name ${VNET_NAME} \
-  --route-table rt-${PREFIX}RouteTable
+   # Associate the two subnets with the route table
+   az network vnet subnet update -g ${RG_NAME} \
+     -n ${SUBNET_INT_NAME} --vnet-name ${VNET_NAME} \
+     --route-table rt-${PREFIX}RouteTable
 
-az network vnet subnet update -g ${RG_NAME} \
-  -n ${SUBNET_PVT_NAME} \
-  --vnet-name ${VNET_NAME} \
-  --route-table rt-${PREFIX}RouteTable
-```
+   az network vnet subnet update -g ${RG_NAME} \
+     -n ${SUBNET_PVT_NAME} \
+     --vnet-name ${VNET_NAME} \
+     --route-table rt-${PREFIX}RouteTable
+   ```
 
  > On completion of this step, your route table resource should look like this:
 
-> ![Screenshot of rt-SecureBotRouteTable](media/securing-bot-image-009.png)
+ > ![Screenshot of rt-SecureBotRouteTable](media/securing-bot-image-009.png)
 
 
 10.  After creating the route table, you’ll add rules to your firewall to deliver
@@ -371,61 +371,61 @@ az network vnet subnet update -g ${RG_NAME} \
     traffic between the virtual network and Azure Bot Services or Azure Active
     Directory using service tags.
 
-```azurecli
-# Create a NAT rule collection and a single rule. The source address is the public IP range of Microsoft Teams
-# Destination address is that of the firewall. 
-# The translated address is that of the app service’s private link.
-az network firewall nat-rule create \
-  --resource-group ${RG_NAME} \
-  --collection-name coll-${PREFIX}-nat-rules \
-  --priority 200 \
-  --action DNAT \
-  --source-addresses ${TEAMS_IP_RANGE} \
-  --dest-addr 23.100.26.84 \
-  --destination-ports 443 \
-  --firewall-name ${FIREWALL_NAME} \
-  --name rl-ip2appservice \
-  --protocols TCP \
-  --translated-address 10.0.3.4 \
-  --translated-port 443
+   ```azurecli
+   # Create a NAT rule collection and a single rule. The source address is the public IP range of Microsoft Teams
+   # Destination address is that of the firewall. 
+   # The translated address is that of the app service’s private link.
+   az network firewall nat-rule create \
+     --resource-group ${RG_NAME} \
+     --collection-name coll-${PREFIX}-nat-rules \
+     --priority 200 \
+     --action DNAT \
+     --source-addresses ${TEAMS_IP_RANGE} \
+     --dest-addr 23.100.26.84 \
+     --destination-ports 443 \
+     --firewall-name ${FIREWALL_NAME} \
+     --name rl-ip2appservice \
+     --protocols TCP \
+     --translated-address 10.0.3.4 \
+     --translated-port 443
 
-# Create Network rule collection and add three rules to it. 
-# The first one is an outbound network rule to only allow traffic to the Teams IP range.
-# The source address is that of the virtual network address space, destination is the Teams IP range.
-az network firewall network-rule create \
-  --resource-group ${RG_NAME} \
-  --collection-name coll-${PREFIX}-network-rules \
-  --priority 200 \
-  --action Allow \
-  --source-addresses 10.0.0.0/16 \
-  --dest-addr ${TEAMS_IP_RANGE} \
-  --destination-ports 443 \
-  --firewall-name ${FIREWALL_NAME} \
-  --name rl-OutboundTeamsTraffic \
-  --protocols TCP
+   # Create Network rule collection and add three rules to it. 
+   # The first one is an outbound network rule to only allow traffic to the Teams IP range.
+   # The source address is that of the virtual network address space, destination is the Teams IP range.
+   az network firewall network-rule create \
+     --resource-group ${RG_NAME} \
+     --collection-name coll-${PREFIX}-network-rules \
+     --priority 200 \
+     --action Allow \
+     --source-addresses 10.0.0.0/16 \
+     --dest-addr ${TEAMS_IP_RANGE} \
+     --destination-ports 443 \
+     --firewall-name ${FIREWALL_NAME} \
+     --name rl-OutboundTeamsTraffic \
+     --protocols TCP
 
-# This rule will enable traffic to all IP addresses associated with Azure AD service tag
-az network firewall network-rule create \
-  --resource-group ${RG_NAME} \
-  --collection-name coll-${PREFIX}-network-rules \
-  --source-addresses 10.0.0.0/16 \
-  --dest-addr AzureActiveDirectory \
-  --destination-ports '*' \
-  --firewall-name ${FIREWALL_NAME} \
-  --name rl-AzureAD \
-  --protocols TCP
+   # This rule will enable traffic to all IP addresses associated with Azure AD service tag
+   az network firewall network-rule create \
+     --resource-group ${RG_NAME} \
+     --collection-name coll-${PREFIX}-network-rules \
+     --source-addresses 10.0.0.0/16 \
+     --dest-addr AzureActiveDirectory \
+     --destination-ports '*' \
+     --firewall-name ${FIREWALL_NAME} \
+     --name rl-AzureAD \
+     --protocols TCP
 
-# This rule will enable traffic to all IP addresses associated with Azure Bot Services service tag
-az network firewall network-rule create \
-  --resource-group ${RG_NAME} \
-  --collection-name coll-${PREFIX}-network-rules \
-  --source-addresses 10.0.0.0/16 \
-  --dest-addr AzureBotService \
-  --destination-ports '*' \
-  --firewall-name ${FIREWALL_NAME} \
-  --name rl-AzureBotService \
-  --protocols TCP
-```
+   # This rule will enable traffic to all IP addresses associated with Azure Bot Services service tag
+   az network firewall network-rule create \
+     --resource-group ${RG_NAME} \
+     --collection-name coll-${PREFIX}-network-rules \
+     --source-addresses 10.0.0.0/16 \
+     --dest-addr AzureBotService \
+     --destination-ports '*' \
+     --firewall-name ${FIREWALL_NAME} \
+     --name rl-AzureBotService \
+     --protocols TCP
+   ```
 
 > After completing this step, your firewall rules will look something like this:
 
