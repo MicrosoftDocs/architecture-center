@@ -607,7 +607,7 @@ items:
           - name: Build a Real-time Recommendation API on Azure
             href: reference-architectures/ai/real-time-recommendation.yml
           - name: Movie recommendations on Azure
-            href: example-scenario/ai/movie-recommendations.yml
+            href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
           - name: Scalable personalization on Azure
             href: example-scenario/ai/scalable-personalization.yml
           - name: Data warehousing and analytics
@@ -714,7 +714,7 @@ items:
               - name: MLOps for Python models
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
-                href: example-scenario/ai/movie-recommendations.yml
+                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
               - name: Real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Real-time scoring Python models
@@ -863,6 +863,8 @@ items:
                 href: solution-ideas/articles/interactive-price-analytics.yml
               - name: IoT analytics with Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml
+              - name: Modern analytics architecture with Azure Databricks
+                href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
               - name: Monitoring solution with Azure Data Explorer
                 href: solution-ideas/articles/monitor-azure-data-explorer.yml
               - name: Oil and Gas tank level forecasting
@@ -1326,7 +1328,7 @@ items:
                 href: solution-ideas/articles/sharepoint-farm-devtest.yml
       - name: High Availability
         items:
-          - name: Architectural overview
+          - name: Get started
             href: high-availability/building-solutions-for-high-availability.md
           - name: Architectures
             items:
@@ -1805,6 +1807,8 @@ items:
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
               - name: Segmenting Virtual Networks
                 href: reference-architectures/hybrid-networking/network-level-segmentation.yml
+              - name: Hub-spoke network topology with Azure Virtual WAN
+                href: networking/hub-spoke-vwan-architecture.yml   
               - name: Hybrid networking
                 items:
                   - name: Azure Automation Update Management

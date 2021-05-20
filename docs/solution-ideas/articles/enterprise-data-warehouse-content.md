@@ -8,15 +8,15 @@ An enterprise data warehouse lets you bring together all your data at any scale 
 ## Architecture
 
 ![Architecture diagram](../media/enterprise-data-warehouse.png)
+
 *Download an [SVG](../media/enterprise-data-warehouse.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
 1. Combine all your structured, unstructured and semi-structured data (logs, files, and media) using Azure Synapse Analytics Pipelines to Azure Blob Storage.
 1. Leverage data in Azure Blob Storage to perform scalable analytics with Azure Synapse Analytics Spark pool and achieve cleansed and transformed data.
 1. Cleansed and transformed data can be combined with existing structured data, creating one hub for all your data with Azure Synapse Analytics.
 1. Build operational reports and analytical dashboards on top of dedicated SQL pool to derive insights from the data, and use Azure Analysis Services to serve thousands of end users.
-
 
 ## Components
 
@@ -27,6 +27,10 @@ An enterprise data warehouse lets you bring together all your data at any scale 
 * [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services) is an enterprise grade analytics as a service that lets you govern, deploy, test, and deliver your BI solution with confidence.
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive ad hoc analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
+## Pricing
+
+* [Customize and get pricing estimates](https://azure.com/e/4269bfbeee564d3cb88348a033e022e8)
+
 ## Next steps
 
 * [Azure Synapse Analytics Documentation](/azure/synapse-analytics)
@@ -35,7 +39,3 @@ An enterprise data warehouse lets you bring together all your data at any scale 
 * [Azure Synapse Analytics Spark pools](/azure/synapse-analytics/spark/apache-spark-overview)
 * [Analysis Services Documentation](/azure/analysis-services)
 * [Power BI Documentation](/power-bi)
-
-## Pricing Calculator
-
-* [Customize and get pricing estimates](https://azure.com/e/4269bfbeee564d3cb88348a033e022e8)
