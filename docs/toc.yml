@@ -1324,7 +1324,7 @@ items:
                 href: solution-ideas/articles/sharepoint-farm-devtest.yml
       - name: High Availability
         items:
-          - name: Architectural overview
+          - name: Get started
             href: high-availability/building-solutions-for-high-availability.md
           - name: Architectures
             items:
@@ -1803,6 +1803,8 @@ items:
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
               - name: Segmenting Virtual Networks
                 href: reference-architectures/hybrid-networking/network-level-segmentation.yml
+              - name: Hub-spoke network topology with Azure Virtual WAN
+                href: networking/hub-spoke-vwan-architecture.yml   
               - name: Hybrid networking
                 items:
                   - name: Azure Automation Update Management
