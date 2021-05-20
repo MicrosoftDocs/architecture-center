@@ -9,8 +9,8 @@ This reference implementation and demo is open source and intended to be used as
 
 Any governance model must be tied to the organization's business rules, which are reflected in any technical implementation of access controls. This example model uses a fictitious company with this is common scenario:
 
-- **Azure AD Groups that align with Business Domains and Permissions Models**  
-  The organization has many vertical business domain, such as "fruits" and "vegetables", which operate largely independently. In each business domain, there are two levels or privileges, which are mapped to distinct `*-admins` or `*-devs` Azure AD Groups. This allows developers to be targeted when configuring permissions in the cloud.
+- **Azure AD groups that align with business domains and permissions models**  
+  The organization has many vertical business domain, such as "fruits" and "vegetables", which operate largely independently. In each business domain, there are two levels or privileges, which are mapped to distinct `*-admins` or `*-devs` Azure AD groups. This allows developers to be targeted when configuring permissions in the cloud.
 
 - **Deployment environments**  
   Every team has two environments:
@@ -27,7 +27,7 @@ Any governance model must be tied to the organization's business rules, which ar
 
 This diagram shows how linking from Resource Manager and CI/CD to Azure Active Directory (Azure AD) is the key to having an end-to-end governance model.
 
-[ ![End-to-end governance overview with Azure Active Directory at the center](media/e2e-governance-overview-inline.png) ](media/e2e-governance-overview-inline.png#lightbox)
+[![End-to-end governance overview with Azure Active Directory at the center](media/e2e-governance-overview-inline.png)](media/e2e-governance-overview-inline.png#lightbox)
 *Download an [SVG of this architecture](media/e2e-governance-overview.svg).*
 
 Note: To make the diagram and concept more clear, it only illustrates the **"veggies"** domain. The "fruits" domain would look similar and use the same naming conventions.
@@ -102,7 +102,7 @@ The numbering reflects the other in which IT administrators and enterprise archi
 
 The following diagram illustrates a baseline CI/CD workflow with Azure DevOps. The red lock icon :::image type="icon" source="media/e2e-governance-devsecops-gear.svg"::: indicates security permissions which must be configured by the user. Not configuring or mis-configuring permissions will leave your workloads vulnerable.
 
-[ ![Diagram illustrating a baseline CI/CD workflow with Azure DevOps](media/e2e-governance-devsecops-workflow-inline.png) ](media/e2e-governance-devsecops-workflow-lrg.png#lightbox)
+[![Diagram illustrating a baseline CI/CD workflow with Azure DevOps](media/e2e-governance-devsecops-workflow-inline.png)](media/e2e-governance-devsecops-workflow-lrg.png#lightbox)
 *Download an [SVG of this workflow](media/e2e-governance-devsecops-workflow.svg).*
 
 To successfully secure your workloads, you must use a combination of security permission configurations and human checks in your workflow. It's important that any RBAC model must also extend to pipelines and code, which often run with privileged identities and will happily destroy your workloads if instructed to do so in the pipeline code. To prevent this from happening, you should configure [branch policies](https://docs.microsoft.com/azure/devops/repos/git/branch-policies?view=azure-devops) on your repository to require human approval before accepting changes that trigger automation pipelines.
@@ -137,7 +137,7 @@ When planning your end-to-end governance model, your privileged users (`veggies-
 
 Remember that Git is a distributed SCM system. A developer may choose to commit directly to their local `production` branch. But when configured, this push can be rejected by the Git server. For example:
 
-```console
+```powershell
 remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
 remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Required status check "continuous-integration" is expected.
@@ -150,21 +150,15 @@ Please note that the workflow above is vendor agnostic. The pull request and bra
 
 Once the code has been accepted into a protected branch the next layer of access controls will be applied by the build server (such as [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)).
 
-### 2. What access do Security Principals need?
+### 2. What access do security principals need?
 
-In Azure a [security principal](/azure/role-based-access-control/overview#security-principal) can be either a User Principal or headless principal:  Service Principal or Managed Identity.
+In Azure a [security principal](/azure/role-based-access-control/overview#security-principal) can be either a *user principal* or a headless principal such as a *service principal* or *managed identity*. In all environments, security principals should follow the [principal of least privilege](/azure/role-based-access-control/best-practices#only-grant-the-access-users-need). While security principals may have expanded access in pre-production environments, production Azure environments should minimize standing permissions, favoring just in time (JIT) access and Azure AD conditional access. Craft your Azure RBAC role assignments for user principals to align with these least privilege principals.
 
-#### Non-production environments: everyone is an Owner
+It's important to model Azure RBAC distinctly from Azure DevOps RBAC. The purpose of the pipeline it to minimize direct Azure access. Except for special cases like innovation, learning, and issue resolution, most interactions with Azure should be conducted through the purpose-built and gated pipelines constructed.
 
-In this demo use case, the organization wants developers to be able to iterate quickly, which is why developers are given _Owner_ privileges so they can test configuration.
-  
-#### Production environments: principle of least privilege
+For Azure Pipeline service principals, consider using a [custom role](/azure/role-based-access-control/custom-roles) to prevent it from removing resource locks and performing other destructive actions that are out of scope of its purpose.
 
-- Admins have the [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role in Production, allowing them to adjust security configurations
-- Developers are given [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) access, allowing them to directly troubleshoot instead of using CI/CD. Other organizations may give developers [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) access.
-- In practice, the Service Principal should have a [custom role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) to prevent it from removing resource locks and performing other destructive actions. For sake of simplicity, the demo implementation uses an Owner role.
-
-### 3. Create a custom role for the Service Principal used to access Production
+### 3. Create a custom role for the service principal used to access Production
 
 It's a common mistake to give CI/CD build agents Owner roles and permissions. Contributor permissions are not enough if your pipeline also need to perform identity role assignments or other privileged operations like Key Vault policy management.
 
