@@ -42,7 +42,7 @@ The end-to-end solution is implemented in the cloud, using Microsoft Azure. The 
 
 ## Solution dashboard
 
-The snapshot below shows an example PowerBI dashboard that gives insights into the the predicted churn rates across the customer base.
+The snapshot below shows an example Power BI dashboard that gives insights into the the predicted churn rates across the customer base.
 
 ![Insights](https://az712634.vo.msecnd.net/tutorials/Retail-Customer-Churn-Prediction/customer-churn-dashboard-2.png)
 
