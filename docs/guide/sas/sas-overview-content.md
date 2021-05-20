@@ -23,7 +23,7 @@ ms.custom:
 
 This SAS on Azure Architecture Guide intends to cover various deployment scenarios while providing specific guidelines to help ensure quality deployments of SAS workloads running on Azure. Our architecture is based on guidance from the [Microsoft Azure Well-Architected Framework](../../framework/index.md) but you should consult with your SAS team for additional validation for your use case. When deploying any workload on Azure, you should consider these five pillars of solution excellence: Cost, DevOps, Resiliency, Scalability, and Security.
 
-Microsoft and SAS continue to work in close [partnership](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/) to develop a clear roadmap for organizations that want to innovate in the cloud. Azure enables SAS in multiple configurations that can ran on Linux, Windows and AKS across development, test, and production environments.
+Microsoft and SAS continue to work in close [partnership](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/) to develop a clear roadmap for organizations that want to innovate in the cloud. Azure can enable multiple versions of SAS either running on self-managed Virtual Machines or the latest container based versions supported by Azure Kubernetes Service.
 
 ## Introduction to SAS
 
@@ -50,7 +50,7 @@ Before deploying any SAS workload you should have the following components in pl
 
 * Sizing recommendation by SAS sizing team
 * A SAS license file
-* An Azure subscription with owner or contributor role
+* Access to a resource group to deploy resources
 * vCPU subscription quota based on sizing document and VM choice
 * Connectivity established for access to LDAP services
 
@@ -75,7 +75,7 @@ kernel:NMI watchdog: BUG: soft lockup - CPU#12 stuck for 22s! [swapper/12:0]
 
 This is a problem within the [memory and IO management of Linux and HyperV](https://access.redhat.com/solutions/22621).
 
-There are two possible solutions:
+<!-- There are two possible solutions:
 
 1. Decrease the ringbuffer size and increase the vCPUs per channel by adding this to grub (**recommended**):
 `hv_storvsc.storvsc_ringbuffer_size=131072 hv_storvsc.storvsc_vcpus_per_sub_channel=1024`
@@ -83,9 +83,9 @@ There are two possible solutions:
 2. Disable blk-mq by adding this to grub:
 `scsi_mod.use_blk_mq=n`
 
-Either of these changes will require a modification to grub.conf and the virtual machine will need to be rebooted to take effect.
+Either of these changes will require a modification to grub.conf and the virtual machine will need to be rebooted to take effect. -->
 
-Another issue is present in older versions of RedHat with Linux kernels lower than 3.10.0-957.27.2 and that are using NVMe drives. The generic Linux NVMe driver contains a bug that can occur when the system is under high memory pressure. During this condition, the NVMe driver may be unable to allocate sufficient memory for a write operation resulting in reports of a soft lockup that stems from an actual deadlock. The recommendation is to upgrade your kernel.
+An additional issue exists in older versions of RedHat with Linux kernels lower than 3.10.0-957.27.2 and that are using NVMe drives. The generic Linux NVMe driver contains a bug that can occur when the system is under high memory pressure. During this condition, the NVMe driver may be unable to allocate sufficient memory for a write operation resulting in reports of a soft lockup that stems from an actual deadlock. The recommendation is to upgrade your kernel.
 
 _**Possible workaround:** set /sys/block/nvme0n1/queue/max_sectors_kb to the value “128” instead of the default value of “512”. This needs to be done for each NVMe device in the VM and on _each_ VM boot._
 
@@ -148,8 +148,8 @@ SAS solutions often need to access data from multiple systems. These data source
 
 SAS and Microsoft have tested a series of data platforms for SAS that are used to host SAS datasets. The results are documented on the SAS blogs in great detail, including the performance characteristics. The following platforms have been tested:
 
-* Sycomp Storage Fueled by IBM Spectrum Scale (GPFS)
-* DDN EXAScaler Cloud (Lustre)
+* [Sycomp Storage Fueled by IBM Spectrum Scale (GPFS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sycompatechnologycompanyinc1588192103892.sycompstoragefueledbyibmspectrumscalewithrhel?tab=overview)
+* [EXAScaler Cloud by DDN (Lustre)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ddn-whamcloud-5345716.exascaler_cloud_app?tab=overview)
 * [Azure NetApp Files (NFS)](https://azure.microsoft.com/services/netapp/)
 
 The RHEL-IO test script provided by SAS has been ran against these resources by both Microsoft and SAS which have been made available online on the [SAS Forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin).
@@ -191,11 +191,9 @@ SAS supports a large variety of data sources in its platforms, including many Az
 
 ## Deployment
 
-In order to achieve consistent deployments, SAS deployments in Azure should be automated. Although infrastructure can be setup manually for each SAS deployment, often times, it can be error prone and tedious work that can take hours or days of rework or troubleshooting with a simple misconfiguration.
+Generally, it is best practice to deploy your workloads using Infrastructure as Code (IaC). SAS workloads can be extremely sensitive to misconfigurations often found in manual deployments resulting in lost business productivity.
 
-Embracing a DevOps paradigm means using an infrastructure-as-code (IaC) approach to building new SAS environments as needed. IaC is a recommended practice by both SAS and Microsoft.
-
-There are various repositories out there with Quickstart material:
+There are various repositories available with Quickstart material to use as a reference when building your environment:
 
 * [Automating SAS Deployment on Azure using Github Actions](https://github.com/grtn316/viya4-iac-azure)
 * [CoreCompete SAS 9 or Viya on Azure](https://github.com/corecompete/sas94-viya)
