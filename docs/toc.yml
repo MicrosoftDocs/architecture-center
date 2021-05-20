@@ -841,6 +841,8 @@ items:
                 href: solution-ideas/articles/application-integration-using-event-grid.yml
               - name: Big data analytics with Azure Data Explorer
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
+              - name: Big data analytics with with Enterprise-grade security
+                href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
               - name: Content Delivery Network analytics
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
               - name: Demand forecasting for shipping
