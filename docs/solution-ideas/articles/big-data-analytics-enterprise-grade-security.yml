@@ -15,11 +15,10 @@ metadata:
 name: Big data analytics with enterprise-grade security using Azure Synapse
 azureCategories:
   - analytics
-  - iot
 summary: Azure Synapse Analytics brings together data integration, enterprise data warehousing, and big data analytics.
 products:
   - azure-analysis-services
-  - azure-event-hubs
+  - azure-data-lake
   - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/big-data-analytics-enterprise-grade-security.png
 content: |
