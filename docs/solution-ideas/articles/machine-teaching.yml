@@ -1,19 +1,30 @@
 ### YamlMime:Architecture
 metadata:
-  title: Machine teaching
+  title: Use subject matter expertise in machine teaching
   titleSuffix: Azure Architecture Center
+  description: Learn how subject matter expertise and deep reinforcement learning are is used in machine teaching to turn automated control systems into autonomous systems.
   author: jocontr
+  ms.author: pnp
   ms.date: 07/05/2020
-  description: Machine teaching incorporates artificial intelligence, machine learning, deep reinforcement learning, subject matter expertise, and simulated environment data.
-  ms.custom: pcp
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
-name: Machine teaching
+  ms.custom:
+    - pcp
+    - ai-machine-learning
+    - aml-project-improvement
+name: Use subject matter expertise in machine teaching and reinforcement learning
 azureCategories:
   - ai-machine-learning
-summary: Machine teaching incorporates artificial intelligence, machine learning, deep reinforcement learning, subject matter expertise, and simulated environment data.
+summary: Learn how subject matter expertise and deep reinforcement learning are is used in machine teaching to turn automated control systems into autonomous systems.
 products:
   - azure
+  - azure-machine-learning
+  - azure-container-instances
+  - azure-storage
+  - azure-iot
 thumbnailUrl: /azure/architecture/browse/thumbs/machine-teaching-1-4.png
 content: |
-   [!include[](machine-teaching-content.md)]
+  [!include[](machine-teaching-content.md)]

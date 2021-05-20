@@ -1,27 +1,31 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enterprise chatbot disaster recovery
+  title: Disaster recovery for enterprise bots
   titleSuffix: Azure Solution Ideas
+  description: Set up disaster recovery and high availability for an enterprise-grade conversational bot (chatbot) in Azure, with regional and non-regional services.
   author: sowmyans
+  ms.author: pnp
   ms.date: 06/22/2020
-  description: Set up disaster recovery and high availability for Azure services in an enterprise-grade conversational bot (chatbot).
-  ms.custom:
-    - fcp
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - management-and-governance
-name: Enterprise chatbot disaster recovery
+  ms.custom:
+    - fcp
+    - ai-machine-learning
+    - aml-project-improvement
+name: Disaster recovery for enterprise bots
 azureCategories:
   - ai-machine-learning
   - management-and-governance
-summary: Set up disaster recovery and high availability for Azure services in an enterprise-grade conversational bot (chatbot).
+summary: Set up disaster recovery and high availability for an enterprise-grade conversational bot (chatbot) in Azure, with regional and non-regional services.
 products:
   - azure-bot-service
   - azure-front-door
   - azure-monitor
   - azure-traffic-manager
-thumbnailUrl: /azure/architecture/browse/thumbs/chatbot-dr.png
+thumbnailUrl: /azure/architecture/browse/thumbs/chatbot-with-failover-two-regions.png
 content: |
-   [!include[](enterprise-chatbot-disaster-recovery-content.md)]
+  [!include[](enterprise-chatbot-disaster-recovery-content.md)]

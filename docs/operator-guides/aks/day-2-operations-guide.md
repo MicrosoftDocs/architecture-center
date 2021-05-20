@@ -6,9 +6,12 @@ author: kevingbb
 ms.date: 01/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice:
+ms.subservice: guide
+products:
+  - azure-kubernetes-service
+ms.custom:
+  - e2e-aks
 ---
-
 
 # Azure Kubernetes Services (AKS) day-2 operations guide
 
@@ -19,7 +22,7 @@ Day-2 operations help you:
 - Keep up to date with your service-level agreement (SLA) or service-level objective (SLO) requirements.
 - Troubleshoot customer support requests.
 - Stay current with the latest platform features and security updates.
-- Plan for future growth. 
+- Plan for future growth.
 
 ## Prerequisites
 

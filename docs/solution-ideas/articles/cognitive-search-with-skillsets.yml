@@ -1,22 +1,30 @@
 ### YamlMime:Architecture
 metadata:
-  title: AI enrichment with Azure Cognitive Search
+  title: AI enrichment with image and text processing
   titleSuffix: Azure Example Scenarios
+  description: Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
   author: jocontr
+  ms.author: pnp
   ms.date: 06/01/2020
-  description: Learn how to use Azure Cognitive Search pre-built skills and custom extensibility to enrich large unstructured data sets into indexable structured data.
-  ms.custom: fcp
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
-name: AI enrichment with Azure Cognitive Search
+  ms.custom:
+    - fcp
+    - internal-intro
+    - ai-machine-learning
+    - aml-project-improvement
+name: AI enrichment with image and natural language processing in Azure Cognitive Search
 azureCategories:
   - ai-machine-learning
-summary: Learn how to use Azure Cognitive Search pre-built skills and custom extensibility to enrich large unstructured data sets into indexable structured data.
+summary: Transform latent information in your image and text data into full text searchable content with Azure Cognitive Search pre-built and custom skills.
 products:
   - azure-app-service
   - azure-blob-storage
   - azure-cognitive-search
   - azure-functions
-thumbnailUrl: /azure/architecture/browse/thumbs/cognitive-search.png
+thumbnailUrl: /azure/architecture/browse/thumbs/cognitive-search-for-ai-enrichment.png
 content: |
-   [!include[](cognitive-search-with-skillsets-content.md)]
+  [!include[](cognitive-search-with-skillsets-content.md)]

@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 *Infrastructure as a service (IaaS)* is a form of cloud computing that provides virtualized computing resources. *Development testing (DevTest)* is a software development approach that integrates testing early in the development phase. In this solution, configuring DevTest operations for an IaaS application reduces the cost and overhead of development and test environments, while facilitating faster development through automated virtual machine (VM) and VM image integration and deployment.
 

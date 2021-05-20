@@ -7,8 +7,9 @@ ms.date: 09/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-active-directory
 ms.custom:
-  - seodec18
   - best-practice
 ---
 
@@ -183,8 +184,8 @@ The built-in classes support linear (constant) delay and exponential backoff wit
 The following example configures a retry strategy using exponential backoff.
 
 ```csharp
-var deltaBackOffInMilliseconds = TimeSpan.FromSeconds(5).Milliseconds;
-var maxDeltaBackOffInMilliseconds = TimeSpan.FromSeconds(20).Milliseconds;
+var deltaBackOffInMilliseconds = TimeSpan.FromSeconds(5).TotalMilliseconds;
+var maxDeltaBackOffInMilliseconds = TimeSpan.FromSeconds(20).TotalMilliseconds;
 var options = new ConfigurationOptions
 {
     EndPoints = {"localhost"},
@@ -278,7 +279,7 @@ namespace RetryCodeSamples
             {
                 try
                 {
-                    var retryTimeInMilliseconds = TimeSpan.FromSeconds(4).Milliseconds; // delay between retries
+                    var retryTimeInMilliseconds = TimeSpan.FromSeconds(4).TotalMilliseconds; // delay between retries
 
                     // Using object-based configuration.
                     var options = new ConfigurationOptions

@@ -1,6 +1,3 @@
-
-
-
 This example scenario is relevant to organizations that need to analyze data in real time to detect fraudulent transactions or other anomalous activity.
 
 Potential applications include identifying fraudulent credit card activity or mobile phone calls. Traditional online analytical systems might take hours to transform and analyze the data to identify anomalous activity.
@@ -60,7 +57,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-For general guidance on designing resilient solutions, see [Designing reliable Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design).
+For general guidance on designing resilient solutions, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
 
 ## Deploy the scenario
 

@@ -68,11 +68,11 @@ items:
           - name: Choose a load balancing service
             href: guide/technology-choices/load-balancing-overview.md
           - name: Choose a messaging service
-            items:
-              - name: Asynchronous messaging options in Azure
-                href: guide/technology-choices/messaging.md
+            href: guide/technology-choices/messaging.md
       - name: Best practices for cloud applications
         items:
+          - name: Overview
+            href: best-practices/index-best-practices.md
           - name: API design
             href: best-practices/api-design.md
           - name: API implementation
@@ -125,6 +125,8 @@ items:
                 href: antipatterns/monolithic-persistence/index.md
               - name: No Caching
                 href: antipatterns/no-caching/index.md
+              - name: Retry Storm
+                href: antipatterns/retry-storm/index.md
               - name: Synchronous I/O
                 href: antipatterns/synchronous-io/index.md
       - name: Responsible Innovation
@@ -291,12 +293,16 @@ items:
             href: framework/devops/devops-patterns.md  
       - name: Performance Efficiency
         items:
-          - name: Overview
+          - name: About
             href: framework/scalability/overview.md
+          - name: Principles
+            href: framework/scalability/principles.md            
           - name: Design
             items:
-              - name: Design checklist
+              - name: Checklist
                 href: framework/scalability/design-checklist.md
+              - name: Distributed architecture challenges
+                href: framework/scalability/design-distributed.md                
               - name: Application design
                 href: framework/scalability/design-apps.md
               - name: Application efficiency
@@ -305,52 +311,82 @@ items:
                 href: framework/scalability/design-scale.md
               - name: Capacity planning
                 href: framework/scalability/design-capacity.md
-          - name: Testing
+          - name: Test
             items:
-              - name: Testing checklist
+              - name: Checklist
                 href: framework/scalability/test-checklist.md
               - name: Performance testing
                 href: framework/scalability/performance-test.md
               - name: Testing tools
                 href: framework/scalability/test-tools.md
-          - name: Monitoring
-            href: framework/scalability/monitor.md
-          - name: Performance Efficiency patterns
+          - name: Monitor
+            items: 
+              - name: Checklist
+                href: framework/scalability/monitor.md
+              - name: Application profiling
+                href: framework/scalability/monitor-application.md
+              - name: Infrastructure metrics and logs
+                href: framework/scalability/monitor-infrastructure.md
+              - name: Data analysis and retention 
+                href: framework/scalability/monitor-analyze.md                                                
+              - name: Scalability and reliability
+                href: framework/scalability/monitor-scalability-reliability.md
+          - name: Optimize
+            items: 
+              - name: Checklist
+                href: framework/scalability/optimize.md
+              - name: Caching
+                href: framework/scalability/optimize-cache.md
+              - name: Partition
+                href: framework/scalability/optimize-partition.md
+              - name: Sustainability
+                href: framework/scalability/optimize-sustain.md                            
+          - name: Design patterns
             href: framework/scalability/performance-efficiency-patterns.md
-          - name: Checklist
-            href: framework/scalability/performance-efficiency.md
           - name: Tradeoffs 
             href: framework/scalability/tradeoffs.md
       - name: Reliability
         items:
-          - name: Overview
-            href: framework/resiliency/overview.md
-          - name: Application design
-            items:
-              - name: Design overview
-                href: framework/resiliency/app-design.md
-              - name: Error handling
-                href: framework/resiliency/app-design-error-handling.md
-              - name: Failure mode analysis
-                href: resiliency/failure-mode-analysis.md
-          - name: Backup and recovery
-            href: framework/resiliency/backup-and-recovery.md
-          - name: Business metrics
-            href: framework/resiliency/business-metrics.md
-          - name: Chaos engineering
-            href: framework/resiliency/chaos-engineering.md
-          - name: Data management
-            href: framework/resiliency/data-management.md
-          - name: Monitoring and disaster recovery
-            href: framework/resiliency/monitoring.md
-          - name: Recover from a region-wide service disruption
-            href: resiliency/recovery-loss-azure-region.md
-          - name: Resiliency testing
-            href: framework/resiliency/testing.md
-          - name: Checklist
-            href: checklist/resiliency-per-service.md
-          - name: Reliability patterns
-            href: framework/resiliency/reliability-patterns.md  
+              - name: Principles
+                href: framework/resiliency/overview.md
+              - name: Design
+                items: 
+                  - name: Checklist
+                    href: framework/resiliency/design-checklist.md
+                  - name: Requirements
+                    href: framework/resiliency/design-requirements.md
+                  - name: Application design
+                    href: framework/resiliency/app-design.md
+                  - name: Resiliency & dependencies
+                    href: framework/resiliency/design-resiliency.md  
+                  - name: Best practices
+                    href: framework/resiliency/design-best-practices.md
+              - name: Testing
+                items:
+                  - name: Checklist
+                    href: framework/resiliency/test-checklist.md
+                  - name: Resiliency testing
+                    href: framework/resiliency/testing.md
+                  - name: Backup & recovery
+                    href: framework/resiliency/backup-and-recovery.md
+                  - name: Error handling
+                    href: framework/resiliency/app-design-error-handling.md
+                  - name: Chaos engineering
+                    href: framework/resiliency/chaos-engineering.md
+                  - name: Best practices
+                    href: framework/resiliency/test-best-practices.md
+              - name: Monitoring
+                items:
+                  - name: Checklist
+                    href: framework/resiliency/monitor-checklist.md
+                  - name: Application health
+                    href: framework/resiliency/monitoring.md
+                  - name: Health modeling
+                    href: framework/resiliency/monitor-model.md
+                  - name: Best practices
+                    href: framework/resiliency/monitor-best-practices.md
+              - name: Reliability patterns
+                href: framework/resiliency/reliability-patterns.md
       - name: Security
         items:
           - name: About
@@ -385,10 +421,16 @@ items:
                     href: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
               - name: Networking
                 items:
-                  - name: Network security review
-                    href: framework/security/design-network-review.md
-                  - name: Containment strategies for organizations
+                  - name: Checklist
                     href: framework/security/design-network.md
+                  - name: Network segmentation
+                    href: framework/security/design-network-segmentation.md
+                  - name: Connectivity
+                    href: framework/security/design-network-connectivity.md
+                  - name: Application endpoints
+                    href: framework/security/design-network-endpoints.md
+                  - name: Data flow
+                    href: framework/security/design-network-flow.md               
                   - name: Best practices
                     href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
               - name: Data protection
@@ -415,14 +457,26 @@ items:
                     href: framework/security/design-regulatory-compliance.md
                   - name: Configuration and dependencies
                     href: framework/security/design-app-dependencies.md
+          - name: Build-deploy
+            items:
+              - name: Checklist
+                href: framework/security/deploy.md
+              - name: Governance considerations
+                href: framework/security/deploy-governance.md
+              - name: Infrastructure provisioning
+                href: framework/security/deploy-infrastructure.md                
+              - name: Code deployments
+                href: framework/security/deploy-code.md
           - name: Monitor
             items:
-              - name: Health modeling
+              - name: Checklist
                 href: framework/security/monitor.md
               - name: Tools
                 href: framework/security/monitor-tools.md
               - name: Security operations
                 href: framework/security/monitor-security-operations.md
+              - name: Validate and test
+                href: framework/security/monitor-test.md
               - name: Review and audit
                 href: framework/security/monitor-audit.md
               - name: Identity and network risks
@@ -435,10 +489,26 @@ items:
                 href: framework/security/governance.md
               - name: Elevate security capabilities
                 href: framework/security/governance.md
+      - name: Workloads
+        items:          
+          - name: Hybrid
+            items:
+              - name: Overview
+                href: framework/hybrid/hybrid-overview.md
+              - name: Cost Optimization
+                href: framework/hybrid/hybrid-cost.md 
+              - name: Operational Excellence
+                href: framework/hybrid/hybrid-opex.md
+              - name: Performance Efficiency
+                href: framework/hybrid/hybrid-performance-efficiency.md
+              - name: Reliability
+                href: framework/hybrid/hybrid-reliability.md
+              - name: Security
+                href: framework/hybrid/hybrid-security.md         
   - name: Design Patterns
     items:
       - name: Overview
-        href: patterns/index-patterns.md
+        href: patterns/index.md
       - name: Categories
         items:
           - name: Data management
@@ -527,12 +597,75 @@ items:
         href: patterns/throttling.md
       - name: Valet Key
         href: patterns/valet-key.md
+  - name: Industry solutions with Azure
+    expanded: true
+    items:
+      - name: Retail
+        items:
+          - name: Overview
+            href: industries/retail.md
+          - name: Build a Real-time Recommendation API on Azure
+            href: reference-architectures/ai/real-time-recommendation.yml
+          - name: Movie recommendations on Azure
+            href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+          - name: Scalable personalization on Azure
+            href: example-scenario/ai/scalable-personalization.yml
+          - name: Data warehousing and analytics
+            href: example-scenario/data/data-warehouse.yml
+          - name: Stream processing with Azure Databricks
+            href: reference-architectures/data/stream-processing-databricks.yml
+          - name: Stream processing with Azure Stream Analytics
+            href: reference-architectures/data/stream-processing-stream-analytics.yml
+          - name: E-commerce front end
+            href: example-scenario/apps/ecommerce-scenario.yml
+          - name: Intelligent product search engine for e-commerce
+            href: example-scenario/apps/ecommerce-search.yml
+          - name: Magento e-commerce platform in Azure Kubernetes Service
+            href: example-scenario/magento/magento-azure.yml
+          - name: Scalable order processing
+            href: example-scenario/data/ecommerce-order-processing.yml
+          - name: Retail - Buy online, pickup in store (BOPIS)
+            href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
+      - name: Finance
+        items:
+          - name: Overview
+            href: industries/finance.md
+          - name:  Decentralized trust between banks
+            href: example-scenario/apps/decentralized-trust.yml
+          - name: Replicate and sync mainframe data in Azure
+            href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
+          - name: Modernize mainframe & midrange data
+            href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+          - name: Refactor IBM z/OS mainframe Coupling Facility to Azure
+            href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+          - name: Banking system cloud transformation on Azure
+            href: example-scenario/banking/banking-system-cloud-transformation.yml
+          - name: Patterns and implementations in banking cloud transformation
+            href: example-scenario/banking/patterns-and-implementations.yml
+          - name: JMeter implementation reference for load testing pipeline solution
+            href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
+          - name: Real-time fraud detection
+            href: example-scenario/data/fraud-detection.yml
+      - name: Healthcare
+        items:
+          - name: Overview
+            href: industries/healthcare.md
+          - name: Virtual visits with Microsoft Cloud for Healthcare
+            href: example-scenario/mch-health/virtual-health-mch.yml 
+          - name: Clinical insights with Microsoft Cloud for Healthcare
+            href: example-scenario/mch-health/medical-data-insights.yml
+          - name: Consumer health portal on Azure
+            href: example-scenario/digital-health/health-portal.yml
+          - name: Building a telehealth system with Azure
+            href: example-scenario/apps/telehealth-system.yml
+          - name: Confidential computing for healthcare
+            href: example-scenario/confidential/healthcare-inference.yml
   - name: Azure categories
     expanded: true
     items:
       - name: AI + Machine Learning
         items:
-          - name: Overview
+          - name: Get started
             href: data-guide/big-data/ai-overview.md
           - name: Guides
             items:
@@ -556,12 +689,6 @@ items:
                     href: example-scenario/mlops/aml-decision-tree.yml
           - name: Architectures
             items:
-              - name: AI enrichment in Cognitive Search
-                href: solution-ideas/articles/cognitive-search-with-skillsets.yml
-              - name: AI for Earth
-                href: solution-ideas/articles/ai-for-earth.yml
-              - name: Autonomous systems
-                href: solution-ideas/articles/autonomous-systems.yml
               - name: Baseball decision analysis with ML.NET and Blazor
                 href: data-guide/big-data/baseball-ml-workload.md
               - name: Batch scoring for deep Learning
@@ -572,7 +699,7 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
-              - name: Chatbot for hotel reservations
+              - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
@@ -587,7 +714,7 @@ items:
               - name: MLOps for Python models
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
-                href: example-scenario/ai/movie-recommendations.yml
+                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
               - name: Real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Real-time scoring Python models
@@ -606,13 +733,19 @@ items:
             items:
               - name: AI at the edge
                 href: solution-ideas/articles/ai-at-the-edge.yml
+              - name: AI enrichment with Cognitive Search
+                href: solution-ideas/articles/cognitive-search-with-skillsets.yml
               - name: Auditing and risk management
                 href: solution-ideas/articles/auditing-and-risk-compliance.yml
-              - name: Business Process Management
+              - name: Autonomous systems
+                href: solution-ideas/articles/autonomous-systems.yml
+              - name: Business process management
                 href: solution-ideas/articles/business-process-management.yml
-              - name: Content Research
+              - name: Content research
                 href: solution-ideas/articles/content-research.yml
-              - name: Contract Management
+              - name: Content tagging with NLP
+                href: solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
+              - name: Contract management
                 href: solution-ideas/articles/contract-management.yml
               - name: Customer churn prediction
                 href: solution-ideas/articles/customer-churn-prediction.yml
@@ -620,7 +753,7 @@ items:
                 href: solution-ideas/articles/customer-feedback-and-analytics.yml
               - name: Defect prevention
                 href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml
-              - name: Digital Asset Management
+              - name: Digital asset management
                 href: solution-ideas/articles/digital-asset-management.yml
               - name: Disconnected AI at the edge
                 href: solution-ideas/articles/ai-at-the-edge-disconnected.yml
@@ -634,14 +767,14 @@ items:
                 href: solution-ideas/articles/enterprise-chatbot-disaster-recovery.yml
               - name: Enterprise productivity chatbot
                 href: solution-ideas/articles/enterprise-productivity-chatbot.yml
+              - name: Environment monitoring 
+                href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
               - name: FAQ chatbot
                 href: solution-ideas/articles/faq-chatbot-with-data-champion-model.yml
               - name: Hospital patient predictions
                 href: solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml
               - name: Image classification with CNN's
                 href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml
-              - name: Information discovery with NLP
-                href: solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.yml
               - name: Interactive voice response bot
                 href: solution-ideas/articles/interactive-voice-response-bot.yml
               - name: Keyword digital text processing
@@ -676,76 +809,94 @@ items:
                 href: solution-ideas/articles/visual-assistant.yml
       - name: Analytics
         items:
+          - name: Guides
+            items:        
+              - name: Analytical data stores
+                href: data-guide/technology-choices/analytical-data-stores.md
+              - name: Analytics and reporting
+                href: data-guide/technology-choices/analysis-visualizations-reporting.md
           - name: Architectures
+            items:
+              - name: Anomaly detector process
+                href: solution-ideas/articles/anomaly-detector-process.yml
+              - name: Automated enterprise BI
+                href: reference-architectures/data/enterprise-bi-adf.yml
+              - name: Azure analytics end to end
+                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
+              - name: Data warehousing and analytics
+                href: example-scenario/data/data-warehouse.yml
+              - name: Ingestion and analysis of news feeds
+                href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
+              - name: Partitioning in Event Hubs and Kafka
+                href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
+              - name: Stream processing with Azure Databricks
+                href: reference-architectures/data/stream-processing-databricks.yml
+              - name: Stream processing with Azure Stream Analytics
+                href: reference-architectures/data/stream-processing-stream-analytics.yml
+          - name: Solution ideas
             items:
               - name: Advanced analytics
                 href: solution-ideas/articles/advanced-analytics-on-big-data.yml
-              - name: Anomaly detector process
-                href: solution-ideas/articles/anomaly-detector-process.yml
               - name: App integration using Event Grid
                 href: solution-ideas/articles/application-integration-using-event-grid.yml
-              - name: Automated enterprise BI
-                href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Big data analytics with Azure Data Explorer
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
               - name: Content Delivery Network analytics
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
-              - name: Data warehousing and analytics
-                href: example-scenario/data/data-warehouse.yml
-              - name: Demand forecasting
-                href: solution-ideas/articles/demand-forecasting.yml
-              - name: Demand forecasting for marketing
-                href: solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml
-              - name: Demand forecasting for price optimization
-                href: solution-ideas/articles/demand-forecasting-and-price-optimization.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
+              - name: Demand forecasting and price optimization
+                href: solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml
+              - name: Demand forecasting with Stream Analytics
+                href: solution-ideas/articles/demand-forecasting.yml
               - name: Discovery Hub for analytics
                 href: solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml
-              - name: Hybrid big data with HDInsight
-                href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml
-              - name: Monitoring solution with Azure Data Explorer
-                href: solution-ideas/articles/monitor-azure-data-explorer.yml
               - name: ETL using HDInsight
                 href: solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml
+              - name: Highly scalable customer service and ERP apps
+                href: solution-ideas/articles/erp-customer-service.yml
+              - name: Hybrid big data with HDInsight
+                href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml
               - name: Interactive analytics with Azure Data Explorer
                 href: solution-ideas/articles/interactive-azure-data-explorer.yml
-              - name: IoT telemetry analytics with Azure Data Explorer
-                href: solution-ideas/articles/iot-azure-data-explorer.yml
               - name: Interactive price analytics
                 href: solution-ideas/articles/interactive-price-analytics.yml
-              - name: Mass ingestion of news feeds on Azure
-                href: example-scenario/ai/newsfeed-ingestion.yml
+              - name: IoT analytics with Azure Data Explorer
+                href: solution-ideas/articles/iot-azure-data-explorer.yml
+              - name: Monitoring solution with Azure Data Explorer
+                href: solution-ideas/articles/monitor-azure-data-explorer.yml
               - name: Oil and Gas tank level forecasting
                 href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
-              - name: Partitioning in Event Hubs and Kafka
-                href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Predicting length of stay in hospitals
                 href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
               - name: Predictive aircraft engine monitoring
                 href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
               - name: Real Time analytics on big data
                 href: solution-ideas/articles/real-time-analytics.yml
-              - name: Stream processing with Azure Databricks
-                href: reference-architectures/data/stream-processing-databricks.yml
-              - name: Stream processing with Azure Stream Analytics
-                href: reference-architectures/data/stream-processing-stream-analytics.yml
               - name: Tiering applications & data for analytics
                 href: solution-ideas/articles/tiered-data-for-analytics.yml
       - name: Blockchain
         items:
           - name: Architectures
             items:
-              - name: Blockchain workflow application
-                href: solution-ideas/articles/blockchain-workflow-application.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
+              - name: Multi-cloud blockchain DLT
+                href: example-scenario/blockchain/multi-cloud-blockchain.yml
+          - name: Solution ideas
+            items:
+              - name: Blockchain workflow application
+                href: solution-ideas/articles/blockchain-workflow-application.yml
               - name: Supply chain track and trace
                 href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Compute
         items:
-          - name: HPC Overview
+          - name: Get started with HPC
             href: topics/high-performance-computing.md
+          - name: Guides
+            items:
+              - name: Choose a compute service
+                href: guide/technology-choices/compute-decision-tree.md
           - name: Architectures
             items:
               - name: 3D video rendering
@@ -754,14 +905,6 @@ items:
                 href: example-scenario/apps/hpc-saas.yml
               - name: Digital image modeling
                 href: example-scenario/infrastructure/image-modeling.yml
-              - name: HPC risk analysis
-                href: solution-ideas/articles/hpc-risk-analysis.yml
-              - name: HPC and big compute
-                href: solution-ideas/articles/big-compute-with-azure-batch.yml
-              - name: Cloud-based HPC cluster
-                href: solution-ideas/articles/hpc-cluster.yml
-              - name: Hybrid HPC with HPC Pack
-                href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
               - name: Linux virtual desktops with Citrix
                 href: example-scenario/infrastructure/linux-vdi-citrix.yml
               - name: Move Azure resources across regions
@@ -770,66 +913,87 @@ items:
                 href: reference-architectures/n-tier/linux-vm.yml
               - name: Run a Windows VM on Azure
                 href: reference-architectures/n-tier/windows-vm.yml
-              - name: Solaris emulator on Azure VMs
-                href: solution-ideas/articles/solaris-azure.yml
-              - name: Migrate IBM applications with TmaxSoft OpenFrame
-                href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
-              - name: Reservoir simulations
-                href: example-scenario/infrastructure/reservoir-simulation.yml
-              - name: CFD simulations
+              - name: Run CFD simulations
                 href: example-scenario/infrastructure/hpc-cfd.yml
+              - name: Run reservoir simulations
+                href: example-scenario/infrastructure/reservoir-simulation.yml
+          - name: Solution ideas
+            items:
+              - name: HPC cluster deployed in the cloud
+                href: solution-ideas/articles/hpc-cluster.yml
+              - name: HPC risk analysis
+                href: solution-ideas/articles/hpc-risk-analysis.yml
+              - name: HPC system and big compute
+                href: solution-ideas/articles/big-compute-with-azure-batch.yml
+              - name: Hybrid HPC with HPC Pack
+                href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
       - name: Containers
         items:
-          - name: AKS Solution Journey
+          - name: Get started with AKS architectures
             href: reference-architectures/containers/aks-start-here.md
-          - name: AKS Baseline Cluster
-            href: reference-architectures/containers/aks/secure-baseline-aks.yml
-          - name: AKS Cluster Best Practices
-            href: /Azure/aks/best-practices
-            maintainContext: true
-          - name: AKS Workload Best Practices
-            href: /Azure/aks/best-practices#developer-best-practices
-            maintainContext: true
-          - name: AKS day-2 operations guide
+          - name: Reference architectures
             items:
-              - name: Introduction
-                href: operator-guides/aks/day-2-operations-guide.md
-              - name: Triage practices
-                items:
-                  - name: Overview
-                    href: operator-guides/aks/aks-triage-practices.md
-                  - name: 1- Cluster health
-                    href: operator-guides/aks/aks-triage-cluster-health.md
-                  - name: 2- Node and pod health
-                    href: operator-guides/aks/aks-triage-node-health.md
-                  - name: 3- Workload deployments
-                    href: operator-guides/aks/aks-triage-deployment.md
-                  - name: 4- Admission controllers
-                    href: operator-guides/aks/aks-triage-controllers.md
-                  - name: 5- Container registry connectivity
-                    href: operator-guides/aks/aks-triage-container-registry.md
-              - name: Patching and upgrade guidance
-                href: operator-guides/aks/aks-upgrade-practices.md
-              - name: Common issues
-                href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
-                maintainContext: true
-          - name: AKS Example Solutions
-            items:
+              - name: AKS baseline cluster
+                href: reference-architectures/containers/aks/secure-baseline-aks.yml
               - name: Microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml
+              - name: Advanced microservices architecture on AKS
+                href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
+              - name: CI/CD pipeline for container-based workloads
+                href: example-scenario/apps/devops-with-aks.yml
+          - name: Example workloads hosted in AKS clusters
+            items:
+              - name: Building a telehealth system
+                href: example-scenario/apps/telehealth-system.yml
+              - name: Magento e-commerce in AKS
+                href: example-scenario/magento/magento-azure.yml
+          - name: Solution ideas
+            items:
+              - name: API-first SaaS business model with AKS
+                href: solution-ideas/articles/aks-api-first.yml
+              - name: Elastic demand handling with AKS
+                href: solution-ideas/articles/aks-demand-spikes.yml
               - name: Microservices with AKS and Azure DevOps
                 href: solution-ideas/articles/microservices-with-aks.yml
               - name: Secure DevOps for AKS
                 href: solution-ideas/articles/secure-devops-for-kubernetes.yml
-              - name: Building a telehealth system
-                href: example-scenario/apps/telehealth-system.yml
-              - name: CI/CD pipeline for container-based workloads
-                href: example-scenario/apps/devops-with-aks.yml
+              - name: Bursting from AKS with ACI
+                href: solution-ideas/articles/scale-using-aks-with-aci.yml                          
+          - name: Guides
+            items:
+              - name: AKS cluster best practices
+                href: /Azure/aks/best-practices
+                maintainContext: true
+              - name: AKS day-2 operations guide
+                items:
+                  - name: Introduction
+                    href: operator-guides/aks/day-2-operations-guide.md
+                  - name: Triage practices
+                    items:
+                      - name: Overview
+                        href: operator-guides/aks/aks-triage-practices.md
+                      - name: 1- Cluster health
+                        href: operator-guides/aks/aks-triage-cluster-health.md
+                      - name: 2- Node and pod health
+                        href: operator-guides/aks/aks-triage-node-health.md
+                      - name: 3- Workload deployments
+                        href: operator-guides/aks/aks-triage-deployment.md
+                      - name: 4- Admission controllers
+                        href: operator-guides/aks/aks-triage-controllers.md
+                      - name: 5- Container registry connectivity
+                        href: operator-guides/aks/aks-triage-container-registry.md
+                  - name: Patching and upgrade guidance
+                    href: operator-guides/aks/aks-upgrade-practices.md
+                  - name: Common issues
+                    href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+                    maintainContext: true
+              - name: Choose a Kubernetes at the edge compute option
+                href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
       - name: Databases
         items:
           - name: Guides
             items:
-              - name: Overview
+              - name: Get started
                 href: data-guide/index.md
               - name: Relational data
                 items:
@@ -871,8 +1035,14 @@ items:
                     href: data-guide/scenarios/data-lake.md
                   - name: Data storage
                     href: data-guide/technology-choices/data-storage.md
-                  - name: Data store comparison
-                    href: ./guide/technology-choices/data-store-overview.md
+                  - name: Choose a data store
+                    items:
+                      - name: Understand data store models
+                        href: guide/technology-choices/data-store-overview.md
+                      - name: Select a data store
+                        href: guide/technology-choices/data-store-decision-tree.md
+                      - name: Criteria for choosing a data store
+                        href: guide/technology-choices/data-store-considerations.md
                   - name: Pipeline orchestration
                     href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
                   - name: Real-time message ingestion
@@ -881,6 +1051,14 @@ items:
                     href: data-guide/technology-choices/search-options.md
                   - name: Stream processing
                     href: data-guide/technology-choices/stream-processing.md
+              - name: Data management patterns
+                href: patterns/category/data-management.md
+              - name: Transfer data to and from Azure
+                href: data-guide/scenarios/data-transfer.md
+              - name: Extend on-premises data solutions to Azure
+                href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
+              - name: Securing data solutions
+                href: data-guide/scenarios/securing-data-solutions.md
               - name: Application tenancy in SaaS Databases
                 items:
                   - name: Tenancy models
@@ -895,26 +1073,36 @@ items:
                     href: databricks-monitoring/dashboards.md
                   - name: Troubleshoot performance bottlenecks
                     href: databricks-monitoring/performance-troubleshooting.md
-              - name: Transfer data to and from Azure
-                href: data-guide/scenarios/data-transfer.md
-              - name: Extend on-premises data solutions to Azure
-                href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
-              - name: Securing data solutions
-                href: data-guide/scenarios/securing-data-solutions.md
+                  - name: Observability patterns and metrics for performance tuning
+                    href: databricks-monitoring/databricks-observability.yml
+              - name: Run Apache Cassandra
+                href: best-practices/cassandra.md
           - name: Architectures
             items:
-              - name: Apache Cassandra
-                href: best-practices/cassandra.md
-              - name: Azure data platform
-                href: example-scenario/dataplate2e/data-platform-end-to-end.yml
+              - name: Azure health data consortium
+                href: example-scenario/data/azure-health-data-consortium.yml
+              - name: DataOps for modern data warehouse
+                href: example-scenario/data-warehouse/dataops-mdw.yml
+              - name: Hybrid ETL with Azure Data Factory
+                href: example-scenario/data/hybrid-etl-with-adf.yml
+              - name: Master data management with CluedIn
+                href: reference-architectures/data/cluedin.yml
+              - name: Master data management with Profisee
+                href: reference-architectures/data/profisee-master-data-management-data-factory.yml  
+              - name: N-tier app with Cassandra
+                href: reference-architectures/n-tier/n-tier-cassandra.yml
+              - name: SQL 2008 R2 failover cluster in Azure
+                href: example-scenario/sql-failover/sql-failover-2008r2.yml
+              - name: Windows N-tier applications
+                href: reference-architectures/n-tier/n-tier-sql-server.yml
+          - name: Solution ideas
+            items:
               - name: Big data analytics with Azure Data Explorer
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
               - name: Campaign optimization with HDInsight Spark
                 href: solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml
               - name: Campaign optimization with SQL Server
                 href: solution-ideas/articles/campaign-optimization-with-sql-server.yml
-              - name: DataOps for modern data warehouse
-                href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Data streaming
                 href: solution-ideas/articles/data-streaming-scenario.yml
               - name: Data cache
@@ -923,6 +1111,8 @@ items:
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml
               - name: Digital marketing using Azure MySQL
                 href: solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml
+              - name: Enterprise data warehouse
+                href: solution-ideas/articles/enterprise-data-warehouse.yml
               - name: Finance management using Azure MySQL
                 href: solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml
               - name: Finance management using Azure PostgreSQL
@@ -933,8 +1123,6 @@ items:
                 href: solution-ideas/articles/gaming-using-cosmos-db.yml
               - name: Globally distributed apps using Cosmos DB
                 href: solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml
-              - name: Hybrid ETL with Azure Data Factory
-                href: example-scenario/data/hybrid-etl-with-adf.yml
               - name: Intelligent apps using Azure MySQL
                 href: solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.yml
               - name: Intelligent apps using Azure PostgreSQL
@@ -949,14 +1137,10 @@ items:
                 href: solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml
               - name: Loan credit risk with SQL Server
                 href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
-              - name: Master Data Management with CluedIn
-                href: reference-architectures/data/cluedin.yml
               - name: Messaging
                 href: solution-ideas/articles/messaging.yml
-              - name: Modern data warehouse
-                href: solution-ideas/articles/modern-data-warehouse.yml
-              - name: N-tier app with Cassandra
-                href: reference-architectures/n-tier/n-tier-cassandra.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Ops automation using Event Grid
                 href: solution-ideas/articles/ops-automation-using-event-grid.yml
               - name: Oracle migration to Azure
@@ -975,13 +1159,11 @@ items:
                 href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
               - name: Streaming using HDInsight
                 href: solution-ideas/articles/streaming-using-hdinsight.yml
-              - name: Windows N-tier applications
-                href: reference-architectures/n-tier/n-tier-sql-server.yml
       - name: Developer Options
         items:
           - name: Microservices
             items:
-              - name: Overview
+              - name: Get started
                 href: microservices/index.md
               - name: Guides
                 items:
@@ -1027,56 +1209,65 @@ items:
                         href: service-fabric/migrate-from-cloud-services.md
           - name: Serverless applications
             items:
-              - name: Serverless Functions overview
+              - name: Get started
                 href: serverless-quest/serverless-overview.md
-              - name: Serverless Functions examples
-                href: serverless-quest/reference-architectures.md
-              - name: Plan for serverless architecture
+              - name: Guides
                 items:
-                  - name: Serverless Functions decision and planning
-                    href: serverless-quest/validate-commit-serverless-adoption.md
-                  - name: Serverless application assessment
-                    href: serverless-quest/application-assessment.md
-                  - name: Technical workshops and training
-                    href: serverless-quest/technical-training.md
-                  - name: Proof of concept or pilot
-                    href: serverless-quest/poc-pilot.md
-              - name: Develop and deploy serverless apps
-                items:
-                  - name: Serverless Functions app development
-                    href: serverless-quest/application-development.md
-                  - name: Serverless Functions code walkthrough
-                    href: serverless/code.md
-                  - name: CI/CD for a serverless frontend
-                    href: serverless/guide/serverless-app-cicd-best-practices.md
-              - name: Serverless Functions app operations
-                href: serverless-quest/functions-app-operations.md
-              - name: Serverless Functions app security
-                href: serverless-quest/functions-app-security.md
+                  - name: Serverless Functions examples
+                    href: serverless-quest/reference-architectures.md
+                  - name: Plan for serverless architecture
+                    items:
+                      - name: Serverless Functions decision and planning
+                        href: serverless-quest/validate-commit-serverless-adoption.md
+                      - name: Serverless application assessment
+                        href: serverless-quest/application-assessment.md
+                      - name: Technical workshops and training
+                        href: serverless-quest/technical-training.md
+                      - name: Proof of concept or pilot
+                        href: serverless-quest/poc-pilot.md
+                  - name: Develop and deploy serverless apps
+                    items:
+                      - name: Serverless Functions app development
+                        href: serverless-quest/application-development.md
+                      - name: Serverless Functions code walkthrough
+                        href: serverless/code.md
+                      - name: CI/CD for a serverless frontend
+                        href: serverless/guide/serverless-app-cicd-best-practices.md
+                  - name: Serverless Functions app operations
+                    href: serverless-quest/functions-app-operations.md
+                  - name: Serverless Functions app security
+                    href: serverless-quest/functions-app-security.md
           - name: Architectures
             items:
-              - name: Big data analytics with Azure Data Explorer
-                href: solution-ideas/articles/big-data-azure-data-explorer.yml
-              - name: CI/CD pipeline using Azure DevOps
-                href: example-scenario/apps/devops-dotnet-webapp.yml
+              - name: Decompose apps with Service Fabric
+                href: example-scenario/infrastructure/service-fabric-microservices.yml
               - name: Event-based cloud automation
-                href: reference-architectures/serverless/cloud-automation.yml
+                href: reference-architectures/serverless/cloud-automation.yml                
               - name: Microservices on Azure Service Fabric
                 href: reference-architectures/microservices/service-fabric.yml
+              - name: Microservices with Azure Spring Cloud
+                href: /azure/spring-cloud/reference-architecture
+                maintainContext: true
               - name: Multicloud with the Serverless Framework
                 href: example-scenario/serverless/serverless-multicloud.yml
-              - name: Serverless applications using Event Grid
-                href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
               - name: Serverless event processing
                 href: reference-architectures/serverless/event-processing.yml
               - name: Unified logging for microservices apps
                 href: example-scenario/logging/unified-logging.yml
+          - name: Solution ideas
+            items:
+              - name: Big data analytics with Azure Data Explorer
+                href: solution-ideas/articles/big-data-azure-data-explorer.yml
+              - name: Serverless applications using Event Grid
+                href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
+              - name: Serverless computing LOB apps
+                href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
       - name: DevOps
         items:
-          - name: Checklist
-            href: checklist/dev-ops.md
           - name: Guides
             items:
+              - name: DevOps Checklist
+                href: checklist/dev-ops.md
               - name: Advanced Azure Resource Manager templates
                 items:
                   - name: Overview
@@ -1093,6 +1284,18 @@ items:
             items:
               - name: CI/CD pipeline for chatbots with ARM templates
                 href: example-scenario/apps/devops-cicd-chatbot.yml
+              - name: CI/CD pipeline using Azure DevOps
+                href: example-scenario/apps/devops-dotnet-webapp.yml
+              - name: DevSecOps in GitHub
+                href: solution-ideas/articles/devsecops-in-github.yml
+              - name: Jenkins on Azure
+                href: example-scenario/apps/jenkins.yml
+              - name: Real time location sharing
+                href: example-scenario/signalr/index.yml
+              - name: Run containers in a hybrid environment
+                href: hybrid/hybrid-containers.yml
+          - name: Solution ideas
+            items:
               - name: CI/CD for Azure VMs
                 href: solution-ideas/articles/cicd-for-azure-vms.yml
               - name: CI/CD for Azure Web Apps
@@ -1103,8 +1306,6 @@ items:
                 href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml
               - name: DevSecOps in Azure
                 href: solution-ideas/articles/devsecops-in-azure.yml
-              - name: DevSecOps in GitHub
-                href: solution-ideas/articles/devsecops-in-github.yml
               - name: DevTest and DevOps for IaaS
                 href: solution-ideas/articles/dev-test-iaas.yml
               - name: DevTest and DevOps for PaaS
@@ -1119,23 +1320,29 @@ items:
                 href: solution-ideas/articles/devops-in-a-hybrid-environment.yml
               - name: Java CI/CD using Jenkins and Azure Web Apps
                 href: solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml
-              - name: Jenkins on Azure
-                href: example-scenario/apps/jenkins.yml
               - name: SharePoint for Dev-Test
                 href: solution-ideas/articles/sharepoint-farm-devtest.yml
-              - name: Real time location sharing
-                href: example-scenario/signalr/index.yml
-              - name: Run containers in a hybrid environment
-                href: hybrid/hybrid-containers.yml
       - name: High Availability
         items:
-          - name: Overview
+          - name: Architectural overview
             href: high-availability/building-solutions-for-high-availability.md
           - name: Architectures
             items:
-              - name: IaaS - Web application with relational database
+              - name: Highly available multi-region web application
+                href: reference-architectures/app-service-web-app/multi-region.yml
+              - name: "IaaS: Web application with relational database"
                 href: high-availability/ref-arch-iaas-web-and-db.md
-      - name: Hybrid
+              - name: Multi-region app with private database connectivity
+                href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
+              - name: Multi-region load balancing
+                href: high-availability/reference-architecture-traffic-manager-application-gateway.md
+              - name: Multi-region N-tier application
+                href: reference-architectures/n-tier/multi-region-sql-server.yml
+              - name: Multitenant SaaS
+                href: example-scenario/multi-saas/multitenant-saas.yml
+              - name: Multi-tier web application built for HA/DR
+                href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
+      - name: Hybrid + Multicloud
         items:
           - name: Guides
             items:
@@ -1147,60 +1354,58 @@ items:
                 href: hybrid/azure-stack-hci-dr.yml
               - name: Azure Stack for remote offices and branches
                 href: hybrid/azure-stack-robo.yml
+              - name: Connect an on-premises network to Azure
+                href: reference-architectures/hybrid-networking/index.yml
+              - name: Troubleshoot a hybrid VPN connection
+                href: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
           - name: Architectures
             items:
-              - name: Manage configurations for Azure Arc enabled servers
-                href: hybrid/azure-arc-hybrid-config.yml
+              - name: Azure Arc solutions
+                items:
+                - name: Manage configurations for Azure Arc enabled servers
+                  href: hybrid/azure-arc-hybrid-config.yml
+                - name: Azure Arc hybrid management and deployment for Kubernetes clusters
+                  href: hybrid/arc-hybrid-kubernetes.yml
               - name: Azure Automation in a hybrid environment
                 href: hybrid/azure-automation-hybrid.yml
+              - name: Azure Automation update management
+                href: hybrid/azure-update-mgmt.yml
+              - name: Azure Automation State Configuration
+                href: example-scenario/state-configuration/state-configuration.yml
               - name: Azure enterprise cloud file share
                 href: hybrid/azure-files-private.yml
-              - name: Using Azure file shares in a hybrid environment
-                href: hybrid/azure-file-share.yml
               - name: Azure Functions in a hybrid environment
                 href: hybrid/azure-functions-hybrid.yml
               - name: Back up files and applications on Azure Stack Hub
                 href: hybrid/azure-stack-backup.yml
-              - name: Azure Automation Update Management
-                href: hybrid/azure-update-mgmt.yml
+              - name: Connect an on-premises network to Azure using ExpressRoute
+                href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
+              - name: Connect standalone servers by using Azure Network Adapter
+                href: hybrid/azure-network-adapter.yml
               - name: Deploy AI and machine learning at the edge by using Azure Stack Edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
               - name: Design a hybrid Domain Name System solution with Azure
                 href: hybrid/hybrid-dns-infra.yml
-              - name: Hybrid file services
-                href: hybrid/hybrid-file-services.yml
-              - name: Hybrid availability and performance monitoring
-                href: hybrid/hybrid-perf-monitoring.yml
-              - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
-                href: hybrid/hybrid-security-monitoring.yml
-              - name: Manage hybrid Azure workloads using Windows Admin Center
-                href: hybrid/hybrid-server-os-mgmt.yml
-              - name: Azure Arc hybrid management and deployment for Kubernetes clusters
-                href: hybrid/arc-hybrid-kubernetes.yml
-              - name: Connect standalone servers by using Azure Network Adapter
-                href: hybrid/azure-network-adapter.yml
               - name: Disaster Recovery for Azure Stack Hub virtual machines
                 href: hybrid/azure-stack-vm-dr.yml
-              - name: On-premises data gateway for Azure Logic Apps
-                href: hybrid/gateway-logic-apps.yml
-              - name: Run containers in a hybrid environment
-                href: hybrid/hybrid-containers.yml
-              - name: Connect an on-premises network to Azure
-                href: reference-architectures/hybrid-networking/index.yml
-              - name: Connect an on-premises network to Azure using ExpressRoute
-                href: reference-architectures/hybrid-networking/expressroute-vpn-failover.yml
-              - name: Cross cloud scaling
-                href: solution-ideas/articles/cross-cloud-scaling.yml
-              - name: Cross-platform chat
-                href: solution-ideas/articles/cross-platform-chat.yml
               - name: Extend an on-premises network using ExpressRoute
                 href: reference-architectures/hybrid-networking/expressroute.yml
               - name: Extend an on-premises network using VPN
                 href: reference-architectures/hybrid-networking/vpn.yml
-              - name: Hybrid connections
-                href: solution-ideas/articles/hybrid-connectivity.yml
-              - name: Troubleshoot a hybrid VPN connection
-                href: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
+              - name: Hybrid availability and performance monitoring
+                href: hybrid/hybrid-perf-monitoring.yml
+              - name: Hybrid file services
+                href: hybrid/hybrid-file-services.yml
+              - name: Hybrid security monitoring using Azure Security Center and Azure Sentinel
+                href: hybrid/hybrid-security-monitoring.yml
+              - name: Manage hybrid Azure workloads using Windows Admin Center
+                href: hybrid/hybrid-server-os-mgmt.yml
+              - name: On-premises data gateway for Azure Logic Apps
+                href: hybrid/gateway-logic-apps.yml
+              - name: Run containers in a hybrid environment
+                href: hybrid/hybrid-containers.yml
+              - name: Using Azure file shares in a hybrid environment
+                href: hybrid/azure-file-share.yml
               - name: Connect using Windows Virtual Desktop
                 items:
                   - name: Windows Virtual Desktop for enterprises
@@ -1209,10 +1414,22 @@ items:
                     href: example-scenario/wvd/multi-forest.yml
                   - name: Multiple forests with Azure AD DS
                     href: example-scenario/wvd/multi-forest-azure-managed.yml
+          - name: Solution ideas
+            items:
+              - name: Cross cloud scaling
+                href: solution-ideas/articles/cross-cloud-scaling.yml
+              - name: Cross-platform chat
+                href: solution-ideas/articles/cross-platform-chat.yml
+              - name: Hybrid connections
+                href: solution-ideas/articles/hybrid-connectivity.yml
+              - name: Unlock Legacy Data with Azure Stack
+                href: solution-ideas/articles/unlock-legacy-data.yml
       - name: Identity
         items:
           - name: Guides
             items:
+              - name: Build for resilience
+                href: guide/resilience/resilience-overview.md
               - name: Identity in multitenant applications
                 items:
                   - name: Introduction
@@ -1237,46 +1454,64 @@ items:
                     href: multitenant-identity/client-assertion.md
                   - name: Federate with a customer's AD FS
                     href: multitenant-identity/adfs.md
+              - name: Integrate on-premises AD with Azure
+                href: reference-architectures/identity/index.yml
           - name: Architectures
             items:
               - name: AD DS resource forests in Azure
                 href: reference-architectures/identity/adds-forest.yml
+              - name: Azure AD identity management for AWS
+                href: reference-architectures/aws/aws-azure-ad-security.yml
               - name: Deploy AD DS in an Azure virtual network
                 href: reference-architectures/identity/adds-extend-domain.yml
               - name: Extend on-premises AD FS to Azure
                 href: reference-architectures/identity/adfs.yml
-              - name: Hybrid Identity
+              - name: Hybrid identity
                 href: solution-ideas/articles/hybrid-identity.yml
               - name: Integrate on-premises AD domains with Azure AD
                 href: reference-architectures/identity/azure-ad.yml
-              - name: Integrate on-premises AD with Azure
-                href: reference-architectures/identity/index.yml
-              - name: Azure AD identity management for AWS
-                href: reference-architectures/aws/aws-azure-ad-security.yml
       - name: Integration
         items:
           - name: Architectures
             items:
               - name: Basic enterprise integration on Azure
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
+              - name: Data integration with Logic Apps and SQL Server
+                href: example-scenario/integration/logic-apps-data-integration.yml
               - name: Enterprise business intelligence
                 href: reference-architectures/data/enterprise-bi-synapse.yml
               - name: Enterprise integration using queues and events
                 href: reference-architectures/enterprise-integration/queues-events.yml
-              - name: Publishing internal APIs to external users
+              - name: Publish internal APIs to external users
                 href: example-scenario/apps/publish-internal-apis-externally.yml
+              - name: On-premises data gateway for Azure Logic Apps
+                href: hybrid/gateway-logic-apps.yml
+          - name: Solution ideas
+            items:
               - name: Web and Mobile front-ends
                 href: solution-ideas/articles/front-end.yml
               - name: Custom Business Processes
                 href: solution-ideas/articles/custom-business-processes.yml
               - name: Line of Business Extension
                 href: solution-ideas/articles/lob.yml
-              - name: On-premises data gateway for Azure Logic Apps
-                href: hybrid/gateway-logic-apps.yml
       - name: Internet of Things
         items:
           - name: Guides
             items:
+              - name: IoT concepts
+                items:
+                  - name: Introduction to IoT solutions
+                    href: example-scenario/iot/introduction-to-solutions.yml
+                  - name: 'Devices, platform, and applications'
+                    href: example-scenario/iot/devices-platform-application.yml
+                  - name: 'Attestation, authentication, and provisioning'
+                    href: example-scenario/iot/attestation-provisioning.yml
+                  - name: Field and cloud edge gateways
+                    href: example-scenario/iot/field-cloud-edge-gateways.yml
+                  - name: Application-to-device commands
+                    href: example-scenario/iot/cloud-to-device.yml
+                  - name: 'Builders, developers, and operators'
+                    href: example-scenario/iot/builders-developers-operators.yml
               - name: Azure IoT Edge Vision
                 items:
                   - name: Overview
@@ -1303,31 +1538,17 @@ items:
                     href: guide/iiot-guidance/iiot-data.md
                   - name: Considerations
                     href: guide/iiot-guidance/iiot-considerations.md
-              - name: IoT concepts
-                items:
-                  - name: Introduction to IoT solutions
-                    href: example-scenario/iot/introduction-to-solutions.yml
-                  - name: 'Devices, platform, and applications'
-                    href: example-scenario/iot/devices-platform-application.yml
-                  - name: 'Attestation, authentication, and provisioning'
-                    href: example-scenario/iot/attestation-provisioning.yml
-                  - name: Field and cloud edge gateways
-                    href: example-scenario/iot/field-cloud-edge-gateways.yml
-                  - name: Application-to-device commands
-                    href: example-scenario/iot/cloud-to-device.yml
-                  - name: 'Builders, developers, and operators'
-                    href: example-scenario/iot/builders-developers-operators.yml
               - name: IoT patterns
                 items:
-                  - name: Measure and control loop
-                    href: example-scenario/iot/measure-control-loop.yml
-                  - name: Monitor and manage loop
-                    href: example-scenario/iot/monitor-manage-loop.yml
                   - name: Analyze and optimize loop
                     href: example-scenario/iot/analyze-optimize-loop.yml
                   - name: Event routing
                     href: example-scenario/iot/event-routing.yml
-                  - name: Solution scaling with application stamps
+                  - name: Measure and control loop
+                    href: example-scenario/iot/measure-control-loop.yml
+                  - name: Monitor and manage loop
+                    href: example-scenario/iot/monitor-manage-loop.yml
+                  - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
           - name: Architectures
             items:
@@ -1343,8 +1564,6 @@ items:
                 href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
               - name: Project 15 Open Platform
                 href: solution-ideas/articles/project-15-iot-sustainability.yml
-              - name: Secure access to IoT apps with Azure AD
-                href: example-scenario/iot-aad/iot-aad.yml
           - name: Solution ideas
             items:
               - name: Condition monitoring
@@ -1352,15 +1571,21 @@ items:
               - name: Contactless IoT interfaces
                 href: solution-ideas/articles/contactless-interfaces.yml
               - name: COVID-19 IoT Safe Solutions
-                href: solution-ideas/articles/cctv-mask-detection.yml
+                href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
+              - name: IoT analytics with Azure Data Explorer
+                href: solution-ideas/articles/iot-azure-data-explorer.yml
               - name: IoT Connected Platform
                 href: solution-ideas/articles/iot-connected-platform.yml
+              - name: IoT Edge data storage and processing
+                href: solution-ideas/articles/data-storage-edge.yml
               - name: IoT using Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml
               - name: Light and power for emerging markets
                 href: solution-ideas/articles/iot-power-management.yml
               - name: Lighting and disinfection system
                 href: solution-ideas/articles/uven-disinfection.yml
+              - name: Mining equipment monitoring
+                href: solution-ideas/articles/monitor-mining-equipment.yml
               - name: Predictive maintenance for industrial IoT
                 href: solution-ideas/articles/iot-predictive-maintenance.yml
               - name: Process real-time vehicle data using IoT
@@ -1369,60 +1594,93 @@ items:
                 href: solution-ideas/articles/safe-buildings.yml
               - name: Voice assistants and IoT devices
                 href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml
-      - name: Management and Governance
+      - name: Mainframe + Midrange
+        items:
+          - name: Architectures
+            items:      
+              - name: App modernization
+                items:
+                  - name: High-volume batch transaction processing
+                    href: example-scenario/mainframe/process-batch-transactions.yml
+                  - name: IBM z/OS migration with Asysco AMT
+                    href: example-scenario/mainframe/asysco-zos-migration.yml
+                  - name: Micro Focus Enterprise Server on Azure
+                    href: example-scenario/mainframe/micro-focus-server.yml
+                  - name: Refactor IBM z/OS mainframe CF on Azure
+                    href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+                  - name: Unisys Dorado mainframe migration with Astadia & Micro Focus
+                    href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
+                  - name: Unisys mainframe migration with Asysco
+                    href: reference-architectures/migration/unisys-mainframe-migration.yml
+              - name: Data modernization
+                items:
+                  - name: Modernize mainframe and midrange data
+                    href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+                  - name: Replicate and sync mainframe data in Azure
+                    href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
+          - name: Solution ideas
+            items:      
+              - name: Mainframe access to Azure databases
+                href: solution-ideas/articles/mainframe-access-azure-databases.yml
+              - name: Mainframe file replication on Azure
+                href: solution-ideas/articles/mainframe-azure-file-replication.yml
+              - name: Migrate IBM applications with TmaxSoft OpenFrame
+                href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
+              - name: Solaris emulator on Azure VMs
+                href: solution-ideas/articles/solaris-azure.yml
+      - name: Management + Governance
         items:
           - name: Architectures
             items:
-              - name: Archive on-premises data to cloud
-                href: solution-ideas/articles/backup-archive-on-premises.yml
               - name: Back up cloud applications
                 href: /azure/backup/guidance-best-practices
+                maintainContext: true
+              - name: Computer forensics
+                href: example-scenario/forensics/index.yml
+              - name: Highly available SharePoint Server 2016
+                href: reference-architectures/sharepoint/index.yml    
+              - name: Updating Windows VMs in Azure
+                href: example-scenario/wsus/index.yml            
+              - name: Hybrid management
+                items:
+                  - name: Azure Arc hybrid management and deployment for Kubernetes clusters
+                    href: hybrid/arc-hybrid-kubernetes.yml
+                  - name: Azure Automation in a hybrid environment
+                    href: hybrid/azure-automation-hybrid.yml
+                  - name: Azure Automation Update Management
+                    href: hybrid/azure-update-mgmt.yml
+                  - name: Back up files and applications on Azure Stack Hub
+                    href: hybrid/azure-stack-backup.yml
+                  - name: Disaster Recovery for Azure Stack Hub virtual machines
+                    href: hybrid/azure-stack-vm-dr.yml           
+                  - name: Hybrid availability and performance monitoring
+                    href: hybrid/hybrid-perf-monitoring.yml
+                  - name: Manage configurations for Azure Arc enabled servers
+                    href: hybrid/azure-arc-hybrid-config.yml
+                  - name: Manage hybrid Azure workloads using Windows Admin Center
+                    href: hybrid/hybrid-server-os-mgmt.yml     
+          - name: Solution ideas
+            items:
+              - name: Archive on-premises data to cloud
+                href: solution-ideas/articles/backup-archive-on-premises.yml
               - name: Back up on-premises applications
                 href: solution-ideas/articles/backup-archive-on-premises-applications.yml
               - name: Centralize app configuration and security
                 href: solution-ideas/articles/appconfig-key-vault.yml
-              - name: Computer forensics
-                href: example-scenario/forensics/index.yml
-              - name: High availability for BCDR
-                href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml
               - name: Data Sovereignty & Data Gravity
                 href: solution-ideas/articles/data-sovereignty-and-gravity.yml
               - name: Enterprise-scale disaster recovery
                 href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml
-              - name: Updating Windows VMs in Azure
-                href: example-scenario/wsus/index.yml
-              - name: Highly available SharePoint Server 2016
-                href: reference-architectures/sharepoint/index.yml
+              - name: High availability for BCDR
+                href: solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml
               - name: SMB disaster recovery with Azure Site Recovery
                 href: solution-ideas/articles/disaster-recovery-smb-azure-site-recovery.yml
               - name: SMB disaster recovery with Double-Take DR
                 href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml
-              - name: Manage configurations for Azure Arc enabled servers
-                href: hybrid/azure-arc-hybrid-config.yml
-              - name: Azure Automation in a hybrid environment
-                href: hybrid/azure-automation-hybrid.yml
-              - name: Back up files and applications on Azure Stack Hub
-                href: hybrid/azure-stack-backup.yml
-              - name: Azure Automation Update Management
-                href: hybrid/azure-update-mgmt.yml
-              - name: Hybrid availability and performance monitoring
-                href: hybrid/hybrid-perf-monitoring.yml
-              - name: Manage hybrid Azure workloads using Windows Admin Center
-                href: hybrid/hybrid-server-os-mgmt.yml
-              - name: Azure Arc hybrid management and deployment for Kubernetes clusters
-                href: hybrid/arc-hybrid-kubernetes.yml
-              - name: Disaster Recovery for Azure Stack Hub virtual machines
-                href: hybrid/azure-stack-vm-dr.yml
       - name: Media
         items:
           - name: Architectures
             items:
-              - name: Instant broadcasting with serverless
-                href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
-              - name: Live streaming digital media
-                href: solution-ideas/articles/digital-media-live-stream.yml
-              - name: Video-on-demand digital media
-                href: solution-ideas/articles/digital-media-video.yml
               - name: Gridwich media processing system
                 items:
                   - name: Gridwich architecture
@@ -1463,12 +1721,18 @@ items:
                         href: reference-architectures/media-services/maintain-keys.yml
                       - name: Test Media Services V3 encoding
                         href: reference-architectures/media-services/test-encoding.yml
+          - name: Solution ideas
+            items:
+              - name: Instant broadcasting with serverless
+                href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
+              - name: Live streaming digital media
+                href: solution-ideas/articles/digital-media-live-stream.yml
+              - name: Video-on-demand digital media
+                href: solution-ideas/articles/digital-media-video.yml
       - name: Migration
         items:
           - name: Architectures
             items:
-              - name: Adding modern front-ends to legacy apps
-                href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml
               - name: Banking system
                 items:
                   - name: Banking cloud transformation
@@ -1478,8 +1742,6 @@ items:
                   - name: JMeter implementation reference
                     href: example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml
               - name: Lift and shift LOB apps
-                href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
-              - name: Lift and shift with AKS
                 href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
               - name: Oracle database migration
                 items:
@@ -1493,27 +1755,11 @@ items:
                     href: example-scenario/oracle-migrate/oracle-migration-refactor.yml
                   - name: Rearchitect
                     href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
-              - name: Serverless computing LOB apps
-                href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
-              - name: Unlock Legacy Data with Azure Stack
-                href: solution-ideas/articles/unlock-legacy-data.yml
-              - name: Decompose apps with Service Fabric
-                href: example-scenario/infrastructure/service-fabric-microservices.yml
-              - name: SQL 2008 R2 failover cluster in Azure
-                href: example-scenario/sql-failover/sql-failover-2008r2.yml
-              - name: Migrate mainframe data to Azure
-                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
-              - name: Migrate Unisys mainframes to Azure
-                href: reference-architectures/migration/unisys-mainframe-migration.yml
-              - name: Refactor IBM z/OS mainframe CF on Azure
-                href: reference-architectures/zos/refactor-zos-coupling-facility.yml
-              - name: Replicate and sync mainframe data in Azure
-                href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
       - name: Mixed Reality
         items:
-          - name: Architectures
+          - name: Solution ideas
             items:
-              - name: Mixed reality design reviews
+              - name: Design review with mixed reality
                 href: solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml
               - name: Facilities management with mixed reality
                 href: solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml
@@ -1521,8 +1767,10 @@ items:
                 href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
       - name: Mobile
         items:
-          - name: Architectures
+          - name: Solution ideas
             items:
+              - name: Adding mobile front-ends to legacy apps
+                href: solution-ideas/articles/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.yml
               - name: Custom mobile workforce app
                 href: solution-ideas/articles/custom-mobile-workforce-app.yml
               - name: Scalable apps with Azure MySQL
@@ -1539,12 +1787,12 @@ items:
             items:
               - name: Add IP spaces to peered virtual networks
                 href: networking/prefixes/add-ip-space-peered-vnet.md
-              - name: Azure Firewall Architecture Guide
+              - name: Azure Firewall architecture guide
                 href: example-scenario/firewalls/index.yml
-          - name: Architectures
-            items:
               - name: Virtual network peering and VPN gateways
                 href: reference-architectures/hybrid-networking/vnet-peering.yml
+          - name: Architectures
+            items:
               - name: Deploy highly available NVAs
                 href: reference-architectures/dmz/nva-ha.yml
               - name: High availability for IaaS apps
@@ -1555,22 +1803,44 @@ items:
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
               - name: Segmenting Virtual Networks
                 href: reference-architectures/hybrid-networking/network-level-segmentation.yml
-              - name: Azure Automation Update Management
-                href: hybrid/azure-update-mgmt.yml
-              - name: Design a hybrid Domain Name System solution with Azure
-                href: hybrid/hybrid-dns-infra.yml
-              - name: Hybrid availability and performance monitoring
-                href: hybrid/hybrid-perf-monitoring.yml
-              - name: Connect standalone servers by using Azure Network Adapter
-                href: hybrid/azure-network-adapter.yml
+              - name: Hybrid networking
+                items:
+                  - name: Azure Automation Update Management
+                    href: hybrid/azure-update-mgmt.yml
+                  - name: Connect standalone servers by using Azure Network Adapter
+                    href: hybrid/azure-network-adapter.yml
+                  - name: Design a hybrid Domain Name System solution with Azure
+                    href: hybrid/hybrid-dns-infra.yml
+                  - name: Hybrid availability and performance monitoring
+                    href: hybrid/hybrid-perf-monitoring.yml
       - name: SAP
         items:
-          - name: Overview
+          - name: Get started
             href: reference-architectures/sap/sap-overview.yml
+          - name: Guides
+            items:
+              - name: Checklist
+                href: /azure/virtual-machines/workloads/sap/sap-deployment-checklist
+                maintainContext: true
+              - name: SAP HANA infrastructure configurations and operations
+                href: /azure/virtual-machines/workloads/sap/hana-vm-operations
+                maintainContext: true
+              - name: SAP workload configurations with Availability Zones
+                href: /azure/virtual-machines/workloads/sap/sap-ha-availability-zones
+                maintainContext: true
+              - name: Supported scenarios for HANA Large Instances
+                href: /azure/virtual-machines/workloads/sap/hana-supported-scenario
+                maintainContext: true
           - name: Architectures
             items:
-              - name: SAP HANA on Azure (Large Instances)
+              - name: SAP HANA on Azure (Large Instances) with HA and DR
                 href: reference-architectures/sap/hana-large-instances.yml
+              - name: SAP HANA on Azure (Large Instances) general architecture
+                href: /azure/virtual-machines/workloads/sap/hana-architecture
+                maintainContext: true
+              - name: SAP HANA on Azure (Large Instances) network architecture
+                href: /azure/virtual-machines/workloads/sap/hana-network-architecture
+                maintainContext: true
               - name: SAP HANA Scale-up on Linux
                 href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
               - name: SAP NetWeaver on Windows on Azure
@@ -1579,12 +1849,24 @@ items:
                 href: reference-architectures/sap/sap-s4hana.yml
               - name: SAP BW/4HANA in Linux on Azure
                 href: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
-              - name: SAP NetWeaver on SQL Server
-                href: solution-ideas/articles/sap-netweaver-on-sql-server.yml
+              - name: SAP BusinessObjects BI platform on Azure
+                href: /azure/virtual-machines/workloads/sap/businessobjects-deployment-guide
+                maintainContext: true
+              - name: SAP BusinessObjects BI platform for Linux on Azure
+                href: /azure/virtual-machines/workloads/sap/businessobjects-deployment-guide-linux
+                maintainContext: true
               - name: SAP deployment using an Oracle DB
                 href: example-scenario/apps/sap-production.yml
+              - name: SAP System on Oracle Database on Azure
+                href: example-scenario/apps/sap-on-oracle.yml
               - name: Dev/test for SAP
                 href: example-scenario/apps/sap-dev-test.yml
+          - name: Solution ideas
+            items:
+              - name: SAP NetWeaver on SQL Server
+                href: solution-ideas/articles/sap-netweaver-on-sql-server.yml
+              - name: SAP S/4 HANA for Large Instances
+                href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
       - name: Security
         items:
           - name: Architectures
@@ -1599,6 +1881,12 @@ items:
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Homomorphic encryption with SEAL
                 href: solution-ideas/articles/homomorphic-encryption-seal.yml
+              - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
+                href: hybrid/hybrid-security-monitoring.yml
+              - name: MCAS and Azure Sentinel security for AWS
+                href: reference-architectures/aws/aws-azure-security-solutions.yml
+              - name: Multi-region app with private database connectivity
+                href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: Real-time fraud detection
                 href: example-scenario/data/fraud-detection.yml
               - name: Restrict interservice communications
@@ -1607,19 +1895,21 @@ items:
                 href: example-scenario/secrets/secure-refresh-tokens.yml
               - name: Securely managed web apps
                 href: example-scenario/apps/fully-managed-secure-apps.yml
-              - name: Web app private database connectivity
-                href: example-scenario/private-web-app/private-web-app.yml
               - name: Virtual network integrated microservices
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
-              - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
-                href: hybrid/hybrid-security-monitoring.yml
-              - name: MCAS and Azure Sentinel security for AWS
-                href: reference-architectures/aws/aws-azure-security-solutions.yml
+              - name: Web app private database connectivity
+                href: example-scenario/private-web-app/private-web-app.yml
       - name: Storage
         items:
           - name: Architectures
+            items:
+              - name: Using Azure file shares in a hybrid environment
+                href: hybrid/azure-file-share.yml
+              - name: Hybrid file services
+                href: hybrid/hybrid-file-services.yml
+          - name: Solution ideas
             items:
               - name: Media rendering
                 href: solution-ideas/articles/azure-batch-rendering.yml
@@ -1627,16 +1917,20 @@ items:
                 href: solution-ideas/articles/medical-data-storage.yml
               - name: HIPAA/HITRUST Health Data and AI
                 href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
-              - name: Using Azure file shares in a hybrid environment
-                href: hybrid/azure-file-share.yml
-              - name: Hybrid file services
-                href: hybrid/hybrid-file-services.yml
       - name: Web
         items:
           - name: Architectures
             items:
+              - name: Azure Functions in a hybrid environment
+                href: hybrid/azure-functions-hybrid.yml
               - name: Basic web application
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
+              - name: Azure Functions in a hybrid environment
+                href: hybrid/azure-functions-hybrid.yml
+              - name: Clinical insights with Microsoft Cloud for Healthcare
+                href: example-scenario/mch-health/medical-data-insights.yml
+              - name: Consumer health portal
+                href: example-scenario/digital-health/health-portal.yml
               - name: Deployment in App Service Environments
                 items:
                   - name: Standard deployment
@@ -1645,28 +1939,34 @@ items:
                     href: reference-architectures/enterprise-integration/ase-high-availability-deployment.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
+              - name: Intelligent product search engine for e-commerce
+                href: example-scenario/apps/ecommerce-search.yml
+              - name: Migrate a web app using Azure APIM
+                href: example-scenario/apps/apim-api-scenario.yml
+              - name: Protect APIs with Application Gateway and API Management
+                href: reference-architectures/apis/protect-apis.yml
+              - name: Scalable and secure WordPress on Azure
+                href: example-scenario/infrastructure/wordpress.yml
+              - name: Scalable order processing
+                href: example-scenario/data/ecommerce-order-processing.yml
+              - name: Scalable web app
+                href: reference-architectures/app-service-web-app/scalable-web-app.yml
+              - name: Serverless web app
+                href: reference-architectures/serverless/web-app.yml
+              - name: Virtual visits with Microsoft Cloud for Healthcare
+                href: example-scenario/mch-health/virtual-health-mch.yml 
+              - name: Web app monitoring on Azure
+                href: reference-architectures/app-service-web-app/app-monitoring.yml
+          - name: Solution ideas
+            items:
+              - name: Dynamics Business Central as a Service on Azure
+                href: solution-ideas/articles/business-central.yml
               - name: E-commerce website running in ASE
                 href: solution-ideas/articles/ecommerce-website-running-in-secured-ase.yml
               - name: Highly available SharePoint farm
                 href: solution-ideas/articles/highly-available-sharepoint-farm.yml
-              - name: Highly available multi-region web application
-                href: reference-architectures/app-service-web-app/multi-region.yml
               - name: Hybrid SharePoint farm with Microsoft 365
                 href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
-              - name: Intelligent product search engine for e-commerce
-                href: example-scenario/apps/ecommerce-search.yml
-              - name: Magento e-commerce in AKS
-                href: example-scenario/magento/magento-azure.yml
-              - name: Migrate a web app using Azure APIM
-                href: example-scenario/apps/apim-api-scenario.yml
-              - name: Multi-region N-tier application
-                href: reference-architectures/n-tier/multi-region-sql-server.yml
-              - name: Multitenant SaaS
-                href: example-scenario/multi-saas/multitenant-saas.yml
-              - name: Multi-tier web application built for HA/DR
-                href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
-              - name: SAP S/4 HANA for Large Instances
-                href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
               - name: Scalable e-commerce web app
                 href: solution-ideas/articles/scalable-ecommerce-web-app.yml
               - name: Scalable Episerver marketing website
@@ -1675,27 +1975,13 @@ items:
                 href: solution-ideas/articles/digital-marketing-sitecore.yml
               - name: Scalable Umbraco CMS web app
                 href: solution-ideas/articles/medium-umbraco-web-app.yml
-              - name: Scalable and secure WordPress on Azure
-                href: example-scenario/infrastructure/wordpress.yml
-              - name: Scalable order processing
-                href: example-scenario/data/ecommerce-order-processing.yml
-              - name: Scalable web app
-                href: reference-architectures/app-service-web-app/scalable-web-app.yml
-              - name: More Scalable web apps
+              - name: Scalable web apps with Redis
                 href: solution-ideas/articles/scalable-web-apps.yml
-              - name: Serverless web app
-                href: reference-architectures/serverless/web-app.yml
               - name: Simple branded website
                 href: solution-ideas/articles/simple-branded-website.yml
               - name: Simple digital marketing website
                 href: solution-ideas/articles/digital-marketing-smb.yml
-              - name: Web app monitoring on Azure
-                href: reference-architectures/app-service-web-app/app-monitoring.yml
-              - name: 'Web and mobile applications with MySQL, Cosmos DB, and Redis'
+              - name: Web and mobile apps with MySQL and Redis
                 href: solution-ideas/articles/webapps.yml
-              - name: Dynamics Business Central as a Service on Azure
-                href: solution-ideas/articles/business-central.yml
-              - name: Azure Functions in a hybrid environment
-                href: hybrid/azure-functions-hybrid.yml
   - name: Cloud Adoption Framework
     href: /azure/cloud-adoption-framework

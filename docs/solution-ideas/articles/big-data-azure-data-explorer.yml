@@ -4,14 +4,16 @@ metadata:
   titleSuffix: Azure Solution Ideas
   description: Big Data Analytics with Azure Data Explorer demonstrates Azure Data Explorer's abilities to cater to volume, velocity, and variety of data.
   author: orspod
+  ms.author: pnp
   ms.date: 08/11/2020
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.custom:
-    - fcp
   ms.category:
     - analytics
     - iot
+  ms.custom:
+    - fcp
 name: Big data analytics with Azure Data Explorer
 azureCategories:
   - analytics

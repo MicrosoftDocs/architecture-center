@@ -93,7 +93,7 @@ After the initial release, you should run performance and capacity tests wheneve
 
 ## Monitoring
 
-**Make systems observable.** The operations team should always have clear visibility into the health and status of a system or service. Set up external health endpoints to monitor status, and ensure that applications are coded to instrument the operations metrics. Use a common and consistent schema that helps you correlate events across systems. [Azure Diagnostics][azure-diagnostics] and [Application Insights][app-insights] are the standard method of tracking the health and status of Azure resources. Microsoft [Operation Management Suite][oms] also provides centralized monitoring and management for cloud or hybrid solutions.
+**Make systems observable.** The operations team should always have clear visibility into the health and status of a system or service. Set up external health endpoints to monitor status, and ensure that applications are coded to instrument the operations metrics. Use a common and consistent schema that helps you correlate events across systems. [Azure Diagnostics][azure-diagnostics] and [Application Insights][app-insights] are the standard method of tracking the health and status of Azure resources. [Azure Monitor][azure-monitor] also provides centralized monitoring and management for cloud or hybrid solutions.
 
 **Aggregate and correlate logs and metrics**. A properly instrumented telemetry system will provide a large amount of raw performance data and event logs. Make sure that telemetry and log data is processed and correlated in a short period of time, so that operations staff always have an up-to-date picture of system health. Organize and display data in ways that give a cohesive view of any issues, so that whenever possible it's clear when events are related to one another.
 
@@ -113,7 +113,7 @@ After the initial release, you should run performance and capacity tests wheneve
 
 Containers also create an abstraction layer between the application and the underlying operating system, which provides consistency across environments. This abstraction can also isolate a container from other processes or applications running on a host.
 
-**Implement resiliency and self-healing.** Resiliency is the ability of an application to recover from failures. Strategies for resiliency include retrying transient failures, and failing over to a secondary instance or even another region. For more information, see [Designing reliable Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
+**Implement resiliency and self-healing.** Resiliency is the ability of an application to recover from failures. Strategies for resiliency include retrying transient failures, and failing over to a secondary instance or even another region. For more information, see [Designing reliable Azure applications](../framework/resiliency/app-design.md)
 . Instrument your applications so that issues are reported immediately and you can manage outages or other system failures.
 
 **Have an operations manual.** An operations manual or *runbook* documents the procedures and management information needed for operations staff to maintain a system. Also document any operations scenarios and mitigation plans that might come into play during a failure or other disruption to your service. Create this documentation during the development process, and keep it up to date afterwards. This is a living document, and should be reviewed, tested, and improved regularly.
@@ -151,7 +151,7 @@ For more about DevOps, see [What is DevOps?][what-is-devops] on the Visual Studi
 [canary-release]:https://martinfowler.com/bliki/CanaryRelease.html
 [dev-test]: https://azure.microsoft.com/solutions/dev-test
 [feature-toggles]: https://www.martinfowler.com/articles/feature-toggles.html
-[oms]: https://www.microsoft.com/cloud-platform/operations-management-suite
+[azure-monitor]: https://azure.microsoft.com/services/monitor/
 [rbac]: /azure/role-based-access-control/overview
 [resource-manager]: /azure/azure-resource-manager
 [trunk-based]: https://trunkbaseddevelopment.com

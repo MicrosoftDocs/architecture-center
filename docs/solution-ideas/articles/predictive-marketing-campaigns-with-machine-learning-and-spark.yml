@@ -2,15 +2,25 @@
 metadata:
   title: Predictive Marketing with Machine Learning
   titleSuffix: Azure Solution Ideas
-  author: doodlemania2
-  ms.date: 12/16/2019
   description: Build a machine-learning model with Microsoft R Server on Azure HDInsight Spark clusters that optimizes big data marketing campaigns.
-  ms.custom: 'acom-architecture, predictive marketing, ai-ml, analytics, predictive analytics software, predictive analytics marketing, ''https://azure.microsoft.com/solutions/architecture/predictive-marketing-campaigns-with-machine-learning-and-spark/'''
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 12/16/2019
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - ai-machine-learning
     - analytics
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - predictive marketing
+    - ai-ml
+    - analytics
+    - predictive analytics software
+    - predictive analytics marketing
+    - "https://azure.microsoft.com/solutions/architecture/predictive-marketing-campaigns-with-machine-learning-and-spark/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-marketing-campaigns-with-machine-learning-and-spark.png
 name: Predictive Marketing with Machine Learning
 azureCategories:
@@ -25,4 +35,4 @@ products:
   - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/predictive-marketing-campaigns-with-machine-learning-and-spark.png
 content: |
-   [!include[](predictive-marketing-campaigns-with-machine-learning-and-spark-content.md)]
+  [!include[](predictive-marketing-campaigns-with-machine-learning-and-spark-content.md)]

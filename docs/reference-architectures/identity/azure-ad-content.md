@@ -3,7 +3,7 @@
 
 
 
-Azure Active Directory (Azure AD) is a cloud-based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication. [**Deploy this solution**](#deploy-the-solution).
+Azure Active Directory (Azure AD) is a cloud-based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication.
 
 ![Cloud identity architecture using Azure Active Directory](./images/azure-ad.png)
 
@@ -35,10 +35,10 @@ The architecture has the following components.
 - **Azure AD Connect sync server**. An on-premises computer that runs the [Azure AD Connect][azure-ad-connect] sync service. This service synchronizes information held in the on-premises Active Directory to Azure AD. For example, if you provision or deprovision groups and users on-premises, these changes propagate to Azure AD.
 
   > [!NOTE]
-  > For security reasons, Azure AD stores user's passwords as a hash. If a user requires a password reset, this must be performed on-premises and the new hash must be sent to Azure AD. Azure AD Premium editions include features that can automate this task to enable users to reset their own passwords.
+  > For security reasons, Azure AD stores user's passwords as a hash. If a user requires a password reset, this must be performed on-premises and the new hash must be sent to Azure AD. Azure AD Premium editions include features that can allow for password changes to happen in the cloud and then be written back to on-premises AD DS.
   >
 
-- **VMs for N-tier application**. The deployment includes infrastructure for an N-tier application. For more information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+- **VMs for N-tier application**. For more information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
 
 ## Recommendations
 
@@ -186,7 +186,7 @@ For more information and tips for managing Azure AD Connect, see [Azure AD Conne
 
 Use conditional access control to deny authentication requests from unexpected sources:
 
-- Trigger [Azure Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from a untrusted location such as across the Internet instead of a trusted network.
+- Trigger [Azure Active Directory Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from a untrusted location such as across the Internet instead of a trusted network.
 
 - Use the device platform type of the user (iOS, Android, Windows Mobile, Windows) to determine access policy to applications and features.
 
@@ -202,23 +202,37 @@ For more information, see [Azure Active Directory conditional access][aad-condit
 
 For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#devops-considerations).
 
-## Cost considerations
-
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
-
-Here are cost considerations for the services used in this architecture.
-
 ### Azure AD Connect
 
-For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Connect sync feature is available in all editions.
+The Azure AD Connect synchronization feature is available in all editions of Azure Active Directory.
 
 ### VMs for N-Tier application
 
-The deployment includes infrastructure for an N-tier application. For cost information about these resources, [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
+For cost information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
 
-## Deploy the solution
+## Pricing
 
-A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. To deploy the solution, see the [readme](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad) on GitHub.
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. 
+
+- Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+- For pricing information about the editions of Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing].
+
+## Next steps
+
+- Review the [Azure Active Directory Hybrid Identity Design Considerations][hybrid-identity-design], which includes further information on making decisions regarding hybrid identity.
+- Review [Topologies for Azure AD Connect][aad-topologies] to ensure the hybrid topology for Azure AD Connect is deployed in a supported configuration.
+- Learn about using conditional access to protect access to your applications, with [Plan a Conditional Access deployment][aad-ca-plan].
+- For more information on providing AD DS in Azure as infrastructure, review [Integrating on-premises AD with Azure][adds-azure-design].
+- Review [Azure AD Application Proxy][aad-application-proxy] if you intend on providing Azure AD integrations with on-premises or cloud IaaS applications.
+- Because identity is the new control plane for security, review [Identity Management Best Practices][identity-best-practices]. 
+- Furthmore, as deplying this solution requires highly privileged accounts, review [Securing privileged access][security-compass-paw], to understand security controls for privileged accounts.
+
+## Related resources
+
+* [Manage identity in multitenant applications](/azure/architecture/multitenant-identity/)
+* [Integrate on-premises AD with Azure](/azure/architecture/reference-architectures/identity/)
+* [Extend on-premises AD FS to Azure](/azure/architecture/reference-architectures/identity/adfs)
+
 
 <!-- links -->
 
@@ -256,3 +270,9 @@ A deployment for a reference architecture that implements these recommendations 
 [visio-download]: https://arch-center.azureedge.net/identity-architectures.vsdx
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
 [AAF-devops]: ../../framework/devops/overview.md
+[hybrid-identity-design]: /azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview
+[aad-ca-plan]: /azure/active-directory/conditional-access/plan-conditional-access
+[adds-azure-design]: /azure/architecture/reference-architectures/identity/
+[identity-best-practices]: /azure/security/fundamentals/identity-management-best-practices
+[security-compass-paw]: /security/compass/overview
+[security-compass]:/security/compass/compass

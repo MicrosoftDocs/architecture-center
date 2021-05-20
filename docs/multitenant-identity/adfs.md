@@ -5,14 +5,14 @@ author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - identity
-ms.subservice: azure-guide
+ms.custom:
+  - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: token-cache
 pnp.series.next: client-assertion
-ms.custom:
-  - guide
 ---
 
 # Federate with a customer's AD FS
@@ -197,7 +197,7 @@ The customer must do the following:
 [Expiration time]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.
 [Name identifier]: /dotnet/api/system.security.claims.claimtypes.nameidentifier?view=netcore-3.1
 [active-directory-on-azure]: /windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100
-[blog post]: https://www.cloudidentity.com/blog/2015/08/21/openid-connect-web-sign-on-with-adfs-in-windows-server-2016-tp3
+[blog post]: https://www.cloudidentity.com/blog/?p=3343
 [Customizing the AD FS Sign-in Pages]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [client assertion]: ./client-assertion.md
