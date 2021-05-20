@@ -141,7 +141,7 @@ conceptualContent:
         url: ./data-guide/technology-choices/r-developers-guide.md
       - text: Movie recommendation
         itemType: get-started
-        url: ./example-scenario/ai/movie-recommendations.yml
+        url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - text: Scalable personalization
         itemType: get-started
         url: ./example-scenario/ai/scalable-personalization.yml

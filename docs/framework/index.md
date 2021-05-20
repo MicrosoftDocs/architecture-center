@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure Well-Architected Framework
-titleSuffix: Microsoft Azure Well-Architected Framework introduction
-description: Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.
+titleSuffix: Azure Architecture Center
+description: Azure Well-Architected Framework describes five pillars of cost optimization, operational excellence, performance efficiency, reliability, and security, that result in a high quality and scalable cloud architecture.
 author: doodlemania2
 ms.date: 11/20/2019
 ms.topic: conceptual
@@ -10,11 +10,17 @@ ms.subservice: well-architected
 ms.custom:
   - seojan19
   - guide
+  - seo-aac-fy21q3
+keywords:
+  - "Well-architected framework"
+  - "Azure Well Architected Framework"
+  - "Azure architecture"
+  - "architecture framework"
 ---
 
 # Microsoft Azure Well-Architected Framework
 
-The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security. Incorporating these pillars helps produce a high quality, stable, and efficient cloud architectures.
 
 To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).  
 
@@ -45,7 +51,7 @@ When you are designing a cloud solution, focus on generating incremental value e
 
 ## Operational Excellence
 
-This pillar covers the operations processes that keep an application running in production. Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
+This pillar covers the operations and processes that keep an application running in production. Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
 
 Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you do not have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into VMs to troubleshoot an issue or sift through log files. With PaaS services, there may not even be a dedicated VM to log into. Monitoring and diagnostics give insight into the system, so that you know when and where failures occur. All systems must be observable. Use a common and consistent logging schema that lets you correlate events across systems.
 
