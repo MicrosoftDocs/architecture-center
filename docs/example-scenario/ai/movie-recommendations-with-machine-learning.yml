@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Movie recommendations on Azure
-  description: Use machine learning and an Azure Data Science Virtual Machine (DSVM) to train a model to automatically generate movie recommendations.
+  title: Build a movie recommendation system
+  description: Create a movie recommendation system using machine learning and Azure Data Science Virtual Machine (DSVM) to train a model.
   author: njray
   ms.date: 01/09/2019
   ms.topic: conceptual
@@ -15,19 +15,20 @@ metadata:
     - AI
     - example-scenario
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/example-scenario/ai/media/architecture-movie-recommender.png
-name: Movie recommendations on Azure
+name: Build a movie recommendation system using machine learning
 azureCategories:
   - ai-machine-learning
   - media
-summary: Use machine learning and an Azure Data Science Virtual Machine (DSVM) to train a model to automatically generate movie recommendations.
+summary: Create a movie recommendation system using machine learning and Azure Data Science Virtual Machine (DSVM) to train a model.
 products:
   - azure-blob-storage
   - azure-container-instances
   - azure-cosmos-db
   - azure-data-science-vm
   - azure-machine-learning
-
+  - azure-databricks
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-movie-recommender.png
 content: |
-  [!include[](movie-recommendations-content.md)]
+  [!include[](movie-recommendations-with-machine-learning-content.md)]
