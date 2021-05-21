@@ -22,8 +22,8 @@ The AI Gallery solution, which is an implementation of this solution idea, has t
 
 ## Components
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) provides elasticity modeling core services.
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) enables building pricing models.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) stores model and any intermediate data generated.
 - [Azure SQL Server](https://azure.microsoft.com/products/azure-sql/database/) stores transaction history data and generated model predictions.
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) used to schedule periodic (for example, weekly) model refreshes.
 - [Power BI](https://powerbi.microsoft.com/what-is-power-bi/) enables visualization of results.
