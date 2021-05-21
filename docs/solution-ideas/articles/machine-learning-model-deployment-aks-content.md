@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea sketches out real-time inference on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). Use AKS when you need a high-scale production deployments of your machine learning models. High-scale means capabilities such as fast response time, autoscaling of the deployed service, and logging. For more information, see [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service).
+This solution idea sketches out real-time inference on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). Use AKS when you need high-scale production deployments of your machine learning models. High-scale means capabilities such as fast response time, autoscaling of the deployed service, and logging. For more information, see [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service).
 
 In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow/) is used to manage the deployment to AKS. Your ML models run on AKS clusters backed by GPU enabled VMs.
 
@@ -14,7 +14,7 @@ In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow/) is u
 1. Package machine learning (ML) model into a container and publish to Azure Container Registry (ACR).
 1. Azure Blob storage hosts training data sets and trained model.
 1. Use Kubeflow to deploy training job to Azure Kubernetes Services (AKS), distributed training job to AKS includes Parameter servers and Worker nodes.
-1. Serve production model using Kubeflow, promoting a consistent environment across test, control and production.
+1. Serve production model using Kubeflow, promoting a consistent environment across test, control, and production.
 1. AKS supports GPU enabled VM.
 1. Developers build features to query the model running in AKS cluster.
 
