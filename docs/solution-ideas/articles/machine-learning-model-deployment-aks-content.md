@@ -4,7 +4,7 @@ This solution idea sketches out real-time inference on [Azure Kubernetes Service
 
 In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow/) is used to manage the deployment to AKS. Your ML models run on AKS clusters backed by GPU enabled VMs.
 
-## Architecture of deployment to ASK
+## Architecture of deployment to AKS
 
 ![Architecture diagram: deploying machine learning models to AKS](../media/machine-learning-with-aks.png)
 *Download an [SVG](../media/machine-learning-with-aks.svg) of this architecture.*
