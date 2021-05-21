@@ -33,6 +33,8 @@ products:
   - azure-machine-learning
   - office-excel
   - power-bi
+  - azure-blob-storage
+  - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/interactive-price-analytics.png
 content: |
   [!include[](interactive-price-analytics-content.md)]
