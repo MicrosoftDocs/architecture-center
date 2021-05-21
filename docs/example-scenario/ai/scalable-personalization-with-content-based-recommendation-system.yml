@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Build a content-based recommendation system
-  description: Create content-based recommendations system with Azure Machine Learning and Databricks that can deliver personalized recommendations.
+  description: Create content-based recommendation systems that can deliver personalized recommendations to your customers with Azure Machine Learning and Databricks.
   author: gramhagen
   ms.author: scgraham
   ms.date: 05/31/2019
@@ -22,7 +22,7 @@ name: Build a content-based recommendation system
 azureCategories:
   - ai-machine-learning
   - featured
-summary: Create content-based recommendations system with Azure Machine Learning and Databricks that can deliver personalized recommendations.
+summary: Create content-based recommendation systems that can deliver personalized recommendations to your customers with Azure Machine Learning and Databricks.
 products:
   - azure-blob-storage
   - azure-container-registry
