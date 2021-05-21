@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Deploying machine learning models on AKS
+  title: Deploying machine learning models to AKS
   titleSuffix: Azure Solution Ideas
-  description: Deploy machine learning models on Azure Kubernetes Service (AKS) for high-scale production inference.
+  description: Deploy machine learning models to Azure Kubernetes Service (AKS) for high-scale production inference.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/16/2019
@@ -24,7 +24,7 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/machine-learning-with-aks.png
-name: Deploying machine learning models on AKS with Kubeflow
+name: Deploying machine learning models to AKS with Kubeflow
 azureCategories:
   - ai-machine-learning
   - containers
