@@ -20,11 +20,21 @@ This is essentially an active/active design within a single region, where high a
 
 ### Front Door
 
-In this architecture [Azure Front Door] serves as an edge for all public HTTP traffic ingressing into the Azure Region. Because this is a single region design, the global load balancing feature of Front Door is not used. Front Door provides CDN style cache, DDOS and WAF functionality in one convenient service. However, [Azure CDN] and/or [Azure Application Gateway] could be used instead.  
+Azure Front Door is a global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. Front Door is resilient to failures, including failures to an entire Azure region.
+
+In this architecture [Azure Front Door] serves as an edge for all public HTTP traffic ingressing into the Azure Region. Front Door provides CDN style cache, DDOS, WAF functionality, and WAN acceleration in one convenient service. Alternatively, [Azure CDN] and [Azure Application Gateway] could be used instead.
 
 ## Recommendations
 
 Your requirements might differ from the architecture described here. Use the recommendations in this section as a starting point.
+
+### App Service
+
+> ℹ Zone Redundancy for Azure App Services will be announced soon.
+
+App Service Premium v2, Premium v3 and Isolated v3 SKUs can be enabled for zone-redundancy. In this configuration App Service Plan instances are distributed across multiple availability zones to protect from data-center or zone failure. The minimum instance count for Premium v2 and Premium v3 SKUs with zone-redundancy enabled is 3 instances. The minimum instance count for Isolated v3 with zone-redendancy enabled is 9 instances.
+
+Function Apps should be hosted in a dedicated App Service Plan with zone-redundancy enabled. Availability Zone support for Premium Functions is planned with details to be announced soon. 
 
 ### SQL Database
 
@@ -42,6 +52,22 @@ For Azure Storage, use [Zone-redundant storage][zrs] (ZRS). With ZRS storage, Az
 
 A write request to a storage account that is using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones. With ZRS, your data is still accessible for both read and write operations even if a zone becomes unavailable.
 
+### Service Bus
+
+The [Service Bus Premium SKU supports Availability Zones][servicebus-az], providing fault-isolated locations within the same Azure region. Service Bus manages three copies of messaging store (1 primary and 2 secondary). Service Bus keeps all the three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime.
+
+### Cache for Redis
+
+Cache for Redis supports [zone redundant configurations][redis-zr] in the Premium and Enterprise tiers. A zone redundant cache can place its nodes across different Azure Availability Zones in the same region. It eliminates datacenter or AZ outage as a single point of failure and increases the overall availability of your cache.
+
+### Cognitive Search
+
+You can utilize [Availability Zones with Azure Cognitive Search][cog-search-az] by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region. If you have more replicas than Availability Zones, the replicas will be distributed across Availability Zones as evenly as possible.
+
+### Key Vault
+
+Key Vault is zone redundant in any region where Availbility zones are available. There is no additional configuration required.
+
 
 <!-- links -->
 
@@ -53,3 +79,6 @@ A write request to a storage account that is using ZRS happens synchronously. Th
 [sql-azs]:https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla#premium-and-business-critical-service-tier-zone-redundant-availability
 [az-regions]:https://docs.microsoft.com/en-us/azure/availability-zones/az-region#azure-regions-with-availability-zones
 [az-services]:https://docs.microsoft.com/en-us/azure/availability-zones/az-region
+[servicebus-az]:https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones
+[redis-zr]:https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-high-availability#zone-redundancy
+[cog-search-az]:https://docs.microsoft.com/en-us/azure/search/search-performance-optimization#availability-zones
