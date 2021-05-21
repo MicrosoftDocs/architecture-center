@@ -195,99 +195,76 @@ It's critical that you maintain thorough documentation about the processes and p
 
 ### Requirement 8.1
 Define and implement policies and procedures to ensure proper user identification management for non-consumer users and administrators on all system components as follows:
+- 8.1.1 Assign all users a unique ID before allowing them to access system components or cardholder data.
+- 8.1.2 Control addition, deletion, and modification of user IDs, credentials, and other identifier objects.
+- 8.1.3 Immediately revoke access for any terminated users.
+- 8.1.4 Remove/disable inactive user accounts within 90 days.
+- 8.1.5 Manage IDs used by thid parties to access, support, or maintain system components via remote access as follows:
+    - Enabled only during the time period needed and disabled when not in use.
+    - Monitored when in use.
+- 8.1.6 Limit repeated access attempts by locking out the user ID after not more than six attempts.
+- 8.1.7 Set the lockout duration to a minimum of 30 minutes or until an administrator enables the user ID.
+- 8.1.8 If a session has been idle for more than 15 minutes, require the user to re-authenticate to re-activate the terminal or session.
 
 #### Your responsibilities
 
-When you create the AKS cluster, consider enabling Azure Active Directory (AD) for user authentication. Create role bindings to use Kubernetes role-based access control (Kubernetes RBAC) to limit access to cluster resources, data, and runtime enviroments based a user's identity or group membership. 
+Here are overall considerations for this requirement:
+
+**APPLIES TO: 8.1.1, 8.1.2, 8.1.3**
+
+Don't share or reuse identities for functionally different parts of the cluster or pods.For example, using a team account to access data or cluster resources. Make sure the identity onboarding documentation is clear about not using shared accounts.
+
+In AKS, you can assign user-managed identities to individual pods, using the [aad-pod-identity project](https://github.com/Azure/aad-pod-identity). When the pod needs to access another resource, it authenticates itself by using the pod identity. Maintain managed-identity segmentation between pods. This means two pods (especially that are functionally discrete) must not share an identity when accessing other resources. 
+
+While preceding guidance must be applied to user identities, we recommend not sharing system identities.
+
+[Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
+
+
+**APPLIES TO: 8.1.2, 8.1.3, 8.1.4**
+
+When you create the AKS cluster, enable Azure Active Directory (AD) as the identity store for use authentication. Create role bindings to use Kubernetes role-based access control (Kubernetes RBAC) to limit access to cluster resources, data, and runtime enviroments based a user's identity or group membership. 
 
 A strategy to limit access is to minimize standing permissions. Opt for [ Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks) in Azure Active Directory (AD) through Privileged Identity Management. This approach is appropriate for situations where SREs need to interact with your cluster temporararily. 
 
-Add extra restrictions on authentication for privileged access through [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks) where possible. 
+Add extra restrictions for privileged access through [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks) where possible. 
 
 Always do deployments through authorized build and release pipelines. The pipelines should also minimize exposure to individuals high prividlege access. 
 
 Make sure RBAC assignments are scoped appropriately for least access.
 
-#### Requirement 8.1.1
-Assign all users a unique ID before allowing them to access system components or cardholder data.
+Because the cluster and all Azure resources use Azure AD, disabling or revoking  Azure AD access is applied to all resources automatically. If there are any components that are not controlled by Azure AD, make sure you have process to remove access. For example, SSH credentials for accessing a jump box might need explicit removal if the user is no longer valid.
+
+**APPLIES TO: 8.1.5**
+
+Take advantage of Azure AD business-to-business (B2B) that's designed to host third-party accounts, such as vendors, partners, as guest users. The third-party uses their own identities; Azure AD is not required. Grant the appropriate level of access by using conditional policies to protect corporate data. These accounts must have minimal standing permissions and mandatory expiry dates. For more information, see [What is guest user access in Azure Active Directory B2B](/azure/active-directory/external-identities/what-is-b2b).
+
+<Ask Chad: Azure AD B2C - Customers/citizens>
+
+Your organization should have a clear and documented pattern of vendor and similar access.
+
+**APPLIES TO: 8.1.6, 8.1.7, 8.1.8**
 
 ##### Your responsibilities
+Azure AD provides a [smart lock out feature](/azure/active-directory/authentication/howto-password-smart-lockout) to lock out users after failed sign-in attempts. The recommended way to implement lock outs is with Azure AD Conditional Access policies.
 
-Don't share identities, such as, using a team account to access data or cluster resources. Make sure the identity onboarding documentation is clear about not using shared accounts.
+Consider a similar strategy for components that might be not be integrated with Azure AD, such as a jump box.
 
-Strongly recommend extending this past user identities, and apply similar to system identities such as user and system-managed identities. Ensure single purpose identity associations, do not reuse user managed identities for functionally different parts of the system or pods in the system.
+AKS nodes are not designed to be individually accessed. Reaching cluster nodes through SSH is not recommended. To enable SSH, you need a high-prividleged DaemonSet, which is considered to be a security risk. If you do this, be aware that any node-level changes can cause the your cluster to be out of support.
 
-<To Do.>
-
-system managed identity: when resource created that has a principal.
-user: identity lives before something is created and lives outside. 
-
-pod identity (user). many things deployed inside the cluster using the same pod identity. this is fine. 
-
-two pods must not be identified with the same identity if the workload they a re running don't need to interact. "discrete items" pod or azure service. 
-
-[Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
-
-#### Requirement 8.1.2
-Control addition, deletion, and modification of user IDs, credentials, and other identifier objects.
-
-##### Your responsibilities
-
-"Handled as part of your Azure AD identity governance.
-
-Strongly recommend extending this past user identities, and apply similar to system identities such as user and system-managed identities. Components of your system or your workload (pods) will have their own identities, they too should be controled, as they can be granted RBAC access and be potentially assigned to malacious resources and will inherit their permissions."
-
-#### Requirement 8.1.3
-Immediately revoke access for any terminated users.
-
-##### Your responsibilities
-
-TBD
-
-#### Requirement 8.1.4
-Remove/disable inactive user accounts within 90 days.
-
-##### Your responsibilities
-
-TBD
-
-#### Requirement 8.1.5
-Manage IDs used by thid parties to access, support, or maintain system components via remote access as follows:
-- Enabled only during the time period needed and disabled when not in use.
-- Monitored when in use.
-
-##### Your responsibilities
-
-TBD
-
-#### Requirement 8.1.6
-Limit repeated access attempts by locking out the user ID after not more than six attempts.
-
-##### Your responsibilities
-
-TBD
-
-#### Requirement 8.1.7
-Set the lockout duration to a minimum of 30 minutes or until an administrator enables the user ID.
-
-##### Your responsibilities
-
-TBD
-
-#### Requirement 8.1.8
-If a session has been idle for more than 15 minutes, require the user to re-authenticate to re-activate the terminal or session.
-
-##### Your responsibilities
-
-TBD
-
-TBD
+<Ask Chad: I am not sure what SSH has to do with lockout, need something for shorting TTL>
 
 ### Requirement 8.2
- In addition to assigning a unique ID, ensure proper user-authentication management for non-consumer users and administrators on all system components by employing at least one of the following methods to authenticate all users:
-- Something you know, such as a password or passphrase
-- Something you have, such as a token device or smart card
-- Something you are, such as a biometric.
+ In addition to assigning a unique ID, ensure proper user-authentication management for non-consumer users and administrators on all system components by employing at least one of the following methods to authenticate all users: Something you know, such as a password or passphrase, Something you have, such as a token device or smart card, Something you are, such as a biometric.
+
+- 8.2.1 Using strong cryptography, render all authentication credentials (such as passwords/phrases) unreadable during transmission and storage on all system components.
+- 8.2.2 Verify user identity before modifying any authentication credential—for example, performing password resets, provisioning new tokens, or generating new keys.
+- 8.2.3 Passwords/phrases must meet the following:
+    - Require a minimum length of at least seven characters.
+    - Contain both numeric and alphabetic characters.
+- 8.2.4 Change user passwords/passphrases at least once every 90 days.
+- 8.2.5 Do not allow an individual to submit a new password/phrase that is the same as any of the last four passwords/phrases he or she has used.
+- 8.2.6 Set passwords/phrases for first-time use and upon reset to a unique value for each user, and change immediately after the first use.
 
 #### Your responsibilities
 
