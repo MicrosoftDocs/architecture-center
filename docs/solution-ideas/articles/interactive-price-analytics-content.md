@@ -47,21 +47,21 @@ Data sparsity occurs because the optimal price varies at a fine grain: businesse
 
 This solution analyzes your historical prices and
 
-* shows you in one glance at the dashboard how elastic your product demand is
-* provides pricing recommendations for every product in your item catalog
-* discovers related products (substitutes and complements)
-* lets you simulate promotional scenarios in Excel.
+* Shows you in one glance at the dashboard how elastic your product demand is.
+* Provides pricing recommendations for every product in your item catalog.
+* Discovers related products (replacements and complements).
+* Lets you simulate promotional scenarios in Excel.
 
 ## Estimated cost
 
-The estimated cost for the solution is approximately $10/day ($300/month)
+The estimated cost for the solution is approximately $10/day ($300/month):
 
 * $100 for S1 standard ML service plan
 * $75 for an S2 SQL database
 * $75 for app hosting plan
 * $50 in miscellaneous ADF data activities and storage costs
 
-If you are just exploring the solution, you can delete it in a few days or hours. The costs are pro-rated and will cease to be charged when you delete the Azure components.
+If you're just exploring the solution, you can delete it in a few days or hours. The costs are pro-rated and will stop being charged when you delete the Azure components.
 
 ## Getting started
 
@@ -71,16 +71,16 @@ The solution deploys with the same example data set of orange juice prices that 
 
 While the solution is deploying, you can get a head start and
 
-* See what is available in the Try-It-Now dashboard
-* Peruse the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) for usage instructions from the perspective of a pricing analyst (MSFT login required)
-* Review the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a technical implementation view (MSFT login required)
-* Download the interactive Excel worksheet
+* See what is available in the Try-It-Now dashboard.
+* Read the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) for usage instructions from the perspective of a pricing analyst (MSFT login required).
+* Review the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a technical implementation view (MSFT login required).
+* Download the interactive Excel worksheet.
 
 After the solution deploys, complete the [first walkthrough](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Walkthrough%201%20-%20Promotion%20Simulation/PromoSimulationWalkthrough.md) (MSFT login required).
 
 ## Solution dashboard
 
-The solution dashboard's most actionable part is the Pricing Suggestion tab. It tells you which of your items are underpriced or overpriced. It suggests an optimal price for each item and the predicted impact of adopting the suggestion. The suggestions are prioritized by the largest opportunity to earn incremental gross margin.
+The solution dashboard's most actionable part is the Pricing Suggestion tab. It tells you which of your items are underpriced or overpriced. The tab suggests an optimal price for each item and the predicted impact of adopting the suggestion. The suggestions are prioritized by the largest opportunity to earn incremental gross margin.
 
 Other tabs provide supplemental information illuminating how the system arrived at the suggestions and are discussed in more detail in the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md). (You must be logged into GitHub with a Microsoft Azure account while solution is in private preview.)
 
