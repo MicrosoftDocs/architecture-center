@@ -73,24 +73,16 @@ Define access needs for each role, including:
 
 ##### Your responsibilities
 Define a list of access for each role. Think about the roles and functions in your organization. For example:
-- Who needs complete access to the cluster?
-- Do you need an emergency break-glass cluster admin user?
-- Who needs access for triage?
-- Who can create or update resources within a namespace?
 
+|Team|Functions|Role assignment
+|---|---|---|
+|Application team|Decisions about application security, Kubernetes RBAC, network policies, Azure policies, communication with other services. |
+Network security|Configuration and maintenance of Azure Firewall, Web Application Firewall (WAF), network security groups (NSGs), DNS configuration, and so on.|
+|Network operations|Allocation of enterprise-wide virtual network and subnets.| 
+|IT operations|Monitor and remediate server security, patching, configuration, endpoint security.| 
+|Security operations| Incident monitoring and response team. Investigate and remediate security incidents in Security Information and Event Management (SIEM) or Azure Security Center. |
+|Policy Management|	Set direction for use of RBAC, Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources.|
 
-What is your security roles going to be responsible, network ops, IT, application team 
-- central pivot is cluster.
-
-then minimize access per group. 
-
-waf rules, nsg rules, dns configuraiton. 
-az policy 
-az defender, sentinel config (enablement and reacting)
-in cluster. k8 rbac (who can do what)
-in cluster network policies
-reach out: container reg 
-<To do>
 
 Based on that assessment, assign user or administrator roles. Kubernetes has built-in, user-facing RBAC roles, such `cluster-admin` that are applied at the namespace levels. If you are integrating Azure AD roles and Kubernetes roles, create a mapping between the two roles.
 
@@ -131,18 +123,7 @@ Have a regular cadence for reviewing permissions. Responsibilities might change 
 
 Make sure you maintain documentation that keeps track of the changes.
 
-Consider using dedicated tenants for seperation of responsibilities between Kubernetes RBAC and Azure RBAC if appropriate (this tenant still would need to be a fully managed enterprise resource, do not create ""shadow identitys stores""). Follow org governance policies. 
-
-<To Do>
-one tenant. it has rbac. it can do azure things with aks cluste.r  Also do native k8 things. 
-say that's comporomized. you can use tenant's permis to do bad things. 
-
-two tenants: one for azure; another for k8 rbac
-if one is comporomised, the other will block. 
-
-separate accounts or tenant. 
-
-cons: overhead in managmeent. 
+Consider using dedicated tenants for seperation of responsibilities between Kubernetes RBAC and Azure RBAC when applicable. This defense-in-depth will protect the system in situations if one tenant is compromised, actions by the other tenant remain unaffected. The downside is the increased overhead in management of two tenants. Follow the governance policies to choose a model that works for the organization. 
 
 Be clear and consistent in naming of Azure RBAC and Kubernetes RBAC roles so that it's easier to audit.
 
@@ -190,8 +171,7 @@ Default “deny-all” setting.
 
 ##### Your responsibilities
 
-<TODO>
-By defaulut, zero trust is available. All exceptions should be documented. 
+When you start the configuration, start with zero-trust policies. Make exceptions as needed and document them in detail. 
 
 - Kubernetes RBAC implements _deny all_ by default. Don't override by adding cluster role bindings that inverse the deny all setting.
 
@@ -199,21 +179,17 @@ By defaulut, zero trust is available. All exceptions should be documented.
 
 - All Azure services, Key Vault, Container Registry, by default have deny all set of permissions.
 
-- Ensure network security groups (NSGs) have a short circuit "deny-all" in their rules to override default rules. Be consistent on the naming, so that it's easier to audit. 
+- Be aware that network security groups (NSGs) allow all communication by default. Change that to set deny all as the starting rule with high priority. Then, add exceptions that will be applied before the deny all rule, as needed. Be consistent on the naming, so that it's easier to audit. 
   
-  deny all has to be explicit. (1) then with add lower number for exceptions. 
+- Azure firewall implements deny all by default.
 
-- Azure firewall implements "deny all" by default.
-
-- Any administrative access points , JB, that support deny all setting should be enabled. All elevated permissions are defined explicitly to the deny all rule.  
-<Ask Chad: need more information on the last one>
-
+- Any administrative access points, such as a jump box, should deny all access in the initial configuraiton. All elevated permissions must be defined explicitly to the deny all rule.  
 
 ### Requirement 7.3
 Ensure that security policies and operational procedures for restricting access to cardholder data are documented, in use, and known to all affected parties.
 
 #### Your responsibilities
-It's critical that you maintain thorough documentation about the processes and policies. Especially RBAC policies (both Kubernetes and Azure), <Todo> People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
+It's critical that you maintain thorough documentation about the processes and policies. This includes Azure and Kubernetes RBAC policies and organizational governance policies. People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
 
 ***
 
