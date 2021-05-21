@@ -7062,8 +7062,8 @@
                 "ai-machine-learning",
                 "containers"
             ],
-            "image": "/azure/architecture/solution-ideas/media/machine-learning-with-aks.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\machine-learning-with-aks.png",
+            "image": "/azure/architecture/solution-ideas/media/machine-learning-model-deployment-to-aks.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\machine-learning-model-deployment-to-aks.png",
             "publish_date": "12/16/2019",
             "Summary": "<p>Deploy machine learning models on Azure Kubernetes Service (AKS) for high-scale production inference. Use familiar tools such as Kubeflow to simplify deployment of Machine Learning models. Your ML models will run in AKS clusters backed by GPU enabled VMs.</p>",
             "Flow": {
