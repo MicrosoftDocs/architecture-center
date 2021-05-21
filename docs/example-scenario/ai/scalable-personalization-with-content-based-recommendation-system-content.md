@@ -7,7 +7,7 @@ Recommendations are a main revenue driver for many businesses and are used in di
 
 There are two main types of recommendation systems: collaborative filtering and content-based. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this article focuses on a content-based recommendation system.
 
-This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, you use an [Azure Databricks] to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using [Azure Kubernetes Service]. In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume.
+This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, you use [Azure Databricks] to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using [Azure Kubernetes Service]. In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume.
 
 ## Relevant use cases
 
