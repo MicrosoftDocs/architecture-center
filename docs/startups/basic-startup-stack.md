@@ -44,14 +44,12 @@ If something goes wrong with your app, you want to spend as little time as possi
 
 ### Static Assets
 
-<!-- TODO -->
-
-TODO
+Serving static content from your app server is a waste of resources. Once you have a CI/CD pipeline configured the work to build and deploy static assets with each release is trivial. Most modern web frameworks are configured like this in production, so staying in-line with these best practices is worthwhile even as you're starting out.
 
 ### Content Delivery Network (CDN)
 
-<!-- TODO -->
+A content delivery network might seem like a premature optimization. With few customers to begin with, it may be for you. However given that adding a CDN once your product is in production can have unexpected side-effects, we suggest implementing one up front.
 
-TODO
+A CDN will cache static content closer to your customers and provide a façade behind which you can iterate on your APIs and the rest of your architecture.
 
 ## Example
