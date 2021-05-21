@@ -2126,6 +2126,11 @@
       "source_path": "docs/example-scenario/ai/movie-recommendations.yml",
       "redirect_url": "/azure/architecture/example-scenario/ai/movie-recommendations-with-machine-learning",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/machine-learning-with-aks.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/machine-learning-model-deployment-aks",
+      "redirect_document_id": true
     } 
   ]
 }
