@@ -18,6 +18,15 @@ The rich functionality is not confined to Excel. It is driven by web services th
 ![Architecture Diagram](../media/interactive-price-analytics.png)
 *Download an [SVG](../media/interactive-price-analytics.svg) of this architecture.*
 
+## Components
+
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
+- [Azure Machine Learning Services](https://azure.microsoft.com/services/machine-learning/)
+- [Microsoft Excel](https://www.microsoft.com/microsoft-365/excel) worksheets
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/)
+- [Dashboard](https://powerbi.microsoft.com/diad/) in [Power BI](https://powerbi.microsoft.com/)
+
 ## Description
 
 At the core of a rigorous price analysis workflow is price elasticity modeling and optimal pricing recommendations. The state-of-the-art modeling approach mitigates the two worst pitfalls of modeling price sensitivity from historical data: confounding and data sparsity.
@@ -70,3 +79,22 @@ Other tabs provide supplemental information illuminating how the system arrived 
 The solution uses an Azure SQL server to store your transactional data and the generated model predictions. There are a dozen elasticity modeling core services, which are authored in AzureML using Python core libraries. Azure Data Factory schedules weekly model refreshes. The results display in a Power BI dashboard. The provided Excel spreadsheet consumes the predictive Web Services.
 
 Read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, connecting your own data and customization (GitHub login required).
+
+## Next steps
+
+Learn more about the component technologies:
+
+- [Introduction to Azure Data Factory](/azure/data-factory/v1/data-factory-introduction)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
+- [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+- [Create dashboards in Power BI](/learn/modules/create-dashboards-power-bi/)
+
+Explore related architectures:
+
+- [Demand forecasting for shipping and distribution](/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution)
+- [Use a demand forecasting model for price optimization](/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing)
+- [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
+- [Predictive insights with vehicle telematics](/azure/architecture/solution-ideas/articles/predictive-insights-with-vehicle-telematics)
+- [Predictive aircraft engine monitoring](/azure/architecture/solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace)
