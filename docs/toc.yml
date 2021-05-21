@@ -609,7 +609,7 @@ items:
           - name: Movie recommendations on Azure
             href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
           - name: Scalable personalization on Azure
-            href: example-scenario/ai/scalable-personalization.yml
+            href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
           - name: Data warehousing and analytics
             href: example-scenario/data/data-warehouse.yml
           - name: Stream processing with Azure Databricks
@@ -722,7 +722,7 @@ items:
               - name: Real-time scoring R models
                 href: reference-architectures/ai/realtime-scoring-r.yml
               - name: Scalable personalization
-                href: example-scenario/ai/scalable-personalization.yml
+                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: Speech to text conversion
                 href: reference-architectures/ai/speech-ai-ingestion.yml
               - name: Training Python models
@@ -863,6 +863,8 @@ items:
                 href: solution-ideas/articles/interactive-price-analytics.yml
               - name: IoT analytics with Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml
+              - name: Modern analytics architecture with Azure Databricks
+                href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
               - name: Monitoring solution with Azure Data Explorer
                 href: solution-ideas/articles/monitor-azure-data-explorer.yml
               - name: Oil and Gas tank level forecasting

@@ -90,7 +90,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/ai/scalable-personalization.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
