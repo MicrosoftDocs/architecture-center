@@ -3,11 +3,11 @@ When developing a governance model for your organization, it's important to reme
 
 The concept of end-to-end governance is vendor agnostic. The implementation described here uses [Azure DevOps](https://azure.microsoft.com/services/devops/), but alternatives are also briefly mentioned.
 
-## Use case and example business requirements
+## Potential use cases
 
 This reference implementation and demo is open source and intended to be used as a **teaching tool** for organizations who are new to DevOps and need to create a governance model for deploying to Azure. Please read this carefully to understand the decisions behind the model used in this sample repository.
 
-Any governance model must be tied to the organization's business rules, which are reflected in any technical implementation of access controls. This example model uses a fictitious company with this common scenario:
+Any governance model must be tied to the organization's business rules, which are reflected in any technical implementation of access controls. This example model uses a fictitious company with the following common scenario (with business requirements):
 
 - **Azure AD groups that align with business domains and permissions models**  
   The organization has many vertical business domain, such as "fruits" and "vegetables", which operate largely independently. In each business domain, there are two levels or privileges, which are mapped to distinct `*-admins` or `*-devs` Azure AD groups. This allows developers to be targeted when configuring permissions in the cloud.
@@ -36,8 +36,6 @@ This diagram shows how linking from Resource Manager and CI/CD to Azure Active D
 *Download an [SVG of this architecture](media/e2e-governance-overview.svg).*
 
 Note: To make concept more clear, the diagram only illustrates the **"veggies"** domain. The "fruits" domain would look similar and use the same naming conventions.
-
-### Components
 
 The numbering reflects the other in which IT administrators and enterprise architects think about and configure their cloud resources.
 
@@ -93,7 +91,7 @@ The numbering reflects the other in which IT administrators and enterprise archi
 
     To understand the reasoning behind the individual role assignments, please refer to the [important considerations section](#important-considerations) below.
 
-6. **Service Connections**  
+6. **Service connections**  
    In Azure DevOps, a [Service Connection](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) is a generic wrapper around a credential. We create a service connection that holds the service principal client ID and client secret. Project Administrators can configure access to this [protected resource](https://docs.microsoft.com/azure/devops/pipelines/security/resources?view=azure-devops#protected-resources) when needed, for example when requiring human approval before deploying. This reference architecture has two minimum protections on the service connection:
    - Admins must configure [pipeline permissions](https://docs.microsoft.com/azure/devops/pipelines/security/resources?view=azure-devops#pipeline-permissions) to control which pipelines can access the credentials
    - Admins must also configure a [branch control check](https://docs.microsoft.com/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass#branch-control) so that only pipelines running in the context of the `production` branch may use the `prod-connection`
@@ -101,9 +99,17 @@ The numbering reflects the other in which IT administrators and enterprise archi
 7. **Git repositories**  
    Since our service connections are tied to branches via [branch controls](https://docs.microsoft.com/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass#branch-control), it's critical to configure permissions to the Git repositories and apply [branch policies](https://docs.microsoft.com/azure/devops/repos/git/branch-policies?view=azure-devops). In addition to requiring CI builds to pass, we will also require pull requests with at least 2 approvers.
 
+### Components
+
+* [Azure DevOps](https://azure.microsoft.com/solutions/devops/)
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+* [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
+* [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
+* [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+
 ## Goal: end-to-end governance
 
-### From developer's computer to Production in Azure
+### From developer's computer to production in Azure
 
 The following diagram illustrates a baseline CI/CD workflow with Azure DevOps. The red lock icon :::image type="icon" source="media/e2e-governance-devsecops-gear.svg"::: indicates security permissions that must be configured by the user. Not configuring or mis-configuring permissions will leave your workloads vulnerable.
 
@@ -122,7 +128,7 @@ To successfully secure your workloads, you must use a combination of security pe
 
 Before examining the governance layers in detail, please consider the [use case and assumptions of this example organization](#use-case-and-example-business-requirements).
 
-## Important considerations
+## Considerations
 
 Note: this is only a reference implementation of a relatively simple use case.
 
