@@ -55,8 +55,8 @@ This example solution makes use of several Azure services and features:
     processing, and analytics.
 
 -   [Azure Data
-    Lake](/azure/storage/blobs/data-lake-storage-introduction)
-    *Storage (Gen2)* is built on top of [Azure
+    Lake Storage (Gen2)](/azure/storage/blobs/data-lake-storage-introduction) 
+    is built on top of [Azure
     Storage](/azure/storage/common/storage-introduction)
     services and provides data lake capabilities that other services in this
     example solution use when storing and processing data.

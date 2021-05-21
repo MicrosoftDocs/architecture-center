@@ -18,7 +18,7 @@ azureCategories:
 summary: Azure Synapse Analytics brings together data integration, enterprise data warehousing, and big data analytics.
 products:
   - azure-analysis-services
-  - azure-data-lake
+  - azure-data-lake-storage
   - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/big-data-analytics-enterprise-grade-security.png
 content: |
