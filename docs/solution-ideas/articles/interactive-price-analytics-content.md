@@ -31,8 +31,9 @@ The AI Gallery solution, which is an implementation of this solution idea, has t
 
 ## Next steps
 
-- [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) - for a more detailed discussion of the architecture, connecting your own data and customization
-- [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md)
-- [GitHub repo Interactive Price Analytics](https://github.com/Azure/cortana-intelligence-price-analytics)
 - [AI Gallery Interactive Pricing Solution](https://gallery.azure.ai/Solution/Interactive-Price-Analytics)
+- [GitHub repo Interactive Price Analytics](https://github.com/Azure/cortana-intelligence-price-analytics)
+  - [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) - for a more detailed discussion of the architecture, connecting your own data and customization
+  - [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) - for end users of the solution such as pricing managers.
 - Blog post [A Pricing Engine for Everyone built with AzureML and Python](https://docs.microsoft.com/archive/blogs/intel/building-a-pricing-engine-using-azureml-and-python)
+- Microsoft Learn Path [Build AI solutions with Azure Machine Learning](/learn/paths/build-ai-solutions-with-azure-ml-service/)
