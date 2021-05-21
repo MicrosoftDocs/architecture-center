@@ -5,13 +5,23 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The Price Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer, to recommend pricing changes, and allow you to simulate how changes in price would affect your demand, at a fine granularity.
+The Price Analytics solution uses your transactional history data to show you how the demand for your products responds to the prices you offer. It recommends pricing changes and allows you to simulate how changes in price would affect your demand, at a fine granularity.
 
-The solution provides a dashboard, where you can see optimal pricing recommendations, item elasticities at an item-site-channel-segment level, estimates of related-product effects such "as cannibalization", forecasts given current process, and model performance metrics.
+The solution provides a dashboard where you can see:
 
-Direct interaction with the pricing model in Excel lets you simply paste your sales data there and analyze your prices without the need to integrate the data into the solution database first, simulate promotions and plot demand curves (showing demand response to price), and access dashboard data in numerical form.
+- Optimal pricing recommendations.
+- Item elasticities at an item-site-channel-segment level.
+- Estimates of related-product effects such "as cannibalization".
+- Forecasts given current process.
+- Model performance metrics.
 
-The rich functionality is not confined to Excel. It is driven by web services that you, or your implementation partner, can call directly from your business applications, integrating price analysis into your business applications.
+Using direct interaction with the pricing model in Excel, you can:
+
+- Paste your sales data there and analyze your prices without the need to integrate the data into the solution database first.
+- Simulate promotions and plot demand curves (showing demand response to price).
+- Work with dashboard data in numerical form.
+
+The rich functionality isn't confined to Excel. It's driven by web services that you or your implementation partner can call directly from your business applications, integrating price analysis into your business applications.
 
 ## Architecture
 
@@ -31,9 +41,9 @@ The rich functionality is not confined to Excel. It is driven by web services th
 
 At the core of a rigorous price analysis workflow is price elasticity modeling and optimal pricing recommendations. The state-of-the-art modeling approach mitigates the two worst pitfalls of modeling price sensitivity from historical data: confounding and data sparsity.
 
-Confounding is the presence of factors other than price which affects demand. We use a "double-ML" approach that subtracts out the predictable components of price and demand variation before estimating the elasticity, immunizing the estimates to most forms of confounding. The solution can also be customized by an implementation partner to use your data capturing potential external demand drivers other than price. Our [blog post](/archive/blogs/intel/building-a-pricing-engine-using-azureml-and-python) gives additional detail on the data science of prices.
+Confounding is the presence of factors other than price that affect demand. We use a "double-ML" approach that subtracts out the predictable components of price and demand variation before estimating the elasticity. This approach immunizes the estimates to most forms of confounding. The solution can also be customized by an implementation partner to use your data capturing potential external demand drivers other than price. Our [blog post](/archive/blogs/intel/building-a-pricing-engine-using-azureml-and-python) gives more detail on the data science of prices.
 
-Data sparsity occurs because the optimal price varies at a fine grain: businesses can set prices by item, site, sales channel and even customer segment, but pricing solutions often only give estimates at product category level because the transaction history may only contain a few sales for each specific situation. Our pricing solution uses "hierarchical regularization" to produce consistent estimates in such data-poor situations: in absence of evidence, the model borrows information from other items in the same category, same items in other sites, and so on. As the amount of historical data on a given item-site-channel combination increases, its elasticity estimate will be fine-tuned more specifically.
+Data sparsity occurs because the optimal price varies at a fine grain: businesses can set prices by item, site, sales channel, and even customer segment. But pricing solutions often only give estimates at product category level because the transaction history may only contain a few sales for each specific situation. Our pricing solution uses "hierarchical regularization" to produce consistent estimates in such data-poor situations: in absence of evidence, the model borrows information from other items in the same category, same items in other sites, and so on. As the amount of historical data on a given item-site-channel combination increases, its elasticity estimate will be fine-tuned more specifically.
 
 This solution analyzes your historical prices and
 
@@ -70,7 +80,7 @@ After the solution deploys, complete the [first walkthrough](https://github.com/
 
 ## Solution Dashboard
 
-The solution dashboard's most actionable part is the Pricing Suggestion tab. It tells you which of your items are underpriced, overpriced, and suggests an optimal price for each item, as well as the predicted impact of adopting the suggestion. The suggestions are prioritized by the largest opportunity to earn incremental gross margin.
+The solution dashboard's most actionable part is the Pricing Suggestion tab. It tells you which of your items are underpriced or overpriced. It suggests an optimal price for each item and the predicted impact of adopting the suggestion. The suggestions are prioritized by the largest opportunity to earn incremental gross margin.
 
 Other tabs provide supplemental information illuminating how the system arrived at the suggestions and are discussed in more detail in the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md). (You must be logged into GitHub with a Microsoft Azure account while solution is in private preview.)
 
