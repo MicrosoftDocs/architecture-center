@@ -7039,7 +7039,7 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-machine-learning-with-aks-'",
+                "'https:--azure.microsoft.com-solutions-architecture-machine-learning-model-deployment-aks-'",
                 "acom-architecture",
                 "ai-ml",
                 "all-items",
@@ -7052,8 +7052,8 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/machine-learning-with-aks.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/machine-learning-with-aks",
+            "file_url": "solution-ideas/articles/machine-learning-model-deployment-aks.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/machine-learning-model-deployment-aks",
             "word_count": 138,
             "read_time": "1 min read",
             "Title": "Machine Learning model training with AKS",
@@ -7065,7 +7065,7 @@
             "image": "/azure/architecture/solution-ideas/media/machine-learning-with-aks.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\machine-learning-with-aks.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Training of models using large datasets is a complex and resource intensive task. Use familiar tools such as TensorFlow and Kubeflow to simplify training of Machine Learning models. Your ML models will run in AKS clusters backed by GPU enabled VMs.</p>",
+            "Summary": "<p>Deploy machine learning models on Azure Kubernetes Service (AKS) for high-scale production inference. Use familiar tools such as Kubeflow to simplify deployment of Machine Learning models. Your ML models will run in AKS clusters backed by GPU enabled VMs.</p>",
             "Flow": {
                 "FlowStep_A": "Package ML model into a container and publish to ACR",
                 "FlowStep_B": "Azure Blob storage hosts training data sets and trained model",
@@ -7073,7 +7073,7 @@
                 "FlowStep_D": "Serve production model using Kubeflow, promoting a consistent environment across test, control and production",
                 "FlowStep_E": "AKS supports GPU enabled VM"
             },
-            "name": "machine-learning-with-aks",
+            "name": "machine-learning-model-deployment-aks",
             "popularity": 91,
             "topic": "AI + Machine Learning"
         },
