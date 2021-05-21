@@ -271,7 +271,7 @@ Consider these ways to optimize availability for your AKS cluster and workloads:
 ## DevOps considerations
 
 - Deploy your workloads to AKS using a [Helm](https://helm.sh/) chart in a CI/CD pipeline using a DevOps system such as [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/). For more information, see [Build and deploy to Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
-- Introduce A/B testing and canary deployments in your application lifecycle management to properly test an application before making it available for all users. There are several techniques that you can use to split the traffic across different versions of the same service. For more information, see:</p>
+- Introduce A/B testing and canary deployments in your application lifecycle management to properly test an application before making it available for all users. There are several techniques that you can use to split the traffic across different versions of the same service.
 - As an alternative, you can use traffic splitting capabilities provided by a service mesh implementation. For more information, see:</p>
 
   - [Linkerd Traffic Split](https://linkerd.io/2.10/features/traffic-split/)
