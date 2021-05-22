@@ -10,6 +10,12 @@ This line-of-business application solution provides a mechanism for monitoring a
 ![Architecture diagram](../media/modern-customer-support-portal-powered-by-an-agile-business-process.png)
 *Download an [SVG](../media/modern-customer-support-portal-powered-by-an-agile-business-process.svg) of this architecture.*
 
+## Components
+
+- [Azure Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
+- [Dynamics 365](https://dynamics.microsoft.com/)
+- [Microsoft Teams](https://teams.microsoft.com/)
+
 ## Data Flow
 
 1. Customer submits feedback posted to a web endpoint.
