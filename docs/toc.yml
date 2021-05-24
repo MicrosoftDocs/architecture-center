@@ -609,7 +609,7 @@ items:
           - name: Movie recommendations on Azure
             href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
           - name: Scalable personalization on Azure
-            href: example-scenario/ai/scalable-personalization.yml
+            href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
           - name: Data warehousing and analytics
             href: example-scenario/data/data-warehouse.yml
           - name: Stream processing with Azure Databricks
@@ -722,7 +722,7 @@ items:
               - name: Real-time scoring R models
                 href: reference-architectures/ai/realtime-scoring-r.yml
               - name: Scalable personalization
-                href: example-scenario/ai/scalable-personalization.yml
+                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: Speech to text conversion
                 href: reference-architectures/ai/speech-ai-ingestion.yml
               - name: Training Python models
@@ -1606,6 +1606,8 @@ items:
                 items:
                   - name: High-volume batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
+                  - name: IBM System i to Azure using Infinite i
+                    href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
                   - name: IBM z/OS migration with Asysco AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
@@ -1901,6 +1903,8 @@ items:
                 href: example-scenario/secrets/secure-refresh-tokens.yml
               - name: Securely managed web apps
                 href: example-scenario/apps/fully-managed-secure-apps.yml
+              - name: Securing your Microsoft Teams channel bot
+                href: example-scenario/teams/securing-bot-teams-channel.yml
               - name: Virtual network integrated microservices
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Virtual Network security options
