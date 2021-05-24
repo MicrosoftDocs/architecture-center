@@ -13,7 +13,7 @@
    sodipodi:docname="architecture-diagram-app-monitoring.svg"
    width="391.37201"
    height="379.83899"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)">
   <metadata
      id="metadata4259">
     <rdf:RDF>
@@ -22,12 +22,110 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs4257" />
+     id="defs4257">
+    <linearGradient
+       id="f3bb6c36-8875-4b2b-88dd-05d7c7ba68e1"
+       x1="-1053.5861"
+       y1="103.6559"
+       x2="-1067.1066"
+       y2="63.712898"
+       gradientTransform="matrix(1,0,0,-1,1075,110)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#114a8b"
+         id="stop322" />
+      <stop
+         offset="1"
+         stop-color="#0669bc"
+         id="stop324" />
+    </linearGradient>
+    <linearGradient
+       id="ac2d7568-6a9d-4613-9a2d-56fbf1216372"
+       x1="-1049.3624"
+       y1="85.041397"
+       x2="-1052.49"
+       y2="83.983902"
+       gradientTransform="matrix(1,0,0,-1,1075,110)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-opacity="0.3"
+         id="stop327" />
+      <stop
+         offset="0.0712"
+         stop-opacity="0.2"
+         id="stop329" />
+      <stop
+         offset="0.321"
+         stop-opacity="0.1"
+         id="stop331" />
+      <stop
+         offset="0.6231"
+         stop-opacity="0.05"
+         id="stop333" />
+      <stop
+         offset="1"
+         stop-opacity="0"
+         id="stop335" />
+    </linearGradient>
+    <linearGradient
+       id="bd554c28-1ba1-4ad1-9485-4882684af3d4"
+       x1="-1051.0825"
+       y1="104.8212"
+       x2="-1036.2411"
+       y2="65.280296"
+       gradientTransform="matrix(1,0,0,-1,1075,110)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#3ccbf4"
+         id="stop338" />
+      <stop
+         offset="1"
+         stop-color="#2892df"
+         id="stop340" />
+    </linearGradient>
+    <linearGradient
+       id="f069caa6-84f1-4be4-82b7-9c017f3ae32f"
+       x1="-805.69537"
+       y1="119.6377"
+       x2="-814.60742"
+       y2="93.309502"
+       gradientTransform="matrix(1,0,0,-1,820,124)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#114a8b"
+         id="stop469" />
+      <stop
+         offset="1"
+         stop-color="#0669bc"
+         id="stop471" />
+    </linearGradient>
+    <linearGradient
+       id="f16358cd-6714-426a-b248-367e0a42901f"
+       x1="-804.06317"
+       y1="120.4059"
+       x2="-794.2807"
+       y2="94.342598"
+       gradientTransform="matrix(1,0,0,-1,820,124)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#3ccbf4"
+         id="stop474" />
+      <stop
+         offset="1"
+         stop-color="#2892df"
+         id="stop476" />
+    </linearGradient>
+  </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -37,19 +135,20 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3840"
-     inkscape:window-height="2035"
+     inkscape:window-width="1721"
+     inkscape:window-height="972"
      id="namedview4255"
      showgrid="false"
-     inkscape:zoom="3.2168381"
+     inkscape:zoom="2.274648"
      inkscape:cx="212.0836"
      inkscape:cy="160.87453"
-     inkscape:window-x="2147"
-     inkscape:window-y="777"
-     inkscape:window-maximized="1"
+     inkscape:window-x="2075"
+     inkscape:window-y="11"
+     inkscape:window-maximized="0"
      inkscape:current-layer="svg4253"
      inkscape:document-units="px"
-     units="px" />
+     units="px"
+     inkscape:document-rotation="0" />
   <path
      d="m 339.872,19.339 h -264 v 360 h 315 v -360 h -9"
      id="path3987"
@@ -90,14 +189,6 @@
      id="path4001"
      inkscape:connector-curvature="0"
      style="fill:#303030" />
-  <g
-     id="g4005"
-     style="fill:#0078d7">
-    <path
-       d="m 349.723,31 h 30.833 L 363.89,2.167 l -5,14 9.666,11.5 z M 362.556,0 350.723,10 340.556,27.5 h 9.167 v 0.167 z"
-       id="path4003"
-       inkscape:connector-curvature="0" />
-  </g>
   <circle
      cx="33.591999"
      cy="164.071"
@@ -687,5 +778,45 @@
          inkscape:connector-curvature="0"
          style="fill:#1e1e1e" />
     </g>
+  </g>
+  <g
+     id="g499"
+     transform="translate(345.37469,1.1456598)">
+    <path
+       d="m 11.1607,2.3374 h 8.5975 L 10.845,28.747 A 1.3459,1.3459 0 0 1 9.5697,29.6626 H 2.8471 A 1.3461,1.3461 0 0 1 1.5717,27.8861 L 9.8855,3.2529 a 1.3459,1.3459 0 0 1 1.2752,-0.9155 z"
+       fill="url(#f069caa6-84f1-4be4-82b7-9c017f3ae32f)"
+       id="path481"
+       style="fill:url(#f069caa6-84f1-4be4-82b7-9c017f3ae32f)" />
+    <path
+       d="M 23.0312,19.5421 H 9.4814 A 0.6262,0.6262 0 0 0 9.0541,20.6259 L 18.3458,29.3 a 1.3464,1.3464 0 0 0 0.9187,0.3622 h 7.6789 z"
+       fill="#0078d4"
+       id="path483" />
+    <g
+       opacity="0.5"
+       id="g489">
+      <path
+         d="m 20.6189,29.6626 h 6.3166 l -3.9122,-10.12 h -5.1517 l 2.98,8.821 a 1.3612,1.3612 0 0 1 -0.2327,1.299 z"
+         id="path485" />
+      <path
+         d="M 15.9112,13.73 19.7563,2.3374 h -7.801 a 1.3608,1.3608 0 0 1 0.2605,0.4559 z"
+         id="path487" />
+    </g>
+    <g
+       opacity="0.5"
+       id="g495">
+      <path
+         d="M 11.4683,2.3374 15.66,14.48 16.2408,12.7526 12.7308,2.3371 Z"
+         fill-opacity="0.5"
+         id="path491" />
+      <path
+         d="m 19.41,29.6625 h 7.5257 -5.714 a 1.8586,1.8586 0 0 0 0.1106,-1.4616 l -2.9256,-8.6588 h -1.07 l 3.0352,8.9833 a 0.8612,0.8612 0 0 1 -0.816,1.1371 z"
+         fill-opacity="0.5"
+         id="path493" />
+    </g>
+    <path
+       d="M 22.1146,3.253 A 1.346,1.346 0 0 0 20.8392,2.3374 H 11.261 a 1.366,1.366 0 0 1 1.2944,0.9293 l 8.3,24.5931 a 1.366,1.366 0 0 1 -1.2942,1.8028 h 9.5915 a 1.3461,1.3461 0 0 0 1.2754,-1.7765 z"
+       fill="url(#f16358cd-6714-426a-b248-367e0a42901f)"
+       id="path497"
+       style="fill:url(#f16358cd-6714-426a-b248-367e0a42901f)" />
   </g>
 </svg>
