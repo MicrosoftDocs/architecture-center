@@ -192,7 +192,7 @@ Install perimeter firewalls between all wireless networks and the cardholder dat
 
 The AKS nodes and the node pools must not be reachable from wireless networks. Also, requests to the Kubernetes API server must be denied. Access to those components is restricted to authorized and secured subnets.
 
-In general, limit access to on-premises traffic to the spoke network.  
+In general, limit access from on-premises traffic to the spoke network.  
 
 #### Requirement 1.3
 
