@@ -62,7 +62,7 @@ Take these steps to improve availability:
 
 - Use [Azure Availability Zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) to protect against infrastructure disruptions by eliminating all single points of failure. The SLA for VMs is for 99.99% uptime.
 - Use an availability set, which is a grouping of VMs, for redundancy and availability. See [Availability sets overview](/azure/virtual-machines/availability-set-overview) for more information.
-- For increased availability, use Virtual Machine Scale Sets to set up a group of load-balanced VMs that make up an Azure VM scale set.
+- For increased availability, use Virtual Machine Scale Sets to set up a group of load-balanced VMs that make up an Azure Virtual Machine Scale Set.
 - [Azure load balancing services](https://azure.microsoft.com/products/azure-load-balancing/) provide scaling for high availability and high performance.
 
 ### Operations
