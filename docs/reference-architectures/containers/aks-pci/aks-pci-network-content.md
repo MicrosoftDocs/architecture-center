@@ -129,8 +129,7 @@ Have processes that regularly review the network configurations and the scoped r
 - Network Security Group (NSG) rules.
 - Azure Application Gateway and Web Application Firewall (WAF) rules.
 - Native Kubernetes network policies.
-- Firewall controls on the applicable Azure resources. For example, this architecture uses a rule on Azure 
-- Container Registry that only allows traffic from a private endpoint.
+- Firewall controls on the applicable Azure resources. For example, this architecture uses a rule on Azure Container Registry that only allows traffic from a private endpoint.
 - Any other network controls you have added to the architecture.
 
 #### Requirement 1.2
