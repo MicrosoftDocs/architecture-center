@@ -1606,6 +1606,8 @@ items:
                     href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
+                  - name: Migrate IBM i series applications to Skytap on Azure
+                    href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml                    
                   - name: Refactor IBM z/OS mainframe CF on Azure
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
                   - name: Unisys Dorado mainframe migration with Astadia & Micro Focus
