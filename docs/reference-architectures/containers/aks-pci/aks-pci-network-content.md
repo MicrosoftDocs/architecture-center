@@ -137,7 +137,7 @@ Have processes that regularly review the network configurations and the scoped r
 Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment. 
 
 ##### Your responsibilities
-In this architecture, the AKS cluster _is_ the cardholder data environment (CDE). That cluster is deployed as a private cluster for maximum security. In a private cluster, network traffic between the AKS-managed Kubernetes API server and your node pools is private. The API server virtual network has a Azure Private Link service. Your cluster subnet exposes a private endpoint, which interacts with that Private link service.
+In this architecture, the AKS cluster _is_ the cardholder data environment (CDE). That cluster is deployed as a private cluster for enhanced security. In a private cluster, network traffic between the AKS-managed Kubernetes API server and your node pools is private. The API server is exposed via a Private Endpoint in the cluster's network.
 
 Alternatively, you can choose a public cluster, however, there are challenges. The API server will be exposed to the internet. The DNS record will always be discoverable. So, you need to have controls to keep the cluster out of public space. An approach is to have tight controls through Kubernetes role-based access controls (RBAC) and with IP restrictions implemented by using firewall rules on AKS. That combination can get hard to manage. Every request will consume compute from the AKS control plane to generate a response. To summarize, IP restrictions from public IP space are _not_ sufficient for a highly regulated workload. 
 
