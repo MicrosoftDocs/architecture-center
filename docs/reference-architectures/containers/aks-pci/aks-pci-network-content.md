@@ -247,7 +247,7 @@ Here are ways in which you can block unauthorized outbound traffic:
 - Enforce all outbound (egress) traffic from the AKS cluster to go through Azure Firewall. Have user-defined routes (UDRs) on cluster subnets. This includes subnets with system and user node pools. 
 - Limit outbound traffic by adding network security groups (NSG)s on subnets with node pools.
 
-AKS requires some public internet access to access the Azure-managed control plane. For example, the cluster wants to send metrics and logs to Azure Monitor. You can set scoped rules by specifying the source and destination FQDN targets or FQDN tags. While using tags makes it easier to set the rules, some tags might include more targets than you need making the rule overly permissive. Review the tags to make sure it has just the right targets you need.
+AKS requires some public internet access to access the Azure-managed control plane. For example, the cluster wants to send metrics and logs to Azure Monitor. You can set scoped rules by specifying the source and destination FQDN targets or FQDN tags. While using tags makes it easier to set the rules, some tags might include more targets than you need making the rule overly permissive. Review the tags to make sure it has just the right targets you need. Consider using explicit rules for added control, however that will come at a tradeoff of management/complexity, including removing rules that are no longer necessary.
 
 For details More details is available at: [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
 
