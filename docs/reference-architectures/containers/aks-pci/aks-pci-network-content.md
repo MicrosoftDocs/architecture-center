@@ -178,7 +178,7 @@ In addition to firewall rules and private networks, Nework Security Group (NSG) 
 Secure and synchronize router configuration files.
 
 ##### Your responsibilities
-Have a mechanism to detect delta between the actual deployed state and desired state. Infrastructure as code (IaC)is a great choice for that purpose. For example, Azure Resource Manager templates have a record of the desired state. 
+Have a mechanism to detect delta between the actual deployed state and desired state. Infrastructure as code (IaC) is a great choice for that purpose. For example, Azure Resource Manager templates have a record of the desired state. 
 
 The deployment assets such as, ARM templates, must be source controlled so that you have the history of all changes. Collect information from Azure activity logs, deployment pipeline logs, and Azure deployment logs. Those sources will help you keep a trail of deployed assets.
 
