@@ -77,7 +77,7 @@ Requirements for a firewall at each Internet connection and between any demilita
 
 ##### Your responsibilities
       
-For a PCI DSS infrastructure, you're responsible for securing the card holder environment (CDE) by using firewalls to block unauthorized access into and out of the network with the CDE. Firewalls must be configured properly for a strong security posture. Firewall settings must be applied to:
+For a PCI DSS infrastructure, you're responsible for securing the card holder environment (CDE) by using network controls to block unauthorized access into and out of the network with the CDE. Network controls must be configured properly for a strong security posture, and they must be applied to:
 - Communication between the colocated components within the cluster.
 - Communication between the workload and other components in trusted networks.
 - Communication between the workload and public internet.
