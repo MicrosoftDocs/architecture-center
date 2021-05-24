@@ -44,7 +44,7 @@ A formal process for approving and testing all network connections and changes t
 
 ##### Your responsibilities
       
-Don't implement configurations manually or user tools such as the Azure portal, via Azure CLI. Instead, use Infrastructure as code (IaC). With IaC, infrastructure is managed through a descriptive model that uses a versioning system. IaC model generates the same environment every time it's applied. Common examples of IaC are Azure Resource Manager or Terraform.
+Don't implement configurations manually, such as using the Azure portal or Azure CLI directly. Instead, use Infrastructure as code (IaC). With IaC, infrastructure is managed through a descriptive model that uses a versioning system. IaC model generates the same environment every time it's applied. Common examples of IaC are Azure Resource Manager or Terraform.
 
 Minimize the number of people who can access and modify network controls. Define roles and clear responsibility to teams. For example, an organization's network team will validate the changes as per the governance policies set by IT teams. Have a gated approval process that involves people and processes to approve changes to any network configuration. Have detailed documentation that describes the process. 
 
