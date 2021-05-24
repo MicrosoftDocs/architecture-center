@@ -253,7 +253,7 @@ For details More details is available at: [Control egress traffic for cluster no
 
 #### Requirement 1.3.5
 
-Permit only “established” connections into the network.
+Permit only "established" connections into the network.
 
 ##### Azure responsibilities
 
