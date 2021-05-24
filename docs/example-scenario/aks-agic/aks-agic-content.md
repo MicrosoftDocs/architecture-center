@@ -80,7 +80,7 @@ A Log Analytics workspace is used to collect the diagnostics logs and metrics fr
 - Azure Key Vault
 - Azure Network Security Groups
 
-## Components
+### Components
 
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private Docker registry service based on the open-source Docker Registry 2.0. You can use Azure container registries with your existing container development and deployment pipelines, or use Azure Container Registry Tasks to build container images in Azure. Build on demand, or fully automate builds with triggers such as source code commits and base image updates.
 
@@ -144,9 +144,13 @@ Once deployed with the ability to observe multiple namespaces, AGIC will:
 
 ## Considerations
 
-## Security
+Although some of the following considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution. This includes our security, performance, availability and reliability, storage, scheduler, service mesh, and monitoring considerations.
 
-### Network security
+### Security considerations
+
+Although the security considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution. 
+
+#### Network security
 
 - Create a [private endpoint](https://azure.microsoft.com/services/private-link/) for any PaaS service used by AKS workloads such as Key Vault, Service Bus, or Azure SQL Database so that the traffic between the applications and these services isn't exposed to the public internet. For more information, see [What is Azure Private Link](/azure/private-link/private-link-overview).
 - Configure your Kubernetes Ingress resource to expose workloads via HTTPS and use a separate subdomain and digital certificate for each tenant. The [Application Gateway Ingress Controller (AGIC)](https://docs.microsoft.com/en-us/azure/application-gateway/ingress-controller-overview) will automatically configure the [Azure Application Gateway](/azure/application-gateway/overview) listener for secure socket layer (SSL) termination.
@@ -156,7 +160,7 @@ Once deployed with the ability to observe multiple namespaces, AGIC will:
 - Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
 - Consider using a [private AKS cluster](https://docs.microsoft.com/en-us/azure/aks/private-clusters) in your production environment or at least secure access to the API server using <a href="https://docs.microsoft.com/en-us/azure/aks/api-server-authorized-ip-ranges">authorized IP address ranges</a> in Azure Kubernetes Service.
 
-### Authentication and authorization
+#### Authentication and authorization
 
 - Deploy AKS clusters with Azure AD integration. For more information, see [AKS-managed Azure Active Directory integration](https://docs.microsoft.com/en-us/azure/aks/managed-aad). Using Azure AD centralizes the identity management component. Any change in user account or group status is automatically updated in access to the AKS cluster. Use [Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) or [ClusterRoles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) and [Bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) to scope users or groups to the least number of permissions needed.
 - Use Kubernetes RBAC to define the permissions that users or groups have to resources in the cluster. Create roles and bindings that assign the least number of permissions required. [Integrate Kubernetes RBAC with Azure AD](https://docs.microsoft.com/en-us/azure/aks/azure-ad-rbac) so any change in user status or group membership is automatically updated and access to cluster resources is current.
@@ -166,7 +170,7 @@ Once deployed with the ability to observe multiple namespaces, AGIC will:
 - Consider using the [Secret Store CSI Driver for Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/key-vault-integrate-kubernetes) to access secrets such as credentials and connections strings from Kay Vault rather than from Kubernetes secrets.
 - Consider using [Dapr Secrets Stores](https://v1-rc2.docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/) building block with the [Azure Key Vault store with Managed Identities on Kubernetes](https://v1-rc2.docs.dapr.io/operations/components/setup-secret-store/supported-secret-stores/azure-keyvault-managed-identity/) to retrieve secrets like credentials and connection strings from Key Vault.
 
-### Workload and cluster
+#### Workload and cluster
 
 - Securing access to the Kubernetes API-Server is one of the most important things you can do to secure your cluster. Integrate Kubernetes role-based access control (Kubernetes RBAC) with Azure Active Directory to control access to the API server. These controls let you secure AKS the same way that you secure access to your Azure subscriptions.
 - Limit access to actions that containers can perform. Use [Pod Security Policy](https://kubernetes.io/docs/concepts/policy/pod-security-policy/) to enable fine-grained authorization of pod creation and updates. Provide the least number of permissions and avoid the use of root / privileged escalation. For more best practices, see [Secure pod access to resources](https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-pod-security#secure-pod-access-to-resources).
@@ -176,22 +180,24 @@ Once deployed with the ability to observe multiple namespaces, AGIC will:
 - AKS automatically downloads and installs security fixes on each Linux node, but it doesn't automatically reboot the node if necessary. Use [kured](https://github.com/weaveworks/kured) to watch for pending reboots, cordon and drain nodes, and finally apply updates. For Windows Server nodes, regularly run an AKS upgrade operation to safely cordon and drain pods and deploy updated nodes.
 - Consider using HTTPS and gRPC secure transport protocols for all intra-pod communications and using a more advanced authentication mechanism that does not require to send the plain credentials on every request, like OAuth or JWT. Secure intra-service communication can be achieved by leveraging a service mesh like [Istio](https://istio.io/), [Linkerd](https://linkerd.io/), [Consul](https://www.consul.io/), and [Open Service Mesh](https://openservicemesh.io/) or using [Dapr](https://v1-rc2.docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/).
 
-### Container Registry
+#### Container Registry
 
 - Scan your container images for vulnerabilities, and only deploy images that have passed validation. Regularly update the base images and application runtime, then redeploy workloads in the AKS cluster. Your deployment workflow should include a process to scan container images using tools such as [Twistlock](https://www.twistlock.com/) or [Aqua](https://www.aquasec.com/), and then only allow verified images to be deployed.
 - As you use base images for application images, use automation to build new images when the base image is updated. As those base images typically include security fixes, update any downstream application container images. For more information about base image updates, see [Automate image builds on base image update with Azure Container Registry Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-base-image-update).
 
-## Performance considerations
+### Performance considerations
+
+Although the performance considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution:
 
 - For low latency workloads, consider deploying a dedicated node pool in a proximity placement group. When deploying your application in Azure, spreading Virtual Machine (VM) instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure Azure compute resources are physically located close to each other. Some applications like gaming, engineering simulations, and high-frequency trading (HFT) require low latency and tasks that complete quickly. For high-performance computing (HPC) scenarios such as these, consider using [proximity placement groups](https://docs.microsoft.com/en-us/azure/virtual-machines/co-location#proximity-placement-groups) (PPG) for your cluster's node pools.
 - Always use smaller container images as it helps you to create faster builds. Smaller images are also less vulnerable to attack vectors because of a reduced attack surface.
 - Use Kubernetes autoscaling to dynamically scale out the number of worker nodes of an AKS cluster when the traffic increases. With [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) and cluster autoscaler, node and pod volumes get adjusted dynamically in real-time to match the traffic condition and avoid downtimes due to capacity issues. For more information, see [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler).
 
-## Availability and reliability considerations
+### Availability and reliability considerations
 
-Consider these ways to optimize availability for your AKS cluster and workloads:
+Although the availability and reliability considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution. Consider the following ways to optimize availability for your AKS cluster and workloads:
 
-### Containers
+#### Containers
 
 - Use Kubernetes health probes to check that your containers are alive and healthy:
 
@@ -202,7 +208,7 @@ Consider these ways to optimize availability for your AKS cluster and workloads:
 - Resource contention can affect service availability. Define container resource constraints so that no single container can overwhelm the cluster memory and CPU resources. You can use AKS diagnostics to identify any issues in the cluster.
 - Use resource limit to restrict the total resources allowed for a container, so one particular container can't starve others.
 
-### Container registry
+#### Container registry
 
 - We suggest storing container images in Azure Container Registry and geo-replicate the registry to each AKS region using  [Azure Container Registry geo-replication](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication). Geo-replication is a feature of Premium SKU ACR registries.
 - Scan your container images for vulnerabilities, and only deploy images that have passed validation. Regularly update the base images and application runtime, then redeploy workloads in the AKS cluster.
@@ -210,14 +216,14 @@ Consider these ways to optimize availability for your AKS cluster and workloads:
 - As you use base images for application images, use automation to build new images when the base image is updated. As those base images typically include security fixes, update any downstream application container images.
 - Leverage [ACR Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview) in Azure Container Registry to automate OS and framework patching for your Docker containers. ACR Tasks supports automated build execution when a container's base image is updated, such as when you patch the OS or application framework in one of your base images.
 
-### Intra-region resiliency
+#### Intra-region resiliency
 
 - Consider to deploy the node pools of your AKS cluster across all the [Availability Zones](https://docs.microsoft.com/en-us/azure/aks/availability-zones) within a region and use an [Azure Standard Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) or [Azure Application Gateway](/azure/application-gateway/overview) in front of your node pools. This topology provides better resiliency in case of outage of a single datacenter as cluster nodes would be distributed across multiple datacenters in 3 separate availability zones within a region.
 - Enable [zone redundancy in Azure Container Registry for resiliency and high availability](https://docs.microsoft.com/en-us/azure/container-registry/zone-redundancy) for intra-region resiliency.
 - Use [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) to control how Pods are spread across your AKS cluster among failure-domains such as regions, availability zones, and nodes.
 - Consider using Uptime SLA for AKS clusters hosting mission-critical workloads. [Uptime SLA](https://docs.microsoft.com/en-us/azure/aks/uptime-sla) is an optional feature to enable a financially backed, higher SLA for a cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use Availability Zones and 99.9% of availability for clusters that don't use Availability Zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
-### Disaster recovery and business continuity
+#### Disaster recovery and business continuity
 
 - Consider deploying your solution to at least [two paired Azure regions](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) within a geography and adopt a global load balancer such as [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview) or [Azure Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview) with an active/active or active/passive routing method to guarantee business continuity and disaster recovery.
 - Make sure to script, document, and periodically test any regional failover process in a QA environment to avoid unpredictable issues if a core service is affected by an outage in the primary region.
@@ -227,20 +233,24 @@ Consider these ways to optimize availability for your AKS cluster and workloads:
 - Where possible, don't store service state inside the container. Instead, use an Azure platform as a service (PaaS) that supports multi-region replication.
 - If you use Azure Storage, prepare and test how to migrate your storage from the primary region to the backup region.
 
-## Storage considerations
+### Storage considerations
+
+Although the storage considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution:
 
 - Consider to deploy your AKS cluster with [ephemeral OS disks](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#ephemeral-os) that provide lower read/write latency, along with faster node scaling and cluster upgrades.
 - Understand the needs of your application to pick the right storage. Use high performance, SSD-backed storage for production workloads. Plan for a network-based storage system such as [Azure Files](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction) when multiple pods need to concurrently access the same files. For more information, see [Storage options for applications in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/concepts-storage).
 - Each node size supports a maximum number of disks. Different node sizes also provide different amounts of local storage and network bandwidth. Plan for your application demands to deploy the appropriate size of nodes.
 - To reduce management overhead and let you scale, don't statically create and assign persistent volumes. Use dynamic provisioning. In your storage classes, define the appropriate reclaim policy to minimize unneeded storage costs once pods are deleted.
 
-## Multi-tenancy considerations
+### Multitenancy considerations
 
 - Design AKS clusters for multi-tenancy. Kubernetes provides features that let you logically isolate teams and workloads in the same cluster. The goal should be to provide the least number of privileges, scoped to the resources each team needs. A [Namespace](https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#namespaces) in Kubernetes creates a logical isolation boundary.
 - Use logical isolation to separate teams and projects. Try to minimize the number of physical AKS clusters you deploy to isolate teams or applications. Logical separation of clusters usually provides a higher pod density than physically isolated clusters.
 - Use dedicated node pools or dedicated AKS clusters whenever you need to implement a strict physical isolation, for example to dedicate a pool of worker nodes or an entire cluster to a team or a tenant in a multi-tenant environment.
 
-## Scheduler considerations
+### Scheduler considerations
+
+Although some of the scheduler considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution:
 
 - Make sure to review and implement the [best practices](https://docs.microsoft.com/en-us/azure/aks/best-practices) for cluster operators and application developers to build and run applications successfully on Azure Kubernetes Service (AKS).
 - Plan and apply [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) at the namespace level, for all namespaces. If pods don't define resource requests and limits, reject the deployment. Monitor resource usage and adjust quotas as needed. When several teams or tenants share an AKS cluster with a fixed number of nodes, resource quotas can be used to assign a fair share of resources to each team or tenant.
@@ -251,7 +261,9 @@ Consider these ways to optimize availability for your AKS cluster and workloads:
 - Use Kubernetes [taints and tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) to place resource-intensive applications on specific nodes and avoid noisy neighbor issues. Keep node resources available for workloads that require them, and don't allow other workloads to be scheduled on the nodes.
 - Control the scheduling of pods on nodes using node selectors, node affinity, or inter-pod affinity. Use inter-pod [affinity and anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) settings to colocate pods that have chatty communications, place pods on different nodes, and avoid running multiple instances of the same pod kind on the same node.
 
-## Service Mesh considerations
+### Service mesh considerations
+
+Although the service mesh considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution
 
 - Consider using an open-source service mesh like [Istio](https://istio.io/), [Linkerd](https://linkerd.io/), [Consul](https://www.consul.io/), or [Open Service Mesh](https://openservicemesh.io/) in your AKS cluster to improve observability, reliability, and security for your microservices via mutual TLS and to implement traffic splitting strategies (blue/green deployments, canary deployments). In a nutshell, a service mesh is a dedicated infrastructure layer for making service-to-service communication safe, fast, and reliable. For more information, see:
   
@@ -262,13 +274,13 @@ Consider these ways to optimize availability for your AKS cluster and workloads:
 
 - Consider adopting [Dapr](https://dapr.io) to build resilient, microservice stateless and stateful applications using any programming language and developer frameworks.
 
-## Cost considerations
+### Cost considerations
 
-- Do a capacity planning based on the results of a performance test.
+- Complete a capacity planning exercise, based on the results of a performance test.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 - See other cost considerations in [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
 
-## DevOps considerations
+### DevOps considerations
 
 - Deploy your workloads to AKS using a [Helm](https://helm.sh/) chart in a CI/CD pipeline using a DevOps system such as [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/). For more information, see [Build and deploy to Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
 - Introduce A/B testing and canary deployments in your application lifecycle management to properly test an application before making it available for all users. There are several techniques that you can use to split the traffic across different versions of the same service.
@@ -280,6 +292,8 @@ Consider these ways to optimize availability for your AKS cluster and workloads:
 - Use Azure Container Registry or another container registry like Docker Hub to store the private Docker images that are deployed to the cluster. AKS can authenticate with Azure Container Registry by using its Azure AD identity.
 
 ### Monitoring considerations
+
+Although the monitoring considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution:
 
 - Use [Container insights](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-overview) to monitor the health status of the AKS cluster and workloads.
 - Configure all the PaaS services such as Azure Container Registry and Key Vault to collect diagnostics logs and metrics to [Azure Monitor Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview).
@@ -307,7 +321,18 @@ For online deployments, you must have an existing Azure account. If you need one
 
 3. Follow the instructions provided in the [README.md file](https://github.com/paolosalvatori/aks-agic/blob/master/README.md).
 
-## Related Resources
+### Pricing
+
+The cost of this architecture depends on configuration aspects like:
+
+- Service tiers
+- Scalability, meaning the number of instances dynamically allocated by services to support a given demand
+- Automation scripts
+- Your disaster recovery level
+
+After you assess these aspects, go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs. Also, for more pricing optimization options, see the [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
+
+## Next steps
 
 ### Azure Kubernetes Service
 
