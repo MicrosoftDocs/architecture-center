@@ -68,7 +68,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
    - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] for visualizing the underlying data.
    - Optimized Java Database Connectivity (JDBC) and Open Database Connectivity (ODBC) drivers.
 
-1. Users can export gold data sets out of the data lake into Azure Synapse via the optimized Synapse connector. SQL pools in Azure Synapse provide a data warehousing and compute environment. Use of Azure Synapse is optional. The solution only includes this component when users need business-ready data from the data warehouse, such as aggregates.
+1. Users can export gold data sets out of the data lake into Azure Synapse via the optimized Synapse connector. SQL pools in Azure Synapse provide a data warehousing and compute environment.
 
 1. The solution uses Azure services for collaboration, performance, reliability, governance, and security:
 
