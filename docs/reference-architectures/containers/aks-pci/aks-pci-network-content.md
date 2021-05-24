@@ -281,7 +281,7 @@ To meet this requirement, choosing a public AKS cluster is not an option. A priv
 
 Also, use a private DNS zone for routing between the subnet that has Azure Application Gateway integrated with Web Application Firewall (WAF) and the subnet that has the internal load balancer. Ensure all HTTP responses do not include any private IP information in headers or body. Ensure logs that may contain IP and DNS records are not exposed outside of operational needs.
 
-An Azure service that's connected through Private Link doesn't have a public DNS record. Your infrastructure should make use the use of Private Link optimally.
+An Azure service that's connected through Private Link doesn't have a public DNS record exposing your IPs. Your infrastructure should make use the use of Private Link optimally.
 
 ### Requirement 1.4
 
