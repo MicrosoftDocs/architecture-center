@@ -1604,6 +1604,8 @@ items:
                 items:
                   - name: High-volume batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
+                  - name: IBM System i to Azure using Infinite i
+                    href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
                   - name: IBM z/OS migration with Asysco AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
