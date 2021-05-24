@@ -182,7 +182,7 @@ Have a mechanism to detect delta between the actual deployed state and desired s
 
 The deployment assets such as, ARM templates, must be source controlled so that you have the history of all changes. Collect information from Azure activity logs, deployment pipeline logs, and Azure deployment logs. Those sources will help you keep a trail of deployed assets.
 
-In the cluster, network controls, such as Kubernetes network policies should also follow a source controlled flow. In this implementation, flux is used as the it GitOps operator. When synchronizing cluster configuration and GitHub repository, flux maintains the configuration history and the changes in the repository.
+In the cluster, network controls, such as Kubernetes network policies should also follow a source controlled flow. In this implementation, Flux is used as the GitOps operator. When synchronizing cluster configuration such as network policies, your git history combined with Flux and API logs can be a configuration history source.
 
 #### Requirement 1.2.3
 
