@@ -274,12 +274,6 @@ Although the service mesh considerations are not fully pertaining to multitenanc
 
 - Consider adopting [Dapr](https://dapr.io) to build resilient, microservice stateless and stateful applications using any programming language and developer frameworks.
 
-### Cost considerations
-
-- Complete a capacity planning exercise, based on the results of a performance test.
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
-- See other cost considerations in [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
-
 ### DevOps considerations
 
 - Deploy your workloads to AKS using a [Helm](https://helm.sh/) chart in a CI/CD pipeline using a DevOps system such as [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/). For more information, see [Build and deploy to Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
