@@ -46,7 +46,7 @@ A formal process for approving and testing all network connections and changes t
 
 ##### Your responsibilities
       
-Don't implement configurations manually or user tools such as the Azure portal, via Azure CLI. Instead, use Infrastructure as code (IaC). With IaC, infrastructure is managed through a descriptive model that uses a versioning system. IaC model generates the same environment every time it's applied. Common examples of IaC are Azure Resource Manager or Terraform.
+Don't implement configurations manually, such as using the Azure portal or Azure CLI directly. Instead, use Infrastructure as code (IaC). With IaC, infrastructure is managed through a descriptive model that uses a versioning system. IaC model generates the same environment every time it's applied. Common examples of IaC are Azure Resource Manager or Terraform.
 
 You'll need to use a combination of various network controls including Azure Firewall, Network Security Groups (NSGs), Kubernetes NetworkPolicy resource. Minimize the number of people who can access and modify network controls. Define roles and clear responsibility to teams. For example, an organization's network team will validate the changes as per the governance policies set by IT teams. Have a gated approval process that involves people and processes to approve changes to any network configuration. Have detailed documentation that describes the process.
 
@@ -78,10 +78,9 @@ Because this architecture is focused on the infrastructure and _not_ the workloa
 Requirements for a firewall at each Internet connection and between any demilitarized zone (DMZ) and the internal network zone.
 
 ##### Your responsibilities
-
-For a PCI DSS infrastructure, you're responsible for securing the card holder environment (CDE) by using firewalls to block unauthorized access into and out of the network with the CDE. Firewalls must be configured properly for a strong security posture. Firewall settings must be applied to:
-
-- Communication between the co-located components within the cluster.
+      
+For a PCI DSS infrastructure, you're responsible for securing the card holder environment (CDE) by using network controls to block unauthorized access into and out of the network with the CDE. Network controls must be configured properly for a strong security posture, and they must be applied to:
+- Communication between the colocated components within the cluster.
 - Communication between the workload and other components in trusted networks.
 - Communication between the workload and public internet.
 
@@ -140,8 +139,7 @@ Have processes that regularly review the network configurations and the scoped r
 - Network Security Group (NSG) rules.
 - Azure Application Gateway and Web Application Firewall (WAF) rules.
 - Native Kubernetes network policies.
-- Firewall controls on the applicable Azure resources. For example, this architecture uses a rule on Azure 
-- Container Registry that only allows traffic from a private endpoint.
+- Firewall controls on the applicable Azure resources. For example, this architecture uses a rule on Azure Container Registry that only allows traffic from a private endpoint.
 - Any other network controls you have added to the architecture.
 
 #### Requirement 1.2
@@ -149,9 +147,9 @@ Have processes that regularly review the network configurations and the scoped r
 Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment. 
 
 ##### Your responsibilities
-In this architecture, the AKS cluster _is_ the cardholder data environment (CDE). That cluster is deployed as a private cluster for maximum security. In a private cluster, network traffic between the AKS-managed Kubernetes API server and your node pools is private. The API server virtual network has a Azure Private Link service. Your cluster subnet exposes a private endpoint, which interacts with that Private link service.
+In this architecture, the AKS cluster _is_ the cardholder data environment (CDE). That cluster is deployed as a private cluster for enhanced security. In a private cluster, network traffic between the AKS-managed Kubernetes API server and your node pools is private. The API server is exposed via a Private Endpoint in the cluster's network.
 
-Alternatively, you can choose a public cluster, however, there are challenges. The API server will be exposed to the internet. The DNS record will always be discoverable. So, you need to have controls to keep the cluster out of public space. An approach is to have tight controls through Kubernetes role-based access controls (RBAC) and with IP restrictions implemented by using firewall rules on AKS. That combination can get hard to manage. Every request will consume compute from the AKS control plane to generate a response. To summarize, IP restrictions from public IP space are _not_ sufficient for a highly regulated workload. 
+Alternatively, you can choose a public cluster, however, there are challenges. The API server will be exposed to the internet. The DNS record will always be discoverable. So, you need to have controls to keep the cluster API protected from public access. An approach is to have tight controls through Kubernetes role-based access controls (RBAC) paired with the authorized IP ranges feature of AKS. However, this solution is not recommended for clusters containing regulated workloads.
 
 When processing card holder data (CHD), the cluster will need to interact with networks that are considered to be trusted and untrusted. In this architecture, both the hub and spoke networks within the perimeter of PCI-DSS workload, are considered to be trusted networks.
 
@@ -194,11 +192,11 @@ In addition to firewall rules and private networks, Nework Security Group (NSG) 
 Secure and synchronize router configuration files.
 
 ##### Your responsibilities
-Have a mechanism to detect delta between the actual deployed state and desired state. Infrastructure as code (IaC)is a great choice for that purpose. For example, Azure Resource Manager templates have a record of the desired state. 
+Have a mechanism to detect delta between the actual deployed state and desired state. Infrastructure as code (IaC) is a great choice for that purpose. For example, Azure Resource Manager templates have a record of the desired state. 
 
 The deployment assets such as, ARM templates, must be source controlled so that you have the history of all changes. Collect information from Azure activity logs, deployment pipeline logs, and Azure deployment logs. Those sources will help you keep a trail of deployed assets.
 
-In the cluster, network controls, such as Kubernetes network policies should also follow a source controlled flow. In this implementation, flux is used as the it GitOps operator. When synchronizing cluster configuration and GitHub repository, flux maintains the configuration history and the changes in the repository.
+In the cluster, network controls, such as Kubernetes network policies should also follow a source controlled flow. In this implementation, Flux is used as the GitOps operator. When synchronizing cluster configuration such as network policies, your git history combined with Flux and API logs can be a configuration history source.
 
 #### Requirement 1.2.3
 
@@ -208,7 +206,7 @@ Install perimeter firewalls between all wireless networks and the cardholder dat
 
 The AKS nodes and the node pools must not be reachable from wireless networks. Also, requests to the Kubernetes API server must be denied. Access to those components is restricted to authorized and secured subnets.
 
-In general, limit access to on-premises traffic to the spoke network.  
+In general, limit access from on-premises traffic to the spoke network.  
 
 #### Requirement 1.3
 
@@ -271,13 +269,13 @@ Here are ways in which you can block unauthorized outbound traffic:
 - Use Kubernetes NetworkPolicies to restrict egress traffic from the pods. 
 - Use a service mesh to handle additional policies. For example, if you only allow TLS-encrypted traffic between pods, the service mesh proxy can handle the TLS verification. That example is demonstrated in the this implementation, Envoy is deployed as the proxy. 
 
-AKS requires some public internet access to access the Azure-managed control plane. For example, the cluster wants to send metrics and logs to Azure Monitor. You can set scoped rules by specifying the source and destination FQDN targets or FQDN tags. While using tags makes it easier to set the rules, some tags might include more targets than you need making the rule overly permissive. Review the tags to make sure it has just the right targets you need.
+AKS requires some public internet access to access the Azure-managed control plane. For example, the cluster wants to send metrics and logs to Azure Monitor. You can set scoped rules by specifying the source and destination FQDN targets or FQDN tags. While using tags makes it easier to set the rules, some tags might include more targets than you need making the rule overly permissive. Review the tags to make sure it has just the right targets you need. Consider using explicit rules for added control, however that will come at a tradeoff of management/complexity, including removing rules that are no longer necessary.
 
 For details More details is available at: [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
 
 #### Requirement 1.3.5
 
-Permit only “established” connections into the network.
+Permit only "established" connections into the network.
 
 ##### Azure responsibilities
 
@@ -305,7 +303,7 @@ To meet this requirement, choosing a public AKS cluster is not an option. A priv
 
 Also, use a private DNS zone for routing between the subnet that has Azure Application Gateway integrated with Web Application Firewall (WAF) and the subnet that has the internal load balancer. Ensure all HTTP responses do not include any private IP information in headers or body. Ensure logs that may contain IP and DNS records are not exposed outside of operational needs.
 
-An Azure service that's connected through Private Link doesn't have a public DNS record that exposes your IPs. Your infrastructure should make use the use of Private Link optimally.
+An Azure service that's connected through Private Link doesn't have a public DNS record exposing your IPs. Your infrastructure should make use the use of Private Link optimally.
 
 ### Requirement 1.4
 
