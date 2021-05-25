@@ -58,3 +58,18 @@ Now that we have defined the three patterns' topologies and the segmentation ent
 |**Centralized logging**| NSG/ASG logs for the virtual network |  Aggregate NSG/ASG logs across all virtual networks | Azure Firewall logs to Azure Monitor all accepted/denied traffic that is sent via a hub
 |**Unintended open public endpoints**| DevOps can accidentally open a public endpoint via incorrect NSG/ASG rules. | Same as a pattern 1 |Accidentally opened public endpoint in a spoke virtual network will not enable access as the return packet will be dropped via stateful firewall (that is, asymmetric routing)
 **Application level protection** | NSG/ASG provides network layer support only.  | Same as a pattern 1 | Azure Firewall supports FQDN filtering for HTTP/S and MSSQL for outbound traffic and across virtual networks.
+
+## Next steps
+
+Learn more about the component technologies:
+
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [What is Azure Firewall?](/azure/firewall/overview)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+
+Explore related architectures:
+
+- [Azure firewall architecture guide](/azure/architecture/example-scenario/firewalls/)
+- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+- [Azure Automation in a hybrid environment](/azure/architecture/hybrid/azure-automation-hybrid)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
