@@ -941,6 +941,8 @@ items:
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml
               - name: Advanced microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
+              - name: Highly available AKS cluster
+                href: reference-architectures/containers/aks-ha/aks-ha.yml
               - name: CI/CD pipeline for container-based workloads
                 href: example-scenario/apps/devops-with-aks.yml
           - name: Example workloads hosted in AKS clusters

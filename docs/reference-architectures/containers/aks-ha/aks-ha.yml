@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: Highly available AKS cluster
+  description: Run Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.
+  author: PageWriter-MSFT
+  ms.date: 02/02/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.category:
+    - containers
+    - kubernetes
+    - aks
+  ms.subservice: reference-architecture
+  ms.custom:
+    - seojul20
+    - containers
+    - reference-architecture
+name: Highly available AKS cluster
+azureCategories:
+  - containers
+summary: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster to multiple regions.
+products:
+  - azure-kubernetes-service
+  - azure-front-door
+  - azure-application-gateway
+  - azure-container-registry
+  - azure-firewall
+  - azure-key-vault
+
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-ha.png
+content: |
+   [!include[](aks-ha-content.md)]
