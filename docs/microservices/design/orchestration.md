@@ -30,7 +30,7 @@ This article discusses the challenges of running a containerized microservices a
 
 ## Containerized microservices architecture
 
-In this simple containerized AKS cluster:
+In this simple containerized Azure Kubernetes Service (AKS) cluster:
 
 - One Microservice A instance is running in Node 1, another instance in Node 2, and a third instance in Node 3.
 - One instance of Microservice B is running in Node 1, and another instance in Node 3.
@@ -47,9 +47,7 @@ To manage the cluster, a DevOps team has to:
 
 With container orchestration, the DevOps team can represent the cluster's desired state as a configuration. A container orchestration engine enforces the desired configuration and automates all the management tasks.
 
-Consider containerizing a simple three-tier web application. A container hosts the front-end component. Another container hosts the middle tier or REST API layer, and communicates with a globally distributed database.
-
-Running the containers on a single development machine might not be too hard, but running in a high availability mode at scale in a production cluster quickly becomes challenging. Container orchestration is crucial for large and dynamic production environments.
+Consider containerizing a simple three-tier web application. A container hosts the front-end component. Another container hosts the middle tier or REST API layer, and communicates with a globally distributed database. Running these containers on a single development machine might not be too hard. However, running the application in high availability mode at scale in a production cluster is challenging. Container orchestration is crucial for large and dynamic production environments.
 
 ## Advantages of container orchestration
 
@@ -72,7 +70,7 @@ The container orchestrator:
 Container orchestrators also provide flexibility and traffic control to:
 
 - Release new versions or roll back to old versions of microservices or sets of microservices, without downtime.
-- Enable side-by-side testing of different microservice versions.
+- Enable side by side testing of different microservice versions.
 
 ## Choose an Azure container orchestrator
 
