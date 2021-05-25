@@ -30,30 +30,30 @@ This article discusses the challenges of running a containerized microservices a
 
 ## Containerized microservices architecture
 
-Consider a three-tier web application running in an Azure Kubernetes Service (AKS) cluster:
+In this simple containerized AKS cluster:
 
-1. One AKS node hosts the front-end component.
-2. Another node hosts the middle tier or REST API layer.
-3. The middle tier communicates with globally distributed databases in a third node.
+- One Microservice A instance is running in Node 1, another instance in Node 2, and a third instance in Node 3.
+- One instance of Microservice B is running in Node 1, and another instance in Node 3.
+- Containerized [reverse proxy servers](https://www.magalix.com/blog/implemeting-a-reverse-proxy-server-in-kubernetes-using-the-sidecar-pattern) are running in Nodes 1 and 2 to distribute traffic.
 
-In this simple example, one instance of Microservice A is running in Node 1, another instance in Node 2, and a third instance in Node 3. One instance of Microservice B is running in Node 1 and another instance in Node 3. Containerized [reverse proxy servers](https://www.magalix.com/blog/implemeting-a-reverse-proxy-server-in-kubernetes-using-the-sidecar-pattern) run in Nodes 1 and 2 to distribute traffic.
+![Conceptual diagram of a simple containerized microservices architecture.](images/orchestration/multi-container-cluster-with-orchestrator.png)
 
-![Conceptual diagram of a simple containerized microservices web application.](images/orchestration/multi-container-cluster-with-orchestrator.png)
-
-To manage the cluster, the DevOps team has to:
+To manage the cluster, a DevOps team has to:
 
 - Run multiple container instances in each node.
 - Load balance traffic between the instances.
 - Manage communication between dependent instances in separate nodes.
 - Maintain the desired AKS cluster state.
 
-Running the application in three nodes on a single development machine might not be too hard, but a production environment has many more microservice instances. Managing a production cluster at scale in high-availability mode quickly becomes challenging.
-
 With container orchestration, the DevOps team can represent the cluster's desired state as a configuration. A container orchestration engine enforces the desired configuration and automates all the management tasks.
+
+Consider containerizing a simple three-tier web application. A container hosts the front-end component. Another container hosts the middle tier or REST API layer, and communicates with a globally distributed database.
+
+Running the containers on a single development machine might not be too hard, but running in a high availability mode at scale in a production cluster quickly becomes challenging. Container orchestration is crucial for large and dynamic production environments.
 
 ## Advantages of container orchestration
 
-The following example shows how container orchestration can help manage cluster deployment, networking, and scaling. This capability is crucial for large and dynamic production environments.
+The following example shows how container orchestration can help manage cluster deployment, networking, and scaling.
 
 ![Diagram of an example microservices cluster showing container orchestrator scenarios.](images/orchestration/container-orchestrator-example.png)
 
@@ -97,6 +97,7 @@ Here are some options for implementing microservices container orchestration in 
 - [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 - [Microservices with AKS and Azure DevOps](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+- [Use API gateways in microservices](gateway.md)
 - [Monitor a microservices architecture in AKS](../logging-monitoring.md)
 - [Microservices architecture on Azure Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric)
 - [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture)
@@ -104,8 +105,8 @@ Here are some options for implementing microservices container orchestration in 
 ## Related resources
 
 - [Build microservices on Azure](/azure/architecture/microservices/)
-- [Design a microservices architecture](/azure/architecture/microservices/design/)
-- [Design patterns for microservices](/azure/architecture/microservices/design/patterns)
+- [Design a microservices architecture](index.md)
+- [Design patterns for microservices](patterns.md)
 - [Microservices architectural style](/azure/architecture/guide/architecture-styles/microservices)
 - [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
 
