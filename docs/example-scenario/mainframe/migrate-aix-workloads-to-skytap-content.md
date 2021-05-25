@@ -40,6 +40,7 @@ scalability of Azure.
 ## Architecture
 
 ![Infographic of a self-service lift-and-shift of AIX workloads to Skytap on Azure](media/aix-skytap-architecture-800.png)
+ [Click this link to view a larger version of the image](media/aix-skytap-architecture.png)
 
 The numbers in the diagram correspond to the following data flow.
 
