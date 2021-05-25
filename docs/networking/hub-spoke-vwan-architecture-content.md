@@ -85,6 +85,17 @@ The architecture consists of:
     hub to each spoke. Azure Virtual WAN enables transitivity among hubs, which
     is not possible solely using peering.
 
+![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-002.png)
+### yemre
+As depicted in above figure, with this architecture it is possible to have 
+* A full meshed hubs among Azure Virtual Networks. 
+* Branch to Azure connectivity 
+* Branch to Branch connectivity
+* Mixed use of VPN and Express Route
+* Mixed use of user VPN to the site 
+* VNET to VNET connectivity
+
+
 ### Components
 
 * [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/)
