@@ -36,7 +36,7 @@ Consider a three-tier web application running in an Azure Kubernetes Service (AK
 2. Another node hosts the middle tier or REST API layer.
 3. The middle tier communicates with globally distributed databases in a third node.
 
-Containerized [reverse proxy servers](https://www.magalix.com/blog/implemeting-a-reverse-proxy-server-in-kubernetes-using-the-sidecar-pattern) also run in Nodes 1 and 2, to distribute traffic to different microservices.
+In this simple example, one instance of Microservice A is running in Node 1, another instance in Node 2, and a third instance in Node 3. One instance of Microservice B is running in Node 1 and another instance in Node 3. Containerized [reverse proxy servers](https://www.magalix.com/blog/implemeting-a-reverse-proxy-server-in-kubernetes-using-the-sidecar-pattern) run in Nodes 1 and 2 to distribute traffic.
 
 ![Conceptual diagram of a simple containerized microservices web application.](images/orchestration/multi-container-cluster-with-orchestrator.png)
 
@@ -47,7 +47,7 @@ To manage the cluster, the DevOps team has to:
 - Manage communication between dependent instances in separate nodes.
 - Maintain the desired AKS cluster state.
 
-Running the application in three containers on a single development machine might not be too hard, but a production environment has many more instances. Managing a production cluster at scale in high-availability mode quickly becomes challenging.
+Running the application in three nodes on a single development machine might not be too hard, but a production environment has many more microservice instances. Managing a production cluster at scale in high-availability mode quickly becomes challenging.
 
 With container orchestration, the DevOps team can represent the cluster's desired state as a configuration. A container orchestration engine enforces the desired configuration and automates all the management tasks.
 
