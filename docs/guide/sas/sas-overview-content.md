@@ -19,7 +19,7 @@ ms.custom:
   - guide
 ---
 
-# Architectures for SAS on Azure
+# SAS on Azure Architecture Guide
 
 This SAS on Azure Architecture Guide intends to cover various deployment scenarios while providing specific guidelines to help ensure quality deployments of SAS workloads running on Azure. Our architecture is based on guidance from the [Microsoft Azure Well-Architected Framework](../../framework/index.md) but you should consult with your SAS team for additional validation for your use case. When deploying any workload on Azure, you should consider these five pillars of solution excellence: Cost, DevOps, Resiliency, Scalability, and Security.
 
