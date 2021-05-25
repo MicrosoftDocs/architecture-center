@@ -168,3 +168,24 @@ You can use virtual network peering to route traffic between virtual networks by
 - Different zones have different transfer rates.
 
 For instance, data transfer from a virtual network in zone 1 to another virtual network in zone 2, will incur outbound transfer rate for zone 1 and inbound rate for zone 2. For more information, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
+
+## Next steps
+
+Learn more about the component technologies:
+
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [What is Azure Bastion?](/azure/bastion/bastion-overview)
+- [What is Azure Firewall?](/azure/firewall/overview)
+- [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+
+Explore related architectures:
+
+- [Azure firewall architecture guide](/azure/architecture/example-scenario/firewalls/)
+- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+- [Extend an on-premises network using VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn)
+- [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn)
+- [Hybrid connection](/azure/architecture/solution-ideas/articles/hybrid-connectivity)
+- [Connect standalone servers by using Azure Network Adapter](/azure/architecture/hybrid/azure-network-adapter)
+- [Secure and govern workloads with network level segmentation](/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
