@@ -3,7 +3,7 @@ title: Container orchestration for microservices
 description: Learn how container orchestration makes it easy to manage complex multi-container microservice deployments, scaling, and cluster health.
 author: veerashayyagari
 ms.author: veeray
-ms.date: 05/19/2021
+ms.date: 05/24/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -24,7 +24,7 @@ ms.custom:
 
 # Container orchestration for microservices
 
-In a microservices architecture, many instances of the microservices might be running. Each microservice instance is packaged and deployed inside a single container. Containers are lightweight and short-lived, making them easy to create and destroy, but difficult to coordinate and communicate between.
+Microservices architectures typically package and deploy each microservice instance inside a single container. Many instances of the microservices might be running, each in a separate container.  Containers are lightweight and short-lived, making them easy to create and destroy, but difficult to coordinate and communicate between.
 
 This article discusses the challenges of running a containerized microservices architecture at production scale, and how container orchestration can help. The article presents several Azure container orchestration options.
 
@@ -78,9 +78,9 @@ Container orchestrators also provide flexibility and traffic control to:
 
 Here are some options for implementing microservices container orchestration in Azure:
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed [Kubernetes](https://kubernetes.io/) container orchestration service in Azure that simplifies deployment and management of containerized applications. AKS provides elastic provisioning, fast end to end deployment, and advanced identity and access management.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed [Kubernetes](https://kubernetes.io/) container orchestration service in Azure that simplifies deployment and management of containerized applications. AKS provides elastic provisioning, fast end-to-end deployment, and advanced identity and access management.
 
-- [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) is a container orchestrator for deploying and managing microservices across a cluster of machines. The lightweight Service Fabric run time supports building stateless and stateful microservices.
+- [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) is a container orchestrator for deploying and managing microservices across a cluster of machines. The lightweight Service Fabric runtime supports building stateless and stateful microservices.
   
   A key Service Fabric differentiator is its robust support for building stateful services.  You can use the built-in stateful services programming model, or run containerized stateful services written in any language or code.
 
@@ -88,7 +88,7 @@ Here are some options for implementing microservices container orchestration in 
   
   For simple orchestration scenarios, you can use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally. Then, deploy the Docker containers as an ACI container group in a managed, serverless Azure environment. For full container orchestration scenarios, ACI can integrate with AKS to create virtual nodes for AKS orchestration.
 
-- [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) is an enterprise-ready, fully managed service for [Spring Boot](https://spring.io/projects/spring-boot) apps. Spring Cloud lets you focus on building and running apps without having to manage infrastructure. Spring Cloud comes with built-in lifecycle management, ease of monitoring, and full integration with Azure.
+- [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) is an enterprise-ready, fully managed service for [Spring Boot](https://spring.io/projects/spring-boot) apps. With Spring Cloud, you can focus on building and running apps without having to manage infrastructure. Spring Cloud comes with built-in lifecycle and orchestration management, ease of monitoring, and full integration with Azure.
 
 - [Azure Red Hat OpenShift (ARO)](https://azure.microsoft.com/services/openshift/) supports deployment of fully managed [OpenShift](https://www.openshift.com/) clusters on Azure. Running Kubernetes production containers requires integration with frameworks and tools like image registries, storage management, monitoring, and DevOps. ARO extends Kubernetes by combining these components into a single container platform as a service (PaaS).
 
