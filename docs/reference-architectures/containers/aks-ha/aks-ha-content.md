@@ -1,16 +1,16 @@
-This reference architecture shows how to run an Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability. 
+This reference architecture shows how to run an Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.
 
-## Architecture
+This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
+
 ![Mutli-region deployment](images/aks-ha.svg)
-This architecture builds on the baseline AKS cluster. Here are the main differences.
 
-**Multiple regions**
+## Components
 
-The AKS cluster is deployed in each region. During normal operations, network traffic is routed to all regions. If one region becomes unavailable, traffic is routed to a region that is closest to the user who issued the request. This architecture uses two regions. 
+These components and configurations are unique to the AKS multi-region reference architecture.
 
-**Load balancers**
+**Multiple regions** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region that is closest to the user who issued the request.
 
-Load balancers route traffic and distribute load to optimize resource use. The requirements of this architecture are:
+**Load balancers** Load balancers route traffic and distribute load to optimize resource use. The requirements of this architecture are:
 
 - Global routing. The load balancer must distribute traffic across all regions. It must fail over to another region (closest to the user) if one region fails. It should check the health of the workload and fail over as quickly as possible. So, the service must support high availability features such as fast failover, caching, and so on.
 - Layer 7 routing. The baseline AKS cluster only accepts HTTPS traffic. The load balancer needs to support layer 7 capabilities such as SSL offload. 
@@ -24,17 +24,15 @@ The baseline AKS cluster has Azure Application Gateway as the entry point. Even 
 > - Internal load balancer to route traffic within the virtual network.
 > - Kubernetes ingress controller that runs in the cluster to route traffic between the pods that runs the workload and supporting services.
 
-**DNS**
+**DNS** Azure DNS resolves the Azure Front Door requests to the IP address associated with Application Gateway. 
 
-Azure DNS resolves the Azure Front Door requests to the IP address associated with Application Gateway. 
+**Key store** Azure Key Vault is provisioned in each region.  
 
-**Key store**
+**Container registry** The container images for the workload are stored in a managed container registry. There's a single instance. Geo-replication for Azure Container Registry is enabled. It will automatically replicate images to the selected Azure regions, and will provide continued access to images even if a region were experiencing an outage.
 
-Azure Key Vault is provisioned in each region.  
+## Design considerations
 
-**Container registry**
-
-The container images for the workload are stored in a managed container registry. There's a single instance. Geo-replication for Azure Container Registry  is enabled. It will automatically replicate images to the selected Azure regions, and will provide continued access to images even if a region were experiencing an outage.
+Consider the following items when designing a multi-region AKS deployment.
 
 ## Ingress traffic flow
 
