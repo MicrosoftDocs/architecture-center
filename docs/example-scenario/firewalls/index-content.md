@@ -84,3 +84,23 @@ While not in the drawing, it would make sense for Subnet-B/C/D/Gateway to also i
 In short, the way you treat firewalls in your on-premises (physical/VLAN-based) networks, with as many interfaces (virtual or physical) is not the same as you would in Azure. If necessary you still can (to some degree), but there are better ways to ensure you can minimize fail-over downtime; have active-active implementations and *clean* routing tables.
 
 More information on using load balancers as *gateways* for all traffic can be found on [High availability ports overview](/azure/load-balancer/load-balancer-ha-ports-overview).
+
+## Next steps
+
+Learn more about the component technologies:
+
+- [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+
+Explore related architectures:
+
+- [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
+- [Hybrid connection](/azure/architecture/solution-ideas/articles/hybrid-connectivity)
+- [Extend an on-premises network using VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn)
+- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
+- [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn)
+- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
+- [Connect standalone servers by using Azure Network Adapter](/azure/architecture/hybrid/azure-network-adapter)
+- [Custom data sovereignty & data gravity requirements](/azure/architecture/solution-ideas/articles/data-sovereignty-and-gravity)
+- [SQL Server 2008 R2 failover cluster in Azure](/azure/architecture/example-scenario/sql-failover/sql-failover-2008r2)
