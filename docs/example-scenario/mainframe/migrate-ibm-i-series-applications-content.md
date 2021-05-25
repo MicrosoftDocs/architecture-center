@@ -33,7 +33,7 @@ Skytap on Azure helps you optimize costs.
 
 ## Architecture
 
-![Infographic of Microsoft Azure components used to migrate IBM i workloads to Skytap on Azure](media/migrate-ibm-i-series-applications.png)
+![Infographic of Microsoft Azure components used to migrate IBM i workloads to Skytap on Azure](media/migrate-ibm-i-series-applications-800.png)
 
 The numbers in the diagram correspond to the following data flow.
 
