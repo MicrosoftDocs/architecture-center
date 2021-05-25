@@ -29,6 +29,15 @@ topology and introduces new benefits:
     workloads (DevOps).
 
 ## Potential use cases
+![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-002.png)
+
+As depicted in above figure, with this architecture it is possible to have 
+* A full meshed hubs among Azure Virtual Networks. 
+* Branch to Azure connectivity 
+* Branch to Branch connectivity
+* Mixed use of VPN and Express Route
+* Mixed use of user VPN to the site 
+* VNET to VNET connectivity
 
 Typical uses for this architecture include cases in which:
 
