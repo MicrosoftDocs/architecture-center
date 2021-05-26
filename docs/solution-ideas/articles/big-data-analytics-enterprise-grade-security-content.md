@@ -45,7 +45,7 @@ expects. This includes supporting common requirements such as:
 
 ## Architecture
 
-![Diagram showing the data flow in this solution. For a detailed explanation, see the following article text. ](../media/big-data-analytics-enterprise-grade-security.png)
+[ ![Diagram showing the data flow in this solution. For a detailed explanation, see the following article text. ](../media/big-data-analytics-enterprise-grade-security.png) ](../media/big-data-analytics-enterprise-grade-security-large.png#lightbox)
 
 This example solution makes use of several Azure services and features:
 
