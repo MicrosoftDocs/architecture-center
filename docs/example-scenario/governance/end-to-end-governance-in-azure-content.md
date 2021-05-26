@@ -107,6 +107,14 @@ The numbering reflects the other in which IT administrators and enterprise archi
 - [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 
+## Alternatives
+
+The concept of end-to-end governance is vendor agnostic. While this article focuses on Azure DevOps, [Azure DevOps Server](https://azure.microsoft.com/services/devops/server/) could be used as an on-premises substitute. Alternatively, you could also use a set of technologies for an open-source CI/CD development pipeline using options like [Jenkins](https://docs.microsoft.com/azure/jenkins) and [GitLab](https://docs.gitlab.com/ee/install/azure/).
+
+Both Azure Repos and GitHub are platforms that are built to use the open-source Git version control system. While their feature sets are somewhat different, both can be integrated into global governance models for CI/CD. GitLab is another Git-based platform that provides robust CI/CD capabilities.
+
+This scenario uses Terraform as its infrastructure as code tool. Alternatives include Jenkins, [Ansible](https://docs.microsoft.com/azure/developer/ansible/), and [Chef](https://docs.microsoft.com/azure/chef). 
+
 ## Considerations
 
 To achieve end-to-end governance in Azure, it's important to understand the security and permissions profile of the path from developer's computer to production. The following diagram illustrates a baseline CI/CD workflow with Azure DevOps. The red lock icon :::image type="icon" source="media/e2e-governance-devsecops-gear.svg"::: indicates security permissions that must be configured by the user. Not configuring or mis-configuring permissions will leave your workloads vulnerable.
@@ -198,6 +206,12 @@ This scenario extends beyond Resource Manager. This is why we use [Terraform](ht
 
 For source code and detailed instructions, visit the GitHub repository [Governance on Azure Demo - from DevOps to ARM](https://github.com/azure/devops-governance).
 
+## Pricing
+
+Azure DevOps costs depend on the number of users in your organization that require access, along with other factors like the number of concurrent build/releases required and number of users. Azure Repos and Pipelines are features of the Azure DevOps service. For more information, see [Azure DevOps pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
+
+In Azure Active Directory, the type of group access management needed for this scenario is provided in the Premium P1 and Premium P2 editions. Pricing for these tiers is calculated on a per-user basis. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+
 ## Next steps
 
 - Visit the code repository for this scenario at [Governance on Azure Demo - from DevOps to ARM](https://github.com/azure/devops-governance)
@@ -205,6 +219,7 @@ For source code and detailed instructions, visit the GitHub repository [Governan
 
 ## Related resources
 
+- [Design a CI/CD pipeline using Azure DevOps](https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
 - [What is Azure role-based access control (Azure RBAC)?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Cloud Adoption Framework: Resource access management in Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
 - [Azure Resource Manager roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
