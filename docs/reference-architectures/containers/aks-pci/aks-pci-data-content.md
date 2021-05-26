@@ -49,9 +49,11 @@ Adhere strictly to the standard guidance about what kind of CHD can be stored. D
 - What actions are permitted during the retention period?
 - How are you deleting the stored data after the retention period has expired? 
 
-Have governance policies around some of those choices. For example, a policy that denies write operations on the root filesystem. Also, consider enforcing policies at the infrastructure level. You can restrict  deployment of storage services inside the cluster. 
+Have governance policies around some of those choices. There are built-in Azure policies that enforce those choices. For example you can; restrict the volume types on the cluster pods, deny write operations on the root filesystem. 
 
-There might situations where CHD is stored temporarily inside the cluster, such as buffering requests to disk. Even that data must be protected. Consider enabling encryption within the cluster. Also add a policy to enforce encryption inside the cluster.
+Review [this list of policy definitions](https://docs.microsoft.com/en-us/azure/aks/policy-reference) and apply them to the cluster, where applicable. 
+
+You might need to temporarily cache data. It's recommended that you protect the cached data and while it's moved to a storage solution. Consider enabling the host-based encryption feature on AKS. This will encrypt the data stored on node VMs. For more information, see [Host-based encryption on Azure Kubernetes Service (AKS)](/azure/aks/enable-host-encryption). Also, enforce as a requirement by enabling a built-in Azure policy that requires encrption of temporary disks and cache for node pools. 
 
 When choosing a storage technology, explore the retention features. For example, Azure Blob storage provides [Time-based retention policies](/azure/storage/blobs/storage-blob-immutable-storage#time-based-retention-policies). Another choice is to implement a custom solution that deletes data according to retention policies. An example is Data Lifecycle Management (DLM) that manages data life-cycle activities. The solution has been designed with services such as like Azure Data Factory, Azure Active Directory (Azure AD), and Azure Key Vault. 
 
@@ -116,9 +118,15 @@ If disk encryption is used (rather than file- or column-level database encryptio
 
 
 ##### Your responsibilities
-As a general rule, do not store state in the AKS cluster. Use an external data storage that supports storage-engine level encryption. All stored data in Azure Storage is encrypted and decrypted by using AES encryption. The associated keys are managed by Microsoft. With Azure Storage, you also have the ability to use self-managed keys. Make sure you store those keys in a managed key store (Azure Key Vault, Azure Key Vault Managed Hardware Security Module (HSM), and others). For more information, see [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview?toc=/azure/storage/blobs/toc.json). Similar capabilities are available in databases. For Azure SQL options, see [Transparent data encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-tde-overview).
+As a general rule, do not store state in the AKS cluster. Use an external data storage that supports storage-engine level encryption. 
 
-In cases where you need to store data temporarily, enable encryption on host. 
+All stored data in Azure Storage is encrypted and decrypted by using strong cryptography. The associated keys are managed by Microsoft. With Azure Storage, you also have the ability to use self-managed keys. For details, see  [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview?toc=/azure/storage/blobs/toc.json).
+
+Similar capabilities are available for databases. For Azure SQL options, see [Transparent data encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-tde-overview).
+
+Make sure you store your keys in a managed key store (Azure Key Vault, Azure Key Vault Managed Hardware Security Module (HSM), and others). 
+
+If you need to store data temporarily, enable the [Host-encryption](/azure/aks/enable-host-encryption) feature of AKS to make sure data stored on VM nodes is encrypted. 
 
 ### Requirement 3.5
 Document and implement procedures to protect keys used to secure stored cardholder data against disclosure and misuse: 
@@ -140,7 +148,9 @@ Additional requirement for service providers only: Maintain a documented descrip
 
 ##### Your responsibilities
 
-By default, Azure uses Microsoft-managed keys for all encrypted data, per customer. However, some services also support self-managed keys for encryption. If your design uses self-managed keys for encryption at rest, ensure you account for a process and strategy that handles the tasks related to management of those keys, for example key rotation.
+One way to store sensitive information (keys, connection strings, and others) is to use the native Kubernetes `Secret` resource. You must explicitly enable encryption at rest. Alternatively, store them in a managed store such as Azure Key Vault. Of the two approaches, using managed store service is recommended. One advantage is reduced overhead in tasks related to key management, for example key rotation.
+
+By default, Azure uses Microsoft-managed keys for all encrypted data, per customer. However, some services also support self-managed keys for encryption. If you use self-managed keys for encryption at rest, ensure you account for a process and strategy that handles key management tasks.
 
 As part of your documentation, include information related to key management such as expiry, location, and maintenance plan details.
 
@@ -177,6 +187,8 @@ Follow [NIST](https://csrc.nist.gov/) guidance about key management. For details
 - [SP 800-133 Rev. 2, Recommendation for Cryptographic Key Generation](https://csrc.nist.gov/publications/detail/sp/800-133/rev-2/final)
 - [SP 800-57 Part 1 Rev. 5, Recommendation for Key Management](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
 
+See also, [Azure Defender for Key Vault](/azure/security-center/defender-for-key-vault-introduction).
+
 #### Requirement 3.6.7
 Prevention of unauthorized substitution of cryptographic keys.
 
@@ -210,7 +222,9 @@ Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, an
 
 #### Your responsibilities
       
-Data that transits over the public internet must be encrypted. Data must be encrypted with TLS 1.2 (or later), with reduced cipher support for all transmissions. Do not support non-TLS to TLS redirects on any data transmission services. Your design should have multiple TLS termination points starting at the first point of interception and all the way to your cluster, and even communication between the pods. Maintain TLS between network hops that may include firewalls and the cluster. At each hop, inspect the packet, block, or route it to the next destination. Have the final TLS termination point at the cluster's ingress resource. Consider taking it further and provide TLS connections between the pods within the cluster resources.
+Data that transits over the public internet must be encrypted. Data must be encrypted with TLS 1.2 (or later), with reduced cipher support for all transmissions. Do not support non-TLS to TLS redirects on any data transmission services. 
+
+Your design should have a strategic chain of TLS termination points. As data travels through network hops, maintain TLS at hops that require packet inspection. At the very least, have the final TLS termination point at the cluster's ingress resource. Consider taking it further within the cluster resources.
 
 :::image type="content" source="./images/flow.svg" alt-text="Data encryption" lightbox="./images/flow.png":::
 
