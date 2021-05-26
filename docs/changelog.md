@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 05/17/2021
+ms.date: 05/24/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -28,6 +28,10 @@ New and updated articles in Azure Architecture Center
 ### New Articles
 
 - [Suggest content tags with deep learning and NLP](./solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
+- [Securing your Microsoft Teams channel bot and web app behind a firewall](./example-scenario/teams/securing-bot-teams-channel.yml)
+- [Modern analytics architecture with Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
+- [Hub-spoke network topology with Azure Virtual WAN](./networking/hub-spoke-vwan-architecture.yml)
+- [Azure Automation State Configuration](./example-scenario/state-configuration/state-configuration.yml)
 - [Environment monitoring and supply chain optimization with IoT](./solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
 - [Choose a Kubernetes at the edge compute option](./operator-guides/aks/choose-kubernetes-edge-compute-option.md)
 - [Protect APIs with Azure Application Gateway and Azure API Management](./reference-architectures/apis/protect-apis.yml)
@@ -36,10 +40,19 @@ New and updated articles in Azure Architecture Center
 ### Updated Articles
 
 - [Demand forecasting and price optimization](./solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)  ([#5a1229602](https://github.com/MicrosoftDocs/architecture-center/commit/5a1229602))
+- [Building solutions for high availability using Availability Zones](./high-availability/building-solutions-for-high-availability.md)  ([#865b0d3c7](https://github.com/MicrosoftDocs/architecture-center/commit/865b0d3c7))
+- [Extend your on-premises big data investments with HDInsight](./solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml)  ([#7d3f28be1](https://github.com/MicrosoftDocs/architecture-center/commit/7d3f28be1))
+- [Customer Churn Prediction](./solution-ideas/articles/customer-churn-prediction.yml)  ([#10aa45877](https://github.com/MicrosoftDocs/architecture-center/commit/10aa45877))
+- [Create personalized marketing solutions](./solution-ideas/articles/personalized-marketing.yml)  ([#17a5639ec](https://github.com/MicrosoftDocs/architecture-center/commit/17a5639ec))
+- [Improper Instantiation antipattern](./antipatterns/improper-instantiation/index.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
+- [Web API design best practices](./best-practices/api-design.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
+- [Microsoft Azure Well-Architected Framework](./framework/index.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
+- [Multitenancy and identity management](./multitenant-identity/index.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
+- [What is CQRS pattern?](./patterns/cqrs.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
+- [Digital Campaign Management](./solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml)  ([#cb6fd63d1](https://github.com/MicrosoftDocs/architecture-center/commit/cb6fd63d1))
 - [Forecast energy and power demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#71cc3da42](https://github.com/MicrosoftDocs/architecture-center/commit/71cc3da42))
 - [Population Health Management for Healthcare](./solution-ideas/articles/population-health-management-for-healthcare.yml)  ([#a6b3ca8ee](https://github.com/MicrosoftDocs/architecture-center/commit/a6b3ca8ee))
 - [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#830bceb7a](https://github.com/MicrosoftDocs/architecture-center/commit/830bceb7a))
-- [Microsoft Azure Well-Architected Framework](./framework/index.md)  ([#d84d4d6f2](https://github.com/MicrosoftDocs/architecture-center/commit/d84d4d6f2))
 - [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#8f87a6f08](https://github.com/MicrosoftDocs/architecture-center/commit/8f87a6f08))
 
 ## April 2021

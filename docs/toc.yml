@@ -1604,6 +1604,8 @@ items:
                 items:
                   - name: High-volume batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
+                  - name: IBM System i to Azure using Infinite i
+                    href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
                   - name: IBM z/OS migration with Asysco AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
@@ -1899,6 +1901,8 @@ items:
                 href: example-scenario/secrets/secure-refresh-tokens.yml
               - name: Securely managed web apps
                 href: example-scenario/apps/fully-managed-secure-apps.yml
+              - name: Securing your Microsoft Teams channel bot
+                href: example-scenario/teams/securing-bot-teams-channel.yml
               - name: Virtual network integrated microservices
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Virtual Network security options
