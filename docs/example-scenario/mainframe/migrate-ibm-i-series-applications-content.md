@@ -130,9 +130,6 @@ The architecture uses these components:
 Skytap on Azure has high reliability built on IBM Power9 Systems backed by SSD
 RAID 6+1 storage and 10 Gb/sec backplane networking.
 
-Skytap on Azure is supported by a service-level agreement (SLA) of 99.95 percent
-availability.
-
 ### Performance
 
 Skytap on Azure provides high performance and efficiency that support demanding
