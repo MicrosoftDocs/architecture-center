@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea sketches out real-time inference on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). Use AKS when you need high-scale production deployments of your machine learning models. High-scale means capabilities such as fast response time, autoscaling of the deployed service, and logging. For more information, see [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service).
+This solution idea is about real-time inference on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). Use AKS when you need high-scale production deployments of your machine learning models. High-scale means capabilities such as fast response time, autoscaling of the deployed service, and logging. For more information, see [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service).
 
 In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow/) is used to manage the deployment to AKS. Your ML models run on AKS clusters backed by GPU enabled VMs.
 
