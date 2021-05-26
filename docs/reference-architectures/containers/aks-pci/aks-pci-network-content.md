@@ -181,8 +181,6 @@ The cluster will need to access other services over the public internet. If you 
 
 Interactions with endpoints of other Azure services are over the internet. Make sure those interactions are secure. For example, as part of the regular operations, the cluster will need to get certificates from the managed key store, pull images from a container registry, and so on. You can use Private Links for other services such as Azure Key Vault and Azure Container Registry to do the preceding tasks.
 
-For example, get certificates from the managed key store, pull images from a container registry, communicate with the API server. 
-
 In addition to firewall rules and private networks, Network Security Group (NSG) flows are also secured through rules. Here some examples from this architecture where the CDE is protected by denying traffic:
 - The NSGs, on subnets that have node pools, deny any SSH access to its nodes.
 - The NSG, on the subnet that has the jump box for running management tools, denies all traffic except from  Azure Bastion in the hub network.
