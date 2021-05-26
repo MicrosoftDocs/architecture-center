@@ -13,7 +13,7 @@ In this solution, [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow/) is u
 
 1. Package machine learning (ML) model into a container and publish to Azure Container Registry (ACR).
 1. Azure Blob storage hosts training data sets and trained model.
-1. Use Kubeflow to deploy training job to Azure Kubernetes Services (AKS), distributed training job to AKS includes Parameter servers and Worker nodes.
+1. Use Kubeflow to deploy training job to Azure Kubernetes Services (AKS); distributed training jobs to AKS include Parameter servers and Worker nodes.
 1. Serve production model using Kubeflow, promoting a consistent environment across test, control, and production.
 1. AKS supports GPU enabled VM.
 1. Developers build features to query the model running in AKS cluster.
