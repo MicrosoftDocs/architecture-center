@@ -67,7 +67,7 @@ The numbers in the diagram correspond to the following data flow.
     Data Box Gateway via the Network File System (NFS) protocol. This process is
     repeated for each LPAR to be restored.
 
-## Components
+### Components
 
 The architecture uses these components:
 
@@ -149,7 +149,7 @@ Skytap on Azure promotes operational excellence through its native support for
 AIX on IBM Power9 systems that are hosted within Azure datacenters and managed
 by Microsoft.
 
-## Scalability
+### Scalability
 
 One of the advantages of an Azure–based solution is the ability to scale out.
 Scaling makes nearly limitless compute capacity available to an application.
@@ -167,7 +167,7 @@ as compute services for specified resources.
 To scale up on Azure, choose a [larger VM
 size](https://azure.microsoft.com/services/virtual-machines/) for your workload.
 
-## Security
+### Security
 
 Skytap on Azure meets industry cloud security requirements, including System and
 Organization Controls for Service Organizations 2 (SOC 2) and SOC 3 attestations
