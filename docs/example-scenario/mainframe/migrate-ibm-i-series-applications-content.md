@@ -59,7 +59,7 @@ The numbers in the diagram correspond to the following data flow.
     system and user data), option 23 (restore user data), or BRMS if used for
     the original backup.
 
-## Components
+### Components
 
 The architecture uses these components:
 
@@ -141,7 +141,7 @@ cloud scale. With capacity on demand and pay-as-you-go pricing, you save the
 expense of adding hardware on premises to meet changing demands. You can use
 smaller LPARs instead of a few large ones and configure resources as needed.
 
-## Scalability
+### Scalability
 
 One of the advantages of an Azure–based solution is the ability to scale out.
 Scaling makes nearly limitless compute capacity available to an application.
@@ -159,7 +159,7 @@ Azure compute scale-up can be as simple as choosing the right [virtual
 machine](https://azure.microsoft.com/services/virtual-machines/) for your
 workload.
 
-## Security
+### Security
 
 Skytap on Azure meets industry cloud security requirements, including System and
 Organization Controls for Service Organizations 2 (SOC 2) and SOC 3 attestations
