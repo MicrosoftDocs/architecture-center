@@ -7668,8 +7668,8 @@
                 "shell"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/ai/movie-recommendations.md",
-            "http_url": "/azure/architecture/example-scenario/ai/movie-recommendations",
+            "file_url": "example-scenario/ai/movie-recommendations-with-machine-learning.md",
+            "http_url": "/azure/architecture/example-scenario/ai/movie-recommendations-with-machine-learning",
             "word_count": 937,
             "read_time": "4 min read",
             "Title": "Movie recommendations on Azure",
@@ -7695,7 +7695,7 @@
             "code_languages": [
                 "shell"
             ],
-            "name": "movie-recommendations",
+            "name": "movie-recommendations-with-machine-learning",
             "popularity": 76,
             "topic": "AI + Machine Learning"
         },
@@ -10280,8 +10280,8 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/ai/scalable-personalization.md",
-            "http_url": "/azure/architecture/example-scenario/ai/scalable-personalization",
+            "file_url": "example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.md",
+            "http_url": "/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system",
             "word_count": 1584,
             "read_time": "6 min read",
             "Title": "Scalable personalization on Azure",
@@ -10298,7 +10298,7 @@
             "Summary": "<p>Recommendations are a main revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.</p>\n<p>There are two main types of recommendation systems: collaborative filtering and content-based. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this document focuses on the content-based recommendation system.</p>\n<p>This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, we use <a href=\"https://azure.microsoft.com/services/databricks\">Azure Databricks</a> to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using <a href=\"https://azure.microsoft.com/services/kubernetes-service\">Azure Kubernetes Service</a>. In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume.</p>",
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#setup-guide-for-azure-databricks",
-            "name": "scalable-personalization",
+            "name": "scalable-personalization-with-content-based-recommendation-system",
             "popularity": 38,
             "topic": "AI + Machine Learning"
         },

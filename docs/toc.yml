@@ -607,9 +607,9 @@ items:
           - name: Build a Real-time Recommendation API on Azure
             href: reference-architectures/ai/real-time-recommendation.yml
           - name: Movie recommendations on Azure
-            href: example-scenario/ai/movie-recommendations.yml
+            href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
           - name: Scalable personalization on Azure
-            href: example-scenario/ai/scalable-personalization.yml
+            href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
           - name: Data warehousing and analytics
             href: example-scenario/data/data-warehouse.yml
           - name: Stream processing with Azure Databricks
@@ -714,7 +714,7 @@ items:
               - name: MLOps for Python models
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
-                href: example-scenario/ai/movie-recommendations.yml
+                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
               - name: Real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Real-time scoring Python models
@@ -722,7 +722,7 @@ items:
               - name: Real-time scoring R models
                 href: reference-architectures/ai/realtime-scoring-r.yml
               - name: Scalable personalization
-                href: example-scenario/ai/scalable-personalization.yml
+                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: Speech to text conversion
                 href: reference-architectures/ai/speech-ai-ingestion.yml
               - name: Training Python models
@@ -863,6 +863,8 @@ items:
                 href: solution-ideas/articles/interactive-price-analytics.yml
               - name: IoT analytics with Azure Data Explorer
                 href: solution-ideas/articles/iot-azure-data-explorer.yml
+              - name: Modern analytics architecture with Azure Databricks
+                href: solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml
               - name: Monitoring solution with Azure Data Explorer
                 href: solution-ideas/articles/monitor-azure-data-explorer.yml
               - name: Oil and Gas tank level forecasting
@@ -1324,7 +1326,7 @@ items:
                 href: solution-ideas/articles/sharepoint-farm-devtest.yml
       - name: High Availability
         items:
-          - name: Architectural overview
+          - name: Get started
             href: high-availability/building-solutions-for-high-availability.md
           - name: Architectures
             items:
@@ -1602,12 +1604,14 @@ items:
                 items:
                   - name: High-volume batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
+                  - name: IBM System i to Azure using Infinite i
+                    href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
                   - name: IBM z/OS migration with Asysco AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
-                    href: example-scenario/mainframe/micro-focus-server.yml
+                    href: example-scenario/mainframe/micro-focus-server.yml 
                   - name: Migrate IBM i series applications to Skytap on Azure
-                    href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml                    
+                    href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml  
                   - name: Refactor IBM z/OS mainframe CF on Azure
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
                   - name: Unisys Dorado mainframe migration with Astadia & Micro Focus
@@ -1805,6 +1809,8 @@ items:
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
               - name: Segmenting Virtual Networks
                 href: reference-architectures/hybrid-networking/network-level-segmentation.yml
+              - name: Hub-spoke network topology with Azure Virtual WAN
+                href: networking/hub-spoke-vwan-architecture.yml   
               - name: Hybrid networking
                 items:
                   - name: Azure Automation Update Management
@@ -1897,6 +1903,8 @@ items:
                 href: example-scenario/secrets/secure-refresh-tokens.yml
               - name: Securely managed web apps
                 href: example-scenario/apps/fully-managed-secure-apps.yml
+              - name: Securing your Microsoft Teams channel bot
+                href: example-scenario/teams/securing-bot-teams-channel.yml
               - name: Virtual network integrated microservices
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
               - name: Virtual Network security options
