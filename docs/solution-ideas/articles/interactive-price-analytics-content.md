@@ -16,6 +16,7 @@ An implementation of this pricing analytics solution idea is described in the [A
 ## Architecture of a pricing analytics solution
 
 ![Architecture diagram: overview of components for a pricing analytics solution using machine learning.](../media/interactive-price-analytics.png)
+
 *Download an [SVG](../media/interactive-price-analytics.svg) of this architecture.*
 
 The AI Gallery solution, which is an implementation of this solution idea, has two key roles, technical resources and end users such as pricing managers. Technical resources deploy the solution and connect it to a business data warehouse. For more information, they should read the [Technical Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md). End users using the model via a spreadsheet or integrated into a business application, should read the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md).
