@@ -107,7 +107,7 @@ The numbering reflects the other in which IT administrators and enterprise archi
 - [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 
-## Alternatives
+### Alternatives
 
 The concept of end-to-end governance is vendor agnostic. While this article focuses on Azure DevOps, [Azure DevOps Server](https://azure.microsoft.com/services/devops/server/) could be used as an on-premises substitute. Alternatively, you could also use a set of technologies for an open-source CI/CD development pipeline using options like [Jenkins](https://docs.microsoft.com/azure/jenkins) and [GitLab](https://docs.gitlab.com/ee/install/azure/).
 
