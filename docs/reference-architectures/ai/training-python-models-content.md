@@ -1,7 +1,7 @@
 
 
 
-This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of python models. Two scenarios are covered: hyperparameter tuning of [scikit-learn][scikit] models and deep learning models with GPUs. Two reference implementation for this architecture are available on GitHub, one for [scikit-learn][github1] models and one for [deep learning][github2] models.
+This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of python models. Two scenarios are covered: hyperparameter tuning of [scikit-learn][scikit] models and deep learning models with GPUs. Two reference implementations for this architecture are available on GitHub, one for [scikit-learn][github1] models and one for [deep learning][github2] models.
 
 ![Architecture diagram][0]
 
@@ -57,7 +57,7 @@ This architecture consists of several Azure cloud services that scale resources 
 
 ## Performance considerations
 
-Each set of [hyperparameters][hyperparameter] runs on one node of the Machine Learning [compute target][target]. For scenario 1, each node is a Standard D4 v2 VM, which has four cores. This scenario uses a [LightGBM][lightgbm] classifier for machine learning, a gradient boosting framework. This software can run on all four cores at the same time, speeding up each run by a factor of up to four. That way, the whole hyperparameter tuning run takes up to one-quarter of the time it would take had it been run on a Machine Learning Compute target based on Standard D1 v2 VMs, which have only one core each. For scenario 2, each node is a Standard NC6 with 1 GPU and each hyperparameter tuning run will use the single GPU on each node.
+Each set of [hyperparameters][hyperparameter] runs on one node of the Machine Learning [compute target][target]. For scenario 1, each node is a Standard D4 v2 VM, which has four cores. This scenario uses a [LightGBM][lightgbm] classifier for machine learning, a gradient boosting framework. This software can run on all four cores at the same time, speeding up each run by a factor of up to four. That way, the whole hyperparameter tuning run takes up to one-quarter of the time it would take had it been run on a Machine Learning Compute target based on Standard D1 v2 VMs, which have only one core each. For scenario 2, each node is a Standard NC6 with one GPU and each hyperparameter tuning run will use the single GPU on each node.
 
 The maximum number of Machine Learning Compute nodes affects the total run time. The recommended minimum number of nodes is zero. With this setting, the time it takes for a job to start up includes some minutes for auto-scaling at least one node into the cluster. If the hyperparameter tuning runs for a short time, however, scaling up the job adds to the overhead. For example, a job can run in under five minutes, but scaling up to one node might take another five minutes. In this case, setting the minimum to one node saves time but adds to the cost.
 
@@ -97,7 +97,7 @@ In scenarios that use sensitive data, encrypt the data at rest-that is, the data
 
 ### Secure data in a virtual network
 
-For production deployments, consider deploying the cluster into a subnet of a virtual network that you specify. This allows the compute nodes in the cluster to communicate securely with other virtual machines or with an on-premises network. You can also use [service endpoints][endpoints] with blob storage to grant access from a virtual network or use a single-node NFS inside the virtual network with Azure Machine Learning.
+For production deployments, consider deploying the cluster into a subnet of a virtual network that you specify. The subnet allows the compute nodes in the cluster to communicate securely with other virtual machines or with an on-premises network. You can also use [service endpoints][endpoints] with blob storage to grant access from a virtual network or use a single-node NFS inside the virtual network with Azure Machine Learning.
 
 ## Deployment
 

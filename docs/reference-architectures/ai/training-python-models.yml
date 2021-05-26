@@ -13,6 +13,7 @@ metadata:
   ms.custom:
     - azcat-ai
     - ai-machine-learning
+    - aml-project-improvement
 name: Training Python models on Azure
 azureCategories:
   - ai-machine-learning
