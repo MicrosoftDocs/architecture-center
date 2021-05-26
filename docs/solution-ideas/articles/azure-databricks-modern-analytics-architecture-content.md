@@ -33,7 +33,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 
    - Data Lake Storage houses data of all types, such as structured, unstructured, and semi-structured. It also stores batch and streaming data.
    - Delta Lake forms the curated layer of the data lake. It stores the refined data in an open-source format.
-   - Azure Databricks works with Spark libraries to process data. It uses a [medallion architecture][Medallion model] to organize the data into layers:
+   - Azure Databricks works well with a [medallion architecture][Medallion model] that organizes data into layers:
 
      - Bronze: Holds raw data.
      - Silver: Contains cleaned, filtered data.
@@ -46,15 +46,15 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
    - Model preparation
    - Model training
 
-   MLFlow manages parameter, metric, and model tracking in data science code runs. The coding possibilities are flexible:
+   MLflow manages parameter, metric, and model tracking in data science code runs. The coding possibilities are flexible:
 
-   - Code can be in SQL, Python, R, Scala, and other languages.
+   - Code can be in SQL, Python, R, and Scala.
    - Code can use popular open-source libraries and frameworks such as Koalas, Pandas, and scikit-learn, which are pre-installed and optimized.
    - Practitioners can optimize for performance and cost with single-node and multi-node compute options.
 
 1. Machine learning models are available in several formats:
 
-   - Azure Databricks stores information about models in the [MLFlow Model Registry][MLFlow Model Registry]. The registry makes this data available through batch, streaming, and REST APIs.
+   - Azure Databricks stores information about models in the [MLflow Model Registry][MLflow Model Registry]. The registry makes models available through batch, streaming, and REST APIs.
    - The solution can also deploy models to Azure Machine Learning web services or Azure Kubernetes Service (AKS).
 
 1. Services that work with the data connect to a single underlying data source to ensure consistency. For instance, users can run SQL queries on the data lake with Azure Databricks SQL Analytics. This service:
@@ -63,12 +63,12 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
    - Uses integrated security that includes row-level and column-level permissions.
    - Uses a [Photon-powered Delta Engine to accelerate performance][Photon improves performance].
 
-1. Power BI generates analytical and historical reports and dashboards from the unified data platform. When working with Azure Databricks data, this service uses these features:
+1. Power BI generates analytical and historical reports and dashboards from the unified data platform. When working with Azure Databricks, this service uses these features:
 
-   - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] that gives users access to visualizations and the underlying data.
+   - A [built-in Azure Databricks connector][Power BI connector for Azure Databricks] for visualizing the underlying data.
    - Optimized Java Database Connectivity (JDBC) and Open Database Connectivity (ODBC) drivers.
 
-1. Azure Synapse uses an optimized connector to import gold data sets from the data lake. Spark pools in Azure Synapse process the data. This step is optional. It only occurs when users need business-ready data from the data warehouse, such as aggregates.
+1. Users can export gold data sets out of the data lake into Azure Synapse via the optimized Synapse connector. SQL pools in Azure Synapse provide a data warehousing and compute environment.
 
 1. The solution uses Azure services for collaboration, performance, reliability, governance, and security:
 
@@ -88,7 +88,7 @@ The system that Swiss Re Group built for its Property & Casualty Reinsurance div
 
 The solution uses the following components:
 
-#### Azure components
+#### Core components
 
 - [Azure Databricks][Azure Databricks] is a data analytics platform. Its fully managed Spark clusters process large streams of data from multiple sources. Azure Databricks cleans and transforms structureless data sets. It combines the processed data with structured data from operational databases or data warehouses. Azure Databricks also trains and deploys scalable machine learning and deep learning models.
 
@@ -104,17 +104,15 @@ The solution uses the following components:
 
 - [AKS][Azure Kubernetes Service] is a highly available, secure, and fully managed Kubernetes service. AKS makes it easy to deploy and manage containerized applications.
 
-- [Azure Synapse][Azure Synapse Analytics] is an analytics service for data warehouses and big data systems. This service uses Spark technologies and integrates with Power BI, Machine Learning, and other Azure services.
+- [Azure Synapse][Azure Synapse Analytics] is an analytics service for data warehouses and big data systems. This service integrates with Power BI, Machine Learning, and other Azure services.
 
 - [Azure Synapse connectors][Native connectors] provide a way to access Azure Synapse from Azure Databricks. These connectors efficiently transfer large volumes of data between Azure Databricks clusters and Azure Synapse instances.
 
-- [Spark SQL pools][Spark SQL pools] provide a data warehousing and compute environment in Azure Synapse. By using in-memory processing, these pools boost the performance of big-data analytic applications. The pools are compatible with Azure Storage and Data Lake Storage.
-
-#### Partner components
+- [SQL pools][Spark SQL pools] provide a data warehousing and compute environment in Azure Synapse. The pools are compatible with Azure Storage and Data Lake Storage.
 
 - [Delta Lake][Databricks Delta Lake] is a storage layer that uses an open file format. This layer runs on top of cloud storage such as Data Lake Storage. Delta Lake supports data versioning, rollback, and transactions for updating, deleting, and merging data.
 
-- [MLFlow][MLFlow] is an open-source platform for the machine learning lifecycle. Its components monitor machine learning models during training and running. MLFlow also stores models and loads them in production.
+- [MLflow][MLflow] is an open-source platform for the machine learning lifecycle. Its components monitor machine learning models during training and running. MLflow also stores models and loads them in production.
 
 #### Reporting and governing components
 
@@ -175,8 +173,8 @@ To learn about related solutions, see this information:
 [Event Hubs]: https://azure.microsoft.com/services/event-hubs/
 [Key Vault]: https://azure.microsoft.com/services/key-vault/
 [Medallion model]: https://techcommunity.microsoft.com/t5/analytics-on-azure/how-to-reduce-infrastructure-costs-by-up-to-80-with-azure/ba-p/1820280
-[MLFlow]: https://mlflow.org/
-[MLFlow Model Registry]: https://www.mlflow.org/docs/latest/registry.html
+[MLflow]: https://mlflow.org/
+[MLflow Model Registry]: https://www.mlflow.org/docs/latest/registry.html
 [Monitoring Azure Databricks]: /azure/architecture/databricks-monitoring/
 [Native connectors]: /azure/databricks/data/data-sources/azure/synapse-analytics
 [Observability patterns and metrics for performance tuning]: /azure/architecture/databricks-monitoring/databricks-observability
