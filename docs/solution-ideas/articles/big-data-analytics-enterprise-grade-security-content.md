@@ -111,7 +111,7 @@ This example solution makes use of several Azure services and features:
     perform advanced analysis and share insights using the solution’s processed
     data.
 
-## Data flow
+### Data flow
 
 The data flows through the solution as follows:
 
@@ -244,7 +244,7 @@ Synapse Analytics:
 -   [Use Azure Active Directory Authentication for authentication with Synapse
     SQL](/azure/synapse-analytics/sql/active-directory-authentication)
 
-## Related architecture guidance
+### Related architecture guidance
 
 -   [Analytics end-to-end with Azure
     Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
