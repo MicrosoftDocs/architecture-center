@@ -19,7 +19,7 @@ This line-of-business application solution provides a mechanism for monitoring a
 ## Data Flow
 
 1. Customer submits feedback posted to a web endpoint.
-1. The feedback is posted to Microsoft Cognitive Services Text Analytics API to extract sentiment and keywords.
+1. The feedback is posted to Azure Cognitive Services Text Analytics API to extract sentiment and keywords.
 1. The customer feedback creates a new case in Dynamics CRM or other CRM.
 1. The solution sends a text message to the customer, thanking them for the feedback.
 1. If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond.
