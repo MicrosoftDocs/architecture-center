@@ -22,9 +22,10 @@ The following examples show the potential journies for a record submission.
 
 ## Solution
 
-There are a number of possible solutions to this, but not limited to:
-- Pre-Validation Plugin to always Upsert based on the Guid or Alternate key. Pre-Validation happens before any database transactions are started.
-- Custom Process to integrate and pre-create the record before hitting Dynamics 365.
+Write a plugin / Flow to always Upsert based on the Guid or Alternate key. This can be performed in a number of plugin steps within the plugin lifecycle. When the entity that you are creating is mandatory then using the Pre Validation step is advised. Pre-Validation happens before any database transactions are started so it is the preferred option if the field is mandatory. However in some scenarios a pre creation plugin step will suffice.
+
+![Solution with Plugin](./_images/solution.png)
+
 
 ## Issues and considerations
 
