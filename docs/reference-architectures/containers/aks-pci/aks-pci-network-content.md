@@ -218,9 +218,11 @@ AKS cluster node pools operate within the virtual network and isolated from publ
 
 The AKS cluster has system node pools that host critical system pods. Even on the user node pools, there are pods that run other services that participate in cluster operations. For example, Flux to synchronize cluster configuration to a GitHub repository, the ingress controller to route traffic to the workload pods, and others. Regardless of the type of node pool, all nodes must be protected. 
 
-Another critical system component is the API server that is used to do native Kubernetes tasks, such as maintain the state of the cluster and configuration. An advantage of using a private cluster is that API server endpoint isn't exposed by default. Interactions with other endpoints must also be secured. One way is by restricting communications over a private network. For instance, have the cluster pull images from Azure Container Registry over a Private Link.
+Another critical system component is the API server that is used to do native Kubernetes tasks, such as maintain the state of the cluster and configuration. An advantage of using a private cluster is that API server endpoint isn't exposed by default. For information about private clusters, see [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/en-us/azure/aks/private-clusters).
 
-For information about private clusters, see [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/en-us/azure/aks/private-clusters).
+
+Interactions with other endpoints must also be secured. One way is by restricting communications over a private network. For instance, have the cluster pull images from Azure Container Registry over a Private Link.
+
 
 
 #### Requirement 1.3.1
@@ -383,9 +385,9 @@ In the reference implementation, the second approach is demonstrated with a micr
 
 For container technologies, that segmentation is provided by default because only one instance of a container is responsible for one function in the system.
 
-The workload should use Pod Managed Identity. It musn't inherit any cluster-level or node-level identity. 
+The workload should use Pod Managed Identity. It must not inherit any cluster-level or node-level identity. 
 
-Use external storage instead of on-node (in-cluster) storage where possible. Keep cluster pods reserved exclusively for work that must be performed as part of the operation of card holder data processing. Move the out-of-scope operations outside the cluster. This guidance applies to build agents, unrelated workloads, or actitivies such as having a jump box inside the cluster. 
+Use external storage instead of on-node (in-cluster) storage where possible. Keep cluster pods reserved exclusively for work that must be performed as part of the operation of card holder data processing. Move the out-of-scope operations outside the cluster. This guidance applies to build agents, unrelated workloads, or activities such as having a jump box inside the cluster. 
 
 
 #### Requirement 2.2.2
@@ -410,7 +412,7 @@ Application Gateway has an integrated web application firewall (WAF) and negotia
 
 Suppose you have a legacy device that needs to interact with the CDE through Azure Application Gateway. For that, Application Gateway must enable an insecure protocol. Document that exception and monitor if that protocol is used beyond that legacy device. Disable that protocol immediately after that legacy interaction is discontinued.
 
-Also, Application Gateway musn't respond to requests on port 80. Do not perform redirects at the application level.
+Also, Application Gateway must not respond to requests on port 80. Do not perform redirects at the application level.
 
 If a workload in your cluster cannot adhere to organizational policy around security compliance profiles or other controls (limits, quotas, and so on), then make sure the exception is documented. You must monitor to ensure that only expected functionality is performed.
 
