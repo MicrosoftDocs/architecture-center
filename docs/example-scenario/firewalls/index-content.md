@@ -53,7 +53,7 @@ VNet/subnets use a single backend router system from Azure and as such, there's 
 
 ![NVA with single NICs and how traffic flows](./images/single-nic-fw.png)
 
-With the virtualized networks, you can control the routes in every subnet. These routes can also point to a single IP in another subnet. In the picture above, that would be the iLB in Subnet-D, which load-balances the two firewalls. As S1 starts traffic (green), it will be load balanced to, for example, FW-1. FW-1 will then connect to S2 (still green). S2 will send the response traffic to the IP of S1 (as NAT is disabled). Because of the route tables, S2 uses the same iLB IP as it’s gateway. The iLB may match the traffic to the initial session, so it will always point this traffic back to FW-1. FW-1 then sends it to S1, establishing a synchronous traffic flow.
+With the virtualized networks, you can control the routes in every subnet. These routes can also point to a single IP in another subnet. In the picture above, that would be the iLB in Subnet-D, which load-balances the two firewalls. As S1 starts traffic (green), it will be load balanced to, for example, FW-1. FW-1 will then connect to S2 (still green). S2 will send the response traffic to the IP of S1 (as NAT is disabled). Because of the route tables, S2 uses the same iLB IP as its gateway. The iLB may match the traffic to the initial session, so it will always point this traffic back to FW-1. FW-1 then sends it to S1, establishing a synchronous traffic flow.
 
 For this setup to work, the FW needs to have a route table (internally) pointing Subnet-B and Subnet-C to its default subnet GW. That subnet GW is the first logically available IP in the subnet range in that VNET.
 
