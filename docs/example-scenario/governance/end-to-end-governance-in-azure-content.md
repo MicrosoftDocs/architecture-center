@@ -35,7 +35,8 @@ This diagram shows how linking from Resource Manager and CI/CD to Azure Active D
 [![End-to-end governance overview with Azure Active Directory at the center](media/e2e-governance-overview-inline.png)](media/e2e-governance-overview-inline.png#lightbox)  
 *Download an [SVG of this architecture](media/e2e-governance-overview.svg).*
 
-Note: To make the concept easier to understand, the diagram only illustrates the **"veggies"** domain. The "fruits" domain would look similar and use the same naming conventions.
+> [!NOTE]
+> To make the concept easier to understand, the diagram only illustrates the **"veggies"** domain. The "fruits" domain would look similar and use the same naming conventions.
 
 The numbering reflects the other in which IT administrators and enterprise architects think about and configure their cloud resources.
 
