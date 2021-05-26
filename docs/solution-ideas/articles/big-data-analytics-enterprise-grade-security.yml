@@ -3,8 +3,8 @@ metadata:
   title: Big data analytics with enterprise-grade security using Azure Synapse
   titleSuffix: Azure Solution Ideas
   description: Azure Synapse Analytics brings together data integration, enterprise data warehousing, and big data analytics.
-  author: edprice
-  ms.author: maggsl
+  author: EdPrice-MSFT
+  ms.author: kikalyan
   ms.date: 05/20/2021
   ms.topic: conceptual
   ms.service: architecture-center
