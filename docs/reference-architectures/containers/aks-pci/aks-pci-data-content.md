@@ -2,7 +2,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
 
-This architecture and the implementation is focused on infrastructure and not the workload. This article provides general considerations and best practices mapped to the guidance in the official PCI-DSS standard. Understand each requirement clearly and use this article as additional information to help you implement the solution.
+This architecture and the implementation is focused on infrastructure and not the workload. This article provides general considerations and best practices, intended to help you make design decisions. Follow the requirements in the official PCI-DSS standard and use this article as additional information, where applicable. 
 
 > [!IMPORTANT]
 >
