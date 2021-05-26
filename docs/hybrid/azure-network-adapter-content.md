@@ -139,6 +139,12 @@ In some scenarios, the Azure Network Adapter's installation interface might not 
 - Egress costs:
   - There are additional costs associated with outbound Inter-VNet data transfers, and they're dependent on your VPN Gateway's SKU and the actual amount of data you're using. For more information, refer to the [Azure Pricing Calculator][18]. It's important to note that actual costs vary by Azure region and your individual contract. Contact a Microsoft sales representative for additional information about pricing.
 
+## Next steps
+
+- Learn more about Azure Network Adapter in the blog article, [Top 10 Networking Features in Windows Server 2019][20].
+- Learn more about [Point-to-Site VPN][21].
+- Download the [Windows Admin Center][22].
+
 [architectual-diagram]: ./images/azure-network-adapter.png
 [architectual-diagram-large]: ./images/azure-network-adapter-large.png
 [architectual-diagram-visio-source]: https://arch-center.azureedge.net/azure-network-adapter.vsdx
@@ -161,5 +167,8 @@ In some scenarios, the Azure Network Adapter's installation interface might not 
 [17]: /azure/automation/
 [18]: https://azure.microsoft.com/pricing/calculator/
 [19]: https://azure.microsoft.com/pricing/calculator/
+[20]: https://techcommunity.microsoft.com/t5/networking-blog/top-10-networking-features-in-windows-server-2019-3-azure/ba-p/339780
+[21]: /azure/vpn-gateway/point-to-site-about
+[22]: https://www.microsoft.com/en-us/evalcenter/evaluate-windows-admin-center
 [reference-architecture-windows-vm]: ../reference-architectures/n-tier/windows-vm.yml
 [reference-architecture-linux-vm]: ../reference-architectures/n-tier/linux-vm.yml
