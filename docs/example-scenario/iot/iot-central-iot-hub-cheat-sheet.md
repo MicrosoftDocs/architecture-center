@@ -133,3 +133,4 @@ Example architectures using Azure IoT Hub:
 -   [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
 
 -   [Project 15 Open Platform](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)
+- 
