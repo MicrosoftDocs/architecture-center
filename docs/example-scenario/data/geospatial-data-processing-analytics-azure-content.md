@@ -1,26 +1,19 @@
-Many possibilities exist for working with *geospatial data*, or information that includes a geographic component. For instance, geographic information system (GIS) software and standards are widely available. These technologies can store, process, and provide access to geospatial data. But it's often hard to configure and maintain systems that work with geospatial data. And you need expert knowledge to integrate those systems with other systems.
+Many possibilities exist for working with *geospatial data*, or information that includes a geographic component. For instance, geographic information system (GIS) software and standards are widely available. These technologies can store, process, and provide access to geospatial data. But it's often hard to configure and maintain systems that work with geospatial data. You also need expert knowledge to integrate those systems with other systems.
 
-This solution outlines a manageable way to make geospatial data available for analytics. It meets these goals:
-
-- Collect large volumes of data on data assets with known locations.
-- Combine the asset data with real-world reference data.
-- Make the processed data available for spatial analytics in web apps.
-- Use fully managed services with built-in features for maintenance, security, and scaling.
-
-The solution, which is based on [Advanced Analytics Reference Architecture][Advanced analytics architecture], uses these Azure services:
+This article outlines a manageable solution for making large volumes of geospatial data available for analytics. The approach is based on [Advanced Analytics Reference Architecture][Advanced analytics architecture] and uses these Azure services:
 
 - Azure Databricks with GIS Spark libraries processes data.
-- Azure Database for PostgreSQL queries data through APIs.
-- Azure Data Explorer handles fast exploratory queries.
-- Azure Maps visualizes geospatial data in web applications.
+- Azure Database for PostgreSQL queries data that users request through APIs.
+- Azure Data Explorer runs fast exploratory queries.
+- Azure Maps creates visuals of geospatial data in web applications.
 - The Azure Maps Power BI visual feature of Power BI provides customized reports.
 
 ## Potential use cases
 
-This solution has applications in many areas:
+This solution applies to many areas:
 
 - Processing, storing, and providing access to large amounts of raster data, such as maps or climate data.
-- *Localizing* enterprise resource planning (ERP) system entities, or identifying their geographic position.
+- Identifying the geographic position of enterprise resource planning (ERP) system entities.
 - Combining entity location data with GIS reference data.
 - Storing Internet of Things (IoT) telemetry from moving devices.
 - Running analytical geospatial queries.
@@ -40,9 +33,13 @@ This solution has applications in many areas:
 1. GIS data enters the system:
 
    - Azure Data Factory ingests raster GIS data and vector GIS data of any format.
+
+     - Raster data consists of grids of values. Each pixel value represents a characteristic like the temperature or elevation of a geographic area.
+     - Vector data represents specific geographic features. Vertices, or discrete geometric locations, make up the vectors and define the shape of each spatial object.
+
    - Data Factory stores the data in Data Lake Storage.
 
-1. Azure Databricks uses geospatial libraries to transform and standardize the data.
+1. Spark clusters in Azure Databricks use geospatial code libraries to transform and normalize the data.
 
 1. Data Factory loads the prepared vector and raster data into Azure Database for PostgreSQL. The solution uses the PostGIS extension with this database.
 
@@ -56,9 +53,9 @@ This solution has applications in many areas:
 
    A Redis cache improves performance by providing quick access to the data.
 
-1. The Web Apps feature of Azure App Service works with Azure Maps to visualize the data.
+1. The Web Apps feature of Azure App Service works with Azure Maps to create visuals of the data.
 
-1. Azure Data Explorer analyzes the large volumes of data. GIS features of this tool create insightful ad-hoc visualizations. Examples include creating scatterplots from geospatial data.
+1. Users analyze the data with Azure Data Explorer. GIS features of this tool create insightful visualizations. Examples include creating scatterplots from geospatial data.
 
 1. Power BI provides customized reports and business intelligence (BI). The Azure Maps visual for Power BI highlights the role of location data in business results.
 
@@ -66,13 +63,13 @@ Throughout the process:
 
 - Azure Monitor collects information on events and performance.
 - Log Analytics runs queries on Monitor logs and analyzes the results.
-- Azure Key Vault keeps secrets, passwords, and connection strings secure.
+- Azure Key Vault secures passwords, connection strings, and secrets.
 
 ## Components
 
-- [Event Hubs][Azure Event Hubs — A big data streaming platform and event ingestion service] is a big data streaming platform. As a platform as a service (PaaS), this event ingestion service is fully managed. Through its partitioned consumer model, multiple applications can process the data stream at the same time.
+- [Event Hubs][Azure Event Hubs — A big data streaming platform and event ingestion service] is a fully managed streaming platform for big data. This platform as a service (PaaS) offers a partitioned consumer model. Multiple applications can use this model to process the data stream at the same time.
 
-- [Data Factory][What is Azure Data Factory?] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate data transformation workflows.
+- [Data Factory][What is Azure Data Factory?] is an integration service that works with data from disparate data stores. You can use this fully managed, serverless platform to create, schedule, and orchestrate data transformation workflows.
 
 - [Azure Databricks][Azure Databricks Workspace concepts] is a data analytics platform. Its fully managed Spark clusters process large streams of data from multiple sources. Azure Databricks can transform geospatial data at large scale for use in analytics and data visualization.
 
@@ -82,11 +79,11 @@ Throughout the process:
 
 - [PostGIS][PostGIS] is an extension for the PostgreSQL database that integrates with GIS servers. PostGIS can run SQL location queries that involve geographic objects.
 
-- [Redis][Redis] is an open-source, in-memory data store. Redis caches keep frequently accessed data in server memory. The caches can then quickly process large volumes of application requests that involve the data.
+- [Redis][Redis] is an open-source, in-memory data store. Redis caches keep frequently accessed data in server memory. The caches can then quickly process large volumes of application requests that use the data.
 
-- [Power BI][What is Power BI?] is a collection of software services and apps. You can use Power BI to connect and visualize unrelated sources of data.
+- [Power BI][What is Power BI?] is a collection of software services and apps. You can use Power BI to connect unrelated sources of data and create visuals of them.
 
-- The [Azure Maps visual for Power BI][Getting started with the Azure Maps Power BI visual] provides a way to enhance maps with spatial data. You can use the visual to show how location data affects business metrics.
+- The [Azure Maps visual for Power BI][Getting started with the Azure Maps Power BI visual] provides a way to enhance maps with spatial data. You can use this visual to show how location data affects business metrics.
 
 - [App Service][App Service documentation] and its [Web Apps][App Service overview] feature provide a framework for building, deploying, and scaling web apps. The App Service platform offers built-in infrastructure maintenance, security patching, and scaling.
 
@@ -99,7 +96,7 @@ Throughout the process:
   - [Azure Monitor Logs][Azure Monitor Logs overview] records and stores log and performance data.
   - [Azure Monitor Metrics][Azure Monitor Metrics overview] collects numerical values at regular intervals.
 
-- [Log Analytics][Overview of Log Analytics in Azure Monitor] is an Azure portal tool. You can use this tool to write, test, and run queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
+- [Log Analytics][Overview of Log Analytics in Azure Monitor] is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
 
 - [Key Vault][About Azure Key Vault] stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
@@ -107,7 +104,7 @@ Throughout the process:
 
 - Instead of developing your own APIs, consider using [Martin][Urbica Martin]. This open-source tile server makes vector tiles available to web apps. Written in [Rust][Rust], Martin connects to PostgreSQL tables. You can deploy it as a container.
 
-- If your goal is to provide a standardized interface for GIS data, consider using [GeoServer][GeoServer]. This open framework implements industry-standard [Open Geospatial Consortium (OGC)][Open Geospatial Consortium] protocols such as [Web Feature Service (WFS)][Web Feature Service]. It also integrates with common spatial data sources. You can deploy GeoServer as a container on a virtual machine. When custom web applications and exploratory queries are secondary, GeoServer provides a straightforward way to publish geospatial data.
+- If your goal is to provide a standardized interface for GIS data, consider using [GeoServer][GeoServer]. This open framework implements industry-standard [Open Geospatial Consortium (OGC)][Open Geospatial Consortium] protocols such as [Web Feature Service (WFS)][Web Feature Service]. It also integrates with common spatial data sources. You can deploy GeoServer as a container on a virtual machine. When customized web apps and exploratory queries are secondary, GeoServer provides a straightforward way to publish geospatial data.
 
 - Various Spark libraries are available for working with geospatial data on Azure Databricks. This solution uses these libraries:
 
@@ -116,11 +113,11 @@ Throughout the process:
 
   But [other solutions also exist for processing and scaling geospatial workloads with Azure Databricks][Processing Geospatial Data at Scale With Databricks].
 
-- [Vector tiles][Mapbox Vector Tile specification] provide an efficient way to visualize GIS data on maps. This solution uses PostGIS to dynamically query vector tiles. This approach works well for simple queries and result sets that contain well under 1 million records. But in the following cases, a different approach may be better:
+- [Vector tiles][Mapbox Vector Tile specification] provide an efficient way to display GIS data on maps. This solution uses PostGIS to dynamically query vector tiles. This approach works well for simple queries and result sets that contain well under 1 million records. But in the following cases, a different approach may be better:
 
   - Your queries are computationally expensive.
   - Your data doesn't change frequently.
-  - You're visualizing large data sets.
+  - You're displaying large data sets.
 
   In these situations, consider using [Tippecanoe][GitHub - mapbox/tippecanoe] to generate vector tiles. You can run Tippecanoe as part of your data processing flow, either as a container or with [Azure Functions][Introduction to Azure Functions]. You can make the resulting tiles available through APIs.
 
@@ -139,10 +136,10 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 - [Event Hubs spreads failure risk across clusters][Azure Event Hubs - Geo-disaster recovery].
 
-  - Use a namespace with availability zones turned on to spread that risk across three physically separated facilities.
+  - Use a namespace with availability zones turned on to spread risk across three physically separated facilities.
   - Consider using the geo-disaster recovery feature of Event Hubs. This feature replicates the entire configuration of a namespace from a primary to a secondary namespace.
 
-- See [business continuity features that Azure Database for PostgreSQL provides][Overview of business continuity with Azure Database for PostgreSQL - Single Server]. These features cover a range of recovery objectives.
+- See [business continuity features that Azure Database for PostgreSQL offers][Overview of business continuity with Azure Database for PostgreSQL - Single Server]. These features cover a range of recovery objectives.
 
 - [App Service diagnostics][Azure App Service diagnostics overview] alerts you to problems in apps, such as downtime. Use this service to identify, troubleshoot, and resolve issues like outages.
 
@@ -150,13 +147,13 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 ### Scalability considerations
 
-The design environment for this solution met these conditions:
+This solution's implementation meets these conditions:
 
-- Processed up to 10 million data sets per day. The data sets included batch or streaming events.
-- Stored 100 million data sets in an Azure Database for PostgreSQL database.
-- Queried 1 million or fewer data sets at the same time. A maximum of 30 users ran the queries.
+- Processes up to 10 million data sets per day. The data sets include batch or streaming events.
+- Stores 100 million data sets in an Azure Database for PostgreSQL database.
+- Queries 1 million or fewer data sets at the same time. A maximum of 30 users run the queries.
 
-The design environment used this configuration:
+The environment uses this configuration:
 
 - An Azure Databricks cluster with four F8s_V2 worker nodes.
 - A memory-optimized instance of Azure Database for PostgreSQL.
@@ -189,23 +186,23 @@ The [autoscale feature of Monitor][Overview of autoscale in Microsoft Azure] als
 
 ### Security considerations
 
-- Protect vector tile data. Vector tiles embed coordinates and attributes for multiple entities in one file. If you generate vector tiles, use a dedicated set of tiles for each permission level in your access control system. Then only users within each permission level have access to that level's data file.
+- Protect vector tile data. Vector tiles embed coordinates and attributes for multiple entities in one file. If you generate vector tiles, use a dedicated set of tiles for each permission level in your access control system. With this approach, only users within each permission level have access to that level's data file.
 
-- To improve security, use Key Vault with as many components as possible:
+- To improve security, use Key Vault in these situations:
 
-  - [Use Key Vault to manage keys that Event Hubs uses to encrypt data][Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal].
-  - [Store credentials that Data Factory uses during pipeline execution in Key Vault][Use Azure Key Vault secrets in pipeline activities].
-  - [Store secrets and application settings that your App Service web app uses in Key Vault][Use Key Vault references for App Service and Azure Functions].
+  - [To manage keys that Event Hubs uses to encrypt data][Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal].
+  - [To store credentials that Data Factory uses in pipelines][Use Azure Key Vault secrets in pipeline activities].
+  - [To secure application settings and secrets that your App Service web app uses][Use Key Vault references for App Service and Azure Functions].
 
-- See [Security in Azure App Service][Security in Azure App Service] for information on how App Service helps secure web apps. Consider these points, too:
+- See [Security in Azure App Service][Security in Azure App Service] for information on how App Service helps secure web apps. Also consider these points:
 
-  - See how to [get the certificate that you need if your app uses a custom domain name][Azure App Service SSL certificates available for purchase].
-  - See how to [enforce HTTPS][Add a TLS/SSL certificate in Azure App Service].
+  - See how to [get the certificate that your app needs if it uses a custom domain name][Azure App Service SSL certificates available for purchase].
+  - See how to [redirect HTTP requests for your app to the HTTPS port][Enforce HTTPS].
   - Learn about [best practices for authentication in web apps][Basic web application authentication].
 
 ## Pricing
 
-- To estimate the cost of implementing this solution, see a sample [cost profile][Pricing: Azure Architecture for GIS data processing and serving]. This profile is for a single implementation of the environment described in [Scalability considerations][Scalability considerations]. This profile doesn't include the cost of Azure Data Explorer.
+- To estimate the cost of implementing this solution, see a sample [cost profile][Pricing: Azure Architecture for GIS data processing and serving]. This profile is for a single implementation of the environment described in [Scalability considerations][Scalability considerations]. It doesn't include the cost of Azure Data Explorer.
 - To adjust the parameters and explore the cost of running this solution in your environment, use the [Azure pricing calculator][Pricing calculator].
 
 ## Next steps
@@ -222,9 +219,9 @@ To start implementing this solution, see this information:
 ### Related guides
 
 - [Compare the machine learning products and technologies from Microsoft - Azure Databricks][Compare the machine learning products and technologies from Microsoft - Azure Databricks]
-- [Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning][Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]
+- [Machine learning operations (MLOps) framework to scale up machine learning lifecycle with Azure Machine Learning][Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]
 - [Azure Machine Learning decision guide for optimal tool selection][Azure Machine Learning decision guide for optimal tool selection]
-- [Monitoring Azure Databricks][Monitoring Azure Databricks]
+- [Monitor Azure Databricks][Monitoring Azure Databricks]
 
 ### Information on processing geospatial data
 
@@ -238,10 +235,9 @@ To start implementing this solution, see this information:
 
 - [Connect a WFS to Azure Maps][Connect to a WFS service].
 - [Process OpenStreetMap data][Frameworks - OpenStreetMap Wiki] with Spark.
-- Explore ways to [visualize data with Azure Maps][Azure Maps Web SDK Samples].
+- Explore ways to [display data with Azure Maps][Azure Maps Web SDK Samples].
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
-[Add a TLS/SSL certificate in Azure App Service]: /azure/app-service/configure-ssl-certificate
 [Advanced analytics architecture]: /azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data
 [Apache Sedona (incubating)]: http://sedona.apache.org/
 [App Service documentation]: /azure/app-service/
@@ -273,6 +269,7 @@ To start implementing this solution, see this information:
 [Create a data source for Azure Maps]: /azure/azure-maps/create-data-source-web-sdk#geojson-data-source
 [Create a data source for a map in Microsoft Azure Maps]: /azure/azure-maps/create-data-source-web-sdk#vector-tile-source
 [DataOps for the modern data warehouse]: /azure/architecture/example-scenario/data-warehouse/dataops-mdw
+[Enforce HTTPS]: /azure/app-service/configure-ssl-bindings#enforce-https
 [Frameworks - OpenStreetMap Wiki]: https://wiki.openstreetmap.org/wiki/Frameworks
 [GeoJSON format]: https://tools.ietf.org/html/rfc7946
 [GeoPandas 0.8.0 — GeoPandas 0.8.0 documentation]: https://geopandas.org/
