@@ -1643,7 +1643,7 @@ items:
                 maintainContext: true
               - name: Computer forensics
                 href: example-scenario/forensics/index.yml
-              - name: End to end governance in Azure when using CI/CD
+              - name: End-to-end governance in Azure when using CI/CD
                 href: example-scenario/governance/end-to-end-governance-in-azure.yml
               - name: Highly available SharePoint Server 2016
                 href: reference-architectures/sharepoint/index.yml    
