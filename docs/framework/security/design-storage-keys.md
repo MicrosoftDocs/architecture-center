@@ -11,7 +11,7 @@ products:
   - azure-key-vault
 ms.custom:
   - article
-azureCategories:
+categories:
   - security
 ---
 
