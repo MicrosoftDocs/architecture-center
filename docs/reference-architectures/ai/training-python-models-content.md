@@ -1,7 +1,9 @@
 
 
 
-This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of Python models. Two scenarios are covered: hyperparameter tuning of [scikit-learn][scikit] models and deep learning models with GPUs. Two reference implementations for this architecture are available on GitHub, one for [scikit-learn][github1] models and one for [deep learning][github2] models.
+This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of Python models. [Azure Machine Learning][aml] lets you automate hyperparameter tuning and run experiments in parallel to efficiently optimize hyperparameters.
+
+Two scenarios are covered in this reference architecture: hyperparameter optimization of [scikit-learn][scikit] models and deep learning models with GPUs. Two reference implementations for this architecture are available on GitHub, one for [scikit-learn][github1] models and one for [deep learning][github2] models.
 
 ![Architecture diagram: tuning hyperparameters of Python models on Azure][0]
 
@@ -61,9 +63,9 @@ The maximum number of Machine Learning Compute nodes affects the total run time.
 
 ## Monitoring and logging considerations
 
-Submit a [HyperDrive][hyperparameter] run configuration to return a Run object for use in monitoring the run's progress.
+Submit a [HyperDrive][hyperparameter] run configuration to return a Run object you can use to monitor the run's progress. Monitor progress with the RunDetails Jupyter widget or with the Azure portal.
 
-### RunDetails Jupyter Widget
+### RunDetails Jupyter widget
 
 Use the Run object with the RunDetails [Jupyter widget][jupyter] to conveniently monitor its progress at queuing and when running its child jobs. It also shows the values of the primary statistic that they log in real time.
 
@@ -81,6 +83,7 @@ The cost of a hyperparameter tuning run depends linearly on the choice of Machin
 
 Ongoing costs when the cluster is not in use depend on the minimum number of nodes required by the cluster. With cluster autoscaling, the system automatically adds nodes up to the allowed maximum to match the number of jobs. Nodes are removed down to the requested minimum when they are no longer needed. If the cluster can autoscale down to zero nodes, it does not cost anything when it is not in use.
 
+For more information about Azure Machine Learning and costs, see [Plan to manage costs for Azure Machine Learning][mlcosts].
 ## Security considerations
 
 ### Restrict access to Azure Blob Storage
@@ -130,6 +133,7 @@ Learn more about training:
 [hyperparameter]: /azure/machine-learning/service/how-to-tune-hyperparameters
 [jupyter]: http://jupyter.org/widgets
 [lightgbm]: https://github.com/Microsoft/LightGBM
+[mlcosts]: /azure/machine-learning/concept-plan-manage-cost
 [mlops]: /azure/machine-learning/service/concept-model-management-and-deployment
 [pipeline]: /azure/machine-learning/service/concept-ml-pipelines
 [scaling]: /azure/virtual-machine-scale-sets/overview
