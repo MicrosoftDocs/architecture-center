@@ -99,7 +99,19 @@ A hub-spoke architecture can be achieved two ways: a customer-managed hub
 infrastructure, or a Microsoft-managed hub infrastructure. In either case,
 spokes are connected to the hub using virtual network peering.
 
-### Recommendations
+## Advantages
+
+![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-002.png)
+
+This diagram illustrates a few of the advantages that this architecture can provide:
+* A full meshed hubs among Azure Virtual Networks
+* Branch to Azure connectivity 
+* Branch to Branch connectivity
+* Mixed use of VPN and Express Route
+* Mixed use of user VPN to the site 
+* VNET to VNET connectivity
+
+## Recommendations
 
 The following recommendations apply to most scenarios. Follow them unless you
 have a specific requirement that overrides them.
