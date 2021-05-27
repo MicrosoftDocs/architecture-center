@@ -101,7 +101,7 @@ Azure Architecture Center articles describing chatbot architectures:
 
 - [Commerce chatbot for customer service](../../solution-ideas/articles/commerce-chatbot.yml)
 - [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-- [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
+- [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
 
 Azure Bot Service product documentation:
 

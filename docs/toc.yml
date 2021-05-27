@@ -724,7 +724,7 @@ items:
               - name: Scalable personalization
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: Speech to text conversion
-                href: reference-architectures/ai/speech-ai-ingestion.yml
+                href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Training Python models
                 href: reference-architectures/ai/training-python-models.yml
               - name: Vision classifier model
