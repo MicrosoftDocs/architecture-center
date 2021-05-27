@@ -94,7 +94,7 @@ Using source control systems, you can create your own copies of the software sou
 
 As updates are made to software and infrastructure configurations, version control software allows us to propose these changes before merging them into the source. During the proposal, peers can review the changes, recommend updates, and approve the changes. Source control solutions provide an excellent platform for collaboration on changes to the software.
 
-To learn more about using Git, visit the [DevOps Resource Center](/azure/devops/learn/git/what-is-git).
+To learn more about using Git, visit the [DevOps Resource Center](/devops/develop/git/what-is-git).
 
 ### GitHub
 
