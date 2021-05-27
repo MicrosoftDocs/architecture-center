@@ -11,6 +11,8 @@ products:
   - azure-key-vault
 ms.custom:
   - article
+azureCategories:
+  - security
 ---
 
 # Key and secret management considerations in Azure
