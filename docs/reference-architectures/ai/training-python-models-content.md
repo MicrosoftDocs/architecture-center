@@ -111,8 +111,9 @@ To deploy the reference implementation for this architecture, follow the steps d
 
 Related Azure Architecture Center articles:
 
-- To operationalize the models shown in this reference architecture, see [MLOps for Python models using Azure Machine Learning](./mlops-python.yml).
-- For more information about distributed training of deep learning models across clusters of GPU-enabled VMs, see [Distributed training of deep learning models on Azure](./training-deep-learning.yml)
+- To operationalize the models shown in this reference architecture, see [MLOps for Python models using Azure Machine Learning][mlops-aac].
+- For more information about distributed training of deep learning models across clusters of GPU-enabled VMs, see [Distributed training of deep learning models on Azure][training-deep-learning]
+- For more information about how to deploy Python models as web services to make real-time predictions, see [Real-time scoring of Python models][realtime-scoring-aac]
 
 Learn more about training:
 
@@ -135,7 +136,9 @@ Learn more about training:
 [lightgbm]: https://github.com/Microsoft/LightGBM
 [mlcosts]: /azure/machine-learning/concept-plan-manage-cost
 [mlops]: /azure/machine-learning/service/concept-model-management-and-deployment
+[mlops-aac]: ./mlops-python.yml
 [pipeline]: /azure/machine-learning/service/concept-ml-pipelines
+[realtime-scoring-aac]: ./realtime-scoring-python.yml
 [scaling]: /azure/virtual-machine-scale-sets/overview
 [scikit]: https://pypi.org/project/scikit-learn
 [scikit-sample]:/azure/machine-learning/service/how-to-train-scikit-learn
