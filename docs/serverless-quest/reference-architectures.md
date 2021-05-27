@@ -13,6 +13,10 @@ products:
 ms.custom:
   - fcp
   - guide
+categories:
+  - mobile
+  - web
+  - iot
 ---
 # Serverless Functions reference architectures
 
