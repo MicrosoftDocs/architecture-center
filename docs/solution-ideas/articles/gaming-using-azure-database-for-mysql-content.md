@@ -42,6 +42,8 @@ This architecture includes the following components:
 
 ## Next steps
 
+- [Understand data store models](../../guide/technology-choices/data-store-overview.md)
+
 The following solution ideas feature Azure Database for MySQL:
 
 * [Digital Marketing using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)
