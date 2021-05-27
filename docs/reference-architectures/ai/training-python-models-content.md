@@ -1,9 +1,9 @@
 
 
 
-This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of python models. Two scenarios are covered: hyperparameter tuning of [scikit-learn][scikit] models and deep learning models with GPUs. Two reference implementations for this architecture are available on GitHub, one for [scikit-learn][github1] models and one for [deep learning][github2] models.
+This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of Python models. Two scenarios are covered: hyperparameter tuning of [scikit-learn][scikit] models and deep learning models with GPUs. Two reference implementations for this architecture are available on GitHub, one for [scikit-learn][github1] models and one for [deep learning][github2] models.
 
-![Architecture diagram][0]
+![Architecture diagram: tuning hyperparameters of Python models on Azure][0]
 
 ## Scenarios
 
@@ -23,9 +23,7 @@ Processing in this [Azure Machine Learning pipeline][pipeline] scenario involves
 
 1. The best performing model is [registered][mlops] with Azure Machine Learning.
 
-See also considerations for training [deep learning models][training-deep-learning] with GPUs.
-
-**Scenario2: Out of stock detection.** This scenario shows how to tune an object detection Mask RCNN model that can be deployed as a web service to provide predictions for empty spaces on store shelves. Images similar to retailer store shelves filled with products are used to predict empty spaces to help detect out of stock products by potentially marrying these predictions with other sources of information such as planograms and databases. In this scenario, only empty space prediction is covered. The dataset used is distributed under the [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
+**Scenario 2: Out of stock detection.** This scenario shows how to tune an object detection Mask RCNN model that can be deployed as a web service to provide predictions for empty spaces on store shelves. Images similar to retailer store shelves filled with products are used to predict empty spaces to help detect out of stock products by potentially marrying these predictions with other sources of information such as planograms and databases. In this scenario, only empty space prediction is covered. The dataset used is distributed under the [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
 
 Processing in this scenario involves the following steps:
 
@@ -33,13 +31,13 @@ Processing in this scenario involves the following steps:
 
 1. The script runs in Docker containers that are created on each node by pulling a custom image that is stored on [Azure Container Registry][acr].
 
-1. The script trains a model from the training data saved in [Azure Storage][storage]. using its combination of training parameters.
+1. The script trains a model from the training data saved in [Azure Storage][storage] using its combination of training parameters.
 
 1. The model's performance is evaluated on the testing data, and is written to Azure Storage.
 
 1. The best performing model is registered with Azure Machine Learning.
 
-See also considerations for distributed training of [deep learning models][training-deep-learning] with GPUs.
+For other considerations for distributed training of deep learning models with GPUs, see [Distributed training of deep learning models on Azure][training-deep-learning].
 
 ## Architecture
 
@@ -67,15 +65,15 @@ Submit a [HyperDrive][hyperparameter] run configuration to return a Run object f
 
 ### RunDetails Jupyter Widget
 
-Use the Run object with the RunDetails [Jupyter widget][jupyter] to conveniently monitor its progress at queuing and when running its children jobs. It also shows the values of the primary statistic that they log in real time.
+Use the Run object with the RunDetails [Jupyter widget][jupyter] to conveniently monitor its progress at queuing and when running its child jobs. It also shows the values of the primary statistic that they log in real time.
 
 ### Azure portal
 
 Print a Run object to display a link to the run's page in Azure portal like this:
 
-![Run object][1]
+![Run object used to display a link to the run information in Azure portal][1]
 
-Use this page to monitor the status of the run and its children runs. Each child run has a driver log containing the output of the training script it has run.
+Use this page to monitor the status of the run and its child runs. Each child run has a driver log containing the output of the training script it has run.
 
 ## Cost considerations
 
@@ -108,7 +106,16 @@ To deploy the reference implementation for this architecture, follow the steps d
 
 ## Next steps
 
-To operationalize the model, see [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](./mlops-python.yml).
+Related Azure Architecture Center articles:
+
+- To operationalize the models shown in this reference architecture, see [MLOps for Python models using Azure Machine Learning](./mlops-python.yml).
+- For more information on distributed training of deep learning models across clusters of GPU-enabled VMs, see [Distributed training of deep learning models on Azure](./training-deep-learning.yml)
+
+Learn more about training:
+
+- Microsoft Learn module - [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models)
+- Microsoft Learn module - [Tune hyperparameters with Azure Machine Learning](/learn/modules/tune-hyperparameters-with-azure-machine-learning/)
+- Machine Learning documentation - [Hyperparameter tuning a model with Azure Machine Learning](/azure/machine-learning/how-to-tune-hyperparameters)
 
 [0]: ./_images//training-python-models.png
 [1]: ./_images/run-object.png
