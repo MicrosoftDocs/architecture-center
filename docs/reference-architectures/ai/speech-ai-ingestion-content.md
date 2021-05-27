@@ -11,7 +11,7 @@ The reference implementation for this architecture is available on [GitHub](http
 
 ## Architecture
 
-![Architecture diagram: ingest and convert spech to text using Azure Cognitive Services](./_images/audio-files-upload.png)
+![Architecture diagram: ingest and convert speech to text using Azure Cognitive Services](./_images/speech-to-text-audio-files-upload.png)
 
 You can implement this architecture by using your Azure account and allow client applications access to the pipeline through REST APIs. The application goes through a three-step process to upload an audio file:
 

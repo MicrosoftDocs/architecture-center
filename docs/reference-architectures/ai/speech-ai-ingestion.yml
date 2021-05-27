@@ -28,6 +28,6 @@ products:
   - azure-functions
   - azure-key-vault
   - azure-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/audio-files-upload.png
+thumbnailUrl: /azure/architecture/browse/thumbs/speech-to-text-audio-files-upload.png
 content: |
   [!include[](speech-ai-ingestion-content.md)]
