@@ -1,8 +1,9 @@
 ---
-title: Choose a Kubernetes at the edge compute option
+title: Choosing a Kubernetes at the edge compute option
 titleSuffix: Azure Architecture Center
 description: Learn about trade-offs for various options available for extending compute on the edge.
 author: edprice-msft
+ms.author: prkau
 ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -12,7 +13,7 @@ products:
   - azure-kubernetes-service
 ---
 
-# Choose a Kubernetes at the edge compute option
+# Choosing a Kubernetes at the edge compute option
 
 This document discusses the trade-offs for various options available for
 extending compute on the edge. The following considerations for each Kubernetes
