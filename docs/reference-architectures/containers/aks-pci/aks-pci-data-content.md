@@ -2,7 +2,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
 
-This architecture and the implementation is focused on infrastructure and not the workload. This article provides general considerations and best practices, intended to help you make design decisions. Follow the requirements in the official PCI-DSS standard and use this article as additional information, where applicable. 
+This architecture and the implementation are focused on infrastructure and not the workload. This article provides general considerations and best practices, intended to help you make design decisions. Follow the requirements in the official PCI-DSS standard and use this article as additional information, where applicable. 
 
 > [!IMPORTANT]
 >
@@ -44,7 +44,7 @@ Do not store state in the AKS cluster. If you choose to store CHD, explore secur
 
 Adhere strictly to the standard guidance about what kind of CHD can be stored. Define data retention policies based on your business requirements and the type of storage used. Some key considerations are:
 - How and where the data is stored? 
-- Is the stored data encyrpted?
+- Is the stored data encrypted?
 - What's the retention period?
 - What actions are permitted during the retention period?
 - How are you deleting the stored data after the retention period has expired? 
@@ -241,7 +241,7 @@ Ensure wireless networks transmitting cardholder data or connected to the cardho
 
 ##### Your responsibilities
       
-This architecture and the implementation isn't designed to do on-premises or corporate network to cloud transations over wireless connections. For considerations, refer to the guidance in the official PCI-DSS standard. 
+This architecture and the implementation isn't designed to do on-premises or corporate network to cloud transactions over wireless connections. For considerations, refer to the guidance in the official PCI-DSS standard. 
 
 #### Requirement 4.2
 Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
@@ -268,7 +268,7 @@ It's critical that you maintain thorough documentation about the processes and p
 - Pod to storage (if part of the architecture).
 - Pod to external services,  Azure PaaS services that use TLS, payment gateway, or fraud detection system.
 
-People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
+People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
       
 ## Next
 
