@@ -1610,6 +1610,8 @@ items:
                     href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml
+                  - name: Migrate AIX workloads to Skytap on Azure
+                    href: example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml
                   - name: Refactor IBM z/OS mainframe CF on Azure
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
                   - name: Unisys Dorado mainframe migration with Astadia & Micro Focus
@@ -1641,9 +1643,11 @@ items:
                 maintainContext: true
               - name: Computer forensics
                 href: example-scenario/forensics/index.yml
+              - name: End to end governance in Azure when using CI/CD
+                href: example-scenario/governance/end-to-end-governance-in-azure.yml
               - name: Highly available SharePoint Server 2016
                 href: reference-architectures/sharepoint/index.yml    
-              - name: Updating Windows VMs in Azure
+              - name: Updating Windows VMs in Azure 
                 href: example-scenario/wsus/index.yml            
               - name: Hybrid management
                 items:
