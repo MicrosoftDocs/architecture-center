@@ -33,7 +33,7 @@ The architecture uses these Azure services:
 
 `ResultId:19e70bee8b5348a6afb67817825a9586 Reason:RecognizedSpeech Recognized text:<Text for sample audio.>. Json:{"DisplayText":"Text for sample audio.","Duration":53700000,"Id":"28526a6304da4af1922fedd4edcdddbb","Offset":3900000,"RecognitionStatus":"Success"}`.
 
-[**Azure API Management**](/azure/api-management/api-management-key-concepts) provides secure access to REST APIs. Because only clients authenticated via API Management can request a SAS token, this service provides an additional layer of security in the architecture.
+[**Azure API Management**](/azure/api-management/api-management-key-concepts) provides secure access to REST APIs. Because only clients authenticated via API Management can request a SAS token, this service provides another layer of security in the architecture.
 
 [**Azure Active Directory**](/azure/active-directory/) provides identity management and secured access to resources on the Azure cloud platform. The client in this architecture first needs to authenticate by using Azure AD to be able to access the REST API. The REST API creates the access token for the blob storage by using the Azure AD credentials of the business owner. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) gives the client the minimum access privileges needed to upload audio files.
 
@@ -57,11 +57,11 @@ Azure Blob storage can throttle service requests [per blob](/azure/storage/blobs
 
 ### Azure Event Grid
 
-The function that transcribes the audio files is triggered when the upload finishes. This reference architecture uses an Event Grid trigger instead of the Blob storage trigger. This is because the blob trigger events can be missed as the number of blobs in a container increases significantly. Missing triggers negatively affect application throughput and reliability. For more information, see [Blob trigger alternatives](/azure/azure-functions/functions-bindings-storage-blob-trigger?tabs=csharp#alternatives).
+The function that transcribes the audio files is triggered when the upload finishes. This reference architecture uses an Event Grid trigger instead of the Blob storage trigger. An Event Grid trigger is used because blob trigger events can be missed as the number of blobs in a container increases significantly. Missing triggers negatively affect application throughput and reliability. For more information, see [Blob trigger alternatives](/azure/azure-functions/functions-bindings-storage-blob-trigger?tabs=csharp#alternatives).
 
 ### Azure Cognitive Services
 
-Cognitive Services APIs might have request limits based on the subscription tier. Consider containerizing these APIs to avoid throttling large volume processing. Containers give you flexibility of deployment, whether in the cloud or on-premises. You can also mitigate side effects of new version rollouts by using containers. See [Container support in Azure Cognitive Services](/azure/cognitive-services/cognitive-services-container-support) for more information.
+Cognitive Services APIs might have request limits based on the subscription tier. Consider containerizing these APIs to avoid throttling large volume processing. Containers give you flexibility of deployment, whether in the cloud or on-premises. You can also mitigate side effects of new version rollouts by using containers. For more information, see [Container support in Azure Cognitive Services](/azure/cognitive-services/cognitive-services-container-support).
 
 ## Security considerations
 
@@ -81,7 +81,7 @@ See [Grant limited access to Azure Storage resources using shared access signatu
 
 ### API Management
 
-In addition to restricting access to resources by using SAS tokens, this reference architecture provides another layer of security by using API Management. Clients need to authenticate by using API Management before they request SAS tokens. API Management has [built-in access controls](/azure/api-management/api-management-security-controls) for the REST API. We recommend this additional layer of security because the uploaded data might contain sensitive information.
+In addition to restricting access to resources by using SAS tokens, this reference architecture provides another layer of security by using API Management. Clients need to authenticate by using API Management before they request SAS tokens. API Management has [built-in access controls](/azure/api-management/api-management-security-controls) for the REST API. We recommend this extra layer of security because the uploaded data might contain sensitive information.
 
 When several clients upload files in parallel, API Management serves multiple purposes:
 
@@ -93,7 +93,7 @@ When several clients upload files in parallel, API Management serves multiple pu
 
 ## Resiliency considerations
 
-In the case of an extremely large number of events, Event Grid might fail to trigger the function. Such missed events are typically added to a *dead letter container*. Consider making the architecture more resilient by adding an additional *supervisor* function. This function can periodically wake up on a timer trigger. It can then find and process missed events, either from the dead letter container or by comparing the blobs in the *upload* and *transcribe* containers.
+If there are an extremely large number of events, Event Grid might fail to trigger the function. Such missed events are typically added to a *dead letter container*. Consider making the architecture more resilient by adding a *supervisor* function. This function can periodically wake up on a timer trigger. It can then find and process missed events, either from the dead letter container or by comparing the blobs in the *upload* and *transcribe* containers.
 
 This pattern is similar to the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.md). This pattern isn't implemented in this reference architecture for the sake of simplicity. For more information on how Event Grid handles failures, see the [Event Grid message delivery and retry](/azure/event-grid/delivery-and-retry) policies.
 
