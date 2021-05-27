@@ -1,7 +1,7 @@
 
 
 
-Customer care centers are an integral part of the success of many businesses. You can improve the efficiency of your call centers by using speech AI. Speech recognition and the analysis of high volumes of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes. Enterprise solutions that use the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.
+Customer care centers are an integral part of the success of many businesses. You can improve the efficiency of your call centers by using speech AI. Speech recognition and the analysis of high volumes of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes. Enterprise solutions that use the Speech APIs of [Azure Cognitive Services](/azure/cognitive-services/speech-service/overview) can be implemented to consume and process such high volumes of discrete data.
 
 The reference architecture described in this article shows how to build an audio ingestion and speech-to-text transcription pipeline for customer care centers. This pipeline processes batches of recorded audio files and stores the transcribed text files in Azure Blob storage. This architecture doesn't implement real-time speech processing.
 
@@ -77,13 +77,13 @@ See [Grant limited access to Azure Storage resources using shared access signatu
 
 In addition to restricting access to resources by using SAS tokens, this reference architecture provides another layer of security by using API Management. Clients need to authenticate by using API Management before they request SAS tokens. API Management has [built-in access controls](/azure/api-management/api-management-security-controls) for the REST API. We recommend this extra layer of security because the uploaded data might contain sensitive information.
 
-When several clients upload files in parallel, API Management serves multiple purposes:
+When several clients upload files in parallel, API Management:
 
-- It enforces usage quotas and rate limits.
-- It validates [OAuth 2.0](/azure/api-management/api-management-howto-oauth2) tokens for authentication.
-- It enables [cross-origin resource sharing (CORS)](/azure/api-management/api-management-cross-domain-policies#CORS).
-- It caches responses.
-- It monitors and logs requests.
+- Enforces usage quotas and rate limits.
+- Validates [OAuth 2.0](/azure/api-management/api-management-howto-oauth2) tokens for authentication.
+- Enables [cross-origin resource sharing (CORS)](/azure/api-management/api-management-cross-domain-policies#CORS).
+- Caches responses.
+- Monitors and logs requests.
 
 ## Resiliency considerations
 
@@ -99,4 +99,14 @@ For information about how to deploy the reference implementation for this archit
 
 ## Next steps
 
-You can process transcribed speech by using the built-in speech analysis features provided by Azure Cognitive Services. For more information, see [the documentation for Speech APIs](/azure/cognitive-services/speech-service/).
+Review key product documentation used in this architecture:
+
+- [What is Speech service?](/azure/cognitive-services/speech-service/overview)
+- [What is Azure Event Grid?](/azure/event-grid/overview)
+- [About API Management](/azure/api-management/api-management-key-concepts)
+
+Microsoft Learn modules:
+
+- [Introduction to Speech-to-Text](/learn/modules/intro-to-speech-to-text/)
+- [React to state changes in your Azure services by using Event Grid](/learn/modules/react-to-state-changes-using-event-grid/)
+- [Control access to Azure Storage with shared access signatures](/learn/modules/control-access-to-azure-storage-with-sas/)
