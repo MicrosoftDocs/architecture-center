@@ -2,7 +2,7 @@
 metadata:
   title: Speech-to-text conversion
   titleSuffix: Azure reference architectures
-  description: This article describes the recommended way to upload audio files and process the speech content to text using Azure Cognitive Services.
+  description: Build an audio ingestion and speech-to-text transcription pipeline with Azure Cognitive Services. Speech recognition can be used for analyzing customer calls.
   author: dsk-2015
   ms.author: pnp
   ms.date: 03/25/2020
@@ -18,7 +18,7 @@ metadata:
 name: Speech-to-text conversion
 azureCategories:
   - ai-machine-learning
-summary: This article describes the recommended way to upload audio files and process the speech content to text using Azure Cognitive Services.
+summary: Build an audio ingestion and speech-to-text transcription pipeline with Azure Cognitive Services. Speech recognition can be used for analyzing customer calls.
 products:
   - azure-active-directory
   - azure-api-management

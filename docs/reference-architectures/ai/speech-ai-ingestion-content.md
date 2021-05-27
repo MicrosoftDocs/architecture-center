@@ -11,13 +11,13 @@ The reference implementation for this architecture is available on [GitHub](http
 
 ## Architecture
 
-![Audio files upload](./_images/audio-files-upload.png)
+![Architecture diagram: ingest and convert spech to text using Azure Cognitive Services](./_images/audio-files-upload.png)
 
 You can implement this architecture by using your Azure account and allow client applications access to the pipeline through REST APIs. The application goes through a three-step process to upload an audio file:
 
-1. It authenticates by using Azure Active Directory (Azure AD). This step is required for the first file upload.
-2. It calls the REST API to get the shared access signature (SAS) token required to access Azure Blob storage.
-3. It uploads the audio files to a blob container.
+1. Authenticates by using Azure Active Directory (Azure AD). This step is required for the first file upload.
+2. Calls the REST API to get the shared access signature (SAS) token required to access Azure Blob Storage.
+3. Uploads the audio files to a blob container.
 
 The reference client application uses JavaScript to upload the files, as shown in [this example](/azure/storage/blobs/storage-quickstart-blobs-nodejs#upload-blobs-to-a-container). After the file is uploaded, an Azure Event Grid trigger is generated that invokes an Azure function. The function processes the file by using the Azure Cognitive Services Speech APIs. The transcribed text is stored in a separate blob container, ready for consumption into the next phase of the pipeline: speech analysis and storage in a database.
 
