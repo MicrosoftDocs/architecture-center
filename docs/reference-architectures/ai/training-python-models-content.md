@@ -7,7 +7,7 @@ This reference architecture shows recommended practices for tuning the hyperpara
 
 ## Scenarios
 
-**Scenario 1: FAQ matching.** The problem addressed here is Frequently Asked Question (FAQ) matching. This scenario uses a subset of Stack Overflow question data that includes original questions tagged as JavaScript, their duplicate questions, and their answers. It tunes a scikit-learn pipeline to predict the probability that a duplicate question matches one of the original questions.
+**Scenario 1: FAQ matching.** The problem addressed is Frequently Asked Question (FAQ) matching. This scenario uses a subset of Stack Overflow question data that includes original questions tagged as JavaScript, their duplicate questions, and their answers. It tunes a scikit-learn pipeline to predict the probability that a duplicate question matches one of the original questions.
 
 Processing in this [Azure Machine Learning pipeline][pipeline] scenario involves the following steps:
 
@@ -79,7 +79,7 @@ Use this page to monitor the status of the run and its child runs. Each child ru
 
 The cost of a hyperparameter tuning run depends linearly on the choice of Machine Learning Compute VM size, whether low-priority nodes are used, and the maximum number of nodes allowed in the cluster.
 
-Ongoing costs when the cluster is not in use depend on the minimum number of nodes required by the cluster. With cluster autoscaling, the system automatically adds nodes up to the allowed maximum to match the number of jobs, and then removes nodes down to the requested minimum as they are no longer needed. If the cluster can autoscale down to zero nodes, it does not cost anything when it is not in use.
+Ongoing costs when the cluster is not in use depend on the minimum number of nodes required by the cluster. With cluster autoscaling, the system automatically adds nodes up to the allowed maximum to match the number of jobs. Nodes are removed down to the requested minimum when they are no longer needed. If the cluster can autoscale down to zero nodes, it does not cost anything when it is not in use.
 
 ## Security considerations
 
@@ -91,7 +91,7 @@ For scenarios with more sensitive data, make sure that all of your storage keys 
 
 ### Encrypt data at rest and in motion
 
-In scenarios that use sensitive data, encrypt the data at rest-that is, the data in storage. Each time data moves from one location to the next, use SSL to secure the data transfer. For more information, see the [Azure Storage security guide][storage-security].
+In scenarios that use sensitive data, encrypt the data at rest-that is, the data in storage. Each time data moves from one location to the next, use Transport Layer Security (TLS) to secure the data transfer. For more information, see the [Azure Storage security guide][storage-security].
 
 ### Secure data in a virtual network
 
@@ -109,7 +109,7 @@ To deploy the reference implementation for this architecture, follow the steps d
 Related Azure Architecture Center articles:
 
 - To operationalize the models shown in this reference architecture, see [MLOps for Python models using Azure Machine Learning](./mlops-python.yml).
-- For more information on distributed training of deep learning models across clusters of GPU-enabled VMs, see [Distributed training of deep learning models on Azure](./training-deep-learning.yml)
+- For more information about distributed training of deep learning models across clusters of GPU-enabled VMs, see [Distributed training of deep learning models on Azure](./training-deep-learning.yml)
 
 Learn more about training:
 
