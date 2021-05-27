@@ -67,6 +67,20 @@ CluedIn provides processed, governed data to many analytics apps and services, i
 - [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), a comprehensive family of AI services and cognitive APIs for building intelligent apps.
 - [Power BI](https://powerbi.microsoft.com), a Microsoft business analytics service that combines interactive visualizations and business intelligence with an easy-to-use report creation interface.
 
+## Use Cases
+
+### Building a Single View of Data
+
+ - Due to CluedIn's semantic modelling, it makes building a Single View of your Master Data a much easier thing to achieve compared to traditional approaches. CluedIn's customers are using CluedIn to build a connected, historical and high quality view of their most critical business data. CluedIn not only supports mastering of classic Master domains like People, Companies, Vendors and Products - it supports and endless number of different domains as well as unstructured domains like files, mail, events and more. If you require a centralised repository of master data that is clean, enriched, governed, quality-controlled and cataloged, then CluedIn is a good fit for your use cases. 
+
+### A Data Fabric
+
+ - CluedIn is a Gartner Cool Vendor in 2020 due to its ability to orchestrate data from across 10's, 100's and 1000's of different and complex datasources into a unified data hub. If you are needing to wrangle data from a lot of different datasources with ease, then CluedIn can be used as a Data Fabric to achieve this. This can provide a streaming infrastructure for your data that can also proactively clean and master the data as it flows onto downstream consumers. 
+
+### Sophisticated Merging and Linking of Master Data
+
+ - CluedIn's unique data modelling approach utilising a Graph Database allows for complex data to be merged and linked with simplicity. Unlike traditional approaches to solve this challenge, CluedIn ads additional Machine Learning and Graph Analytics to help merge, match and link records with a very high precision. 
+
 ## Considerations
 
 The CluedIn platform has the following characteristics and considerations:
@@ -108,9 +122,18 @@ The CluedIn platform has the following characteristics and considerations:
 - For testing and production environments, CluedIn provides a [Helm package manager](https://helm.sh/) chart to install CluedIn quickly in a Kubernetes cluster. Fully scripted data deployment processes support setup, test, and rollout.
 
 ## Deployment
+
 - To deploy CluedIn for development and evaluation purposes using Docker, see [CluedIn with Docker](http://documentation.cluedin.net/docs/00-gettingStarted/30-docker-local.html).
 
-- To install CluedIn quickly in a Kubernetes cluster, see [CluedIn with Kubernetes](http://documentation.cluedin.net/docs/00-gettingStarted/40-kubernetes.html). The Helm chart installs the CluedIn server, website, and other required services like storage and queues.
+- To install CluedIn quickly in a Kubernetes cluster, see [CluedIn with Kubernetes](http://documentation.cluedin.net/docs/00-gettingStarted/40-kubernetes.html). The [Helm chart](https://cluedin-io.github.io/Charts/) installs the CluedIn server, website, and other required services like storage and queues.
+
+## Pricing
+
+The pricing for CluedIn is open and transparent and you can see the pricing on their [website](https://www.cluedin.com/pricing).
+
+## Azure Sizing and Starting a Trial
+
+You can start a 7 day trial of CluedIn on their [website](https://www.cluedin.com/cluedin-on-microsoft-azure) as well as help you scope your Azure hosting costs with prebuilt Azure Estimates for different sized environments.
 
 ## Next steps
 
