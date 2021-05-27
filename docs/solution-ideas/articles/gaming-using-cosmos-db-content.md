@@ -40,3 +40,20 @@ This architecture includes the following components:
 - [Azure Functions](https://azure.microsoft.com/services/functions/) are serverless compute options that allow applications to run on-demand without having to manage infrastructure.
 
 - [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/#overview) is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
+
+## Next Steps
+
+Review the following articles on Cosmos DB.
+
+- [Common Azure Cosmos DB Use Cases](/azure/cosmos-db/use-cases) 
+- [Change feed in Azure Cosmos DB](/azure/cosmos-db/change-feed)
+- [Time to Live (TTL) in Azure Cosmos DB](/azure/cosmos-db/time-to-live)
+- [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
+- [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units)
+- [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partition-data)
+
+The following solution ideas feature Azure Cosmos DB:
+
+* [Globally distributed applications using Cosmos DB](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db)
+* [Retail and e-commerce using Cosmos DB](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db)
+* [Serverless apps using Cosmos DB](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db)
