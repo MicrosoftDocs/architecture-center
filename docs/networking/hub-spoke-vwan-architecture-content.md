@@ -29,15 +29,6 @@ topology and introduces new benefits:
     workloads (DevOps).
 
 ## Potential use cases
-![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-002.png)
-
-As depicted in above figure, with this architecture it is possible to have 
-* A full meshed hubs among Azure Virtual Networks. 
-* Branch to Azure connectivity 
-* Branch to Branch connectivity
-* Mixed use of VPN and Express Route
-* Mixed use of user VPN to the site 
-* VNET to VNET connectivity
 
 Typical uses for this architecture include cases in which:
 
@@ -108,7 +99,19 @@ A hub-spoke architecture can be achieved two ways: a customer-managed hub
 infrastructure, or a Microsoft-managed hub infrastructure. In either case,
 spokes are connected to the hub using virtual network peering.
 
-### Recommendations
+## Advantages
+
+![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-002.png)
+
+This diagram illustrates a few of the advantages that this architecture can provide:
+* A full meshed hubs among Azure Virtual Networks
+* Branch to Azure connectivity 
+* Branch to Branch connectivity
+* Mixed use of VPN and Express Route
+* Mixed use of user VPN to the site 
+* VNET to VNET connectivity
+
+## Recommendations
 
 The following recommendations apply to most scenarios. Follow them unless you
 have a specific requirement that overrides them.
