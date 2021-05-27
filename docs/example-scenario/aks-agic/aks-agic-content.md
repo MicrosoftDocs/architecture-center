@@ -1,10 +1,10 @@
-A multi-tenant Kubernetes cluster is shared by multiple users and workloads that are commonly referred to as "tenants." This definition includes Kubernetes clusters shared by different teams or divisions within an organization and clusters that are shared by per-customer instances of a software-as-a-service (SaaS) application. Cluster multi-tenancy is an alternative to managing many single-tenant dedicated clusters. The operators of a multi-tenant Kubernetes cluster must isolate tenants from each other to minimize the damage that a compromised or malicious tenant can do to the cluster and other tenants. When several users or teams share the same cluster with a fixed number of nodes, there is a concern that one team could use more than its fair share of resources. [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) are a tool for administrators to address this concern.
+A multitenant Kubernetes cluster is shared by multiple users and workloads that are commonly referred to as "tenants." This definition includes Kubernetes clusters that are shared by different teams or divisions within an organization, as well as clusters that are shared by per-customer instances of a software-as-a-service (SaaS) application. Cluster multitenancy is an alternative to managing many single-tenant dedicated clusters. The operators of a multitenant Kubernetes cluster must isolate tenants from each other, to minimize the damage that a compromised or malicious tenant can do to the cluster and to other tenants. When several users or teams share the same cluster with a fixed number of nodes, there is a concern that one team could use more than its fair share of resources. [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) is a tool for administrators to address this concern.
 
-When you plan to build a multi-tenant AKS cluster you should consider the layers of resource isolation provided by Kubernetes: a multi-tenant AKS cluster you should consider the layers of resource isolation provided by Kubernetes: cluster, namespace, node, pod, and container. You should also consider the security implications of sharing different types of resources among multiple tenants. For example, scheduling pods from different tenants on the same node could reduce the number of machines needed in the cluster. On the other hand, you might need to prevent certain workloads from being colocated. For example, you might not allow untrusted code from outside of your organization to run on the same node as containers that process sensitive information.
+When you plan to build a multitenant AKS cluster, you should consider the layers of resource isolation that are provided by Kubernetes: a multitenant AKS cluster you should consider the layers of resource isolation provided by Kubernetes: cluster, namespace, node, pod, and container. You should also consider the security implications of sharing different types of resources among multiple tenants. For example, scheduling pods from different tenants on the same node could reduce the number of machines needed in the cluster. On the other hand, you might need to prevent certain workloads from being colocated. For example, you might not allow untrusted code from outside of your organization to run on the same node as containers that process sensitive information.
 
 Although Kubernetes cannot guarantee perfectly secure isolation between tenants, it does offer features that may be sufficient for specific use cases. As a best practice, you should separate each tenant and their Kubernetes resources into their own namespaces. You can then use [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to enforce tenant isolation. For example, the following picture shows the typical SaaS Provider Model that hosts multiple instances of the same application on the same cluster, one for each tenant. Each application lives in a separate namespace.
 
-![Multi-tenancy](./media/aks-agic-multi-tenancy.png)
+![Multitenancy](./media/aks-agic-multi-tenancy.png)
 
 In general, every tenant initiates the deployment of a dedicated instance of an application through a SaaS provider management portal or API.
 At this point, the SaaS provider provisioning system creates a dedicated namespace for the tenant and creates all the necessary entities (deployments, services, secrets, ingress, etc.). This process is fully transparent to the tenant that does not directly deploy the application to the shared cluster. If the application makes use of an ingress controller to expose its services, a subdomain may be created in the public DNS zone for the new tenant along with a certificate for TLS termination. When tenants need a higher level of physical isolation and guaranteed performance, their workloads can be deployed to a dedicated set of nodes, dedicated pool, or even a dedicated cluster.
@@ -17,7 +17,7 @@ A single instance of the [Azure Application Gateway Kubernetes Ingress Controlle
 
 ## Potential use cases
 
-Use [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) to expose and protect Internet-facing workloads that are running on an [Azure Kubernetes Service (AKS) cluster](/azure/aks/intro-kubernetes) in a multi-tenant environment.
+Use [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) to expose and protect Internet-facing workloads that are running on an [Azure Kubernetes Service (AKS) cluster](/azure/aks/intro-kubernetes) in a multitenant environment.
 
 ## Architecture
 
@@ -244,9 +244,9 @@ Although the storage considerations are not fully pertaining to multitenancy in 
 
 ### Multitenancy considerations
 
-- Design AKS clusters for multi-tenancy. Kubernetes provides features that let you logically isolate teams and workloads in the same cluster. The goal should be to provide the least number of privileges, scoped to the resources each team needs. A [Namespace](/azure/aks/concepts-clusters-workloads#namespaces) in Kubernetes creates a logical isolation boundary.
+- Design AKS clusters for multitenancy. Kubernetes provides features that let you logically isolate teams and workloads in the same cluster. The goal should be to provide the least number of privileges, scoped to the resources each team needs. A [Namespace](/azure/aks/concepts-clusters-workloads#namespaces) in Kubernetes creates a logical isolation boundary.
 - Use logical isolation to separate teams and projects. Try to minimize the number of physical AKS clusters you deploy to isolate teams or applications. Logical separation of clusters usually provides a higher pod density than physically isolated clusters.
-- Use dedicated node pools or dedicated AKS clusters whenever you need to implement a strict physical isolation, for example to dedicate a pool of worker nodes or an entire cluster to a team or a tenant in a multi-tenant environment.
+- Use dedicated node pools or dedicated AKS clusters whenever you need to implement a strict physical isolation, for example to dedicate a pool of worker nodes or an entire cluster to a team or a tenant in a multitenant environment.
 
 ### Scheduler considerations
 
@@ -331,7 +331,7 @@ After you assess these aspects, go to the [Azure pricing calculator](https://azu
 ### Azure Kubernetes Service
 
 - [Create a private Azure Kubernetes Service cluster](https://github.com/paolosalvatori/private-aks-cluster)
-- [Best practices for multi-tenancy and cluster isolation](/azure/aks/operator-best-practices-cluster-isolation)
+- [Best practices for multitenancy and cluster isolation](/azure/aks/operator-best-practices-cluster-isolation)
 - [Best practices for basic scheduler features in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-scheduler)
 - [Best practices for advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler)
 - [Best practices for authentication and authorization](/azure/aks/operator-best-practices-advanced-scheduler)
@@ -370,3 +370,20 @@ After you assess these aspects, go to the [Azure pricing calculator](https://azu
 - [Enable Web Application Firewall using the Azure CLI](/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-cli)
 - [Configure per-site WAF policies using Azure PowerShell](/azure/web-application-firewall/ag/per-site-policies)
 - [Create Web Application Firewall policies for Application Gateway](/azure/web-application-firewall/ag/create-waf-policy-ag#migrate-to-waf-policy)
+
+## Related resources
+
+### Archtitectural guidance
+
+- [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
+- [AKS cluster best practices](/Azure/aks/best-practices?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Azure Kubernetes Services (AKS) day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
+- [Choosing a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)
+
+### Reference architectures
+
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+- [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+- [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
+- [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
+- [Building a telehealth system on Azure](/azure/architecture/example-scenario/apps/telehealth-system)
