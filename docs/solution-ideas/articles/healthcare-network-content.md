@@ -4,7 +4,7 @@ This solution describes how buildings and campuses can securely, reliably, and s
 
 In this solution, a healthcare facility uses LTE or 5G-enabled IoT devices to track both patient health and building performance. The devices use built-in Azure Sphere certified chips to stream data to on-premises edge servers, which communicate with the Azure cloud. On-premises network administrators can view network health through the packet cores on the edge servers.
 
-Azure cloud services can further analyze and store the data, and use it to optimize the smart building settings.
+Azure cloud services can further analyze and store the data, and use machine learning to optimize building settings.
 
 ## Potential use cases
 
@@ -18,9 +18,10 @@ Other examples of this approach include:
 
 ![Screenshot showing a healthcare facility with two hospitals that patient and facility data with IoT devices. The devices connect to radio access devices, IoT Edge servers, and several Azure services through Azure IoT Hub.](../media/healthcare-architecture.png)
 
-1. Several hospitals use a variety of connected devices to monitor both patient health and facility performance.
+1. Hospital buildings use a variety of connected devices to monitor both patient health and facility performance.
    
-   Health-tracking devices include patient monitors, CT scanners, and blood pressure monitors. Building safety and quality devices include air quality and building temperature sensors. 
+   - Health-tracking devices include patient monitors, CT scanners, and blood pressure monitors.
+   - Building safety and quality devices include air quality and building temperature sensors.
    
 1. The patient health and building monitoring devices send data to LTE or 5G Radio Access Network (RAN) devices.
    

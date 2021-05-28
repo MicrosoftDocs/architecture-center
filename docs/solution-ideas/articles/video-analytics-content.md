@@ -18,7 +18,7 @@ This approach can also:
 
 1. 5G-enabled IP cameras capture video in real time, and send the video feed to a 5G Radio Access Network (RAN) device.
    
-1. The 5G radios in the stores forward the data to the 5G packet core running on the Azure Stack Edge IoT edge server.
+1. The 5G radios in the stores forward the data to the 5G packet core running on the Azure Stack Edge IoT Edge server.
    
 1. The packet core authenticates the devices, applies Quality of Service (QoS) policies, and routes the video traffic to the target application.
    

@@ -33,7 +33,7 @@ This solution uses the following components:
 
 ## Next steps
 
-[Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/)
+- [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/)
 
 ## Related resources
 
