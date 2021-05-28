@@ -781,8 +781,8 @@ items:
                 href: solution-ideas/articles/digital-media-speech-text.yml
               - name: Marketing optimization
                 href: solution-ideas/articles/optimize-marketing-with-machine-learning.yml
-              - name: Model training with AKS
-                href: solution-ideas/articles/machine-learning-with-aks.yml
+              - name: Model deployment to AKS
+                href: solution-ideas/articles/machine-learning-model-deployment-aks.yml
               - name: Personalized marketing solutions
                 href: solution-ideas/articles/personalized-marketing.yml
               - name: Personalized offers
@@ -1552,6 +1552,8 @@ items:
                     href: example-scenario/iot/monitor-manage-loop.yml
                   - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
+              - name: Choosing an Internet of Things (IoT) solution in Azure
+                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md      
           - name: Architectures
             items:
               - name: IoT reference architecture
@@ -1609,9 +1611,9 @@ items:
                   - name: IBM z/OS migration with Asysco AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
-                    href: example-scenario/mainframe/micro-focus-server.yml
-                  - name: Migrate AIX workloads to Skytap on Azure
-                    href: example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml
+                    href: example-scenario/mainframe/micro-focus-server.yml 
+                  - name: Migrate IBM i series applications to Skytap on Azure
+                    href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml  
                   - name: Refactor IBM z/OS mainframe CF on Azure
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
                   - name: Unisys Dorado mainframe migration with Astadia & Micro Focus

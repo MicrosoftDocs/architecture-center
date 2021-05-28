@@ -1041,11 +1041,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Machine Learning model training with AKS]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/machine-learning-with-aks</id>
-        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/machine-learning-with-aks"/>
+        <title type="html"><![CDATA[Machine Learning model deployment with AKS]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/machine-learning-model-deployment-aks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/machine-learning-model-deployment-aks"/>
         <updated>2021-03-01T23:57:42.000Z</updated>
-        <summary type="html"><![CDATA[Tools like TensorFlow and Kubeflow simplify the complex, resource-intensive task of training machine learning models that use large datasets.]]></summary>
+        <summary type="html"><![CDATA[Deploy machine learning models on Azure Kubernetes Service (AKS) for high-scale production inference.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
