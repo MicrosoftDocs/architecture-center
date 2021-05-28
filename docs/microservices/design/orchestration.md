@@ -3,7 +3,7 @@ title: Container orchestration for microservices
 description: Learn how container orchestration makes it easy to manage complex multi-container microservice deployments, scaling, and cluster health.
 author: veerashayyagari
 ms.author: veeray
-ms.date: 05/24/2021
+ms.date: 05/27/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -47,7 +47,13 @@ To manage the cluster, a DevOps team has to:
 
 With container orchestration, the DevOps team can represent the cluster's desired state as a configuration. A container orchestration engine enforces the desired configuration and automates all the management tasks.
 
-Consider containerizing a simple three-tier web application. A container hosts the front-end component. Another container hosts the middle tier or REST API layer, and communicates with a globally distributed database. Running these containers on a single development machine might not be too hard. However, running the application in high availability mode at scale in a production cluster is challenging. Container orchestration is crucial for large and dynamic production environments.
+Consider containerizing a simple three-tier web application:
+
+- A container hosts the front-end component.
+- Another container hosts the middle tier or REST API layer.
+- The middletier layer communicates with a globally distributed database.
+
+Running these containers on a single development machine might not be too hard. However, running the application in high availability mode at scale in a production cluster quickly becomes challenging. Container orchestration is crucial for large and dynamic production environments.
 
 ## Advantages of container orchestration
 
