@@ -3,7 +3,7 @@ metadata:
   title: Speech Services
   titleSuffix: Azure Solution Ideas
   description: Use Speech services to transcribe calls and then run full-text searches, detect sentiment and language, and create custom language and acoustic models.
-  author: doodlemania2
+  author: edprice-msft
   ms.author: pnp
   ms.date: 02/23/2021
   ms.topic: conceptual
