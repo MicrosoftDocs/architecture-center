@@ -1,9 +1,9 @@
 
 
 
-This reference architecture shows how to deploy Python models as web services to make real-time predictions using the [Azure Machine Learning][aml]. Two scenarios are covered: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown.
+This reference architecture shows how to deploy Python models as web services to make real-time predictions using [Azure Machine Learning][aml]. Machine learning models deployed on Azure Kubernetes Service (AKS) are good for high-scale production deployments.
 
-Two reference implementations for this architecture are available on GitHub, one for [regular Python models][github-python] and one for [deep learning models][github-dl].
+Two scenarios are covered in this article: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown. In addition, two reference implementations for these scenarios are available on GitHub, one for [regular Python models][github-python] and one for [deep learning models][github-dl].
 
 ![Architecture diagram for real-time scoring of Python models on Azure](./_images/python-model-architecture.png)
 
@@ -27,13 +27,13 @@ The application flow for this architecture is as follows:
 
 Here is a screenshot of the example app that consumes the results:
 
-![Screenshot of the example app](./_images/python-faq-matches.png)
+![Screenshot of an example FAQ matching application using a subset of Stack Overflow question data.](./_images/python-faq-matches.png)
 
 **Scenario 2: Image classification**. This scenario shows how to deploy a Convolutional Neural Network (CNN) model as a web service to provide predictions on images. For this scenario, "Input Data" in the architecture diagram refers to image files. CNNs are effective in computer vision for tasks such as image classification and object detection. This scenario is designed for the frameworks TensorFlow, Keras (with the TensorFlow back end), and PyTorch. However, it can be generalized to any scenario that uses deep learning models to make real-time predictions.
 
 This scenario uses a pre-trained ResNet-152 model trained on ImageNet-1K (1,000 classes) dataset to predict which category (see figure below) an image belongs to. These predictions are made in real time using a REST API endpoint.
 
-![Example of predictions](./_images/python-example-predictions.png)
+![Example image classification predictions using a Convolutional Neural Network (CNN) model as a web service.](./_images/python-example-predictions.png)
 
 The application flow for the deep learning model is as follows:
 
@@ -78,7 +78,7 @@ For visibility into AKS performance, use the [Azure Monitor for containers][moni
 
 While deploying your application, monitor the AKS cluster to make sure it's working as expected, all the nodes are operational, and all pods are running. Although you can use the [kubectl][kubectl] command-line tool to retrieve pod status, Kubernetes also includes a web dashboard for basic monitoring of the cluster status and management.
 
-![Screenshot of the Kubernetes dashboard](./_images/python-kubernetes-dashboard.png)
+![A screenshot of the Kubernetes dashboard for basic monitoring of the cluster status and management.](./_images/python-kubernetes-dashboard.png)
 
 To see the overall state of the cluster and nodes, go to the **Nodes** section of the Kubernetes dashboard. If a node is inactive or has failed, you can display the error logs from that page. Similarly, go to the **Pods** and **Deployments** sections for information about the number of pods and status of your deployment.
 
