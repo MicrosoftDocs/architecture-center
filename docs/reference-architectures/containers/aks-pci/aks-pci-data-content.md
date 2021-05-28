@@ -182,6 +182,8 @@ Fully document and implement all key-management processes and procedures for cry
 
 (APPLIES TO: Requirement 3.6.1, Requirement 3.6.2, Requirement 3.6.3, Requirement 3.2.4)
 
+If you are using Azure Key Vault to store secrets such as keys, certificates, and connections strings, protect it from unauthorized access. Azure Defender for Key Vault detects suspicious access attempts and generates alerts. You can view these alerts in Azure Security Center. For more information, see [Azure Defender for Key Vault](/azure/security-center/defender-for-key-vault-introduction).
+
 Follow [NIST](https://csrc.nist.gov/) guidance about key management. For details, see:
 - [Cryptographic Key Management](https://csrc.nist.gov/projects/key-management/faqs).
 - [SP 800-133 Rev. 2, Recommendation for Cryptographic Key Generation](https://csrc.nist.gov/publications/detail/sp/800-133/rev-2/final)
