@@ -53,7 +53,7 @@ Have governance policies around some of those choices. There are built-in Azure 
 
 Review [this list of policy definitions](https://docs.microsoft.com/en-us/azure/aks/policy-reference) and apply them to the cluster, where applicable. 
 
-You might need to temporarily cache data. It's recommended that you protect the cached data and while it's moved to a storage solution. Consider enabling the host-based encryption feature on AKS. This will encrypt the data stored on node VMs. For more information, see [Host-based encryption on Azure Kubernetes Service (AKS)](/azure/aks/enable-host-encryption). Also, enforce as a requirement by enabling a built-in Azure policy that requires encrption of temporary disks and cache for node pools. 
+You might need to temporarily cache data. It's recommended that you protect the cached data and while it's moved to a storage solution. Consider enabling the host-based encryption feature on AKS. This will encrypt the data stored on node VMs. For more information, see [Host-based encryption on Azure Kubernetes Service (AKS)](/azure/aks/enable-host-encryption). Also, enforce as a requirement by enabling a built-in Azure policy that requires encryption of temporary disks and cache for node pools. 
 
 When choosing a storage technology, explore the retention features. For example, Azure Blob storage provides [Time-based retention policies](/azure/storage/blobs/storage-blob-immutable-storage#time-based-retention-policies). Another choice is to implement a custom solution that deletes data according to retention policies. An example is Data Lifecycle Management (DLM) that manages data life-cycle activities. The solution has been designed with services such as like Azure Data Factory, Azure Active Directory (Azure AD), and Azure Key Vault. 
 
@@ -243,7 +243,7 @@ Ensure wireless networks transmitting cardholder data or connected to the cardho
 
 ##### Your responsibilities
       
-This architecture and the implementation isn't designed to do on-premises or corporate network to cloud transactions over wireless connections. For considerations, refer to the guidance in the official PCI-DSS standard. 
+This architecture and the implementation aren't designed to do on-premises or corporate network to cloud transactions over wireless connections. For considerations, refer to the guidance in the official PCI-DSS standard. 
 
 #### Requirement 4.2
 Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
