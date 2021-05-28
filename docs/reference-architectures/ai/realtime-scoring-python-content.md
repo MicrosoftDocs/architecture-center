@@ -18,11 +18,11 @@ This scenario uses a subset of Stack Overflow question data that includes origin
 The application flow for this architecture is as follows:
 
 1. The trained model is registered to the machine learning model registry.
-2. Machine Learning creates a Docker image that includes the model and scoring script.
+2. Azure Machine Learning creates a Docker image that includes the model and scoring script.
 3. Azure Machine Learning deploys the scoring image on Azure Kubernetes Service (AKS) as a web service.
 4. The client sends an HTTP POST request with the encoded question data.
 5. The web service created by Azure Machine Learning extracts the question from the request.
-6. The question is sent to the Scikit-learn pipeline model for featurization and scoring.
+6. The question is sent to the scikit-learn pipeline model for featurization and scoring.
 7. The matching FAQ questions with their scores are returned to the client.
 
 Here is a screenshot of the example app that consumes the results:
@@ -68,7 +68,7 @@ You can use CPUs for this architecture in either scenario, but for deep learning
 
 For regular Python models, where the AKS cluster is provisioned with CPU-only VMs, take care when [scaling out the number of pods][manually-scale-pods]. The goal is to fully utilize the cluster. Scaling depends on the CPU requests and limits defined for the pods. Machine Learning through Kubernetes also supports [pod autoscaling][autoscale-pods] based on CPU utilization or other metrics. The [cluster autoscaler][autoscaler] (in preview) can scale agent nodes based on the pending pods.
 
-For deep learning scenarios, using GPU-enabled VMs, resource limits on pods are such that one GPU is assigned to one pod. Depending on the type of VM used, you must [scale the nodes of the cluster][scale-cluster] to meet the demand for the service. You can do this easily using the Azure CLI and kubectl.
+For deep learning scenarios, using GPU-enabled VMs, resource limits on pods are such that one GPU is assigned to one pod. Depending on the type of VM used, you must [scale the nodes of the cluster][scale-cluster] to meet the demand for the service. You can do this easily using the [Azure CLI][azure-cli-kubernetes] and [kubectl][kubectl].
 
 ## Monitoring and logging considerations
 
@@ -110,7 +110,7 @@ Use [Azure RBAC][rbac] to control access to the Azure resources that you deploy.
 
 Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
-For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+For more information, see the Microsoft Azure Well-Architected Framework article [Principles of cost optimization][aaf-cost].
 
 
 ### Azure Machine Learning
@@ -125,7 +125,7 @@ Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose
 
 You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
-For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][AAF-cost].
+For more information, see the Microsoft Azure Well-Architected Framework article [Principles of cost optimization][aaf-cost].
 
 ## DevOps considerations
 
@@ -153,7 +153,7 @@ Try these Microsoft Learning paths:
 
 <!-- links -->
 
-[aad-auth]: /azure/aks/aad-integration
+[aad-auth]: /azure/aks/managed-aad
 [aaf-cost]: ../../framework/cost/overview.md
 [acr]: /azure/container-registry
 [aks]: /azure/aks/intro-kubernetes
@@ -162,6 +162,7 @@ Try these Microsoft Learning paths:
 [autoscale-pods]: /azure/aks/tutorial-kubernetes-scale#autoscale-pods
 [az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[azure-cli-kubernetes]: /azure/aks/kubernetes-walkthrough
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [get-started]: /azure/security-center/security-center-get-started
 [github-python]: https://github.com/Microsoft/MLAKSDeployAML
