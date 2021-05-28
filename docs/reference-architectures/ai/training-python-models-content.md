@@ -45,7 +45,7 @@ For other considerations for distributed training of deep learning models with G
 
 This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles in this solution are described below.
 
-[Microsoft Data Science Virtual Machine][dsvm] (DSVM) is a VM image configured with tools used for data analytics and machine learning. Both Windows Server and Linux versions are available. This deployment uses the Linux editions of the DSVM on Ubuntu 16.04 LTS.
+[Microsoft Data Science Virtual Machine][dsvm] (DSVM) is a VM image configured with tools used for data analytics and machine learning. Both Windows Server and Linux versions are available. This reference implementation uses the Linux editions of the DSVM on Ubuntu.
 
 [Azure Machine Learning][aml] is used to train, deploy, automate, and manage machine learning models at cloud scale. It's used in this architecture to manage the allocation and use of the Azure resources described below.
 
