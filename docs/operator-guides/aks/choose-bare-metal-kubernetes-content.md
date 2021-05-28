@@ -33,12 +33,12 @@ MicroK8s is delivered as a single **snap** package that can be easily installe
 on Linux machines with snap support. Alternative installs are available for
 Windows, MacOS, and raspberry PI/ARM. When installed, microk8s creates a
 single-node cluster which can be managed with the MicroK8s tooling. It is
-packaged with its own kubectl. Additionally, certain add-ons may be enabled (for
-example, helm, dns, ingress, metallb,
+packaged with its own kubectl, and certain add-ons may be enabled (for example,
+helm, dns, ingress, metallb,
 and [more](https://microk8s.io/docs/addons#heading--list)). Multinode, Windows
 nodes, and high-availability (HA) scenarios are also supported.
 
-## Considerations:
+### Considerations:
 
 -   There are various resource requirements depending on where you want to run
     MicroK8s. Reference the [product docs](https://microk8s.io/docs) for minimum
@@ -50,9 +50,9 @@ nodes, and high-availability (HA) scenarios are also supported.
 
 -   Windows workloads are only supported for MicroK8s clusters with Calico CNI.
 
--   For multinode clusters, each node on a MicroK8s cluster requires its own
-    environment to work in, whether that is a separate VM or container on a
-    single machine or a different machine on the same network.
+-   Each node on a MicroK8s multinode cluster requires its own environment to
+    work in, whether that is a separate VM or container on a single machine or a
+    different machine on the same network.
 
 -   Difficulties may crop up when running MicroK8s on some ARM hardware.
     Reference
@@ -65,7 +65,7 @@ K3s is a lightweight distribution of Kubernetes. K3s is deployed as a single
 binary and comes with embedded tools such as kubectl and ctr, similar to
 MicroK8s.
 
-## Considerations:
+### Considerations:
 
 -   The binary is less than 100 MB, but there are still minimum resource
     requirements depending on your scenario. Reference
@@ -88,11 +88,11 @@ MicroK8s.
 
 Kubeadm is a plain vanilla installation of Kubernetes from the ground up.
 
-## Considerations:
+### Considerations:
 
 -   Requires 2 GiB (gibibytes) or more of RAM per machine.
 
--   Requires at least 2 CPU on control-plane node.
+-   Requires at least 2 CPUs on control-plane node.
 
 -   The control-plane node must be a machine running a deb/rpm-compatible Linux
     OS.
@@ -122,7 +122,7 @@ objects. At the time of writing, Metal3 uses kubeadm and therefore does not
 support lightweight Kubernetes distributions.
 
 For management beyond cluster provisioning, consider learning about [Azure
-Arc](/azure/azure-arc/) enabled clusters to
+Arc](/azure/azure-arc/)–enabled clusters to
 manage your clusters in Azure.
 
 ## Next steps
@@ -135,5 +135,18 @@ For more information, see the following articles:
 -   [What is Azure IoT
     Edge](/azure/iot-edge/about-iot-edge)
 
--   [Kubernetes on your Azure Stack Edge Pro GPU
-    device](/azure/databox-online/azure-stack-edge-gpu-kubernetes-overview)
+-   [Choosing a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)
+
+## Related resources
+
+-   [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
+
+-   [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+
+-   [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+
+-   [AI at the edge with Azure Stack Hub](/azure/architecture/solution-ideas/articles/ai-at-the-edge)
+
+-   [Kubernetes on your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-kubernetes-overview)
+
+-   [Building a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)
