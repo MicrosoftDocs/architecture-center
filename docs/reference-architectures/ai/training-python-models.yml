@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Tune hyperparameters for ML models in Python
-  description: Shows recommended practices for tuning type hyperparameters (training parameters) of scikit-learn and deep learning machine learning models on Azure.
+  description: Shows recommended practices for tuning hyperparameters (training parameters) of scikit-learn and deep learning machine learning models in Python.
   author: fboylu
   ms.author: pnp
   ms.date: 07/17/2019
@@ -17,7 +17,7 @@ metadata:
 name: Tune hyperparameters for machine learning models in Python
 azureCategories:
   - ai-machine-learning
-summary: Shows recommended practices for tuning type hyperparameters (training parameters) of scikit-learn and deep learning machine learning models on Azure.
+summary: Shows recommended practices for tuning hyperparameters (training parameters) of scikit-learn and deep learning machine learning models in Python.
 products:
   - azure-blob-storage
   - azure-container-registry
