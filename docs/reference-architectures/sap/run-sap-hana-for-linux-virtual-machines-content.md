@@ -44,7 +44,7 @@ Microsoft and SAP jointly certify a range of virtual machine sizes for SAP HANA 
 machine with 192 GB of RAM. To support the largest SAP HANA memory sizes on virtual machines—up to 11.5 TB—you can use the [Azure M-series v2](/azure/virtual-machines/mv2-series) (Mv2) virtual machines. The M208 virtual machine types achieve approximately 260,000 SAPS, and the M416 virtual machine types achieve approximately 488,000 SAPS.
 
 The physical distance between the application and database tiers can impact performance, especially for SAP applications that require frequent communication
-with the database. We recommend using Azure [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) for virtual machines deployed in availability sets. Proximity placement groups ensure that the virtual machines stay in the same datacenter to minimize application latency. (Note that Azure Site Recovery doesn't support the replication of virtual machines in proximity placement groups.) [Scripts and utilities](https://github.com/msftphleiten/proximity-placement-groups) are available on GitHub.
+with the database. We recommend using Azure [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) for virtual machines deployed in availability sets. Proximity placement groups ensure that the virtual machines stay in the same datacenter to minimize application latency. (Azure Site Recovery doesn't support the replication of virtual machines in proximity placement groups.) [Scripts and utilities](https://github.com/msftphleiten/proximity-placement-groups) are available on GitHub.
 
 ### Load balancer
 
@@ -53,7 +53,7 @@ This setup avoids the need to configure load-balancing rules for many SAP ports.
 
 For SAP HANA database clusters, you must enable Direct Server Return (DSR), also known as Floating IP. This feature allows the server to respond to the IP
 address of the load balancer front end. This direct connection keeps the load balancer from becoming the bottleneck in the path of data transmission. If
-virtual machines in the back-end pool require public outbound connectivity, additional [configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) is required.
+virtual machines in the back-end pool require public outbound connectivity, extra [configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) is required.
 
 ### Networking
 
@@ -132,11 +132,11 @@ You can use [Azure Site Recovery](/azure/site-recovery/site-recovery-sap) to aut
 
 ### Backup
 
-SAP HANA data can be backed up in many ways. After migrating to Azure, you can continue to use any existing partner backup solutions you already have. Azure provides two native approaches to backup—[SAP HANA file-level backup](/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level) and Azure Backup for SAP HANA over the Backint interface.
+SAP HANA data can be backed up in many ways. After migrating to Azure, you can continue to use any existing partner backup solutions you already have. Azure provides two native approaches: [SAP HANA file-level backup](/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level) and Azure Backup for SAP HANA over the Backint interface.
 
 For SAP HANA file-level backup, you can use your tool of choice, such as hdbsql or SAP HANA Studio, and store the backup files on a local disk volume. A common mount point for this backup volume is /hana/backup. Your backup policies will define the data retention period on the volume. As soon as the backup is taken, a scheduled task should copy the backup files to Azure Blob storage for safekeeping. The local backup files are kept for expedient recovery.
 
-Azure Backup offers a simple, enterprise-grade solution for workloads running on virtual machines. [Azure Backup for SAP HANA](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) provides full integration with the SAP HANA backup catalog and guarantees database-consistent, full or point-in-time recoveries. Azure Backup is [BackInt-certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions) by SAP. See also the [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq).
+Azure Backup offers a simple, enterprise-grade solution for workloads running on virtual machines. [Azure Backup for SAP HANA](/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) provides full integration with the SAP HANA backup catalog and guarantees database-consistent, full, or point-in-time recoveries. Azure Backup is [BackInt-certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions) by SAP. See also the [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq).
 
 ### Monitoring
 
@@ -176,14 +176,13 @@ For User and Authorization, implement role-based access control (RBAC) and resou
 
 - Follow the least privilege principle, using [RBAC](/azure/role-based-access-control/overview) for assigning administrative privileges at IaaS-level resources that host your SAP solution on Azure. Basically, the main purpose of RBAC is segregation and control of duties for your users/group. RBAC is designed to grant only the amount of access to resources that's needed for users to do their jobs.
 
-- Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to avoid risk that's accidental or which might be caused by malicious intention. Resource locks prevents scenarios in which an administrator may delete or modify critical Azure resources where your SAP solution is.
+- Use [resource locks](/azure/azure-resource-manager/management/lock-resources) to avoid risk that's accidental or which might be caused by malicious intention. Resource locks prevent scenarios in which an administrator may delete or modify critical Azure resources where your SAP solution is.
 
 More security recommendations can be found at theses [Microsoft](https://azure.microsoft.com/blog/sap-on-azure-architecture-designing-for-security/) and [SAP](https://blogs.sap.com/2019/07/21/sap-security-operations-on-azure/) articles.
 
 ## Communities
 
-Communities can answer questions and help you set up a successful deployment.
-Consider the following:
+Communities can answer questions and help you set up a successful deployment. Consider the following communities:
 
 - [Azure Forum](https://azure.microsoft.com/support/forums/)
 
@@ -193,21 +192,29 @@ Consider the following:
 
 ## Next steps
 
-
 Learn more about the component technologies:
 
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [What is Azure Bastion?](/azure/bastion/bastion-overview)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+- [Use the SAP Business Warehouse connector in Power BI Desktop](/power-bi/connect-data/desktop-sap-bw-connector)
+- [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
+- [What is the Azure Backup service?](/azure/backup/backup-overview)
+- [About Site Recovery](/azure/site-recovery/site-recovery-overview)
+- [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
+- [Connect to SAP HANA databases in Power BI](/power-bi/connect-data/desktop-sap-hana)
+- [What is Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
+- [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
 - [Installation of SAP HANA on Azure virtual machines](/azure/virtual-machines/workloads/sap/hana-get-started)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-- [SAP workload configurations with Azure Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
-- [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
 - [Network security groups](/azure/virtual-network/network-security-groups-overview)
 
 Explore related architectures:
 
 - [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
 - [Run SAP BW/4HANA with Linux virtual machines on Azure](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)
-- [SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)
 - [Run SAP HANA on Azure (large instances)](/azure/architecture/reference-architectures/sap/hana-large-instances)
+- [SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)
 - [SAP S/4 HANA for large instances](/azure/architecture/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr)
 - [SAP on Azure Architecture Guide](/azure/architecture/reference-architectures/sap/sap-overview)
