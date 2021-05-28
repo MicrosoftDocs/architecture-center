@@ -12,7 +12,7 @@ This approach can also:
 
 ## Architecture
 
-![A screenshot showing on-premises video capture and analysis through Azure Stack Edge with Azure Video Analyzer and Spatial Analysis. Event notifications pass through IoT Hub to a web app for alerts, and to Azure Media Services Storage for long-term analysis.](./media/media/image1.png)
+![A screenshot showing on-premises video capture and analysis through Azure Stack Edge with Azure Video Analyzer and Spatial Analysis. Event notifications pass through IoT Hub to a web app for alerts, and to Azure Media Services Storage for long-term analysis.](../media/video-analytics-architecture.png)
 
 1. 5G-enabled IP cameras capture video in real time, and send the video feed to a 5G Radio Access Network (RAN) device.
    
@@ -34,7 +34,7 @@ This approach can also:
 
 This solution uses the following components:
 
-- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) is a portfolio of devices that bring compute, storage, and intelligence to the IoT edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
+- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
 - [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer/) helps build intelligent video-based applications using your choice of AI.
 - [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/) creates and deploys mission-critical web applications that scale with your business.
 - [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.

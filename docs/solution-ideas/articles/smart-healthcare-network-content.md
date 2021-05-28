@@ -38,7 +38,7 @@ Other examples of this approach include:
 
 This solution uses the following components:
 
-- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/). Azure Stack Edge is a portfolio of devices that bring compute, storage, and intelligence to the IoT edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
+- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/). Azure Stack Edge is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
 - [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/)
 - [Azure Sphere](https://azure.microsoft.com/en-us/services/azure-sphere/)
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)
