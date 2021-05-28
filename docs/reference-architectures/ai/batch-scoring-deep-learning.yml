@@ -16,6 +16,7 @@ metadata:
     - azcat-ai
     - reference-architecture
     - ai-machine-learning
+    - aml-project-improvement
 name: Batch scoring for deep learning models
 azureCategories:
   - ai-machine-learning
