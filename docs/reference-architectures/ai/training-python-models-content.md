@@ -5,7 +5,7 @@ This reference architecture shows recommended practices for tuning the hyperpara
 
 Two scenarios are covered in this reference architecture: hyperparameter optimization of [scikit-learn][scikit] models and deep learning models with GPUs. Two reference implementations for this architecture are available on GitHub, one for [training scikit-learn models on Azure][github1] models and one for [training deep learning models on Azure][github2] models.
 
-![Architecture diagram: tuning hyperparameters of Python models on Azure][0]
+![Architecture diagram: tuning hyperparameters for Python models on Azure][0]
 
 ## Scenarios
 
