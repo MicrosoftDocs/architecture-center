@@ -105,39 +105,39 @@ A Virtual Network Link exists between the virtual network hosting the AKS cluste
 
 ### Alternatives
 
-In this architecture, the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) was installed using the [AGIC add-on for AKS](/azure/application-gateway/tutorial-ingress-controller-add-on-new). You can also [install the Application Gateway Ingress Controller via a Helm chart](/azure/application-gateway/ingress-controller-install-existing#multi-cluster--shared-application-gateway). For a new setup, you can deploy a new Application Gateway and a new AKS cluster with AGIC enabled as an add-on in one line in Azure CLI. The add-on is also a fully managed service, which provides added benefits such as automatic updates and increased support. Both ways of deploying AGIC (Helm and AKS add-on) are fully supported by Microsoft. Additionally, the add-on allows for better integration with AKS as a first class add-on.
+In this architecture, the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) was installed using the [AGIC add-on for AKS](/azure/application-gateway/tutorial-ingress-controller-add-on-new). You can also [install the Application Gateway Ingress Controller via a Helm chart](/azure/application-gateway/ingress-controller-install-existing#multi-cluster--shared-application-gateway). For a new setup, by using one line in Azure CLI, you can deploy a new Application Gateway and a new AKS cluster (with AGIC enabled as an add-on). The add-on is also a fully managed service, which provides added benefits, such as automatic updates and increased support. Both ways of deploying AGIC (Helm and the AKS add-on) are fully supported by Microsoft. Additionally, the add-on allows for better integration with AKS, as a first class add-on.
 
-The AGIC add-on is still deployed as a pod in your AKS cluster, however, there are a few differences between the Helm deployment version and the add-on version of AGIC. Below is a list of differences between the two versions:
+The AGIC add-on is still deployed as a pod in your AKS cluster. However, there are a few differences between the Helm deployment version and the add-on version of AGIC. The following list includes the differences between the two versions:
 
 - Helm deployment values cannot be modified on the AKS add-on:
 
   - `verbosityLevel` will be set to 5 by default
-  - `usePrivateIp` will be set to be false by default; this can be overwritten by the use-private-ip annotation
-  - `shared` is not supported on add-on
-  - `reconcilePeriodSeconds` is not supported on add-on
-  - `armAuth.type` is not supported on add-on
+  - `usePrivateIp` will be set to be `false` by default; this can be overwritten by the `use-private-ip` annotation
+  - `shared` is not supported by the add-on
+  - `reconcilePeriodSeconds` is not supported by the add-on
+  - `armAuth.type` is not supported by the add-on
 
-- AGIC deployed via Helm supports `ProhibitedTargets`, which means AGIC can configure the Application Gateway specifically for AKS clusters without affecting other existing backends. 
-- Since AGIC add-on is a managed service, it will automatically be updated to the latest version of AGIC add-on, unlike AGIC deployed through Helm where you must manually update AGIC.
-- You can only deploy one AGIC add-on per AKS cluster, and each AGIC add-on currently can only target one Application Gateway. For deployments that require more than one AGIC per cluster or multiple AGICs targeting one Application Gateway,  you can continue to use AGIC deployed via Helm.
+- AGIC deployed via Helm supports `ProhibitedTargets`, which means AGIC can configure the Application Gateway specifically for AKS clusters, without affecting other existing backends. 
+- Since the AGIC add-on is a managed service, it is automatically updated to the latest version of the AGIC add-on, unlike AGIC deployed through Helm (where you must manually update AGIC).
+- You can only deploy one AGIC add-on per AKS cluster, and each AGIC add-on currently can only target one Application Gateway instance. For deployments that require more than one AGIC per cluster, or multiple AGICs targeting one Application Gateway, you can continue to use AGIC deployed via Helm.
 
-A single instance of the Azure Application Gateway Kubernetes Ingress Controller (AGIC) can ingest events from multiple Kubernetes namespaces. Should the AKS administrator decide to use the Application Gateway as an ingress, all namespaces will use the same instance of Application Gateway. A single installation of Ingress Controller will monitor accessible namespaces and will configure the Application Gateway it is associated with. For more information, see [Enable multiple Namespace support in an AKS cluster with Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-multiple-namespace-support).
+A single instance of the Azure Application Gateway Kubernetes Ingress Controller (AGIC) can ingest events from multiple Kubernetes namespaces. Should the AKS administrator decide to use the Application Gateway as an ingress, all namespaces will use the same instance of Application Gateway. A single installation of Ingress Controller will monitor accessible namespaces and will configure the Application Gateway that it is associated with. For more information, see [Enable multiple Namespace support in an AKS cluster with Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-multiple-namespace-support).
 
-To enable multi-namespace support:
+To enable multi-namespace support, do the following:
 
-- modify the helm-config.yaml file in one of the following ways:
+- Modify the helm-config.yaml file in one of the following ways:
 
-  - delete the `watchNamespace` key entirely from helm-config.yaml - AGIC will observe all namespaces
-  - set `watchNamespace` to an empty string - AGIC will observe all namespaces
-  - add multiple namespaces separated by a comma (`watchNamespace: default,secondNamespace`) - AGIC will observe these namespaces exclusively
-- apply Helm template changes with: `helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
+  - Delete the `watchNamespace` key entirely from the helm-config.yaml file. AGIC will observe all the namespaces.
+  - Set `watchNamespace` to an empty string. AGIC will observe all namespaces.
+  - Add multiple namespaces, separated by a comma (`watchNamespace: default,secondNamespace`). AGIC will observe these namespaces exclusively.
+- Apply Helm template changes with this script: `helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
-Once deployed with the ability to observe multiple namespaces, AGIC will:
+Once deployed with the ability to observe multiple namespaces, AGIC will do the following:
 
-- list ingress resources from all accessible namespaces
-- filter to ingress resources annotated with kubernetes.io/ingress.class: azure/application-gateway
-- compose combined [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
-- apply the config to the associated Application Gateway via [ARM](/azure/azure-resource-manager/management/overview)
+- List ingress resources from all the accessible namespaces
+- Filter to ingress resources that are annotated with kubernetes.io/ingress.class: azure/application-gateway
+- Compose combined [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
+- Apply the config to the associated Application Gateway via [ARM](/azure/azure-resource-manager/management/overview)
 
 ## Considerations
 
@@ -149,38 +149,38 @@ Although the security considerations are not fully pertaining to multitenancy in
 
 #### Network security
 
-- Create a [private endpoint](https://azure.microsoft.com/services/private-link/) for any PaaS service used by AKS workloads such as Key Vault, Service Bus, or Azure SQL Database so that the traffic between the applications and these services isn't exposed to the public internet. For more information, see [What is Azure Private Link](/azure/private-link/private-link-overview).
-- Configure your Kubernetes Ingress resource to expose workloads via HTTPS and use a separate subdomain and digital certificate for each tenant. The [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) will automatically configure the [Azure Application Gateway](/azure/application-gateway/overview) listener for secure socket layer (SSL) termination.
-- Configure [Azure Application Gateway](/azure/application-gateway/overview) to use a [Web Application Firewall Policy](/azure/application-gateway/waf-overview) to protect public-facing workloads running on AKS from malicious attacks.
+- Create a [private endpoint](https://azure.microsoft.com/services/private-link/) for any PaaS service that is used by AKS workloads, such as Key Vault, Service Bus, or Azure SQL Database. This is so that the traffic between the applications and these services isn't exposed to the public internet. For more information, see [What is Azure Private Link](/azure/private-link/private-link-overview).
+- Configure your Kubernetes Ingress resource to expose workloads via HTTPS, and use a separate subdomain and digital certificate for each tenant. The [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) will automatically configure the [Azure Application Gateway](/azure/application-gateway/overview) listener for secure socket layer (SSL) termination.
+- Configure [Azure Application Gateway](/azure/application-gateway/overview) to use a [Web Application Firewall Policy](/azure/application-gateway/waf-overview) to protect public-facing workloads (that are running on AKS) from malicious attacks.
 - For integration with existing virtual networks or on-premises networks, use Azure CNI networking in AKS. This network model also allows greater separation of resources and controls in an enterprise environment.
 - Use network policies to segregate and secure intra-service communications by controlling which components can communicate with each other. By default, all pods in a Kubernetes cluster can send and receive traffic without limitations. To improve security, you can use Azure Network Policies or Calico Network Policies to define rules that control the traffic flow between different microservices. For more information, see [Network Policy](/azure/aks/use-network-policies).
 - Don't expose remote connectivity to your AKS nodes. Create a bastion host, or jump box, in a management virtual network. Use the bastion host to securely route traffic into your AKS cluster to remote management tasks.
-- Consider using a [private AKS cluster](/azure/aks/private-clusters) in your production environment or at least secure access to the API server using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) in Azure Kubernetes Service.
+- Consider using a [private AKS cluster](/azure/aks/private-clusters) in your production environment, or at least secure access to the API server, by using [authorized IP address ranges](/azure/aks/api-server-authorized-ip-ranges) in Azure Kubernetes Service.
 
 #### Authentication and authorization
 
 - Deploy AKS clusters with Azure AD integration. For more information, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad). Using Azure AD centralizes the identity management component. Any change in user account or group status is automatically updated in access to the AKS cluster. Use [Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) or [ClusterRoles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) and [Bindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) to scope users or groups to the least number of permissions needed.
 - Use Kubernetes RBAC to define the permissions that users or groups have to resources in the cluster. Create roles and bindings that assign the least number of permissions required. [Integrate Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac) so any change in user status or group membership is automatically updated and access to cluster resources is current.
-- Use Azure RBAC to define the minimum required permissions that users or groups have to AKS resources in one or more subscriptions. Fore more information, see [Kubernetes RBAC](/azure/aks/operator-best-practices-identity#use-kubernetes-role-based-access-control-kubernetes-rbac) and [Use Azure RBAC for Kubernetes authorization](/azure/aks/manage-azure-rbac).
+- Use Azure RBAC to define the minimum required permissions that users or groups have to AKS resources in one or more subscriptions. For more information, see [Kubernetes RBAC](/azure/aks/operator-best-practices-identity#use-kubernetes-role-based-access-control-kubernetes-rbac) and [Use Azure RBAC for Kubernetes authorization](/azure/aks/manage-azure-rbac).
 
-- Consider using [AAD Pod Identity](/azure/aks/use-azure-ad-pod-identity) to assign a managed identity for Azure resource to individual microservices that they can use to access managed resources like Azure Key Vault, SQL Database, Service Bus and Cosmos DB, without the need to store and retrieve use connection strings or credentials from Kubernetes secrets.
-- Consider using the [Secret Store CSI Driver for Azure Key Vault](/azure/key-vault/general/key-vault-integrate-kubernetes) to access secrets such as credentials and connections strings from Kay Vault rather than from Kubernetes secrets.
-- Consider using [Dapr Secrets Stores](https://v1-rc2.docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/) building block with the [Azure Key Vault store with Managed Identities on Kubernetes](https://v1-rc2.docs.dapr.io/operations/components/setup-secret-store/supported-secret-stores/azure-keyvault-managed-identity/) to retrieve secrets like credentials and connection strings from Key Vault.
+- Consider using [AAD Pod Identity](/azure/aks/use-azure-ad-pod-identity) to assign a managed identity for an Azure resource to individual microservices, which they can then use to access managed resources (such as  Azure Key Vault, SQL Database, Service Bus, and Cosmos DB), without the need to store and retrieve use connection strings or credentials from Kubernetes secrets.
+- Consider using the [Secret Store CSI Driver for Azure Key Vault](/azure/key-vault/general/key-vault-integrate-kubernetes) to access secrets, such as credentials and connections strings from Key Vault, rather than from Kubernetes secrets.
+- Consider using the [Dapr Secrets Stores](https://v1-rc2.docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/) building block, with the [Azure Key Vault store with Managed Identities on Kubernetes](https://v1-rc2.docs.dapr.io/operations/components/setup-secret-store/supported-secret-stores/azure-keyvault-managed-identity/), to retrieve secrets (such as credentials and connection strings) from Key Vault.
 
 #### Workload and cluster
 
 - Securing access to the Kubernetes API-Server is one of the most important things you can do to secure your cluster. Integrate Kubernetes role-based access control (Kubernetes RBAC) with Azure Active Directory to control access to the API server. These controls let you secure AKS the same way that you secure access to your Azure subscriptions.
-- Limit access to actions that containers can perform. Use [Pod Security Policy](https://kubernetes.io/docs/concepts/policy/pod-security-policy/) to enable fine-grained authorization of pod creation and updates. Provide the least number of permissions and avoid the use of root / privileged escalation. For more best practices, see [Secure pod access to resources](/azure/aks/developer-best-practices-pod-security#secure-pod-access-to-resources).
-- Whenever possible, avoid running containers as root user.
+- Limit access to actions that containers can perform. Use [Pod Security Policy](https://kubernetes.io/docs/concepts/policy/pod-security-policy/) to enable the fine-grained authorization of pod creation and updates. Provide the least number of permissions, and avoid the use of root / privileged escalation. For more best practices, see [Secure pod access to resources](/azure/aks/developer-best-practices-pod-security#secure-pod-access-to-resources).
+- Whenever possible, avoid running containers as a root user.
 - Use the [AppArmor](https://kubernetes.io/docs/tutorials/clusters/apparmor/) Linux kernel security module to limit the actions that containers can do.
 - Regularly upgrade your AKS clusters to the latest Kubernetes version to take advantage of new features and bug fixes.
-- AKS automatically downloads and installs security fixes on each Linux node, but it doesn't automatically reboot the node if necessary. Use [kured](https://github.com/weaveworks/kured) to watch for pending reboots, cordon and drain nodes, and finally apply updates. For Windows Server nodes, regularly run an AKS upgrade operation to safely cordon and drain pods and deploy updated nodes.
-- Consider using HTTPS and gRPC secure transport protocols for all intra-pod communications and using a more advanced authentication mechanism that does not require to send the plain credentials on every request, like OAuth or JWT. Secure intra-service communication can be achieved by leveraging a service mesh like [Istio](https://istio.io/), [Linkerd](https://linkerd.io/), [Consul](https://www.consul.io/), or [Open Service Mesh](https://openservicemesh.io/), or by using [Dapr](https://v1-rc2.docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/).
+- AKS automatically downloads and installs security fixes on each Linux node, but it doesn't automatically reboot the node if necessary. Use [kured](https://github.com/weaveworks/kured) to watch for pending reboots, cordon and drain nodes, and finally, apply your updates. For Windows Server nodes, regularly run an AKS upgrade operation to safely cordon and drain pods and to deploy any updated nodes.
+- Consider using HTTPS and gRPC secure transport protocols for all intra-pod communications and to use a more advanced authentication mechanism that does not require you to send the plain credentials on every request, like OAuth or JWT. Secure intra-service communication can be achieved by leveraging a service mesh, like [Istio](https://istio.io/), [Linkerd](https://linkerd.io/), [Consul](https://www.consul.io/), or [Open Service Mesh](https://openservicemesh.io/), or by using [Dapr](https://v1-rc2.docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/).
 
 #### Container Registry
 
-- Scan your container images for vulnerabilities, and only deploy images that have passed validation. Regularly update the base images and application runtime, then redeploy workloads in the AKS cluster. Your deployment workflow should include a process to scan container images using tools such as [Twistlock](https://www.twistlock.com/) or [Aqua](https://www.aquasec.com/), and then only allow verified images to be deployed.
-- As you use base images for application images, use automation to build new images when the base image is updated. As those base images typically include security fixes, update any downstream application container images. For more information about base image updates, see [Automate image builds on base image update with Azure Container Registry Tasks](/azure/container-registry/container-registry-tutorial-base-image-update).
+- Scan your container images for vulnerabilities, and only deploy images that have passed validation. Regularly update the base images and application runtime, then redeploy workloads in the AKS cluster. Your deployment workflow should include a process to scan container images, by using tools such as [Twistlock](https://www.twistlock.com/) or [Aqua](https://www.aquasec.com/), and then you can only allow verified images to be deployed.
+- As you use base images for application images, use automation to build new images when the base image is updated. Because those base images typically include security fixes, update any downstream application container images. For more information about base image updates, see [Automate image builds on base image update with Azure Container Registry Tasks](/azure/container-registry/container-registry-tutorial-base-image-update).
 
 ### Performance considerations
 
