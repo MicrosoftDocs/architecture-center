@@ -125,12 +125,11 @@ Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose
 
 You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
-
 For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][AAF-cost].
 
 ## DevOps considerations
 
-In this architecture, the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and operationalization, including DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as a real-time web service, staged deployment to QA/production environments, integration testing, and functional testing. 
+In this architecture, the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and operationalization. The pipeline can include DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as a real-time web service, staged deployment to QA/production environments, integration testing, and functional testing.
 The [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning][mlops-ra] reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
 
 ## Deployment
@@ -139,6 +138,18 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 
 - [Regular Python models][github-python]
 - [Deep learning models][github-dl]
+
+## Next steps
+
+Read the product documentation:
+
+- [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+- [Introduction to private Docker container registries in Azure](/azure/container-registry/container-registry-intro)
+
+Try these Microsoft Learning paths:
+
+- [Introduction to Kubernetes on Azure](/learn/paths/develop-deploy-applications-kubernetes/)
+- [Develop and deploy applications on Kubernetes](/learn/paths/intro-to-kubernetes-on-azure/)
 
 <!-- links -->
 
