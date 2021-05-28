@@ -4,7 +4,8 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Find the best available option for your use case when configuring Kubernetes clusters at the edge.
   author: edprice-msft
-  ms.date: 05/21/2021
+  ms.author: yealva
+  ms.date: 05/27/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -18,5 +19,4 @@ products:
   - azure-kubernetes-service
 thumbnailUrl: /azure/architecture/browse/thumbs/choose-bare-metal-kubernetes.png
 content: |
-   [!include[](choose-bare-metal-kubernetes-content.md)]
-   
+   [!include[](choose-bare-metal-kubernetes-content.md)]   
