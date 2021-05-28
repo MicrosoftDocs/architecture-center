@@ -1,6 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes how retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. In this solution, 5G-enabled internet protocol (IP) cameras capture real-time video of shelf inventory, curbside pickup, and cashier queues. On-premises IoT edge devices analyze the video data in real time to detect the number of people in checkout queues, empty shelf space, or cars in the parking lot. Metrics analysis can trigger anomaly events to alert the store manager or stock supervisors to take corrective actions. The solution stores summary video clips or events in the cloud for long-term trend analysis.
+This solution describes how retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. In this solution, 5G-enabled internet protocol (IP) cameras capture real-time video of shelf inventory, curbside pickup, and cashier queues. On-premises IoT edge devices analyze the video data in real time to detect the number of people in checkout queues, empty shelf space, or cars in the parking lot.
+
+Metrics analysis can trigger anomaly events to alert the store manager or stock supervisors to take corrective actions. The solution stores summary video clips or events in the cloud for long-term trend analysis.
 
 ## Potential use cases
 
@@ -39,7 +41,7 @@ This solution uses the following components:
 - [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/) creates and deploys mission-critical web applications that scale with your business.
 - [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
 - [Media Services Storage account](https://azure.microsoft.com/services/media-services/) uses Azure Storage to store large media files.
-- [Metaswitch Fusion Core 5G Packet Core](https://azuremarketplace.microsoft.com/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) on Azure Marketplace creates a low-footprint enterprise private network experience in the cloud for 4G and 5G access types.
+- [Metaswitch Fusion Core 5G Packet Core](https://azuremarketplace.microsoft.com/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) creates a low-footprint enterprise private network experience in the cloud for 4G and 5G access types.
 - [Azure Network Function Manager](https://azure.microsoft.com/search/?q=network+function+manager) deploys network functions to the edge.
 
 ## Next steps

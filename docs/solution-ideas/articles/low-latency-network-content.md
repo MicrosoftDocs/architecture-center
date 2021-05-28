@@ -1,13 +1,15 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes how manufacturers can use high-performance, low-latency 5G Standalone networks to scale up industrial automation and productivity. 5G Standalone reliably connects machines to other machines or controllers. 5G-enabled IoT devices communicate and operate autonomously on the manufacturing floor. The 5G Standalone network is deployed as a Non-Public Network (NPN), with all data remaining on premises. The NPN configuration offers security, privacy, and reliability. Azure deploys and manages the network and devices.
+This solution describes how manufacturers can use high-performance, low-latency 5G Standalone networks to scale up industrial automation and productivity. 5G Standalone reliably connects machines to other machines or controllers. 5G-enabled IoT machines communicate and operate autonomously on the manufacturing floor.
+
+The 5G Standalone network is deployed as a Non-Public Network (NPN), with all data remaining on premises. The NPN configuration offers security, privacy, and reliability. Azure deploys and manages the network and devices.
 
 ## Potential use cases
 
 Use this approach for scenarios like:
 
 - Picking shipments from a warehouse efficiently.
-- Dispersing seeds from an autonomous seed sprayer machine on a farm based on information from soil sensors.
+- Dispersing seeds from an autonomous seed sprayer machine on a farm, based on information from soil sensors.
 - Conserving energy in commercial buildings by shutting off lights when no motion is detected in a room.
 
 ## Architecture
