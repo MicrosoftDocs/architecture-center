@@ -15,7 +15,7 @@ metadata:
     - reference-architecture
     - ai-machine-learning
     - aml-project-improvement
-name: Build a speech-to-text transcription pipeline with Azure Cognitive Speech service
+name: Build a speech-to-text transcription pipeline with Azure Cognitive Services
 azureCategories:
   - ai-machine-learning
 summary: Build an audio ingestion and speech-to-text transcription pipeline with Azure Cognitive Services. Speech recognition can be used for analyzing customer calls.
