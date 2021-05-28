@@ -48,7 +48,7 @@ The application flow for the deep learning model is as follows:
 
 This architecture consists of the following components.
 
-**[Azure Machine Learning][aml]** is a cloud service that is used to train, deploy, automate, and manage machine learning models, all at the broad scale that the cloud provides. It is used in this architecture to manage the deployment of models as well as authentication, routing, and load balancing of the web service.
+**[Azure Machine Learning][aml]** is a cloud service that is used to train, deploy, automate, and manage machine learning models, all at the broad scale that the cloud provides. It is used in this architecture to manage the deployment of models and authentication, routing, and load balancing of the web service.
 
 **[Virtual machine][vm]** (VM). The VM is shown as an example of a device—local or in the cloud—that can send an HTTP request.
 
@@ -58,11 +58,11 @@ This architecture consists of the following components.
 
 ## Performance considerations
 
-For real-time scoring architectures, throughput performance becomes a dominant consideration. For regular Python models, it's generally accepted that CPUs are sufficient to handle the workload.
+For real-time scoring architectures, throughput performance becomes a dominant consideration. For regular Python models, CPUs are sufficient to handle the workload.
 
-However for deep learning workloads, when speed is a bottleneck, GPUs generally provide better [performance][gpus-vs-cpus] compared to CPUs. To match GPU performance using CPUs, a cluster with large number of CPUs is usually needed.
+However for deep learning workloads, when speed is a bottleneck, GPUs generally provide better [performance][gpus-vs-cpus] compared to CPUs. To match GPU performance using CPUs, a cluster with large number of CPUs is typically needed.
 
-You can use CPUs for this architecture in either scenario, but for deep learning models, GPUs provide significantly higher throughput values compared to a CPU cluster of similar cost. AKS supports the use of GPUs, which is one advantage of using AKS for this architecture. Also, deep learning deployments typically use models with a high number of parameters. Using GPUs prevents contention for resources between the model and the web service, which is an issue in CPU-only deployments.
+You can use CPUs for this architecture in either scenario, but for deep learning models, GPUs provide higher throughput values compared to a CPU cluster of similar cost. AKS supports the use of GPUs, which is one advantage of using AKS for this architecture. Also, deep learning deployments typically use models with a high number of parameters. Using GPUs prevents contention for resources between the model and the web service, which is an issue in CPU-only deployments.
 
 ## Scalability considerations
 

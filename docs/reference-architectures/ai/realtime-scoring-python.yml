@@ -16,6 +16,7 @@ metadata:
     - azcat-ai
     - reference-architecture
     - ai-machine-learning
+    - aml-project-improvement
 name: Real-time scoring of Python models
 azureCategories:
   - ai-machine-learning
