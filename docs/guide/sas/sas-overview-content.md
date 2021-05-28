@@ -21,46 +21,59 @@ ms.custom:
 
 # SAS on Azure Architecture Guide
 
-This SAS on Azure Architecture Guide intends to cover various deployment scenarios while providing specific guidelines to help ensure quality deployments of SAS workloads running on Azure. Our architecture is based on guidance from the [Microsoft Azure Well-Architected Framework](../../framework/index.md) but you should consult with your SAS team for additional validation for your use case. When deploying any workload on Azure, you should consider these five pillars of solution excellence: Cost, DevOps, Resiliency, Scalability, and Security.
+Microsoft and SAS are working as [partners](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/) to develop a roadmap for organizations that innovate in the cloud. Through this partnership, the companies have migrated SAS analytics products and solutions to Azure.
 
-Microsoft and SAS continue to work in close [partnership](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/) to develop a clear roadmap for organizations that want to innovate in the cloud. Azure can enable multiple versions of SAS either running on self-managed Virtual Machines or the latest container based versions supported by Azure Kubernetes Service.
+This guide provides guidelines for using SAS analytics on Azure. It covers a variety deployment scenarios. For instance, multiple versions of SAS are available. You can run SAS software on self-managed virtual machines (VMs). You can also deploy container-based versions by using Azure Kubernetes Service. Besides discussing different implementations, this guide also follows guidance in the [Microsoft Azure Well-Architected Framework](../../framework/index.md) on achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But consult with your SAS team about your use case to ensure a high-quality deployment.
 
 ## Introduction to SAS
 
-SAS is an analytics software that provides organizations a suite of capabilities that enable users to draw insights from data and make intelligent decisions. The platforms underpins the SAS solutions for data management, fraud detection, risk analysis, visualization and more. The primary SAS platforms are SAS Grid 9.4, SAS Viya 3.5 and SAS Viya 4.0. Microsoft has validated and documented on how to run SAS Grid 9.4, SAS Viya 3.5 (SMP and MPP) and SAS Viya 4 (MPP on AKS) and architectures.
+SAS analytics software provides a suite of services and tools for drawing insights from data and making intelligent decisions. SAS platforms fully support the company's solutions for areas such as data management, fraud detection, risk analysis, and visualization. SAS offers these primary platforms:
 
-The following architectures are tested:
+- SAS Grid 9.4
+- SAS Viya 3.5
+- SAS Viya 4.0
 
-* SAS Viya 3.5 SMP and MPP on Linux
-* SAS Viya 4.0 on AKS
-* SAS Grid 9.4 on Linux
-* SAS 9 Foundation
+Microsoft has validated and documented all three. The systems used these architectures:
 
-The documentation is broken up into multiple parts. This page details the overall SAS criteria and architectural recommendations. Pages specific to the platforms will detail configurations specific to each platform. Note that this guide is specific to hosting your own SAS solution on Azure in your own tenant (i.e. customer tenant) and not hosted on Azure by SAS itself. Visit the [SAS Managed Application Services](https://www.sas.com/en_us/solutions/cloud/sas-cloud/managed-application-services.html) for more information on SAS provided Azure hosting and management services.
+- For Viya 3.5, both symmetric multiprocessing (SMP) and massively parallel processing (MPP) architectures
+- For SAS Viya 4.0, an MPP architecture on AKS
+
+The following architectures have also been tested:
+
+- SAS Viya 3.5 SMP and MPP architectures on Linux
+- SAS Viya 4.0 on AKS
+- SAS Grid 9.4 on Linux
+- SAS 9 Foundation
+
+This guide provides general information for running SAS on Azure, not platform-specific information. These guidelines assume that you host your own SAS solution on Azure in your own tenant. SAS doesn't host a solution for you on Azure. See [SAS Managed Application Services](https://www.sas.com/en_us/solutions/cloud/sas-cloud/managed-application-services.html) for more information on Azure hosting and management services that SAS provides.
 
 ## Architectural overview
 
-A deployment of SAS often consists of an API or visualization tier, a compute platform, and a storage tier. Our SAS guide will detail design considerations and recommendations to have SAS perform optimally on Azure.
+SAS deployments often contain three layers:
+
+- An API or visualization tier
+- A compute platform
+- A storage tier
 
 ![Infographic of SAS deployment on Azure using a hub-spoke network topology.](./images/sas-overview-architecture-diagram1.png)
 
 ## Prerequisites
 
-Before deploying any SAS workload you should have the following components in place:
+Before deploying a SAS workload, ensure the following components are in place:
 
-* Sizing recommendation by SAS sizing team
-* A SAS license file
-* Access to a resource group to deploy resources
-* vCPU subscription quota based on sizing document and VM choice
-* Connectivity established for access to LDAP services
+- A sizing recommendation from an SAS sizing team
+- An SAS license file
+- Access to a resource group that you can deploy resources in
+- A virtual central processing unit (vCPU) subscription quota that takes into account your sizing document and VM choice
+- Access to Lightweight Directory Access Protocol (LDAP) services
 
-SAS often talks about requirements per core. All these requirements are per physical CPU core. For all current VM generations that are used for SAS, we provide vCPU listings. The ratio of vCPU to physical core on these machines is 2:1. This means that whenever a requirement like 150MB/s per phys core comes up, it means half of that per vCPU. More information on Azure Compute Units (ACU) can be found [here](/azure/virtual-machines/acu).
+SAS documentation provides requirements per core, or per physical CPU core. Azure provides vCPU listings. The ratio of vCPU to physical cores on the VMs that Azure uses for SAS is 2:1. As a result, to calculate the value of a vCPU requirement, use half of the core requirement value. For instance, a physical core requirement of 150 MBps translates to 75 MBps per vCPU. For More information on Azure computing performance, see [Azure compute unit (ACU)](/azure/virtual-machines/acu).
 
 ## Design recommendations for all SAS solutions
 
 ### Operating systems
 
-For the best results, Linux is the recommended for running your SAS workloads. SAS supports 64 bit versions of RedHat 7 or higher, SLES 12.2 and Oracle Linux 6 or higher. Consult the [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit) for your SAS release of choice. In multi machine environments it is recommended to run the same version of Linux on all machines. Linux 32-bit deployments are not supported on Azure.
+Linux works best for running SAS workloads. SAS supports 64 bit versions of RedHat 7 or higher, SLES 12.2 and Oracle Linux 6 or higher. Consult the [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit) for your SAS release of choice. In multi machine environments it is recommended to run the same version of Linux on all machines. Linux 32-bit deployments are not supported on Azure.
 
 For the best results, we recommend that you start with a marketplace provided operating system image to ensure best compatibility and integration with Azure. Custom images will require additional configuration to ensure proper SAS performance.
 
