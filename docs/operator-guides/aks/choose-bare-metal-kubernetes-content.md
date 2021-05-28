@@ -8,6 +8,7 @@ configuring Kubernetes clusters at the edge.
 > [!NOTE]
 > This article is not an exhaustive comparison; rather, it presents potential paths for making decisions based on major qualifiers between common options.
  
+## Decision tree for bare-metal Kubernetes at the edge 
 
 Reference the following tree when deciding between the options presented below
 for bare-metal Kubernetes at the edge.
