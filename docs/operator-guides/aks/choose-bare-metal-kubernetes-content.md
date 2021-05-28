@@ -32,7 +32,7 @@ for bare-metal Kubernetes at the edge.
 
 MicroK8s is delivered as a single **snap** package that can be easily installed
 on Linux machines with snap support. Alternative installs are available for
-Windows, MacOS, and raspberry PI/ARM. When installed, microk8s creates a
+Windows, macOS, and raspberry PI/ARM. When installed, microk8s creates a
 single-node cluster which can be managed with the MicroK8s tooling. It is
 packaged with its own kubectl, and certain add-ons may be enabled (for example,
 helm, dns, ingress, metallb,
