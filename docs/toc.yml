@@ -781,8 +781,8 @@ items:
                 href: solution-ideas/articles/digital-media-speech-text.yml
               - name: Marketing optimization
                 href: solution-ideas/articles/optimize-marketing-with-machine-learning.yml
-              - name: Model training with AKS
-                href: solution-ideas/articles/machine-learning-with-aks.yml
+              - name: Model deployment to AKS
+                href: solution-ideas/articles/machine-learning-model-deployment-aks.yml
               - name: Personalized marketing solutions
                 href: solution-ideas/articles/personalized-marketing.yml
               - name: Personalized offers
