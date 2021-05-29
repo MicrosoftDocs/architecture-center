@@ -10,6 +10,8 @@ products:
   - azure-machine-learning
 ms.custom:
   - article
+categories:
+  - ai-machine-learning
 ---
 
 # AI + Machine Learning cost estimates
