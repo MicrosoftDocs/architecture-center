@@ -10,7 +10,7 @@ For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/a
 
 > [!IMPORTANT]
 >
-> The guidance in this article builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the card holder environment (CDE) and hosts the PCI DSS workload.
+> The guidance in this article builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
 >
 > ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated environment. The implementation illustrates <To do add identity blurb>.
 
@@ -49,7 +49,7 @@ Limit access to system components and cardholder data to only those individuals 
 Use role-based access control (RBAC) to limit access. A role is a collection of permissions. An identity  or a group of identities can be assigned to a role. RBAC can be divided into two categories:
 
 - Azure RBAC&mdash;is an Azure Active Directory (AD)-based authorization model that controls access to the _Azure control plane_. This is an association of your Azure Active Directory (AD) tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources such as networks, AKS cluster, managed identities, and and so on.
-- Kubernetes RBAC&mdash;is a native Kubernetes authorization model that controls access to the _Kubernetes control plane_ exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create and, list pods.
+- Kubernetes RBAC&mdash;is a native Kubernetes authorization model that controls access to the _Kubernetes control plane_ exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
 
 You can choose to keep separate tenants for each RBAC mechanism. This way, you can clearly maintain tenant segmentation. The advantage is reduced attack surface and lateral movement. The down side is increased  complexity and cost of managing multiple identity stores.
 
@@ -70,7 +70,88 @@ Define access needs for each role, including:
 
 ##### Your responsibilities
 
-Define a list of access for each role. Think about the roles and functions in your organization. For example:
+Define a list of access for each role. Here are example roles and their responsibilities. Build  roles that are applicable for your organization and workload.
+
+:::row:::
+   :::column span="":::
+      **Role**
+   :::column-end:::
+   :::column span="":::
+      **Responsibilities**
+   :::column-end:::
+   :::column span="":::
+      **Role assignment**
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Application Owners**
+   :::column-end:::
+   :::column span="":::
+      Responsible for defining and prioritizing features that align with business goals. They need to understand how features impact the compliance scoping of the workload, and balance customer data protection and ownership with business objectives.
+   :::column-end:::
+   :::column span="":::
+      **Responsibilities**
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Application Developers**
+   :::column-end:::
+   :::column span="":::
+      Responsible for developing software in service. All code developed by this role is subject to a set of training and quality gates upholding compliance, attestation, and release management processes. This role might be granted some read privileges in related Kubernetes namespaces and read privileges on Azure resources related to the workload. This role is not responsible for deploying or modifying any transitioning state in a running system. This team may manage build pipelines, but usually not deployment pipelines.
+   :::column-end:::
+   :::column span="":::
+      **Responsibilities**
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Application Operators/SRE**
+   :::column-end:::
+   :::column span="":::
+      Have a deep understanding of the code base expertise on troubleshooting, observability standards, operations (scaling and dependency management) and live-site processes. Application Developers and SREs work closely together to improve availability, scalability and performance of the applications. This role is usually highly privileged within the scope of the application, that is Kubernetes namespaces and Azure resources related to the application. This role often manage the "last-mile" deployment pipeline, and may help the Application Developers manage the build pipelines. While this role will likely having standing access to parts of the Kubernetes cluster, minimize privileged access.
+   :::column-end:::
+   :::column span="":::
+      **Responsibilities**
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Infrastructure Owners**
+   :::column-end:::
+   :::column span="":::
+      Responsible for the architecture, connectivity, functionality, and maintenance of the deployed services. They ensure that the infrastructure is cost-effective and provide appropriate capabilities such as connectivity, data retention, business continuity features, and so on. This role usually does not get involved in the operations of any given cluster, and likely doesn't need privilege within a cluster. They may require access to platform logs and Cost Center data.
+   :::column-end:::
+   :::column span="":::
+      **Responsibilities**
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Infrastructure Operators/SRE**
+   :::column-end:::
+   :::column span="":::
+      Monitor the health of the hosting infrastructure and dependent services. They ensure the platform offers appropriate capacity and availability to Application Developers and Application Operators. They are cluster owners in that they are responsible for the cluster in which the workload is deployed. This team will manage the build, deploy, and bootstrap pipeline for the cluster, working with the Infrastructure Owners to ensure a suitable landing zone exists for the cluster. This role may need to oversee workload namespaces with read-only permissions to check Quota, Limits, OOM alerts. This role doesn't manage the workload. This role will likely bootstrap workload namespaces with requires Zero-Trust policies and set quotas. Application Operators should work with the Infrastructure Operators to ensure an understanding of target node pools, expected sizing and scale requirements, and other configurations.
+   :::column-end:::
+   :::column span="":::
+      **Responsibilities**
+   :::column-end:::   
+:::row-end:::
+:::row:::
+   :::column span="":::
+      **Policy/Security Owners**
+   :::column-end:::
+   :::column span="":::
+      Are security and, or regulation compliance experts. They define organizational policies that protect and adhere to regulatory compliance of the company employees, the assets, and the customers. Typically, the goal is to define and automate as many of these policies as possible, and to enforce very high standards around their versioning, attestation, and release management. This role will work with all roles to ensure policy is applied and can be through every phase..
+   :::column-end:::
+   :::column span="":::
+      **Responsibilities**
+   :::column-end:::   
+:::row-end:::
+ 
+
+Think about the roles and functions in your organization. For example:
 
 |Team|Functions|Example role assignment
 |---|---|---|
@@ -81,9 +162,11 @@ Network security|Configuration and maintenance of Azure Firewall, Web Applicatio
 |Security operations| Incident monitoring and response team. Investigate and remediate security incidents in Security Information and Event Management (SIEM) or Azure Security Center. |
 |Policy Management| Set direction for use of RBAC, Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources.|
 
-Based on that assessment, assign user or administrator roles. Kubernetes has built-in, user-facing RBAC roles, such `cluster-admin` that are applied at the namespace levels. If you are integrating Azure AD roles and Kubernetes roles, create a mapping between the two roles.
+Based on that assessment, assign user or administrator roles. Kubernetes has built-in, user-facing RBAC roles, such as `admin` that are applied typically at the namespace level. If you are integrating Azure AD roles and Kubernetes roles, create a mapping between the two roles.
 
-An example use case of that role is if you need a group that needs complete access to the cluster.  This role has the highest privilege. Members of this group will have complete access throughout the cluster. You can mapping the role to an existing AD RBAC role that has administrative access to the Azure control plane. In that case, make sure you have strategy in place to create separation of duties. An alternate way is to create a separate group dedicated for cluster administrative access. Of the two approaches, the second one is recommended and demonstrated in the reference implementation.
+Here's an example. Suppose you need a group for the SRE team.  This role assigned to the group requires the highest privilege and equates to a `cluster-admin` role. You can map the role to an existing AD RBAC role that has administrative access. Make sure you have strategy in place to create separation of duties.
+
+An alternate way is to create a custom role dedicated for cluster administrative access. Of the two approaches, the second one is recommended and demonstrated in the reference implementation.
 
 Here are some best practices to harden access.
 
