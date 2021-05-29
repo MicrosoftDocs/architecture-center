@@ -48,7 +48,7 @@ For more information, see these articles:
 -   [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
 -   [Batch scoring of Python machine learning models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
 -   [Batch scoring of deep learning models on Azure](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
--   [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/realtime-scoring-python.yml)
+-   [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 -   [Machine learning operationalization (MLOps) for Python models using Azure MachineLearning](../../reference-architectures/ai/mlops-python.yml)
 -   [Batch scoring of R machine learning models on Azure](../../reference-architectures/ai/batch-scoring-r-models.yml)
 -   [Real-time scoring of R machine learning models on Azure](../../reference-architectures/ai/realtime-scoring-r.yml)

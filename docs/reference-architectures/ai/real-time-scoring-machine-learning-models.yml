@@ -30,4 +30,4 @@ products:
   - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/python-model-architecture.png
 content: |
-  [!include[](realtime-scoring-python-content.md)]
+  [!include[](real-time-scoring-machine-learning-models-content.md)]
