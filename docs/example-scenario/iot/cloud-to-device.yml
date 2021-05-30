@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: IoT application-to-device commands
+  titleSuffix: Azure Example Scenarios
+  description: Learn about how applications can use cloud-to-device messaging or direct methods to send commands to IoT devices.
+  author: wamachine
+  ms.date: 08/10/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - iot
+  ms.custom:
+    - fcp
+    - example-scenario
+name: IoT application-to-device commands
+azureCategories:
+  - iot
+summary: Learn about how applications can use cloud-to-device messaging or direct methods to send commands to IoT devices.
+products:
+  - azure-iot-hub
+thumbnailUrl: /azure/architecture/browse/thumbs/cloud-to-device-message.png
+content: |
+   [!include[](cloud-to-device-content.md)]

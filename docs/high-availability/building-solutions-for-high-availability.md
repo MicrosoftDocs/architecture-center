@@ -2,14 +2,14 @@
 title: Building solutions for high availability using Availability Zones
 titleSuffix: High Availability
 description: The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers.
-author: maggsl
+author: EdPrice-MSFT
 ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - management-and-governance
   - solutions
-ms.subservice: azure-guide
 ms.custom:
   - high-availability
   - fasttrack-edit
@@ -53,6 +53,18 @@ For additional information on Availability Zones, including service support by
 region and pricing, refer to [What are Availability Zones in
 Azure?](/azure/availability-zones/az-overview)
 in Microsoft Azure Documentation.
+
+## High availability reference architectures
+
+The following architectures feature common high-availability scenarios:
+
+- [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+- [IaaS: Web application with relational database](/azure/architecture/high-availability/ref-arch-iaas-web-and-db)
+- [Multi-region load balancing with Traffic Manager and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)
+- [Multi-region N-tier application](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+- [Multi-region web app with private connectivity to database](/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region)
+- [Multi-tier web application built for HA/DR](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
+- [Multitenant SaaS on Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)
 
 ## Delivering reliability in Azure
 
@@ -132,7 +144,7 @@ as a service (IaaS) resource, like a VM or managed disk, as illustrated.
 
 ![Zonal architecture](./images/high-availability-002.png)
 
-*For example, zonal load balancer, VM, managed disks, VM scale sets.*
+*For example, zonal load balancer, VM, managed disks, virtual machine scale sets.*
 
 In the illustration, each VM and load balancer (LB) are deployed to a specific
 zone.
@@ -303,8 +315,7 @@ requirements. Some things to consider include:
 
 - Does your application have specific latency requirements?
 
-For additional guidance, refer to [Microsoft Azure Well-Architected Framework define
-requirements](../framework/resiliency/overview.md#define-requirements).
+For additional guidance, refer to [Principles of the reliability pillar](../framework/resiliency/overview.md).
 
 Depending on the availability needs of an application, the cost and design
 complexity will vary. When building for a VM workload, there will be a cost
@@ -312,3 +323,12 @@ associated with each VM. For example, two VMs per zone across three active zones
 will have a cost for six VMs. For pricing of VM workloads, refer to the [Azure
 pricing
 calculator](https://azure.microsoft.com/pricing/calculator/?service=virtual-machines).
+
+## Next steps
+
+- [Azure Services that support Availability Zones](/azure/availability-zones/az-region)
+- [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview)
+- [Create a virtual machine in an availability zone using Azure CLI](/azure/virtual-machines/linux/create-cli-availability-zone)
+- [Create a virtual machine in an availability zone using Azure PowerShell](/azure/virtual-machines/windows/create-powershell-availability-zone)
+- [Create a virtual machine in an availability zone using the Azure portal](/azure/virtual-machines/windows/create-portal-availability-zone)
+- [About Azure Edge Zone](/azure/networking/edge-zones-overview)

@@ -6,9 +6,9 @@ author: dcass
 ms.date: 05/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - fcp
-ms.subservice: guide
 ms.custom:
   - guide
 ---
@@ -30,6 +30,8 @@ The theoretical basis and initial outcomes of the Judgment Call game were presen
 ## Preparation
 
 Judgment Call uses role play to surface ethical concerns in product development so players will anticipate societal impact, write product reviews, and explore mitigations. Players think of what kind of harms and impacts the technology might produce by writing product reviews from the point of view of a stakeholder.
+
+To prepare for this game, download the [printable Judgment Call game kit](https://download.microsoft.com/download/3/3/d/33da5224-fb6e-4591-827d-9c2bd9ac47c2/JudgmentCall_printable.pdf).
 
 ## During the Game
 
@@ -114,4 +116,3 @@ Finally, the group picks a thread from the discussion to begin identifying desig
 ## Next steps
 
 Once you have enough understanding of potential harms or negative impact your product or scenario may cause, proceed to learn [how to model these harms](./harms-modeling/index.md) so you can devise effective mitigations.
-

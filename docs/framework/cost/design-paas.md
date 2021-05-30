@@ -30,4 +30,4 @@ For more information, see [Use platform as a service (PaaS) options](../../guide
 
 **Reference architecture**
 
-To see an implementation that provides better security and lowers cost through PaaS services, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.md).
+To see an implementation that provides better security and lowers cost through PaaS services, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.yml).

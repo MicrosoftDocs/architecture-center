@@ -16,7 +16,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/video-rendering.md",
+            "file_url": "example-scenario/infrastructure/video-rendering.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/video-rendering",
             "word_count": 1271,
             "read_time": "5 min read",
@@ -57,7 +57,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/hpc-saas.md",
+            "file_url": "example-scenario/apps/hpc-saas.yml",
             "http_url": "/azure/architecture/example-scenario/apps/hpc-saas",
             "word_count": 1106,
             "read_time": "5 min read",
@@ -202,8 +202,8 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/cognitive-search.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\cognitive-search.png",
+            "image": "/azure/architecture/solution-ideas/media/cognitive-search-for-ai-enrichment.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\cognitive-search-for-ai-enrichment.png",
             "publish_date": "6/01/2020",
             "Summary": "<p>Large, unstructured datasets like the <a href=\"https://www.archives.gov/research/jfk/2017-release\">JFK Files</a>, which contain over 34,000 pages of documents about the CIA investigation of the 1963 JFK assassination, include typewritten and handwritten notes, photos and diagrams, and other unstructured data that standard search solutions can't parse.</p>\n<p><em>AI enrichment</em> in Azure Cognitive Search can extract and enhance searchable, indexable text from images, blobs, and other unstructured data sources like the JFK Files by using pre-trained machine learning skillsets from the Cognitive Services <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/home\">Computer Vision</a> and <a href=\"https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview\">Text Analytics</a> APIs. You can also create and attach <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface\">custom skills</a> to add special processing for domain-specific data like CIA Cryptonyms. Azure Cognitive Search can then index and search the context.</p>\n<ul>\n<li>\n<p><em>Image processing skills</em> like <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr\">Optical Character Recognition (OCR)</a>, <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text#read-api\">Read</a>, and <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-image-analysis\">image analysis</a> include object and face detection, tag and caption generation, and celebrity and landmark identification. These skills create text representations of image content, which are searchable using the query capabilities of Azure Cognitive Search.</p>\n</li>\n<li>\n<p><em>Natural language processing</em> skills like <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-recognition\">entity recognition</a>, <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-language-detection\">language detection</a>, <a href=\"https://docs.microsoft.com/azure/search/cognitive-search-skill-keyphrases\">key phrase extraction</a>, and <a href=\"https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text\">text recognition</a> map unstructured text to searchable and filterable fields in an index.</p>\n</li>\n</ul>\n<p>This example solution uses Azure Cognitive Search AI enrichment to extract meaning from the original complex, unstructured JFK Files dataset. You can <a href=\"https://github.com/microsoft/AzureSearch_JFK_Files\">work through the project</a>, watch the process in action in an <a href=\"https://channel9.msdn.com/Shows/AI-Show/Using-Cognitive-Search-to-Understand-the-JFK-Documents\">online video</a>, or explore the JFK Files with an <a href=\"https://aka.ms/jfkfiles-demo\">online demo</a>.</p>",
             "sample_code": true,
@@ -575,8 +575,8 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/auditing-and-risk-compliance.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\auditing-and-risk-compliance.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-auditing-and-risk-compliance.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-auditing-and-risk-compliance.png",
             "publish_date": "12/16/2019",
             "Flow": {
                 "FlowStep_A": "This content is enriched by using key phrase extraction, language detection, language translation,entity extraction (organizations and people) and custom models to identify certain regulatory obligations and custom models to identify specific legal terms and clauses",
@@ -598,7 +598,7 @@
                 "sql"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/data/enterprise-bi-adf.md",
+            "file_url": "reference-architectures/data/enterprise-bi-adf.yml",
             "http_url": "/azure/architecture/reference-architectures/data/enterprise-bi-adf",
             "word_count": 3077,
             "read_time": "13 min read",
@@ -813,7 +813,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/iot.md",
+            "file_url": "reference-architectures/iot.yml",
             "http_url": "/azure/architecture/reference-architectures/iot",
             "word_count": 2920,
             "read_time": "12 min read",
@@ -1058,7 +1058,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/enterprise-integration/basic-enterprise-integration.md",
+            "file_url": "reference-architectures/enterprise-integration/basic-enterprise-integration.yml",
             "http_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
             "word_count": 2325,
             "read_time": "9 min read",
@@ -1088,7 +1088,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/basic-web-app.md",
+            "file_url": "reference-architectures/app-service-web-app/basic-web-app.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
             "word_count": 2874,
             "read_time": "11 min read",
@@ -1302,8 +1302,8 @@
                 "devops",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/example-scenario/apps/media/deployment-flow.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\apps\\media\\deployment-flow.png",
+            "image": "/azure/architecture/example-scenario/apps/media/ci-cd-pipeline-deployment-arm-templates.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\example-scenario\\apps\\media\\ci-cd-pipeline-deployment-arm-templates.png",
             "publish_date": "3/25/2020",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/solution-architectures/tree/master/cicdbots",
@@ -1548,7 +1548,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/telehealth-system.md",
+            "file_url": "example-scenario/apps/telehealth-system.yml",
             "http_url": "/azure/architecture/example-scenario/apps/telehealth-system",
             "word_count": 1668,
             "read_time": "7 min read",
@@ -1631,10 +1631,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/business-process-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\business-process-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-business-process-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-business-process-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture demonstrates how to use Knowledge Mining for business process management.</p>\n<p>When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/business-process-management.png\" /></p>",
+            "Summary": "<p>This architecture demonstrates how to use Knowledge Mining for business process management.</p>\n<p>When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-business-process-management.png\" /></p>",
             "Flow": {
                 "FlowStep_A": "This content is enriched by using optical character recognition, forms recognition, layout understanding, table extraction, key-value pair extraction",
                 "FlowStep_B": "And finally, the user can automatically populate data from invoices into ELP systems or databases or compile enriched documents in the knowledge store and project them into tabular or object stores, then surface trends in an analytics dashboard, such as frequent issues, popular products, and much more"
@@ -1817,7 +1817,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/devops-with-aks.md",
+            "file_url": "example-scenario/apps/devops-with-aks.yml",
             "http_url": "/azure/architecture/example-scenario/apps/devops-with-aks",
             "word_count": 1610,
             "read_time": "7 min read",
@@ -1871,8 +1871,8 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/cctv-mask-detection.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/cctv-mask-detection",
+            "file_url": "solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
             "word_count": 706,
             "read_time": "3 min read",
             "Title": "COVID-19 Safe Solutions with IoT Edge",
@@ -1881,8 +1881,8 @@
                 "iot",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/bosch-cctv-mask-detection.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\bosch-cctv-mask-detection.png",
+            "image": "/azure/architecture/solution-ideas/media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png",
             "publish_date": "6/06/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/iot-edge/\">Azure IoT Edge</a> servers with onboard storage, computing, artificial intelligence (AI), and machine learning (ML) capabilities can quickly recognize and respond to sensor input.</p>",
@@ -1896,7 +1896,7 @@
                 "<p>Integration with Microsoft <a href=\"https://support.office.com/article/manage-notifications-in-teams-1cc31834-5fe5-412b-8edb-43fecc78413d\">Teams</a> allows automated notifications of relevant stakeholders like HR and Security.</p>",
                 "<p><a href=\"https://powerbi.microsoft.com\">Microsoft Power BI</a> visualizations enable well-informed and data-driven reporting and decision making.</p>"
             ],
-            "name": "cctv-mask-detection",
+            "name": "cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
             "popularity": 0,
             "topic": "Internet of Things"
         },
@@ -2149,15 +2149,15 @@
             "word_count": 167,
             "read_time": "1 min read",
             "Title": "Commerce Chatbot",
-            "MetaDescription": "Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel's concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands.",
+            "MetaDescription": "The Azure Bot Service with Language Understanding enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance traditional e-mail and phone call interactions. The bot validates a customer via Azure Active Directory and uses Azure Cognitive Services to contextually process customer service requests using text and voice. Add the Speech recognition service to support voice commands.",
             "category": [
                 "ai-machine-learning",
                 "web"
             ],
-            "image": "/azure/architecture/solution-ideas/media/commerce-chatbot.svg",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\commerce-chatbot.svg",
+            "image": "/azure/architecture/solution-ideas/media/commerce-chatbot-customer-service.svg",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\commerce-chatbot-customer-service.svg",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel's concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands.</p>",
+            "Summary": "<p>The Azure Bot Service with Language Understanding enables developers to create conversational interfaces for banking, travel, and entertainment commerce scenarios. For example, a hotel concierge can use a bot to enhance traditional e-mail and phone call interactions. The bot validates a customer via Azure Active Directory and uses Azure Cognitive Services to contextually process customer service requests using text and voice. Add the Speech recognition service to support voice commands.</p>",
             "Flow": {
                 "FlowStep_A": "Customer uses your mobile app",
                 "FlowStep_B": "Using Azure AD B2C, the user authenticates",
@@ -2274,7 +2274,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/index.md",
+            "file_url": "reference-architectures/hybrid-networking/index.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking",
             "word_count": 519,
             "read_time": "2 min read",
@@ -2303,7 +2303,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/expressroute-vpn-failover.md",
+            "file_url": "reference-architectures/hybrid-networking/expressroute-vpn-failover.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
             "word_count": 1060,
             "read_time": "5 min read",
@@ -2370,13 +2370,13 @@
             "word_count": 554,
             "read_time": "3 min read",
             "Title": "Contactless IoT interfaces with Azure intelligent edge",
-            "MetaDescription": "Combine intelligent and perceptive edge devices with the storage and computing power of the cloud to create touch-free interfaces.",
+            "MetaDescription": "Create solutions with touch-free interfaces & other intelligent & perceptive IoT devices backed by the storage, compute, AI, & ML capabilities of Azure cloud.",
             "category": [
                 "iot",
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/avanade-contactless.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\avanade-contactless.png",
+            "image": "/azure/architecture/solution-ideas/media/avanade-contactless-interface-iot-edge.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\avanade-contactless-interface-iot-edge.png",
             "publish_date": "6/06/2020",
             "components": [
                 "<p><a href=\"https://azure.microsoft.com/services/iot-edge/\">Azure IoT Edge</a> service deploys cloud workloads to run on IoT Edge devices via standard containers. Modules can run AI, other Azure and third-party services, or your own business logic. IoT Edge intelligent devices can respond quickly and offline, and limit costs by preprocessing and sending only necessary data to the cloud.</p>",
@@ -2457,10 +2457,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/content-research.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\content-research.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-content-research.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-content-research.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture describes how knowledge mining can be used for content research.</p>\n<p>When organizations task employees to review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/content-research.png\" /></p>",
+            "Summary": "<p>This architecture describes how knowledge mining can be used for content research.</p>\n<p>When organizations task employees to review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these dense materials. In industries where bidding competition is fierce, or when the diagnosis of a problem must be quick or in near real-time, companies can use knowledge mining to avoid costly mistakes.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-content-research.png\" /></p>",
             "name": "content-research",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -2481,10 +2481,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/contract-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\contract-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-contract-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-contract-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/contract-management.png\" /></p>",
+            "Summary": "<p>Many companies create products for multiple sectors, hence the business opportunities with different vendors and buyers increases exponentially. Knowledge mining can help organizations to scour thousands of pages of sources to create an accurate bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-contract-management.png\" /></p>",
             "name": "contract-management",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -2540,7 +2540,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/adds-forest.md",
+            "file_url": "reference-architectures/identity/adds-forest.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/adds-forest",
             "word_count": 1514,
             "read_time": "6 min read",
@@ -2812,14 +2812,14 @@
             "word_count": 281,
             "read_time": "2 min read",
             "Title": "Customer Feedback and Analytics",
-            "MetaDescription": "Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.",
+            "MetaDescription": "Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.",
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/customer-feedback-and-analytics.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\customer-feedback-and-analytics.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-customer-feedback-and-analytics.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-customer-feedback-and-analytics.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answer for a customer inquiry or assess customer sentiment at scale.</p>\n<p>Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/customer-feedback-and-analytics.png\" /></p>",
+            "Summary": "<p>For many companies, customer support is costly and inefficient. Knowledge mining can help customer support teams quickly find the right answers for customer questions or assess customer sentiment at scale.</p>\n<p>Every company is looking to enhance the customer experience. Knowledge mining can aggregate and analyze data to discover trends about what customers are saying and use that information to improve products and services</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-customer-feedback-and-analytics.png\" /></p>",
             "name": "customer-feedback-and-analytics",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -3093,7 +3093,7 @@
             "word_count": 566,
             "read_time": "3 min read",
             "Title": "Demand Forecasting",
-            "MetaDescription": "Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.",
+            "MetaDescription": "Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on-demand forecasting within the energy sector.",
             "category": [
                 "analytics",
                 "ai-machine-learning"
@@ -3102,7 +3102,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\demand-forecasting.png",
             "publish_date": "12/16/2019",
             "pricing_guidance": "pricing-info",
-            "Summary": "<p>Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.</p>",
+            "Summary": "<p>Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on-demand forecasting within the energy sector.</p>",
             "Flow": {
                 "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs.",
                 "FlowStep_B": "This synthetic data feeds into the Azure Event Hubs and Azure SQL service as data points or events, that will be used in the rest of the solution flow.",
@@ -3153,50 +3153,6 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-demand-forecasting-and-price-optimization-'",
-                "acom-architecture",
-                "ai-gallery",
-                "all-items",
-                "anomaly-detection",
-                "artificial-intelligence",
-                "azure",
-                "data-flow",
-                "example-code",
-                "github",
-                "pricing-guidance",
-                "solution-architectures",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/demand-forecasting-and-price-optimization.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/demand-forecasting-and-price-optimization",
-            "word_count": 519,
-            "read_time": "3 min read",
-            "Title": "Demand Forecasting and Price Optimization",
-            "MetaDescription": "Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.",
-            "category": [
-                "analytics",
-                "ai-machine-learning"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/demand-forecasting-and-price-optimization.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\demand-forecasting-and-price-optimization.png",
-            "publish_date": "12/16/2019",
-            "pricing_guidance": "pricing-is-recognized-as-a-pivotal-determinant-of-success-in-many-industries-and-can-be-one-of-the-most-challenging-tasks.-companies-often-struggle-with-several-aspects-of-the-pricing-process,-including-accurately-forecasting-the-financial-impact-of-potential-tactics,-taking-reasonable-consideration-of-core-business-constraints,-and-fairly-validating-the-executed-pricing-decisions.-expanding-product-offerings-add-further-computational-requirements-to-make-real-time-pricing-decisions,-compounding-the-difficulty-of-this-already-overwhelming-task.",
-            "Summary": "<p>Pricing is recognized as a pivotal determinant of success in many industries and can be one of the most challenging tasks. Companies often struggle with several aspects of the pricing process, including accurately forecasting the financial impact of potential tactics, taking reasonable consideration of core business constraints, and fairly validating the executed pricing decisions. Expanding product offerings add further computational requirements to make real-time pricing decisions, compounding the difficulty of this already overwhelming task.</p>\n<p>This solution addresses the challenges raised above by utilizing historical transaction data to train a demand forecasting model. Pricing of products in a competing group is also incorporated to predict cross-product impacts such as cannibalization. A price optimization algorithm then employs the model to forecast demand at various candidate price points and takes into account business constraints to maximize profit. The solution can be customized to analyze various pricing scenarios as long as the general data science approach remains similar.</p>\n<p>The process described above is operationalized and deployed in the Cortana Intelligence Suite. This solution will enable companies to ingest historical transaction data, predict future demand, and obtain optimal pricing recommendations on a regular basis. As a result, the solution drives opportunities for improved profitability and reductions in time and effort allocated to pricing tasks.</p>",
-            "Flow": {
-                "FlowStep_A": "The simulation data is generated hourly by newly deployed Azure Web Jobs.",
-                "FlowStep_B": "This synthetic data is stored at Azure Blob Storage, that will be used in the rest of the solution flow.",
-                "FlowStep_C": "Spark on HDInsight is used to ingest and preprocess the raw data, build and retrain the demand forecasting models, and execute price optimization algorithms.",
-                "FlowStep_D": "Azure Data Factory orchestrates and schedules the entire data flow."
-            },
-            "sample_code": true,
-            "github_url": "https://github.com/Azure/cortana-intelligence-price-optimization/blob/master/Automated%20Deployment%20Guide/Post%20Deployment%20Instructions.md",
-            "name": "demand-forecasting-and-price-optimization",
-            "popularity": 57,
-            "topic": "Analytics"
-        },
-        {
-            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-demand-forecasting-for-shipping-and-distribution-'",
                 "acom-architecture",
                 "ai-gallery",
@@ -3243,7 +3199,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/adds-extend-domain.md",
+            "file_url": "reference-architectures/identity/adds-extend-domain.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/adds-extend-domain",
             "word_count": 2071,
             "read_time": "8 min read",
@@ -3303,7 +3259,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/dmz/nva-ha.md",
+            "file_url": "reference-architectures/dmz/nva-ha.yml",
             "http_url": "/azure/architecture/reference-architectures/dmz/nva-ha",
             "word_count": 1607,
             "read_time": "7 min read",
@@ -3387,7 +3343,7 @@
                 "seodec18"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/devops-dotnet-webapp.md",
+            "file_url": "example-scenario/apps/devops-dotnet-webapp.yml",
             "http_url": "/azure/architecture/example-scenario/apps/devops-dotnet-webapp",
             "word_count": 1127,
             "read_time": "5 min read",
@@ -3478,7 +3434,7 @@
             "components": [
                 "<p><a href=\"https://docs.microsoft.com/azure/devops/boards/github/connect-to-github?view=azure-devops\">Azure Boards</a>: Use Azure Board to plan work and track its progress, using Agile tools such as Kanban boards.</p>",
                 "<p>Source code is hosted on <a href=\"https://github.com/enterprise\">GitHub Enterprise</a>, where developers can collaborate within your organization and the open source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open source dependencies.</p>",
-                "<p><a href=\"https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops\">Azure Pipelines</a>  runs Continuous Integration and Continuous Delivery jobs for your application, as well as the creation of your infrastructure with the integration with Terraform.</p>",
+                "<p><a href=\"https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops&preserve-view=true\">Azure Pipelines</a>  runs Continuous Integration and Continuous Delivery jobs for your application, as well as the creation of your infrastructure with the integration with Terraform.</p>",
                 "<p>You can use <a href=\"https://docs.microsoft.com/azure/key-vault/basic-concepts\">Azure Key Vault</a> to store certificates, connection strings, tokens, and other secrets. These are read by your application at run-time, so they're abstracted away from your developers</p>",
                 "<p><a href=\"https://docs.microsoft.com/azure/terraform/terraform-install-configure\">Terraform</a> is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, on-premises, and other environments</p>",
                 "<p>Using <a href=\"https://docs.microsoft.com/azure/azure-monitor/overview\">Azure Monitor</a> lets you get insights on the availability and performance of your application and infrastructure.</p>",
@@ -3511,7 +3467,7 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/devsecops-in-azure.md",
+            "file_url": "solution-ideas/articles/devsecops-in-azure.yml",
             "http_url": "/azure/architecture/solution-ideas/articles/devsecops-in-azure",
             "word_count": 778,
             "read_time": "4 min read",
@@ -3772,7 +3728,7 @@
                 "sap"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/sap-dev-test.md",
+            "file_url": "example-scenario/apps/sap-dev-test.yml",
             "http_url": "/azure/architecture/example-scenario/apps/sap-dev-test",
             "word_count": 716,
             "read_time": "4 min read",
@@ -3820,10 +3776,10 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/digital-asset-management.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\digital-asset-management.png",
+            "image": "/azure/architecture/solution-ideas/media/knowledge-mining-digital-asset-management.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\knowledge-mining-digital-asset-management.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>This architecture describes digital asset management for knowledge mining.</p>\n<p>Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/digital-asset-management.png\" /></p>",
+            "Summary": "<p>This architecture describes digital asset management for knowledge mining.</p>\n<p>Given the amount of unstructured data created daily, many companies are struggling to make use of or find information within their files. Knowledge mining through a search index makes it easy for end customers and employees to locate what they are looking for faster.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://docs.microsoft.com/azure/architecture/solution-ideas/media/knowledge-mining-digital-asset-management.png\" /></p>",
             "name": "digital-asset-management",
             "popularity": 0,
             "topic": "AI + Machine Learning"
@@ -3902,7 +3858,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/image-modeling.md",
+            "file_url": "example-scenario/infrastructure/image-modeling.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/image-modeling",
             "word_count": 1573,
             "read_time": "7 min read",
@@ -4088,7 +4044,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/ecommerce-scenario.md",
+            "file_url": "example-scenario/apps/ecommerce-scenario.yml",
             "http_url": "/azure/architecture/example-scenario/apps/ecommerce-scenario",
             "word_count": 1468,
             "read_time": "6 min read",
@@ -4246,7 +4202,7 @@
             "word_count": 577,
             "read_time": "3 min read",
             "Title": "Energy Supply Optimization",
-            "MetaDescription": "This solution provides an Azure-based smart solution, leveraging external open-source tools, that determines the optimal energy unit commitments from various types of energy resources for an energy grid.",
+            "MetaDescription": "This solution provides an Azure-based smart solution, applying external open-source tools, to determine the optimal energy unit commitments from various energy resources for an energy grid.",
             "category": [
                 "ai-machine-learning",
                 "integration"
@@ -4256,7 +4212,7 @@
             "publish_date": "12/16/2019",
             "Summary": "<p>In an energy grid, energy consumers are engaged with various types of energy supplying, trading, and storage components such as substations, batteries, windfarms and solar panels, micro-turbines, as well as demand response bids, to meet their respective demands and minimize the cost of energy commitment. To do so, the grid operator must determine how much energy each type of the resources should commit over a time frame, given the prices of soliciting different types of resources and the capacities and the physical characteristics of them.</p>\n<p>This solution is built upon Cortana Intelligence Suite and external open-source tools, and it computes the optimal energy unit commitments from various types of energy resources. This solution demonstrates the ability of Cortana Intelligence Suite to accommodating external tools, to solve parallelized numerical optimization problems over an Azure Batch of Azure Virtual Machines.</p>",
             "Flow": {
-                "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs. The web job uses resource related data from Azure SQL to generate the simulated data.",
+                "FlowStep_A": "The sample data is streamed by newly deployed Azure Web Jobs. The web job uses resource-related data from Azure SQL to generate the simulated data.",
                 "FlowStep_B": "The data simulator feeds this simulated data into the Azure Storage and writes message in Storage Queue, that will be used in the rest of the solution flow.",
                 "FlowStep_C": "Another Web Job monitors the storage queue and initiate an Azure Batch job once message in the queue is available.",
                 "FlowStep_D": "The Azure Batch service together with Data Science Virtual Machines is used to optimize the energy supply from a particular resource type given the inputs received.",
@@ -4356,8 +4312,8 @@
                 "ai-machine-learning",
                 "management-and-governance"
             ],
-            "image": "/azure/architecture/solution-ideas/media/chatbot-dr.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\chatbot-dr.png",
+            "image": "/azure/architecture/solution-ideas/media/chatbot-with-failover-two-regions.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\chatbot-with-failover-two-regions.png",
             "publish_date": "6/22/2020",
             "Summary": "<p>To set up disaster recovery for an enterprise-grade <em>conversational bot (chatbot)</em>, first review the service level agreement (SLA) that cover the <em>Recovery Point Objective (RPO)</em> and <em>Recovery Time Objective (RTO)</em> for the chatbot. Implement the disaster recovery patterns in this article to build highly available and disaster resistant chatbot solutions to meet the SLA.</p>\n<p>For a description of the core components of a typical enterprise-grade chatbot solution in Azure, see <a >Enterprise-grade conversational bot</a>.</p>",
             "sample_code": true,
@@ -4406,7 +4362,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/enterprise-integration/queues-events.md",
+            "file_url": "reference-architectures/enterprise-integration/queues-events.yml",
             "http_url": "/azure/architecture/reference-architectures/enterprise-integration/queues-events",
             "word_count": 1062,
             "read_time": "5 min read",
@@ -4507,7 +4463,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/expressroute.md",
+            "file_url": "reference-architectures/hybrid-networking/expressroute.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute",
             "word_count": 3046,
             "read_time": "13 min read",
@@ -4542,7 +4498,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/vpn.md",
+            "file_url": "reference-architectures/hybrid-networking/vpn.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/vpn",
             "word_count": 2866,
             "read_time": "11 min read",
@@ -4575,7 +4531,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/adfs.md",
+            "file_url": "reference-architectures/identity/adfs.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/adfs",
             "word_count": 3313,
             "read_time": "13 min read",
@@ -4677,7 +4633,7 @@
             "word_count": 148,
             "read_time": "1 min read",
             "Title": "FAQ Chatbot with data champion model",
-            "MetaDescription": "The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from differnet knowledge bases depending on the intent of the query.",
+            "MetaDescription": "The QnA Maker tool makes it super easy for the content owners to maintain their knowledge base of QnAs. Combined with Bot Service and LUIS, it's easy to setup an FAQ chatbot which responds from different knowledge bases depending on the intent of the query.",
             "category": [
                 "ai-machine-learning"
             ],
@@ -5359,7 +5315,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/multi-region.md",
+            "file_url": "reference-architectures/app-service-web-app/multi-region.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/multi-region",
             "word_count": 1885,
             "read_time": "8 min read",
@@ -5423,7 +5379,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/hub-spoke.md",
+            "file_url": "reference-architectures/hybrid-networking/hub-spoke.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/hub-spoke",
             "word_count": 1727,
             "read_time": "7 min read",
@@ -5966,7 +5922,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/dmz/secure-vnet-dmz.md",
+            "file_url": "reference-architectures/dmz/secure-vnet-dmz.yml",
             "http_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-dmz",
             "word_count": 2138,
             "read_time": "9 min read",
@@ -5993,7 +5949,7 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-information-discovery-with-deep-learning-and-nlp-'",
+                "'https:--azure.microsoft.com-solutions-architecture-website-content-tag-suggestion-with-deep-learning-and-nlp-'",
                 "acom-architecture",
                 "ai-ml",
                 "all-items",
@@ -6007,30 +5963,28 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/information-discovery-with-deep-learning-and-nlp",
+            "file_url": "solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp",
             "word_count": 391,
             "read_time": "2 min read",
-            "Title": "Information discovery with deep learning and NLP",
+            "Title": "Suggest content tags with deep learning and NLP",
             "MetaDescription": "See how deep learning and natural language processing can be used effectively with the Microsoft AI platform.",
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/information-discovery-with-deep-learning-and-nlp.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\information-discovery-with-deep-learning-and-nlp.png",
+            "image": "/azure/architecture/solution-ideas/media/website-content-tag-suggestion-with-deep-learning-and-nlp.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\website-content-tag-suggestion-with-deep-learning-and-nlp.png",
             "publish_date": "12/16/2019",
             "components": [
                 "<p>Microsoft SQL Server: Data is stored, structured, and indexed using Microsoft SQL Server.</p>",
                 "<p>GPU based Azure Data Science Virtual Machine: The core development environment is the Microsoft Windows Server 2016 GPU DSVM NC24.</p>",
-                "<p>Azure Machine Learning Workbench: The Workbench is used for data cleaning and transformation, and it serves as the primary interface to the Experimentation and Model Management services.</p>",
-                "<p>Azure Machine Learning Experimentation Service: The Experimentation Service is used for model training, including hyperparameter tuning.</p>",
-                "<p>Azure Machine Learning Model Management Service: The Model Management service is used for deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.</p>",
+                "<p>Azure Machine Learning: Used for model training, including hyperparameter tuning, and deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.</p>",
                 "<p>Jupyter Notebooks on Azure Data Science VM: Jupyter Notebooks is used as the base IDE for the model, which was developed in Python.</p>",
                 "<p>Azure Container Registry: The Model Management Service creates and packages real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/kubernetes-service\">Azure Kubernetes Service (AKS)</a>: Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.</p>"
             ],
             "Summary": "<p>Social sites, forums, and other text-heavy Q&amp;A services rely heavily on tagging, which enables indexing and user search. Without appropriate tagging, these sites are far less effective. Often, however, tagging is left to the users' discretion. And since users don't have lists of commonly searched terms or a deep understanding of the categorization or information architecture of a site, posts are frequently mislabeled. This makes it difficult or impossible to find that content when it's needed later.</p>\n<p>By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve tagging accuracy on your site. As your user types their post, it offers highly used terms as suggested tags, making it easier for others to find the information they're providing.</p>",
-            "name": "information-discovery-with-deep-learning-and-nlp",
+            "name": "website-content-tag-suggestion-with-deep-learning-and-nlp",
             "popularity": 107,
             "topic": "AI + Machine Learning"
         },
@@ -6119,7 +6073,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/azure-ad.md",
+            "file_url": "reference-architectures/identity/azure-ad.yml",
             "http_url": "/azure/architecture/reference-architectures/identity/azure-ad",
             "word_count": 3359,
             "read_time": "13 min read",
@@ -6148,7 +6102,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/identity/index.md",
+            "file_url": "reference-architectures/identity/index.yml",
             "http_url": "/azure/architecture/reference-architectures/identity",
             "word_count": 939,
             "read_time": "4 min read",
@@ -6242,7 +6196,7 @@
                 "web-app"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/ecommerce-search.md",
+            "file_url": "example-scenario/apps/ecommerce-search.yml",
             "http_url": "/azure/architecture/example-scenario/apps/ecommerce-search",
             "word_count": 1485,
             "read_time": "6 min read",
@@ -6325,13 +6279,13 @@
             "http_url": "/azure/architecture/solution-ideas/articles/interactive-voice-response-bot",
             "word_count": 485,
             "read_time": "3 min read",
-            "Title": "Interactive Voice Response Bot",
+            "Title": "Interactive voice response app with bot",
             "MetaDescription": "This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.",
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/solution-ideas/media/interactive-voice-response-bot.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\interactive-voice-response-bot.png",
+            "image": "/azure/architecture/solution-ideas/media/interactive-voice-response-app-bot.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\interactive-voice-response-app-bot.png",
             "publish_date": "12/16/2019",
             "Summary": "<p>This solution creates an intelligent interactive voice response (IVR) application that processes customer order requests for bicycles and bicycle accessories. Businesses with no existing IVR solution can easily get started automating requests, or, where existing human-operated systems exist, this solution can be extended to incorporate existing functionality and workflows.</p>",
             "sample_code": true,
@@ -6415,7 +6369,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/data/big-data-with-iot.md",
+            "file_url": "example-scenario/data/big-data-with-iot.yml",
             "http_url": "/azure/architecture/example-scenario/data/big-data-with-iot",
             "word_count": 1199,
             "read_time": "5 min read",
@@ -6817,7 +6771,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/linux-vdi-citrix.md",
+            "file_url": "example-scenario/infrastructure/linux-vdi-citrix.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix",
             "word_count": 1293,
             "read_time": "5 min read",
@@ -7297,8 +7251,8 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/ai/newsfeed-ingestion.md",
-            "http_url": "/azure/architecture/example-scenario/ai/newsfeed-ingestion",
+            "file_url": "example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.md",
+            "http_url": "/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis",
             "word_count": 1334,
             "read_time": "5 min read",
             "Title": "Mass ingestion and analysis of news feeds on Azure",
@@ -7324,7 +7278,7 @@
             },
             "sample_code": true,
             "github_url": "https://github.com/Azure/cognitive-services",
-            "name": "newsfeed-ingestion",
+            "name": "news-feed-ingestion-and-near-real-time-analysis",
             "popularity": 69,
             "topic": "Analytics"
         },
@@ -7420,7 +7374,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/containers/aks-microservices/aks-microservices.md",
+            "file_url": "reference-architectures/containers/aks-microservices/aks-microservices.yml",
             "http_url": "/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices",
             "word_count": 4228,
             "read_time": "17 min read",
@@ -7449,7 +7403,7 @@
                 "xml"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/microservices/service-fabric.md",
+            "file_url": "reference-architectures/microservices/service-fabric.yml",
             "http_url": "/azure/architecture/reference-architectures/microservices/service-fabric",
             "word_count": 5601,
             "read_time": "22 min read",
@@ -7559,7 +7513,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/apim-api-scenario.md",
+            "file_url": "example-scenario/apps/apim-api-scenario.yml",
             "http_url": "/azure/architecture/example-scenario/apps/apim-api-scenario",
             "word_count": 1081,
             "read_time": "5 min read",
@@ -7714,8 +7668,8 @@
                 "shell"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/ai/movie-recommendations.md",
-            "http_url": "/azure/architecture/example-scenario/ai/movie-recommendations",
+            "file_url": "example-scenario/ai/movie-recommendations-with-machine-learning.md",
+            "http_url": "/azure/architecture/example-scenario/ai/movie-recommendations-with-machine-learning",
             "word_count": 937,
             "read_time": "4 min read",
             "Title": "Movie recommendations on Azure",
@@ -7741,7 +7695,7 @@
             "code_languages": [
                 "shell"
             ],
-            "name": "movie-recommendations",
+            "name": "movie-recommendations-with-machine-learning",
             "popularity": 76,
             "topic": "AI + Machine Learning"
         },
@@ -7755,7 +7709,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/multi-region-sql-server.md",
+            "file_url": "reference-architectures/n-tier/multi-region-sql-server.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/multi-region-sql-server",
             "word_count": 2443,
             "read_time": "10 min read",
@@ -7791,7 +7745,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/multi-tier-app-disaster-recovery.md",
+            "file_url": "example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
             "word_count": 1197,
             "read_time": "5 min read",
@@ -7906,7 +7860,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/n-tier-cassandra.md",
+            "file_url": "reference-architectures/n-tier/n-tier-cassandra.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/n-tier-cassandra",
             "word_count": 2862,
             "read_time": "11 min read",
@@ -8241,7 +8195,7 @@
                 "github"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/oracle-migrate/oracle-migration-overview.md",
+            "file_url": "example-scenario/oracle-migrate/oracle-migration-overview.yml",
             "http_url": "/azure/architecture/example-scenario/oracle-migrate/oracle-migration-overview",
             "word_count": 591,
             "read_time": "3 min read",
@@ -8816,7 +8770,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/data/realtime-analytics-vehicle-iot.md",
+            "file_url": "example-scenario/data/realtime-analytics-vehicle-iot.yml",
             "http_url": "/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot",
             "word_count": 1598,
             "read_time": "7 min read",
@@ -8900,7 +8854,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/publish-internal-apis-externally.md",
+            "file_url": "example-scenario/apps/publish-internal-apis-externally.yml",
             "http_url": "/azure/architecture/example-scenario/apps/publish-internal-apis-externally",
             "word_count": 1857,
             "read_time": "8 min read",
@@ -9046,7 +9000,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/data/fraud-detection.md",
+            "file_url": "example-scenario/data/fraud-detection.yml",
             "http_url": "/azure/architecture/example-scenario/data/fraud-detection",
             "word_count": 957,
             "read_time": "4 min read",
@@ -9392,7 +9346,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.md",
+            "file_url": "reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines",
             "word_count": 2716,
             "read_time": "11 min read",
@@ -9421,7 +9375,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.md",
+            "file_url": "reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines",
             "word_count": 2300,
             "read_time": "10 min read",
@@ -9451,7 +9405,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/hana-large-instances.md",
+            "file_url": "reference-architectures/sap/hana-large-instances.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/hana-large-instances",
             "word_count": 2914,
             "read_time": "11 min read",
@@ -9484,7 +9438,7 @@
                 "windows"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/sap-netweaver.md",
+            "file_url": "reference-architectures/sap/sap-netweaver.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/sap-netweaver",
             "word_count": 5422,
             "read_time": "21 min read",
@@ -9515,7 +9469,7 @@
                 "visio-diagram"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/jenkins.md",
+            "file_url": "example-scenario/apps/jenkins.yml",
             "http_url": "/azure/architecture/example-scenario/apps/jenkins",
             "word_count": 2671,
             "read_time": "10 min read",
@@ -9544,7 +9498,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/linux-vm.md",
+            "file_url": "reference-architectures/n-tier/linux-vm.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/linux-vm",
             "word_count": 2103,
             "read_time": "8 min read",
@@ -9573,7 +9527,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/windows-vm.md",
+            "file_url": "reference-architectures/n-tier/windows-vm.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/windows-vm",
             "word_count": 1858,
             "read_time": "7 min read",
@@ -9707,7 +9661,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/hpc-cfd.md",
+            "file_url": "example-scenario/infrastructure/hpc-cfd.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/hpc-cfd",
             "word_count": 1084,
             "read_time": "5 min read",
@@ -9796,7 +9750,7 @@
                 "sql-server"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/sap-netweaver-on-sql-server.md",
+            "file_url": "solution-ideas/articles/sap-netweaver-on-sql-server.yml",
             "http_url": "/azure/architecture/solution-ideas/articles/sap-netweaver-on-sql-server",
             "word_count": 392,
             "read_time": "2 min read",
@@ -9892,7 +9846,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/sap-s4hana.md",
+            "file_url": "reference-architectures/sap/sap-s4hana.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/sap-s4hana",
             "word_count": 5618,
             "read_time": "22 min read",
@@ -9929,7 +9883,7 @@
                 "windows"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/sap-production.md",
+            "file_url": "example-scenario/apps/sap-production.yml",
             "http_url": "/azure/architecture/example-scenario/apps/sap-production",
             "word_count": 1109,
             "read_time": "5 min read",
@@ -9969,7 +9923,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/sap/sap-overview.md",
+            "file_url": "reference-architectures/sap/sap-overview.yml",
             "http_url": "/azure/architecture/reference-architectures/sap/sap-overview",
             "word_count": 2576,
             "read_time": "11 min read",
@@ -10228,7 +10182,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/wordpress.md",
+            "file_url": "example-scenario/infrastructure/wordpress.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/wordpress",
             "word_count": 1213,
             "read_time": "5 min read",
@@ -10326,8 +10280,8 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/ai/scalable-personalization.md",
-            "http_url": "/azure/architecture/example-scenario/ai/scalable-personalization",
+            "file_url": "example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.md",
+            "http_url": "/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system",
             "word_count": 1584,
             "read_time": "6 min read",
             "Title": "Scalable personalization on Azure",
@@ -10344,7 +10298,7 @@
             "Summary": "<p>Recommendations are a main revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.</p>\n<p>There are two main types of recommendation systems: collaborative filtering and content-based. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this document focuses on the content-based recommendation system.</p>\n<p>This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, we use <a href=\"https://azure.microsoft.com/services/databricks\">Azure Databricks</a> to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using <a href=\"https://azure.microsoft.com/services/kubernetes-service\">Azure Kubernetes Service</a>. In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume.</p>",
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#setup-guide-for-azure-databricks",
-            "name": "scalable-personalization",
+            "name": "scalable-personalization-with-content-based-recommendation-system",
             "popularity": 38,
             "topic": "AI + Machine Learning"
         },
@@ -10424,7 +10378,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/scalable-web-app.md",
+            "file_url": "reference-architectures/app-service-web-app/scalable-web-app.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
             "word_count": 1659,
             "read_time": "7 min read",
@@ -10547,7 +10501,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/network-level-segmentation.md",
+            "file_url": "reference-architectures/hybrid-networking/network-level-segmentation.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation",
             "word_count": 1444,
             "read_time": "7 min read",
@@ -10617,7 +10571,7 @@
                 "web-apps"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/fully-managed-secure-apps.md",
+            "file_url": "example-scenario/apps/fully-managed-secure-apps.yml",
             "http_url": "/azure/architecture/example-scenario/apps/fully-managed-secure-apps",
             "word_count": 2023,
             "read_time": "8 min read",
@@ -10829,7 +10783,7 @@
                 "serverless"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/serverless/event-processing.md",
+            "file_url": "reference-architectures/serverless/event-processing.yml",
             "http_url": "/azure/architecture/reference-architectures/serverless/event-processing",
             "word_count": 1721,
             "read_time": "7 min read",
@@ -10865,7 +10819,7 @@
                 "serverless"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/serverless/web-app.md",
+            "file_url": "reference-architectures/serverless/web-app.yml",
             "http_url": "/azure/architecture/reference-architectures/serverless/web-app",
             "word_count": 4014,
             "read_time": "16 min read",
@@ -11194,7 +11148,7 @@
                 "seodec18"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/data/stream-processing-databricks.md",
+            "file_url": "reference-architectures/data/stream-processing-databricks.yml",
             "http_url": "/azure/architecture/reference-architectures/data/stream-processing-databricks",
             "word_count": 2696,
             "read_time": "11 min read",
@@ -11549,7 +11503,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/hybrid-networking/troubleshoot-vpn.md",
+            "file_url": "reference-architectures/hybrid-networking/troubleshoot-vpn.yml",
             "http_url": "/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn",
             "word_count": 1751,
             "read_time": "8 min read",
@@ -11765,7 +11719,7 @@
                 "pricing-guidance"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/infrastructure/service-fabric-microservices.md",
+            "file_url": "example-scenario/infrastructure/service-fabric-microservices.yml",
             "http_url": "/azure/architecture/example-scenario/infrastructure/service-fabric-microservices",
             "word_count": 1386,
             "read_time": "6 min read",
@@ -11929,7 +11883,7 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/app-service-web-app/app-monitoring.md",
+            "file_url": "reference-architectures/app-service-web-app/app-monitoring.yml",
             "http_url": "/azure/architecture/reference-architectures/app-service-web-app/app-monitoring",
             "word_count": 1818,
             "read_time": "7 min read",
@@ -11974,7 +11928,7 @@
                 "visio-diagram"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/n-tier/n-tier-sql-server.md",
+            "file_url": "reference-architectures/n-tier/n-tier-sql-server.yml",
             "http_url": "/azure/architecture/reference-architectures/n-tier/n-tier-sql-server",
             "word_count": 3386,
             "read_time": "13 min read",

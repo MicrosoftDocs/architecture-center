@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Training Python models on Azure
+  description: This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn Python model.
+  author: fboylu
+  ms.author: pnp
+  ms.date: 07/17/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - azcat-ai
+    - ai-machine-learning
+name: Training Python models on Azure
+azureCategories:
+  - ai-machine-learning
+summary: This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn Python model.
+products:
+  - azure-blob-storage
+  - azure-container-registry
+  - azure-machine-learning
+  - azure-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/training-python-models.png
+content: |
+  [!include[](training-python-models-content.md)]

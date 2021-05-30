@@ -6,6 +6,9 @@ ms.date: 05/14/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-load-balancer
+  - azure-front-door
 ms.custom:
   - article
 ---
@@ -114,7 +117,7 @@ Another consideration is security. Unlike VPN Gateway traffic, ExpressRoute conn
 
 For both services, inbound transfers are free and outbound transfers are billed per the billing zone. 
 
-For more information, see [Choose a solution for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.md).
+For more information, see [Choose a solution for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml).
 
 This [blog post](https://azure.microsoft.com/blog/expressroute-or-virtual-network-vpn-whats-right-for-me/) provides a comparison of the two services.
 

@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Line of Business Extension
+  titleSuffix: Azure Solution Ideas
+  description: Modernize legacy systems by automating processes. Schedule calculations, connect to third party data sources or legacy systems, and process and share data.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 08/24/2020
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - mobile
+    - functions
+name: Line of Business Extension
+azureCategories:
+  - mobile
+summary: Modernize legacy systems by automating processes. Schedule calculations, connect to third party data sources or legacy systems, and process and share data.
+products:
+  - azure-data-factory
+  - azure-functions
+  - azure-sql-database
+  - power-apps
+  - power-bi
+thumbnailUrl: /azure/architecture/browse/thumbs/lob.png
+content: |
+   [!include[](lob-content.md)]

@@ -2,15 +2,15 @@
 title: Queue-Based Load Leveling pattern
 titleSuffix: Cloud Design Patterns
 description: Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.
-keywords: design pattern
 author: dragon119
 ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Queue-Based Load Leveling pattern
@@ -77,4 +77,4 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Choose between Azure messaging services](/azure/event-grid/compare-messaging-services). Information about choosing a messaging and queuing mechanism in Azure applications.
 
-- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.md). This reference architecture includes queue-based load leveling as part of the architecture.
+- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml). This reference architecture includes queue-based load leveling as part of the architecture.

@@ -1,0 +1,30 @@
+### YamlMime:Architecture
+metadata:
+  title: Distributed training of deep learning models on Azure
+  description: This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.
+  author: msalvaris
+  ms.author: pnp
+  ms.date: 02/16/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - ai-machine-learning
+    - compute
+    - media
+  ms.custom:
+    - azcat-ai
+    - ai-machine-learning
+name: Distributed training of deep learning models on Azure
+azureCategories:
+  - ai-machine-learning
+  - compute
+  - media
+summary: This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning.
+products:
+  - azure-blob-storage
+  - azure-container-registry
+  - azure-machine-learning
+thumbnailUrl: /azure/architecture/browse/thumbs/distributed_dl_architecture.png
+content: |
+  [!include[](training-deep-learning-content.md)]

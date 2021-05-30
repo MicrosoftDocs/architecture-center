@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: DevSecOps in Azure
+  titleSuffix: Azure Solution Ideas
+  description: DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning.
+  author: doodlemania2
+  ms.author: asegala
+  ms.date: 12/16/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - devops
+    - hybrid
+  ms.custom:
+    - acom-architecture
+    - e2e-hybrid
+  social_image_url: /azure/architecture/solution-ideas/articles/media/devsecops-in-azure.png
+name: DevSecOps in Azure
+azureCategories:
+  - devops
+  - hybrid
+summary: DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning.
+products:
+  - azure-boards
+  - azure-devops
+  - azure-monitor
+  - azure-pipelines
+  - azure-policy
+thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-in-azure.png
+content: |
+   [!include[](devsecops-in-azure-content.md)]

@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: Scalable web application
+  titleSuffix: Azure Reference Architectures
+  description: Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application.
+  author: doodlemania2
+  ms.author: pnp
+  ms.date: 10/03/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - web
+  ms.custom:
+    - reference-architecture
+name: Scalable web application
+azureCategories:
+  - web
+summary: Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application.
+products:
+  - azure-cdn
+  - azure-cognitive-search
+  - azure-cosmos-db
+  - azure-dns
+  - azure-front-door
+  - azure-functions
+  - azure-search
+  - azure-storage
+  - azure-sql-database
+thumbnailUrl: /azure/architecture/browse/thumbs/scalable-web-app.png
+content: |
+   [!include[](scalable-web-app-content.md)]

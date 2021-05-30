@@ -6,6 +6,8 @@ ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-machine-learning
 ms.custom:
   - guide
 ---
@@ -71,5 +73,5 @@ For a list of technology choices for ML in Azure, see:
 
 The following reference architectures show machine learning scenarios in Azure:
 
-- [Batch scoring on Azure for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.md)
-- [Real-time scoring of Python Scikit-Learn and Deep Learning Models on Azure](../../reference-architectures/ai/realtime-scoring-python.md)
+- [Batch scoring on Azure for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
+- [Real-time scoring of Python Scikit-Learn and Deep Learning Models on Azure](../../reference-architectures/ai/realtime-scoring-python.yml)

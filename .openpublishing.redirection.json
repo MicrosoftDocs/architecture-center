@@ -1734,12 +1734,32 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/patterns/category/index.md",
-      "redirect_url": "/azure/patterns/category/availability",
+      "source_path": "docs/patterns/category/resiliency.md",
+      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/patterns/category/availability.md",
+      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/patterns/category/performance-scalability.md",
+      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/patterns/category/security.md",
+      "redirect_url": "/azure/architecture/framework/resiliency/reliability-patterns",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/patterns/runtime-reconfiguration.md",
+      "redirect_url": "/azure/architecture/patterns", 
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/patterns/index-patterns.md",
       "redirect_url": "/azure/architecture/patterns",
       "redirect_document_id": false
     },
@@ -1909,6 +1929,13 @@
       "redirect_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
       "redirect_document_id": false
     },
+
+
+    {
+      "source_path": "docs/solution-ideas/articles/modern-data-warehouse.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/enterprise-data-warehouse",
+      "redirect_document_id": false
+    },
     {
       "source_path": "docs/framework/cost/optimizing.md",
       "redirect_url": "/azure/architecture/framework/cost/optimize-checklist"
@@ -2023,30 +2050,87 @@
      {
       "source_path": "docs/framework/devops/development.md",
       "redirect_url": "/azure/architecture/framework/devops/release-engineering-app-dev"
-    },
-    {
+     },
+     {
       "source_path": "docs/framework/devops/app-design.md",
       "redirect_url": "/azure/architecture/framework/devops/release-engineering-app-dev"
-    },
-    {
+     },
+     {
       "source_path": "docs/framework/devops/testing.md",
       "redirect_url": "/azure/architecture/framework/devops/release-engineering-testing"
-    },
-    {
+     },
+     {
       "source_path": "docs/framework/devops/deployment.md",
       "redirect_url": "/azure/architecture/framework/devops/release-engineering-cd"
-    },
-    {
+     },
+     {
       "source_path": "docs/framework/devops/configuration.md",
       "redirect_url": "/azure/architecture/framework/devops/overview"
-    },
-    {
+     },
+     {
       "source_path": "docs/framework/devops/performance.md",
       "redirect_url": "/azure/architecture/framework/devops/release-engineering-performance"
-    },
-    {
+     },
+     {
       "source_path": "docs/framework/devops/process.md",
       "redirect_url": "/azure/architecture/framework/devops/overview"
+     },
+     {
+      "source_path": "docs/framework/scalability/app-design.md",
+      "redirect_url": "/azure/architecture/framework/scalability/design-apps"
+     },
+     {
+      "source_path": "docs/patterns/strangler.md",
+      "redirect_url": "/azure/architecture/patterns/strangler-fig"
+     },
+     {
+      "source_path": "docs/browse/hybrid_index.md",
+      "redirect_url": "/azure/architecture/browse/?azure_categories=hybrid"
+     },
+     {
+      "source_path": "docs/framework/scalability/monitoring.md",
+      "redirect_url": "/azure/architecture/framework/scalability/monitor",
+      "redirect_document_id": false
+     },
+     {
+      "source_path": "docs/example-scenario/iot-aad/iot-aad.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot",
+      "redirect_document_id": false
+     }, 
+     {
+      "source_path": "docs/solution-ideas/articles/ai-for-earth.yml",
+      "redirect_url": "https://aka.ms/AIArchitecture",
+      "redirect_document_id": false
+     },
+     {
+      "source_path": "docs/solution-ideas/articles/cctv-mask-detection.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
+      "redirect_document_id": true
+     },
+     {
+       "source_path": "docs/example-scenario/ai/newsfeed-ingestion.yml",
+       "redirect_url": "/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis",
+       "redirect_document_id": true
+     }, 
+     {
+      "source_path": "docs/solution-ideas/articles/demand-forecasting-and-price-optimization.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/movie-recommendations.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/movie-recommendations-with-machine-learning",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/scalable-personalization.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system",
+      "redirect_document_id": true
     }
   ]
 }

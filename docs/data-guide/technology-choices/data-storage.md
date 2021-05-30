@@ -6,8 +6,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-storage
+  - azure-blob-storage
 ms.custom:
   - guide
+  - internal-intro
 ---
 
 <!-- cSpell:ignore VHDs HDFS WASB HMAC POSIX ACLs JDBC -->
@@ -36,7 +40,7 @@ There are several options for ingesting data into Azure, depending on your needs
 
 **Analytical databases:**
 
-[Azure Data Explorer](/azure/data-explorer/) 
+[Azure Data Explorer](/azure/data-explorer/)
 
 ## Azure Storage blobs
 
@@ -53,7 +57,7 @@ Other features that make Azure Storage a good choice are:
 - [Multiple concurrency strategies](/azure/storage/common/storage-concurrency).
 - [Disaster recovery and high availability options](/azure/storage/common/storage-disaster-recovery-guidance).
 - [Encryption at rest](/azure/storage/common/storage-service-encryption).
-- [Role-based access control (RBAC)](/azure/storage/blobs/security-recommendations#data-protection) to control access using Azure Active Directory users and groups.
+- [Azure role-based access control (Azure RBAC)](/azure/storage/blobs/security-recommendations#data-protection) to control access using Azure Active Directory users and groups.
 
 ## Azure Data Lake Store
 
@@ -87,9 +91,9 @@ The [HDInsight implementation](/azure/hdinsight/hbase/apache-hbase-overview) lev
 
 ## Azure Data Explorer
 
-[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to do complex ad hoc queries on the data in seconds. 
+[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to do complex ad hoc queries on the data in seconds.
 
-Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-cluster-horizontal-scaling) for increasing ingestion and query processing throughput. An Azure Data Explorer cluster can be [deployed to a Virtual Network](/azure/data-explorer/vnet-deployment) for enabling private networks. 
+Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-cluster-horizontal-scaling) for increasing ingestion and query processing throughput. An Azure Data Explorer cluster can be [deployed to a Virtual Network](/azure/data-explorer/vnet-deployment) for enabling private networks.
 
 ## Key selection criteria
 
@@ -114,7 +118,7 @@ The following tables summarize the key differences in capabilities.
 | Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
 | Structure | Hierarchical file system | Object store with flat namespace |
-| Authentication | Based on [Azure Active Directory Identities](/azure/active-directory/active-directory-authentication-scenarios) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [role-based access control (RBAC)](/azure/security/security-storage-overview) |
+| Authentication | Based on [Azure Active Directory Identities](/azure/active-directory/active-directory-authentication-scenarios) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-keys-manage) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [Azure role-based access control (Azure RBAC)](/azure/security/security-storage-overview) |
 | Authentication protocol | OAuth 2.0. Calls must contain a valid JWT (JSON web token) issued by Azure Active Directory | Hash-based message authentication code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
 | Authorization | POSIX access control lists (ACLs). ACLs based on Azure Active Directory identities can be set file and folder level. | For account-level authorization use [Account Access Keys](/azure/storage/common/storage-account-keys-manage). For account, container, or blob authorization use [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). |
 | Auditing | Available.  |Available |
@@ -143,7 +147,7 @@ The following tables summarize the key differences in capabilities.
 | Primary database model         | Relational (column store), telemetry, and time series store                                                                                                                     |
 | SQL language support           | Yes                                                                                                                                                                             |
 | Pricing model                  | Elastically scalable cluster instances                                                                                                                                          |
-| Authentication                 | Based on [Azure Active Directory identities](https://github.com/MicrosoftDocs/architecture-center/blob/master/azure/active-directory/active-directory-authentication-scenarios) |
+| Authentication                 | Based on [Azure Active Directory identities](https://github.com/uglide/azure-content/blob/master/articles/active-directory/active-directory-authentication-scenarios.md) |
 | Encryption at rest             | Supported, customer managed keys                                                                                                                                                |                                                                                                                                            |
 | Analytics workload performance | Optimized performance for parallel analytics workloads                                                                                                                         |
-| Size limits                    | Linearly scalable               
+| Size limits                    | Linearly scalable               |

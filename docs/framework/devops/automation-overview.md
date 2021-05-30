@@ -19,7 +19,7 @@ Automation has revolutionized how businesses operate and this trend continues to
 - Minimize human error in configuring repetitive tasks.
 - Produce consistent and repeatable results.
 
-To learn more, see [Deployment considerations for automation](./deployment.md#automation).
+To learn more, see [Deployment considerations for automation](./release-engineering-cd.md#automation).
 
 ## Goals of automation
 
@@ -67,7 +67,7 @@ For example, when deploying to Azure, you may need to run post-deployment virtua
 
 ### Operational tasks
 
-As the demand for speed in performing operational tasks increases over time, you are expected to deliver things faster and faster. The old way of manually performing operational tasks won't scale to that type of demand now. This is where automation can help. To meet on-demand delivery using an automation platform, you need to develop automation components (such runbooks and configurations), create integrations to systems that are already in place efficiently, and operate and troubleshoot.
+As the demand for speed in performing operational tasks increases over time, you are expected to deliver things faster and faster. The old way of manually performing operational tasks won't scale to that type of demand now. This is where automation can help. To meet on-demand delivery using an automation platform, you need to develop automation components (such as runbooks and configurations), create integrations to systems that are already in place efficiently, and operate and troubleshoot.
 
 Advantages of automating operational tasks include:
 

@@ -6,6 +6,9 @@ ms.date: 08/24/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-synapse-analytics
+  - azure-databricks
 ms.custom:
   - article
 ---
@@ -51,8 +54,8 @@ For more information, see these articles:
 
 ### Reference architecture
 
-- [Automated enterprise BI with Azure Synapse Analytics and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.md)
-- [Enterprise BI in Azure with Azure Synapse Analytics](../../reference-architectures/data/enterprise-bi-synapse.md)
+- [Automated enterprise BI with Azure Synapse Analytics and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.yml)
+- [Enterprise BI in Azure with Azure Synapse Analytics](../../reference-architectures/data/enterprise-bi-synapse.yml)
 
 ## Azure Databricks
 Azure Databricks offers two SKUs **Standard** and **Premium**, each with these options, listed in the order of least to most expensive. 
@@ -86,9 +89,9 @@ If you can commit to one or three years, opt for reserved instances, which can s
 
 
 #### Reference architecture
-- [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.md)
-- [Build a Real-time Recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.md) 
-- [Batch scoring of Spark models on Azure Databricks](../../reference-architectures/ai/real-time-recommendation.md)
+- [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
+- [Build a Real-time Recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml) 
+- [Batch scoring of Spark models on Azure Databricks](../../reference-architectures/ai/real-time-recommendation.yml)
 
 ## Azure Stream Analytics
 Stream analytics uses *streaming units (SUs)* to measure the amount of compute, memory, and throughput required to process data. When provisioning a stream processing job, you're expected to specify an initial number of SUs. Higher streaming units mean higher cost because more resources are used. 
@@ -104,8 +107,8 @@ SUs are based on the partition configuration for the inputs and the query that's
 For pricing details, see [Azure Stream Analytics pricing](https://azure.microsoft.com/pricing/details/stream-analytics/).
 
 #### Reference architecture
-- [Batch scoring of Python machine learning models on Azure](../../reference-architectures/ai/batch-scoring-python.md)
-- [Azure IoT reference architecture](../../reference-architectures/iot.md#cost-considerations)
+- [Batch scoring of Python machine learning models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml#cost-considerations)
 
 ## Azure Analysis Services
 
@@ -126,8 +129,8 @@ Each tier offers one or more instances. The main cost drivers are the QPUs and m
 
 
 #### Reference architecture
-- [Enterprise business intelligence - Azure Reference Architectures](../../reference-architectures/data/enterprise-bi-synapse.md) 
-- [Automated enterprise BI - Azure Architecture Center](../../reference-architectures/data/enterprise-bi-adf.md)
+- [Enterprise business intelligence - Azure Reference Architectures](../../reference-architectures/data/enterprise-bi-synapse.yml) 
+- [Automated enterprise BI - Azure Architecture Center](../../reference-architectures/data/enterprise-bi-adf.yml)
 
 ## Azure Data Factory V2
 Azure Data Factory is a big data orchestrator. The service transfers data to and from diverse types of data stores. It transforms the data by using other compute services. It creates workflows that automate data movement and transformation. 
@@ -141,6 +144,6 @@ You are only charged for consumption. Consumption is measured by these factors:
 You are also charged for execution activities, such as copying data, lookups, and external activities. Each activity is individually priced. You are also charged for pipelines with no associated triggers or runs within the month. All activities are prorated by the minute and rounded up.
 
 #### Reference architecture
-- [Automated enterprise BI - Azure Architecture Center](../../reference-architectures/data/enterprise-bi-adf.md) 
-- [Enterprise business intelligence - Azure Reference Architectures](../../reference-architectures/data/enterprise-bi-synapse.md) 
-- [Build an enterprise-grade conversational bot - Azure Architecture Center](../../reference-architectures/ai/conversational-bot.md)
+- [Automated enterprise BI - Azure Architecture Center](../../reference-architectures/data/enterprise-bi-adf.yml) 
+- [Enterprise business intelligence - Azure Reference Architectures](../../reference-architectures/data/enterprise-bi-synapse.yml) 
+- [Build an enterprise-grade conversational bot - Azure Architecture Center](../../reference-architectures/ai/conversational-bot.yml)
