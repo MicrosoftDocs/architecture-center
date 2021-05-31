@@ -8,7 +8,7 @@ This architectural pattern demonstrates how MDM can be incorporated into the Azu
 
 :::image type="content" source="images/profisee-data-flow.png" border="false" alt-text="Image that shows the MDM Profisee data flow.":::
 
-#### Data Flow
+#### Data flow
 
 1. **Source data load** – Source data from business applications is copied to Azure Data Lake, where it is initially stored for further transformation and use in downstream analytics. Source data can generally be classified into one of three categories:
    - Structured master data – The information that describes customers, products, locations, and so on. Master data is low volume, high complexity, and changes slowly over time, is often the data that organizations struggle the most with data quality.
@@ -33,7 +33,7 @@ This architectural pattern demonstrates how MDM can be incorporated into the Azu
 
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) provides limitless storage for analytics data.
 
-- [Profisee](https://profisee.com/platform/) is the fast, affordable, and scalable MDM platform that integrates seamlessly with the Microsoft ecosystem.
+- [Profisee](https://profisee.com/platform/) is a scalable MDM platform that is designed to easily integrate with the Microsoft ecosystem.
 
 - Azure [Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is the fast, flexible, and trusted cloud data warehouse that lets you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
 
@@ -223,3 +223,18 @@ Learn more about [Profisee running natively in Azure](https://profisee.com/profi
 Learn how to deploy Profisee to Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM).
 
 View the [Profisee Azure Data Factory templates](https://github.com/profisee/azuredatafactory).
+
+## Related resources
+### Architecture guides
+- [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
+- [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
+- [Data warehousing](/azure/architecture/data-guide/relational-data/data-warehousing)
+- [Batch processing](/azure/architecture/data-guide/big-data/batch-processing)
+- [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
+## Reference architectures
+- [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
+- [DevTest Image Factory](/azure/architecture/solution-ideas/articles/dev-test-image-factory)
+- [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
+- [Modernize mainframe & midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
+- [DataOps for the modern data warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
+- [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)

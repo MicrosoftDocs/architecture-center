@@ -841,6 +841,8 @@ items:
                 href: solution-ideas/articles/application-integration-using-event-grid.yml
               - name: Big data analytics with Azure Data Explorer
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
+              - name: Big data analytics with Enterprise-grade security
+                href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
               - name: Content Delivery Network analytics
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
               - name: Demand forecasting for shipping
@@ -991,6 +993,8 @@ items:
                     maintainContext: true
               - name: Choose a Kubernetes at the edge compute option
                 href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
+              - name: Choose a bare-metal Kubernetes at the edge platform option
+                href: operator-guides/aks/choose-bare-metal-kubernetes.yml
       - name: Databases
         items:
           - name: Guides
