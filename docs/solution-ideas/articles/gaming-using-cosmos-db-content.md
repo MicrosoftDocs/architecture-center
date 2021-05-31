@@ -7,7 +7,7 @@ This gaming solution idea elastically scales your database to accommodate unpred
 ![Architecture Diagram](../media/gaming-using-cosmos-db.png)
 *Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions or Containers and APIs published via Azure API Gateway. 
 2. Azure CDN serves static images and game content to the user that are stored in Azure Blob Storage.
 3. Azure Cosmos DB stores user's game state data.
@@ -41,9 +41,9 @@ This architecture includes the following components:
 
 - [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/#overview) is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
 
-## Next Steps
+## Next steps
 
-Review the following articles on Cosmos DB.
+Review the following articles on Cosmos DB:
 
 - [Common Azure Cosmos DB Use Cases](/azure/cosmos-db/use-cases) 
 - [Change feed in Azure Cosmos DB](/azure/cosmos-db/change-feed)
@@ -54,6 +54,6 @@ Review the following articles on Cosmos DB.
 
 The following solution ideas feature Azure Cosmos DB:
 
-* [Globally distributed applications using Cosmos DB](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db)
-* [Retail and e-commerce using Cosmos DB](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db)
-* [Serverless apps using Cosmos DB](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db)
+* [Globally distributed applications using Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db)
+* [Retail and e-commerce using Cosmos DB](/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db)
+* [Serverless apps using Cosmos DB](/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db)
