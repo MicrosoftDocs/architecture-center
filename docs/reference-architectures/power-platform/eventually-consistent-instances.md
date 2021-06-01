@@ -45,6 +45,14 @@ This can be performed in a number of plugin steps within the plugin lifecycle. W
 #### Circuit Breaker
 Introduce a circuit breaker pattern (Out of scope for this document) to back off and retry. For more information on circuit breaker, please refer to [Circuit Breaker Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker)
 
+## Replication Technologies
+There are a number of ways to replicate data between Dynamics instances, not limited to:
+- Logic Apps
+- Functions Apps
+- Azure Data Factory
+- Azure Synapse Analytics
+- Power Automate
+
 ## Issues and considerations
 
 Consider the impact of any business logic on an entity that is not hydrated yet. Consider a scenario where the entity is not fully hydrated and sychronised yet, some of the properties will be null so you need to ensure any decisions on the data are factored in when using this approach, You may receive a NullReferenceException. 
