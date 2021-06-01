@@ -38,3 +38,16 @@ This architecture includes the following components:
 - [Azure HDInsight](/azure/hdinsight/hdinsight-overview) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more.
 
 - (Optional) [Power BI](https://powerbi.microsoft.com/) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
+
+
+## Next steps
+
+- [Understand data store models](../../guide/technology-choices/data-store-overview.md)
+
+The following solution ideas feature Azure Database for MySQL:
+
+* [Digital Marketing using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)
+* [Retail and e-commerce using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)
+* [Intelligent apps using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql)
+* [Finance management apps using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql)
+* [Scalable web and mobile applications using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql)
