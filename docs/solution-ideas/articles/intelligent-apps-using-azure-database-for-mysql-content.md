@@ -16,7 +16,7 @@ The data flows through the solution as follows:
 4. Azure Machine Learning Studio can be used to further analyze the data, using custom Machine Learning algorithms to gain further insights.
 5. The MySQL Power BI Connector provides options for data visualization and analysis in Power BI.
 
-## Components
+### Components
 
 - [Azure Functions](/azure/azure-functions/functions-overview)
 - [Event Hubs](/azure/event-hubs/)
@@ -26,11 +26,7 @@ The data flows through the solution as follows:
 - [Azure Machine Learning Studio](/azure/machine-learning/)
 - [Power BI](/power-bi/fundamentals/power-bi-overview)
 
-## Considerations
-
-Azure Cognitive Services Text Analytics API has a maximum size of 5120 characters for a single document and a maximum request size of 1 MB. [View the data and rate limits](/azure/cognitive-services/text-analytics/concepts/data-limits).
-
-## Alternatives
+### Alternatives
 
 - The use of Azure Functions to process data as it is received is just one approach for how data could be processed. For scenarios where a large amount of data already exists in the data source, then other forms of batch processing should be considered.
 - [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) provides event-processing for high volumes of fast streaming data from multiple sources simultaneously and includes integration options with Power BI.
@@ -39,6 +35,10 @@ Azure Cognitive Services Text Analytics API has a maximum size of 5120 character
   - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
   - [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
   - [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
+
+## Considerations
+
+Azure Cognitive Services Text Analytics API has a maximum size of 5120 characters for a single document and a maximum request size of 1 MB. [View the data and rate limits](/azure/cognitive-services/text-analytics/concepts/data-limits).
   
 ## Next steps
 
