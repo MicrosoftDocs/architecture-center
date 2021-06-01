@@ -33,7 +33,7 @@ Here is a screenshot of the example app that consumes the results:
 
 This scenario uses a pre-trained ResNet-152 model trained on ImageNet-1K (1,000 classes) dataset to predict which category (see figure below) an image belongs to. These predictions are made in real time using a REST API endpoint.
 
-![Example image classification predictions using a Convolutional Neural Network (CNN) model as a web service.](./_images/python-example-predictions.png)
+![Example of image classification predictions using a Convolutional Neural Network (CNN) model as a web service.](./_images/python-example-predictions.png)
 
 The application flow for the deep learning model is as follows:
 
