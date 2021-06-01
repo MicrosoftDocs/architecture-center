@@ -114,7 +114,7 @@ IoT architecture guides:
 
 -   [Azure Industrial IoT Analytics Guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
 
--   [Azure IoT reference architecture](/azure/architecture/reference-architectures/io)
+-   [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
 
 -   [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
 
@@ -133,4 +133,3 @@ Example architectures using Azure IoT Hub:
 -   [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
 
 -   [Project 15 Open Platform](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)
-- 
