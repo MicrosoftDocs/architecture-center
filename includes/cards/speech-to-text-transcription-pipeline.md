@@ -6,11 +6,11 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/ai/speech-ai-ingestion"><img src="/azure/architecture/browse/thumbs/speech-ai-ingestion.png" class="diagram" alt="Thumbnail of Speech-to-text conversion Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline"><img src="/azure/architecture/browse/thumbs/speech-to-text-transcription-pipeline.png" class="diagram" alt="Thumbnail of Speech-to-text conversion Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
-        <a class="card-content-title has-margin-top-none" href="/azure/architecture/reference-architectures/ai/speech-ai-ingestion">
+        <a class="card-content-title has-margin-top-none" href="/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline">
             <p>Speech-to-text conversion</p>
         </a>
         <ul class="card-content-metadata">
