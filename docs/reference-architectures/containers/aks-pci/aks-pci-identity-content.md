@@ -329,7 +329,7 @@ Always do deployments through authorized build and release pipelines. The pipeli
 
 Make sure RBAC assignments are scoped appropriately for least access.
 
-Because the cluster and all Azure resources use Azure AD, disabling or revoking  Azure AD access is applied to all resources automatically. If there are any components that are not controlled by Azure AD, make sure you have process to remove access. For example, SSH credentials for accessing a jump box might need explicit removal if the user is no longer valid.
+Because the cluster and all Azure resources use Azure AD, disabling or revoking  Azure AD access is applied to all resources automatically. If there are any components that are not backed directly by Azure AD, make sure you have process to remove access. For example, SSH credentials for accessing a jump box might need explicit removal if the user is no longer valid.
 
 **APPLIES TO: 8.1.5**
 
@@ -345,15 +345,13 @@ Your organization should have a clear and documented pattern of vendor and simil
 
 Azure AD provides a [smart lock out feature](/azure/active-directory/authentication/howto-password-smart-lockout) to lock out users after failed sign-in attempts. The recommended way to implement lock outs is with Azure AD Conditional Access policies.
 
-Consider a similar strategy for components that might be not be integrated with Azure AD, such as a jump box.
+Implement the lockut for components that support similar features but are not backed with Azure AD. For example, SSH-enabled machines, such as a jump box. This will ensure lock outs are enabled to prevent or slow access attempt abuse.
 
-AKS nodes are not designed to be individually accessed. Reaching cluster nodes through SSH is not recommended. To enable SSH, you need a high-privileged DaemonSet, which is considered to be a security risk. If you do this, be aware that any node-level changes can cause the your cluster to be out of support.
-
-<Ask Chad: I am not sure what SSH has to do with lockout, need something for shorting TTL>
+AKS nodes are not designed to be routinely accessed. Block direct SSH or Remote Desktop to cluster nodes. SSH access should only be considered as part of advanced troubleshooting efforts. The access should be closely monitored and promptly reverted after completion of the specific event.  If you do this, be aware that any node-level changes can cause the your cluster to be out of support.
 
 ### Requirement 8.2
 
- In addition to assigning a unique ID, ensure proper user-authentication management for non-consumer users and administrators on all system components by employing at least one of the following methods to authenticate all users: Something you know, such as a password or passphrase, Something you have, such as a token device or smart card, Something you are, such as a biometric.
+In addition to assigning a unique ID, ensure proper user-authentication management for non-consumer users and administrators on all system components by employing at least one of the following methods to authenticate all users: Something you know, such as a password or passphrase, Something you have, such as a token device or smart card, Something you are, such as a biometric.
 
 - 8.2.1 Using strong cryptography, render all authentication credentials (such as passwords/phrases) unreadable during transmission and storage on all system components.
 - 8.2.2 Verify user identity before modifying any authentication credential—for example, performing password resets, provisioning new tokens, or generating new keys.
@@ -426,6 +424,8 @@ Do not use group, shared, or generic IDs, passwords, or other authentication met
 
 Don't share or reuse identities for functionally different parts of the cluster or pods.For example, using a team account to access data or cluster resources. Make sure the identity onboarding documentation is clear about not using shared accounts.
 
+Disable root users in the CDE. Do not use the built-in --admin access in the CDE.
+
 ### Requirement 8.6
 
 Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, etc.), use of these mechanisms must be assigned as follows:
@@ -435,7 +435,7 @@ Where other authentication mechanisms are used (for example, physical or logical
 
 #### Your responsibilities
 
-TBD
+Ensure that all access to the CDE is provided on per-user identities, and this is extended into any physical or virtual tokens. This includes any VPN access into the CDE network, ensuring that enterprise point-to-site access (if any) use per-user certificates as part of that authenitcation flow.
 
 ### Requirement 8.7
 
@@ -447,13 +447,10 @@ All access to any database containing cardholder data (including access by appli
 
 #### Your responsibilities
 
+Provide access based on roles and responisbilities. People can use their identity but the access must be restricted on need-to-know basis, with minimal standing permissions. People should never use application identies and database access identities must never be shared. 
+
 If possible, access database from applications through managed identity. Otherwise, limit exposure to connection strings and credentials. Use Kubernetes secrets to store sensitive information instead of keeping them places where they are easily discovered, such as pod definition. Another way is to store and load secrets to and from a managed store, such as Azure Key Vault. With managed identities enabled on an AKS cluster, it has to authenticate itself against Key Vault to get access.
 
-<Ask Chad A connection string must be generated by the application instead of being generated by the user. >
-
-All users directly accessing the database should be doing so at their own user, not any application identities.
-<Ask chad: the last line needs explanation>
-<if you are a human, assume human identty instead of principal. if you want to do system things, use your prnc.>
 
 ### Requirement 8.8
 
