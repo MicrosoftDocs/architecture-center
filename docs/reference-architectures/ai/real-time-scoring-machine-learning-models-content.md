@@ -1,7 +1,7 @@
 
 
 
-This reference architecture shows how to deploy Python models as web services to make real-time predictions using [Azure Machine Learning][aml]. Machine learning models deployed on Azure Kubernetes Service (AKS) are good for high-scale production deployments.
+This reference architecture shows how to deploy Python models as web services to make real-time predictions using [Azure Kubernetes Service][aml-aks]. Machine learning models deployed on Azure Kubernetes are good for high-scale production deployments.
 
 Two scenarios are covered in this article: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown. In addition, two reference implementations for these scenarios are available on GitHub, one for [regular Python models][github-python] and one for [deep learning models][github-dl].
 
@@ -143,13 +143,13 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 
 Read the product documentation:
 
-- [Deploy a model to an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
-- [Introduction to private Docker container registries in Azure](/azure/container-registry/container-registry-intro)
+- [Deploy a model to an Azure Kubernetes Service cluster][aml-aks]
+- [Introduction to private Docker container registries in Azure][registry-intro]
 
 Try these Microsoft Learning paths:
 
-- [Introduction to Kubernetes on Azure](/learn/paths/develop-deploy-applications-kubernetes/)
-- [Develop and deploy applications on Kubernetes](/learn/paths/intro-to-kubernetes-on-azure/)
+- [Introduction to Kubernetes on Azure][mslearn-aks-intro]
+- [Develop and deploy applications on Kubernetes][mslearn-aks-deploy]
 
 <!-- links -->
 
@@ -158,6 +158,8 @@ Try these Microsoft Learning paths:
 [acr]: /azure/container-registry
 [aks]: /azure/aks/intro-kubernetes
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
+[aml]: /azure/machine-learning/service/overview-what-is-azure-ml
+[aml-aks]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service
 [autoscaler]: /azure/aks/autoscaler
 [autoscale-pods]: /azure/aks/tutorial-kubernetes-scale#autoscale-pods
 [az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
@@ -171,12 +173,14 @@ Try these Microsoft Learning paths:
 [https-ingress]: /azure/aks/ingress-tls
 [ingress-controller]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[aml]: /azure/machine-learning/service/overview-what-is-azure-ml
 [manually-scale-pods]: /azure/aks/tutorial-kubernetes-scale#manually-scale-pods
 [mlops-ra]: ./mlops-python.yml
 [monitor-containers]: /azure/monitoring/monitoring-container-insights-overview
+[mslearn-aks-deploy]: /learn/paths/develop-deploy-applications-kubernetes/
+[mslearn-aks-intro]: /learn/paths/intro-to-kubernetes-on-azure/
 [permissions]: /azure/aks/concepts-identity
 [rbac]: /azure/role-based-access-control/overview
+[registry-intro]: /azure/container-registry/container-registry-intro
 [scale-cluster]: /azure/aks/scale-cluster
 [scikit]: https://pypi.org/project/scikit-learn/
 [security-center]: /azure/security-center/security-center-intro
