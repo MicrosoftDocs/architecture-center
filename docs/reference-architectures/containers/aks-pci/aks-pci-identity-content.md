@@ -168,16 +168,7 @@ Here's an example. Suppose you need a group for the SRE team.  This role assigne
 
 An alternate way is to create a custom role dedicated for cluster administrative access. Of the two approaches, the second one is recommended and demonstrated in the reference implementation.
 
-Here are some best practices to harden access.
-
-- Don't have standing access. Consider using[Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). This feature requires Azure AD Privileged Identity Management.
-
-- Set up [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane. With conditional access policies, you can require multi-factor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts. Apply these policies to Azure AD groups that are mapped with to Kubernetes roles with high privilege.
-
-    > [!NOTE]
-    > Both JIT and conditional access technology choices require Azure AD Premium.
-
-- Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are JIT and  standing.
+- Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are Just-In-Time(JIT) and standing. 
 
 - Monitor the roles for changes such as, in assigment changes or role definitions. Create alerts on changes even if they are expected to gain visibility into intentions behind the changes.
 
@@ -215,11 +206,13 @@ Require documented approval by authorized parties specifying required privileges
 
 ##### Your responsibilities
 
-Have a gated process for approving changes in roles and permissions.
+Have a gated process for approving changes in roles and permissions, including the intial assignment of prividleges. Ensure those approvals are documented and available for inspection.
 
 ### Requirement 7.2
 
 Establish an access control system for systems components that restricts access based on a user’s need to know, and is set to “deny all” unless specifically allowed.
+
+<To do: Include Role assigments>
 
 #### Your responsibilities
 
@@ -232,6 +225,13 @@ Coverage of all system components
 ##### Your responsibilities
 
 Here are some best practices to maintain access control measures:
+
+- Don't have standing access. Consider using[Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). This feature requires Azure AD Privileged Identity Management.
+
+- Set up [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane. With conditional access policies, you can require multi-factor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts. Apply these policies to Azure AD groups that are mapped with to Kubernetes roles with high privilege.
+
+    > [!NOTE]
+    > Both JIT and conditional access technology choices require Azure AD Premium.
 
 - Ideally disable SSH access to the cluster nodes. This reference implementation doesn't generate SSH connection details for that purpose.
 
@@ -252,27 +252,29 @@ For example, consider the cluster operator role. They should have a clearly-defi
 - What permissions should they have on the cluster
 - When are those permissions assigned
 
-Make sure the definitions are documented in  governance documentation, policy, and training materials around workload operator and cluster operator.
+Make sure the definitions are documented in governance documentation, policy, and training materials around workload operator and cluster operator.
 
 #### Requirement 7.2.3
 
-Default “deny-all” setting.
+Default "deny-all" setting.
 
 ##### Your responsibilities
 
 When you start the configuration, start with zero-trust policies. Make exceptions as needed and document them in detail.
 
-- Kubernetes RBAC implements _deny all_ by default. Don't override by adding cluster role bindings that inverse the deny all setting.
+- Kubernetes RBAC implements _deny all_ by default. Don't override by adding highly-permissive cluster role bindings that inverse the deny all setting.
 
 - Azure RBAC also implements _deny all_ by default. Don't override by adding RBAC assignments that inverse the deny all setting.
 
 - All Azure services, Key Vault, Container Registry, by default have deny all set of permissions.
 
-- Be aware that network security groups (NSGs) allow all communication by default. Change that to set deny all as the starting rule with high priority. Then, add exceptions that will be applied before the deny all rule, as needed. Be consistent on the naming, so that it's easier to audit.
-  
-- Azure firewall implements deny all by default.
+- Any administrative access points, such as a jump box, should deny all access in the initial configuraiton. All elevated permissions must be defined explicitly to the deny all rule. 
 
-- Any administrative access points, such as a jump box, should deny all access in the initial configuraiton. All elevated permissions must be defined explicitly to the deny all rule.  
+> [!NOTE]
+> This note is not related identity access controls but is a reminder about network access. Network Security Groups (NSGs) allow all communication by default. Change that to set deny all as the starting rule with high priority. Then, add exceptions that will be applied before the deny all rule, as needed. Be consistent on the naming, so that it's easier to audit.
+>   
+> Azure firewall implements deny all by default.
+ 
 
 ### Requirement 7.3
 
@@ -305,9 +307,11 @@ Here are overall considerations for this requirement:
 
 **APPLIES TO: 8.1.1, 8.1.2, 8.1.3**
 
-Don't share or reuse identities for functionally different parts of the cluster or pods.For example, using a team account to access data or cluster resources. Make sure the identity onboarding documentation is clear about not using shared accounts.
+Don't share or reuse identities for functionally different parts of the CDE.For example, using a team account to access data or cluster resources. Make sure the identity onboarding documentation is clear about not using shared accounts.
 
 In AKS, you can assign user-managed identities to individual pods, using the [aad-pod-identity project](https://github.com/Azure/aad-pod-identity). When the pod needs to access another resource, it authenticates itself by using the pod identity. Maintain managed-identity segmentation between pods. This means two pods (especially that are functionally discrete) must not share an identity when accessing other resources.
+
+Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identites across Azure resources, assign each Azure resource its own managed identity. Similarly, when using [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never use the same managed identity in pre-production and production.
 
 While preceding guidance must be applied to user identities, we recommend not sharing system identities.
 
