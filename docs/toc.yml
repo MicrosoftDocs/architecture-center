@@ -1197,6 +1197,8 @@ items:
                         href: microservices/design/gateway.md
                       - name: Data considerations
                         href: microservices/design/data-considerations.md
+                      - name: Container orchestration
+                        href: microservices/design/orchestration.md
                       - name: Design patterns for microservices
                         href: microservices/design/patterns.md
                   - name: Operate microservices in production
