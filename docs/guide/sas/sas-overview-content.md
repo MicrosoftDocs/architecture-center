@@ -59,7 +59,7 @@ SAS deployments often contain three layers:
 
 ## Prerequisites
 
-Before deploying a SAS workload, ensure the following components are in place:
+Before deploying an SAS workload, ensure the following components are in place:
 
 - A sizing recommendation from an SAS sizing team
 - An SAS license file
@@ -67,15 +67,21 @@ Before deploying a SAS workload, ensure the following components are in place:
 - A virtual central processing unit (vCPU) subscription quota that takes into account your sizing document and VM choice
 - Access to Lightweight Directory Access Protocol (LDAP) services
 
-SAS documentation provides requirements per core, or per physical CPU core. Azure provides vCPU listings. The ratio of vCPU to physical cores on the VMs that Azure uses for SAS is 2:1. As a result, to calculate the value of a vCPU requirement, use half of the core requirement value. For instance, a physical core requirement of 150 MBps translates to 75 MBps per vCPU. For More information on Azure computing performance, see [Azure compute unit (ACU)](/azure/virtual-machines/acu).
+SAS documentation provides requirements per core, which means per physical CPU core. Azure provides vCPU listings. On the VMs that Azure uses for SAS, there are two vCPU for every physical core. As a result, to calculate the value of a vCPU requirement, use half of the core requirement value. For instance, a physical core requirement of 150 MBps translates to 75 MBps per vCPU. For More information on Azure computing performance, see [Azure compute unit (ACU)](/azure/virtual-machines/acu).
 
 ## Design recommendations for all SAS solutions
 
 ### Operating systems
 
-Linux works best for running SAS workloads. SAS supports 64 bit versions of RedHat 7 or higher, SLES 12.2 and Oracle Linux 6 or higher. Consult the [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit) for your SAS release of choice. In multi machine environments it is recommended to run the same version of Linux on all machines. Linux 32-bit deployments are not supported on Azure.
+Linux works best for running SAS workloads. SAS supports the following operating systems:
 
-For the best results, we recommend that you start with a marketplace provided operating system image to ensure best compatibility and integration with Azure. Custom images will require additional configuration to ensure proper SAS performance.
+- 64-bit versions of Red Hat 7 or later
+- SUSE Linux Enterprise Server (SLES) 12.2
+- Oracle Linux 6 or later
+
+For more information about specific SAS releases, see [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit). In environments that use multiple machines, it's best to run the same version of Linux on all machines. Azure doesn't support Linux 32-bit deployments.
+
+To optimize compatibility and integration with Azure, start with an operating system image from a marketplace. Without additional configurations, custom images may degrade SAS performance.
 
 #### Kernel issues and non-maskable interrupts (NMI)
 
@@ -112,28 +118,52 @@ _**Possible workaround:** set /sys/block/nvme0n1/queue/max_sectors_kb to the val
 
 ### Virtual machine sizing recommendations
 
-We _recommend_ you work with the SAS Sizing Team to get the correct sizing of your SAS deployments. Please work with your SAS support team to get the sizing completed before continuing with your deployment on Azure. The following VM SKUs are frequently used:
+SAS deployments often use these VM SKUs:
 
-* **Edsv4** - often using constrained cores; Good CPU-to-Memory ratio and a high throughput locally attached disk for SASWORK or CAS_CACHE. This is the default SAS machine.
-* **M-series** - using constrained cores; This machine gives high memory for heavy memory based workloads and high throughput to remote disk for SASWORK. Very often used for SPRE with Viya or specific Grid workloads.
-* **LSv2** - used when fast and large SASWORK or CAS_CACHE are needed.
+- Edsv4-series VMs are the default SAS machines. They offer these features:
+
+  - Constrained cores. With many machines in this series, you can constrain the VM vCPU count.
+  - A good CPU-to-memory ratio.
+  - A high-throughput locally attached disk. I/O speed is important for directories like SASWORK and the Cloud Analytics Services (CAS) cache that SAS uses for temporary files.
+
+- Many workloads use M-series VMs:
+
+  - SAS Programming Runtime Environment (SPRE) implementations that use a Viya approach to software architecture.
+  - Certain grid workloads.
+
+  M-series VMs offer these features:
+
+  - Constrained cores.
+  - A large amount of memory, which works well for heavy memory-based workloads.
+  - High throughput to remote disks, which works well for the SASWORK directory.
+
+- Certain environments use Lsv2 VMs. In particular, implementations that require fast I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that heavily use the SASWORK directory or the CAS cache.
 
 > [!NOTE]
-> SAS has been optimized for the Intel Math Kernel Library. Non Intel based SKUs should be avoided for math heavy workloads. Validate the performance and use of MKL when selecting your CPU.
+> SAS has optimized its services for use with the Intel Math Kernel Library (MKL).
+
+- With math-heavy workloads, avoid VMs that don't use Intel processors.
+- When selecting a CPU, validate how the MKL performs on it.
 
 > [!WARNING]
-> When possible, avoid using the Lsv2 VMs because the CPU generations can be different per node in your cluster.
+> When possible, avoid using Lsv2 VMs. With this type of machine, CPU generations can differ among nodes in a cluster.
 
-Azure allows you to scale your SAS Viya 4.0 systems based on demand. You can increase the compute capacity of the node pool or scale horizontally by adding more nodes using the AKS [Cluster Autoscaler](/azure/aks/cluster-autoscaler). You may also scale up your infrastructure temporarily to accelerate a SAS workload to meet deadlines. Scaling horizontally or vertically is not supported for Viya 3.5 and Grid workloads.
+With Azure, you can scale SAS Viya 4.0 systems on demand:
 
-### Network and Virtual Machine placement considerations
+- By increasing the compute capacity of the node pool.
+- By using the AKS [Cluster Autoscaler](/azure/aks/cluster-autoscaler) to add nodes and scale horizontally.
+- By temporarily scaling up infrastructure to meet deadlines by accelerating an SAS workload.
 
-Often times, SAS Workloads can be chatty resulting in significant amounts of data transfer. The following recommendations are in place for all SAS platforms:
+With Viya 3.5 and grid workloads, Azure doesn't support scaling horizontally or vertically.
 
-* Deploy SAS and storage platforms on the same Virtual Network. This avoids significant peering costs.
-* Place SAS nodes in a [Proximity Placement Group](/azure/virtual-machines/co-location) to reduce latency between nodes.
-* When possible, use the same proximity placement group for your VM based data storage platforms.
-* Deploy SAS and storage appliances in the same availability zone to avoid cross zone latency.
+### Network and VM placement considerations
+
+SAS Workloads are often chatty. Significant amounts of data transfer can result. With all SAS platforms, follow these recommendations to reduce chatter:
+
+- Deploy SAS and storage platforms on the same virtual network. This approach reduces peering costs.
+- Place SAS nodes in a [proximity placement group](/azure/virtual-machines/co-location) to reduce latency between nodes.
+- When possible, use the same proximity placement group for SAS nodes and for VM-based data storage platforms.
+- Deploy SAS and storage appliances in the same availability zone to avoid cross zone latency.
 
 SAS is very specific about the FQDN for a virtual machine. Ensure that DNS services are provided and the FQDN for machines are set correctly. Either do this through /etc/hosts or using FQDN with Azure DNS.
 
