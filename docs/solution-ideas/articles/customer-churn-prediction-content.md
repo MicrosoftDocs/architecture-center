@@ -68,5 +68,5 @@ The snapshot below shows an example Power BI dashboard that gives insights into 
 
 * [Batch scoring for deep learning models](/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning)
 * [Batch scoring of Python models on Azure](/azure/architecture/reference-architectures/ai/batch-scoring-python)
-* [Batch scoring of Python models on Azure](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
+* [Batch scoring of Python models on Azure](/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline)
 * [Movie recommendations on Azure](/azure/architecture/example-scenario/ai/movie-recommendations)
