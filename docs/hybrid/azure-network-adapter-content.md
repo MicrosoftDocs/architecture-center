@@ -119,10 +119,12 @@ The Azure Network Adapter's installation interface might not meet your naming co
   - PowerShell Remoting uses [Windows Remote Management][10] (WinRM). For more information, see [PowerShell Remoting Security Considerations][11] and [PowerShell Remoting default settings][12].
   - In some scenarios, you're required to use extra authentication methods. WAC can use PowerShell with the Credential Security Support Provider protocol (CredSSP) to connect to remote servers. For more information, see [PowerShell Remoting and CredSSP][13] and how [Windows Admin Center uses CredSSP][14].
   - PowerShell Remoting (and WinRM) use the following ports:
+
     | Protocol | Port |
     | :-- | :-- |
     | HTTP | 5985 |
     | HTTPS | 5986 |
+
   - How you connect to the server on which the Windows Admin Center (WAC) is installed depends on your WAC's installation type. The default port varies and can be port 6516 when installed on Windows 10 or port 443 when installed on Windows Server. For more information, see [Install Windows Admin Center][15].
 - Azure Security Center integration:
   - To help protect the server on which the Azure Network Adapter is installed, you can integrate the server to Azure Security Center by selecting **Azure Security Center** from the **Tools** section in WAC. During the integration, you must select an existing Azure Log Analytics workspace or create a new one. You'll be billed separately for each server that you integrate with Azure Security Center. For more information, see [Azure Security Center pricing][16].

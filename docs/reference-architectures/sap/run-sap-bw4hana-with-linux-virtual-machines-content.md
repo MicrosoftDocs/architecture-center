@@ -148,7 +148,7 @@ For the backup data store, we recommend using Azure [cool and archive access tie
 
 ## Networking
 
-Although not required, a [hub-spoke topology](../hybrid-networking/hub-spoke.yml) is commonly deployed to provide logical isolation and security boundaries for an SAP landscape. For other networking details, refer to the [SAP S/4HANA reference architecture](./sap-s4hana.yml).
+Although not required, a [hub-spoke topology](../hybrid-networking/hub-spoke.yml) is commonly deployed to provide logical isolation and security boundaries for an SAP landscape. For other networking details, see the [SAP S/4HANA reference architecture](./sap-s4hana.yml).
 
 The hub VNet acts as a central point of connectivity to an on-premises network. The spokes are VNets that [peer](/azure/virtual-network/virtual-network-peering-overview) with the hub, and they can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through a gateway connection.
 
@@ -212,7 +212,7 @@ To achieve high availability for the SAP primary application servers and other a
 
 ## Disaster recovery
 
-Azure supports various [disaster recovery options](/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations#disaster-recovery-scenario) depending on your requirements. SAP application servers don't contain business data, so you can create SAP application servers in a secondary region before shutting them down. SAP application server software updates and configuration changes should be replicated to the disaster recovery side either manually or on a schedule. You can build a virtual machine in the disaster recovery region to run the Central Services role, which also doesn't persist business data. For details, refer to the [SAP S/4HANA reference architecture](./sap-s4hana.yml).
+Azure supports various [disaster recovery options](/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations#disaster-recovery-scenario) depending on your requirements. SAP application servers don't contain business data, so you can create SAP application servers in a secondary region before shutting them down. SAP application server software updates and configuration changes should be replicated to the disaster recovery side either manually or on a schedule. You can build a virtual machine in the disaster recovery region to run the Central Services role, which also doesn't persist business data. For details, see the [SAP S/4HANA reference architecture](./sap-s4hana.yml).
 
 ## Monitoring
 
@@ -224,7 +224,7 @@ To provide SAP-based monitoring of resources and service performance of the SAP 
  
 To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide) extension. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. For details, see [SAP note 2191498](https://launchpad.support.sap.com/#/notes/2191498) – "SAP on Linux with Azure: Enhanced Monitoring." (To access the SAP notes, you must have an SA Service Marketplace account.)
  
-The future direction for an Azure-native, end-to-end monitoring solution for SAP BW/4HANA is [Azure Monitor for SAP](/azure/virtual-machines/workloads/sap/azure-monitor-overview). Azure Monitor for SAP is currently inPublic Preview. It's only available in a limited set of regions, so you should carefully evaluate if it meets your requirements.
+The future direction for an Azure-native, end-to-end monitoring solution for SAP BW/4HANA is [Azure Monitor for SAP](/azure/virtual-machines/workloads/sap/azure-monitor-overview). Azure Monitor for SAP is currently in Public Preview. It's only available in a limited set of regions, so you should carefully evaluate if it meets your requirements.
  
 Azure Monitor for SAP provides a comprehensive initial set of metrics and telemetry for monitoring. The metric definitions are stored as SQL queries in JSON and can be modified to meet your requirements. The starting set of metrics is available on GitHub [here](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json).
 
