@@ -3,9 +3,9 @@ metadata:
   title: Profisee MDM and Azure Purview
   titleSuffix: Azure Architectures
   description: Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
-  author: doodlemania2
-  ms.author: pnp
-  ms.date: 04/28/2021
+  author: pdevito3
+  ms.author: gamal
+  ms.date: 06/01/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
