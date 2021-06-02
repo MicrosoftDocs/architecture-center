@@ -17,7 +17,7 @@ metadata:
     - Microsoft SEAL
     - security
     - fcp
-    - 'https://azure.microsoft.com/solutions/architecture/homomorphic-encryption-lab/'
+    - "https://azure.microsoft.com/solutions/architecture/homomorphic-encryption-lab/"
 name: Homomorphic encryption with SEAL
 azureCategories:
   - security

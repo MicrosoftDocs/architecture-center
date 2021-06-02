@@ -26,7 +26,6 @@ This article describes way in which you can protect web applications with Azure 
 - Protect all public endpoints with Azure Front Door, Application Gateway, Azure Firewall, Azure DDoS Protection.
 - Use web application firewall (WAF) to protect web workloads.
 - Protect workload publishing methods and restrict ways that are not in use.
-- Implement an automated and gated CD/CD deployment process.
 - Mitigate DDoS attacks. Use Standard protection for critical workloads where outage would have business impact. Also consider CDN as another layer of protection.
 - Develop processes and procedures to prevent direct internet access of virtual machines (such as proxy or firewall) with logging and monitoring to enforce policies.
 - Implement an automated and gated CI/CD deployment process.
@@ -51,7 +50,7 @@ For example, your workload is hosted in Application Service Environments(ILB ASE
 
 > [!TIP]
 >
-> The design considerations for the preceding example are described in [Publishing internal APIs to external users](/azure/architecture/example-scenario/apps/publish-internal-apis-externally).
+> The design considerations for the preceding example are described in [Publishing internal APIs to external users](../../example-scenario/apps/publish-internal-apis-externally.yml).
   
 Azure Front Door and Azure Content Delivery Network (CDN) also have WAF capabilities. 
 
@@ -66,7 +65,7 @@ A common design is to implement a DMZ or a perimeter network in front of the app
 >
 > ![GitHub logo](../../_images/github.svg) [GitHub: DMZ between Azure and your on-premises datacenter](https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid).
 >
-> The design considerations are described in [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha).
+> The design considerations are described in [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml).
 
 ### Combination approach
 
@@ -76,7 +75,7 @@ For example, you want to filter egress traffic. You want to allow connectivity t
 
 Another popular design is when you want Azure Firewall to inspect all traffic and WAF to protect web traffic, and the application needs to know the client's source IP address. In this case, place Application Gateway in front of Firewall. Conversely, you can place Firewall in front of WAF if you want to inspect and filter traffic before it reaches the Application Gateway.
 
-For more information, see [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
+For more information, see [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml).
 
 It’s challenging to write concise firewall rules for networks where different cloud resources dynamically spin up and down. Use [Azure Security Center](/azure/security-center/) to detect misconfiguration risks.
 

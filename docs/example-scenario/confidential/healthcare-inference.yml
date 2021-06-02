@@ -11,6 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - fcp
+    - ai-machine-learning
 azureCategories:
   - ai-machine-learning
   - containers

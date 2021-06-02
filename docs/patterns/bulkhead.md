@@ -9,7 +9,8 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Bulkhead pattern
@@ -92,7 +93,7 @@ spec:
 
 ## Related guidance
 
-- [Designing reliable Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
+- [Designing reliable Azure applications](../framework/resiliency/app-design.md)
 - [Circuit Breaker pattern](./circuit-breaker.md)
 - [Retry pattern](./retry.md)
 - [Throttling pattern](./throttling.md)

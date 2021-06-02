@@ -12,10 +12,12 @@ metadata:
     - databases
     - management-and-governance
   ms.custom:
+    - seodec18
     - SAP
     - Linux
     - fcp
     - reference-architecture
+    - e2e-sap
 name: SAP S/4HANA in Linux on Azure
 azureCategories:
   - databases

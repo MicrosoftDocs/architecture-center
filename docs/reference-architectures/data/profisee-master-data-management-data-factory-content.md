@@ -8,7 +8,7 @@ This architectural pattern demonstrates how MDM can be incorporated into the Azu
 
 :::image type="content" source="images/profisee-data-flow.png" border="false" alt-text="Image that shows the MDM Profisee data flow.":::
 
-#### Data Flow
+#### Data flow
 
 1. **Source data load** – Source data from business applications is copied to Azure Data Lake, where it is initially stored for further transformation and use in downstream analytics. Source data can generally be classified into one of three categories:
    - Structured master data – The information that describes customers, products, locations, and so on. Master data is low volume, high complexity, and changes slowly over time, is often the data that organizations struggle the most with data quality.
@@ -33,11 +33,20 @@ This architectural pattern demonstrates how MDM can be incorporated into the Azu
 
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) provides limitless storage for analytics data.
 
-- [Profisee](https://profisee.com/platform/) is the fast, affordable, and scalable MDM platform that integrates seamlessly with the Microsoft ecosystem.
+- [Profisee](https://profisee.com/platform/) is a scalable MDM platform that is designed to easily integrate with the Microsoft ecosystem.
 
 - Azure [Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is the fast, flexible, and trusted cloud data warehouse that lets you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
 
 - [Power BI](https://powerbi.microsoft.com/) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive improvised analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
+
+### Alternatives
+
+Absent a purpose-built MDMapplication, some of the technical capabilities needed to build a MDM solution may be found within the Azure ecosystem.
+
+- Data quality - When loading to an analytics platform, data quality can be built into integration processes. For example, applying data quality transformations in an [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pipeline can be accomplished with hardcoded scripts. 
+- Data standardization and enrichment - [Azure Maps](https://azure.microsoft.com/services/azure-maps/) is available to provide data verification and standardization for address data. These can be used in Azure Functions and/or Azure Data Factory.  Standardization of other data may require development of hardcoded scripts.   
+- Duplicate data management - Azure Data Factory can be used to [deduplicate rows](/azure/data-factory/how-to-data-flow-dedupe-nulls-snippets) where sufficient identifiers are available for an exact match.  In this case, the logic to merge matched with appropriate survivorship would likely require custom hardcoded scripts.
+- Data stewardship - [Power Apps](https://powerapps.microsoft.com/) can be used to quickly develop simple data stewardship solutions to manage data in Azure, along with appropriate user interfaces for review, workflow, alerts, and validations. 
 
 ## MDM integration pipeline
 
@@ -157,7 +166,7 @@ Product data is often spread across multiple enterprise applications, such as ER
 
 * Hard to rationalize products due to conflicting definitions, leading to missing or inaccurate information in analytics.
 
-### Reference Data 360
+### Reference data 360
 
 In the context of analytics, reference data exists as numerous lists of data that is often used to further describe other sets of master data. For example, lists of countries, currencies, colors, sizes, and units of measure. Inconsistent reference data leads to obvious errors in downstream analytics. Symptoms include:
 
@@ -176,15 +185,6 @@ Financial organizations rely heavily on data for critical activities such as mon
 * Lack of process for adding and mapping new data elements in the financial systems
 
 * Delays in producing end of period financial reports
-
-## Alternatives
-
-Absent a purpose-built MDMapplication, some of the technical capabilities needed to build a MDM solution may be found within the Azure ecosystem.
-
-- Data quality - When loading to an analytics platform, data quality can be built into integration processes. For example, applying data quality transformations in an [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pipeline can be accomplished with hardcoded scripts. 
-- Data standardization and enrichment - [Azure Maps](https://azure.microsoft.com/services/azure-maps/) is available to provide data verification and standardization for address data. These can be used in Azure Functions and/or Azure Data Factory.  Standardization of other data may require development of hardcoded scripts.   
-- Duplicate data management - Azure Data Factory can be used to [deduplicate rows](https://docs.microsoft.com/azure/data-factory/how-to-data-flow-dedupe-nulls-snippets) where sufficient identifiers are available for an exact match.  In this case, the logic to merge matched with appropriate survivorship would likely require custom hardcoded scripts.
-- Data stewardship - [Power Apps](https://powerapps.microsoft.com/) can be used to quickly develop simple data stewardship solutions to manage data in Azure, along with appropriate user interfaces for review, workflow, alerts, and validations. 
 
 ## Considerations
 
@@ -205,10 +205,10 @@ Profisee authenticates users using OpenID Connect, which implements an OAuth 2.0
 To deploy this scenario:
 
 1. Deploy Profisee into Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM).
-2. Create an [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
-3. Configure your Azure Data Factory to [connect to a Git repository](https://docs.microsoft.com/azure/data-factory/source-control).
+2. Create an [Azure Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
+3. Configure your Azure Data Factory to [connect to a Git repository](/azure/data-factory/source-control).
 4. Add [Profisee's Azure Data Factory templates](https://github.com/profisee/azuredatafactory).
-5. Create a new Pipeline [using a template](https://docs.microsoft.com/azure/data-factory/solution-templates-introduction).
+5. Create a new Pipeline [using a template](/azure/data-factory/solution-templates-introduction).
 
 ## Pricing
 
@@ -216,10 +216,29 @@ Running costs consist of a software license and Azure consumption. For more info
 
 ## Next steps
 
-Understand the capabilities of the [REST Copy Connector](https://docs.microsoft.com/azure/data-factory/connector-rest) in Azure Data Factory.
+Understand the capabilities of the [REST Copy Connector](/azure/data-factory/connector-rest) in Azure Data Factory.
 
 Learn more about [Profisee running natively in Azure](https://profisee.com/profisee-microsoft/).
 
 Learn how to deploy Profisee to Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM).
 
 View the [Profisee Azure Data Factory templates](https://github.com/profisee/azuredatafactory).
+
+## Related resources
+
+### Architecture guides
+
+- [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
+- [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
+- [Data warehousing](/azure/architecture/data-guide/relational-data/data-warehousing)
+- [Batch processing](/azure/architecture/data-guide/big-data/batch-processing)
+- [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
+
+### Reference architectures
+
+- [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
+- [DevTest Image Factory](/azure/architecture/solution-ideas/articles/dev-test-image-factory)
+- [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
+- [Modernize mainframe & midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
+- [DataOps for the modern data warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
+- [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)

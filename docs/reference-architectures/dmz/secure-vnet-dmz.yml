@@ -16,6 +16,9 @@ metadata:
     - networking
     - reference-architecture
     - e2e-hybrid
+    - internal-intro
+    - deployable
+    - 2021-refresh
 name: Implement a secure hybrid network
 azureCategories:
   - networking
