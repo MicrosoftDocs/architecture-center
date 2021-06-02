@@ -1,5 +1,5 @@
 <!-- cSpell:ignore devsecops misconfiguring -->
-When developing a governance model for your organization, it's important to remember that [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) is only _one_ way to manage resources. Azure DevOps and continuous integration and continuous delivery (CI/CD) automation can be an unintentional security back-door if not properly secured. These resources should be protected by mirroring the role-based access control (RBAC) model used for Resource Manager.
+When developing a governance model for your organization, it's important to remember that [Azure Resource Manager](/azure/azure-resource-manager/management/overview) is only _one_ way to manage resources. Azure DevOps and continuous integration and continuous delivery (CI/CD) automation can be an unintentional security back-door if not properly secured. These resources should be protected by mirroring the role-based access control (RBAC) model used for Resource Manager.
 
 The concept of end-to-end governance is vendor agnostic. The implementation described here uses [Azure DevOps](https://azure.microsoft.com/services/devops/), but alternatives are also briefly mentioned.
 
@@ -46,15 +46,15 @@ The numbering reflects the order in which IT administrators and enterprise archi
     - Service principals. One explicit service principal _per environment_.
   
 2. **Production environment**  
-   To simplify deployment, this reference implementation uses a resource group to represent the production environment. In practice, you should use a [different subscription](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/guides/standard/).
+   To simplify deployment, this reference implementation uses a resource group to represent the production environment. In practice, you should use a [different subscription](/azure/cloud-adoption-framework/govern/guides/standard/).
 
    Privileged access to this environment is limited to administrators only.
   
 3. **Development environment**  
-   To simplify deployment, this reference implementation uses a resource group to represent the development environment. In practice, you should use a [different subscription](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/guides/standard/).
+   To simplify deployment, this reference implementation uses a resource group to represent the development environment. In practice, you should use a [different subscription](/azure/cloud-adoption-framework/govern/guides/standard/).
 
 4. **Role assignments in Resource Manager**  
-   Although our Azure AD group names imply a role, access controls are not applied until a [role assignment](https://docs.microsoft.com/azure/role-based-access-control/overview#role-assignments) is configured. This assigns a role to an Azure AD principal for a specific scope. For example, developers have the Contributor role on the production environment.
+   Although our Azure AD group names imply a role, access controls are not applied until a [role assignment](/azure/role-based-access-control/overview#role-assignments) is configured. This assigns a role to an Azure AD principal for a specific scope. For example, developers have the Contributor role on the production environment.
 
    | Azure AD principal | Dev environment (Resource Manager) | Production environment (Resource Manager) |
    |:--|:--|:--|
@@ -63,16 +63,16 @@ The numbering reflects the order in which IT administrators and enterprise archi
    | `veggies-ci-dev-sp` | _Custom Role \*_ | &#8211; |
    | `veggies-ci-prod-sp` | &#8211; | _Custom Role \*_ |
 
-   \* To simplify deployment, this reference implementation assigns the _Owner_ role to the service principals. However, in production you should create a _**custom role**_ that prevents a service principal from removing any [management locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) you may have placed on your resources. This helps protect resources from accidental damage, such as database deletion.
+   \* To simplify deployment, this reference implementation assigns the _Owner_ role to the service principals. However, in production you should create a _**custom role**_ that prevents a service principal from removing any [management locks](/azure/azure-resource-manager/management/lock-resources) you may have placed on your resources. This helps protect resources from accidental damage, such as database deletion.
 
    To understand the reasoning behind the individual role assignments, see the [considerations section](#considerations) later in this article.
 
 5. **Security group assignments in Azure DevOps**  
-   Security groups function like roles in Resource Manager. Take advantage of built-in roles and default to [Contributor](https://docs.microsoft.com/azure/devops/user-guide/roles?view=azure-devops#contributor-roles) for developers. Admins get assigned to the [Project Administrator](https://docs.microsoft.com/azure/devops/user-guide/roles?view=azure-devops#project-administrators) security group for elevated permissions, allowing them to configure security permissions.
+   Security groups function like roles in Resource Manager. Take advantage of built-in roles and default to [Contributor](/azure/devops/user-guide/roles?view=azure-devops#contributor-roles) for developers. Admins get assigned to the [Project Administrator](/azure/devops/user-guide/roles?view=azure-devops#project-administrators) security group for elevated permissions, allowing them to configure security permissions.
 
    Note that Azure DevOps and Resource Manager have _different_ permissions models:
-    - Azure Resource Manager uses an [_additive_ permissions](https://docs.microsoft.com/azure/role-based-access-control/overview#multiple-role-assignments) model.
-    - Azure DevOps uses a [_least_ permissions](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page) model.
+    - Azure Resource Manager uses an [_additive_ permissions](/azure/role-based-access-control/overview#multiple-role-assignments) model.
+    - Azure DevOps uses a [_least_ permissions](/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page) model.
 
     For this reason, membership to the `-admins` and `-devs` groups must be mutually exclusive. Otherwise, the affected persons would have less access than expected in Azure DevOps.
 
@@ -93,12 +93,12 @@ The numbering reflects the order in which IT administrators and enterprise archi
     To understand the reasoning behind the individual role assignments, refer to the [considerations section](#considerations) later in this article.
 
 6. **Service connections**  
-   In Azure DevOps, a [Service Connection](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) is a generic wrapper around a credential. We create a service connection that holds the service principal client ID and client secret. Project Administrators can configure access to this [protected resource](https://docs.microsoft.com/azure/devops/pipelines/security/resources?view=azure-devops#protected-resources) when needed&#8212;for example when requiring human approval before deploying. This reference architecture has two minimum protections on the service connection:
-   - Admins must configure [pipeline permissions](https://docs.microsoft.com/azure/devops/pipelines/security/resources?view=azure-devops#pipeline-permissions) to control which pipelines can access the credentials.
-   - Admins must also configure a [branch control check](https://docs.microsoft.com/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass#branch-control) so that only pipelines running in the context of the `production` branch may use the `prod-connection`.
+   In Azure DevOps, a [Service Connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml) is a generic wrapper around a credential. We create a service connection that holds the service principal client ID and client secret. Project Administrators can configure access to this [protected resource](/azure/devops/pipelines/security/resources?view=azure-devops#protected-resources) when needed&#8212;for example when requiring human approval before deploying. This reference architecture has two minimum protections on the service connection:
+   - Admins must configure [pipeline permissions](/azure/devops/pipelines/security/resources?view=azure-devops#pipeline-permissions) to control which pipelines can access the credentials.
+   - Admins must also configure a [branch control check](/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass#branch-control) so that only pipelines running in the context of the `production` branch may use the `prod-connection`.
 
 7. **Git repositories**  
-   Because our service connections are tied to branches via [branch controls](https://docs.microsoft.com/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass#branch-control), it's critical to configure permissions to the Git repositories and apply [branch policies](https://docs.microsoft.com/azure/devops/repos/git/branch-policies?view=azure-devops). In addition to requiring CI builds to pass, we also require pull requests to have at least two approvers.
+   Because our service connections are tied to branches via [branch controls](/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass#branch-control), it's critical to configure permissions to the Git repositories and apply [branch policies](/azure/devops/repos/git/branch-policies?view=azure-devops). In addition to requiring CI builds to pass, we also require pull requests to have at least two approvers.
 
 ### Components
 
@@ -110,11 +110,11 @@ The numbering reflects the order in which IT administrators and enterprise archi
 
 ### Alternatives
 
-The concept of end-to-end governance is vendor agnostic. While this article focuses on Azure DevOps, [Azure DevOps Server](https://azure.microsoft.com/services/devops/server/) could be used as an on-premises substitute. Alternatively, you could also use a set of technologies for an open-source CI/CD development pipeline using options like [Jenkins](https://docs.microsoft.com/azure/jenkins) and [GitLab](https://docs.gitlab.com/ee/install/azure/).
+The concept of end-to-end governance is vendor agnostic. While this article focuses on Azure DevOps, [Azure DevOps Server](https://azure.microsoft.com/services/devops/server/) could be used as an on-premises substitute. Alternatively, you could also use a set of technologies for an open-source CI/CD development pipeline using options like [Jenkins](/azure/jenkins) and [GitLab](https://docs.gitlab.com/ee/install/azure/).
 
 Both Azure Repos and GitHub are platforms that are built to use the open-source Git version control system. While their feature sets are somewhat different, both can be integrated into global governance models for CI/CD. GitLab is another Git-based platform that provides robust CI/CD capabilities.
 
-This scenario uses Terraform as its infrastructure as code (IaC) tool. Alternatives include Jenkins, [Ansible](https://docs.microsoft.com/azure/developer/ansible/), and [Chef](https://docs.microsoft.com/azure/chef).
+This scenario uses Terraform as its infrastructure as code (IaC) tool. Alternatives include Jenkins, [Ansible](/azure/developer/ansible/), and [Chef](/azure/chef).
 
 ## Considerations
 
@@ -123,21 +123,21 @@ To achieve end-to-end governance in Azure, it's important to understand the secu
 [![Diagram illustrating a baseline CI/CD workflow with Azure DevOps](media/e2e-governance-devsecops-workflow-inline.png)](media/e2e-governance-devsecops-workflow-lrg.png#lightbox)  
 *Download an [SVG of this workflow](media/e2e-governance-devsecops-workflow.svg).*
 
-To successfully secure your workloads, you must use a combination of security permission configurations and human checks in your workflow. It's important that any RBAC model must also extend to both pipelines and code. These often run with privileged identities and will destroy your workloads if instructed to do so. To prevent this from happening, you should configure [branch policies](https://docs.microsoft.com/azure/devops/repos/git/branch-policies?view=azure-devops) on your repository to require human approval before accepting changes that trigger automation pipelines.
+To successfully secure your workloads, you must use a combination of security permission configurations and human checks in your workflow. It's important that any RBAC model must also extend to both pipelines and code. These often run with privileged identities and will destroy your workloads if instructed to do so. To prevent this from happening, you should configure [branch policies](/azure/devops/repos/git/branch-policies?view=azure-devops) on your repository to require human approval before accepting changes that trigger automation pipelines.
 
 | Deployment stages | Responsibility | Description |
 |:--|:--|:--|
 | **Pull requests** | User | Engineers should peer review their work, including the Pipeline code itself. |
-| **Branch protection** | [Shared](https://docs.microsoft.com/azure/security/fundamentals/shared-responsibility) | Configure [Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/branch-policies?view=azure-devops) to reject changes that do not meet certain standards, such as CI checks and peer reviews (via pull requests). |
+| **Branch protection** | [Shared](/azure/security/fundamentals/shared-responsibility) | Configure [Azure DevOps](/azure/devops/repos/git/branch-policies?view=azure-devops) to reject changes that do not meet certain standards, such as CI checks and peer reviews (via pull requests). |
 | **Pipeline as code** | User | A build server will delete your entire production environment if the pipeline code instructs it to do so. Help prevent this by using a combination of pull requests and branch protection rules, such as human approval. |
-| **[Service connections](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)** | [Shared](https://docs.microsoft.com/azure/security/fundamentals/shared-responsibility) | Configure Azure DevOps to restrict access to these credentials. |
-| **Azure Resources** | [Shared](https://docs.microsoft.com/azure/security/fundamentals/shared-responsibility) | Configure RBAC in Resource Manager. |
+| **[Service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)** | [Shared](/azure/security/fundamentals/shared-responsibility) | Configure Azure DevOps to restrict access to these credentials. |
+| **Azure Resources** | [Shared](/azure/security/fundamentals/shared-responsibility) | Configure RBAC in Resource Manager. |
 
 The following concepts and questions are important to consider when designing a governance model. Bear in mind the [potential use cases](#potential-use-cases) of this example organization.
 
 ### 1. Safeguard your environments with branch policies
 
-Because your source code defines and triggers deployments, your first line of defense is to secure your source code management (SCM) repository. In practice, this is achieved by using the [Pull Request workflow](https://docs.microsoft.com/azure/devops/repos/git/pull-requests-overview?view=azure-devops) in combination with [branch policies](https://docs.microsoft.com/azure/devops/repos/git/branch-policies?view=azure-devops), which define checks and requirements before code can be accepted.
+Because your source code defines and triggers deployments, your first line of defense is to secure your source code management (SCM) repository. In practice, this is achieved by using the [Pull Request workflow](/azure/devops/repos/git/pull-requests-overview?view=azure-devops) in combination with [branch policies](/azure/devops/repos/git/branch-policies?view=azure-devops), which define checks and requirements before code can be accepted.
 
 When planning your end-to-end governance model, privileged users (`veggies-admins`) will be responsible for configuring branch protection. Common branch protection checks used to secure your deployments include:
 
@@ -177,7 +177,7 @@ It's a common mistake to give CI/CD build agents Owner roles and permissions. Co
 But a CI/CD Build Agent will delete your entire production environment if told to do so. To avoid _irreversible destructive changes_, we create a custom role that:
 
 - Removes Key Vault access policies
-- Removes [management locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) that by design should prevent resources from being deleted (a common requirement in regulated industries)
+- Removes [management locks](/azure/azure-resource-manager/management/lock-resources) that by design should prevent resources from being deleted (a common requirement in regulated industries)
 
 To do this, we create a custom role and remove the `Microsoft.Authorization/*/Delete` actions.
 
@@ -199,7 +199,7 @@ To do this, we create a custom role and remove the `Microsoft.Authorization/*/De
 }
 ```
 
-If that removes too many permissions for your purposes, refer to the full list in the [official documentation for Azure resource provider operations](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#management--governance) and adjust your role definition as needed.
+If that removes too many permissions for your purposes, refer to the full list in the [official documentation for Azure resource provider operations](/azure/role-based-access-control/resource-provider-operations#management--governance) and adjust your role definition as needed.
 
 ## Deploy this scenario
 
@@ -216,24 +216,24 @@ In Azure Active Directory, the type of group access management needed for this s
 ## Next steps
 
 - Visit the code repository for this scenario at [Governance on Azure Demo - from DevOps to ARM](https://github.com/azure/devops-governance).
-- Review the Cloud Adoption Framework's [Cloud governance guides](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/guides/).
+- Review the Cloud Adoption Framework's [Cloud governance guides](/azure/cloud-adoption-framework/govern/guides/).
 
 ## Related resources
 
-- [Design a CI/CD pipeline using Azure DevOps](https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
-- [What is Azure role-based access control (Azure RBAC)?](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Cloud Adoption Framework: Resource access management in Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
-- [Azure Resource Manager roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-  - [Owner (built-in)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
-  - [Contributor (built-in)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor)
-  - [Reader (built-in)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
-  - [Custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
-- [Azure DevOps security groups](https://docs.microsoft.com/azure/devops/organizations/security/permissions?view=azure-devops&tabs=preview-page#groups)
-  - [Project Administrators](https://docs.microsoft.com/azure/devops/user-guide/roles?view=azure-devops#project-administrators)
-  - [Contributor](https://docs.microsoft.com/azure/devops/user-guide/roles?view=azure-devops#contributor-roles)
-  - [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
-- [Computer forensics Chain of Custody in Azure](https://docs.microsoft.com/azure/architecture/example-scenario/forensics/)
-- [Azure Arc hybrid management and deployment for Kubernetes clusters](https://docs.microsoft.com/azure/architecture/hybrid/arc-hybrid-kubernetes)
-- [Azure Automation in a hybrid environment](https://docs.microsoft.com/azure/architecture/hybrid/azure-automation-hybrid)
-- [Azure Automation Update Management](https://docs.microsoft.com/azure/architecture/hybrid/azure-update-mgmt)
-- [Browse Azure Architectures - CI/CD](https://docs.microsoft.com/azure/architecture/browse/?terms=ci%2Fcd)
+- [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
+- [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
+- [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
+- [Azure Resource Manager roles](/azure/role-based-access-control/built-in-roles)
+  - [Owner (built-in)](/azure/role-based-access-control/built-in-roles#owner)
+  - [Contributor (built-in)](/azure/role-based-access-control/built-in-roles#contributor)
+  - [Reader (built-in)](/azure/role-based-access-control/built-in-roles#reader)
+  - [Custom Role](/azure/role-based-access-control/custom-roles)
+- [Azure DevOps security groups](/azure/devops/organizations/security/permissions?view=azure-devops&tabs=preview-page#groups)
+  - [Project Administrators](/azure/devops/user-guide/roles?view=azure-devops#project-administrators)
+  - [Contributor](/azure/devops/user-guide/roles?view=azure-devops#contributor-roles)
+  - [Reader](/azure/role-based-access-control/built-in-roles#reader)
+- [Computer forensics Chain of Custody in Azure](/azure/architecture/example-scenario/forensics/)
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
+- [Azure Automation in a hybrid environment](/azure/architecture/hybrid/azure-automation-hybrid)
+- [Azure Automation Update Management](/azure/architecture/hybrid/azure-update-mgmt)
+- [Browse Azure Architectures - CI/CD](/azure/architecture/browse/?terms=ci%2Fcd)
