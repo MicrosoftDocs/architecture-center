@@ -1,10 +1,9 @@
 ## **Data Governance & MDM for Azure** 
 
-As ever more data is loaded into Azure, the need to properly govern and  manage that data across all data sources and data consumers also grows.  Data that seemed adequate in the source system is often found to be  deficient when shared. It may have missing or incomplete information, duplications and conflicts, and be of poor quality overall. 
+As more and more data is loaded into Azure, the need to properly govern and manage that data across all your data sources and data consumers also grows.  Data that seemed adequate in the source system is often found to be  deficient when shared. It may have missing or incomplete information, duplications and conflicts, and be of poor quality overall. 
 
-Without high-quality data in your Azure Data Estate, the business value of Azure will be undermined,  perhaps critically. The solution is to build a foundation for data  governance and management that can produce and deliver high-quality, trusted data. Working together, Azure Purview and Profisee MDM form just such a platform.  
-
-![Purview Profisee Overview Diagram](C:\Users\paulde\Documents\localrepos\architecture-center\docs\reference-architectures\data\images\purview-graphic-for-rda.png)
+Without high-quality data in your Azure data estate, the business value of Azure will be undermined, perhaps critically. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data. Working together, Azure Purview and Profisee MDM form just such a platform.  
+[![Purview Profisee overview diagram](./images/purview-graphic-for-rda.png)](./images/purview-graphic-for-rda.png#lightbox)
 
 **Azure Purview** catalogs all data sources and identifies any sensitive information as  well as lineage and gives the data architect a place to consider the  appropriate data standards that should be imposed on all data. Purview’s focus is on governance to find, classify, and define policies and standards. Enforcing policies and standards and remediating deficient data falls to technologies like Master Data Management. 
 
@@ -20,9 +19,9 @@ For example, after cataloging enterprise data sources, it may be determined that
 
 The flow illustrated below represents the general order of activity that  occurs during the development and subsequent operation of your master  data solution. This flow should be thought of as **highly iterative**. As your solution evolves, these steps and phases may be repeated, sometimes automatically and sometimes manually, depending on the changes occurring to your master data solution, metadata, and/or data. 
 
-![Purview Microservice Design Architecture](C:\Users\paulde\Documents\localrepos\architecture-center\docs\reference-architectures\data\images\Purview-MicroserviceDesign-Architecture.jpg)
+![Purview microservice design architecture](./images/Purview-MicroserviceDesign-Architecture.jpg)
 
-### Metadata & Data Flow
+### Metadata and data flow
 
 1. **LOB scanning & classification**: The flow begins by scanning Line-of-Business (LOB) systems to identify and establish an initial set of assets in Purview. These assets can then be further classified, described, and organized, helping establish a baseline understanding of the data estate. This is a key input for data modelers configuring the master data management solution.
 2. **Master** **data modeling**: Purview creates a rich source of enterprise metadata that informs your master data model. Modelers alongside subject matter experts improve model effectiveness and accuracy. As your master data model is defined, metadata associated with your master data model - i.e., model entities and attributes - are published to Purview automatically allowing Profisee to participate in governance as part of your data estate. 
