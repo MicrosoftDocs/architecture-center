@@ -142,7 +142,7 @@ Decision/Recommendation.
 - [Try Azure Cognitive Services for
     free](https://azure.microsoft.com/try/cognitive-services/)
 
-- [Choosing a Microsoft cognitive services
+- [Choosing a Microsoft Cognitive Services
     technology](../../data-guide/technology-choices/cognitive-services.md)
 
 - [Choosing a natural language processing technology in
