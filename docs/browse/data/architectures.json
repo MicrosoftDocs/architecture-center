@@ -9041,8 +9041,8 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/ai/realtime-scoring-python.md",
-            "http_url": "/azure/architecture/reference-architectures/ai/realtime-scoring-python",
+            "file_url": "reference-architectures/ai/real-time-scoring-machine-learning-models.md",
+            "http_url": "/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models",
             "word_count": 1980,
             "read_time": "8 min read",
             "Title": "Real-time scoring of Python models",
@@ -9071,7 +9071,7 @@
             },
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/MLAKSDeployAML",
-            "name": "realtime-scoring-python",
+            "name": "real-time-scoring-machine-learning-models",
             "popularity": 148,
             "topic": "AI + Machine Learning"
         },
@@ -11119,8 +11119,8 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/ai/speech-ai-ingestion.md",
-            "http_url": "/azure/architecture/reference-architectures/ai/speech-ai-ingestion",
+            "file_url": "reference-architectures/ai/speech-to-text-transcription-pipeline.md",
+            "http_url": "/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline",
             "word_count": 1651,
             "read_time": "7 min read",
             "Title": "Speech-to-text conversion",
@@ -11128,13 +11128,13 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/reference-architectures/ai/_images/audio-files-upload.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\audio-files-upload.png",
+            "image": "/azure/architecture/reference-architectures/ai/_images/speech-to-text-audio-files-upload.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\speech-to-text-audio-files-upload.png",
             "publish_date": "3/25/2020",
             "Summary": "<p>Customer care centers are an integral part of the success of many businesses. You can improve the efficiency of your call centers by using speech AI. Speech recognition and the analysis of high volumes of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes. Enterprise solutions that use the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.</p>\n<p>The reference architecture described in this article shows how to build an audio ingestion and speech-to-text transcription pipeline for customer care centers. This pipeline processes batches of recorded audio files and stores the transcribed text files in Azure Blob storage. This architecture doesn't implement real-time speech processing.</p>\n<p>This pipeline can later feed into the next phase of your speech AI implementation. In that phase, you can process transcribed text to recognize and remove sensitive information, perform sentiment analysis, and so on.</p>\n<p>The reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/cognitive-services-reference-implementation\">GitHub</a>.</p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/cognitive-services-reference-implementation",
-            "name": "speech-ai-ingestion",
+            "name": "speech-to-text-transcription-pipeline",
             "popularity": 0,
             "topic": "AI + Machine Learning"
         },

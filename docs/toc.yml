@@ -718,13 +718,13 @@ items:
               - name: Real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Real-time scoring Python models
-                href: reference-architectures/ai/realtime-scoring-python.yml
+                href: reference-architectures/ai/real-time-scoring-machine-learning-models.yml
               - name: Real-time scoring R models
                 href: reference-architectures/ai/realtime-scoring-r.yml
               - name: Scalable personalization
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: Speech to text conversion
-                href: reference-architectures/ai/speech-ai-ingestion.yml
+                href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Training Python models
                 href: reference-architectures/ai/training-python-models.yml
               - name: Vision classifier model
@@ -825,6 +825,8 @@ items:
                 href: example-scenario/dataplate2e/data-platform-end-to-end.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
+              - name: Geospatial data processing and analytics
+                href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: Ingestion and analysis of news feeds
                 href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
               - name: Partitioning in Event Hubs and Kafka
@@ -841,6 +843,8 @@ items:
                 href: solution-ideas/articles/application-integration-using-event-grid.yml
               - name: Big data analytics with Azure Data Explorer
                 href: solution-ideas/articles/big-data-azure-data-explorer.yml
+              - name: Big data analytics with Enterprise-grade security
+                href: solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml
               - name: Content Delivery Network analytics
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
               - name: Demand forecasting for shipping
@@ -991,6 +995,8 @@ items:
                     maintainContext: true
               - name: Choose a Kubernetes at the edge compute option
                 href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
+              - name: Choose a bare-metal Kubernetes at the edge platform option
+                href: operator-guides/aks/choose-bare-metal-kubernetes.yml
       - name: Databases
         items:
           - name: Guides
@@ -1191,6 +1197,8 @@ items:
                         href: microservices/design/gateway.md
                       - name: Data considerations
                         href: microservices/design/data-considerations.md
+                      - name: Container orchestration
+                        href: microservices/design/orchestration.md
                       - name: Design patterns for microservices
                         href: microservices/design/patterns.md
                   - name: Operate microservices in production
@@ -1611,7 +1619,9 @@ items:
                   - name: IBM z/OS migration with Asysco AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
-                    href: example-scenario/mainframe/micro-focus-server.yml 
+                    href: example-scenario/mainframe/micro-focus-server.yml                     
+                  - name: Migrate AIX workloads to Skytap on Azure
+                    href: example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml
                   - name: Migrate IBM i series applications to Skytap on Azure
                     href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml  
                   - name: Refactor IBM z/OS mainframe CF on Azure
