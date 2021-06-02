@@ -114,7 +114,7 @@ IoT architecture guides:
 
 -   [Azure Industrial IoT Analytics Guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
 
--   [Azure IoT reference architecture](/azure/architecture/reference-architectures/io)
+-   [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
 
 -   [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
 
