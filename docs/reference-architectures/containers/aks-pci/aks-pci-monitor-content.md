@@ -25,6 +25,17 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 |[Requirement 10.8](#requirement-108)|Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner. Processes for responding to failures in security controls must include|
 |[Requirement 10.9](#requirement-109)|Ensure that security policies and operational procedures for monitoring all access to network resources and cardholder data are documented, in use, and known to all affected parties.|
 
+**Requirement 11**&mdash;Regularly test security systems and processes
+|Requirement|Responsibility|
+|---|---|
+|[Requirement 11.1](#requirement-111)|Implement processes to test for the presence of wireless access points (802.11), and detect and identify all authorized and unauthorized wireless access points on a quarterly basis.|
+|[Requirement 11.2](#requirement-112)|Run internal and external network vulnerability scans at least quarterly and after any significant change in the network (such as new system component installations, changes in network topology, firewall rule modifications, product upgrades). |
+|[Requirement 11.3](#requirement-113)|Implement a methodology for penetration testing that includes the following:|
+|[Requirement 11.4](#requirement-114)|Use intrusion-detection and/or intrusion-prevention techniques to detect and/or prevent intrusions into the network. |
+|[Requirement 11.5](#requirement-115)|Deploy a change-detection mechanism (for example, file-integrity monitoring tools) to alert personnel to unauthorized modification (including changes, additions, and deletions) of critical system files, configuration files, or content files; and configure the software to perform critical file comparisons at least weekly. |
+|[Requirement 11.6](#requirement-116)|Ensure that security policies and operational procedures for security monitoring and testing are documented, in use, and known to all affected parties.|
+
+
 ### Requirement 10.1
 
 Implement audit trails to link all access to system components to each individual user.
@@ -33,7 +44,7 @@ Implement audit trails to link all access to system components to each individua
 
 We recommend that you use these ways to track operations performed on each component. 
 
-- Activity Log. This log provides information about the type and time of the oepration. Also it logs the identity that started the operation. This information is tracked at the subscription level. The are enabled by default and are collected as soon as the resource is provisioned and start emitting logs. 
+- Activity Log. This log provides information about the type and time of the operation. Also it logs the identity that started the operation. This information is tracked at the subscription level. The are enabled by default and are collected as soon as the resource is provisioned and start emitting logs. 
 
 - Diagnostic setting. Provides diagnostic and auditing information of Azure resources and the platform. We recommend that you enable this for AKS and other components in the system such as Azure Blob Storage and Key Vault. Based on the resource type, you can choose categories of logs and metric data and send it to a destination.
 
@@ -64,7 +75,7 @@ Implement automated audit trails for all system components to reconstruct the fo
 
 AKS provides audit logs at multiple levels, as described in [Requirement 10.1](#requirement-101). Here are some key points:
 
-- By default, Activity logs provides information about all the operations scoped by an Azure subscription. All resource access operations are recorded along with status, time, and the identity that initiated the operation.
+- By default, Activity logs provide information about all the operations scoped by an Azure subscription. All resource access operations are recorded along with status, time, and the identity that initiated the operation.
 - Enable diagnostic settings to access all records of all API calls made into the AKS cluster. The logs provide details about the requestor, timestamp, the source of request, contents of the request. Store the logs in a storage account, such as a Log Analytics workspace.
 - Enable Container Insights to get performance-related data from Kubernetes Metrics API. From a diagnostics perspective, set up alerts to reveal suspicious loads and be configured to protect system and data proactively. For information about this feature, see [Container Insights](/azure/azure-monitor/insights/container-insights-overview).
 - If your jump boxes support root access, then add additional logging.
@@ -91,9 +102,12 @@ AzureDiagnostics
 | project TimeGenerated, ResourceId, log_s,  pod_s
 | top 200 by TimeGenerated desc
 `
-The result set shows that information as part of the log_s field.
+
+The result set shows the information as part of the log_s field.
 
 ![Diagnostic example](images/aks-diagnostic-example.png)
+
+
 
 |Required information| Schema|
 |---|---|
@@ -105,7 +119,7 @@ The result set shows that information as part of the log_s field.
 |Identity or name of affected data, system component, or resource| objectRef|
 
 
-For information about the master log, see [View the control plane component logs](/azure/aks/view-control-plane-logs)
+For information about the master log, see [View the control plane component logs](/azure/aks/view-control-plane-logs).
 
 
 
@@ -140,9 +154,9 @@ All logs are kept with at least three copies in one region. As a backup strategy
 
 Log Analytics supports various (role-based access control) RBAC controls that are granular down to the resource level. Use RBAC to manage the resource access policy. Make sure the roles are mapped to the roles and responsibilities of the organization. 
 
-Make sure your Log Analtytics workspace supports both operations and compliance needs. Consider a dedicated workspace for your in-scope clusters, which forwards to your SIEM solution.
+Make sure your Log Analytics workspace supports both operations and compliance needs. Consider a dedicated workspace for your in-scope clusters, which forwards to your SIEM solution.
 
-Most logging in AKS will come from stdout/stderr.  If you have additional manually-created logs, consider emiting them in a way that would be picked up by the forwarding stream and not be subject to tampering."
+Most logging in AKS will come from stdout/stderr.  If you have additional manually-created logs, consider emitting them in a way that would be picked up by the forwarding stream and not be subject to tampering."
 
 
 ### Requirement 10.6
@@ -205,8 +219,82 @@ Ensure that security policies and operational procedures for monitoring all acce
 
 It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your monitoring efforts, <TBD> . This is particularly important for people who are part of the approval process from a policy perspective.
 
-**Requirement 11**&mdash;Regularly test security systems and processes
 ***
+
+### Requirement 11.1
+
+Implement processes to test for the presence of wireless access points (802.11), and detect and identify all authorized and unauthorized wireless access points on a quarterly basis.
+
+#### Your responsibilities
+
+This architecture and the implementation aren't designed to do on-premises or corporate network to cloud transactions over wireless connections. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+### Requirement 11.2
+
+Run internal and external network vulnerability scans at least quarterly and after any significant change in the network (such as new system component installations, changes in network topology, firewall rule modifications, product upgrades). 
+
+#### Your responsibilities
+
+As part of defense in depth.
+Enable Azure Defender for kubernetes.
+Enable Azure Defender for container registries.
+Enable Azure Defender for key vault.
+
+Audit the configuration of your Azure resources (NSG rules, Azure Firewall rules, Vnet peerings, vnet DNS settings, private link configurations) to ensure no changes.
+
+Perform penetration testing as desired. TODO: I know we use to require notice and we removed it, but there is still a "FYI" path we can let Azure know about this activity -- link that here.
+
+Have an audit process that reviews NSG flow logs, to verify network isolation and omcpliance. This data can flow into a SIEM and/or IDS tool.
+
+### Requirement 11.3
+
+Implement a methodology for penetration testing that includes the following:
+- Is based on industry-accepted penetration testing approaches (for example, NIST SP800-115)
+- Includes coverage for the entire CDE perimeter and critical systems
+- Includes testing from both inside and outside the network
+- Includes testing to validate any segmentation and scope-reduction controls
+- Defines application-layer penetration tests to include, at a minimum, the vulnerabilities listed in Requirement 6.5
+- Defines network-layer penetration tests to include components that support network functions as well as operating systems
+- Includes review and consideration of threats and vulnerabilities experienced in the last 12 months
+- Specifies retention of penetration testing results and remediation activities results. 
+
+#### Your responsibilities
+
+Perform penetration testing as desired. TODO: I know we use to require notice and we removed it, but there is still a "FYI" path we can let Azure know about this activity -- link that here.
+
+
+### Requirement 11.4
+
+Use intrusion-detection and/or intrusion-prevention techniques to detect and/or prevent intrusions into the network. Monitor all traffic at the perimeter of the cardholder data environment as well as at critical points in the cardholder data environment, and alert personnel to suspected compromises.
+
+#### Your responsibilities
+
+AKS clusters are protected by Azure Application Gateway enabled with Web  Application Firewall (WAF), which is configured in "detect mode" to log alerts and threads, or in "preventive mode" to actively block detected intrusions and attacks. More details avaiable at: 
+https://docs.microsoft.com/azure/aks/operator-best-practices-network
+
+Forward NSG flow logs into your IDS / SIEM tool
+
+## Requirement 11.5
+
+Deploy a change-detection mechanism (for example, file-integrity monitoring tools) to alert personnel to unauthorized modification (including changes, additions, and deletions) of critical system files, configuration files, or content files; and configure the software to perform critical file comparisons at least weekly. 
+
+#### Your responsibilities
+
+Within the cluster, you'll need to bring an external tool to satasify this. Use the File Integregity Monitoring solution that comes with your trusted in-cluster security tooling, or use OSS solutions that you have validated to work for your needs. FIM combined with a security agent such as Flaco can help detect both file and system-level access that would result in node-level changes.
+
+Build specific log alerts in Azure Monitor or in your SIEM specific to alerts that come from these security agents. Periodicly evaluate if the coverage of these alerts are covering the current emitted logs (log format change, log verbosity changed, etc).
+
+Evaluate all "default" settings in your selected FIM/Security Agent, to ensure appropriate coverage. (e.g. if your selected security agent has default settings set up for another cloud deployed by default, ensure you're adjusting appropriately)
+
+## Requirement 11.6
+
+Ensure that security policies and operational procedures for security monitoring and testing are documented, in use, and known to all affected parties.
+
+#### Your responsibilities
+
+It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your monitoring efforts, <TBD> . This is particularly important for people who are part of the approval process from a policy perspective.
+
+
 
 ## Next
 
