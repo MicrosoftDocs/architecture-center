@@ -18,7 +18,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/virtual-health-soluti
 
 In this architecture diagram, the blue-lined boxes represent the Microsoft services that are either the underlying services or add-ons required for [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare?rtc=1), each of which must be licensed separately. These components together help speed up development of integrated healthcare solutions for patient engagement, health team collaboration, and improvement of clinical and operational data insights.
 
-The data flows into the system through various external medical systems, such as patient and provider schedules, medical records, wearable devices, and so on. This data is ingested using the [Azure API for FHIR](/azure/healthcare-apis/fhir/overview) transposed using the FHIR (or Fast Healthcare Interoperability Resources) standard. It is then stored in the Microsoft Dataverse, a data store powered by the Power Apps Platform. This data is formatted to use entities and relationships between them, created using the [Common Data Model (CDM)](/common-data-model/), an industry standard to represent medical data. All interactions between patient, provider, and the care manager happen using this CDM data stored in Dataverse.
+The data flows into the system through various external medical systems, such as patient and provider schedules, medical records, wearable devices, and so on. This data is ingested using Azure. It is then stored in the Microsoft Dataverse, a data store powered by the Power Apps Platform. This data is formatted to use entities and relationships between them, created using the [Common Data Model (CDM)](/common-data-model/), an industry standard to represent medical data. All interactions between patient, provider, and the care manager happen using this CDM data stored in Dataverse.
 
 An established patient can log in securely to the Patient Portal, a website hosted in the Power Apps Portals. In this portal, the patient can talk to an *Intelligent Assistant*. This is an instance of the [Azure Health Bot service](/azure/health-bot/), which gathers their symptoms, provides suggestions, and recommends calling to the practitioner, if needed. If the patient chooses to connect to their medical provider, the health bot instance gets the data on providers available for virtual visits and their schedules, from the Dataverse. Once the patient selects a provider and a time, the bot presents their contact information, obtained from the *EMR/EHR* data stored in Dataverse. The patient can validate or change this information, and save the data using the bot.
 
@@ -28,7 +28,7 @@ The provider logs into Teams to check their appointment schedule and summary inf
 
 A new note on the patient's medical records triggers a review notification for the care manager assigned to the patient. When the care manager receives this notification, they can log in to Teams, where they are able to see the patients assigned to them, and view the notes. Through the Care Management app, they can make required changes to the patient's care plan.
 
-## Components
+### Components
 
 The architecture consists of the following components:
 
@@ -62,7 +62,7 @@ The architecture consists of the following components:
 
 - **Automation with Power Automate**. This is a custom tool created to support this scenario, and is not available with Microsoft Cloud for Healthcare. Since this is a virtual visit scenario, the provider might just be an on-call physician and not the patient's regular physician. This tool allows the provider's notes to trigger a Teams notification to the *care manager*. A care manager is the member of the medical team that works as the liaison between the primary care physician (PCP) and the patient, and takes care of long-term care management. A notification sent to the care manager, indicating new notes added for the patient, enables them to review and make appropriate changes in the patient's care management after the visit.
 
-## Alternatives
+### Alternatives
 
 Azure for healthcare services such as Azure API for FHIR and Azure Health Bot, Common Data Model interface, Microsoft Dataverse, and Microsoft Teams form the core components of this solution. Most other components of this system can be replaced by systems currently used by the healthcare facility:
 
@@ -147,8 +147,6 @@ The solution should be deployed in stages:
 - Learn more about Azure for healthcare offerings at [Azure for Healthcare—Healthcare Solutions](https://azure.microsoft.com/industries/healthcare/).
 
 ## Related resources
-
-- [FHIR standard for health care data exchange](https://www.hl7.org/fhir/index.html)
 
 - [Difference between EMR and EHR](https://www.healthit.gov/buzz-blog/electronic-health-and-medical-records/emr-vs-ehr-difference)
 
