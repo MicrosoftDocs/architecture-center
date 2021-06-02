@@ -26,6 +26,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 |[Requirement 10.9](#requirement-109)|Ensure that security policies and operational procedures for monitoring all access to network resources and cardholder data are documented, in use, and known to all affected parties.|
 
 **Requirement 11**&mdash;Regularly test security systems and processes
+
 |Requirement|Responsibility|
 |---|---|
 |[Requirement 11.1](#requirement-111)|Implement processes to test for the presence of wireless access points (802.11), and detect and identify all authorized and unauthorized wireless access points on a quarterly basis.|
