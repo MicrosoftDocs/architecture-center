@@ -104,11 +104,11 @@ AzureDiagnostics
 | top 200 by TimeGenerated desc
 `
 
-The result set shows the information as part of the log_s field.
+
 
 ![Diagnostic example](images/aks-diagnostic-example.png)
 
-
+The result set shows the information as part of the log_s field.
 
 |Required information| Schema|
 |---|---|
@@ -236,16 +236,20 @@ Run internal and external network vulnerability scans at least quarterly and aft
 
 #### Your responsibilities
 
-As part of defense in depth.
-Enable Azure Defender for kubernetes.
-Enable Azure Defender for container registries.
-Enable Azure Defender for key vault.
+Have a scanning process that checks for changes in the AKS cluster, network configuration, container registries, and other components of the architecture. 
 
-Audit the configuration of your Azure resources (NSG rules, Azure Firewall rules, Vnet peerings, vnet DNS settings, private link configurations) to ensure no changes.
+If there are changes in network, the scanning process should detect if the change introduced a security risk to the cluster. For example, is the cluster now exposed to the public internet? Are the new firewall rules overly permissive? Within the cluster, are there any security gaps in the flow between the pods?
 
-Perform penetration testing as desired. TODO: I know we use to require notice and we removed it, but there is still a "FYI" path we can let Azure know about this activity -- link that here.
+Make sure the scanning solutions run frequently and the results are reviewed. Audit the configuration of your Azure resources, such as Network Security Group (NSG) rules, Azure Firewall rules, VNet peerings, DNS settings, Private Link configurations, and other network components. For preceding example, review the [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics). Have an audit process that reviews NSG traffic flows, to verify network isolation and compliance. One way is to enable  [flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal). For in-cluster flows, conduct scans with a third-party security agent.
 
-Have an audit process that reviews NSG flow logs, to verify network isolation and omcpliance. This data can flow into a SIEM and/or IDS tool.
+Build a process to rapidly get security validation of new containers and images. The process should validate against your security standards. This includes applying security updates, scanning for unwanted binaries, and others. 
+
+View and apply recommendations shown in Azure Security Center. Security Center offers an advanced mode through its integration with Azure Defender. Enable Azure Defender as a defense-in-depth measure. Relevant offerings this architecture include: 
+
+- [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction)
+- [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction)
+- [Azure Defender for Key Vault](azure/security-center/defender-for-key-vault-introduction)
+
 
 ### Requirement 11.3
 
@@ -261,7 +265,9 @@ Implement a methodology for penetration testing that includes the following:
 
 #### Your responsibilities
 
-Perform penetration testing as desired. TODO: I know we use to require notice and we removed it, but there is still a "FYI" path we can let Azure know about this activity -- link that here.
+Perform penetration testing to find security gaps by gathering information, analyzing vulnerabilities, and reporting. It's recommended that you follow the industry guidelines provided in [Penetration Testing Execution Standard (PTES)](http://www.pentest-standard.org/index.php/Main_Page) to address common scenarios and the activities required to establish a baseline.
+
+In a penetration testing exercise, the practitioners may need access to sensitive data of the entire organization. Follow the rules of engagement to make sure that access and the intent is not misused. For guidance about planning and executing simulated attacks, see [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
 
 
 ### Requirement 11.4
@@ -270,10 +276,9 @@ Use intrusion-detection and/or intrusion-prevention techniques to detect and/or 
 
 #### Your responsibilities
 
-AKS clusters are protected by Azure Application Gateway enabled with Web  Application Firewall (WAF), which is configured in "detect mode" to log alerts and threads, or in "preventive mode" to actively block detected intrusions and attacks. More details avaiable at: 
-https://docs.microsoft.com/azure/aks/operator-best-practices-network
+Protect the AKS cluster by inspecting inbound traffic. One way is through the use of web application firewall (WAF). In this architecture, intrusion is prevented by Azure Application Gateway with integrated WAF. Use the **detect** mode to log alerts and threats. When configured in the **preventive** mode, WAF actively blocks the  detected intrusions and attacks. For more information, see [Best practices for network connectivity and security in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-network).
 
-Forward NSG flow logs into your IDS / SIEM tool
+Also, detect anomalies in traffic patterns by connecting NSG flow logs into a centralized SIEM solution, such as Azure Sentinel. 
 
 ## Requirement 11.5
 
@@ -281,11 +286,17 @@ Deploy a change-detection mechanism (for example, file-integrity monitoring tool
 
 #### Your responsibilities
 
-Within the cluster, you'll need to bring an external tool to satasify this. Use the File Integregity Monitoring solution that comes with your trusted in-cluster security tooling, or use OSS solutions that you have validated to work for your needs. FIM combined with a security agent such as Flaco can help detect both file and system-level access that would result in node-level changes.
+In your cluster, run a file integregity monitoring (FIM) solution in conjunction with a Kubernetes-aware security agent to detect file and system-level access that could result in node-level changes. When choosing a FIM solution, have a clear understanding of its features and the depth of detection. Consider software developed by reputable vendors.
 
-Build specific log alerts in Azure Monitor or in your SIEM specific to alerts that come from these security agents. Periodicly evaluate if the coverage of these alerts are covering the current emitted logs (log format change, log verbosity changed, etc).
+> [!IMPORTANT]
+>
+ The reference implementation provides a placeholder `DaemonSet` deployment to run a FIM solution antimalware agent. The agent will run on every node VM in the cluster. Place your choice of antimalware software in this deployment.
 
-Evaluate all "default" settings in your selected FIM/Security Agent, to ensure appropriate coverage. (e.g. if your selected security agent has default settings set up for another cloud deployed by default, ensure you're adjusting appropriately)
+Check all default settings of the FIM tool to ensure the values detect the parameters you want to cover and adjust those settings appropriately. 
+
+Enable the solution to send logs alerts to your monitoring or SIEM solution so that they can generate alerts. Evalutate if those alerts are covering the logs (log format change, log verbosity changed, etc).
+<Ask Chad: Not sure I understand.>
+
 
 ## Requirement 11.6
 
@@ -293,7 +304,9 @@ Ensure that security policies and operational procedures for security monitoring
 
 #### Your responsibilities
 
-It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your monitoring efforts, <TBD> . This is particularly important for people who are part of the approval process from a policy perspective.
+It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your testing efforts, include the cadence of reviews and the review criteria. Make sure the team understand aspects of penetration testing. Have a documented remediation plan to mitigate the risks found.
+
+This is particularly important for people who are part of the approval process from a policy perspective.
 
 
 
