@@ -81,7 +81,7 @@ Linux works best for running SAS workloads. SAS supports the following operating
 
 For more information about specific SAS releases, see [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit). In environments that use multiple machines, it's best to run the same version of Linux on all machines. Azure doesn't support Linux 32-bit deployments.
 
-To optimize compatibility and integration with Azure, start with an operating system image from a marketplace. Without additional configurations, custom images may degrade SAS performance.
+To optimize compatibility and integration with Azure, start with an operating system image from Azure Marketplace. Without additional configurations, custom images may degrade SAS performance.
 
 #### Kernel issues and non-maskable interrupts (NMI)
 
@@ -158,44 +158,69 @@ With Viya 3.5 and grid workloads, Azure doesn't support scaling horizontally or 
 
 ### Network and VM placement considerations
 
-SAS Workloads are often chatty. Significant amounts of data transfer can result. With all SAS platforms, follow these recommendations to reduce chatter:
+SAS workloads are often chatty. As a result, they can transfer a significant amount of data. With all SAS platforms, follow these recommendations to reduce chatter:
 
 - Deploy SAS and storage platforms on the same virtual network. This approach reduces peering costs.
 - Place SAS nodes in a [proximity placement group](/azure/virtual-machines/co-location) to reduce latency between nodes.
-- When possible, use the same proximity placement group for SAS nodes and for VM-based data storage platforms.
-- Deploy SAS and storage appliances in the same availability zone to avoid cross zone latency.
+- When possible, deploy SAS nodes and VM-based data storage platforms in the same proximity placement group.
+- Deploy SAS and storage appliances in the same availability zone to avoid cross-zone latency.
 
-SAS is very specific about the FQDN for a virtual machine. Ensure that DNS services are provided and the FQDN for machines are set correctly. Either do this through /etc/hosts or using FQDN with Azure DNS.
+SAS has specific fully qualified domain name (FQDN) requirements for VMs. Set machine FQDNs correctly, and ensure that DNS services are working. You can set the names by using Azure DNS. You can also edit the `hosts` file in the `etc` configuration folder.
 
 > [!NOTE]
-> Accelerated networking should be enabled on all nodes in the SAS deployment at all times. Not enabling >accelerated networking has serious performance impacts.
+> Turn on accelerated networking on all nodes in the SAS deployment. When you turn this feature off, performance suffers significantly.
 >  
-> Execute `az network nic update -n <name_of_NIC> -g <resource_group_name> --accelerated-networking true` to enable accelerated networking on machines that have it turned off. The virtual machine must be powered off and deallocated before the command is ran.
+> To turn on accelerated networking on a VM, follow these steps:
+>
+> 1. Run this command in the Azure CLI to stop the VM:
+>
+>    `az vm deallocate --resource-group <resource_group_name> --name <VM_name>`
+> 1. Turn off the VM.
+> 1. Run this command in the CLI:
+>
+>    `az network nic update -n <network_interface_name> -g <resource_group_name> --accelerated-networking true`
 
-When migrating data or interacting with SAS in Azure, we recommend using an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit or a virtual private network (VPN) between on-premises resources and Azure. For production SAS workloads in Azure, we recommend ExpressRoute to create a private, dedicated connection that offers reliability, faster speed, lower latency, and tighter security than site-to-site VPN.
+When you migrate data or interact with SAS in Azure, we recommend that you use one of these solutions to connect on-premises resources with Azure:
 
-Be mindful of latency-sensitive interfaces between SAS and non-SAS applications. You may need to move systems closer to SAS that are frequently used as a data source/sink target.
+- An [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit
+- A virtual private network (VPN) 
+
+For production SAS workloads in Azure, ExpressRoute provides a private, dedicated, and reliable connection that offers these advantages over a site-to-site VPN:
+
+- Faster speed
+- Lower latency
+- Tighter security
+
+Be aware of latency-sensitive interfaces between SAS and non-SAS applications. Consider moving data sources and sinks closer to SAS.
 
 ### Identity management
 
-SAS platforms can use local user accounts or via an LDAP server. It is recommended to have a domain controller running in Azure so that your infrastructure can be domain joined and security access managed properly. If you do not have domain controllers set up, consider deploying [AD Domain Services](/azure/architecture/reference-architectures/identity/adds-extend-domain). When domain joining, ensure machine names do not exceed the 15 character limit.
+SAS platforms can use local user accounts. They can also use a Lightweight Directory Access Protocol (LDAP) server to validate users. We recommend running a domain controller in Azure. Then you can use the domain join feature and properly manage security access. If you haven't set up domain controllers, consider deploying [AD Domain Services](/azure/architecture/reference-architectures/identity/adds-extend-domain). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
 
 ## Data sources
 
-SAS solutions often need to access data from multiple systems. These data sources are separated into SAS datasets (often called SASDATA) and databases that will need to be accessed. Often times, SAS will create a heavy load on these systems. For the best performance, it is recommended that your data sources are as close as possible to the SAS infrastructure. This includes limiting the number of network hops / appliances between your SAS infrastructure and the data sources.
+SAS solutions often access data from multiple systems. These data sources fall into two categories:
+
+- SAS datasets, which SAS calls "SASDATA"
+- Databases, which SAS often places a heavy load on
+
+For best performance:
+
+- Position data sources as close as possible to SAS infrastructure.
+- Limit the number of network hops and appliances between data sources and SAS infrastructure.
 
 > [!NOTE]
-> Avoid executing analytics against data sources under stress or at distance, instead do ETL first and analytics later. Strongly consider bringing these systems closer to your SAS infrastructure.
+> If you can't move data sources close to SAS infrastructure, avoid running analytics on them. Instead, run extract, transform, load (ETL) processes first and analytics later. Take the same approach with data sources that are under stress.
 
 ### Permanent remote storage for SAS Data
 
-SAS and Microsoft have tested a series of data platforms for SAS that are used to host SAS datasets. The results are documented on the SAS blogs in great detail, including the performance characteristics. The following platforms have been tested:
+SAS and Microsoft have tested a series of data platforms that you can use to host SAS datasets. The SAS blogs document the results in detail, including performance characteristics. The tests included the following platforms:
 
-* [Sycomp Storage Fueled by IBM Spectrum Scale (GPFS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sycompatechnologycompanyinc1588192103892.sycompstoragefueledbyibmspectrumscalewithrhel?tab=overview)
-* [EXAScaler Cloud by DDN (Lustre)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ddn-whamcloud-5345716.exascaler_cloud_app?tab=overview)
-* [Azure NetApp Files (NFS)](https://azure.microsoft.com/services/netapp/)
+- [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sycompatechnologycompanyinc1588192103892.sycompstoragefueledbyibmspectrumscalewithrhel?tab=overview): Uses General Parallel File System (GPFS) software.
+- [EXAScaler Cloud by DDN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ddn-whamcloud-5345716.exascaler_cloud_app?tab=overview): Based on the Lustre file system.
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp/): Supports Network File System (NFS) file-storage protocols.
 
-The RHEL-IO test script provided by SAS has been ran against these resources by both Microsoft and SAS which have been made available online on the [SAS Forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin).
+SAS offers a RHEL-IO script. The [SAS forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin) document tests with this script on these platforms.
 
 ### Sycomp Storage Fueled by IBM Spectrum Scale (GPFS)
 
