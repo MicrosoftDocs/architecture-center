@@ -9041,8 +9041,8 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/ai/realtime-scoring-python.md",
-            "http_url": "/azure/architecture/reference-architectures/ai/realtime-scoring-python",
+            "file_url": "reference-architectures/ai/real-time-scoring-machine-learning-models.md",
+            "http_url": "/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models",
             "word_count": 1980,
             "read_time": "8 min read",
             "Title": "Real-time scoring of Python models",
@@ -9071,7 +9071,7 @@
             },
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/MLAKSDeployAML",
-            "name": "realtime-scoring-python",
+            "name": "real-time-scoring-machine-learning-models",
             "popularity": 148,
             "topic": "AI + Machine Learning"
         },
