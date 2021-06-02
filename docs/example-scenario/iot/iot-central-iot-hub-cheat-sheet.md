@@ -121,6 +121,8 @@ IoT architecture guides:
 Example architectures using Azure IoT Central:
 
 -   [Retail - Buy online, pickup in store (BOPIS)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
+-   [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
+-   [Blockchain workflow application](/azure/architecture/solution-ideas/articles/blockchain-workflow-application)
 
 Example architectures using Azure IoT Hub:
 
@@ -131,6 +133,8 @@ Example architectures using Azure IoT Hub:
 -   [IoT using Cosmos DB](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
 
 -   [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
+-   [Predictive Maintenance for Industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
 
 -   [Project 15 Open Platform](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)
-- 
+-   [IoT connected light, power, and internet for emerging markets](/azure/architecture/solution-ideas/articles/iot-power-management)
+-   [Condition Monitoring for Industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
