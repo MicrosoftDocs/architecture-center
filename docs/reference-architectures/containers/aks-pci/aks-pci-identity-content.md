@@ -8,11 +8,13 @@ Azure Kubernetes Service (AKS) is fully integrated with Azure Active Directory (
 
 For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
 
+This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. One of the benefit of hosting your CDE in Azure as oppposed to your platform at the edge or in your data center, is that restricting physical access is mostly already handled through Azure datacenter security. There aren't any responsibilities for the organization in management of physcial hardware.
+
 > [!IMPORTANT]
 >
 > The guidance in this article builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
 >
-> ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated environment. The implementation illustrates <To do add identity blurb>.
+> ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated environment. The implementation illustrates <Todo add identity blurb>.
 
 ## Implement Strong Access Control Measures
 
@@ -39,6 +41,19 @@ For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/a
 
 **Requirement 9**&mdash;Restrict physical access to cardholder data
 ***
+
+|Requirement|Responsibility|
+|---|---|
+|[Requirement 9.1](#requirement-91)|Use appropriate facility entry controls to limit and monitor physical access to systems in the cardholder data environment.|
+|[Requirement 9.2](#requirement-92)| Develop procedures to easily distinguish between onsite personnel and visitors, to include:|
+|[Requirement 9.3](#requirement-93)|Control physical access for onsite personnel to the sensitive areas as follows:|
+|[Requirement 9.4](#requirement-94)|Implement procedures to identify and authorize visitors. Procedures should include the following:|
+|[Requirement 9.5](#requirement-95)| Physically secure all media.|
+|[Requirement 9.6](#requirement-96)| Maintain strict control over the internal or external distribution of any kind of media, including the following:|
+|[Requirement 9.7](#requirement-97)| Maintain strict control over the storage and accessibility of media.|
+|[Requirement 9.8](#requirement-98)|Destroy media when it is no longer needed for business or legal reasons as follows:|
+|[Requirement 9.9](#requirement-99)|Protect devices that capture payment card data via direct physical interaction with the card from tampering and substitution.|
+|[Requirement 9.10](#requirement-910)|Ensure that security policies and operational procedures for restricting physical access to cardholder data are documented, in use, and known to all affected parties.|
 
 ### Requirement 7.1
 
@@ -139,14 +154,14 @@ Here are some example Azure RBAC role assigments:
 
 |Team group/user| Azure RBAC|
 |---|---|
-|**Application owners group**||
-|**Application developers group**||
-|**Application operators user**||
-|**Application operators group A**||
-|**Application operators group B**||
-|**Infrastructure operators user**||
-|**Infrastructure operators group A**||
-|**Infrastructure operators group B**||
+|**Application owners group**|TBD|
+|**Application developers group**|TBD|
+|**Application operators user**|TBD|
+|**Application operators group A**|TBD|
+|**Application operators group B**|TBD|
+|**Infrastructure operators user**|TBD|
+|**Infrastructure operators group A**|TBD|
+|**Infrastructure operators group B**|TBD|
 
 
 Within the cluster, the preceding user identities  and groups are mapped to Kubernetes `ClusterRole` and `ClusterRoleBinding` constructs, respectively. 
@@ -433,6 +448,135 @@ Ensure that security policies and operational procedures for identification and 
 #### Your responsibilities
 
 It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your identity onboarding training, provide guidance for password reset procedures and organizational best practices about protecting assets. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
+
+### Requirement 9.1
+Use appropriate facility entry controls to limit and monitor physical access to systems in the cardholder data environment.
+- 9.1.1 Use either video cameras or access control mechanisms (or both) to monitor individual physical access to sensitive areas. Review collected data and correlate with other entries. Store for at least three months, unless otherwise restricted by law. 
+
+   Note: ""Sensitive areas” refers to any data center, server room or any area that houses systems that store, process, or transmit cardholder data. This excludes public-facing areas where only point-of-sale terminals are present, such as the cashier areas in a retail store."""
+- 9.1.2 Implement physical and/or logical controls to restrict access to publicly accessible network jacks. 
+
+   For example, network jacks located in public areas and areas accessible to visitors could be disabled and only enabled when network access is explicitly authorized. Alternatively, processes could be implemented to ensure that visitors are escorted at all times in areas with active network jacks."
+- 9.1.3 Restrict physical access to wireless access points, gateways, handheld devices, networking/communications hardware, and telecommunication lines.
+
+#### Your responsibilities
+
+This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+Here are some suggestions for applying technical controls:
+
+- Tune session timeouts in any administrative console access, such as jump boxes in the CDE, to minimize access.
+- Tune conditional access polices to minimize the TTL on Azure access tokens from access points, such as the Azure portal. For information, see these articles:
+
+- [Configure authentication session management with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
+- [Configurable token lifetimes - Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
+
+- For cloud-hosted CDE, There aren't any responsibilities for managing physcial access and hardware. Rely on corporate network physical and logical controls.
+
+
+### Requirement 9.2
+Use either video cameras or access control mechanisms (or both) to monitor individual physical access to sensitive areas. Review collected data and correlate with other entries. Store for at least three months, unless otherwise restricted by law. 
+
+
+#### Your responsibilities
+
+This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, There aren't any responsibilities on the organization for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+
+### Requirement 9.3
+Control physical access for onsite personnel to the sensitive areas as follows:
+- Access must be authorized and based on individual job function.
+- Access is revoked immediately upon termination, and all physical access mechanisms, such as keys, access cards, etc., are returned or disabled.
+
+
+#### Your responsibilities
+This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+
+### Requirement 9.4
+
+Implement procedures to identify and authorize visitors. Procedures should include the following:
+- 9.4.1 Visitors are authorized before entering, and escorted at all times within, areas where cardholder data is processed or maintained
+- 9.4.2 Visitors are identified and given a badge or other identification that expires and that visibly distinguishes the visitors from onsite personnel.
+- 9.4.3 Visitors are asked to surrender the badge or identification before leaving the facility or at the date of expiration.
+- 9.4.4 A visitor log is used to maintain a physical audit trail of visitor activity to the facility as well as computer rooms and data centers where cardholder data is stored or transmitted.
+
+Document the visitor’s name, the firm represented, and the onsite personnel authorizing physical access on the log. Retain this log for a minimum of three months, unless otherwise restricted by law.
+
+#### Your responsibilities
+This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+
+### Requirement 9.5
+
+Physically secure all media.
+- 9.5.1 Store media backups in a secure location, preferably an off-site facility, such as an alternate or backup site, or a commercial storage facility. Review the location’s security at least annually.
+
+#### Your responsibilities
+This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+
+### Requirement 9.6
+Maintain strict control over the internal or external distribution of any kind of media, including the following:
+- 9.6.1 Classify media so the sensitivity of the data can be determined.
+- 9.6.2 Send the media by secured courier or other delivery method that can be accurately tracked.
+- 9.6.3 Ensure management approves any and all media that is moved from a secured area (including when media is distributed to individuals).
+
+
+#### Your responsibilities
+This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+
+### Requirement 9.7
+Maintain strict control over the storage and accessibility of media.
+- Properly maintain inventory logs of all media and conduct media inventories at least annually.
+
+
+#### Your responsibilities
+This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+
+### Requirement 9.8
+Destroy media when it is no longer needed for business or legal reasons as follows:
+- 9.8.1 Shred, incinerate, or pulp hard-copy materials so that cardholder data cannot be reconstructed. Secure storage containers used for materials that are to be destroyed.
+- 9.8.2 Render cardholder data on electronic media unrecoverable so that cardholder data cannot be reconstructed.
+
+
+#### Your responsibilities
+This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+
+### Requirement 9.9
+Protect devices that capture payment card data via direct physical interaction with the card from tampering and substitution.
+
+Note: These requirements apply to card-reading devices used in card-present transactions (that is, card swipe or dip) at the point of sale. This requirement is not intended to apply to manual key-entry components such as computer keyboards and POS keypads. "
+- 9.9.1 Maintain an up-to-date list of devices. The list should include the following:
+   - Make, model of device
+   - Location of device (for example, the address of the site or facility where the device is located)
+   - Device serial number or other method of unique identification."
+- 9.9.2 Periodically inspect device surfaces to detect tampering (for example, addition of card skimmers to devices), or substitution (for example, by checking the serial number or other device characteristics to verify it has not been swapped with a fraudulent device).
+
+   Note: Examples of signs that a device might have been tampered with or substituted include unexpected attachments or cables plugged into the device, missing or changed security labels, broken or differently colored casing, or changes to the serial number or other external markings."
+- 9.9.3 Provide training for personnel to be aware of attempted tampering or replacement of devices.  Training should include the following:
+   - Verify the identity of any third-party persons claiming to be repair or maintenance personnel, prior to granting them access to modify or troubleshoot devices.
+   - Do not install, replace, or return devices without verification.
+   - Be aware of suspicious behavior around devices (for example, attempts by unknown persons to unplug or open devices).
+   - Report suspicious behavior and indications of device tampering or substitution to appropriate personnel (for example, to a manager or security officer)."
+
+
+#### Your responsibilities
+This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+
+### Requirement 9.10
+
+Ensure that security policies and operational procedures for restricting physical access to cardholder data are documented, in use, and known to all affected parties.
+
+#### Your responsibilities
+This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+
+
 
 ## Next
 
