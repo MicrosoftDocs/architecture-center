@@ -93,7 +93,7 @@
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/governance/end-to-end-governance-in-azure</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/governance/end-to-end-governance-in-azure"/>
         <updated>2021-05-26T23:58:46.000Z</updated>
-        <summary type="html"><![CDATA[When using CI/CD pipelines to automate deployments, apply RBAC not just on the ARM side, but also earlier in the process as developers check in their code.]]></summary>
+        <summary type="html"><![CDATA[When using CI/CD pipelines to automate deployments, apply RBAC not just on the Azure Resource Manager side, but also earlier in the process as developers check in their code.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
