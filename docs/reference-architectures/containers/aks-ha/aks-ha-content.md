@@ -156,8 +156,6 @@ For information about other CAs supported by Front Door, see [Allowed certificat
 ## Failover
 
 ## Monitor operations
-LA workspace
-
 
 ## Cost considerations
 Front Door
