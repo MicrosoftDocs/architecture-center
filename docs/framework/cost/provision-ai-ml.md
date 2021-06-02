@@ -58,7 +58,7 @@ For more information, see these articles:
 -   [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 -   [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)
 
-## Azure Cognitive services
+## Azure Cognitive Services
 The billing depends on the type of service. The charges are based on the number of transactions for each type of operation specific to a service. Certain number of transactions are free. If you need additional transactions, choose from the **Standard** instances.
 For more information, see
 - [Cognitive services pricing calculator](https://azure.microsoft.com/pricing/calculator/)
