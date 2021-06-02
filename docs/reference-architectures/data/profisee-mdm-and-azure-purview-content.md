@@ -228,16 +228,16 @@ Running costs consist of a software license and Azure consumption. For more info
 ### Architecture guides
 
 - [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
-- [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
 - [Data warehousing](/azure/architecture/data-guide/relational-data/data-warehousing)
 - [Batch processing](/azure/architecture/data-guide/big-data/batch-processing)
-- [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
+- [Choosing a batch processing technology in Azure](/azure/architecture/data-guide/technology-choices/batch-processing)
 
 ### Reference architectures
 
-- [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
-- [DevTest Image Factory](/azure/architecture/solution-ideas/articles/dev-test-image-factory)
+- [Master data management with Profisee and Azure Data Factory](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
+- [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+- [Modern analytics architecture with Azure Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
+- [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
 - [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
-- [Modernize mainframe & midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
-- [DataOps for the modern data warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
-- [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)
+- [Optimize Marketing with Machine Learning](/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning)
+- [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
