@@ -59,7 +59,7 @@ This reference implementation will work with either model. Here are some conside
 
 - Make sure your implementation is aligned with the organization's and compliance requirements about identity management.
 - Minimize standing permissions and use just-in-time(JIT) role assignments, time-based, and approval-based role activation.
-- Follow the principle of least-privilege access when making RBAC role assigments.
+- Follow the principle of least-privilege access when making RBAC role assigments to all components of the CDE.
 
 #### Requirement 7.1.1
 
@@ -70,107 +70,40 @@ Define access needs for each role, including:
 
 ##### Your responsibilities
 
-Define a list of access for each role. Here are example roles and their responsibilities. Build  roles that are applicable for your organization and workload.
+Determine access for roles involved in workload and its operations. This depends on your organization structure. As you define roles, consider the scope of roles and responsibilities about topics such as:
 
-:::row:::
-   :::column span="":::
-      **Role**
-   :::column-end:::
-   :::column span="":::
-      **Responsibilities**
-   :::column-end:::
-   :::column span="":::
-      **Role assignment**
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-      **Application Owners**
-   :::column-end:::
-   :::column span="":::
-      Responsible for defining and prioritizing features that align with business goals. They need to understand how features impact the compliance scoping of the workload, and balance customer data protection and ownership with business objectives.
-   :::column-end:::
-   :::column span="":::
-      **Responsibilities**
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-      **Application Developers**
-   :::column-end:::
-   :::column span="":::
-      Responsible for developing software in service. All code developed by this role is subject to a set of training and quality gates upholding compliance, attestation, and release management processes. This role might be granted some read privileges in related Kubernetes namespaces and read privileges on Azure resources related to the workload. This role is not responsible for deploying or modifying any transitioning state in a running system. This team may manage build pipelines, but usually not deployment pipelines.
-   :::column-end:::
-   :::column span="":::
-      **Responsibilities**
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-      **Application Operators/SRE**
-   :::column-end:::
-   :::column span="":::
-      Have a deep understanding of the code base expertise on troubleshooting, observability standards, operations (scaling and dependency management) and live-site processes. Application Developers and SREs work closely together to improve availability, scalability and performance of the applications. This role is usually highly privileged within the scope of the application, that is Kubernetes namespaces and Azure resources related to the application. This role often manage the "last-mile" deployment pipeline, and may help the Application Developers manage the build pipelines. While this role will likely having standing access to parts of the Kubernetes cluster, minimize privileged access.
-   :::column-end:::
-   :::column span="":::
-      **Responsibilities**
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-      **Infrastructure Owners**
-   :::column-end:::
-   :::column span="":::
-      Responsible for the architecture, connectivity, functionality, and maintenance of the deployed services. They ensure that the infrastructure is cost-effective and provide appropriate capabilities such as connectivity, data retention, business continuity features, and so on. This role usually does not get involved in the operations of any given cluster, and likely doesn't need privilege within a cluster. They may require access to platform logs and Cost Center data.
-   :::column-end:::
-   :::column span="":::
-      **Responsibilities**
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-      **Infrastructure Operators/SRE**
-   :::column-end:::
-   :::column span="":::
-      Monitor the health of the hosting infrastructure and dependent services. They ensure the platform offers appropriate capacity and availability to Application Developers and Application Operators. They are cluster owners in that they are responsible for the cluster in which the workload is deployed. This team will manage the build, deploy, and bootstrap pipeline for the cluster, working with the Infrastructure Owners to ensure a suitable landing zone exists for the cluster. This role may need to oversee workload namespaces with read-only permissions to check Quota, Limits, OOM alerts. This role doesn't manage the workload. This role will likely bootstrap workload namespaces with requires Zero-Trust policies and set quotas. Application Operators should work with the Infrastructure Operators to ensure an understanding of target node pools, expected sizing and scale requirements, and other configurations.
-   :::column-end:::
-   :::column span="":::
-      **Responsibilities**
-   :::column-end:::   
-:::row-end:::
-:::row:::
-   :::column span="":::
-      **Policy/Security Owners**
-   :::column-end:::
-   :::column span="":::
-      Are security and, or regulation compliance experts. They define organizational policies that protect and adhere to regulatory compliance of the company employees, the assets, and the customers. Typically, the goal is to define and automate as many of these policies as possible, and to enforce very high standards around their versioning, attestation, and release management. This role will work with all roles to ensure policy is applied and can be through every phase..
-   :::column-end:::
-   :::column span="":::
-      **Responsibilities**
-   :::column-end:::   
-:::row-end:::
+- Source Code repository (GitHub Enterprise, Azure DevOps, GitLab, etc.)
+- Key Vaults
+- Resource Groups / Subscriptions
+- Azure Management Groups
+- Azure Policy (workload-centric), Azure Policy (subscription-centric)
+- Container Registries
+- Databases
+- Pipelines (Build and Deploy)
+- Azure Resources (ARM templates)
+- Training and Certification
+- TLS certificate authority
+- Live-site access patterns
+- Pre-production environments
+
+Who in your organization is responsible for tasks, such as:
+
+- Decisions about application security, Kubernetes RBAC, network policies, Azure policies, communication with other services.
+- Configuration and maintenance of Azure Firewall, Web Application Firewall (WAF), network security groups (NSGs), DNS configuration, and so on.
+- Allocation of enterprise-wide virtual network and subnets.
+- Monitor and remediate server security, patching, configuration, endpoint security.
+- Set direction for use of RBAC, Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources.
+- Incident monitoring and response team. Investigate and remediate security incidents in Security Information and Event Management (SIEM) or Azure Security Center.
  
+Here are example roles and their responsibilities.
 
-Think about the roles and functions in your organization. For example:
-
-|Team|Functions|Example role assignment
+|Team|Function|Access levels
 |---|---|---|
-|Application team|Decisions about application security, Kubernetes RBAC, network policies, Azure policies, communication with other services. |
-Network security|Configuration and maintenance of Azure Firewall, Web Application Firewall (WAF), network security groups (NSGs), DNS configuration, and so on.|
-|Network operations|Allocation of enterprise-wide virtual network and subnets.|
-|IT operations|Monitor and remediate server security, patching, configuration, endpoint security.|
-|Security operations| Incident monitoring and response team. Investigate and remediate security incidents in Security Information and Event Management (SIEM) or Azure Security Center. |
-|Policy Management| Set direction for use of RBAC, Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources.|
+|**Application owners**|Define the scope of the workload and prioritize features.  balance customer data protection and ownership with business objectives. |<TBD>|
+|**Application developers**|Develop software in compliance with the standard. All code must be approved by entities responsible for quality gates, attestation, and release management processes.|Read privileges in Kubernetes namespaces and Azure resources that are in scope of the workload. May manage build pipelines but not deployment pipelines.|
+|**Application operators (or SRE)**| Have deep understanding of the code base. Are experts in troubleshooting, observability standards, operations. Manage the "last-mile" deployment pipeline and may help the application developers manage the build pipelines. |Highly privileged within the scope of the application that includes related Kubernetes namespaces and Azure resources. |
+|**Infrastructure operators (or SRE)**|Build, deploy, and bootstrap pipeline for the cluster in which the workload is deployed. Monitor and the health of the container hosting infrastructure and dependent services. |Read-only permissions for the workload namespaces for quota, limits, or OOM alerts. Need <TBD> permissions to bootstrap workload namespaces with requires zero-trust policies and set quotas.|
 
-Based on that assessment, assign user or administrator roles. Kubernetes has built-in, user-facing RBAC roles, such as `admin` that are applied typically at the namespace level. If you are integrating Azure AD roles and Kubernetes roles, create a mapping between the two roles.
-
-Here's an example. Suppose you need a group for the SRE team.  This role assigned to the group requires the highest privilege and equates to a `cluster-admin` role. You can map the role to an existing AD RBAC role that has administrative access. Make sure you have strategy in place to create separation of duties.
-
-An alternate way is to create a custom role dedicated for cluster administrative access. Of the two approaches, the second one is recommended and demonstrated in the reference implementation.
-
-- Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are Just-In-Time(JIT) and standing. 
-
-- Monitor the roles for changes such as, in assigment changes or role definitions. Create alerts on changes even if they are expected to gain visibility into intentions behind the changes.
 
 #### Requirement 7.1.2
 
@@ -188,17 +121,50 @@ Assign access based on individual personnel’s job classification and function.
 
 ##### Your responsibilities
 
-Grant permissions based on the clearly assigned job duties of the individual. Avoid parameters such as the system, tenure of the employee.
+Determine permissions based on the clearly assigned job duties of the individual. Avoid parameters such as the system, tenure of the employee. Give access rights to a single user or to a group. Here are the some examples.
 
-Strive for consistency with your RBAC implementation. Define common roles and apply group assignments appropriately that align with your team structure. A consistent approach will help in detecting changes and and provide justification for new access requirements that may develop.
+|Team|Group assignment| Single user|
+|---|---|---|
+|**Application owners**|A group with access to reports, cost center, or Azure Dashboards. No access needed for in-cluster or cluster-level permissions.|
+|**Application developers**|A group with standing read permissions within defined scopes within Azure (such as  Application Insights) and the workload namespaces. These scopes and permissions may be different between pre-production and production environments.|
+|**Application operators (or SRE)**| <p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s) but are not highly privileged. </p> |A Service Principal responsible for deploying workload-centric resources.|
+|**Infrastructure operators (or SRE)**|<p>Group A: that is used at the break-glass group that allows full control over the Kubernetes cluster. Standing permissions are not required.</p><p>Group B for day-to-day operations on the cluster. It can have standing permissions within a cluster but are not highly privileged.</p>|A Service Principal responsible for deploying Azure resources, such as the cluster and other Azure resources on the same lifecycle.|
 
-Have a regular cadence for reviewing permissions. Responsibilities might change when there are changes on the team such as employee leaving the company or there are need for roles that are temporary. In some cases, the reviews might show  need for changes. One way is to review the `kube-audit-admin` logs to ensure access patterns are being followed. Outside of identity provider emergencies, the built-in `cluster admin` user should never be used. Consider including a review of these logs to detect unexpected admin user usage; as that might indicate reinforced training on your identity governance policies.
+Then, use role-based access control (RBAC) to limit access for the group and user. A role is a collection of permissions. An identity or a group of identities can be assigned to a role. RBAC can be divided into two categories:
 
-Make sure you maintain documentation that keeps track of the changes.
+- Azure RBAC&mdash;is an Azure Active Directory (AD)-based authorization model that controls access to the _Azure control plane_. This is an association of your Azure Active Directory (AD) tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources such as networks, AKS cluster, managed identities, and and so on.
+- Kubernetes RBAC&mdash;is a native Kubernetes authorization model that controls access to the _Kubernetes control plane_ exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
 
-Consider using dedicated tenants for seperation of responsibilities between Kubernetes RBAC and Azure RBAC when applicable. This defense-in-depth will protect the system in situations if one tenant is compromised, actions by the other tenant remain unaffected. The downside is the increased overhead in management of two tenants. Follow the governance policies to choose a model that works for the organization.
+Here are some example Azure RBAC role assigments:
 
-Be clear and consistent in naming of Azure RBAC and Kubernetes RBAC roles so that it's easier to audit.
+|Team group/user| Azure RBAC|
+|---|---|
+|**Application owners group**||
+|**Application developers group**||
+|**Application operators user**||
+|**Application operators group A**||
+|**Application operators group B**||
+|**Infrastructure operators user**||
+|**Infrastructure operators group A**||
+|**Infrastructure operators group B**||
+
+
+Within the cluster, the preceding user identities  and groups are mapped to Kubernetes `ClusterRole` and `ClusterRoleBinding` constructs, respectively. 
+
+
+Here are some best practices when assigning roles:
+
+- Consider using dedicated tenants for seperation of responsibilities between Kubernetes RBAC and Azure RBAC when applicable. This defense-in-depth will protect the system in situations if one tenant is compromised, actions by the other tenant remain unaffected. The downside is the increased overhead in management of two tenants. Follow the governance policies to choose a model that works for the organization.
+
+- You can choose to keep separate tenants for each RBAC mechanism. This way, you can clearly maintain tenant segmentation. The advantage is reduced attack surface and lateral movement. The down side is increased  complexity and cost of managing multiple identity stores.
+
+
+- Strive for consistency with your RBAC implementation. Define common roles and apply group assignments appropriately that align with your team structure. A consistent approach will help in detecting changes and and provide justification for new access requirements that may develop. It's also easier to audit.
+
+- Have a regular cadence for reviewing permissions. Responsibilities might change when there are changes on the team such as employee leaving the company or there are need for roles that are temporary. In some cases, the reviews might show  need for changes. One way is to review the `kube-audit-admin` logs to ensure access patterns are being followed. Outside of identity provider emergencies, the built-in `cluster admin` user should never be used. Consider including a review of these logs to detect unexpected admin user usage; as that might indicate reinforced training on your identity governance policies.
+
+- Make sure you maintain documentation that keeps track of the changes.
+
 
 #### Requirement 7.1.4
 
@@ -212,11 +178,21 @@ Have a gated process for approving changes in roles and permissions, including t
 
 Establish an access control system for systems components that restricts access based on a user’s need to know, and is set to “deny all” unless specifically allowed.
 
-<To do: Include Role assigments>
-
 #### Your responsibilities
 
-All components in the architecture that are in-scope must have restricted access. This includes the AKS nodes that run the workload, data storage, network access, and all other services that participate in processing the card holder data (CHD).
+After following [Requirement 7.1](#requirement-71), you should have assessed roles and responsibilities that are applicable for your organization and the workload. All components in the architecture that are in-scope must have restricted access. This includes the AKS nodes that run the workload, data storage, network access, and all other services that participate in processing the card holder data (CHD).
+
+Based on roles and responsibilities, assign user or administrator roles. Kubernetes has built-in, user-facing RBAC roles, such as `admin` that are applied typically at the namespace level. If you are integrating Azure AD roles and Kubernetes roles, create a mapping between the two roles.
+
+Here's an example. Suppose you need a group for the SRE team.  This role assigned to the group requires the highest privilege and equates to a `cluster-admin` role. You can map the role to an existing AD RBAC role that has administrative access. Make sure you have strategy in place to create separation of duties.
+
+An alternate way is to create a custom role dedicated for cluster administrative access. Of the two approaches, the second one is recommended and demonstrated in the reference implementation.
+
+- Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are Just-In-Time(JIT) and standing. 
+
+- Monitor the roles for changes such as, in assigment changes or role definitions. Create alerts on changes even if they are expected to gain visibility into intentions behind the changes.
+
+
 
 #### Requirement 7.2.1
 
@@ -308,8 +284,6 @@ Here are overall considerations for this requirement:
 **APPLIES TO: 8.1.1, 8.1.2, 8.1.3**
 
 Don't share or reuse identities for functionally different parts of the CDE.For example, using a team account to access data or cluster resources. Make sure the identity onboarding documentation is clear about not using shared accounts.
-
-In AKS, you can assign user-managed identities to individual pods, using the [aad-pod-identity project](https://github.com/Azure/aad-pod-identity). When the pod needs to access another resource, it authenticates itself by using the pod identity. Maintain managed-identity segmentation between pods. This means two pods (especially that are functionally discrete) must not share an identity when accessing other resources.
 
 Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identites across Azure resources, assign each Azure resource its own managed identity. Similarly, when using [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never use the same managed identity in pre-production and production.
 
@@ -424,7 +398,7 @@ Do not use group, shared, or generic IDs, passwords, or other authentication met
 
 Don't share or reuse identities for functionally different parts of the cluster or pods.For example, using a team account to access data or cluster resources. Make sure the identity onboarding documentation is clear about not using shared accounts.
 
-Disable root users in the CDE. Do not use the built-in --admin access in the CDE.
+Disable root users in the CDE. Do not use the built-in `--admin` access in the CDE.
 
 ### Requirement 8.6
 
