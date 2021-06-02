@@ -825,6 +825,8 @@ items:
                 href: example-scenario/dataplate2e/data-platform-end-to-end.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
+              - name: Geospatial data processing and analytics
+                href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: Ingestion and analysis of news feeds
                 href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
               - name: Partitioning in Event Hubs and Kafka
@@ -1195,6 +1197,8 @@ items:
                         href: microservices/design/gateway.md
                       - name: Data considerations
                         href: microservices/design/data-considerations.md
+                      - name: Container orchestration
+                        href: microservices/design/orchestration.md
                       - name: Design patterns for microservices
                         href: microservices/design/patterns.md
                   - name: Operate microservices in production
