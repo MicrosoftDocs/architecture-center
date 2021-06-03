@@ -138,7 +138,7 @@ Learn more about training:
 [mlops]: /azure/machine-learning/service/concept-model-management-and-deployment
 [mlops-aac]: ./mlops-python.yml
 [pipeline]: /azure/machine-learning/service/concept-ml-pipelines
-[realtime-scoring-aac]: ./realtime-scoring-python.yml
+[realtime-scoring-aac]: ./real-time-scoring-machine-learning-models.yml
 [scaling]: /azure/virtual-machine-scale-sets/overview
 [scikit]: https://pypi.org/project/scikit-learn
 [scikit-sample]:/azure/machine-learning/service/how-to-train-scikit-learn
