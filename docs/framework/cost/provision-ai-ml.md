@@ -10,6 +10,8 @@ products:
   - azure-machine-learning
 ms.custom:
   - article
+categories:
+  - ai-machine-learning
 ---
 
 # AI + Machine Learning cost estimates
@@ -48,7 +50,7 @@ For more information, see these articles:
 -   [Distributed training of deep learning models on Azure](../../reference-architectures/ai/training-deep-learning.yml)
 -   [Batch scoring of Python machine learning models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
 -   [Batch scoring of deep learning models on Azure](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
--   [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/realtime-scoring-python.yml)
+-   [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 -   [Machine learning operationalization (MLOps) for Python models using Azure MachineLearning](../../reference-architectures/ai/mlops-python.yml)
 -   [Batch scoring of R machine learning models on Azure](../../reference-architectures/ai/batch-scoring-r-models.yml)
 -   [Real-time scoring of R machine learning models on Azure](../../reference-architectures/ai/realtime-scoring-r.yml)
@@ -56,7 +58,7 @@ For more information, see these articles:
 -   [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 -   [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)
 
-## Azure Cognitive services
+## Azure Cognitive Services
 The billing depends on the type of service. The charges are based on the number of transactions for each type of operation specific to a service. Certain number of transactions are free. If you need additional transactions, choose from the **Standard** instances.
 For more information, see
 - [Cognitive services pricing calculator](https://azure.microsoft.com/pricing/calculator/)

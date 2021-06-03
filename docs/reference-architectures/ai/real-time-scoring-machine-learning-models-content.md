@@ -1,9 +1,9 @@
 
 
 
-This reference architecture shows how to deploy Python models as web services to make real-time predictions using the [Azure Machine Learning][aml]. Two scenarios are covered: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown.
+This reference architecture shows how to deploy Python models as web services to make real-time predictions using [Azure Kubernetes Service][aml-aks]. Machine learning models deployed on Azure Kubernetes are good for high-scale production deployments.
 
-Two reference implementations for this architecture are available on GitHub, one for [regular Python models][github-python] and one for [deep learning models][github-dl].
+Two scenarios are covered in this article: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown. In addition, two reference implementations for these scenarios are available on GitHub, one for [regular Python models][github-python] and one for [deep learning models][github-dl].
 
 ![Architecture diagram for real-time scoring of Python models on Azure](./_images/python-model-architecture.png)
 
@@ -18,22 +18,22 @@ This scenario uses a subset of Stack Overflow question data that includes origin
 The application flow for this architecture is as follows:
 
 1. The trained model is registered to the machine learning model registry.
-2. Machine Learning creates a Docker image that includes the model and scoring script.
+2. Azure Machine Learning creates a Docker image that includes the model and scoring script.
 3. Azure Machine Learning deploys the scoring image on Azure Kubernetes Service (AKS) as a web service.
 4. The client sends an HTTP POST request with the encoded question data.
 5. The web service created by Azure Machine Learning extracts the question from the request.
-6. The question is sent to the Scikit-learn pipeline model for featurization and scoring.
+6. The question is sent to the scikit-learn pipeline model for featurization and scoring.
 7. The matching FAQ questions with their scores are returned to the client.
 
 Here is a screenshot of the example app that consumes the results:
 
-![Screenshot of the example app](./_images/python-faq-matches.png)
+![Screenshot of an example FAQ matching application using a subset of Stack Overflow question data.](./_images/python-faq-matches.png)
 
 **Scenario 2: Image classification**. This scenario shows how to deploy a Convolutional Neural Network (CNN) model as a web service to provide predictions on images. For this scenario, "Input Data" in the architecture diagram refers to image files. CNNs are effective in computer vision for tasks such as image classification and object detection. This scenario is designed for the frameworks TensorFlow, Keras (with the TensorFlow back end), and PyTorch. However, it can be generalized to any scenario that uses deep learning models to make real-time predictions.
 
 This scenario uses a pre-trained ResNet-152 model trained on ImageNet-1K (1,000 classes) dataset to predict which category (see figure below) an image belongs to. These predictions are made in real time using a REST API endpoint.
 
-![Example of predictions](./_images/python-example-predictions.png)
+![Example of image classification predictions using a Convolutional Neural Network (CNN) model as a web service.](./_images/python-example-predictions.png)
 
 The application flow for the deep learning model is as follows:
 
@@ -48,7 +48,7 @@ The application flow for the deep learning model is as follows:
 
 This architecture consists of the following components.
 
-**[Azure Machine Learning][aml]** is a cloud service that is used to train, deploy, automate, and manage machine learning models, all at the broad scale that the cloud provides. It is used in this architecture to manage the deployment of models as well as authentication, routing, and load balancing of the web service.
+**[Azure Machine Learning][aml]** is a cloud service that is used to train, deploy, automate, and manage machine learning models, all at the broad scale that the cloud provides. It is used in this architecture to manage the deployment of models and authentication, routing, and load balancing of the web service.
 
 **[Virtual machine][vm]** (VM). The VM is shown as an example of a device—local or in the cloud—that can send an HTTP request.
 
@@ -58,17 +58,17 @@ This architecture consists of the following components.
 
 ## Performance considerations
 
-For real-time scoring architectures, throughput performance becomes a dominant consideration. For regular Python models, it's generally accepted that CPUs are sufficient to handle the workload.
+For real-time scoring architectures, throughput performance becomes a dominant consideration. For regular Python models, CPUs are sufficient to handle the workload.
 
-However for deep learning workloads, when speed is a bottleneck, GPUs generally provide better [performance][gpus-vs-cpus] compared to CPUs. To match GPU performance using CPUs, a cluster with large number of CPUs is usually needed.
+However for deep learning workloads, when speed is a bottleneck, GPUs generally provide better [performance][gpus-vs-cpus] compared to CPUs. To match GPU performance using CPUs, a cluster with large number of CPUs is typically needed.
 
-You can use CPUs for this architecture in either scenario, but for deep learning models, GPUs provide significantly higher throughput values compared to a CPU cluster of similar cost. AKS supports the use of GPUs, which is one advantage of using AKS for this architecture. Also, deep learning deployments typically use models with a high number of parameters. Using GPUs prevents contention for resources between the model and the web service, which is an issue in CPU-only deployments.
+You can use CPUs for this architecture in either scenario, but for deep learning models, GPUs provide higher throughput values compared to a CPU cluster of similar cost. AKS supports the use of GPUs, which is one advantage of using AKS for this architecture. Also, deep learning deployments typically use models with a high number of parameters. Using GPUs prevents contention for resources between the model and the web service, which is an issue in CPU-only deployments.
 
 ## Scalability considerations
 
-For regular Python models, where the AKS cluster is provisioned with CPU-only VMs, take care when [scaling out the number of pods][manually-scale-pods]. The goal is to fully utilize the cluster. Scaling depends on the CPU requests and limits defined for the pods. Machine Learning through Kubernetes also supports [pod autoscaling][autoscale-pods] based on CPU utilization or other metrics. The [cluster autoscaler][autoscaler] (in preview) can scale agent nodes based on the pending pods.
+For regular Python models, where the AKS cluster is provisioned with CPU-only VMs, take care when [scaling out the number of pods][manually-scale-pods]. The goal is to fully utilize the cluster. Scaling depends on the CPU requests and limits defined for the pods. Machine Learning through Kubernetes also supports [pod autoscaling][autoscale-pods] based on CPU utilization or other metrics. The [cluster autoscaler][autoscaler] can scale agent nodes based on the pending pods.
 
-For deep learning scenarios, using GPU-enabled VMs, resource limits on pods are such that one GPU is assigned to one pod. Depending on the type of VM used, you must [scale the nodes of the cluster][scale-cluster] to meet the demand for the service. You can do this easily using the Azure CLI and kubectl.
+For deep learning scenarios, using GPU-enabled VMs, resource limits on pods are such that one GPU is assigned to one pod. Depending on the type of VM used, you must [scale the nodes of the cluster][scale-cluster] to meet the demand for the service. You can do this easily using the [Azure CLI][azure-cli-kubernetes] and [kubectl][kubectl].
 
 ## Monitoring and logging considerations
 
@@ -78,7 +78,7 @@ For visibility into AKS performance, use the [Azure Monitor for containers][moni
 
 While deploying your application, monitor the AKS cluster to make sure it's working as expected, all the nodes are operational, and all pods are running. Although you can use the [kubectl][kubectl] command-line tool to retrieve pod status, Kubernetes also includes a web dashboard for basic monitoring of the cluster status and management.
 
-![Screenshot of the Kubernetes dashboard](./_images/python-kubernetes-dashboard.png)
+![A screenshot of the Kubernetes dashboard for basic monitoring of the cluster status and management.](./_images/python-kubernetes-dashboard.png)
 
 To see the overall state of the cluster and nodes, go to the **Nodes** section of the Kubernetes dashboard. If a node is inactive or has failed, you can display the error logs from that page. Similarly, go to the **Pods** and **Deployments** sections for information about the number of pods and status of your deployment.
 
@@ -110,7 +110,7 @@ Use [Azure RBAC][rbac] to control access to the Azure resources that you deploy.
 
 Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
-For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+For more information, see the Microsoft Azure Well-Architected Framework article [Principles of cost optimization][aaf-cost].
 
 
 ### Azure Machine Learning
@@ -125,12 +125,11 @@ Azure Container Registry offers **Basic**, **Standard**, and **Premium**. Choose
 
 You only pay for the virtual machines instances, storage, and networking resources consumed by your Kubernetes cluster. To estimate the cost of the required resources, see the [Container Services calculator][aks-Calculator].
 
-
-For more information, see the Cost section in [Microsoft Azure Well-Architected Framework][AAF-cost].
+For more information, see the Microsoft Azure Well-Architected Framework article [Principles of cost optimization][aaf-cost].
 
 ## DevOps considerations
 
-In this architecture, the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and operationalization, including DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as a real-time web service, staged deployment to QA/production environments, integration testing, and functional testing. 
+In this architecture, the scoring images are created by the Machine Learning model and deployed as containers on AKS. You can integrate the entire architecture into a release pipeline for model management and operationalization. The pipeline can include DevOps tasks for data sanity test, model training on different compute targets, model version management, model deployment as a real-time web service, staged deployment to QA/production environments, integration testing, and functional testing.
 The [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning][mlops-ra] reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning.
 
 ## Deployment
@@ -140,17 +139,32 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 - [Regular Python models][github-python]
 - [Deep learning models][github-dl]
 
+## Next steps
+
+Read the product documentation:
+
+- [Deploy a model to an Azure Kubernetes Service cluster][aml-aks]
+- [Introduction to private Docker container registries in Azure][registry-intro]
+
+Try these Microsoft Learning paths:
+
+- [Introduction to Kubernetes on Azure][mslearn-aks-intro]
+- [Develop and deploy applications on Kubernetes][mslearn-aks-deploy]
+
 <!-- links -->
 
-[aad-auth]: /azure/aks/aad-integration
+[aad-auth]: /azure/aks/managed-aad
 [aaf-cost]: ../../framework/cost/overview.md
 [acr]: /azure/container-registry
 [aks]: /azure/aks/intro-kubernetes
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
+[aml]: /azure/machine-learning/service/overview-what-is-azure-ml
+[aml-aks]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service
 [autoscaler]: /azure/aks/autoscaler
 [autoscale-pods]: /azure/aks/tutorial-kubernetes-scale#autoscale-pods
 [az-container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
+[azure-cli-kubernetes]: /azure/aks/kubernetes-walkthrough
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [get-started]: /azure/security-center/security-center-get-started
 [github-python]: https://github.com/Microsoft/MLAKSDeployAML
@@ -159,12 +173,14 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [https-ingress]: /azure/aks/ingress-tls
 [ingress-controller]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[aml]: /azure/machine-learning/service/overview-what-is-azure-ml
 [manually-scale-pods]: /azure/aks/tutorial-kubernetes-scale#manually-scale-pods
 [mlops-ra]: ./mlops-python.yml
 [monitor-containers]: /azure/monitoring/monitoring-container-insights-overview
+[mslearn-aks-deploy]: /learn/paths/develop-deploy-applications-kubernetes/
+[mslearn-aks-intro]: /learn/paths/intro-to-kubernetes-on-azure/
 [permissions]: /azure/aks/concepts-identity
 [rbac]: /azure/role-based-access-control/overview
+[registry-intro]: /azure/container-registry/container-registry-intro
 [scale-cluster]: /azure/aks/scale-cluster
 [scikit]: https://pypi.org/project/scikit-learn/
 [security-center]: /azure/security-center/security-center-intro

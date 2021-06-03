@@ -718,7 +718,7 @@ items:
               - name: Real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Real-time scoring Python models
-                href: reference-architectures/ai/realtime-scoring-python.yml
+                href: reference-architectures/ai/real-time-scoring-machine-learning-models.yml
               - name: Real-time scoring R models
                 href: reference-architectures/ai/realtime-scoring-r.yml
               - name: Scalable personalization
@@ -1619,7 +1619,9 @@ items:
                   - name: IBM z/OS migration with Asysco AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: Micro Focus Enterprise Server on Azure
-                    href: example-scenario/mainframe/micro-focus-server.yml 
+                    href: example-scenario/mainframe/micro-focus-server.yml                     
+                  - name: Migrate AIX workloads to Skytap on Azure
+                    href: example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml
                   - name: Migrate IBM i series applications to Skytap on Azure
                     href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml  
                   - name: Refactor IBM z/OS mainframe CF on Azure
@@ -1653,7 +1655,7 @@ items:
                 maintainContext: true
               - name: Computer forensics
                 href: example-scenario/forensics/index.yml
-              - name: End to end governance in Azure when using CI/CD
+              - name: End-to-end governance in Azure when using CI/CD
                 href: example-scenario/governance/end-to-end-governance-in-azure.yml
               - name: Highly available SharePoint Server 2016
                 href: reference-architectures/sharepoint/index.yml    
