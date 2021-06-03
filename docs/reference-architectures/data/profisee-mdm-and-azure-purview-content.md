@@ -100,44 +100,44 @@ Summary information is available to the user, by hovering over the governance ic
 
 [![Governance example view](./images/governance-summary-view.png)](./images/governance-summary-view.png#lightbox)
 
-You can navigate to the full Azure Purview user experience, by clicking the governance icon in the dialog header. This takes the user to Purview in the context of the asset currently being viewed. The user is then free to navigate elsewhere in Purview, based on their discovery needs. 
+You can navigate to the full Azure Purview user experience, by clicking the governance icon in the dialog header. This takes the user to Purview in the context of the asset currently being viewed. You are then free to navigate elsewhere in Purview, based on your discovery needs. 
 
 ## MDM processing 
 
-### Data modeling 
+### Data modeling
 
 The heart of your master data management solution is the underlying data model. It represents the definition of **master data** within your company. Developing a master data model involves the following tasks: 
 
 1. Identify elements of source data, from across your systems landscape, that are critical to your company’s operations and central to analyzing performance. 
-2. Enriching the model with elements that are obtained from other third-party sources that render the data more accurate and useful. 
-3. Establishing clear ownership and permissions related to the elements of your data model thus ensuring visibility and change management is factored into your model’s design. 
+2. Enrich the model with elements that are obtained from other third-party sources that render the data more accurate and useful. 
+3. Establish clear ownership and permissions related to the elements of your data model, thus ensuring that visibility and change management are factored into your model’s design. 
 
-Data governance is a critical foundation for supporting all these activities. 
+Data governance is a critical foundation for supporting all these activities:
 
-- Your governance data catalog, glossary, and supporting resources are an invaluable source of information to your data modeling team analyzing what should be included as part of your master data model. Terminology can be reinforced in your model allowing you to establish an official lexicon for your business and allow your master data model to translate from esoteric terms in use in various source systems to the approved language of the business. 
-- Third-party systems are often a source of master data separate and apart from your LOB systems. It is critical to add elements to your model to capture the additional information these systems add to your data and reflect these sources of information back into your data catalog. 
-- Ownership and data access as identified in your governance catalog can be leveraged to enforce access and change management permissions within your master data management solution thus aligning your corporate policies and needs with the tools used to manage and steward your master data. 
+- Your governance data catalog, glossary, and supporting resources are invaluable sources of information to your data modeling team, in order to analyze what should be included as part of your master data model. Terminology can be reinforced in your model, which allows you to establish an official lexicon for your business. This also allows your master data model to translate from esoteric terms, in use in various source systems, to the approved language of the business. 
+- Third-party systems are often a source of master data that is separate and apart from your LOB systems. It is critical to add elements to your model to capture the additional information that these systems add to your data, and to reflect these sources of information back into your data catalog. 
+- Ownership and data access, as identified in your governance catalog, can be leveraged to enforce access and change management permissions within your master data management solution. Thus, you align your corporate policies and needs with the tools that are used to manage and steward your master data. 
 
 ### Source data load 
 
-Data is loaded into your master data model from your disparate LOB systems, ideally, with little to no change or transformation. The goal is to have a centralized version of the data as it exists in the source system with as little loss of fidelity between source system and your master data repository as possible. By limiting the complexity of your loading process lineage is made simpler. And by leveraging technology such as Azure Data Factory pipelines, your governance solution can inspect the flow and connect the dots between your source system and your master data model. 
+Data is loaded into your master data model from your disparate LOB systems, ideally, with little to no change or transformation. The goal is to have a centralized version of the data, as it exists in the source system, with as little loss of fidelity between the source system and your master data repository, as possible. By limiting the complexity of your loading process, lineage is made simpler. And by leveraging technology such as Azure Data Factory pipelines, your governance solution can inspect the flow, and then it can connect the dots between your source system and your master data model. 
 
 ### Data enrichment and standardization
 
-Once the source data has been loaded into your model, it can be extended by tapping into rich sources of 3rd-party data. These systems can be used to improve the data obtained from your LOB systems or to augment the source data with information that enhances its use for other downstream consumers. For example: 
+Once the source data has been loaded into your model, you can extend it by tapping into rich sources of 3rd-party data. These systems can be used to improve the data obtained from your LOB systems, or to augment the source data with information that enhances its use for other downstream consumers. For example: 
 
-- Address verification services (e.g., Bing) can be used to correct and improve source system addresses by standardizing and adding missing information that is crucial to geolocation and mail delivery for example. 
-- Third-party information services (e.g., Dun & Bradstreet) can provide general purpose or industry-specific data that extends the value of your master data with information unavailable directly from your LOB systems. 
+- Address-verification services (such as Bing) can be used to correct and improve source system addresses, by standardizing and adding missing information that is crucial to geolocation and to mail delivery (for example). 
+- Third-party information services (such as Dun & Bradstreet) can provide general purpose or industry-specific data that extends the value of your master data with information that was unavailable, directly from your LOB systems. 
 
-Profisee’s publish/subscribe infrastructure makes it easy to integrate your own 3rd-party sources into your solution as needed. 
+Profisee’s publish/subscribe infrastructure makes it easy to integrate your own 3rd-party sources into your solution, as needed. 
 
 The ability to understand the sources and meaning behind these data are as critical for 3rd-party data as they are for your internal LOB systems. By integrating your master data model into your governance data catalog, you can connect the dots between both internal and external sources of data. 
 
 ### Data quality validation and stewardship
 
-Once your data has been loaded and enriched, it is important that it be checked for quality and adherence to standards established through your governance processes. Purview can, again, be a rich source of standards information that can be used to drive your data quality rules enforced by your master data management solution. Additionally, data quality rules can be published by Profisee as assets to your governance catalog and subject to review and approval helping to provide top-down oversight to quality standards associated with your master data. Because your rules are tied to master data entities and attributes and because those attributes are traced back to source system, you can leverage this information to establish the root cause of poor data quality originating from your LOB systems. 
+Once your data has been loaded and enriched, it is important to check it for quality and for adherence to standards that are established through your governance processes. Purview can, again, be a rich source of standards information and can be used to drive your data quality rules, to be enforced by your master data management solution. Additionally, data quality rules can be published by Profisee, as assets to your governance catalog. The rules can be subject to review and approval, which helps you provide top-down oversight to quality standards that are associated with your master data. Because your rules are tied to master data entities and attributes, and because those attributes are traced back to source system, you can leverage this information to establish the root cause for the poor data quality that originates from your LOB systems. 
 
-As data stewards address issues surfaced through your master data solution, they can leverage Purview’s data governance catalog to assist in understanding and resolving quality issues as they arise. Backed by the support of data owners and experts, they are armed to address data quality issues quickly and accurately. 
+As data stewards address issues that are surfaced through your master data solution, they can leverage Purview’s data governance catalog to assist in understanding and resolving quality issues, as they arise. Backed by the support of data owners and experts, they are armed to address data quality issues quickly and accurately. 
 
 ### Matching and survivorship
 
