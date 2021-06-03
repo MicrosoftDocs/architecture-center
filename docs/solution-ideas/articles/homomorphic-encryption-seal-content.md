@@ -5,6 +5,7 @@ Companies often send, receive, and store their cloud data in encrypted form. But
 This article discusses how and when to use homomorphic encryption. It also covers how to implement homomorphic encryption with the open-source [Microsoft Simple Encrypted Arithmetic Library (SEAL)](https://github.com/microsoft/SEAL#introduction).
 
 ## Use cases
+
 - Lightweight computations like addition and multiplication on privacy-critical data and parts of programs.
 - Outsourced cloud computing, where a single owner owns all the data and has sole access to the decryption keys.
 
@@ -17,6 +18,11 @@ Traditional encryption schemes consist of three functionalities: key generation,
 You can use traditional encryption for secure storage and communication, but outsourced computation has required the removal of encryption layers. Cloud services that provide outsourced computation must implement access policies to prevent unauthorized access to the data and keys. Data privacy relies on the access control policies that are imposed by the cloud provider and trusted by the customer.
 
 With SEAL homomorphic encryption, cloud providers never have unencrypted access to the data they store and compute on. Computations can be performed directly on encrypted data. The results of such encrypted computations remain encrypted, and can be decrypted only by the data owner by using the secret key. Most homomorphic encryption uses public-key encryption schemes, although the public-key functionality may not always be needed.
+
+## Components
+
+- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet/2.2)
+- [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal/)
 
 ## Considerations
 
