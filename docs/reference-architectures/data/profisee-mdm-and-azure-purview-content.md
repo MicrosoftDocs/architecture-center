@@ -218,11 +218,11 @@ Profisee authenticates users, by using OpenID Connect, which implements an OAuth
 The Profisee Platform can be deployed as a PaaS solution in Azure, using the Profisee [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). There are two options, as it applies to Purview integration: 
 
 1. If you already have an Azure Purview account and metadata populated, you can connect Profisee to the existing account. In this case, you must specify the following properties in the ARM template: 
-   - The **Atlas Endpoint URL** associated with your Purview account. 
+   - The **Atlas Endpoint URL** that's associated with your Purview account. 
    - An App Registration **Client ID** and **Client Secret** that has the **Purview Data Curator** role assigned. 
-2. If you do not yet have an Azure Purview account, Profisee’s ARM template can provision one for you as part of the Profisee Platform installation. In this case you must specify the following properties in the ARM template: 
-   - The **Purview Account Name** you want to assign to the newly provisioned Purview account. 
-   - The **Platform Size** indicated in capacity units. Purview currently supports 2 choices: 4 and 16. Refer to [Manage and increase quotas for resources with Azure Purview](/azure/purview/how-to-manage-quotas) for details on sizing your Purview account.  
+2. If you do not yet have an Azure Purview account, Profisee’s ARM template can provision one for you, as part of the Profisee Platform installation. In this case, you must specify the following properties in the ARM template: 
+   - The **Purview Account Name** that you want to assign to the newly provisioned Purview account. 
+   - The **Platform Size**, which is indicated in capacity units. Purview currently supports two choices: 4 and 16. Refer to [Manage and increase quotas for resources with Azure Purview](/azure/purview/how-to-manage-quotas) for details on sizing your Purview account.  
 
 The figure below illustrates how these options are reflected in Profisee’s ARM template: 
 
@@ -236,7 +236,7 @@ Running costs consist of a software license and Azure consumption. For more info
 
 - Understand the capabilities of the [REST Copy Connector](/azure/data-factory/connector-rest) in Azure Data Factory. 
 - Learn more about [Profisee running natively in Azure](https://profisee.com/profisee-microsoft/). 
-- Learn how to deploy Profisee to Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). 
+- Learn how to deploy Profisee to Azure, by using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). 
 - View the [Profisee Azure Data Factory templates](https://github.com/profisee/azuredatafactory). 
 
 ## Related resources
