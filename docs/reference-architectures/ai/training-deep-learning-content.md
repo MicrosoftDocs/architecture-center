@@ -160,7 +160,7 @@ You may also find the following resources useful:
 [horovod]: https://github.com/uber/horovod
 [imagenet]: http://www.image-net.org
 [tensorflow]: https://github.com/tensorflow/tensorflow
-[real-time-scoring]: ../../reference-architectures/ai/realtime-scoring-python.yml
+[real-time-scoring]: ../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml
 [resnet]: https://arxiv.org/abs/1512.03385
 [security-guide]: /azure/storage/common/storage-security-guide
 [azureml-logging]: /azure/machine-learning/how-to-track-experiments
