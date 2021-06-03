@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore writeback MSOL -->
 
 
@@ -229,9 +228,9 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
 ## Related resources
 
-* [Manage identity in multitenant applications](/azure/architecture/multitenant-identity/)
-* [Integrate on-premises AD with Azure](/azure/architecture/reference-architectures/identity/)
-* [Extend on-premises AD FS to Azure](/azure/architecture/reference-architectures/identity/adfs)
+* [Manage identity in multitenant applications](../../multitenant-identity/index.md)
+* [Integrate on-premises AD with Azure](./index.yml)
+* [Extend on-premises AD FS to Azure](./adfs.yml)
 
 
 <!-- links -->
@@ -272,7 +271,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 [AAF-devops]: ../../framework/devops/overview.md
 [hybrid-identity-design]: /azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview
 [aad-ca-plan]: /azure/active-directory/conditional-access/plan-conditional-access
-[adds-azure-design]: /azure/architecture/reference-architectures/identity/
+[adds-azure-design]: ./index.yml
 [identity-best-practices]: /azure/security/fundamentals/identity-management-best-practices
 [security-compass-paw]: /security/compass/overview
 [security-compass]:/security/compass/compass

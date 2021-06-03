@@ -81,6 +81,6 @@ For more information on managing token lifetimes, see [Optimize reauthentication
 
 ## Related resources
 
-- [Integrate on-premises AD domains with Azure AD](/azure/architecture/reference-architectures/identity/azure-ad)
-- [Hybrid identity](/azure/architecture/solution-ideas/articles/hybrid-identity)
-- [Manage identity in multitenant applications](/azure/architecture/multitenant-identity)
+- [Integrate on-premises AD domains with Azure AD](../../reference-architectures/identity/azure-ad.yml)
+- [Hybrid identity](../../solution-ideas/articles/hybrid-identity.yml)
+- [Manage identity in multitenant applications](../../multitenant-identity/index.md)

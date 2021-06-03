@@ -19,11 +19,11 @@ Customer Churn Prediction uses Cortana Intelligence Suite components to predict 
 
 ## Components
 
-* [Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about) is an event ingestion service that is capable of processing millions of events per second. Data sent to event hub can be transformed and stored using any real-time analytics provider.
-* [Azure Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-introduction) Is a real-time analytics that is design to analyze and process high volume of fast streaming data. Relationships and patterns identified in the data can be used to trigger actions and initiate workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data for later use.
+* [Azure Event Hubs](/azure/event-hubs/event-hubs-about) is an event ingestion service that is capable of processing millions of events per second. Data sent to event hub can be transformed and stored using any real-time analytics provider.
+* [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) Is a real-time analytics that is design to analyze and process high volume of fast streaming data. Relationships and patterns identified in the data can be used to trigger actions and initiate workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data for later use.
 * [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) is cloud service for storing large amount of unstructured data such as text, binary data, audio and documents more-easily and cost-effectively. Azure blob storage allows for a quick access to data scientist to experiment and build AI models.
 * [Azure Synapse Analytics](https://azure.microsoft.com/en-us/services/synapse-analytics/) is the fast and reliable data warehouse with limitless analytics that brings together data integration, enterprise data warehousing, and big data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated resources and serve data for immediate BI and machine learning needs.
-* [Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/) Can be used for any machine learning supervised and unsupervised whether you prefer to write Python of R code. You can build, train and track machine learning models in Azure Machine Leaning Workspace.
+* [Azure Machine Learning](/azure/machine-learning/) Can be used for any machine learning supervised and unsupervised whether you prefer to write Python of R code. You can build, train and track machine learning models in Azure Machine Leaning Workspace.
 * [Power BI](https://powerbi.microsoft.com/en-us/) is a suite of tools to empower organizations by delivering powerful insights. Power BI connects to various data sources, simplify data prep and model creation from disparate sources. Enhance team collaboration across the organization to produce analytical reports and dashboard to support the business decisions and publish them to the web and mobile devices for users to consume.
 
 ## Description
@@ -59,14 +59,14 @@ The snapshot below shows an example Power BI dashboard that gives insights into 
 
 ### Architecture guides
 
-* [Artificial intelligence (AI)](/azure/architecture/data-guide/big-data/ai-overview)
-* [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-* [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
-* [Machine learning operations (MLOps) framework](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+* [Artificial intelligence (AI)](../../data-guide/big-data/ai-overview.md)
+* [Compare the machine learning products and technologies from Microsoft](../../data-guide/technology-choices/data-science-and-machine-learning.md)
+* [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
+* [Machine learning operations (MLOps) framework](../../example-scenario/mlops/mlops-technical-paper.yml)
 
 ### Reference architectures
 
-* [Batch scoring for deep learning models](/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning)
-* [Batch scoring of Python models on Azure](/azure/architecture/reference-architectures/ai/batch-scoring-python)
-* [Batch scoring of Python models on Azure](/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline)
-* [Movie recommendations on Azure](/azure/architecture/example-scenario/ai/movie-recommendations)
+* [Batch scoring for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
+* [Batch scoring of Python models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
+* [Batch scoring of Python models on Azure](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
+* [Movie recommendations on Azure](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
