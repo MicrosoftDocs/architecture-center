@@ -18,7 +18,7 @@ Typical uses for this architecture include:
 
 The architecture consists of the following components:
 
-- **Azure Active Directory tenant**. This component is an instance of Azure Active Directory (Azure AD) that is created by your organization. It acts as a directory service for cloud applications, by storing objects that are copied from the on-premises Active Directory. It also provides identity services when accessing Azure file shares.
+- **Azure Active Directory tenant**. This component is an instance of Azure Active Directory (Azure AD) that's created by your organization. It acts as a directory service for cloud applications, by storing objects that are copied from the on-premises Active Directory. It also provides identity services when accessing Azure file shares.
 - **AD DS server**. This component is an on-premises directory and identity service. The AD DS directory is synchronized with Azure AD to enable it to authenticate on-premises users.
 - **Azure AD Connect sync server**. This component is an on-premises server that runs the Azure AD Connect sync service. This service synchronizes information held in the on-premises Active Directory to Azure AD.
 - **Virtual network gateway**. This optional component is used to send encrypted traffic between a Virtual Network NAT and an on-premises location over the internet.
@@ -70,7 +70,7 @@ The Azure File Sync service allows you to cache Azure file shares on an on-premi
 ## Availability considerations
 
 > [!NOTE]
-> Azure storage account is the parent resource for Azure file shares. Azure file share has the level of redundancy that is provided by the storage account that contains the share.
+> Azure storage account is the parent resource for Azure file shares. Azure file share has the level of redundancy that's provided by the storage account that contains the share.
 
 - Azure file shares currently support the following data redundancy options:
   - **Locally redundant storage (LRS)**. Data is copied synchronously three times within a single physical location in the primary region. This practice protects against loss of data because of hardware faults, such as a bad disk drive.
@@ -98,14 +98,14 @@ For more information, see [Enable soft delete on Azure file shares][Azure-Files-
 
 ## Security considerations
 
-- Use AD DS authentication over SMB for accessing Azure file shares. This setup provides the same seamless single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares. For more information, see [How it works][Azure-files-How-it-works] and feature [enablement steps][Azure-files-Enablement-steps]. Your client needs to be domain joined to AD DS, because the authentication is still performed by the AD DS domain controller. Also, you need to assign both share level and file/directory level permissions to get access to the data. [Share level permission assignment][Azure-files-share-permissions] goes through Azure RBAC model. [File/directory level permission][Azure-files-file-level-permissions] is managed as Windows ACLs.
+- Use AD DS authentication over SMB for accessing Azure file shares. This setup provides the same seamless single sign-on (SSO) experience when accessing Azure file shares as accessing on-premises file shares. For more information, see [How it works][Azure-files-How-it-works] and feature [enablement steps][Azure-files-Enablement-steps]. Your client needs to be domain joined to AD DS, because the authentication is still done by the AD DS domain controller. Also, you need to assign both share level and file/directory level permissions to get access to the data. [Share level permission assignment][Azure-files-share-permissions] goes through Azure RBAC model. [File/directory level permission][Azure-files-file-level-permissions] is managed as Windows ACLs.
 
   > [!NOTE]
   > Access to Azure file shares is always authenticated. Azure file shares don't support anonymous access. Besides identity-based authentication over SMB, users can authenticate to Azure file share also by using storage access key and Shared Access Signature.
 
-- All data that is stored on Azure file share is encrypted at rest using Azure storage service encryption (SSE). SSE works similarly to BitLocker Drive Encryption on Windows, where data is encrypted beneath the file system level. By default, data stored in Azure Files is encrypted with Microsoft-managed keys. With Microsoft-managed keys, Microsoft maintains the keys to encrypt/decrypt the data and manages rotating them regularly. You can also choose to manage your own keys, which gives you control over the rotation process.
+- All data that's stored on Azure file share is encrypted at rest using Azure storage service encryption (SSE). SSE works similarly to BitLocker Drive Encryption on Windows, where data is encrypted beneath the file system level. By default, data stored in Azure Files is encrypted with Microsoft-managed keys. With Microsoft-managed keys, Microsoft maintains the keys to encrypt/decrypt the data and manages rotating them regularly. You can also choose to manage your own keys, which gives you control over the rotation process.
 - All Azure storage accounts have encryption in transit enabled by default. This setup means that all communication with Azure file shares is encrypted. Clients that don't support encryption can't connect to Azure file shares. If you disable encryption in transit, clients that run older operating systems, such as Windows Server 2008 R2 or older Linux, can also connect. In such instances, data isn't encrypted in transit from Azure file shares.
-- By default, clients can connect to Azure file share from anywhere. You can limit from which networks clients can connect to Azure file shares by configuring Firewall and virtual networks and private endpoint connections.
+- By default, clients can connect to Azure file share from anywhere. To limit the networks from which clients can connect to Azure file shares, configure Firewall, virtual networks, private endpoint connections.
 For more information, see [Configure Azure Storage firewalls and virtual networks][Azure-Storage-firewalls] and [Configuring Azure Files network endpoints][Azure-Files-network-endpoints].
 
 ## Cost considerations
