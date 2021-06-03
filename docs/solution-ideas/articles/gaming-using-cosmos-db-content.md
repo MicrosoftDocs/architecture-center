@@ -54,6 +54,6 @@ Review the following articles on Cosmos DB:
 
 The following solution ideas feature Azure Cosmos DB:
 
-* [Globally distributed applications using Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db)
-* [Retail and e-commerce using Cosmos DB](/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db)
-* [Serverless apps using Cosmos DB](/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db)
+* [Globally distributed applications using Cosmos DB](./globally-distributed-mission-critical-applications-using-cosmos-db.yml)
+* [Retail and e-commerce using Cosmos DB](./retail-and-e-commerce-using-cosmos-db.yml)
+* [Serverless apps using Cosmos DB](./serverless-apps-using-cosmos-db.yml)

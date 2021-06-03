@@ -32,12 +32,11 @@ Use AKS to simplify the deployment and management of microservices-based archite
 
 ## Next steps
 
-- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices).
-- Follow the [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here).
-- See the [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks).
+- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml).
+- Follow the [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md).
+- See the [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml).
 - To learn about the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 
 ## Related resources
 
-If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](https://docs.microsoft.com/en-us/learn/modules/aks-workshop/), to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
-
+If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop/), to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
