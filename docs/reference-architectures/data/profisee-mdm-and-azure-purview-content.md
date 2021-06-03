@@ -8,7 +8,7 @@ Without high-quality data in your Azure data estate, the business value of Azure
 
 **Profisee MDM** is designed to accept master data from any source, then match, merge, standardize, verify, correct, and synchronize it across systems, ensuring data can be properly integrated and will meet the needs of downstream systems, such as business intelligence (BI), machine learning, and so on.
 
-**Better together** – Purview and Profisee MDM are integrated to streamline these tasks and ensure that all systems are working to enforce the same standards. Profisee publishes its master data model to Purview, where it can participate in governance. Purview then shares the output of governance, such as a data catalog and glossary information, so it can be reviewed and enforced by Profisee. 
+**Better together**: Purview and Profisee MDM are integrated to streamline these tasks and ensure that all systems are working to enforce the same standards. Profisee publishes its master data model to Purview, where it can participate in governance. Purview then shares the output of governance, such as a data catalog and glossary information, so it can be reviewed and enforced by Profisee. 
 
 For example, after cataloging enterprise data sources, it may be determined that there are multiple sources of customer data. To be effective, master data should be merged, validated, and corrected in Profisee, by using governance definitions, insights, and expertise that are detailed in Purview. In this way, Purview and Profisee form the foundation for governance and data management, and they maximize the business value of data in Azure.
 
@@ -22,15 +22,15 @@ The flow illustrated below represents the general order of activity that occurs 
 
 1. **LOB scanning & classification**: The flow begins by scanning line-of-business (LOB) systems to identify and establish an initial set of assets in Purview. These assets can then be further classified, described, and organized, helping establish a baseline understanding of the data estate. This is a key input for data modelers who are configuring the master data management solution.
 2. **Master data modeling**: Purview creates a rich source of enterprise metadata that informs your master data model. Modelers, alongside subject matter experts, improve model effectiveness and accuracy. As your master data model is defined, metadata that's associated with your master data model (such as model entities and attributes) are published to Purview, which automatically allows Profisee to participate in governance as part of your data estate.
-3. **Source master data load** – ETL processes, such as Azure Data Factory (ADF) pipelines, can load data into your master data model. In addition, Purview can interrogate such ETL pipelines to infer lineage details that are then added to your governance catalog. This can aid in connecting the dots between your LOB systems and your associated master data.
+3. **Source master data load**: ETL processes, such as Azure Data Factory (ADF) pipelines, can load data into your master data model. In addition, Purview can interrogate such ETL pipelines to infer lineage details that are then added to your governance catalog. This can aid in connecting the dots between your LOB systems and your associated master data.
 4. **Source data and metadata enrichment**: Aspects of your master data solution can drive the creation of new master data entities and attributes that enrich your data and support related stewardship processes. Like master data modeling, the metadata associated with this enriched data is published automatically to Purview, and it becomes part of your catalog and data estate. Source data enrichment may include one or more of the following: 
 5. Creation of golden (or master) records that represent the best information that's available across disparate LOB systems, contributing to your master data model. 
    - Enriched and improved address, phone, and email contact information that is obtained through supported 3rd-party providers. 
    - New record attributions that contain transformed data that originates from Profisee’s data quality rules engine and/or data stewardship activities. 
    - Process-oriented control attributes that support various stewardship, workflow, and data quality stage-gate behaviors.
 6. **Governance data enrichment**: As your master metadata details are published to Purview, your governance team can enhance it with enterprise-level details that help with usage and stewardship, such as glossary entries, supporting resources, data classification, sensitivity identification, ownership, and subject-matter expertise.
-7. **Data stewardship** – Enriched governance information is made available to data stewards through Profisee’s FastApp Portal, which allows stewards to make good decisions, when faced with quality issues and/or matching conflict resolution challenges. Owners and experts can be quickly identified and reached via instant message (such as Teams chat), email, or phone, thus fostering collaboration between stewards, business users, and data owners. 
-8. **Managed master data** – After quality checks and stewardship activities have been completed, high quality master data can be leveraged by the business, through analytics supported by Azure Synapse. Like data ingress, real-time or near-real-time data feeds can be supported by Azure Data Factory pipelines to your analytics. And leveraging the ability to infer lineage from the pipeline metadata, you're able to trace lineage from your analytics back to the LOB applications that originated the data that you are presently analyzing. 
+7. **Data stewardship**: Enriched governance information is made available to data stewards through Profisee’s FastApp Portal, which allows stewards to make good decisions, when faced with quality issues and/or matching conflict resolution challenges. Owners and experts can be quickly identified and reached via instant message (such as Teams chat), email, or phone, thus fostering collaboration between stewards, business users, and data owners. 
+8. **Managed master data**: After quality checks and stewardship activities have been completed, high quality master data can be leveraged by the business, through analytics supported by Azure Synapse. Like data ingress, real-time or near-real-time data feeds can be supported by Azure Data Factory pipelines to your analytics. And leveraging the ability to infer lineage from the pipeline metadata, you're able to trace lineage from your analytics back to the LOB applications that originated the data that you are presently analyzing. 
 
 ### Components 
 
@@ -48,10 +48,10 @@ The flow illustrated below represents the general order of activity that occurs 
 
 Absent a purpose-built MDM application, some of the technical capabilities needed to build an MDM solution may be found within the Azure ecosystem: 
 
-- **Data quality** - When loading to an analytics platform, data quality can be built into integration processes. For example, you can use hardcoded scripts to apply data quality transformations in an [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pipeline. 
-- **Data standardization and enrichment** - [Azure Maps](https://azure.microsoft.com/services/azure-maps/) is available to provide data verification and standardization for address data. These can be used in Azure Functions and/or Azure Data Factory. Standardization of other data may require you to develop hardcoded scripts. 
-- **Duplicate data management** - Azure Data Factory can be used to [deduplicate rows](https://docs.microsoft.com/en-us/azure/data-factory/how-to-data-flow-dedupe-nulls-snippets), where sufficient identifiers are available for an exact match. In this case, the logic to merge matched with appropriate survivorship would likely require custom hardcoded scripts. 
-- **Data stewardship** - [Power Apps](https://powerapps.microsoft.com/) can be used to quickly develop simple data stewardship solutions to manage data in Azure, along with appropriate user interfaces for review, workflow, alerts, and validations. 
+- **Data quality**: When loading to an analytics platform, data quality can be built into integration processes. For example, you can use hardcoded scripts to apply data quality transformations in an [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pipeline. 
+- **Data standardization and enrichment**: [Azure Maps](https://azure.microsoft.com/services/azure-maps/) is available to provide data verification and standardization for address data. These can be used in Azure Functions and/or Azure Data Factory. Standardization of other data may require you to develop hardcoded scripts. 
+- **Duplicate data management**: Azure Data Factory can be used to [deduplicate rows](https://docs.microsoft.com/en-us/azure/data-factory/how-to-data-flow-dedupe-nulls-snippets), where sufficient identifiers are available for an exact match. In this case, the logic to merge matched with appropriate survivorship would likely require custom hardcoded scripts. 
+- **Data stewardship**: [Power Apps](https://powerapps.microsoft.com/) can be used to quickly develop simple data stewardship solutions to manage data in Azure, along with appropriate user interfaces for review, workflow, alerts, and validations. 
 
 ## MDM integration with Azure Purview
 
@@ -66,49 +66,49 @@ The figure below illustrates in more detail Profisee’s Azure Purview integrati
 
 #### Leveraging the Purview catalog for master data model design 
 
-One of the challenges, when preparing a master data management solution, is determining what constitutes **master data** and from which data sources you will populate your master data model. Purview can be leveraged to assist this effort by taking advantage of the ability to scan your critical data sources and by engaging your data governance team and subject matter experts to enrich this catalog with information that your master data modelers can tap to better align your master data model with your LOB systems. Conflicting terminology can be reconciled yielding a master data model that optimally reflects the terminology and definitions on which the business wants to standardize while avoiding outdated and misleading terms. 
+One of the challenges, when preparing a master data management solution, is determining what constitutes **master data** and from which data sources you will populate your master data model. You can leverage Purview to assist in this effort, by taking advantage of the ability to scan your critical data sources, and by engaging your data governance team and subject matter experts. This way, you can enrich your catalog with information that your master data modelers can then tap, to better align your master data model with your LOB systems. YOu can reconcile conflicting terminology, which yields a master data model that optimally reflects the terminology and definitions on which your business wants to standardize, while avoiding outdated and misleading terms.
 
-The following excerpt from the broader diagram illustrates this integration use-case. Assuming you have leveraged Purview’s system scanning functions to ingest metadata from your LOB systems and your governance team and SMEs have prepared a solid catalog and contacts, data modelers working with Profisee’s modeling services can prepare and evolve your master data model in alignment with your established standards as defined in Purview. 
+The following excerpt from the broader diagram illustrates this integration use-case. First, you leverage Purview’s system scanning functions to ingest metadata from your LOB systems. After your governance team and SMEs have prepared a solid catalog and contacts, then the data modelers working with Profisee’s modeling services can prepare and evolve your master data model, in alignment with your established standards (as defined in Purview). 
 
 [![Integration use case](./images/integration-use-case.png)](./images/integration-use-case.png#lightbox)
 
-As your master data modelers evolve the model, the modeling services within the Profisee platform publish changes that are received by Profisee’s governance services which, in turn, prepares and forwards those changes to Purview for inclusion in its updated catalog. These additions to the catalog ensure that your master data definitions are included in the broader data estate and can be governed and controlled in the same manner as your LOB system’s metadata. And by ensuring this information is cataloged together, you are in a better position to connect the dots between your master data and your LOB system data. 
+As your master data modelers evolve the model, the modeling services within the Profisee platform will publish changes that are received by Profisee’s governance services. In turn, Profisee prepares and forwards those changes to Purview, for inclusion in its updated catalog. These additions to the catalog ensure that your master data definitions are included in the broader data estate, and that they can be governed and controlled in the same manner as your LOB system’s metadata. By ensuring this information is cataloged together, you are in a better position to connect the dots between your master data and your LOB system data. 
 
 #### Leveraging the Purview catalog and glossary during data stewardship 
 
-Large enterprises with correspondingly complex and expansive data estates can present challenges to data stewards responsible for managing and remediating issues as they arise. Key data domains can be complex with many obscure attributes that only tenured employees with significant institutional knowledge understand. Profisee’s integration with Purview allows this institutional knowledge to be captured within Purview, and made available for use within Profisee, thus bringing this knowledge of corporate data closer to the point of need when managing critical and time-sensitive information. 
+Large enterprises with correspondingly complex and expansive data estates can present challenges to data stewards, who are responsible for managing and remediating issues as they arise. Key data domains can be complex, with many obscure attributes that only tenured employees with significant institutional knowledge understand. Profisee’s integration with Purview allows this institutional knowledge to be captured within Purview, and made available for use within Profisee. Thus, you're bringing this knowledge of corporate data closer to the point of need, when you're managing critical and time-sensitive information. 
 
-The figure below illustrates the flow of information from Purview to the data stewards working in Profisee’s FastApp Portal. The Governance Data Service integrates with both Azure Purview and Azure Active Directory. It provides lookup services to portal users allowing them to retrieve enriched governance data about the entities and attributes they are working with in the FastApp Portal. 
+The figure below illustrates the flow of information from Purview to the data stewards, who are working in Profisee’s FastApp Portal. The Governance Data Service integrates with both Azure Purview and Azure Active Directory. It provides lookup services to portal users, which allows them to retrieve enriched governance data about the entities and the attributes that they are working with in the FastApp Portal.
 
 [![Purview data flow to Profisee portal](./images/purview-data-flow-to-profisee-portal.png)](./images/purview-data-flow-to-profisee-portal.png#lightbox)
 
 Governance services also resolve contacts received from Purview to their full profile details, which are available in Azure Active Directory. This allows stewards to effectively collaborate with data owners and experts, as they work to enhance the quality of your master data. 
 
-The user interface through which data stewards and users interact with governance-level details is the Governance Dialog. It renders information obtained from Purview to the users allowing them to review the details behind the data from which the dialog was launched. If the information provided in the Governance Dialog is insufficient, it also supports allowing the user to directly navigate to Purview where the full user experience of Purview is available to the user. 
+The Governance Dialog is the user interface through which data stewards and users interact with governance-level details. It renders information obtained from Purview to the users, allowing them to review the details behind the data from which the dialog was launched. If the information provided in the Governance Dialog is insufficient, it also allows the user to directly navigate to the full user experience of Purview. 
 
 Data Stewards and business users can access three Profisee data asset types via the FastApp Portal: 
 
-1. **Profisee Instance**: Provides the infrastructure properties of the specific instance of the Profisee Platform the user is viewing. 
-2. **Profisee Entity**: Provides the properties of the master data entity (aka table) that the steward or user is currently viewing. 
-3. **Profisee** **Attribute**: Provides the properties of the attribute (aka field or column) in which the user is interested. 
+1. **Profisee Instance**: Provides the infrastructure properties of the specific instance of the Profisee Platform that the user is viewing. 
+2. **Profisee Entity**: Provides the properties of the master data entity (the table) that the steward or user is currently viewing. 
+3. **Profisee Attribute**: Provides the properties of the attribute (such as the field or column) in which the user is interested. 
 
-The figure below illustrates where users working in FastApp portal can view governance details for each of the respective asset types described above. Instance-level details can be found in the **Help** menu. Entity details can be accessed from the page zone header containing an entity grid. Attribute details can be accessed from the labels associated with the attribute on the form associated with the entity grid. 
+The figure below illustrates where users working in the FastApp Portal can view governance details for each of the respective asset types that are described above. Instance-level details can be found in the **Help** menu. Entity details can be accessed from the page zone header, which contains an entity grid. Attribute details can be accessed from the labels that are associated with the attribute, on the form that's associated with the entity grid. 
 
 [![Example user view for governance](./images/example-portal-view-for-governance.png)](./images/example-portal-view-for-governance.png#lightbox)
 
-Summary information is available to the user by hovering over the governance (i.e. Purview) icon. Clicking the icon raises the full governance dialog as shown in the figure below: 
+Summary information is available to the user, by hovering over the governance icon (such as Purview). Click the icon, to raise the full governance dialog (as shown in the figure below): 
 
 [![Governance example view](./images/governance-summary-view.png)](./images/governance-summary-view.png#lightbox)
 
-Users can navigate to the full Azure Purview user experience by clicking the governance icon in the dialog header. This takes the user to Purview in the context of the asset currently being viewed. The user is then free to navigate elsewhere in Purview based on their discovery needs. 
+You can navigate to the full Azure Purview user experience, by clicking the governance icon in the dialog header. This takes the user to Purview in the context of the asset currently being viewed. The user is then free to navigate elsewhere in Purview, based on their discovery needs. 
 
 ## MDM processing 
 
 ### Data modeling 
 
-The heart of your master data management solution is the underlying data model. It represents the definition of **master data** within your company. Developing a master data model involves: 
+The heart of your master data management solution is the underlying data model. It represents the definition of **master data** within your company. Developing a master data model involves the following tasks: 
 
-1. Identifying elements of source data from across your systems landscape that are critical to your company’s operations and central to analyzing performance. 
+1. Identify elements of source data, from across your systems landscape, that are critical to your company’s operations and central to analyzing performance. 
 2. Enriching the model with elements that are obtained from other third-party sources that render the data more accurate and useful. 
 3. Establishing clear ownership and permissions related to the elements of your data model thus ensuring visibility and change management is factored into your model’s design. 
 
