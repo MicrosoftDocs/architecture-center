@@ -15,6 +15,7 @@ metadata:
     - azcat-ai
     - reference-architecture
     - ai-machine-learning
+    - aml-project-improvement
 name: Batch scoring with R Models on Azure
 azureCategories:
   - ai-machine-learning
