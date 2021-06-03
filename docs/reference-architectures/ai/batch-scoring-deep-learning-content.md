@@ -7,14 +7,6 @@ This reference architecture shows how to apply neural style transfer to a video,
 
 **Scenario**: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about neural style transfer algorithms, see [Image Style Transfer Using Convolutional Neural Networks][image-style-transfer] (PDF).
 
-<!-- markdownlint-disable MD033 -->
-
-| Style image: | Input/content video: | Output video: |
-|--------|--------|---------|
-| <img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/style_image.jpg" width="300" alt="Picture of a painting in particular art style." > | [<img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video_image_0.jpg" width="300" height="300" alt="Picture of an animal in a tree in realistic style." >](https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video.mp4 "Input Video") *click to view video* | [<img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video_image_0.jpg" width="300" height="300" alt="Picture of an animal in a tree, stylized to match a painting." >](https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video.mp4 "Output Video") *click to view video* |
-
-<!-- markdownlint-enable MD033 -->
-
 This reference architecture is designed for workloads that are triggered by the presence of new media in Azure storage.
 
 Processing involves the following steps:
@@ -42,7 +34,7 @@ This architecture consists of the following components.
 
 ### Preprocessing and postprocessing our data
 
-This reference architecture uses video footage of an orangutan in a tree. You can download the footage from [here][source-video].
+This reference architecture uses video footage of an orangutan in a tree.
 
 1. Use [FFmpeg][ffmpeg] to extract the audio file from the video footage, so that the audio file can be stitched back into the output video later.
 1. Use FFmpeg to break the video into individual frames. The frames will be processed independently, in parallel.
@@ -70,9 +62,9 @@ When creating the [Azure Machine Learning pipeline][aml-pipeline], one of the st
 
 ## Security considerations
 
-### Restricting access to Azure blob storage
+### Restricting access to Azure Blob storage
 
-In this reference architecture, Azure Blob Storage is the main storage component that needs to be protected. The baseline deployment shown in the GitHub repo uses storage account keys to access the blob storage. For further control and protection, consider using a [shared access signature (SAS)][storage-sas-overview] instead. This grants limited access to objects in storage, without needing to hard code the account keys or save them in plaintext. This approach is especially useful because account keys are visible in plaintext inside of Logic App's designer interface. Using an SAS also helps to ensure that the storage account has proper governance, and that access is granted only to the people intended to have it.
+In this reference architecture, Azure Blob storage is the main storage component that needs to be protected. The baseline deployment shown in the GitHub repo uses storage account keys to access the blob storage. For further control and protection, consider using a [shared access signature (SAS)][storage-sas-overview] instead. This grants limited access to objects in storage, without needing to hard code the account keys or save them in plaintext. This approach is especially useful because account keys are visible in plaintext inside of Logic App's designer interface. Using an SAS also helps to ensure that the storage account has proper governance, and that access is granted only to the people intended to have it.
 
 For scenarios with more sensitive data, make sure that all of your storage keys are protected, because these keys grant full access to all input and output data from the workload.
 
