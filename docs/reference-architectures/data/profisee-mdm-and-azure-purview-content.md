@@ -12,6 +12,16 @@ Without high-quality data in your Azure data estate, the business value of Azure
 
 For example, after cataloging enterprise data sources, it may be determined that there are multiple sources of customer data. To be effective, master data should be merged, validated, and corrected in Profisee, by using governance definitions, insights, and expertise that are detailed in Purview. In this way, Purview and Profisee form the foundation for governance and data management, and they maximize the business value of data in Azure.
 
+## Potential use cases
+
+You'll find a robust list of the use cases in the "MDM use cases" section, later in this article. Key master data management (MDM) use cases include the following retail and manufacturing examples:
+
+* Consolidating customer data for analytics.
+* Understanding the total catalog of your product data, in a consistent and accessible form, such as each product’s name, description, and characteristics.
+* Establishing reference data to further consistently describe other sets of master data. For example, this includes lists of countries, currencies, colors, sizes, and units of measure. 
+
+In addition, these MDM solutions help financial organizations that rely heavily on data for critical activities, such as monthly, quarterly, and annual reporting. 
+
 ## Architecture
 
 The flow illustrated below represents the general order of activity that occurs during the development and subsequent operation of your master data solution. This flow should be thought of as **highly iterative**. As your solution evolves, these steps and phases may be repeated, sometimes automatically and sometimes manually, depending on the changes occurring to your master data solution, metadata, and/or data.
@@ -141,51 +151,53 @@ As data stewards address issues that are surfaced through your master data solut
 
 ### Matching and survivorship
 
-With enriched, high-quality source data you are now positioned to produce a **golden record** that represents the most accurate information across your disparate LOB systems. The figure below illustrates how all the steps culminate in data that is of high quality and ready to use for business analysis and, when desired, to harmonize this data across your data estate. 
+With enriched, high-quality source data, you are now positioned to produce a **golden record** that represents the most accurate information across your disparate LOB systems. The figure below illustrates how all the steps culminate in data that is of high quality and that is ready to use for business analysis. When desired, you can harmonize this data across your data estate.
 
 [![Matching and surviorship diagram](./images/Purview-MicroserviceDesign-MatchingImage.jpg)](./images/Purview-MicroserviceDesign-MatchingImage.jpg#lightbox)
 
-Profisee’s matching engine produces a **golden record** as part of the survivorship process. Survivorship rules selectively populate the golden record with information chosen across your various source systems. 
+Profisee’s matching engine produces a **golden record** as part of the survivorship process. Survivorship rules selectively populate the golden record with information that's chosen across your various source systems. 
 
-Profisee’s history and audit tracking subsystem tracks changes made not only by users but also by system processes such as survivorship allowing traceability of the flow of information from source records to the master. Because Profisee knows the source system responsible for a given source record, and because we know how the golden record was populated from disparate source records, we can achieve data lineage from your analytics back to the source data being referenced in those reports.  
+Profisee’s history and audit tracking subsystem tracks changes that are not only made by users, but also by system processes, such as survivorship. This allows the traceability of the flow of information from your source records to the master. Because Profisee knows the source system responsible for a given source record, and because you know how the golden record was populated from disparate source records, you can achieve data lineage from your analytics back to the source data that's referenced in those reports.  
 
 ## MDM use cases
 
-While there are numerous use cases for MDM, there are a small number of use  cases that cover most real-world MDM implementations. Note that although these use cases are focused on a single domain, they are unlikely to be built from only that domain. In other words, even these focused use  cases are most likely to include multiple master data domains. 
+While there are numerous use cases for MDM, there are a small number of use cases that cover most real-world MDM implementations. Note that although these use cases are focused on a single domain, they are unlikely to be built from only that domain. In other words, even these focused use cases are most likely to include multiple master data domains. 
 
 ### Customer 360
 
-Consolidating customer data for analytics is the most common MDM use case.  Organizations capture customer data across an increasing number of  applications, creating duplicate customer data within and across  applications with inconsistencies and discrepancies. This poor-quality  data makes it difficult to realize the value of modern analytics  solutions due to poor quality customer data. Symptoms include the  following challenges: 
+Consolidating customer data for analytics is the most common MDM use case. Organizations capture customer data across an increasing number of applications, which creates duplicate customer data within and across applications, with inconsistencies and discrepancies. This makes it difficult to realize the value of modern analytics solutions, due to the poor quality of the customer data. Symptoms include the  following challenges: 
 
-- Hard to answer basic business questions like “Who are our top customers” and “How many new customers did we have”, requiring significant manual  effort. 
+- It's hard to answer basic business questions, like, “Who are our top customers?” and “How many new customers did we have?” Answering these questions then requires significant manual effort. 
 
-- Missing and inaccurate customer information, making it difficult to roll up or drill down into data. 
-- Inability to analyze customer data across systems or business units due to an  inability to uniquely identify a customer across organizational and  system boundaries. 
-- Poor-quality insights from AI and machine learning due to poor-quality input data. 
+- You have missing and inaccurate customer information, making it difficult to roll up or drill down into the data.
+ 
+- You have an inability to analyze your customer data across the systems or business units, due to an inability to uniquely identify a customer across organizational and  system boundaries.
 
-### Product 360 
+- You have poor-quality insights from AI and machine learning, due to the poor-quality input data. 
 
-Product data is often spread across multiple enterprise applications, such as  ERP, PLM, or e-commerce. The result is a challenge understanding the  total catalog of products that have inconsistent definitions for  properties such as the product’s name, description, and characteristics. This is complicated by different definitions of reference data.  Symptoms include the following challenges: 
+### Product 360
 
-- Inability to support different alternative hierarchical rollup and drill-down paths for product analytics. 
-- Whether finished goods or material inventory, difficulty understanding exactly  what products you have on hand, the vendors your products are purchased  from, and duplicate products, leading to excess inventory. 
-- Hard to rationalize products due to conflicting definitions, leading to missing or inaccurate information in analytics. 
+Product data is often spread across multiple enterprise applications, such as ERP, PLM, or e-commerce. The result is a challenge understanding the total catalog of products that have inconsistent definitions for properties, such as the product’s name, description, and characteristics. This is complicated by different definitions of reference data.  Symptoms include the following challenges:
+
+- The inability to support different alternative hierarchical rollup and drill-down paths, for product analytics. 
+- Whether finished goods or material inventory, you have a difficulty understanding exactly what products you have on hand, the vendors your products are purchased from, and you have duplicate products, which leads to excess inventory. 
+- It's hard to rationalize products, due to conflicting definitions, which leads to missing or inaccurate information in analytics. 
 
 ### Reference data 360 
 
-In the context of analytics, reference data exists as numerous lists of  data that is often used to further describe other sets of master data.  For example, lists of countries, currencies, colors, sizes, and units of measure. Inconsistent reference data leads to obvious errors in  downstream analytics. Symptoms include: 
+In the context of analytics, reference data exists as numerous lists of data, which is often used to further describe other sets of master data. For example, this includes lists of countries, currencies, colors, sizes, and units of measure. Inconsistent reference data leads to obvious errors in downstream analytics. Symptoms include the following: 
 
-- Multiple representations of the same thing. For example, the state Georgia as  “GA” and “Georgia”, making it difficult to aggregate and drill down into data consistently. 
-- Difficulty aggregating data from across applications due to an inability to  crosswalk the reference data values between systems. For example, the color red is represented by “R” in the ERP system, and “Red” in PLM system. 
-- Difficult to tie numbers across organizations due to differences in agreed upon reference data values for categorizing data. 
+- Multiple representations of the same thing. For example, the state of Georgia is listed as “GA” and “Georgia,” which makes it difficult to aggregate and drill down into data consistently.
+- Difficulty aggregating data from across applications, due to an inability to crosswalk the reference data values between the systems. For example, the color red is represented by “R” in the ERP system, and it shows as “Red” in the PLM system. 
+- Difficulty tying numbers across organizations, due to differences in agreed upon reference data values that are used to categorize data. 
 
 ### Finance 360 
 
-Financial organizations rely heavily on data for critical activities such as  monthly, quarterly, and annual reporting. Organizations with multiple  finance and accounting systems often have financial data across multiple general ledgers, which need to be consolidated to produce financial  reports. MDM can provide a centralized place to map and manage Accounts, Cost Centers, Business Entities, and other financial data sets to a  consolidated view. Symptoms include the following challenges: 
+Financial organizations rely heavily on data for critical activities, such as monthly, quarterly, and annual reporting. Organizations with multiple finance and accounting systems often have financial data across multiple general ledgers, which need to be consolidated to produce financial reports. MDM can provide a centralized place to map and manage accounts, cost centers, business entities, and other financial data sets, to a consolidated view. Symptoms include the following challenges: 
 
-- Difficulty aggregating financial data across multiple systems into a consolidated view 
-- Lack of process for adding and mapping new data elements in the financial systems 
-- Delays in producing end of period financial reports 
+- Difficulty aggregating financial data across multiple systems into a consolidated view.
+- Lack of process for adding and mapping new data elements in the financial systems.
+- Delays in producing end-of-period financial reports.
 
 ## Considerations
 
@@ -195,17 +207,17 @@ Profisee runs natively on Azure Kubernetes Service and Azure SQL Database. Both 
 
 ### Scalability 
 
-Profisee runs natively on Azure Kubernetes Service and Azure SQL Database. Azure Kubernetes Service can be configured to scale Profisee up and out,  depending on need. Azure SQL Database can be deployed in numerous configurations, to balance performance, scalability, and costs.
+Profisee runs natively on Azure Kubernetes Service and Azure SQL Database. Azure Kubernetes Service can be configured to scale Profisee up and out, depending on your needs. Azure SQL Database can be deployed in numerous configurations, to balance performance, scalability, and costs.
 
 ### Security 
 
-Profisee authenticates users, by using OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee to authenticate users against Azure Active Directory, ensuring that enterprise policies for authentication can be applied and enforced.
+Profisee authenticates users, by using OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee to authenticate users against Azure Active Directory, which ensures that you can apply and enforce your enterprise policies for authentication.
 
-## Deploy the scenario 
+## Deploy the scenario
 
-The Profisee Platform can be deployed as a PaaS solution in Azure using the Profisee [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). There are two options as it applies to Purview integration:  
+The Profisee Platform can be deployed as a PaaS solution in Azure, using the Profisee [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM). There are two options, as it applies to Purview integration: 
 
-1. If you already have an Azure Purview account and metadata populated, you can connect Profisee to the existing account. In this case you must specify the following properties in the ARM template: 
+1. If you already have an Azure Purview account and metadata populated, you can connect Profisee to the existing account. In this case, you must specify the following properties in the ARM template: 
    - The **Atlas Endpoint URL** associated with your Purview account. 
    - An App Registration **Client ID** and **Client Secret** that has the **Purview Data Curator** role assigned. 
 2. If you do not yet have an Azure Purview account, Profisee’s ARM template can provision one for you as part of the Profisee Platform installation. In this case you must specify the following properties in the ARM template: 
