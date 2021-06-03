@@ -12,7 +12,7 @@ This reference architecture is designed for workloads that are triggered by the 
 Processing involves the following steps:
 
 1. Upload a video file to Azure Blob storage.
-1. The video file triggers a Logic App to send a request to the Azure Machine Learning pipeline published endpoint.
+1. The video file triggers Azure Logic Apps to send a request to the Azure Machine Learning pipeline published endpoint.
 1. The pipeline processes the video, applies style transfer with MPI, and postprocesses the video.
 1. The output is saved back to blob storage once the pipeline is completed.
 
