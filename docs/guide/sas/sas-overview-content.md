@@ -81,18 +81,21 @@ Linux works best for running SAS workloads. SAS supports the following operating
 
 For more information about specific SAS releases, see [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit). In environments that use multiple machines, it's best to run the same version of Linux on all machines. Azure doesn't support Linux 32-bit deployments.
 
-To optimize compatibility and integration with Azure, start with an operating system image from Azure Marketplace. Without additional configurations, custom images may degrade SAS performance.
+To optimize compatibility and integration with Azure, start with an operating system image from Azure Marketplace. Without additional configurations, custom images can degrade SAS performance.
 
 #### Kernel issues and non-maskable interrupts (NMI)
 
-An issue is present in Linux 3.x and pre 4.4 kernels, which includes all of RHEL 7.x series and the following may be seen in the system logs:
+A soft lockup issue affects the entire RHEL 7.x series. It occurs in these kernels:
+
+- Linux 3.x kernels
+- Versions earlier than 4.4
+
+A problem with the [memory and IO management of Linux and HyperV](https://access.redhat.com/solutions/22621) causes the issue. When it comes up, the system logs contain entries like this one:
 
 ```console
 Message from syslogd@ronieuwe-sas-e48-2 at Sep 13 08:26:08
 kernel:NMI watchdog: BUG: soft lockup - CPU#12 stuck for 22s! [swapper/12:0]
 ```
-
-This is a problem within the [memory and IO management of Linux and HyperV](https://access.redhat.com/solutions/22621).
 
 <!-- There are two possible solutions:
 
@@ -285,33 +288,40 @@ Azure delivers SAS by using an infrastructure as a service (IaaS) cloud model. M
 
 Carefully evaluate the services and technologies you select for the areas above the hypervisor, such as the guest operating system for SAS. Make sure to provide the proper security controls for your architecture.
 
-SAS currently does not support [Azure Active Directory (Azure AD)](/azure/active-directory/). As a result, use a strategy for SAS authentication that's similar to on-premises authentication. But use Azure AD for authentication to the Azure portal and for managing IaaS resources. When using Azure Active Directory Domains Services (AADDS), be careful with business-to-business invites. AADDS doesn't support these invites, and they can cause permission conflicts. Specifically, don't invite multiple users with the same sAMAccountName. Rename users instead.
+SAS currently doesn't support [Azure Active Directory (Azure AD)](/azure/active-directory/). As a result, use a strategy for SAS authentication that's similar to on-premises authentication. But use Azure AD for authentication to the Azure portal and for managing IaaS resources. When using Azure Active Directory Domains Services (AADDS), be careful with business-to-business invites. AADDS doesn't support these invites, and they can cause permission conflicts. Specifically, don't invite multiple users with the same sAMAccountName. Rename users instead.
 
-[Network security groups](/azure/virtual-network/security-overview) (NSGs) allow you to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). You can define NSG rules to allow or deny access to your SAS services—for instance, allowing access to the CAS Worker ports from on-premises IP addresses ranges and denying public internet access.
+Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your SAS services. Examples include:
 
-With regard to data integrity, [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) helps you encrypt your SAS virtual machine disks. Both the operating system and data volumes can be encrypted at rest in storage.
+- Giving access to CAS worker ports from on-premises IP address ranges.
+- Blocking access to SAS services from the internet.
 
-[Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data and helps you meet your organizational security and compliance commitments. SSE automatically encrypts your data stored on Azure managed disks (OS and data disks) at rest by default when persisting it to the cloud. You can rely on platform-managed keys for the encryption of your managed disk, or you can manage encryption using your own keys.
+For data integrity, [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) helps you encrypt your SAS VM disks. You can encrypt the operating system and data volumes at rest in storage.
+
+[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. You can use platform-managed keys or your own keys to encrypt your managed disk.
 
 ### Protecting your infrastructure
 
 Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit](/azure/azure-resource-manager/resource-group-audit) all changes to infrastructure.
 
-Remote access to your Virtual Machines should be managed through a [Bastion Host](https://azure.microsoft.com/services/azure-bastion/#get-started) and not exposed on the public internet. It is strongly recommended not to expose ssh or rdp ports to the public internet.
+Manage remote access to your VMs through a [bastion host](https://azure.microsoft.com/services/azure-bastion/#get-started). Don't expose any of these components to the internet:
+
+- VMs
+- Secure Shell Protocol (SSH) ports
+- Remote Desktop Protocol (RDP) ports
 
 ## Related resources
 
-SAS provides free templates to help you get started. Although not officially supported by Microsoft, they can help jump-start your automation process. For example:
+See the following templates that SAS provides for help with the automation process:
 
-* [SAS Viya 4 Infrastructure as Code](https://github.com/sassoftware/viya4-iac-azure)
-* [SAS Viya 3.5 Guide](https://github.com/sassoftware/sas-viya-3.5-ha-deployment/blob/main/sas-viya-3.5-ha-deployment-on-microsoft-azure/SAS-Viya-HA-Deployment-Azure.md)
-* [SAS 9.4 Grid](https://github.com/corecompete/sas94grid-viya)
+- [SAS Viya 4 Infrastructure as Code](https://github.com/sassoftware/viya4-iac-azure)
+- [SAS Viya 3.5 Guide](https://github.com/sassoftware/sas-viya-3.5-ha-deployment/blob/main/sas-viya-3.5-ha-deployment-on-microsoft-azure/SAS-Viya-HA-Deployment-Azure.md)
+- [SAS 9.4 Grid](https://github.com/corecompete/sas94grid-viya)
 
 ## Next steps
 
-The following resources can help you get started:
+See the following resources for help getting started:
 
-* [Implement a Secure Hybrid Network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal)
-* [Edsv4 Series VMs](/azure/virtual-machines/edv4-edsv4-series)
-* [Proximity Placement Groups](/azure/virtual-machines/co-location)
-* [Azure Availability Zones](/azure/availability-zones/az-overview)
+- [Implement a Secure Hybrid Network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal)
+- [Edsv4 Series VMs](/azure/virtual-machines/edv4-edsv4-series)
+- [Proximity Placement Groups](/azure/virtual-machines/co-location)
+- [Azure Availability Zones](/azure/availability-zones/az-overview)
