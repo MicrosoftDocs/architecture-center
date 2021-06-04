@@ -370,7 +370,7 @@ After you assess these aspects, go to the [Azure pricing calculator](https://azu
 
 ## Related resources
 
-### Archtitectural guidance
+### Architectural guidance
 
 - [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
 - [AKS cluster best practices](/Azure/aks/best-practices?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
