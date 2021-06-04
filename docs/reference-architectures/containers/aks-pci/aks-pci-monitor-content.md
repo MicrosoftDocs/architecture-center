@@ -303,7 +303,7 @@ Protect the AKS cluster by inspecting inbound traffic. One way is through the us
 
 Another option is enabling [Azure Monitor Network Insights](/azure/azure-monitor/insights/network-insights-overview). 
 
-Enabling Azure Defender plans as they apply to various components of the CDE. For example, if Azure SQL is used to store CHD, then [Azure Defender for SQL](/azure/security-center/defender-for-sql-introduction) will make sure the data layer intrustions are detected and prevented.
+Enabling Azure Defender plans as they apply to various components of the CDE. For example, if Azure SQL is used to store CHD, then [Azure Defender for SQL](/azure/security-center/defender-for-sql-introduction) will make sure the data layer intrusions are detected.
 
 Also, detect anomalies in traffic patterns by connecting NSG flow logs into a centralized SIEM solution, such as Azure Sentinel. In this reference implementation, logs are in append-only mode, which minimizes the change tracking on audit logs. However, all logs that are sent to external sinks for long-term  storage must not be modified. They must follow write-once/read-many approach. Make sure the FIM solution covers those external entities to detect changes.
 
