@@ -16,7 +16,7 @@ Other examples of this approach include:
 
 ## Architecture
 
-![Screenshot showing a healthcare facility with two hospitals that patient and facility data with IoT devices. The devices connect to radio access devices, IoT Edge servers, and several Azure services through Azure IoT Hub.](../media/healthcare-architecture.png)
+![Screenshot showing a healthcare facility with two hospitals that collect patient and facility data with IoT devices. The devices connect to radio access devices, IoT Edge servers, and several Azure services through Azure IoT Hub.](../media/healthcare-architecture.png)
 
 1. Hospital buildings use a variety of connected devices to monitor both patient health and facility performance.
    
@@ -27,7 +27,7 @@ Other examples of this approach include:
    
 1. The 5G or LTE radios in the hospitals forward the data to the [5G or LTE packet cores](https://azuremarketplace.microsoft.com/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) running on the edge servers. The edge servers can be Azure Stack Edge or any Azure Arc-enabled servers.
    
-1. On the edge servers, the IoT Edge runtime can pre-process data before sending it to Azure for further analysis.
+1. On the edge servers, the IoT Edge runtime can preprocess data before sending it to Azure for further analysis.
    
 1. In the cloud, Azure IoT Hub ingests data quickly and securely, and sends it to Azure Machine Learning.
    
@@ -55,10 +55,10 @@ This solution uses the following components:
 
 ## Next steps
 
-- [Azure Arc on Kubernetes on Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster)
 - [Manage configurations for Azure Arc enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
 - [Deploy AI and ML computing on-premises and to the edge](/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
 
 ## Related resources
 
+- [Azure Arc on Kubernetes on Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster)
 - [Azure Private Edge Zones](/azure/networking/edge-zones-overview#private-edge-zones)
