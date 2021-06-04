@@ -37,7 +37,7 @@ This example architecture shows both approaches:
     the Azure data store of your choice, and you can choose the MQ server’s
     polling interval.
 
-## Use cases 
+## Potential use cases 
 
 Either of these approaches can be used to:
 
