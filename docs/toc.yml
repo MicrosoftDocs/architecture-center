@@ -953,6 +953,8 @@ items:
                 href: example-scenario/apps/telehealth-system.yml
               - name: Magento e-commerce in AKS
                 href: example-scenario/magento/magento-azure.yml
+              - name: Multitenancy with AKS and AGIC
+                href: example-scenario/aks-agic/aks-agic.yml
           - name: Solution ideas
             items:
               - name: API-first SaaS business model with AKS
@@ -1617,7 +1619,9 @@ items:
                   - name: IBM System i to Azure using Infinite i
                     href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
                   - name: IBM z/OS migration with Asysco AMT
-                    href: example-scenario/mainframe/asysco-zos-migration.yml
+                    href: example-scenario/mainframe/asysco-zos-migration.yml                    
+                  - name: Integrate IBM MQ with Azure
+                    href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml                     
                   - name: Migrate AIX workloads to Skytap on Azure
