@@ -25,7 +25,7 @@ Manufacturing sector, a hallmark of the modern industrialized world, encompasses
 Microsoft Azure holds the promise of the [fourth industrial revolution](https://www.weforum.org/agenda/2016/01/the-fourth-industrial-revolution-what-it-means-and-how-to-respond/) by providing manufacturing solutions that can:
 
 - help build more agile smart factories with industrial IoT,
-- creating more relisient and profitable supply chains,
+- creating more resilient and profitable supply chains,
 - transform your work force productivity,
 - unlock innovation and new business models, and
 - engage with customers in new ways.
