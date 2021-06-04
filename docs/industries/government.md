@@ -3,7 +3,7 @@ title: Solutions for government industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable government solutions.
 author: dsk-2015
-ms.date: 06/02/2021
+ms.date: 06/04/2021
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: 
@@ -30,7 +30,7 @@ Using Azure Government, you can:
 - create custom web experiences,
 - gain insights from your data by using AI and analytics capabilities.
 
-Azure Government offers the broadest level of certifications of any cloud provider to simplify even the most critical government compliance requirements. To learn more about this government-focused cloud platform, visit [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/).
+Azure Government offers a broad level of certifications to simplify critical government compliance requirements. To learn more about this government-focused cloud platform, visit [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/).
 
 Microsoft is committed to provide government agencies with innovative technology solutions across health and human services, critical infrastructure, public safety & justice, and tax, finance, and revenue. Learn more at [Cloud computing for government](https://www.microsoft.com/en-us/industry/government).
 

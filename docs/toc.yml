@@ -688,6 +688,20 @@ items:
             href: example-scenario/mlops/mlops-technical-paper.yml
           - name: Build a speech-to-text transcription pipeline
             href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
+      - name: Media and entertainment
+        items:
+          - name: Overview
+            href: industries/media.md
+          - name: 3D video rendering
+            href: example-scenario/infrastructure/video-rendering.yml
+          - name: Digital image-based modeling on Azure
+            href: example-scenario/infrastructure/image-modeling.yml
+          - name: Image classification on Azure
+            href: example-scenario/ai/intelligent-apps-image-processing.yml
+          - name: Movie recommendations on Azure
+            href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+          - name: Scalable personalization on Azure
+            href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
   - name: Azure categories
     expanded: true
     items:
