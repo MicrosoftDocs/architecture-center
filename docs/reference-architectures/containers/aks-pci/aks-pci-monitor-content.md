@@ -45,9 +45,11 @@ Implement audit trails to link all access to system components to each individua
 
 We recommend that you use these ways to track operations performed on each component. 
 
-- Activity Log. This log provides information about the type and time of the operation. Also it logs the identity that started the operation. This information is tracked at the subscription level. The are enabled by default and are collected as soon as the resource is provisioned and start emitting logs. 
+- Activity Log. This log provides information about the type and time of Azure resource operations. Also it logs the identity that started the operation. The are enabled by default and are collected as soon as the resource operation is done. This audit trail is write-only and cannot be deleted. Data is retained for 90 days. For longer retention options, consider [sending Activity Log entries to Azure Storage](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#send-to--azure-storage).
 
-- Diagnostic setting. Provides diagnostic and auditing information of Azure resources and the platform. We recommend that you enable this for AKS and other components in the system such as Azure Blob Storage and Key Vault. Based on the resource type, you can choose categories of logs and metric data and send it to a destination.
+    ![Azure activity log](images/activity-log.png)
+
+- Diagnostic setting. Provides diagnostic and auditing information of Azure resources and the platform to which the settings applies. We recommend that you enable this for AKS and other components in the system such as Azure Blob Storage and Key Vault. Based on the resource type, you can choose categories of logs and metric data and send it to a destination. The required retention periods must be met by your diagnostics sink.
 
     - Diagnostic setting for AKS. From the provided AKS categories, enable Kubernetes audit logs. This includes `kube-audit` or `kube-audit-admin`, and `guard`. Enable `kube-audit-admin` to see log data API Server calls that might modify the state of your cluster. If you need an audit trail of all API Server interactions (including non-modifying events such read requests), enable `kube-audit` instead. Be aware that those events can be prolific, create noise, and add to the cost. These logs have information about the access and identity name used to make the request. Enable `guard` logs, to track managed Azure AD and Azure RBAC audits. 
 
@@ -125,8 +127,6 @@ The result set shows the information as part of the log_s field.
 
 For information about the master log, see [View the control plane component logs](/azure/aks/view-control-plane-logs).
 
-<Todo: screenshot showing the azure activity log as well with the key fields circled?>
-
 
 ### Requirement 10.4
 
@@ -157,9 +157,7 @@ Having multiple logging syncs adds overhead to securing, reviewing, analyzing, a
 
 When possible, integrate logs. The advantage is the ability to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor for Containers to write logs into a Log Analytics workspace. Another option to integrate data into Security Information and Event Management (SIEM) solutions, such as Azure Sentinel. Other popular third-party choices are Splunk, QRadar, ArcSight. Azure Security Center and Azure Monitor supports all of those solutions. Those solutions are append-only data sinks making sure the trail cannot be altered.
 
-Security Center has the capability of exporting results at configured intervals. Compare the results with previous sets to verify that issues have been remediated.
-
-For more information, see [Continuous export](/azure/security-center/continuous-export).
+Security Center has the capability of exporting results at configured intervals. For more information, see [Continuous export](/azure/security-center/continuous-export).
 
 All logs are kept with at least three copies in one region. As a backup strategy, you can have more copies by enabling cross-region backup or replication. All log entries are available only through secured HTTP/S channels.
 
@@ -202,7 +200,7 @@ Retain audit trail history for at least one year, with a minimum of three months
 
 #### Your responsibilities
 
-Ensure Azure Activity logs, Diagnostics settings, are retained in queryable state for three months, and data older than that is archived
+Ensure Azure Activity logs, Diagnostics settings, are retained in queryable state for three months, and data older than that is archived.
 
 Logs are not available indefinitely. Ensure Azure Activity logs, diagnostics settings are retained and can be queried. Specify the three-month retention period when you enable diagnostic setting for your resources. Use Azure Storage Accounts for long-term archival, which can be used for audits or offline analysis. Implement your long-term/archival solution to align with the principle of write-once, read-many.
 
@@ -223,15 +221,13 @@ remediation required to address root cause
 #### Your responsibilities
 When practical, have alerts that indicate the existence of critical security controls. Otherwise, ensure your audit process can detect the lack of an expected security control in a timely manner. Consider controls such as, security agents running in the AKS cluster, access controls (IAM and network) on Azure resources. Also include settings, such as checking if the AKS cluster is a private cluster, network exposure points through Network Security Group (NSG) rules or unexpected public IPs. Also included are unexpected changes in DNS, network routing, firewall, and Azure AD.
 
-In all cases, this is about having a documented plan to react to the above, but our role here is to help guide them to areas they could consider a "critical security control."
-
 ### Requirement 10.9
 
 Ensure that security policies and operational procedures for monitoring all access to network resources and cardholder data are documented, in use, and known to all affected parties.
 
 #### Your responsibilities
 
-It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your monitoring efforts, <TBD> . This is particularly important for people who are part of the approval process from a policy perspective.
+It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your monitoring efforts, people must be trained in enabling and viewing audit logs and identifying and remediating the common risks. This is particularly important for people who are part of the approval process from a policy perspective.
 
 ***
 
