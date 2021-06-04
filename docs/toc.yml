@@ -660,6 +660,34 @@ items:
             href: example-scenario/apps/telehealth-system.yml
           - name: Confidential computing for healthcare
             href: example-scenario/confidential/healthcare-inference.yml
+      - name: Government
+        items:
+          - name: Overview
+            href: industries/government.md
+          - name: Azure Automation in a hybrid environment
+            href: hybrid/azure-automation-hybrid.yml
+          - name: Azure Automation update management
+            href: hybrid/azure-update-mgmt.yml
+          - name: Computer forensics Chain of Custody in Azure
+            href: example-scenario/forensics/index.yml
+          - name: Hybrid Security Monitoring in Azure
+            href: hybrid/hybrid-security-monitoring.yml
+          - name: Vision classifier model with Azure
+            href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
+          - name: Web app private database connectivity
+            href: example-scenario/private-web-app/private-web-app.yml
+          - name: Windows Virtual Desktop for the enterprise
+            href: example-scenario/wvd/windows-virtual-desktop.yml
+      - name: Manufacturing
+        items:
+          - name: Overview
+            href: industries/manufacturing.md
+          - name: Industrial IoT analytics
+            href: guide/iiot-guidance/iiot-architecture.md
+          - name: Upscale machine learning lifecycle with MLOps framework
+            href: example-scenario/mlops/mlops-technical-paper.yml
+          - name: Build a speech-to-text transcription pipeline
+            href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
   - name: Azure categories
     expanded: true
     items:
