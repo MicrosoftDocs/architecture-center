@@ -249,9 +249,9 @@ Have a scanning process that checks for changes in the AKS cluster, network conf
 
 If there are changes in network, the scanning process should detect if the change introduced a security risk to the cluster. For example, is the cluster now exposed to the public internet? Are the new firewall rules overly permissive? Within the cluster, are there any security gaps in the flow between the pods?
 
-Make sure the scanning solutions run frequently and the results are reviewed. Audit the configuration of your Azure resources, such as Network Security Group (NSG) rules, Azure Firewall rules, VNet peerings, DNS settings, Private Link configurations, and other network components. For preceding example, review the [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics). Have an audit process that reviews NSG traffic flows, to verify network isolation and compliance. One way is to enable  [flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal). For in-cluster flows, conduct scans with a third-party security agent.
+Make sure the scanning solutions run frequently and the results are reviewed. Audit the configuration of your Azure resources, such as Network Security Group (NSG) rules, Azure Firewall rules, VNet peerings, DNS settings, Private Link configurations, and other network components. This scan must also include  in-cluster (pod-to-pod) network.
 
-Select an Approved Scanning Vendor (ASV) with extensive experience with Azure networking and Kubernetes. This will provide depth and specificity in suggested remediation.
+For preceding example, review the [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics). Have an audit process that reviews NSG traffic flows, to verify network isolation and compliance. One way is to enable  [flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal). For in-cluster flows, conduct scans with a third-party security agent.
 
 Build a process to rapidly get security validation of new containers and images. The process should validate against your security standards. This includes applying security updates, scanning for unwanted binaries, and others. 
 
@@ -260,6 +260,14 @@ View and apply recommendations shown in Azure Security Center. Security Center o
 - [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction)
 - [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction)
 - [Azure Defender for Key Vault](azure/security-center/defender-for-key-vault-introduction)
+
+**APPLIES TO 11.2.1**
+
+The quarterly scan for the networking changes must be run by skilled personnel with deep understanding of Azure networking and Kubernetes networking concepts. Map the results to [Requirement 6.1](aks-pci-malware.md#requirement-61) with severity levels and resolve high priority items.  
+
+**APPLIES TO 11.2.2**
+Select an Approved Scanning Vendor (ASV) with extensive experience with Azure networking and Kubernetes. This will provide depth and specificity in suggested remediation.
+
 
 
 ### Requirement 11.3
@@ -278,6 +286,10 @@ Implement a methodology for penetration testing that includes the following:
 
 Perform penetration testing to find security gaps by gathering information, analyzing vulnerabilities, and reporting. It's recommended that you follow the industry guidelines provided in [Penetration Testing Execution Standard (PTES)](http://www.pentest-standard.org/index.php/Main_Page) to address common scenarios and the activities required to establish a baseline.
 
+The penetration test practictioner should have a deep understanding of on-premises and Azure networking to ensure that the yearly segmentation tests are covered extensively. Extend the test methodology to in-cluster network. This requires strong experience with Kubernetes networking concepts.
+
+The tests must cover the application and data layers running in the CDE.
+
 In a penetration testing exercise, the practitioners may need access to sensitive data of the entire organization. Follow the rules of engagement to make sure that access and the intent is not misused. For guidance about planning and executing simulated attacks, see [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
 
 
@@ -291,7 +303,9 @@ Protect the AKS cluster by inspecting inbound traffic. One way is through the us
 
 Another option is enabling [Azure Monitor Network Insights](/azure/azure-monitor/insights/network-insights-overview). 
 
-Also, detect anomalies in traffic patterns by connecting NSG flow logs into a centralized SIEM solution, such as Azure Sentinel. 
+Enabling Azure Defender plans as they apply to various components of the CDE. For example, if Azure SQL is used to store CHD, then [Azure Defender for SQL](/azure/security-center/defender-for-sql-introduction) will make sure the data layer intrustions are detected and prevented.
+
+Also, detect anomalies in traffic patterns by connecting NSG flow logs into a centralized SIEM solution, such as Azure Sentinel. In this reference implementation, logs are in append-only mode, which minimizes the change tracking on audit logs. However, all logs that are sent to external sinks for long-term  storage must not be modified. They must follow write-once/read-many approach. Make sure the FIM solution covers those external entities to detect changes.
 
 ## Requirement 11.5
 
@@ -303,7 +317,7 @@ In your cluster, run a file integregity monitoring (FIM) solution in conjunction
 
 > [!IMPORTANT]
 >
- The reference implementation provides a placeholder `DaemonSet` deployment to run a FIM solution antimalware agent. The agent will run on every node VM in the cluster. Place your choice of antimalware software in this deployment.
+> The reference implementation provides a placeholder `DaemonSet` deployment to run a FIM solution antimalware agent. The agent will run on every node VM in the cluster. Place your choice of antimalware software in this deployment.
 
 Check all default settings of the FIM tool to ensure the values detect the parameters you want to cover and adjust those settings appropriately. 
 
