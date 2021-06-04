@@ -1,6 +1,6 @@
 A multitenant Kubernetes cluster is shared by multiple users and workloads that are commonly referred to as "tenants." This definition includes Kubernetes clusters that are shared by different teams or divisions within an organization, as well as clusters that are shared by per-customer instances of a software-as-a-service (SaaS) application. Cluster multitenancy is an alternative to managing many single-tenant dedicated clusters. The operators of a multitenant Kubernetes cluster must isolate tenants from each other, to minimize the damage that a compromised or malicious tenant can do to the cluster and to other tenants. When several users or teams share the same cluster with a fixed number of nodes, there is a concern that one team could use more than its fair share of resources. [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) is a tool for administrators to address this concern.
 
-When you plan to build a multitenant AKS cluster, you should consider the layers of resource isolation that are provided by Kubernetes: a multitenant AKS cluster you should consider the layers of resource isolation provided by Kubernetes: cluster, namespace, node, pod, and container. You should also consider the security implications of sharing different types of resources among multiple tenants. For example, scheduling pods from different tenants on the same node could reduce the number of machines needed in the cluster. On the other hand, you might need to prevent certain workloads from being colocated. For example, you might not allow untrusted code from outside of your organization to run on the same node as containers that process sensitive information.
+When you plan to build a multitenant Azure Kubernetes Service (AKS) cluster, you should consider the layers of resource isolation that are provided by Kubernetes: a multitenant AKS cluster you should consider the layers of resource isolation provided by Kubernetes: cluster, namespace, node, pod, and container. You should also consider the security implications of sharing different types of resources among multiple tenants. For example, scheduling pods from different tenants on the same node could reduce the number of machines needed in the cluster. On the other hand, you might need to prevent certain workloads from being colocated. For example, you might not allow untrusted code from outside of your organization to run on the same node as containers that process sensitive information.
 
 Although Kubernetes cannot guarantee perfectly secure isolation between tenants, it does offer features that may be sufficient for specific use cases. As a best practice, you should separate each tenant and its Kubernetes resources into their own namespaces. You can then use [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) and [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) to enforce tenant isolation. For example, the following picture shows the typical SaaS Provider Model that hosts multiple instances of the same application on the same cluster, one for each tenant. Each application lives in a separate namespace.
 
@@ -12,7 +12,7 @@ The [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/i
 
 A single instance of the [Azure Application Gateway Kubernetes Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-multiple-namespace-support) can ingest events from and observe multiple namespaces. Should the AKS administrator decide to use Application Gateway as an ingress, all namespaces will use the same instance of Application Gateway. A single installation of Ingress Controller will monitor accessible namespaces and will configure the Application Gateway that it is associated with.
 
-[Azure Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) provides centralized protection for web applications from common exploits and vulnerabilities. Web applications running on [Azure Kubernetes Cluster (AKS) cluster](/azure/aks/intro-kubernetes) and exposed via the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) can be protected from malicious attacks, such as SQL injection and cross-site scripting, by using a [WAF Policy](/azure/web-application-firewall/ag/create-waf-policy-ag).
+[Azure Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) provides centralized protection for web applications from common exploits and vulnerabilities. Web applications running on [Azure Kubernetes Service (AKS) cluster](/azure/aks/intro-kubernetes) and exposed via the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) can be protected from malicious attacks, such as SQL injection and cross-site scripting, by using a [WAF Policy](/azure/web-application-firewall/ag/create-waf-policy-ag).
 
 ## Potential use cases
 
@@ -30,7 +30,7 @@ The companion ARM template deploys a  new virtual network with four subnets:
 - AppGatewaySubnet: Hosts Application Gateway WAF2
 - AzureBastionSubnet: Azure Bastion
 
-The AKS cluster uses a user-defined managed identity to create additional resources, like load balancers and managed disks in Azure. The ARM template allows you to deploy an AKS cluster with the following features:
+The Azure Kubernetes Service (AKS) cluster uses a user-defined managed identity to create additional resources, like load balancers and managed disks in Azure. The ARM template allows you to deploy an AKS cluster with the following features:
 
 - [Container Storage Interface (CSI) drivers for Azure disks and Azure Files](/azure/aks/csi-storage-drivers)
 - [AKS-managed AAD integration](/azure/aks/managed-aad)
@@ -53,7 +53,7 @@ An Azure Bastion host provides secure and seamless SSH connectivity to the jump-
 
 The architecture includes an Application Gateway that is used by the ingress controller. The Application Gateway is deployed to a dedicated subnet and exposed to the public internet via a public IP address that is shared by all the tenant workloads. A Web Access Firewall (WAF) Policy is associated to the Application Gateway at the root level and at the HTTP listener level, to protect tenant workloads from malicious attacks. The policy is configured in Prevention mode and uses [OWASP 3.1](https://owasp.org/www-project-application-security-verification-standard/) to block intrusions and attacks that are detected by rules. The attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records these attacks in the WAF logs.
 
- A Key Vault is used as a secret store by workloads that run on AKS to retrieve keys, certificates, and secrets via a client library, [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure PaaS Services, such as Key Vault, over a private endpoint in the virtual network. 
+ A Key Vault is used as a secret store by workloads that run on Azure Kubernetes Service (AKS) to retrieve keys, certificates, and secrets via a client library, [Secrets Store CSI Driver](/azure/aks/csi-secrets-store-driver), or [Dapr](https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/). [Azure Private Link](/azure/private-link/private-link-overview) enables AKS workloads to access Azure PaaS Services, such as Key Vault, over a private endpoint in the virtual network. 
 
 The sample topology includes the following private endpoints:
 
@@ -105,9 +105,9 @@ A Virtual Network Link exists between the virtual network hosting the AKS cluste
 
 ### Alternatives
 
-In this architecture, the [Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) was installed using the [AGIC add-on for AKS](/azure/application-gateway/tutorial-ingress-controller-add-on-new). You can also [install the Application Gateway Ingress Controller via a Helm chart](/azure/application-gateway/ingress-controller-install-existing#multi-cluster--shared-application-gateway). For a new setup, by using one line in Azure CLI, you can deploy a new Application Gateway and a new AKS cluster (with AGIC enabled as an add-on). The add-on is also a fully managed service, which provides added benefits, such as automatic updates and increased support. Both ways of deploying AGIC (Helm and the AKS add-on) are fully supported by Microsoft. Additionally, the add-on allows for better integration with AKS, as a first class add-on.
+In this architecture, the [Application Gateway Ingress Controller (AGIC)](https://azure.github.io/application-gateway-kubernetes-ingress/) was installed using the [AGIC add-on for Azure Kubernetes Service (AKS)](/azure/application-gateway/tutorial-ingress-controller-add-on-new). You can also [install the Application Gateway Ingress Controller via a Helm chart](/azure/application-gateway/ingress-controller-install-existing#multi-cluster--shared-application-gateway). For a new setup, by using one line in Azure CLI, you can deploy a new Application Gateway and a new AKS cluster (with AGIC enabled as an add-on). The add-on is also a fully managed service, which provides added benefits, such as automatic updates and increased support. Both ways of deploying AGIC (Helm and the AKS add-on) are fully supported by Microsoft. Additionally, the add-on allows for better integration with AKS, as a first class add-on.
 
-The AGIC add-on is still deployed as a pod in your AKS cluster. However, there are a few differences between the Helm deployment version and the add-on version of AGIC. The following list includes the differences between the two versions:
+The Application Gateway Ingress Controller (AGIC) add-on is still deployed as a pod in your AKS cluster. However, there are a few differences between the Helm deployment version and the add-on version of AGIC. The following list includes the differences between the two versions:
 
 - Helm deployment values cannot be modified on the AKS add-on:
 
@@ -141,7 +141,7 @@ Once deployed with the ability to observe multiple namespaces, AGIC will do the 
 
 ## Considerations
 
-Although some of the following considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution. This includes our security, performance, availability and reliability, storage, scheduler, service mesh, and monitoring considerations.
+Although some of the following considerations are not fully pertaining to multitenancy in Azure Kubernetes Service (AKS), we believe they are essential requirements when deploying this solution. This includes our security, performance, availability and reliability, storage, scheduler, service mesh, and monitoring considerations.
 
 ### Security considerations
 
@@ -184,7 +184,7 @@ Although the security considerations are not fully pertaining to multitenancy in
 
 ### Performance considerations
 
-Although the performance considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution:
+Although the performance considerations are not fully pertaining to multitenancy in Azure Kubernetes Service (AKS), we believe they are essential requirements when deploying this solution:
 
 - For low latency workloads, consider deploying a dedicated node pool in a proximity placement group. When deploying your application in Azure, spreading Virtual Machine (VM) instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping that's used to make sure Azure compute resources are physically located close to each other. Some use cases (such as gaming, engineering simulations, and high-frequency trading (HFT)) require low latency and tasks that complete quickly. For high-performance computing (HPC) scenarios such as these, consider using [proximity placement groups](/azure/virtual-machines/co-location#proximity-placement-groups) (PPG) for your cluster's node pools.
 - Always use smaller container images, as it helps you to create faster builds. Smaller images are also less vulnerable to attack vectors, because of a reduced attack surface.
@@ -192,7 +192,7 @@ Although the performance considerations are not fully pertaining to multitenancy
 
 ### Availability and reliability considerations
 
-Although the availability and reliability considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution. Consider the following ways to optimize availability for your AKS cluster and workloads.
+Although the availability and reliability considerations are not fully pertaining to multitenancy in Azure Kubernetes Service (AKS), we believe they are essential requirements when deploying this solution. Consider the following ways to optimize availability for your AKS cluster and workloads.
 
 #### Containers
 
@@ -232,7 +232,7 @@ Although the availability and reliability considerations are not fully pertainin
 
 ### Storage considerations
 
-Although the storage considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution:
+Although the storage considerations are not fully pertaining to multitenancy in Azure Kubernetes Service (AKS), we believe they are essential requirements when deploying this solution:
 
 - Consider deploying your AKS cluster with [ephemeral OS disks](/azure/aks/cluster-configuration#ephemeral-os) that provide lower read/write latency, along with faster node scaling and cluster upgrades.
 - Understand the needs of your application to pick the right storage. Use high performance, SSD-backed storage for production workloads. Plan for a network-based storage system, such as [Azure Files](/azure/storage/files/storage-files-introduction), when multiple pods need to concurrently access the same files. For more information, see [Storage options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-storage).
@@ -247,7 +247,7 @@ Although the storage considerations are not fully pertaining to multitenancy in 
 
 ### Scheduler considerations
 
-Although some of the scheduler considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution:
+Although some of the scheduler considerations are not fully pertaining to multitenancy in Azure Kubernetes Service (AKS), we believe they are essential requirements when deploying this solution:
 
 - Make sure you review and implement the [best practices](/azure/aks/best-practices), for cluster operators and application developers to build and run applications successfully on Azure Kubernetes Service (AKS).
 - Plan and apply [resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) at the namespace level, for all namespaces. If pods don't define resource requests and limits, then reject the deployment. Monitor resource usage, and then adjust quotas as needed. When several teams or tenants share an AKS cluster with a fixed number of nodes, resource quotas can be used to assign a fair share of resources to each team or tenant.
@@ -273,7 +273,7 @@ Although the service mesh considerations are not fully pertaining to multitenanc
 
 ### DevOps considerations
 
-- Deploy your workloads to AKS, with a [Helm](https://helm.sh/) chart in a CI/CD pipeline, by using a DevOps system, such as [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](https://azure.microsoft.com/services/devops/). For more information, see [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
+- Deploy your workloads to Azure Kubernetes Service (AKS), with a [Helm](https://helm.sh/) chart in a CI/CD pipeline, by using a DevOps system, such as [GitHub Actions](https://docs.github.com/en/actions) or [Azure DevOps](https://azure.microsoft.com/services/devops/). For more information, see [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
 - Introduce A/B testing and canary deployments in your application lifecycle management, to properly test an application before making it available for all users. There are several techniques that you can use to split the traffic across different versions of the same service.
 - As an alternative, you can use the traffic-splitting capabilities that are provided by a service mesh implementation. For more information, see:</p>
 
@@ -284,7 +284,7 @@ Although the service mesh considerations are not fully pertaining to multitenanc
 
 ### Monitoring considerations
 
-Although the monitoring considerations are not fully pertaining to multitenancy in AKS, we believe they are essential requirements when deploying this solution:
+Although the monitoring considerations are not fully pertaining to multitenancy in Azure Kubernetes Service (AKS), we believe they are essential requirements when deploying this solution:
 
 - Use [Container insights](/azure/azure-monitor/containers/container-insights-overview) to monitor the health status of the AKS cluster and workloads.
 - Configure all the PaaS services (such as Azure Container Registry and Key Vault) to collect diagnostics logs and metrics, to [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview).
@@ -372,7 +372,7 @@ After you assess these aspects, go to the [Azure pricing calculator](https://azu
 
 ### Architectural guidance
 
-- [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
+- [Azure Kubernetes Service (AKS) solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
 - [AKS cluster best practices](/Azure/aks/best-practices?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
 - [Azure Kubernetes Services (AKS) day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
 - [Choosing a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)
