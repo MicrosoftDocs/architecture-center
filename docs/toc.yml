@@ -953,6 +953,8 @@ items:
                 href: example-scenario/apps/telehealth-system.yml
               - name: Magento e-commerce in AKS
                 href: example-scenario/magento/magento-azure.yml
+              - name: Multitenancy with AKS and AGIC
+                href: example-scenario/aks-agic/aks-agic.yml
           - name: Solution ideas
             items:
               - name: API-first SaaS business model with AKS
