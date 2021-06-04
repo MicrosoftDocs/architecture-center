@@ -49,3 +49,8 @@ I agree to the above terms
 
  > [!div class="button"]
  > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V4.zip)
+
+### See also
+
+[Dynamics 365 icons](/dynamics365/get-started/icons)<br/>
+[Microsoft Power Platform icons](/power-platform/guidance/icons)

@@ -108,7 +108,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Security Center is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Security Center Standard][security-center-get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
-**Patch management**. If enabled, Security Center checks whether any security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
+**Patch management**. If enabled, Security Center checks whether any security and critical updates are missing.
 
 **Antimalware**. If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
 
