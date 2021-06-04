@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: AKS baseline cluster for a PCI-DSS reference architecture
+  title: AKS baseline architecture for PCI-DSS
   description: Learn about architectural recommendations and code assets from the accompanying reference implementation
   author: PageWriter-MSFT
   ms.author: pnp
@@ -12,9 +12,7 @@ metadata:
     - containers
   ms.custom:
     - microservices
-    - reference-architecture
-    - e2e-aks
-name: AKS baseline cluster for a PCI-DSS reference architecture
+name: AKS baseline architecture for PCI-DSS
 azureCategories:
   - containers
 summary: Learn about architectural recommendations and code assets from the accompanying reference implementation

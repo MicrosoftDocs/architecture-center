@@ -8,7 +8,7 @@ Azure Kubernetes Service (AKS) is fully integrated with Azure Active Directory (
 
 For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
 
-This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. One of the benefit of hosting your CDE in Azure as oppposed to your platform at the edge or in your data center, is that restricting physical access is mostly already handled through Azure datacenter security. There aren't any responsibilities for the organization in management of physcial hardware.
+This architecture and the implementation aren't designed to provide controls on physical access to resources for on-premises or data centers. One of the benefit of hosting your CDE in Azure as oppposed to your platform at the edge or in your data center, is that restricting physical access is mostly already handled through Azure datacenter security. There aren't any responsibilities for the organization in management of physcial hardware.
 
 > [!IMPORTANT]
 >
@@ -39,21 +39,8 @@ This architecture and the implementation aren't designed to do provide controls 
 |[Requirement 8.7](#requirement-87)| All access to any database containing cardholder data (including access by applications, administrators, and all other users) is restricted as follows:|
 |[Requirement 8.8](#requirement-87)|Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.|
 
-**Requirement 9**&mdash;Restrict physical access to cardholder data
+[**Requirement 9**](#requirement-9)&mdash;Restrict physical access to cardholder data
 ***
-
-|Requirement|Responsibility|
-|---|---|
-|[Requirement 9.1](#requirement-91)|Use appropriate facility entry controls to limit and monitor physical access to systems in the cardholder data environment.|
-|[Requirement 9.2](#requirement-92)| Develop procedures to easily distinguish between onsite personnel and visitors, to include:|
-|[Requirement 9.3](#requirement-93)|Control physical access for onsite personnel to the sensitive areas as follows:|
-|[Requirement 9.4](#requirement-94)|Implement procedures to identify and authorize visitors. Procedures should include the following:|
-|[Requirement 9.5](#requirement-95)| Physically secure all media.|
-|[Requirement 9.6](#requirement-96)| Maintain strict control over the internal or external distribution of any kind of media, including the following:|
-|[Requirement 9.7](#requirement-97)| Maintain strict control over the storage and accessibility of media.|
-|[Requirement 9.8](#requirement-98)|Destroy media when it is no longer needed for business or legal reasons as follows:|
-|[Requirement 9.9](#requirement-99)|Protect devices that capture payment card data via direct physical interaction with the card from tampering and substitution.|
-|[Requirement 9.10](#requirement-910)|Ensure that security policies and operational procedures for restricting physical access to cardholder data are documented, in use, and known to all affected parties.|
 
 ### Requirement 7.1
 
@@ -75,6 +62,7 @@ This reference implementation will work with either model. Here are some conside
 - Make sure your implementation is aligned with the organization's and compliance requirements about identity management.
 - Minimize standing permissions and use just-in-time(JIT) role assignments, time-based, and approval-based role activation.
 - Follow the principle of least-privilege access when making RBAC role assigments to all components of the CDE.
+- An AKS cluster needs an identity to communicate with other Azure resources. You can create a service principal or use managed identity. Between the two approaches, managed identity is recommended because the overhead of maintaining that identity is done by AKS.
 
 #### Requirement 7.1.1
 
@@ -85,39 +73,33 @@ Define access needs for each role, including:
 
 ##### Your responsibilities
 
-Determine access for roles involved in workload and its operations. This depends on your organization structure. As you define roles, consider the scope of roles and responsibilities about topics such as:
+Define roles based on the tasks and responsibilities required for the in-scope components and their interaction with Azure resources. You can start with  broad categories, such as:
 
-- Source Code repository (GitHub Enterprise, Azure DevOps, GitLab, etc.)
-- Key Vaults
-- Resource Groups / Subscriptions
-- Azure Management Groups
-- Azure Policy (workload-centric), Azure Policy (subscription-centric)
-- Container Registries
-- Databases
-- Pipelines (Build and Deploy)
-- Azure Resources (ARM templates)
-- Training and Certification
-- TLS certificate authority
-- Live-site access patterns
-- Pre-production environments
+- Scope by Azure Management Groups, Subscriptions, resource groups
+- Azure Policy for the workload, subscription
+- Container operations
+- Secret management
+- Build and deployment pipelines
 
-Who in your organization is responsible for tasks, such as:
+While the definition of roles and responsibilities around those areas might be associated with your team structure, focus on the requirement of the workload. For instance, who is responsible for maintaining security, isolation, deployment, observability, and others. Here are some examples:
 
 - Decisions about application security, Kubernetes RBAC, network policies, Azure policies, communication with other services.
 - Configuration and maintenance of Azure Firewall, Web Application Firewall (WAF), network security groups (NSGs), DNS configuration, and so on.
-- Allocation of enterprise-wide virtual network and subnets.
 - Monitor and remediate server security, patching, configuration, endpoint security.
 - Set direction for use of RBAC, Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources.
 - Incident monitoring and response team. Investigate and remediate security incidents in Security Information and Event Management (SIEM) or Azure Security Center.
- 
-Here are example roles and their responsibilities.
 
-|Team|Function|Access levels
+Then, formalize the definition by determining what level of access is required for the role with respect to the workload and the infrastructure. Here's a simple definition for illustrative purposes. 
+
+|Role|Responsibilities|Access levels
 |---|---|---|
-|**Application owners**|Define the scope of the workload and prioritize features.  balance customer data protection and ownership with business objectives. |<TBD>|
-|**Application developers**|Develop software in compliance with the standard. All code must be approved by entities responsible for quality gates, attestation, and release management processes.|Read privileges in Kubernetes namespaces and Azure resources that are in scope of the workload. May manage build pipelines but not deployment pipelines.|
-|**Application operators (or SRE)**| Have deep understanding of the code base. Are experts in troubleshooting, observability standards, operations. Manage the "last-mile" deployment pipeline and may help the application developers manage the build pipelines. |Highly privileged within the scope of the application that includes related Kubernetes namespaces and Azure resources. |
-|**Infrastructure operators (or SRE)**|Build, deploy, and bootstrap pipeline for the cluster in which the workload is deployed. Monitor and the health of the container hosting infrastructure and dependent services. |Read-only permissions for the workload namespaces for quota, limits, or OOM alerts. Need <TBD> permissions to bootstrap workload namespaces with requires zero-trust policies and set quotas.|
+|**Application owners**|Define and prioritize features aligning with business outcomes. They understand how features impact the compliance scoping of the workload, and balance customer data protection and ownership with business objectives.|Read access to logs and metrics emitted by the application. They don't need permissions to  access to the workload or the cluster.|
+|**Application developers**|Develop the application. All application code is subject to training and quality gates upholding compliance, attestation, and release management processes. May manage the build pipelines, but usually not deployment pipelines.|Read access to Kubernetes namespaces and Azure resources that are in scope of the workload. No write access for deploying or modifying any state of the system.|
+|**Application operators (or SRE)**|Have a deep understanding of the code base, observability, and operations. Do live-site triage and troubleshooting. Along with **application developers**, improve availability, scalability and performance of the application. Manage the "last-mile" deployment pipeline and help manage the build pipelines.|Highly privileged within the scope of the application that includes related Kubernetes namespaces and Azure resources. Likely have standing access to parts of the Kubernetes cluster.
+|**Infrastructure owners**| Design a cost-effective architecture, its connectivity and functionality of components. The scope may include cloud and on-premises services. Decide capabilities data retention, business continuity features, and others.|Access to platform logs and cost center data. No access is required within the cluster|
+|**Infrastructure operators (or SRE)**|Operations related to cluster and dependent services. Build, deploy, and bootstrap pipeline for the cluster in which the workload is deployed. Set targets node pools, expected sizing and scale requirements. Monitor and the health of the container hosting infrastructure and dependent services.|Read access to workload namespaces. Highly-privileged access for the cluser. 
+|**Policy, security owners**| Have security and, or regulation compliance expertise. Define policies that protect the security and regulatory compliance of the company employees, its assets, and those of the company's customers. Works with all other roles to ensure policy is applied and auditable through every phase.|Read access to the workload and the cluster. Also access to log and audit data|
+|**Network operators**|Allocation of enterprise-wide virtual network and subnets. Configuration and maintenance of Azure Firewall, Web Application Firewall (WAF), network security groups (NSGs), DNS configuration, and so on.|Highly-privileged in the networking layer. No write permission within the cluster.|
 
 
 #### Requirement 7.1.2
@@ -126,9 +108,12 @@ Restrict access to privileged user IDs to least privileges necessary to perform 
 
 ##### Your responsibilities
 
-Minimize standing permissions, especially on critical-impact identities that have access to in-scope components. Use [Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks) in Azure Active Directory (AD) through Privileged Identity Management. Add extra restrictions through [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks) where possible.
+Based on the job functions, strive to minimize access without causing disruptions. Here are some best practices:
 
-Regular review and audit users and groups that have access in your subscriptions, even for read-access. Avoid inviting external identities.
+- The identity should have just-enough-access to complete a task.
+- Minimize standing permissions, especially on critical-impact identities that have access to in-scope components. 
+- Add extra restrictions where possible. One way is to provide conditional access based on access criteria. 
+- Regular review and audit users and groups that have access in your subscriptions, even for read-access. Avoid inviting external identities.
 
 #### Requirement 7.1.3
 
@@ -136,49 +121,17 @@ Assign access based on individual personnel’s job classification and function.
 
 ##### Your responsibilities
 
-Determine permissions based on the clearly assigned job duties of the individual. Avoid parameters such as the system, tenure of the employee. Give access rights to a single user or to a group. Here are the some examples.
+Determine permissions based on the clearly assigned job duties of the individual. Avoid parameters such as the system, tenure of the employee. Give access rights to a single user or to a group. 
 
-|Team|Group assignment| Single user|
-|---|---|---|
-|**Application owners**|A group with access to reports, cost center, or Azure Dashboards. No access needed for in-cluster or cluster-level permissions.|
-|**Application developers**|A group with standing read permissions within defined scopes within Azure (such as  Application Insights) and the workload namespaces. These scopes and permissions may be different between pre-production and production environments.|
-|**Application operators (or SRE)**| <p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s) but are not highly privileged. </p> |A Service Principal responsible for deploying workload-centric resources.|
-|**Infrastructure operators (or SRE)**|<p>Group A: that is used at the break-glass group that allows full control over the Kubernetes cluster. Standing permissions are not required.</p><p>Group B for day-to-day operations on the cluster. It can have standing permissions within a cluster but are not highly privileged.</p>|A Service Principal responsible for deploying Azure resources, such as the cluster and other Azure resources on the same lifecycle.|
+Here are the some examples.
 
-Then, use role-based access control (RBAC) to limit access for the group and user. A role is a collection of permissions. An identity or a group of identities can be assigned to a role. RBAC can be divided into two categories:
-
-- Azure RBAC&mdash;is an Azure Active Directory (AD)-based authorization model that controls access to the _Azure control plane_. This is an association of your Azure Active Directory (AD) tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources such as networks, AKS cluster, managed identities, and and so on.
-- Kubernetes RBAC&mdash;is a native Kubernetes authorization model that controls access to the _Kubernetes control plane_ exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
-
-Here are some example Azure RBAC role assigments:
-
-|Team group/user| Azure RBAC|
+|Job classification|Role|
 |---|---|
-|**Application owners group**|TBD|
-|**Application developers group**|TBD|
-|**Application operators user**|TBD|
-|**Application operators group A**|TBD|
-|**Application operators group B**|TBD|
-|**Infrastructure operators user**|TBD|
-|**Infrastructure operators group A**|TBD|
-|**Infrastructure operators group B**|TBD|
-
-
-Within the cluster, the preceding user identities  and groups are mapped to Kubernetes `ClusterRole` and `ClusterRoleBinding` constructs, respectively. 
-
-
-Here are some best practices when assigning roles:
-
-- Consider using dedicated tenants for seperation of responsibilities between Kubernetes RBAC and Azure RBAC when applicable. This defense-in-depth will protect the system in situations if one tenant is compromised, actions by the other tenant remain unaffected. The downside is the increased overhead in management of two tenants. Follow the governance policies to choose a model that works for the organization.
-
-- You can choose to keep separate tenants for each RBAC mechanism. This way, you can clearly maintain tenant segmentation. The advantage is reduced attack surface and lateral movement. The down side is increased  complexity and cost of managing multiple identity stores.
-
-
-- Strive for consistency with your RBAC implementation. Define common roles and apply group assignments appropriately that align with your team structure. A consistent approach will help in detecting changes and and provide justification for new access requirements that may develop. It's also easier to audit.
-
-- Have a regular cadence for reviewing permissions. Responsibilities might change when there are changes on the team such as employee leaving the company or there are need for roles that are temporary. In some cases, the reviews might show  need for changes. One way is to review the `kube-audit-admin` logs to ensure access patterns are being followed. Outside of identity provider emergencies, the built-in `cluster admin` user should never be used. Consider including a review of these logs to detect unexpected admin user usage; as that might indicate reinforced training on your identity governance policies.
-
-- Make sure you maintain documentation that keeps track of the changes.
+|A _product owner_ defines the scope of the workload and prioritize features. Balance customer data protection and ownership with business objectives. Need access to reports, cost center, or Azure Dashboards. No access needed for in-cluster or cluster-level permissions.|**Application owners**|
+|An _software engineer_ designs, develops, and containerizes the application code. A group with standing read permissions within defined scopes within Azure (such as  Application Insights) and the workload namespaces. These scopes and permissions may be different between pre-production and production environments.|**Application developer**|
+|An _site reliability engineer_ does live-site triage, manages pipelines and sets up application infrastructure.<p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s) but are not highly privileged. </p> |**Application operators**|
+|A _cluster operator_ designs and deploys, reliable and secure AKS cluster to the platform. Responsible for maintaining cluster up time. <p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s) but are not highly privileged. </p> |A Service Principal responsible for deploying workload-centric resources.|**Infrastructure operators**|
+|A _network engineer_ allocates of enterprise-wide virtual network and subnets, on-premises to cloud connectivity, and network security. |**Infrastructure operators**|
 
 
 #### Requirement 7.1.4
@@ -197,17 +150,25 @@ Establish an access control system for systems components that restricts access 
 
 After following [Requirement 7.1](#requirement-71), you should have assessed roles and responsibilities that are applicable for your organization and the workload. All components in the architecture that are in-scope must have restricted access. This includes the AKS nodes that run the workload, data storage, network access, and all other services that participate in processing the card holder data (CHD).
 
-Based on roles and responsibilities, assign user or administrator roles. Kubernetes has built-in, user-facing RBAC roles, such as `admin` that are applied typically at the namespace level. If you are integrating Azure AD roles and Kubernetes roles, create a mapping between the two roles.
+Based on roles and responsibilities, assign roles to the infrastructure's role-based access control (RBAC). That mechanism can be:
 
-Here's an example. Suppose you need a group for the SRE team.  This role assigned to the group requires the highest privilege and equates to a `cluster-admin` role. You can map the role to an existing AD RBAC role that has administrative access. Make sure you have strategy in place to create separation of duties.
+- Azure RBAC&mdash;is an Azure Active Directory (AD)-based authorization model that controls access to the _Azure control plane_. This is an association of your Azure Active Directory (AD) tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources such as networks, AKS cluster, managed identities, and and so on.
+- Kubernetes RBAC&mdash;is a native Kubernetes authorization model that controls access to the _Kubernetes control plane_ exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
 
-An alternate way is to create a custom role dedicated for cluster administrative access. Of the two approaches, the second one is recommended and demonstrated in the reference implementation.
+Suppose you need a group for the **infrastructure operator** role. As established in 7.1.1. and 7.1.3, this role requires the highest privilege in the cluster. Kubernetes has built-in, user-facing RBAC roles, such as `admin` that are applied typically at the namespace level. You can assign that role to your **infrastructure operator** role. If the built-in roles do not meet your requirements, for instance they are overly permissive, create custom roles. 
+
+The reference implementation uses Kubernetes roles. For example, Azure Image Builder creates images for jump box intended for operational access to the AKS clusters. That access is secure with network controls. For this two key roles are required  are `customImageCreatorRole` and `imageBuilderNetworkingRole`. For role definitions, see the implementation. 
+<Ask Chad: There were two groups within cluster operator. Both were infrastructure operators. How do we separate out duties>
+
+You can map the role to an existing AD RBAC role that has administrative access. Make sure you have strategy in place to create separation of duties.
+
+You can also use Azure AD and Kubernetes RBAC mechanisms, If you are integrating both RBAC roles, create a mapping between the two roles.
+
+Here are other best practices:
 
 - Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are Just-In-Time(JIT) and standing. 
 
 - Monitor the roles for changes such as, in assigment changes or role definitions. Create alerts on changes even if they are expected to gain visibility into intentions behind the changes.
-
-
 
 #### Requirement 7.2.1
 
@@ -234,7 +195,7 @@ Assignment of privileges to individuals based on job classification and function
 
 ##### Your responsibilities
 
-There are many roles involved in cluster operations. Beyond the standard Azure resource roles, you'll need to now define the extent and process of access.
+Based on 7.1.3, there will be many roles involved in cluster operations. Beyond the standard Azure resource roles, you'll need to now define the extent and process of access.
 
 For example, consider the cluster operator role. They should have a clearly-defined playbook for cluster triage activities. How different is that access from workload team. Depending on your organization they may be the same. Here are some points:
 
@@ -413,7 +374,7 @@ Do not use group, shared, or generic IDs, passwords, or other authentication met
 
 Don't share or reuse identities for functionally different parts of the cluster or pods.For example, using a team account to access data or cluster resources. Make sure the identity onboarding documentation is clear about not using shared accounts.
 
-Disable root users in the CDE. Do not use the built-in `--admin` access in the CDE.
+Disable root users in the CDE. Do not use the built-in `--admin` to clusters within the CDE.
 
 ### Requirement 8.6
 
@@ -449,19 +410,13 @@ Ensure that security policies and operational procedures for identification and 
 
 It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your identity onboarding training, provide guidance for password reset procedures and organizational best practices about protecting assets. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
 
-### Requirement 9.1
-Use appropriate facility entry controls to limit and monitor physical access to systems in the cardholder data environment.
-- 9.1.1 Use either video cameras or access control mechanisms (or both) to monitor individual physical access to sensitive areas. Review collected data and correlate with other entries. Store for at least three months, unless otherwise restricted by law. 
+## Requirement 9
 
-   Note: ""Sensitive areas” refers to any data center, server room or any area that houses systems that store, process, or transmit cardholder data. This excludes public-facing areas where only point-of-sale terminals are present, such as the cashier areas in a retail store."""
-- 9.1.2 Implement physical and/or logical controls to restrict access to publicly accessible network jacks. 
+Restrict physical access to cardholder data
 
-   For example, network jacks located in public areas and areas accessible to visitors could be disabled and only enabled when network access is explicitly authorized. Alternatively, processes could be implemented to ensure that visitors are escorted at all times in areas with active network jacks."
-- 9.1.3 Restrict physical access to wireless access points, gateways, handheld devices, networking/communications hardware, and telecommunication lines.
+### Your responsibilities
 
-#### Your responsibilities
-
-This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For considerations, refer to the guidance in the official PCI-DSS standard.
+This architecture and the implementation aren't designed to provide controls on physical access to resources for on-premises or data centers. For considerations, refer to the guidance in the official PCI-DSS standard.
 
 Here are some suggestions for applying technical controls:
 
@@ -473,109 +428,7 @@ Here are some suggestions for applying technical controls:
 
 - For cloud-hosted CDE, There aren't any responsibilities for managing physcial access and hardware. Rely on corporate network physical and logical controls.
 
-
-### Requirement 9.2
-Use either video cameras or access control mechanisms (or both) to monitor individual physical access to sensitive areas. Review collected data and correlate with other entries. Store for at least three months, unless otherwise restricted by law. 
-
-
-#### Your responsibilities
-
-This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, There aren't any responsibilities on the organization for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
-
-
-### Requirement 9.3
-Control physical access for onsite personnel to the sensitive areas as follows:
-- Access must be authorized and based on individual job function.
-- Access is revoked immediately upon termination, and all physical access mechanisms, such as keys, access cards, etc., are returned or disabled.
-
-
-#### Your responsibilities
-This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
-
-
-### Requirement 9.4
-
-Implement procedures to identify and authorize visitors. Procedures should include the following:
-- 9.4.1 Visitors are authorized before entering, and escorted at all times within, areas where cardholder data is processed or maintained
-- 9.4.2 Visitors are identified and given a badge or other identification that expires and that visibly distinguishes the visitors from onsite personnel.
-- 9.4.3 Visitors are asked to surrender the badge or identification before leaving the facility or at the date of expiration.
-- 9.4.4 A visitor log is used to maintain a physical audit trail of visitor activity to the facility as well as computer rooms and data centers where cardholder data is stored or transmitted.
-
-Document the visitor’s name, the firm represented, and the onsite personnel authorizing physical access on the log. Retain this log for a minimum of three months, unless otherwise restricted by law.
-
-#### Your responsibilities
-This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
-
-
-### Requirement 9.5
-
-Physically secure all media.
-- 9.5.1 Store media backups in a secure location, preferably an off-site facility, such as an alternate or backup site, or a commercial storage facility. Review the location’s security at least annually.
-
-#### Your responsibilities
-This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
-
-
-### Requirement 9.6
-Maintain strict control over the internal or external distribution of any kind of media, including the following:
-- 9.6.1 Classify media so the sensitivity of the data can be determined.
-- 9.6.2 Send the media by secured courier or other delivery method that can be accurately tracked.
-- 9.6.3 Ensure management approves any and all media that is moved from a secured area (including when media is distributed to individuals).
-
-
-#### Your responsibilities
-This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
-
-
-### Requirement 9.7
-Maintain strict control over the storage and accessibility of media.
-- Properly maintain inventory logs of all media and conduct media inventories at least annually.
-
-
-#### Your responsibilities
-This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
-
-
-### Requirement 9.8
-Destroy media when it is no longer needed for business or legal reasons as follows:
-- 9.8.1 Shred, incinerate, or pulp hard-copy materials so that cardholder data cannot be reconstructed. Secure storage containers used for materials that are to be destroyed.
-- 9.8.2 Render cardholder data on electronic media unrecoverable so that cardholder data cannot be reconstructed.
-
-
-#### Your responsibilities
-This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
-
-
-### Requirement 9.9
-Protect devices that capture payment card data via direct physical interaction with the card from tampering and substitution.
-
-Note: These requirements apply to card-reading devices used in card-present transactions (that is, card swipe or dip) at the point of sale. This requirement is not intended to apply to manual key-entry components such as computer keyboards and POS keypads. "
-- 9.9.1 Maintain an up-to-date list of devices. The list should include the following:
-   - Make, model of device
-   - Location of device (for example, the address of the site or facility where the device is located)
-   - Device serial number or other method of unique identification."
-- 9.9.2 Periodically inspect device surfaces to detect tampering (for example, addition of card skimmers to devices), or substitution (for example, by checking the serial number or other device characteristics to verify it has not been swapped with a fraudulent device).
-
-   Note: Examples of signs that a device might have been tampered with or substituted include unexpected attachments or cables plugged into the device, missing or changed security labels, broken or differently colored casing, or changes to the serial number or other external markings."
-- 9.9.3 Provide training for personnel to be aware of attempted tampering or replacement of devices.  Training should include the following:
-   - Verify the identity of any third-party persons claiming to be repair or maintenance personnel, prior to granting them access to modify or troubleshoot devices.
-   - Do not install, replace, or return devices without verification.
-   - Be aware of suspicious behavior around devices (for example, attempts by unknown persons to unplug or open devices).
-   - Report suspicious behavior and indications of device tampering or substitution to appropriate personnel (for example, to a manager or security officer)."
-
-
-#### Your responsibilities
-This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
-
-
-### Requirement 9.10
-
-Ensure that security policies and operational procedures for restricting physical access to cardholder data are documented, in use, and known to all affected parties.
-
-#### Your responsibilities
-This architecture and the implementation aren't designed to do provide controls on physical access to resources for on-premises or data centers. For cloud-hosted CDE, there aren't responsibilities on the organization  for managing physcial hardware. For considerations, refer to the guidance in the official PCI-DSS standard.
-
-
+- Minimize exporting of CHD backups to on-premises destinations. Use solutions hosted in Azure to limit physical access to backups.
 
 
 ## Next

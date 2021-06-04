@@ -1,6 +1,37 @@
-This series is focused on the infrastructure and _not_ the workload. The recommendations and examples are extracted from this accompanying reference implementation:
+This article describes a reference architecture for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS). This architecture is focused on the infrastructure and _not_ the PCI-DSS workload.
+
+> This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
+
+The recommendations and examples are extracted from this accompanying reference implementation:
 
 ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does _not_ represent or implement an actual PCI DSS workload.
+
+
+![Placeholder](images/network-topology.png)
+
+
+## Components
+
+> [!IMPORTANT]
+>
+> The architecture and the implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). Familiarize yourself with the components in the baseline. In this section, we'll highlight the differences between the two architectures.
+
+
+**Azure Bastion**
+
+The baseline architecture provided a subnet for Bastion but didn't provision the resource. This architecture adds Bastion in the subnet. It provides secure access to a jump box.
+
+
+**Azure Virtual Machines (VM)**
+
+The spoke network has an additional compute for a jump box. This machine is intended to run management tools on the AKS cluster, such as kubectl.
+
+**Azure Image Builder**
+
+Provisioned in a separate virtual network. Creates VM images with base security and configuration. In this architecture, it's customized to build secure node images with Ubuntu 18.04-LTS platform (MSFT-provided) image with management tools such as Azure CLI, kubectl and kubelogin, flux CLI.
+
+
+## Networking configuration
 
 ## Configuration differences between baseline and regulated architectures
 
