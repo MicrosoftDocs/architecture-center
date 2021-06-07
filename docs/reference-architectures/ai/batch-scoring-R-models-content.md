@@ -1,12 +1,14 @@
 
 
 
-This reference architecture shows how to perform batch scoring with R models using Azure Batch. The scenario is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a larger scale using R models. A reference implementation for this architecture is available on
+This reference architecture shows how to perform batch scoring with R models using [Azure Batch][batch]. The scenario is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a larger scale using R models. A reference implementation for this architecture is available on
 [GitHub][github].
 
-![Architecture diagram][0]
+![Architecture diagram: batch scoring with R models on Azure.][0]
 
-**Scenario**: A supermarket chain needs to forecast sales of products over the upcoming quarter. The forecast allows the company to manage its supply chain better and ensure it can meet demand for products at each of its stores. The company updates its forecasts every week as new sales data from the previous week becomes available and the product marketing strategy for next quarter is set. Quantile forecasts are generated to estimate the uncertainty of the individual sales forecasts.
+## Scenario: batch scoring for forecasting sales
+
+A supermarket chain needs to forecast sales of products over the upcoming quarter. The forecast allows the company to manage its supply chain better and ensure it can meet demand for products at each of its stores. The company updates its forecasts every week as new sales data from the previous week becomes available and the product marketing strategy for next quarter is set. Quantile forecasts are generated to estimate the uncertainty of the individual sales forecasts.
 
 Processing involves the following steps:
 
@@ -26,7 +28,7 @@ Processing involves the following steps:
 
 The figure below shows the forecasted sales for four products (SKUs) in one store. The black line is the sales history, the dashed line is the median (q50) forecast, the pink band represents the 25th and 75th percentiles, and the blue band represents the 50th and 95th percentiles.
 
-![Sales forecasts][1]
+![Sales forecasts from batch scoring with R models.][1]
 
 ## Architecture
 
