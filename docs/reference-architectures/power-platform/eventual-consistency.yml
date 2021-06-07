@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Eventual Consitency Between Multiple PowerApps instances.
+  titleSuffix: Azure Reference Architectures
+  description: Handle dependent data in a resilient way.
+  author: markcunninghamuk
+  ms.date: 30/04/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - web
+  ms.custom:
+    - reference-architecture
+    - internal-intro
+name: Eventual Consitency Between Multiple PowerApps instances
+azureCategories:
+  - web
+summary: Learn about proven approaches for data sync when multiple instances are present.
+products:
+  - power-platform
+  - dataverse
+thumbnailUrl: /azure/architecture/browse/thumbs/powerapps-eventual-conssitency-issue.png
+content: |
+   [!include[](eventually-consistent-instances.md)]
