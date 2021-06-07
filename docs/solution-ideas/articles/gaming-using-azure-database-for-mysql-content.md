@@ -46,8 +46,8 @@ This architecture includes the following components:
 
 The following solution ideas feature Azure Database for MySQL:
 
-* [Digital Marketing using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/digital-marketing-using-azure-database-for-mysql)
-* [Retail and e-commerce using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql)
-* [Intelligent apps using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql)
-* [Finance management apps using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql)
-* [Scalable web and mobile applications using Azure Database for MySQL](/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql)
+* [Digital Marketing using Azure Database for MySQL](./digital-marketing-using-azure-database-for-mysql.yml)
+* [Retail and e-commerce using Azure Database for MySQL](./retail-and-ecommerce-using-azure-database-for-mysql.yml)
+* [Intelligent apps using Azure Database for MySQL](./intelligent-apps-using-azure-database-for-mysql.yml)
+* [Finance management apps using Azure Database for MySQL](./finance-management-apps-using-azure-database-for-mysql.yml)
+* [Scalable web and mobile applications using Azure Database for MySQL](./scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
