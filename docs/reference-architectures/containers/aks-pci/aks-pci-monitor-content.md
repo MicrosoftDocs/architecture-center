@@ -245,29 +245,20 @@ Run internal and external network vulnerability scans at least quarterly and aft
 
 #### Your responsibilities
 
-Have a scanning process that checks for changes in the AKS cluster, network configuration, container registries, and other components of the architecture. 
+Have a process that checks for changes in the AKS cluster, network configuration, container registries, and other components of the architecture. 
 
-If there are changes in network, the scanning process should detect if the change introduced a security risk to the cluster. For example, is the cluster now exposed to the public internet? Are the new firewall rules overly permissive? Within the cluster, are there any security gaps in the flow between the pods?
+If there are changes in network, the process should evaluate if scan is necessary. For example, is the cluster now exposed to the public internet? Are the new firewall rules overly permissive? Within the cluster, are there any security gaps in the flow between the pods? 
 
-Make sure the scanning solutions run frequently and the results are reviewed. Audit the configuration of your Azure resources, such as Network Security Group (NSG) rules, Azure Firewall rules, VNet peerings, DNS settings, Private Link configurations, and other network components. This scan must also include  in-cluster (pod-to-pod) network.
-
-For preceding example, review the [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics). Have an audit process that reviews NSG traffic flows, to verify network isolation and compliance. One way is to enable  [flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal). For in-cluster flows, conduct scans with a third-party security agent.
-
-Build a process to rapidly get security validation of new containers and images. The process should validate against your security standards. This includes applying security updates, scanning for unwanted binaries, and others. 
-
-View and apply recommendations shown in Azure Security Center. Security Center offers an advanced mode through its integration with Azure Defender. Enable Azure Defender as a defense-in-depth measure. Relevant offerings this architecture include: 
-
-- [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction)
-- [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction)
-- [Azure Defender for Key Vault](azure/security-center/defender-for-key-vault-introduction)
+Have clear and agreed upon definition of significant changes with respect to your infrastructure. Some examples might be configuration of Network Security Group (NSG) rules, Azure Firewall rules, VNet peerings, DNS settings, Private Link configurations, and other network components. 
 
 **APPLIES TO 11.2.1**
 
-The quarterly scan for the networking changes must be run by skilled personnel with deep understanding of Azure networking and Kubernetes networking concepts. Map the results to [Requirement 6.1](aks-pci-malware.md#requirement-61) with severity levels and resolve high priority items.  
+The quarterly scan for vulnerabilities must be run by skilled personnel with deep understanding of Azure networking and Kubernetes networking concepts. Map the results to [Requirement 6.1](aks-pci-malware#requirement-61) with severity levels and resolve high priority items. If there are significant changes, run the scans before the scheduled quarterly scan. This will help you detect new vulnerabilities so that you can proactively fix issues.
+
+This scan must also include in-cluster (pod-to-pod) network.
 
 **APPLIES TO 11.2.2**
 Select an Approved Scanning Vendor (ASV) with extensive experience with Azure networking and Kubernetes. This will provide depth and specificity in suggested remediation.
-
 
 
 ### Requirement 11.3
@@ -305,7 +296,7 @@ Another option is enabling [Azure Monitor Network Insights](/azure/azure-monitor
 
 Enabling Azure Defender plans as they apply to various components of the CDE. For example, if Azure SQL is used to store CHD, then [Azure Defender for SQL](/azure/security-center/defender-for-sql-introduction) will make sure the data layer intrusions are detected.
 
-Also, detect anomalies in traffic patterns by connecting NSG flow logs into a centralized SIEM solution, such as Azure Sentinel. In this reference implementation, logs are in append-only mode, which minimizes the change tracking on audit logs. However, all logs that are sent to external sinks for long-term  storage must not be modified. They must follow write-once/read-many approach. Make sure the FIM solution covers those external entities to detect changes.
+Also, detect anomalies in traffic patterns by connecting NSG flow logs into a centralized SIEM solution, such as Azure Sentinel. In this reference implementation, logs are in append-only mode, which minimizes the change tracking on audit logs. However, all logs that are sent to external sinks for long-term storage must not be modified. They must follow write-once/read-many approach. Make sure the FIM solution covers those external entities to detect changes.
 
 ## Requirement 11.5
 
@@ -321,11 +312,9 @@ In your cluster, run a file integregity monitoring (FIM) solution in conjunction
 
 Check all default settings of the FIM tool to ensure the values detect the parameters you want to cover and adjust those settings appropriately. 
 
-Enable the solution to send logs alerts to your monitoring or SIEM solution so that they can generate alerts. Evalutate if those alerts are covering the logs (log format change, log verbosity changed, etc).
-<Ask Chad: Not sure I understand.>
+Enable the solution to send logs to your monitoring or SIEM solution so that they can generate alerts. Be aware of log schema changes otherwise you may miss critical alerts. 
 
 Any other additional compute in the CDE should have change tracking enabled.
-
 
 ## Requirement 11.6
 
