@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Batch scoring with R Models on Azure
+  title: Batch scoring with R models to forecast sales
   description: Perform batch scoring with R models using Azure Batch and a data set based on retail store sales forecasting.
   author: njray
   ms.author: pnp
@@ -16,7 +16,7 @@ metadata:
     - reference-architecture
     - ai-machine-learning
     - aml-project-improvement
-name: Batch scoring with R Models on Azure
+name: Batch scoring with R models to forecast sales
 azureCategories:
   - ai-machine-learning
   - developer-tools
