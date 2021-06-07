@@ -76,9 +76,9 @@ Linux works best for running SAS workloads. SAS supports the following operating
 - SUSE Linux Enterprise Server (SLES) 12.2
 - Oracle Linux 6 or later
 
-For more information about specific SAS releases, see [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit). In environments that use multiple machines, it's best to run the same version of Linux on all machines. Azure doesn't support Linux 32-bit deployments.
+For more information about specific SAS releases, see the [SAS Operating System support matrix](https://support.sas.com/supportos/list?requestAction=summary&outputView=sasrelease&sasrelease=9.4&platformGroup=UNIX&platformName=Linux+64-bit). In environments that use multiple machines, it's best to run the same version of Linux on all machines. Azure doesn't support Linux 32-bit deployments.
 
-To optimize compatibility and integration with Azure, start with an operating system image from Azure Marketplace. Without additional configurations, custom images can degrade SAS performance.
+To optimize compatibility and integration with Azure, start with an operating system image from Azure Marketplace. If you use a custom image without additional configurations, it can degrade SAS performance.
 
 #### Kernel issues
 
@@ -133,9 +133,9 @@ SAS deployments often use these VM SKUs:
 
   M-series VMs offer these features:
 
-  - Constrained cores.
-  - A large amount of memory, which works well for heavy memory-based workloads.
-  - High throughput to remote disks, which works well for the `SASWORK` folder.
+  - Constrained cores
+  - A large amount of memory, which works well for heavy memory-based workloads
+  - High throughput to remote disks, which works well for the `SASWORK` folder
 
 - Certain environments use Lsv2 VMs. In particular, implementations that require fast I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that heavily use the `SASWORK` folder or the CAS cache.
 
@@ -298,7 +298,7 @@ For data integrity, [Azure Disk Encryption](/azure/security/azure-security-disk-
 
 ### Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit](/azure/azure-resource-manager/resource-group-audit) all changes to infrastructure.
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](/azure/azure-resource-manager/resource-group-audit).
 
 Manage remote access to your VMs through a [bastion host](https://azure.microsoft.com/services/azure-bastion/#get-started). Don't expose any of these components to the internet:
 
