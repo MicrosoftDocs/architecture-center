@@ -149,7 +149,7 @@ If alerts are set up correctly, you'll be notified in email when the build is fi
 * Follow the preceding outline and examples from the UCI income prediction scenario in your own data science projects.
 
 ## References
-* [Team Data Science Process](./index.yml)
+* [Team Data Science Process](/azure/machine-learning/team-data-science-process/)
 * [Visual Studio Testing Tools](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Azure DevOps Testing Resources](https://www.visualstudio.com/team-services/)
 * [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

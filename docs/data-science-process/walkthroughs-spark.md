@@ -36,7 +36,7 @@ See [Advanced data exploration and modeling with Spark](spark-advanced-data-expl
 
 ## Predict taxi tips using Scala on Azure Spark
 
-The [Use Scala with Spark on Azure](scala-walkthrough.md) walkthrough predicts whether a tip is paid and the range of amounts expected to be paid. It shows how to use Scala for supervised machine learning tasks with the Spark machine learning library (MLlib) and SparkML packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [Data Science Process](./index.yml): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models built include logistic and linear regression, random forests, and gradient boosted trees.
+The [Use Scala with Spark on Azure](scala-walkthrough.md) walkthrough predicts whether a tip is paid and the range of amounts expected to be paid. It shows how to use Scala for supervised machine learning tasks with the Spark machine learning library (MLlib) and SparkML packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [Data Science Process](/azure/machine-learning/team-data-science-process/): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models built include logistic and linear regression, random forests, and gradient boosted trees.
 
 
 ## Next steps

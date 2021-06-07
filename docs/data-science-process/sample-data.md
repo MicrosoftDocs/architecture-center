@@ -20,7 +20,7 @@ The following articles describe how to sample data that is stored in one of thre
 * [**SQL Server data**](sample-data-sql-server.md) is sampled using both SQL and the Python Programming Language. 
 * [**Hive table data**](sample-data-hive.md) is sampled using Hive queries.
 
-This sampling task is a step in the [Team Data Science Process (TDSP)](./index.yml).
+This sampling task is a step in the [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/).
 
 **Why sample data?**
 
