@@ -15,7 +15,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Azure Synapse Analytics data science walkthroughs using T-SQL and Python on Azure
 
-These walkthroughs use of Azure Synapse Analytics to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). For an introduction to Azure Synapse Analytics, see [What is Azure Synapse Analytics?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+These walkthroughs use of Azure Synapse Analytics to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). For an introduction to Azure Synapse Analytics, see [What is Azure Synapse Analytics?](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 
 Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use. See [Walkthroughs executing the Team Data Science Process](walkthroughs.md) for an itemization of these examples.
 

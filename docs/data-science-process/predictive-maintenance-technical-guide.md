@@ -169,12 +169,12 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service orchestrates the movement and processing of data. In the
 Predictive Maintenance for Aerospace Solution Template, the data factory
 is made up of three
-[pipelines](../../data-factory/concepts-pipelines-activities.md)
+[pipelines](/azure/data-factory/concepts-pipelines-activities)
 that move and process the data using various technologies.  Access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. Errors under your datasets are due to data factory being deployed before the data generator was started. Those errors can be ignored and do not prevent your data factory from functioning.
 
 ![Data Factory dataset errors](./media/predictive-maintenance-technical-guide/data-factory-dataset-error.png)
 
-This section discusses the necessary [pipelines and activities](../../data-factory/concepts-pipelines-activities.md) contained in the [Azure Data
+This section discusses the necessary [pipelines and activities](/azure/data-factory/concepts-pipelines-activities) contained in the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/). Here is a diagram view of the solution.
 
 ![Azure Data Factory](./media/predictive-maintenance-technical-guide/azure-data-factory.png)
@@ -195,9 +195,9 @@ scripts have implicit knowledge about the incoming data format and must be alter
 
 #### *AggregateFlightInfoPipeline*
 This
-[pipeline](../../data-factory/concepts-pipelines-activities.md)
+[pipeline](/azure/data-factory/concepts-pipelines-activities)
 contains a single activity - an
-[HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md)
+[HDInsightHive](/azure/data-factory/transform-data-using-hadoop-hive)
 activity using a
 [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100))
 that runs a
@@ -214,7 +214,7 @@ script for this partitioning task is ***AggregateFlightInfo.hql***
 
 #### *MLScoringPipeline*
 This
-[pipeline](../../data-factory/concepts-pipelines-activities.md)
+[pipeline](/azure/data-factory/concepts-pipelines-activities)
 contains several activities whose end result is the scored
 predictions from the [Azure Machine
 Learning](https://azure.microsoft.com/services/machine-learning/)
@@ -222,7 +222,7 @@ experiment associated with this solution template.
 
 Activities included are:
 
-* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md)
+* [HDInsightHive](/azure/data-factory/transform-data-using-hadoop-hive)
   activity using an
   [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100))
   that runs a
@@ -235,7 +235,7 @@ Activities included are:
   script for this partitioning task is ***PrepareMLInput.hql***.
 * [Copy](/previous-versions/azure/dn835035(v=azure.100))
   activity that moves the results from the
-  [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md)
+  [HDInsightHive](/azure/data-factory/transform-data-using-hadoop-hive)
   activity to a single [Azure
   Storage](https://azure.microsoft.com/services/storage/) blob
   accessed by the
@@ -248,7 +248,7 @@ Activities included are:
 
 #### *CopyScoredResultPipeline*
 This
-[pipeline](../../data-factory/concepts-pipelines-activities.md)
+[pipeline](/azure/data-factory/concepts-pipelines-activities)
 contains a single activity - a
 [Copy](/previous-versions/azure/dn835035(v=azure.100))
 activity that moves the results of the [Azure Machine
@@ -384,7 +384,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 1. Add Power BI output in Azure Stream Analytics (ASA).
    
    * You must follow the instructions in
-     [Azure Stream Analytics & Power BI: An analytics dashboard for real-time visibility of streaming data](../../stream-analytics/stream-analytics-power-bi-dashboard.md)
+     [Azure Stream Analytics & Power BI: An analytics dashboard for real-time visibility of streaming data](/azure/stream-analytics/stream-analytics-power-bi-dashboard)
      to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
    * The ASA query has three outputs that are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you need to add an output to ASA. When you add the first output (**aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message ("Starting Stream Analytics job maintenancesa02asapbi succeeded").
 2. Log in to [Power BI online](https://www.powerbi.com)

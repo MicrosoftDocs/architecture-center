@@ -21,10 +21,10 @@ This task is a step in the [Team Data Science Process](overview.md).
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-account-create.md)
-* Provisioned a customized Hadoop cluster with the HDInsight service. If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](/azure/storage/common/storage-account-create)
+* Provisioned a customized Hadoop cluster with the HDInsight service. If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql).
 * The data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, follow the instructions in [Create and load data to Hive tables](move-hive-tables.md) to upload data to Hive tables first.
-* Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
+* Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql).
 * If you need instructions on how to submit Hive queries, see [How to Submit Hive Queries](move-hive-tables.md#submit)
 
 ## Example Hive query scripts for data exploration

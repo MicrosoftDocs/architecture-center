@@ -23,9 +23,9 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 > **For all of the following scenarios, you need to:**
 > <br/>
 > 
-> * [Create a storage account](../../storage/common/storage-account-create.md)
+> * [Create a storage account](/azure/storage/common/storage-account-create)
 >   <br/>
-> * [Create an Azure Machine Learning workspace](../classic/create-workspace.md)
+> * [Create an Azure Machine Learning workspace](/azure/machine-learning/classic/create-workspace)
 > 
 > 
 

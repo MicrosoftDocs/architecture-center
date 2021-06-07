@@ -78,23 +78,23 @@ To set up your Azure Data Science environment, follow these steps.
 **Create your own Azure blob storage account**
 
 * When you provision your own Azure blob storage, choose a geo-location for your Azure blob storage in or as close as possible to **South Central US**, which is where the NYC Taxi data is stored. The data will be copied using AzCopy from the public blob storage container to a container in your own storage account. The closer your Azure blob storage is to South Central US, the faster this task (Step 4) will be completed.
-* To create your own Azure Storage account, follow the steps outlined at [About Azure Storage accounts](../../storage/common/storage-account-create.md). Be sure to make notes on the values for following storage account credentials as they will be needed later in this walkthrough.
+* To create your own Azure Storage account, follow the steps outlined at [About Azure Storage accounts](/azure/storage/common/storage-account-create). Be sure to make notes on the values for following storage account credentials as they will be needed later in this walkthrough.
 
   * **Storage Account Name**
   * **Storage Account Key**
   * **Container Name** (which you want the data to be stored in the Azure blob storage)
 
 **Provision your Azure Synapse Analytics instance.**
-Follow the documentation at [Create and query an Azure Synapse Analytics in the Azure portal](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
+Follow the documentation at [Create and query an Azure Synapse Analytics in the Azure portal](/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
 
 * **Server Name**: \<server Name>.database.windows.net
 * **SQLDW (Database) Name**
 * **Username**
 * **Password**
 
-**Install Visual Studio and SQL Server Data Tools.** For instructions, see [Getting started with Visual Studio 2019 for Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Install Visual Studio and SQL Server Data Tools.** For instructions, see [Getting started with Visual Studio 2019 for Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio).
 
-**Connect to your Azure Synapse Analytics with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to SQL Analytics in Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
+**Connect to your Azure Synapse Analytics with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to SQL Analytics in Azure Synapse Analytics](/azure/synapse-analytics/sql/connect-overview).
 
 > [!NOTE]
 > Run the following SQL query on the database you created in your Azure Synapse Analytics (instead of the query provided in step 3 of the connect topic,) to **create a master key**.
@@ -111,7 +111,7 @@ BEGIN CATCH
 END CATCH;
 ```
 
-**Create an Azure Machine Learning workspace under your Azure subscription.** For instructions, see [Create an Azure Machine Learning workspace](../classic/create-workspace.md).
+**Create an Azure Machine Learning workspace under your Azure subscription.** For instructions, see [Create an Azure Machine Learning workspace](/azure/machine-learning/classic/create-workspace.md).
 
 ## <a name="getdata"></a>Load the data into Azure Synapse Analytics
 Open a Windows PowerShell command console. Run the following PowerShell commands to download the example SQL script files that we share with you on GitHub to a local directory that you specify with the parameter *-DestDir*. You can change the value of parameter *-DestDir* to any local directory. If *-DestDir* does not exist, it will be created by the PowerShell script.
@@ -938,9 +938,9 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 2. **Multiclass classification**: To predict the range of tip paid, according to the previously defined classes.
 3. **Regression task**: To predict the amount of tip paid for a trip.
 
-To begin the modeling exercise, log in to your **Azure Machine Learning (classic)** workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning Studio (classic) workspace](../classic/create-workspace.md).
+To begin the modeling exercise, log in to your **Azure Machine Learning (classic)** workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning Studio (classic) workspace](/azure/machine-learning/classic/create-workspace).
 
-1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio (classic)?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio (classic)?](/azure/machine-learning/overview-what-is-machine-learning-studio#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Log in to [Azure Machine Learning Studio (classic)](https://studio.azureml.net).
 3. The Machine Learning Studio (classic) Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, see the [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -980,7 +980,7 @@ An example of a binary classification experiment reading data directly from the 
 >
 
 ## <a name="mldeploy"></a>Deploy models in Azure Machine Learning
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure ML web services, see [Deploy an Azure Machine Learning web service](../classic/deploy-a-machine-learning-web-service.md).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure ML web services, see [Deploy an Azure Machine Learning web service](/azure/machine-learning/classic/deploy-a-machine-learning-web-service).
 
 To deploy a new web service, you need to:
 

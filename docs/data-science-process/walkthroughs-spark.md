@@ -16,7 +16,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # HDInsight Spark data science walkthroughs using PySpark and Scala on Azure
 
-These walkthroughs use PySpark and Scala on an Azure Spark cluster to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). For an overview of Spark on HDInsight, see [Introduction to Spark on HDInsight](../../hdinsight/spark/apache-spark-overview.md).
+These walkthroughs use PySpark and Scala on an Azure Spark cluster to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). For an overview of Spark on HDInsight, see [Introduction to Spark on HDInsight](/azure/hdinsight/spark/apache-spark-overview).
 
 Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use. See [Walkthroughs executing the Team Data Science Process](walkthroughs.md) for an itemization of these examples.
 

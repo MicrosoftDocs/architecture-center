@@ -25,7 +25,7 @@ This task is a step in the [Team Data Science Process (TDSP)](./index.yml).
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-account-create.md)
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](/azure/storage/common/storage-account-create)
 * Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md) for instructions on how to move the data there.
 
 ## <a name="sql-featuregen"></a>Feature generation with SQL

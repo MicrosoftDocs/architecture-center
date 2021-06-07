@@ -30,7 +30,7 @@ To use the downloaded source code and tutorial, you need the following prerequis
 - [Azure CLI](/cli/azure/install-azure-cli)
 - An [Azure Container Service for Kubernetes (AKS) cluster](/previous-versions/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to run commands and fetch configuration from the AKS cluster 
-- An [Azure Container Registry (ACR) account](../../container-registry/container-registry-get-started-portal.md)
+- An [Azure Container Registry (ACR) account](/azure/container-registry/container-registry-get-started-portal)
 
 ## CI/CD pipeline summary
 
@@ -57,6 +57,6 @@ The following diagram and steps describe the CI/CD pipeline architecture:
 ## See also
 
 - [Team Data Science Process (TDSP)](./index.yml)
-- [Azure Machine Learning (AML)](../index.yml)
+- [Azure Machine Learning (AML)](/azure/machine-learning/)
 - [Azure DevOps](https://azure.microsoft.com/services/devops/)
-- [Azure Kubernetes Services (AKS)](../../aks/intro-kubernetes.md)
+- [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes)

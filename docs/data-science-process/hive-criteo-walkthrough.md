@@ -56,12 +56,12 @@ Two sample prediction problems are addressed in this walkthrough:
 
 Set up your Azure Data Science environment for building predictive analytics solutions with HDInsight clusters in three steps:
 
-1. [Create a storage account](../../storage/common/storage-account-create.md): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
-2. [Customize Azure HDInsight Hadoop Clusters for Data Science](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps (described in this topic) to complete when customizing the HDInsight cluster.
+1. [Create a storage account](/azure/storage/common/storage-account-create): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
+2. [Customize Azure HDInsight Hadoop Clusters for Data Science](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps (described in this topic) to complete when customizing the HDInsight cluster.
 
    * Link the storage account created in step 1 with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
    * Enable Remote Access to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from the credentials specified at cluster creation): complete the following procedures.
-3. [Create an Azure Machine Learning Studio (classic) workspace](../classic/create-workspace.md): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
+3. [Create an Azure Machine Learning Studio (classic) workspace](/azure/machine-learning/classic/create-workspace): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
 
 ## <a name="getdata"></a>Get and consume data from a public source
 The [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset can be accessed by clicking on the link, accepting the terms of use, and providing a name. A snapshot is shown here:
@@ -70,7 +70,7 @@ The [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) da
 
 Click **Continue to Download** to read more about the dataset and its availability.
 
-The data resides in an [Azure blob storage](../../storage/blobs/storage-quickstart-blobs-dotnet.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location.
+The data resides in an [Azure blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location.
 
 1. The data in this Azure blob storage consists of three subfolders of unzipped data.
 

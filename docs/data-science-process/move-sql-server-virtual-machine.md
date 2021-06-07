@@ -28,7 +28,7 @@ The following table summarizes the options for moving data to SQL Server on an A
 This document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
 
 > [!TIP]
-> As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](../../data-factory/copy-activity-overview.md).
+> As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](/azure/data-factory/copy-activity-overview).
 >
 >
 
@@ -36,8 +36,8 @@ This document assumes that SQL commands are executed from SQL Server Management 
 This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
-* Provisioned **SQL Server on an Azure VM**. For instructions, see [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](../data-science-virtual-machine/overview.md).
+* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](/azure/storage/common/storage-account-create) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [Manage storage account access keys](/azure/storage/common/storage-account-keys-manage).
+* Provisioned **SQL Server on an Azure VM**. For instructions, see [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](/azure/machine-learning/data-science-virtual-machine/overview).
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## <a name="filesource_to_sqlonazurevm"></a> Moving data from a flat file source to SQL Server on an Azure VM
@@ -52,7 +52,7 @@ BCP is a command-line utility installed with SQL Server and is one of the quicke
 
 > [!NOTE]
 > **Where should my data be for BCP?**  
-> While it is not required, having files containing source data located on the same machine as the target SQL Server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](../../storage/common/storage-use-azcopy-v10.md), [Azure Storage Explorer](https://storageexplorer.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
+> While it is not required, having files containing source data located on the same machine as the target SQL Server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](/azure/storage/common/storage-use-azcopy-v10.md), [Azure Storage Explorer](https://storageexplorer.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
 >
 >
 
@@ -169,7 +169,7 @@ You can also use the following migration strategies:
 We describe each of these options below:
 
 ### Deploy a SQL Server Database to a Microsoft Azure VM wizard
-The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
+The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server).
 
 ### <a name="export-flat-file"></a>Export to Flat File
 Various methods can be used to bulk export data from an On-Premises SQL Server as documented in the [Bulk Import and Export of Data (SQL Server)](/sql/relational-databases/import-export/bulk-import-and-export-of-data-sql-server) topic. This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import.
@@ -205,9 +205,9 @@ A screenshot of the Database back up/restore options from SQL Server Management 
 ![SQL Server Import Tool][1]
 
 ## Resources
-[Migrate a Database to SQL Server on an Azure VM](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md)
+[Migrate a Database to SQL Server on an Azure VM](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server)
 
-[SQL Server on Azure Virtual Machines overview](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
+[SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 
 [1]: ./media/move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/move-sql-server-virtual-machine/database_migration_wizard.png

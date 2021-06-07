@@ -19,12 +19,12 @@ This article presents generic Hive queries that create Hive tables and load data
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure Storage account. If you need instructions, see [About Azure Storage accounts](../../storage/common/storage-introduction.md).
-* Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Setup Clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
-* Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Manage Apache Hadoop clusters](../../hdinsight/hdinsight-administer-use-portal-linux.md).
+* Created an Azure Storage account. If you need instructions, see [About Azure Storage accounts](/azure/storage/common/storage-introduction).
+* Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Setup Clusters in HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
+* Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Manage Apache Hadoop clusters](/azure/hdinsight/hdinsight-administer-use-portal-linux).
 
 ## Upload data to Azure Blob Storage
-If you created an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](../../machine-learning/data-science-virtual-machine/overview.md), this script file should have been downloaded to the *C:\\Users\\\<user name\>\\Documents\\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you provide a data schema and Azure Blob Storage configuration in the appropriate fields to be ready for submission.
+If you created an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](/azure/machine-learning/data-science-virtual-machine/overview), this script file should have been downloaded to the *C:\\Users\\\<user name\>\\Documents\\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you provide a data schema and Azure Blob Storage configuration in the appropriate fields to be ready for submission.
 
 We assume that the data for Hive tables is in an **uncompressed** tabular format, and that the data has been uploaded to the default (or to an additional) container of the storage account used by the Hadoop cluster.
 
@@ -32,7 +32,7 @@ If you want to practice on the **NYC Taxi Trip Data**, you need to:
 
 * **download** the 24 [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) files (12 Trip files and 12 Fare files),
 * **unzip** all files into .csv files, and then
-* **upload** them to the default (or appropriate container) of the Azure Storage account; options for such an account appear at [Use Azure Storage with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) topic. The process to upload the .csv files to the default container on the storage account can be found on this [page](hive-walkthrough.md#upload).
+* **upload** them to the default (or appropriate container) of the Azure Storage account; options for such an account appear at [Use Azure Storage with Azure HDInsight clusters](/azure/hdinsight/hdinsight-hadoop-use-blob-storage) topic. The process to upload the .csv files to the default container on the storage account can be found on this [page](hive-walkthrough.md#upload).
 
 ## <a name="submit"></a>How to submit Hive queries
 Hive queries can be submitted by using:
@@ -117,7 +117,7 @@ If you open the default container of the Hadoop cluster using Azure Storage Expl
 You can also use the Query Console (Hive Editor) by entering a URL of the form *https:\//\<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
 
 ### <a name="ps"></a>Submit Hive queries with Azure PowerShell Commands
-You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
+You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](/azure/hdinsight/hadoop/apache-hadoop-use-hive-powershell).
 
 ## <a name="create-tables"></a>Create Hive database and tables
 The Hive queries are shared in the [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) and can be downloaded from there.
