@@ -253,7 +253,7 @@ Have clear and agreed upon definition of significant changes with respect to you
 
 **APPLIES TO 11.2.1**
 
-The quarterly scan for vulnerabilities must be run by skilled personnel with deep understanding of Azure networking and Kubernetes networking concepts. Map the results to [Requirement 6.1](aks-pci-malware#requirement-61) with severity levels and resolve high priority items. If there are significant changes, run the scans before the scheduled quarterly scan. This will help you detect new vulnerabilities so that you can proactively fix issues.
+The quarterly scan for vulnerabilities must be run by skilled personnel with deep understanding of Azure networking and Kubernetes networking concepts. Map the results to [Requirement 6.1](/aks-pci-malware#requirement-61) with severity levels and resolve high priority items. If there are significant changes, run the scans before the scheduled quarterly scan. This will help you detect new vulnerabilities so that you can proactively fix issues.
 
 This scan must also include in-cluster (pod-to-pod) network.
 
