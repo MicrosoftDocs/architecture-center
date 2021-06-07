@@ -23,4 +23,4 @@ products:
   - common-data-service
 thumbnailUrl: /azure/architecture/browse/thumbs/powerapps-eventual-consistency-issue.png
 content: |
-   [!include[](eventually-consistent-instances.md)]
+   [!include[](eventually-consistent-content.md)]

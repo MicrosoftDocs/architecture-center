@@ -1,6 +1,4 @@
 
-# Eventual consistency in Power Platform
-
 Strategically create data using an upsert to allow systems to synchronize data. Guarantee that the consuming application will be able to accept requests when the data is awaiting synchronization or missing.
 
 This pattern can be useful in situations when:
