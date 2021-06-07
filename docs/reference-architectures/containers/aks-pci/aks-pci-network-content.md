@@ -10,7 +10,8 @@ When hosting a workload in a Kubernetes, it's not sufficient to rely on traditio
 >
 > The guidance in this article builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the card holder environment (CDE) and hosts the PCI DSS workload.
 >
-> ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated environment. The implementation illustrates the network and security controls needed to run a PCI-DSS workload safely. Those controls are described in this article. It also includes an application just to demonstrate the interactions between the environment and a workload. The application isn't indicative of an actual PCI-DSS workload.
+> ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated infrastructure. The implementation illustrates the use of various network and security controls within your CDE. This includes both network controls native to Azure and controls native to Kubernetes. It also includes an application just to demonstrate the interactions between the environment and a sample workload. The focus of this article is the infrastructure. The sample isn't indicative of an actual PCI-DSS workload. 
+
 
 ## Build and Maintain a Secure Network and Systems
 
