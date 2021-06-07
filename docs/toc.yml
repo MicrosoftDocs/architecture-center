@@ -807,6 +807,8 @@ items:
                 href: solution-ideas/articles/predictive-insights-with-vehicle-telematics.yml
               - name: Visual assistant
                 href: solution-ideas/articles/visual-assistant.yml
+          - name: Team Data Science Process
+            href: data-science-process/toc.yml
       - name: Analytics
         items:
           - name: Guides
