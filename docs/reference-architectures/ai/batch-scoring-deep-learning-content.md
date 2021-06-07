@@ -3,7 +3,7 @@
 
 This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution**](#deploy-the-solution).
 
-![Architecture diagram for deep learning models using Azure Machine Learning](./_images/azure-machine-learning-deep-learning-scoring-pipeline.png)
+![Architecture diagram for deep learning models using Azure Machine Learning.](./_images/azure-machine-learning-deep-learning-scoring-pipeline.png)
 
 **Scenario**: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about neural style transfer algorithms, see [Image Style Transfer Using Convolutional Neural Networks][image-style-transfer] (PDF).
 
@@ -58,7 +58,7 @@ For this workload, these two options will have comparable performance. Using few
 
 ### MPI step
 
-When creating the [Azure Machine Learning pipeline][aml-pipeline], one of the steps used to perform parallel computation is the (message processing interface) MPI step. The MPI step will help split the data evenly across the available nodes. The MPI step will not executed until all the requested nodes are ready. Should one node fail or get preempted (if it is a low-priority virtual machine), the MPI step will have to be rerun.
+When creating the [Azure Machine Learning pipeline][aml-pipeline], one of the steps used to perform parallel computation is the (message processing interface) MPI step. The MPI step will help split the data evenly across the available nodes. The MPI step doesn't execute until all the requested nodes are ready. Should one node fail or get preempted (if it is a low-priority virtual machine), the MPI step will have to be rerun.
 
 ## Security considerations
 
@@ -70,7 +70,7 @@ For scenarios with more sensitive data, make sure that all of your storage keys 
 
 ### Data encryption and data movement
 
-This reference architecture uses style transfer as an example of a batch scoring process. For more data-sensitive scenarios, the data in storage should be encrypted at rest. Each time data is moved from one location to the next, use SSL to secure the data transfer. For more information, see [Azure Storage security guide][storage-security].
+This reference architecture uses style transfer as an example of a batch scoring process. For more data-sensitive scenarios, the data in storage should be encrypted at rest. Each time data is moved from one location to the next, use Transport Layer Security (TSL) to secure the data transfer. For more information, see [Azure Storage security guide][storage-security].
 
 ### Securing your computation in a virtual network
 
