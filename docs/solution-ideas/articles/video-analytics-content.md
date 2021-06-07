@@ -32,7 +32,7 @@ This approach can also:
    
 1. An Azure Media Services account stores events for long-term trend analysis to help with resource planning.
 
-## Components
+### Components
 
 This solution uses the following components:
 
@@ -42,14 +42,14 @@ This solution uses the following components:
 - [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
 - [Media Services Storage](https://azure.microsoft.com/services/media-services/) uses Azure Storage to store large media files.
 - [Metaswitch Fusion Core 5G Packet Core](https://azuremarketplace.microsoft.com/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) creates a low-footprint enterprise private network experience in the cloud for 4G and 5G access types.
-- [Azure Network Function Manager](https://azure.microsoft.com/search/?q=network+function+manager) deploys network functions to Azure IoT Edge.
+- [Azure Network Function Manager](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments/) deploys network functions to Azure IoT Edge.
 
 ## Next steps
 
-- [IoT event routing](/azure/architecture/example-scenario/iot/event-routing)
-- [Contactless IoT interfaces with Azure intelligent edge](/azure/architecture/solution-ideas/articles/contactless-interfaces)
+- [What is the Radio Access Network?](https://www.sdxcentral.com/5g/ran/definitions/radio-access-network/)
+- [Live Video Analytics on IoT Edge](/azure/media-services/live-video-analytics-edge/)
 
 ## Related resources
 
-- [What is the Radio Access Network?](https://www.sdxcentral.com/5g/ran/definitions/radio-access-network/)
-- [Live Video Analytics on IoT Edge](/azure/media-services/live-video-analytics-edge/)
+- [IoT event routing](/azure/architecture/example-scenario/iot/event-routing)
+- [Contactless IoT interfaces with Azure intelligent edge](/azure/architecture/solution-ideas/articles/contactless-interfaces)
