@@ -23,21 +23,21 @@ Use this approach for scenarios like:
 1. Azure Network Function Manager controls both MEC instances.
 1. Optimizing the 5G network and keeping traffic confined to Azure private MEC provides the low latency these connection scenarios require.
 
-## Components
+### Components
 
 This solution uses the following components:
 
-- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) is a portfolio of devices that bring compute, storage, and intelligence to the IoT edge.
+- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is a portfolio of devices that bring compute, storage, and intelligence to the IoT edge.
 - [7P Private 5G Network (Stand Alone)](https://azuremarketplace.microsoft.com/marketplace/apps/sevenprinciplesag1603729177296.7p-pmn-5g-sa-hybrid?tab=Overview) is a powerful and secure private, on-premises mobile network.
 - [Metaswitch Fusion Core 5G Packet Core](https://azuremarketplace.microsoft.com/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) creates a low-footprint enterprise private network experience in the cloud for 4G and 5G access.
-- [Azure Network Function Manager](https://azure.microsoft.com/search/?q=network+function+manager) deploys network functions to the IoT edge.
+- [Azure Network Function Manager](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments) deploys network functions to the IoT edge.
 
 ## Next steps
 
-- [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/)
-- [Condition monitoring for Industial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
+- [Azure Private Edge Zones](/azure/networking/edge-zones-overview#private-edge-zones)
+- [Azure Industrial IoT](https://azure.microsoft.com/solutions/industry/manufacturing/iot)
 
 ## Related resources
 
-- [Azure Private Edge Zones](/azure/networking/edge-zones-overview#private-edge-zones)
-- [Azure Industrial IoT](https://azure.microsoft.com/solutions/industry/manufacturing/iot/)
+- [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking)
+- [Condition monitoring for Industial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)

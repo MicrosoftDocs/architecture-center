@@ -39,26 +39,26 @@ Other examples of this approach include:
    
 1. All the data is stored in Azure Data Lake Storage, which can store data of any format and size.
 
-## Components
+### Components
 
 This solution uses the following components:
 
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
 - [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/)
-- [Azure Sphere](https://azure.microsoft.com/en-us/services/azure-sphere/)
+- [Azure Sphere](https://azure.microsoft.com/services/azure-sphere)
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)
-- [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/)
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins)
-- [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
+- [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights)
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
 
 ## Next steps
 
-- [Manage configurations for Azure Arc enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
-- [Deploy AI and ML computing on-premises and to the edge](/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
+- [Azure Arc on Kubernetes on Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster)
+- [Azure Private Edge Zones](/azure/networking/edge-zones-overview#private-edge-zones)
 
 ## Related resources
 
-- [Azure Arc on Kubernetes on Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster)
-- [Azure Private Edge Zones](/azure/networking/edge-zones-overview#private-edge-zones)
+- [Manage configurations for Azure Arc enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
+- [Deploy AI and ML computing on-premises and to the edge](/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
