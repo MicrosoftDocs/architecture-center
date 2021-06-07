@@ -142,27 +142,24 @@ After following [Requirement 7.1](#requirement-71), you should have assessed rol
 
 Based on roles and responsibilities, assign roles to the infrastructure's role-based access control (RBAC). That mechanism can be:
 
-- Azure RBAC&mdash;is an Azure Active Directory (AD)-based authorization model that controls access to the _Azure control plane_. This is an association of your Azure Active Directory (AD) tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources such as networks, AKS cluster, managed identities, and and so on.
 - Kubernetes RBAC&mdash;is a native Kubernetes authorization model that controls access to the _Kubernetes control plane_ exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
+- Azure RBAC&mdash;is an Azure Active Directory (AD)-based authorization model that controls access to the _Azure control plane_. This is an association of your Azure Active Directory (AD) tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources such as networks, AKS cluster, managed identities, and and so on.
 
-Suppose you need to give permissions to the cluster operators. As established in 7.1.3, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin` that meets those requirements. You'll need to bind cluster operators to `cluster-admin` by creating custom bindings. There are two approaches. Either you can choose the `RoleBinding` object to grant permissions to resources within a namespace or choose `ClusterRoleBinding` to give access to all resources in the cluster. In this architecture `ClusterRoleBinding` is more appropriate for the cluster operations. 
+Suppose you need to give permissions to the cluster operators (mapped to **infrastructure operator** role). All people who are assigned the **infrastructure operator** responsibilities belong to an Azure AD Group. As established in 7.1.1, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin` that meets those requirements. You'll need to bind the Azure AD Group for **infrastructure operator** to `cluster-admin` by creating role bindings. There are two approaches. You can choose the built-in roles. Or, if the built-in roles do not meet your requirements, for instance they are overly permissive, create custom roles for your bindings. 
 
-The reference implementation uses Kubernetes roles. It uses a custom Kubernetes `ClusterRoleBinding` definition that relates to the cluster operators and then a singular `ClusterRoleBinding` to the related roles in the preceding table. For namespace-wide access, singular `RoleBinding` objects are created for roles such as **Application operators**. 
+The reference implementation demonstrates the preceding example using native Kubernetes RBAC. The same association can be accomplished with Azure RBAC. For more information, see [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/azure-ad-rbac).
 
-Shared Services are grouped in their own namespaces. You can use `ClusterRoleBinding` might be suitable, instead consider  managing them as a independent workload those through `Role` and `RoleBinding` constructs that you apply to the **infrastructure operator** role. If the built-in roles do not meet your requirements, for instance they are overly permissive, create custom roles. 
+You can choose the scope of permission at the cluster level or at the namespace level. For roles that have scoped responsibilities such as **Application operators**, the permissions would be assigned at the namespace level for the workload.
 
- For example, Azure Image Builder creates images for jump box intended for operational access to the AKS clusters. That access is secure with network controls. For this two key roles are required  are `customImageCreatorRole` and `imageBuilderNetworkingRole`. For role definitions, see the implementation. 
-<Ask Chad: There were two groups within cluster operator. Both were infrastructure operators. How do we separate out duties>
+In addition, the roles also need Azure RBAC permissions so that they are able to do their tasks. For example, cluster operator needs to access Azure Monitor through the portal. So, the **infrastructure operator** role must have the **Microsoft.Insights/eventtypes/digestevents/Read** RBAC assigned. 
 
-You can map the role to an existing AD RBAC role that has administrative access. Make sure you have strategy in place to create separation of duties.
+Apart from people and their roles, Azure resources and even pods within the cluster, have managed identities. Those identities need a set of permissions through Azure RBAC and must be tightly scoped based on the expected tasks. For example, Azure Application Gateway must have permissions to get secrets (TLS certificates) from Azure Key Vault. It must not have permissions to modify secrets.
 
-You can also use Azure AD and Kubernetes RBAC mechanisms, If you are integrating both RBAC roles, create a mapping between the two roles.
-
-Here are other best practices:
+Here are some best practices:
 
 - Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are Just-In-Time(JIT) and standing. 
 
-- Monitor the roles for changes such as, in assigment changes or role definitions. Create alerts on changes even if they are expected to gain visibility into intentions behind the changes.
+- Monitor the roles for changes such as, in assignment changes or role definitions. Create alerts on changes even if they are expected to gain visibility into intentions behind the changes.
 
 #### Requirement 7.2.1
 
@@ -257,29 +254,20 @@ Don't share or reuse identities for functionally different parts of the CDE.For 
 
 Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identites across Azure resources, assign each Azure resource its own managed identity. Similarly, when using [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never use the same managed identity in pre-production and production.
 
-While preceding guidance must be applied to user identities, we recommend not sharing system identities.
-
 [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
 
 **APPLIES TO: 8.1.2, 8.1.3, 8.1.4**
 
-When you create the AKS cluster, enable Azure Active Directory (AD) as the identity store for use authentication. Create role bindings to use Kubernetes role-based access control (Kubernetes RBAC) to limit access to cluster resources, data, and runtime environments based a user's identity or group membership.
-
-A strategy to limit access is to minimize standing permissions. Opt for [Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks) in Azure Active Directory (AD) through Privileged Identity Management. This approach is appropriate for situations where SREs need to interact with your cluster temporarily.
-
-Add extra restrictions for privileged access through [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks) where possible.
-
-Always do deployments through authorized build and release pipelines. The pipelines should also minimize exposure to individuals high privilege access.
-
-Make sure RBAC assignments are scoped appropriately for least access.
-
-Because the cluster and all Azure resources use Azure AD, disabling or revoking  Azure AD access is applied to all resources automatically. If there are any components that are not backed directly by Azure AD, make sure you have process to remove access. For example, SSH credentials for accessing a jump box might need explicit removal if the user is no longer valid.
+Use Azure Active Directory (AD) as the identity store. Because the cluster and all Azure resources use Azure AD, disabling or revoking  Azure AD access is applied to all resources automatically. If there are any components that are not backed directly by Azure AD, make sure you have process to remove access. For example, SSH credentials for accessing a jump box might need explicit removal if the user is no longer valid.
 
 **APPLIES TO: 8.1.5**
 
-Take advantage of Azure AD business-to-business (B2B) that's designed to host third-party accounts, such as vendors, partners, as guest users. The third-party uses their own identities; Azure AD is not required. Grant the appropriate level of access by using conditional policies to protect corporate data. These accounts must have minimal standing permissions and mandatory expiry dates. For more information, see [What is guest user access in Azure Active Directory B2B](/azure/active-directory/external-identities/what-is-b2b).
+Take advantage of Azure AD business-to-business (B2B) that's designed to host third-party accounts, such as vendors, partners, as guest users. Grant the appropriate level of access by using conditional policies to protect corporate data. These accounts must have minimal standing permissions and mandatory expiry dates. For more information, see [What is guest user access in Azure Active Directory B2B](/azure/active-directory/external-identities/what-is-b2b).
 
-<Ask Chad: Azure AD B2C - Customers/citizens>
+<Todo>
+"Your organization should have a clear and documented pattern of vendor and similar access.  Usually resulting in Azure AD guest accounts or onboarded into AD as a controlled and easy-to-identify user type. Those accounts should have manidtory expiry dates with documented extensions supported only.
+
+Just like any other ID, ensure they have minimal standing permissions."
 
 Your organization should have a clear and documented pattern of vendor and similar access.
 
