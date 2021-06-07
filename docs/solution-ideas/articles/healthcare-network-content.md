@@ -56,7 +56,7 @@ This solution uses the following Azure components:
 ## Next steps
 
 - [Azure Arc on Kubernetes on Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster)
-- [Azure Private Edge Zones](/azure/networking/edge-zones-overview#private-edge-zones)
+- [Azure Private MEC](/azure/networking/edge-zones-overview#private-edge-zones)
 
 ## Related resources
 
