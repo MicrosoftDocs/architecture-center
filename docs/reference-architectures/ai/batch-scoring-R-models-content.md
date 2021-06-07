@@ -1,8 +1,9 @@
 
 
 
-This reference architecture shows how to perform batch scoring with R models using [Azure Batch][batch]. The scenario is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a larger scale using R models. A reference implementation for this architecture is available on
-[GitHub][github].
+This reference architecture shows how to perform batch scoring with R models using [Azure Batch][batch]. Azure Batch works well with intrinsically parallel workloads and includes job scheduling and compute management. TBatch inference (scoring) is widely used to segment customers, forecast sales, predict customer behaviors, predict maintenance, or improve cyber security.
+
+The scenario shown in this article is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a larger scale using R models. A reference implementation for this architecture is available on [GitHub][github].
 
 ![Architecture diagram: batch scoring with R models on Azure.][0]
 
@@ -22,15 +23,15 @@ Processing involves the following steps:
 
     1. Reads input data and pre-trained R models from Azure Blob storage.
 
-    1. Scores the data to produce the forecasts.
+    1. Scores the data to produce forecasts.
 
-    1. Writes the forecast results to blob storage.
+    1. Writes forecast results to blob storage.
 
 The figure below shows the forecasted sales for four products (SKUs) in one store. The black line is the sales history, the dashed line is the median (q50) forecast, the pink band represents the 25th and 75th percentiles, and the blue band represents the 50th and 95th percentiles.
 
 ![Sales forecasts from batch scoring with R models.][1]
 
-## Architecture
+## Architecture for batch scoring
 
 This architecture consists of the following components.
 
@@ -41,7 +42,7 @@ This architecture consists of the following components.
 [Azure Container Instances][aci] provide serverless compute on demand. In this case, a container instance is
 deployed on a schedule to trigger the Batch jobs that generate the forecasts. The Batch jobs are triggered from an R script using the [doAzureParallel][doAzureParallel] package. The container instance automatically shuts down once the jobs have finished.
 
-[Azure Logic Apps][logic-apps] trigger the entire workflow by deploying the container instances on a schedule. An Azure Container Instances connector in Logic Apps allows an instance to be deployed upon a range of trigger events.
+[Azure Logic Apps][logic-apps] triggers the entire workflow by deploying the container instances on a schedule. An Azure Container Instances connector in Logic Apps allows an instance to be deployed upon a range of trigger events.
 
 ## Performance considerations
 
@@ -55,7 +56,7 @@ Each node of the Batch cluster runs the worker container, which executes the sco
 
 ### Parallelizing the workload
 
-When batch scoring data with R models, consider how to parallelize the workload. The input data must be partitioned somehow so that the scoring operation can be distributed across the cluster nodes. Try different approaches to discover the best choice for distributing your workload. On a case-by-case basis, consider:
+When batch scoring data with R models, consider how to parallelize the workload. The input data must be partitioned so that the scoring operation can be distributed across the cluster nodes. Try different approaches to discover the best choice for distributing your workload. On a case-by-case basis, consider:
 
 - How much data can be loaded and processed in the memory of a single node.
 - The overhead of starting each batch job.
@@ -63,7 +64,7 @@ When batch scoring data with R models, consider how to parallelize the workload.
 
 In the scenario used for this example, the model objects are large, and it takes only a few seconds to generate a forecast for individual products. For this reason, you can group the products and execute a single Batch job per node. A loop within each job generates forecasts for the products sequentially. This method turns out to be the most efficient way to parallelize this particular workload. It avoids the overhead of starting many smaller Batch jobs and repeatedly loading the R models.
 
-An alternative approach is to trigger one Batch job per product. Azure Batch automatically forms a queue of jobs and submits them to be executed on the cluster as nodes become available. Use [automatic scaling][autoscale] to adjust the number of nodes in the cluster depending on the number of jobs. This approach makes more sense if it takes a relatively long time to complete each scoring operation, justifying the overhead of starting the jobs and reloading the model objects. This approach is also simpler to implement and gives you the flexibility to use automatic scaling-an important consideration if the size of the total workload is not known in advance.
+An alternative approach is to trigger one Batch job per product. Azure Batch automatically forms a queue of jobs and submits them to be executed on the cluster as nodes become available. Use [automatic scaling][autoscale] to adjust the number of nodes in the cluster depending on the number of jobs. This approach makes more sense if it takes a relatively long time to complete each scoring operation, justifying the overhead of starting the jobs and reloading the model objects. This approach is also simpler to implement and gives you the flexibility to use automatic scaling, an important consideration if the size of the total workload is not known in advance.
 
 ## Monitoring and logging considerations
 
@@ -75,7 +76,7 @@ Monitor and terminate Batch jobs from the **Jobs** pane of the Batch account in 
 
 The doAzureParallel package automatically collects logs of all stdout/stderr for every job submitted on Azure Batch. These logs can be found in the storage account created at setup. To view them, use a storage navigation tool such as [Azure Storage Explorer][storage-explorer] or Azure portal.
 
-To quickly debug Batch jobs during development, print logs in your local R session using the [getJobFiles][getJobFiles] function of doAzureParallel.
+To quickly debug Batch jobs during development, view the logs in your local R session. For more information, see  using the [Configure and submit training runs][getJobFiles].
 
 ## Cost considerations
 
@@ -93,7 +94,7 @@ Azure Batch and doAzureParallel support the use of low-priority VMs. These VMs c
 To deploy this reference architecture, follow the steps described in the [GitHub][github] repo.
 
 [0]: ./_images/batch-scoring-r-models.png
-[1]: ./_images/sales-forecasts.png
+[1]: ./_images/batch-scoring-sales-forecasts.png
 [aci]: /azure/container-instances/container-instances-overview
 [autoscale]: /azure/batch/batch-automatic-scaling
 [batch]: /azure/batch/batch-technical-overview
