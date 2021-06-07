@@ -27,6 +27,6 @@ products:
   - azure-machine-learning
   - azure-rbac
   - azure-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/aml-scoring-deep-learning.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-machine-learning-deep-learning-scoring-pipeline.png
 content: |
   [!include[](batch-scoring-deep-learning-content.md)]
