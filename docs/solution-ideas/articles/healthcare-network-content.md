@@ -18,7 +18,7 @@ Other examples of this approach include:
 
 ![Screenshot showing a healthcare facility with two hospitals that collect patient and facility data with IoT devices. The devices connect to radio access devices, IoT Edge servers, and several Azure services through Azure IoT Hub.](../media/healthcare-architecture.png)
 
-1. Hospital buildings use a variety of connected devices to monitor both patient health and facility performance.
+1. Hospital buildings use various connected devices to monitor both patient health and facility performance.
    
    - Health-tracking devices include patient monitors, CT scanners, and blood pressure monitors.
    - Building safety and quality devices include air quality and building temperature sensors.
@@ -43,7 +43,7 @@ Other examples of this approach include:
 
 This solution uses the following components:
 
-- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/). Azure Stack Edge is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
+- [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
 - [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/)
 - [Azure Sphere](https://azure.microsoft.com/en-us/services/azure-sphere/)
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)

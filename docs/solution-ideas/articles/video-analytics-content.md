@@ -28,7 +28,7 @@ This approach can also:
    
 1. The [Spatial Analysis](/azure/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview) module on the edge server anonymously counts cars, goods on a shelf, or people in line. The module sends these event notifications to the Azure IoT Hub module in the cloud.
    
-1. The IoT Hub module records the event notifications in a web app, and alerts store managers or stockkeepers if certain thresholds are passed.
+1. The IoT Hub module records the event notifications in a web app, and alerts store managers or stock keepers if certain thresholds are passed.
    
 1. An Azure Media Services account stores events for long-term trend analysis to help with resource planning.
 
@@ -38,7 +38,7 @@ This solution uses the following components:
 
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
 - [Azure Video Analyzer](https://azure.microsoft.com/products/video-analyzer/) helps build intelligent video-based applications using your choice of AI.
-- [Web Apps in Microsoft Azure App Service](https://azure.microsoft.com/services/app-service/web/) create and deploy mission-critical web applications that scale with your business.
+- [Web Apps in Microsoft Azure App Service](https://azure.microsoft.com/services/app-service/web/) creates and deploys mission-critical web applications that scale with your business.
 - [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
 - [Media Services Storage](https://azure.microsoft.com/services/media-services/) uses Azure Storage to store large media files.
 - [Metaswitch Fusion Core 5G Packet Core](https://azuremarketplace.microsoft.com/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) creates a low-footprint enterprise private network experience in the cloud for 4G and 5G access types.
