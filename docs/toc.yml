@@ -773,7 +773,7 @@ items:
                 href: solution-ideas/articles/faq-chatbot-with-data-champion-model.yml
               - name: Hospital patient predictions
                 href: solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml
-              - name: Image classification with CNN's
+              - name: Image classification with CNNs
                 href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml
               - name: Interactive voice response bot
                 href: solution-ideas/articles/interactive-voice-response-bot.yml
@@ -877,7 +877,7 @@ items:
                 href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
               - name: Predictive aircraft engine monitoring
                 href: solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml
-              - name: Real Time analytics on big data
+              - name: Real-time analytics on big data
                 href: solution-ideas/articles/real-time-analytics.yml
               - name: Tiering applications & data for analytics
                 href: solution-ideas/articles/tiered-data-for-analytics.yml
@@ -1031,7 +1031,7 @@ items:
                     href: data-guide/big-data/index.md
                   - name: Batch processing
                     href: data-guide/big-data/batch-processing.md
-                  - name: Real time processing
+                  - name: Real-time processing
                     href: data-guide/big-data/real-time-processing.md
               - name: Technology choices
                 items:
@@ -1903,7 +1903,7 @@ items:
                 href: example-scenario/data/sentinel-threat-intelligence.yml
               - name: Healthcare platform confidential computing
                 href: example-scenario/confidential/healthcare-inference.yml
-              - name: Highly-secure IaaS apps
+              - name: Highly secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Homomorphic encryption with SEAL
                 href: solution-ideas/articles/homomorphic-encryption-seal.yml
