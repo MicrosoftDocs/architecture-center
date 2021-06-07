@@ -17,24 +17,22 @@ Use this approach for scenarios like:
 ![Screenshot showing a 5G Standalone network that controls warehouse robots through an on-premises Azure Stack Edge server. An Azure network function manager controls the private multi-access edge compute nodes on Azure Stack Edge.](../media/low-latency-network.png)
 
 1. Embedded 5G-enabled internet protocol (IP) modules connect warehouse robots to 5G Open Radio Access Network (ORAN) radio units. RAN is a common wireless network infrastructure for mobile networks.
-1. The 5G radio units connect over a wired switching network to the 5G Distribution Unit software, which runs on private multi-access edge compute (MEC) on Azure Stack Edge.
-1. The 5G Distribution Unit connects with the the virtual router, 5G Central Unit, and the 5G Packet Core, which run on a separate Azure private MEC instance on Azure Stack Edge.
+1. The 5G radio units connect over a wired switching network to the 5G distribution unit software, which runs on private multi-access edge compute (MEC) on Azure Stack Edge.
+1. The 5G distribution unit connects with the the virtual router, 5G central unit, and the 5G packet core, which run on a separate Azure private MEC instance on Azure Stack Edge.
 1. The 5G packet core provides device authentication, an IP address, and connectivity based on a preconfigured profile.
 1. Azure Network Function Manager controls both MEC instances.
 1. Optimizing the 5G network and keeping traffic confined to Azure private MEC provides the low latency these connection scenarios require.
 
 ### Components
 
-This solution uses the following components:
+This solution uses the following Azure components:
 
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is a portfolio of devices that bring compute, storage, and intelligence to the IoT edge.
-- [7P Private 5G Network (Stand Alone)](https://azuremarketplace.microsoft.com/marketplace/apps/sevenprinciplesag1603729177296.7p-pmn-5g-sa-hybrid?tab=Overview) is a powerful and secure private, on-premises mobile network.
-- [Metaswitch Fusion Core 5G Packet Core](https://azuremarketplace.microsoft.com/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) creates a low-footprint enterprise private network experience in the cloud for 4G and 5G access.
-- [Azure Network Function Manager](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments) deploys network functions to the IoT edge.
+- [Azure Network Function Manager](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments) enables the deployment of network functions to the IoT edge using consistent Azure tools and interfaces.
 
 ## Next steps
 
-- [Azure Private Edge Zones](/azure/networking/edge-zones-overview#private-edge-zones)
+- [Azure Private MEC](/azure/networking/edge-zones-overview#private-edge-zones)
 - [Azure Industrial IoT](https://azure.microsoft.com/solutions/industry/manufacturing/iot)
 
 ## Related resources

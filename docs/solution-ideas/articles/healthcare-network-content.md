@@ -41,17 +41,17 @@ Other examples of this approach include:
 
 ### Components
 
-This solution uses the following components:
+This solution uses the following Azure components:
 
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge. Azure Stack Edge acts as a cloud storage gateway that enables data transfers to Azure, while retaining local access to files.
-- [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/)
-- [Azure Sphere](https://azure.microsoft.com/services/azure-sphere)
-- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub)
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
-- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins)
-- [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
+- [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/) connects Kubernetes clusters running inside or outside of Azure.
+- [Azure Sphere](https://azure.microsoft.com/services/azure-sphere) is a comprehensive IoT security solution that includes hardware, OS, and cloud components for IoT device security.
+- [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) deploys cloud intelligence locally on IoT edge devices.
+- [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an integrated data science solution for data scientists and developers to build, train, and deploy machine learning models.
+- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) is an IoT platform that creates digital representations of real-world things, places, processes, and people in the cloud. 
+- [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) is an end-to-end IoT analytics platform to monitor, analyze, and visualize industrial IoT analytics data at scale.
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a scalable and secure data lake for high-performance analytics workloads.
 
 ## Next steps
 
