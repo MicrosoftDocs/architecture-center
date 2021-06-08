@@ -14,9 +14,9 @@ This architecture and the implementation aren't designed to provide controls on 
 >
 > The guidance in this article builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture is based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
 >
-> ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides an Azure AD-backed, private cluster that supports just-in-time (JIT) access and conditional access models for illustrative purposes. 
+> ![Image of the GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides an Azure AD-backed, private cluster that supports just-in-time (JIT) access and conditional access models for illustrative purposes. 
 
-## Implement Strong Access Control Measures
+## Implement strong access control measures
 
 **Requirement 7**&mdash;Restrict access to cardholder data by business need to know
 
@@ -50,7 +50,7 @@ Limit access to system components and cardholder data to only those individuals 
 
 Here are some considerations:
 
-- Make sure your implementation is aligned with the organization's and compliance requirements about identity management.
+- Make sure your implementation is aligned with the organization's requirements, and with compliance requirements about identity management.
 - Minimize standing permissions especially for critical impact accounts.
 - Follow the principle of least-privilege access. Provide just enough access to complete the task. 
 
@@ -63,33 +63,33 @@ Define access needs for each role, including:
 
 ##### Your responsibilities
 
-Define roles based on the tasks and responsibilities required for the in-scope components and their interaction with Azure resources. You can start with  broad categories, such as:
+Define roles based on the tasks and responsibilities required for the in-scope components and their interaction with Azure resources. You can start with broad categories, such as:
 
-- Scope by Azure Management Groups, Subscriptions, resource groups
-- Azure Policy for the workload, subscription
+- Scope by Azure management groups, subscriptions, or resource groups
+- Azure Policy for the workload or subscription
 - Container operations
 - Secret management
 - Build and deployment pipelines
 
-While the definition of roles and responsibilities around those areas might be associated with your team structure, focus on the requirement of the workload. For instance, who is responsible for maintaining security, isolation, deployment, observability, and others. Here are some examples:
+While the definition of roles and responsibilities around those areas might be associated with your team structure, focus on the requirement of the workload. For instance, who is responsible for maintaining security, isolation, deployment, and observability. Here are some examples:
 
-- Decisions about application security, Kubernetes RBAC, network policies, Azure policies, communication with other services.
-- Configuration and maintenance of Azure Firewall, Web Application Firewall (WAF), network security groups (NSGs), DNS configuration, and so on.
-- Monitor and remediate server security, patching, configuration, endpoint security.
+- Decisions about application security, Kubernetes RBAC, network policies, Azure policies, and communication with other services.
+- Configuration and maintenance of Azure Firewall, web application firewall (WAF), network security groups (NSGs), and DNS configuration.
+- Monitor and remediate server security, patching, configuration, and endpoint security.
 - Set direction for use of RBAC, Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources.
-- Incident monitoring and response team. Investigate and remediate security incidents in Security Information and Event Management (SIEM) or Azure Security Center.
+- Incident monitoring and response team. Investigate and remediate security incidents in security information and event management (SIEM) or Azure Security Center.
 
 Then, formalize the definition by determining what level of access is required for the role with respect to the workload and the infrastructure. Here's a simple definition for illustrative purposes. 
 
 |Role|Responsibilities|Access levels
 |---|---|---|
-|**Application owners**|Define and prioritize features aligning with business outcomes. They understand how features impact the compliance scoping of the workload, and balance customer data protection and ownership with business objectives.|Read access to logs and metrics emitted by the application. They don't need permissions to  access to the workload or the cluster.|
-|**Application developers**|Develop the application. All application code is subject to training and quality gates upholding compliance, attestation, and release management processes. May manage the build pipelines, but usually not deployment pipelines.|Read access to Kubernetes namespaces and Azure resources that are in scope of the workload. No write access for deploying or modifying any state of the system.|
-|**Application operators (or SRE)**|Have a deep understanding of the code base, observability, and operations. Do live-site triage and troubleshooting. Along with **application developers**, improve availability, scalability and performance of the application. Manage the "last-mile" deployment pipeline and help manage the build pipelines.|Highly privileged within the scope of the application that includes related Kubernetes namespaces and Azure resources. Likely have standing access to parts of the Kubernetes cluster.
-|**Infrastructure owners**| Design a cost-effective architecture, its connectivity and functionality of components. The scope may include cloud and on-premises services. Decide capabilities data retention, business continuity features, and others.|Access to platform logs and cost center data. No access is required within the cluster|
-|**Infrastructure operators (or SRE)**|Operations related to cluster and dependent services. Build, deploy, and bootstrap pipeline for the cluster in which the workload is deployed. Set targets node pools, expected sizing and scale requirements. Monitor and the health of the container hosting infrastructure and dependent services.|Read access to workload namespaces. Highly-privileged access for the cluser. 
-|**Policy, security owners**| Have security and, or regulation compliance expertise. Define policies that protect the security and regulatory compliance of the company employees, its assets, and those of the company's customers. Works with all other roles to ensure policy is applied and auditable through every phase.|Read access to the workload and the cluster. Also access to log and audit data|
-|**Network operators**|Allocation of enterprise-wide virtual network and subnets. Configuration and maintenance of Azure Firewall, Web Application Firewall (WAF), network security groups (NSGs), DNS configuration, and so on.|Highly-privileged in the networking layer. No write permission within the cluster.|
+|**Application owners**|Define and prioritize features aligning with business outcomes. They understand how features impact the compliance scoping of the workload, and balance customer data protection and ownership with business objectives.|Read access to logs and metrics emitted by the application. They don't need permissions to access to the workload or the cluster.|
+|**Application developers**|Develop the application. All application code is subject to training and quality gates upholding compliance, attestation, and release management processes. Might manage the build pipelines, but usually not deployment pipelines.|Read access to Kubernetes namespaces and Azure resources that are in scope of the workload. No write access for deploying or modifying any state of the system.|
+|**Application operators (or SRE)**|Have a deep understanding of the code base, observability, and operations. Do live-site triage and troubleshooting. Along with application developers, improve availability, scalability and performance of the application. Manage the "last-mile" deployment pipeline and help manage the build pipelines.|Highly privileged within the scope of the application that includes related Kubernetes namespaces and Azure resources. Likely have standing access to parts of the Kubernetes cluster.
+|**Infrastructure owners**| Design a cost-effective architecture, including its connectivity and the functionality of components. The scope can include cloud and on-premises services. Decide capabilities data retention, business continuity features, and others.|Access to platform logs and cost center data. No access is required within the cluster.|
+|**Infrastructure operators (or SRE)**|Operations related to the cluster and dependent services. Build, deploy, and bootstrap the pipeline for the cluster in which the workload is deployed. Set targets node pools, and expected sizing and scale requirements. Monitor the health of the container hosting infrastructure and dependent services.|Read access to workload namespaces. Highly-privileged access for the cluster. 
+|**Policy, security owners**| Have security or regulation compliance expertise. Define policies that protect the security and regulatory compliance of the company employees, its assets, and those of the company's customers. Works with all other roles to ensure policy is applied and auditable through every phase.|Read access to the workload and the cluster. Also access to log and audit data.|
+|**Network operators**|Allocation of enterprise-wide virtual network and subnets. Configuration and maintenance of Azure Firewall, WAF, NSGs, and DNS configuration.|Highly-privileged in the networking layer. No write permission within the cluster.|
 
 
 #### Requirement 7.1.2
