@@ -1,7 +1,7 @@
 
 
 
-This reference architecture shows how to perform batch scoring with R models using [Azure Batch][batch]. Azure Batch works well with intrinsically parallel workloads and includes job scheduling and compute management. TBatch inference (scoring) is widely used to segment customers, forecast sales, predict customer behaviors, predict maintenance, or improve cyber security.
+This reference architecture shows how to perform batch scoring with R models using [Azure Batch][batch]. Azure Batch works well with intrinsically parallel workloads and includes job scheduling and compute management. Batch inference (scoring) is widely used to segment customers, forecast sales, predict customer behaviors, predict maintenance, or improve cyber security.
 
 The scenario shown in this article is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a larger scale using R models. A reference implementation for this architecture is available on [GitHub][github].
 
@@ -82,7 +82,7 @@ To quickly debug Batch jobs during development, view the logs in your local R se
 
 The compute resources used in this reference architecture are the most costly components. For this scenario, a cluster of fixed size is created whenever the job is triggered and then shut down after the job has completed. Cost is incurred only while the cluster nodes are starting, running, or shutting down. This approach is suitable for a scenario where the compute resources required to generate the forecasts remain relatively constant from job to job.
 
-In scenarios where the amount of compute required to complete the job is not known in advance, it may be more suitable to use automatic scaling. With this approach, the size of the cluster is scaled up or down depending on the size of the job. Azure Batch supports a range of auto-scale formulae, which you can set when defining the cluster using the
+In scenarios where the amount of compute required to complete the job is not known in advance, it may be more suitable to use automatic scaling. With this approach, the size of the cluster is scaled up or down depending on the size of the job. Azure Batch supports a range of autoscale formulae, which you can set when defining the cluster using the
 [doAzureParallel][doAzureParallel] API.
 
 For some scenarios, the time between jobs may be too short to shut down and start up the cluster. In these cases, keep the cluster running between jobs if appropriate.
