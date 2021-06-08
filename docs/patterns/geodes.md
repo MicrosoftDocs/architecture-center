@@ -90,4 +90,4 @@ This pattern might not be suitable for
 ## Examples
 
 - Windows Active Directory implements an early variant of this pattern. Multi-primary replication means all updates and requests can in theory be served from all serviceable nodes, but FSMO roles mean that all geodes aren't equal.
-- A [geode-pattern-accelerator](https://github.com/xstof/qnademo) application on GitHub showcases this design pattern in practice and is designed to help developers implement it with real-world APIs.
+- A [geode-pattern-accelerator](https://github.com/lucashuet93/geode-pattern-accelerator) application on GitHub showcases this design pattern in practice and is designed to help developers implement it with real-world APIs.
