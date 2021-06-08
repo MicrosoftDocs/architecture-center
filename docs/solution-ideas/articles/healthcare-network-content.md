@@ -25,7 +25,7 @@ Other examples of this approach include:
    
 1. The patient health and building monitoring devices send data to LTE or 5G Radio Access Network (RAN) devices.
    
-1. The 5G or LTE radios in the hospitals forward the data to the [5G or LTE packet cores](https://azuremarketplace.microsoft.com/marketplace/apps/metaswitch.fusioncore_0-1-0?tab=Overview) running on the edge servers. The edge servers can be Azure Stack Edge or any Azure Arc-enabled servers.
+1. The 5G or LTE radios in the hospitals forward the data to the 5G or LTE packet cores running on the edge servers. The edge servers can be Azure Stack Edge or any Azure Arc-enabled servers.
    
 1. On the edge servers, the IoT Edge runtime can preprocess data before sending it to Azure for further analysis.
    
