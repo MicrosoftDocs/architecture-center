@@ -1,19 +1,19 @@
 This article describes the considerations for an Azure Kubernetes Service (AKS) cluster that's configured in accordance with the Payment Card Industry Data Security Standard (PCI-DSS). 
 
-> This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
+> This article is part of a series. Read the [introduction](aks-pci-intro.yml).
 
-The main theme of the PCI-DSS standard is security. The hub and spoke topology a natural choice for setting up a regulated environment. It's easier to create an infrastructure that allows secure communications. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic giving access on a need-to-know basis. In addition, several defense-in-depth approaches can be applied by adding controls at each network hop.
+The main theme of the PCI-DSS standard is security. The hub and spoke topology is a natural choice for setting up a regulated environment. It's easier to create an infrastructure that allows secure communications. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic, giving access on a need-to-know basis. In addition, you can apply several defense-in-depth approaches by adding controls at each network hop.
 
-When hosting a workload in a Kubernetes, it's not sufficient to rely on traditional network constructs, such as firewall rules. There are also Kubernetes-native constructs that control the flow of traffic in the cluster,  such as the  `NetworkPolicy` resource. We high recommend that you refer to the Kubernetes documentation to understand the core concepts about isolated and pods, ingress, and egress policies.
+When you're hosting a workload in a Kubernetes, it's not sufficient to rely on traditional network constructs, such as firewall rules. There are also Kubernetes-native constructs that control the flow of traffic in the cluster, such as the  `NetworkPolicy` resource. We highly recommend that you refer to the Kubernetes documentation to understand the core concepts about isolated pods, and ingress and egress policies.
 
 > [!IMPORTANT]
 >
-> The guidance in this article builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the card holder environment (CDE) and hosts the PCI DSS workload.
+> The guidance in this article builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture is based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the card-holder environment (CDE), and hosts the PCI DSS workload.
 >
 > ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated infrastructure. The implementation illustrates the use of various network and security controls within your CDE. This includes both network controls native to Azure and controls native to Kubernetes. It also includes an application just to demonstrate the interactions between the environment and a sample workload. The focus of this article is the infrastructure. The sample isn't indicative of an actual PCI-DSS workload. 
 
 
-## Build and Maintain a Secure Network and Systems
+## Build and maintain a secure network and systems
 
 **Requirement 1**&mdash;Install and maintain a firewall configuration to protect cardholder data.
 
@@ -47,20 +47,20 @@ A formal process for approving and testing all network connections and changes t
 
 ##### Your responsibilities
       
-Don't implement configurations manually, such as using the Azure portal or Azure CLI directly. Instead, use Infrastructure as code (IaC). With IaC, infrastructure is managed through a descriptive model that uses a versioning system. IaC model generates the same environment every time it's applied. Common examples of IaC are Azure Resource Manager or Terraform.
+Don't implement configurations manually, such as by using the Azure portal or the Azure CLI directly. Instead, use Infrastructure as Code (IaC). With IaC, infrastructure is managed through a descriptive model that uses a versioning system. The IaC model generates the same environment every time it's applied. Common examples of IaC are Azure Resource Manager or Terraform.
 
-You'll need to use a combination of various network controls including Azure Firewall, Network Security Groups (NSGs), Kubernetes NetworkPolicy resource. Minimize the number of people who can access and modify network controls. Define roles and clear responsibility to teams. For example, an organization's network team will validate the changes as per the governance policies set by IT teams. Have a gated approval process that involves people and processes to approve changes to any network configuration. Have detailed documentation that describes the process.
+You'll need to use a combination of various network controls, including Azure Firewall, network security groups (NSGs), and the Kubernetes NetworkPolicy resource. Minimize the number of people who can access and modify network controls. Define roles and clear responsibilities to teams. For example, an organization's network team will validate the changes per the governance policies set by IT teams. Have a gated approval process that involves people and processes to approve changes to any network configuration. Have detailed documentation that describes the process.
 
 #### Requirement 1.1.2
 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
 
 ##### Your responsibilities
 
-As part of your documentation, maintain a network flow diagram that shows the incoming and outgoing traffic with specific controls. The diagram should not only include traffic flows to and from the infrastructure but also flows within the cluster.
+As part of your documentation, maintain a network flow diagram that shows the incoming and outgoing traffic with specific controls. The diagram should not only include traffic flows to and from the infrastructure, but also flows within the cluster.
 
 This image shows the network diagram of the reference implementation.
 
-:::image type="content" source="./images/network-topology-small.png" alt-text="Network topology" lightbox="./images/network-topology.png":::
+:::image type="content" source="./images/network-topology-small.png" alt-text="Diagram of the network topology." lightbox="./images/network-topology.png":::
 
 **Figure 1.1.2 - Network flow**
 
@@ -85,34 +85,34 @@ For a PCI DSS infrastructure, you're responsible for securing the card holder en
 - Communication between the workload and other components in trusted networks.
 - Communication between the workload and public internet.
 
-This architecture uses different firewall technologies to inspect traffic flowing in both direction to and from the cluster that hosts the CDE:
+This architecture uses different firewall technologies to inspect traffic flowing in both directions, to and from the cluster that hosts the CDE:
 
 -  Azure Application Gateway integrated web application firewall (WAF) is used as the traffic router and for securing inbound (ingress) traffic to the cluster.
 
 - Azure Firewall is used to secure all outbound (egress) traffic from any network and its subnets.
 
-   As part of processing a transaction or management operations, the cluster will need to communicate with external entities. For example, communication with the AKS control plane, getting windows and package updates, workload's interaction with external APIs, and others. Some of those interactions might be over HTTP and should be considered as attack vectors. Those vectors are targets for a man-in-the-middle attack that can result in data exfiltration. Adding firewall to egress traffic mitigates that threat.
+   As part of processing a transaction or management operations, the cluster will need to communicate with external entities. For example, the cluster might require communication with the AKS control plane, getting Windows and package updates, and the workload's interaction with external APIs. Some of those interactions might be over HTTP and should be considered as attack vectors. Those vectors are targets for a man-in-the-middle attack that can result in data exfiltration. Adding a firewall to egress traffic mitigates that threat.
 
-- Network Security Group (NSGs) is added to secure traffic between the cluster and other components within the infrastructure. For example, in the reference implementation, there are NSGs on the subnet with node pools that block any SSH access attempts. Only traffic from the virtual network is allowed. 
+- NSGs are added to secure traffic between the cluster and other components within the infrastructure. For example, in the reference implementation, there are NSGs on the subnet with node pools that block any SSH access attempts. Only traffic from the virtual network is allowed. 
 
    As you add components to the architecture, consider adding more NSGs that allow or deny traffic types at subnet boundaries. Because each node pool is in a dedicated subnet, apply more specific rules based on expected traffic patterns of your workload.
 
-- Kubernetes NetworkPolicy 
+- Kubernetes `NetworkPolicy` 
 
-   By default, there are no restrictions on pod-to-pod communication. You need to apply NetworkPolicy on in-cluster communications, starting with zero-trust network and opening paths as needed. The reference implementation demonstrates zero-trust networks in `a0005-i` and `a0005-o` namespaces.  All namespaces (except `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces) have restrictive NetworkPolicy applied. The policy definition depends on the pods running in those namespaces. Make sure you're open paths for readiness, liveliness, and startup probes. Also, open path to `oms-agent` so that node-level metrics can be sent. Consider standardizing ports across the workloads so that you can provide a consistent NetworkPolicy and Azure Policy for the allowed container ports.
+   By default, there are no restrictions on pod-to-pod communication. You need to apply `NetworkPolicy` on in-cluster communications, starting with a zero-trust network and opening paths as needed. The reference implementation demonstrates zero-trust networks in the `a0005-i` and `a0005-o` namespaces.  All namespaces (except `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces) have restrictive `NetworkPolicy` applied. The policy definition depends on the pods running in those namespaces. Make sure you open paths for readiness, liveliness, and startup probes. Also, open the path to `oms-agent` so that node-level metrics can be sent. Consider standardizing ports across the workloads so that you can provide a consistent `NetworkPolicy` and Azure Policy for the allowed container ports.
 
 #### Requirement 1.1.5
 Description of groups, roles, and responsibilities for management of network components.
 
 ##### Your responsibilities
 
-You'll need to provide controls on the network flows and the components involved. The resulting infrastructure will have several network segments, each with many controls, and each control with a purpose. Make sure your documentation not only has the breadth of coverage from network planning to all configurations but also has the details on ownership. Have clear lines of responsibility and the roles are responsible for them. 
+You'll need to provide controls on the network flows and the components involved. The resulting infrastructure will have several network segments, each with many controls, and each control with a purpose. Make sure your documentation not only has the breadth of coverage from network planning to all configurations but also has the details on ownership. Have clear lines of responsibility and the roles that are responsible for them. 
 
-For example, who is responsible for the governance of securing network between Azure and the internet. In an enterprise, the IT team is responsible for configuration and maintenance of Azure Firewall rules, Web Application Firewall (WAF), Network Security Groups (NSGs), and other cross-network traffic. They might also be responsible for enterprise-wide virtual network and subnet allocation and IP address planning.
+For example, know who is responsible for the governance of securing network between Azure and the internet. In an enterprise, the IT team is responsible for configuration and maintenance of Azure Firewall rules, Web Application Firewall (WAF), NSGs, and other cross-network traffic. They might also be responsible for enterprise-wide virtual network and subnet allocation, and IP address planning.
 
-At the workload level, a cluster operator is responsible for maintaining zero-trust through network policies. Also, responsibilities might include communication with the Azure control plane, Kubernetes APIs, monitoring technologies, and others.
+At the workload level, a cluster operator is responsible for maintaining zero-trust through network policies. Also, responsibilities might include communication with the Azure control plane, Kubernetes APIs, and monitoring technologies.
 
-Make sure only access rights are given only to the parties responsible in each case. 
+Make sure that access rights are given only to the parties responsible in each case. 
 
 #### Requirement 1.1.6
 Documentation of business justification and approval for use of all services, protocols, and ports allowed, including documentation of security features implemented for those protocols considered to be insecure.
@@ -124,10 +124,10 @@ Have detailed documentation that describes the services, protocols, and ports us
 |Rule|Protocol:Port|Source|Destination|Justification
 |---|---|---|---|---|
 |Allow network time protocol (NTP) traffic.|UDP:123|AKS node pools||To support time synchronization between servers.|
-|Allow secure communication between the nodes and the control plane.|HTTPS:443|Authorized IP address ranges assigned to the cluster node pools| List of FDQN targets in the AKS control plane. This is specified with the AzureKubernetesService FQDN tag.|The nodes need access to the control plane for management tools, state and configuration information, and information about which nodes can be scaled.|
+|Allow secure communication between the nodes and the control plane.|HTTPS:443|Authorized IP address ranges assigned to the cluster node pools| List of FQDN targets in the AKS control plane. This is specified with the `AzureKubernetesService` FQDN tag.|The nodes need access to the control plane for management tools, state and configuration information, and information about which nodes can be scaled.|
 |Allow secure communication between Flux and GitHub.|HTTPS:443|AKS node pools|github.com,api.github.com|Flux is a third-party integration that runs on the nodes. It synchronizes cluster configuration with a private GitHub repository.|
 
-For information about the required ports, official documentation for the Azure service.
+For information about the required ports, see the official documentation for the Azure service.
 
 #### Requirement 1.1.7
 Requirement to review firewall and router rule sets at least every six months.
@@ -137,8 +137,8 @@ Requirement to review firewall and router rule sets at least every six months.
 Have processes that regularly review the network configurations and the scoped rules. This will make sure the security assurances are current and valid. Make sure you review these configurations:
 
 - Azure Firewall rules.
-- Network Security Group (NSG) rules.
-- Azure Application Gateway and Web Application Firewall (WAF) rules.
+- NSG rules.
+- Azure Application Gateway and WAF rules.
 - Native Kubernetes network policies.
 - Firewall controls on the applicable Azure resources. For example, this architecture uses a rule on Azure Container Registry that only allows traffic from a private endpoint.
 - Any other network controls you have added to the architecture.
@@ -150,13 +150,13 @@ Build firewall and router configurations that restrict connections between untru
 ##### Your responsibilities
 In this architecture, the AKS cluster _is_ the cardholder data environment (CDE). That cluster is deployed as a private cluster for enhanced security. In a private cluster, network traffic between the AKS-managed Kubernetes API server and your node pools is private. The API server is exposed via a Private Endpoint in the cluster's network.
 
-Alternatively, you can choose a public cluster, however, there are challenges. The API server will be exposed to the internet. The DNS record will always be discoverable. So, you need to have controls to keep the cluster API protected from public access. An approach is to have tight controls through Kubernetes role-based access controls (RBAC) paired with the authorized IP ranges feature of AKS. However, this solution is not recommended for clusters containing regulated workloads.
+You can also choose a public cluster, but be aware of potential challenges with this option. The API server will be exposed to the internet. The DNS record will always be discoverable. So, you need to have controls to keep the cluster API protected from public access. An approach is to have tight controls through Kubernetes role-based access controls (RBAC), paired with the authorized IP ranges feature of AKS. However, this solution isn't recommended for clusters containing regulated workloads.
 
-When processing card holder data (CHD), the cluster will need to interact with networks that are considered to be trusted and untrusted. In this architecture, both the hub and spoke networks within the perimeter of PCI-DSS workload, are considered to be trusted networks.
+When processing card holder data (CHD), the cluster will need to interact with networks that are considered to be trusted and untrusted. In this architecture, both the hub and spoke networks within the perimeter of PCI-DSS workload are considered to be trusted networks.
 
-Untrusted networks are networks outside that perimeter. This category includes the other hubs and spokes that might be on the same infrastructure but outside the workload perimeter, public internet, the corporate network, virtual networks in Azure or other cloud platform. In this architecture, the virtual network that hosts the image builder is untrusted because it has no part to play in CHD handling. The CDE's interaction with such networks should be secured as per the requirements. With this private cluster, you can use Azure Virtual Network, Network Security Group (NSG), and other built-in features to secure the entire environment.
+Untrusted networks are networks outside that perimeter. This category includes the other hubs and spokes that might be on the same infrastructure, but are outside the workload perimeter, public internet, the corporate network, or virtual networks in Azure or another cloud platform. In this architecture, the virtual network that hosts the image builder is untrusted because it has no part to play in CHD handling. The CDE's interaction with such networks should be secured as per the requirements. With this private cluster, you can use Azure Virtual Network, an NSG, and other built-in features to secure the entire environment.
 
-For information about private clusters, see [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/en-us/azure/aks/private-clusters).
+For information about private clusters, see [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/azure/aks/private-clusters).
 
 
 #### Requirement 1.2.1
@@ -165,37 +165,37 @@ Restrict inbound and outbound traffic to that which is necessary for the cardhol
 ##### Your responsibilities
 By design, Azure Virtual Network cannot be directly reached by the public internet. All inbound (or _ingress_) traffic must go through an intermediate traffic router. However, all components in the network can reach public endpoints. That outbound (or _egress_) traffic must be explicitly secured.
 
--  Azure Application Gateway integrated web application firewall (WAF) intercepts all ingress traffic and routes inspected traffic to the cluster. 
+-  Azure Application Gateway integrated WAF intercepts all ingress traffic and routes inspected traffic to the cluster. 
 
-   This traffic can originate from trusted or untrusted networks. Application Gateway is provisioned in a subnet of the spoke network and secured by a Network Security Group (NSG). As traffic flows in, WAF rules allow or deny, and route traffic to the configured backend. For example, Application Gateway protects the CDE by denying this type of traffic: 
+   This traffic can originate from trusted or untrusted networks. Application Gateway is provisioned in a subnet of the spoke network and secured by an NSG. As traffic flows in, WAF rules allow or deny, and route traffic to the configured backend. For example, Application Gateway protects the CDE by denying this type of traffic: 
     - All traffic that is not TLS-encrypted. 
     - Traffic outside the port range for control plane communication from the Azure infrastructure. 
     - Health probes requests that are sent by entities other than the internal load balancer in the cluster. 
 
 - Azure Firewall is used to secure all outbound (egress) traffic from trusted and untrusted networks. 
 
-   Firewall is provisioned in a subnet of the hub network. To enforce Firewall as the single egress point, user-defined routes (UDRs) are used on subnets that are capable of generating egress traffic. This includes subnets in untrusted networks such as the image builder virtual network. After the traffic reaches Firewall, several scoped rules are applied that allow traffic from specific sources to go to specific targets.
+   Azure Firewall is provisioned in a subnet of the hub network. To enforce Azure Firewall as the single egress point, user-defined routes (UDRs) are used on subnets that are capable of generating egress traffic. This includes subnets in untrusted networks, such as the image builder virtual network. After the traffic reaches Azure Firewall, several scoped rules are applied that allow traffic from specific sources to go to specific targets.
 
    For more information, see  [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](/azure/firewall/protect-azure-kubernetes-service).
 
 The cluster will need to access other services over the public internet. If you use a third-party antimalware software, it will need to get the virus definitions from a server over the public internet. 
 
-Interactions with endpoints of other Azure services are over the internet. Make sure those interactions are secure. For example, as part of the regular operations, the cluster will need to get certificates from the managed key store, pull images from a container registry, and so on. You can use Private Links for other services such as Azure Key Vault and Azure Container Registry to do the preceding tasks.
+Interactions with endpoints of other Azure services are over the internet. Make sure those interactions are secure. For example, as part of the regular operations, the cluster will need to get certificates from the managed key store, pull images from a container registry, and so on. You can use private links for other services, such as Azure Key Vault and Azure Container Registry, to do the preceding tasks.
 
-In addition to firewall rules and private networks, Network Security Group (NSG) flows are also secured through rules. Here some examples from this architecture where the CDE is protected by denying traffic:
+In addition to firewall rules and private networks, NSG flows are also secured through rules. Here some examples from this architecture where the CDE is protected by denying traffic:
 - The NSGs, on subnets that have node pools, deny any SSH access to its nodes.
-- The NSG, on the subnet that has the jump box for running management tools, denies all traffic except from  Azure Bastion in the hub network.
-- The NSGs, on subnets that have the private endpoints to  Azure Key Vault and Azure Container Registry, deny all traffic except from the internal load balancer and the traffic over Private Link.
+- The NSG, on the subnet that has the jump box for running management tools, denies all traffic except from Azure Bastion in the hub network.
+- The NSGs, on subnets that have the private endpoints to Azure Key Vault and Azure Container Registry, deny all traffic except from the internal load balancer and the traffic over Azure Private Link.
 
 #### Requirement 1.2.2
 Secure and synchronize router configuration files.
 
 ##### Your responsibilities
-Have a mechanism to detect delta between the actual deployed state and desired state. Infrastructure as code (IaC) is a great choice for that purpose. For example, Azure Resource Manager templates have a record of the desired state. 
+Have a mechanism to detect the delta between the actual deployed state and the desired state. Infrastructure as Code (IaC) is a great choice for that purpose. For example, Azure Resource Manager templates have a record of the desired state. 
 
-The deployment assets such as, ARM templates, must be source-controlled so that you have the history of all changes. Collect information from Azure activity logs, deployment pipeline logs, and Azure deployment logs. Those sources will help you keep a trail of deployed assets.
+The deployment assets, such as ARM templates, must be source-controlled so that you have the history of all changes. Collect information from Azure activity logs, deployment pipeline logs, and Azure deployment logs. Those sources will help you keep a trail of deployed assets.
 
-In the cluster, network controls, such as Kubernetes network policies should also follow the source-controlled flow. In this implementation, Flux is used as the GitOps operator. When synchronizing cluster configuration such as network policies, your git history combined with Flux and API logs can be a configuration history source.
+In the cluster, network controls such as Kubernetes network policies should also follow the source-controlled flow. In this implementation, Flux is used as the GitOps operator. When you're synchronizing a cluster configuration such as network policies, your Git history combined with Flux and API logs can be a configuration history source.
 
 #### Requirement 1.2.3
 
@@ -213,14 +213,14 @@ Prohibit direct public access between the Internet and any system component in t
 
 ##### Your responsibilities
 
-AKS cluster node pools operate within the virtual network and isolated from public networks such as the internet. Maintain isolation by preventing association of public IPs to cluster nodes and applying Network Security Groups (NSGs) rules on the cluster subnets to make sure internet traffic is blocked. For information about controlled access, see the [DMZ section](#requirement-131).
+AKS cluster node pools operate within the virtual network and isolated from public networks such as the internet. Maintain isolation by preventing the association of public IPs to cluster nodes, and by applying NSG rules on the cluster subnets to make sure internet traffic is blocked. For information about controlled access, see the [DMZ section](#requirement-131).
 
-The AKS cluster has system node pools that host critical system pods. Even on the user node pools, there are pods that run other services that participate in cluster operations. For example, Flux to synchronize cluster configuration to a GitHub repository, the ingress controller to route traffic to the workload pods, and others. Regardless of the type of node pool, all nodes must be protected. 
+The AKS cluster has system node pools that host critical system pods. Even on the user node pools, there are pods that run other services that participate in cluster operations. For example, pods might run Flux to synchronize cluster configuration to a GitHub repository, or the ingress controller to route traffic to the workload pods. Regardless of the type of node pool, all nodes must be protected. 
 
-Another critical system component is the API server that is used to do native Kubernetes tasks, such as maintain the state of the cluster and configuration. An advantage of using a private cluster is that API server endpoint isn't exposed by default. For information about private clusters, see [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/en-us/azure/aks/private-clusters).
+Another critical system component is the API server that is used to do native Kubernetes tasks, such as maintain the state of the cluster and configuration. An advantage of using a private cluster is that API server endpoint isn't exposed by default. For information about private clusters, see [Create a private Azure Kubernetes Service cluster](https://docs.microsoft.com/azure/aks/private-clusters).
 
 
-Interactions with other endpoints must also be secured. One way is by restricting communications over a private network. For instance, have the cluster pull images from Azure Container Registry over a Private Link.
+Interactions with other endpoints must also be secured. One way is by restricting communications over a private network. For instance, have the cluster pull images from Azure Container Registry over a private link.
 
 
 
@@ -234,11 +234,11 @@ Here are some best practices:
 
 - Do not configure public IP addresses on the node pool nodes. 
 - Do not have a public load balancer in front of the nodes. Traffic within the cluster must be routed through internal load balancers. 
-- Only expose internal load balancers to Azure Application Gateway integrated with Web Application Firewall(WAF). 
+- Only expose internal load balancers to Azure Application Gateway integrated with WAF. 
 - All network controls should specify source, destination, port, and protocol restrictions, where applicable.
 - Do not expose the API server to the internet. When you run the cluster in private mode, the endpoint is not exposed and communication between the node pools and the API server is over a private network.
 
-Users can implement a DMZ to protect AKS clusters, as other services. For information about Cloud DMZ Design and Implementation steps, see [Cloud DMZ](/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz).
+Users can implement a perimeter network to protect AKS clusters. For information, see [Cloud DMZ](/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz).
 
 #### Requirement 1.3.2
 
@@ -246,7 +246,7 @@ Limit inbound Internet traffic to IP addresses within the DMZ.
 
 ##### Your responsibilities
 
-In the cluster network, have a Network Security Group (NSG) on the subnet with the internal load balancer. Configure rules to only accept traffic from subnet that has Azure Application Gateway integrated with Web Application Firewall(WAF). Within the AKS cluster use Kubernetes NetworkPolicies to restrict ingress traffic to the pods.
+In the cluster network, have an NSG on the subnet with the internal load balancer. Configure rules to only accept traffic from subnet that has Azure Application Gateway integrated with WAF. Within the AKS cluster, use Kubernetes `NetworkPolicies` to restrict ingress traffic to the pods.
 
 
 #### Requirement 1.3.3
@@ -266,15 +266,15 @@ Do not allow unauthorized outbound traffic from the cardholder data environment 
 Here are ways in which you can block unauthorized outbound traffic:
 
 - Enforce all outbound (egress) traffic from the AKS cluster to go through Azure Firewall. Have user-defined routes (UDRs) on cluster subnets. This includes subnets with system and user node pools. 
-- Limit outbound traffic by adding network security groups (NSG)s on subnets with node pools.
-- Use Kubernetes NetworkPolicies to restrict egress traffic from the pods. 
-- Use a service mesh to handle additional policies. For example, if you only allow TLS-encrypted traffic between pods, the service mesh proxy can handle the TLS verification. That example is demonstrated in this implementation, Envoy is deployed as the proxy. 
+- Limit outbound traffic by adding NSGs on subnets with node pools.
+- Use Kubernetes `NetworkPolicies` to restrict egress traffic from the pods. 
+- Use a service mesh to handle additional policies. For example, if you only allow TLS-encrypted traffic between pods, the service mesh proxy can handle the TLS verification. That example is demonstrated in this implementation. Envoy is deployed as the proxy. 
 
 > [!NOTE]
 >
-> You can use Kubernetes NetworkPolicies to restrict ingress and egress traffic to and from the pods.
+> You can use Kubernetes `NetworkPolicies` to restrict ingress and egress traffic to and from the pods.
 
-AKS requires some public internet access to access the Azure-managed control plane. For example, the cluster wants to send metrics and logs to Azure Monitor. You can set scoped rules by specifying the source and destination FQDN targets or FQDN tags. While using tags makes it easier to set the rules, some tags might include more targets than you need making the rule overly permissive. Review the tags to make sure it has just the right targets you need. Consider using explicit rules for added control, however that will come at a tradeoff of management/complexity, including removing rules that are no longer necessary.
+AKS requires some public internet access to access the Azure-managed control plane. For example, the cluster wants to send metrics and logs to Azure Monitor. You can set scoped rules by specifying the source and destination FQDN targets or FQDN tags. Although using tags makes it easier to set the rules, some tags might include more targets than you need, making the rule overly permissive. Review the tags to make sure it has just the right targets you need. Consider using explicit rules for added control. Understand that that involves a tradeoff of management and complexity, including removing rules that are no longer necessary.
 
 For details, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](/azure/aks/limit-egress-traffic).
 
@@ -284,7 +284,7 @@ Permit only "established" connections into the network.
 
 ##### Azure responsibilities
 
-Azure implements network filtering to prevent spoofed traffic and restrict incoming and outgoing traffic to trusted platform components.  Azure network is segregated to separate customer traffic from management traffic.
+Azure implements network filtering to prevent spoofed traffic and restrict incoming and outgoing traffic to trusted platform components. The Azure network is segregated to separate customer traffic from management traffic.
 
 
 #### Requirement 1.3.6
@@ -293,7 +293,7 @@ Place system components that store cardholder data (such as a database) in an in
 
 ##### Your responsibilities
 
-Expose your storage systems only over a private network, for instance using Private Link. Also, restrict access from the node pool subnet(s) that require it. Keep state out of the cluster and in its own dedicated security zone. 
+Expose your storage systems only over a private network, for instance by using Private Link. Also, restrict access from the node pool subnet(s) that require it. Keep state out of the cluster and in its own dedicated security zone. 
 
 
 #### Requirement 1.3.7
@@ -304,9 +304,9 @@ Do not disclose private IP addresses and routing information to unauthorized par
 
 To meet this requirement, choosing a public AKS cluster is not an option. A private cluster keeps DNS records off the public internet by using a private DNS zone. The virtual network that's linked to the private zone resolves the record. In this architecture, all zones are linked to the hub network. 
 
-Also, use a private DNS zone for routing between the subnet that has Azure Application Gateway integrated with Web Application Firewall (WAF) and the subnet that has the internal load balancer. Ensure all HTTP responses do not include any private IP information in headers or body. Ensure logs that may contain IP and DNS records are not exposed outside of operational needs.
+Also, use a private DNS zone for routing between the subnet that has Azure Application Gateway integrated with WAF, and the subnet that has the internal load balancer. Ensure that no HTTP responses include any private IP information in the headers or body. Ensure that logs that might contain IP and DNS records are not exposed outside of operational needs.
 
-An Azure service that's connected through Private Link doesn't have a public DNS record exposing your IPs. Your infrastructure should make use of the use of Private Link optimally.
+An Azure service that's connected through Private Link doesn't have a public DNS record exposing your IPs. Your infrastructure should make use of Private Link optimally.
 
 ### Requirement 1.4
 
@@ -316,16 +316,16 @@ Install personal firewall software or equivalent functionality on any portable c
 
 The private cluster is managed by the AKS control plane. You don't have access to nodes directly. For doing administrative tasks you'll need to use management tools such as kubectl from a separate compute resource. An option is to use an air-gapped jump box where you can run the commands. Also inbound and outbound traffic from the jump box must be restricted and secure. If VPN is used for access, make sure the client machine is managed by corporate policy and all conditional access policies are in place.
 
-In this architecture, that jump box is in a separate subnet in the spoke network. Inbound access to the jump box is restricted by using a Network Security Group (NSG) that only allows access through Azure Bastion over SSH. 
+In this architecture, that jump box is in a separate subnet in the spoke network. Inbound access to the jump box is restricted by using an NSG that only allows access through Azure Bastion over SSH. 
 
-To run certain commands on the jump box, you'll need to reach public endpoints. For example, endpoints managed by Azure management plane. That outbound traffic must be secure. Similar to other components in the spoke network, outbound traffic from the jump box is restricted by using a user-defined route (UDR) that forces HTTPs  traffic to go through Azure Firewall.
+To run certain commands on the jump box, you'll need to reach public endpoints. For example, endpoints managed by the Azure management plane. That outbound traffic must be secure. Similar to other components in the spoke network, outbound traffic from the jump box is restricted by using a UDR that forces HTTPs  traffic to go through Azure Firewall.
 
 ### Requirement 1.5
 Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.
 
 ##### Your responsibilities
 
-It's critical that you maintain thorough documentation about the process and policies. Especially when managing Azure Firewall rules that segments the AKS cluster. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts granted broad administrative privileges.
+It's critical that you maintain thorough documentation about the process and policies. This is especially true when you're managing Azure Firewall rules that segment the AKS cluster. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts that are granted broad administrative privileges.
 
 ***
 
@@ -340,8 +340,8 @@ Always change vendor-supplied defaults and remove or disable unnecessary default
 
 Default settings provided by vendors must be changed. Default settings are common attack vectors and make the system prone to attacks. Here are some considerations:
 - Disable administrator access on the container registry.
-- Ensure jump boxes and build agents follow user management procedures - removing needed system users.
-- Do not generate or provide SSH key access to nodes to administrator user. If emergency access is necessary, use Azure recovery process to get JIT access.
+- Ensure that jump boxes and build agents follow user management procedures, removing needed system users.
+- Do not generate or provide SSH key access to nodes to administrator user. If emergency access is necessary, use the Azure recovery process to get just-in-time access.
 
 #### Azure responsibilities
 
@@ -362,14 +362,14 @@ Develop configuration standards for all system components.
 
 #### Your responsibilities
 
-Implement the recommendations in Azure Security Benchmark. It provides a single consolidated view of Azure security recommendations covering industry framework such as CIS, NIST, PCI-DSS, and others. Use Azure Security Center features and Azure Policy to help track against the standards. Azure Security Benchmark is the default initiative for Azure Security Center. Consider building additional automated checks in Azure Policy and Azure Tenant Security Solution (AzTS).
+Implement the recommendations in the Azure security benchmark. It provides a single, consolidated view of Azure security recommendations, covering industry frameworks such as CIS, NIST, PCI-DSS, and others. Use Azure Security Center features and Azure Policy to help track against the standards. Azure security benchmark is the default initiative for Azure Security Center. Consider building additional automated checks in Azure Policy and Azure Tenant Security Solution (AzTS).
 
-Document desired configuration state of all components in the CDE, especially for AKS nodes, jump box, build agents, and other components that interact with the cluster.
+Document the desired configuration state of all components in the CDE, especially for AKS nodes, jump box, build agents, and other components that interact with the cluster.
 
 For more information, see [Azure security benchmark](/security/benchmark/azure/introduction).
 
 #### Azure responsibility
-Azure provides security configuration standards that are consistent with industry-accepted hardening standards.  The standards and are reviewed at least annually.
+Azure provides security configuration standards that are consistent with industry-accepted hardening standards. The standards are reviewed at least annually.
 
 
 #### Requirement 2.2.1
@@ -378,13 +378,13 @@ Implement only one primary function per server to prevent functions that require
 
 ##### Your responsibilities
 
-The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. For example, have separate node pools within a cluster. 
+The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. Understand that this results in increased costs for the added infrastructure and the maintenance overhead. Another approach is to co-locate all components in a shared cluster. Use segmentation strategies to maintain the separation. For example, have separate node pools within a cluster. 
 
-In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The application has  two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate node pools and they never share a node VM.
+In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The application has two sets of services: one set has in-scope pods, and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate node pools, and they never share a node VM.
 
 For container technologies, that segmentation is provided by default because only one instance of a container is responsible for one function in the system.
 
-The workload should use Pod Managed Identity. It must not inherit any cluster-level or node-level identity. 
+The workload should use pod-managed identity. It must not inherit any cluster-level or node-level identity. 
 
 Use external storage instead of on-node (in-cluster) storage where possible. Keep cluster pods reserved exclusively for work that must be performed as part of the operation of card holder data processing. Move the out-of-scope operations outside the cluster. This guidance applies to build agents, unrelated workloads, or activities such as having a jump box inside the cluster. 
 
@@ -395,11 +395,11 @@ Enable only necessary services, protocols, daemons, etc., as required for the fu
 
 ##### Your responsibilities
 
-Review the features and the implications before enabling them. Default settings might include features you don't need and those features might need visibility into the workload. For example, the ciphers in the default SSL policy for Azure Application Gateway. Check if the policy is overly permissive. The recommendation is to create a custom policy by selecting only the ciphers you need.
+Review the features and the implications before enabling them. Default settings might include features you don't need, and those features might need visibility into the workload. An example of this is the ciphers in the default SSL policy for Azure Application Gateway. Check if the policy is overly permissive. The recommendation is to create a custom policy by selecting only the ciphers you need.
 
-For components where you have complete control, remove all unnecessary system services from the images. For instance jump boxes, build agents, and others.
+For components where you have complete control, remove all unnecessary system services from the images (for example jump boxes and build agents).
 
-For components, where you only have visibility such as AKS nodes, document what Azure installs on the nodes. Consider using DaemonSets to provide any additional auditing necessary for these cloud-controlled components.
+For components where you only have visibility, such as AKS nodes, document what Azure installs on the nodes. Consider using `DaemonSets` to provide any additional auditing necessary for these cloud-controlled components.
 
 #### Requirement 2.2.3
 
@@ -407,13 +407,13 @@ Implement additional security features for any required services, protocols, or 
 
 ##### Your responsibilities
 
-Application Gateway has an integrated web application firewall (WAF) and negotiates the TLS handshake for the request sent to its public endpoint, allowing only secure ciphers. The reference implementation only supports TLS 1.2 and approved ciphers.
+Application Gateway has an integrated WAF, and negotiates the TLS handshake for the request sent to its public endpoint, allowing only secure ciphers. The reference implementation only supports TLS 1.2 and approved ciphers.
 
 Suppose you have a legacy device that needs to interact with the CDE through Azure Application Gateway. For that, Application Gateway must enable an insecure protocol. Document that exception and monitor if that protocol is used beyond that legacy device. Disable that protocol immediately after that legacy interaction is discontinued.
 
 Also, Application Gateway must not respond to requests on port 80. Do not perform redirects at the application level.
 
-If a workload in your cluster cannot adhere to organizational policy around security compliance profiles or other controls (limits, quotas, and so on), then make sure the exception is documented. You must monitor to ensure that only expected functionality is performed.
+If a workload in your cluster cannot adhere to organizational policy around security compliance profiles or other controls (for example, limits and quotas), then make sure the exception is documented. You must monitor to ensure that only expected functionality is performed.
 
 
 #### Requirement 2.2.4
@@ -424,7 +424,7 @@ Configure system security parameters to prevent misuse.
 
 All Azure services used in the architecture must follow the recommendations provided by [Azure security benchmark](/security/benchmark/azure/introduction). These recommendations give you a starting point for selecting specific security configuration settings. Also, compare your configuration against the baseline implementation for that service. For more information about the security baselines, see [Security baselines for Azure](/security/benchmark/azure/security-baselines-overview).
 
-The Open Policy Agent admission controller works in conjunction with Azure Policy to detect and prevent misconfigurations on the cluster. Suppose there's an organizational policy that doesn't allow  public IP allocations on the nodes. When such an allocation is detected, it's marked for audit or denied based on the action specified in the policy definition.
+The Open Policy Agent admission controller works in conjunction with Azure Policy to detect and prevent misconfigurations on the cluster. Suppose there's an organizational policy that doesn't allow public IP allocations on the nodes. When such an allocation is detected, it's marked for audit or denied based on the action specified in the policy definition.
 
 At the infrastructure level, you can apply restrictions on the type and configuration of Azure resources. Use Azure Policy to prevent those cases. In this reference implementation, there's a policy that denies the creation of AKS clusters that aren't private.  
 
@@ -434,7 +434,7 @@ Make sure all exceptions are documented.
 
 ##### Azure responsibilities
 
-Azure ensures that only authorized personal are able to configure Azure platform security controls, using multi-factor access controls and a documented business need.
+Azure ensures that only authorized personnel are able to configure Azure platform security controls, by using multi-factor access controls and a documented business need.
 
 
 #### Requirement 2.2.5
@@ -443,25 +443,25 @@ Remove all unnecessary functionality, such as scripts, drivers, features, subsys
 
 ##### Your responsibilities
 
-Don't install software on jump boxes, build agents, that doesn't participate in the processing of a transaction or provides observability for compliance requirements, such as security agents. This recommendation also applies to the cluster entities such as DaemonSet, pods, and so on. Make sure all installations are detected and logged. 
+Don't install software on jump boxes or build agents that don't participate in the processing of a transaction or provide observability for compliance requirements, such as security agents. This recommendation also applies to the cluster entities, such as `DaemonSet` and pods. Make sure all installations are detected and logged. 
 
 ### Requirement 2.3
 Encrypt all non-console administrative access using strong cryptography.
 
 #### Your responsibilities
 
-All administrative access to the cluster should be done using the console. Do not expose the cluster's control plane in any dashboard product, outside of the built-in experience in the Azure portal.
+All administrative access to the cluster should be done by using the console. Do not expose the cluster's control plane in any dashboard product, outside of the built-in experience in the Azure portal.
 
 ##### Azure responsibilities
 
-Azure ensures the use of strong cryptography is enforced when accessing the hypervisor infrastructure.  It ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography.
+Azure ensures the use of strong cryptography is enforced when accessing the hypervisor infrastructure. It ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography.
 
 ### Requirement 2.4
 Maintain an inventory of system components that are in scope for PCI DSS.
 
 #### Your responsibilities
 
-All Azure resources used in the architecture must be tagged properly. The tags should indicate whether the service is in-scope or out-of-scopt. Meticulous tagging will allow you to query for resources, keep an inventory, help in tracking cost, set alerts, and so on. Also maintain a snapshot of that documentation periodically.
+All Azure resources used in the architecture must be tagged properly. The tags should indicate whether the service is in-scope or out-of-scope. Meticulous tagging will allow you to query for resources, keep an inventory, help track costs, and set alerts. Also maintain a snapshot of that documentation periodically.
 
 For information about tagging considerations, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/).
 
@@ -473,7 +473,7 @@ Ensure that security policies and operational procedures for managing vendor def
 
 #### Your responsibilities
 
-It's critical that you maintain thorough documentation about the processes and policies. Personnel should be trained in security feature of each Azure resource and their configuration settings. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts granted broad administrative privileges.
+It's critical that you maintain thorough documentation about the processes and policies. Personnel should be trained in the security features and configuration settings of each Azure resource. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts that are granted broad administrative privileges.
 
 ### Requirement 2.6
 
@@ -481,17 +481,16 @@ Shared hosting providers must protect each entity’s hosted environment and car
 
 #### Your responsibilities
 
-Azure provides security assurances for the hosted environment that are shared. For example, Azure App Service Environment (ASE) provides a regulated environment for hosting a web application. 
+Azure provides security assurances for the hosted environment that are shared. For example, App Service Environment provides a regulated environment for hosting a web application. 
 
 It's highly recommended that you use dedicated hosts for AKS nodes. That is, the compute should be in a single tenant model.
 
 <Ask Jorge: is the api control plane signle tenant>
 
-<To do>
 
-## Next
+## Next steps
 
-Protect stored cardholder data. Encrypt transmission of cardholder data across open, public networks
+Protect stored cardholder data. Encrypt transmission of cardholder data across open, public networks.
 
 > [!div class="nextstepaction"]
-> [Protect Cardholder Data](aks-pci-data.yml)
+> [Protect cardholder data](aks-pci-data.yml)
