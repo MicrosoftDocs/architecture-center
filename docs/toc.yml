@@ -691,7 +691,7 @@ items:
             items:
               - name: Baseball decision analysis with ML.NET and Blazor
                 href: data-guide/big-data/baseball-ml-workload.md
-              - name: Batch scoring for deep Learning
+              - name: Batch scoring for deep learning
                 href: reference-architectures/ai/batch-scoring-deep-learning.yml
               - name: Batch scoring with Python
                 href: reference-architectures/ai/batch-scoring-python.yml
