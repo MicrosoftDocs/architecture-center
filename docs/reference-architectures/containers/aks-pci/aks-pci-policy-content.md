@@ -2,18 +2,19 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
 
-<Todo: insert blurb>
-
-> [!IMPORTANT]
->
-> The guidance in this article builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the card holder environment (CDE) and hosts the PCI DSS workload. 
->
-> ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated environment. The implementation illustrates the set up malware scanning tools. Every node in the cluster (in-scope and out-of-scope) has placeholder `DaemonSet` deployments for antivirus, FIM, Kubernetes-aware security agent (Falco), and reboot agent (kured). Place your choice of software in this deployment.
-
 ## Maintain an Information Security Policy 
 
 **Requirement 12**&mdash;Maintain a policy that addresses information security for all personnel
 ***
+
+This architecture and the implementation aren't designed to provide illustrative guidance for this requirement. For considerations, refer to the guidance in the official PCI-DSS standard.
+
+This requirement is about documenting the official security policy end-to-end. Here are some general suggestions:
+
+- Maintain thorough and updated documentation about the process and policies. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. 
+- In the annual review of the security policy, incorporate new guidance delivered by Microsoft, Kubernetes, and other third-party solutions that are part of your CDE. Some resources include vendor publications combined with guidance derived from Azure Security Center, Azure Advisor, Well-Architected Assessment, AKS CIS Benchmark changes, and others.
+- When establishing your risk assessment process, align with a published standard where practical. Using [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) is recommended. Map risk assessments to your vendor's published security list, such as the [Microsoft Security Response Center guide](https://msrc.microsoft.com/update-guide).
+- Keep up-to-date information about device inventory and personnel access documentation. One way is to derive that information from Azure Active Directory logs.
 
 ## Next
 

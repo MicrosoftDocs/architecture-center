@@ -151,7 +151,7 @@ The reference implementation demonstrates the preceding example using native Kub
 
 You can choose the scope of permission at the cluster level or at the namespace level. For roles that have scoped responsibilities such as **Application operators**, the permissions would be assigned at the namespace level for the workload.
 
-In addition, the roles also need Azure RBAC permissions so that they are able to do their tasks. For example, cluster operator needs to access Azure Monitor through the portal. So, the **infrastructure operator** role must have the **Microsoft.Insights/eventtypes/digestevents/Read** RBAC assigned. 
+In addition, the roles also need Azure RBAC permissions so that they are able to do their tasks. For example, cluster operator needs to access Azure Monitor through the portal. So, the **infrastructure operator** role must have the appropriate RBAC assignment. 
 
 Apart from people and their roles, Azure resources and even pods within the cluster, have managed identities. Those identities need a set of permissions through Azure RBAC and must be tightly scoped based on the expected tasks. For example, Azure Application Gateway must have permissions to get secrets (TLS certificates) from Azure Key Vault. It must not have permissions to modify secrets.
 
@@ -264,12 +264,8 @@ Use Azure Active Directory (AD) as the identity store. Because the cluster and a
 
 Take advantage of Azure AD business-to-business (B2B) that's designed to host third-party accounts, such as vendors, partners, as guest users. Grant the appropriate level of access by using conditional policies to protect corporate data. These accounts must have minimal standing permissions and mandatory expiry dates. For more information, see [What is guest user access in Azure Active Directory B2B](/azure/active-directory/external-identities/what-is-b2b).
 
-<Todo>
-"Your organization should have a clear and documented pattern of vendor and similar access.  Usually resulting in Azure AD guest accounts or onboarded into AD as a controlled and easy-to-identify user type. Those accounts should have manidtory expiry dates with documented extensions supported only.
-
-Just like any other ID, ensure they have minimal standing permissions."
-
 Your organization should have a clear and documented pattern of vendor and similar access.
+
 
 **APPLIES TO: 8.1.6, 8.1.7, 8.1.8**
 
