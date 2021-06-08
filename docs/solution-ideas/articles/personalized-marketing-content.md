@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Personalized marketing is essential for building customer loyalty and remaining profitable. Reaching customers and getting them to engage is harder than ever, and generic offers are easily missed or ignored. Current marketing systems fail to take advantage of data that can help solve this problem.
@@ -31,7 +28,7 @@ Read other Azure Architecture Center articles:
 
 * [Big data architecture style](../../guide/architecture-styles/big-data.md)
 * [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
-* [Scalable personalization on Azure](../../example-scenario/ai/scalable-personalization.yml)
+* [Scalable personalization on Azure](../../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml)
 
 See product documentation:
 
