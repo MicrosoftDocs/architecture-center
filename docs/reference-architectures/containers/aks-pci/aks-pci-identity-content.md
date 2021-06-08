@@ -1,18 +1,18 @@
 This article describes the considerations for an Azure Kubernetes Service (AKS) cluster that's configured in accordance with the Payment Card Industry Data Security Standard (PCI-DSS).
 
-> This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
+> This article is part of a series. Read the [introduction](aks-pci-intro.yml).
 
 Kubernetes has native role-based access control (RBAC) that manages permissions to the Kubernetes API. There are several built-in roles with specific permissions or actions on Kubernetes resources. Azure Kubernetes Service (AKS) supports those built-in roles and custom roles for granular control. Those actions can be authorized (or denied) to a user through Kubernetes RBAC.
 
-Azure Kubernetes Service (AKS) is fully integrated with Azure Active Directory (AD) as the identity provider. You don't have to manage separate user identities and credentials for Kubernetes. You can add Azure AD users for Kubernetes RBAC. This integration makes it possible to do role assignments to Azure AD users.
+AKS is fully integrated with Azure Active Directory (Azure AD) as the identity provider. You don't have to manage separate user identities and credentials for Kubernetes. You can add Azure AD users for Kubernetes RBAC. This integration makes it possible to do role assignments to Azure AD users.
 
 For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
 
-This architecture and the implementation aren't designed to provide controls on physical access to resources for on-premises or data centers. One of the benefit of hosting your CDE in Azure as oppposed to your platform at the edge or in your data center, is that restricting physical access is mostly already handled through Azure datacenter security. There aren't any responsibilities for the organization in management of physcial hardware.
+This architecture and the implementation aren't designed to provide controls on physical access to on-premises resources or datacenters. One benefit of hosting your CDE in Azure, as opposed to your platform at the edge or in your datacenter, is that restricting physical access is mostly already handled through Azure datacenter security. There aren't any responsibilities for the organization in management of physical hardware.
 
 > [!IMPORTANT]
 >
-> The guidance in this article builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintainence. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
+> The guidance in this article builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture is based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
 >
 > ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides an Azure AD-backed, private cluster that supports just-in-time (JIT) access and conditional access models for illustrative purposes. 
 
