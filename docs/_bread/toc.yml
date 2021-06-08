@@ -67,3 +67,6 @@
     - name: Performance Antipatterns
       tocHref: /azure/architecture/antipatterns/
       topicHref: /azure/architecture/antipatterns
+    - name: Data Science Process
+      tocHref: /azure/architecture/data-science-process/
+      topicHref: /azure/architecture/data-science-process/overview
