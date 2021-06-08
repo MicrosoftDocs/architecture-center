@@ -10,7 +10,7 @@ This reference architecture describes the considerations for an Azure Kubernetes
 
 - **Shared responsibility with Azure**
 
-	The Microsoft Compliance team ensures all documentation of Microsoft Azure regulatory compliance is publicly available to our customers. Microsoft Azure’s PCI DSS Attestation of Compliance can be downloaded under the PCI DSS section at [audit reports](https://servicetrust.microsoft.com). The responsibility matrix outlines who, between Azure and the customer, is responsible for each of the PCI requirements. For more information, see [Managing compliance in the cloud](https://www.microsoft.com/trust-center/compliance/compliance-overview).
+	The Microsoft Compliance team ensures all documentation of Microsoft Azure regulatory compliance is publicly available to our customers. You can download the PCI DSS Attestation of Compliance for Azure under the PCI DSS section at [audit reports](https://servicetrust.microsoft.com). The responsibility matrix outlines who, between Azure and the customer, is responsible for each of the PCI requirements. For more information, see [Managing compliance in the cloud](https://www.microsoft.com/trust-center/compliance/compliance-overview).
 
 - **Shared responsibility with AKS**
 
