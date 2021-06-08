@@ -6,7 +6,7 @@ This reference architecture describes the considerations for an Azure Kubernetes
 
 <placeholder art>
 
-![Shared responsibility model](images\shared-responsibility.png)
+![Diagram of the shared responsibility model.](images\shared-responsibility.png)
 
 - **Shared responsibility with Azure**
 
@@ -14,14 +14,14 @@ This reference architecture describes the considerations for an Azure Kubernetes
 
 - **Shared responsibility with AKS**
 
-	Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. AKS makes it simple to deploy a managed Kubernetes cluster on Azure. The AKS fundamental infrastructure supports large-scale applications in cloud and is a natural choice for running enterprise-scale applications in the cloud, including PCI workloads. Applications deployed in AKS clusters have certain complexities when deploying PCI classified workloads.
+	Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. AKS makes it simple to deploy a managed Kubernetes cluster on Azure. The AKS fundamental infrastructure supports large-scale applications in the cloud, and is a natural choice for running enterprise-scale applications in the cloud, including PCI workloads. Applications deployed in AKS clusters have certain complexities when deploying PCI-classified workloads.
 
-As a workload owner, you're ultimately responsible for your own PCI DSS compliance. Have a clear understanding of your responsibilities by, reading the PCI requirements to understand the intent; studying the matrix for Azure; completing this series to understand the AKS nuances. This process will make your implementation ready for a successful assessment.
+As a workload owner, you're ultimately responsible for your own PCI DSS compliance. Have a clear understanding of your responsibilities by reading the PCI requirements to understand the intent, studying the matrix for Azure, and completing this series to understand the AKS nuances. This process will make your implementation ready for a successful assessment.
 
 ## Recommended learning approach
 The [PCI audit report](https://servicetrust.microsoft.com) is great place to start, to understand the shared responsibility between Azure and you. This series aims to fill the gaps between the current PCI DSS responsibility matrix and what a PCI deployment would require on AKS. 
 
-This series is split into several articles. Each article outlines the high-level PCI requirement and provides guidance about how to address AKS-specific requirement.
+This series is split into several articles. Each article outlines the high-level PCI requirement, and provides guidance about how to address the AKS-specific requirement.
 
 |Area of responsibility|Description|
 |---|---|
