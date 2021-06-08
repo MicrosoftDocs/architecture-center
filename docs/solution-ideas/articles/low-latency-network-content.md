@@ -18,7 +18,7 @@ Use this approach for scenarios like:
 
 1. Embedded 5G-enabled internet protocol (IP) modules connect warehouse robots to 5G Open Radio Access Network (ORAN) radio units. RAN is a common wireless network infrastructure for mobile networks.
 1. The 5G radio units connect over a wired switching network to the 5G distribution unit software, which runs on private multi-access edge compute (MEC) on Azure Stack Edge.
-1. The 5G distribution unit connects with the the virtual router, 5G central unit, and the 5G packet core, which run on a separate Azure private MEC instance on Azure Stack Edge.
+1. The 5G distribution unit connects with the virtual router, 5G central unit, and 5G packet core, which run on a separate Azure private MEC instance on Azure Stack Edge.
 1. The 5G packet core provides device authentication, an IP address, and connectivity based on a preconfigured profile.
 1. Azure Network Function Manager controls both MEC instances.
 1. Optimizing the 5G network and keeping traffic confined to Azure private MEC provides the low latency these connection scenarios require.
@@ -38,4 +38,4 @@ This solution uses the following Azure components:
 ## Related resources
 
 - [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking)
-- [Condition monitoring for Industial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
+- [Condition monitoring for Industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
