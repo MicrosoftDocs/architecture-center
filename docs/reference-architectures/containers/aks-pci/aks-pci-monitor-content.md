@@ -282,7 +282,7 @@ Implement a methodology for penetration testing that includes the following:
 
 Perform penetration testing to find security gaps by gathering information, analyzing vulnerabilities, and reporting. We recommend that you follow the industry guidelines provided in [Penetration Testing Execution Standard (PTES)](http://www.pentest-standard.org/index.php/Main_Page) to address common scenarios and the activities required to establish a baseline.
 
-The penetration test practictioner should have a deep understanding of on-premises and Azure networking to ensure that the yearly segmentation tests are covered extensively. Extend the test methodology to in-cluster networks. This requires strong experience with Kubernetes networking concepts.
+The penetration test practitioner should have a deep understanding of on-premises and Azure networking to ensure that the yearly segmentation tests are covered extensively. Extend the test methodology to in-cluster networks. This requires strong experience with Kubernetes networking concepts.
 
 The tests must cover the application and data layers running in the CDE.
 
@@ -309,7 +309,7 @@ Deploy a change-detection mechanism (for example, file-integrity monitoring tool
 
 #### Your responsibilities
 
-In your cluster, run a file integregity monitoring (FIM) solution in conjunction with a Kubernetes-aware security agent to detect file and system-level access that could result in node-level changes. When choosing a FIM solution, have a clear understanding of its features and the depth of detection. Consider software developed by reputable vendors.
+In your cluster, run a file integrity monitoring (FIM) solution in conjunction with a Kubernetes-aware security agent to detect file and system-level access that could result in node-level changes. When choosing a FIM solution, have a clear understanding of its features and the depth of detection. Consider software developed by reputable vendors.
 
 > [!IMPORTANT]
 >

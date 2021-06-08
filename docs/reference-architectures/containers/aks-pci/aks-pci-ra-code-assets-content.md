@@ -7,8 +7,9 @@ The recommendations and examples are extracted from this accompanying reference 
 ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does _not_ represent or implement an actual PCI DSS workload.
 
 
-![Placeholder](images/network-topology.png)
+![Placeholder](regulated-architecture.svg)
 
+That architecture is based on a hub and spoke topology; with one hub and two spokes. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. There are two spoke virtual networks. One spoke contains the AKS cluster that provides the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images for your workloads.
 
 ## Components
 
@@ -16,11 +17,9 @@ The recommendations and examples are extracted from this accompanying reference 
 >
 > The architecture and the implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). Familiarize yourself with the components in the baseline. In this section, we'll highlight the differences between the two architectures.
 
-
 **Azure Bastion**
 
 The baseline architecture provided a subnet for Bastion but didn't provision the resource. This architecture adds Bastion in the subnet. It provides secure access to a jump box.
-
 
 **Azure Virtual Machines (VM)**
 
@@ -30,8 +29,63 @@ The spoke network has an additional compute for a jump box. This machine is inte
 
 Provisioned in a separate virtual network. Creates VM images with base security and configuration. In this architecture, it's customized to build secure node images with Ubuntu 18.04-LTS platform (MSFT-provided) image with management tools such as Azure CLI, kubectl and kubelogin, flux CLI.
 
+**Nginx** 
+
+Kubernetes ingress controller inside the cluster. In the baseline architecture, Traefik was used. The service was replaced to illustrate that the service can be changed based on your choice.
+
 
 ## Networking configuration
+
+In this architecture, traffic flows in and out of various network boundaries.
+
+- Inbound traffic from the internet to cluster.
+- Outbound traffic from the cluster to the internet.
+- Flows between hub and spoke virtual networks. 
+- In-cluster traffic between pods. 
+
+Use a combination of various Azure services and feature and native Kubernetes constructs to provide the required level of control. Here are some options used in this architecture.   
+
+### Strict Network Security Groups (NSGs)
+
+Place NSGs on subnets that interact with the cluster. in st around the cluster node pool subnets specifically block any SSH access attempts only allow traffic from the vnet into them. As your workloads, system security agents, etc are deployed, consider adding even more NSG rules that help define the type of traffic that should and should not be traversing those subnet boundaries. Because each nodepool lives in its own subnet, you can apply more specific rules based on known/expected traffic patterns of your workload.
+
+### Azure Key Vault network restrictions
+
+In this reference implementation, Azure Application Gateway (AAG) is sourcing its public-facing certificate from Azure Key Vault. This is great as it help support easier certificate rotation and certificate control. However, currently Azure Application Gateway does not support this on Azure Key Vault instances that are exclusively network restricted via Private Link. This reference implementation deploys Azure Key Vault in a hybrid model, supporting private link and public access specifically to allow AAG integration. Once [Azure Application Gateway supports private link access to Key Vault](https://docs.microsoft.com/azure/application-gateway/key-vault-certs#how-integration-works), we'll update this reference implementation. If this topology will not be suitable for your deployment, change the certificate management process in AAG to abandon the use of Key Vault for the public-facing TLS certificate and [handle the management of that certificate directly within AAG](https://docs.microsoft.com/azure/application-gateway/tutorial-ssl-cli). Doing so will allow your Key Vault instance to be fully isolated.
+
+### Expanded NetworkPolicies
+
+Not all user-provided namespaces in this reference implementation employ a zero-trust network. For example `cluster-baseline-settings` does not. We provide an example of zero-trust networks in `a0005-i` and `a0005-o` as your reference implementation of the concept. All namespaces (other than `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces) should have a maximally restrictive NetworkPolicy applied. What those policies will be will be based on the pods running in those namespaces. Ensure your accounting for readiness, liveliness, and startup probes and also accounting for metrics gathering by `oms-agent`.  Consider standardizing on ports across your workloads so that you can provide a consistent NetworkPolicy and even Azure Policy for allowed container ports.
+
+### Enable DDoS Protection
+
+While not typically a feature of any specific regulated workloads, generally speaking [Azure DDoS Protection Standard](https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection) should be enabled for any virtual networks with a subnet that contains an Application Gateway with a public IP. This protects your workload from becoming overwhelmed with fraudulent requests which at best could cause a service disruption or at worst be a cover (distraction, log spam, etc) for another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses -- work with your networking team to coordinate coverage for your workload.
+
+
+
+Additional Azure Policy application
+
+
+Zero-trust network policies (which are directly tested via violation attempts as part of the sample workload)
+mTLS throughout the sample workload (Baseline TLS was terminated at the ingress controller) – this is an example of something that goes beyond PCI requirements
+This is implemented via OSM, not as a technology recommendation, but as an implementation detail – we call out plenty of CNCF alternatives there.  Layer 7 network policies within the mesh, including Service Account-based auth.
+TLS trust chain certification at all levels, so not just encrypted, but CA chain validated as well.
+Nodepool subnet isolation (for refined Firewall and NSG application), including extended NSGs on the nodepool subnets
+Flux v2 for GitOps (baseline is Flux v1)
+NGINX Ingress Controller (Baseline was Traefik. This was NOT swapped out because of any technical reason, it was swapped out illustratively to show that customers can bring the solution that fits best for them, as is the promise [read: demand] of Kubernetes)
+Namespace Limits and Quotas
+Team/Organization Role suggestions (coming from the C12 project) and mapping to Azure AD.
+Followed by a list of further recommendations that cannot easily be presented in a “one size fits all that are going to be deploying this right from GitHub” solution
+Encryption at Host
+Azure AD Conditional Access Policies
+RBAC JIT Access
+Activating Azure Security center at scale (HT: @Yuri Diogenes for his tweet this morning with a link to the enterprise at-scale enrollment docs – perfectly timed!)
+OCI artifact signing and validation (this is a stretch goal which we’d like to add before GA – Notary v2 + Azure Policy integration, where are you? 😊)
+ACR BYOK Encryption
+Azure DDoS (not specifically related to regulated)
+
+
+
 
 ## Configuration differences between baseline and regulated architectures
 
