@@ -1,6 +1,6 @@
 This article describes the considerations for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS). 
 
-> This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
+> This article is part of a series. Read the [introduction](aks-pci-intro.yml).
 
 This architecture and the implementation are focused on infrastructure and not the workload. This article provides general considerations and best practices, intended to help you make design decisions. Follow the requirements in the official PCI-DSS standard and use this article as additional information, where applicable. 
 
