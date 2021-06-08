@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-06-02T03:07:54.612Z</updated>
+    <updated>2021-06-08T13:08:59.416Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Use Application Gateway Ingress Controller (AGIC) with a multi-tenant Azure Kubernetes Service (AKS)]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/aks-agic/aks-agic</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/aks-agic/aks-agic"/>
+        <updated>2021-06-04T16:11:48.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use the Application Gateway Ingress Controller (AGIC) with your Azure Kubernetes Service (AKS) cluster to expose microservice-based applications to the internet.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate IBM mainframe and midrange message queues with Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure"/>
+        <updated>2021-06-04T15:21:30.000Z</updated>
+        <summary type="html"><![CDATA[This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Container orchestration for microservices]]></title>
         <id>https://docs.microsoft.com/azure/architecture/microservices/design/orchestration</id>
@@ -89,11 +105,11 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[End to end governance in Azure]]></title>
+        <title type="html"><![CDATA[End-to-end governance in Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/governance/end-to-end-governance-in-azure</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/governance/end-to-end-governance-in-azure"/>
         <updated>2021-05-26T23:58:46.000Z</updated>
-        <summary type="html"><![CDATA[When using CI/CD pipelines to automate deployments, apply RBAC not just on the Azure Resource Manager side, but also earlier in the process as developers check in their code.]]></summary>
+        <summary type="html"><![CDATA[When using CI/CD pipelines to automate deployments, apply RBAC not just on the ARM side, but also earlier in the process as developers check in their code.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -833,6 +849,14 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Multi-region web app with private connectivity to database]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region"/>
+        <updated>2021-03-02T00:11:26.000Z</updated>
+        <summary type="html"><![CDATA[Lock down access to a highly available Azure SQL Database. Connect multi-tenant Azure App Service web apps in different Azure regions to the database privately.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[IoT and data analytics]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/big-data-with-iot</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/big-data-with-iot"/>
@@ -1150,6 +1174,30 @@
         <link href="https://docs.microsoft.com/azure/architecture/guide/responsible-innovation"/>
         <updated>2021-03-02T20:49:14.000Z</updated>
         <summary type="html"><![CDATA[Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Interactive voice response app with bot]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/interactive-voice-response-bot</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/interactive-voice-response-bot"/>
+        <updated>2021-03-01T23:57:42.000Z</updated>
+        <summary type="html"><![CDATA[Process customer requests with an intelligent interactive voice response (IVR) application. Build automated systems from scratch or extend existing systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data integration with Logic Apps and SQL Server]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/integration/logic-apps-data-integration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/integration/logic-apps-data-integration"/>
+        <updated>2021-03-01T23:02:34.000Z</updated>
+        <summary type="html"><![CDATA[Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of Azure load-balancing options]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview"/>
+        <updated>2021-03-01T22:01:07.000Z</updated>
+        <summary type="html"><![CDATA[An overview of Azure load-balancing options.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>
