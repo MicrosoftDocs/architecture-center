@@ -103,7 +103,7 @@ Based on the job functions, strive to minimize access without causing disruption
 - The identity should have just enough access to complete a task.
 - Minimize standing permissions, especially on critical-impact identities that have access to in-scope components. 
 - Add extra restrictions where possible. One way is to provide conditional access based on access criteria. 
-- Regular review and audit users and groups that have access in your subscriptions, even for read-access. Avoid inviting external identities.
+- Conduct a regular review and audit of users and groups that have access in your subscriptions, even for read-access. Avoid inviting external identities.
 
 #### Requirement 7.1.3
 
@@ -111,16 +111,16 @@ Assign access based on individual personnel’s job classification and function.
 
 ##### Your responsibilities
 
-Determine permissions based on the clearly assigned job duties of the individual. Avoid parameters such as the system, tenure of the employee. Give access rights to a single user or to a group. 
+Determine permissions based on the clearly assigned job duties of the individual. Avoid parameters such as the system or the tenure of the employee. Give access rights to a single user or to a group. 
 
 Here are the some examples.
 
 |Job classification|Role|
 |---|---|
-|A _product owner_ defines the scope of the workload and prioritize features. Balance customer data protection and ownership with business objectives. Need access to reports, cost center, or Azure Dashboards. No access needed for in-cluster or cluster-level permissions.|**Application owners**|
-|An _software engineer_ designs, develops, and containerizes the application code. A group with standing read permissions within defined scopes within Azure (such as  Application Insights) and the workload namespaces. These scopes and permissions may be different between pre-production and production environments.|**Application developer**|
-|An _site reliability engineer_ does live-site triage, manages pipelines and sets up application infrastructure.<p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s) but are not highly privileged. </p> |**Application operators**|
-|A _cluster operator_ designs and deploys, reliable and secure AKS cluster to the platform. Responsible for maintaining cluster up time. <p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s) but are not highly privileged. </p> |**Infrastructure operators**|
+|A _product owner_ defines the scope of the workload and prioritizes features. Balances customer data protection and ownership with business objectives. Needs access to reports, the cost center, or Azure dashboards. No access is needed for in-cluster or cluster-level permissions.|**Application owners**|
+|A _software engineer_ designs, develops, and containerizes the application code. A group with standing read permissions within defined scopes within Azure (such as Application Insights) and the workload namespaces. These scopes and permissions might be different between pre-production and production environments.|**Application developer**|
+|A _site reliability engineer_ does live-site triage, manages pipelines, and sets up application infrastructure.<p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s), but are not highly privileged. </p> |**Application operators**|
+|A _cluster operator_ designs and deploys a reliable and secure AKS cluster to the platform. Responsible for maintaining cluster up time. <p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s), but are not highly privileged. </p> |**Infrastructure operators**|
 |A _network engineer_ allocates of enterprise-wide virtual network and subnets, on-premises to cloud connectivity, and network security. |**Infrastructure operators**|
 
 
@@ -130,7 +130,7 @@ Require documented approval by authorized parties specifying required privileges
 
 ##### Your responsibilities
 
-Have a gated process for approving changes in roles and permissions, including the intial assignment of prividleges. Ensure those approvals are documented and available for inspection.
+Have a gated process for approving changes in roles and permissions, including the intial assignment of privileges. Ensure those approvals are documented and available for inspection.
 
 ### Requirement 7.2
 
@@ -142,24 +142,24 @@ After following [Requirement 7.1](#requirement-71), you should have assessed rol
 
 Based on roles and responsibilities, assign roles to the infrastructure's role-based access control (RBAC). That mechanism can be:
 
-- Kubernetes RBAC&mdash;is a native Kubernetes authorization model that controls access to the _Kubernetes control plane_ exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
-- Azure RBAC&mdash;is an Azure Active Directory (AD)-based authorization model that controls access to the _Azure control plane_. This is an association of your Azure Active Directory (AD) tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources such as networks, AKS cluster, managed identities, and and so on.
+- **Kubernetes RBAC** is a native Kubernetes authorization model that controls access to the _Kubernetes control plane_, exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
+- **Azure RBAC** is an Azure AD-based authorization model that controls access to the _Azure control plane_. This is an association of your Azure AD tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources, such as networks, an AKS cluster, and managed identities.
 
-Suppose you need to give permissions to the cluster operators (mapped to **infrastructure operator** role). All people who are assigned the **infrastructure operator** responsibilities belong to an Azure AD Group. As established in 7.1.1, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin` that meets those requirements. You'll need to bind the Azure AD Group for **infrastructure operator** to `cluster-admin` by creating role bindings. There are two approaches. You can choose the built-in roles. Or, if the built-in roles do not meet your requirements, for instance they are overly permissive, create custom roles for your bindings. 
+Suppose you need to give permissions to the cluster operators (mapped to the infrastructure operator role). All people who are assigned the infrastructure operator responsibilities belong to an Azure AD Group. As established in 7.1.1, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin`, that meets those requirements. You'll need to bind the Azure AD Group for infrastructure operator to `cluster-admin` by creating role bindings. There are two approaches. You can choose the built-in roles. Or, if the built-in roles do not meet your requirements (for example, they might be overly permissive), create custom roles for your bindings. 
 
-The reference implementation demonstrates the preceding example using native Kubernetes RBAC. The same association can be accomplished with Azure RBAC. For more information, see [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/azure-ad-rbac).
+The reference implementation demonstrates the preceding example by using native Kubernetes RBAC. The same association can be accomplished with Azure RBAC. For more information, see [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/azure-ad-rbac).
 
-You can choose the scope of permission at the cluster level or at the namespace level. For roles that have scoped responsibilities such as **Application operators**, the permissions would be assigned at the namespace level for the workload.
+You can choose the scope of permission at the cluster level or at the namespace level. For roles that have scoped responsibilities, such as application operators, the permissions are assigned at the namespace level for the workload.
 
-In addition, the roles also need Azure RBAC permissions so that they are able to do their tasks. For example, cluster operator needs to access Azure Monitor through the portal. So, the **infrastructure operator** role must have the appropriate RBAC assignment. 
+In addition, the roles also need Azure RBAC permissions so that they are able to do their tasks. For example, the cluster operator needs to access Azure Monitor through the portal. So, the infrastructure operator role must have the appropriate RBAC assignment. 
 
-Apart from people and their roles, Azure resources and even pods within the cluster, have managed identities. Those identities need a set of permissions through Azure RBAC and must be tightly scoped based on the expected tasks. For example, Azure Application Gateway must have permissions to get secrets (TLS certificates) from Azure Key Vault. It must not have permissions to modify secrets.
+Apart from people and their roles, Azure resources and even pods within the cluster have managed identities. Those identities need a set of permissions through Azure RBAC, and must be tightly scoped based on the expected tasks. For example, Azure Application Gateway must have permissions to get secrets (TLS certificates) from Azure Key Vault. It must not have permissions to modify secrets.
 
 Here are some best practices:
 
-- Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are Just-In-Time(JIT) and standing. 
+- Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are JIT and which are standing. 
 
-- Monitor the roles for changes such as, in assignment changes or role definitions. Create alerts on changes even if they are expected to gain visibility into intentions behind the changes.
+- Monitor the roles for changes, such as in assignment changes or role definitions. Create alerts on changes even if they are expected to gain visibility into intentions behind the changes.
 
 #### Requirement 7.2.1
 
@@ -169,9 +169,9 @@ Coverage of all system components
 
 Here are some best practices to maintain access control measures:
 
-- Don't have standing access. Consider using[Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). This feature requires Azure AD Privileged Identity Management.
+- Don't have standing access. Consider using [Just-In-Time AD group membership](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). This feature requires Azure AD Privileged Identity Management.
 
-- Set up [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane. With conditional access policies, you can require multi-factor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts. Apply these policies to Azure AD groups that are mapped with to Kubernetes roles with high privilege.
+- Set up [Conditional Access Policies in Azure AD for your cluster](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This further puts restrictions on access to the Kubernetes control plane. With conditional access policies, you can require multifactor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts. Apply these policies to Azure AD groups that are mapped to Kubernetes roles with high privilege.
 
   > [!NOTE]
   > Both JIT and conditional access technology choices require Azure AD Premium.
@@ -188,12 +188,12 @@ Assignment of privileges to individuals based on job classification and function
 
 Based on 7.1.3, there will be many roles involved in cluster operations. Beyond the standard Azure resource roles, you'll need to now define the extent and process of access.
 
-For example, consider the cluster operator role. They should have a clearly-defined playbook for cluster triage activities. How different is that access from workload team. Depending on your organization they may be the same. Here are some points:
+For example, consider the cluster operator role. They should have a clearly-defined playbook for cluster triage activities. How different is that access from workload team? Depending on your organization, they may be the same. Here are some points to consider:
 
-- How should they access the cluster
+- How should they access the cluster?
 - Which sources are allowed for access
-- What permissions should they have on the cluster
-- When are those permissions assigned
+- What permissions should they have on the cluster?
+- When are those permissions assigned?
 
 Make sure the definitions are documented in governance documentation, policy, and training materials around workload operator and cluster operator.
 
@@ -209,14 +209,14 @@ When you start the configuration, start with zero-trust policies. Make exception
 
 - Azure RBAC also implements _deny all_ by default. Don't override by adding RBAC assignments that inverse the deny all setting.
 
-- All Azure services, Key Vault, Container Registry, by default have deny all set of permissions.
+- All Azure services, Azure Key Vault, and Azure Container Registry, have *deny all* set of permissions by default.
 
 - Any administrative access points, such as a jump box, should deny all access in the initial configuraiton. All elevated permissions must be defined explicitly to the deny all rule. 
 
 > [!NOTE]
-> This note is not related identity access controls but is a reminder about network access. Network Security Groups (NSGs) allow all communication by default. Change that to set deny all as the starting rule with high priority. Then, add exceptions that will be applied before the deny all rule, as needed. Be consistent on the naming, so that it's easier to audit.
+> Remember that for network access, NSGs allow all communication by default. Change that to set *deny all* as the starting rule with high priority. Then, add exceptions that will be applied before the *deny all* rule, as needed. Be consistent on the naming, so that it's easier to audit.
 >   
-> Azure firewall implements deny all by default.
+> Azure Firewall implements *deny all* by default.
  
 
 ### Requirement 7.3
@@ -250,15 +250,15 @@ Here are overall considerations for this requirement:
 
 **APPLIES TO: 8.1.1, 8.1.2, 8.1.3**
 
-Don't share or reuse identities for functionally different parts of the CDE.For example, using a team account to access data or cluster resources. Make sure the identity onboarding documentation is clear about not using shared accounts.
+Don't share or reuse identities for functionally different parts of the CDE. For example, don't use a team account to access data or cluster resources. Make sure the identity documentation is clear about not using shared accounts.
 
-Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identites across Azure resources, assign each Azure resource its own managed identity. Similarly, when using [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never use the same managed identity in pre-production and production.
+Extend this identity principal to managed identity assignments in Azure. Do not share user-managed identities across Azure resources. Assign each Azure resource its own managed identity. Similarly, when you're using [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) in the AKS cluster, ensure that each component in your workload receives its own identity instead of using an identity that is broad in scope. Never use the same managed identity in pre-production and production.
 
 [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity)
 
 **APPLIES TO: 8.1.2, 8.1.3, 8.1.4**
 
-Use Azure Active Directory (AD) as the identity store. Because the cluster and all Azure resources use Azure AD, disabling or revoking  Azure AD access is applied to all resources automatically. If there are any components that are not backed directly by Azure AD, make sure you have process to remove access. For example, SSH credentials for accessing a jump box might need explicit removal if the user is no longer valid.
+Use Azure AD as the identity store. Because the cluster and all Azure resources use Azure AD, disabling or revoking Azure AD access is applied to all resources automatically. If there are any components that are not backed directly by Azure AD, make sure you have a process to remove access. For example, SSH credentials for accessing a jump box might need explicit removal if the user is no longer valid.
 
 **APPLIES TO: 8.1.5**
 
@@ -271,11 +271,11 @@ Your organization should have a clear and documented pattern of vendor and simil
 
 ##### Your responsibilities
 
-Azure AD provides a [smart lock out feature](/azure/active-directory/authentication/howto-password-smart-lockout) to lock out users after failed sign-in attempts. The recommended way to implement lock outs is with Azure AD Conditional Access policies.
+Azure AD provides a [smart lock out feature](/azure/active-directory/authentication/howto-password-smart-lockout) to lock out users after failed sign-in attempts. The recommended way to implement lockouts is with Azure AD Conditional Access policies.
 
-Implement the lockut for components that support similar features but are not backed with Azure AD. For example, SSH-enabled machines, such as a jump box. This will ensure lock outs are enabled to prevent or slow access attempt abuse.
+Implement the lockout for components that support similar features but are not backed with Azure AD (for example, SSH-enabled machines, such as a jump box). This ensures that lockouts are enabled to prevent or slow access attempt abuse.
 
-AKS nodes are not designed to be routinely accessed. Block direct SSH or Remote Desktop to cluster nodes. SSH access should only be considered as part of advanced troubleshooting efforts. The access should be closely monitored and promptly reverted after completion of the specific event.  If you do this, be aware that any node-level changes can cause the your cluster to be out of support.
+AKS nodes are not designed to be routinely accessed. Block direct SSH or Remote Desktop to cluster nodes. SSH access should only be considered as part of advanced troubleshooting efforts. The access should be closely monitored and promptly reverted after completion of the specific event. If you do this, be aware that any node-level changes can cause your cluster to be out of support.
 
 ### Requirement 8.2
 
@@ -298,11 +298,11 @@ Several of the preceding set of requirements are automatically handled by Azure 
 
 - **Password security**
 
-    Azure AD provides features that enforces the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Azure AD Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies cannot be modified and covers some of the preceding set of requirements. For example, password expiration, allowed characters, and others. For the complete list, see [Azure AD password policies](/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts). Consider using advanced features that can be enforced with conditional access policies, such as User-risk based conditional access policies that detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk-user).
+    Azure AD provides features that enforces the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Azure AD Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies cannot be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Azure AD password policies](/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts). Consider using advanced features that can be enforced with conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk-user).
 
 - **User identity verification**
 
-    You can apply the sign-in risk conditional access policy to detect if the authentication request was issued by the requesting identity. The request is validated against threat intelligence sources. For example, password spray, IP address anomalies, and others. For more information, see [Conditional Access: Sign-in risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk).
+    You can apply the sign-in risk conditional access policy to detect if the authentication request was issued by the requesting identity. The request is validated against threat intelligence sources. These include password spray and IP address anomalies. For more information, see [Conditional Access: Sign-in risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk).
 
 You might have components that don't use Azure AD, such as access to jump boxes with SSH. For such cases, use public key encryption with at least RSA 2048 keysize. Always specify a passphrase. Have a validation process that tracks known approved public keys. Systems that use public key access mustn't be exposed to the internet.  Instead, all SSH access should be allowed through a intermediary, such as Azure Bastion to reduce the impact of a private key leak. Disable direct password access and use an alternative passwordless solution.
 
@@ -314,14 +314,14 @@ authentication.
 
 #### Your responsibilities
 
-Use conditional access policies to enforce  multi-factor authentication, specifically on administrative accounts. These policies are recommended on several built-in roles. Apply these policies to Azure AD groups that are mapped to Kubernetes roles with high privilege.
+Use conditional access policies to enforce multifactor authentication, specifically on administrative accounts. These policies are recommended on several built-in roles. Apply these policies to Azure AD groups that are mapped to Kubernetes roles with high privilege.
 
 This policy can be further hardened with additional policies. Here are some examples:
 
 - You can restrict authentication to devices that are managed by your Azure AD tenant.
-- If the access originates from a network outside the cluster network, you can enforce multi-factor authentication.
+- If the access originates from a network outside the cluster network, you can enforce multifactor authentication.
 
-For information, these articles:
+For more information, see:
 
 - [Conditional Access: Require MFA for administrators](/azure/active-directory/conditional-access/howto-conditional-access-policy-admin-mfa)
 - [How To: Require managed devices for cloud app access with Conditional Access](/azure/active-directory/conditional-access/require-managed-devices)
@@ -350,7 +350,7 @@ Do not use group, shared, or generic IDs, passwords, or other authentication met
 
 #### Your responsibilities
 
-Don't share or reuse identities for functionally different parts of the cluster or pods.For example, using a team account to access data or cluster resources. Make sure the identity onboarding documentation is clear about not using shared accounts.
+Don't share or reuse identities for functionally different parts of the cluster or pods. For example, don't use a team account to access data or cluster resources. Make sure the identity documentation is clear about not using shared accounts.
 
 Disable root users in the CDE. Do not use the built-in `--admin` to clusters within the CDE.
 
@@ -375,7 +375,7 @@ All access to any database containing cardholder data (including access by appli
 
 #### Your responsibilities
 
-Provide access based on roles and responisbilities. People can use their identity but the access must be restricted on need-to-know basis, with minimal standing permissions. People should never use application identies and database access identities must never be shared. 
+Provide access based on roles and responsibilities. People can use their identity, but the access must be restricted on a need-to-know basis, with minimal standing permissions. People should never use application identities, and database access identities must never be shared. 
 
 If possible, access database from applications through managed identity. Otherwise, limit exposure to connection strings and credentials. Use Kubernetes secrets to store sensitive information instead of keeping them places where they are easily discovered, such as pod definition. Another way is to store and load secrets to and from a managed store, such as Azure Key Vault. With managed identities enabled on an AKS cluster, it has to authenticate itself against Key Vault to get access.
 
@@ -394,24 +394,24 @@ Restrict physical access to cardholder data
 
 ### Your responsibilities
 
-This architecture and the implementation aren't designed to provide controls on physical access to resources for on-premises or data centers. For considerations, refer to the guidance in the official PCI-DSS standard.
+This architecture and the implementation aren't designed to provide controls on physical access to on-premises resources or datacenters. For considerations, refer to the guidance in the official PCI-DSS standard.
 
 Here are some suggestions for applying technical controls:
 
 - Tune session timeouts in any administrative console access, such as jump boxes in the CDE, to minimize access.
 - Tune conditional access polices to minimize the TTL on Azure access tokens from access points, such as the Azure portal. For information, see these articles:
 
-  - [Configure authentication session management with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
+  - [Configure authentication session management with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
   - [Configurable token lifetimes - Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
 
-- For cloud-hosted CDE, There aren't any responsibilities for managing physcial access and hardware. Rely on corporate network physical and logical controls.
+- For cloud-hosted CDE, there aren't any responsibilities for managing physical access and hardware. Rely on corporate network physical and logical controls.
 
 - Minimize exporting of CHD backups to on-premises destinations. Use solutions hosted in Azure to limit physical access to backups.
 
 
-## Next
+## Next steps
 
 Track and monitor all access to network resources and cardholder data. Regularly test security systems and processes.
 
 > [!div class="nextstepaction"]
-> [Regularly Monitor and Test Networks](aks-pci-monitor.yml)
+> [Regularly monitor and test networks](aks-pci-monitor.yml)
