@@ -7,7 +7,7 @@ The recommendations and examples are extracted from this accompanying reference 
 ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does _not_ represent or implement an actual PCI DSS workload.
 
 
-![Placeholder](regulated-architecture.svg)
+![Placeholder](images/regulated-architecture.svg)
 
 That architecture is based on a hub and spoke topology; with one hub and two spokes. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. There are two spoke virtual networks. One spoke contains the AKS cluster that provides the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images for your workloads.
 
@@ -15,7 +15,7 @@ That architecture is based on a hub and spoke topology; with one hub and two spo
 
 > [!IMPORTANT]
 >
-> The architecture and the implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). Familiarize yourself with the components in the baseline. In this section, we'll highlight the differences between the two architectures.
+> The architecture and the implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). Familiarize yourself with the baseline. In this section, we'll highlight the differences between the two architectures.
 
 **Azure Bastion**
 
@@ -33,15 +33,12 @@ Provisioned in a separate virtual network. Creates VM images with base security 
 
 Kubernetes ingress controller inside the cluster. In the baseline architecture, Traefik was used. The service was replaced to illustrate that the service can be changed based on your choice.
 
-
 ## Networking configuration
 
-In this architecture, traffic flows in and out of various network boundaries.
+The hub and spokes are all deployed in separate virtual networks, each in their private address space. Each subnet is isolated with no traffic allowed by default between any two virtual networks. 
 
-- Inbound traffic from the internet to cluster.
-- Outbound traffic from the cluster to the internet.
-- Flows between hub and spoke virtual networks. 
-- In-cluster traffic between pods. 
+
+
 
 Use a combination of various Azure services and feature and native Kubernetes constructs to provide the required level of control. Here are some options used in this architecture.   
 

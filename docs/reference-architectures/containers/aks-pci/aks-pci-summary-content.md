@@ -8,3 +8,25 @@ In addition to Network Watcher aiding in compliance considerations, it's also a 
 
 If you do not have Network Watchers and NSG Flow Logs enabled on your subscription, consider doing so via Azure Policy at the Subscription or Management Group level to provide consistent naming and region selection. See the [Deploy network watcher when virtual networks are created](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9b99dd8-06c5-4317-8629-9d86a3c6e7d9) policy combined with the [Flow logs should be enabled for every network security group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27960feb-a23c-4577-8d36-ef8b5f35e0be) policy.
 
+
+## Security 
+
+### Network
+
+Network segmentation is natural outcome of a hub and spoke topology. Having separate virtual networks for the hub and spokes provides basic segmentation in the networking footprint. Each network is further segmented into subnets with no traffic allowed by default between them. 
+
+In this architecture, traffic flows in and out of various network boundaries.
+
+- Inbound traffic from the internet to cluster.
+- Outbound traffic from the cluster to the internet.
+- Flows between hub and spoke virtual networks. 
+- In-cluster traffic between pods. 
+
+Within each  software-defined perimeters in your networking footprint and secure communication paths between them.
+Azure Virtual Networks (VNets) are created in private address spaces. By default no traffic allowed by default between any two VNets. Open paths only when it's really needed.
+Use Network Security Groups (NSG) to secure communication between resources within a VNet.
+Use Application Security Groups (ASGs) to define traffic rules for the underlying VMs that run the workload.
+Use Azure Firewall to filter traffic flowing between cloud resources, the internet, and on-premise.
+Place resources in a single VNet, if you don't need to operate in multiple regions.
+If you need to be in multiple regions, have multiple VNets that are connected through peering.
+For advanced configurations, use a hub-spoke topology. A VNet is designated as a hub in a given region for all the other VNets as spokes in that region.
