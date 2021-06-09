@@ -1,30 +1,30 @@
-Microsoft and SAS are working as [partners](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/) to develop a roadmap for organizations that innovate in the cloud. Through this partnership, the companies have migrated SAS analytics products and solutions to Azure.
+Microsoft and SAS are [working as partners](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/) to develop a roadmap for organizations that innovate in the cloud. Through this partnership, the companies have migrated SAS analytics products and solutions to Azure.
 
-This guide provides guidelines for using SAS analytics on Azure. It covers a variety of deployment scenarios. For instance, multiple versions of SAS are available. You can run SAS software on self-managed virtual machines (VMs). You can also deploy container-based versions by using Azure Kubernetes Service (AKS).
+This article provides guidelines for using SAS analytics on Azure. It covers a variety of deployment scenarios. For instance, multiple versions of SAS are available. You can run SAS software on self-managed virtual machines (VMs). You can also deploy container-based versions by using Azure Kubernetes Service (AKS).
 
-Besides discussing different implementations, this guide also follows guidance in [Microsoft Azure Well-Architected Framework](../../framework/index.md) on achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But consult with an SAS team to ensure a high-quality deployment in your particular use case.
+Along with discussing different implementations, this guide also follows guidance in [Microsoft Azure Well-Architected Framework](../../framework/index.md) on achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, also consult with a SAS team to ensure a high-quality deployment in your particular use case.
 
 ## Introduction to SAS
 
-SAS analytics software provides a suite of services and tools for drawing insights from data and making intelligent decisions. SAS platforms fully support the company's solutions for areas such as data management, fraud detection, risk analysis, and visualization. SAS offers these primary platforms:
+SAS analytics software provides a suite of services and tools for drawing insights from data and making intelligent decisions. SAS platforms fully support its solutions for areas such as data management, fraud detection, risk analysis, and visualization. SAS offers these primary platforms:
 
 - SAS Grid 9.4
 - SAS Viya 3.5
 - SAS Viya 4.0
 
-Microsoft has validated and documented all three platforms. The test environments used these architectures:
+Microsoft has validated all three platforms. The Viya test environments used these architectures:
 
 - For Viya 3.5, both symmetric multiprocessing (SMP) and massively parallel processing (MPP) architectures
 - For SAS Viya 4.0, an MPP architecture on AKS
 
 Tests also ran on these architectures:
 
-- SAS Viya 3.5 SMP and MPP architectures on Linux
-- SAS Viya 4.0 on AKS
 - SAS Grid 9.4 on Linux
 - SAS 9 Foundation
+- SAS Viya 3.5 SMP and MPP architectures on Linux
+- SAS Viya 4.0 on AKS
 
-This guide provides general information for running SAS on Azure, not platform-specific information. These guidelines assume that you host your own SAS solution on Azure in your own tenant. SAS doesn't host a solution for you on Azure. See [SAS Managed Application Services](https://www.sas.com/en_us/solutions/cloud/sas-cloud/managed-application-services.html) for more information on Azure hosting and management services that SAS provides.
+This guide provides general information for running SAS on Azure, not platform-specific information. These guidelines assume that you host your own SAS solution on Azure in your own tenant. SAS doesn't host a solution for you on Azure. See [SAS Managed Application Services](https://www.sas.com/en_us/solutions/cloud/sas-cloud/managed-application-services.html) for more information on the Azure hosting and management services that SAS provides.
 
 ## Architectural overview
 
@@ -40,12 +40,11 @@ SAS Azure deployments typically contain three layers:
   - The metadata tier gives client apps access to metadata on data sources, resources, servers, and users.
 
 - A compute platform, where SAS servers process data.
-- A storage tier that SAS uses for permanent storage. This layer contains several types of servers:
+- A storage tier that SAS uses for permanent storage. Popular choices are:
 
-  - The Management Service (MGS) stores configuration information on file systems.
-  - The Metadata Service (MDS) manages each file system's namespace hierarchy.
-  - Object Storage Targets (OSTs) contain binary objects that represent file data.
-  - The Object Storage Service (OSS) manages bulk data storage by providing access to OSTs.
+  - Lustre
+  - IBM Spectrum Scale
+  - Network File System (NFS)
 
 An Azure Virtual Network isolates the system in the cloud. Within that network:
 
@@ -54,13 +53,13 @@ An Azure Virtual Network isolates the system in the cloud. Within that network:
 
 ## Prerequisites
 
-Before deploying an SAS workload, ensure the following components are in place:
+Before deploying a SAS workload, ensure the following components are in place:
 
-- A sizing recommendation from an SAS sizing team
-- An SAS license file
-- Access to a resource group that you can deploy resources in
+- A sizing recommendation from a SAS sizing team
+- A SAS license file
+- Access to a resource group for deploying your resources
 - A virtual central processing unit (vCPU) subscription quota that takes into account your sizing document and VM choice
-- Access to Lightweight Directory Access Protocol (LDAP) services
+- Access to a Kerberos domain controller
 
 ## Design recommendations for all SAS solutions
 
@@ -70,9 +69,9 @@ Note that SAS documentation provides requirements per core, meaning per physical
 
 ### Operating systems
 
-Linux works best for running SAS workloads. SAS supports the following operating systems:
+Linux works best for running SAS workloads. SAS supports 64-bit versions of the following operating systems:
 
-- 64-bit versions of Red Hat 7 or later
+- Red Hat 7 or newer
 - SUSE Linux Enterprise Server (SLES) 12.2
 - Oracle Linux 6 or later
 
@@ -82,7 +81,7 @@ To optimize compatibility and integration with Azure, start with an operating sy
 
 #### Kernel issues
 
-A soft lockup issue affects the entire RHEL 7.x series. It occurs in these kernels:
+A soft lockup issue affects the entire Red Hat 7.x series. It occurs in these kernels:
 
 - Linux 3.x kernels
 - Versions earlier than 4.4
@@ -94,7 +93,7 @@ Message from syslogd@ronieuwe-sas-e48-2 at Sep 13 08:26:08
 kernel:NMI watchdog: BUG: soft lockup - CPU#12 stuck for 22s! [swapper/12:0]
 ```
 
-Another issue affects older versions of Red Hat. Specifically, it comes up in versions that meet these conditions:
+Another issue affects older versions of Red Hat. Specifically, it can happen in versions that meet these conditions:
 
 - Have Linux kernels that precede 3.10.0-957.27.2
 - Use non-volatile memory express (NVMe) drives
@@ -118,61 +117,67 @@ Run these commands to adjust that setting:
 
 ### VM sizing recommendations
 
-SAS deployments often use these VM SKUs:
+SAS deployments often use the following VM SKUs:
 
-- Edsv4-series VMs are the default SAS machines. They offer these features:
+#### Edsv4-series
 
-  - Constrained cores. With many machines in this series, you can constrain the VM vCPU count.
-  - A good CPU-to-memory ratio.
-  - A high-throughput locally attached disk. I/O speed is important for folders like `SASWORK` and the Cloud Analytics Services (CAS) cache that SAS uses for temporary files.
+VMs in the Edsv4-series are the default SAS machines. They offer these features:
 
-- Many workloads use M-series VMs, including:
+- Constrained cores. With many machines in this series, you can constrain the VM vCPU count.
+- A good CPU-to-memory ratio.
+- A high-throughput locally attached disk. I/O speed is important for folders like `SASWORK` and the Cloud Analytics Services (CAS) cache that SAS uses for temporary files.
 
-  - SAS Programming Runtime Environment (SPRE) implementations that use a Viya approach to software architecture.
-  - Certain SAS Grid workloads.
+#### M-series
 
-  M-series VMs offer these features:
+Many workloads use M-series VMs, including:
 
-  - Constrained cores
-  - A large amount of memory, which works well for heavy memory-based workloads
-  - High throughput to remote disks, which works well for the `SASWORK` folder
+- SAS Programming Runtime Environment (SPRE) implementations that use a Viya approach to software architecture.
+- Certain SAS Grid workloads.
 
-- Certain environments use Lsv2 VMs. In particular, implementations that require fast I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that heavily use the `SASWORK` folder or the CAS cache.
+M-series VMs offer these features:
+
+- Constrained cores
+- Up to 3.8 TiB of memory, suited for workloads that use a large amount of memory
+- High throughput to remote disks, which works well for the `SASWORK` folder when the locally available disk is insufficient
+
+#### Lsv2
+
+Certain environments use Lsv2 VMs. In particular, implementations that require fast I/O speed and a large amount of memory benefit from this type of machine. Examples include systems that make heavy use of the `SASWORK` folder or the CAS cache.
 
 > [!NOTE]
-> SAS has optimized its services for use with the Intel Math Kernel Library (MKL).
+> SAS optimizes its services for use with the Intel Math Kernel Library (MKL).
 >
 > - With math-heavy workloads, avoid VMs that don't use Intel processors.
 > - When selecting a CPU, validate how the MKL performs on it.
 
 > [!WARNING]
-> When possible, avoid using Lsv2 VMs. With this type of machine, CPU generations can differ among nodes in a cluster.
+> When possible, avoid using Lsv2 VMs. The CPU generation in this type of VM can vary from one node to another within a cluster.
 
-With Azure, you can scale SAS Viya 4.0 systems on demand:
+With Azure, you can scale SAS Viya 4.0 systems on demand to meet deadlines:
 
 - By increasing the compute capacity of the node pool.
 - By using the AKS [Cluster Autoscaler](/azure/aks/cluster-autoscaler) to add nodes and scale horizontally.
-- By temporarily scaling up infrastructure to meet deadlines by accelerating an SAS workload.
+- By temporarily scaling up infrastructure to accelerate a SAS workload.
 
 With Viya 3.5 and Grid workloads, Azure doesn't support horizontal or vertical scaling.
 
 ### Network and VM placement considerations
 
-SAS workloads are often chatty. As a result, they can transfer a significant amount of data. With all SAS platforms, follow these recommendations to reduce chatter:
+SAS workloads are often chatty. As a result, they can transfer a significant amount of data. With all SAS platforms, follow these recommendations to reduce the effects of chatter:
 
 - Deploy SAS and storage platforms on the same virtual network. This approach reduces peering costs.
 - Place SAS nodes in a [proximity placement group](/azure/virtual-machines/co-location) to reduce latency between nodes.
 - When possible, deploy SAS nodes and VM-based data storage platforms in the same proximity placement group.
 - Deploy SAS and storage appliances in the same availability zone to avoid cross-zone latency.
 
-SAS has specific fully qualified domain name (FQDN) requirements for VMs. Set machine FQDNs correctly, and ensure that domain name system (DNS) services are working. You can set the names by using Azure DNS. You can also edit the `hosts` file in the `etc` configuration folder.
+SAS has specific fully qualified domain name (FQDN) requirements for VMs. Set machine FQDNs correctly, and ensure that domain name system (DNS) services are working. You can set the names with Azure DNS. You can also edit the `hosts` file in the `etc` configuration folder.
 
 > [!NOTE]
 > Turn on accelerated networking on all nodes in the SAS deployment. When you turn this feature off, performance suffers significantly.
 >  
 > To turn on accelerated networking on a VM, follow these steps:
 >
-> 1. Run this command in the Azure CLI to stop the VM:
+> 1. Run this command in the Azure CLI to deallocate the VM:
 >
 >    `az vm deallocate --resource-group <resource_group_name> --name <VM_name>`
 > 1. Turn off the VM.
@@ -180,14 +185,14 @@ SAS has specific fully qualified domain name (FQDN) requirements for VMs. Set ma
 >
 >    `az network nic update -n <network_interface_name> -g <resource_group_name> --accelerated-networking true`
 
-When you migrate data or interact with SAS in Azure, we recommend that you use one of these solutions to connect on-premises resources with Azure:
+When you migrate data or interact with SAS in Azure, we recommend that you use one of these solutions to connect on-premises resources to Azure:
 
 - An [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit
-- A virtual private network (VPN) 
+- A virtual private network (VPN)
 
 For production SAS workloads in Azure, ExpressRoute provides a private, dedicated, and reliable connection that offers these advantages over a site-to-site VPN:
 
-- Faster speed
+- Higher speed
 - Lower latency
 - Tighter security
 
@@ -195,7 +200,7 @@ Be aware of latency-sensitive interfaces between SAS and non-SAS applications. C
 
 ### Identity management
 
-SAS platforms can use local user accounts. They can also use an LDAP server to validate users. We recommend running a domain controller in Azure. Then you can use the domain join feature and properly manage security access. If you haven't set up domain controllers, consider deploying [Azure Active Directory Domain Services (Azure AD DS)](/azure/architecture/reference-architectures/identity/adds-extend-domain). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
+SAS platforms can use local user accounts. They can also use a Lightweight Directory Access Protocol (LDAP) server to validate users. We recommend running a domain controller in Azure. Then you can use the domain join feature and properly manage security access. If you haven't set up domain controllers, consider deploying [Azure Active Directory Domain Services (Azure AD DS)](/azure/architecture/reference-architectures/identity/adds-extend-domain). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
 
 ## Data sources
 
@@ -216,15 +221,15 @@ For best performance:
 
 SAS and Microsoft have tested a series of data platforms that you can use to host SAS datasets. The SAS blogs document the results in detail, including performance characteristics. The tests include the following platforms:
 
-- [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/marketplace/apps/sycompatechnologycompanyinc1588192103892.sycompstoragefueledbyibmspectrumscalewithrhel?tab=overview), which uses General Parallel File System (GPFS) software
-- [EXAScaler Cloud by DataDirect Network (DDN)](https://azuremarketplace.microsoft.com/marketplace/apps/ddn-whamcloud-5345716.exascaler_cloud_app?tab=overview), which is based on the Lustre file system
-- [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports Network File System (NFS) file-storage protocols
+- [Sycomp Storage Fueled by IBM Spectrum Scale](https://azuremarketplace.microsoft.com/marketplace/apps/sycompatechnologycompanyinc1588192103892.sycompstoragefueledbyibmspectrumscalewithrhel?tab=overview), which uses General Parallel File System (GPFS)
+- [EXAScaler Cloud by DataDirect Networks (DDN)](https://azuremarketplace.microsoft.com/marketplace/apps/ddn-whamcloud-5345716.exascaler_cloud_app?tab=overview), which is based on the Lustre file system
+- [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), which supports NFS file-storage protocols
 
-SAS offers an RHEL-IO script. The [SAS forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin) provide documentation on tests with this script on these platforms.
+SAS offers a Red Hat I/O script. The [SAS forums](https://communities.sas.com/t5/Administration-and-Deployment/bd-p/sas_admin) provide documentation on tests with this script on these platforms.
 
 #### Sycomp Storage Fueled by IBM Spectrum Scale (GPFS)
 
-For information about how this platform meets performance expectations, see [SAS review of Sycomp for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Sycomp-Storage-Fueled-by-IBM-Spectrum-Scale-A-new-shared-file/m-p/701508#M20810).
+For information about how Sycomp Storage Fueled by IBM Spectrum Scale meets performance expectations, see [SAS review of Sycomp for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Sycomp-Storage-Fueled-by-IBM-Spectrum-Scale-A-new-shared-file/m-p/701508#M20810).
 
 For sizing, Sycomp makes the following recommendations:
 
@@ -233,7 +238,7 @@ For sizing, Sycomp makes the following recommendations:
 
 #### DDN EXAScaler Cloud (Lustre)
 
-DDN, which acquired Intel's Lustre business, provides this platform, which is based on the Lustre parallel file system. The solution is available in the Azure Marketplace as part of the DDN EXAScaler Cloud umbrella. Designed for data-intensive deployment, it provides high throughput at low cost.
+DDN, which acquired Intel's Lustre business, provides EXAScaler Cloud, which is based on the Lustre parallel file system. The solution is available in the Azure Marketplace as part of the DDN EXAScaler Cloud umbrella. Designed for data-intensive deployment, it provides high throughput at low cost.
 
 [Tests show that DDN EXAScaler can run SAS workloads in a parallel manner](https://communities.sas.com/t5/Administration-and-Deployment/EXAScaler-Cloud-by-DDN-A-shared-file-system-to-use-with-SAS-Grid/m-p/714234#M21291). DDN recommends running this command on all client nodes when deploying EXAScaler or Lustre:
 
@@ -243,7 +248,7 @@ lctl set_param mdc.*.max_rpcs_in_flight=128 osc.*.max_pages_per_rpc=16M osc.*.ma
 
 #### Azure NetApp Files (NFS)
 
-SAS tests have [validated NetApp performance for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437). Specifically, tests show that Azure NetApp Files is a viable primary storage option for SAS Grid clusters of up to 32 physical cores in size, across multiple machines.
+SAS tests have [validated NetApp performance for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437). Specifically, tests show that Azure NetApp Files is a viable primary storage option for SAS Grid clusters of up to 32 physical cores across multiple machines.
 
 Consider the following points when using this service:
 
@@ -292,7 +297,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 - Giving access to CAS worker ports from on-premises IP address ranges.
 - Blocking access to SAS services from the internet.
 
-For data integrity, [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) can help you encrypt your SAS VM disks. You can encrypt the operating system and data volumes at rest in storage.
+You can use [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-faq) for encryption within the operating system. This solution uses the DM-Crypt feature of Linux. But we currently don't recommend using Azure Disk Encryption. It can severely degrade performance, especially when you use `SASWORK` files locally.
 
 [Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. You can use platform-managed keys or your own keys to encrypt your managed disk.
 
@@ -300,7 +305,7 @@ For data integrity, [Azure Disk Encryption](/azure/security/azure-security-disk-
 
 Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship](/azure/active-directory/active-directory-how-subscriptions-associated-directory) with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. Make sure to [audit all changes to infrastructure](/azure/azure-resource-manager/resource-group-audit).
 
-Manage remote access to your VMs through a [bastion host](https://azure.microsoft.com/services/azure-bastion/#get-started). Don't expose any of these components to the internet:
+Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/#get-started). Don't expose any of these components to the internet:
 
 - VMs
 - Secure Shell Protocol (SSH) ports
