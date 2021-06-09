@@ -28,12 +28,13 @@ Use this approach for scenarios like:
 This solution uses the following Azure components:
 
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is a portfolio of devices that bring compute, storage, and intelligence to the IoT edge.
-- [Azure Network Function Manager](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments) enables the deployment of network functions to the IoT edge using consistent Azure tools and interfaces.
+- [Azure Network Function Manager](https://azure.microsoft.com/products/network-function-manager) enables the deployment of network functions to the IoT edge using consistent Azure tools and interfaces.
 
 ## Next steps
 
-- [Azure Private MEC](/azure/networking/edge-zones-overview#private-edge-zones)
+- [Azure Private MEC](https://azure.microsoft.com/solutions/private-multi-access-edge-compute-mec)
 - [Azure Industrial IoT](https://azure.microsoft.com/solutions/industry/manufacturing/iot)
+- [Azure Network Function Manager simplifies 5G deployments (Video)](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments)
 
 ## Related resources
 

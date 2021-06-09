@@ -41,12 +41,13 @@ This solution uses the following Azure components:
 - [Web Apps in Microsoft Azure App Service](https://azure.microsoft.com/services/app-service/web/) creates and deploys mission-critical web applications that scale with your business.
 - [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
 - [Media Services Storage](https://azure.microsoft.com/services/media-services/) uses Azure Storage to store large media files.
-- [Azure Network Function Manager](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments/) enables the deployment of network functions to the IoT edge using consistent Azure tools and interfaces.
+- [Azure Network Function Manager](https://azure.microsoft.com/products/network-function-manager) enables the deployment of network functions to the IoT edge using consistent Azure tools and interfaces.
 
 ## Next steps
 
 - [What is the Radio Access Network?](https://www.sdxcentral.com/5g/ran/definitions/radio-access-network/)
 - [Live Video Analytics on IoT Edge](/azure/media-services/live-video-analytics-edge/)
+- [Azure Network Function Manager simplifies 5G deployments (Video)](https://azure.microsoft.com/resources/videos/azure-network-function-manager-simplifies-5g-deployments)
 
 ## Related resources
 
