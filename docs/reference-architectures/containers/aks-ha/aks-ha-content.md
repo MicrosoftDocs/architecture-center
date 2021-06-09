@@ -58,8 +58,8 @@ Consider the following items when designing a multi-region AKS deployment.
 
 ### Failover
 
-<tbd>
+- TBD
 
 ### Cost considerations
 
-<tbd>
+- TDB
