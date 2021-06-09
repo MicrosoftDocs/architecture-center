@@ -2,7 +2,7 @@ As more data is loaded into Azure, the need to properly govern and manage that d
 
 Without high-quality data in your Azure data estate, the business value of Azure will be undermined, perhaps critically. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data. Working together, Azure Purview and Profisee master data management (MDM) form such a platform.  
 
-[![Diagram of Purview and Profisee overview.](./images/purview-overview.png)]
+![Diagram of Purview and Profisee overview.](./images/purview-overview.png)
 
 **Azure Purview** catalogs all the data sources and identifies any sensitive information, as well as lineage. It gives the data architect a place to consider the  appropriate data standards that should be imposed on all data. Purview’s focus is on governance to find, classify, and define policies and standards. Enforcing policies and standards and remediating deficient data falls to technologies like master data management (MDM). 
 
@@ -76,7 +76,7 @@ The following figure illustrates in more detail Profisee’s Azure Purview integ
 
 ### Purview integration capabilities 
 
-You can use the Purview catalog and glossary to maximize integration.
+The Purview catalog and glossary can help you maximize integration.
 
 #### Master data model design 
 
@@ -118,7 +118,7 @@ You can go to the full Azure Purview user experience by selecting the governance
 
 ## Master data management processing 
 
-A power of a master data management solution is found in the details.
+The power of a master data management solution is in the details.
 
 ### Data modeling
 
