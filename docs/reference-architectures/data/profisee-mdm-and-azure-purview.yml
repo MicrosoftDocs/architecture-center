@@ -5,7 +5,7 @@ metadata:
   description: Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
   author: pdevito3
   ms.author: gamal
-  ms.date: 06/01/2021
+  ms.date: 06/08/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -27,6 +27,6 @@ products:
   - azure-active-directory 
 name: Data governance with Profisee and Azure Purview
 summary: Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
-thumbnailUrl: /azure/architecture/browse/thumbs/profisee-mdm-and-azure-purview-content.png
+thumbnailUrl: /azure/architecture/browse/thumbs/purview-microservice-design-architecture.jpg
 content: |
   [!include[](profisee-mdm-and-azure-purview-content.md)]
