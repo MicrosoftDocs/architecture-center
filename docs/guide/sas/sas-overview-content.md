@@ -1,6 +1,6 @@
 Microsoft and SAS are [working as partners](https://news.microsoft.com/2020/06/15/sas-and-microsoft-partner-to-further-shape-the-future-of-analytics-and-ai/) to develop a roadmap for organizations that innovate in the cloud. Through this partnership, the companies have migrated SAS analytics products and solutions to Azure.
 
-This article provides guidelines for using SAS analytics on Azure. It covers a variety of deployment scenarios. For instance, multiple versions of SAS are available. You can run SAS software on self-managed virtual machines (VMs). You can also deploy container-based versions by using Azure Kubernetes Service (AKS).
+This article provides guidelines for using SAS analytics on Azure. It covers various deployment scenarios. For instance, multiple versions of SAS are available. You can run SAS software on self-managed virtual machines (VMs). You can also deploy container-based versions by using Azure Kubernetes Service (AKS).
 
 Along with discussing different implementations, this guide also follows guidance in [Microsoft Azure Well-Architected Framework](../../framework/index.md) on achieving excellence in the areas of cost, DevOps, resiliency, scalability, and security. But besides using this guide, also consult with a SAS team to ensure a high-quality deployment in your particular use case.
 
@@ -14,7 +14,7 @@ SAS analytics software provides a suite of services and tools for drawing insigh
 
 Microsoft has validated all three platforms. The Viya test environments used these architectures:
 
-- For Viya 3.5, both symmetric multiprocessing (SMP) and massively parallel processing (MPP) architectures
+- For SAS Viya 3.5, both symmetric multiprocessing (SMP) and massively parallel processing (MPP) architectures
 - For SAS Viya 4.0, an MPP architecture on AKS
 
 Tests also ran on these architectures:
@@ -24,12 +24,12 @@ Tests also ran on these architectures:
 - SAS Viya 3.5 SMP and MPP architectures on Linux
 - SAS Viya 4.0 on AKS
 
-This guide provides general information for running SAS on Azure, not platform-specific information. These guidelines assume that you host your own SAS solution on Azure in your own tenant. SAS doesn't host a solution for you on Azure. See [SAS Managed Application Services](https://www.sas.com/en_us/solutions/cloud/sas-cloud/managed-application-services.html) for more information on the Azure hosting and management services that SAS provides.
+This guide provides general information for running SAS on Azure, not platform-specific information. These guidelines assume that you host your own SAS solution on Azure in your own tenant. SAS doesn't host a solution for you on Azure. For more information on the Azure hosting and management services that SAS provides, see [SAS Managed Application Services](https://www.sas.com/en_us/solutions/cloud/sas-cloud/managed-application-services.html).
 
 ## Architectural overview
 
 :::image type="complex" source="./images/sas-azure-guide-architecture-diagram.png" alt-text="Architecture diagram showing how to deploy SAS products on Azure." border="false":::
-   The diagram contains a large rectangle with the label Azure Virtual Network. Inside it is another large rectangle with the label Proximity placement group. Two rectangles are inside it. They're stacked vertically, and each has the label Network security group. Each security group rectangle contains several computer icons that are arranged in rows. In the upper rectangle, the computer icons on the left side of the upper row have the label Mid tier. The icons on the right have the label Metadata tier. The lower row of icons has the label Compute tier. In the lower rectangle, the upper row of computer icons has the label M G S and M D S servers. The lower row has the label O S Ts and O S S servers.
+   The diagram contains a large rectangle with the label Azure Virtual Network. Inside it, another large rectangle has the label Proximity placement group. Two rectangles are inside it. They're stacked vertically, and each has the label Network security group. Each security group rectangle contains several computer icons that are arranged in rows. In the upper rectangle, the computer icons on the left side of the upper row have the label Mid tier. The icons on the right have the label Metadata tier. The lower row of icons has the label Compute tier. In the lower rectangle, the upper row of computer icons has the label M G S and M D S servers. The lower row has the label O S Ts and O S S servers.
 :::image-end:::
 
 SAS Azure deployments typically contain three layers:
@@ -65,7 +65,7 @@ Before deploying a SAS workload, ensure the following components are in place:
 
 Consider the points in the following sections when designing your implementation.
 
-Note that SAS documentation provides requirements per core, meaning per physical CPU core. But Azure provides vCPU listings. On the VMs that Azure uses for SAS, there are two vCPU for every physical core. As a result, to calculate the value of a vCPU requirement, use half the core requirement value. For instance, a physical core requirement of 150 MBps translates to 75 MBps per vCPU. For more information on Azure computing performance, see [Azure compute unit (ACU)](/azure/virtual-machines/acu).
+SAS documentation provides requirements per core, meaning per physical CPU core. But Azure provides vCPU listings. On the VMs that Azure uses for SAS, there are two vCPU for every physical core. As a result, to calculate the value of a vCPU requirement, use half the core requirement value. For instance, a physical core requirement of 150 MBps translates to 75 MBps per vCPU. For more information on Azure computing performance, see [Azure compute unit (ACU)](/azure/virtual-machines/acu).
 
 ### Operating systems
 
@@ -81,12 +81,12 @@ To optimize compatibility and integration with Azure, start with an operating sy
 
 #### Kernel issues
 
-A soft lockup issue affects the entire Red Hat 7.x series. It occurs in these kernels:
+When choosing an operating system, be aware of a soft lockup issue that affects the entire Red Hat 7.x series. It occurs in these kernels:
 
 - Linux 3.x kernels
 - Versions earlier than 4.4
 
-A problem with the [memory and IO management of Linux and HyperV](https://access.redhat.com/solutions/22621) causes the issue. When it comes up, the system logs contain entries like this one that mention a non-maskable interrupt (NMI):
+A problem with the [memory and I/O management of Linux and Hyper-V](https://access.redhat.com/solutions/22621) causes the issue. When it comes up, the system logs contain entries like this one that mention a non-maskable interrupt (NMI):
 
 ```console
 Message from syslogd@ronieuwe-sas-e48-2 at Sep 13 08:26:08
@@ -200,7 +200,7 @@ Be aware of latency-sensitive interfaces between SAS and non-SAS applications. C
 
 ### Identity management
 
-SAS platforms can use local user accounts. They can also use a Lightweight Directory Access Protocol (LDAP) server to validate users. We recommend running a domain controller in Azure. Then you can use the domain join feature and properly manage security access. If you haven't set up domain controllers, consider deploying [Azure Active Directory Domain Services (Azure AD DS)](/azure/architecture/reference-architectures/identity/adds-extend-domain). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
+SAS platforms can use local user accounts. They can also use a Lightweight Directory Access Protocol (LDAP) server to validate users. We recommend running a domain controller in Azure. Then use the domain join feature to properly manage security access. If you haven't set up domain controllers, consider deploying [Azure Active Directory Domain Services (Azure AD DS)](/azure/architecture/reference-architectures/identity/adds-extend-domain). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
 
 ## Data sources
 
@@ -258,7 +258,7 @@ Consider the following points when using this service:
 
 ### Other data sources
 
-SAS platforms support a variety of data sources:
+SAS platforms support various data sources:
 
 - An [Azure Data Lake Storage account](https://communities.sas.com/t5/SAS-Communities-Library/SAS-Viya-3-5-CAS-accessing-Azure-Data-Lake-files/ta-p/635147) that uses a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace)
 - [Azure Synapse Analytics](https://blogs.sas.com/content/subconsciousmusings/2020/12/04/3-steps-to-better-models-with-sas-and-azure-synapse/)
@@ -268,18 +268,18 @@ SAS platforms support a variety of data sources:
 
 ## Deployment
 
-It's generally best to deploy workloads using an infrastructure as code (IaC) process. SAS workloads can be extremely sensitive to misconfigurations that often occur in manual deployments and reduce productivity.
+It's best to deploy workloads using an infrastructure as code (IaC) process. SAS workloads can be sensitive to misconfigurations that often occur in manual deployments and reduce productivity.
 
 When building your environment, see quickstart reference material in these repositories:
 
-- [Automating SAS Deployment on Azure using Github Actions](https://github.com/grtn316/viya4-iac-azure)
+- [Automating SAS Deployment on Azure using GitHub Actions](https://github.com/grtn316/viya4-iac-azure)
 - [CoreCompete SAS 9 or Viya on Azure](https://github.com/corecompete/sas94-viya)
 
 <!--More details can be found in the pages specific to [Viya 3.5](sas-viya-35-overview.md) and [Grid](sas-grid-94-overview.md). -->
 
 ## Security
 
-The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in reporting strategy. It's important, then, to secure access to your SAS architecture. You can achieve this goal by using secure authentication and by addressing network vulnerabilities. Use encryption to protect all data coming in and out of your architecture.
+The output of your SAS workloads can be one of your organization's critical assets. SAS output provides insight into internal efficiencies and can play a critical role in reporting strategy. It's important, then, to secure access to your SAS architecture. To achieve this goal, use secure authentication and address network vulnerabilities. Use encryption to protect all data moving in and out of your architecture.
 
 Azure delivers SAS by using an infrastructure as a service (IaaS) cloud model. Microsoft builds security protections into the service at the following levels:
 
