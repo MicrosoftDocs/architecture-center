@@ -13,17 +13,16 @@ If you do not have Network Watchers and NSG Flow Logs enabled on your subscripti
 
 ### Network
 
-Network segmentation is natural outcome of a hub and spoke topology. Having separate virtual networks for the hub and spokes provides basic segmentation in the networking footprint. Each network is further segmented into subnets with no traffic allowed by default between them. 
+In a hub and spoke topology, having separate virtual networks for each entity provides basic segmentation in the networking footprint. Each network is further segmented into subnets. 
 
-In this architecture, traffic flows in and out of various network boundaries.
+Typical flows in and out of various network boundaries are:
 
-- Inbound traffic from the internet to cluster.
-- Outbound traffic from the cluster to the internet.
-- Flows between hub and spoke virtual networks. 
+- Inbound traffic to the cluster.
+- Outbound traffic from the cluster.
 - In-cluster traffic between pods. 
 
-Within each  software-defined perimeters in your networking footprint and secure communication paths between them.
-Azure Virtual Networks (VNets) are created in private address spaces. By default no traffic allowed by default between any two VNets. Open paths only when it's really needed.
+While Azure Virtual Networks (VNets) don't allow incoming traffic into the network, the resources in the network can reach out to the public internet. Consider these network controls to restrict the preceding flows:
+
 Use Network Security Groups (NSG) to secure communication between resources within a VNet.
 Use Application Security Groups (ASGs) to define traffic rules for the underlying VMs that run the workload.
 Use Azure Firewall to filter traffic flowing between cloud resources, the internet, and on-premise.

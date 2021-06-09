@@ -37,14 +37,11 @@ Kubernetes ingress controller inside the cluster. In the baseline architecture, 
 
 The hub and spokes are all deployed in separate virtual networks, each in their private address space. Each subnet is isolated with no traffic allowed by default between any two virtual networks. 
 
-
-
-
-Use a combination of various Azure services and feature and native Kubernetes constructs to provide the required level of control. Here are some options used in this architecture.   
+A combination of various Azure services and feature and native Kubernetes constructs provide the required level of control. Here are some options used in this architecture.   
 
 ### Strict Network Security Groups (NSGs)
 
-Place NSGs on subnets that interact with the cluster. in st around the cluster node pool subnets specifically block any SSH access attempts only allow traffic from the vnet into them. As your workloads, system security agents, etc are deployed, consider adding even more NSG rules that help define the type of traffic that should and should not be traversing those subnet boundaries. Because each nodepool lives in its own subnet, you can apply more specific rules based on known/expected traffic patterns of your workload.
+Place NSGs on subnets that interact with the cluster. Cluster node pool subnets block any SSH access allowing traffic from the virtual network. As your workloads, system security agents, and other components are deployed, consider adding even more NSG rules that help define the type of traffic that should and should not be traversing those subnet boundaries. Because each nodepool lives in its own subnet, you can apply more specific rules based on known/expected traffic patterns of your workload.
 
 ### Azure Key Vault network restrictions
 
