@@ -1,10 +1,12 @@
-This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks, an Apache Spark-based analytics platform optimized for Azure. The solution can be used as a template that can be generalized to other scenarios.
+This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using [Azure Databricks][databricks], an Apache Spark-based analytics platform optimized for Azure. Databricks Machine Learning is an integrated end-to-end machine learning environment incorporating managed services for experiment tracking, model training, feature development and management, and feature and model serving. This reference architecturecan be used as a template that can be generalized to other scenarios.
 
 A reference implementation for this architecture is available on [GitHub][github].
 
-![Batch scoring of Spark models on Azure Databricks](./_images/batch-scoring-spark.png)
+![Architecture diagram: batch scoring of Apache Spark classification models on Azure Databricks.](./_images/batch-scoring-spark.png)
 
-**Scenario**: A business in an asset-heavy industry wants to minimize the costs and downtime associated with unexpected mechanical failures. Using IoT data collected from their machines, they can create a predictive maintenance model. This model enables the business to maintain components proactively and repair them before they fail. By maximizing mechanical component use, they can control costs and reduce downtime.
+## Scenario: batch scoring for predictive maintenance
+
+A business in an asset-heavy industry wants to minimize the costs and downtime associated with unexpected mechanical failures. Using IoT data collected from their machines, they can create a predictive maintenance model. This model enables the business to maintain components proactively and repair them before they fail. By maximizing mechanical component use, they can control costs and reduce downtime.
 
 A predictive maintenance model collects data from the machines and retains historical examples of component failures. The model can then be used to monitor the current state of the components and predict if a given component will fail in the near future. For common use cases and modeling approaches, see [Azure AI guide for predictive maintenance solutions][ai-guide].
 

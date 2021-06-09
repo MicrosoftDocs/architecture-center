@@ -16,6 +16,7 @@ metadata:
     - azcat-ai
     - reference-architecture
     - ai-machine-learning
+    - aml-project-improvement
 name: Batch scoring of Spark models on Azure Databricks
 azureCategories:
   - ai-machine-learning
