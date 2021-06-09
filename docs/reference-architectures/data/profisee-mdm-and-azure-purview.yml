@@ -15,7 +15,6 @@ azureCategories:
   - databases
   - management-and-governance
 products:
-  - azure-purview 
   - azure-data-factory 
   - azure-kubernetes-service 
   - azure-sql-database 
