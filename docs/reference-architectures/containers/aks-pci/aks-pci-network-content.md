@@ -176,7 +176,7 @@ By design, Azure Virtual Network cannot be directly reached by the public intern
 
    Azure Firewall is provisioned in a subnet of the hub network. To enforce Azure Firewall as the single egress point, user-defined routes (UDRs) are used on subnets that are capable of generating egress traffic. This includes subnets in untrusted networks, such as the image builder virtual network. After the traffic reaches Azure Firewall, several scoped rules are applied that allow traffic from specific sources to go to specific targets.
 
-   For more information, see  [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](/azure/firewall/protect-azure-kubernetes-service).
+   For more information, see [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](/azure/firewall/protect-azure-kubernetes-service).
 
 The cluster will need to access other services over the public internet. If you use a third-party antimalware software, it will need to get the virus definitions from a server over the public internet. 
 
@@ -485,7 +485,6 @@ Azure provides security assurances for the hosted environment that are shared. F
 
 It's highly recommended that you use dedicated hosts for AKS nodes. That is, the compute should be in a single tenant model.
 
-<Ask Jorge: is the api control plane signle tenant>
 
 
 ## Next steps

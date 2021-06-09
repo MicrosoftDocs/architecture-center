@@ -191,7 +191,7 @@ Based on 7.1.3, there will be many roles involved in cluster operations. Beyond 
 For example, consider the cluster operator role. They should have a clearly-defined playbook for cluster triage activities. How different is that access from workload team? Depending on your organization, they may be the same. Here are some points to consider:
 
 - How should they access the cluster?
-- Which sources are allowed for access
+- Which sources are allowed for access?
 - What permissions should they have on the cluster?
 - When are those permissions assigned?
 
