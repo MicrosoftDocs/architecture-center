@@ -14,15 +14,13 @@ metadata:
 azureCategories:
   - databases
   - management-and-governance
-  - purview
 products:
-  - purview 
-  - profisee 
-  - data-factory 
-  - kubernetes-service 
-  - sql-database 
-  - sql-managed-instance 
-  - synapse-analytics 
+  - azure-purview 
+  - azure-data-factory 
+  - azure-kubernetes-service 
+  - azure-sql-database 
+  - azure-sql-managed-instance 
+  - azure-synapse-analytics 
   - power-bi 
   - azure-active-directory 
 name: Data governance with Profisee and Azure Purview
