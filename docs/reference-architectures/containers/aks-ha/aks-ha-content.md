@@ -8,17 +8,13 @@ This architecture builds on the [AKS Baseline architecture](/azure/architecture/
 
 ## Components
 
-Many components and Azure services are used in the multi-region AKS reference architecture. Only those specific to this architecture are listed below. For the remaining, please reference the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
+Many components and Azure services are used in the multi-region AKS reference architecture. Only those with uniqueness to this multi-cluster architecture are listed below. For the remaining, please reference the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
 
-**Multiple clusters / multiple regions** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
-
-**Azure Front Door** 
-
-**DNS** Azure DNS resolves the Azure Front Door requests to the IP address associated with Application Gateway. 
-
-**Key store** Azure Key Vault is provisioned in each region.  
-
-**Container registry** The container images for the workload are stored in a managed container registry. There's a single instance. Geo-replication for Azure Container Registry is enabled. It will automatically replicate images to the selected Azure regions and provide continued access to images even if a region is experiencing an outage.
+- **Multiple clusters / multiple regions** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
+- **Azure Front Door** 
+- **DNS** Azure DNS resolves the Azure Front Door requests to the IP address associated with Application Gateway. 
+- **Key store** Azure Key Vault is provisioned in each region.  
+- **Container registry** The container images for the workload are stored in a managed container registry. There's a single instance. Geo-replication for Azure Container Registry is enabled. It will automatically replicate images to the selected Azure regions and provide continued access to images even if a region is experiencing an outage.
 
 ## Design considerations
 
@@ -26,14 +22,44 @@ Consider the following items when designing a multi-region AKS deployment.
 
 ### Cluster deployment
 
+- Considerations related to availability (overview)
+- Cluster scalability (out)
+- Planning for regional failure (sizing) 
+- Challenges of manual deployment
+- Options and benefit of automated deployments
+
 ### Cluster management
+
+- Consideration related to management (overview)
+- Issues with manual management
+- Options and benefit for automated management and configuration (GitOps)
+
+### Traffic management
+
+- Traffic considerations (overview)
+- Traffic flow (RI)
 
 ### Shared resources
 
-### Access controll
+- Shared resource considerations (overview)
+- Container Registry
+- Log Analytics
+- Azure Front Door
+
+### Cluster access
+
+- Access considerations (overview)
+- Considerations related to one vs. multiple access control groups
 
 ### Data and state
 
+- Detail that state is not considered in the RI
+- Options and considerations for state
+
 ### Failover
 
+<tbd>
+
 ### Cost considerations
+
+<tbd>
