@@ -7,7 +7,7 @@ The recommendations and examples are extracted from this accompanying reference 
 ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does _not_ represent or implement an actual PCI DSS workload.
 
 
-![Placeholder](images/regulated-architecture.svg)
+![Architecture of an AKS PCI infrastructure](images/regulated-architecture.svg)
 
 That architecture is based on a hub and spoke topology; with one hub and two spokes. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. There are two spoke virtual networks. One spoke contains the AKS cluster that provides the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images for your workloads.
 
@@ -15,7 +15,7 @@ That architecture is based on a hub and spoke topology; with one hub and two spo
 
 > [!IMPORTANT]
 >
-> The architecture and the implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). Familiarize yourself with the baseline. In this section, we'll highlight the differences between the two architectures.
+> The architecture and the implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). To get the most out of this article, familiarize yourself with the baseline components. In this section, we'll highlight the differences between the two architectures.
 
 **Azure Bastion**
 
@@ -56,6 +56,12 @@ Not all user-provided namespaces in this reference implementation employ a zero-
 While not typically a feature of any specific regulated workloads, generally speaking [Azure DDoS Protection Standard](https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection) should be enabled for any virtual networks with a subnet that contains an Application Gateway with a public IP. This protects your workload from becoming overwhelmed with fraudulent requests which at best could cause a service disruption or at worst be a cover (distraction, log spam, etc) for another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses -- work with your networking team to coordinate coverage for your workload.
 
 
+...
+
+> [!IMPORTANT]
+>
+> This article is work in progress. Check back on updates.
+>
 
 Additional Azure Policy application
 

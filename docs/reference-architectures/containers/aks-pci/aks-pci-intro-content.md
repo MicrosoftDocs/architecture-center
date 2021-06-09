@@ -4,9 +4,7 @@ This reference architecture describes the considerations for an Azure Kubernetes
 
 **Microsoft Trust Center** provides specific principles for compliance-related cloud deployments. The security assurances&mdash;provided by Azure as the cloud platform and AKS as the host container&mdash;are regularly audited and attested by third-party auditors for PCI DSS compliance.
 
-<placeholder art>
-
-![Diagram of the shared responsibility model.](images\shared-responsibility.png)
+![Diagram of the shared responsibility model.](images\protection-everyone.png)
 
 - **Shared responsibility with Azure**
 
@@ -25,12 +23,12 @@ This series is split into several articles. Each article outlines the high-level
 
 |Area of responsibility|Description|
 |---|---|
-|[Network segmentation](aks-pci-network.yml)|TBD |
-|[Data protection](aks-pci-data.yml)|TBD|
-|[Vulnerability management](aks-pci-malware.yml)|TBD|
-|[Access controls](aks-pci-identity.yml)|TBD|
-|[Monitoring operations](aks-pci-monitor.yml)|TBD|
-|[Policy management](aks-pci-policy.yml)|TBD|
+|[Network segmentation](aks-pci-network.yml)|Protect cardholder data with firewall configuration and other network controls. Remove vendor-supplied defaults.|
+|[Data protection](aks-pci-data.yml)|Encrypt all information, storage objects, containers, and physical media. Add security controls when data that is being transferred between components.|
+|[Vulnerability management](aks-pci-malware.yml)|Run antivirus software, file integrity monitoring tools, and container scanners to make sure the system as part of your vulnerability detection. |
+|[Access controls](aks-pci-identity.yml)|Secure access through identity controls that deny attempts to the cluster or other components that are part of the cardholder data environment.|
+|[Monitoring operations](aks-pci-monitor.yml)|Maintain the security posture through monitoring operations and regularly test your security design and implementation.|
+|[Policy management](aks-pci-policy.yml)|Maintain thorough and updated documentation about your security processes and policies.|
 
 This series assumes:
 - You're familiar with Kubernetes concepts and workings of an [AKS cluster](/azure/aks).
