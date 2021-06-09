@@ -923,7 +923,7 @@ items:
                 href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
       - name: Containers
         items:
-          - name: Get started with AKS architectures
+          - name: Get started
             href: reference-architectures/containers/aks-start-here.md
           - name: Reference architectures
             items:
@@ -933,9 +933,9 @@ items:
                 href: reference-architectures/containers/aks-microservices/aks-microservices.yml
               - name: AKS cluster for a PCI-DSS workload
                 items:
-                  - name: Before you begin...
+                  - name: Introduction
                     href: reference-architectures/containers/aks-pci/aks-pci-intro.yml
-                  - name: Architecture code assets
+                  - name: Architecture
                     href: reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml                    
                   - name: Network segmentation
                     href: reference-architectures/containers/aks-pci/aks-pci-network.yml                  
@@ -948,9 +948,7 @@ items:
                   - name: Monitoring operations
                     href: reference-architectures/containers/aks-pci/aks-pci-monitor.yml                         
                   - name: Policy management
-                    href: reference-architectures/containers/aks-pci/aks-pci-policy.yml                         
-                  - name: Deployment instructions
-                    href: reference-architectures/containers/aks-pci/aks-pci-deploy.yml                         
+                    href: reference-architectures/containers/aks-pci/aks-pci-policy.yml                                         
                   - name: Summary 
                     href: reference-architectures/containers/aks-pci/aks-pci-summary.yml                         
               - name: Advanced microservices architecture on AKS

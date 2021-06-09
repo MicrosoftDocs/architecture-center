@@ -31,4 +31,4 @@ Here are other articles that will help you plan the operational compliance.
 
 
 > [!div class="nextstepaction"]
-> [Maintain an Information Security Policy](aks-pci-summary.yml)
+> [Summary](aks-pci-summary.yml)
