@@ -31,7 +31,7 @@ You can migrate your entire Oracle database from on-premises to Azure VM with mi
 
 The Oracle Data Pump utility is used to export and import data and metadata from or to Oracle databases. You can run Data Pump export/import on an entire database, selective schemas, tablespaces, or database objects. Data Pump is the recommended tool for migrating data to Azure, for large databases that range from 10GB to 20TB in size. It allows a high degree of parallelism, flexible data extraction options, and scalable operations, which enable highspeed movement of data and metadata from source database to target database. Oracle Data Pump also supports encryption and compression when exporting your data to data dump files. You can use Oracle Data Pump with Oracle Data Guard or Golden Gate to handle the initial data transfer for large databases. Note: Data Pump is available only on Oracle Database 10g Release 1 (10.1) and later.
 
-## Design Considerations
+## Design considerations
 
 ## VM sizing
 Consider using hyperthreaded memory optimized virtual machine with constrained core vCPUs for your Oracle Database VM to save on licensing costs and maximize performance. Oracle has guaranteed license mobility from on-premises to Azure. See the Oracle-Azure FAQ.
