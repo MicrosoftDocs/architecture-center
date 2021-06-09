@@ -4,7 +4,7 @@ This reference architecture describes the considerations for an Azure Kubernetes
 
 **Microsoft Trust Center** provides specific principles for compliance-related cloud deployments. The security assurances&mdash;provided by Azure as the cloud platform and AKS as the host container&mdash;are regularly audited and attested by third-party auditors for PCI DSS compliance.
 
-![Diagram of the shared responsibility model.](images\protection-everyone.png)
+![Diagram of the shared responsibility model.](images\protection-everyone.svg)
 
 - **Shared responsibility with Azure**
 

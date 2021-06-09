@@ -11,6 +11,11 @@ The recommendations and examples are extracted from this accompanying reference 
 
 That architecture is based on a hub and spoke topology; with one hub and two spokes. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. There are two spoke virtual networks. One spoke contains the AKS cluster that provides the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images for your workloads.
 
+> [!IMPORTANT]
+>
+> This article is work in progress. Check back on updates.
+>
+
 ## Components
 
 > [!IMPORTANT]
@@ -60,7 +65,7 @@ While not typically a feature of any specific regulated workloads, generally spe
 
 > [!IMPORTANT]
 >
-> This article is work in progress. Check back on updates.
+> Stop here. This article is work in progress. Check back on updates.
 >
 
 Additional Azure Policy application
