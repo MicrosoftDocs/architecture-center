@@ -160,7 +160,7 @@ Limit viewing of audit trails to those with a job-related need.
 
 Having multiple logging syncs adds overhead to securing, reviewing, analyzing, and querying audit trail data. Plan your audit trail topologies to balance tradeoffs between complete audit trail isolation and management concerns.
 
-When possible, integrate logs. The advantage is the ability to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor for Containers to write logs into a Log Analytics workspace. Another option to integrate data into Security Information and Event Management (SIEM) solutions, such as Azure Sentinel. Other popular third-party choices are Splunk, QRadar, ArcSight. Azure Security Center and Azure Monitor supports all of those solutions. Those solutions are append-only data sinks making sure the trail cannot be altered.
+When possible, integrate logs. The advantage is the ability to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor for Containers to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Azure Sentinel. Other popular third-party choices are Splunk, QRadar, and ArcSight. Azure Security Center and Azure Monitor support all of those solutions. Those solutions are append-only data sinks to make sure the trail can't be altered.
 
 Security Center can export results at configured intervals. For more information, see [Continuous export](/azure/security-center/continuous-export).
 
@@ -314,9 +314,9 @@ In your cluster, run a file integrity monitoring (FIM) solution in conjunction w
 >
 > The reference implementation provides a placeholder `DaemonSet` deployment to run a FIM solution antimalware agent. The agent will run on every node VM in the cluster. Place your choice of antimalware software in this deployment.
 
-Check all default settings of the FIM tool to ensure the values detect the parameters you want to cover and adjust those settings appropriately. 
+Check all default settings of the FIM tool to ensure that the values detect the parameters you want to cover, and adjust those settings appropriately. 
 
-Enable the solution to send logs to your monitoring or SIEM solution so that they can generate alerts. Be aware of log schema changes otherwise you may miss critical alerts. 
+Enable the solution to send logs to your monitoring or SIEM solution so that they can generate alerts. Be aware of log schema changes, or you might miss critical alerts. 
 
 Any other additional compute in the CDE should have change tracking enabled.
 
