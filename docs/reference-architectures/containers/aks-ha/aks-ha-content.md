@@ -11,7 +11,8 @@ This architecture builds on the [AKS Baseline architecture](/azure/architecture/
 Many components and Azure services are used in the multi-region AKS reference architecture. Only those with uniqueness to this multi-cluster architecture are listed below. For the remaining, please reference the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
 
 - **Multiple clusters / multiple regions** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
-- **Azure Front Door** 
+- **Azure Front Door** Azure Front door is used to load balance and route traffic to each AKS cluster in the configuration. Azure Front Door allows for layer seven global routing, both of which are required for this reference architecture.
+- **Azure Application Gateway** Each cluster in the solution is configured with an Azure Application Gateway instance sitting in front of it. These components are configured as the back ends for the Azure Front Door instance. The cluster networking configuration is fully detailed later in this document.
 - **DNS** Azure DNS resolves the Azure Front Door requests to the IP address associated with Application Gateway. 
 - **Key store** Azure Key Vault is provisioned in each region.  
 - **Container registry** The container images for the workload are stored in a managed container registry. There's a single instance. Geo-replication for Azure Container Registry is enabled. It will automatically replicate images to the selected Azure regions and provide continued access to images even if a region is experiencing an outage.
