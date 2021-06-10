@@ -5,12 +5,16 @@ services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
+ms.category: ai-machine-learning
+ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok, fcp
+products:
+  - azure
+  - azure-cognitive-services
 ---
 
 # Machine Learning Anomaly Detection API
