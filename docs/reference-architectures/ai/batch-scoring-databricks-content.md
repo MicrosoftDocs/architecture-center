@@ -69,7 +69,7 @@ More complex scheduled pipelines can be developed by using [Azure Data Factory][
 
 ## Storage considerations
 
-In this reference implementation, the data is stored directly within Databricks storage for simplicity. In a production setting, however, the data can be stored on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports Azure Data Lake Store, Azure Synapse Analytics, Azure Cosmos DB, Apache Kafka, and Hadoop.
+In this reference implementation, the data is stored directly within Databricks storage for simplicity. In a production setting, however, the data can be stored on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports [Azure Data Lake Store][azure-data-lake], [Azure Synapse Analytics][azure-snyapse], [Azure Cosmos DB][azure-cosmos], [Apache Kafka][apache-kafka], and [Apache Hadoop][apache-hadoop].
 
 ## Cost considerations
 
@@ -109,6 +109,11 @@ Learn more:
 [adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [aml-tut]: /azure/machine-learning/tutorial-pipeline-batch-scoring-classification
+[apache-hadoop]: https://hadoop.apache.org/
+[apache-kafka]: https://kafka.apache.org/
+[azure-cosmos]: https://azure.microsoft.com/services/cosmos-db/
+[azure-data-lake]: https://azure.microsoft.com/services/storage/data-lake-storage/
+[azure-synapse]: https://azure.microsoft.com/services/synapse-analytics/
 [blob]: https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [cli]: https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html
 [cluster]: /azure/databricks/clusters/configure
