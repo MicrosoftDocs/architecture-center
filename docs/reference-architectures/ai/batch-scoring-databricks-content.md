@@ -38,12 +38,12 @@ The architecture defines a data flow that is entirely contained within [Azure Da
 
 The scenario is constructed as a pipeline flow. Each notebook is optimized to perform in a batch setting for each of the operations: ingestion, feature engineering, model building, and model scorings. The feature engineering notebook is designed to generate a general data set for any of the training, calibration, testing, or scoring operations. In this scenario, we use a temporal split strategy for these operations, so the notebook parameters are used to set date-range filtering.
 
-Because the scenario creates a batch pipeline, we provide a set of optional examination notebooks to explore the output of the pipeline notebooks. You can find these notebooks in the [GitHub repository][github]:
+Because the scenario creates a batch pipeline, we provide a set of optional examination notebooks to explore the output of the pipeline notebooks. You can find these notebooks in the [GitHub repository notebooks folder][github]:
 
-- `1a_raw-data_exploring`
-- `2a_feature_exploration`
-- `2b_model_testing`
-- `3b_model_scoring_evaluation`
+- `1a_raw-data_exploring.ipynb`
+- `2a_feature_exploration.ipynb`
+- `2b_model_testing.ipynb`
+- `3b_model_scoring_evaluation.ipynb`
 
 ## Recommendations
 
