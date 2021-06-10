@@ -21,6 +21,10 @@ Many components and Azure services are used in the multi-region AKS reference ar
 
 Consider the following items when designing a multi-region AKS deployment.
 
+### Cluster Design
+
+This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](/azure/architecture/patterns/geodes), where any region can service any request, and [Deployment Stamps](/azure/architecture/patterns/deployment-stamp) where the multiple copies of an application component are deployed from a single source (deployment template). When selecting geographical regions for each individual AKS cluster, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography which influence how Azure planned maintenance is performed. For more information on pared regions, see [Azure Paired Regions](azure/best-practices-availability-paired-regions). Within each region, multiple zones are used so that both regional and zonal issues are mitigated.
+
 ### Cluster deployment and configuration
 
 When deploying multiple Kubernetes clusters in highly available and geographically distributed configurations, it is essential to consider the sum of each Kubernetes cluster as a single unit. You will want to develop code-driven strategies for automated deployment and configuration to ensure that the configuration of each individual cluster is as identical as possible. You will want to consider strategies for scaling out and in by adding or removing individual clusters. Finally, you want to think through regional failure and ensure that any byproduct of a failure is compensated for in your deployment and configuration plan.
@@ -71,9 +75,8 @@ Example parameter file used to deploy an AKS cluster into the centralus region. 
   }
 ```
 
-< Discuss CI/CD piptline here >
 
-```ymal
+```yaml
 - name: Azure CLI - Deploy AKS cluster - Region 1
     id: aks-cluster-region1
     if: success() && env.DEPLOY_REGION1 == 'true'
