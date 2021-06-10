@@ -84,8 +84,7 @@ The solution notebooks can run on any Spark-based platform with minimal edits to
 
 ## Deploy the solution
 
-To deploy this reference architecture, follow the steps described in the [GitHub][github] repository to build a scalable solution for scoring Spark models in batch on
-Azure Databricks.
+To deploy this reference architecture, follow the steps described in the [GitHub][github] repository to build a scalable solution for scoring Spark models in batch on Azure Databricks.
 
 ## Next steps
 
