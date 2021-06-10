@@ -2,7 +2,7 @@ This reference architecture shows how to build a scalable solution for batch sco
 
 A reference implementation for this architecture is available on [GitHub][github].
 
-![Architecture diagram: batch scoring of Apache Spark classification models on Azure Databricks.](./_images/batch-scoring-spark.png)
+![Architecture diagram: batch scoring of Apache Spark classification models on Azure Databricks.](./_images/batch-scoring-spark-models-databricks.png)
 
 ## Scenario: batch scoring for predictive maintenance
 
