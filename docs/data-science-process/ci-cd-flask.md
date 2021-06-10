@@ -1,16 +1,22 @@
 ---
 title: Create a CI/CD pipeline with Azure Pipelines - Team Data Science Process
 description: "Create a continuous integration and continuous delivery pipeline for Artificial Intelligence (AI) applications using Docker and Kubernetes."
-services: machine-learning
+services: architecture-center
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
+ms.category: ai-machine-learning
+ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr, fcp
+products:
+  - azure
+  - azure-pipelines
+  - azure-machine-learning
+  - azure-kubernetes-service
 ---
 # Create CI/CD pipelines for AI apps using Azure Pipelines, Docker, and Kubernetes
 
