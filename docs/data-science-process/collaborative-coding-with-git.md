@@ -4,12 +4,15 @@ description: How to do collaborative code development for data science projects 
 author: marktab
 manager: marktab
 editor: marktab
-ms.service: machine-learning
-ms.subservice: team-data-science-process
+ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.category: ai-machine-learning
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, fcp
+products:
+  - azure
 ---
 
 
