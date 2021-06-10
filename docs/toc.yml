@@ -691,7 +691,7 @@ items:
             items:
               - name: Baseball decision analysis with ML.NET and Blazor
                 href: data-guide/big-data/baseball-ml-workload.md
-              - name: Batch scoring for deep Learning
+              - name: Batch scoring for deep learning
                 href: reference-architectures/ai/batch-scoring-deep-learning.yml
               - name: Batch scoring with Python
                 href: reference-architectures/ai/batch-scoring-python.yml
@@ -1559,11 +1559,11 @@ items:
               - name: Highly available multi-region web application
                 href: reference-architectures/app-service-web-app/multi-region.yml
               - name: "IaaS: Web application with relational database"
-                href: high-availability/ref-arch-iaas-web-and-db.md
+                href: high-availability/ref-arch-iaas-web-and-db.yml
               - name: Multi-region app with private database connectivity
                 href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: Multi-region load balancing
-                href: high-availability/reference-architecture-traffic-manager-application-gateway.md
+                href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
               - name: Multi-region N-tier application
                 href: reference-architectures/n-tier/multi-region-sql-server.yml
               - name: Multitenant SaaS
