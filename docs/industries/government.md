@@ -32,7 +32,7 @@ Using Azure Government, you can:
 
 Azure Government offers a broad level of certifications to simplify critical government compliance requirements. To learn more about this government-focused cloud platform, visit [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/).
 
-Microsoft is committed to provide government agencies with innovative technology solutions across health and human services, critical infrastructure, public safety & justice, and tax, finance, and revenue. Learn more at [Cloud computing for government](https://www.microsoft.com/en-us/industry/government).
+Microsoft is committed to provide government agencies with innovative technology solutions across health and human services, critical infrastructure, public safety & justice, and tax, finance, and revenue. Learn more at [Cloud computing for government](https://www.microsoft.com/industry/government).
 
 <br>
 
