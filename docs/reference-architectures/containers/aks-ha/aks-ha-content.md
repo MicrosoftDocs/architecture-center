@@ -29,9 +29,64 @@ Each of these topics is discussed in this section of this document.
 
 #### Deployment
 
-You have many options for deploying an Azure Kubernetes Service cluster. The Azure portal, Azure CLI, Azure PowerShell module are all decent options for deploying individual or non-coupled AKS clusters. These tools, however, can present some challenges when working with many tightly coupled AKS clusters. For example, using the Azure portal opens a genuine opportunity for miss-configuration due to missed steps. As well, the deployment and configuration of many groups using the portal is a timely process requiring the focus of one or more engineers. While you can construct a repeatable and automated process using the command line tools, the onus of things like idempotency, deployment failure control, and failure recovery is on you and the scripts you build. 
+You have many options for deploying an Azure Kubernetes Service cluster. The Azure portal, Azure CLI, Azure PowerShell module are all decent options for deploying individual or non-coupled AKS clusters. These tools, however, can present some challenges when working with many tightly coupled AKS clusters. For example, using the Azure portal opens a genuine opportunity for miss-configuration due to missed steps. As well, the deployment and configuration of many clusters using the portal is a timely process requiring the focus of one or more engineers. While you can construct a repeatable and automated process using the command line tools, the onus of things like idempotency, deployment failure control, and failure recovery is on you and the scripts you build. 
 
-We recommend using a true infrastructure as code solutions, such and Azure Resource Manager or Bicep templates, or Terraform configurations. Infrastructure as code solutions will provide an automated, scalable, and idempotent deployment solution.
+We recommend using infrastructure as code solutions, such and Azure Resource Manager templates, Bicep templates or Terraform configurations. Infrastructure as code solutions will provide an automated, scalable, and idempotent deployment solution. This reference architecture includes an ARM Template for the solutions shared services and then another for the AKS clusters + regional services.
+
+Example parameter file used to deploy an AKS cluster into the centralus region. Multiple parameter files can be provided, one for each region into which an ASK cluster needs to be created.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "location": {
+        "value": "centralus"
+      },
+      "targetVnetResourceId": {
+        "value": "<cluster-spoke-vnet-resource-id>"
+      },
+      "appInstanceId": {
+        "value": "04"
+      },
+      "clusterAdminAadGroupObjectId": {
+        "value": "<azure-ad-aks-admin-group-object-id>"
+      },
+      "k8sControlPlaneAuthorizationTenantId": {
+        "value": "<tenant-id-with-user-admin-permissions>"
+      },
+      "clusterInternalLoadBalancerIpAddress": {
+        "value": "10.244.4.4"
+      },
+      "logAnalyticsWorkspaceId": {
+        "value": "<log-analytics-workspace-id>"
+      },
+      "containerRegistryId": {
+        "value": "<container-registry-id>"
+      },
+      "acrPrivateDnsZonesId": {
+        "value": "<acrPrivateDns-zones-id>"
+      }
+    }
+  }
+```
+
+< Discuss CI/CD piptline here >
+
+```ymal
+- name: Azure CLI - Deploy AKS cluster - Region 1
+    id: aks-cluster-region1
+    if: success() && env.DEPLOY_REGION1 == 'true'
+    uses: Azure/cli@v1.0.0
+    with:
+    inlineScript: |
+        az group create --name rg-bu0001a0042-03 --location eastus2
+        az deployment group create --resource-group rg-bu0001a0042-03 \
+        --template-file "cluster-stamp.json" \
+            --parameters @azuredeploy.parameters.eastus2.json \
+            appGatewayListenerCertificate=${{ secrets.APP_GATEWAY_LISTENER_REGION1_CERTIFICATE_BASE64 }} \
+            aksIngressControllerCertificate=${{ secrets.AKS_INGRESS_CONTROLLER_CERTIFICATE_BASE64 }}
+```
 
 #### Configuration
 
