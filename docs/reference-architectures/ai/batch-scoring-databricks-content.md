@@ -91,9 +91,9 @@ Azure Databricks.
 
 See other Azure Architecture Center articles:
 
-- [Build a Real-time Recommendation API on Azure][aac-recommendation] uses Spark for building a recommendation system with offline, pre-computed scores. These recommendation systems are common scenarios where scores are batch-processed.
-- [Build a movie recommendation system using machine learning][aac-movie-recommendation] uses an Azure Data Science Virtual Machine (DSVM) is used to train a model.
-- [Product recommendations for retail using Azure][aac-product-recommendation] uses Azure HDInsight and Stream Analytics
+- [Build a Real-time Recommendation API on Azure][aac-recommendation] uses Spark for building a recommendation system with offline, pre-computed scores. Recommendation systems are common scenarios where scores are batch-processed.
+- [Batch scoring for deep learning models using Azure Machine Learning pipelines][aac-batch-deep]
+- [Batch scoring of Python Models on Azure][aac-batch-python]
 
 Learn more:
 
@@ -103,8 +103,8 @@ Learn more:
 
 <!-- links -->
 
-[aac-movie-recommendation]: ../../example-scenario/ai/movie-recommendations-with-machine-learning.yml
-[aac-product-recommendation]: ../../solution-ideas/articles/product-recommendations.yml
+[aac-batch-deep]: ../../reference-architectures/ai/batch-scoring-deep-learning.yml
+[aac-batch-python]: ../../reference-architectures/ai/batch-scoring-python.yml
 [aac-recommendation]: ../../reference-architectures/ai/real-time-recommendation.yml
 [adf]: https://azure.microsoft.com/blog/operationalize-azure-databricks-notebooks-using-data-factory
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
