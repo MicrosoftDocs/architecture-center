@@ -20,13 +20,23 @@ Many components and Azure services are used in the multi-region AKS reference ar
 
 Consider the following items when designing a multi-region AKS deployment.
 
-### Cluster deployment
+### Cluster deployment and configuration
 
-- Considerations related to availability (overview)
-- Cluster scalability (out)
-- Planning for regional failure (sizing) 
-- Challenges of manual deployment
-- Options and benefit of automated deployments
+When deploying multiple Kubernetes clusters in highly available and geographically distributed configurations, it is essential to consider the sum of each Kubernetes cluster as a single unit. You will want to develop code-driven strategies for automated deployment and configuration to ensure that the configuration of each individual cluster is as identical as possible. You will want to consider strategies for scaling out and in by adding or removing individual clusters. Finally, you want to think through regional failure and ensure that any byproduct of a failure is compensated for in your deployment and configuration plan.
+
+Each of these topics is discussed in this section of this document.
+
+#### Deployment
+
+You have many options for deploying an Azure Kubernetes Service cluster. The Azure portal, Azure CLI, Azure PowerShell module are all decent options for deploying individual or non-coupled AKS clusters. These tools, however, can present some challenges when working with many tightly coupled AKS clusters. For example, using the Azure portal opens a genuine opportunity for miss-configuration due to missed steps. As well, the deployment and configuration of many groups using the portal is a timely process requiring the focus of one or more engineers. While you can construct a repeatable and automated process using the command line tools, the onus of things like idempotency, deployment failure control, and failure recovery is on you and the scripts you build. 
+
+We recommend using a true infrastructure as code solutions, such and Azure Resource Manager or Bicep templates, or Terraform configurations. Infrastructure as code solutions will provide an automated, scalable, and idempotent deployment solution.
+
+#### Configuration
+
+#### Scale considerations
+
+#### Regional failure considerations
 
 ### Cluster management
 
