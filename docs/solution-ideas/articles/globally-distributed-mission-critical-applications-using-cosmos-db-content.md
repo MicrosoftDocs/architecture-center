@@ -97,5 +97,6 @@ Related full architectures:
 
 Related architecture guidance:
 
+- [Deploying multi-region APIs that write to Cosmos DB](/azure/architecture/patterns/geodes)
 - [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
 - [Choosing a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
