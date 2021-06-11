@@ -1674,6 +1674,8 @@ items:
                 href: solution-ideas/articles/iot-predictive-maintenance.yml
               - name: Process real-time vehicle data using IoT
                 href: example-scenario/data/realtime-analytics-vehicle-iot.yml
+              - name: Real-time asset tracking and management using IoT Central
+                href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
               - name: Safe Buildings with IoT and Azure
                 href: solution-ideas/articles/safe-buildings.yml
               - name: Voice assistants and IoT devices
