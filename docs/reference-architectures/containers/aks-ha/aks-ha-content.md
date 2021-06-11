@@ -23,7 +23,18 @@ Consider the following items when designing a multi-region AKS deployment.
 
 ### Cluster Design
 
-This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](/azure/architecture/patterns/geodes), where any region can service any request, and [Deployment Stamps](/azure/architecture/patterns/deployment-stamp) where the multiple copies of an application component are deployed from a single source (deployment template). When selecting geographical regions for each individual AKS cluster, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography which influence how Azure planned maintenance is performed. For more information on pared regions, see [Azure Paired Regions](azure/best-practices-availability-paired-regions). Within each region, multiple zones are used so that both regional and zonal issues are mitigated.
+This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](/azure/architecture/patterns/geodes), where any region can service any request, and [Deployment Stamps](/azure/architecture/patterns/deployment-stamp) where the multiple copies of an application component are deployed from a single source (deployment template). 
+
+**Geographical Node pattern considerations:**
+
+When selecting geographical regions for each individual AKS cluster, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography which influence how Azure maintenance is performed. As your cluster scales beyond two regions, continue to plan for regional pair placement for each pair of AKS clusters. For more information on pared regions, see [Azure Paired Regions](azure/best-practices-availability-paired-regions).
+
+Within each individual region, the members of the AKS node pool are spread across multiple availability zones to help prevent issues due to zonal failures. AKS availability zones are specified during deployment and cannot be updated once deployed. AKS has a limited set of regional support for availability zones, which influences regional cluster placement. For more information on AKS and Availability zones, including a list of supported regions, see [AKS Availability Zones](/azure/aks/availability-zones).
+
+
+**Deployment stamp considerations**
+
+< add content >
 
 ### Cluster deployment and configuration
 
@@ -33,7 +44,7 @@ Each of these topics is discussed in this section of this document.
 
 #### Deployment
 
-You have many options for deploying an Azure Kubernetes Service cluster. The Azure portal, Azure CLI, Azure PowerShell module are all decent options for deploying individual or non-coupled AKS clusters. These tools, however, can present some challenges when working with many tightly coupled AKS clusters. For example, using the Azure portal opens a genuine opportunity for miss-configuration due to missed steps. As well, the deployment and configuration of many clusters using the portal is a timely process requiring the focus of one or more engineers. While you can construct a repeatable and automated process using the command line tools, the onus of things like idempotency, deployment failure control, and failure recovery is on you and the scripts you build. 
+You have many options for deploying an Azure Kubernetes Service cluster. The Azure portal, Azure CLI, Azure PowerShell module are all decent options for deploying individual or non-coupled AKS clusters. These tools, however, can present some challenges when working with many tightly coupled AKS clusters. For example, using the Azure portal opens the opportunity for miss-configuration due to missed steps. As well, the deployment and configuration of many clusters using the portal is a timely process requiring the focus of one or more engineers. While you can construct a repeatable and automated process using the command line tools, the onus of things like idempotency, deployment failure control, and failure recovery is on you and the scripts you build. 
 
 We recommend using infrastructure as code solutions, such and Azure Resource Manager templates, Bicep templates or Terraform configurations. Infrastructure as code solutions will provide an automated, scalable, and idempotent deployment solution. This reference architecture includes an ARM Template for the solutions shared services and then another for the AKS clusters + regional services.
 
@@ -75,6 +86,7 @@ Example parameter file used to deploy an AKS cluster into the centralus region. 
   }
 ```
 
+< Now discuss deployment pipelines >
 
 ```yaml
 - name: Azure CLI - Deploy AKS cluster - Region 1
@@ -95,7 +107,12 @@ Example parameter file used to deploy an AKS cluster into the centralus region. 
 
 #### Scale considerations
 
-#### Regional failure considerations
+#### Avalibility and failure
+
+Application failure
+Zonal failure
+Regional failure
+
 
 ### Cluster management
 
