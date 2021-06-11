@@ -229,23 +229,23 @@ public class ProductsCommandHandler :
 }
 ```
 
-## Related patterns and guidance
+## Next steps
 
 The following patterns and guidance are useful when implementing this pattern:
 
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). Explains the issues that are typically encountered due to eventual consistency between the read and write data stores when using the CQRS pattern, and how these issues can be resolved.
 
-- [Data Partitioning Guidance](../best-practices/data-partitioning.md). Describes best practices for dividing data into partitions that can be managed and accessed separately to improve scalability, reduce contention, and optimize performance.
-
-- [Event Sourcing pattern](./event-sourcing.md). Describes in more detail how Event Sourcing can be used with the CQRS pattern to simplify tasks in complex domains while improving performance, scalability, and responsiveness. As well as how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
-
-- [Materialized View pattern](./materialized-view.md). The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
+- [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.md). Describes best practices for dividing data into partitions that can be managed and accessed separately to improve scalability, reduce contention, and optimize performance.
 
 - The patterns & practices guide [CQRS Journey](/previous-versions/msp-n-p/jj554200(v=pandp.10)). In particular, [Introducing the Command Query Responsibility Segregation pattern](/previous-versions/msp-n-p/jj591573(v=pandp.10)) explores the pattern and when it's useful, and [Epilogue: Lessons Learned](/previous-versions/msp-n-p/jj591568(v=pandp.10)) helps you understand some of the issues that come up when using this pattern.
-
-## Community resources
 
 Martin Fowler's blog posts:
 
 - [What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
 - [CQRS](https://martinfowler.com/bliki/CQRS.html)
+
+## Related guidance
+
+- [Event Sourcing pattern](./event-sourcing.md). Describes in more detail how Event Sourcing can be used with the CQRS pattern to simplify tasks in complex domains while improving performance, scalability, and responsiveness. As well as how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
+
+- [Materialized View pattern](./materialized-view.md). The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
