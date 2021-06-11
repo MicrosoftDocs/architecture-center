@@ -142,9 +142,14 @@ Regional failure
 - Detail that state is not considered in the RI
 - Options and considerations for state
 
-### Failover
+### Avalibility / Failover
 
-- TBD
+| Application Component | Supporting service | Interface | Documentation |
+|---|---|---|---|
+| Application pods regional | Deployment / Replica Set | Kubernetes Deployment API | Kubernetes docs |
+| Application pods global | Horizontal Pod Autoscaler | Kubernetes HPA API | Kubernetes docs, AKS docs |
+| AKS node pool regional (zonal failure) | Azure Availability Zones | Availability Zones API | AKS docs |
+| AKS node pools global (regional failure) | Azure Front Door | Azure Front Door API | Front Door docs |
 
 ### Cost considerations
 
