@@ -945,6 +945,8 @@ items:
             items:
               - name: Choose a compute service
                 href: guide/technology-choices/compute-decision-tree.md
+              - name: SAS on Azure architecture guide
+                href: guide/sas/sas-overview.yml
           - name: Architectures
             items:
               - name: 3D video rendering
