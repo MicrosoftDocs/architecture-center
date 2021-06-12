@@ -7,6 +7,8 @@ ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure
 ms.custom:
   - design-pattern
 keywords:
