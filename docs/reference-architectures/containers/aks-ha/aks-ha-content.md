@@ -21,7 +21,7 @@ Many components and Azure services are used in the multi-region AKS reference ar
 
 Consider the following items when designing a multi-region AKS deployment.
 
-### Cluster Design
+### Cluster design
 
 This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](/azure/architecture/patterns/geodes), where any region can service any request, and [Deployment Stamps](/azure/architecture/patterns/deployment-stamp) where the multiple copies of an application component are deployed from a single source (deployment template). 
 
@@ -31,10 +31,13 @@ When selecting geographical regions for each individual AKS cluster, consider ut
 
 Within each individual region, the members of the AKS node pool are spread across multiple availability zones to help prevent issues due to zonal failures. AKS availability zones are specified during deployment and cannot be updated once deployed. AKS has a limited set of regional support for availability zones, which influences regional cluster placement. For more information on AKS and Availability zones, including a list of supported regions, see [AKS Availability Zones](/azure/aks/availability-zones).
 
-
 **Deployment stamp considerations**
 
 < add content >
+
+### Azure subscription design
+
+This reference architecture is split across several resource groups in a single subscription. This is to replicate the fact that many organizations will split certain responsibilities into specialized subscriptions (e.g. regional hubs/vwan in a Connectivity subscription and workloads in landing zone subscriptions). We expect you to explore this reference architecture within a single subscription, but when you implement this cluster at your organization, you will need to take what you've learned here and apply it to your expected subscription and resource group topology (such as those offered by the Cloud Adoption Framework.) This single subscription, multiple resource group model is for simplicity of demonstration purposes only.
 
 ### Cluster deployment and configuration
 
@@ -115,6 +118,8 @@ Example parameter file used to deploy an AKS cluster into the centralus region. 
 | AKS node pools global (regional failure) | Azure Front Door | Azure Front Door API | Front Door docs |
 
 #### Scale considerations
+
+Adjacent to responding to failure, you must make sure that your network and compute resources are right-sized to absorb any sudden increase in traffic due to region failover. For example, when using Azure CNI, make sure you have a subnet which can support all of the Pod IP’s with a spiked traffic load.
 
 ### Cluster management
 
