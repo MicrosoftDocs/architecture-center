@@ -38,7 +38,7 @@ Within each individual region, the members of the AKS node pool are spread acros
 
 ### Cluster deployment and configuration
 
-When deploying multiple Kubernetes clusters in highly available and geographically distributed configurations, it is essential to consider the sum of each Kubernetes cluster as a single unit. You will want to develop code-driven strategies for automated deployment and configuration to ensure that the configuration of each individual cluster is as identical as possible. You will want to consider strategies for scaling out and in by adding or removing individual clusters. Finally, you want to think through regional failure and ensure that any byproduct of a failure is compensated for in your deployment and configuration plan.
+When deploying multiple Kubernetes clusters in highly available and geographically distributed configurations, it is essential to consider the sum of each Kubernetes cluster as a coupled unit. You will want to develop code-driven strategies for automated deployment and configuration to ensure that each Kubernetes instance is as identical as possible. You will want to consider strategies for scaling out and in by adding or removing additional Kubernetes instances. You will want to think through regional failure and ensure that any byproduct of a failure is compensated for in your deployment and configuration plan.
 
 Each of these topics is discussed in this section of this document.
 
@@ -105,14 +105,16 @@ Example parameter file used to deploy an AKS cluster into the centralus region. 
 
 #### Configuration
 
+### Avalibility / Failover
+
+| Application Component | Supporting service | Interface | Documentation |
+|---|---|---|---|
+| Application pods regional | Deployment / Replica Set | Kubernetes Deployment API | Kubernetes docs |
+| Application pods global | Horizontal Pod Autoscaler | Kubernetes HPA API | Kubernetes docs, AKS docs |
+| AKS node pool regional (zonal failure) | Azure Availability Zones | Availability Zones API | AKS docs |
+| AKS node pools global (regional failure) | Azure Front Door | Azure Front Door API | Front Door docs |
+
 #### Scale considerations
-
-#### Avalibility and failure
-
-Application failure
-Zonal failure
-Regional failure
-
 
 ### Cluster management
 
@@ -141,15 +143,6 @@ Regional failure
 
 - Detail that state is not considered in the RI
 - Options and considerations for state
-
-### Avalibility / Failover
-
-| Application Component | Supporting service | Interface | Documentation |
-|---|---|---|---|
-| Application pods regional | Deployment / Replica Set | Kubernetes Deployment API | Kubernetes docs |
-| Application pods global | Horizontal Pod Autoscaler | Kubernetes HPA API | Kubernetes docs, AKS docs |
-| AKS node pool regional (zonal failure) | Azure Availability Zones | Availability Zones API | AKS docs |
-| AKS node pools global (regional failure) | Azure Front Door | Azure Front Door API | Front Door docs |
 
 ### Cost considerations
 
