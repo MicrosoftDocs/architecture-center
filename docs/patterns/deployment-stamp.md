@@ -21,6 +21,8 @@ ms.custom:
 
 The deployment stamp pattern involves deploying multiple independent copies of application components, including data stores. Each individual copy is called a *stamp*, or sometimes a *service unit* or *scale unit*. This approach can improve the scalability of your solution, allow you to deploy instances across multiple regions, and separate your customer data.
 
+## Context and problem
+
 When hosting an application in the cloud there are certain considerations to be made. One key thing to keep in mind is the performance and reliability of your application. If you host a single instance of your solution, you might be subject to the following limitations:
 
 - **Scale limits.** Deploying a single instance of your application may result in natural scaling limits. For example, you may use services that have limits on the number of inbound connections, host names, TCP sockets, or other resources.
@@ -31,8 +33,7 @@ When hosting an application in the cloud there are certain considerations to be 
 - **Update frequency.** You may have some customers who are tolerant of having frequent updates to your system, while others may be risk-averse and want infrequent updates to the system that services their requests. It may make sense to have these customers deployed to isolated environments.
 - **Geographical or geopolitical restrictions.** To architect for low latency, or to comply with data sovereignty requirements, you may deploy some of your customers into specific regions.
 
-## Implementation
-
+## Solution
 To avoid these issues, consider deploying copies of your solution's components multiple times. Stamps operate independently of each other and can be deployed and updated independently. A single geographical region may contain a single stamp, or may contain multiple stamps to allow for horizontal scale-out within the region. Stamps contain a subset of your customers.
 
 ![An example set of deployment stamps](./_images/deployment-stamp/deployment-stamp.png)
@@ -96,7 +97,7 @@ You should consider the following points when deciding how to implement this pat
 - **Traffic routing.** As described above, routing traffic to the correct stamp for a given request can require an additional component to resolve tenants to stamps. This component, in turn, may need to be made highly available.
 - **Shared components.** You may have some components that can be shared across stamps. For example, if you have a shared single-page app for all tenants, consider deploying that into one region and using [Azure CDN](/azure/storage/blobs/storage-blob-static-website) to replicate it globally.
 
-## When to use deployment stamps
+## When to use this pattern
 
 This pattern is useful when you have:
 
