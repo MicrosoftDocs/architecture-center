@@ -1,5 +1,5 @@
 ---
-title: Deployment stamps pattern
+title: Deployment Stamps pattern
 titleSuffix: Cloud Design Patterns
 description: Deploy multiple independent copies of application components.
 author: johndowns
@@ -17,7 +17,7 @@ ms.custom:
 
 <!-- cSpell:ignore johndowns myapi backplane -->
 
-# Deployment stamps
+# Deployment Stamps pattern
 
 The deployment stamp pattern involves deploying multiple independent copies of application components, including data stores. Each individual copy is called a *stamp*, or sometimes a *service unit* or *scale unit*. This approach can improve the scalability of your solution, allow you to deploy instances across multiple regions, and separate your customer data.
 
@@ -142,7 +142,7 @@ Click the link below to deploy the solution.
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdeployment-stamp%2Ftraffic-routing.json)
 
-## Next steps
+## Related guidance
 
-- Sharding can be used as another, simpler, approach to scale out your data tier. Stamps implicitly shard their data, but sharding does not require a Deployment Stamp. For more information, see [Sharding Pattern](sharding.md).
+- Sharding can be used as another, simpler, approach to scale out your data tier. Stamps implicitly shard their data, but sharding does not require a Deployment Stamp. For more information, see the [Sharding pattern](sharding.md).
 - If a traffic routing service is deployed, the [Gateway Routing](gateway-routing.md) and [Gateway Offloading](gateway-offloading.md) patterns can be used together to make the best use of this component.
