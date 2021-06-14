@@ -108,6 +108,8 @@ Example parameter file used to deploy an AKS cluster into the centralus region. 
 
 #### Configuration
 
+< add content >
+
 ### Avalibility / Failover
 
 | Application Component | Supporting service | Interface | Documentation |
