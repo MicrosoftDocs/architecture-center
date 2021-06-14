@@ -2,7 +2,7 @@
 metadata:
   title: Image classification with CNNs
   titleSuffix: Azure Solution Ideas
-  description: Boost manufacturing productivity by using convolutional neural networks and gradient-boosting decision tree algorithms to automate failure detection.
+  description: Boost manufacturing productivity and automate failure detection using convolutional neural networks (CNNs) and gradient-boosting decision tree algorithms.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/16/2019
@@ -28,7 +28,7 @@ metadata:
 name: Image classification with convolutional neural networks (CNNs)
 azureCategories:
   - ai-machine-learning
-summary: Boost manufacturing productivity by using convolutional neural networks and gradient-boosting decision tree algorithms to automate failure detection.
+summary: BooBoost manufacturing productivity and automate failure detection using convolutional neural networks (CNNs) and gradient-boosting decision tree algorithms.
 products:
   - azure-blob-storage
   - azure-container-registry
