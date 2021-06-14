@@ -114,10 +114,11 @@ Example parameter file used to deploy an AKS cluster into the centralus region. 
 
 | Application Component | Supporting service | Interface | Documentation |
 |---|---|---|---|
-| Application pods regional | Deployment / Replica Set | Kubernetes Deployment API | Kubernetes docs |
-| Application pods global | Horizontal Pod Autoscaler | Kubernetes HPA API | Kubernetes docs, AKS docs |
-| AKS node pool regional (zonal failure) | Azure Availability Zones | Availability Zones API | AKS docs |
-| AKS node pools global (regional failure) | Azure Front Door | Azure Front Door API | Front Door docs |
+| Application pods regional | Deployment / ReplicaSet | Kubernetes Deployment API | [Kubernetes docs](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) |
+| Application pods global (pod) | Horizontal Pod Autoscaler | Kubernetes HPA API | [Kubernetes docs](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) |
+| Application pods global (node pools) | AKS cluster autoscaler  | AKS API | [ASK docs](/azure/aks/cluster-autoscaler) |
+| AKS node pool regional (zonal failure) | Azure Availability Zones | Availability Zones API | [AKS docs](/azure/aks/availability-zones) |
+| AKS node pools global (regional failure) | Azure Front Door | Azure Front Door API | [Front Door docs](/azure/frontdoor/) |
 
 #### Scale considerations
 
