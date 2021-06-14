@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore eventhubs shapefile Appender malformedrides malformedfares Dropwizard dropoff taxijob durationms timechart startofday endofday DBUs DBCU -->
 
 
@@ -392,9 +391,9 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 ## Next steps
 
-* [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
-* [Demand Forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
-* [Real Time Analytics on Big Data Architecture](/azure/architecture/solution-ideas/articles/real-time-analytics)
+* [Stream processing with Azure Stream Analytics](./stream-processing-stream-analytics.yml)
+* [Demand Forecasting](../../solution-ideas/articles/demand-forecasting.yml)
+* [Real Time Analytics on Big Data Architecture](../../solution-ideas/articles/real-time-analytics.yml)
 
 <!-- links -->
 
