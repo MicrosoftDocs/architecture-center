@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: 'Cloud Application Signaling for IoT- SignalR'
+  titleSuffix: Azure Example Scenarios
+  description: Learn how to use Azure SignalR for real time telemetry visualization and action for IoT solutions
+  author: falloutxAY
+  ms.date: 4/19/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - iot
+  ms.custom:
+    - fcp
+    - example-scenario
+name: 'Cloud Application Signaling for IoT - SignalR'
+azureCategories:
+  - iot
+summary: Learn how to use Azure SignalR for real time telemetry visualization and action for IoT solutions
+products:
+  - azure-functions
+  - azure-iot
+thumbnailUrl: /azure/architecture/browse/thumbs/cloud-application-signaling.png
+content: |
+   [!include[](cloud-application-signaling-content.md)]
