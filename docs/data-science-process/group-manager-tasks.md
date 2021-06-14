@@ -10,6 +10,10 @@ ms.topic: article
 ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+products:
+  - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 
 

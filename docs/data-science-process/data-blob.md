@@ -11,6 +11,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+products:
+  - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 # <a name="heading"></a>Process Azure blob data with advanced analytics
 This document covers exploring data and generating features from data stored in Azure Blob storage. 

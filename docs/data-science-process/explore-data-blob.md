@@ -11,6 +11,10 @@ ms.topic: article
 ms.date: 04/30/2021
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+products:
+  - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 # Explore data in Azure Blob Storage with pandas
 

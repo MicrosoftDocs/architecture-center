@@ -688,7 +688,7 @@ items:
                   - name: Azure ML service selection guide
                     href: example-scenario/mlops/aml-decision-tree.yml
               - name: Team Data Science Process
-                items:      
+                items:
                   - name: Overview
                     href: data-science-process/overview.md
                   - name: Lifecycle

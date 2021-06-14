@@ -17,6 +17,8 @@ products:
   - azure-pipelines
   - azure-machine-learning
   - azure-kubernetes-service
+categories:
+  - ai-machine-learning
 ---
 # Create CI/CD pipelines for AI apps using Azure Pipelines, Docker, and Kubernetes
 

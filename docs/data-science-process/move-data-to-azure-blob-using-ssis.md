@@ -11,6 +11,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+products:
+  - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 # Move data to or from Azure Blob Storage using SSIS connectors
 The [SQL Server Integration Services Feature Pack for Azure](/sql/integration-services/azure-feature-pack-for-integration-services-ssis) provides components to connect to Azure, transfer data between Azure and on-premises data sources, and process data stored in Azure.

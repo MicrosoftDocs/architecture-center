@@ -14,6 +14,8 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, fcp
 products:
   - azure
   - azure-synapse-analytics
+categories:
+  - ai-machine-learning
 ---
 
 
@@ -219,4 +221,3 @@ Additional resources on agile processes:
 - [Agile process](/azure/devops/boards/work-items/guidance/agile-process)
   
 - [Agile process work item types and workflow](/azure/devops/boards/work-items/guidance/agile-process-workflow)
-

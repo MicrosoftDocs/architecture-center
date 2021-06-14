@@ -11,6 +11,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+products:
+  - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 # Explore data in SQL Server Virtual Machine on Azure
 
@@ -66,4 +70,3 @@ Now you can work with the Pandas DataFrame as covered in the topic [Process Azur
 
 ## The Team Data Science Process in action example
 For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Team Data Science Process in action: using SQL Server](sql-walkthrough.md).
-

@@ -11,6 +11,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
+products:
+  - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 # Azure AI guide for predictive maintenance solutions
 

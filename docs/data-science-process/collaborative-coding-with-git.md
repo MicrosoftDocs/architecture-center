@@ -13,6 +13,9 @@ ms.category: ai-machine-learning
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, fcp
 products:
   - azure
+  - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 
 
@@ -116,4 +119,3 @@ git branch -d script
 [Execute data science tasks](execute-data-science-tasks.md) shows how to use utilities to complete several common data science tasks, such as interactive data exploration, data analysis, reporting, and model creation.
 
 [Example walkthroughs](walkthroughs.md) lists walkthroughs of specific scenarios, with links and thumbnail descriptions. The linked scenarios illustrate how to combine cloud and on-premises tools and services into workflows or pipelines to create intelligent applications. 
-

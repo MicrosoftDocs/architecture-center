@@ -15,6 +15,8 @@ ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye, fcp
 products:
   - azure
   - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 # Cheat sheet for an automated data pipeline for Azure Machine Learning predictions
 The **Microsoft Azure Machine Learning automated data pipeline cheat sheet** helps you navigate through the

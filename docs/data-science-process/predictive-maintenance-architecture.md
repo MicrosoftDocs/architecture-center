@@ -10,7 +10,10 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-
+products:
+  - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 # Architecture of the Solution Template for predictive maintenance in aerospace
 The diagram below provides an architectural overview of the [Solution Template for predictive maintenance](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1).

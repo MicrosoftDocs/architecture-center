@@ -15,6 +15,8 @@ ms.custom: seodec18, previous-author=weig, previous-ms.author=weig, fcp
 products:
   - azure
   - visual-studio
+categories:
+  - ai-machine-learning
 ---
 # Data science code testing on Azure with the Team Data Science Process and Azure DevOps Services
 This article gives preliminary guidelines for testing code in a data science workflow. Such testing gives data scientists a systematic and efficient way to check the quality and expected outcome of their code. We use a Team Data Science Process (TDSP) [project that uses the UCI Adult Income dataset](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) that we published earlier to show how code testing can be done. 

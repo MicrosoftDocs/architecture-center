@@ -15,6 +15,8 @@ ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok, fcp
 products:
   - azure
   - azure-cognitive-services
+categories:
+  - ai-machine-learning
 ---
 
 # Machine Learning Anomaly Detection API

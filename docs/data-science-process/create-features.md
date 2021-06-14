@@ -11,6 +11,10 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+products:
+  - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 # Feature engineering in machine learning
 
