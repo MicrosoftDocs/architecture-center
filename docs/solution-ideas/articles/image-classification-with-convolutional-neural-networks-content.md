@@ -27,7 +27,7 @@ Using this solution to automate failure detection instead of relying solely on h
 
 * [Learn more about Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 * [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry)
-* [Learn more about Model Management](/azure/machine-learning/concept-model-management-and-deployment)
+* [Learn more about Model Management (MLOps)](/azure/machine-learning/concept-model-management-and-deployment)
 * [Learn more about Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
 * [Browse an implementation of this solution idea on GitHub](https://github.com/azure/mmlspark)
-* Try the Microsoft Learn module: [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models/)
+* Try the Microsoft Learn module [Train and evaluate deep learning models](/learn/modules/train-evaluate-deep-learn-models/), which includes a section on CNNs.
