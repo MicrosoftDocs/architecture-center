@@ -13,6 +13,8 @@ ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 products:
   - azure-machine-learning
+categories:
+  - ai-machine-learning
 ---
 # Create features for data in a Hadoop cluster using Hive queries
 This document shows how to create features for data stored in an Azure HDInsight Hadoop cluster using Hive queries. These Hive queries use embedded Hive User-Defined Functions (UDFs), the scripts for which are provided.
