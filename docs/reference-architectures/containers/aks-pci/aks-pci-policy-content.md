@@ -18,7 +18,7 @@ Here are some general suggestions:
 -  When establishing your risk assessment process, align with a published standard where practical, for example [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). Map publications from your vendor's published security list, such as the [Microsoft Security Response Center guide](https://msrc.microsoft.com/update-guide) to your risk assessment process.
 - Keep up-to-date information about device inventory and personnel access documentation. Consider using the device discovery capability included in Microsoft Defender for Endpoint. For tracking access, you can derive that information from Azure Active Directory logs. Here are some articles to get you started:
     - [Device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
-    - [View reports and logs in Azure AD entitlement management](azure/active-directory/governance/entitlement-management-reports)
+    - [View reports and logs in Azure AD entitlement management](/azure/active-directory/governance/entitlement-management-reports)
 
 - As part of your inventory management, maintain a list of approved solutions that deployed as part of the PCI infrastructure and workload. This includes a list of VM images, databases, third-party solutions. You can even automate that process by building a service catalog. It provides self-service deployment using those approved solutions in a specific configuration, which adheres to ongoing platform operations. For more information, see [Establish a service catalog](/azure/cloud-adoption-framework/manage/considerations/platform#establish-a-service-catalog).
 

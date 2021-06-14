@@ -44,17 +44,34 @@ The hub and spokes are all deployed in separate virtual networks, each in their 
 
 A combination of various Azure services and feature and native Kubernetes constructs provide the required level of control. Here are some options used in this architecture.   
 
+![Network configuration](./images/network-topology.svg)
+
 ### Strict Network Security Groups (NSGs)
 
-Place NSGs on subnets that interact with the cluster. Cluster node pool subnets block any SSH access allowing traffic from the virtual network. As your workloads, system security agents, and other components are deployed, consider adding even more NSG rules that help define the type of traffic that should and should not be traversing those subnet boundaries. Because each nodepool lives in its own subnet, you can apply more specific rules based on known/expected traffic patterns of your workload.
+There are several NSGs that control the flow in and out of the cluster. Here are some examples:
+- The cluster node pools are placed in their dedicated subnets. For each subnet, there are NSGs that block any SSH access to node VMs and allow traffic from the virtual network. Traffic from the node pools is restricted to the virtual network.
+- All inbound traffic fom the internet is intercepted by Azure Application Gateway. NSG rules make sure, for example:
+   - Only HTTPS traffic is allowed in. 
+   - Traffic from Azure Control Plane is allowed.    
+   For details, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
+- On the subnets that have Azure Container Registry agents, NSGs allow only neccessary outbound traffic. For instance, to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.  
+- The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub.
+
+As your workloads, system security agents, and other components are deployed, add more NSG rules that help define the type of traffic that should be allowed and traffic shouldn't traverse those subnet boundaries. Because each nodepool lives in its own subnet, observe the traffic patterns and then apply more specific rules.
 
 ### Azure Key Vault network restrictions
 
-In this reference implementation, Azure Application Gateway (AAG) is sourcing its public-facing certificate from Azure Key Vault. This is great as it help support easier certificate rotation and certificate control. However, currently Azure Application Gateway does not support this on Azure Key Vault instances that are exclusively network restricted via Private Link. This reference implementation deploys Azure Key Vault in a hybrid model, supporting private link and public access specifically to allow AAG integration. Once [Azure Application Gateway supports private link access to Key Vault](https://docs.microsoft.com/azure/application-gateway/key-vault-certs#how-integration-works), we'll update this reference implementation. If this topology will not be suitable for your deployment, change the certificate management process in AAG to abandon the use of Key Vault for the public-facing TLS certificate and [handle the management of that certificate directly within AAG](https://docs.microsoft.com/azure/application-gateway/tutorial-ssl-cli). Doing so will allow your Key Vault instance to be fully isolated.
+All secrets, keys and certificates are stored in Azure Key Vault.  Key Vault handles certificate management tasks, such as rotation. Communication with Key Vault is over Private Link. The DNS record associated with Key Vault is in a private DNS zone so that it can't be resolved from the internet. While this enhances security, there are some restrictions.
+
+Azure Application Gateway can't get public-facing TLS certificate from Key Vault instances that are  restricted with Private Link. So, the implementation deploys Key Vault in a hybrid model. It still uses Private Link but also allows public access for Application Gateway integration. 
+
+If this hybrid approach isn't suitable for your deployment, move the certificate management process to Application Gateway. This will add management overhead but the Key Vault instance will be completely isolated. For information, see these articles:
+- [Azure Application Gateway and Key Vault integration](/azure/application-gateway/key-vault-certs#how-integration-works)
+- [Create an application gateway with TLS termination using the Azure CLI](/azure/application-gateway/tutorial-ssl-cli). 
 
 ### Expanded NetworkPolicies
 
-Not all user-provided namespaces in this reference implementation employ a zero-trust network. For example `cluster-baseline-settings` does not. We provide an example of zero-trust networks in `a0005-i` and `a0005-o` as your reference implementation of the concept. All namespaces (other than `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces) should have a maximally restrictive NetworkPolicy applied. What those policies will be will be based on the pods running in those namespaces. Ensure your accounting for readiness, liveliness, and startup probes and also accounting for metrics gathering by `oms-agent`.  Consider standardizing on ports across your workloads so that you can provide a consistent NetworkPolicy and even Azure Policy for allowed container ports.
+Not all user-provided namespaces in this reference implementation use a zero-trust network. For example `cluster-baseline-settings` does not. We provide an example of zero-trust networks in `a0005-i` and `a0005-o` as your reference implementation of the concept. All namespaces (other than `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces) should have a maximally restrictive NetworkPolicy applied. What those policies will be will be based on the pods running in those namespaces. Ensure your accounting for readiness, liveliness, and startup probes and also accounting for metrics gathering by `oms-agent`.  Consider standardizing on ports across your workloads so that you can provide a consistent NetworkPolicy and even Azure Policy for allowed container ports.
 
 ### Enable DDoS Protection
 
