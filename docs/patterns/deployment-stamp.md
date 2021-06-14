@@ -34,6 +34,7 @@ When hosting an application in the cloud there are certain considerations to be 
 - **Geographical or geopolitical restrictions.** To architect for low latency, or to comply with data sovereignty requirements, you may deploy some of your customers into specific regions.
 
 ## Solution
+
 To avoid these issues, consider deploying copies of your solution's components multiple times. Stamps operate independently of each other and can be deployed and updated independently. A single geographical region may contain a single stamp, or may contain multiple stamps to allow for horizontal scale-out within the region. Stamps contain a subset of your customers.
 
 ![An example set of deployment stamps](./_images/deployment-stamp/deployment-stamp.png)
