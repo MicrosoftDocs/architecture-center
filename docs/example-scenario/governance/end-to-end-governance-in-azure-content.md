@@ -220,7 +220,7 @@ In Azure Active Directory, the type of group access management needed for this s
 
 ## Related resources
 
-- [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
+- [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-webapp.yml)
 - [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 - [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
 - [Azure Resource Manager roles](/azure/role-based-access-control/built-in-roles)
@@ -232,8 +232,8 @@ In Azure Active Directory, the type of group access management needed for this s
   - [Project Administrators](/azure/devops/user-guide/roles?view=azure-devops#project-administrators)
   - [Contributor](/azure/devops/user-guide/roles?view=azure-devops#contributor-roles)
   - [Reader](/azure/role-based-access-control/built-in-roles#reader)
-- [Computer forensics Chain of Custody in Azure](/azure/architecture/example-scenario/forensics/)
-- [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
-- [Azure Automation in a hybrid environment](/azure/architecture/hybrid/azure-automation-hybrid)
-- [Azure Automation Update Management](/azure/architecture/hybrid/azure-update-mgmt)
-- [Browse Azure Architectures - CI/CD](/azure/architecture/browse/?terms=ci%2Fcd)
+- [Computer forensics Chain of Custody in Azure](../forensics/index.yml)
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
+- [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
+- [Azure Automation Update Management](../../hybrid/azure-update-mgmt.yml)
+- [Browse Azure Architectures - CI/CD](../../browse/index.yml?terms=ci%2fcd)

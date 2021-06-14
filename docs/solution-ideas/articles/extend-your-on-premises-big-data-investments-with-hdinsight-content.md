@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of HDInsight.
@@ -33,5 +30,5 @@ Learn more about the component technologies:
 Explore related architectures:
 
 - [Connect an on-premises network to Azure using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover)
-- [Extend an on-premises network using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute)
-- [Interactive querying with HDInsight](/azure/architecture/solution-ideas/articles/interactive-querying-with-hdinsight)
+- [Extend an on-premises network using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute.yml)
+- [Interactive querying with HDInsight](./interactive-querying-with-hdinsight.yml)

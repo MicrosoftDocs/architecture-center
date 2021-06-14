@@ -108,33 +108,33 @@ Additional IoT topics:
 
 IoT architecture guides:
 
--   [IoT solutions conceptual overview](/azure/architecture/example-scenario/iot/introduction-to-solutions)
+-   [IoT solutions conceptual overview](./introduction-to-solutions.yml)
 
--   [Vision with Azure IoT Edge](/azure/architecture/guide/iot-edge-vision/)
+-   [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
 
--   [Azure Industrial IoT Analytics Guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
+-   [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.md)
 
--   [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+-   [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 
--   [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
+-   [IoT and data analytics](../data/big-data-with-iot.yml)
 
 Example architectures using Azure IoT Central:
 
--   [Retail - Buy online, pickup in store (BOPIS)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
--   [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
--   [Blockchain workflow application](/azure/architecture/solution-ideas/articles/blockchain-workflow-application)
+-   [Retail - Buy online, pickup in store (BOPIS)](./vertical-buy-online-pickup-in-store.yml)
+-   [Environment monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
+-   [Blockchain workflow application](../../solution-ideas/articles/blockchain-workflow-application.yml)
 
 Example architectures using Azure IoT Hub:
 
--   [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+-   [Azure IoT reference architecture](../../reference-architectures/iot.yml)
 
--   [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
+-   [IoT and data analytics](../data/big-data-with-iot.yml)
 
--   [IoT using Cosmos DB](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
+-   [IoT using Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
 
--   [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
--   [Predictive Maintenance for Industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
+-   [Predictive maintenance with the intelligent IoT Edge](../predictive-maintenance/iot-predictive-maintenance.yml)
+-   [Predictive Maintenance for Industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml)
 
--   [Project 15 Open Platform](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)
--   [IoT connected light, power, and internet for emerging markets](/azure/architecture/solution-ideas/articles/iot-power-management)
--   [Condition Monitoring for Industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
+-   [Project 15 Open Platform](../../solution-ideas/articles/project-15-iot-sustainability.yml)
+-   [IoT connected light, power, and internet for emerging markets](../../solution-ideas/articles/iot-power-management.yml)
+-   [Condition Monitoring for Industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)

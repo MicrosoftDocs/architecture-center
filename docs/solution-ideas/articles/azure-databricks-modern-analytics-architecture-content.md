@@ -164,24 +164,24 @@ To learn about related solutions, see this information:
 [Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning/
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
 [Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics/
-[Batch scoring of Spark models on Azure Databricks]: /azure/architecture/reference-architectures/ai/batch-scoring-databricks
-[Build a Real-time Recommendation API on Azure]: /azure/architecture/reference-architectures/ai/real-time-recommendation
-[Compare the machine learning products and technologies from Microsoft]: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-[Choosing a natural language processing technology in Azure]: /azure/architecture/data-guide/technology-choices/natural-language-processing
-[Choosing a stream processing technology in Azure]: /azure/architecture/data-guide/technology-choices/stream-processing
+[Batch scoring of Spark models on Azure Databricks]: ../../reference-architectures/ai/batch-scoring-databricks.yml
+[Build a Real-time Recommendation API on Azure]: ../../reference-architectures/ai/real-time-recommendation.yml
+[Compare the machine learning products and technologies from Microsoft]: ../../data-guide/technology-choices/data-science-and-machine-learning.md
+[Choosing a natural language processing technology in Azure]: ../../data-guide/technology-choices/natural-language-processing.md
+[Choosing a stream processing technology in Azure]: ../../data-guide/technology-choices/stream-processing.md
 [Databricks Delta Lake]: https://databricks.com/product/delta-lake-on-databricks
 [Event Hubs]: https://azure.microsoft.com/services/event-hubs/
 [Key Vault]: https://azure.microsoft.com/services/key-vault/
 [Medallion model]: https://techcommunity.microsoft.com/t5/analytics-on-azure/how-to-reduce-infrastructure-costs-by-up-to-80-with-azure/ba-p/1820280
 [MLflow]: https://mlflow.org/
 [MLflow Model Registry]: https://www.mlflow.org/docs/latest/registry.html
-[Monitoring Azure Databricks]: /azure/architecture/databricks-monitoring/
+[Monitoring Azure Databricks]: ../../databricks-monitoring/index.md
 [Native connectors]: /azure/databricks/data/data-sources/azure/synapse-analytics
-[Observability patterns and metrics for performance tuning]: /azure/architecture/databricks-monitoring/databricks-observability
+[Observability patterns and metrics for performance tuning]: ../../databricks-monitoring/databricks-observability.yml
 [Photon improves performance]: https://techcommunity.microsoft.com/t5/analytics-on-azure/turbocharge-azure-databricks-with-photon-powered-delta-engine/ba-p/1694929
 [Power BI connector for Azure Databricks]: /azure/databricks/integrations/bi/power-bi
 [Spark SQL pools]: /azure/synapse-analytics/spark/apache-spark-overview
-[Stream processing with Azure Databricks]: /azure/architecture/reference-architectures/data/stream-processing-databricks
+[Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
 [Swiss Re builds a digital payment platform by using Azure Databricks and Power BI]: https://customers.microsoft.com/story/1335371880067885708-swiss-re-drives-deeper-faster-insights-with-azure-synapse-analytics
 [DevOps solutions on Azure]: https://azure.microsoft.com/solutions/devops/
 [What is Azure Purview?]: /azure/purview/overview
