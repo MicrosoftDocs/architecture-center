@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes how retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. In this solution, 5G-enabled internet protocol (IP) cameras capture real-time video of shelf inventory, curbside pickup, and cashier queues. On-premises IoT edge devices analyze the video data in real time to detect the number of people in checkout queues, empty shelf space, or cars in the parking lot.
+This solution describes how retailers like grocery stores can monitor storefront events and take immediate actions to improve customer experience. In this solution, 5G-enabled internet protocol (IP) cameras capture real-time video of shelf inventory, curbside pickup, and cashier queues. On-premises IoT Edge devices analyze the video data in real time to detect the number of people in checkout queues, empty shelf space, or cars in the parking lot.
 
 Metrics analysis can trigger anomaly events to alert the store manager or stock supervisors to take corrective actions. The solution stores summary video clips or events in the cloud for long-term trend analysis.
 
@@ -14,7 +14,7 @@ This approach can also:
 
 ## Architecture
 
-![A screenshot showing on-premises video capture and analysis through Azure Stack Edge with Azure Video Analyzer and Spatial Analysis. Event notifications pass through IoT Hub to a web app for alerts, and to Azure Media Services Storage for long-term analysis.](../media/video-analytics-architecture.png)
+:::image type="content" source="../media/video-analytics-architecture.png" alt-text="Screenshot showing on-premises video capture and analysis through Azure Stack Edge with Azure Video Analyzer and Spatial Analysis. Event notifications pass through Azure IoT Hub to a web app for alerts, and to Azure Media Services Storage for long-term analysis." border="false":::
 
 1. 5G-enabled IP cameras capture video in real time, and send the video feed to a 5G Radio Access Network (RAN) device.
    
@@ -30,7 +30,7 @@ This approach can also:
    
 1. The IoT Hub module records the event notifications in a web app, and alerts store managers or stock keepers if certain thresholds are passed.
    
-1. An Azure Media Services account stores events for long-term trend analysis to help with resource planning.
+1. An Azure Media Services Storage account stores events for long-term trend analysis to help with resource planning.
 
 ### Components
 
@@ -41,7 +41,7 @@ This solution uses the following Azure components:
 - [Web Apps in Microsoft Azure App Service](https://azure.microsoft.com/services/app-service/web/) creates and deploys mission-critical web applications that scale with your business.
 - [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
 - [Media Services Storage](https://azure.microsoft.com/services/media-services/) uses Azure Storage to store large media files.
-- [Azure Network Function Manager](https://azure.microsoft.com/products/network-function-manager) enables the deployment of network functions to the IoT edge using consistent Azure tools and interfaces.
+- [Azure Network Function Manager](https://azure.microsoft.com/products/network-function-manager) enables the deployment of network functions to the IoT Edge using consistent Azure tools and interfaces.
 
 ## Next steps
 

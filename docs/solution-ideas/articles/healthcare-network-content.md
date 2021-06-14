@@ -16,7 +16,7 @@ Other examples of this approach include:
 
 ## Architecture
 
-![Screenshot showing a healthcare facility with two hospitals that collect patient and facility data with IoT devices. The devices connect to radio access devices, IoT Edge servers, and several Azure services through Azure IoT Hub.](../media/healthcare-architecture.png)
+:::image type="content" source="../media/healthcare-architecture.png" alt-text="Screenshot showing a healthcare facility with two hospitals that collect patient and facility data with IoT devices. The devices connect to radio access network (RAN) devices, IoT Edge servers, and several Azure services through Azure IoT Hub." border="false":::
 
 1. Hospital buildings use various connected devices to monitor both patient health and facility performance.
    
