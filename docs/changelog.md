@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 06/01/2021
+ms.date: 06/08/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,8 @@ New and updated articles in Azure Architecture Center
 
 ### New Articles
 
+- [Use Application Gateway Ingress Controller (AGIC) with a multi-tenant Azure Kubernetes Service (AKS)](./example-scenario/aks-agic/aks-agic.yml)
+- [Integrate IBM mainframe and midrange message queues with Azure](./example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)
 - [Container orchestration for microservices](./microservices/design/orchestration.md)
 - [Geospatial data processing and analytics](./example-scenario/data/geospatial-data-processing-analytics-azure.yml)
 
@@ -45,7 +47,7 @@ New and updated articles in Azure Architecture Center
 - [Big data analytics with enterprise-grade security using Azure Synapse](./solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
 - [Choosing an Internet of Things (IoT) solution in Azure](./example-scenario/iot/iot-central-iot-hub-cheat-sheet.md)
 - [Migrate IBM i series applications to Skytap on Azure](./example-scenario/mainframe/migrate-ibm-i-series-applications.yml)
-- [End to end governance in Azure](./example-scenario/governance/end-to-end-governance-in-azure.yml)
+- [End-to-end governance in Azure](./example-scenario/governance/end-to-end-governance-in-azure.yml)
 - [Migrate AIX workloads to Skytap on Azure](./example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml)
 - [IBM System i (AS/400) to Azure using Infinite i](./example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml)
 - [Securing your Microsoft Teams channel bot and web app behind a firewall](./example-scenario/teams/securing-bot-teams-channel.yml)
@@ -154,6 +156,7 @@ New and updated articles in Azure Architecture Center
 - [Virtual health on Microsoft Cloud for Healthcare](./example-scenario/mch-health/virtual-health-mch.yml)
 - [IoT Edge data storage and processing](./solution-ideas/articles/data-storage-edge.yml)
 - [Micro Focus Enterprise Server on Azure VMs](./example-scenario/mainframe/micro-focus-server.yml)
+- [Multi-region web app with private connectivity to database](./example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 ### Updated Articles
 
@@ -197,4 +200,7 @@ New and updated articles in Azure Architecture Center
 - [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
 - [Community Jury](./guide/responsible-innovation/community-jury/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
 - [Responsible Innovation toolkit](./guide/responsible-innovation/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Interactive voice response app with bot](./solution-ideas/articles/interactive-voice-response-bot.yml)  ([#6dd285b14](https://github.com/MicrosoftDocs/architecture-center/commit/6dd285b14))
+- [Data integration with Logic Apps and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)  ([#8b0ddb852](https://github.com/MicrosoftDocs/architecture-center/commit/8b0ddb852))
+- [Overview of Azure load-balancing options](./guide/technology-choices/load-balancing-overview.md)  ([#0e9e32e10](https://github.com/MicrosoftDocs/architecture-center/commit/0e9e32e10))
 

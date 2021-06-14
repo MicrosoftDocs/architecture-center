@@ -143,7 +143,16 @@ As well as providing more scope for scalability, using an event store also provi
 
 > You can find more information about this example in [Introducing Event Sourcing](/previous-versions/msp-n-p/jj591559(v=pandp.10)).
 
-## Related patterns and guidance
+## Next steps
+
+- [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
+
+- Martin Fowler's blog:
+
+  - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
+  - [Snapshot on Martin Fowler’s Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)
+
+## Related guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
@@ -156,12 +165,3 @@ The following patterns and guidance might also be relevant when implementing thi
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). When using event sourcing with a separate read store or materialized views, the read data won't be immediately consistent, instead it'll be only eventually consistent. Summarizes the issues surrounding maintaining consistency over distributed data.
 
 - [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)). Data is often partitioned when using event sourcing to improve scalability, reduce contention, and optimize performance. Describes how to divide data into discrete partitions, and the issues that can arise.
-
-## Community resources
-
-- [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
-
-- Martin Fowler's blog:
-
-  - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
-  - [Snapshot on Martin Fowler’s Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)

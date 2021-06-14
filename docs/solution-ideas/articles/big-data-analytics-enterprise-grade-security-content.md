@@ -229,7 +229,7 @@ Synapse Analytics:
 -   [Azure Synapse Analytics Managed Virtual
     Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet)
 
--   [Synapse Mana private
+-   [Synapse Managed private
     endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints)
 
 -   [Configure Azure Storage firewalls and virtual

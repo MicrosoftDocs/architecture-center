@@ -660,6 +660,48 @@ items:
             href: example-scenario/apps/telehealth-system.yml
           - name: Confidential computing for healthcare
             href: example-scenario/confidential/healthcare-inference.yml
+      - name: Government
+        items:
+          - name: Overview
+            href: industries/government.md
+          - name: Azure Automation in a hybrid environment
+            href: hybrid/azure-automation-hybrid.yml
+          - name: Azure Automation update management
+            href: hybrid/azure-update-mgmt.yml
+          - name: Computer forensics Chain of Custody in Azure
+            href: example-scenario/forensics/index.yml
+          - name: Hybrid Security Monitoring in Azure
+            href: hybrid/hybrid-security-monitoring.yml
+          - name: Vision classifier model with Azure
+            href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
+          - name: Web app private database connectivity
+            href: example-scenario/private-web-app/private-web-app.yml
+          - name: Windows Virtual Desktop for the enterprise
+            href: example-scenario/wvd/windows-virtual-desktop.yml
+      - name: Manufacturing
+        items:
+          - name: Overview
+            href: industries/manufacturing.md
+          - name: Industrial IoT analytics
+            href: guide/iiot-guidance/iiot-architecture.md
+          - name: Upscale machine learning lifecycle with MLOps framework
+            href: example-scenario/mlops/mlops-technical-paper.yml
+          - name: Build a speech-to-text transcription pipeline
+            href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
+      - name: Media and entertainment
+        items:
+          - name: Overview
+            href: industries/media.md
+          - name: 3D video rendering
+            href: example-scenario/infrastructure/video-rendering.yml
+          - name: Digital image-based modeling on Azure
+            href: example-scenario/infrastructure/image-modeling.yml
+          - name: Image classification on Azure
+            href: example-scenario/ai/intelligent-apps-image-processing.yml
+          - name: Movie recommendations on Azure
+            href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+          - name: Scalable personalization on Azure
+            href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
   - name: Azure categories
     expanded: true
     items:
@@ -691,7 +733,7 @@ items:
             items:
               - name: Baseball decision analysis with ML.NET and Blazor
                 href: data-guide/big-data/baseball-ml-workload.md
-              - name: Batch scoring for deep Learning
+              - name: Batch scoring for deep learning
                 href: reference-architectures/ai/batch-scoring-deep-learning.yml
               - name: Batch scoring with Python
                 href: reference-architectures/ai/batch-scoring-python.yml
@@ -903,6 +945,8 @@ items:
             items:
               - name: Choose a compute service
                 href: guide/technology-choices/compute-decision-tree.md
+              - name: SAS on Azure architecture guide
+                href: guide/sas/sas-overview.yml
           - name: Architectures
             items:
               - name: 3D video rendering
@@ -953,6 +997,8 @@ items:
                 href: example-scenario/apps/telehealth-system.yml
               - name: Magento e-commerce in AKS
                 href: example-scenario/magento/magento-azure.yml
+              - name: Multitenancy with AKS and AGIC
+                href: example-scenario/aks-agic/aks-agic.yml
           - name: Solution ideas
             items:
               - name: API-first SaaS business model with AKS
@@ -1089,6 +1135,8 @@ items:
             items:
               - name: Azure health data consortium
                 href: example-scenario/data/azure-health-data-consortium.yml
+              - name: Data governance with Profisee and Azure Purview
+                href: reference-architectures/data/profisee-master-data-management-purview.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Hybrid ETL with Azure Data Factory
@@ -1341,11 +1389,11 @@ items:
               - name: Highly available multi-region web application
                 href: reference-architectures/app-service-web-app/multi-region.yml
               - name: "IaaS: Web application with relational database"
-                href: high-availability/ref-arch-iaas-web-and-db.md
+                href: high-availability/ref-arch-iaas-web-and-db.yml
               - name: Multi-region app with private database connectivity
                 href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: Multi-region load balancing
-                href: high-availability/reference-architecture-traffic-manager-application-gateway.md
+                href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
               - name: Multi-region N-tier application
                 href: reference-architectures/n-tier/multi-region-sql-server.yml
               - name: Multitenant SaaS
@@ -1617,7 +1665,9 @@ items:
                   - name: IBM System i to Azure using Infinite i
                     href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
                   - name: IBM z/OS migration with Asysco AMT
-                    href: example-scenario/mainframe/asysco-zos-migration.yml
+                    href: example-scenario/mainframe/asysco-zos-migration.yml                    
+                  - name: Integrate IBM MQ with Azure
+                    href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
                   - name: Micro Focus Enterprise Server on Azure
                     href: example-scenario/mainframe/micro-focus-server.yml                     
                   - name: Migrate AIX workloads to Skytap on Azure
