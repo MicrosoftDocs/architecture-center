@@ -335,6 +335,12 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 [view all](../browse/index.yml?azure_categories=web)
 
+## Landing Zone
+
+| AWS service | Azure service | Description |
+|------|-------------|---------------|-------------|
+| [Control Tower](https://aws.amazon.com/controltower/) | [Blueprints](https://docs.microsoft.com/en-us/azure/governance/blueprints/) | Setup and Govern a multi account/subscription environment by creating landing zones. |
+
 ## Miscellaneous
 
 | Area | AWS service | Azure service | Description |
