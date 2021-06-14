@@ -72,7 +72,7 @@ Reliable applications are *resilient* and *highly available* (HA). Resiliency al
 
 Some reliability considerations are:
 
-- Use the [Circuit Breaker](../../patterns/circuit-breaker.md#related-patterns-and-guidance) pattern to provide stability while the system recovers from a failure and minimizes the impact on performance.
+- Use the [Circuit Breaker](../../patterns/circuit-breaker.md) pattern to provide stability while the system recovers from a failure and minimizes the impact on performance.
 
 - Achieve levels of scale and performance needed for your solution by segregating read and write interfaces by implementing the [CQRS pattern](../../patterns/cqrs.md).
 

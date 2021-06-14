@@ -146,7 +146,7 @@ public static void Run(
 }
 ```
 
-## Related patterns and guidance
+## Related guidance
 
 The following patterns and guidance might be relevant when implementing this pattern:
 
