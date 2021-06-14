@@ -59,8 +59,8 @@ in Microsoft Azure Documentation.
 The following architectures feature common high-availability scenarios:
 
 - [Highly available multi-region web application](../reference-architectures/app-service-web-app/multi-region.yml)
-- [IaaS: Web application with relational database](./ref-arch-iaas-web-and-db.md)
-- [Multi-region load balancing with Traffic Manager and Application Gateway](./reference-architecture-traffic-manager-application-gateway.md)
+- [IaaS: Web application with relational database](./ref-arch-iaas-web-and-db.yml)
+- [Multi-region load balancing with Traffic Manager and Application Gateway](./reference-architecture-traffic-manager-application-gateway.yml)
 - [Multi-region N-tier application](../reference-architectures/n-tier/multi-region-sql-server.yml)
 - [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
