@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Image classification with Convolutional Neural Networks
+  title: Image classification with CNNs
   titleSuffix: Azure Solution Ideas
   description: Boost manufacturing productivity by using convolutional neural networks and gradient-boosting decision tree algorithms to automate failure detection.
   author: doodlemania2
@@ -23,8 +23,9 @@ metadata:
     - automated manufacturing solutions
     - "https://azure.microsoft.com/solutions/architecture/image-classification-with-convolutional-neural-networks/"
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/image-classification-with-convolutional-neural-networks.png
-name: Image classification with Convolutional Neural Networks
+name: Image classification with convolutional neural networks (CNNs)
 azureCategories:
   - ai-machine-learning
 summary: Boost manufacturing productivity by using convolutional neural networks and gradient-boosting decision tree algorithms to automate failure detection.

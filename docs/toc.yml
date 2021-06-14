@@ -815,7 +815,7 @@ items:
                 href: solution-ideas/articles/faq-chatbot-with-data-champion-model.yml
               - name: Hospital patient predictions
                 href: solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml
-              - name: Image classification with CNN's
+              - name: Image classification with CNNs
                 href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml
               - name: Interactive voice response bot
                 href: solution-ideas/articles/interactive-voice-response-bot.yml
