@@ -42,11 +42,12 @@ This solution will create an HDInsight Spark cluster with Microsoft Machine Lear
 
 ## Next steps
 
-Read other Azure Architecture Center articles on marketing campaigns:
+Read other Azure Architecture Center articles:
 
 - [Campaign optimization with SQL Server and machine learning](./campaign-optimization-with-sql-server.yml)
 - [Digital campaign management](./digital-marketing-using-azure-database-for-postgresql.yml)
 - [R developer's guide to Azure](../../data-guide/technology-choices/r-developers-guide.md)
+
 Learn more with:
 
 - Microsoft Learn module [Introduction to Azure HDInsight](/learn/modules/intro-to-azure-hdinsight/)
