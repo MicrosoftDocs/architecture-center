@@ -130,7 +130,7 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 [image-style-transfer]: https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf
 [logic-apps]: /azure/logic-apps
 [rbac]: /azure/role-based-access-control/
-[storage-explorer]: https://azure.microsoft.comfeatures/storage-explorer/
+[storage-explorer]: https://azure.microsoft.com/features/storage-explorer/
 [storage-sas-overview]: /azure/storage/common/storage-sas-overview
 [storage-security]: /azure/storage/common/storage-security-guide
 [virtual-network]: /azure/machine-learning/service/how-to-enable-virtual-network
