@@ -178,7 +178,7 @@ Application Gateway has an integrated web application firewall (WAF) and inspect
 
 Have rules that only allow Azure Application Gateway to accept traffic from Azure Front Door. To set the rules you need IP address for Front door. One way is to configure WAF rules in  Application Gateway. That requires manual set up of Front Door IP addresses, which can be cumbersome. The recommended approach is to use network security group (NSG) rules on the subnet that has Application Gateway. The rules can filter inbound (or outbound) traffic based on properties such as Source, Port, Destination. The Source property allows you to set a built-in service tag that indicates IP addresses for an Azure resource. This abstraction makes it easier to configure and maintain the rule and keep track of IP addresses. 
 
-3. Application Gateway routes the traffic to its backend pool, which is the FDQN of the internal load balancer deployed as part of the cluster's ingress resources. 
+**3:** Application Gateway routes the traffic to its backend pool, which is the FDQN of the internal load balancer deployed as part of the cluster's ingress resources. 
 
 **Data protection**
 
@@ -190,7 +190,7 @@ Application Gateway uses SSL ciphers to create a secure connection to the AKS cl
 
 Application Gateway is deployed in a subnet of virtual network that hosts the cluster. It's not exposed to public traffic.
 
-4. The internal load balancer forwards the traffic to the workload pods. The load balancer decrypts traffic and this is the final TLS termination point. From here on, traffic to the pods is over HTTP. 
+**4:** The internal load balancer forwards the traffic to the workload pods. The load balancer decrypts traffic and this is the final TLS termination point. From here on, traffic to the pods is over HTTP. 
 
 ### Shared resources
 
