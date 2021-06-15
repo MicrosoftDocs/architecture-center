@@ -156,13 +156,7 @@ The flow is replicated in both regions.
 
 ![Mutli-region deployment](images/aks-ingress-flow.svg)
 
-1. The user sends a request to a domain name (https://multicluster-fd-2vgfhderl7kec.azurefd.net). 
-
-The domain is associated with the frontend host. It does these tasks:
-
-- Validates against WAF policies. 
-- Selects the fastest backend in the available backend pool based on health and latency checks.  
-- Uses a public DNS to resolve the selected backend host name to an IP address. That address is the public IP address of the Azure Application Gateway instance. 
+**1:** The user sends a request to a domain name (https://multicluster-fd-2vgfhderl7kec.azurefd.net). This domain is associated with the frontend host. The Azure Front Door instance validates the request against WAF policies, selects the fastest back-end (based on health and latency), and uses public DNS to resolve the back-end IP address (Azure Application Gateway instance).
 
 **Data protection**
 
@@ -172,7 +166,7 @@ User data must be encrypted to make sure that the traffic between the client bro
 
 Enable Web application firewall (WAF) on Azure Front Door. The WAF policies use a set of rules to check the incoming traffic and allows or blocks the traffic. That initial security check protects the backend against common threats from the internet.
 
-2. Front Door forwards the request to the selected backend:  Application Gateway that serves as the entry point for the region. The traffic flows over the internet.
+**2:** Front Door forwards the request to the selected backend: Application Gateway that serves as the entry point for the region. The traffic flows over the internet.
 
 **Data protection**
 
