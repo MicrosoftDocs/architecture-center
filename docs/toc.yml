@@ -816,9 +816,7 @@ items:
               - name: Hospital patient predictions
                 href: solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml
               - name: Image classification with CNN's
-                href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml
-              - name: Ingestion, ETL, and stream processing pipelines with Azure Databricks
-                href: solution-ideas/articles/ingest-etl-stream-with-adb.yml  
+                href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml  
               - name: Interactive voice response bot
                 href: solution-ideas/articles/interactive-voice-response-bot.yml
               - name: Keyword digital text processing
@@ -905,6 +903,8 @@ items:
                 href: solution-ideas/articles/erp-customer-service.yml
               - name: Hybrid big data with HDInsight
                 href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml
+              - name: Ingestion, ETL, and stream processing pipelines with Azure Databricks
+                href: solution-ideas/articles/ingest-etl-stream-with-adb.yml  
               - name: Interactive analytics with Azure Data Explorer
                 href: solution-ideas/articles/interactive-azure-data-explorer.yml
               - name: Interactive price analytics

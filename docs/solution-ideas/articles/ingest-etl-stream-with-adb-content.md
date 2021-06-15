@@ -21,8 +21,6 @@ This solution is inspired by the system that Providence built for real-time anal
 
 :::image type="content" source="../media/ingest-etl-and-stream-processing-with-azure-databricks.png" alt-text="Diagram that shows the architecture and data flow for ETL and stream processing with Azure Databricks." border="false":::
 
-## Data flow
-
 This reference architecture is inspired by the system built by [Providence](https://customers.microsoft.com/story/862036-providence-health-provider-azure) for real-time analytics.
 
 1. Azure Databricks reads streaming data from event queues such as Event Hubs, IoT Hub, or Kafka using the optimized Delta Engine. It then loads the raw events into optimized, compressed Delta Lake tables or folders (Bronze layer) stored in Azure Data Lake Storage.
@@ -45,3 +43,6 @@ Each service ingests data into a common format to ensure consistency. The archit
 
 ## Related resources
 
+- [Choosing an analytical data store in Azure](azure/architecture/data-guide/technology-choices/analytical-data-stores.md)
+- [Stream processing with Azure Databricks](azure/architecture/reference-architectures/data/stream-processing-databricks.md)
+- [Automated enterprise BI](azure/architecture/reference-architectures/data/enterprise-bi-adf.md)
