@@ -817,6 +817,8 @@ items:
                 href: solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml
               - name: Image classification with CNN's
                 href: solution-ideas/articles/image-classification-with-convolutional-neural-networks.yml
+              - name: Ingestion, ETL, and stream processing pipelines with Azure Databricks
+                href: solution-ideas/articles/ingest-etl-stream-with-adb.yml  
               - name: Interactive voice response bot
                 href: solution-ideas/articles/interactive-voice-response-bot.yml
               - name: Keyword digital text processing
