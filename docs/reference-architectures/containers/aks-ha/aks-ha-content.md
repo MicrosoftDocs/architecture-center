@@ -62,7 +62,7 @@ We recommend using infrastructure as code solutions, such and Azure Resource Man
 
 Example parameter file used to deploy an AKS cluster into the centralus region. Multiple parameter files can be provided, one for each region into which an ASK cluster needs to be created.
 
-"`json
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
