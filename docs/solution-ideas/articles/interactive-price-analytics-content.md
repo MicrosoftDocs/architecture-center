@@ -27,6 +27,7 @@ This architecture is ideal for the retail industry, providing pricing recommenda
 ## Architecture
 
 ![Architecture Diagram](../media/interactive-price-analytics.png)
+
 *Download an [SVG](../media/interactive-price-analytics.svg) of this architecture.*
 
 1. [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) enables building pricing models.
@@ -59,22 +60,18 @@ Interaction with the pricing model is via Excel where you can easily paste your 
 
 [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml) is the core logic in this solution from which elasticity models are created. Machine learning models can be set up with to avoid two common pitfalls of price modeling from historical data: confounding effects and data sparsity. 
 
-* Shows you in one glance at the dashboard how elastic your product demand is.
+The solution provides the following advantages:
+
+* Shows you in one glance (via the dashboard) how elastic your product demand is.
 * Provides pricing recommendations for every product in your item catalog.
 * Discovers related products (replacements and complements).
 * Lets you simulate promotional scenarios in Excel.
 
-### Architecture of a pricing analytics solution
-
-![Architecture diagram: overview of components for a pricing analytics solution using machine learning.](../media/interactive-price-analytics.png)
-
-*Download an [SVG](../media/interactive-price-analytics.svg) of this architecture.*
+## Deploy this scenario
 
 The AI Gallery solution, which is an implementation of this solution architecture, has two key roles: technical resources and end users (such as pricing managers). 
 
-Technical resources deploy the solution and connect it to a business data warehouse. For more information, they should read the [Technical Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md). End users using the model via a spreadsheet or integrated into a business application, should read the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md).
-
-## Deploy this scenario
+Technical resources deploy the solution and connect it to a business data warehouse. For more information, read the [Technical Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md). End users using the model via a spreadsheet (or integrated into a business application), should read the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md).
 
 ### Getting started
 
@@ -128,11 +125,11 @@ Learn more about the component technologies:
 Learn more about pricing solutions:
 
 - [AI Gallery Interactive Pricing Solution](https://gallery.azure.ai/Solution/Interactive-Price-Analytics)
-- [GitHub repo Interactive Price Analytics](https://github.com/Azure/cortana-intelligence-price-analytics)
+- [GitHub repo for Interactive Price Analytics](https://github.com/Azure/cortana-intelligence-price-analytics)
   - [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) - for a more detailed discussion of the architecture, connecting your own data and customization.
   - [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) - for end users of the solution such as pricing managers.
-- Blog post [A Pricing Engine for Everyone built with AzureML and Python](/archive/blogs/intel/building-a-pricing-engine-using-azureml-and-python)
-- Microsoft Learn Path [Build AI solutions with Azure Machine Learning](/learn/paths/build-ai-solutions-with-azure-ml-service/)
+- Blog post: [A Pricing Engine for Everyone built with AzureML and Python](/archive/blogs/intel/building-a-pricing-engine-using-azureml-and-python)
+- Microsoft Learn Path: [Build AI solutions with Azure Machine Learning](/learn/paths/build-ai-solutions-with-azure-ml-service)
 
 ## Related resources
 
