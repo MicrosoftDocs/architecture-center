@@ -7,7 +7,9 @@ ms.date: 02/01/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-azureCategories:
+products:
+  - azure-application-gateway
+categories:
   - networking
 ---
 
@@ -15,7 +17,7 @@ azureCategories:
 
 This article provides architectural best practices for the Azure Application Gateway v2 family of SKUs. The guidance is based on the five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-We assume that you have working knowledge of Azure Application Gateway and are well-versed with the v2 SKU features. As a refresher on the full set of features, see [Azure Application Gateway features](azure/application-gateway/features).
+We assume that you have working knowledge of Azure Application Gateway and are well-versed with the v2 SKU features. As a refresher on the full set of features, see [Azure Application Gateway features](/azure/application-gateway/features).
 
 
 ## Cost Optimization
@@ -32,7 +34,7 @@ For information about Application Gateway pricing, see [Understanding Pricing fo
 
 Use the pricing calculator to estimate cost based on units of consumption.
 
-![Azure Application Gateway pricing](../../framework/_images/cost-net-ag.png)
+![Azure Application Gateway pricing](../../../framework/_images/cost-net-ag.png)
 
 **Review underutilized resources**
 
@@ -46,8 +48,8 @@ Continuously running Application Gateway instances can incur extraneous costs. E
 
 See these articles for information about how to stop and start instances.
 
-- [Stop-AzApplicationGateway](/powershell/module/az.network/stop-azapplicationgateway?view=azps-6.0.0&viewFallbackFrom=azps-5.2.0)
-- [Start-AzApplicationGateway](/powershell/module/az.network/start-azapplicationgateway?view=azps-5.2.0)
+- [Stop-AzApplicationGateway](/powershell/module/az.network/stop-azapplicationgateway?view=azps-6.0.0&viewFallbackFrom=azps-5.2.0&preserve-view=true)
+- [Start-AzApplicationGateway](/powershell/module/az.network/start-azapplicationgateway?view=azps-5.2.0&preserve-view=true)
 
 
 **Have a scale-in and scale-out policy**
@@ -60,7 +62,7 @@ For more information, see [Autoscaling and Zone-redundant Application Gateway v2
 
 You're billed based on metered instances of Application Gateway based on the metrics tracked by Azure. Here's an example of cost incurred view in Azure Cost Management + Billing.
 
-![Azure Application Gateway pricing](../images/application-gateway-sample-cost.png)
+![Azure Application Gateway pricing Cost Review](../images/application-gateway-sample-cost.png)
 
 Evaluate the various metrics and capacity units that can be cost drivers. These are key metrics for Application Gateway. This information can be used to validate that the provisioned instance count matches the amount of incoming traffic.
 - Estimated Billed Capacity Units
