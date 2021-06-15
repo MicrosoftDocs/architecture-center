@@ -12,6 +12,7 @@ products:
 ms.custom:
   - data-analytics
   - guide
+  - internal-intro
 ---
 
 # Choosing a data analytics technology in Azure

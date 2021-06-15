@@ -30,6 +30,6 @@ In many scenarios, the adoption of the Azure cloud as a business solution involv
 
 ## Next steps
 
-* [Run containers in a hybrid environment](/azure/architecture/hybrid/hybrid-containers)
-* [CI/CD for Azure Web Apps](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps)
-* [DevTest and DevOps for microservice solutions](/azure/architecture/solution-ideas/articles/dev-test-microservice)
+* [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
+* [CI/CD for Azure Web Apps](./azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml)
+* [DevTest and DevOps for microservice solutions](./dev-test-microservice.yml)

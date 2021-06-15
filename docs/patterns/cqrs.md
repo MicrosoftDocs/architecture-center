@@ -1,5 +1,5 @@
 ---
-title: What is CQRS pattern?
+title: What is the CQRS pattern?
 description: Learn how to segregate operations that read data from those that update data, using the CQRS (Command and Query Responsibility Segregation) pattern.
 author: dragon119
 ms.date: 02/11/2020
@@ -18,11 +18,11 @@ keywords:
   - "microservices event sourcing"
 ---
 
-# What is CQRS pattern?
+# What is the CQRS pattern?
 
 CQRS stands for Command and Query Responsibility Segregation, a pattern that separates read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security. The flexibility created by migrating to CQRS allows a system to better evolve over time and prevents update commands from causing merge conflicts at the domain level.
 
-## The problem
+## Context and problem
 
 In traditional architectures, the same data model is used to query and update a database. That's simple and works well for basic CRUD operations. In more complex applications, however, this approach can become unwieldy. For example, on the read side, the application may perform many different queries, returning data transfer objects (DTOs) with different shapes. Object mapping can become complicated. On the write side, the model may implement complex validation and business logic. As a result, you can end up with an overly complex model that does too much.
 
@@ -229,23 +229,23 @@ public class ProductsCommandHandler :
 }
 ```
 
-## Related patterns and guidance
+## Next steps
 
 The following patterns and guidance are useful when implementing this pattern:
 
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). Explains the issues that are typically encountered due to eventual consistency between the read and write data stores when using the CQRS pattern, and how these issues can be resolved.
 
-- [Data Partitioning Guidance](../best-practices/data-partitioning.md). Describes best practices for dividing data into partitions that can be managed and accessed separately to improve scalability, reduce contention, and optimize performance.
-
-- [Event Sourcing pattern](./event-sourcing.md). Describes in more detail how Event Sourcing can be used with the CQRS pattern to simplify tasks in complex domains while improving performance, scalability, and responsiveness. As well as how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
-
-- [Materialized View pattern](./materialized-view.md). The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
+- [Horizontal, vertical, and functional data partitioning](../best-practices/data-partitioning.md). Describes best practices for dividing data into partitions that can be managed and accessed separately to improve scalability, reduce contention, and optimize performance.
 
 - The patterns & practices guide [CQRS Journey](/previous-versions/msp-n-p/jj554200(v=pandp.10)). In particular, [Introducing the Command Query Responsibility Segregation pattern](/previous-versions/msp-n-p/jj591573(v=pandp.10)) explores the pattern and when it's useful, and [Epilogue: Lessons Learned](/previous-versions/msp-n-p/jj591568(v=pandp.10)) helps you understand some of the issues that come up when using this pattern.
-
-## Community resources
 
 Martin Fowler's blog posts:
 
 - [What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
 - [CQRS](https://martinfowler.com/bliki/CQRS.html)
+
+## Related guidance
+
+- [Event Sourcing pattern](./event-sourcing.md). Describes in more detail how Event Sourcing can be used with the CQRS pattern to simplify tasks in complex domains while improving performance, scalability, and responsiveness. As well as how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
+
+- [Materialized View pattern](./materialized-view.md). The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
