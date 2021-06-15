@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 06/08/2021
+ms.date: 06/14/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,11 @@ New and updated articles in Azure Architecture Center
 
 ### New Articles
 
+- [Data governance with Profisee and Azure Purview](./reference-architectures/data/profisee-master-data-management-purview.yml)
+- [SAS on Azure architecture guide](./guide/sas/sas-overview.yml)
+- [Solutions for government industry](./industries/government.md)
+- [Solutions for manufacturing industry](./industries/manufacturing.md)
+- [Solutions for media and entertainment industry](./industries/media.md)
 - [Use Application Gateway Ingress Controller (AGIC) with a multi-tenant Azure Kubernetes Service (AKS)](./example-scenario/aks-agic/aks-agic.yml)
 - [Integrate IBM mainframe and midrange message queues with Azure](./example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)
 - [Container orchestration for microservices](./microservices/design/orchestration.md)
@@ -34,6 +39,15 @@ New and updated articles in Azure Architecture Center
 
 ### Updated Articles
 
+- [Geode pattern](./patterns/geodes.md)  ([#23bf31342](https://github.com/MicrosoftDocs/architecture-center/commit/23bf31342))
+- [Batch scoring of Spark models on Azure Databricks](./reference-architectures/ai/batch-scoring-databricks.yml)  ([#709ab189d](https://github.com/MicrosoftDocs/architecture-center/commit/709ab189d))
+- [Patterns and implementations](./example-scenario/banking/patterns-and-implementations.yml)  ([#28ec3c23a](https://github.com/MicrosoftDocs/architecture-center/commit/28ec3c23a))
+- [Unisys mainframe migration](./reference-architectures/migration/unisys-mainframe-migration.yml)  ([#28ec3c23a](https://github.com/MicrosoftDocs/architecture-center/commit/28ec3c23a))
+- [Modern Customer Support Portal](./solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml)  ([#28ec3c23a](https://github.com/MicrosoftDocs/architecture-center/commit/28ec3c23a))
+- [Scalable web and mobile applications using Azure Database for MySQL](./solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)  ([#28ec3c23a](https://github.com/MicrosoftDocs/architecture-center/commit/28ec3c23a))
+- [Scalable web and mobile applications using Azure Database for PostgreSQL](./solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)  ([#28ec3c23a](https://github.com/MicrosoftDocs/architecture-center/commit/28ec3c23a))
+- [Serverless application architectures using Event Grid](./solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)  ([#938c9c30b](https://github.com/MicrosoftDocs/architecture-center/commit/938c9c30b))
+- [Extract, transform, and load (ETL) using HDInsight](./solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)  ([#576e6050c](https://github.com/MicrosoftDocs/architecture-center/commit/576e6050c))
 - [Gaming using Azure Database for MySQL](./solution-ideas/articles/gaming-using-azure-database-for-mysql.yml)  ([#c226dac06](https://github.com/MicrosoftDocs/architecture-center/commit/c226dac06))
 - [Gaming using Cosmos DB](./solution-ideas/articles/gaming-using-cosmos-db.yml)  ([#c226dac06](https://github.com/MicrosoftDocs/architecture-center/commit/c226dac06))
 
@@ -74,7 +88,7 @@ New and updated articles in Azure Architecture Center
 - [Web API design best practices](./best-practices/api-design.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
 - [Microsoft Azure Well-Architected Framework](./framework/index.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
 - [Multitenancy and identity management](./multitenant-identity/index.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
-- [CQRS pattern](./patterns/cqrs.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
+- [What is the CQRS pattern?](./patterns/cqrs.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
 - [Digital Campaign Management](./solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml)  ([#cb6fd63d1](https://github.com/MicrosoftDocs/architecture-center/commit/cb6fd63d1))
 - [Forecast energy and power demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#71cc3da42](https://github.com/MicrosoftDocs/architecture-center/commit/71cc3da42))
 - [Population Health Management for Healthcare](./solution-ideas/articles/population-health-management-for-healthcare.yml)  ([#a6b3ca8ee](https://github.com/MicrosoftDocs/architecture-center/commit/a6b3ca8ee))
@@ -198,7 +212,7 @@ New and updated articles in Azure Architecture Center
 - [Performance testing and antipatterns](./antipatterns/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
 - [No Caching antipattern](./antipatterns/no-caching/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
 - [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
-- [Community Jury](./guide/responsible-innovation/community-jury/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Community jury](./guide/responsible-innovation/community-jury/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
 - [Responsible Innovation toolkit](./guide/responsible-innovation/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
 - [Interactive voice response app with bot](./solution-ideas/articles/interactive-voice-response-bot.yml)  ([#6dd285b14](https://github.com/MicrosoftDocs/architecture-center/commit/6dd285b14))
 - [Data integration with Logic Apps and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)  ([#8b0ddb852](https://github.com/MicrosoftDocs/architecture-center/commit/8b0ddb852))

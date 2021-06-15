@@ -247,19 +247,19 @@ Synapse Analytics:
 ### Related architecture guidance
 
 -   [Analytics end-to-end with Azure
-    Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+    Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 
 -   [Choosing an analytical data store in
-    Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
+    Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 
 -   [Automated enterprise
-    BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
+    BI](../../reference-architectures/data/enterprise-bi-adf.yml)
 
 -   [Enterprise business
-    intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
+    intelligence](../../reference-architectures/data/enterprise-bi-synapse.yml)
 
 -   [Advanced Analytics
-    Architecture](/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data)
+    Architecture](./advanced-analytics-on-big-data.yml)
 
 -   [Real-time analytics on big data
-    architecture](/azure/architecture/solution-ideas/articles/real-time-analytics)
+    architecture](./real-time-analytics.yml)

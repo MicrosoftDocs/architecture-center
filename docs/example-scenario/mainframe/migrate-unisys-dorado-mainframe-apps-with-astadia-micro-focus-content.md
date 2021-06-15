@@ -276,15 +276,15 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Mainframe rehosting on Azure virtual machines]: /azure/virtual-machines/workloads/mainframe-rehosting/overview
 [Managed Disks pricing]: https://azure.microsoft.com/pricing/details/managed-disks/
 [Micro Focus]: https://www.microfocus.com/home
-[Micro Focus Enterprise Server on Azure VMs]: /azure/architecture/example-scenario/mainframe/micro-focus-server
-[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/
-[Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: /azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe
-[Modernize mainframe & midrange data]: /azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
+[Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
+[Microsoft Azure Well-Architected Framework]: ../../framework/index.md
+[Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
+[Modernize mainframe & midrange data]: ../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
-[Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
+[Overview of the performance efficiency pillar]: ../../framework/scalability/overview.md
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
-[Unisys mainframe migration]: /azure/architecture/reference-architectures/migration/unisys-mainframe-migration
-[Optimize VM costs]: /azure/architecture/framework/cost/optimize-vm
+[Unisys mainframe migration]: ../../reference-architectures/migration/unisys-mainframe-migration.yml
+[Optimize VM costs]: ../../framework/cost/optimize-vm.md
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
 [VM pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/

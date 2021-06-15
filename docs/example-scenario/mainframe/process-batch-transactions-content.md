@@ -114,7 +114,7 @@ Here are pricing considerations for specific components:
 
 ## Next steps
 
-- To learn more about AKS, read: [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here).
+- To learn more about AKS, read: [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md).
 - To learn more about Service Bus, read: [Service Bus queues, topics, and subscriptions]( https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## Related resources
@@ -124,7 +124,7 @@ Here are pricing considerations for specific components:
   - [Use geo-redundancy to design highly available applications](/azure/storage/common/geo-redundant-design?tabs=current).
   - [What are ARM templates?](/azure/azure-resource-manager/templates/overview)
 - Azure reference architectures:
-  - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe).
-  - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility).
-  - [Micro Focus Enterprise Server on Azure VMs](/azure/architecture/example-scenario/mainframe/micro-focus-server).
-  - [Unisys mainframe migration](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration).
+  - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml).
+  - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml).
+  - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml).
+  - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml).
