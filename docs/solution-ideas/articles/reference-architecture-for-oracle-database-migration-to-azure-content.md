@@ -1,13 +1,12 @@
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Oracle DB migrations can be accomplished in multiple ways. This architecture covers one of these options wherein Oracle Active Data Guard is used to migrate the Database. It is assumed that Oracle Data Guard (or Active Data Guard) is used for HA/DR purposes. The database migration is performed in multiple steps. As a first step, Oracle Data Guard is used to set up a Secondary/Standby Database in Azure. This allows you to migrate your data to Azure. Once the secondary in Azure is in-sync with the primary, you can flip the database in Azure to be your primary database while maintaining your secondary on-premises. As a next step, you may set up a secondary database in a different Availability Zone (or region) for HA/DR purposes. At this point, you can decommission your on-premises environment. All data traffic between on-premises and Azure flows over Azure ExpressRoute or Site-to-Site VPN connectivity.
+Oracle DB migrations can be accomplished in multiple ways. This solution covers one of these options wherein Oracle Active Data Guard is used to migrate the Database. It is assumed that Oracle Data Guard (or Active Data Guard) is used for HA/DR purposes. The database migration is performed in multiple steps. As a first step, Oracle Data Guard is used to set up a Secondary/Standby Database in Azure. This allows you to migrate your data to Azure. Once the secondary in Azure is in-sync with the primary, you can flip the database in Azure to be your primary database while maintaining your secondary on-premises. As a next step, you may set up a secondary database in a different Availability Zone (or region) for HA/DR purposes. At this point, you can decommission your on-premises environment. All data traffic between on-premises and Azure flows over Azure ExpressRoute or Site-to-Site VPN connectivity.
 
 ## Architecture
 
 ![Architecture Diagram](../media/reference-architecture-for-oracle-database-migration-to-azure.png)
 
-## Data Flow
+### Data flow
 
 1. Connect your Azure environment with your on-premises network via site-to-site VPN or ExpressRoute.
 2. Use DataGuard to mark your OracleDB1 in Azure as your active stand-by.
@@ -16,32 +15,35 @@ Oracle DB migrations can be accomplished in multiple ways. This architecture cov
 * Note: This method only works when migrating to and from the same OS version and DB version.
 * Assumption: Customer is using DataGuard on-premises.
 
-## Components
+### Components
 
-* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/)
-* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
-* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
-* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
+* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+* [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
+* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
 * [Azure Managed Disks](https://docs.microsoft.com/en-gb/azure/virtual-machines/disks-types)
 
-## Migration consideration
+### Alternatives
 
-Database over 2TB, you can use Oracle Data Guard with Oracle Recovery Manager (RMAN) or Data Pump to replicate changes after initial “bulk” data transfer, providing a minimal downtime migration.
+If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recovery Manager (RMAN), or use Data Pump to replicate changes after an initial _bulk_ data transfer, which provides a minimal downtime migration.
 
-You can migrate your entire Oracle database from on-premises to Azure VM with minimal downtime by using Oracle Recovery Manager (RMAN) and Oracle Data Guard. Use RMAN to restore your database to the target standby Azure VM, using either backup/restore or the duplicate database method. You then configure the target database as a physical standby database with Oracle Data Guard, allowing all the transaction/redo data changes from the primary on-premises database to the standby database. When the primary on-premises Oracle database is in sync with the target standby database on the Azure VM instance, you can switch over to the target database, which will convert it to a read-write database. You can then point your application connections to the new primary database. This option provides a minimum downtime while migrating your database to Azure.
+## Considerations
 
-The Oracle Data Pump utility is used to export and import data and metadata from or to Oracle databases. You can run Data Pump export/import on an entire database, selective schemas, tablespaces, or database objects. Data Pump is the recommended tool for migrating data to Azure, for large databases that range from 10GB to 20TB in size. It allows a high degree of parallelism, flexible data extraction options, and scalable operations, which enable highspeed movement of data and metadata from source database to target database. Oracle Data Pump also supports encryption and compression when exporting your data to data dump files. You can use Oracle Data Pump with Oracle Data Guard or Golden Gate to handle the initial data transfer for large databases. Note: Data Pump is available only on Oracle Database 10g Release 1 (10.1) and later.
+### Migration
 
-## Design considerations
+You can migrate your entire Oracle database from on-premises to Azure VM with minimal downtime by using Oracle Recovery Manager (RMAN) and Oracle Data Guard. Use RMAN to restore your database to the target standby Azure VM, using either backup/restore or the duplicate database method. You can then configure the target database as a physical standby database with Oracle Data Guard, allowing all the transaction/redo data changes from the primary on-premises database to the standby database. When the primary on-premises Oracle database is in sync with the target standby database on the Azure VM instance, you can switch over to the target database, which will convert it to a read-write database. You can then point your application connections to the new primary database. This option provides a minimum downtime while migrating your database to Azure.
 
-## VM sizing
+The Oracle Data Pump utility is used to export and import data and metadata from or to Oracle databases. You can run Data Pump export/import on an entire database, selective schemas, tablespaces, or database objects. Data Pump is the recommended tool for migrating data to Azure, for large databases that range from 10 GB to 20 TB in size. It allows a high degree of parallelism, flexible data extraction options, and scalable operations, which enable highspeed movement of data and metadata from a source database to the target database. Oracle Data Pump also supports encryption and compression, when exporting your data to data dump files. You can use Oracle Data Pump with Oracle Data Guard or Golden Gate to handle the initial data transfer for large databases. Note that Data Pump is available only on Oracle Database 10g Release 1 (10.1) and later.
 
-Consider using hyperthreaded memory optimized virtual machine with constrained core vCPUs for your Oracle Database VM to save on licensing costs and maximize performance. Oracle has guaranteed license mobility from on-premises to Azure. See the Oracle-Azure FAQ.
+### Design considerations
 
-## Storage
+#### VM sizing
 
-Use multiple premium or ultra disks (managed disks) for performance and availability on your Oracle database. When using managed disks, the disk/device name may change on reboots. It's recommended that you use the device UUID instead of the name to ensure your mounts persist across reboots. More information can be found here.
-Consider using Oracle Automatic Storage Management (ASM) for streamlined storage management for your database.
+Consider using a hyperthreaded memory-optimized virtual machine with constrained core vCPUs for your Oracle Database VM, to save on licensing costs and to maximize performance. Oracle has guaranteed license mobility from on-premises to Azure. See the Oracle-Azure FAQ.
+
+#### Storage
+
+Use multiple premium or ultra disks (managed disks) for performance and availability on your Oracle database. When using managed disks, the disk/device name may change on reboots. It's recommended that you use the device UUID instead of the name, to ensure your mounts persist across reboots. Consider using Oracle Automatic Storage Management (ASM) for streamlined storage management for your database.
 
 ## Test and tunes
 
@@ -82,7 +84,7 @@ Refer to these articles for supporting info:
 * [Implement Oracle Golden Gate on an Azure Linux VM](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-oracle-golden-gate).
 * [Reference architectures for Oracle Database Enterprise Edition on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-reference-architecture).
 
-## Next step
+## Next steps
 
 * [Design and implement an Oracle database on Azure - Azure Virtual Machines | Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-design)
 * [Introduction to Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)
@@ -94,5 +96,3 @@ Refer to these articles for supporting info:
 * [Reference architectures for Oracle databases on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-reference-architecture#reference-architectures)
 * [Recovery Manager (RMAN)](https://www.oracle.com/database/technologies/high-availability/rman.html)
 * [Licensing Oracle Software in the cloud](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)
-
-## Feedback
