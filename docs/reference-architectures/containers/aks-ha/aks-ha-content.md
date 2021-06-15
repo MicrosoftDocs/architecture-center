@@ -148,8 +148,55 @@ Adjacent to responding to failure, you must make sure that your network and comp
 
 ### Traffic management
 
-- Traffic considerations (overview)
-- Traffic flow (RI)
+In this architecture, the traffic flows over the internet at several points. The receiving service only accepts and forwards TLS-encrypted traffic for maximum security. For example, The spoke network only accepts TLS encrypted traffic coming from the internet. Within the spoke, the cluster only accepts TLS encrypted traffic from the gateway.
+
+You will need multiple certificates depending on how many TLS termination points you want to have. 
+
+The flow is replicated in both regions.
+
+![Mutli-region deployment](images/aks-ingress-flow.svg)
+
+1. The user sends a request to a domain name (https://multicluster-fd-2vgfhderl7kec.azurefd.net). 
+
+The domain is associated with the frontend host. It does these tasks:
+
+- Validates against WAF policies. 
+- Selects the fastest backend in the available backend pool based on health and latency checks.  
+- Uses a public DNS to resolve the selected backend host name to an IP address. That address is the public IP address of the Azure Application Gateway instance. 
+
+**Data protection**
+
+User data must be encrypted to make sure that the traffic between the client browser and Azure Front Door cannot be inspected or changed. It's encrypted with a wildcard certificate (*azurefd.net) issued for all subdomains of Azure Front Door. This is the first TLS/SSL termination point.
+
+**Network security**
+
+Enable Web application firewall (WAF) on Azure Front Door. The WAF policies use a set of rules to check the incoming traffic and allows or blocks the traffic. That initial security check protects the backend against common threats from the internet.
+
+2. Front Door forwards the request to the selected backend:  Application Gateway that serves as the entry point for the region. The traffic flows over the internet.
+
+**Data protection**
+
+Because the data is sent over the internet, Front Door encrypts it. This encryption makes sure unsafe traffic isn't introduced to the gateway. Azure Front Door only accepts certificates signed by a certificate authority (CA). 
+
+**Network security**
+
+Application Gateway has an integrated web application firewall (WAF) and inspects all inbound traffic.
+
+Have rules that only allow Azure Application Gateway to accept traffic from Azure Front Door. To set the rules you need IP address for Front door. One way is to configure WAF rules in  Application Gateway. That requires manual set up of Front Door IP addresses, which can be cumbersome. The recommended approach is to use network security group (NSG) rules on the subnet that has Application Gateway. The rules can filter inbound (or outbound) traffic based on properties such as Source, Port, Destination. The Source property allows you to set a built-in service tag that indicates IP addresses for an Azure resource. This abstraction makes it easier to configure and maintain the rule and keep track of IP addresses. 
+
+3. Application Gateway routes the traffic to its backend pool, which is the FDQN of the internal load balancer deployed as part of the cluster's ingress resources. 
+
+**Data protection**
+
+As an added security measure you can re-encrypt this traffic to make sure unsafe traffic doesn’t flow into the cluster subnet. 
+
+Application Gateway uses SSL ciphers to create a secure connection to the AKS cluster. 
+
+**Network security**
+
+Application Gateway is deployed in a subnet of virtual network that hosts the cluster. It's not exposed to public traffic.
+
+4. The internal load balancer forwards the traffic to the workload pods. The load balancer decrypts traffic and this is the final TLS termination point. From here on, traffic to the pods is over HTTP. 
 
 ### Shared resources
 
