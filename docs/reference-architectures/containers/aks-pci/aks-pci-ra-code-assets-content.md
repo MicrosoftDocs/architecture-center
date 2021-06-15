@@ -34,9 +34,13 @@ The spoke network has an additional compute for a jump box. This machine is inte
 
 Provisioned in a separate virtual network. Creates VM images with base security and configuration. In this architecture, it's customized to build secure node images with Ubuntu 18.04-LTS platform (MSFT-provided) image with management tools such as Azure CLI, kubectl and kubelogin, flux CLI.
 
-**Nginx** 
+## Cluster configuration
 
-Kubernetes ingress controller inside the cluster. In the baseline architecture, Traefik was used. The service was replaced to illustrate that the service can be changed based on your choice.
+The baseline architecture has one user node pool and another for the system node pool. The workload runs on all the pods. This architecture has two user node pools and one system node pool. The in-scope and out-of-scope workloads are segmented in two separate user node pools. For more, see [Workload segmentation](#workload-segmentation).
+
+In this architecture, Kubernetes ingress controller inside the cluster is NGINX. In the baseline architecture, we chose Traefik. This change illustrates that the service can be changed based on your choice.
+
+The baseline architecture deployed the AKS cluster in public mode. This means all communication with the AKS-managed Kubernetes API server is over the public internet. This is not acceptable in this architecture because PCI-DSS prohibits public exposure to system components. In this regulated architecture, the cluster is deployed as a private cluster. Network traffic between the Kubernetes API server and your node pools is private. The API server is exposed through a Private Endpoint in the cluster's network. The security is further enhanced with the use of Azure Virtual Network, an NSG, and other built-in features. These are described in [Network configuration](#network-configuration).
 
 ## Networking configuration
 
@@ -57,11 +61,32 @@ There are several NSGs that control the flow in and out of the cluster. Here are
 - On the subnets that have Azure Container Registry agents, NSGs allow only neccessary outbound traffic. For instance, to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.  
 - The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub.
 
-As your workloads, system security agents, and other components are deployed, add more NSG rules that help define the type of traffic that should be allowed and traffic shouldn't traverse those subnet boundaries. Because each nodepool lives in its own subnet, observe the traffic patterns and then apply more specific rules.
+As your workloads, system security agents, and other components are deployed, add more NSG rules that help define the type of traffic that should be allowed and traffic shouldn't traverse those subnet boundaries. Because each nodepool lives in its own subnet, observe the traffic patterns, and then apply more specific rules.
+
+### Expanded NetworkPolicies
+
+This architecture attempts to implement Zero-Trust as much as possible. 
+
+Examples of Zero-Trust networks as a concept are demonstrated in the implementation in `a0005-i` and `a0005-o` user-provided namespaces. All namespaces should have restrictive `NetworkPolicy` applied, except `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces. The policy definitions will depend on the pods running in those namespaces. Make sure you're accounting for readiness, liveliness, and startup probes and also allowance for metrics gathered by `oms-agent`. Consider standardizing on ports across your workloads so that you can provide a consistent `NetworkPolicy` and Azure Policy for allowed container ports.
+
+In certain cases, this is not practical for communication within the cluster. Not all user-provided namespaces can use a Zero-Trust network, for instance `cluster-baseline-settings`. 
+<Ask Chad: why? example>
+
+## TLS encryption
+
+The baseline architecture provides TLS-encrypted traffic until the workload pod. In this architecture, TLS traffic extends into the cluster and data between pods is encyrpted. TLS trust chain isn't just encrypted, but Certificate Authority (CA) chain is also validated through violation attempts as part of the sample workload.
+
+mTLS is used in the cluster for mesh communication. Sender and receiver pods verify each other before proceeding with the traffic. 
+
+![Network configuration](./images/flow.svg)
+
+The implementation uses Tresor as its TLS certificate provider for mTLS. Consider, well-known providers if you choose to implement mTLS. Some options include CertManager, HashiCorp Vault, Key Vault, or your internal certificate provider. If you use a mesh, ensure it's compatible with certificate provider of your choice.
+
+The ingress controller in this implementation uses a wild-card certificate to handle default traffic when an Ingress resource doesn't contain a specific certificate. This might be acceptable but if the organizational policy doesn't permit using wildcard certificates, you may need to adjust your ingress controller to not support a default certificate. Instead require that even the workload uses their own named certificate. This will impact how Azure Application Gateway performs backend health checks.
 
 ### Azure Key Vault network restrictions
 
-All secrets, keys and certificates are stored in Azure Key Vault.  Key Vault handles certificate management tasks, such as rotation. Communication with Key Vault is over Private Link. The DNS record associated with Key Vault is in a private DNS zone so that it can't be resolved from the internet. While this enhances security, there are some restrictions.
+All secrets, keys and certificates are stored in Azure Key Vault. Key Vault handles certificate management tasks, such as rotation. Communication with Key Vault is over Private Link. The DNS record associated with Key Vault is in a private DNS zone so that it can't be resolved from the internet. While this enhances security, there are some restrictions.
 
 Azure Application Gateway can't get public-facing TLS certificate from Key Vault instances that are  restricted with Private Link. So, the implementation deploys Key Vault in a hybrid model. It still uses Private Link but also allows public access for Application Gateway integration. 
 
@@ -69,13 +94,21 @@ If this hybrid approach isn't suitable for your deployment, move the certificate
 - [Azure Application Gateway and Key Vault integration](/azure/application-gateway/key-vault-certs#how-integration-works)
 - [Create an application gateway with TLS termination using the Azure CLI](/azure/application-gateway/tutorial-ssl-cli). 
 
-### Expanded NetworkPolicies
 
-Not all user-provided namespaces in this reference implementation use a zero-trust network. For example `cluster-baseline-settings` does not. We provide an example of zero-trust networks in `a0005-i` and `a0005-o` as your reference implementation of the concept. All namespaces (other than `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces) should have a maximally restrictive NetworkPolicy applied. What those policies will be will be based on the pods running in those namespaces. Ensure your accounting for readiness, liveliness, and startup probes and also accounting for metrics gathering by `oms-agent`.  Consider standardizing on ports across your workloads so that you can provide a consistent NetworkPolicy and even Azure Policy for allowed container ports.
+### DDoS Protection
 
-### Enable DDoS Protection
+In general, we recommend that you enable [Azure DDoS Protection Standard](https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection) for virtual networks with a subnet that contains an Application Gateway with a public IP. The workload won't be burdened with fraudulent requests. Such requests can  cause  service disruption or pose another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workload.
 
-While not typically a feature of any specific regulated workloads, generally speaking [Azure DDoS Protection Standard](https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection) should be enabled for any virtual networks with a subnet that contains an Application Gateway with a public IP. This protects your workload from becoming overwhelmed with fraudulent requests which at best could cause a service disruption or at worst be a cover (distraction, log spam, etc) for another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses -- work with your networking team to coordinate coverage for your workload.
+
+## Identity access management
+View considerations…
+JIT and Conditional Access Policies
+AKS' control plane supports both Azure AD PAM JIT and Conditional Access Policies. We recommend that you minimize standing permissions and leverage JIT access when performing SRE/Ops interactions with your cluster. Likewise, Conditional Access Policies will add additional layers of required authentication validation for privileged access, based on the rules you build.
+
+For more details on using PowerShell to configure conditional access, see Azure AD Conditional Access
+
+Custom Cluster Roles
+Regulatory compliance often requires well defined roles, with specific access policies associated with that role. If one person fills multiple roles, they should be assigned the roles that are relevant to all of their job titles. This reference implementation doesn't demonstrate any specific role structure, and matter of fact, everything you did throughout this walkthrough was done with the most privileged role in the cluster. Part of your compliance work must be to define roles and map them allowed Kubernetes actions, scoped as narrow as practical. Even if one person is directly responsible for both the cluster and the workload, craft your Kubernetes ClusterRoles as if there were separate individuals, and then assign that single individual all relevant roles. Minimize any "do it all" roles, and favor role composition to achieve management at scale.
 
 
 ...
@@ -88,13 +121,8 @@ While not typically a feature of any specific regulated workloads, generally spe
 Additional Azure Policy application
 
 
-Zero-trust network policies (which are directly tested via violation attempts as part of the sample workload)
-mTLS throughout the sample workload (Baseline TLS was terminated at the ingress controller) – this is an example of something that goes beyond PCI requirements
-This is implemented via OSM, not as a technology recommendation, but as an implementation detail – we call out plenty of CNCF alternatives there.  Layer 7 network policies within the mesh, including Service Account-based auth.
-TLS trust chain certification at all levels, so not just encrypted, but CA chain validated as well.
-Nodepool subnet isolation (for refined Firewall and NSG application), including extended NSGs on the nodepool subnets
-Flux v2 for GitOps (baseline is Flux v1)
-NGINX Ingress Controller (Baseline was Traefik. This was NOT swapped out because of any technical reason, it was swapped out illustratively to show that customers can bring the solution that fits best for them, as is the promise [read: demand] of Kubernetes)
+
+
 Namespace Limits and Quotas
 Team/Organization Role suggestions (coming from the C12 project) and mapping to Azure AD.
 Followed by a list of further recommendations that cannot easily be presented in a “one size fits all that are going to be deploying this right from GitHub” solution

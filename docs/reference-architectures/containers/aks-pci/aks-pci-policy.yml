@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: AKS baseline cluster for a PCI-DSS workload - Policy management
+  title: AKS regulated cluster for PCI-DSS - Policy management
   description: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
   author: PageWriter-MSFT
   ms.author: pnp
@@ -14,7 +14,7 @@ metadata:
     - microservices
     - reference-architecture
     - e2e-aks
-name: AKS baseline cluster for a PCI-DSS workload - Policy management
+name: AKS regulated cluster for PCI-DSS - Policy management
 azureCategories:
   - containers
 summary: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).

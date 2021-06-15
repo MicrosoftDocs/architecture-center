@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: AKS baseline cluster for a PCI-DSS workload - Data Protection
+  title: AKS regulated cluster for PCI-DSS - Data Protection
   description: Best practices for implementing Requirements 3 and Requirement 4 for a PCI-DSS infrastructure. 
   author: PageWriter-MSFT
   ms.author: pnp
@@ -14,7 +14,7 @@ metadata:
     - microservices
     - reference-architecture
     - e2e-aks
-name: AKS baseline cluster for a PCI-DSS workload - Data Protection
+name: AKS regulated cluster for PCI-DSS - Data Protection
 azureCategories:
   - containers
 summary: Best practices for implementing Requirements 3 and Requirement 4 for a PCI-DSS infrastructure. 

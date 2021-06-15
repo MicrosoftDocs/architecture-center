@@ -58,3 +58,13 @@ If you do not have Network Watchers and NSG Flow Logs enabled on your subscripti
 
 ## Cost Optimization
 
+### Workload isolation
+The main theme of the PCI standard is to isolate the PCI workload from other workloads in terms of operations and connectivity. In this series we differentiate between those concepts as:
+
+- In-scope&mdash;The PCI workload, the environment in which it resides, and operations.
+
+- Out-of-scope&mdash;Other workloads that may share services but are isolated from the in-scope components.
+
+The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. 
+
+In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The application has  two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM.
