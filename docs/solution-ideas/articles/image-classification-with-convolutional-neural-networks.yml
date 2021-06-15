@@ -28,7 +28,7 @@ metadata:
 name: Image classification with convolutional neural networks (CNNs)
 azureCategories:
   - ai-machine-learning
-summary: BooBoost manufacturing productivity and automate failure detection using convolutional neural networks (CNNs) and gradient-boosting decision tree algorithms.
+summary: Boost manufacturing productivity and automate failure detection using convolutional neural networks (CNNs) and gradient-boosting decision tree algorithms.
 products:
   - azure-blob-storage
   - azure-container-registry
