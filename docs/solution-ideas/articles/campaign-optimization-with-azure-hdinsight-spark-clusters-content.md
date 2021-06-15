@@ -16,7 +16,7 @@ The [campaign optimization GitHub repo](https://github.com/Microsoft/r-server-ca
 
 ## Components
 
-[Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server) - Enterprise software for data science, providing R and Python interpreters, base distributions of R and Python, additional high-performance libraries from Microsoft, and an operationalization capability for advanced deployment scenarios. 
+[Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server) - Enterprise software for data science, providing R and Python interpreters, base distributions of R and Python, additional high-performance libraries from Microsoft, and an operationalization capability for advanced deployment scenarios.
 
 [Azure HDInsight](/azure/hdinsight/hdinsight-overview) - A managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more.
 
