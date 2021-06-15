@@ -253,7 +253,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 [aad-password-management]: /azure/active-directory/active-directory-passwords-customize
 [aad-powershell]: /powershell/module/azuread/?view=azureadps-2.0
 [aad-reporting-guide]: /azure/active-directory/active-directory-reporting-guide
-[aad-scalability]: https://blogs.technet.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory
+[aad-scalability]: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-under-the-hood-of-our-geo-redundant-highly-available/ba-p/243762
 [aad-sync-best-practices]: /azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration
 [aad-sync-disaster-recovery]: /azure/active-directory/hybrid/how-to-connect-sync-operations#disaster-recovery
 [aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
