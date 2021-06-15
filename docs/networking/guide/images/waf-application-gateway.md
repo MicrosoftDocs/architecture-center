@@ -24,23 +24,22 @@ We assume that you have working knowledge of Azure Application Gateway and are w
 
 Review and apply the [cost principles](/azure/architecture/framework/cost/overview) when making design choices. 
 
-Here are some key points:
-
-**Review Application Gateway pricing**
+### Review Application Gateway pricing
 
 Familiarize yourself with Application Gateway pricing to help you identify the right deployment configuration for your environment. Ensure that these blocks are adequately sized to meet the capacity demand and deliver expected performance without wasting resources.
 
 For information about Application Gateway pricing, see [Understanding Pricing for Azure Application Gateway and Web Application Firewall](/azure/application-gateway/understanding-pricing).
 
-Use the pricing calculator to estimate cost based on units of consumption.
+Use these resources to estimate cost based on units of consumption.
 
-![Azure Application Gateway pricing](../../../framework/_images/cost-net-ag.png)
+- [Azure Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
+- [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
-**Review underutilized resources**
+### Review underutilized resources
 
 Identify and delete Application Gateway instances with empty backend pools.
 
-**Stop Application Gateway instances when not in use**
+### Stop Application Gateway instances when not in use
 
 You aren't billed when Application Gateway is in stopped state. 
 
@@ -52,24 +51,33 @@ See these articles for information about how to stop and start instances.
 - [Start-AzApplicationGateway](/powershell/module/az.network/start-azapplicationgateway?view=azps-5.2.0&preserve-view=true)
 
 
-**Have a scale-in and scale-out policy**
+### Have a scale-in and scale-out policy
 
-A scale-in policy ensures that there will be enough instances to handle the incoming traffic and  spikes. Also, have a scale-out policy that makes sure the number of instances are reduced when demand drops. 
+A scale-in policy ensures that there will be enough instances to handle the incoming traffic and  spikes. Also, have a scale-out policy that makes sure the number of instances are reduced when demand drops. Consider the choice of instance size. The size can significantly impact the cost.
 
 For more information, see [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
-**Review consumption metrics across different parameters**
+### Review consumption metrics across different parameters
 
-You're billed based on metered instances of Application Gateway based on the metrics tracked by Azure. Here's an example of cost incurred view in Azure Cost Management + Billing.
+You're billed based on metered instances of Application Gateway based on the metrics tracked by Azure. Here's an example of cost incurred view in [Azure Cost Management + Billing](https://azure.microsoft.com/services/cost-management/).
+
+> The example is based on the current price and is subject to change. This is shown for information purposes only.
 
 ![Azure Application Gateway pricing Cost Review](../images/application-gateway-sample-cost.png)
 
-Evaluate the various metrics and capacity units that can be cost drivers. These are key metrics for Application Gateway. This information can be used to validate that the provisioned instance count matches the amount of incoming traffic.
+Evaluate the various metrics and capacity units that can be cost drivers. 
+
+These are key metrics for Application Gateway. This information can be used to validate that the provisioned instance count matches the amount of incoming traffic.
+
 - Estimated Billed Capacity Units
 - Fixed Billable Capacity Units
 - Current Capacity Units.
 
 For more information, see [Application Gateway metrics](/application-gateway/application-gateway-metrics#application-gateway-metrics).
+
+
+Make sure you account for bandwidth costs. For details, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions#traffic-across-billing-zones-and-regions). 
+
 
 ## Operational Excellence
 
