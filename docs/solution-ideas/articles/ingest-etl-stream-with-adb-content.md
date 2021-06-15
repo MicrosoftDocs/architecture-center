@@ -43,6 +43,6 @@ Each service ingests data into a common format to ensure consistency. The archit
 
 ## Related resources
 
-- [Choosing an analytical data store in Azure](azure/architecture/data-guide/technology-choices/analytical-data-stores.md)
-- [Stream processing with Azure Databricks](azure/architecture/reference-architectures/data/stream-processing-databricks.md)
-- [Automated enterprise BI](azure/architecture/reference-architectures/data/enterprise-bi-adf.md)
+- [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
+- [Stream processing with Azure Databricks](/azure/architecture/reference-architectures/data/stream-processing-databricks)
+- [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
