@@ -22,7 +22,6 @@ A popular use case for implementing an end-to-end event stream processing patter
 
 ### Components
 
-- [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources, used to organize everything related to this project in the Azure console.
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
 - [KEDA](https://keda.sh/) is an event driven autoscaler used to scale containers in the Kubernetes cluster based on the number of events needing to be processed.
 - [Event Hub](https://azure.microsoft.com/services/event-hubs/) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
