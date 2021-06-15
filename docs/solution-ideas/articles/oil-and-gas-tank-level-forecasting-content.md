@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Today, most facilities operate reactively to problems in tank levels. This often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. Tank level forecasting helps manage and abate these and other problems.
@@ -55,9 +52,9 @@ After deployment, see the post deployment instructions.
 
 ## Next steps
 
-* [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
-* [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
-* [Anomaly Detector Process](/azure/architecture/solution-ideas/articles/anomaly-detector-process)
-* [Demand Forecasting](/azure/architecture/solution-ideas/articles/demand-forecasting)
-* [Predicting Length of Stay in Hospitals](/azure/architecture/solution-ideas/articles/predicting-length-of-stay-in-hospitals)
-* [Predictive Aircraft Engine Monitoring](/azure/architecture/solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace)
+* [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
+* [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
+* [Anomaly Detector Process](./anomaly-detector-process.yml)
+* [Demand Forecasting](./demand-forecasting.yml)
+* [Predicting Length of Stay in Hospitals](./predicting-length-of-stay-in-hospitals.yml)
+* [Predictive Aircraft Engine Monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)

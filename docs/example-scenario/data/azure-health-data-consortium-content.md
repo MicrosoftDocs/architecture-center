@@ -208,12 +208,12 @@ For more information, see [pricing details][Azure pricing calculator].
 [About Azure Key Vault]: /azure/key-vault/general/overview
 [Access control lists (ACLs) in Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-access-control
 [Azure API for FHIR]: https://azure.microsoft.com/services/azure-api-for-fhir/
-[Azure Data Explorer interactive analytics]: /azure/architecture/solution-ideas/articles/interactive-azure-data-explorer
+[Azure Data Explorer interactive analytics]: ../../solution-ideas/articles/interactive-azure-data-explorer.yml
 [Azure Disk Encryption for virtual machines and virtual machine scale sets]: /azure/security/fundamentals/azure-disk-encryption-vms-vmss
 [Azure IoT Connector]: /azure/healthcare-apis/fhir/overview#azure-iot-connector-for-fhir-preview
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/
-[Clinical insights with Microsoft Cloud for Healthcare]: /azure/architecture/example-scenario/mch-health/medical-data-insights
-[Confidential computing on a healthcare platform]: /azure/architecture/example-scenario/confidential/healthcare-inference
+[Clinical insights with Microsoft Cloud for Healthcare]: ../mch-health/medical-data-insights.yml
+[Confidential computing on a healthcare platform]: ../confidential/healthcare-inference.yml
 [Fast Healthcare Interoperability Resources (FHIR)]: https://www.hl7.org/fhir/index.html
 [Genomics]: https://www.genome.gov/about-genomics/fact-sheets/A-Brief-Guide-to-Genomics
 [High availability of Azure Data Explorer]: /azure/data-explorer/business-continuity-overview#high-availability-of-azure-data-explorer
@@ -222,10 +222,10 @@ For more information, see [pricing details][Azure pricing calculator].
 [Imaging]: https://www.dicomstandard.org/
 [Internet of Medical Things (IoMT)]: https://azure.microsoft.com/overview/iot/industry/healthcare/#use-cases
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
-[Medical data storage solutions]: /azure/architecture/solution-ideas/articles/medical-data-storage
+[Medical data storage solutions]: ../../solution-ideas/articles/medical-data-storage.yml
 [Microsoft DICOM]: https://github.com/microsoft/dicom-server
 [Microsoft Genomics]: https://azure.microsoft.com/services/genomics/
-[Modern data warehouse architecture]: /azure/architecture/solution-ideas/articles/modern-data-warehouse
+[Modern data warehouse architecture]: ../../solution-ideas/articles/enterprise-data-warehouse.yml
 [An overview of Azure SQL Database and SQL Managed Instance security capabilities]: /azure/azure-sql/database/security-overview
 [Security in Azure Data Explorer]: /azure/data-explorer/security
 [Securing your Data Warehouse with Azure Synapse Analytics]: https://azure.microsoft.com/resources/videos/securing-your-data-warehouse-with-azure-synapse-analytics/

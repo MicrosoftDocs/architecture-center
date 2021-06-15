@@ -79,21 +79,21 @@ More about Azure Traffic Manager:
 
 Related solution ideas:
 
-* [Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)
-* [Deliver highly scalable customer service and ERP applications](/azure/architecture/solution-ideas/articles/erp-customer-service)
-* [Gaming using Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)
-* [IoT using Cosmos DB](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
-* [Personalization using Cosmos DB](/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db)
-* [Retail and e-commerce using Cosmos DB](/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db)
-* [Serverless apps using Cosmos DB](/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db)
+* [Build cloud native applications](./cloud-native-apps.yml)
+* [Deliver highly scalable customer service and ERP applications](./erp-customer-service.yml)
+* [Gaming using Cosmos DB](./gaming-using-cosmos-db.yml)
+* [IoT using Cosmos DB](./iot-using-cosmos-db.yml)
+* [Personalization using Cosmos DB](./personalization-using-cosmos-db.yml)
+* [Retail and e-commerce using Cosmos DB](./retail-and-e-commerce-using-cosmos-db.yml)
+* [Serverless apps using Cosmos DB](./serverless-apps-using-cosmos-db.yml)
 
 Related full architectures:
 
-* [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
-* [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/newsfeed-ingestion)
-* [Scalable order processing](/azure/architecture/example-scenario/data/ecommerce-order-processing)
+* [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
+* [Mass ingestion and analysis of news feeds on Azure](../../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
+* [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 
 Related architecture guidance:
 
-* [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-* [Choosing a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
+* [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+* [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)

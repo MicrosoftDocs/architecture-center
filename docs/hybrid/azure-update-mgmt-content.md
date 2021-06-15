@@ -1,6 +1,3 @@
-
-
-
 This reference architecture illustrates how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.
 
 ![Azure Update management is configuration component of Azure Automation. Windows and Linux computers, both in Azure and on-premises, send assessment information about missing updates to the Log Analytics workspace. Azure Automation then uses that information to create a schedule for automatic deployment of the missing updates.][architectural-diagram]
@@ -297,7 +294,7 @@ More about Azure Automation:
 - [Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker)
 - [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account)
 - [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
-- [Azure Automation Update Management](/azure/architecture/hybrid/azure-update-mgmt)
+- [Azure Automation Update Management](./azure-update-mgmt.yml)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview)
 - [Azure Arc Overview](/azure/azure-arc/overview)
