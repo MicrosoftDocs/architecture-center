@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Basic serverless processing with Event Hubs and Azure Functions
+  titleSuffix: Azure Solution Ideas
+  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  author: EdPrice-MSFT
+  ms.author: heather.camm
+  ms.date: 06/18/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - <choose at least one category from the list at https://review.docs.microsoft.com/en-us/help/contribute/architecture-center/aac-browser-authoring?branch=master#azure-categories>
+  - <there can be more than one category>
+products: 
+  - azure-event-hubs
+  - azure-functions
+  - azure-cosmos-db
+  - azure-pipelines
+  - azure-monitor
+name: Basic serverless processing with Event Hubs and Azure Functions
+summary: <Write a summary. Can be same as description.>
+thumbnailUrl: /azure/architecture/browse/thumbs/BROWSE-PNG-FILENAME.png
+content: |
+  [!include[](serverless-event-processing-simple-content.md)]
