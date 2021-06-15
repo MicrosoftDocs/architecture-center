@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Campaign optimization with Azure HDInsight Spark Clusters
+  title: Campaign optimization with Azure HDInsight Spark clusters
   titleSuffix: Azure Solution Ideas
-  description: Build and deploy a machine learning model to maximize the purchase rate of leads targeted by a campaign using Microsoft R Server on Azure HDInsight Spark clusters.
+  description: Build and deploy a machine learning model to maximize the purchase rate of leads targeted by a marketing campaign using Microsoft Machine Learning Server.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/16/2019
@@ -23,12 +23,12 @@ metadata:
     - ai-machine-learning
     - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/campaign-optimization-with-azure-hdinsight-spark-clusters.png
-name: Campaign optimization with Azure HDInsight Spark Clusters
+name: Campaign optimization with Azure HDInsight Spark clusters
 azureCategories:
   - databases
   - analytics
   - ai-machine-learning
-summary: Build and deploy a machine learning model to maximize the purchase rate of leads targeted by a campaign using Microsoft R Server on Azure HDInsight Spark clusters.
+summary: Build and deploy a machine learning model to maximize the purchase rate of leads targeted by a marketing campaign using Microsoft Machine Learning Server.
 products:
   - azure-hdinsight
   - power-bi
