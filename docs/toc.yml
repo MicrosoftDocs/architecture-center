@@ -145,8 +145,6 @@ items:
             href: guide/responsible-innovation/community-jury/index.md
       - name: Multitenant applications
         items:
-          - name: Overview
-            href: guide/multitenant/overview.md
           - name: Considerations
             items:
               - name: Overview
@@ -159,12 +157,8 @@ items:
                 href: guide/multitenant/considerations/pricing-models.md
               - name: Measure consumption
                 href: guide/multitenant/considerations/measure-consumption.md
-              - name: Updates
+              - name: Deploy updates
                 href: guide/multitenant/considerations/updates.md
-              - name: Map requests to tenants
-                href: guide/multitenant/considerations/map-requests.md
-              - name: Domain names
-                href: guide/multitenant/considerations/domain-names.md
       - name: Azure for AWS Professionals
         items:
           - name: Overview
