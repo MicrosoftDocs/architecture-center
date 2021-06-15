@@ -47,7 +47,7 @@ You also need to consider the following questions from your own perspective:
 
 If you leave cadence of your service updates entirely to your tenants' discretion, they may choose never to update. It's important to allow yourself to update your solution, while factoring in any reasonable concerns or constraints that your customers might have. For example, if a customer is particularly sensitive to updates on a Friday since that's their busiest day of the week, can you just as easily defer updates to Mondays without impacting your solution?
 
-One approach that can work well is to roll out updates on a tenant-by-tenant basis, using [one of the approaches described below](#deployment-topologies-that-support-updates). Give your customer notice of planned updates. Allow customers to temporarily opt out, but not forever - put a reasonable limit on when you will require the update to be applied.
+One approach that can work well is to roll out updates on a tenant-by-tenant basis, using [one of the approaches described below](#deployment-strategies-to-support-updates). Give your customer notice of planned updates. Allow customers to temporarily opt out, but not forever - put a reasonable limit on when you will require the update to be applied.
 
 Also, consider allowing yourself the ability to deploy security patches or other critical hotfixes with minimal or no advance notice.
 
