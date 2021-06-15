@@ -1,4 +1,4 @@
-This reference architecture shows how to run an Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.
+This reference architecture details how to run multiple instances of an Azure Kubernetes Service (AKS) cluster across multiple regions in an active/active and highly available configuration.
 
 This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
 
@@ -11,19 +11,23 @@ This architecture builds on the [AKS Baseline architecture](/azure/architecture/
 Many components and Azure services are used in the multi-region AKS reference architecture. Only those with uniqueness to this multi-cluster architecture are listed below. For the remaining, please reference the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
 
 - **Multiple clusters / multiple regions** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
-- **Azure Front Door** Azure Front door is used to load balance and route traffic to each AKS cluster in the configuration. Azure Front Door allows for layer seven global routing, both of which are required for this reference architecture.
+- **Azure Front Door** Azure Front door is used to load balance and route traffic to each AKS cluster. Azure Front Door allows for layer seven global routing, both of which are required for this reference architecture.
 - **Azure Application Gateway** Each cluster in the solution is configured with an Azure Application Gateway instance sitting in front of it. These components are configured as the back ends for the Azure Front Door instance. The cluster networking configuration is fully detailed later in this document.
 - **DNS** Azure DNS resolves the Azure Front Door requests to the IP address associated with Application Gateway. 
-- **Key store** Azure Key Vault is provisioned in each region.  
-- **Container registry** The container images for the workload are stored in a managed container registry. There's a single instance. Geo-replication for Azure Container Registry is enabled. It will automatically replicate images to the selected Azure regions and provide continued access to images even if a region is experiencing an outage.
+- **Key store** Azure Key Vault is provisioned in each region for storing sensitive values and keys.
+- **Container registry** The container images for the workload are stored in a managed container registry.  In this architecture, a single Azure Container Registry is used for all Kubernetes instances in the cluster. Geo-replication for Azure Container Registry enables replicating images to the selected Azure regions and providing continued access to images even if a region is experiencing an outage.
 
 ## Design considerations
 
 Consider the following items when designing a multi-region AKS deployment.
 
+### Azure subscription
+
+This reference architecture is split across several resource groups in a single subscription. This is to replicate the fact that many organizations will split certain responsibilities into specialized subscriptions (e.g. regional hubs/vwan in a Connectivity subscription and workloads in landing zone subscriptions). We expect you to explore this reference architecture within a single subscription, but when you implement this cluster at your organization, you will need to take what you've learned here and apply it to your expected subscription and resource group topology (such as those offered by the Cloud Adoption Framework.) This single subscription, multiple resource group model is for simplicity of demonstration purposes only.
+
 ### Cluster design
 
-This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](/azure/architecture/patterns/geodes), where any region can service any request, and [Deployment Stamps](/azure/architecture/patterns/deployment-stamp) where the multiple copies of an application component are deployed from a single source (deployment template). 
+This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](/azure/architecture/patterns/geodes), where any region can service any request, and [Deployment Stamps](/azure/architecture/patterns/deployment-stamp) where  multiple independent copies of an application or application component are deployed from a single source (deployment template). 
 
 **Geographical Node pattern considerations:**
 
@@ -33,11 +37,16 @@ Within each individual region, the members of the AKS node pool are spread acros
 
 **Deployment stamp considerations**
 
-< add content >
+When selecting a process for creating and managing deployment stamps, or individual Kubernetes instances in this case, it is important to conside the following things:
 
-### Azure subscription design
+- Select stamp definition technology that allows for generalized configuration such as infrastructure as code
+- Provide instance-specific values using a deployment input mechanism such as variables or parameter files
+- Select deployment tooling that allows for flexible, repeatable, and idempotent deployment.
+- In an active/active stamp configuration, consider how traffic is balanced across each stamp
+- As stamps are added and removed from the collection, consider capacity concerns.
+- Consider how to gain visibility and/or monitor the collection of stamps as a single unit.
 
-This reference architecture is split across several resource groups in a single subscription. This is to replicate the fact that many organizations will split certain responsibilities into specialized subscriptions (e.g. regional hubs/vwan in a Connectivity subscription and workloads in landing zone subscriptions). We expect you to explore this reference architecture within a single subscription, but when you implement this cluster at your organization, you will need to take what you've learned here and apply it to your expected subscription and resource group topology (such as those offered by the Cloud Adoption Framework.) This single subscription, multiple resource group model is for simplicity of demonstration purposes only.
+Each of these items is detailed with specific guidance in the following sections of this reference architecture.
 
 ### Cluster deployment and configuration
 
@@ -53,7 +62,7 @@ We recommend using infrastructure as code solutions, such and Azure Resource Man
 
 Example parameter file used to deploy an AKS cluster into the centralus region. Multiple parameter files can be provided, one for each region into which an ASK cluster needs to be created.
 
-```json
+"`json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -122,7 +131,7 @@ Example parameter file used to deploy an AKS cluster into the centralus region. 
 
 #### Scale considerations
 
-Adjacent to responding to failure, you must make sure that your network and compute resources are right-sized to absorb any sudden increase in traffic due to region failover. For example, when using Azure CNI, make sure you have a subnet which can support all of the Pod IP’s with a spiked traffic load.
+Adjacent to responding to failure, you must make sure that your network and compute resources are right-sized to absorb any sudden increase in traffic due to region failover. For example, when using Azure CNI, make sure you have a subnet that can support all Pod IPs with a spiked traffic load.
 
 ### Cluster management
 
