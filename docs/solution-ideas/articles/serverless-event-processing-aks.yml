@@ -3,8 +3,8 @@ metadata:
   title: Azure Kubernetes in event stream processing
   titleSuffix: Azure Solution Ideas
   description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
-  author: EdPrice-MSFT
-  ms.author: heather.camm
+  author: Sarah-Aly
+  ms.author: sarah.aly
   ms.date: 06/18/2021
   ms.topic: conceptual
   ms.service: architecture-center

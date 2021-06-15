@@ -1,52 +1,49 @@
+<!-- cSpell:ignore KEDA deadletter autoscaler -->
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Introductory section (no heading)
-The introduction contains:
+This article describes a variation of a [serverless](https://azure.microsoft.com/solutions/serverless/) event-driven architecture running on Azure Kubernetes with KEDA scaler that ingests a stream of data, processes the data, and then writes the results to a back-end database.
 
-- A paragraph that describes what the solution does (the domain)
-- A paragraph that contains a brief description of the main Azure services that make up the solution. This paragraph should convey the Azure value proposition, not a complete description of the architecture.
+To learn more about the basic concepts, considerations, and approaches for serverless event processing, consult the [Serverless event processing](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing) reference architecture.
 
 ## Potential use cases
 
-> Are there any other use cases or industries where this would be a fit?
-> How similar or different are they to what's in this article?
-
-These other uses cases have similar design patterns:
-
-- List of example use cases
+A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub-triggered functions.
 
 ## Architecture
 
-_Architecture diagram goes here_
+![Diagram showing the data flow described in this article](../media/serverless-event-processing-aks-diagram.png)
 
-After the architecture diagram, include a numbered list that describes the data flow or workflow through the solution. Explain what each step does. Start from the user or external data source, and then follow the flow through the rest of the solution.
+- Azure Kubernetes Service (AKS) with the KEDA scaler is used to autoscale Azure Functions containers based on the number of events needing to be processed.
+- Events arrive at the Input Event Hub.
+- The De-batching and Filtering Azure Function is triggered to handle the event. This step filters out unwanted events and de-batches the received events before submitting to the Output Event Hub.
+- If the De-batching and Filtering Azure Function fails to store the event successfully, the event is submitted to the Deadletter Event Hub 1.
+- Events arriving at the Output Event Hub trigger the Transforming Azure Function. This Azure Function transforms the event into a message for the Cosmos DB.
+- The event is stored in a Cosmos DB database.
 
 ### Components
 
-A bullet list of components in the architecture (including all relevant Azure services) with links to the product service pages. This is for lead generation (what business, marketing, and PG want). It helps drive revenue.
+- [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources, used to organize everything related to this project in the Azure console.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
+- [KEDA](https://keda.sh/) is an event driven autoscaler used to scale containers in the Kubernetes cluster based on the number of events needing to be processed.
+- [Event Hub](https://azure.microsoft.com/services/event-hubs/) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
+- [Azure Functions](https://azure.microsoft.com/services/functions/) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Cosmos DB SQL API](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
-> Why is each component there?
-> What does it do and why was it necessary?
-
-- Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
+> [!NOTE]
+> For IoT scenarios, we recommend [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). IoT Hub has a built-in endpoint that's compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the backend processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs](https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs).
 
 ## Next steps
 
-Links to articles on the AAC, and other Docs articles. Could also be to appropriate sources outside of Docs, such as GitHub repos or an official technical blog post.
-
-Examples:
-* [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
-* [Choosing a Microsoft cognitive services technology](/azure/architecture/data-guide/technology-choices/cognitive-services)
-* [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [Serverless event processing](serverless-event-processing-simple.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
+- [Monitoring serverless event processing](monitoring-serverless-event-processing.yml) provides an overview and guidance on monitoring serverless event-driven architectures like this one.
+- [De-batching and filtering in serverless event processing with Event Hubs](serverless-event-processing-filtering.yml) describes in more detail how these portions of the architecture work.
+- [Private link scenario in event stream processing](serverless-event-processing-private-link.yml) is a solution idea for implementing a similar architecture in a VNet with private endpoints, in order to enhance security.
 
 ## Related resources
 
-Another optional link list, in bulleted form. If you have several links to other articles in Docs, include those in "Next steps" and use "Related resources" for related architecture guides and architectures.
-
-Here is an example section:
-
-Fully deployable architectures:
-
-* [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
-* [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
-* [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)![image](https://user-images.githubusercontent.com/13895622/116135227-b73cac00-a685-11eb-92d3-003350ba6604.png)
+- [Introduction to Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Azure Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/)
+- [Introduction to Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+- [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/)
+- [Overview of Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
+- [Choose an API in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/choose-api)

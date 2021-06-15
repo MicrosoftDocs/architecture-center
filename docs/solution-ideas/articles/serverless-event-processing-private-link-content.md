@@ -1,52 +1,53 @@
+<!-- cSpell:ignore KEDA deadletter -->
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Introductory section (no heading)
-The introduction contains:
+This solution idea shows a variation of a serverless event-driven architecture that ingests a stream of data, processes the data, and writes the results to a back-end database.
 
-- A paragraph that describes what the solution does (the domain)
-- A paragraph that contains a brief description of the main Azure services that make up the solution. This paragraph should convey the Azure value proposition, not a complete description of the architecture.
+To learn more about the basic concepts, considerations, and approaches for serverless event processing, consult the [Serverless event processing](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing) reference architecture.
 
 ## Potential use cases
 
-> Are there any other use cases or industries where this would be a fit?
-> How similar or different are they to what's in this article?
-
-These other uses cases have similar design patterns:
-
-- List of example use cases
+A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub-triggered functions.
 
 ## Architecture
 
-_Architecture diagram goes here_
+[![Diagram showing data flowing into a VNet and then being processed by the architecture described in this article.](../media/serverless-event-processing-private-link.png)](../media/serverless-event-processing-private-link.png#lightbox)
 
-After the architecture diagram, include a numbered list that describes the data flow or workflow through the solution. Explain what each step does. Start from the user or external data source, and then follow the flow through the rest of the solution.
+1. VNet integration is used to put all Azure resources behind [Azure Private Endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+1. Events arrive at the Input Event Hub.
+1. The De-batching and Filtering Azure Function is triggered to handle the event. This step filters out unwanted events and de-batches the received events before submitting them to the Output Event Hub.
+1. If the De-batching and Filtering Azure Function fails to store the event successfully, the event is submitted to the Deadletter Event Hub 1.
+1. Events arriving at the Output Event Hub trigger the Transforming Azure Function. This Azure Function transforms the event into a message for the Cosmos DB.
+1. The event is stored in a Cosmos DB database.
+1. If the Transforming Azure Function fails to store the event successfully, the event is saved to the Deadletter Event Hub 2.
+
+> [!NOTE]
+> Subnets are not shown in the diagram for simplicity.
 
 ### Components
 
-A bullet list of components in the architecture (including all relevant Azure services) with links to the product service pages. This is for lead generation (what business, marketing, and PG want). It helps drive revenue.
-
-> Why is each component there?
-> What does it do and why was it necessary?
-
-- Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
+- [Azure Private Endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet.
+- [Event Hub](https://azure.microsoft.com/services/event-hubs/) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
+- [Azure Functions](https://azure.microsoft.com/services/functions/) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Cosmos DB SQL API](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
 ## Next steps
 
-Links to articles on the AAC, and other Docs articles. Could also be to appropriate sources outside of Docs, such as GitHub repos or an official technical blog post.
-
-Examples:
-* [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
-* [Choosing a Microsoft cognitive services technology](/azure/architecture/data-guide/technology-choices/cognitive-services)
-* [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [Serverless event processing](serverless-event-processing-simple.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
+- [Monitoring serverless event processing](monitoring-serverless-event-processing.yml) provides an overview and guidance on monitoring serverless event-driven architectures like this one.
+- [De-batching and filtering in serverless event processing with Event Hubs](serverless-event-processing-filtering.yml) describes in more detail how these portions of the architecture work.
+- [Azure Kubernetes in event stream processing](serverless-event-processing-aks.yml) describes a variation of a serverless event-driven architecture running on Azure Kubernetes with KEDA scaler.
 
 ## Related resources
 
-Another optional link list, in bulleted form. If you have several links to other articles in Docs, include those in "Next steps" and use "Related resources" for related architecture guides and architectures.
-
-Here is an example section:
-
-Fully deployable architectures:
-
-* [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
-* [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
-* [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)![image](https://user-images.githubusercontent.com/13895622/116135227-b73cac00-a685-11eb-92d3-003350ba6604.png)
+- [Manage a Private Endpoint connection](https://docs.microsoft.com/azure/private-link/manage-private-endpoint)
+- Private Endpoint quickstart guides:
+  - [Create a Private Endpoint using the Azure portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+  - [Create an Azure Private Endpoint using Azure PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)
+  - [Create a Private Endpoint using Azure CLI](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli)
+  - [Create a Private Endpoint by using an ARM template](https://docs.microsoft.com/azure/private-link/create-private-endpoint-template)
+- [Azure Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/)
+- [Introduction to Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+- [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/)
+- [Overview of Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
+- [Choose an API in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/choose-api)
