@@ -43,6 +43,7 @@ This article includes several tables which may help you to make these tradeoff d
 If you're not familiar with the Azure service selected in the previous step, read the overview documentation to understand the basics of the service.
 
 - [App Service](/azure/app-service/). A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
+- [Azure Spring Cloud](/azure/spring-cloud/). A managed service designed and optimized for hosting Spring Boot apps.
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). A managed Kubernetes service for running containerized applications.
 - [Batch](/azure/batch/batch-technical-overview). A managed service for running large-scale parallel and high-performance computing (HPC) applications
 - [Container Instances](/azure/container-instances/container-instances-overview). The fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
@@ -69,15 +70,15 @@ In general, there is a tradeoff between control and ease of management. IaaS giv
 
 <!-- markdownlint-disable MD033 -->
 
-| Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
-|----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
-| Application composition | Agnostic | Applications, containers | Services, guest executables, containers | Functions | Containers | Containers | Scheduled jobs  |
-| Density | Agnostic | Multiple apps per instance via app service plans | Multiple services per VM | Serverless <a href="#note1"><sup>1</sup></a> | Multiple containers per node |No dedicated instances | Multiple apps per VM |
-| Minimum number of nodes | 1 <a href="#note2"><sup>2</sup></a>  | 1 | 5 <a href="#note3"><sup>3</sup></a> | Serverless <a href="#note1"><sup>1</sup></a> | 3 <a href="#note3"><sup>3</sup></a> | No dedicated nodes | 1 <a href="#note4"><sup>4</sup></a> |
-| State management | Stateless or Stateful | Stateless | Stateless or stateful | Stateless | Stateless or Stateful | Stateless | Stateless |
-| Web hosting | Agnostic | Built in | Agnostic | Not applicable | Agnostic | Agnostic | No |
-| Can be deployed to dedicated VNet? | Supported | Supported<a href="#note5"><sup>5</sup></a> | Supported | Supported <a href="#note5"><sup>5</sup></a> | [Supported](/azure/aks/networking-overview) | [Supported](/azure/container-instances/container-instances-vnet) | Supported |
-| Hybrid connectivity | Supported | Supported <a href="#note6"><sup>6</sup></a>  | Supported | Supported <a href="#note7"><sup>7</sup></a> | Supported | Not supported | Supported |
+| Criteria | Virtual Machines | App Service | Azure Spring Cloud| Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
+|----------|-----------------|-------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
+| Application composition | Agnostic | Applications, containers | Applications, microservices |Services, guest executables, containers | Functions | Containers | Containers | Scheduled jobs  |
+| Density | Agnostic | Multiple apps per instance via app service plans | Multiple apps per service instance | Multiple services per VM | Serverless <a href="#note1"><sup>1</sup></a> | Multiple containers per node |No dedicated instances | Multiple apps per VM |
+| Minimum number of nodes | 1 <a href="#note2"><sup>2</sup></a>  | 1 | 2 | 5 <a href="#note3"><sup>3</sup></a> | Serverless <a href="#note1"><sup>1</sup></a> | 3 <a href="#note3"><sup>3</sup></a> | No dedicated nodes | 1 <a href="#note4"><sup>4</sup></a> |
+| State management | Stateless or Stateful | Stateless | Stateless | Stateless or stateful | Stateless | Stateless or Stateful | Stateless | Stateless |
+| Web hosting | Agnostic | Built in | Built in |Agnostic | Not applicable | Agnostic | Agnostic | No |
+| Can be deployed to dedicated VNet? | Supported | Supported<a href="#note5"><sup>5</sup></a> | Supported |Supported | Supported <a href="#note5"><sup>5</sup></a> | [Supported](/azure/aks/networking-overview) | [Supported](/azure/container-instances/container-instances-vnet) | Supported |
+| Hybrid connectivity | Supported | Supported <a href="#note6"><sup>6</sup></a>  |Supported | Supported | Supported <a href="#note7"><sup>7</sup></a> | Supported | Not supported | Supported |
 
 Notes
 
@@ -91,11 +92,11 @@ Notes
 
 ## DevOps
 
-| Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
-|----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
-| Local debugging | Agnostic | IIS Express, others <a href="#note1b"><sup>1</sup></a> | Local node cluster | Visual Studio or Azure Functions CLI | Minikube, others | Local container runtime | Not supported |
-| Programming model | Agnostic | Web and API applications, WebJobs for background tasks | Guest executable, Service model, Actor model, Containers | Functions with triggers | Agnostic | Agnostic | Command line application |
-| Application update | No built-in support | Deployment slots | Rolling upgrade (per service) | Deployment slots | Rolling update | Not applicable |
+| Criteria | Virtual Machines | App Service | Azure Spring Cloud | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
+|----------|-----------------|-------------| -------------|----------------|-----------------|-------------------------|----------------|-------------|
+| Local debugging | Agnostic | IIS Express, others <a href="#note1b"><sup>1</sup></a> | Visual Studio Code, Intellij, Eclipse | Local node cluster | Visual Studio or Azure Functions CLI | Minikube, others | Local container runtime | Not supported |
+| Programming model | Agnostic | Web and API applications, WebJobs for background tasks | Spring Boot, Steeltoe | Guest executable, Service model, Actor model, Containers | Functions with triggers | Agnostic | Agnostic | Command line application |
+| Application update | No built-in support | Deployment slots | Rolling upgrade, Blue-green deployment | Rolling upgrade (per service) | Deployment slots | Rolling update | Not applicable |
 
 Notes
 
@@ -104,11 +105,11 @@ Notes
 
 ## Scalability
 
-| Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
-|----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
-| Autoscaling | Virtual machine scale sets | Built-in service | Virtual machine scale sets | Built-in service | Pod auto-scaling<a href="#note1c"><sup>1</sip></a>, cluster auto-scaling<a href="#note2c"><sup>2</sip></a> | Not supported | N/A |
-| Load balancer | Azure Load Balancer | Integrated | Azure Load Balancer | Integrated | Azure Load Balancer or Application Gateway |  No built-in support | Azure Load Balancer |
-| Scale limit<a href="#note3c"><sup>3</sup></a> | Platform image: 1000 nodes per scale set, Custom image: 600 nodes per scale set | 30 instances, 100 with App Service Environment | 100 nodes per scale set | 200 instances per Function app | 100 nodes per cluster (default limit) |20 container groups per subscription (default limit). | 20 core limit (default limit). |
+| Criteria | Virtual Machines | App Service |   Azure Spring Cloud | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
+|----------|-----------------|-------------|----------------|----------------|-----------------|-------------------------|----------------|-------------|
+| Autoscaling | Virtual machine scale sets | Built-in service | Built-in service | Virtual machine scale sets | Built-in service | Pod auto-scaling<a href="#note1c"><sup>1</sip></a>, cluster auto-scaling<a href="#note2c"><sup>2</sip></a> | Not supported | N/A |
+| Load balancer | Azure Load Balancer | Integrated | Integrated | Azure Load Balancer | Integrated | Azure Load Balancer or Application Gateway |  No built-in support | Azure Load Balancer |
+| Scale limit<a href="#note3c"><sup>3</sup></a> | Platform image: 1000 nodes per scale set, Custom image: 600 nodes per scale set | 30 instances, 100 with App Service Environment | 500 app instances in Standard |100 nodes per scale set | 200 instances per Function app | 100 nodes per cluster (default limit) |20 container groups per subscription (default limit). | 20 core limit (default limit). |
 
 Notes
 
@@ -118,9 +119,9 @@ Notes
 
 ## Availability
 
-| Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
-|----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
-| SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] |
+| Criteria | Virtual Machines | App Service | Azure Spring Cloud |  Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
+|----------|-----------------|-------------| -------------|----------------|-----------------|-------------------------|----------------|-------------|
+| SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Azure Spring Cloud][sla-azure-spring-cloud]|[SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] |
 | Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | [Azure Front Door](/azure/azure-functions/functions-geo-disaster-recovery) | Traffic manager | Not supported | Not Supported |
 
 For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](/learn/modules/explore-azure-infrastructure).
@@ -130,6 +131,7 @@ For guided learning on Service Guarantees, review [Core Cloud Services - Azure a
 Review and understand the available security controls and visibility for each service
 
 - [App Service](/azure/app-service/overview-security)
+- [App Spring Cloud](/azure/spring-cloud/concept-security-controls)
 - [Azure Kubernetes Service](/azure/aks/security-baseline)
 - [Batch](/azure/batch/security-baseline)
 - [Container Instances](/azure/container-instances/security-baseline)
@@ -140,11 +142,11 @@ Review and understand the available security controls and visibility for each se
 
 ## Other criteria
 
-| Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
-|----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
-| SSL | Configured in VM | Supported | Supported  | Supported | [Ingress controller](/azure/aks/ingress) | Use [sidecar](../../patterns/sidecar.md) container | Supported |
-| Cost | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [App Service pricing][cost-app-service] | [Service Fabric pricing][cost-service-fabric] | [Azure Functions pricing][cost-functions] | [AKS pricing][cost-acs] | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) | [Azure Batch pricing][cost-batch]
-| Suitable architecture styles | [N-Tier][n-tier], [Big compute][big-compute] (HPC) | [Web-Queue-Worker][w-q-w], [N-Tier][n-tier] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], task automation, batch jobs  | [Big compute][big-compute] (HPC) |
+| Criteria | Virtual Machines | App Service | App Spring Cloud | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
+|----------|-----------------|-------------|----------------|----------------|-----------------|-------------------------|----------------|-------------|
+| SSL | Configured in VM | Supported | Supported  | Supported |  Supported | [Ingress controller](/azure/aks/ingress) | Use [sidecar](../../patterns/sidecar.md) container | Supported |
+| Cost | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [App Service pricing][cost-app-service] | [Azure Spring Cloud pricing][cost-azure-spring-cloud] | [Service Fabric pricing][cost-service-fabric] | [Azure Functions pricing][cost-functions] | [AKS pricing][cost-acs] | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) | [Azure Batch pricing][cost-batch]
+| Suitable architecture styles | [N-Tier][n-tier], [Big compute][big-compute] (HPC) | [Web-Queue-Worker][w-q-w], [N-Tier][n-tier] | Spring Boot, [Microservices][microservices] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], task automation, batch jobs  | [Big compute][big-compute] (HPC) |
 
 The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs. 
 
@@ -166,6 +168,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 [cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
 [cost-app-service]: https://azure.microsoft.com/pricing/details/app-service
 [cost-service-fabric]: https://azure.microsoft.com/pricing/details/service-fabric
+[cost-azure-spring-cloud]: https://azure.microsoft.com/en-us/pricing/details/spring-cloud/
 [cost-functions]: https://azure.microsoft.com/pricing/details/functions
 [cost-acs]: https://azure.microsoft.com/pricing/details/kubernetes-service
 [cost-batch]: https://azure.microsoft.com/pricing/details/batch
@@ -173,6 +176,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 [function-plans]: /azure/azure-functions/functions-scale
 [sla-acs]: https://azure.microsoft.com/support/legal/sla/kubernetes-service
 [sla-app-service]: https://azure.microsoft.com/support/legal/sla/app-service
+[sla-azure-spring-cloud]: https://azure.microsoft.com/support/legal/sla/spring-cloud
 [sla-batch]: https://azure.microsoft.com/support/legal/sla/batch
 [sla-functions]: https://azure.microsoft.com/support/legal/sla/functions
 [sla-sf]: https://azure.microsoft.com/support/legal/sla/service-fabric
