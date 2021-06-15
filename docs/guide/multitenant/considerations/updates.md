@@ -23,16 +23,14 @@ ms.custom:
 
 One of the benefits of cloud technology is continuous improvement and evolution. As a service provider, you need to apply updates to your solution: you might need to make changes to your Azure infrastructure, your code/applications, your database schemas, or any other component. It's important to plan how you update your environments. In a multitenant solution, it's particularly important to be clear about your update policy, since some of your tenants may be reluctant to allow changes to their environments, or may have requirements that limit the times when you can update their service. You need to identify your tenants' requirements, clarify your own requirements to operate your service, find a balance that works for everyone, and then communicate this clearly.
 
-
 ## Your customers' requirements
 
 Consider the following questions:
 
 - Do your customers have expectations or requirements about when they can be updated? These might be formally communicated to you in contracts or service-level agreements, or they may be informal.
+- Do your customers have any regulatory concerns that require additional approval before updates can be applied? For example, if you provide a health solutions with IoT components, you may need to get approval from the United States Food and Drug Administration (FDA) before any applying an update.
 - Are any of your customers particularly sensitive or resistant to having updates applied? Try to understand why. For example, if they run a brick-and-mortar store or a retail site, they may want to avoid updates around Black Friday as the risks are higher than potential benefits.
-
 - What's your track record of successfully completing updates without any impact to your customers? You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure you quickly identify any issues that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
-
 
 ## Your requirements
 
@@ -53,7 +51,10 @@ One approach that can work well is to roll out updates on a tenant-by-tenant bas
 
 Also, consider allowing yourself the ability to deploy security patches or other critical hotfixes with minimal or no advance notice.
 
-Another approach can be to allow tenants to initiate their own updates at a time of their choosing, but again to provide a deadline at which point you apply the update on their behalf. This requires further work on your part to build a self-service update mechanism, and it's often not a cost-effective strategy.
+Another approach can be to allow tenants to initiate their own updates at a time of their choosing, but again to provide a deadline at which point you apply the update on their behalf.
+
+> [!WARNING]
+> Be careful about enabling tenants to initiate their own updates. This is complex to implement, and will require significant development and testing effort to deliver and maintain.
 
 Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called _live-site incidents_) happen after updates to code or configuration, so it's important you proactively monitor for and respond to any issues to retain customer confidence.
 
@@ -68,7 +69,7 @@ Consider the following questions:
 - What if you have an emergency update, like a critical security patch? Can you force updates in those situations?
 - If you can't proactively notify customer of upcoming updates, can you provide retrospective notifications? For example, can you update a page on your website with the list of updates you've applied?
 
-## Deployment topologies that support updates
+## Deployment strategies to support updates
 
 Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.md) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings.
 
@@ -88,6 +89,10 @@ You can embed feature flag support into your application by writing code yoursel
 
 [Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to roll out updates across a set of tenants or deployment stamps progressively. You can assign a subset of tenants to each ring. A _canary_ ring includes your own test tenants, and customers who want to have updates as soon as they are available, with the understanding that they may receive more frequent updates, and that updates may not have been through as comprehensive a validation process as in the other things. An _early adopter_ ring contains tenants who are slightly more risk-averse, but still prepared to receive regular updates. Most of your tenants will belong to the _users_ ring, which receives less frequent and more highly tested updates.
 
+### API versions
+
+If your service exposes an external API, consider that any updates you apply may affect the way that customers or partners integrate with your platform. In particular, you need to be conscious of breaking changes to your APIs. Consider using [an API versioning strategy](../../../best-practices/api-design.md#versioning-a-restful-web-api) to mitigate the risk of updates to your API.
+
 ## Next steps
 
-Consider how you will [map requests to the correct tenant](map-requests.md).
+Return to the [architectural considerations for multitenant solutions](overview.md).
