@@ -48,8 +48,8 @@ Read other Azure Architecture Center articles:
 - [Digital campaign management](./digital-marketing-using-azure-database-for-postgresql.yml)
 - [R developer's guide to Azure](../../data-guide/technology-choices/r-developers-guide.md)
 
-Learn more with:
+Learn more and try out some code:
 
 - Microsoft Learn module [Introduction to Azure HDInsight](/learn/modules/intro-to-azure-hdinsight/)
-- Microsoft Machine Learning Server documentation for [tutorials and sample data](/machine-learning-server/r/tutorial-introduction)
+- Microsoft Machine Learning Server documentation [tutorials and sample data](/machine-learning-server/r/tutorial-introduction)
 - Azure AI Gallery - [Campaign Optimization with Azure HDInsight Spark Clusters](https://gallery.azure.ai/Solution/Campaign-Optimization-with-Azure-HDInsight-Spark-Clusters)
