@@ -23,12 +23,16 @@ Using direct interaction with the pricing model in Excel, you can:
 
 The rich functionality isn't confined to Excel. It's driven by web services that you or your implementation partner can call directly from your business applications, integrating price analysis into your business applications.
 
+## Potential use cases
+
+This architecture is ideal for the retail industry, providing pricing recommendations, estimations, and forecasts.
+
 ## Architecture
 
 ![Architecture Diagram](../media/interactive-price-analytics.png)
 *Download an [SVG](../media/interactive-price-analytics.svg) of this architecture.*
 
-## Components
+### Components
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
 - [Azure Machine Learning Services](https://azure.microsoft.com/services/machine-learning/)
@@ -52,7 +56,36 @@ This solution analyzes your historical prices and
 * Discovers related products (replacements and complements).
 * Lets you simulate promotional scenarios in Excel.
 
-## Estimated cost
+## Deploy this scenario
+
+### Getting started
+
+Deploy the solution with the button on the right. Instructions at the end of the deployment will have important configuration information. Please leave them open.
+
+The solution deploys with the same example data set of orange juice prices that you find behind the Try-It-Now button on the right.
+
+While the solution is deploying, you can get a head start and do the following:
+
+* See what is available in the Try-It-Now dashboard.
+* Read the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) for usage instructions from the perspective of a pricing analyst (MSFT login required).
+* Review the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a technical implementation view (MSFT login required).
+* Download the interactive Excel worksheet.
+
+After the solution deploys, complete the [first walkthrough](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Walkthrough%201%20-%20Promotion%20Simulation/PromoSimulationWalkthrough.md) (MSFT login required).
+
+### Solution dashboard
+
+The solution dashboard's most actionable part is the Pricing Suggestion tab. It tells you which of your items are underpriced or overpriced. The tab suggests an optimal price for each item and the predicted impact of adopting the suggestion. The suggestions are prioritized by the largest opportunity to earn incremental gross margin.
+
+Other tabs provide supplemental information illuminating how the system arrived at the suggestions and are discussed in more detail in the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md). (You must be logged into GitHub with a Microsoft Azure account while solution is in private preview.)
+
+### Solution architecture
+
+The solution uses an Azure SQL server to store your transactional data and the generated model predictions. There are a dozen elasticity modeling core services, which are authored in AzureML using Python core libraries. Azure Data Factory schedules weekly model refreshes. The results display in a Power BI dashboard. The provided Excel spreadsheet consumes the predictive Web Services.
+
+Read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, connecting your own data and customization (GitHub login required).
+
+## Pricing
 
 The estimated cost for the solution is approximately $10/day ($300/month):
 
@@ -62,33 +95,6 @@ The estimated cost for the solution is approximately $10/day ($300/month):
 * $50 in miscellaneous ADF data activities and storage costs
 
 If you're just exploring the solution, you can delete it in a few days or hours. The costs are pro-rated and will stop being charged when you delete the Azure components.
-
-## Getting started
-
-Deploy the solution with the button on the right. Instructions at the end of the deployment will have important configuration information. Please leave them open.
-
-The solution deploys with the same example data set of orange juice prices that you find behind the Try-It-Now button on the right.
-
-While the solution is deploying, you can get a head start and
-
-* See what is available in the Try-It-Now dashboard.
-* Read the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md) for usage instructions from the perspective of a pricing analyst (MSFT login required).
-* Review the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a technical implementation view (MSFT login required).
-* Download the interactive Excel worksheet.
-
-After the solution deploys, complete the [first walkthrough](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Walkthrough%201%20-%20Promotion%20Simulation/PromoSimulationWalkthrough.md) (MSFT login required).
-
-## Solution dashboard
-
-The solution dashboard's most actionable part is the Pricing Suggestion tab. It tells you which of your items are underpriced or overpriced. The tab suggests an optimal price for each item and the predicted impact of adopting the suggestion. The suggestions are prioritized by the largest opportunity to earn incremental gross margin.
-
-Other tabs provide supplemental information illuminating how the system arrived at the suggestions and are discussed in more detail in the [User Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/User%20Guide/UserGuide.md). (You must be logged into GitHub with a Microsoft Azure account while solution is in private preview.)
-
-## Solution architecture
-
-The solution uses an Azure SQL server to store your transactional data and the generated model predictions. There are a dozen elasticity modeling core services, which are authored in AzureML using Python core libraries. Azure Data Factory schedules weekly model refreshes. The results display in a Power BI dashboard. The provided Excel spreadsheet consumes the predictive Web Services.
-
-Read the [Technical Deployment Guide](https://github.com/Azure/cortana-intelligence-price-analytics/blob/master/Technical%20Deployment%20Guide/TechnicalDeploymentGuide.md) for a more detailed discussion of the architecture, connecting your own data and customization (GitHub login required).
 
 ## Next steps
 
