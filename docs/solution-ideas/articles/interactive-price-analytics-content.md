@@ -102,14 +102,14 @@ Read the [Technical Deployment Guide](https://github.com/Azure/cortana-intellige
 
 ## Pricing
 
-The estimated cost for the solution is approximately $10/day ($300/month):
+To calculate a current estimate, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). The estimated solution should include the following service costs:
 
-* $100 for S1 standard ML service plan
-* $75 for an S2 SQL database
-* $75 for app hosting plan
-* $50 in miscellaneous ADF data activities and storage costs
+* S1 standard ML service plan
+* S2 SQL Database
+* App hosting plan
+* Miscellaneous ADF data activities and storage costs
 
-If you're just exploring the solution, you can delete it in a few days or hours. The costs are pro-rated and will stop being charged when you delete the Azure components.
+If you're just exploring the solution, you can delete it in a few days or hours. The costs are will stop being charged when you delete the Azure components.
 
 ## Next steps
 
