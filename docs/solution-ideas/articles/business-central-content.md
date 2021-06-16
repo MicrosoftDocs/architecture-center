@@ -1,17 +1,16 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-## Overview
+Dynamics 365 Business Central SaaS is not available in all countries. Therefore, it is important to offer clients a similar model using Business Central running as a VM in Azure. 
 
-Dynamics 365 Business Central SaaS is not available in all countries. Therefore, it is important to offer clients a similar model using Business Central running as a VM in Azure. Partners can build their own architecture where they can deploy Business Central and clients can use this SMB ERP solution as a service using the most of benefits of using Business Central as a cloud solution. This example shows how to establish a production environment for Business Central in partner private Azure environment. Topics like licensing and authentication are beyond the scope of this solution idea.
+## Potential use cases
+
+Partners can build their own architecture where they can deploy Business Central, and clients can use this SMB ERP solution as a service using the most of benefits of using Business Central as a cloud solution. This example shows how to establish a production environment for Business Central in a partner's private Azure environment. Topics like licensing and authentication are beyond the scope of this solution idea.
 
 ## Architecture
 
 ![Architecture Diagram](../media/business-central-as-a-service.png)
 
-## Data Flow
+### Data flow
 
 This scenario demonstrates provisioning an environment ready for adding new tenant databases, new customers, and new demo tenants. This is a complete environment with the exception of a customer database which will be built only once and it allow usage for many different customers. For new customers, the partner just needs to deploy new customer database and to [mount](/dynamics365/business-central/dev-itpro/administration/mount-dismount-tenant) it.
 
@@ -22,7 +21,7 @@ The data flows through the scenario as follows:
 3. The application and business data reside in separate databases, both using Azure SQL for its databases. App database will be in one single database (S0 will be enough to run application database). The partner maintains the application centrally without affecting the various tenants that use the application. Tenant databases will be placed in an Azure Elastic Database Pool (for starters, S4 pool with 200 DTU’s will be enough). Each tenant database contains the business data for one or more specific companies from one client and does not contain all of the application metadata. If customers require more power, it is easy to change service tier on Azure SQL and Elastic Database Pool.
 4. To provide better sustainability, all resources will be in one resource Group. All external services (Azure Machine Learning, Power Apps, Power Automate and Power BI) will communicate directly with the NST Server through exposed API’s and OData web services.
 
-### Azure Resources
+### Components
 
 A [resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
 
@@ -38,13 +37,13 @@ Similarly, with standard Azure SQL, you can choose different tiers and different
 
 With [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), you can scale your applications and create highly available services. Load balancer supports both inbound and outbound scenarios. Load balancer provides low latency and high throughput and scales up to millions of flows for all TCP and UDP applications.
 
-### Cost considerations
+## Pricing
 
 It is very important to note that the partner doesn’t a virtual machine per each customer. It can significantly reduce costs for middle-tier service (VM) by combining access and just changing ports.
 
 There are various options for VM sizes depending on the usage and workload. The partner will need to track performances and to increase power when needed by scaling the VM(s) up. For app databases, you can take the smallest Azure SQL as S0 or eventually S1. The same situation applies with Azure Elastic Database Pool where you have various options and you need to start with smallest as it is easy scalable.
 
-### Next Steps
+## Next steps
 
 - [Mounting a tenant database against the specified Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/mount-navtenant?view=businesscentral-ps-16)
 - [Mounting a tenant database on the specified Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/mount-navtenantdatabase?view=businesscentral-ps-16)
