@@ -96,13 +96,15 @@ In many systems, the number of users isn't the element that has the greatest eff
 
 You may choose to offer your solution with different tiers of functionality at different price points. For example, you might provide two monthly flat-rate or per-unit prices, one being a basic offering with a subset of features available, and the other presenting the comprehensive set of your solution's features.
 
-This model may also offer different service level agreements for different tiers. For example, your basic tier may offer 99.9% uptime where as a premium tier may offer 99.99%. The higher SLA could be implemented by using services and features that enable higher [availability targets](../../../framework/resiliency/business-metrics.md#workload-availability-targets).
+This model may also offer different service level agreements for different tiers. For example, your basic tier may offer 99.9% uptime whereas a premium tier may offer 99.99%. The higher SLA could be implemented by using services and features that enable higher [availability targets](../../../framework/resiliency/business-metrics.md#workload-availability-targets).
+
 
 Although this model can be very commercially beneficial, it does require mature engineering practices to do well. With careful consideration this model can be very effective.
 
 **Benefits:** Feature-based pricing is often attractive to customers, since they can select a tier based on the feature set or service level they need. It also provides you with a clear path to upsell your customers with new features or higher resiliency for those who require it.
 
-**Complexity and operational cost:** Feature-based pricing models can be complex to implement, since they require your solution to be aware of the features that are available at each price tier. Feature toggles can be an effective way to provide access to certain subsets of functionality, but this requires ongoing maintenance, and increases the overhead to ensure high quality because there will be more code paths to test. Enabling higher service availability targets in some tiers may require additional architectural complexity to ensure customers are using the right set of infrastructure for their tier, and may increase the operational cost of the solution.
+**Complexity and operational cost:** Feature-based pricing models can be complex to implement, since they require your solution to be aware of the features that are available at each price tier. Feature toggles can be an effective way to provide access to certain subsets of functionality, but this requires ongoing maintenance, and increases the overhead to ensure high quality because there will be more code paths to test. Enabling higher service availability targets in some tiers may require additional architectural complexity to ensure the right set of infrastructure is used for each tier, and may increase the operational cost of the solution.
+
 
 **Risks:** Feature-based pricing models can become complicated and confusing if there are too many tiers or options. Additionally, the overhead involved in toggling features dynamically can slow down the rate at which you deliver features.
 
@@ -114,7 +116,8 @@ You might choose to offer a free tier of your service, with basic functionality 
 
 **Complexity and operational cost:** All of the complexity and operational cost concerns apply from the feature-based pricing model. However, you also have to consider the operational cost involved in managing free tenants. You may need to ensure that stale tenants are offboarded or removed, and have a clear retention policy especially for free tenants. When promoting a tenant to a paid tier, you may need to move the tenant between Azure services to obtain higher SLAs.
 
-**Risks:** You need to ensure that you proivde a high enough ROV for tenants to consider switching to a paid tier. Additionally, the cost of providing your solution to customers on the free tier needs to be covered by the profit margin from those who are on paid tiers.
+**Risks:** You need to ensure that you provide a high enough ROV for tenants to consider switching to a paid tier. Additionally, the cost of providing your solution to customers on the free tier needs to be covered by the profit margin from those who are on paid tiers.
+
 
 ### Flat-rate pricing
 
@@ -144,7 +147,8 @@ Common tiering patterns include:
 
 ## Unprofitable pricing models
 
-An unprofitable pricing model is one where it costs you more to deliver the service than the revenue you earn. For example, you might charge a flat rate per tenant without any limits for your service, but then build your service with consumption-based Azure resources. In this situation, you may be at risk of your tenants overusing your service and making it unprofitable to serve them.
+An unprofitable pricing model is one where it costs you more to deliver the service than the revenue you earn. For example, you might charge a flat rate per tenant without any limits for your service, but then build your service with consumption-based Azure resources and without per tenant [usage caps](#usage-caps). In this situation, you may be at risk of your tenants overusing your service and making it unprofitable to serve them.
+
 
 Generally, you want to avoid unprofitable pricing models. However, there are situations where you might choose to adopt an unprofitable pricing model, including:
 
@@ -164,7 +168,8 @@ When implementing a pricing model for a solution, you will usually have to make 
 
 Most SaaS solutions will add new features regularly. This increases the ROV to users, which may also lead to increases in the amount the solution is used. This could result in a solution that becomes unprofitable if the use of new features drives usage, but the pricing model doesn't factor this in.
 
-For example, if you introduce a new video upload feature to your solution which uses a consumption-based resource, and user uptake of the feature is higher than expected, then consider a combination of [usage caps](#usage-caps) and [feature and service level models](#feature--and-service-level-based-pricing).
+For example, if you introduce a new video upload feature to your solution which uses a consumption-based resource, and user uptake of the feature is higher than expected, then consider a combination of [usage caps](#usage-caps) and [feature and service level pricing](#feature--and-service-level-based-pricing).
+
 
 ## Usage caps
 
@@ -216,3 +221,7 @@ When changing pricing models you will need to consider a number of factors, incl
 - Are tenants likely to receive _bill shock_ - a negative reaction to an unexpected bill - upon changing pricing models?
 - Are you monitoring performance and utilization of your services for new or changed pricing models, so that you can ensure continued profitability?
 - Are you able to clearly communicate the ROV for new pricing models to your existing tenants?
+
+## Next steps
+
+Consider how you'll [measure consumption](measure-consumption.md) by tenants in your solution.
