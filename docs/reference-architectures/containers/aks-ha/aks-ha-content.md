@@ -128,6 +128,8 @@ _The following is an example from the included GitHub Action demonstrating the d
 
 ### Avalibility / Failover
 
+< add content >
+
 | Application Component | Supporting service | Interface | Documentation |
 |---|---|---|---|
 | Application pods regional | Deployment / ReplicaSet | Kubernetes Deployment API | [Kubernetes docs](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) |
