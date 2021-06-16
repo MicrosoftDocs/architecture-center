@@ -1,10 +1,9 @@
 
-
 Companies often send, receive, and store their cloud data in encrypted form. But to take advantage of cloud computing, companies must provide either unencrypted data or the keys to decrypt it. This practice puts company data at increased risk. *Homomorphic encryption* allows computation directly on encrypted data, making it easier to apply the potential of the cloud for privacy-critical data.
 
 This article discusses how and when to use homomorphic encryption. It also covers how to implement homomorphic encryption with the open-source [Microsoft Simple Encrypted Arithmetic Library (SEAL)](https://github.com/microsoft/SEAL#introduction).
 
-## Use cases
+## Potential use cases
 
 - Lightweight computations like addition and multiplication on privacy-critical data and parts of programs.
 - Outsourced cloud computing, where a single owner owns all the data and has sole access to the decryption keys.
@@ -19,7 +18,7 @@ You can use traditional encryption for secure storage and communication, but out
 
 With SEAL homomorphic encryption, cloud providers never have unencrypted access to the data they store and compute on. Computations can be performed directly on encrypted data. The results of such encrypted computations remain encrypted, and can be decrypted only by the data owner by using the secret key. Most homomorphic encryption uses public-key encryption schemes, although the public-key functionality may not always be needed.
 
-## Components
+### Components
 
 - [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet/2.2)
 - [Microsoft SEAL](https://www.microsoft.com/research/project/microsoft-seal/)
@@ -40,7 +39,7 @@ With SEAL homomorphic encryption, cloud providers never have unencrypted access 
 
 - While the homomorphic encryption primitive itself is secure, it doesn't guarantee that the apps and protocols that use it are secure.
 
-## Implementation
+## Deploy this scenario
 
 The [sample code](https://zarmada.blob.core.windows.net/ai-school-module-updates/ai-school-lab-seal.zip) includes a console app, an API to implement a basic client-server interaction with homomorphic encryption, and complete instructions. To use the code, download and extract the ZIP to a local folder. The code project requires [Visual Studio 2019](https://www.visualstudio.com/downloads/) and [.NET Core version 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
 
