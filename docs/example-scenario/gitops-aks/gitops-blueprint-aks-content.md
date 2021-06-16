@@ -18,9 +18,7 @@ This blueprint benefits any organization that wants the advantages of deploying 
 
 ## Architecture
 
-![Diagram of a GitOps setup for an AKS cluster, including GitHub source control, Flux GitOps controller, Phylake GitOps control kit, and Gatekeeper admission controller.](media/gitops-blueprint-aks.png)
-
-![test Diagram of a GitOps setup for an AKS cluster, including GitHub source control, Flux GitOps controller, Phylake GitOps control kit, and Gatekeeper admission controller.](media/phylake.svg)
+![Diagram of a GitOps setup for an AKS cluster, including GitHub source control, Flux GitOps controller, Phylake GitOps control kit, and Gatekeeper admission controller.](media/phylake.svg)
 
 This solution follows a strong GitOps approach. The single point of truth is the GitHub repository that holds the provisioned AKS cluster configurations. Flux is the GitOps operator that syncs any desired cluster state changes into AKS. Phylake provides security policies to OPA Gatekeeper, which enforces the policies.
 
@@ -68,12 +66,11 @@ As cluster landscapes grow, the number of repositories constantly increases. Cha
 ### Security
 
 This solution provides several security-related benefits. With the GitOps approach, individual developers or administrators don't directly access the Kubernetes clusters to apply changes or updates. Instead, users push changes to a Git repository, and the GitOps operator, Flux in this case, reads them and applies them to the cluster. This approach follows the security best practice of least privilege by not giving DevOps teams write permissions to the Kubernetes API. In diagnostic or troubleshooting scenarios, you can grant cluster permissions for a limited time on a case by case basis.
+To make sure the AKS clusters are using security best practices, this solution enforces OPA Kubernetes policies with a validating admission webhook. Phylake provides a set of policies based on Kubernetes security standards, which you can provision on a cluster scope. Phylake provides early feedback via PR review for Kubernetes manifests that violate the policies.
 
 Apart from the task of setting up repository permissions, consider implementing the following requirements when setting up Git repositories that sync to AKS clusters:
 
 - **Branch protection:** Protect the branches that represent the state of the Kubernetes clusters from having changes pushed to them directly. Require every change to be proposed by a pull request and reviewed by at least one other person. Also use PRs to do automatic checks. For example, Phylake validates Kubernetes manifests that a PR creates or modifies, and checks them against provisioned policies before the change can be synced into the cluster.
-
-To make sure the AKS clusters are using security best practices, this solution enforces OPA Kubernetes policies with a validating admission webhook. Phylake provides a set of policies based on Kubernetes security standards, which you can provision on a cluster scope. Phylake provides early feedback via PR review for Kubernetes manifests that violate the policies.
 
 - **Pull request review:** Require PRs to have at least one reviewer, to enforce the four-eyes principle. You can also use the GitHub [code owners](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners) feature to define individuals or teams responsible for reviewing specific files in a repository.
 
@@ -146,7 +143,7 @@ Perform the following steps to provision a running GitOps setup:
    
    - Install Phylake via the [GitHub marketplace](https://github.com/marketplace/phylake-io).
    
-   - **phylake-cli** is Phylake's official command line tool. It brings clusters, policies, application instances, and other Phylake and Kubernetes concepts to the terminal. View installation instructions and CLI commands: [*https://github.com/syncier/phylake-cli*](https://github.com/syncier/phylake-cli)
+   - **phylake-cli** is Phylake's official command-line tool. It brings clusters, policies, application instances, and other Phylake and Kubernetes concepts to the terminal. View installation instructions and CLI commands: [*https://github.com/syncier/phylake-cli*](https://github.com/syncier/phylake-cli)
    
 You've now successfully provisioned a running GitOps setup. From here, you can:
 
@@ -160,7 +157,7 @@ You've now successfully provisioned a running GitOps setup. From here, you can:
 
 - AKS offers free cluster management. Billing is isolated to the compute, storage, and networking resources AKS uses to host nodes. Refer to [Azure Virtual Machine](https://azure.microsoft.com/pricing/details/virtual-machines/) or [Azure Container Instances](https://azure.microsoft.com/pricing/details/container-instances/) pricing to review specific pricing details for each compute service.
 
-- GitHub offers a free service, but to use advanced security related features like code owners or required reviewers, you need the **Team** plan. See the [GitHub pricing page](https://github.com/pricing) for more details.
+- GitHub offers a free service, but to use advanced security-related features like code owners or required reviewers, you need the **Team** plan. For more information, see the [GitHub pricing page](https://github.com/pricing).
 
 ## Next steps
 
@@ -169,7 +166,5 @@ You've now successfully provisioned a running GitOps setup. From here, you can:
 
 ## Related resources
 - [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
-- [Choose a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)
 - [Secure DevOps for AKS](/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes)
-
 
