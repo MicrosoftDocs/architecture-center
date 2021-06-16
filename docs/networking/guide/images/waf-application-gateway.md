@@ -168,7 +168,33 @@ Requests per second (RPS) on the Application Gateway will be affected if the SNA
 #### Match timeout settings with the backend application
 Ensure you have configured the **IdleTimeout** settings to match the listener and traffic characteristics of the backend application. The default value is set to 4 minutes and can be configured to a maximum of 30. For more information, see [Load Balancer TCP Reset and Idle Timeout](/azure/load-balancer/load-balancer-tcp-reset).
 
-
+Other best practices related to Performance Efficiency are described in [Performance efficiency principles](/azure/architecture/framework/scalability/principles). 
 
 ## Reliability
+Here are some best practices to minimize failed instances.
+
+#### Plan for rule updates 
+Plan enough time for updates before accessing Application Gateway or making further changes. For example, removing servers from backend pool might take some time because they have to drain existing connections.
+
+#### Use health probes to detect backend unavailability
+If Application Gateway is used to load balance incoming traffic over multiple backend instances, we recommend the use of health probes. These will ensure that traffic is not routed to backends that are unable to handle the traffic. 
+
+#### Review the impact of the interval and threshold settings on health probes
+The health probe sends requests to the configured endpoint at a set _interval_. Also, there's a _threshold_ of failed requests that will be tolerated before the backend is marked unhealthy. These numbers present a trade-off. 
+- Setting a higher interval puts a higher load on your service. Each Application Gateway instance sends its own health probes, so 100 instances every 30 seconds means 100 requests per 30 seconds. 
+- Setting a lower interval leaves more time before an outage is detected. 
+- Setting a low unhealthy threshold may mean that short, transient failures may take down a backend. 
+- Setting a high threshold it can take longer to take a backend out of rotation.
+
+#### Verify downstream dependencies through health endpoints
+
+Suppose each backend has its own dependencies to ensure failures are isolated. For example, an application hosted behind Application Gateway may have multiple backends, each connected to a different database (replica). When such a dependency fails, the application may be working but won't return valid results. For that reason, the health endpoint should ideally validate all dependencies. Keep in mind that if each call to the health endpoint has a direct dependency call, that database would receive 100 queries every 30 seconds instead of 1. To avoid this, the health endpoint should cache the state of the dependencies for a short period of time. 
+
+For more information, see these articles:
+
+- [Health monitoring overview for Azure Application Gateway](/azure/application-gateway/application-gateway-probe-overview)
+- [Azure Front Door - backend health monitoring](/azure/frontdoor/front-door-health-probes)
+- [Health probes to scale and provide HA for your service](/azure/load-balancer/load-balancer-custom-probe-overview)
+
+
 ## Security
