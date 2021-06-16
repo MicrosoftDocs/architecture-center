@@ -37,14 +37,14 @@ Within each individual region, the members of the AKS node pool are spread acros
 
 **Deployment stamp considerations**
 
-When selecting a process for creating and managing deployment stamps, or individual Kubernetes instances in this case, it is important to conside the following things:
+When managing a multi-region AKS cluster, multiple AKS instances are deployed across multiple regions. Each one of these instances is considerd a stamp. In the event of a regional failure or the need to add more capacity and / or regional presensce for you cludert, you may need to create a new stamp instance. When selecting a process for creating and managing deployment stamps, or individual Kubernetes instances in this case, it is important to conside the following things:
 
 - Select stamp definition technology that allows for generalized configuration such as infrastructure as code
 - Provide instance-specific values using a deployment input mechanism such as variables or parameter files
-- Select deployment tooling that allows for flexible, repeatable, and idempotent deployment.
+- Select deployment tooling that allows for flexible, repeatable, and idempotent deployment
 - In an active/active stamp configuration, consider how traffic is balanced across each stamp
-- As stamps are added and removed from the collection, consider capacity concerns.
-- Consider how to gain visibility and/or monitor the collection of stamps as a single unit.
+- As stamps are added and removed from the collection, consider capacity and cost concerns
+- Consider how to gain visibility and/or monitor the collection of stamps as a single unit
 
 Each of these items is detailed with specific guidance in the following sections of this reference architecture.
 
@@ -56,7 +56,7 @@ When deploying multiple Kubernetes clusters in highly available and geographical
 
 You have many options for deploying an Azure Kubernetes Service cluster. The Azure portal, Azure CLI, Azure PowerShell module are all decent options for deploying individual or non-coupled AKS clusters. These tools, however, can present some challenges when working with many tightly coupled AKS clusters. For example, using the Azure portal opens the opportunity for miss-configuration due to missed steps. As well, the deployment and configuration of many clusters using the portal is a timely process requiring the focus of one or more engineers. While you can construct a repeatable and automated process using the command line tools, the onus of things like idempotency, deployment failure control, and failure recovery is on you and the scripts you build. 
 
-We recommend using infrastructure as code solutions, such and Azure Resource Manager templates, Bicep templates or Terraform configurations. Infrastructure as code solutions will provide an automated, scalable, and idempotent deployment solution. This reference architecture includes an ARM Template for the solutions shared services and then another for the AKS clusters + regional services.
+We recommend using infrastructure as code solutions, such and Azure Resource Manager templates, Bicep templates or Terraform configurations. Infrastructure as code solutions will provide an automated, scalable, and idempotent deployment solution. This reference architecture includes an ARM Template for the solutions shared services and then another for the AKS clusters + regional services. Using infrastructure as code, a deployment stamp can be defined with generalized configurations such as networking, authorization, and diagnostics. A deployment parameter file can be provided with regional-specific values. With this configuration, a single template can be used to deploy an identical stamp across any region.
 
 _Example parameter file used to deploy an AKS cluster into the centralus region. Multiple parameter files can be provided, one for each region into which an ASK instance needs to be created._
 
@@ -98,7 +98,7 @@ _Example parameter file used to deploy an AKS cluster into the centralus region.
 
 Once the cluster stamp has been defined, you have many options for deploying individual or multiple stamp instances. Our recommendation is to use modern continuous integration technology such as GitHub Actions or Azure DevOps Pipelines. The benefit of continuous integration based deployment solutions include:
 
-- Code-based deployments that allow for stamps to be added and removed using code.
+- Code-based deployments that allow for stamps to be added and removed using code
 - Integrated testing capabilities
 - Integrated environment and staging capabilities
 - Integrated secrets management solutons 
