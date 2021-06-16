@@ -1,38 +1,51 @@
-Enterprises that use Kubernetes to run their applications workloads must comply with many data privacy regulations, regulatory requirements, and security standards.
+Enterprise companies must fulfill many data privacy regulations, regulatory requirements, and security standards. Operations must follow the principle of least privilege access, and audits must track who changed what and when on all production systems.
 
-- Operations must follow the principle of least privilege access.
-- Auditors must know who changed what and when on all production systems.
-- Kubernetes clusters must be as secure as possible. Kubernetes isn't secure by default, and cluster operators are responsible for using its features to make it secure.
+Organizations that use Kubernetes to run their application workloads must fulfill these requirements while making their Kubernetes clusters as secure as possible. Kubernetes isn't secure by default. Cluster owners and operators are responsible for using Kubernetes features to secure their clusters.
 
-Kubernetes is built to describe everything from cluster state to application deployments declaratively with code. In GitOps, *Infrastructure as Code* describes the process of declaring the desired state of infrastructure components like virtual machines (VMs), networks, and firewalls as code. The code is version controlled and can be audited.
+In GitOps, *Infrastructure as Code* describes the process of declaring the desired state of infrastructure components like virtual machines (VMs), networks, and firewalls as code. The code is version controlled and can be audited. Likewise, Kubernetes is built to describe everything from cluster state to application deployments declaratively with code.
 
-Combining Kubernetes with GitOps places the cluster desired state under version control. A component within the cluster continuously syncs the infrastructure code. Rather than having direct access to the Kubernetes cluster, most operations happen via code changes that can be reviewed and audited.
+Combining Kubernetes with GitOps places the cluster desired state under version control. A component within the cluster continuously syncs the infrastructure code. Rather than having direct access to the Kubernetes cluster, most operations happen via code changes that can be reviewed and audited. This approach supports the security principle of least privilege access.
 
-GitOps not only enforces policies within the cluster, but also helps support best practices by providing feedback to users before they make policy changes. Besides the convenience for DevOps, early feedback also helps businesses reduce costs.
+GitOps not only enforces policies within the cluster, but also helps support security by providing feedback to users before they make policy changes. Early feedback also increases convenience for DevOps, and helps businesses reduce costs.
 
 This article describes a blueprint for GitOps using an Azure Kubernetes Services (AKS) cluster. The solution provides full audit capabilities, policy enforcement, and early feedback.
 
 ## Potential use cases
 
-This blueprint benefits any organization that wants the advantages of deploying applications and infrastructure as code, including an audit trail of every change. The solution is especially suitable for regulated industries like insurance, banking, and finance.
+This blueprint benefits any organization that wants the advantages of deploying applications and infrastructure as code, with an audit trail of every change. The solution is especially suitable for highly-regulated industries like insurance, banking, and finance.
 
 ## Architecture
 
 ![Diagram of a GitOps setup for an AKS cluster, including GitHub source control, Flux GitOps controller, Phylake GitOps control kit, and Gatekeeper admission controller.](media/gitops-blueprint-aks.svg)
 
-This solution follows a strong GitOps approach. The single point of truth is the GitHub repository that holds the provisioned AKS cluster configurations. Flux is the GitOps operator that syncs any desired cluster state changes into AKS. Phylake provides security policies to OPA Gatekeeper, which enforces the policies.
+This solution follows a strong GitOps approach.
 
-1. All AKS application manifests and cluster infrastructure desired states are stored in the GitHub repository. Every change to the cluster happens under version control. GitHub functionality ensures that changes are reviewed, prevents unintended or unauthorized changes, and enforces desired quality checks.
+1. The single point of truth is the **GitHub repository** that holds the provisioned AKS cluster configurations. The repository stores all AKS application manifests and cluster infrastructure desired states. Every change to the cluster happens under version control.
    
-1. Flux acts as the GitOps controller, and is the only component that can make changes within the cluster. Flux reads the desired change from GitHub, detects any configuration drift, and reconciles the state in the Kubernetes cluster. Flux manages Gatekeeper and the applications, and updates itself.
+   GitHub functionality:
+   - Ensures review for changes
+   - Prevents unintended or unauthorized changes
+   - Enforces desired quality checks
    
-1. Phylake is a GitOps control kit that provides an overview of all AKS clusters to help manage policies. Phylake:
+1. **Flux** is the GitOps operator that syncs any desired cluster state changes into AKS. Flux acts as the GitOps controller, and is the only component that can make changes within the cluster.
    
-   - Assembles all cluster images in an overview that shows which versions are deployed and identifies outdated images.
-   - Provides feedback on policy violations via pull request (PR) feedback before changes are applied.
-   - Introduces risk acceptance whenever policies can't be applied for a good reason.
+   Flux:
+   - Reads the desired change from GitHub
+   - Detects any configuration drift
+   - Reconciles the state in the Kubernetes cluster
+   - Manages Gatekeeper and the applications
+   - Updates itself
    
-1. Open Policy Agent (OPA) Gatekeeper validates any desired changes to cluster configuration against provisioned policies, and only applies the changes if they comply with policies.
+1. **Phylake** is a GitOps control kit that provides an overview of all AKS clusters to help manage policies.
+   
+   Phylake:
+   
+   - Assembles all cluster images in an overview that shows which versions are deployed and identifies outdated images
+   - Provides feedback on policy violations via pull request (PR) feedback before changes are applied
+   - Introduces risk acceptance whenever policies can't be applied for a good reason
+   - Provides security policies to Open Policy Agent (OPA) Gatekeeper
+   
+1. **OPA Gatekeeper** enforces policies. Gatekeeper validates any desired cluster configuration changes against provisioned policies, and applies the changes only if they comply with policies.
 
 ## Components
 
@@ -68,7 +81,7 @@ As cluster landscapes grow, the number of repositories constantly increases. Cha
 This solution provides several security-related benefits. With the GitOps approach, individual developers or administrators don't directly access the Kubernetes clusters to apply changes or updates. Instead, users push changes to a Git repository, and the GitOps operator, Flux in this case, reads them and applies them to the cluster. This approach follows the security best practice of least privilege by not giving DevOps teams write permissions to the Kubernetes API. In diagnostic or troubleshooting scenarios, you can grant cluster permissions for a limited time on a case by case basis.
 To make sure the AKS clusters are using security best practices, this solution enforces OPA Kubernetes policies with a validating admission webhook. Phylake provides a set of policies based on Kubernetes security standards, which you can provision on a cluster scope. Phylake provides early feedback via PR review for Kubernetes manifests that violate the policies.
 
-Apart from the task of setting up repository permissions, consider implementing the following requirements when setting up Git repositories that sync to AKS clusters:
+Apart from the task of setting up repository permissions, consider implementing the following security measures in Git repositories that sync to AKS clusters:
 
 - **Branch protection:** Protect the branches that represent the state of the Kubernetes clusters from having changes pushed to them directly. Require every change to be proposed by a pull request and reviewed by at least one other person. Also use PRs to do automatic checks. For example, Phylake validates Kubernetes manifests that a PR creates or modifies, and checks them against provisioned policies before the change can be synced into the cluster.
 
@@ -92,7 +105,7 @@ Perform the following steps to provision a running GitOps setup:
 
 1. Create an AKS cluster by following the [quickstart guide](https://docs.microsoft.com/en-us/azure/aks/Kubernetes-walkthrough). Stop at **Run the application**, and don't deploy anything in the cluster yet.
 
-1. Set up Flux by running the following code:
+1. [Install Flux](https://fluxcd.io/docs/installation/). Then run the following code:
    
    ```bash
    set -eo pipefail
@@ -148,7 +161,7 @@ Perform the following steps to provision a running GitOps setup:
 You've now successfully provisioned a running GitOps setup. From here, you can:
 
 - Add more clusters.
-- Get an overview of the used images in your clusters by using Phylake.
+- Use Phylake to get an overview of the images your clusters are using.
 - Provision policies with Phylake to comply with your security standards.
 
 ## Pricing
