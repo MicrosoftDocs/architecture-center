@@ -21,7 +21,7 @@ The architecture consists of the following components:
 - **On-premises branch office - Gateway**. This gateway connects the branch office to the on-premises main office via a Virtual Private Network (VPN).
 - **Third-party cloud provider - VM 5**. This component is a web application with internet access, a public-facing webpage, and both log analytics and dependency agents installed.
 - **Third-party cloud provider - VM 6**. This component is a datastore environment without internet access, but with both log analytics and dependency agents installed. There is no direct connectivity from the third-party cloud provider environments to the on-premises environments.
-- **Azure - Virtual Machine Scale Sets**. The Azure Virtual Machine Scale Sets (VMSS) is a scale set running a business application with the log analytics and diagnostic agents installed.
+- **Azure - Virtual Machine Scale Sets**. The Azure Virtual Machine Scale Sets is a scale set running a business application with the log analytics and diagnostic agents installed.
 - **Azure - Application server**. This server has a single VM running a business application, with log analytics and diagnostic agents installed.
 - **Azure Monitor metrics**. Data collected by Azure Monitor metrics is stored in a time-series database that is optimized for analyzing time-stamped data. It also stores metrics sent from on-premises VMs and Azure VMs.
 - **Azure Monitor - Log Analytics workspace**. This workspace stores logs sent from on-premises VMs, Azure VMs, and VMs on third-party cloud providers. The workspace is an Azure resource where data is aggregated, and it serves as an administrative boundary for accessing this data. Other Azure Monitor services then connect to the Log Analytics workspace and use the data for various purposes. For more information, see [Designing your Azure Monitor Logs deployment][design-deployment].
@@ -30,7 +30,7 @@ The architecture consists of the following components:
 - **Azure Monitor - Analysis**. Log and metric data from the VMs are queried within Azure Monitor metrics and the Log Analytics workspace using the Kusto Query Language (KQL). The results provide insights into the infrastructure, topology, and resources. For more information, see [Kusto: Overview][kusto] and [Azure Monitor log query examples][query-examples].
 - **Azure Monitor - Visualizations**. Azure Monitor uses visualization tools to review application and infrastructure components and communications between services in Azure Monitor. Visualization tools include **Application Insight's - Application Map**, **Azure Monitor for VMs - Map**, **Workbooks**, and various **Dashboard** views available within Azure Monitor. For more information, see [Use the Map feature of Azure Monitor for VMs to understand application components][service-map], [Create and share dashboards of Log Analytics data][share-dashboards], and [Azure Monitor Workbooks][monitor-workbooks].
 - **Azure Monitor - Integrations**. Azure Monitor integrates with a range of partner and third-party tools and extensions. These tools and extensions enhance and build upon existing Azure Monitor functionality, such as Analysis and Visualizations.
-- **Azure Monitor - Actions - Alerts**. Variations in metric and log data can indicate the occurrence of events. Rules define the data variations that trigger alerts, provide notifications, and initiate remediation responses. In this architecture, when an alert is triggered, automation runbooks automatically remediate the on-premises VMs and Azure VMs. Webhook actions, service management integration, and other action types are also available. For more information, see [Create, view, and manage metric alerts using Azure Monitor][manage-metrics-alerts] and [Create, view, and manage log alerts using Azure Monitor][manage-log-alerts].
+- **Azure Monitor - Actions - Alerts**. Variations in metric and log data can indicate the occurrence of events. Rules define the data variations that trigger alerts, provide notifications, and initiate remediation responses. In this architecture, when an alert is triggered, automation runbooks automatically remediate the on-premises VMs and Azure VMs. Webhook actions, Service Management integration, and other action types are also available. For more information, see [Create, view, and manage metric alerts using Azure Monitor][manage-metrics-alerts] and [Create, view, and manage log alerts using Azure Monitor][manage-log-alerts].
 - **Azure Monitor - Actions - Autoscale**. Autoscale adds or removes VM instances as demand changes, which maintains performance and increases cost effectiveness. In this architecture, Autoscale has conditions defined around average CPU load (in percentage). When conditions are met, Azure Monitor Autoscale will adjust the scale set according to demand. For more information, see [Overview of autoscale in Microsoft Azure][autoscale-overview].
 
 ## Recommendations
@@ -110,7 +110,7 @@ The following are considerations for ensuring availability in your environment.
 The following are considerations for making your environment more manageable.
 
 - Workbooks. Use workbooks to help perform further analysis, and create rich reports. Workbooks combine text, log queries, metrics, and parameters into interactive reports. Team members with access to the same Azure resources can edit workbooks. For more information, see [Create interactive reports Azure Monitor for VMs with workbooks][interactive-workbooks].
-- Partner integrations. Integrate Azure Monitor with partner and third-party tools to assist with analysis, visualization, alerts, or service management and DevOps pipelines. For more information, see [Azure Monitor partner integrations][partner-integrations].
+- Partner integrations. Integrate Azure Monitor with partner and third-party tools to assist with analysis, visualization, alerts, or Service Management and Azure Pipelines. For more information, see [Azure Monitor partner integrations][partner-integrations].
 - Integrate Azure Monitor with Microsoft System Center. Integrate Azure Monitor with the System Center product suite. For more information, see [Connect Operations Manager to Azure Monitor][ops-manager].
 - Send data to Azure Event Hub. For integrating Azure Monitor with visualization and external monitoring tools, refer to [Stream Azure monitoring data to an event hub or external partner][event-hub].
 - Log Analytics gateway. For smaller environments such as the branch office, use the agent to transfer data into the Log Analytics workspace, rather than into a gateway. For more information, see [Establish connectivity to Azure Log Analytics][connect-to-la].
@@ -131,11 +131,11 @@ The following items are considerations for making your environment more secure.
 
 The following are considerations for integrating your environment with DevOps processes and solutions.
 
-- Application Insights. Integrate Application Insights into DevOps pipelines to help make performance and usability improvements. Application Insights can detect performance anomalies automatically. It connects to various development tools, such as Azure DevOps services and GitHub.
+- Application Insights. Integrate Application Insights into Azure Pipelines to help make performance and usability improvements. Application Insights can detect performance anomalies automatically. It connects to various development tools, such as Azure DevOps Services and GitHub.
 - Application Instrumentation. *Instrument* applications by modifying application code to enable telemetry with Application Insights. The following methods are ways to instrument applications:
   - At runtime. Instrumenting your web application on the server at runtime is ideal for applications that are deployed already, as it avoids having to update code. Suitable scenarios include:
     - Microsoft ASP.NET or ASP.NET Core applications hosted on Azure Web Apps
-    - ASP.NET applications hosted in Microsoft Internet Information Services (IIS) on an Azure VM or Azure VMSS
+    - ASP.NET applications hosted in Microsoft Internet Information Services (IIS) on an Azure Virtual Machine or Azure Virtual Machine Scale Set
     - ASP.NET applications hosted in IIS on an on-premises VM
     - Java-based Azure Functions
     - Node.JS apps on Linux App Services
@@ -147,7 +147,7 @@ The following are considerations for integrating your environment with DevOps pr
     - Java
     - Node.js
     - Python
-- Use IT Service Management Connector (ITSMC) to connect to external IT service management (ITSM) tools. ITSMC connects Azure to supported ITSM products and services, where issue-related work items typically reside. For more information, see [Connect Azure to ITSM tools using IT Service Management Connector][itsm].
+- Use IT Service Management Connector (ITSMC) to connect to external IT Service Management (ITSM) tools. ITSMC connects Azure to supported ITSM products and services, where issue-related work items typically reside. For more information, see [Connect Azure to ITSM tools using IT Service Management Connector][itsm].
 
 ## Cost considerations
 
