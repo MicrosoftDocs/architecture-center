@@ -13,7 +13,7 @@ Event Grid connects your app with other services. For example, create an applica
 
 ### Data flow
 
-1. Configure different event sources (Blob Storage, Azure Cache for Redis, App Configuration, Event Hubs, Key Vault, Service Bus) to subscribe to an Event Grid topic.
+1. Configure different event sources (Blob Storage, Azure Cache for Redis, App Configuration, Event Hubs, Key Vault, Service Bus) to subscribe to an event grid topic.
 1. Triggers event sources from various scenarios, including different actions performed on the event sources.  
 1. Use Event Grid to support the events coming from different Azure services.
 1. Leverages different event handlers (Azure Functions, Event Hubs, Logic Apps, Blob Storage, Web Hook, Power Automate) to handle different use cases.
