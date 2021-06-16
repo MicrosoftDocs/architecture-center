@@ -117,6 +117,7 @@ We recommend 125 as the maximum autoscale instance count. Make sure the subnet t
 Setting the maximum instance count to 125 has no cost implications because you're billed only for the consumed capacity. 
 
 #### Define Application Gateway subnet size
+
 Application Gateway needs a dedicated subnet within a virtual network. The subnet can have multiple instances of the deployed Application Gateway resource. You can also deploy other Application Gateway resources in that subnet, v1 or v2 SKU.
 
 Here are some considerations for defining the subnet size:
@@ -126,15 +127,46 @@ Here are some considerations for defining the subnet size:
 - If you want to deploy additional Application Gateway resources in the same subnet, consider the additional IP addresses that will be required for their maximum instance count for both, Standard and Standard v2.
 
 #### Monitor capacity metrics
-Use these metrics as indicators of utilization of the provisioned Application Gateway capacity. We strongly recommend setting up alerts on capacity. For details, see [Application Gateway high traffic support](/azure/application-gateway/high-traffic-support) 
+
+Use these metrics as indicators of utilization of the provisioned Application Gateway capacity. We strongly recommend setting up alerts on capacity. For details, see [Application Gateway high traffic support](/azure/application-gateway/high-traffic-support).
+
 |Metric|Description|Use case|
 |---|---|---|
-|**Current Compute Units**|	CPU utilization of virtual machine running Application Gateway. One Application Gateway instance supports 10 Compute Units.|Helps detect issues when more traffic is sent than what Application Gateway instances can handle.   
-|**Throughput**|Amount of traffic (in Bps) served by Application Gateway.	|This threshold is dependent on the payload size. For smaller payloads but more frequent connections, expect lower throughput limits and adjust alerts accordingly. 
-|**Current Connections**| Active TCP connections on Application Gateway.| Helps detect issues where the connection count increases beyond the capacity of Application gateway. Look for a drop in capacity unit When the connection count increases, look for a simultaneous drop in capacity unit. This will indicate if Application Gateway is out of capacity.
+|**Current Compute Units**|	CPU utilization of virtual machine running Application Gateway. One Application Gateway instance supports 10 Compute Units.|Helps detect issues when more traffic is sent than what Application Gateway instances can handle.|   
+|**Throughput**|Amount of traffic (in Bps) served by Application Gateway.	|This threshold is dependent on the payload size. For smaller payloads but more frequent connections, expect lower throughput limits and adjust alerts accordingly. |
+|**Current Connections**| Active TCP connections on Application Gateway.| Helps detect issues where the connection count increases beyond the capacity of Application gateway. Look for a drop in capacity unit When the connection count increases, look for a simultaneous drop in capacity unit. This will indicate if Application Gateway is out of capacity.|
 
 #### Troubleshoot using metrics
 
+There are other metrics that can indicate issues either at Application Gateway or the backend. We recommend evaluating alerts as per the table below.
+
+|Metric|Description|Use case|
+|---|---|---|
+|**Unhealthy Host Count** |	Number of backends that Application Gateway is unable to probe successfully. |Application Gateway instances are unable to connect to the backend. For example, the  probe interval is 10 seconds and unhealthy host count threshold is 3 failed probes). A backend will turn unhealthy if Application Gateway instance isn't able to reach it for 30 seconds. Also depends on the configured timeout and interval in the custom probe. |
+|**Response Status** (dimension 4xx and 5xx)| The HTTP response status returned to clients from Application Gateway. This status is usually same as the **Backend Response Status**, unless Application Gateway is unable to get a response from the backend or Application Gateway has an internal error in serving responses.|Issues with Application Gateway or the backend. Use this metric with **Backend Response Status** to identify whether Application Gateway or the backend is failing to serve requests.|  
+|**Backend Response Status** (dimension 4xx and 5xx)|The HTTP response status returned to Application Gateway from the backend. |	Use to validate if the backend is successfully receiving requests and serving responses.| 
+|**Backend Last Byte Response Time**|Time interval between the start of a connection to backend server and receiving the last byte of the response body.|	Increase in this latency implies that the backend is getting loaded and is taking longer to respond to requests. One way to resolve this issue is to scale up the backend.|
+|**Application Gateway Total Time**|Time period from when Application Gateway receives the first byte of the HTTP request to when the last response byte has been sent to the client. This includes client RTT| Increase in this latency, without any accompanying application changes or access traffic pattern changes should be investigated. If this metric increases, monitor other the metrics and determine if they other metrics are also increasing, such as ompute units, total throughput, or total request count.|
+
+#### Enable diagnostics on Application Gateway and web application firewall (WAF)
+
+Diagnostic logs allow you to view firewall logs, performance logs, and access logs. Use these logs to manage and troubleshoot issues with Application Gateway instances.
+
+#### Use Azure Monitor Network Insights
+Azure Monitor Network Insights provides a comprehensive view of health and metrics for network resources, including Application Gateway. For additional details and supported capabilities for Application Gateway, see [Azure Monitor Network insights](/azure/azure-monitor/insights/network-insights-overview).
+
+
+#### Use advanced monitoring metrics
+Consider monitoring and setting alertg on metrics such as **Unhealthy host count**, and metrics that indicate the latency and the number of connections and requests. Notice the difference between connections and requests for Application Gateway frontend connections. One connection represents the TCP connection (sockets pair), while a requests represents a resource request, that is a GET/PUT,POST, and so on. One connection can serve multiple requests (on Application Gateway v2, up to 100).
+
+#### SNAT port limitations
+SNAT port limitations are important for backend connections on the Application Gateway. There are separate factors that affect how Application Gateway reaches the SNAT port limit. For example, if the backend is a public IP, it will require its own SNAT port. In order to avoid SNAT port limitations, you can increase the number of instances per Application Gateway, scale out the backends to have more IPs, or move your backends into the same virtual network and use private IP addresses for the backends.
+
+#### Requests per second (RPS) considerations
+Requests per second (RPS) on the Application Gateway will be affected if the SNAT port limit is reached. For example, if Application Gateway has reached the SNAT port limit, then Application Gateway won't be able to open a new connection to the backend and the request will fail.
+
+#### Match timeout settings with the backend application
+Ensure you have configured the **IdleTimeout** settings to match the listener and traffic characteristics of the backend application. The default value is set to 4 minutes and can be configured to a maximum of 30. For more information, see [Load Balancer TCP Reset and Idle Timeout](/azure/load-balancer/load-balancer-tcp-reset).
 
 
 
