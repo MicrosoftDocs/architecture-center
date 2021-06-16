@@ -17,14 +17,14 @@ categories:
 
 This article provides architectural best practices for the Azure Application Gateway v2 family of SKUs. The guidance is based on the five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-We assume that you have working knowledge of Azure Application Gateway and are well-versed with the v2 SKU features. As a refresher on the full set of features, see [Azure Application Gateway features](/azure/application-gateway/features).
+We assume that you have working knowledge of Azure Application Gateway and are well-versed with v2 SKU features. As a refresher on the full set of features, see [Azure Application Gateway features](/azure/application-gateway/features).
 
 
 ## Cost Optimization
 
 Review and apply the [cost principles](/azure/architecture/framework/cost/overview) when making design choices. 
 
-### Review Application Gateway pricing
+#### Review Application Gateway pricing
 
 Familiarize yourself with Application Gateway pricing to help you identify the right deployment configuration for your environment. Ensure that these blocks are adequately sized to meet the capacity demand and deliver expected performance without wasting resources.
 
@@ -35,7 +35,7 @@ Use these resources to estimate cost based on units of consumption.
 - [Azure Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
 - [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 
-### Review underutilized resources
+#### Review underutilized resources
 
 Identify and delete Application Gateway instances with empty backend pools.
 
@@ -51,13 +51,13 @@ See these articles for information about how to stop and start instances.
 - [Start-AzApplicationGateway](/powershell/module/az.network/start-azapplicationgateway?view=azps-5.2.0&preserve-view=true)
 
 
-### Have a scale-in and scale-out policy
+#### Have a scale-in and scale-out policy
 
 A scale-in policy ensures that there will be enough instances to handle the incoming traffic and  spikes. Also, have a scale-out policy that makes sure the number of instances are reduced when demand drops. Consider the choice of instance size. The size can significantly impact the cost.
 
 For more information, see [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
-### Review consumption metrics across different parameters
+#### Review consumption metrics across different parameters
 
 You're billed based on metered instances of Application Gateway based on the metrics tracked by Azure. Here's an example of cost incurred view in [Azure Cost Management + Billing](https://azure.microsoft.com/services/cost-management/).
 
@@ -69,9 +69,9 @@ Evaluate the various metrics and capacity units that can be cost drivers.
 
 These are key metrics for Application Gateway. This information can be used to validate that the provisioned instance count matches the amount of incoming traffic.
 
-- Estimated Billed Capacity Units
-- Fixed Billable Capacity Units
-- Current Capacity Units.
+- **Estimated Billed Capacity Units**
+- **Fixed Billable Capacity Units**
+- **Current Capacity Units**
 
 For more information, see [Application Gateway metrics](/application-gateway/application-gateway-metrics#application-gateway-metrics).
 
@@ -84,18 +84,27 @@ Make sure you account for bandwidth costs. For details, see [Traffic across bill
 
 ## Performance Efficiency
 
-**Take advantage of v2 SKU features for autoscaling and performance benefits**
+#### Take advantage of v2 SKU features for autoscaling and performance benefits
 
-The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. It also offers other significant performance benefits, such as 5x better TLS offload performance, quicker deployment and update times, zone redundancy, and more when compared to v1. For more information, see our v2 documentation and see our v1 to v2 migration documentation to learn how to migrate your existing v1 SKU gateways to v2 SKU.
-Approximating the Application Gateway Instance count
-Application Gateway v2 scales out depending on a variety of factors, including but not limited to CPU, memory, and network utilization. To determine the approximate instance count, the customer can look at the following metrics:
-	Compute Units – This is an indicator of CPU utilization. 1 Application Gateway instance is approximately 10 compute units
-	Throughput – Application Gateway instance can support 60 to 75 MBps of throughput. This will vary depending on the type of payload the customer has.
+The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. When compared to v1 SKU, v2 has capabilities that enhance the performance of the workload. For example, significantly better TLS offload performance, quicker deployment and update times, zone redundancy, and more. For more information about autoscaling features, see [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
-Eq. 1: Approximate instance count = max((current compute units)/10,(current throughput in MBps)/60)
+If you are running v1 SKU gateways, consider migrating to v2 SKU. For guidance about migration, see  
+[Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](/application-gateway/migrate-v1-v2).
 
-Once the customer has approximated the instance count, they can compare to their maximum instance count to determine how close to they are to reaching the maximum available capacity. 
-Define the minimum instance count
+
+#### Estimate the Application Gateway instance count
+Application Gateway v2 scales out depending on a many aspects, such as CPU, memory, and network utilization. To determine the approximate instance count, factor in these metrics:
+- **Current compute units**&mdash;Indicates CPU utilization. 1 Application Gateway instance is approximately 10 compute units.
+- **Throughput**&mdash;Application Gateway instance can serve 60-75 MBps of throughput. This data depends on the type of payload.
+
+Consider this equation when calulating instance counts.
+
+![Approximate instance count](../images/autoscale-instance.svg)
+
+After you've estimated the instance count, compare that value to the maximum instance count. This will indicate the proximity to the maximum available capacity. 
+
+
+#### Define the minimum instance count
 For Application Gateway v2 SKU, autoscaling takes six to seven minutes to scale out and provision additional set of instances ready to take traffic. Until then, if there are short spikes in traffic, your existing gateway instances might get overwhelmed and this may cause unexpected latency or loss of traffic.
 It is recommended that you set your minimum instance count to an optimal level. Once you calculate the average approximate instance count, as well as you determine your Application Gateway autoscaling trends, you can define the minimum instance count based on your application patterns. 
 As described in the Approximating Application Gateway Instance count section, check your Current Compute Units metric for the past one month. Compute unit metric is a representation of your gateway's CPU utilization and based on your peak usage divided by 10, you can set the minimum number of instances required. For example, if your Current Compute Units avg over the past month is 50, you would set the Application Gateway minimum instance count to 5.
