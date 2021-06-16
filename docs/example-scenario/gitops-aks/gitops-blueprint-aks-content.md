@@ -18,7 +18,7 @@ This blueprint benefits any organization that wants the advantages of deploying 
 
 ## Architecture
 
-![Diagram of a GitOps setup for an AKS cluster, including GitHub source control, Flux GitOps controller, Phylake GitOps control kit, and Gatekeeper admission controller.](media/phylake.svg)
+![Diagram of a GitOps setup for an AKS cluster, including GitHub source control, Flux GitOps controller, Phylake GitOps control kit, and Gatekeeper admission controller.](media/gitops-blueprint-aks.svg)
 
 This solution follows a strong GitOps approach. The single point of truth is the GitHub repository that holds the provisioned AKS cluster configurations. Flux is the GitOps operator that syncs any desired cluster state changes into AKS. Phylake provides security policies to OPA Gatekeeper, which enforces the policies.
 
