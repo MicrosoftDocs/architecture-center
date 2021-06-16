@@ -2,13 +2,13 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution demonstrates how to ingest and analyze high volumes  of IoT data and generate real-time recommendations and insights.
+This solution demonstrates how to ingest and analyze high volumes of IoT data and generate real-time recommendations and insights.
 
-This solution utilizes the following:
+This solution utilizes the following functionality:
 
-- Real-time data ingestion and processing pipeline capable of detection and notification within seconds
-- A secure API gateway that connects to back-end services running anywhere
-- Elastic provisioning of compute capacity without the need to manage the infrastructure
+- Real-time data ingestion and processing pipeline capable of detection and notification within seconds.
+- A secure API gateway that connects to back-end services running anywhere.
+- Elastic provisioning of compute capacity without the need to manage the infrastructure.
 
 ## Architecture
 
@@ -32,13 +32,13 @@ The data flows through the solution as follows:
 
 This example scenario uses several Azure components:
 
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/): Automate build and push images to container registry and deployment of containers to Kubernetes
-- [Azure API Management](https://azure.microsoft.com/services/api-management/): Selectively expose data and services to the outside world and manage incoming API calls
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Build, store, secure, scan, replicate, and manage container images and artifacts
-- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/): The fully managed Azure Kubernetes Service (AKS) makes deploying and managing containerized applications easy
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Safeguard cryptographic keys and other secrets used by cloud apps and services
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/): Automate build and push images to container registry and deployment of containers to Kubernetes.
+- [Azure API Management](https://azure.microsoft.com/services/api-management/): Selectively expose data and services to the outside world and manage incoming API calls.
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Build, store, secure, scan, replicate, and manage container images and artifacts.
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/): The fully managed Azure Kubernetes Service (AKS) makes deploying and managing containerized applications easy.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Safeguard cryptographic keys and other secrets used by cloud apps and services.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): A fully managed database service with turnkey global distribution and transparent multi-primary replication.
-- [Azure HDInsights](https://azure.microsoft.com/services/hdinsight/): A cost-effective, enterprise-grade service for open-source analytics
+- [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/): A cost-effective, enterprise-grade service for open-source analytics.
 - [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/): Build and host web apps, mobile back ends, and RESTful APIs without managing infrastructure.
 - [Azure Database for PosgreSQL](https://azure.microsoft.com/services/postgresql/): a fully managed relational database service based on the open-source Postgres database engine.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks/): An Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
