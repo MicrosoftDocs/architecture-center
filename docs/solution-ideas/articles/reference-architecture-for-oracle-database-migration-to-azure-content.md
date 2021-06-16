@@ -13,8 +13,10 @@ Oracle DB migrations can be accomplished in multiple ways. This solution covers 
 2. Use DataGuard to mark your OracleDB1 in Azure as your active stand-by.
 3. Switch your OracleDB1 in Azure as primary and set up your OracleDB2 in Azure as your standby to finish your migration.
 
-* *Note*: This method only works when migrating to and from the same OS version and DB version.
-* *Assumption*: You are using DataGuard on-premises.
+> [!Note]
+> 
+> - This method works only when migrating to and from the same OS version and database version.
+> - *Assumption*: You're using DataGuard on-premises.
 
 ### Components
 
@@ -22,7 +24,7 @@ Oracle DB migrations can be accomplished in multiple ways. This solution covers 
 * [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
 * [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 * [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-* [Azure Managed Disks](https://docs.microsoft.com/en-gb/azure/virtual-machines/disks-types)
+* [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### Alternatives
 
@@ -34,7 +36,7 @@ If your database is over 2 TB, you can use Oracle Data Guard with Oracle Recover
 
 You can migrate your entire Oracle database from on-premises to Azure VM with minimal downtime by using Oracle Recovery Manager (RMAN) and Oracle Data Guard. Use RMAN to restore your database to the target standby Azure VM, using either backup/restore or the duplicate database method. You can then configure the target database as a physical standby database with Oracle Data Guard, allowing all the transaction/redo data changes from the primary on-premises database to the standby database. When the primary on-premises Oracle database is in sync with the target standby database on the Azure VM instance, you can switch over to the target database, which will convert it to a read-write database. You can then point your application connections to the new primary database. This option provides a minimum downtime while migrating your database to Azure.
 
-The Oracle Data Pump utility is used to export and import data and metadata from or to Oracle databases. You can run Data Pump export/import on an entire database, selective schemas, tablespaces, or database objects. Data Pump is the recommended tool for migrating data to Azure, for large databases that range from 10 GB to 20 TB in size. It allows a high degree of parallelism, flexible data extraction options, and scalable operations, which enable highspeed movement of data and metadata from a source database to the target database. Oracle Data Pump also supports encryption and compression, when exporting your data to data dump files. You can use Oracle Data Pump with Oracle Data Guard or Golden Gate to handle the initial data transfer for large databases. Note that Data Pump is available only on Oracle Database 10g Release 1 (10.1) and later.
+The Oracle Data Pump utility is used to export and import data and metadata from or to Oracle databases. You can run Data Pump export/import on an entire database, selective schemas, tablespaces, or database objects. Data Pump is the recommended tool for migrating data to Azure, for large databases that range from 10 GB to 20 TB in size. It allows a high degree of parallelism, flexible data extraction options, and scalable operations, which enable high-speed movement of data and metadata from a source database to the target database. Oracle Data Pump also supports encryption and compression, when exporting your data to data dump files. You can use Oracle Data Pump with Oracle Data Guard or Golden Gate to handle the initial data transfer for large databases. Note that Data Pump is available only on Oracle Database 10g Release 1 (10.1) and later.
 
 ### Design considerations
 
@@ -73,8 +75,9 @@ For business continuity and disaster recovery, consider deploying the following 
 * Oracle Data Guard Far Sync for zero data loss protection.
 * Oracle GoldenGate for multi-primary or active-active mode on Azure availability set or availability zone depends on SLA requirements.
 
-Use Availability Zones to achieve high availability in-region. More information can be found Reference architectures for Oracle databases on Azure - Azure Virtual Machines | Microsoft Docs
-An uptime availability of 99.99% for your database tier can be achieved using a combination of Azure Availability Zones and Oracle Active DataGuard with FSFO.
+Use Availability Zones to achieve high availability in-region. For more information, see the [Reference architectures for Oracle databases on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture).
+
+An uptime availability of 99.99% for your database tier can be achieved by using a combination of Azure Availability Zones and Oracle Active DataGuard with FSFO.
 
 Consider using proximity placement groups to reduce the latency between your application and database tier.
 
