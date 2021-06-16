@@ -170,7 +170,7 @@ Requests per second (RPS) on the Application Gateway will be affected if the SNA
 Ensure you have configured the **IdleTimeout** settings to match the listener and traffic characteristics of the backend application. The default value is set to 4 minutes and can be configured to a maximum of 30. For more information, see [Load Balancer TCP Reset and Idle Timeout](/azure/load-balancer/load-balancer-tcp-reset).
 
 
-For workload considerations, see [Application Monitoring](azure/architecture/framework/devops/monitoring#application-monitoring).
+For workload considerations, see [Application Monitoring](/azure/architecture/framework/devops/monitoring#application-monitoring).
 
 
 ## Reliability
