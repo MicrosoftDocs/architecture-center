@@ -201,10 +201,20 @@ Application Gateway is deployed in a subnet of virtual network that hosts the cl
 - Log Analytics
 - Azure Front Door
 
-### Cluster access
+### Cluster access / security
+
+#### Cluster access
 
 - Access considerations (overview)
 - Considerations related to one vs. multiple access control groups
+
+#### Certificates
+
+Front Door doesn't use self-signed certificates even in Dev/Test environments. To enable HTTPS traffic, you need to create your TLS/SSLcertificate that is signed by a certificate authority (CA).
+
+This architecture uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. Certbot is a free, open-source software tool. It generates certificates for manually administrated websites. To check the validity of the website, Cerbot sends request to the domain. Respond to that request to acknowledge that you own the domain. If that validation is successful, a certificate is generated.
+
+For information about other CAs supported by Front Door, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](/azure/frontdoor/front-door-faq#what-certificates-are-supported-on-azure-front-door-).
 
 ### Data and state
 
