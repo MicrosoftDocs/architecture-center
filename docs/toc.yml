@@ -1885,6 +1885,14 @@ items:
                     href: hybrid/hybrid-dns-infra.yml
                   - name: Hybrid availability and performance monitoring
                     href: hybrid/hybrid-perf-monitoring.yml
+          - name: Solution ideas
+            items:
+              - name: Low-latency network for industry
+                href: solution-ideas/articles/low-latency-network.yml
+              - name: Video capture and analytics for retail
+                href: solution-ideas/articles/video-analytics.yml
+              - name: IoT network for healthcare facilities
+                href: solution-ideas/articles/healthcare-network.yml
       - name: SAP
         items:
           - name: Get started
