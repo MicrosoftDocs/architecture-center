@@ -28,7 +28,7 @@ Use this approach for scenarios like:
 This solution uses the following Azure components:
 
 - [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge) is a portfolio of devices that bring compute, storage, and intelligence to the IoT Edge.
-- [Azure Network Function Manager](https://azure.microsoft.com/products/network-function-manager) enables the deployment of network functions to the IoT Edge using consistent Azure tools and interfaces.
+- [Azure Network Function Manager](https://azure.microsoft.com/products/azure-network-function-manager) enables the deployment of network functions to the IoT Edge using consistent Azure tools and interfaces.
 
 ## Next steps
 
