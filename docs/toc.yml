@@ -1596,6 +1596,8 @@ items:
                 items:
                   - name: Analyze and optimize loop
                     href: example-scenario/iot/analyze-optimize-loop.yml
+                  - name: Cloud application signaling
+                    href: example-scenario/iot/cloud-application-signaling.md
                   - name: Event routing
                     href: example-scenario/iot/event-routing.yml
                   - name: Measure and control loop
@@ -1604,13 +1606,8 @@ items:
                     href: example-scenario/iot/monitor-manage-loop.yml
                   - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
-<<<<<<< HEAD
               - name: Choosing an Internet of Things (IoT) solution in Azure
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md      
-=======
-                  - name: Cloud Application Signaling
-                    href: example-scenario/iot/cloud-application-signaling.yml
->>>>>>> c768f467c3777638bc525198d998f8b9341a229d
           - name: Architectures
             items:
               - name: IoT reference architecture
