@@ -2,7 +2,7 @@
 metadata:
   title: Predictive aircraft engine monitoring
   titleSuffix: Azure Solution Ideas
-  description: Microsoft Azure's Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
+  description: Demonstrates how to combine real-time aircraft data with analytics to create a solution for predictive aircraft engine monitoring and aircraft health.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/16/2019
@@ -25,7 +25,7 @@ name: Predictive aircraft engine monitoring
 azureCategories:
   - analytics
   - ai-machine-learning
-summary: Microsoft Azure's Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
+summary: Demonstrates how to combine real-time aircraft data with analytics to create a solution for predictive aircraft engine monitoring and aircraft health.
 products:
   - azure-data-factory
   - azure-event-hubs
@@ -33,6 +33,7 @@ products:
   - azure-machine-learning
   - azure-stream-analytics
   - azure-sql-database
+  - azure-blob-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.png
 content: |
   [!include[](aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace-content.md)]

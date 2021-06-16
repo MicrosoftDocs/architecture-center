@@ -24,7 +24,7 @@ This solution is built with [Azure Stream Analytics](https://azure.microsoft.com
 
 ## Next steps
 
-Read other Azure Architecture Center articles about predictive maintenance and prediction:
+Read other Azure Architecture Center articles about predictive maintenance and prediction with machine learning:
 
 * [Predictive maintenance](./predictive-maintenance.yml)
 * [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
