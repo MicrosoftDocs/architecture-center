@@ -3,7 +3,7 @@ title:  Azure Well-Architected Framework review of Azure Application Gateway
 titleSuffix: Azure Architecture Center
 description: This guidance provides best practices for the Application Gateway v2 family of SKUs based on  five pillars of architecture excellence.
 author: PageWriter-MSFT
-ms.date: 02/01/2020
+ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -17,12 +17,12 @@ categories:
 
 This article provides architectural best practices for the Azure Application Gateway v2 family of SKUs. The guidance is based on the five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-We assume that you have working knowledge of Azure Application Gateway and are well versed with v2 SKU features. As a refresher on the full set of features, see [Azure Application Gateway features](/azure/application-gateway/features).
+We assume that you have working knowledge of Azure Application Gateway and are well versed with v2 SKU features. As a refresher, review the full set of [Azure Application Gateway features](/azure/application-gateway/features).
 
 
 ## Cost Optimization
 
-Review and apply the [cost principles](/azure/architecture/framework/cost/overview) when making design choices. 
+Review and apply the [cost principles](/azure/architecture/framework/cost/overview) when making design choices. Here are some best practices. 
 
 #### Review Application Gateway pricing
 
@@ -41,7 +41,7 @@ Identify and delete Application Gateway instances with empty backend pools.
 
 #### Stop Application Gateway instances when not in use
 
-You aren't billed when Application Gateway is in stopped state. 
+You aren't billed when Application Gateway is in the stopped state. 
 
 Continuously running Application Gateway instances can incur extraneous costs. Evaluate usage patterns and stop instances when you don't need them. For example, usage after business hours in Dev/Test environments is expected to be low. 
 
@@ -53,7 +53,7 @@ See these articles for information about how to stop and start instances.
 
 #### Have a scale-in and scale-out policy
 
-A scale-in policy ensures that there will be enough instances to handle the incoming traffic and  spikes. Also, have a scale-out policy that makes sure the number of instances are reduced when demand drops. Consider the choice of instance size. The size can significantly impact the cost.
+A scale-in policy ensures that there will be enough instances to handle incoming traffic and  spikes. Also, have a scale-out policy that makes sure the number of instances are reduced when demand drops. Consider the choice of instance size. The size can significantly impact the cost. Some considerations are described in the [Estimate the Application Gateway instance count](#estimate-the-application-gateway-instance-count).
 
 For more information, see [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
@@ -65,7 +65,7 @@ You're billed based on metered instances of Application Gateway based on the met
 
 ![Azure Application Gateway pricing Cost Review](../images/application-gateway-sample-cost.png)
 
-Evaluate the various metrics and capacity units that can be cost drivers. 
+Evaluate the various metrics and capacity units and determine the cost drivers. 
 
 These are key metrics for Application Gateway. This information can be used to validate that the provisioned instance count matches the amount of incoming traffic.
 
@@ -79,21 +79,19 @@ For more information, see [Application Gateway metrics](/application-gateway/app
 Make sure you account for bandwidth costs. For details, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions#traffic-across-billing-zones-and-regions). 
 
 
-## Operational Excellence
-
-
 ## Performance Efficiency
 
 Take advantage of v2 SKU features for autoscaling and performance benefits. 
 
-The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. When compared to v1 SKU, v2 has capabilities that enhance the performance of the workload. For example, significantly better TLS offload performance, quicker deployment and update times, zone redundancy, and more. For more information about autoscaling features, see [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. When compared to v1 SKU, v2 has capabilities that enhance the performance of the workload. For example, better TLS offload performance, quicker deployment and update times, zone redundancy, and more. For more information about autoscaling features, see [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
-If you are running v1 SKU gateways, consider migrating to v2 SKU. For guidance about migration, see  
+If you are running v1 SKU gateways, consider migrating to v2 SKU. See  
 [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](/application-gateway/migrate-v1-v2).
 
+General best practices related to Performance Efficiency are described in [Performance efficiency principles](/azure/architecture/framework/scalability/principles). 
 
 #### Estimate the Application Gateway instance count
-Application Gateway v2 scales out depending on a many aspects, such as CPU, memory, and network utilization. To determine the approximate instance count, factor in these metrics:
+Application Gateway v2 scales out based on many aspects, such as CPU, memory, network utilization, and more. To determine the approximate instance count, factor in these metrics:
 - **Current compute units**&mdash;Indicates CPU utilization. 1 Application Gateway instance is approximately 10 compute units.
 - **Throughput**&mdash;Application Gateway instance can serve 60-75 MBps of throughput. This data depends on the type of payload.
 
@@ -101,7 +99,7 @@ Consider this equation when calculating instance counts.
 
 ![Approximate instance count](../images/autoscale-instance.svg)
 
-After you've estimated the instance count, compare that value to the maximum instance count. This will indicate the proximity to the maximum available capacity. 
+After you've estimated the instance count, compare that value to the maximum instance count. This will indicate how close you are to the maximum available capacity. 
 
 
 #### Define the minimum instance count
@@ -109,7 +107,7 @@ For Application Gateway v2 SKU, autoscaling takes some time (approximately six t
 
 We recommend that you set your minimum instance count to an optimal level. After you estimate the average instance count and determine your Application Gateway autoscaling trends, define the minimum instance count based on your application patterns. For information, see [Application Gateway high traffic support](/azure/application-gateway/high-traffic-support).
 
-Check the **Current Compute Units** for the past one month. This metric represents the gateway's CPU utilization. To define the minimum instance count, divide the peak usage by 10. For example, if your Current Compute Units average in the past month is 50, set the minimum instance count to 5.
+Check the **Current Compute Units** for the past one month. This metric represents the gateway's CPU utilization. To define the minimum instance count, divide the peak usage by 10. For example, if your average **Current Compute Units** in the past month is 50, set the minimum instance count to 5.
 
 #### Define the maximum instance count
 We recommend 125 as the maximum autoscale instance count. Make sure the subnet that has the Application Gateway has sufficient available IP addresses to support the scale-up set of instances.
@@ -125,6 +123,9 @@ Here are some considerations for defining the subnet size:
 - Azure reserves five IP addresses in each subnet for internal use.
 - Application Gateway (Standard or WAF SKU) can support up to 32 instances. Taking 32 instance IP addresses + 1 private front-end IP + 5 Azure reserved, a minimum subnet size of /26 is recommended. Because the Standard_v2 or WAF_v2 SKU can support up to 125 instances, using the same calculation, a subnet size of /24 is recommended.
 - If you want to deploy additional Application Gateway resources in the same subnet, consider the additional IP addresses that will be required for their maximum instance count for both, Standard and Standard v2.
+
+## Operational Excellence
+Monitoring and diagnostics are crucial. Not only can you measure performance statistics but also use metrics troubleshoot and remediate issues quickly. 
 
 #### Monitor capacity metrics
 
@@ -168,10 +169,14 @@ Requests per second (RPS) on the Application Gateway will be affected if the SNA
 #### Match timeout settings with the backend application
 Ensure you have configured the **IdleTimeout** settings to match the listener and traffic characteristics of the backend application. The default value is set to 4 minutes and can be configured to a maximum of 30. For more information, see [Load Balancer TCP Reset and Idle Timeout](/azure/load-balancer/load-balancer-tcp-reset).
 
-Other best practices related to Performance Efficiency are described in [Performance efficiency principles](/azure/architecture/framework/scalability/principles). 
+
+For workload considerations, see [Application Monitoring](azure/architecture/framework/devops/monitoring#application-monitoring).
+
 
 ## Reliability
 Here are some best practices to minimize failed instances.
+
+In addition, we recommend that you review the [Principles of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 #### Plan for rule updates 
 Plan enough time for updates before accessing Application Gateway or making further changes. For example, removing servers from backend pool might take some time because they have to drain existing connections.
@@ -199,8 +204,10 @@ For more information, see these articles:
 
 ## Security
 
+Security is one of the most important aspects of any architecture. Application Gateway provides features to employ both the principle of least privilege and defense-in-defense. We recommend you also review the [Security design principles](/azure/architecture/framework/security/security-principles).
+
 #### Restrictions of Network Security Groups (NSGs)
-NSGs are supported on Application Gateway, but there are some restrictions. For instance, some communication with certain port ranges are prohibited. Make sure you understand the implications of those restrctions. For details, see [Network security groups](/azure/application-gateway/configuration-infrastructure#network-security-groups).
+NSGs are supported on Application Gateway, but there are some restrictions. For instance, some communication with certain port ranges is prohibited. Make sure you understand the implications of those restrictions. For details, see [Network security groups](/azure/application-gateway/configuration-infrastructure#network-security-groups).
 
 
 #### User Defined Routes (UDR)-supported scenarios 
@@ -227,3 +234,7 @@ Application Gateway is integrated with Key Vault. This provides stronger securit
 
 #### Enabling the Web Application Firewall (WAF)
 When WAF is enabled, every request must be buffered by the Application Gateway until it fully arrives and check if the request matches with any rule violation in its core rule set and then forward the packet to the backend instances. For large file uploads (30MB+ in size), this can result in a significant latency. Because Application Gateway capacity requirements are different with WAF, we do not recommend enabling WAF on Application Gateway without proper testing and validation. 
+
+## Next steps
+
+[Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
