@@ -17,7 +17,7 @@ categories:
 
 This article provides architectural best practices for the Azure Application Gateway v2 family of SKUs. The guidance is based on the five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
-We assume that you have working knowledge of Azure Application Gateway and are well-versed with v2 SKU features. As a refresher on the full set of features, see [Azure Application Gateway features](/azure/application-gateway/features).
+We assume that you have working knowledge of Azure Application Gateway and are well versed with v2 SKU features. As a refresher on the full set of features, see [Azure Application Gateway features](/azure/application-gateway/features).
 
 
 ## Cost Optimization
@@ -97,7 +97,7 @@ Application Gateway v2 scales out depending on a many aspects, such as CPU, memo
 - **Current compute units**&mdash;Indicates CPU utilization. 1 Application Gateway instance is approximately 10 compute units.
 - **Throughput**&mdash;Application Gateway instance can serve 60-75 MBps of throughput. This data depends on the type of payload.
 
-Consider this equation when calulating instance counts.
+Consider this equation when calculating instance counts.
 
 ![Approximate instance count](../images/autoscale-instance.svg)
 
@@ -105,7 +105,7 @@ After you've estimated the instance count, compare that value to the maximum ins
 
 
 #### Define the minimum instance count
-For Application Gateway v2 SKU, autoscaling takes some time (approximately six to seven minutes) before the additional set of instances are ready to serve traffic. During that time, if there are short spikes in traffic, expect transient latency or loss of traffic.
+For Application Gateway v2 SKU, autoscaling takes some time (approximately six to seven minutes) before the additional set of instances is ready to serve traffic. During that time, if there are short spikes in traffic, expect transient latency or loss of traffic.
 
 We recommend that you set your minimum instance count to an optimal level. After you estimate the average instance count and determine your Application Gateway autoscaling trends, define the minimum instance count based on your application patterns. For information, see [Application Gateway high traffic support](/azure/application-gateway/high-traffic-support).
 
@@ -134,7 +134,7 @@ Use these metrics as indicators of utilization of the provisioned Application Ga
 |---|---|---|
 |**Current Compute Units**|	CPU utilization of virtual machine running Application Gateway. One Application Gateway instance supports 10 Compute Units.|Helps detect issues when more traffic is sent than what Application Gateway instances can handle.|   
 |**Throughput**|Amount of traffic (in Bps) served by Application Gateway.	|This threshold is dependent on the payload size. For smaller payloads but more frequent connections, expect lower throughput limits and adjust alerts accordingly. |
-|**Current Connections**| Active TCP connections on Application Gateway.| Helps detect issues where the connection count increases beyond the capacity of Application gateway. Look for a drop in capacity unit When the connection count increases, look for a simultaneous drop in capacity unit. This will indicate if Application Gateway is out of capacity.|
+|**Current Connections**| Active TCP connections on Application Gateway.| Helps detect issues where the connection count increases beyond the capacity of Application gateway. Look for a drop in capacity unit when the connection count increases, look for a simultaneous drop in capacity unit. This will indicate if Application Gateway is out of capacity.|
 
 #### Troubleshoot using metrics
 
@@ -146,7 +146,7 @@ There are other metrics that can indicate issues either at Application Gateway o
 |**Response Status** (dimension 4xx and 5xx)| The HTTP response status returned to clients from Application Gateway. This status is usually same as the **Backend Response Status**, unless Application Gateway is unable to get a response from the backend or Application Gateway has an internal error in serving responses.|Issues with Application Gateway or the backend. Use this metric with **Backend Response Status** to identify whether Application Gateway or the backend is failing to serve requests.|  
 |**Backend Response Status** (dimension 4xx and 5xx)|The HTTP response status returned to Application Gateway from the backend. |	Use to validate if the backend is successfully receiving requests and serving responses.| 
 |**Backend Last Byte Response Time**|Time interval between the start of a connection to backend server and receiving the last byte of the response body.|	Increase in this latency implies that the backend is getting loaded and is taking longer to respond to requests. One way to resolve this issue is to scale up the backend.|
-|**Application Gateway Total Time**|Time period from when Application Gateway receives the first byte of the HTTP request to when the last response byte has been sent to the client. This includes client RTT| Increase in this latency, without any accompanying application changes or access traffic pattern changes should be investigated. If this metric increases, monitor other the metrics and determine if they other metrics are also increasing, such as ompute units, total throughput, or total request count.|
+|**Application Gateway Total Time**|Time period from when Application Gateway receives the first byte of the HTTP request to when the last response byte has been sent to the client. This includes client RTT| Increase in this latency, without any accompanying application changes or access traffic pattern changes should be investigated. If this metric increases, monitor other the metrics and determine if they other metrics are also increasing, such as compute units, total throughput, or total request count.|
 
 #### Enable diagnostics on Application Gateway and web application firewall (WAF)
 
@@ -157,7 +157,7 @@ Azure Monitor Network Insights provides a comprehensive view of health and metri
 
 
 #### Use advanced monitoring metrics
-Consider monitoring and setting alertg on metrics such as **Unhealthy host count**, and metrics that indicate the latency and the number of connections and requests. Notice the difference between connections and requests for Application Gateway frontend connections. One connection represents the TCP connection (sockets pair), while a requests represents a resource request, that is a GET/PUT,POST, and so on. One connection can serve multiple requests (on Application Gateway v2, up to 100).
+Consider monitoring and setting alerts on metrics such as **Unhealthy host count**, and metrics that indicate the latency and the number of connections and requests. Notice the difference between connections and requests for Application Gateway frontend connections. One connection represents the TCP connection (sockets pair), while a request represents a resource request, that is a GET, PUT, POST, and so on. One connection can serve multiple requests (on Application Gateway v2, up to 100).
 
 #### SNAT port limitations
 SNAT port limitations are important for backend connections on the Application Gateway. There are separate factors that affect how Application Gateway reaches the SNAT port limit. For example, if the backend is a public IP, it will require its own SNAT port. In order to avoid SNAT port limitations, you can increase the number of instances per Application Gateway, scale out the backends to have more IPs, or move your backends into the same virtual network and use private IP addresses for the backends.
@@ -198,3 +198,32 @@ For more information, see these articles:
 
 
 ## Security
+
+#### Restrictions of Network Security Groups (NSGs)
+NSGs are supported on Application Gateway, but there are some restrictions. For instance, some communication with certain port ranges are prohibited. Make sure you understand the implications of those restrctions. For details, see [Network security groups](/azure/application-gateway/configuration-infrastructure#network-security-groups).
+
+
+#### User Defined Routes (UDR)-supported scenarios 
+Using User Defined Routes (UDR) on the Application Gateway subnet cause some issues. [Health status in the back-end](/azure/application-gateway/application-gateway-diagnostics#back-end-health) might be unknown. Application Gateway logs and metrics might not get generated. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the back-end health, logs, and metrics. If your organizations require to use UDR in the Application Gateway subnet, please ensure you review the supported scenarios. For details, see [Supported user-defined routes](/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
+
+#### DNS lookups on App Gateway subnet
+When the backend pool contains a resolvable FQDN, the DNS resolution is based on a private DNS zone or custom DNS server (if configured on the VNet), or it uses the default Azure-provided DNS.
+
+#### Set up a TLS policy for enhanced security
+Set up a TLS policy for extra security. Ensure you're using the latest TLS policy version (AppGwSslPolicy20170401S). This enforces TLS 1.2 and stronger ciphers.
+
+#### Use AppGateway for TLS termination
+There are advantages of using Application Gateway for TLS termination:
+- Performance improves because requests going to different backends to have to re-authenticate to each backend.
+- Better utilization of backend servers because they don't have to perform TLS processing
+- Intelligent routing by accessing the request content.
+- Easier certificate management because the certificate only needs to be installed on Application Gateway. 
+
+#### Encrypting considerations
+
+When re-encrypting backend traffic, ensure the backend server certificate contains both the root and intermediate Certificate Authorities (CAs). A TLS certificate of the backend server must be issued by a well-known CA. If the certificate was not issued by a trusted CA, the Application Gateway checks if the certificate of the issuing CA was issued by a trusted CA, and so on until either a trusted CA is found. Only then a secure connection is established. Otherwise, Application Gateway marks the backend as unhealthy.
+#### Azure Key Vault for storing TLS certificates
+Application Gateway is integrated with Key Vault. This provides stronger security, easier separation of roles and responsibilities, support for managed certificates, and an easier certificate renewal and rotation process.
+
+#### Enabling the Web Application Firewall (WAF)
+When WAF is enabled, every request must be buffered by the Application Gateway until it fully arrives and check if the request matches with any rule violation in its core rule set and then forward the packet to the backend instances. For large file uploads (30MB+ in size), this can result in a significant latency. Because Application Gateway capacity requirements are different with WAF, we do not recommend enabling WAF on Application Gateway without proper testing and validation. 
