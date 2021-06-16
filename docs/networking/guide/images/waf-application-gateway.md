@@ -39,7 +39,7 @@ Use these resources to estimate cost based on units of consumption.
 
 Identify and delete Application Gateway instances with empty backend pools.
 
-### Stop Application Gateway instances when not in use
+#### Stop Application Gateway instances when not in use
 
 You aren't billed when Application Gateway is in stopped state. 
 
@@ -105,19 +105,25 @@ After you've estimated the instance count, compare that value to the maximum ins
 
 
 #### Define the minimum instance count
-For Application Gateway v2 SKU, autoscaling takes six to seven minutes to scale out and provision additional set of instances ready to take traffic. Until then, if there are short spikes in traffic, your existing gateway instances might get overwhelmed and this may cause unexpected latency or loss of traffic.
-It is recommended that you set your minimum instance count to an optimal level. Once you calculate the average approximate instance count, as well as you determine your Application Gateway autoscaling trends, you can define the minimum instance count based on your application patterns. 
-As described in the Approximating Application Gateway Instance count section, check your Current Compute Units metric for the past one month. Compute unit metric is a representation of your gateway's CPU utilization and based on your peak usage divided by 10, you can set the minimum number of instances required. For example, if your Current Compute Units avg over the past month is 50, you would set the Application Gateway minimum instance count to 5.
-Define the maximum instance count
-We suggest having 125 as the maximum autoscale instance limit, so the gateway can be scaled out at any time. This maximum has no implications on billing, as the customer is always charged only for the capacity they actually consume. When setting the maximum instance count to 125, ensure that the subnet that the Application Gateway is deployed in has at enough available IP addresses in case Application Gateway does scales all the way up.
-Define Application Gateway subnet size
-An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways (of the same SKU: V1 or V2) in the subnet.
-The following considerations will help you to define the correct size for the Application Gateway subnet based on your scenario:
-	Application Gateway uses one private IP address per instance, plus another private IP address if a private front-end IP is configured.
-	Azure also reserves five IP addresses in each subnet for internal use: the first four and the last IP addresses.
-	Application Gateway (Standard or WAF) SKU can support up to 32 instances (32 instance IP addresses + 1 private front-end IP + 5 Azure reserved) – so a subnet size of /26 is recommended.
-	Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances (125 instance IP addresses + 1 private front-end IP + 5 Azure reserved) – so a minimum subnet size of /24 is recommended 
-	If you are intending to deploy additional Application Gateways in the same subnet, consider the additional IP addresses that will be required for their maximum instance count for both, Standard and Standard v2.
+For Application Gateway v2 SKU, autoscaling takes some time (approximately six to seven minutes) before the additional set of instances are ready to serve traffic. During that time, if there are short spikes in traffic, expect transient latency or loss of traffic.
+
+We recommend that you set your minimum instance count to an optimal level. After you estimate the average instance count and determine your Application Gateway autoscaling trends, define the minimum instance count based on your application patterns. For information, see [Application Gateway high traffic support](/azure/application-gateway/high-traffic-support).
+
+Check the **Current Compute Units** for the past one month. This metric represents the gateway's CPU utilization. To define the minimum instance count, divide the peak usage by 10. For example, if your Current Compute Units average in the past month is 50, set the minimum instance count to 5.
+
+#### Define the maximum instance count
+We recommend 125 as the maximum autoscale instance count. Make sure the subnet that has the Application Gateway has sufficient available IP addresses to support the scale-up set of instances.
+
+Setting the maximum instance count to 125 has no cost implications because you're billed only for the consumed capacity. 
+
+#### Define Application Gateway subnet size
+Application Gateway needs a dedicated subnet within a virtual network. The subnet can have multiple instances of the deployed Application Gateway resource. You can also deploy other Application Gateway resources in that subnet, v1 or v2 SKU.
+
+Here are some considerations for defining the subnet size:
+- Application Gateway uses one private IP address per instance and another private IP address if a private front-end IP is configured.
+- Azure reserves five IP addresses in each subnet for internal use.
+- Application Gateway (Standard or WAF SKU) can support up to 32 instances. Taking 32 instance IP addresses + 1 private front-end IP + 5 Azure reserved, a minimum subnet size of /26 is recommended. Because the Standard_v2 or WAF_v2 SKU can support up to 125 instances, using the same calculation, a subnet size of /24 is recommended.
+- If you want to deploy additional Application Gateway resources in the same subnet, consider the additional IP addresses that will be required for their maximum instance count for both, Standard and Standard v2.
 
 
 
