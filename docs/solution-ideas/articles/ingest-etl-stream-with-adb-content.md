@@ -21,11 +21,13 @@ This solution is inspired by the system that Providence built for real-time anal
 
 :::image type="content" source="../media/ingest-etl-and-stream-processing-with-azure-databricks.png" alt-text="Diagram that shows the architecture and data flow for ETL and stream processing with Azure Databricks." border="false":::
 
+*Download an [SVG](../media/ingest-etl-and-stream-processing-with-azure-databricks.svg) of this architecture.*
+
 This reference architecture is inspired by the system built by [Providence](https://customers.microsoft.com/story/862036-providence-health-provider-azure) for real-time analytics.
 
-1. Azure Databricks reads streaming data from event queues such as Event Hubs, IoT Hub, or Kafka using the optimized Delta Engine. It then loads the raw events into optimized, compressed Delta Lake tables or folders (Bronze layer) stored in Azure Data Lake Storage.
-2. Scheduled/Triggered Azure Data Factory pipelines copy data from different data sources in their raw format into Azure Data Lake Storage. The [Auto Loader in Azure Databricks](https://docs.microsoft.com/azure/databricks/spark/latest/structured-streaming/auto-loader) processes the files as they land and loads them into optimized, compressed Delta Lake tables or folders (Bronze layer). These tables or folders are then stored in Azure Data Lake Storage.
-3. Streaming or scheduled/triggered Azure Databricks jobs read new transactions from the Bronze layer. The jobs then join, clean, transform, and aggregate them before using ACID transactions (INSERT, UPDATE, DELETE, MERGE) to load them into curated data sets (Silver and Gold layers). These data sets are stored in Delta Lake on the Azure Data Lake Store.
+1. Azure Databricks reads streaming data from event queues such as Event Hubs, IoT Hub, or Kafka using the optimized Delta Engine. Databricks then loads the raw events into optimized, compressed Delta Lake tables or folders in the bronze layer stored in Azure Data Lake Storage.
+2. Scheduled or triggered Azure Data Factory pipelines copy data from different data sources in their raw format into Azure Data Lake Storage. The [Auto Loader in Azure Databricks](https://docs.microsoft.com/azure/databricks/spark/latest/structured-streaming/auto-loader) processes the files as they land and loads them into optimized, compressed Delta Lake tables or folders in the bronze layer. These tables or folders are then stored in Azure Data Lake Storage.
+3. Streaming, scheduled, or triggered Azure Databricks jobs read new transactions from the bronze layer. The jobs then join, clean, transform, and aggregate them before using ACID transactions (INSERT, UPDATE, DELETE, MERGE) to load them into curated data sets in the silver and gold layers. These data sets are stored in Delta Lake on the Azure Data Lake Store.
 
 Each service ingests data into a common format to ensure consistency. The architecture uses a shared data lake based on the open Delta Lake format. Raw data is ingested from different batch and streaming sources to form a unified data platform. The platform can be used for downstream use cases such as analytics, BI reporting, data science, AI, and machine learning.
 
