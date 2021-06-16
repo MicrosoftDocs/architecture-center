@@ -28,7 +28,7 @@ A popular use case for implementing an end-to-end event stream processing patter
 
 ## Next steps
 
-- [Serverless event processing](serverless-event-processing-simple.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
+- [Serverless event processing](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
 - [Monitoring serverless event processing](monitoring-serverless-event-processing.yml) provides an overview and guidance on monitoring serverless event-driven architectures like this one.
 - [Azure Kubernetes in event stream processing](serverless-event-processing-aks.yml) describes a variation of a serverless event-driven architecture running on Azure Kubernetes with KEDA scaler.
 - [Private link scenario in event stream processing](serverless-event-processing-private-link.yml) is a solution idea for implementing a similar architecture in a VNet with private endpoints, in order to enhance security.
