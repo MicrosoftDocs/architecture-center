@@ -66,7 +66,7 @@ Use the following button to deploy the reference using the Azure portal.
 
 --- 
 
-For detailed information and extra deployment options, see the ARM Templates used to deploy this solution.
+For detailed information and extra deployment options, see the Azure Resource Manager (ARM) templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
 > [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment/)
