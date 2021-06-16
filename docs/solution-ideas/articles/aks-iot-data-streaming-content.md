@@ -1,12 +1,10 @@
 <!--cSpell:ignore HDInsights -->
 
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
+This solution demonstrates how to ingest and analyze high volumes  of IoT data and generate real-time recommendations and insights.
 
-## Overview
-
-This example scenario demonstrates how to ingest and analyze high volumes  of IoT data and generate real-time recommendations and insights.
-
-This example utilizes:
+This solution utilizes the following:
 
 - Real-time data ingestion and processing pipeline capable of detection and notification within seconds
 - A secure API gateway that connects to back-end services running anywhere
@@ -15,9 +13,10 @@ This example utilizes:
 ## Architecture
 
 ![Architecture Diagram](../media/aks-iot-data-streaming.png)
-*Download an [SVG](../media/aks-iot-data-streaming.svg)*
 
-## Data Flow
+*Download an [SVG](../media/aks-iot-data-streaming.svg) file of the diagram.*
+
+### Data flow
 
 The data flows through the solution as follows:
 
@@ -29,7 +28,7 @@ The data flows through the solution as follows:
 6. Data is processed by the processing service, which stores the result in Azure Database for PostgreSQL and caches the data in an Azure Cache for Redis
 7. A web app running in Azure App Service is used to visualize the results
 
-## Components
+### Components
 
 This example scenario uses several Azure components:
 
