@@ -84,7 +84,7 @@ Make sure you account for bandwidth costs. For details, see [Traffic across bill
 
 ## Performance Efficiency
 
-#### Take advantage of v2 SKU features for autoscaling and performance benefits
+Take advantage of v2 SKU features for autoscaling and performance benefits. 
 
 The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. When compared to v1 SKU, v2 has capabilities that enhance the performance of the workload. For example, significantly better TLS offload performance, quicker deployment and update times, zone redundancy, and more. For more information about autoscaling features, see [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
@@ -124,6 +124,16 @@ Here are some considerations for defining the subnet size:
 - Azure reserves five IP addresses in each subnet for internal use.
 - Application Gateway (Standard or WAF SKU) can support up to 32 instances. Taking 32 instance IP addresses + 1 private front-end IP + 5 Azure reserved, a minimum subnet size of /26 is recommended. Because the Standard_v2 or WAF_v2 SKU can support up to 125 instances, using the same calculation, a subnet size of /24 is recommended.
 - If you want to deploy additional Application Gateway resources in the same subnet, consider the additional IP addresses that will be required for their maximum instance count for both, Standard and Standard v2.
+
+#### Monitor capacity metrics
+Use these metrics as indicators of utilization of the provisioned Application Gateway capacity. We strongly recommend setting up alerts on capacity. For details, see [Application Gateway high traffic support](/azure/application-gateway/high-traffic-support) 
+|Metric|Description|Use case|
+|---|---|---|
+|**Current Compute Units**|	CPU utilization of virtual machine running Application Gateway. One Application Gateway instance supports 10 Compute Units.|Helps detect issues when more traffic is sent than what Application Gateway instances can handle.   
+|**Throughput**|Amount of traffic (in Bps) served by Application Gateway.	|This threshold is dependent on the payload size. For smaller payloads but more frequent connections, expect lower throughput limits and adjust alerts accordingly. 
+|**Current Connections**| Active TCP connections on Application Gateway.| Helps detect issues where the connection count increases beyond the capacity of Application gateway. Look for a drop in capacity unit When the connection count increases, look for a simultaneous drop in capacity unit. This will indicate if Application Gateway is out of capacity.
+
+#### Troubleshoot using metrics
 
 
 
