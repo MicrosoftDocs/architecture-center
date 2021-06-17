@@ -27,14 +27,14 @@ Internet of Things (IoT) applications often work with real-time data from IoT de
 
 This guide outlines a way for clients like web pages or mobile apps to receive updates from devices in real time. With the signaling pattern that this guide presents, cloud apps no longer submit HTTP requests for up-to-date information. Instead, Azure SignalR Service pushes content to connected clients as soon as it's available.
 
-As an example, a retailer might display the total number of customers in a store on a digital sign in real time. With this guide's solution, the sign doesn't have to request the latest customer count from data storage. Instead, the system feeds that information to the sign as soon as the total changes.
+As an example, a retailer might have a digital sign that displays the current number of customers in a store. With this guide's solution, the sign doesn't have to request the latest customer count from data storage. Instead, the system feeds that information to the sign as soon as the total changes.
 
 ## Potential use cases
 
 Besides the retail industry, other areas can also benefit from this solution:
 
 - Any scenario that pushes data from servers to clients in real time for use in visualizations and applications.
-- Rich and highly-interactive applications like maps and customized user interfaces that numerous clients use.
+- Rich and highly interactive applications like maps and customized user interfaces that many clients use.
 
 Specific examples that provide real-time data updates include:
 
@@ -61,7 +61,7 @@ Specific examples that provide real-time data updates include:
    - Transforms the data any way that you program.
    - Uses the managed service Azure SignalR Service to broadcast the data.
 
-1. Azure SignalR Service provides an abstraction over several techniques used for building real-time applications. WebSocket is the optimal transport protocol. But Azure SignalR Service uses techniques like server-sent events (SSE) and long polling when other options aren't available. Azure SignalR Service automatically detects and initializes the appropriate transport based on the features that the server and client support.
+1. Azure SignalR Service provides an abstraction over several techniques that real-time applications use. WebSocket is the optimal transport protocol. But Azure SignalR Service uses techniques like server-sent events (SSE) and long polling when other options aren't available. Azure SignalR Service automatically detects and initializes the appropriate transport based on the features that the server and client support.
 
 1. The Azure SignalR Service message goes out to a specific client or group of clients. The clients use the data to update apps.
 
@@ -84,7 +84,7 @@ Consider these points when you use this pattern:
 
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/)
 - [Tutorial: Azure SignalR Service authentication with Azure Functions](/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions)
-- [Build real-time Apps with Azure Functions and Azure SignalR Service](/azure/azure-signalr/signalr-concept-azure-functions)
+- [Build real-time apps with Azure Functions and Azure SignalR Service](/azure/azure-signalr/signalr-concept-azure-functions)
 - [Visualize real-time sensor data from Azure IoT Hub using Power BI](/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi)
 - [Azure Stream Analytics solution patterns](/azure/stream-analytics/stream-analytics-solution-patterns)
 
