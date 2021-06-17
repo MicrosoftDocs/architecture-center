@@ -4,11 +4,11 @@ Your organization needs to ingest data of any format, size, and speed into the c
 
 Ingestion, ETL, and stream processing with Microsoft Azure Databricks is simple, open, and collaborative:
 
-- **Simple**: Simplify your data architecture with an open data lake to store your data, with a curated layer in an open-source format. Delta Lake, an open-source tool, provides access to the Azure Data Lake Storage data lake. Delta Lake on Azure Data Lake Gen2 supports atomicity, consistency, isolation, and durability (ACID) transactions for reliability. Delta Lake is optimized for efficient ingestion, processing, and queries.
+- **Simple**: Simplify your data architecture with an open data lake to store your data, with a curated layer in an open-source format. Delta Lake, an open-source tool, provides access to the Azure Data Lake Storage data lake. Delta Lake on Azure Data Lake Storage supports atomicity, consistency, isolation, and durability (ACID) transactions for reliability. Delta Lake is optimized for efficient ingestion, processing, and queries.
 - **Open**: Support for open source, standards, and frameworks help future-proof your architecture. Integrated with your favorite integrated development environments (IDEs), libraries, and programming languages. Integrate with a large ecosystem of other services through native connectors and APIs.
 - **Collaborative**: Data teams can work together using their favorite tools to collaborate on the same underlying data. Data engineers, data scientists, and analysts can take advantage of a common data lake using shared notebooks, IDEs, and dashboards.
 
-Azure Databricks seamlessly integrates with other Azure services, like Azure Data Lake Storage, Azure Data factory, Azure Event Hubs, and Azure IoT Hub.
+Azure Databricks seamlessly integrates with other Azure services, like Azure Data Lake Storage, Azure Data Factory, Azure Event Hubs, and Azure IoT Hub.
 
 ## Potential use cases
 
