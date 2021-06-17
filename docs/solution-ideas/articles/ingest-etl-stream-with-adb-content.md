@@ -8,7 +8,7 @@ Ingestion, ETL, and stream processing with Microsoft Azure Databricks is simple,
 - **Open**: Support for open source, standards, and frameworks help future-proof your architecture. Integrated with your favorite integrated development environments (IDEs), libraries, and programming languages. Integrate with a large ecosystem of other services through native connectors and APIs.
 - **Collaborative**: Data teams can work together using their favorite tools to collaborate on the same underlying data. Data engineers, data scientists, and analysts can take advantage of a common data lake using shared notebooks, IDEs, and dashboards.
 
-Azure Databricks seamlessly integrates with other Azure services, like Azure Data Lake Storage, Azure Data Factory, Azure Event Hubs, and Azure IoT Hub.
+Databricks seamlessly integrates with other Azure services like Azure Data Lake Storage, Azure Data Factory, Azure Event Hubs, and Azure IoT Hub.
 
 ## Potential use cases
 
@@ -41,7 +41,6 @@ Each service ingests data into a common format to ensure consistency. The archit
 
 ## Next steps
 
-- [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
 - [Providence](https://customers.microsoft.com/story/862036-providence-health-provider-azure) built their data streaming solution using Azure Databricks and Azure Event Hubs to improve the National Emergency Department Overcrowding Score for each of its emergency departments.
 - [Spanish Point Technologies](https://customers.microsoft.com/story/861222-spanish-point-technologies-professional-services-azure) built its Matching Engine using Azure Databricks and Azure Data Factory to ingest data at scale to help musicians get paid fairly.
 
@@ -49,5 +48,6 @@ Each service ingests data into a common format to ensure consistency. The archit
 
 Fully deployable architectures:
 
+- [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
 - [Stream processing with Azure Databricks](/azure/architecture/reference-architectures/data/stream-processing-databricks)
 - [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
