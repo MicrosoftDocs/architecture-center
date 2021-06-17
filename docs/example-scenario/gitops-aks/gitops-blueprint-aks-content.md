@@ -20,21 +20,21 @@ This blueprint benefits any organization that wants the advantages of deploying 
 
 This solution follows a strong GitOps approach.
 
-1. The single point of truth is the **GitHub repository** that holds the provisioned AKS cluster configurations. The repository stores all AKS application manifests and cluster infrastructure desired states. Every change to the cluster happens under version control.
+1. The single point of truth is the **GitHub repository** that holds the provisioned AKS cluster configurations. The repository stores all AKS application manifests and cluster infrastructure desired states. Every change to the cluster happens under version control. GitHub functionality:
    
-   GitHub functionality:
    - Ensures review for changes
    - Prevents unintended or unauthorized changes
    - Enforces desired quality checks
    
-1. **Flux** is the GitOps operator that syncs any desired cluster state changes into AKS. Flux acts as the GitOps controller, and is the only component that can make changes within the cluster.
+1. **Flux** is the GitOps operator that syncs any desired cluster state changes into AKS. Flux acts as the GitOps controller, and is the only component that can make changes within the cluster. Flux:
    
-   Flux:
-   - Reads the desired change from GitHub
+   - Reads desired changes from GitHub
    - Detects any configuration drift
    - Reconciles the state in the Kubernetes cluster
    - Manages Gatekeeper and the applications
    - Updates itself
+   
+1. **OPA Gatekeeper** enforces policies. Gatekeeper validates any desired cluster configuration changes against provisioned policies, and applies the changes only if they comply with policies.
    
 1. **Phylake** is a GitOps control kit that provides an overview of all AKS clusters to help manage policies.
    
@@ -44,8 +44,6 @@ This solution follows a strong GitOps approach.
    - Provides feedback on policy violations via pull request (PR) feedback before changes are applied
    - Introduces risk acceptance whenever policies can't be applied for a good reason
    - Provides security policies to Open Policy Agent (OPA) Gatekeeper
-   
-1. **OPA Gatekeeper** enforces policies. Gatekeeper validates any desired cluster configuration changes against provisioned policies, and applies the changes only if they comply with policies.
 
 ## Components
 

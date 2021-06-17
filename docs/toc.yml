@@ -995,6 +995,8 @@ items:
             items:
               - name: Building a telehealth system
                 href: example-scenario/apps/telehealth-system.yml
+              - name: GitOps blueprint for AKS
+                href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
               - name: Magento e-commerce in AKS
                 href: example-scenario/magento/magento-azure.yml
               - name: Multitenancy with AKS and AGIC
