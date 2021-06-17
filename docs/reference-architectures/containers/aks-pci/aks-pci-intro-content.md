@@ -1,6 +1,14 @@
 This reference architecture describes the considerations for an Azure Kubernetes Service (AKS) cluster designed to run a sensitive workload. The guidance is tied to the regulatory requirements of the Payment Card Industry Data Security Standard (PCI-DSS). 
 
-## Shared responsibility model
+This series aims to get you started with your PCI-DSS infrastructure setup. It's _not_ our goal to replace your preparation for audit or self attestation with this series. Use this architecture and its implementation as a way to design your approach for fulfilling PCI-DSS requirements.
+
+> [!IMPORTANT]
+>
+> The reference architecture and implementation have not been certified by an official authority. By completing this series and deploying the code assets, you do not clear audit for PCI DSS. Acquire compliance attestations from third-party auditors.
+
+## Before you begin...
+
+### Understand the shared responsibility model
 
 **Microsoft Trust Center** provides specific principles for compliance-related cloud deployments. The security assurances&mdash;provided by Azure as the cloud platform and AKS as the host container&mdash;are regularly audited and attested by third-party auditors for PCI DSS compliance.
 
@@ -16,8 +24,15 @@ This reference architecture describes the considerations for an Azure Kubernetes
 
 As a workload owner, you're ultimately responsible for your own PCI DSS compliance. Have a clear understanding of your responsibilities by reading the PCI requirements to understand the intent, studying the matrix for Azure, and completing this series to understand the AKS nuances. This process will make your implementation ready for a successful assessment.
 
-## Recommended learning approach
-The [PCI audit report](https://servicetrust.microsoft.com) is great place to start, to understand the shared responsibility between Azure and you. This series aims to fill the gaps between the current PCI DSS responsibility matrix and what a PCI deployment would require on AKS. 
+### Recommended articles
+This series assumes:
+- You're familiar with Kubernetes concepts and workings of an [AKS cluster](/azure/aks).
+- You've read the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
+- You've deployed the [AKS baseline reference implementation](https://github.com/mspnp/aks-secure-baseline).
+- You're well versed with the official [PCI DSS specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf). 
+- You've read the [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline).
+
+## In this series
 
 This series is split into several articles. Each article outlines the high-level PCI requirement, and provides guidance about how to address the AKS-specific requirement.
 
@@ -30,12 +45,8 @@ This series is split into several articles. Each article outlines the high-level
 |[Monitoring operations](aks-pci-monitor.yml)|Maintain the security posture through monitoring operations and regularly test your security design and implementation.|
 |[Policy management](aks-pci-policy.yml)|Maintain thorough and updated documentation about your security processes and policies.|
 
-This series assumes:
-- You're familiar with Kubernetes concepts and workings of an [AKS cluster](/azure/aks).
-- You've read the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
-- You've deployed the [AKS baseline reference implementation](https://github.com/mspnp/aks-secure-baseline).
-- You're well versed with the official [PCI DSS specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf). 
-- You've read the [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline).
+
+
 
 
 	
