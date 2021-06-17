@@ -1287,6 +1287,17 @@ items:
                         href: service-fabric/modernize-app-azure-service-fabric.md
                       - name: Migrate from Cloud Services to Service Fabric
                         href: service-fabric/migrate-from-cloud-services.md
+              - name: Architectures
+                items: 
+                   - name: Decompose apps with Service Fabric
+                     href: example-scenario/infrastructure/service-fabric-microservices.yml  
+                   - name: Microservices on Azure Service Fabric
+                     href: reference-architectures/microservices/service-fabric.yml
+                   - name: Microservices with Azure Spring Cloud
+                     href: /azure/spring-cloud/reference-architecture
+                     maintainContext: true
+                   - name: Unified logging for microservices apps
+                     href: example-scenario/logging/unified-logging.yml
           - name: Serverless applications
             items:
               - name: Get started
@@ -1317,33 +1328,24 @@ items:
                     href: serverless-quest/functions-app-operations.md
                   - name: Serverless Functions app security
                     href: serverless-quest/functions-app-security.md
-          - name: Architectures
-            items:
-              - name: Azure Functions in a hybrid environment
-                href: hybrid/azure-functions-hybrid.yml
-              - name: Decompose apps with Service Fabric
-                href: example-scenario/infrastructure/service-fabric-microservices.yml
-              - name: Event-based cloud automation
-                href: reference-architectures/serverless/cloud-automation.yml                
-              - name: Microservices on Azure Service Fabric
-                href: reference-architectures/microservices/service-fabric.yml
-              - name: Microservices with Azure Spring Cloud
-                href: /azure/spring-cloud/reference-architecture
-                maintainContext: true
-              - name: Multicloud with the Serverless Framework
-                href: example-scenario/serverless/serverless-multicloud.yml
-              - name: Serverless event processing
-                href: reference-architectures/serverless/event-processing.yml
-              - name: Unified logging for microservices apps
-                href: example-scenario/logging/unified-logging.yml
-          - name: Solution ideas
-            items:
-              - name: Big data analytics with Azure Data Explorer
-                href: solution-ideas/articles/big-data-azure-data-explorer.yml
-              - name: Serverless applications using Event Grid
-                href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
-              - name: Serverless computing LOB apps
-                href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
+              - name: Architectures
+                items:
+                  - name: Azure Functions in a hybrid environment
+                    href: hybrid/azure-functions-hybrid.yml
+                  - name: Event-based cloud automation
+                    href: reference-architectures/serverless/cloud-automation.yml  
+                  - name: Multicloud with the Serverless Framework
+                    href: example-scenario/serverless/serverless-multicloud.yml
+                  - name: Serverless event processing
+                    href: reference-architectures/serverless/event-processing.yml     
+              - name: Solution ideas
+                items:
+                  - name: Big data analytics with Azure Data Explorer
+                    href: solution-ideas/articles/big-data-azure-data-explorer.yml
+                  - name: Serverless applications using Event Grid
+                    href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
+                  - name: Serverless computing LOB apps
+                    href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
       - name: DevOps
         items:
           - name: Guides
