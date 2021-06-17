@@ -106,10 +106,6 @@ Perform the following steps to provision a running GitOps setup:
    
 1. [Install Flux](https://fluxcd.io/docs/installation/).
    
-1. Install Gatekeeper by using [this guide](https://open-policy-agent.github.io/gatekeeper/website/docs/install/#installation). To configure Gatekeeper correctly, see [Enforcing policies with OPA Gatekeeper](https://phylake.io/docs/reference/policies).
-   
-1. Install Phylake via the [GitHub marketplace](https://github.com/marketplace/phylake-io).
-   
 1. Run the following code:
    
    ```bash
@@ -154,6 +150,10 @@ Perform the following steps to provision a running GitOps setup:
    
    kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.4/deploy/gatekeeper.yaml
    ```
+   
+1. Install Gatekeeper by using [this guide](https://open-policy-agent.github.io/gatekeeper/website/docs/install/#installation). To configure Gatekeeper correctly, see [Enforcing policies with OPA Gatekeeper](https://phylake.io/docs/reference/policies).
+   
+1. Install Phylake via the [GitHub marketplace](https://github.com/marketplace/phylake-io).
    
 You've now successfully provisioned a running GitOps setup. From here, you can:
 
