@@ -29,13 +29,13 @@ This reference architecture is split across several resource groups in a single 
 
 This reference architecture uses two cloud design patterns. [Geographical Node (geodes)](/azure/architecture/patterns/geodes), where any region can service any request, and [Deployment Stamps](/azure/architecture/patterns/deployment-stamp) where  multiple independent copies of an application or application component are deployed from a single source (deployment template). 
 
-**Geographical Node pattern considerations:**
+#### Geographical Node pattern considerations
 
 When selecting geographical regions for each individual AKS cluster, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography which influence how Azure maintenance is performed. As your cluster scales beyond two regions, continue to plan for regional pair placement for each pair of AKS clusters. For more information on pared regions, see [Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
 Within each individual region, the members of the AKS node pool are spread across multiple availability zones to help prevent issues due to zonal failures. AKS availability zones are specified during deployment and cannot be updated once deployed. AKS has a limited set of regional support for availability zones, which influences regional cluster placement. For more information on AKS and Availability zones, including a list of supported regions, see [AKS Availability Zones](/azure/aks/availability-zones).
 
-**Deployment stamp considerations**
+#### Deployment stamp considerations
 
 When managing a multi-region AKS cluster, multiple AKS instances are deployed across multiple regions. Each one of these instances is considerd a stamp. In the event of a regional failure or the need to add more capacity and / or regional presensce for you cludert, you may need to create a new stamp instance. When selecting a process for creating and managing deployment stamps, or individual Kubernetes instances in this case, it is important to conside the following things:
 
@@ -128,13 +128,13 @@ Once each Kubernetes instance or stamp has been deployed, cluster components suc
 
 Similar to deployment, these configurations can become challenging to manage across several Kubernetes instances manually. Instead, consider the following options for configuration and policy at scale.
 
-**GitOps Pipelines**
+##### GitOps Pipelines
 
 Instead of manually configuring Kubertnets components, consider using automated tooling to apply configurations to a Kubernetes cluster as these configurations are checked into a source repository. This process is often referred to as GitOps, and a popular GitOps solution for Kubernetes is Flux. 
 
 GitOps and Flux are detailed in more depth in the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#cluster-cicd). The important note here is that using a GitOps based approach to configuration helps ensure that each Kubernetes instance, int the multi-region cluster is configured similarly without bespoke effort.  
 
-**Azure Policy**
+##### Azure Policy
 
 < add content >
 
@@ -164,10 +164,6 @@ Adjacent to responding to failure, you must make sure that your network and comp
 
 In this architecture, the traffic flows over the internet at several points. The receiving service only accepts and forwards TLS-encrypted traffic for maximum security. For example, The spoke network only accepts TLS encrypted traffic coming from the internet. Within the spoke, the cluster only accepts TLS encrypted traffic from the gateway.
 
-You will need multiple certificates depending on how many TLS termination points you want to have. 
-
-The flow is replicated in both regions.
-
 ![Mutli-region deployment](images/aks-ingress-flow.svg)
 
 1. The user sends a request to a domain name (https://multicluster-fd-2vgfhderl7kec.azurefd.net), which is resolved to the Azure Front Door instance. This request is encrypted with a wildcard certificate (*azurefd.net) issued for all subdomains of Azure Front Door. The Azure Front Door instance validates the request against WAF policies, selects the fastest backend (based on health and latency), and uses public DNS to resolve the backend IP address (Azure Application Gateway instance).
@@ -181,10 +177,11 @@ Application Gateway uses SSL ciphers to create a secure connection to the AKS cl
 
 ### Shared resources
 
-- Shared resource considerations (overview)
-- Container Registry
-- Log Analytics
-- Azure Front Door
+#### Container Registry
+
+#### Log Analytics
+
+#### Azure Front Door
 
 ### Cluster access / security
 
