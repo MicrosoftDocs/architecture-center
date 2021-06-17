@@ -58,14 +58,14 @@ The snapshot below shows an example Power BI dashboard that gives insights into 
 
 ## Related resources
 
-### Architecture guides
+Architecture guides:
 
 * [Artificial intelligence (AI)](../../data-guide/big-data/ai-overview.md)
 * [Compare the machine learning products and technologies from Microsoft](../../data-guide/technology-choices/data-science-and-machine-learning.md)
 * [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)
 * [Machine learning operations (MLOps) framework](../../example-scenario/mlops/mlops-technical-paper.yml)
 
-### Reference architectures
+Reference architectures:
 
 * [Batch scoring for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
 * [Batch scoring of Python models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
