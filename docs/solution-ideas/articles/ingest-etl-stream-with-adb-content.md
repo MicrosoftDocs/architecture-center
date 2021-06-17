@@ -46,7 +46,7 @@ Each service ingests data into a common format to ensure consistency. The archit
 
 ## Related resources
 
-Fully deployable architectures:
+Guides and fully deployable architectures:
 
 - [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
 - [Stream processing with Azure Databricks](/azure/architecture/reference-architectures/data/stream-processing-databricks)
