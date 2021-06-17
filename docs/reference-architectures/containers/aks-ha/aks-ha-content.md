@@ -48,7 +48,7 @@ When managing a multi-region AKS cluster, multiple AKS instances are deployed ac
 
 Each of these items is detailed with specific guidance in the following sections of this reference architecture.
 
-### Cluster deployment and configuration
+### Cluster deployment, configuration, and management
 
 When deploying multiple Kubernetes clusters in highly available and geographically distributed configurations, it is essential to consider the sum of each Kubernetes cluster as a coupled unit. You will want to develop code-driven strategies for automated deployment and configuration to ensure that each Kubernetes instance is as identical as possible. You will want to consider strategies for scaling out and in by adding or removing additional Kubernetes instances. You will want to think through regional failure and ensure that any byproduct of a failure is compensated for in your deployment and configuration plan.
 
@@ -122,7 +122,7 @@ _The following is an example from the included GitHub Action demonstrating the d
             aksIngressControllerCertificate=${{ secrets.AKS_INGRESS_CONTROLLER_CERTIFICATE_BASE64 }}
 ```
 
-#### Configuration
+#### Configuration and management
 
 Once each Kubernetes instance or stamp has been deployed, cluster components such as ingress controllers, identity solutions, and application components need to be deployed and configured. You will also need to consider applying security, access, and governance policies across the cluster.
 
@@ -153,12 +153,6 @@ GitOps and Flux are detailed in more depth in the [AKS Baseline Reference Archit
 #### Scale considerations
 
 Adjacent to responding to failure, you must make sure that your network and compute resources are right-sized to absorb any sudden increase in traffic due to region failover. For example, when using Azure CNI, make sure you have a subnet that can support all Pod IPs with a spiked traffic load.
-
-### Cluster management
-
-- Consideration related to management (overview)
-- Issues with manual management
-- Options and benefit for automated management and configuration (GitOps)
 
 ### Traffic management
 
