@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This Predictive Maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components.
+This predictive maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components. While it is customized for aircraft monitoring, it can easily be generalized for other predictive maintenance scenarios.
 
 ## Architecture
 
@@ -13,9 +13,11 @@ This solution demonstrates how to combine real-time data from sensors with advan
 
 ## Details
 
-Air travel is central to modern life, however, aircraft engines are expensive and keeping them up and running requires frequent maintenance by highly skilled technicians. Modern aircraft engines are equipped with highly sophisticated sensors to track the functioning of these machines. By combining the data from these sensors with advanced analytics, it's possible to both monitor the aircraft in real time, and predict the remaining useful life of an engine component so that maintenance can be scheduled in a timely manner to prevent mechanical failures. This predictive maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components. It is an end-to-end solution that includes data ingestion, data storage, data processing, and advanced analytics - all essential for building a predictive maintenance solution. While it is customized for aircraft monitoring, it can easily be generalized for other predictive maintenance scenarios. The data source of this solution is derived from publicly available data from the NASA data repository using the Turbofan Engine Degradation Simulation Data Set.
+Air travel is central to modern life, however, aircraft engines are expensive and keeping them up and running requires frequent maintenance by highly skilled technicians. Modern aircraft engines are equipped with highly sophisticated sensors to track the functioning of these machines. By combining the data from these sensors with advanced analytics, it's possible to both monitor the aircraft in real time, and predict the remaining useful life of an engine component so that maintenance can be scheduled in a timely manner to prevent mechanical failures. 
 
-The Deploy button will launch a workflow that will deploy an instance of the solution within a Resource Group in the Azure subscription you specify. The solution includes multiple Azure services (described below) along with a web job that simulates data so that immediately after deployment you have a working end-to-end demo.
+The [Azure AI Gallery Solution](https://gallery.azure.ai/Solution/Predictive-Maintenance-10) is an implementation of this solution idea. The predictive maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components. It is an end-to-end solution that includes data ingestion, data storage, data processing, and advanced analytics - all essential for building a predictive maintenance solution. The data source of this solution is derived from publicly available data from the NASA data repository using the Turbofan Engine Degradation Simulation Data Set.
+
+The [Azure AI Gallery Solution](https://gallery.azure.ai/Solution/Predictive-Maintenance-10) includes multiple Azure services (described below) along with a web job that simulates data so that immediately after deployment you have a working end-to-end demo.
 
 ## Technical details and workflow
 
@@ -40,7 +42,18 @@ The Deploy button will launch a workflow that will deploy an instance of the sol
 
 ## Next steps
 
+Read other Azure Architecture Center articles:
+
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Azure Machine Learning documentation](/azure/machine-learning/)
 * [Defect prevention with predictive maintenance](./defect-prevention-with-predictive-maintenance.yml)
 * [Predictive Marketing with Machine Learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
+
+See product documentation:
+
+* [Azure Machine Learning documentation](/azure/machine-learning/overview-what-is-azure-ml)
+* [Welcome to Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+* [What is Azure HDInsight](/azure/hdinsight/hdinsight-overview)
+
+Try out code:
+
+* [Azure AI Gallery Solution](https://gallery.azure.ai/Solution/Predictive-Maintenance-10)
