@@ -29,8 +29,9 @@ Consider the following questions:
 
 - Do your customers have expectations or requirements about when they can be updated? These might be formally communicated to you in contracts or service-level agreements, or they may be informal.
 - Do your customers have any regulatory concerns that require additional approval before updates can be applied? For example, if you provide a health solutions with IoT components, you may need to get approval from the United States Food and Drug Administration (FDA) before any applying an update.
-- Are any of your customers particularly sensitive or resistant to having updates applied? Try to understand why. For example, if they run a brick-and-mortar store or a retail site, they may want to avoid updates around Black Friday as the risks are higher than potential benefits.
+- Are any of your customers particularly sensitive or resistant to having updates applied? Try to understand why. For example, if they run a physical store or a retail website, they may want to avoid updates around Black Friday as the risks are higher than potential benefits.
 - What's your track record of successfully completing updates without any impact to your customers? You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure you quickly identify any issues that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
+- Will customers want to roll back updates if there's a breaking change?
 
 ## Your requirements
 
@@ -39,6 +40,7 @@ You also need to consider the following questions from your own perspective:
 - Is it reasonable for your customers to have control over when updates are applied? If you're building a solution used by large enterprise customers, the answer may be yes. However, if you're building a consumer-focused solution, it's unlikely you'll give any control over how you upgrade or operate your solution.
 - How many versions of your solution can you reasonably maintain at one time? Remember that if you find a bug and need to hotfix it, you may need to apply the hotfix to all of the versions in use.
 - What are the consequences of letting customers fall too far behind the current version? If you release new features on a regular basis, will old versions become obsolete quickly? Also, depending on your upgrade strategy and the types of changes, you may need to maintain separate infrastructure for each version of your solution, so there can be both operational and financial costs to you maintaining support for older versions.
+- Can your deployment strategy support rollbacks to previous versions? Is this something you want to enable?
 
 > [!NOTE]
 > Consider whether you need to take your solution offline for updates or maintenance. Generally, outage windows are seen as an outdated practice, and modern DevOps practices and cloud technologies enable you to avoid downtime during updates and maintenance. You need to design for this, so it's important to consider your update process when you're designing your solution architecture. For more information on achieving zero-downtime deployments, see [Achieving no downtime through versioned service updates](/devops/operate/achieving-no-downtime-versioned-service-updates).
@@ -56,7 +58,7 @@ Another approach can be to allow tenants to initiate their own updates at a time
 > [!WARNING]
 > Be careful about enabling tenants to initiate their own updates. This is complex to implement, and will require significant development and testing effort to deliver and maintain.
 
-Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called _live-site incidents_) happen after updates to code or configuration, so it's important you proactively monitor for and respond to any issues to retain customer confidence.
+Whatever you do, ensure you have a process to monitor the health of your tenants, especially before and after updates are applied. Often, critical production incidents (also called _live-site incidents_) happen after updates to code or configuration, so it's important you proactively monitor for and respond to any issues to retain customer confidence. For more information about monitoring, see [Monitoring for DevOps](../../../framework/devops/monitoring.md)
 
 ## Communicate with your customers
 
@@ -75,7 +77,7 @@ Consider how you will deploy updates to your infrastructure. This is heavily inf
 
 ### Deployment stamps
 
-Some multitenant applications are a good fit for the [Deployment stamps pattern](/azure/architecture/patterns/deployment-stamp), in which you deploy isolated copies of your application and other components. You might deploy a stamp for each tenant, or shared stamps that run multiple tenants' workloads.
+Some multitenant applications are a good fit for the [Deployment stamps pattern](../../../patterns/deployment-stamp), in which you deploy isolated copies of your application and other components. You might deploy a stamp for each tenant, or shared stamps that run multiple tenants' workloads.
 
 Stamps are a great way to provide isolation between tenants. They also provide you with flexibility for your update process, since you can roll out updates progressively across stamps without affecting others.
 
@@ -95,4 +97,5 @@ If your service exposes an external API, consider that any updates you apply may
 
 ## Next steps
 
-Return to the [architectural considerations for multitenant solutions](overview.md).
+- Return to the [architectural considerations for multitenant solutions](overview.md).
+- Review the [DevOps checklist](../../../checklist/dev-ops.md) in the Azure Well-Architected Framework.

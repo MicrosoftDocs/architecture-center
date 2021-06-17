@@ -80,7 +80,7 @@ This model is similar to [per-user pricing](#per-user-pricing), but rather than 
 
 **Complexity and operational cost:** Per-active user models requires you to record actual user usage, and to make it available to a customer as part of their bill. Measuring per-user consumption helps to ensure profitability is maintained with the COGS for a single user, but again requires additional work to measure the consumption for each user.
 
-**Risks:** Like per-user pricing, there is a risk that the different consumption patterns of individual users may affect your profitability. Compared to per-user pricing, per-active user models have a less predictable revenue stream. Additionally, [price tiers](#price-tiers) don't provide a useful way of stimulating growth.
+**Risks:** Like per-user pricing, there is a risk that the different consumption patterns of individual users may affect your profitability. Compared to per-user pricing, per-active user models have a less predictable revenue stream. Additionally, [discount pricing](#discount-pricing) don't provide a useful way of stimulating growth.
 
 ### Per-unit pricing
 
@@ -98,13 +98,11 @@ You may choose to offer your solution with different tiers of functionality at d
 
 This model may also offer different service level agreements for different tiers. For example, your basic tier may offer 99.9% uptime whereas a premium tier may offer 99.99%. The higher SLA could be implemented by using services and features that enable higher [availability targets](../../../framework/resiliency/business-metrics.md#workload-availability-targets).
 
-
 Although this model can be very commercially beneficial, it does require mature engineering practices to do well. With careful consideration this model can be very effective.
 
 **Benefits:** Feature-based pricing is often attractive to customers, since they can select a tier based on the feature set or service level they need. It also provides you with a clear path to upsell your customers with new features or higher resiliency for those who require it.
 
 **Complexity and operational cost:** Feature-based pricing models can be complex to implement, since they require your solution to be aware of the features that are available at each price tier. Feature toggles can be an effective way to provide access to certain subsets of functionality, but this requires ongoing maintenance, and increases the overhead to ensure high quality because there will be more code paths to test. Enabling higher service availability targets in some tiers may require additional architectural complexity to ensure the right set of infrastructure is used for each tier, and may increase the operational cost of the solution.
-
 
 **Risks:** Feature-based pricing models can become complicated and confusing if there are too many tiers or options. Additionally, the overhead involved in toggling features dynamically can slow down the rate at which you deliver features.
 
@@ -118,7 +116,6 @@ You might choose to offer a free tier of your service, with basic functionality 
 
 **Risks:** You need to ensure that you provide a high enough ROV for tenants to consider switching to a paid tier. Additionally, the cost of providing your solution to customers on the free tier needs to be covered by the profit margin from those who are on paid tiers.
 
-
 ### Flat-rate pricing
 
 In this model you charge a flat rate to a tenant for access to your solution for a given period of time. The same pricing applies regardless of how much they use the service, the number of users, the number of devices they connect, or any other metric. This is the simplest model to implement and for customers to understand, and it's often requested by enterprise customers. However, it can easily become unprofitable if you need to continue to add new features or if tenant consumption increases without any additional revenue.
@@ -129,17 +126,16 @@ In this model you charge a flat rate to a tenant for access to your solution for
 
 **Risks:** If you have tenants who make heavy use of your solution then it's easy for this pricing model to become unprofitable.
 
-## Price tiers
+## Discount pricing
 
-Once you've defined your pricing model, you might choose to implement commercial pricing strategies to incentivize growth through volume discounts. _Tiered pricing_ can be used with consumption, per-user, and per-unit pricing models.
+Once you've defined your pricing model, you might choose to implement commercial strategies to incentivize growth through discount pricing. _Discount pricing_ can be used with consumption, per-user, and per-unit pricing models.
 
 > [!NOTE]
-> Tiered models don't typically require architectural considerations beyond adding support for a more complex billing structure. A complete discussion into the commercial benefits of tiered pricing is beyond the scope of this document.
+> Discount pricing doesn't typically require architectural considerations beyond adding support for a more complex billing structure. A complete discussion into the commercial benefits of discounting is beyond the scope of this document.
 
 Common tiering patterns include:
 
-![Diagram showing the different price tiers that can be applied to a price model.](media/pricing-models/price-tiers.png)
-<!-- TODO redraw diagram-->
+![Diagram showing the different discount pricing that can be applied to a price model.](media/pricing-models/discount-pricing.png)
 
 - **Fixed pricing.** You have the same cost for each user, unit, or amount of consumption, no matter how much is purchased or consumed. This is the simplest approach. However, customers who make heavy use of your solution may feel like they should benefit from economies of scale by getting a discount.
 - **Digressive pricing.** As customers purchase or consume more units, you reduce the cost per unit. This is more commercially attractive to customers.
@@ -147,8 +143,7 @@ Common tiering patterns include:
 
 ## Unprofitable pricing models
 
-An unprofitable pricing model is one where it costs you more to deliver the service than the revenue you earn. For example, you might charge a flat rate per tenant without any limits for your service, but then build your service with consumption-based Azure resources and without per tenant [usage caps](#usage-caps). In this situation, you may be at risk of your tenants overusing your service and making it unprofitable to serve them.
-
+An unprofitable pricing model is one where it costs you more to deliver the service than the revenue you earn. For example, you might charge a flat rate per tenant without any limits for your service, but then build your service with consumption-based Azure resources and without per tenant [usage limits](#usage-limits). In this situation, you may be at risk of your tenants overusing your service and making it unprofitable to serve them.
 
 Generally, you want to avoid unprofitable pricing models. However, there are situations where you might choose to adopt an unprofitable pricing model, including:
 
@@ -158,7 +153,7 @@ Generally, you want to avoid unprofitable pricing models. However, there are sit
 
 In the case that you inadvertently create an unprofitable pricing model, there are some ways to mitigate the risks associated with them, including:
 
-- Limit the use of the service through [usage caps](#usage-caps).
+- Limit the use of the service through [usage limits](#usage-limits).
 - Require the use of capacity reservations.
 - Request the tenant move to a higher feature/service tier.
 
@@ -168,21 +163,20 @@ When implementing a pricing model for a solution, you will usually have to make 
 
 Most SaaS solutions will add new features regularly. This increases the ROV to users, which may also lead to increases in the amount the solution is used. This could result in a solution that becomes unprofitable if the use of new features drives usage, but the pricing model doesn't factor this in.
 
-For example, if you introduce a new video upload feature to your solution which uses a consumption-based resource, and user uptake of the feature is higher than expected, then consider a combination of [usage caps](#usage-caps) and [feature and service level pricing](#feature--and-service-level-based-pricing).
+For example, if you introduce a new video upload feature to your solution which uses a consumption-based resource, and user uptake of the feature is higher than expected, then consider a combination of [usage limits](#usage-limits) and [feature and service level pricing](#feature--and-service-level-based-pricing).
 
+## Usage limiting
 
-## Usage caps
-
-_Usage caps_ enable you to restrict the usage of your service in order to prevent your pricing models from becoming unprofitable, or to prevent a single tenant from consuming a disproportionate amount of the capacity of your service. This can be especially important in multitenant services where a single tenant can impact the experience of other tenants by over-consuming resources.
+_Usage limits_ enable you to restrict the usage of your service in order to prevent your pricing models from becoming unprofitable, or to prevent a single tenant from consuming a disproportionate amount of the capacity of your service. This can be especially important in multitenant services where a single tenant can impact the experience of other tenants by over-consuming resources.
 
 > [!NOTE]
-> It's important to make your customers aware that you apply usage caps. Implementing usage caps without making your customers aware of the limit will result in customer dissatisfaction. This means that it's important to identify and plan usage caps ahead of time. The goal should be to plan for it, and to communicate the limits to customers before they become necessary.
+> It's important to make your customers aware that you apply usage limits. Implementing usage limits without making your customers aware of the limit will result in customer dissatisfaction. This means that it's important to identify and plan usage limits ahead of time. The goal should be to plan for it, and to communicate the limits to customers before they become necessary.
 
-Usage caps are often used in combination with [feature and service level pricing](#feature--and-service-level-based-pricing) to provide a higher amount of usage at higher tiers. Caps are also commonly used to protect core components that will cause system bottlenecks or performance issues if over-consumed.
+Usage limits are often used in combination with [feature and service level pricing](#feature--and-service-level-based-pricing) to provide a higher amount of usage at higher tiers. Limits are also commonly used to protect core components that will cause system bottlenecks or performance issues if over-consumed.
 
 ### Rate limits
 
-A common way to apply a usage cap is to add rate limits to APIs or specific application functions. Rate limits prevent continuous overuse. They are often used to limit the number of calls to an API over a defined time period. For example, an API may only be called 20 times per minute and will return a HTTP 429 error if it is called more frequently than this.
+A common way to apply a usage limit is to add rate limits to APIs or specific application functions. Rate limits prevent continuous overuse. They are often used to limit the number of calls to an API over a defined time period. For example, an API may only be called 20 times per minute and will return a HTTP 429 error if it is called more frequently than this.
 
 Some situations where rate limiting is often used include:
 
@@ -202,7 +196,7 @@ Like any other part of your solution, pricing models have a lifecycle. As your a
 - Retiring an existing pricing model.
 - Adding a tier to an existing pricing model.
 - Retiring a tier in an existing pricing model.
-- Changing usage caps on a feature in a pricing model or tier.
+- Changing usage limits on a feature in a pricing model.
 - Adding or removing features from a [feature and service level pricing model](#feature--and-service-level-based-pricing).
 - Changing from a business-to-consumer (B2C) commercial model to a business-to-business (B2B) commercial model, which then necessitates new pricing structures for your business customers.
 

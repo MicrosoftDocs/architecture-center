@@ -20,7 +20,7 @@ ms.custom:
 
 # Measure the consumption of each tenant
 
-It's important to measure the consumption of each tenant in a multitenant solution. By measuring the consumption of each tenant, you can ensure that the cost of good sold (COGS) for delivering the service to each tenant is profitable.
+As a solution provider, it is important to measure the consumption of each tenant in your multitenant solution. By measuring the consumption of each tenant, you can ensure that the cost of good sold (COGS) for delivering the service to each tenant is profitable.
 
 > [!NOTE]
 > In some cases it will be commercially acceptable to take a loss on delivering service to a tenant, for example, when entering a new market or region. But this is a commercial choice and doesn't require additional architectural planning.
@@ -74,13 +74,22 @@ You might consider estimating the COGS for a tenant when:
 - Each tenant consumes a low percentage (say, <2%) of the overall resources in the deployment.
 - The per-tenant cost is low.
 
-You might also choose to estimate consumption in combination with [indicative consumption metrics](#indicative-consumption-metrics), [transaction metrics](#transaction-metrics) or [per-request metrics](#Per-request-metrics). For example, for an application that primarily manages documents, the percentage of overall storage used by a tenant to store their documents gives a close enough representation of the actual COGS. This can be useful approach when measuring the COGS is difficult or would add too much complexity to the application.
+You might also choose to estimate consumption in combination with [indicative consumption metrics](#indicative-consumption-metrics), [transaction metrics](#transaction-metrics) or [per-request metrics](#per-request-metrics). For example, for an application that primarily manages documents, the percentage of overall storage used by a tenant to store their documents gives a close enough representation of the actual COGS. This can be useful approach when measuring the COGS is difficult or would add too much complexity to the application.
 
 ## On-charging your costs
 
 In some solutions, you can simply charge tenants the COGS for their resources. For example, you might use [Azure resource tags](/azure/azure-resource-manager/management/tag-resources) to allocate billable Azure resources to tenants. You can then determine the cost to each tenant for the set of resources dedicated to them, plus a margin for profit and operation.
 
-However, this becomes prohibitively complex in most modern multitenant solutions because of the challenge of accurately determining the exact COGS to serve a single tenant. This method should only be considered for very simple solutions, solutions that result in single-tenant resource deployments, or custom add-on features within a larger solution.
+> [!NOTE]
+> Some [Azure services don't support tags](/azure/azure-resource-manager/management/tag-support). For these services you will need to attribute the costs to a tenant based on the resource name, resource group or subscription.
+
+[Azure Cost Analysis](/azure/cost-management-billing/costs/quick-acm-cost-analysis) can be used to analyze Azure resource costs for single tenant solutions that use tags, resource groups or subscriptions to attribute costs.
+
+However, this becomes prohibitively complex in most modern multitenant solutions because of the challenge of accurately determining the exact COGS to serve a single tenant. This method should only be considered for very simple solutions, solutions that result in single tenant resource deployments, or custom add-on features within a larger solution.
+
+Some Azure services may provide features that allow other methods of attribution of costs in a multitenant environment. For example, Azure Kubernetes Service supports [multiple node pools](/azure/aks/use-multiple-node-pools) where each tenant could be allocated a node pool that has [node pool tags set](/azure/aks/use-multiple-node-pools#setting-nodepool-azure-tags) to attribute costs.
+
+For the most part cost attribution and on-charging costs for a multitenant solution is non-trivial.
 
 ## Next steps
 
