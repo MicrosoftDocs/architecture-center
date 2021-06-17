@@ -1,15 +1,18 @@
-
 <!-- cSpell:ignore pracjain -->
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) in business process management.
+This solution demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining/) in business process management.
+
+## Potential use cases
 
 When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. Knowledge mining can help avoid costly mistakes in industries where bidding competition is fierce. Or, in scenarios when the diagnosis of a problem must be quick or in near real time.
 
-## Data flow in knowledge mining
+## Architecture
 
 ![Architecture Diagram: knowledge mining in business process management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-business-process-management.png)
+
+### Data flow 
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
@@ -31,7 +34,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
   Explore the content by automatically populating data from invoices into ELP systems or databases or compile enriched documents in the knowledge store and project them into tabular or object stores. Projected stores can be used to surface trends in an analytics dashboard, such as frequent issues, popular products, and much more.
 
-## Components
+### Components
 
 Key technologies used to implement tools for technical content review and research
 
