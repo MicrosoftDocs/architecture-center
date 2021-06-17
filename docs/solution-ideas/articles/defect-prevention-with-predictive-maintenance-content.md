@@ -18,7 +18,7 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](h
 * [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw assembly-line data and passes it on to Stream Analytics.
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) predicts potential failures based on real-time assembly-line data from Stream Analytics.
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) stores assembly-line data along with failure predictions.
-* [Power BI](https://powerbi.microsoft.com) enables visualization of real-time assembly-line data from Stream Analytics and the predicted failures and alerts from Data Warehouse.
+* [Power BI](https://powerbi.microsoft.com) enables visualization of real-time assembly-line data from Stream Analytics, and the predicted failures and alerts from Data Warehouse.
 
 ## Next steps
 
