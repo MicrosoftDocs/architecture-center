@@ -20,6 +20,7 @@ metadata:
     - manufacturing quality control
     - "https://azure.microsoft.com/solutions/architecture/defect-prevention-with-predictive-maintenance/"
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/defect-prevention-with-predictive-maintenance.png
 name: Defect prevention with predictive maintenance
 azureCategories:
