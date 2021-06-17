@@ -256,7 +256,7 @@ SAS tests have [validated NetApp performance for SAS Grid](https://communities.s
 Consider the following points when using this service:
 
 - Azure NetApp Files works well with Viya 3.5 and Viya 4.0 deployments. But don't use Azure NetApp Files for the CAS cache in Viya, because the latency and write throughput is inadequate. If possible, use your VM's local ephemeral disk instead.
-- On SAS 9 Foundation with Grid 9.4, the performance of Azure NetApp Files with SAS for `SASDATA` files is good for clusters up to 32 cores.
+- On SAS 9 Foundation with Grid 9.4, the performance of Azure NetApp Files with SAS for `SASDATA` files is good for clusters up to 32 physical cores.
 - To ensure good performance, select at least a Premium storage tier service level when deploying Azure NetApp Files. Choose the Ultra storage tier for large amounts of data. Or start with the Premium level and switch to Ultra later if needed.
 
 ### Other data sources
