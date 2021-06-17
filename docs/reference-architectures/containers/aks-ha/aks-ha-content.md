@@ -181,8 +181,46 @@ Application Gateway uses SSL ciphers to create a secure connection to the AKS cl
 
 #### Cluster access
 
-- Access considerations (overview)
-- Considerations related to one vs. multiple access control groups
+As discussed in the [AKS Baseline Reference Arechitecture](), consider using Azure Active Directory as an identity provider. The groups and users foudn in Azure Active Directory can then be used to controll access to cluster resources.
+
+```yaml
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: dev-user-full-access
+  namespace: dev
+rules:
+- apiGroups: ["", "extensions", "apps"]
+  resources: ["*"]
+  verbs: ["*"]
+- apiGroups: ["batch"]
+  resources:
+  - jobs
+  - cronjobs
+  verbs: ["*"]
+```
+
+```yaml
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: dev-user-access
+  namespace: dev
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: dev-user-full-access
+subjects:
+- kind: Group
+  namespace: dev
+  name: groupObjectId
+```
+
+When managing multiple clusters, you will need to decide on an access schema. Options include:
+
+- Create a cluster-wide access group that can access all objects across every Kubernetes instance in the cluster.
+- Create an individual access group for each Kubernetes instance used to grant access to objects in an individual cluster.
+- others
 
 #### Certificates
 
