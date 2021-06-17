@@ -77,7 +77,7 @@ Consider how you will deploy updates to your infrastructure. This is heavily inf
 
 ### Deployment stamps
 
-Some multitenant applications are a good fit for the [Deployment stamps pattern](../../../patterns/deployment-stamp), in which you deploy isolated copies of your application and other components. You might deploy a stamp for each tenant, or shared stamps that run multiple tenants' workloads.
+Some multitenant applications are a good fit for the [Deployment stamps pattern](../../../patterns/deployment-stamp.md), in which you deploy isolated copies of your application and other components. You might deploy a stamp for each tenant, or shared stamps that run multiple tenants' workloads.
 
 Stamps are a great way to provide isolation between tenants. They also provide you with flexibility for your update process, since you can roll out updates progressively across stamps without affecting others.
 

@@ -165,7 +165,7 @@ Most SaaS solutions will add new features regularly. This increases the ROV to u
 
 For example, if you introduce a new video upload feature to your solution which uses a consumption-based resource, and user uptake of the feature is higher than expected, then consider a combination of [usage limits](#usage-limits) and [feature and service level pricing](#feature--and-service-level-based-pricing).
 
-## Usage limiting
+## Usage limits
 
 _Usage limits_ enable you to restrict the usage of your service in order to prevent your pricing models from becoming unprofitable, or to prevent a single tenant from consuming a disproportionate amount of the capacity of your service. This can be especially important in multitenant services where a single tenant can impact the experience of other tenants by over-consuming resources.
 
