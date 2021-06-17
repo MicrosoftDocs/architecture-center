@@ -37,7 +37,7 @@ Each service ingests data into a common format to ensure consistency. The archit
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) orchestrates data pipelines for ingestion, preparation, and transformation of all your data at any scale.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) brings together streaming and batch data, including structured, unstructured, and semi-structured data (logs, files, and media).
 - [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) cleans and transforms the structureless data sets and combines them with structured data from operational databases or data warehouses.
-- [IoT Hub](https://azure.microsoft.com/services/iot-hub/) enables highly secure and reliable communication between your IoT application and the devices it manages.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) enables highly secure and reliable communication between your IoT application and the devices it manages.
 
 ## Next steps
 
