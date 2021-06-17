@@ -57,5 +57,5 @@ See product documentation:
 
 Try out code:
 
-* [Azure AI Gallery Solution](https://gallery.azure.ai/Solution/Predictive-Maintenance-10) - an implementation of this solution idea.
+* [Azure AI Gallery Solution - Predictive Maintenance](https://gallery.azure.ai/Solution/Predictive-Maintenance-10) - an implementation of this solution idea.
 * [Creating and configuring a HDInsight cluster](/learn/modules/creating-and-configuring-hdinsight-cluster/) - in Microsoft Learn.
