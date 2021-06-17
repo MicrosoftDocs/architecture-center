@@ -124,6 +124,18 @@ _The following is an example from the included GitHub Action demonstrating the d
 
 #### Configuration
 
+Once each Kubernetes instance or stamp has been deployed, cluster components such as ingress controllers, identity solutions, and application components need to be deployed and configured. You will also need to consider applying security, access, and governance policies across the cluster.
+
+Similar to deployment, these configurations can become challenging to manage across several Kubernetes instances manually. Instead, consider the following options for configuration and policy at scale.
+
+**GitOps Pipelines**
+
+Instead of manually configuring Kubertnets components, consider using automated tooling to apply configurations to a Kubernetes cluster as these configurations are checked into a source repository. This process is often referred to as GitOps, and a popular GitOps solution for Kubernetes is Flux. 
+
+GitOps and Flux are detailed in more depth in the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#cluster-cicd). The important note here is that using a GitOps based approach to configuration helps ensure that each Kubernetes instance, int the multi-region cluster is configured similarly without bespoke effort.  
+
+**Azure Policy**
+
 < add content >
 
 ### Avalibility / Failover
