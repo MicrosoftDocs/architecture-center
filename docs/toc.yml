@@ -2042,7 +2042,7 @@ items:
           - name: Guides
             items: 
               - name: Design principles
-                href: guide/design-principles.md
+                href: guide/design-principles/index.md
           - name: Architectures
             items:
               - name: Basic web application
