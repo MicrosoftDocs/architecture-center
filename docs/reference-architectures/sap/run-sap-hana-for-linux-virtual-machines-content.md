@@ -1,6 +1,3 @@
-
-
-
 This reference architecture shows a set of proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery on Azure. This implementation focuses on the database layer and is designed to support various SAP applications, such as S/4HANA and SAP BW/4HANA.
 
 ![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up.png)
@@ -184,7 +181,7 @@ More security recommendations can be found at theses [Microsoft](https://azure.m
 
 Communities can answer questions and help you set up a successful deployment. Consider the following communities:
 
-- [Azure Forum](https://azure.microsoft.com/support/forums/)
+- [Azure Community Support](https://azure.microsoft.com/support/forums/)
 
 - [SAP Community](https://www.sap.com/community.html)
 
