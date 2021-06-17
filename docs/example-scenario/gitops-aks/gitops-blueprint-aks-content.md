@@ -12,7 +12,7 @@ GitOps not only enforces policies within the cluster, but also helps support sec
 
 ## Potential use cases
 
-This blueprint benefits any organization that wants the advantages of deploying applications and infrastructure as code, with an audit trail of every change. The solution is especially suitable for highly-regulated industries like insurance, banking, and finance.
+This blueprint benefits any organization that wants the advantages of deploying applications and infrastructure as code, with an audit trail of every change. The solution is especially suitable for highly regulated industries like insurance, banking, and finance.
 
 ## Architecture
 
@@ -34,14 +34,14 @@ This solution follows a strong GitOps approach.
    - Manages Gatekeeper and the applications
    - Updates itself
    
-1. **OPA Gatekeeper** enforces policies. Gatekeeper validates any desired cluster configuration changes against provisioned policies, and applies the changes only if they comply with policies.
+1. **Open Policy Agent (OPA) Gatekeeper** enforces policies. Gatekeeper validates any desired cluster configuration changes against provisioned policies, and applies the changes only if they comply with policies.
    
 1. **Phylake** is a GitOps control kit that provides an overview of all AKS clusters to help manage policies. Phylake:
    
    - Assembles all cluster images in an overview that shows which versions are deployed and identifies outdated images
    - Provides feedback on policy violations via pull request (PR) feedback before changes are applied
    - Introduces risk acceptance whenever policies can't be applied for a good reason
-   - Provides security policies to Open Policy Agent (OPA) Gatekeeper
+   - Provides security policies to OPA Gatekeeper
 
 ## Components
 

@@ -1783,10 +1783,10 @@
 				<title>com.lucidchart.Line.86</title>
 				<path d="M0 462.15 L0 383.85 A2.7 2.7 -180 0 0 -2.7 381.15 L-13.12 381.15" class="st44"/>
 			</g>
-			<g id="shape87-217" v:mID="87" v:groupContext="shape" transform="translate(610.875,-187.425)">
+			<g id="shape87-217" v:mID="87" v:groupContext="shape" transform="translate(628.908,-175.5)">
 				<title>com.lucidchart.Line.87</title>
-				<path d="M9 462.15 L19.8 462.15 A2.7 2.7 -180 0 0 22.5 459.45 L22.5 341.77 A2.7 2.7 -180 0 0 19.8 339.08 L14.94 339.08"
-						class="st44"/>
+				<path d="M-8.97 462.15 L7.17 462.15 A2.7 2.7 -180 0 0 9.87 459.45 L9.87 329.85 A2.7 2.7 -180 0 0 7.17 327.15 L-3.09
+							 327.15" class="st44"/>
 			</g>
 			<g id="shape88-222" v:mID="88" v:groupContext="shape" transform="translate(621.677,-94.5)">
 				<title>com.lucidchart.Line.88</title>
