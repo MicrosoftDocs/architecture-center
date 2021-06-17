@@ -169,7 +169,7 @@ Application Gateway uses SSL ciphers to create a secure connection to the AKS cl
 
 4. The internal load balancer forwards the traffic to the workload pods. The load balancer decrypts traffic, and this is the final TLS termination point. From here on, traffic to the pods is over HTTP. 
 
-### Shared resources
+### Shared resource considerations
 
 #### Container Registry
 
@@ -177,9 +177,13 @@ Application Gateway uses SSL ciphers to create a secure connection to the AKS cl
 
 #### Azure Front Door
 
-### Cluster access / security
+Front Door doesn't use self-signed certificates even in Dev/Test environments. To enable HTTPS traffic, you need to create your TLS/SSLcertificate that is signed by a certificate authority (CA).
 
-#### Cluster access
+This architecture uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. Certbot is a free, open-source software tool. It generates certificates for manually administrated websites. To check the validity of the website, Cerbot sends request to the domain. Respond to that request to acknowledge that you own the domain. If that validation is successful, a certificate is generated.
+
+For information about other CAs supported by Front Door, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](/azure/frontdoor/front-door-faq#what-certificates-are-supported-on-azure-front-door-).
+
+### Cluster access
 
 As discussed in the [AKS Baseline Reference Arechitecture](), consider using Azure Active Directory as an identity provider. The groups and users foudn in Azure Active Directory can then be used to controll access to cluster resources.
 
@@ -221,14 +225,6 @@ When managing multiple clusters, you will need to decide on an access schema. Op
 - Create a cluster-wide access group that can access all objects across every Kubernetes instance in the cluster.
 - Create an individual access group for each Kubernetes instance used to grant access to objects in an individual cluster.
 - others
-
-#### Certificates
-
-Front Door doesn't use self-signed certificates even in Dev/Test environments. To enable HTTPS traffic, you need to create your TLS/SSLcertificate that is signed by a certificate authority (CA).
-
-This architecture uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. Certbot is a free, open-source software tool. It generates certificates for manually administrated websites. To check the validity of the website, Cerbot sends request to the domain. Respond to that request to acknowledge that you own the domain. If that validation is successful, a certificate is generated.
-
-For information about other CAs supported by Front Door, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](/azure/frontdoor/front-door-faq#what-certificates-are-supported-on-azure-front-door-).
 
 ### Data and state
 
