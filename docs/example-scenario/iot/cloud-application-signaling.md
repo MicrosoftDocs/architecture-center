@@ -10,10 +10,12 @@ ms.subservice: azure-guide
 ms.category:
   - iot
 products:
-  - azure-kubernetes-service
-  - azure-service-fabric
-  - azure-container-instances
-categories: containers
+  - azure-functions
+  - azure-iot-edge
+  - azure-iot-hub
+  - azure-maps
+  - azure-signalr-service
+categories: iot
 ms.custom:
   - fcp
   - guide
@@ -21,9 +23,9 @@ ms.custom:
 
 # Cloud application signaling pattern for IoT
 
-Some Internet of Things (IoT) applications work with real-time data from IoT devices. For instance, these apps often display device telemetry or alerts. With traditional polling methods, these client apps ask the devices for state changes.
+Internet of Things (IoT) applications often work with real-time data from IoT devices. For instance, some apps display device telemetry or alerts. With traditional polling methods, these client apps ask the devices for state changes.
 
-This guide outlines a way for clients like web pages or mobile apps to receive updates from devices in real time. Clients no longer submit HTTP requests for up-to-date information. Instead, this guide uses Azure SignalR Service to push content to connected clients as soon as it's available.
+This guide outlines a way for clients like web pages or mobile apps to receive updates from devices in real time. With the signaling pattern that this guide presents, cloud apps no longer submit HTTP requests for up-to-date information. Instead, Azure SignalR Service pushes content to connected clients as soon as it's available.
 
 As an example, a retailer might display the total number of customers in a store on a digital sign in real time. With this guide's solution, the sign doesn't have to request the latest customer count from data storage. Instead, the system feeds that information to the sign as soon as the total changes.
 
@@ -51,7 +53,7 @@ Specific examples that provide real-time data updates include:
 
 1. Clients use the endpoint and token to connect to Azure SignalR Service. This managed service simplifies the process of adding real-time communication to web apps.
 
-1. IoT devices send telemetry to IoT Hub. Azure IoT Edge sends processed IoT device telemetry to IoT Hub.
+1. IoT devices send telemetry to Azure IoT Hub. Azure IoT Edge sends processed IoT device telemetry to IoT Hub.
 
 1. The telemetry triggers a function in Azure Functions. The function:
 
@@ -76,12 +78,12 @@ Consider these points when you use this pattern:
 
 - Don't use this solution when you need to guarantee message delivery.
 
-- When you need to display real-time data in Power BI visuals, consider [Real-time streaming in Power BI](/power-bi/connect-data/service-real-time-streaming) as an alternative to this solution.
+- When you're displaying real-time data in Power BI visuals, consider [Real-time streaming in Power BI](/power-bi/connect-data/service-real-time-streaming) as an alternative to this solution.
 
 ## Next steps
 
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/)
-- [Real time IoT data with SignalR](https://anthonychu.ca/post/end-to-end-realtime-python-iot-azure-functions-signalr-iothub/)
+- [Tutorial: Azure SignalR Service authentication with Azure Functions](/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions)
 - [Build real-time Apps with Azure Functions and Azure SignalR Service](/azure/azure-signalr/signalr-concept-azure-functions)
 - [Visualize real-time sensor data from Azure IoT Hub using Power BI](/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi)
 - [Azure Stream Analytics solution patterns](/azure/stream-analytics/stream-analytics-solution-patterns)
@@ -94,7 +96,7 @@ To learn about related solutions, see this information:
 
 - [IoT solutions conceptual overview](/azure/architecture/example-scenario/iot/introduction-to-solutions)
 - [IoT solution architecture](/azure/architecture/example-scenario/iot/devices-platform-application)
-- [Azure Industrial IoT Analytics Guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
+- [Azure industrial IoT analytics guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
 
 ### IoT patterns
 
