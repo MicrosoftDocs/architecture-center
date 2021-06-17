@@ -79,6 +79,7 @@ As cluster landscapes grow, the number of repositories constantly increases. Cha
 ### Security
 
 This solution provides several security-related benefits. With the GitOps approach, individual developers or administrators don't directly access the Kubernetes clusters to apply changes or updates. Instead, users push changes to a Git repository, and the GitOps operator, Flux in this case, reads them and applies them to the cluster. This approach follows the security best practice of least privilege by not giving DevOps teams write permissions to the Kubernetes API. In diagnostic or troubleshooting scenarios, you can grant cluster permissions for a limited time on a case by case basis.
+
 To make sure the AKS clusters are using security best practices, this solution enforces OPA Kubernetes policies with a validating admission webhook. Phylake provides a set of policies based on Kubernetes security standards, which you can provision on a cluster scope. Phylake provides early feedback via PR review for Kubernetes manifests that violate the policies.
 
 Apart from the task of setting up repository permissions, consider implementing the following security measures in Git repositories that sync to AKS clusters:
@@ -95,7 +96,9 @@ Apart from the task of setting up repository permissions, consider implementing 
 
 GitOps can increase DevOps productivity. One of the most useful features is the ability to quickly roll back changes that are behaving unexpectedly, just by performing Git operations. The commit graph still contains all commits, so it can help with the post-mortem analysis.
 
-GitOps teams often manage multiple environments for the same application. It's typical to have several stages of an application deployed to different Kubernetes clusters or namespaces. You can easily see which versions of applications are currently deployed to a cluster by looking at the Git repository, which is the single source of truth. Tools like Phylake can extract this information from the repository and display it in a more user-friendly way. Phylake provides an overview that shows which container images and versions are deployed in which environment.
+GitOps teams often manage multiple environments for the same application. It's typical to have several stages of an application deployed to different Kubernetes clusters or namespaces. You can easily see which versions of applications are currently deployed to a cluster by looking at the Git repository, which is the single source of truth.
+
+Tools like Phylake can extract this information from the repository and display it in a more user-friendly way. Phylake provides an overview that shows which container images and versions are deployed in which environment.
 
 DevOps teams can use advanced Phylake features to get insights into who changed what and when in an application, or browse and filter based on factors like change type or resource kind. Phylake provides a control center to activate policies and compare compliance state over different clusters.
 
@@ -168,7 +171,7 @@ You've now successfully provisioned a running GitOps setup. From here, you can:
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
 
-- AKS offers free cluster management. Billing is isolated to the compute, storage, and networking resources AKS uses to host nodes. Refer to [Azure Virtual Machine](https://azure.microsoft.com/pricing/details/virtual-machines/) or [Azure Container Instances](https://azure.microsoft.com/pricing/details/container-instances/) pricing to review specific pricing details for each compute service.
+- AKS offers free cluster management. Costs are limited to the compute, storage, and networking resources AKS uses to host nodes. Refer to [Azure Virtual Machine](https://azure.microsoft.com/pricing/details/virtual-machines/) or [Azure Container Instances](https://azure.microsoft.com/pricing/details/container-instances/) pricing to review specific pricing details for each compute service.
 
 - GitHub offers a free service, but to use advanced security-related features like code owners or required reviewers, you need the **Team** plan. For more information, see the [GitHub pricing page](https://github.com/pricing).
 
