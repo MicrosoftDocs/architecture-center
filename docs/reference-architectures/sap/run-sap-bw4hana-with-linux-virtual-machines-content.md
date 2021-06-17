@@ -16,7 +16,7 @@ For details about the data persistence layer, see:
 
 - [Run SAP HANA on Linux virtual machines](./run-sap-hana-for-linux-virtual-machines.yml)
 
-## Relevant use cases
+## Potential use cases
 
 This scenario is relevant to the following use cases:
 

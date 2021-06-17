@@ -402,7 +402,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 - [Running SAP Applications on the Microsoft Platform blog](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-on-Azure-General-Update-March-2019/ba-p/377456?advanced=false&collapse_discussion=true&q=sap%20azure%20general%20update&search_type=thread)
 
-- [Azure Forum](https://azure.microsoft.com/support/forums)
+- [Azure Community Support](https://azure.microsoft.com/support/forums)
 
 - [SAP Community](https://www.sap.com/community.html)
 
