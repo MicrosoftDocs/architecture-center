@@ -71,6 +71,20 @@ items:
                 href: guide/technology-choices/data-store-decision-tree.md
               - name: Criteria for choosing a data store
                 href: guide/technology-choices/data-store-considerations.md
+          - name: Choose an analytics solution
+            items:
+              - name: Analytical data stores
+                href: data-guide/technology-choices/analytical-data-stores.md
+              - name: Analytics and reporting
+                href: data-guide/technology-choices/analysis-visualizations-reporting.md
+          - name: Choose an AI/ML service
+            items:
+              - name: Cognitive services
+                href: data-guide/technology-choices/cognitive-services.md
+              - name: Machine learning
+                href: data-guide/technology-choices/data-science-and-machine-learning.md
+              - name: Natural language processing
+                href: data-guide/technology-choices/natural-language-processing.md
           - name: Choose a load balancing service
             href: guide/technology-choices/load-balancing-overview.md
           - name: Choose a messaging service
