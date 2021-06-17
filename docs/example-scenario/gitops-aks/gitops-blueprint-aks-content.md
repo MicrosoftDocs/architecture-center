@@ -1,3 +1,5 @@
+This article describes a blueprint for GitOps using an Azure Kubernetes Services (AKS) cluster. The solution provides full audit capabilities, policy enforcement, and early feedback.
+
 Enterprise companies must fulfill many data privacy regulations, regulatory requirements, and security standards. Operations must follow the principle of least privilege access, and audits must track who changed what and when on all production systems.
 
 Organizations that use Kubernetes to run their application workloads must fulfill these requirements while making their Kubernetes clusters as secure as possible. Kubernetes isn't secure by default. Cluster owners and operators are responsible for using Kubernetes features to secure their clusters.
@@ -7,8 +9,6 @@ In GitOps, *Infrastructure as Code* describes the process of declaring the desir
 Combining Kubernetes with GitOps places the cluster desired state under version control. A component within the cluster continuously syncs the infrastructure code. Rather than having direct access to the Kubernetes cluster, most operations happen via code changes that can be reviewed and audited. This approach supports the security principle of least privilege access.
 
 GitOps not only enforces policies within the cluster, but also helps support security by providing feedback to users before they make policy changes. Early feedback also increases convenience for DevOps, and helps businesses reduce costs.
-
-This article describes a blueprint for GitOps using an Azure Kubernetes Services (AKS) cluster. The solution provides full audit capabilities, policy enforcement, and early feedback.
 
 ## Potential use cases
 
@@ -36,9 +36,7 @@ This solution follows a strong GitOps approach.
    
 1. **OPA Gatekeeper** enforces policies. Gatekeeper validates any desired cluster configuration changes against provisioned policies, and applies the changes only if they comply with policies.
    
-1. **Phylake** is a GitOps control kit that provides an overview of all AKS clusters to help manage policies.
-   
-   Phylake:
+1. **Phylake** is a GitOps control kit that provides an overview of all AKS clusters to help manage policies. Phylake:
    
    - Assembles all cluster images in an overview that shows which versions are deployed and identifies outdated images
    - Provides feedback on policy violations via pull request (PR) feedback before changes are applied
@@ -55,9 +53,9 @@ This solution uses the following components:
 
 - [Flux](https://fluxcd.io) is an open-source collection of tools for keeping Kubernetes clusters in sync with configuration sources like Git repositories. Flux automates configuration updates when there is new code to deploy.
 
-- [Phylake](https://phylake.io) is a tool Syncier developed and made publicly available to help overcome GitOps security and compliance challenges. Phylake assembles all cluster images in an overview, provides feedback on policy violations before the changes are applied, and introduces risk acceptance when policies can't be applied. Phylake comes with a set of best practice policies grouped by well-known security standards, to help ensure that only trusted images run in the cluster.
-
 - [OPA Gatekeeper](https://www.openpolicyagent.org/docs/latest/Kubernetes-introduction/) is a project that integrates the open-source OPA admission controller with Kubernetes. Kubernetes admission controllers enforce policies on objects during create, update, and delete operations, and are fundamental to Kubernetes policy enforcement.
+
+- [Phylake](https://phylake.io) is a tool Syncier developed and made publicly available to help overcome GitOps security and compliance challenges. Phylake assembles all cluster images in an overview, provides feedback on policy violations before the changes are applied, and introduces risk acceptance when policies can't be applied. Phylake comes with a set of best practice policies grouped by well-known security standards, to help ensure that only trusted images run in the cluster.
 
 ### Alternatives
 
@@ -88,7 +86,7 @@ Apart from the task of setting up repository permissions, consider implementing 
 
 - **Immutable history:** Only allow new commits on top of existing changes. Immutable history is especially important for auditing purposes.
 
-- **Further security measures:** You can require your GitHub users to activate two-factor-authentication. You can also allow only signed commits, which can't be altered after the fact.
+- **Further security measures:** You can require your GitHub users to activate two-factor authentication. You can also allow only signed commits, which can't be altered after the fact.
 
 ### Operations
 
@@ -105,8 +103,14 @@ DevOps teams can use advanced Phylake features to get insights into who changed 
 Perform the following steps to provision a running GitOps setup:
 
 1. Create an AKS cluster by following the [quickstart guide](https://docs.microsoft.com/en-us/azure/aks/Kubernetes-walkthrough). Stop at **Run the application**, and don't deploy anything in the cluster yet.
-
-1. [Install Flux](https://fluxcd.io/docs/installation/). Then run the following code:
+   
+1. [Install Flux](https://fluxcd.io/docs/installation/).
+   
+1. Install Gatekeeper by using [this guide](https://open-policy-agent.github.io/gatekeeper/website/docs/install/#installation). To configure Gatekeeper correctly, see [Enforcing policies with OPA Gatekeeper](https://phylake.io/docs/reference/policies).
+   
+1. Install Phylake via the [GitHub marketplace](https://github.com/marketplace/phylake-io).
+   
+1. Run the following code:
    
    ```bash
    set -eo pipefail
@@ -150,14 +154,6 @@ Perform the following steps to provision a running GitOps setup:
    
    kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.4/deploy/gatekeeper.yaml
    ```
-   
-1. Install Gatekeeper by using [this guide](https://open-policy-agent.github.io/gatekeeper/website/docs/install/#installation). To configure Gatekeeper correctly, see [Enforcing policies with OPA Gatekeeper](https://phylake.io/docs/reference/policies).
-   
-1. Install Phylake and Phylake CLI.
-   
-   - Install Phylake via the [GitHub marketplace](https://github.com/marketplace/phylake-io).
-   
-   - **phylake-cli** is Phylake's official command-line tool. It brings clusters, policies, application instances, and other Phylake and Kubernetes concepts to the terminal. View installation instructions and CLI commands: [*https://github.com/syncier/phylake-cli*](https://github.com/syncier/phylake-cli)
    
 You've now successfully provisioned a running GitOps setup. From here, you can:
 
