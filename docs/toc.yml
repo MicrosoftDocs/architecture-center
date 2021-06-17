@@ -1430,10 +1430,10 @@ items:
             items:
               - name: Azure Arc solutions
                 items:
-                - name: Manage configurations for Azure Arc enabled servers
-                  href: hybrid/azure-arc-hybrid-config.yml
                 - name: Azure Arc hybrid management and deployment for Kubernetes clusters
                   href: hybrid/arc-hybrid-kubernetes.yml
+                - name: Manage configurations for Azure Arc enabled servers
+                  href: hybrid/azure-arc-hybrid-config.yml
               - name: Azure Automation in a hybrid environment
                 href: hybrid/azure-automation-hybrid.yml
               - name: Azure Automation update management
