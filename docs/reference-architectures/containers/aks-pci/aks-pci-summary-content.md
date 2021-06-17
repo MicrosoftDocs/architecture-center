@@ -68,3 +68,40 @@ The main theme of the PCI standard is to isolate the PCI workload from other wor
 The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. 
 
 In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The application has  two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM.
+
+### Management Groups
+This reference implementation is expected to be deployed in a standalone subscription. As such, Azure Policies are applied at a relatively local scope (subscription or resource group). If you have multiple subscriptions that will be under regulatory compliance, consider grouping them under a management group hierarchy that applies the relevant Azure Policies uniformly across your in-scope subscriptions.
+
+
+## Security Center
+View considerations…
+Enterprise onboarding to Security Center
+The Security Center onboarding in this reference implementation is relatively simplistic. Organizations inboard in Security Center and Azure Policy typically in a more holistic and governed fashion. Review the Azure Security Center Enterprise Onboarding Guide for a complete end-to-end perspective on protecting your workloads (regulated and non) with Azure Security Center. This addresses enrollment, data exports to your SIEM or ITSM solution, Logic Apps for responding to alerts, building workflow automation, etc. All things that go beyond the base architecture of any one AKS solution, and should be addressed at the enterprise level.
+
+Create triage process for alerts
+From the Security alerts view in Azure Security Center (or via Azure Resource Graph), you have access to all alerts that Azure Security Center detects on your resources. You should have a triage process in place address or defer detected issues. Work with your security team to understand how relevant alerts will be made available to the workload owner(s).
+
+
+Customer-managed OS and data disk encryption
+While OS and data disks (and their caches) are already encrypted at rest with Microsoft-managed keys, for additional control over encryption keys you can use customer-managed keys for encyption at rest for both the OS and the data disks in your AKS cluster. This reference implementation doesn't actually use any disks in the cluster, and the OS disk is ephemeral. But if you use non-ephemeral OS disks or add data disks, consider using this added security solution.
+
+Read more about Bing your own keys (BYOK) with Azure disks.
+
+Consider using BYOK for any other disks that might be in your final solution, such as your Azure Bastion-fronted jumpboxes. Please note that your SKU choice for VMs will be limited to only those that support this feature, and regional availability will be restricted as well.
+
+Note, we enable an Azure Policy alert detecting clusters without this feature enabled. The reference implementation will trip this policy alert because there is no diskEncryptionSetID provided on the cluster resource. The policy is in place as a reminder of this security feature that you might wish to use. The policy is set to "audit" not "block."
+
+Host-based encryption
+You can take OS and data disk encryption one step further and also bring the encryption up to the Azure host. Using Host-Based Encryption means that the temp disks now will be encrypted at rest using platform-managed keys. This will then cover encryption of the VMSS ephemeral OS disk and temp disks. Your SKU choice for VMs will be limited to only those that support this feature, and regional availability will be restricted as well. This feature is currently in preview. See more details about VM support for host-based encryption.
+
+Note, like above, we enable an Azure Policy detecting clusters without this feature enabled. The reference implementation will trip this policy alert because this feature is not enabled on the agentPoolProfiles. The policy is in place as a reminder of this security feature that you might wish to use once it is GA. The policy is set to "audit" not "block."
+
+
+Cluster Backups (State and Resources)
+While we generally discourage any storage of state within a cluster, you may find your workload demands in-cluster storage. Regardless if that data is in compliance scope or not, you'll often require a robust and secure process for backup and recovery. You may find a solution like Azure Backup (for Azure Disks and Azure Files), Veeam Kasten K10, or VMware Velero instrumental in achieving any PersistantVolumeClaim backup and recovery strategies.
+
+As a bonus, your selected backup system might also handle Kubernetes resource (Deployments, ConfigMaps, etc) snapshots/backups. While Flux may be your primary method to reconcile your cluster back to a well-known state, you may wish to supplement with a solution like this to provide alternative methods for critical system recovery techniques (when reconcile or rebuild is not an option). A tool like this can also be a key source of data for drift detection and cataloging system state changes over time; akin to how File Integrity Monitoring solves for file-system level drift detection, but at the Kubernetes resource level.
+
+All backup process needs to classify the data contained within the backup. This is true of data both within and external to your cluster. If the data falls within regulatory scope, you'll need extend your compliance boundaries to the lifecycle and destination of the backup -- which will be outside of the cluster. Consider geographic restrictions, encryption at rest, access controls, roles and responsibilities, auditing, time-to-live, and tampering prevention (check-sums, etc) when designing your backup system. Backups can be a vector for malicious intent, with a bad actor compromising a backup and then forcing an event in which their backup is restored.
+
+Lastly, in-cluster backup systems usually depend on begin run as highly-privileged during its operations; so consider the risk vs benefit when deciding to bring an agent like this into your cluster. Some agent's might overlap with another management solution you've brought to your cluster already for security concerns; evaluate what is the minimum set of tooling you'll need to accomplish this task and not introduce additional exposure/management into your cluster.

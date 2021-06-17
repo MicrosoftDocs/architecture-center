@@ -8,8 +8,6 @@ This series aims to get you started with your PCI-DSS infrastructure setup. It's
 
 ## Before you begin...
 
-### Understand the shared responsibility model
-
 **Microsoft Trust Center** provides specific principles for compliance-related cloud deployments. The security assurances&mdash;provided by Azure as the cloud platform and AKS as the host container&mdash;are regularly audited and attested by third-party auditors for PCI DSS compliance.
 
 ![Diagram of the shared responsibility model.](images\protection-everyone.svg)
@@ -32,7 +30,7 @@ This series assumes:
 - You're well versed with the official [PCI DSS specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf). 
 - You've read the [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline).
 
-## In this series
+### In this series
 
 This series is split into several articles. Each article outlines the high-level PCI requirement, and provides guidance about how to address the AKS-specific requirement.
 

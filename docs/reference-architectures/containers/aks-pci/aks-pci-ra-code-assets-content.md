@@ -36,11 +36,11 @@ Provisioned in a separate virtual network. Creates VM images with base security 
 
 ## Cluster configuration
 
-The baseline architecture has one user node pool and another for the system node pool. The workload runs on all the pods. This architecture has two user node pools and one system node pool. The in-scope and out-of-scope workloads are segmented in two separate user node pools. For more, see [Workload segmentation](#workload-segmentation).
+The baseline architecture has one user node pool and another for the system node pool. The workload runs on all the pods. This architecture has two user node pools and one system node pool. The in-scope and out-of-scope workloads are segmented in two separate user node pools. For more, see [Workload segmentation](#workload-isolation).
 
 In this architecture, Kubernetes ingress controller inside the cluster is NGINX. In the baseline architecture, we chose Traefik. This change illustrates that the service can be changed based on your choice.
 
-The baseline architecture deployed the AKS cluster in public mode. This means all communication with the AKS-managed Kubernetes API server is over the public internet. This is not acceptable in this architecture because PCI-DSS prohibits public exposure to system components. In this regulated architecture, the cluster is deployed as a private cluster. Network traffic between the Kubernetes API server and your node pools is private. The API server is exposed through a Private Endpoint in the cluster's network. The security is further enhanced with the use of Azure Virtual Network, an NSG, and other built-in features. These are described in [Network configuration](#network-configuration).
+The baseline architecture deployed the AKS cluster in public mode. This means all communication with the AKS-managed Kubernetes API server is over the public internet. This is not acceptable in this architecture because PCI-DSS prohibits public exposure to system components. In this regulated architecture, the cluster is deployed as a private cluster. Network traffic between the Kubernetes API server and your node pools is private. The API server is exposed through a Private Endpoint in the cluster's network. The security is further enhanced with the use of Azure Virtual Network, an NSG, and other built-in features. These are described in [Network configuration](#networking-configuration).
 
 
 ### Pod security
