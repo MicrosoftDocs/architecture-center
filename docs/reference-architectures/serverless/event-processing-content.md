@@ -18,11 +18,11 @@ Additional variations and solution ideas related to this reference architecture 
 **Event Hubs** ingests the data stream. [Event Hubs][eh] is designed for high-throughput data streaming scenarios.
 
 > [!NOTE]
-> For IoT scenarios, we recommend [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). IoT Hub has a built-in endpoint that's compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the backend processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs][iot].
+> For IoT scenarios, we recommend [Azure IoT Hub](iot-hub-product). IoT Hub has a built-in endpoint that's compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the backend processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs][iot].
 
 **Function App**. [Azure Functions][functions] is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger. In this architecture, when events arrive at Event Hubs, they trigger a function that processes the events and writes the results to storage.
 
-Function Apps are suitable for processing individual records from Event Hubs. For more complex stream processing scenarios, consider [Apache Spark using Azure Databricks](https://azure.microsoft.com/services/databricks/), or [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).
+Function Apps are suitable for processing individual records from Event Hubs. For more complex stream processing scenarios, consider [Apache Spark using Azure Databricks](spark-databricks-product), or [Azure Stream Analytics](stream-analytics-product).
 
 **Cosmos DB**. [Cosmos DB][cosmosdb] is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Cosmos DB SQL API][cosmosdb-sql].
 
@@ -195,10 +195,10 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 ## Next steps
 
 - [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.md)
-- [Monitoring serverless event processing](./monitoring-serverless-event-processing.yml)
-- [De-batching and filtering in serverless event processing with Event Hubs](./serverless-event-processing-filtering.yml)
-- [Private link scenario in event stream processing](./serverless-event-processing-private-link.yml)
-- [Azure Kubernetes in event stream processing](./serverless-event-processing-aks.yml) describes a variation of a serverless event-driven architecture running on Azure Kubernetes with KEDA scaler.
+- [Monitoring serverless event processing](../../solution-ideas/articles/monitoring-serverless-event-processing.yml)
+- [De-batching and filtering in serverless event processing with Event Hubs](../../solution-ideas/articles/serverless-event-processing-filtering.yml)
+- [Private link scenario in event stream processing](../../solution-ideas/articles/serverless-event-processing-private-link.yml)
+- [Azure Kubernetes in event stream processing](../../solution-ideas/articles/serverless-event-processing-aks.yml) describes a variation of a serverless event-driven architecture running on Azure Kubernetes with KEDA scaler.
 
 <!-- links -->
 
@@ -234,6 +234,9 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 [ra-grs]: /azure/storage/common/storage-redundancy-grs
 [ru]: /azure/cosmos-db/request-units
 
+[spark-databricks-product]: https://azure.microsoft.com/services/databricks/
+[stream-analytics-product]: https://azure.microsoft.com/services/stream-analytics/
+
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [cosmosdb-pricing]: https://azure.microsoft.com/pricing/details/cosmos-db
@@ -246,6 +249,7 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 [eh-trigger]: /azure/azure-functions/functions-bindings-event-hubs
 [functions]: /azure/azure-functions/functions-overview
 [iot]: /azure/iot-hub/iot-hub-compare-event-hubs
+[iot-hub-product]: https://azure.microsoft.com/services/iot-hub/
 [log-analytics]: /azure/log-analytics/log-analytics-queries
 [monitor]: /azure/azure-monitor/overview
 [partition-key]: /azure/cosmos-db/partition-data
