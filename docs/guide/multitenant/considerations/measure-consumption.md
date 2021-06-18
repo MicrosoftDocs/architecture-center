@@ -20,16 +20,16 @@ ms.custom:
 
 # Measure the consumption of each tenant
 
-As a solution provider, it is important to measure the consumption of each tenant in your multitenant solution. By measuring the consumption of each tenant, you can ensure that the cost of good sold (COGS) for delivering the service to each tenant is profitable.
+As a solution provider, it's important to measure the consumption of each tenant in your multitenant solution. By measuring the consumption of each tenant, you can ensure that the cost of good sold (COGS) for delivering the service to each tenant is profitable.
 
 There are two primary concerns driving the need for measuring each tenant's consumption:
 
-- Measuring the actual cost to serve each tenant. This is important for monitoring profitability of the solution for each tenant.
-- Determining the amount to charge the tenant when [consumption-based pricing](./pricing-models.md#consumption-based-pricing) is being used.
+- You need to measuring the actual cost to serve each tenant. This is important for monitoring profitability of the solution for each tenant.
+- You need to determine the amount to charge the tenant when you're using [consumption-based pricing](./pricing-models.md#consumption-based-pricing).
 
-However, measuring the actual amount of resource used by a tenant in a multitenant solution isn't trivial. Most services that can be used as part of a multitenant solution don't automatically differentiate or break down usage based on whatever you define a tenant to be. For example, consider a service that stores data for all of your tenants in a single relational database. It is difficult to determine exactly how much each tenant uses of that relational database, either in terms of storage or compute capacity required to service their queries and requests.
+However, it's not trivial to measure the actual resources used by a tenant in a multitenant solution. Most services that can be used as part of a multitenant solution don't automatically differentiate or break down usage based on whatever you define a tenant to be. For example, consider a service that stores data for all of your tenants in a single relational database. It's difficult to determine exactly how much each tenant uses of that relational database, either in terms of storage or compute capacity required to service their queries and requests.
 
-By contrast, for a single-tenant solution we're simply able to use Azure Cost Management within the Azure portal to get a complete cost breakdown for all Azure resources consumed by a tenant.
+By contrast, for a single-tenant solution we're simply able to use Azure Cost Management within the Azure portal to get a complete cost breakdown for all Azure resources consumed by that tenant.
 
 Therefore, it is important when considering how to measure consumption that you're taking these challenges into account.
 
@@ -38,12 +38,12 @@ Therefore, it is important when considering how to measure consumption that you'
 
 ## Indicative consumption metrics
 
-Modern applications that are built for the cloud are usually made up of many different services, each with different measures of consumption. For example, a storage account measures consumption based on the amount of data stored, the data transmitted, and the numbers of transactions. However, Azure App Service consumption is measured by the amount of compute resources allocated over time. If you have a solution that includes a storage account and App Service resources, then combining all these measurements together to calculate the actual COGS can be a very difficult task. Often it is easier to use a single indicative measurement that is used to represent consumption in the solution.
+Modern applications that are built for the cloud are usually made up of many different services, each with different measures of consumption. For example, a storage account measures consumption based on the amount of data stored, the data transmitted, and the numbers of transactions. However, Azure App Service consumption is measured by the amount of compute resources allocated over time. If you have a solution that includes a storage account and App Service resources, then combining all these measurements together to calculate the actual COGS can be a very difficult task. Often it is easier to use a single indicative measurement to represent consumption in the solution.
 
 For example, in the case of a multitenant solution sharing a single relational database, you may determine that the data stored is a good indicative consumption metric.
 
 > [!NOTE]
-> Even if you choose to use the volume of data stored by a tenant as an indicative consumption measure, it may not be a true representation of consumption for every tenant. For example, if a particular tenant does a lot more read/reporting from the solution but doesn't write a lot of data, they could use a lot more compute than their storage requirements would indicate.
+> Even if you choose to use the volume of data stored by a tenant as an indicative consumption measure, it may not be a true representation of consumption for every tenant. For example, if a particular tenant does a lot more reads or runs more reporting from the solution but doesn't write a lot of data, they could use a lot more compute than their storage requirements would indicate.
 
 It is important to occasionally measure and review the actual consumption across your tenants to determine whether the assumptions you're making about your indicative metrics are correct.
 
@@ -58,7 +58,7 @@ This method is usually easy and cost effective to implement as there is usually 
 In solutions that are primarily API-based it might make sense to use a consumption metric that is based around the number of API requests being made to the solution. This can often be quite simple to implement, but does require that APIs are the primary interface to the system. There will be an increased operational cost of implementing a per-request metric, especially for high volume services, because of the need to record the request utilization for audit and billing purposes.
 
 > [!NOTE]
-> User-facing solutions consisting of an single page application (SPA) or a mobile application using the APIs may not be a good fit for the per-request metric because there is little understanding by the end-user of the relationship between the use of the application and the consumption of APIs.
+> User-facing solutions consisting of an single page application (SPA) or a mobile application using the APIs may not be a good fit for the per-request metric because there is little understanding by the end user of the relationship between the use of the application and the consumption of APIs. Your application might be chatty (make many API requests) or chunky (make few API requests), and the user wouldn't notice a difference.
 
 > [!WARNING]
 > Make sure you store request metrics in a reliable data store designed for this purpose. For example, although Azure Application Insights can track requests and even track tenant IDs by using [properties](/azure/azure-monitor/app/api-custom-events-metrics#properties), Application Insights is not designed to store every piece of telemetry and it removes data as part of its [sampling behavior](/azure/azure-monitor/app/sampling). For billing and metering purposes, choose a data store that will give you a high level of accuracy.
@@ -78,19 +78,17 @@ You might also choose to estimate consumption in combination with [indicative co
 
 ## On-charging your costs
 
-In some solutions, you can simply charge tenants the COGS for their resources. For example, you might use [Azure resource tags](/azure/azure-resource-manager/management/tag-resources) to allocate billable Azure resources to tenants. You can then determine the cost to each tenant for the set of resources dedicated to them, plus a margin for profit and operation.
+In some solutions, you can simply charge your customers the COGS for their tenant's resources. For example, you might use [Azure resource tags](/azure/azure-resource-manager/management/tag-resources) to allocate billable Azure resources to tenants. You can then determine the cost to each tenant for the set of resources dedicated to them, plus a margin for profit and operation.
 
 > [!NOTE]
 > Some [Azure services don't support tags](/azure/azure-resource-manager/management/tag-support). For these services you will need to attribute the costs to a tenant based on the resource name, resource group or subscription.
 
 [Azure Cost Analysis](/azure/cost-management-billing/costs/quick-acm-cost-analysis) can be used to analyze Azure resource costs for single tenant solutions that use tags, resource groups or subscriptions to attribute costs.
 
-However, this becomes prohibitively complex in most modern multitenant solutions because of the challenge of accurately determining the exact COGS to serve a single tenant. This method should only be considered for very simple solutions, solutions that result in single tenant resource deployments, or custom add-on features within a larger solution.
+However, this becomes prohibitively complex in most modern multitenant solutions because of the challenge of accurately determining the exact COGS to serve a single tenant. This method should only be considered for very simple solutions, solutions that have single-tenant resource deployments, or custom tenant-specific add-on features within a larger solution.
 
-Some Azure services may provide features that allow other methods of attribution of costs in a multitenant environment. For example, Azure Kubernetes Service supports [multiple node pools](/azure/aks/use-multiple-node-pools) where each tenant could be allocated a node pool that has [node pool tags set](/azure/aks/use-multiple-node-pools#setting-nodepool-azure-tags) to attribute costs.
-
-For the most part cost attribution and on-charging costs for a multitenant solution is non-trivial.
+Some Azure services may provide features that allow other methods of attribution of costs in a multitenant environment. For example, Azure Kubernetes Service supports [multiple node pools](/azure/aks/use-multiple-node-pools) where each tenant could be allocated a node pool with [node pool tags](/azure/aks/use-multiple-node-pools#setting-nodepool-azure-tags) used to attribute costs.
 
 ## Next steps
 
-Return to the [architectural considerations overview](overview.md).
+Consider the [update deployment model you will use](updates.md).
