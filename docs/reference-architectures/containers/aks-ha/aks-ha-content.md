@@ -206,7 +206,7 @@ Application Gateway uses SSL ciphers to create a secure connection to the AKS cl
 
 ### Shared resource considerations
 
-While the focus of this reference architecture is on having multiple Kubernetes instances spread across multiple Azure regions, it does make sense to have some shared resources across all instances. This section detailes each of these shared resources, and considerations for using each across multiple AKS instances.
+While the focus of this reference architecture is on having multiple Kubernetes instances spread across multiple Azure regions, it does make sense to have some shared resources across all instances. The AKS multi-region reference implementation using a single ARM template to deploy all shared resources and then another to deploy each regional stamp. This section details each of these shared resources and considerations for using each across multiple AKS instances.
 
 #### Container Registry
 
@@ -220,7 +220,7 @@ The AKS multi-region reference implementation created a single Container Registr
 
 _Image showing multiple ACR replicas from within the Azure portal._
 
-![Image showing multiple ACR replicas from within the Azure portal..](./images/acr-replicas.png)
+![Image showing multiple ACR replicas from within the Azure portal.](./images/acr-replicas.png)
 
 ##### Cluster Access
 
@@ -228,9 +228,28 @@ Each AKS instance requires access for pulling image layers from the Azure Contai
 
 This configuration is defined in the cluster stamp ARM template so that each time a new stamp is deployed, the new AKS instance is granted access. Because the Container Registry is a shared resource, ensure that your deployment stamp template can consume and use the necessary details, in this case, the resource ID of the Container Registry.
 
-#### Log Analytics
+#### Log Analytics and Azure Monitor
 
-- Shared log analytics workspace
+The Azure Monitor for containers feature is the recommended tool for monitoring and logging because you can view events in real-time. Azure Monitor utilizes a Log Analytics workspace for storing diagnostic logs. See the [AKS Secure Baseline](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#monitor-and-collect-metrics) for more information.
+
+When considering monitoring for a cross-region implementation such as this reference architecture, it is important to consider the coupling between each stamp. In this case, consider each stamp a component of a single unit (regional cluster). The multi-region AKS reference implementation utilizes a single Log Analytics workspace for each Kubernetes cluster. Like with the other shared resources, define your regional stamp to consume information about the single log analytics workspace and connect each cluster to it.
+
+_ARM template example where the Log Analytics workspace ID is consumed as a parameter used to configure monitoring for each cluster stamp._
+
+```json
+"omsagent": {
+    "enabled": true,
+    "config": {
+        "logAnalyticsWorkspaceResourceId": "[parameters('logAnalyticsWorkspaceId')]"
+    }
+}
+```
+
+Now that each regional cluster is omitting diagnostic logs to a single Log Analytics workspace, this data, along with resource metrics, can be used to more easily build reports and dashboards that represent the entirety of the global cluster.
+
+_Example chart showing inbound traffic across all regions. Note, no reports are included with the reference architecture, you will need to create your own._
+
+![](./images/monitor.png)
 
 #### Azure Front Door
 
