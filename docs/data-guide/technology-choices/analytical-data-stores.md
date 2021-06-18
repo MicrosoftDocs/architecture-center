@@ -1,5 +1,5 @@
 ---
-title: Choosing an analytical data store
+title: Choose an analytical data store
 description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
 author: zoinerTejada
 ms.date: 5/18/2021
@@ -10,7 +10,7 @@ ms.custom:
   - guide
 ---
 
-# Choosing an analytical data store in Azure
+# Choose an analytical data store in Azure
 
 In a [big data](../big-data/index.md) architecture, there is often a need for an analytical data store that serves processed data in a structured format that can be queried using analytical tools. Analytical data stores that support querying of both hot-path and cold-path data are collectively referred to as the serving layer, or data serving storage.
 
