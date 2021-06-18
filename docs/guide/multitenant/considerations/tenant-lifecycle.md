@@ -22,7 +22,7 @@ ms.custom:
 
 When you're considering a multitenant architecture, it's important to consider all of the different stages in a tenant's lifecycle.
 
-## Trials
+## Trial tenants
 
 For SaaS solutions, consider that many customers request or require trials before they commit to purchase a solution. Trials bring along some unique considerations, such as:
 
@@ -78,7 +78,7 @@ It's also inevitable that tenants will occasionally need be removed from your so
 - Should you provide the ability for customers to be re-onboarded?
 - If you run shared infrastructure, do you need to rebalance the allocation of tenants to infrastructure?
 
-## Deactivation and reactivation
+## Deactivate and reactivate tenants
 
 There are situations where a customer's account might need to be deactivated or reactivated. For example:
 

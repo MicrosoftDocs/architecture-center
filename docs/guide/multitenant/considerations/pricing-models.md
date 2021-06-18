@@ -133,13 +133,15 @@ Once you've defined your pricing model, you might choose to implement commercial
 > [!NOTE]
 > Discount pricing doesn't typically require architectural considerations beyond adding support for a more complex billing structure. A complete discussion into the commercial benefits of discounting is beyond the scope of this document.
 
-Common tiering patterns include:
-
-![Diagram showing the different discount pricing that can be applied to a price model.](media/pricing-models/discount-pricing.png)
+Common discount pricing patterns include:
 
 - **Fixed pricing.** You have the same cost for each user, unit, or amount of consumption, no matter how much is purchased or consumed. This is the simplest approach. However, customers who make heavy use of your solution may feel like they should benefit from economies of scale by getting a discount.
 - **Digressive pricing.** As customers purchase or consume more units, you reduce the cost per unit. This is more commercially attractive to customers.
 - **Step pricing.** You reduce the cost per unit as customers purchase more. However, you do so in step changes based on predefined ranges of quantity. For example, you might charge a higher price for the first 100 users, then a lower price for the 101st to 200th user, then a lower price again after that. This can be more profitable.
+
+The following diagram illustrates these pricing patterns.
+
+![Diagram showing the different discount pricing that can be applied to a price model.](media/pricing-models/discount-pricing.png)
 
 ## Unprofitable pricing models
 

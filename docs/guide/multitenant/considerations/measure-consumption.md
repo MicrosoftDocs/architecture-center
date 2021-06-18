@@ -22,19 +22,19 @@ ms.custom:
 
 As a solution provider, it is important to measure the consumption of each tenant in your multitenant solution. By measuring the consumption of each tenant, you can ensure that the cost of good sold (COGS) for delivering the service to each tenant is profitable.
 
-> [!NOTE]
-> In some cases it will be commercially acceptable to take a loss on delivering service to a tenant, for example, when entering a new market or region. But this is a commercial choice and doesn't require additional architectural planning.
-
-There are two primary concerns driving the need for measuring per tenant consumption:
+There are two primary concerns driving the need for measuring each tenant's consumption:
 
 - Measuring the actual cost to serve each tenant. This is important for monitoring profitability of the solution for each tenant.
 - Determining the amount to charge the tenant when [consumption-based pricing](./pricing-models.md#consumption-based-pricing) is being used.
 
-However, measuring the actual amount of resource used by a tenant in a multitenant solution is a non-trivial task. Most services that can be used as part of a multitenant solution don't automatically differentiate or break down usage based on whatever you define a tenant to be. For example, consider a service that stores data for all of your tenants in a single relational database. It is difficult to determine exactly how much each tenant uses of that relational database, either in terms of storage or compute capacity required to service their queries and requests.
+However, measuring the actual amount of resource used by a tenant in a multitenant solution isn't trivial. Most services that can be used as part of a multitenant solution don't automatically differentiate or break down usage based on whatever you define a tenant to be. For example, consider a service that stores data for all of your tenants in a single relational database. It is difficult to determine exactly how much each tenant uses of that relational database, either in terms of storage or compute capacity required to service their queries and requests.
 
-By contrast, for a single tenant solution we're simply able to use Azure Cost Management within the Azure portal to get a complete cost breakdown for all Azure resources consumed by a tenant.
+By contrast, for a single-tenant solution we're simply able to use Azure Cost Management within the Azure portal to get a complete cost breakdown for all Azure resources consumed by a tenant.
 
 Therefore, it is important when considering how to measure consumption that you're taking these challenges into account.
+
+> [!NOTE]
+> In some cases it will be commercially acceptable to take a loss on delivering service to a tenant, for example, when entering a new market or region. This is a commercial choice. Even in these situations, it's still a good idea to measure the consumption of each tenant so you can plan for the future.
 
 ## Indicative consumption metrics
 
