@@ -1295,6 +1295,8 @@ items:
                     href: serverless-quest/functions-app-operations.md
                   - name: Serverless Functions app security
                     href: serverless-quest/functions-app-security.md
+                  - name: Monitoring serverless event processing
+                    href: serverless/guide/monitoring-serverless-event-processing.md
           - name: Architectures
             items:
               - name: Decompose apps with Service Fabric
@@ -1320,6 +1322,12 @@ items:
                 href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
               - name: Serverless computing LOB apps
                 href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
+              - name: Azure Kubernetes in event stream processing
+                href: solution-ideas/articles/serverless-event-processing-aks.yml
+              - name: De-batching and filtering in serverless event processing with Event Hubs
+                href: solution-ideas/articles/serverless-event-processing-filtering.yml
+              - name: Private link scenario in event stream processing
+                href: solution-ideas/articles/serverless-event-processing-private-link.yml
       - name: DevOps
         items:
           - name: Guides

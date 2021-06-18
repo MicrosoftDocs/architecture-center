@@ -3,7 +3,7 @@
 
 This article describes a variation of a [serverless](https://azure.microsoft.com/solutions/serverless/) event-driven architecture running on Azure Kubernetes with KEDA scaler that ingests a stream of data, processes the data, and then writes the results to a back-end database.
 
-To learn more about the basic concepts, considerations, and approaches for serverless event processing, consult the [Serverless event processing](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing) reference architecture.
+To learn more about the basic concepts, considerations, and approaches for serverless event processing, consult the [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) reference architecture.
 
 ## Potential use cases
 
@@ -33,10 +33,10 @@ A popular use case for implementing an end-to-end event stream processing patter
 
 ## Next steps
 
-- [Serverless event processing](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/event-processing) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
-- [Monitoring serverless event processing](monitoring-serverless-event-processing.yml) provides an overview and guidance on monitoring serverless event-driven architectures like this one.
-- [De-batching and filtering in serverless event processing with Event Hubs](serverless-event-processing-filtering.yml) describes in more detail how these portions of the architecture work.
-- [Private link scenario in event stream processing](serverless-event-processing-private-link.yml) is a solution idea for implementing a similar architecture in a VNet with private endpoints, in order to enhance security.
+- [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
+- [Monitoring serverless event processing](../../serverless/guide/monitoring-serverless-event-processing.md) provides an overview and guidance on monitoring serverless event-driven architectures like this one.
+- [De-batching and filtering in serverless event processing with Event Hubs](./serverless-event-processing-filtering.yml) describes in more detail how these portions of the architecture work.
+- [Private link scenario in event stream processing](./serverless-event-processing-private-link.yml) is a solution idea for implementing a similar architecture in a VNet with private endpoints, in order to enhance security.
 
 ## Related resources
 

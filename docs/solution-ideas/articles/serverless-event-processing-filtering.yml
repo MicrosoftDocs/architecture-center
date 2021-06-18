@@ -2,7 +2,7 @@
 metadata:
   title: De-batching and filtering in serverless event processing with Event Hubs
   titleSuffix: Azure Solution Ideas
-  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  description: A serverless event-driven architecture using Azure Event Hubs and Azure Functions to ingest and filter a stream of data for database storage.
   author: Sarah-Aly
   ms.author: sarah.aly
   ms.date: 06/18/2021
@@ -18,7 +18,7 @@ products:
   - azure-functions
   - azure-cosmos-db
 name: De-batching and filtering in serverless event processing with Event Hubs
-summary: <Write a summary. Can be same as description.>
+summary: A serverless event-driven architecture using Azure Event Hubs and Azure Functions to ingest and filter a stream of data for database storage.
 thumbnailUrl: /azure/architecture/browse/thumbs/BROWSE-PNG-FILENAME.png
 content: |
   [!include[](serverless-event-processing-filtering-content.md)]
