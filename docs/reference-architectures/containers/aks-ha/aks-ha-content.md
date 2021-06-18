@@ -218,7 +218,9 @@ Positioning a container registry in each region in which an AKS cluster is deplo
 
 The AKS multi-region reference implementation created a single Container Registry instance and replicas of this instance into each cluster region. For more information on Azure Container Registry replication, see [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication).
 
-![Inage showing multiple ACR replicas from within the Azure portal.](./images/acr-replicas.png)
+_Image showing multiple ACR replicas from within the Azure portal._
+
+![Image showing multiple ACR replicas from within the Azure portal..](./images/acr-replicas.png)
 
 ##### Cluster Access
 
