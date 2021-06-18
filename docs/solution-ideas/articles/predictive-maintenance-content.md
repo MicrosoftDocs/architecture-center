@@ -7,11 +7,9 @@ This predictive maintenance solution monitors aircraft and predicts the remainin
 ![Architecture diagram: predictive maintenance for aircraft components using Microsoft Azure cloud services.](../media/predictive-maintenance.png)
 *Download an [SVG](../media/predictive-maintenance.svg) of this architecture.*
 
-## Overview
+## Overview of a predictive maintenance solution for aircraft engine components
 
 This solution demonstrates how to combine real-time data from sensors with advanced analytics to monitor aircraft parts in real time. It predicts the remaining useful life of aircraft engine components.
-
-## Details for predictive maintenance of aircraft engine components
 
 Air travel is central to modern life, however, aircraft engines are expensive and keeping them up and running requires frequent maintenance by highly skilled technicians. Modern aircraft engines are equipped with highly sophisticated sensors to track the functioning of these machines. With data from these sensors combined with advanced analytics, it's possible to both monitor the aircraft in real time, and predict the remaining useful life of an engine component. These predictions enable maintenance to be scheduled quickly to prevent mechanical failures.
 
@@ -19,7 +17,7 @@ The [Azure AI Gallery Solution](https://gallery.azure.ai/Solution/Predictive-Mai
 
 The [Azure AI Gallery Solution](https://gallery.azure.ai/Solution/Predictive-Maintenance-10) includes multiple Azure services (described below) along with a web job that simulates data. After deployment of the solution, you will have a complete working demo.
 
-## Technical details and workflow for aircraft predictive maintenance
+## Technical details and workflow
 
   1. The simulation data is streamed by a newly deployed Azure Web Job, AeroDataGenerator.
   2. This synthetic data feeds into the Azure Event Hubs service as data points.
