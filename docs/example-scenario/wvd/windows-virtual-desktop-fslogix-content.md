@@ -174,7 +174,7 @@ There are a number of considerations when implementing Cloud Cache. It should:
 
 Because of the resource utilization, it may be more cost effective to consider alternate backup/disaster recovery solutions for FSLogix profile containers. Cloud Cache is generally used when one of its features provides unique value, such as real-time profile high availability. If an environment can be adequately serviced with an alternate form of backup, it is often more economical than Cloud Cache.
 
-## Business Continuity and Disaster Recovery (BCDR)
+## Business continuity and disaster recovery (BCDR)
 
 In an Enterprise architecture, it is common to make user profiles resilient. To configure an FSLogix profile solution to make this as efficient as possible the amount of data being moved around should be reduced to the bare minimum.
 
