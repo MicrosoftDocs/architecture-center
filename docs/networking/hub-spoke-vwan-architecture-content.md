@@ -12,16 +12,6 @@ gateway connection. The main differentiator of this approach is the use of
 [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan/)
 (VWAN) to replace hubs as a managed service.
 
-![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-002.png)
-
-As depicted in above figure, with this architecture it is possible to have the following:
-* A full meshed hubs among Azure Virtual Networks. 
-* Branch to Azure connectivity 
-* Branch to Branch connectivity
-* Mixed use of VPN and Express Route
-* Mixed use of user VPN to the site 
-* VNET to VNET connectivity
-
 This architecture includes the benefits of standard hub-spoke network
 topology and introduces new benefits:
 
@@ -108,6 +98,18 @@ The architecture consists of:
 A hub-spoke architecture can be achieved two ways: a customer-managed hub
 infrastructure, or a Microsoft-managed hub infrastructure. In either case,
 spokes are connected to the hub using virtual network peering.
+
+## Benefits
+
+![Hub-spoke reference architecture infographic](media/hub-spoke-vwan-architecture-002.png)
+
+As depicted in above figure, with this architecture it is possible to have the following:
+* A full meshed hubs among Azure Virtual Networks. 
+* Branch to Azure connectivity 
+* Branch to Branch connectivity
+* Mixed use of VPN and Express Route
+* Mixed use of user VPN to the site 
+* VNET to VNET connectivity
 
 ## Recommendations
 
