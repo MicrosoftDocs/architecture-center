@@ -253,17 +253,35 @@ _Example chart showing inbound traffic across all regions. Note, no reports are 
 
 #### Azure Front Door
 
-Front Door doesn't use self-signed certificates even in Dev/Test environments. To enable HTTPS traffic, you need to create your TLS/SSLcertificate that is signed by a certificate authority (CA).
+Azure Front door is used to load balance and route traffic to each AKS cluster. Azure Front Door allows for layer seven global routing, both of which are required for this reference architecture.
 
-This architecture uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. Certbot is a free, open-source software tool. It generates certificates for manually administrated websites. To check the validity of the website, Cerbot sends request to the domain. Respond to that request to acknowledge that you own the domain. If that validation is successful, a certificate is generated.
+##### Cluster configuration
+
+As AKS instances are added to the global cluster, the Application Gateway deployed alongside the Kubernetes cluster needs to be enrolled as a backend for proper ro
+
+```yaml
+- name: Azure CLI - Enroll Azure Application Gateway as backend in Azure Front Door - Region 1 
+  id: enrol-cluster-1
+  if: success() && env.DEPLOY_REGION1 == 'true'
+  uses: Azure/cli@v1.0.0
+  with:
+    inlineScript: |
+      az extension add --upgrade -n front-door
+      APPGW_FQDN_BU0001A0042_03=$(az deployment group show -g rg-enterprise-networking-spokes -n spoke-BU0001A0042-03 --query properties.outputs.appGwFqdn.value -o tsv)
+      FRONT_DOOR_NAME=$(az deployment group show -g rg-bu0001a0042-shared -n shared-svcs-stamp --query properties.outputs.frontDoorName.value -o tsv)
+      FRONT_DOOR_BACKENDPOOL_NAME=$(az deployment group show -g rg-bu0001a0042-shared -n shared-svcs-stamp --query properties.outputs.frontDoorBackendPoolName.value -o tsv)
+      az network front-door backend-pool backend add --address $APPGW_FQDN_BU0001A0042_03 --front-door-name $FRONT_DOOR_NAME --pool-name $FRONT_DOOR_BACKENDPOOL_NAME -g rg-bu0001a0042-shared --backend-host-header $APPGW_FQDN_BU0001A0042_03 --disabled false --http-port 80 --https-port 443  --priority 1 --weight 50
+```
+
+##### Certificates
+
+Front Door doesn't use self-signed certificates even in Dev/Test environments. To enable HTTPS traffic, you need to create your TLS/SSLcertificate that is signed by a certificate authority (CA). This architecture uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. Certbot is a free, open-source software tool. It generates certificates for manually administrated websites. To check the validity of the website, Cerbot sends request to the domain. Respond to that request to acknowledge that you own the domain. If that validation is successful, a certificate is generated.
 
 For information about other CAs supported by Front Door, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](/azure/frontdoor/front-door-faq#what-certificates-are-supported-on-azure-front-door-).
 
 ### Cluster access and identity
 
-#### AAD identity for cluster access
-
-As discussed in the [AKS Baseline Reference Arechitecture](), consider using Azure Active Directory as an identity provider. The groups and users foudn in Azure Active Directory can then be used to controll access to cluster resources.
+As discussed in the [AKS Baseline Reference Arechitecture](), consider using Azure Active Directory as an identity provider. The groups and users found in Azure Active Directory can then be used to controll access to cluster resources.
 
 When managing multiple clusters, you will need to decide on an access schema. Options include:
 
