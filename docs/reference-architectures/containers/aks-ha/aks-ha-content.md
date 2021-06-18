@@ -136,7 +136,42 @@ GitOps and Flux are detailed in more depth in the [AKS Baseline Reference Archit
 
 ##### Azure Policy
 
-< add content >
+As multiple Kubernetes instances are added to the globally avaliable cluster, the benefit of policy driven governanace, compliance, and configuraion increases. Utilizing policies, Azure Policies, in this case, provides a centralized and scalable method for cluster control. The benefit of AKS policies is detailed in the [AKS Secure Baseline](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#policy-management).
+
+Azure Policy is enabled in this reference implementation when the AKS clusters are created and assigns the restrictive initiative in Audit mode to gain visibility into non-compliance. The implementation also sets additional policies that are not part of any built-in initiatives. Those policies are set in Deny mode. For example, there is a policy in place to ensure that only approved container images are run in the cluster. Consider creating your own custom initiatives. Combine the policies that are applicable for your workload into a single assignment.
+
+Policy scope refers to the target of each policy and policy initiative. The reference implementation associated with this architecture uses an ARM template to assign policies to the resource group into which each AKS cluster is deployed. As the footprint of the global cluster grows, this will result in many duplicate policies. You can also scope policies to an Azure Subscription or Azure Management Group, which would allow for a single set of policies to be applied to all AKS clusters within the scope of a subscription and/or all subscriptions found under a Management Group. Consider a policy management schema that works for your organization. See [Cloud Adoption Frameworks Management group and subscription organization](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization) for material that will help establish a policy management strategy.
+
+
+_Example policy assignment that restricts the use of container images to a named set. Note that the scope is set to a resource group, and the effect is set to deny._
+
+```json
+{
+    "type": "Microsoft.Authorization/policyAssignments",
+    "apiVersion": "2020-03-01",
+    "name": "[variables('policyAssignmentNameEnforceImageSource')]",
+    "properties": {
+        "displayName": "[concat('[', variables('clusterName'),'] ', reference(variables('policyResourceIdEnforceImageSource'), '2020-09-01').displayName)]",
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[variables('policyResourceIdEnforceImageSource')]",
+        "parameters": {
+            "allowedContainerImagesRegex": {
+                "value": "[concat(variables('containerRegistryName'),'.azurecr.io/.+$|mcr.microsoft.com/.+$|docker.io/fluxcd/flux.+$|docker.io/weaveworks/kured.+$|docker.io/library/.+$')]"
+            },
+            "excludedNamespaces": {
+                "value": [
+                    "kube-system",
+                    "gatekeeper-system",
+                    "azure-arc"
+                ]
+            },
+            "effect": {
+                "value": "deny"
+            }
+        }
+    }
+}
+```
 
 ### Avalibility / Failover
 
