@@ -1759,6 +1759,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/patterns/index-patterns.md",
+      "redirect_url": "/azure/architecture/patterns",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/ai/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
       "redirect_document_id": false
@@ -1924,6 +1929,13 @@
       "redirect_url": "/azure/architecture/solution-ideas/articles/devops-in-a-hybrid-environment",
       "redirect_document_id": false
     },
+
+
+    {
+      "source_path": "docs/solution-ideas/articles/modern-data-warehouse.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/enterprise-data-warehouse",
+      "redirect_document_id": false
+    },
     {
       "source_path": "docs/framework/cost/optimizing.md",
       "redirect_url": "/azure/architecture/framework/cost/optimize-checklist"
@@ -2076,9 +2088,64 @@
       "redirect_url": "/azure/architecture/browse/?azure_categories=hybrid"
      },
      {
-       "source_path": "docs/framework/scalability/monitoring.md",
-       "redirect_url": "/azure/architecture/framework/scalability/monitor",
-       "redirect_document_id": false
-     } 
-   ]
+      "source_path": "docs/framework/scalability/monitoring.md",
+      "redirect_url": "/azure/architecture/framework/scalability/monitor",
+      "redirect_document_id": false
+     },
+     {
+      "source_path": "docs/example-scenario/iot-aad/iot-aad.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/iot",
+      "redirect_document_id": false
+     }, 
+     {
+      "source_path": "docs/solution-ideas/articles/ai-for-earth.yml",
+      "redirect_url": "https://aka.ms/AIArchitecture",
+      "redirect_document_id": false
+     },
+     {
+      "source_path": "docs/solution-ideas/articles/cctv-mask-detection.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection",
+      "redirect_document_id": true
+     },
+     {
+       "source_path": "docs/example-scenario/ai/newsfeed-ingestion.yml",
+       "redirect_url": "/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis",
+       "redirect_document_id": true
+     }, 
+     {
+      "source_path": "docs/solution-ideas/articles/demand-forecasting-and-price-optimization.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/information-discovery-with-deep-learning-and-nlp.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/movie-recommendations.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/movie-recommendations-with-machine-learning",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/ai/scalable-personalization.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/machine-learning-with-aks.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/machine-learning-model-deployment-aks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/speech-ai-ingestion.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/realtime-scoring-python.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models",
+      "redirect_document_id": true
+    }
+  ]
 }

@@ -98,7 +98,7 @@ conceptualContent:
         url: ./aws-professional/services.md
         itemType: reference
       - text: Cloud Design Patterns
-        url: /azure/architecture/patterns/
+        url: ./patterns/index.md
         itemType: concept
       - text: Web API design
         url: ./best-practices/api-design.md
@@ -141,10 +141,10 @@ conceptualContent:
         url: ./data-guide/technology-choices/r-developers-guide.md
       - text: Movie recommendation
         itemType: get-started
-        url: ./example-scenario/ai/movie-recommendations.yml
+        url: ./example-scenario/ai/movie-recommendations-with-machine-learning.yml
       - text: Scalable personalization
         itemType: get-started
-        url: ./example-scenario/ai/scalable-personalization.yml
+        url: ./example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
       # footerLink (optional)
       footerLink:
         url: ./data-guide/big-data/machine-learning-at-scale.md

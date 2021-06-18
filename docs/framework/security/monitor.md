@@ -1,6 +1,6 @@
 ---
-title:  Security monitoring in Azure
-description: Security logging and monitoring are activities related to enabling, acquiring, and storing audit logs for Azure services. 
+title: Security monitoring in Azure
+description: Security logging and monitoring are activities related to enabling, acquiring, and storing audit logs for Azure services.
 author: PageWriter-MSFT
 ms.date: 11/03/2020
 ms.topic: conceptual
@@ -23,6 +23,7 @@ Health modeling refers to the activities that maintain the security posture of a
 > - Simlulate attacks based on real incidents. 
 
 ## In this section
+
 |Assessment|Description|
 |---|---|
 |[**How is security monitored in the application context?**](monitor-tools.md)|Use Azure tools and services to monitor your security posture and also remediate incidents.|

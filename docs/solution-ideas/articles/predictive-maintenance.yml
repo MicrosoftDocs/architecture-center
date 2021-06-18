@@ -18,7 +18,8 @@ metadata:
     - solution architectures
     - Azure
     - ai gallery
-    - 'https://azure.microsoft.com/solutions/architecture/predictive-maintenance/'
+    - "https://azure.microsoft.com/solutions/architecture/predictive-maintenance/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-maintenance.png
 name: Predictive Maintenance
 azureCategories:
@@ -35,4 +36,4 @@ products:
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/predictive-maintenance.png
 content: |
-   [!include[](predictive-maintenance-content.md)]
+  [!include[](predictive-maintenance-content.md)]

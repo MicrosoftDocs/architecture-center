@@ -15,6 +15,7 @@ metadata:
   ms.custom:
     - networking
     - reference-architecture
+    - e2e-hybrid
 name: Secure and govern workloads with network level segmentation
 azureCategories:
   - hybrid

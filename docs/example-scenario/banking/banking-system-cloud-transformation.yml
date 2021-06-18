@@ -14,6 +14,7 @@ metadata:
     - fcp
     - cse
     - example-scenario
+    - internal-intro
 name: Banking system cloud transformation on Azure
 azureCategories:
   - devops

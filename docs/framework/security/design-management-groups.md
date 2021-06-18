@@ -40,7 +40,7 @@ For the preceding example, an approach is to use these management groups:
 - Root or segment management group for the core set of services.  
 
 > [!CAUTION]
-> Be careful when using the root management group because the policies can affect all resources on Azure and potentially cause downtime or other negative impacts. For considerations, see [Use root management group with caution](/azure/architecture/framework/security/design-management-groups#use-root-management-group-with-caution) later in this article.
+> Be careful when using the root management group because the policies can affect all resources on Azure and potentially cause downtime or other negative impacts. For considerations, see [Use root management group with caution](#use-root-management-group-with-caution) later in this article.
 >
 > For complete guidance about using management groups for an enterprise, see [CAF: Management group and subscription organization](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization).
 
@@ -116,5 +116,3 @@ Don't create any subscriptions under the root management group. This hierarchy e
     
 > [!IMPORTANT] 
 > Test all enterprise-wide changes on the root management group before applying (policy, tags, Azure RBAC model, and so on). You can use a test lab. This can be representative lab tenant or lab segment in production tenant. Another option is to use a production pilot. This can be a segment management group or designated subset in subscription(s) management group. Validate changes to make sure the requirements have the desired effect.
-
-

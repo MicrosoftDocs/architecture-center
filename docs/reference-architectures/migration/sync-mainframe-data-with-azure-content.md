@@ -186,11 +186,11 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 
 [Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs/
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db/
-[Azure data architecture guide]: /azure/architecture/data-guide/
+[Azure data architecture guide]: ../../data-guide/index.md
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
 [Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage/
 [Azure Data Lake Storage Gen2]: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
-[Azure data platform end-to-end]: /azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end
+[Azure data platform end-to-end]: ../../example-scenario/dataplate2e/data-platform-end-to-end.yml
 [Azure Database for MariaDB]: https://azure.microsoft.com/services/mariadb/
 [Azure Database for PostgreSQL]: https://azure.microsoft.com/services/postgresql/
 [Azure Databricks]: https://azure.microsoft.com/services/databricks/
@@ -205,27 +205,27 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure virtual machines]: https://azure.microsoft.com/services/virtual-machines/
 [ELT]: https://www.ibm.com/cloud/learn/etl#toc-etl-vs-elt-goFgkQcP
 [Email address for information on Azure Data Engineering On-premises Modernization]: mailto:datasqlninja@microsoft.com
-[Gateway considerations]: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations
+[Gateway considerations]: /data-integration/gateway/service-gateway-onprem#considerations
 [Hyperscale service tier]: /azure/azure-sql/database/service-tier-hyperscale
-[Install an on-premises data gateway]: https://docs.microsoft.com/data-integration/gateway/service-gateway-install
-[Installing SSMA for DB2 client (DB2ToSQL) Prerequisites]: https://docs.microsoft.com/sql/ssma/db2/installing-ssma-for-db2-client-db2tosql?view=sql-server-ver15#prerequisites
+[Install an on-premises data gateway]: /data-integration/gateway/service-gateway-install
+[Installing SSMA for DB2 client (DB2ToSQL) Prerequisites]: /sql/ssma/db2/installing-ssma-for-db2-client-db2tosql?view=sql-server-ver15#prerequisites
 [Integration runtime in Azure Data Factory]: /azure/data-factory/concepts-integration-runtime
 [MariaDB]: https://mariadb.org/
-[Microsoft Service for DRDA]: https://docs.microsoft.com/host-integration-server/what-is-his#Data
+[Microsoft Service for DRDA]: /host-integration-server/what-is-his#Data
 [Migration guide]: https://datamigration.microsoft.com/
-[Modernize mainframe & midrange data]: /azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure
+[Modernize mainframe & midrange data]: ./modernize-mainframe-data-to-azure.yml
 [MySQL Community Edition]: https://www.mysql.com/products/community/
-[Network transports and transactions]: https://docs.microsoft.com/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#network-transports-and-transactions
+[Network transports and transactions]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#network-transports-and-transactions
 [Performance tuning steps]: /azure/data-factory/copy-activity-performance#performance-tuning-steps
-[Pooling and failover]: https://docs.microsoft.com/host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#pooling-and-failover
+[Pooling and failover]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#pooling-and-failover
 [PostgreSQL]: https://www.postgresql.org/
 [The rise of the multimodel database]: https://www.infoworld.com/article/2861579/the-rise-of-the-multimodel-database.html
 [Self-hosted integration runtime]: /azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime
 [Self-hosted IR compute resource and scaling]: /azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling
-[SQL Server Integration Services]: https://docs.microsoft.com/sql/integration-services/sql-server-integration-services
-[SQL Server Migration Assistant for Db2]: https://docs.microsoft.com/sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql
+[SQL Server Integration Services]: /sql/integration-services/sql-server-integration-services
+[SQL Server Migration Assistant for Db2]: /sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql
 [Types of Databases on Azure]: https://azure.microsoft.com/product-categories/databases/
-[What is an on-premises data gateway?]: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem
+[What is an on-premises data gateway?]: /data-integration/gateway/service-gateway-onprem
 [Azure Database for MySQL]: https://azure.microsoft.com/services/mysql/
-[What is HIS]: https://docs.microsoft.com/host-integration-server/what-is-his
+[What is HIS]: /host-integration-server/what-is-his
 [What is NoSQL? Databases for a cloud-scale future]: https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html

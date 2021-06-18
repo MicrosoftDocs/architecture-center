@@ -2,15 +2,15 @@
 title: Bulkhead pattern
 titleSuffix: Cloud Design Patterns
 description: Isolate elements of an application into pools so that if one fails, the others will continue to function.
-keywords: design pattern
 author: dragon119
 ms.date: 03/19/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Bulkhead pattern
@@ -93,7 +93,7 @@ spec:
 
 ## Related guidance
 
-- [Designing reliable Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/app-design)
+- [Designing reliable Azure applications](../framework/resiliency/app-design.md)
 - [Circuit Breaker pattern](./circuit-breaker.md)
 - [Retry pattern](./retry.md)
 - [Throttling pattern](./throttling.md)

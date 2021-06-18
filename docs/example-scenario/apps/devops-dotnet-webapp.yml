@@ -5,20 +5,20 @@ metadata:
   description: This architecture and design provides guidance for building a continuous integration and deployment pipeline for a two-tier .NET web application to the Azure App Service.
   author: chrisreddington
   ms.date: 12/06/2018
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
   ms.category:
     - developer-tools
     - devops
     - web
     - featured
-  ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: example-scenario
   ms.custom:
     - fasttrack
-    - seodec18
     - devops
     - app-development
     - example-scenario
+    - internal-intro
   social_image_url: /azure/architecture/example-scenario/apps/media/architecture-devops-dotnet-webapp.svg
 name: Design a CI/CD pipeline using Azure DevOps
 azureCategories:

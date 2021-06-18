@@ -2,15 +2,17 @@
 title: Event Sourcing pattern
 titleSuffix: Cloud Design Patterns
 description: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - office-bookings
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Event Sourcing pattern
@@ -29,8 +31,6 @@ The CRUD approach has some limitations:
 - In a collaborative domain with many concurrent users, data update conflicts are more likely because the update operations take place on a single item of data.
 
 - Unless there's an additional auditing mechanism that records the details of each operation in a separate log, history is lost.
-
-> For a deeper understanding of the limits of the CRUD approach, see [CRUD, Only When You Can Afford It](/archive/blogs/maarten_mullender/crud-only-when-you-can-afford-it-revisited).
 
 ## Solution
 
@@ -52,7 +52,7 @@ The Event Sourcing pattern provides the following advantages:
 
 - Events are simple objects that describe some action that occurred, together with any associated data required to describe the action represented by the event. Events don't directly update a data store. They're simply recorded for handling at the appropriate time. This can simplify implementation and management.
 
-- Events typically have meaning for a domain expert, whereas [object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) can make complex database tables hard to understand. Tables are artificial constructs that represent the current state of the system, not the events that occurred.
+- Events typically have meaning for a domain expert, whereas object-relational impedance mismatch can make complex database tables hard to understand. Tables are artificial constructs that represent the current state of the system, not the events that occurred.
 
 - Event sourcing can help prevent concurrent updates from causing conflicts because it avoids the requirement to directly update objects in the data store. However, the domain model must still be designed to protect itself from requests that might result in an inconsistent state.
 
@@ -77,7 +77,7 @@ Multi-threaded applications and multiple instances of applications might be stor
 
 There's no standard approach, or existing mechanisms such as SQL queries, for reading the events to obtain information. The only data that can be extracted is a stream of events using an event identifier as the criteria. The event ID typically maps to individual entities. The current state of an entity can be determined only by replaying all of the events that relate to it against the original state of that entity.
 
-The length of each event stream affects managing and updating the system. If the streams are large, consider creating snapshots at specific intervals such as a specified number of events. The current state of the entity can be obtained from the snapshot and by replaying any events that occurred after that point in time. For more information about creating snapshots of data, see [Snapshot on Martin Fowler’s Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html) and [Primary-Subordinate Snapshot Replication](/previous-versions/msp-n-p/ff650012(v=pandp.10)).
+The length of each event stream affects managing and updating the system. If the streams are large, consider creating snapshots at specific intervals such as a specified number of events. The current state of the entity can be obtained from the snapshot and by replaying any events that occurred after that point in time. For more information about creating snapshots of data, see [Primary-Subordinate Snapshot Replication](/previous-versions/msp-n-p/ff650012(v=pandp.10)).
 
 Even though event sourcing minimizes the chance of conflicting updates to the data, the application must still be able to deal with inconsistencies that result from eventual consistency and the lack of transactions. For example, an event that indicates a reduction in stock inventory might arrive in the data store while an order for that item is being placed, resulting in a requirement to reconcile the two operations either by advising the customer or creating a back order.
 
@@ -143,7 +143,16 @@ As well as providing more scope for scalability, using an event store also provi
 
 > You can find more information about this example in [Introducing Event Sourcing](/previous-versions/msp-n-p/jj591559(v=pandp.10)).
 
-## Related patterns and guidance
+## Next steps
+
+- [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
+
+- Martin Fowler's blog:
+
+  - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
+  - [Snapshot on Martin Fowler’s Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)
+
+## Related guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
