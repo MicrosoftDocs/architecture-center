@@ -208,8 +208,17 @@ Application Gateway uses SSL ciphers to create a secure connection to the AKS cl
 
 #### Container Registry
 
-- Replication
-- Cluster access
+Azure Container Registry is used in this reference archtieure to provide contaienr image services (pull). Consider the following items when working with Azure Container Registry in a multi-region cluster deployment.
+
+##### Geographic avalibility
+
+Positioning a container registry in each region in which an AKS cluster is deployed allows for network-close operations, enabling fast, reliable image layer transfers. Having multiple image service endpoints also provides availability in the event regional services are unavailable. Using Azure Container Registries geo-replication functionality allows you to manage one Container Registry instance replicated to multiple regions.
+
+The AKS multi-region reference implementation created a single Container Registry instance and replicas of this instance into each cluster region. For more information on Azure Container Registry replication, see [Geo-replication in Azure Container Registry](azure/container-registry/container-registry-geo-replication).
+
+![Inage showing multiple ACR replicas from within the Azure portal.](./images/acr-replicas.png)
+
+##### Cluster Access
 
 #### Log Analytics
 
