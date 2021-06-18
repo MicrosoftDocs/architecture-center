@@ -178,7 +178,7 @@ Because of the resource utilization, it may be more cost effective to consider a
 
 In an Enterprise architecture, it is common to make user profiles resilient. To configure an FSLogix profile solution to make this as efficient as possible the amount of data being moved around should be reduced to the bare minimum.
 
-- The first step to create an efficient FSLogix profile solution is the use of [OneDrive Folder Backup](https://docs.microsoft.com/en-us/onedrive/redirect-known-folders) to put document based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users documents.
+- The first step to create an efficient FSLogix profile solution is the use of [OneDrive folder backup](https://docs.microsoft.com/en-us/onedrive/redirect-known-folders), to put document-based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users documents.
 
 - In order to reduce the amount of data needing to be independently replicated, archived and restored you should also split out the Office cache data into the O365 disk as the cache data often comprises by far the majority of the profile data capacity used. As the O365 disk only contains cache data, the source for which is safely stored in the cloud you do not need to make this data resilient. Once the documents and cache are separated from the Profile disk, you should then enact your replication archive and restore policies on this much smaller capacity disk.
 
