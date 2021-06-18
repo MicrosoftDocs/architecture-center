@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for measuring the consumption of each tenant in a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 05/27/2021
+ms.date: 06/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

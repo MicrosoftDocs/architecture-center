@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the different stages of a tenant lifecycle, and considerations for each stage.
 author: johndowns
 ms.author: jodowns
-ms.date: 04/28/2021
+ms.date: 06/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -20,17 +20,15 @@ ms.custom:
 
 # Tenant lifecycle considerations in a multitenant solution
 
-When you're considering a multitenant architecture, it's important to consider all of the different stages in a tenant's lifecycle. This can be more complex and nuanced than it appears at first. The following diagram illustrates some of the key stages for a typical multitenant solution:
-
-![Diagram showing the lifecycle stages of a tenant.](media/tenant-lifecycle/lifecycle.png)
+When you're considering a multitenant architecture, it's important to consider all of the different stages in a tenant's lifecycle.
 
 ## Trials
 
-For SaaS solutions, consider that many customers request or require trials before they commit to purchase. Trials bring along some unique considerations include:
+For SaaS solutions, consider that many customers request or require trials before they commit to purchase a solution. Trials bring along some unique considerations, such as:
 
 - Should trial data be subject to the same data security, performance, and service level requirements as the data for full customers?
-- Should you use the same infrastructure for trial tenants as for full customers, or should you have dedicated infrastructure for trials?
-- If a customer purchases your service after a trial, how will they migrate the data from their trial into their ultimate application deployment?
+- Should you use the same infrastructure for trial tenants as for full customers, or should you have dedicated infrastructure for trial tenants?
+- If a customer purchases your service after a trial, how will they migrate the data from their trial tenant into their paid tenant?
 - Are there limits around who can request a trial? How can you prevent abuse of your solution?
 - What limits do you want or need to place on trial customers, such as time limits, feature restrictions, or limitations around performance?
 
@@ -49,35 +47,26 @@ Once a tenant has been onboarded, they move into a 'business as usual' mode. How
 
 ## Update tenants' infrastructure
 
-You will need to consider how you apply updates to your tenants' infrastructure. Different tenants may have updates applied at different times. See [Updates] for other considerations about updating tenants.
-
-## Activation and deactivation
-
-There are situations where a customer's account might need to be deactivated or reactivated. For example:
-
-- The customer has requested deactivation. In a consumer system, a customer might opt to unsubscribe.
-- The customer can't be billed, and you need to deactivate their subscription.
-
-Deactivation is separate to offboarding in that it's intended to be a temporary state. However, after a period of time, you might choose to offboard a deactivated tenant.
+You will need to consider how you apply updates to your tenants' infrastructure. Different tenants may have updates applied at different times. See [Updates](updates.md) for other considerations about updating tenants' deployments.
 
 ## Move tenants between infrastructure
 
 You might need to move tenants between infrastructure for a number of reasons, including:
 
-- You are vertically partitioning customers and choose to rebalance your tenants across your deployments.
-- A customer has upgraded their SKU or pricing tier, and they need to be moved to a single-tenant, dedicated deployment with higher isolation from other tenants.
-- A customer requested their data to be moved to a dedicated data store.
+- You are vertically partitioning your customers and choose to rebalance your tenants across your infrastructure or deployments.
+- A customer is upgrading their SKU or pricing tier, and they need to be moved to a single-tenant, dedicated deployment with higher isolation from other tenants.
+- A customer requests their data to be moved to a dedicated data store.
 - The customer requires their data be moved to a new geographic region. This might occur during company acquisitions, or when laws or geopolitical situations change.
 
-Consider how you will move your tenants' data as well as redirect requests to the new set of infrastructure that hosts their instance. You should also consider whether moving a tenant will result in downtime, and make sure tenants are fully aware of this.
+Consider how you move your tenants' data as well as redirect requests to the new set of infrastructure that hosts their instance. You should also consider whether moving a tenant will result in downtime, and make sure tenants are fully aware of this.
 
 ## Merge and split tenants
 
 It's tempting to think of tenants or customers as static, unchanging entities. However, in reality, this often isn't true. For example:
 
-- In consumer scenarios, individual users may join or leave families.
 - In business scenarios, companies may be acquired or merge, including by companies located in different geographic regions.
 - Similarly, in business scenarios, companies may split or divest.
+- In consumer scenarios, individual users may join or leave families.
 
 Consider whether you need to provide capabilities to manage the merging and separation of data, user identities, and resources.
 
@@ -88,6 +77,15 @@ It's also inevitable that tenants will occasionally need be removed from your so
 - How long should you maintain the customer data? Are there legal requirements to destroy data after a certain period of time?
 - Should you provide the ability for customers to be re-onboarded?
 - If you run shared infrastructure, do you need to rebalance the allocation of tenants to infrastructure?
+
+## Deactivation and reactivation
+
+There are situations where a customer's account might need to be deactivated or reactivated. For example:
+
+- The customer has requested deactivation. In a consumer system, a customer might opt to unsubscribe.
+- The customer can't be billed, and you need to deactivate their subscription.
+
+Deactivation is separate to offboarding in that it's intended to be a temporary state. However, after a period of time, you might choose to offboard a deactivated tenant.
 
 ## Next steps
 

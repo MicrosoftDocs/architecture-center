@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces the considerations you need to give when planning a multitenant architecture.
 author: johndowns
 ms.author: jodowns
-ms.date: 04/28/2021
+ms.date: 06/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
