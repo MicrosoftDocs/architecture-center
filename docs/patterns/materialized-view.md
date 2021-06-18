@@ -81,7 +81,7 @@ Creating this materialized view requires complex queries. However, by exposing t
 
 > Although this example uses Azure table storage, many relational database management systems also provide native support for materialized views.
 
-## Related patterns and guidance
+## Related guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
