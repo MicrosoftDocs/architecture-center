@@ -132,7 +132,7 @@ Similar to deployment, these configurations can become challenging to manage acr
 
 Instead of manually configuring Kubertnets components, consider using automated tooling to apply configurations to a Kubernetes cluster as these configurations are checked into a source repository. This process is often referred to as GitOps, and a popular GitOps solution for Kubernetes is Flux. 
 
-GitOps and Flux are detailed in more depth in the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#cluster-cicd). The important note here is that using a GitOps based approach to configuration helps ensure that each Kubernetes instance, int the multi-region cluster is configured similarly without bespoke effort.  
+GitOps and Flux are detailed in more depth in the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#cluster-cicd). The important note here is that using a GitOps based approach to configuration helps ensure that each Kubernetes instance is configured similarly without bespoke effort.  
 
 ##### Azure Policy
 
@@ -173,7 +173,12 @@ Application Gateway uses SSL ciphers to create a secure connection to the AKS cl
 
 #### Container Registry
 
+- Replication
+- Cluster access
+
 #### Log Analytics
+
+- Shared log analytics workspace
 
 #### Azure Front Door
 
@@ -183,7 +188,9 @@ This architecture uses [Certbot](https://certbot.eff.org/) to create a Let's Enc
 
 For information about other CAs supported by Front Door, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](/azure/frontdoor/front-door-faq#what-certificates-are-supported-on-azure-front-door-).
 
-### Cluster access
+### Cluster access and identity
+
+#### AAD identity for cluster access
 
 As discussed in the [AKS Baseline Reference Arechitecture](), consider using Azure Active Directory as an identity provider. The groups and users foudn in Azure Active Directory can then be used to controll access to cluster resources.
 
@@ -222,9 +229,21 @@ subjects:
 
 When managing multiple clusters, you will need to decide on an access schema. Options include:
 
-- Create a cluster-wide access group that can access all objects across every Kubernetes instance in the cluster.
+**Cluster Admin access**
+
+Take care to limit administrative access to your Kubenretes cluster instances. OPtions for configuring Azure Acite Directory users and groups for cluster admin access.
+
+- Create a cluster-wide access adgroup that can access all objects across every Kubernetes instance in the cluster.
 - Create an individual access group for each Kubernetes instance used to grant access to objects in an individual cluster.
 - others
+
+#### Container Registry access
+
+< Add content AKS > ACR >
+
+#### Key Vault access
+
+< Add content AKS > Key Vault >
 
 ### Data and state
 
