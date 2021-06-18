@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution is built on the Azure managed service: [Azure Batch](https://azure.microsoft.com/services/batch), and initiated by an [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) job. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
@@ -30,9 +27,9 @@ The solution involves the following steps:
 
 ## Considerations
 
-Batch compute pools need not contain commodity hardware. Specialized virtual machines with GPU processors and advanced networking exist to be used by Azure Batch. [GPU-optimized virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu) with NVIDIA Tesla GPUs and [high-throughput Infiniband networking](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) are available. 
+Batch compute pools need not contain commodity hardware. Specialized virtual machines with GPU processors and advanced networking exist to be used by Azure Batch. [GPU-optimized virtual machines](/azure/virtual-machines/sizes-gpu) with NVIDIA Tesla GPUs and [high-throughput Infiniband networking](/azure/virtual-machines/workloads/hpc/enable-infiniband) are available. 
 
-Batch compute pools can [autoscale](https://docs.microsoft.com/azure/batch/batch-automatic-scaling), which grows and shrinks the number of nodes in the pool as the amount of work changes. Rather than paying for unused pool members, autoscaling can reduce the compute costs of a job to only the resources that are performing tasks.
+Batch compute pools can [autoscale](/azure/batch/batch-automatic-scaling), which grows and shrinks the number of nodes in the pool as the amount of work changes. Rather than paying for unused pool members, autoscaling can reduce the compute costs of a job to only the resources that are performing tasks.
 
 ## Pricing
 To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services.
@@ -41,12 +38,12 @@ Azure Batch is a free service, and customers pay only for the underlying virtual
 
 ## Next steps
 
-* Learn more about [Azure Batch](https://docs.microsoft.com/azure/batch/batch-technical-overview)
-* [Complete a tutorial](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender) to render multiple frames of a Blender demo scene using Azure Batch.
+* Learn more about [Azure Batch](/azure/batch/batch-technical-overview)
+* [Complete a tutorial](/azure/batch/tutorial-rendering-batchexplorer-blender) to render multiple frames of a Blender demo scene using Azure Batch.
 
 ## Related resources
 
-* [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing)
-* [3D video rendering](/azure/architecture/example-scenario/infrastructure/video-rendering)
-* [Digital image-based modeling on Azure](/azure/architecture/example-scenario/infrastructure/image-modeling)
-* [Run reservoir simulation software on Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
+* [High Performance Computing (HPC) on Azure](../../topics/high-performance-computing.md)
+* [3D video rendering](../../example-scenario/infrastructure/video-rendering.yml)
+* [Digital image-based modeling on Azure](../../example-scenario/infrastructure/image-modeling.yml)
+* [Run reservoir simulation software on Azure](../../example-scenario/infrastructure/reservoir-simulation.yml)

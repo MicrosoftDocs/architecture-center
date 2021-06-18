@@ -2131,6 +2131,21 @@
       "source_path": "docs/example-scenario/ai/scalable-personalization.yml",
       "redirect_url": "/azure/architecture/example-scenario/ai/scalable-personalization-with-content-based-recommendation-system",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/machine-learning-with-aks.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/machine-learning-model-deployment-aks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/speech-ai-ingestion.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/realtime-scoring-python.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models",
+      "redirect_document_id": true
     }
   ]
 }

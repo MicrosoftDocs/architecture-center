@@ -40,7 +40,7 @@ This article describes a warehouse management scenario that monitors environment
 
 ### Components
 
-- [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) is used as the IoT managed platform. It provides security, scalability, and availability as part of the service so that customers can focus efforts on business requirements. Users can integrate with business components such as Power Apps and Power BI, and create notifications through the [data export feature in IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data).
+- [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) is used as the IoT managed platform. It provides security, scalability, and availability as part of the service so that customers can focus efforts on business requirements. Users can integrate with business components such as Power Apps and Power BI, and create notifications through the [data export feature in IoT Central](/azure/iot-central/core/howto-export-data).
 
 - [Azure storage](https://azure.microsoft.com/services/storage/) is used for storing device information in the cloud in a secure and scalable way that is also cost-effective. The data stored is used for training the ML models.
 
@@ -97,7 +97,7 @@ In a remote setting, it's critical that devices are easy to deploy without requi
 ## Next steps
 
 - [IoT in transportation and logistics](https://azure.microsoft.com/overview/iot/industry/transportation-and-logistics/): How Azure can be used to bring greater efficiency and reliability to your value chain with world-class IoT and location intelligence services.
-- [Architecture of IoT Central connected logistics application template](https://docs.microsoft.com/azure/iot-central/retail/architecture-connected-logistics): An app template and guidance for developing end to end connected logistics solutions.
+- [Architecture of IoT Central connected logistics application template](/azure/iot-central/retail/architecture-connected-logistics): An app template and guidance for developing end to end connected logistics solutions.
 - [Bing Maps Truck Routing API](https://www.microsoft.com/en-us/maps/truck-routing/): A commercial routing tool that calculates safe and efficient routes and considers a vehicle's attributes in relation to any route limitations.
 - [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml): A reference architecture for ingesting real-time vehicle data for analysis, including route optimization.
 

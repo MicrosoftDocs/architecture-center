@@ -32,7 +32,7 @@ Make all operational changes and modifications through IaC. This is a key DevOps
 
 IaC reduces configuration effort and automates full environment deployment (production and pre-production). Also, IaC allows you to develop and release changes faster. All those factors enhance the security of the workload.
 
-For detailed information about IaC, see [What is Infrastructure as code (IaC)](/azure/devops/learn/what-is-infrastructure-as-code).
+For detailed information about IaC, see [What is Infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code).
 
 ## Pipeline secret management
 **How are credentials, certificates, and other secrets used in the operations for the workload managed during deployment?**

@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Low-latency network connections for industry
+  titleSuffix: Azure Solution Ideas
+  description: See how manufacturers can use Azure Network Function Manager with high-performance, low-latency, on-premises 5G Standalone networks for industrial automation and productivity.
+  author: niravi-msft
+  ms.author: niravi
+  ms.date: 06/16/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - hybrid
+  - iot
+  - networking
+products:
+  - azure-stack-edge
+name: Low-latency network connections for industry
+summary: See how manufacturers can use Azure Network Function Manager with high-performance, low-latency, on-premises 5G Standalone networks for industrial automation and productivity.
+thumbnailUrl: /azure/architecture/browse/thumbs/low-latency-network.png
+content: |
+  [!include[](low-latency-network-content.md)]

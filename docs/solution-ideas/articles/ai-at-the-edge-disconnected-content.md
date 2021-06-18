@@ -7,12 +7,12 @@ With the Azure AI tools, edge, and cloud platform, edge intelligence is possible
 
 This solution idea shows a disconnected Stack Hub scenario. Issues of latency, intermittent connectivity, or regulations may not always allow for connectivity to Azure. In the disconnected scenario, data is processed locally and later aggregated in Azure for further analytics. For the connected version of this scenario, see the article [AI at the edge](./ai-at-the-edge.yml).
 
-## Architecture of AI at the edge with hybrid connectivity
+## Architecture
 
 ![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub and hybrid connectivity).](../media/ai-at-the-edge-disconnected.png)
 *Download an [SVG](../media/ai-at-the-edge-disconnected.svg) of this architecture.*
 
-## Data flow
+### Data flow
 
 1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
 1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.
@@ -21,7 +21,7 @@ This solution idea shows a disconnected Stack Hub scenario. Issues of latency, i
 1. Globally relevant and compliant insights are available in the global app.
 1. Data scientists use scoring from the edge to improve the model.
 
-## Components
+### Components
 
 Key technologies used to implement this architecture:
 

@@ -445,9 +445,9 @@ After you assess these aspects, go to the [Azure Pricing Calculator](https://azu
 
 ## Next steps
 
-- [Web API design](/azure/architecture/best-practices/api-design)
-- [Web API implementation](/azure/architecture/best-practices/api-implementation)
-- [Gateway Routing pattern](/azure/architecture/patterns/gateway-routing)
+- [Web API design](../../best-practices/api-design.md)
+- [Web API implementation](../../best-practices/api-implementation.md)
+- [Gateway Routing pattern](../../patterns/gateway-routing.md)
 - [URL path-based routing overview](/azure/application-gateway/url-route-overview)
 - [Tutorial: Create an application gateway with path-based routing rules using the Azure portal](/azure/application-gateway/create-url-route-portal)
 - [Tutorial: Create an application gateway with URL path-based redirection using the Azure CLI](/azure/application-gateway/tutorial-url-redirect-cli)
