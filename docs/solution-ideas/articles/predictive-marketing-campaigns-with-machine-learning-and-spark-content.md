@@ -5,11 +5,11 @@
 
 Marketing campaigns are about more than the message being delivered; when and how that message is delivered is as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
 
-With machine learning using historical campaign data, this solution architecture helps predict customer responses and recommends an optimized plan for connecting with your leads. Recommendations include the best channel to use (email, SMS, cold call, and so on), the best day of the week, and the best time of the day.
+This solution architecture uses machine learning with historical campaign data to predict customer responses and recommend an optimized plan for connecting with your leads. Recommendations include the best channel to use (email, SMS, cold call, and so on), the best day of the week, and the best time of the day.
 
 Optimizing your campaigns with predictive marketing helps improve both sales leads and revenue generation and can provide strong ROI for your marketing investment.
 
-This architecture enables efficient handling of big data on Spark with Microsoft Machine Learning Server.
+This architecture enables efficient handling of big data on [Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview) with [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server).
 
 ## Architecture
 
