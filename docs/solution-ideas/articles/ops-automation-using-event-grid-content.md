@@ -29,4 +29,4 @@ Review some of the following guides:
 
 - [Sample quickstart custom events](/azure/event-grid/custom-event-quickstart)
 - [Azure subscription as an Event Grid source](/azure/event-grid/event-schema-subscriptions)
-- [How to subscribe to events in the Azure Portal](/azure/event-grid/subscribe-through-portal)
+- [How to subscribe to events in the Azure portal](/azure/event-grid/subscribe-through-portal)
