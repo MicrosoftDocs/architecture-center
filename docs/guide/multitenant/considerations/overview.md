@@ -38,3 +38,7 @@ Whatever your architecture, it's essential that you have a clear understanding o
 As an example, imagine you're building a multitenant solution that you sell to businesses in the financial services industry. Your customers have very strict security requirements, and need you to provide a comprehensive list of every domain name that your solution uses so they can add it to their firewall's allowlist. This requirement affects the Azure services you use and the level of isolation you have to provide between your tenants. They also require that their solution have a minimum level of resiliency. There may be many similar expectations, both explicit and implicit, that you need to consider across your whole solution.
 
 In this series, we outline the considerations you should give, the requirements you should elicit, and some of the tradeoffs you need to make, when you are planning a multitenant architecture. The content in this series is particularly relevant for technical decision-makers, like Chief Technology Officers and architects, but anyone who works with multitenant architectures should have some familiarity with these principles and tradeoffs.
+
+## Next steps
+
+Consider different [tenancy models](tenancy-models.md) for your solution.
