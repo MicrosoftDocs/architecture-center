@@ -295,8 +295,11 @@ Take care to limit administrative access to your Kubenretes cluster instances. O
 
 ### Data and state
 
-- Detail that state is not considered in the RI
-- Options and considerations for state
+When using a globally distributed cluster of AKS instances, consider the architecture of the application, process, or other workload that might run across the cluster. As state-based workload is spread across the cluster, will it need to access a state store? If a process is recreated elsewhere in the cluster due to failure, will the workload or process continue to have access to a dependant state store? State can be achieved in many ways; however, it can be complex in a single Kubernetes cluster. The complexity increases when adding in multiple clustered Kubernetes instances. Do to regional access and complexity concerns, consider architecting your applications to use a globally distributed state store service.
+
+The multi-cluster reference implementation does not include a demonstration or configuration for state concerns. If running applications across clustered AKS instance, consider architecting workload to use a globally distributed data service, a few options from Azure:
+
+- Azure Cosmos DB, a globally distributed database system that allows you to read and write data from the local replicas of your database. For more information, see [Azure Cosmos DB](/azure/cosmos-db/).
 
 ### Cost considerations
 
