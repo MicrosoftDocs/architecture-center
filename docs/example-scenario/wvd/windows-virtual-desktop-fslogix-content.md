@@ -1,6 +1,3 @@
-
-
-
 This article provides insights on designing, sizing, and implementing a Microsoft FSLogix Profile Container solution for large enterprises, as well as shows how to avoid performance problems in production. This article is an extension of the [Windows Virtual Desktop at enterprise scale](./windows-virtual-desktop.yml) article.
 
 [FSLogix](/fslogix/) is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in both public and private clouds. These solutions may also be used to create more portable computing sessions when using physical devices.
@@ -26,7 +23,7 @@ Profile Container is used to redirect the full user profile. Profile Container i
 There are several reasons why Profile Container and Office Container may be used together. For more information, read the comparison of [Profile Container vs. Office Container](/fslogix/profile-container-office-container-cncpt).
 
 > [!NOTE]
-> The recommendation in Windows Virtual Desktop is to use Profile Container without Office Container unless you are planning for specific Business Continuity and Disaster Recovery (BCDR) scenarios as described in this [section](/disaster-recovery).
+> The recommendation in Windows Virtual Desktop is to use Profile Container without Office Container, unless you are planning for specific business continuity and disaster recovery (BCDR) scenarios, as described in this [section](/disaster-recovery).
 
 ### Multiple profile connections
 
