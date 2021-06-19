@@ -2,7 +2,7 @@
 title: Monitoring serverless event processing
 description: Guidance on monitoring serverless event-driven architectures using Application Insights.
 author: Sarah-Aly
-ms.author: sarah.aly
+ms.author: Sarah.Aly
 ms.date: 06/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
