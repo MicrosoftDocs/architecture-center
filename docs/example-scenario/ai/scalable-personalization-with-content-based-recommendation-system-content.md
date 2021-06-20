@@ -1,15 +1,13 @@
 
 <!-- cSpell:ignore gramhagen scgraham Criteo anonymized hyperparameters precompute mmlspark -->
 
-
-
 Recommendations are a main revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.
 
 There are two main types of recommendation systems: collaborative filtering and content-based. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this article focuses on a content-based recommendation system.
 
 This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, you use [Azure Databricks] to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using [Azure Kubernetes Service]. In turn, you can use this prediction to create personalized recommendations by ranking items based on the content that a user is most likely to consume.
 
-## Relevant use cases
+## Potential use cases
 
 This scenario is relevant to the following use cases:
 
@@ -17,7 +15,7 @@ This scenario is relevant to the following use cases:
 - Product recommendations for e-commerce sites.
 - Displayed ad recommendations for websites.
 
-## Architecture for a content-based recommender system
+## Architecture
 
 ![Architectural diagram: training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using Azure Databricks.](./media/architecture-scalable-personalization.png)
 
@@ -101,8 +99,8 @@ To see how pricing differs for your use case, change the variables to match your
 ## Next steps
 
 - For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml).
-- To see more examples, tutorials, and tools to help you build your own recommendation system visit the [Microsoft Recommenders] GitHub repository.
-- See the blog post [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service/).
+- To see more examples, tutorials, and tools to help you build your own recommendation system, visit the [Microsoft Recommenders] GitHub repository.
+- See the blog post, [Building recommender systems with Azure Machine Learning service](https://azure.microsoft.com/blog/building-recommender-systems-with-azure-machine-learning-service/).
 
 <!-- links -->
 

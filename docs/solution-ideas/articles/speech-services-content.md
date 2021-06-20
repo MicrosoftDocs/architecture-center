@@ -27,4 +27,4 @@ For more information, read how [batch transcription](/azure/cognitive-services/s
 ## Next steps
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
+* [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)

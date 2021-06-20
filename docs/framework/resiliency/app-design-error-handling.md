@@ -43,7 +43,7 @@ Leverage design patterns that encapsulate robust timeout strategies like [Choreo
 
 ## Cascading Failures
 
-The [Circuit Breaker pattern](../../patterns/circuit-breaker.md#related-patterns-and-guidance) provides stability while the system recovers from a failure and minimizes the impact on performance. It can help to maintain the response time of the system by quickly rejecting a request for an operation that's likely to fail, rather than waiting for the operation to time out, or never return. 
+The [Circuit Breaker pattern](../../patterns/circuit-breaker.md) provides stability while the system recovers from a failure and minimizes the impact on performance. It can help to maintain the response time of the system by quickly rejecting a request for an operation that's likely to fail, rather than waiting for the operation to time out, or never return. 
 
 A circuit breaker might be able to test the health of a service by sending a request to an endpoint exposed by the service. The service should return information indicating its status.
 
