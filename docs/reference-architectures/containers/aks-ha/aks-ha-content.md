@@ -179,7 +179,9 @@ A significant motivation for choosing a multi-region Kubernetes architecture is 
 
 #### Application Pods (regional)
 
-A Kubernetes deployment object is used to create multiple replicas of a pod (replica set). If one is unavailable, traffic is routed between the remaining. The Kubernetes Replica Set attempts to keep the specified number of replicas up and running. If one instance goes down, a new instance should be re-created. Finally, liveness probes can be used to check the state of the application or process running in the pod. If the service is not responding appropriately, the liveness probe will remove the pod, which forces the replica set to create a new instance.
+A Kubernetes deployment object is used to create multiple replicas of a pod (ReplicaRet). If one is unavailable, traffic is routed between the remaining. The Kubernetes ReplicaSet attempts to keep the specified number of replicas up and running. If one instance goes down, a new instance should be re-created. Finally, liveness probes can be used to check the state of the application or process running in the pod. If the service is not responding appropriately, the liveness probe will remove the pod, which forces the ReplicaSet to create a new instance.
+
+For more information, see [Kubernetes Replicaset](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
 
 #### Application Pods (global)
 
@@ -191,25 +193,19 @@ Take care in this situation to compensate for increased traffic / requests to th
 - Utilize Horizontal Pod Autoscaler to increase the pod replica count to compensate for the increased regional demand.
 - Utilize AKS Cluster Autoscaler to increase the Kubernetes instance node counts to compensate for the increased regional demand.
 
+For more information, see [Horizontal Pod Autoscaler](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) and [AKS cluster autoscaler](/azure/aks/cluster-autoscaler)
+
 #### Kubernets node pools (regional)
 
 Occasionally regional failure can occur to compute resources, for instance, if power becomes unavailable to a single rack of Azure servers. To protect your AKS nodes from becoming a single point regional failure, utilize Azure Availability zones. Using availability zones ensures that AKS nodes in a given availability zone are physically separated from those defined in another availability zone.
+
+For more information, see [AKS and Azure Availability Zones](/azure/aks/availability-zones).
 
 #### Kubernetes node pools (global)
 
 In a complete regional failure, Azure Front Door will route traffic to the remaining and healthy regions. Again, take care in this situation to compensate for increased traffic / requests to the remaining cluster.
 
-#### More informaiton
-
-The following table list the different areas of failure, the component that helps manage availability for each failure opportunity, and links to documentation for more information.
-
-| Application Component | Supporting service | Interface | Documentation |
-|---|---|---|---|
-| Application pods regional | Deployment / ReplicaSet | Kubernetes Deployment API | [Kubernetes docs](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) |
-| Application pods global (pod) | Horizontal Pod Autoscaler | Kubernetes HPA API | [Kubernetes docs](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) |
-| Application pods global (node pools) | AKS cluster autoscaler  | AKS API | [AKS docs](/azure/aks/cluster-autoscaler) |
-| AKS node pool regional (zonal failure) | Azure Availability Zones | Availability Zones API | [AKS docs](/azure/aks/availability-zones) |
-| AKS node pools global (regional failure) | Azure Front Door | Azure Front Door API | [Front Door docs](/azure/frontdoor/) |
+For more information, see [Azure Front Door](/azure/frontdoor/).
 
 ### Traffic management
 
