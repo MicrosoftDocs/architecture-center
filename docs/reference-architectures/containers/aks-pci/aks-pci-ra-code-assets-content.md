@@ -102,6 +102,8 @@ The implementation uses Tresor as its TLS certificate provider for mTLS. Conside
 
 The ingress controller in this implementation uses a wild-card certificate to handle default traffic when an Ingress resource doesn't contain a specific certificate. This might be acceptable but if the organizational policy doesn't permit using wildcard certificates, you may need to adjust your ingress controller to not support a default certificate. Instead require that even the workload uses their own named certificate. This will impact how Azure Application Gateway performs backend health checks.
 
+<Todo: Add everytime you decrypt CHD, the component is include in the PCI scope. Consider WAF as inscope for PCI as it must inpsect payload before sending data to the cluster. This can be terminattion point. Azure keeps the data private. The alternative is to remove TLS termination until the workload. Apply compensating controls at the code level to satisfy 6.6. Another option is to include Azure Firewall Premeim as part of ingress flow taking advantage of signature-based IDPS capabitlies.>
+
 ### Azure Key Vault network restrictions
 
 All secrets, keys and certificates are stored in Azure Key Vault. Key Vault handles certificate management tasks, such as rotation. Communication with Key Vault is over Private Link. The DNS record associated with Key Vault is in a private DNS zone so that it can't be resolved from the internet. While this enhances security, there are some restrictions.
@@ -112,10 +114,10 @@ If this hybrid approach isn't suitable for your deployment, move the certificate
 - [Azure Application Gateway and Key Vault integration](/azure/application-gateway/key-vault-certs#how-integration-works)
 - [Create an application gateway with TLS termination using the Azure CLI](/azure/application-gateway/tutorial-ssl-cli). 
 
-
 ### DDoS Protection
 
 In general, we recommend that you enable [Azure DDoS Protection Standard](https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection) for virtual networks with a subnet that contains an Application Gateway with a public IP. The workload won't be burdened with fraudulent requests. Such requests can  cause  service disruption or pose another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workload.
+
 
 ## Identity access management
 
@@ -126,6 +128,38 @@ The AKS control plane supports both [Azure AD Privileged Access Management (PAM)
 For more details on using PowerShell to configure conditional access, see [Azure AD Conditional Access](https://github.com/mspnp/aks-baseline-regulated/blob/main/docs/conditional-access.md).
 
 Define roles and set access policies as per the requirements of the role. Map roles to Kubernetes actions scoped as narrow as practical. Avoid roles that span multiple functions. If multiple roles are filled by one person, assign that person all roles that are relevant to the equivalent job functions. So, even if one person is directly responsible for both the cluster and the workload, create your Kubernetes `ClusterRoles` as if there were separate individuals, and then assign that single individual all relevant roles.  
+
+## Disk encryption
+When you think about data at rest encryption, consider the storage disks, AKS agent node VMs, other VMs, and any temporary and OS disks. 
+
+### Storage disks
+
+By default, Azure Storage disks are encrypted at rest with Microsoft-managed keys.
+
+If you use non-ephemeral OS disks or add data disks, we recommend that you use customer-managed keys for control over the encryption keys. 
+
+Encrypt outside of the storage layer and only write encrypted data into the storage medium. Also, make sure that the keys are never adjacent to the storage layer.
+
+For more information, see [Bing your own keys (BYOK) with Azure disks](/azure/aks/azure-disk-customer-managed-keys).
+
+Consider using BYOK for any other disks that might be interact with the cluster, such as your Azure Bastion-fronted jumpboxes. If you choose BYOK, the SKU choice for VMs and regional availability will be limited because this feature is not supported on all SKUs or regions.
+
+You can enforce the use of BYOK with an Azure Policy alert that detects clusters that don't have `diskEncryptionSetID` on the cluster resource. 
+
+The reference implementation doesn't use any disks in the cluster, and the OS disk is ephemeral. The Azure Policy is in place as a reminder of the security feature. The policy is set to `audit` not `block`.
+
+### VM hosts
+
+We recommend that you enable the encryption at host feature. This will encrypt the VM host and any temporary and OS/data disk that are cached on a VM host and the flows to the Storage service. The encryption is done using platform-managed keys.
+
+See more details about [VM support for host-based encryption](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+
+That feature is extended to the data stored on the VM host of your AKS agent nodes through the  [Host-Based Encryption](/azure/aks/enable-host-encryption) feature. 
+
+Similar to BYOK, this feature might limit your VM SKU and region choices. See more details about [VM support for host-based encryption](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+
+In the implemetation, this feature is not enabled  on the `agentPoolProfilesbut` and is detected by an Azure Policy. 
+
 
 ## Azure Policy considerations
 
