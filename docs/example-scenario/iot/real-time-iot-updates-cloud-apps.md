@@ -1,9 +1,9 @@
 ---
-title: Cloud application signaling for IoT with Azure SignalR Service
-description: Use Azure SignalR Service for cloud application signaling. This service sends real-time IoT data to clients like web pages and mobile apps.
+title: Real-time IoT updates for cloud apps with Azure SignalR Service
+description: Use Azure SignalR Service to update cloud applications. This service sends real-time IoT data to clients like web pages and mobile apps.
 author: falloutxAY
 ms.author: ansyeo
-ms.date: 06/18/2021
+ms.date: 06/23/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -21,47 +21,47 @@ ms.custom:
   - guide
 ---
 
-# Cloud application signaling pattern for IoT
+# Real-time IoT updates for cloud apps
 
-Internet of Things (IoT) applications often work with real-time data from IoT devices. For instance, some apps display device telemetry or alerts. With traditional polling methods, these client apps ask the devices for state changes.
+Internet of Things (IoT) applications often need real-time data from IoT devices. For instance, some apps display telemetry or alert data that they obtain from devices. With traditional polling methods, these client apps ask the devices for state changes.
 
-This guide outlines a way for clients like web pages or mobile apps to receive updates from devices in real time. With the signaling pattern that this guide presents, cloud apps no longer submit HTTP requests for up-to-date information. Instead, Azure SignalR Service pushes content to connected clients as soon as it's available.
+This guide outlines a way for clients like web pages or mobile apps to receive updates from devices in real time. Cloud apps no longer submit HTTP requests for up-to-date information. Instead, Azure SignalR Service pushes content to clients as soon as it's available. As a managed service, Azure SignalR Service simplifies the process of adding real-time communication to apps.
 
-As an example, a retailer might have a digital sign that displays the current number of customers in a store. With this guide's solution, the sign doesn't have to request the latest customer count from data storage. Instead, the system feeds that information to the sign as soon as the total changes.
+For example, a retailer might have a dashboard app that displays the current number of customers in a store. With this guide's solution, the app doesn't request the latest customer count. Instead, Azure SignalR Service feeds that information to the app when the total changes.
 
 ## Potential use cases
 
 Besides the retail industry, other areas can also benefit from this solution:
 
-- Any scenario that pushes data from servers to clients in real time for use in visualizations and applications.
-- Rich and highly interactive applications like maps and customized user interfaces that many clients use.
+- Any scenario in which servers push real-time data to clients for use in visualizations and applications.
+- Rich and highly interactive apps like customized user interfaces and maps.
 
 Specific examples that provide real-time data updates include:
 
-- Fleet monitoring that tracks the current location of vehicles on maps.
-- Remote process monitoring that displays up-to-date manufacturing telemetry like operational status, temperature, and pressure.
-- Drilling control systems that use actual telemetry like revolutions, power, and angle to optimize drilling processes.
-- Notification mechanisms that immediately send out alerts when certain events occur.
+- Fleet monitoring that maps vehicle location.
+- Remote monitoring of temperature, pressure, and status for a manufacturing process.
+- Drilling control systems that use telemetry like revolutions per minute, torque, and hook load to optimize processes.
+- Alerting mechanisms.
 
 ## Architecture
 
-:::image type="complex" source="./media/cloud-application-signaling.png" alt-text="Architecture diagram showing how Azure SignalR Service keeps clients like web pages and mobile apps updated with real-time I O T data." border="false":::
+:::image type="complex" source="./media/real-time-iot-updates-cloud-apps.png" alt-text="Architecture diagram showing how Azure SignalR Service keeps clients like web pages and mobile apps updated with real-time I O T data." border="false":::
    The diagram contains several boxes. A box in the lower right corner indicates that gray arrows represent data flow, and blue arrows, control flow. On the left, two boxes have the label Devices. A gray arrow points from the upper Device box to a box for Azure I O T Hub. Another gray arrow points from the other Device box to a box for Azure I O T Edge. A label above the Azure I O T Edge box reads Field gateway. A third gray arrow points from Azure I O T Edge to the Azure I O T Hub box. A fourth gray arrow points from Azure I O T Hub to a box for Azure Functions. A fifth gray arrow points from the Functions box to an Azure SignalR Service box. On the right is a large box that contains icons and labels for web and mobile apps. Above the large box is a label that reads Presentation and interaction. A gray arrow points from Azure SignalR Service to the large box. A bidirectional blue arrow connects the large box with the Azure SignalR Service box. Another bidirectional blue arrow connects the large box with the Functions box. Numbers in the diagram correspond with numbered steps in the document.
 :::image-end:::
 
-1. Web pages, mobile apps, and other clients request an Azure SignalR Service endpoint and token from Azure Functions. This serverless compute platform integrates data from various sources. But it also manages Azure SignalR Service endpoints and information on client groups.
+1. Web pages, mobile apps, and other clients request an Azure SignalR Service endpoint and token from Azure Functions, a serverless compute platform. Besides integrating data from various sources, Functions also manages Azure SignalR Service endpoints and information on client groups.
 
-1. Clients use the endpoint and token to connect to Azure SignalR Service. This managed service simplifies the process of adding real-time communication to web apps.
+1. Clients use the endpoint and token to connect to Azure SignalR Service.
 
-1. IoT devices send telemetry to Azure IoT Hub. Azure IoT Edge sends processed IoT device telemetry to IoT Hub.
+1. IoT devices send telemetry to Azure IoT Edge and Azure IoT Hub. IoT Edge sends processed IoT device telemetry to IoT Hub.
 
-1. The telemetry triggers a function in Azure Functions. The function:
+1. The telemetry triggers a function in Azure Functions. The function completes these tasks:
 
-   - Runs any calculations on the telemetry that you program.
+   - Runs any calculations that you program on the telemetry.
    - Transforms the data any way that you program.
    - Uses the managed service Azure SignalR Service to broadcast the data.
 
-1. Azure SignalR Service provides an abstraction over several techniques that real-time applications use. WebSocket is the optimal transport protocol. But Azure SignalR Service uses techniques like server-sent events (SSE) and long polling when other options aren't available. Azure SignalR Service automatically detects and initializes the appropriate transport based on the features that the server and client support.
+1. Azure SignalR Service supports several techniques that real-time applications use, such as WebSocket, a preferred transport protocol. But Azure SignalR Service uses techniques like server-sent events (SSE) and long polling when WebSocket isn't available. Azure SignalR Service automatically detects and initializes the appropriate transport protocol based on the features that the server and client support.
 
 1. The Azure SignalR Service message goes out to a specific client or group of clients. The clients use the data to update apps.
 
@@ -69,14 +69,14 @@ Specific examples that provide real-time data updates include:
 
 Consider these points when you use this pattern:
 
-- If your system has strict performance requirements, understand that many factors can contribute to latency between data ingestion points and the application layer. To ensure you don't exceed latency limits, keep these points in mind:
+- If your system has strict latency requirements, be aware of factors that can increase latency significantly:
 
   - In real-time scenarios, cloud application signaling may increase latency by up to 10 seconds.
   - Any data transformation steps that you add to the solution may increase latency.
 
-- Understand the factors that affect your scenario's inbound and outbound capacity. To accommodate a range of performance capacities, Azure SignalR Service defines seven tiers. Select the tier that best meets your requirements. For more information, see [Performance guide for Azure SignalR Service](/azure/azure-signalr/signalr-concept-performance).
+- Azure SignalR Service defines seven tiers that accommodate a range of performance capacities. Determine your scenario's inbound and outbound capacity by understanding the factors that affect these values. Then select the tier that best meets your requirements. For more information, see [Performance guide for Azure SignalR Service](/azure/azure-signalr/signalr-concept-performance).
 
-- Don't use this solution when you need to guarantee message delivery.
+- Don't use this solution when you need to guarantee message delivery. Due to the variable nature of clients, Azure SignalR Service doesn't always provide business-critical reliability.
 
 - When you're displaying real-time data in Power BI visuals, consider [Real-time streaming in Power BI](/power-bi/connect-data/service-real-time-streaming) as an alternative to this solution.
 
