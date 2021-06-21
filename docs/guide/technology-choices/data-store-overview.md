@@ -3,6 +3,7 @@ title: Understand data store models
 titleSuffix: Azure Application Architecture Guide
 description: Describes different data storage models found in Azure data services.
 author: dsk-2015
+ms.author: pnp
 ms.date: 08/08/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -20,6 +21,9 @@ Selecting the right data store for your requirements is a key design decision. T
 Not all data stores in a given category provide the same feature-set. Most data stores provide server-side functionality to query and process data. Sometimes this functionality is built into the data storage engine. In other cases, the data storage and processing capabilities are separated, and there may be several options for processing and analysis. Data stores also support different programmatic and management interfaces.
 
 Generally, you should start by considering which storage model is best suited for your requirements. Then consider a particular data store within that category, based on factors such as feature set, cost, and ease of management.
+
+> [!NOTE]
+> Learn more about identifying and reviewing your data service requirements for cloud adoption, in the [Microsoft Cloud Adoption Farmework for Azure](/azure/cloud-adoption-framework/ready/considerations/data-options). Likewise, you can also learn about [selecting storage tools and services](/azure/cloud-adoption-framework/ready/considerations/storage-options).
 
 ## Relational database management systems
 
