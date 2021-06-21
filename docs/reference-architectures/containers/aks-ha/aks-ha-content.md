@@ -37,7 +37,7 @@ Within each individual region, the members of the AKS node pool are spread acros
 
 #### Deployment stamp considerations
 
-When managing a multi-region AKS cluster, multiple AKS instances are deployed across multiple regions. Each one of these instances is considerd a stamp. In the event of a regional failure or the need to add more capacity and / or regional presensce for you cludert, you may need to create a new stamp instance. When selecting a process for creating and managing deployment stamps, or individual Kubernetes instances in this case, it is important to conside the following things:
+When managing a multi-region AKS cluster, multiple AKS instances are deployed across multiple regions. Each one of these instances is considered a stamp. In the event of a regional failure or the need to add more capacity and / or regional presence for your cluster, you may need to create a new stamp instance. When selecting a process for creating and managing deployment stamps, or individual Kubernetes instances in this case, it is important to consider the following things:
 
 - Select stamp definition technology that allows for generalized configuration such as infrastructure as code
 - Provide instance-specific values using a deployment input mechanism such as variables or parameter files
@@ -101,7 +101,7 @@ Once the cluster stamp has been defined, you have many options for deploying ind
 - Code-based deployments that allow for stamps to be added and removed using code
 - Integrated testing capabilities
 - Integrated environment and staging capabilities
-- Integrated secrets management solutons 
+- Integrated secrets management solutions 
 - Integration with code / deployment source control
 - Deployment history and logging
 
@@ -175,7 +175,33 @@ _Example policy assignment that restricts the use of container images to a named
 
 ### Avalibility / Failover
 
-< add content >
+A significant motivation for choosing a multi-region Kubernetes architecture is service availability. That is, if a service or service component becomes un-available in one region, traffic should be routed to a region where that service is available. A multi-region architecture is complete and includes many different failure points. In this section, each of these potential failure points is discussed.
+
+#### Application Pods (regional)
+
+A Kubernetes deployment object is used to create multiple replicas of a pod (replica set). If one is unavailable, traffic is routed between the remaining. The Kubernetes Replica Set attempts to keep the specified number of replicas up and running. If one instance goes down, a new instance should be re-created. Finally, liveness probes can be used to check the state of the application or process running in the pod. If the service is not responding appropriately, the liveness probe will remove the pod, which forces the replica set to create a new instance.
+
+#### Application Pods (global)
+
+When an entire region becomes unavailable, the pods in the cluster are no longer available to serve requests. In this case, the Azure Front Door instance routes all traffic to the remaining healthy regions. The Kubernetes clusters and pods in these regions will continue to serve requests.
+
+Take care in this situation to compensate for increased traffic / requests to the remaining cluster. A few things to consider:
+
+- Ensure that network and compute resources are right-sized to absorb any sudden increase in traffic due to region failover. For example, when using Azure CNI, make sure you have a subnet that can support all Pod IPs with a spiked traffic load.
+- Utilize Horizontal Pod Autoscaler to increase the pod replica count to compensate for the increased regional demand.
+- Utilize AKS Cluster Autoscaler to increase the Kubernetes instance node counts to compensate for the increased regional demand.
+
+#### Kubernets node pools (regional)
+
+Occasionally regional failure can occur to compute resources, for instance, if power becomes unavailable to a single rack of Azure servers. To protect your AKS nodes from becoming a single point regional failure, utilize Azure Availability zones. Using availability zones ensures that AKS nodes in a given availability zone are physically separated from those defined in another availability zone.
+
+#### Kubernetes node pools (global)
+
+In a complete regional failure, Azure Front Door will route traffic to the remaining and healthy regions. Again, take care in this situation to compensate for increased traffic / requests to the remaining cluster.
+
+#### More informaiton
+
+The following table list the different areas of failure, the component that helps manage availability for each failure opportunity, and links to documentation for more information.
 
 | Application Component | Supporting service | Interface | Documentation |
 |---|---|---|---|
@@ -184,10 +210,6 @@ _Example policy assignment that restricts the use of container images to a named
 | Application pods global (node pools) | AKS cluster autoscaler  | AKS API | [AKS docs](/azure/aks/cluster-autoscaler) |
 | AKS node pool regional (zonal failure) | Azure Availability Zones | Availability Zones API | [AKS docs](/azure/aks/availability-zones) |
 | AKS node pools global (regional failure) | Azure Front Door | Azure Front Door API | [Front Door docs](/azure/frontdoor/) |
-
-#### Scale considerations
-
-Adjacent to responding to failure, you must make sure that your network and compute resources are right-sized to absorb any sudden increase in traffic due to region failover. For example, when using Azure CNI, make sure you have a subnet that can support all Pod IPs with a spiked traffic load.
 
 ### Traffic management
 
@@ -210,7 +232,7 @@ While the focus of this reference architecture is on having multiple Kubernetes 
 
 #### Container Registry
 
-Azure Container Registry is used in this reference archtieure to provide contaienr image services (pull). Consider the following items when working with Azure Container Registry in a multi-region cluster deployment.
+Azure Container Registry is used in this reference architecture to provide container image services (pull). Consider the following items when working with Azure Container Registry in a multi-region cluster deployment.
 
 ##### Geographic avalibility
 
@@ -257,7 +279,9 @@ Azure Front door is used to load balance and route traffic to each AKS cluster. 
 
 ##### Cluster configuration
 
-As AKS instances are added to the global cluster, the Application Gateway deployed alongside the Kubernetes cluster needs to be enrolled as a backend for proper ro
+As AKS instances are added to the global cluster, the Application Gateway deployed alongside the Kubernetes cluster needs to be enrolled as a backend for proper routing. In the included reference implementation, this process is managed using the Azure CLI in the deployment pipeline.
+
+_Example pipeline step demonstrating adding an Application Gateway instance as a Front Door backend._
 
 ```yaml
 - name: Azure CLI - Enroll Azure Application Gateway as backend in Azure Front Door - Region 1 
@@ -275,31 +299,32 @@ As AKS instances are added to the global cluster, the Application Gateway deploy
 
 ##### Certificates
 
-Front Door doesn't use self-signed certificates even in Dev/Test environments. To enable HTTPS traffic, you need to create your TLS/SSLcertificate that is signed by a certificate authority (CA). This architecture uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. Certbot is a free, open-source software tool. It generates certificates for manually administrated websites. To check the validity of the website, Cerbot sends request to the domain. Respond to that request to acknowledge that you own the domain. If that validation is successful, a certificate is generated.
+Front Door doesn't use self-signed certificates even in Dev/Test environments. To enable HTTPS traffic, you need to create your TLS/SSL certificate that is signed by a certificate authority (CA). This architecture uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. Certbot is a free, open-source software tool. It generates certificates for manually administrated websites. To check the validity of the website, Certbot sends a request to the domain. Respond to that request to acknowledge that you own the domain. If that validation is successful, a certificate is generated.
 
 For information about other CAs supported by Front Door, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](/azure/frontdoor/front-door-faq#what-certificates-are-supported-on-azure-front-door-).
 
 ### Cluster access and identity
 
-As discussed in the [AKS Baseline Reference Arechitecture](), consider using Azure Active Directory as an identity provider. The groups and users found in Azure Active Directory can then be used to controll access to cluster resources.
+As discussed in the [AKS Baseline Reference Arechitecture](), consider using Azure Active Directory as an identity provider. The groups and users found in Azure Active Directory can then be used to control access to cluster resources.
 
 When managing multiple clusters, you will need to decide on an access schema. Options include:
 
 **Cluster Admin access**
 
-Take care to limit administrative access to your Kubenretes cluster instances. OPtions for configuring Azure Acite Directory users and groups for cluster admin access.
+Take care to limit administrative access to your Kubernetes cluster instances. Options for configuring Azure Active Directory users and groups for cluster-admin access.
 
-- Create a cluster-wide access adgroup that can access all objects across every Kubernetes instance in the cluster.
+- Create a cluster-wide access group that can access all objects across every Kubernetes instance in the cluster.
 - Create an individual access group for each Kubernetes instance used to grant access to objects in an individual cluster.
 - others
 
 ### Data and state
 
-When using a globally distributed cluster of AKS instances, consider the architecture of the application, process, or other workload that might run across the cluster. As state-based workload is spread across the cluster, will it need to access a state store? If a process is recreated elsewhere in the cluster due to failure, will the workload or process continue to have access to a dependant state store? State can be achieved in many ways; however, it can be complex in a single Kubernetes cluster. The complexity increases when adding in multiple clustered Kubernetes instances. Do to regional access and complexity concerns, consider architecting your applications to use a globally distributed state store service.
+When using a globally distributed cluster of AKS instances, consider the architecture of the application, process, or other workloads that might run across the cluster. As state-based workload is spread across the cluster, will it need to access a state store? If a process is recreated elsewhere in the cluster due to failure, will the workload or process continue to have access to a dependant state store? State can be achieved in many ways; however, it can be complex in a single Kubernetes cluster. The complexity increases when adding in multiple clustered Kubernetes instances. Due to regional access and complexity concerns, consider architecting your applications to use a globally distributed state store service.
 
 The multi-cluster reference implementation does not include a demonstration or configuration for state concerns. If running applications across clustered AKS instance, consider architecting workload to use a globally distributed data service, a few options from Azure:
 
 - Azure Cosmos DB, a globally distributed database system that allows you to read and write data from the local replicas of your database. For more information, see [Azure Cosmos DB](/azure/cosmos-db/).
+- < Should we add others >
 
 ### Cost considerations
 
