@@ -102,11 +102,13 @@ These location-based features can be further used to generate additional count f
 > 
 
 ### <a name="sql-aml"></a>Connecting to Azure Machine Learning
+
 The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data](/azure/machine-learning/studio-module-reference/import-data) module in Azure ML as shown below:
 
-![Azure ML readers](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
+![Azure ML readers](./media/sql-server-virtual-machine/reader-db-featurizedinput.png)
 
 ## <a name="python"></a>Using a programming language like Python
+
 Using Python to generate features when the data is in SQL Server is similar to processing data in Azure blob using Python. For comparison, see [Process Azure Blob data in your data science environment](data-blob.md). Load the data from the database into a pandas data frame to process it further. The process of connecting to the database and loading the data into the data frame is documented in this section.
 
 The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username, and password with your specific values):

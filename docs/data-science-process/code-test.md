@@ -72,7 +72,7 @@ Use the following steps to set up and run code testing and an automated build by
 
 	* Check that response levels are right:
 
-      ![Code for matching levels](./media/code-test/check_response_levels.png)
+      ![Code for matching levels](./media/code-test/check-response-levels.png)
 
 	* Check that response percentage is reasonable:
 
@@ -126,7 +126,7 @@ Use the following steps to set up and run code testing and an automated build by
 
     c. Select a template. Because there's no Python project template, start by selecting **Empty process**.
 
-    ![List of templates and "Empty process" button](./media/code-test/start_empty-process-template.png)
+    ![List of templates and "Empty process" button](./media/code-test/start-empty-process-template.png)
 
     d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to complete the build process. For more information about setting agents, see [Build and release agents](/azure/devops/pipelines/agents/agents).
 
