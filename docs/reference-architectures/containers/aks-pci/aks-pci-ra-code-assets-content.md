@@ -1,4 +1,4 @@
-This article describes a reference architecture for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS). This architecture is focused on the infrastructure and _not_ the PCI-DSS workload.
+This article describes a reference architecture for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1). This architecture is focused on the infrastructure and _not_ the PCI-DSS workload.
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
 
@@ -11,77 +11,105 @@ The recommendations and examples are extracted from this accompanying reference 
 
 That architecture is based on a hub and spoke topology; with one hub and two spokes. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. There are two spoke virtual networks. One spoke contains the AKS cluster that provides the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images for your workloads.
 
-> [!IMPORTANT]
->
-> This article is work in progress. Check back on updates.
->
-
-## Components
 
 > [!IMPORTANT]
 >
 > The architecture and the implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). To get the most out of this article, familiarize yourself with the baseline components. In this section, we'll highlight the differences between the two architectures.
 
+## Components
+
+Here are the main components used in this architecture. If you are not familiar with these services, see the [Related Azure services](#related-azure-services) for links to product documentation.
+
+**Azure Firewall** 
+
+The firewall instance secures outbound network traffic. Without this layer of security, the flow might communicate with a malicious third-party service that could exfiltrate sensitive company data.
+
 **Azure Bastion**
 
 The baseline architecture provided a subnet for Bastion but didn't provision the resource. This architecture adds Bastion in the subnet. It provides secure access to a jump box.
-
-**Azure Virtual Machines (VM)**
-
-The spoke network has an additional compute for a jump box. This machine is intended to run management tools on the AKS cluster, such as kubectl.
 
 **Azure Image Builder**
 
 Provisioned in a separate virtual network. Creates VM images with base security and configuration. In this architecture, it's customized to build secure node images with Ubuntu 18.04-LTS platform (MSFT-provided) image with management tools such as Azure CLI, kubectl and kubelogin, flux CLI.
 
+**Azure Virtual Machines Scale Set (VMSS) for jump box instances**
+
+The spoke network has an additional compute for a jump box. This machine is intended to run management tools on the AKS cluster, such as kubectl.
+
+**Azure Application Gateway with integrated Web Application Firewall (WAF)**
+Azure Application Gateway load balances at Layer 7. WAF secures incoming traffic from common web traffic attacks. The instance has a public frontend IP configuration that receives user requests. 
+
+**Azure Kubernetes Service (AKS)**
+
+The hosting infrastructure that is the most important part of the card holder environment (CDE). The AKS cluster is deployed as a private cluster. So, the Kubernetes API server is not exposed to the public internet and traffic between the API server and the cluster node pools is private. 
+
+**ACR Tasks**
+Provides an automated way of building and maintaining container images.
+
+**Azure Key Vault**
+
+Stores and manages secrets needed for cluster operations, such as certificates and encyrption keys.
+
+
 ## Cluster configuration
 
-The baseline architecture has one user node pool and another for the system node pool. The workload runs on all the pods. This architecture has two user node pools and one system node pool. The in-scope and out-of-scope workloads are segmented in two separate user node pools. For more, see [Workload segmentation](#workload-isolation).
+Here are some significant changes from the baseline architecture:
 
-In this architecture, Kubernetes ingress controller inside the cluster is NGINX. In the baseline architecture, we chose Traefik. This change illustrates that the service can be changed based on your choice.
+### Node pool segmentation
 
-The baseline architecture deployed the AKS cluster in public mode. This means all communication with the AKS-managed Kubernetes API server is over the public internet. This is not acceptable in this architecture because PCI-DSS prohibits public exposure to system components. In this regulated architecture, the cluster is deployed as a private cluster. Network traffic between the Kubernetes API server and your node pools is private. The API server is exposed through a Private Endpoint in the cluster's network. The security is further enhanced with the use of Azure Virtual Network, an NSG, and other built-in features. These are described in [Network configuration](#networking-configuration).
+In this architecture, the cluster has two user node pools and one system node pool. The compute choice for the node pools remain the same.
 
+> [!NOTE]
+>
+> An approach for compute protection is Azure confidential computing. AKS supports confidential computing nodes that allow you to run sensitive workloads within a hardware-based trusted execution environment (TEE). For details, see [Confidential computing nodes on Azure Kubernetes Service](azure/confidential-computing/confidential-nodes-aks-overview).
+>
+> This architecture or the implementation doesn't use this approach.
 
-### Pod security
-
-When describing your workload's security needs, use relevant `securityContext` settings for your containers. This includes basic settings such as like `fsGroup`, `runAsUser` / `runAsGroup`, and setting `allowPriviledgeEscalation` to false (unless required). Be clear about defining and removing Linux capabilities and defining your SELinux options in seLinuxOptions. 
-
-Avoid referencing images by their tags in your deployment manifests. Instead, use the actual image id. That way, you can reliably map container scan results with the actual content running in your cluster. You can enforce it through Azure Policy for image name to include image id pattern in the allowed regular expression. Also follow this guidance when using the Dockerfile FROM command.
-
-### Workload isolation
-The main theme of the PCI standard is to isolate the PCI workload from other workloads in terms of operations and connectivity. In this series we differentiate between those concepts as:
+The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in terms of operations and connectivity. 
 
 - In-scope&mdash;The PCI workload, the environment in which it resides, and operations.
 
 - Out-of-scope&mdash;Other workloads that may share services but are isolated from the in-scope components.
 
-The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. 
+The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. Be aware that as the solution evolves, some out-of-scope components might be in scope and more controls might need to be applied to keep them separate. 
 
-In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The application has  two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM.
+In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The in-scope and out-of-scope workloads are segmented in two separate user node pools. The application has two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM.
+
+
+### Ingress controller
+Kubernetes ingress controller inside the cluster has been changed to NGINX. In the baseline architecture, we chose Traefik. This change illustrates that the service can be changed based on your choice.
+
+### Private Kubernetes API server
+The baseline architecture deployed the AKS cluster in public mode. This means all communication with the AKS-managed Kubernetes API server is over the public internet. This is not acceptable in this architecture because PCI-DSS prohibits public exposure to any system components. In this regulated architecture, the cluster is deployed as a private cluster. Network traffic between the Kubernetes API server and your node pools is private. The API server is exposed through a Private Endpoint in the cluster's network. The security is further enhanced with the use of Azure Virtual Network, an NSG, and other built-in features. These are described in [Network configuration](#networking-configuration).
+
+### Pod security
+
+When describing your workload's security needs, use relevant `securityContext` settings for your containers. This includes basic settings such as like `fsGroup`, `runAsUser` / `runAsGroup`, and setting `allowPriviledgeEscalation` to false (unless required). Be clear about defining and removing Linux capabilities and defining your SELinux options in seLinuxOptions. 
+
+Avoid referencing images by their tags in your deployment manifests. Instead, use the actual image ID. That way, you can reliably map container scan results with the actual content running in your cluster. You can enforce it through Azure Policy for image name to include image ID pattern in the allowed regular expression. Also follow this guidance when using the Dockerfile FROM command.
 
 ## Networking configuration
 
-The hub and spokes are all deployed in separate virtual networks, each in their private address space. Each subnet is isolated with no traffic allowed by default between any two virtual networks. 
+The hub and spokes are all deployed in separate virtual networks, each in their private address space. By default, no traffic is allowed between any two virtual networks. Within the network, segmentation is applied by creating subnets. 
 
 A combination of various Azure services and feature and native Kubernetes constructs provide the required level of control. Here are some options used in this architecture.   
 
 ![Network configuration](./images/network-topology.svg)
 
-### Strict Network Security Groups (NSGs)
+### Subnet security through Network Security Groups (NSGs)
 
 There are several NSGs that control the flow in and out of the cluster. Here are some examples:
 - The cluster node pools are placed in their dedicated subnets. For each subnet, there are NSGs that block any SSH access to node VMs and allow traffic from the virtual network. Traffic from the node pools is restricted to the virtual network.
-- All inbound traffic fom the internet is intercepted by Azure Application Gateway. NSG rules make sure, for example:
+- All inbound traffic from the internet is intercepted by Azure Application Gateway. NSG rules make sure, for example:
    - Only HTTPS traffic is allowed in. 
    - Traffic from Azure Control Plane is allowed.    
    For details, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
-- On the subnets that have Azure Container Registry agents, NSGs allow only neccessary outbound traffic. For instance, to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.  
+- On the subnets that have Azure Container Registry agents, NSGs allow only necessary outbound traffic. For instance, to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.  
 - The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub.
 
-As your workloads, system security agents, and other components are deployed, add more NSG rules that help define the type of traffic that should be allowed and traffic shouldn't traverse those subnet boundaries. Because each nodepool lives in its own subnet, observe the traffic patterns, and then apply more specific rules.
+As your workloads, system security agents, and other components are deployed, add more NSG rules that help define the type of traffic that should be allowed and traffic shouldn't traverse those subnet boundaries. Because each node pool lives in its own subnet, observe the traffic patterns, and then apply more specific rules.
 
-### Expanded NetworkPolicies
+### Pod-to-pod security with NetworkPolicies
 
 This architecture attempts to implement Zero-Trust as much as possible. 
 
@@ -92,7 +120,7 @@ In certain cases, this is not practical for communication within the cluster. No
 
 ### TLS encryption
 
-The baseline architecture provides TLS-encrypted traffic until the workload pod. In this architecture, TLS traffic extends into the cluster and data between pods is encyrpted. TLS trust chain isn't just encrypted, but Certificate Authority (CA) chain is also validated through violation attempts as part of the sample workload.
+The baseline architecture provides TLS-encrypted traffic until the workload pod. In this architecture, TLS traffic extends into the cluster and data between pods is encrypted. TLS trust chain isn't just encrypted, but Certificate Authority (CA) chain is also validated through violation attempts as part of the sample workload.
 
 mTLS is used in the cluster for mesh communication. Sender and receiver pods verify each other before proceeding with the traffic. 
 
@@ -102,7 +130,9 @@ The implementation uses Tresor as its TLS certificate provider for mTLS. Conside
 
 The ingress controller in this implementation uses a wild-card certificate to handle default traffic when an Ingress resource doesn't contain a specific certificate. This might be acceptable but if the organizational policy doesn't permit using wildcard certificates, you may need to adjust your ingress controller to not support a default certificate. Instead require that even the workload uses their own named certificate. This will impact how Azure Application Gateway performs backend health checks.
 
-<Todo: Add everytime you decrypt CHD, the component is include in the PCI scope. Consider WAF as inscope for PCI as it must inpsect payload before sending data to the cluster. This can be terminattion point. Azure keeps the data private. The alternative is to remove TLS termination until the workload. Apply compensating controls at the code level to satisfy 6.6. Another option is to include Azure Firewall Premeim as part of ingress flow taking advantage of signature-based IDPS capabitlies.>
+> [!IMPORTANT]
+>
+> The component that decrypts card holder data is considered to be in scope for PCI-DSS and is subject the same level of scrutiny as the other components in the card holder environment. In this architecture, WAF is in scope because it inspects the payload for instrusion and can be a termination point. An alternate technology option is to use Azure Firewall Premium as part of ingress flow and take advantage of the signature-based IDPS capabilities. Another approach is to keep the data encrypted all way into the cluster. Then, use compensating controls in the workload to satisfy Requirement 6.6. 
 
 ### Azure Key Vault network restrictions
 
@@ -116,56 +146,49 @@ If this hybrid approach isn't suitable for your deployment, move the certificate
 
 ### DDoS Protection
 
-In general, we recommend that you enable [Azure DDoS Protection Standard](https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection) for virtual networks with a subnet that contains an Application Gateway with a public IP. The workload won't be burdened with fraudulent requests. Such requests can  cause  service disruption or pose another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workload.
+In general, we recommend that you enable [Azure DDoS Protection Standard](https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection) for virtual networks with a subnet that contains an Application Gateway with a public IP. The workload won't be burdened with fraudulent requests. Such requests can cause  service disruption or pose another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workload.
 
 
 ## Identity access management
 
-We strongly recommend that standing access is minimized especially for high-impact accounts, such as SRE/Ops interactions with your cluster. 
+Define roles and set access policies as per the requirements of the role. Map roles to Kubernetes actions scoped as narrow as practical. Avoid roles that span multiple functions. If multiple roles are filled by one person, assign that person all roles that are relevant to the equivalent job functions. So, even if one person is directly responsible for both the cluster and the workload, create your Kubernetes `ClusterRoles` as if there were separate individuals, and then assign that single individual all relevant roles.
 
-The AKS control plane supports both [Azure AD Privileged Access Management (PAM) just-in-time (JIT)](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). [Conditional Access Policies](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks) can provide additional layers of required authentication validation for privileged access, based on the rules you build.
+We strongly recommend that standing access is minimized especially for high-impact accounts, such as SRE/Ops interactions with your cluster. The AKS control plane supports both [Azure AD Privileged Access Management (PAM) just-in-time (JIT)](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). [Conditional Access Policies](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks) can provide additional layers of required authentication validation for privileged access, based on the rules you build.
 
 For more details on using PowerShell to configure conditional access, see [Azure AD Conditional Access](https://github.com/mspnp/aks-baseline-regulated/blob/main/docs/conditional-access.md).
-
-Define roles and set access policies as per the requirements of the role. Map roles to Kubernetes actions scoped as narrow as practical. Avoid roles that span multiple functions. If multiple roles are filled by one person, assign that person all roles that are relevant to the equivalent job functions. So, even if one person is directly responsible for both the cluster and the workload, create your Kubernetes `ClusterRoles` as if there were separate individuals, and then assign that single individual all relevant roles.  
+  
 
 ## Disk encryption
-When you think about data at rest encryption, consider the storage disks, AKS agent node VMs, other VMs, and any temporary and OS disks. 
+When desgining encryption for data at rest, consider storage disks, AKS agent node VMs, other VMs, and any temporary and OS disks. 
 
 ### Storage disks
 
-By default, Azure Storage disks are encrypted at rest with Microsoft-managed keys.
-
-If you use non-ephemeral OS disks or add data disks, we recommend that you use customer-managed keys for control over the encryption keys. 
-
-Encrypt outside of the storage layer and only write encrypted data into the storage medium. Also, make sure that the keys are never adjacent to the storage layer.
+By default, Azure Storage disks are encrypted at rest with Microsoft-managed keys. If you use non-ephemeral OS disks or add data disks, we recommend that you use customer-managed keys for control over the encryption keys. Encrypt outside of the storage layer and only write encrypted data into the storage medium. Also, make sure that the keys are never adjacent to the storage layer.
 
 For more information, see [Bing your own keys (BYOK) with Azure disks](/azure/aks/azure-disk-customer-managed-keys).
 
-Consider using BYOK for any other disks that might be interact with the cluster, such as your Azure Bastion-fronted jumpboxes. If you choose BYOK, the SKU choice for VMs and regional availability will be limited because this feature is not supported on all SKUs or regions.
-
-You can enforce the use of BYOK with an Azure Policy alert that detects clusters that don't have `diskEncryptionSetID` on the cluster resource. 
-
-The reference implementation doesn't use any disks in the cluster, and the OS disk is ephemeral. The Azure Policy is in place as a reminder of the security feature. The policy is set to `audit` not `block`.
+Consider using BYOK for any other disks that might interact with the cluster, such as your Azure Bastion-fronted jump boxes. If you choose BYOK, the SKU choice for VMs and regional availability will be limited because this feature is not supported on all SKUs or regions.
 
 ### VM hosts
 
-We recommend that you enable the encryption at host feature. This will encrypt the VM host and any temporary and OS/data disk that are cached on a VM host and the flows to the Storage service. The encryption is done using platform-managed keys.
+We recommend that you enable the encryption at host feature. This will encrypt the VM host and any temporary and OS, or data disks that are cached on a VM host. This will also encrypt flows to the Storage service. The encryption is done using platform-managed keys.
 
 See more details about [VM support for host-based encryption](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
-That feature is extended to the data stored on the VM host of your AKS agent nodes through the  [Host-Based Encryption](/azure/aks/enable-host-encryption) feature. 
+That feature is extended to the data stored on the VM host of your AKS agent nodes through the [Host-Based Encryption](/azure/aks/enable-host-encryption) feature. 
 
-Similar to BYOK, this feature might limit your VM SKU and region choices. See more details about [VM support for host-based encryption](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Similar to BYOK, this feature might limit your VM SKU and region choices. 
 
-In the implemetation, this feature is not enabled  on the `agentPoolProfilesbut` and is detected by an Azure Policy. 
+You can enforce those features through Azure Policy. 
 
 
 ## Azure Policy considerations
 
-Typically, Azure Policies applied do not have workload-tuned settings. In the implementation, we're applying the Kubernetes cluster pod security restricted standards for Linux-based workloads initiative which does not allow tuning of settings. Consider exporting this initiative and customizing its values for your specific workload. You can include all Gatekeeper `deny` Azure Policies under one custom initiative and all `audit` Azure Policies under another initiative to categorize block actions from information-only policies.
+Typically, Azure Policies applied do not have workload-tuned settings. In the implementation, we're applying the **Kubernetes cluster pod security restricted standards for Linux-based workloads** initiative which does not allow tuning of settings. Consider exporting this initiative and customizing its values for your specific workload. You can include all Gatekeeper `deny` Azure Policies under one custom initiative and all `audit` Azure Policies under another initiative to categorize block actions from information-only policies.
 
 Consider including `kube-system` and `gatekeeper-system` to policies in your audit policies for added visibility. Including those namespaces in `deny` policies could cause cluster failure because of an unsupported configuration. 
+
+You can enforce data encryption by setting some Azure Policy alerts. For example you can enforce BYOK with an alert that detects clusters that don't have `diskEncryptionSetID` on the cluster resource. Another policy can detect if Host-Based Encryption is enabled on `agentPoolProfiles`. The reference implementation doesn't use any disks in the cluster, and the OS disk is ephemeral. Both of those example policies are in place as a reminder of the security feature. The policies are set to `audit` not `block`.
 
 ## Managing images
 
@@ -173,9 +196,11 @@ Use distroless base images for your workloads. With these images, the security s
 
 Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md). This, coupled with an admission controller that supports validating signatures, can ensure that you're only running images that you've signed with your private keys. There are open-source solutions such as SSE Connaisseur or IBM Portieris that integrate those processes. 
 
-Protect container images and other OCI artifacts because they contain the organization's intellectual property. Use customer-managed keys and encrypt the contents of your registries. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys are sometimes required to meet regulatory compliance standards. Store the key in a managed key store such as Azure Key Vault. Because the key is created and owned by you, operations related to key lifecycle, including rotation and management, is your responsibility . For more information, see Learn more at, [Encrypt registry using a customer-managed key](https://aka.ms/acr/CMK).
+Protect container images and other OCI artifacts because they contain the organization's intellectual property. Use customer-managed keys and encrypt the contents of your registries. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys are sometimes required to meet regulatory compliance standards. Store the key in a managed key store such as Azure Key Vault. Because you create and own the key, you are responsible for operations related to key lifecycle, including rotation and management. For more information, see Learn more at, [Encrypt registry using a customer-managed key](https://aka.ms/acr/CMK).
 
 ## Kubernetes API Server operational access
+
+![Kubernetes API Server operational access with a jump box](./images/aks-jumpbox.svg)
 
 In this architecture, a jump box is provisioned in a dedicated compute runs management tools such as kubectl. To have auditable collaboration in the workflow for live-site issues, (for instance between cluster administrator, workload administrator, and others)  consider a ChatOps approach. One way is to frontend the jump box with Microsoft Teams. That gives you the ability to limit commands executed against the cluster, without necessarily building an operational process based around jump boxes. Also, you may already have an IAM-gated IT automation platform in place in which pre-defined actions can be constructed. Its action runners would then execute within the snet-management-agents subnet while the initial invocation of the actions is audited and controlled in the IT automation platform.
 
@@ -185,6 +210,8 @@ Pipeline agents should be out-of-scope to the regulated cluster because build pr
 Your build agents shouldn't have direct access to the  cluster. For example, only give build agents network access to Azure Container Registry to push container images, helm charts, and so on. Then, deploy through GitOps. Also, build and release workflows shouldn't have direct access to your Kubernetes Cluster API (or its nodes).
 
  ## Monitoring operations
+
+### In-cluster activities
 
 The in-cluster `omsagent` pods running in `kube-system` are the Log Analytics collection agent. They gather telemetry, scrape container stdout and stderr logs, and collect Prometheus metrics. You can tune its collection settings by updating the `container-azm-ms-agentconfig.yaml` ConfigMap file. In this reference implementation, logging is enabled across `kube-system` and all your workloads. By default, `kube-system` is excluded from logging. Ensure you're adjusting the log collection process to achieve balance cost objectives, SRE efficiency when reviewing logs, and compliance needs.
 
@@ -208,12 +235,22 @@ For a complete end-to-end perspective, see [Azure Security Center Enterprise Onb
 Key differentiators over Baseline:
 
 - Enhanced Azure Container Registry topics (Quarantine pattern, subnet-isolated task runner, for example)
-- Addresses in-cluster ISV/OSS CNCF solutions like security agents (Falco, Prisma, etc, etc, etc)
+- Addresses in-cluster ISV/OSS CNCF solutions like security agents (Falco, Prisma)
 - Namespace Limits and Quotas
-- Followed by a list of further recommendations that cannot easily be presented in a “one size fits all that are going to be deploying this right from GitHub” solution
-    - Encryption at Host
-    - ACR BYOK Encryption
-    - Azure DDoS (not specifically related to regulated)
+
+
+## Related Azure Services
+
+Here are link to feature documentation of some key components of this architecture.  
+
+- [Azure Kubernetes Service (AKS)](/azure/aks/)
+- [Azure Firewall](/azure/firewall-manager/overview) 
+- [Azure Bastion](/azure/bastion/bastion-overview)
+- [Azure Image Builder](/azure/virtual-machines/image-builder-overview)
+- [Azure Virtual Machines Scale Set (VMSS)](/azure/virtual-machine-scale-sets/overview)
+- [Azure Application Gateway with integrated Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview)
+- [ACR Tasks](/azure/container-registry/container-registry-tasks-overview)
+- [Azure Key Vault](/azure/key-vault/general/basic-concepts)
 
 
 ## Next
