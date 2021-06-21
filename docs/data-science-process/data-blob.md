@@ -202,7 +202,7 @@ Additional features can be created in the Azure Machine Learning Studio (classic
 
 ![reader blob][1]
 
-[1]: ./media/data-blob/reader_blob.png
+[1]: ./media/data-blob/reader-blob.png
 
 
 <!-- Module References -->

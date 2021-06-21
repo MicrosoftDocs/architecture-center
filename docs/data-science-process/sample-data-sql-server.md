@@ -127,9 +127,10 @@ You can use the following sample code to save the down-sampled data to a file an
 ![reader blob][2]
 
 ## The Team Data Science Process in Action example
+
 To walk through an example of the Team Data Science Process a using a public dataset, see [Team Data Science Process in Action: using SQL Server](sql-walkthrough.md).
 
-[1]: ./media/sample-sql-server-virtual-machine/reader_database.png
-[2]: ./media/sample-sql-server-virtual-machine/reader_blob.png
+[1]: ./media/sample-sql-server-virtual-machine/reader-database.png
+[2]: ./media/sample-sql-server-virtual-machine/reader-blob.png
 
 [import-data]: /azure/machine-learning/studio-module-reference/import-data

@@ -132,6 +132,7 @@ Set-ExecutionPolicy Restricted #reset the execution policy
 ```
 
 ### <a name="insert-tables-bulkquery"></a>Bulk Insert SQL Query
+
 [Bulk Insert SQL Query](/sql/t-sql/statements/bulk-insert-transact-sql) can be used to import data into the database from row/column based files (the supported types are covered in the[Prepare Data for Bulk Export or Import (SQL Server)](/sql/relational-databases/import-export/prepare-data-for-bulk-export-or-import-sql-server)) topic.
 
 Here are some sample commands for Bulk Insert are as below:  
@@ -156,6 +157,7 @@ Here are some sample commands for Bulk Insert are as below:
     ```
 
 ### <a name="sql-builtin-utilities"></a>Built-in Utilities in SQL Server
+
 You can use SQL Server Integration Services (SSIS) to import data into SQL Server VM on Azure from a flat file.
 SSIS is available in two studio environments. For details, see [Integration Services (SSIS) and Studio Environments](/sql/integration-services/integration-services-ssis-development-and-management-tools):
 
@@ -163,6 +165,7 @@ SSIS is available in two studio environments. For details, see [Integration Serv
 * For details on the Import/Export Wizard, see [SQL Server Import and Export Wizard](/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard)
 
 ## <a name="sqlonprem_to_sqlonazurevm"></a>Moving Data from on-premises SQL Server to SQL Server on an Azure VM
+
 You can also use the following migration strategies:
 
 1. [Deploy a SQL Server Database to a Microsoft Azure VM wizard](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
@@ -173,9 +176,11 @@ You can also use the following migration strategies:
 We describe each of these options below:
 
 ### Deploy a SQL Server Database to a Microsoft Azure VM wizard
+
 The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server).
 
 ### <a name="export-flat-file"></a>Export to Flat File
+
 Various methods can be used to bulk export data from an On-Premises SQL Server as documented in the [Bulk Import and Export of Data (SQL Server)](/sql/relational-databases/import-export/bulk-import-and-export-of-data-sql-server) topic. This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import.
 
 1. Export the data from on-premises SQL Server to a file using the bcp utility as follows
@@ -194,11 +199,13 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 4. Use any of the methods described in section [Moving Data from File Source](#filesource_to_sqlonazurevm) to move the data in flat files to a SQL Server.
 
 ### <a name="sql-migration"></a>SQL Database Migration Wizard
+
 [SQL Server Database Migration Wizard](https://sqlazuremw.codeplex.com/) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.  
 
 ![SQL Server Migration Wizard][2]
 
 ### <a name="sql-backup"></a>Database back up and restore
+
 SQL Server supports:
 
 1. [Database back up and restore functionality](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) (both to a local file or bacpac export to blob) and [Data Tier Applications](/sql/relational-databases/data-tier-applications/data-tier-applications) (using bacpac).
@@ -209,9 +216,10 @@ A screenshot of the Database back up/restore options from SQL Server Management 
 ![SQL Server Import Tool][1]
 
 ## Resources
+
 [Migrate a Database to SQL Server on an Azure VM](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server)
 
 [SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 
-[1]: ./media/move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
-[2]: ./media/move-sql-server-virtual-machine/database_migration_wizard.png
+[1]: ./media/move-sql-server-virtual-machine/sqlserver-builtin-utilities.png
+[2]: ./media/move-sql-server-virtual-machine/database-migration-wizard.png

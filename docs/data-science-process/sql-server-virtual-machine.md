@@ -17,6 +17,7 @@ categories:
   - ai-machine-learning
 ---
 # <a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
+
 This document covers how to explore data and generate features for data stored in a SQL Server VM on Azure. This goal may be completed by data wrangling using SQL or by using a programming language like Python.
 
 > [!NOTE]
@@ -25,12 +26,14 @@ This document covers how to explore data and generate features for data stored i
 > 
 
 ## <a name="SQL"></a>Using SQL
+
 We describe the following data wrangling tasks in this section using SQL:
 
 1. [Data Exploration](#sql-dataexploration)
 2. [Feature Generation](#sql-featuregen)
 
 ### <a name="sql-dataexploration"></a>Data Exploration
+
 Here are a few sample SQL scripts that can be used to explore data stores in SQL Server.
 
 > [!NOTE]
@@ -52,6 +55,7 @@ Here are a few sample SQL scripts that can be used to explore data stores in SQL
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
 ### <a name="sql-featuregen"></a>Feature Generation
+
 In this section, we describe ways of generating features using SQL:  
 
 1. [Count based Feature Generation](#sql-countfeature)
@@ -64,6 +68,7 @@ In this section, we describe ways of generating features using SQL:
 > 
 
 ### <a name="sql-countfeature"></a>Count based Feature Generation
+
 The following examples demonstrate two ways of generating count features. The first method uses conditional sum and the second method uses the 'where' clause. These results may then be joined with the original table (using primary key columns) to have count features alongside the original data.
 
 ```sql
@@ -74,6 +79,7 @@ where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 ```
 
 ### <a name="sql-binningfeature"></a>Binning Feature Generation
+
 The following example shows how to generate binned features by binning (using five bins) a numerical column that can be used as a feature instead:
 
 ```sql
@@ -81,6 +87,7 @@ SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <
 ```
 
 ### <a name="sql-featurerollout"></a>Rolling out the features from a single column
+
 In this section, we demonstrate how to roll out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
 
 Here is a brief primer on latitude/longitude location data (resourced from stackoverflow [How to measure the accuracy of latitude and longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). This guidance is useful to understand before including location as one or more features:
@@ -120,11 +127,13 @@ These location-based features can be further used to generate additional count f
 > 
 
 ### <a name="sql-aml"></a>Connecting to Azure Machine Learning
+
 The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data][import-data] module in Azure Machine Learning as shown below:
 
 ![azureml readers][1] 
 
 ## <a name="python"></a>Using a programming language like Python
+
 Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented in [Process Azure Blob data in your data science environment](data-blob.md). Load the data from the database into a pandas data frame for more processing. We document the process of connecting to the database and loading the data into the data frame in this section.
 
 The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username, and password with your specific values):
@@ -145,9 +154,10 @@ data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablena
 Now you can work with the Pandas data frame as covered in the article [Process Azure Blob data in your data science environment](data-blob.md).
 
 ## Azure Data Science in Action Example
+
 For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](sql-walkthrough.md).
 
-[1]: ./media/sql-server-virtual-machine/reader_db_featurizedinput.png
+[1]: ./media/sql-server-virtual-machine/reader-db-featurizedinput.png
 
 
 <!-- Module References -->

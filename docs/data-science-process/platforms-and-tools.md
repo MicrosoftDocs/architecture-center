@@ -63,7 +63,7 @@ When you create a Spark cluster in HDInsight, you create Azure compute resources
 TDSP team from Microsoft has published two end-to-end walkthroughs on how to use Azure HDInsight Spark Clusters to build data science solutions, one using Python and the other Scala. For more information on Azure HDInsight **Spark Clusters**, see [Overview: Apache Spark on HDInsight Linux](/azure/hdinsight/spark/apache-spark-overview). To learn how to build a data science solution using **Python** on an Azure HDInsight Spark Cluster, see [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md). To learn how to build a data science solution using **Scala** on an Azure HDInsight Spark Cluster, see [Data Science using Scala and Spark on Azure](scala-walkthrough.md). 
 
 
-##  Azure Synapse Analytics
+## Azure Synapse Analytics
 
 Azure Synapse Analytics allows you to scale compute resources easily and in seconds, without over-provisioning or over-paying. It also offers the unique option to pause the use of compute resources, giving you the freedom to better manage your cloud costs. The ability to deploy scalable compute resources makes it possible to bring all your data into Azure Synapse Analytics. Storage costs are minimal and you can run compute only on the parts of datasets that you want to analyze. 
 
@@ -134,7 +134,7 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
    cat .ssh/id_rsa.pub
    ```
    
-   ![Commands to generate the SSH key](./media/platforms-and-tools/resources-1-generate_ssh.png)
+   ![Commands to generate the SSH key](./media/platforms-and-tools/resources-1-generate-ssh.png)
 
 1. Copy the entire ssh key including *ssh-rsa*. 
 1. Log in to your Azure DevOps Services. 

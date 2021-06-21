@@ -17,11 +17,13 @@ categories:
   - ai-machine-learning
 ---
 # The Team Data Science Process in action: using Azure Synapse Analytics
+
 In this tutorial, we walk you through building and deploying a machine learning model using Azure Synapse Analytics for a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip.  Models include multiclass classification (whether or not there is a tip) and regression (the distribution for the tip amounts paid).
 
 The procedure follows the [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/) workflow. We show how to set up a data science environment, how to load the data into Azure Synapse Analytics, and how to use either Azure Synapse Analytics or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
 
 ## <a name="dataset"></a>The NYC Taxi Trips dataset
+
 The NYC Taxi Trip data consists of about 20 GB of compressed CSV files (~48 GB uncompressed), recording more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff locations and times, anonymized hack (driver's) license number, and the medallion (taxi's unique ID) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
 1. The **trip_data.csv** file contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
@@ -59,6 +61,7 @@ The **unique key** used to join trip\_data and trip\_fare is composed of the fol
 * pickup\_datetime.
 
 ## <a name="mltasks"></a>Address three types of prediction tasks
+
 We formulate three prediction problems based on the *tip\_amount* to illustrate three kinds of modeling tasks:
 
 1. **Binary classification**: To predict whether or not a tip was paid for a trip, that is, a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
@@ -77,6 +80,7 @@ We formulate three prediction problems based on the *tip\_amount* to illustrate 
 3. **Regression task**: To predict the amount of tip paid for a trip.
 
 ## <a name="setup"></a>Set up the Azure data science environment for advanced analytics
+
 To set up your Azure Data Science environment, follow these steps.
 
 **Create your own Azure blob storage account**
@@ -118,6 +122,7 @@ END CATCH;
 **Create an Azure Machine Learning workspace under your Azure subscription.** For instructions, see [Create an Azure Machine Learning workspace](/azure/machine-learning/classic/create-workspace.md).
 
 ## <a name="getdata"></a>Load the data into Azure Synapse Analytics
+
 Open a Windows PowerShell command console. Run the following PowerShell commands to download the example SQL script files that we share with you on GitHub to a local directory that you specify with the parameter *-DestDir*. You can change the value of parameter *-DestDir* to any local directory. If *-DestDir* does not exist, it will be created by the PowerShell script.
 
 > [!NOTE]
@@ -381,6 +386,7 @@ After a successful execution, you will see screen like below:
 ![Output of a successful script execution][20]
 
 ## <a name="dbexplore"></a>Data exploration and feature engineering in Azure Synapse Analytics
+
 In this section, we perform data exploration and feature generation by running SQL queries against Azure Synapse Analytics directly using **Visual Studio Data Tools**. All SQL queries used in this section can be found in the sample script named *SQLDW_Explorations.sql*. This file has already been downloaded to your local directory by the PowerShell script. You can also retrieve it from [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). But the file in GitHub does not have the Azure Synapse Analytics information plugged in.
 
 Connect to your Azure Synapse Analytics using Visual Studio with the Azure Synapse Analytics login name and password and open up the **SQL Object Explorer** to confirm the database and tables have been imported. Retrieve the *SQLDW_Explorations.sql* file.
@@ -399,6 +405,7 @@ Here are the types of data exploration and feature generation tasks performed in
 * Join the two tables and extract a random sample that will be used to build models.
 
 ### Data import verification
+
 These queries provide a quick verification of the number of rows and columns in the tables populated earlier using Polybase's parallel bulk import,
 
 -- Report number of rows in table <nyctaxi_trip> without table scan
@@ -416,6 +423,7 @@ These queries provide a quick verification of the number of rows and columns in 
 **Output:** You should get 173,179,759 rows and 14 columns.
 
 ### Exploration: Trip distribution by medallion
+
 This example query identifies the medallions (taxi numbers) that completed more than 100 trips within a specified time period. The query would benefit from the partitioned table access since it is conditioned by the partition scheme of **pickup\_datetime**. Querying the full dataset will also make use of the partitioned table and/or index scan.
 
 ```sql
@@ -429,6 +437,7 @@ HAVING COUNT(*) > 100
 **Output:** The query should return a table with rows specifying the 13,369 medallions (taxis) and the number of trips completed in 2013. The last column contains the count of the number of trips completed.
 
 ### Exploration: Trip distribution by medallion and hack_license
+
 This example identifies the medallions (taxi numbers) and hack_license numbers (drivers) that completed more than 100 trips within a specified time period.
 
 ```sql
@@ -442,6 +451,7 @@ HAVING COUNT(*) > 100
 **Output:** The query should return a table with 13,369 rows specifying the 13,369 car/driver IDs that have completed more that 100 trips in 2013. The last column contains the count of the number of trips completed.
 
 ### Data quality assessment: Verify records with incorrect longitude and/or latitude
+
 This example investigates if any of the longitude and/or latitude fields either contain an invalid value (radian degrees should be between -90 and 90), or have (0, 0) coordinates.
 
 ```sql
@@ -458,6 +468,7 @@ OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 **Output:** The query returns 837,467 trips that have invalid longitude and/or latitude fields.
 
 ### Exploration: Tipped vs. not tipped trips distribution
+
 This example finds the number of trips that were tipped vs. the number that were not tipped in a specified time period (or in the full dataset if covering the full year as it is set up here). This distribution reflects the binary label distribution to be later used for binary classification modeling.
 
 ```sql
@@ -471,6 +482,7 @@ GROUP BY tipped
 **Output:** The query should return the following tip frequencies for the year 2013: 90,447,622 tipped and 82,264,709 not-tipped.
 
 ### Exploration: Tip class/range distribution
+
 This example computes the distribution of tip ranges in a given time period (or in the full dataset if covering the full year). This distribution of  label classes will be used later for multiclass classification modeling.
 
 ```sql
@@ -498,6 +510,7 @@ GROUP BY tip_class
 | 4 |85765 |
 
 ### Exploration: Compute and compare trip distance
+
 This example converts the pickup and dropoff longitude and latitude to SQL geography points, computes the trip distance using SQL geography points difference, and returns a random sample of the results for comparison. The example limits the results to valid coordinates only using the data quality assessment query covered earlier.
 
 ```sql
@@ -545,6 +558,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 ```
 
 ### Feature engineering using SQL functions
+
 Sometimes SQL functions can be an efficient option for feature engineering. In this walkthrough, we defined a SQL function to calculate the direct distance between the pickup and dropoff locations. You can run the following SQL scripts in **Visual Studio Data Tools**.
 
 Here is the SQL script that defines the distance function.
@@ -607,6 +621,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### Prepare data for model building
+
 The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a sample from the full joined dataset. The sampling is done by retrieving a subset of the trips based on pickup time.  This query can be copied then pasted directly in the [Azure Machine Learning Studio (classic)](https://studio.azureml.net) [Import Data][import-data] module for direct data ingestion from the SQL Database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
 
 ```sql
@@ -632,6 +647,7 @@ When you are ready to proceed to Azure Machine Learning, you may either:
 2. Persist the sampled and engineered data you plan to use for model building in a new Azure Synapse Analytics table and use the new table in the [Import Data][import-data] module in Azure Machine Learning. The PowerShell script in earlier step has done this task for you. You can read directly from this table in the Import Data module.
 
 ## <a name="ipnb"></a>Data exploration and feature engineering in IPython notebook
+
 In this section, we will perform data exploration and feature generation
 using both Python and SQL queries against the Azure Synapse Analytics created earlier. A sample IPython notebook named **SQLDW_Explorations.ipynb** and a Python script file **SQLDW_Explorations_Scripts.py** have been downloaded to your local directory. They are also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). These two files are identical in Python scripts. The Python script file is provided to you in case you do not have an IPython Notebook server. These two sample Python files are designed under **Python 2.7**.
 
@@ -671,6 +687,7 @@ When building advanced analytical solutions on Azure Machine Learning with large
 The followings are a few data exploration, data visualization, and feature engineering examples. More data explorations can be found in the sample IPython Notebook and the sample Python script file.
 
 ### Initialize database credentials
+
 Initialize your database connection settings in the following variables:
 
 ```sql
@@ -758,6 +775,7 @@ Time to read the sample table is 14.096495 seconds.
 Number of rows and columns retrieved = (1000, 21).
 
 ### Descriptive statistics
+
 Now you are ready to explore the sampled data. We start with
 looking at some descriptive statistics for the **trip\_distance** (or any other fields you choose to specify).
 
@@ -766,6 +784,7 @@ df1['trip_distance'].describe()
 ```
 
 ### Visualization: Box plot example
+
 Next we look at the box plot for the trip distance to visualize the quantiles.
 
 ```sql
@@ -775,6 +794,7 @@ df1.boxplot(column='trip_distance',return_type='dict')
 ![Box plot output][1]
 
 ### Visualization: Distribution plot example
+
 Plots that visualize the distribution and a histogram for the sampled trip distances.
 
 ```sql
@@ -788,6 +808,7 @@ df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 ![Distribution plot output][2]
 
 ### Visualization: Bar and line plots
+
 In this example, we bin the trip distance into five bins and visualize the binning results.
 
 ```sql
@@ -814,6 +835,7 @@ pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 ![Line plot output][4]
 
 ### Visualization: Scatterplot examples
+
 We show scatter plot between **trip\_time\_in\_secs** and **trip\_distance** to see if there
 is any correlation
 
@@ -832,6 +854,7 @@ plt.scatter(df1['passenger_count'], df1['trip_distance'])
 ![Scatterplot output of relationship between code and distance][8]
 
 ### Data exploration on sampled data using SQL queries in IPython notebook
+
 In this section, we explore data distributions using the sampled data that is persisted in the new table we created above. Similar explorations may be performed using the original tables.
 
 #### Exploration: Report number of rows and columns in the sampled table
@@ -936,6 +959,7 @@ pd.read_sql(query,conn)
 ```
 
 ## <a name="mlmodel"></a>Build models in Azure Machine Learning
+
 We are now ready to proceed to model building and model deployment in [Azure Machine Learning](https://studio.azureml.net). The data is ready to be used in any of the prediction problems identified earlier, namely:
 
 1. **Binary classification**: To predict whether or not a tip was paid for a trip.
@@ -984,6 +1008,7 @@ An example of a binary classification experiment reading data directly from the 
 >
 
 ## <a name="mldeploy"></a>Deploy models in Azure Machine Learning
+
 When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure ML web services, see [Deploy an Azure Machine Learning web service](/azure/machine-learning/classic/deploy-a-machine-learning-web-service).
 
 To deploy a new web service, you need to:
@@ -1008,25 +1033,28 @@ A sample scoring experiment is provided in the figure below. When ready to deplo
 ![Azure ML Publish][11]
 
 ## Summary
+
 To recap what we have done in this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset, taking it through the Team Data Science Process, all the way from data acquisition to model training, and then to the deployment of an Azure Machine Learning web service.
 
 ### License information
+
 This sample walkthrough and its accompanying scripts and IPython notebook(s) are shared by Microsoft under the MIT license. Check the LICENSE.txt file in the directory of the sample code on GitHub for more details.
 
 ## References
+
 - [Andrés Monroy NYC Taxi Trips Download Page](https://www.andresmh.com/nyctaxitrips/)
 - [FOILing NYC's Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
 - [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
-[1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
-[2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png
-[3]: ./media/sqldw-walkthrough/sql-walkthrough_35_1.png
-[4]: ./media/sqldw-walkthrough/sql-walkthrough_36_1.png
-[5]: ./media/sqldw-walkthrough/sql-walkthrough_39_1.png
-[6]: ./media/sqldw-walkthrough/sql-walkthrough_42_1.png
-[7]: ./media/sqldw-walkthrough/sql-walkthrough_44_1.png
-[8]: ./media/sqldw-walkthrough/sql-walkthrough_46_1.png
-[9]: ./media/sqldw-walkthrough/sql-walkthrough_71_1.png
+[1]: ./media/sqldw-walkthrough/sql-walkthrough-26-1.png
+[2]: ./media/sqldw-walkthrough/sql-walkthrough-28-1.png
+[3]: ./media/sqldw-walkthrough/sql-walkthrough-35-1.png
+[4]: ./media/sqldw-walkthrough/sql-walkthrough-36-1.png
+[5]: ./media/sqldw-walkthrough/sql-walkthrough-39-1.png
+[6]: ./media/sqldw-walkthrough/sql-walkthrough-42-1.png
+[7]: ./media/sqldw-walkthrough/sql-walkthrough-44-1.png
+[8]: ./media/sqldw-walkthrough/sql-walkthrough-46-1.png
+[9]: ./media/sqldw-walkthrough/sql-walkthrough-71-1.png
 [10]: ./media/sqldw-walkthrough/azuremltrain.png
 [11]: ./media/sqldw-walkthrough/azuremlpublish.png
 [12]: ./media/sqldw-walkthrough/ssmsconnect.png
@@ -1036,14 +1064,14 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [16]: ./media/sqldw-walkthrough/bulkimport.png
 [17]: ./media/sqldw-walkthrough/amlreader.png
 [18]: ./media/sqldw-walkthrough/amlscoring.png
-[19]: ./media/sqldw-walkthrough/ps_download_scripts.png
-[20]: ./media/sqldw-walkthrough/ps_load_data.png
+[19]: ./media/sqldw-walkthrough/ps-download-scripts.png
+[20]: ./media/sqldw-walkthrough/ps-load-data.png
 [21]: ./media/sqldw-walkthrough/azcopy-overwrite.png
 [22]: ./media/sqldw-walkthrough/ipnb-service-aml-1.png
 [23]: ./media/sqldw-walkthrough/ipnb-service-aml-2.png
 [24]: ./media/sqldw-walkthrough/ipnb-service-aml-3.png
 [25]: ./media/sqldw-walkthrough/ipnb-service-aml-4.png
-[26]: ./media/sqldw-walkthrough/tip_class_hist_1.png
+[26]: ./media/sqldw-walkthrough/tip-class-hist-1.png
 
 
 <!-- Module References -->

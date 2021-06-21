@@ -26,6 +26,7 @@ If the dataset you plan to analyze is large, it's usually a good idea to down-sa
 This sampling task is a step in the [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/).
 
 ## Download and down-sample data
+
 1. Download the data from Azure Blob Storage using the Blob service from the following sample Python code: 
 
     ```python
@@ -68,6 +69,7 @@ This sampling task is a step in the [Team Data Science Process (TDSP)](/azure/ma
 Now you can work with the above data frame with the one Percent sample for further exploration and feature generation.
 
 ## <a name="heading"></a>Upload data and read it into Azure Machine Learning
+
 You can use the following sample code to down-sample the data and use it directly in Azure Machine Learning:
 
 1. Write the data frame to a local file
@@ -102,4 +104,4 @@ You can use the following sample code to down-sample the data and use it directl
 
 3. Read the data from the Azure blob using Azure Machine Learning [Import Data](/azure/machine-learning/studio-module-reference/import-data) as shown in the image below:
 
-![reader blob](./media/sample-data-blob/reader_blob.png)
+![reader blob](./media/sample-data-blob/reader-blob.png)

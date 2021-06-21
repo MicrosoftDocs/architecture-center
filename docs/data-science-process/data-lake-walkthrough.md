@@ -17,11 +17,13 @@ categories:
   - ai-machine-learning
 ---
 # Scalable Data Science with Azure Data Lake: An end-to-end Walkthrough
+
 This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset to predict whether or not a tip is paid by a fare. It walks you through the steps of the [Team Data Science Process](/azure/machine-learning/team-data-science-process/), end-to-end, from data acquisition to model training, and then to the deployment of a web service that publishes the model.
 
 ## Technologies
 
 These technologies are used in this walkthrough.
+
 * Azure Data Lake Analytics
 * U-SQL and Visual Studio
 * Python
@@ -30,6 +32,7 @@ These technologies are used in this walkthrough.
 
 
 ### Azure Data Lake Analytics
+
 The [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) has all the capabilities required to make it easy for data scientists to store data of any size, shape and speed, and to conduct data processing, advanced analytics, and machine learning modeling with high scalability in a cost-effective way.   You pay on a per-job basis, only when data is actually being processed. Azure Data Lake Analytics includes U-SQL, a language that blends the declarative nature of SQL with the expressive power of C# to provide scalable distributed query capability. It enables you to process unstructured data by applying schema on read, insert custom logic and user-defined functions (UDFs), and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 Data Lake Analytics is also a key part of Cortana Analytics Suite and works with Azure Synapse Analytics, Power BI, and Data Factory. This combination gives you a complete cloud big data and advanced analytics platform.
@@ -37,18 +40,23 @@ Data Lake Analytics is also a key part of Cortana Analytics Suite and works with
 This walkthrough begins by describing how to install the prerequisites and resources that are needed to complete data science process tasks. Then it outlines the data processing steps using U-SQL and concludes by showing how to use Python and Hive with Azure Machine Learning Studio (classic) to build and deploy the predictive models.
 
 ### U-SQL and Visual Studio
+
 This walkthrough recommends using Visual Studio to edit U-SQL scripts to process the dataset. The U-SQL scripts are described here and provided in a separate file. The process includes ingesting, exploring, and sampling the data. It also shows how to run a U-SQL scripted job from the Azure portal. Hive tables are created for the data in an associated HDInsight cluster to facilitate the building and deployment of a binary classification model in Azure Machine Learning Studio.
 
 ### Python
+
 This walkthrough also contains a section that shows how to build and deploy a predictive model using Python with Azure Machine Learning Studio. It provides a Jupyter notebook with the Python scripts for the steps in this process. The notebook includes code for some additional feature engineering steps and models construction such as multiclass classification and regression modeling in addition to the binary classification model outlined here. The regression task is to predict the amount of the tip based on other tip features.
 
-### Azure Machine Learning 
+### Azure Machine Learning
+
 Azure Machine Learning Studio (classic) is used to build and deploy the predictive models using two approaches: first with Python scripts and then with Hive tables on an HDInsight (Hadoop) cluster.
 
 ### Scripts
+
 Only the principal steps are outlined in this walkthrough. You can download the full **U-SQL script** and **Jupyter Notebook** from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
 ## Prerequisites
+
 Before you begin these topics, you must have the following:
 
 * An Azure subscription. If you do not already have one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -61,6 +69,7 @@ Before you begin these topics, you must have the following:
 
 
 ## Prepare data science environment for Azure Data Lake
+
 To prepare the data science environment for this walkthrough, create the following resources:
 
 * Azure Data Lake Storage (ADLS)
@@ -82,17 +91,17 @@ This section provides instructions on how to create each of these resources. If 
 
 Create an ADLS from the [Azure portal](https://portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure portal](/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there.
 
- ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
+ ![3](./media/data-lake-walkthrough/3-create-adls.png)
 
 ### Create an Azure Data Lake Analytics account
 Create an ADLA account from the [Azure portal](https://portal.azure.com). For details, see [Tutorial: get started with Azure Data Lake Analytics using Azure portal](/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 
- ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
+ ![4](./media/data-lake-walkthrough/4-create-adla-new.png)
 
 ### Create an Azure Blob storage account
 Create an Azure Blob storage account from the [Azure portal](https://portal.azure.com). For details, see the Create a storage account section in [About Azure Storage accounts](/azure/storage/common/storage-account-create).
 
- ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
+ ![5](./media/data-lake-walkthrough/5-create-azure-blob.png)
 
 ### Set up an Azure Machine Learning Studio (classic) account
 Sign up/into Azure Machine Learning Studio (classic) from the [Azure Machine Learning studio](https://azure.microsoft.com/services/machine-learning/) page. Click on the **Get started now** button and then choose a "Free Workspace" or "Standard Workspace". Now your are ready to create experiments in Azure Machine Learning studio.
@@ -100,11 +109,11 @@ Sign up/into Azure Machine Learning Studio (classic) from the [Azure Machine Lea
 ### Install Azure Data Lake Tools [Recommended]
 Install Azure Data Lake Tools for your version of Visual Studio from [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
- ![6](./media/data-lake-walkthrough/6-install-ADL-tools-VS.PNG)
+ ![6](./media/data-lake-walkthrough/6-install-adl-tools-vs.png)
 
 After the installation finishes, open up Visual Studio. You should see the Data Lake tab the menu at the top. Your Azure resources should appear in the left panel when you sign into your Azure account.
 
- ![7](./media/data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
+ ![7](./media/data-lake-walkthrough/7-install-adl-tools-vs-done.png)
 
 ## The NYC Taxi Trips dataset
 The data set used here is a publicly available dataset -- the [NYC Taxi Trips dataset](https://www.andresmh.com/nyctaxitrips/). The NYC Taxi Trip data consists of about 20 GB of compressed CSV files (~48 GB uncompressed), recording more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff locations and times, anonymized hack (driver's) license number, and the medallion (taxi’s unique ID) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
@@ -130,6 +139,7 @@ The 'trip_fare' CSV contains details of the fare paid for each trip, such as pay
 The unique key to join trip\_data and trip\_fare is composed of the following three fields: medallion, hack\_license and pickup\_datetime. The raw CSV files can be accessed from an Azure Storage blob. The U-SQL script for this join is in the [Join trip and fare tables](#join) section.
 
 ## Process data with U-SQL
+
 The data processing tasks illustrated in this section include ingesting, checking quality, exploring, and sampling the data. How to join trip and fare tables is also shown. The final section shows run a U-SQL scripted job from the Azure portal. Here are links to each subsection:
 
 * [Data ingestion: read in data from public blob](#ingest)
@@ -143,14 +153,14 @@ The U-SQL scripts are described here and provided in a separate file. You can do
 
 To execute U-SQL, Open Visual Studio, click **File --> New --> Project**, choose **U-SQL Project**, name and save it to a folder.
 
-![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
+![8](./media/data-lake-walkthrough/8-create-usql-project.png)
 
 > [!NOTE]
 > It is possible to use the Azure Portal to execute U-SQL instead of Visual Studio. You can navigate to the Azure Data Lake Analytics resource on the portal and submit queries directly as illustrated in the following figure:
 >
 >
 
-![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
+![9](./media/data-lake-walkthrough/9-portal-submit-job.png)
 
 ### <a name="ingest"></a>Data Ingestion: Read in data from public blob
 
@@ -215,9 +225,9 @@ USING Outputters.Csv();
 
 Similarly you can read in the fare data sets. Right-click Azure Data Lake Storage, you can choose to look at your data in **Azure portal --> Data Explorer** or **File Explorer** within Visual Studio.
 
- ![10](./media/data-lake-walkthrough/10-data-in-ADL-VS.PNG)
+ ![10](./media/data-lake-walkthrough/10-data-in-adl-vs.png)
 
- ![11](./media/data-lake-walkthrough/11-data-in-ADL.PNG)
+ ![11](./media/data-lake-walkthrough/11-data-in-adl.png)
 
 ### <a name="quality"></a>Data quality checks
 After trip and fare tables have been read in, data quality checks can be done in the following way. The resulting CSV files can be output to Azure Blob storage or Azure Data Lake Storage.
@@ -461,19 +471,19 @@ USING Outputters.Csv();
 ### <a name="run"></a>Run U-SQL jobs
 After editing U-SQL scripts, you can submit them to the server using your Azure Data Lake Analytics account. Click **Data Lake**, **Submit Job**, select your **Analytics Account**, choose **Parallelism**, and click **Submit** button.
 
- ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
+ ![12](./media/data-lake-walkthrough/12-submit-usql.png)
 
 When the job is complied successfully, the status of your job is displayed in Visual Studio for monitoring. After the job completes, you can even replay the job execution process and find out the bottleneck steps to improve your job efficiency. You can also go to Azure portal to check the status of your U-SQL jobs.
 
- ![13](./media/data-lake-walkthrough/13-USQL-running-v2.PNG)
+ ![13](./media/data-lake-walkthrough/13-usql-running-v2.png)
 
- ![14](./media/data-lake-walkthrough/14-USQL-jobs-portal.PNG)
+ ![14](./media/data-lake-walkthrough/14-usql-jobs-portal.png)
 
 Now you can check the output files in either Azure Blob storage or Azure portal. Use the stratified sample data for our modeling in the next step.
 
- ![15](./media/data-lake-walkthrough/15-U-SQL-output-csv.PNG)
+ ![15](./media/data-lake-walkthrough/15-u-sql-output-csv.png)
 
- ![16](./media/data-lake-walkthrough/16-U-SQL-output-csv-portal.PNG)
+ ![16](./media/data-lake-walkthrough/16-u-sql-output-csv-portal.png)
 
 ## Build and deploy models in Azure Machine Learning
 Two options are available for you to pull data into Azure Machine Learning to build and
@@ -529,7 +539,7 @@ from azureml import services
   print(("It takes %s seconds to read in "+BLOBNAME) % (t2 - t1))
   ```
 
-  ![17](./media/data-lake-walkthrough/17-python_readin_csv.PNG)
+  ![17](./media/data-lake-walkthrough/17-python-readin-csv.png)
 
 * Add column names and separate columns
 
@@ -585,7 +595,7 @@ Here you build a binary classification model to predict whether a trip is tipped
   Y_train_pred = logit_fit.predict(X_train)
   ```
 
-    ![c1](./media/data-lake-walkthrough/c1-py-logit-coefficient.PNG)
+    ![c1](./media/data-lake-walkthrough/c1-py-logit-coefficient.png)
 
 * Score testing data set
 
@@ -611,14 +621,14 @@ Here you build a binary classification model to predict whether a trip is tipped
   print metrics.confusion_matrix(Y_test,Y_test_pred)
   ```
 
-    ![c2](./media/data-lake-walkthrough/c2-py-logit-evaluation.PNG)
+    ![c2](./media/data-lake-walkthrough/c2-py-logit-evaluation.png)
 
 ### Build Web Service API and consume it in Python
 You want to operationalize the machine learning model after it has been built. The binary logistic model is used here as an example. Make sure the scikit-learn version in your local machine is 0.15.1 (Azure Machine Learning Studio is already at least at this version).
 
 * Find your workspace credentials from Azure Machine Learning Studio (classic) settings. In Azure Machine Learning Studio, click **Settings** --> **Name** --> **Authorization Tokens**.
 
-    ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
+    ![c3](./media/data-lake-walkthrough/c3-workspace-id.png)
 
   ```output
   workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
@@ -658,7 +668,7 @@ You want to operationalize the machine learning model after it has been built. T
   NYCTAXIPredictor(1,2,1,0,0,0,0,0,1)
   ```
 
-    ![c4](./media/data-lake-walkthrough/c4-call-API.PNG)
+    ![c4](./media/data-lake-walkthrough/c4-call-api.png)
 
 ## Option 2: Create and deploy models directly in Azure Machine Learning
 Azure Machine Learning Studio (classic) can read data directly from Azure Data Lake Storage and then be used to create and deploy models. This approach uses a Hive table that points at the Azure Data Lake Storage. A separate Azure HDInsight cluster needs to be provisioned for the Hive table. 
@@ -666,18 +676,18 @@ Azure Machine Learning Studio (classic) can read data directly from Azure Data L
 ### Create an HDInsight Linux Cluster
 Create an HDInsight Cluster (Linux) from the [Azure portal](https://portal.azure.com). For details, see the **Create an HDInsight cluster with access to Azure Data Lake Storage** section in [Create an HDInsight cluster with Data Lake Store using Azure portal](/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 
- ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
+ ![18](./media/data-lake-walkthrough/18-create-hdi-cluster.png)
 
 ### Create Hive table in HDInsight
 Now you create Hive tables to be used in Azure Machine Learning Studio (classic) in the HDInsight cluster using the data stored in Azure Data Lake Storage in the previous step. Go to the HDInsight cluster created. Click **Settings** --> **Properties** --> **Cluster AAD Identity** --> **ADLS Access**, make sure your Azure Data Lake Storage account is added in the list with read, write, and execute rights.
 
- ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
+ ![19](./media/data-lake-walkthrough/19-hdi-cluster-add-adls.png)
 
 Then click **Dashboard** next to the **Settings** button and a window pops up. Click **Hive View** in the upper right corner of the page and you should see the **Query Editor**.
 
- ![20](./media/data-lake-walkthrough/20-HDI-dashboard.PNG)
+ ![20](./media/data-lake-walkthrough/20-hdi-dashboard.png)
 
- ![21](./media/data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
+ ![21](./media/data-lake-walkthrough/21-hive-query-editor-v2.png)
 
 Paste in the following Hive scripts to create a table. The location of data source is in Azure Data Lake Storage reference in this way: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
@@ -715,7 +725,7 @@ LOCATION 'adl://data_lake_storage_name.azuredatalakestore.net:443/nyctaxi_folder
 
 When the query completes, you should see the results like this:
 
- ![22](./media/data-lake-walkthrough/22-Hive-Query-results.PNG)
+ ![22](./media/data-lake-walkthrough/22-hive-query-results.png)
 
 ### Build and deploy models in Azure Machine Learning Studio
 You are now ready to build and deploy a model that predicts whether or not a tip is paid with Azure Machine Learning. The stratified sample data is ready to be used in this binary classification (tip or not) problem. The predictive models using multiclass classification (tip_class) and regression (tip_amount) can also be built and deployed with Azure Machine Learning Studio, but here it is only shown how to handle the case using the binary classification model.
@@ -730,23 +740,23 @@ You are now ready to build and deploy a model that predicts whether or not a tip
 
 4. Enter the URI of HDInsight cluster (this URI can be found in Azure portal), Hadoop credentials, location of output data, and Azure Storage account name/key/container name.
 
-   ![23](./media/data-lake-walkthrough/23-reader-module-v3.PNG)
+   ![23](./media/data-lake-walkthrough/23-reader-module-v3.png)
 
 An example of a binary classification experiment reading data from Hive table is shown in the following figure:
 
- ![24](./media/data-lake-walkthrough/24-AML-exp.PNG)
+ ![24](./media/data-lake-walkthrough/24-aml-exp.png)
 
 After the experiment is created, click  **Set Up Web Service** --> **Predictive Web Service**
 
- ![25](./media/data-lake-walkthrough/25-AML-exp-deploy.PNG)
+ ![25](./media/data-lake-walkthrough/25-aml-exp-deploy.png)
 
 Run the automatically created scoring experiment, when it finishes, click **Deploy Web Service**
 
- ![26](./media/data-lake-walkthrough/26-AML-exp-deploy-web.PNG)
+ ![26](./media/data-lake-walkthrough/26-aml-exp-deploy-web.png)
 
 The web service dashboard displays shortly:
 
- ![27](./media/data-lake-walkthrough/27-AML-web-api.PNG)
+ ![27](./media/data-lake-walkthrough/27-aml-web-api.png)
 
 ## Summary
 By completing this walkthrough, you have created a data science environment for building scalable end-to-end solutions in Azure Data Lake. This environment was used to analyze a large public dataset, taking it through the canonical steps of the Data Science Process, from data acquisition through model training, and then to the deployment of the model as a web service. U-SQL was used to process, explore, and sample the data. Python and Hive were used with Azure Machine Learning Studio (classic) to build and deploy predictive models.

@@ -90,7 +90,7 @@ On the **New Pull Request** screen, if necessary, navigate to the Git repository
 
 Once you create the pull request, your reviewers get an email notification to review the pull request. The reviewers test whether the changes work, and check the changes with the requester if possible. The reviewers can make comments, request changes, and approve or reject the pull request based on their assessment. 
 
-![8](./media/collaborative-coding-with-git/8-add_comments.png)
+![8](./media/collaborative-coding-with-git/8-add-comments.png)
 
 After the reviewers approve the changes, you or someone else with merge permissions can merge the working branch to its base branch. Select **Complete**, and then select **Complete merge** in the **Complete pull request** dialog. You can choose to delete the working branch after it has merged. 
 
