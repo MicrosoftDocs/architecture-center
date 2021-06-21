@@ -12,19 +12,21 @@ This solution uses [Azure Machine Learning](/azure/machine-learning/) to predict
 
 ### Data flow
 
-1. You can use Azure Event Hub to stream all live data into Azure. Utilize Stream Analytics to perform real-time analytics and ingest data into Azure Synapse to combine existing and historical data to create dashboards and reports.
+1. Use Azure Event Hub to stream all live data into Azure.
 
-2. Ingest historical data at scale into Azure Blob Storage to combine with streamed data for ad-hoc insights and experimentation using Azure Machine learning.
+1. Use Stream Analytics for real-time analytics and ingest data into Azure Synapse (SQL DW). Combine existing and historical data to create dashboards and reports in Power BI.
 
-3. Use Power BI to build operational reports and dashboards on top of Azure Synapse to derive insights and report on business data for users consumption.
+1. Ingest historical data at scale into Azure Blob Storage to combine with streamed data for ad-hoc insights and experimentation using Azure Machine learning.
 
-4. Use Azure Machine Learning to build models to predict churn probability, data patterns to deliver high intelligent insights and analytics on collected data. These models can be used further to build Power BI reports and analytical dashboards to assist businesses in the decision making.
+1. Use Azure Machine Learning to build models to predict churn probability, data patterns to deliver high intelligent insights and analytics on collected data. These models can be used further to build Power BI reports and analytical dashboards to assist businesses in decision making.
+
+1. Use Power BI to build operational reports and dashboards on top of Azure Synapse to derive insights and report on business data about user consumption.
 
 ## Components
 
 * [Azure Event Hubs](/azure/event-hubs/event-hubs-about) is an event ingestion service that can process millions of events per second. Data sent to event hub can be transformed and stored using any real-time analytics provider.
-* [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics engine that is design to analyze and process high volume of fast streaming data. Relationships and patterns identified in the data can be used to trigger actions and initiate workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data for later use.
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is a cloud service for storing large amount of unstructured data such as text, binary data, audio, and documents more-easily and cost-effectively. Azure blob storage allows for a quick access to data scientist to experiment and build AI models.
+* [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) is a real-time analytics engine designed to analyze and process high volume of fast streaming data. Relationships and patterns identified in the data can be used to trigger actions and initiate workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data for later use.
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is a cloud service for storing large amounts of unstructured data such as text, binary data, audio, and documents more-easily and cost-effectively. Azure Blob Storage allows data scientists quick access to data for experimentation and AI model building.
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is a fast and reliable data warehouse with limitless analytics that brings together data integration, enterprise data warehousing, and big data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated resources and serve data for immediate BI and machine learning needs.
 * [Azure Machine Learning](/azure/machine-learning/) can be used for any supervised and unsupervised machine learning, whether you prefer to write Python of R code. You can build, train, and track machine learning models in an Azure Machine Leaning workspace.
 * [Power BI](https://powerbi.microsoft.com/) is a suite of tools that delivers powerful insights to organizations. Power BI connects to various data sources, simplify data prep and model creation from disparate sources. Enhance team collaboration across the organization to produce analytical reports and dashboard to support the business decisions and publish them to the web and mobile devices for users to consume.
@@ -33,19 +35,17 @@ This solution uses [Azure Machine Learning](/azure/machine-learning/) to predict
 
 For more details on how this solution is built, visit the [solution guide in GitHub](https://github.com/Azure/cortana-intelligence-churn-prediction-solution).
 
-
-
 The objective of this guide is to demonstrate predictive data pipelines for retailers to predict customer churn. Retailers can use these predictions to prevent customer churn by using their domain knowledge and proper marketing strategies to address at-risk customers. The guide also shows how customer churn models can be retrained to use more data as it becomes available.
 
 ## What's under the hood
 
-The end-to-end solution is implemented in the cloud, using Microsoft Azure. The solution is composed of several Azure components, including data ingest, data storage, data movement, advanced analytics, and visualization. The advanced analytics are implemented in Azure Machine Learning, where one can use Python or R language to build data science models (or reuse existing in-house or third-party libraries). With data ingest, the solution can make predictions based on data that being transferred to Azure from an on-premises environment.
+The end-to-end solution is implemented in the cloud, using Microsoft Azure. The solution is composed of several Azure components, including data ingest, data storage, data movement, advanced analytics, and visualization. The advanced analytics are implemented in Azure Machine Learning, where you can use Python or R language to build data science models. Or you can reuse existing in-house or third-party libraries. With data ingest, the solution can make predictions based on data transferred to Azure from an on-premises environment.
 
 ## Solution dashboard
 
 The snapshot below shows an example Power BI dashboard that gives insights into the predicted churn rates across the customer base.
 
-![Insights](https://az712634.vo.msecnd.net/tutorials/Retail-Customer-Churn-Prediction/customer-churn-dashboard-2.png)
+![Power BI dashboard that gives insights into the predicted churn rates across customer base.](https://az712634.vo.msecnd.net/tutorials/Retail-Customer-Churn-Prediction/customer-churn-dashboard-2.png)
 
 ## Next steps
 
@@ -69,5 +69,5 @@ Reference architectures:
 
 * [Batch scoring for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
 * [Batch scoring of Python models on Azure](../../reference-architectures/ai/batch-scoring-python.yml)
-* [Batch scoring of Python models on Azure](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
+* [Build a speech-to-text transcription pipeline](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
 * [Movie recommendations on Azure](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
