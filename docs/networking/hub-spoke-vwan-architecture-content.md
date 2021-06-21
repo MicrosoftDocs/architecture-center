@@ -113,7 +113,7 @@ This diagram illustrates a few of the advantages that this architecture can prov
 
 ## Recommendations
 
-The following recommendations apply to most scenarios. Follow them unless you
+The following recommendations apply to most scenarios. Follow them, unless you
 have a specific requirement that overrides them.
 
 ### Resource groups
