@@ -1,28 +1,24 @@
-  metadata:
+  ### YamlMime:Architecture
+metadata:
   title: Analytics solution journey
   titleSuffix: Azure Solution Ideas
-  description: Harness the power of edge AI when disconnected from the internet and move your AI models to the edge with a solution architecture that includes Azure Stack Hub.
+  description: Analytics solutions turn volumes of data into useful business intelligence (BI), such as reports and visualizations, and inventive artificial intelligence (AI), such as forecasts based on machine learning.
   author: EdPrice-MSFT
   ms.author: v-nanra
   ms.date: 06/21/2021
-  ms.topic: conceptual
+  ms.topic: conceptual 
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.category:
-    - analytics
-    - databases
-  ms.custom:
-    - acom-architecture
-  social_image_url: /azure/architecture/solution-ideas/articles/media/analytics-get-started-diagram.png
-name: Advanced Analytics Architecture
+  ms.category: analytics
+  ms.custom: azure-synapse-analytics
 azureCategories:
   - analytics
   - databases
-summary: This architecture allows you to combine any data at any scale with custom machine learning and get near real-time data analytics on streaming services.
 products:
-  - azure-analysis-services
-  - azure-databricks
   - azure-synapse-analytics
+  - power-bi
+name: Analytics solution journey
+summary: Analytics solutions turn volumes of data into useful business intelligence (BI) and inventive artificial intelligence (AI).
 thumbnailUrl: /azure/architecture/browse/thumbs/advanced-analytics-on-big-data.png
 content: |
    [!include[](analytics-start-here-content.md)]
