@@ -47,16 +47,20 @@ A formal process for approving and testing all network connections and changes t
 
 ##### Your responsibilities
       
-Don't implement configurations manually, such as by using the Azure portal or the Azure CLI directly. Instead, use Infrastructure as Code (IaC). With IaC, infrastructure is managed through a descriptive model that uses a versioning system. The IaC model generates the same environment every time it's applied. Common examples of IaC are Azure Resource Manager or Terraform.
+Don't implement configurations manually, such as by using the Azure portal or the Azure CLI directly. We recommend using Infrastructure as Code (IaC). With IaC, infrastructure is managed through a descriptive model that uses a versioning system. The IaC model generates the same environment every time it's applied. Common examples of IaC are Azure Resource Manager or Terraform. If IaC is not an option, have a well-documented process for tracking, implementing, and safely deploying firewall rule changes. More details are provided as part of [Requirement 11.2](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-monitor#requirement-112).
 
-You'll need to use a combination of various network controls, including Azure Firewall, network security groups (NSGs), and the Kubernetes NetworkPolicy resource. Minimize the number of people who can access and modify network controls. Define roles and clear responsibilities to teams. For example, an organization's network team will validate the changes per the governance policies set by IT teams. Have a gated approval process that involves people and processes to approve changes to any network configuration. Have detailed documentation that describes the process.
+You'll need to use a combination of various network controls, including Azure Firewall, network security groups (NSGs), and the Kubernetes `NetworkPolicy` resource. 
+
+Minimize the number of people who can access and modify network controls. Define roles and clear responsibilities to teams. For example, an organization's network team will validate the changes per the governance policies set by IT teams. Have a gated approval process that involves people and processes to approve changes to any network configuration. The process should include a step for testing all network controls. Have detailed documentation that describes the process. 
+
+
 
 #### Requirement 1.1.2
 Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
 
 ##### Your responsibilities
 
-As part of your documentation, maintain a network flow diagram that shows the incoming and outgoing traffic with specific controls. The diagram should not only include traffic flows to and from the infrastructure, but also flows within the cluster.
+As part of your documentation, maintain a network flow diagram that shows the incoming and outgoing traffic with security controls. This includes traffic flow from other networks including any wireless network to the CDE. The diagram also show flows within the cluster. There are some specific requirements for diagrams, they should show the intrusion sensors. The controls for 
 
 This image shows the network diagram of the reference implementation.
 
@@ -66,12 +70,14 @@ This image shows the network diagram of the reference implementation.
 
 The description of this flow is in the following sections.
 
+You can [view the topology of an Azure virtual network](/azure/network-watcher/view-network-topology) if you have  Azure Network Watcher. You can view all of the resources in a virtual network, the resources associated to resources in a virtual network, and the relationships between the resources.
+
 #### Requirement 1.1.3
 Current diagram that shows all cardholder data flows across systems and networks.
 ##### Your responsibilities
 As part of your documentation, include a data flow diagram that shows how data is protected at rest and in transit.
 
-The diagram should show how data flows to and from the workload and what information is passed from one resource to another. If there are changes in design, add a step as part of the change management process, to update the data flow diagram.
+The diagram should show how data flows to and from the workload and what information is passed from one resource to another. Make sure the diagram is kept current. Add a step as part of the change management process, to update the data flow diagram.
 
 Because this architecture is focused on the infrastructure and _not_ the workload, we have omitted illustrations here.
 
@@ -79,8 +85,10 @@ Because this architecture is focused on the infrastructure and _not_ the workloa
 Requirements for a firewall at each Internet connection and between any demilitarized zone (DMZ) and the internal network zone.
 
 ##### Your responsibilities
-      
-For a PCI DSS infrastructure, you're responsible for securing the card holder environment (CDE) by using network controls to block unauthorized access into and out of the network with the CDE. Network controls must be configured properly for a strong security posture, and they must be applied to:
+
+Have a clear definition of what defines the boundary of a DMZ. For example, the card holder environment (CDE) is within a DMZ secured by firewall, network policy, and other controls. 
+
+For a PCI DSS infrastructure, you're responsible for securing the CDE by using network controls to block unauthorized access into and out of the network with the CDE. Network controls must be configured properly for a strong security posture, and they must be applied to:
 - Communication between the colocated components within the cluster.
 - Communication between the workload and other components in trusted networks.
 - Communication between the workload and public internet.
@@ -92,6 +100,8 @@ This architecture uses different firewall technologies to inspect traffic flowin
 - Azure Firewall is used to secure all outbound (egress) traffic from any network and its subnets.
 
    As part of processing a transaction or management operations, the cluster will need to communicate with external entities. For example, the cluster might require communication with the AKS control plane, getting Windows and package updates, and the workload's interaction with external APIs. Some of those interactions might be over HTTP and should be considered as attack vectors. Those vectors are targets for a man-in-the-middle attack that can result in data exfiltration. Adding a firewall to egress traffic mitigates that threat.
+
+   We recommend that even pod-to-pod communication is TLS-encrypted. This practice is shown in the reference implementation with the use of a mTLS mesh.
 
 - NSGs are added to secure traffic between the cluster and other components within the infrastructure. For example, in the reference implementation, there are NSGs on the subnet with node pools that block any SSH access attempts. Only traffic from the virtual network is allowed. 
 
@@ -110,16 +120,16 @@ You'll need to provide controls on the network flows and the components involved
 
 For example, know who is responsible for the governance of securing network between Azure and the internet. In an enterprise, the IT team is responsible for configuration and maintenance of Azure Firewall rules, Web Application Firewall (WAF), NSGs, and other cross-network traffic. They might also be responsible for enterprise-wide virtual network and subnet allocation, and IP address planning.
 
-At the workload level, a cluster operator is responsible for maintaining zero-trust through network policies. Also, responsibilities might include communication with the Azure control plane, Kubernetes APIs, and monitoring technologies.
+At the workload level, a cluster operator is responsible for maintaining Zero-Trust through network policies. Also, responsibilities might include communication with the Azure control plane, Kubernetes APIs, and monitoring technologies.
 
-Make sure that access rights are given only to the parties responsible in each case. 
+Always start with a deny-all strategy. Give permission only when there's a business need or a role justification. 
 
 #### Requirement 1.1.6
 Documentation of business justification and approval for use of all services, protocols, and ports allowed, including documentation of security features implemented for those protocols considered to be insecure.
 
 ##### Your responsibilities
 
-Have detailed documentation that describes the services, protocols, and ports used in the network controls. Make sure you include justification for the controls. Here are some examples from the reference implementation for Azure Firewall. Firewall rules must be scoped exclusively to their related resources. That is, only traffic from specific sources is allowed to go to specific FQDN targets. Here are some cases to allow traffic.
+Have detailed documentation that describes the services, protocols, and ports used in the network controls. Deny all permissions except for explicitly allowed ports. Document business justification and documented security features if the use of insecure protocols can't be avoided. Here are some examples from the reference implementation for Azure Firewall. Firewall rules must be scoped exclusively to their related resources. That is, only traffic from specific sources is allowed to go to specific FQDN targets. Here are some cases to allow traffic.
 
 |Rule|Protocol:Port|Source|Destination|Justification
 |---|---|---|---|---|
@@ -134,7 +144,7 @@ Requirement to review firewall and router rule sets at least every six months.
 
 ##### Your responsibilities
 
-Have processes that regularly review the network configurations and the scoped rules. This will make sure the security assurances are current and valid. Make sure you review these configurations:
+Have processes at least every six months to review the network configurations and the scoped rules. This will make sure the security assurances are current and valid. Make sure you review these configurations:
 
 - Azure Firewall rules.
 - NSG rules.
@@ -148,7 +158,7 @@ Have processes that regularly review the network configurations and the scoped r
 Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment. 
 
 ##### Your responsibilities
-In this architecture, the AKS cluster _is_ the cardholder data environment (CDE). That cluster is deployed as a private cluster for enhanced security. In a private cluster, network traffic between the AKS-managed Kubernetes API server and your node pools is private. The API server is exposed via a Private Endpoint in the cluster's network.
+In this architecture, the AKS cluster is a key component of the cardholder data environment (CDE). We strongly recommend that the cluster is deployed as a private cluster for enhanced security. In a private cluster, network traffic between the AKS-managed Kubernetes API server and your node pools is private. The API server is exposed via a Private Endpoint in the cluster's network.
 
 You can also choose a public cluster, but be aware of potential challenges with this option. The API server will be exposed to the internet. The DNS record will always be discoverable. So, you need to have controls to keep the cluster API protected from public access. An approach is to have tight controls through Kubernetes role-based access controls (RBAC), paired with the authorized IP ranges feature of AKS. However, this solution isn't recommended for clusters containing regulated workloads.
 
@@ -163,7 +173,7 @@ For information about private clusters, see [Create a private Azure Kubernetes S
 Restrict inbound and outbound traffic to that which is necessary for the cardholder data environment, and specifically deny all other traffic.
 
 ##### Your responsibilities
-By design, Azure Virtual Network cannot be directly reached by the public internet. All inbound (or _ingress_) traffic must go through an intermediate traffic router. However, all components in the network can reach public endpoints. That outbound (or _egress_) traffic must be explicitly secured.
+By design, Azure Virtual Network cannot be directly reached by the public internet. All inbound (or _ingress_) traffic must go through an intermediate traffic router. However, all components in the network can reach public endpoints. That outbound (or _egress_) traffic must be explicitly secured allowing only secure ciphers and TLS 1.2 or later.
 
 -  Azure Application Gateway integrated WAF intercepts all ingress traffic and routes inspected traffic to the cluster. 
 

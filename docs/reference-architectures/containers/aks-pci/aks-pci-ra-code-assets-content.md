@@ -37,6 +37,7 @@ Provisioned in a separate virtual network. Creates VM images with base security 
 The spoke network has an additional compute for a jump box. This machine is intended to run management tools on the AKS cluster, such as kubectl.
 
 **Azure Application Gateway with integrated Web Application Firewall (WAF)**
+
 Azure Application Gateway load balances at Layer 7. WAF secures incoming traffic from common web traffic attacks. The instance has a public frontend IP configuration that receives user requests. 
 
 **Azure Kubernetes Service (AKS)**
@@ -44,6 +45,7 @@ Azure Application Gateway load balances at Layer 7. WAF secures incoming traffic
 The hosting infrastructure that is the most important part of the card holder environment (CDE). The AKS cluster is deployed as a private cluster. So, the Kubernetes API server is not exposed to the public internet and traffic between the API server and the cluster node pools is private. 
 
 **ACR Tasks**
+
 Provides an automated way of building and maintaining container images.
 
 **Azure Key Vault**
