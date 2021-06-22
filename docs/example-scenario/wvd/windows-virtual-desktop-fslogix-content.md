@@ -82,7 +82,7 @@ The following list describes some important things to keep in mind when using Az
 
 ![Files scenario](./images/fslogix-files.png)
 
-The table below shows you how you can further optimize your WVD environment. Detailed information of [Azure Files performance targets](/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets) (*Standard* and [Premium](/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)) and [pricing](https://azure.microsoft.com/pricing/details/storage/files/) is available to help you fine-tune your file-share solution.
+The table below shows you how you can further optimize your AVD environment. Detailed information of [Azure Files performance targets](/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets) (*Standard* and [Premium](/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)) and [pricing](https://azure.microsoft.com/pricing/details/storage/files/) is available to help you fine-tune your file-share solution.
 
 |Workload  |Examples                     |Recommended tier                |
 |----------|-----------------------------|--------------------------------|
@@ -165,7 +165,8 @@ You can use this PowerShell script to add the exclusions for Microsoft Defender:
 ```powershell
   # Defender Exclusions for FSLogix
   $Cloudcache = $false             # Set for true if using cloud cache
-  $StorageAcct = "wvdstorageacct"  # Storage Account Name
+  $StorageAcct = "
+  storageacct"  # Storage Account Name
 
   $filelist = `
   "%ProgramFiles%\FSLogix\Apps\frxdrv.sys", `
