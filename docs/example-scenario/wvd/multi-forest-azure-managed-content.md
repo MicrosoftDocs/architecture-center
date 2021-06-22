@@ -5,7 +5,7 @@ This solution idea shows how you can deploy WVD rapidly in a *minimum viable pro
 This solution idea also applies to mergers and acquisitions, organization rebranding, and multiple on-premises identities requirements.
 
 ## Architecture
-:::image type="content" source="images/wvd-multi-forest-aadds.png" alt-text="Windows Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds.png":::
+:::image type="content" source="images/wvd-multi-forest-aadds.png" alt-text="Azure Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds.png":::
 
 ## Data flow
 
@@ -20,7 +20,7 @@ The following steps show how the data flows in this architecture in the form of 
 1. Host pools and app groups can be created in a separate subscription and spoke virtual network.
 1. Users are assigned to the app groups.
 1. Users sign in via [WVD Desktop](/azure/virtual-desktop/connect-windows-7-10#install-the-windows-desktop-client) or [web client](/azure/virtual-desktop/connect-web) with a format such as, john@companyA.com, jane@companyB.com, or joe@newcompanyAB.com, depending on the UPN suffix configured.
-1. Users are presented with their respective virtual desktops or apps. For example, joe@companyA.com will be presented with virtual desktops or apps in host pool A, jane@companyB will be presented with virtual desktops or apps in host pool B, and joe@newcompanyAB will be presented with virtual desktops or apps in host pool AB.
+1. Users are presented with their respective virtual desktops or apps. For exaAmple, joe@companyA.com will be presented with virtual desktops or apps in host pool A, jane@companyB will be presented with virtual desktops or apps in host pool B, and joe@newcompanyAB will be presented with virtual desktops or apps in host pool AB.
 1. The storage account (Azure Files used for FSLogix) is joined to the managed domain AD DS. The FSLogix user profiles are created in Azure Files shares.
 
 > [!NOTE]
@@ -34,9 +34,9 @@ The following steps show how the data flows in this architecture in the form of 
 
 For more information, see these articles:
 
-- [Multiple AD forests architecture with Windows Virtual Desktop](./multi-forest.yml).
-- [Windows Virtual Desktop for enterprises](./windows-virtual-desktop.yml)
+- [Multiple AD forests architecture with Azure Virtual Desktop](./multi-forest.yml).
+- [Azure Virtual Desktop for enterprises](./windows-virtual-desktop.yml)
 - [Azure AD Connect Topology](/azure/active-directory/hybrid/plan-connect-topologies).
 - [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/compare-identity-solutions).
-- [Windows Virtual Desktop Documentation](/azure/virtual-desktop/).
+- [Azure Virtual Desktop Documentation](/azure/virtual-desktop/).
 
