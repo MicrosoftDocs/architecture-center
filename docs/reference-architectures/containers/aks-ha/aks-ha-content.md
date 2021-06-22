@@ -301,15 +301,17 @@ For information about other CAs supported by Front Door, see [Allowed certificat
 
 ### Cluster access and identity
 
-As discussed in the [AKS Baseline Reference Arechitecture](), consider using Azure Active Directory as an identity provider. The groups and users found in Azure Active Directory can then be used to control access to cluster resources.
+As discussed in the [AKS Baseline Reference Arechitecture](azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#integrate-azure-active-directory-for-the-cluster), consider using Azure Active Directory as a cluster access identity provider. The Azure Active Directory groups can then be used to control access to cluster resources.
 
 When managing multiple clusters, you will need to decide on an access schema. Options include:
 
-- Create a cluster-wide access group where members can access all objects across every Kubernetes instance in the cluster.
-- Create an individual access group for each Kubernetes instance which is used to grant access to objects in an individual cluster.
-- < others ? >
+- Create a global cluster-wide access-group where members can access all objects across every Kubernetes instance in the cluster.
+- Create an individual access group for each Kubernetes instance which is used to grant access to objects in an individual cluster instance.
+- Define granular access controls for Kubernetes object types and namespaces, and correlate this to an Azure Directory Group structure.
 
-< Do we need aditional info here on managing role and role binding on new / individual AKS instances? >
+With the included reference implementation, a single AAD group is created for admin access. This group is specified at cluster instance deployment time using the deployment parameter file. All members of the AAD group have full access to all cluster instances. 
+
+For more information on managing AKS cluster access with Azure Active Directory, see [AKS Azure AD Integration](/azure/aks/azure-ad-integration-cli).
 
 ### Data and state
 
