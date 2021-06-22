@@ -305,13 +305,11 @@ As discussed in the [AKS Baseline Reference Arechitecture](), consider using Azu
 
 When managing multiple clusters, you will need to decide on an access schema. Options include:
 
-**Cluster Admin access**
+- Create a cluster-wide access group where members can access all objects across every Kubernetes instance in the cluster.
+- Create an individual access group for each Kubernetes instance which is used to grant access to objects in an individual cluster.
+- < others ? >
 
-Take care to limit administrative access to your Kubernetes cluster instances. Options for configuring Azure Active Directory users and groups for cluster-admin access.
-
-- Create a cluster-wide access group that can access all objects across every Kubernetes instance in the cluster.
-- Create an individual access group for each Kubernetes instance used to grant access to objects in an individual cluster.
-- others
+< Do we need aditional info here on managing role and role binding on new / individual AKS instances? >
 
 ### Data and state
 
