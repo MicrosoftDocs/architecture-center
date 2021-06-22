@@ -873,6 +873,8 @@ items:
                 href: solution-ideas/articles/visual-assistant.yml
       - name: Analytics
         items:
+          - name: Get started
+            href: solution-ideas/articles/analytics-start-here.yml
           - name: Guides
             items:        
               - name: Analytical data stores
