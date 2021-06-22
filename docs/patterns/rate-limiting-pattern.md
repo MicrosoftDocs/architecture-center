@@ -1,7 +1,7 @@
 ---
 title: Rate Limiting pattern
 titleSuffix: Cloud Design Patterns
-description: Create helper services that send network requests on behalf of a consumer service or application.
+description: You can use a rate limiting pattern to help you avoid or minimize throttling errors.
 author: EdPrice-MSFT
 ms.author: pelasne
 ms.date: 06/22/2021
