@@ -102,7 +102,7 @@ Use the following steps to set up and run code testing and an automated build by
 
    Create a Python file called **test1.py**. In this file, create a class that includes all the tests you want to do. The following example shows six tests prepared:
 
-	![Python file with a list of tests in a class](./media/code-test/create-file-test1-class.png)
+  ![Python file with a list of tests in a class](./media/code-test/create-file-test-1-class.png)
 
 1. Those tests can be automatically discovered if you put **codetest.testCase** after your class name. Open Test Explorer in the right pane, and select **Run All**. All the tests will run sequentially and will tell you if the test is successful or not.
 

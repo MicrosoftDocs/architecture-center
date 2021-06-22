@@ -37,6 +37,7 @@ This document assumes that SQL commands are executed from SQL Server Management 
 >
 
 ## <a name="prereqs"></a>Prerequisites
+
 This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -45,6 +46,7 @@ This tutorial assumes you have:
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## <a name="filesource_to_sqlonazurevm"></a> Moving data from a flat file source to SQL Server on an Azure VM
+
 If your data is in a flat file (arranged in a row/column format), it can be moved to SQL Server VM on Azure via the following methods:
 
 1. [Command-line bulk copy utility (BCP)](#insert-tables-bcp)
@@ -52,6 +54,7 @@ If your data is in a flat file (arranged in a row/column format), it can be move
 3. [Graphical Built-in Utilities in SQL Server (Import/Export, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Command-line bulk copy utility (BCP)
+
 BCP is a command-line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premises SQL Server, SQL Azure, and SQL Server VM on Azure).
 
 > [!NOTE]
@@ -221,5 +224,5 @@ A screenshot of the Database back up/restore options from SQL Server Management 
 
 [SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 
-[1]: ./media/move-sql-server-virtual-machine/sqlserver-builtin-utilities.png
+[1]: ./media/move-sql-server-virtual-machine/sql-server-built-in-utilities.png
 [2]: ./media/move-sql-server-virtual-machine/database-migration-wizard.png

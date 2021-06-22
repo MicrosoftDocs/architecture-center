@@ -18,29 +18,29 @@ categories:
 ---
 # Advanced data exploration and modeling with Spark
 
-This walkthrough uses HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization on a sample of the NYC taxi trip and fare 2013 dataset. It walks you through the steps of the [Data Science Process](/azure/machine-learning/team-data-science-process/), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. Python has been used to code the solution and to show the relevant plots. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks. 
+This walkthrough uses HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization on a sample of the NYC taxi trip and fare 2013 dataset. It walks you through the steps of the [Data Science Process](/azure/machine-learning/team-data-science-process/), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. Python has been used to code the solution and to show the relevant plots. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks.
 
-* The **binary classification** task is to predict whether or not a tip is paid for the trip. 
-* The **regression** task is to predict the amount of the tip based on other tip features. 
+* The **binary classification** task is to predict whether or not a tip is paid for the trip.
+* The **regression** task is to predict the amount of the tip based on other tip features.
 
-The modeling steps also contain code showing how to train, evaluate, and save each type of model. The topic covers some of the same ground as the [Data exploration and modeling with Spark](spark-data-exploration-modeling.md) topic. But it is more "advanced" in that it also uses cross-validation with hyperparameter sweeping to train optimally accurate classification and regression models. 
+The modeling steps also contain code showing how to train, evaluate, and save each type of model. The topic covers some of the same ground as the [Data exploration and modeling with Spark](spark-data-exploration-modeling.md) topic. But it is more "advanced" in that it also uses cross-validation with hyperparameter sweeping to train optimally accurate classification and regression models.
 
 **Cross-validation (CV)** is a technique that assesses how well a model trained on a known set of data generalizes to predicting the features of datasets on which it has not been trained.  A common implementation used here is to divide a dataset into K folds and then train the model in a round-robin fashion on all but one of the folds. The ability of the model to prediction accurately when tested against the independent dataset in this fold not used to train the model is assessed.
 
-**Hyperparameter optimization** is the problem of choosing a set of hyperparameters for a learning algorithm, usually with the goal of optimizing a measure of the algorithm's performance on an independent data set. **Hyperparameters** are values that must be specified outside of the model training procedure. Assumptions about these values can impact the flexibility and accuracy of the models. Decision trees have hyperparameters, for example, such as the desired depth and number of leaves in the tree. Support Vector Machines (SVMs) require setting a misclassification penalty term. 
+**Hyperparameter optimization** is the problem of choosing a set of hyperparameters for a learning algorithm, usually with the goal of optimizing a measure of the algorithm's performance on an independent data set. **Hyperparameters** are values that must be specified outside of the model training procedure. Assumptions about these values can impact the flexibility and accuracy of the models. Decision trees have hyperparameters, for example, such as the desired depth and number of leaves in the tree. Support Vector Machines (SVMs) require setting a misclassification penalty term.
 
 A common way to perform hyperparameter optimization used here is a grid search, or a **parameter sweep**. This search goes through a subset of the hyperparameter space for a learning algorithm. Cross validation can supply a performance metric to sort out the optimal results produced by the grid search algorithm. CV used with hyperparameter sweeping helps limit problems like overfitting a model to training data so that the model retains the capacity to apply to the general set of data from which the training data was extracted.
 
 The models we use include logistic and linear regression, random forests, and gradient boosted trees:
 
 * [Linear regression with SGD](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html#pyspark.mllib.regression.LinearRegressionWithSGD
-) is a linear regression model that uses a Stochastic Gradient Descent (SGD) method and for optimization and feature scaling to predict the tip amounts paid. 
+) is a linear regression model that uses a Stochastic Gradient Descent (SGD) method and for optimization and feature scaling to predict the tip amounts paid.
 * [Logistic regression with LBFGS](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.classification.LogisticRegressionWithLBFGS.html
 ) or "logit" regression, is a regression model that can be used when the dependent variable is categorical to do data classification. LBFGS is a quasi-Newton optimization algorithm that approximates the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm using a limited amount of computer memory and that is widely used in machine learning.
 * [Random forests](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees to reduce the risk of overfitting. Random forests are used for regression and classification and can handle categorical features and can be extended to the multiclass classification setting. They do not require feature scaling and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
 * [Gradient boosted trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) are ensembles of decision trees. GBTS train decision trees iteratively to minimize a loss function. GBTS is used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
 
-Modeling examples using CV and Hyperparameter sweep are shown for the binary classification problem. Simpler examples (without parameter sweeps) are presented in the main topic for regression tasks. But in the appendix, validation using elastic net for linear regression and CV with parameter sweep using for random forest regression are also presented. The **elastic net** is a regularized regression method for fitting linear regression models that linearly combines the L1 and L2 metrics as penalties of the [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) and [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) methods.   
+Modeling examples using CV and Hyperparameter sweep are shown for the binary classification problem. Simpler examples (without parameter sweeps) are presented in the main topic for regression tasks. But in the appendix, validation using elastic net for linear regression and CV with parameter sweep using for random forest regression are also presented. The **elastic net** is a regularized regression method for fitting linear regression models that linearly combines the L1 and L2 metrics as penalties of the [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) and [ridge](https://en.wikipedia.org/wiki/Tikhonov_regularization) methods.
 
 <!-- -->
 
@@ -50,6 +50,7 @@ Modeling examples using CV and Hyperparameter sweep are shown for the binary cla
 <!-- -->
 
 ## Setup: Spark clusters and notebooks
+
 Setup steps and code are provided in this walkthrough for using an HDInsight Spark 1.6. But Jupyter notebooks are provided for both HDInsight Spark 1.6 and Spark 2.0 clusters. A description of the notebooks and links to them are provided in the [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) for the GitHub repository containing them. Moreover, the code here and in the linked notebooks is generic and should work on any Spark cluster. If you are not using HDInsight Spark, the cluster setup and management steps may be slightly different from what is shown here. For convenience, here are the links to the Jupyter notebooks for Spark 1.6 and 2.0 to be run in the pyspark kernel of the Jupyter Notebook server:
 
 ### Spark 1.6 notebooks
@@ -63,11 +64,13 @@ Setup steps and code are provided in this walkthrough for using an HDInsight Spa
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Setup: storage locations, libraries, and the preset Spark context
+
 Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
 To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by “wasb://”.
 
 ### Set directory paths for storage locations in WASB
+
 The following code sample specifies the location of the data to be read and the path for the model storage directory to which the model output is saved:
 
 ```python
@@ -77,7 +80,7 @@ The following code sample specifies the location of the data to be read and the 
 taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv";
 
 
-# SET THE MODEL STORAGE DIRECTORY PATH 
+# SET THE MODEL STORAGE DIRECTORY PATH
 # NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
 modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
 
@@ -91,6 +94,7 @@ datetime.datetime.now()
 datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
 
 ### Import libraries
+
 Import necessary libraries with the following code:
 
 ```python
@@ -111,9 +115,10 @@ import datetime
 ```
 
 ### Preset Spark context and PySpark magics
+
 The PySpark kernels that are provided with Jupyter notebooks have a preset context. So you do not need to set the Spark or Hive contexts explicitly before you start working with the application you are developing. These contexts are available for you by default. These contexts are:
 
-* sc - for Spark 
+* sc - for Spark
 * sqlContext - for Hive
 
 The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
@@ -124,6 +129,7 @@ The PySpark kernel provides some predefined “magics”, which are special comm
 For more information on the kernels for Jupyter notebooks and the predefined "magics" that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](/azure/hdinsight/spark/apache-spark-jupyter-notebook-kernels).
 
 ## Data ingestion from public blob:
+
 The first step in the data science process is to ingest the data to be analyzed from sources where it resides into your data exploration and modeling environment. This environment is Spark in this walkthrough. This section contains the code to complete a series of tasks:
 
 * ingest the data sample to be modeled
@@ -187,8 +193,8 @@ taxi_df_train_cleaned.registerTempTable("taxi_train")
 
 # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -196,15 +202,17 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 Time taken to execute above cell: 276.62 seconds
 
 ## Data exploration & visualization
+
 Once the data has been brought into Spark, the next step in the data science process is to gain deeper understanding of the data through exploration and visualization. In this section, we examine the taxi data using SQL queries and plot the target variables and prospective features for visual inspection. Specifically, we plot the frequency of passenger counts in taxi trips, the frequency of tip amounts, and how tips vary by payment amount and type.
 
 ### Plot a histogram of passenger count frequencies in the sample of taxi trips
+
 This code and subsequent snippets use SQL magic to query the sample and local magic to plot the data.
 
 * **SQL magic (`%%sql`)** The HDInsight PySpark kernel supports easy inline HiveQL queries against the sqlContext. The (-o VARIABLE_NAME) argument persists the output of the SQL query as a Pandas DataFrame on the Jupyter server. This means it is available in the local mode.
 * The **`%%local` magic** is used to run code locally on the Jupyter server, which is the headnode of the HDInsight cluster. Typically, you use `%%local` magic after the `%%sql -o` magic is used to run a query. The -o parameter would persist the output of the SQL query locally. Then the `%%local` magic triggers the next set of code snippets to run locally against the output of the SQL queries that has been persisted locally. The output is automatically visualized after you run the code.
 
-This query retrieves the trips by passenger count. 
+This query retrieves the trips by passenger count.
 
 ```sql
 # PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
@@ -214,7 +222,7 @@ This query retrieves the trips by passenger count.
 SELECT passenger_count, COUNT(*) as trip_counts FROM taxi_train WHERE passenger_count > 0 and passenger_count < 7 GROUP BY passenger_count
 ```
 
-This code creates a local data-frame from the query output and plots the data. The `%%local` magic creates a local data-frame, `sqlResults`, which can be used for plotting with matplotlib. 
+This code creates a local data-frame from the query output and plots the data. The `%%local` magic creates a local data-frame, `sqlResults`, which can be used for plotting with matplotlib.
 
 <!-- -->
 
@@ -227,7 +235,7 @@ This code creates a local data-frame from the query output and plots the data. T
 # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
 %%local
 
-# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
+# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES.
 # CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
 sqlResults
 ```
@@ -257,19 +265,20 @@ plt.show()
 You can select among several different types of visualizations (Table, Pie, Line, Area, or Bar) by using the **Type** menu buttons in the notebook. The Bar plot is shown here.
 
 ### Plot a histogram of tip amounts and how tip amount varies by passenger count and fare amounts.
+
 Use a SQL query to sample data..
 
 ```sql
 # SQL SQUERY
 %%sql -q -o sqlResults
     SELECT fare_amount, passenger_count, tip_amount, tipped
-    FROM taxi_train 
-    WHERE passenger_count > 0 
+    FROM taxi_train
+    WHERE passenger_count > 0
     AND passenger_count < 7
-    AND fare_amount > 0 
+    AND fare_amount > 0
     AND fare_amount < 200
     AND payment_type in ('CSH', 'CRD')
-    AND tip_amount > 0 
+    AND tip_amount > 0
     AND tip_amount < 25
 ```
 
@@ -305,7 +314,7 @@ plt.axis([-2, 120, -2, 30])
 plt.show()
 ```
 
-**OUTPUT:** 
+**OUTPUT:**
 
 ![Tip amount distribution](./media/spark-advanced-data-exploration-modeling/tip-amount-distribution.png)
 
@@ -314,6 +323,7 @@ plt.show()
 ![Tip amount by fare Amount](./media/spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
 ## Feature engineering, transformation, and data preparation for modeling
+
 This section describes and provides the code for procedures used to prepare data for use in ML modeling. It shows how to do the following tasks:
 
 * Create a new feature by partitioning hours into traffic time bins
@@ -324,6 +334,7 @@ This section describes and provides the code for procedures used to prepare data
 * Cache objects in memory
 
 ### Create a new feature by partitioning traffic times into bins
+
 This code shows how to create a new feature by partitioning traffic times into bins and then how to cache the resulting data frame in memory. Caching leads to improved execution time where Resilient Distributed Datasets (RDDs) and data-frames are used repeatedly. So, we cache RDDs and data-frames at several stages in this walkthrough.
 
 ```python
@@ -331,12 +342,12 @@ This code shows how to create a new feature by partitioning traffic times into b
 sqlStatement = """
     SELECT *,
     CASE
-     WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night" 
-     WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush" 
+     WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night"
+     WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush"
      WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
      WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
     END as TrafficTimeBins
-    FROM taxi_train 
+    FROM taxi_train
 """
 taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
 ```
@@ -354,7 +365,8 @@ taxi_df_train_with_newFeatures.count()
 126050
 
 ### Index and one-hot encode categorical features
-This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require that features with categorical input data be indexed or encoded prior to use. 
+
+This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require that features with categorical input data be indexed or encoded prior to use.
 
 Depending on the model, you need to index or encode them in different ways. For example, Logistic and Linear Regression models require one-hot encoding, where, for example, a feature with three categories can be expanded into three feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms that expect numerical valued features, such as logistic regression, to be applied to categorical features.
 
@@ -397,8 +409,8 @@ encodedFinal = encoder.transform(indexed)
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -406,6 +418,7 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 Time taken to execute above cell: 3.14 seconds
 
 ### Create labeled point objects for input into ML functions
+
 This section contains code that shows how to index categorical text data as a labeled point data type and how to encode it. This transformation prepares text data to be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) formatted in a way that is needed as input data by most of ML algorithms in MLlib. A [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) is a local vector, either dense or sparse, associated with a label/response.
 
 Here is the code to index and encode text features for binary classification.
@@ -427,7 +440,7 @@ def parseRowIndexingBinary(line):
 # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
 def parseRowOneHotBinary(line):
     features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
-                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
+                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]),
                                line.vendorVec.toArray(), line.rateVec.toArray(), line.paymentVec.toArray()), axis=0)
     labPt = LabeledPoint(line.tipped, features)
     return  labPt
@@ -440,8 +453,8 @@ Here is the code to encode and index categorical text features for linear regres
 
 # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
 def parseRowIndexingRegression(line):
-    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex, 
-                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
+    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex,
+                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs,
                          line.trip_distance, line.fare_amount])
     labPt = LabeledPoint(line.tip_amount, features)
     return  labPt
@@ -449,14 +462,15 @@ def parseRowIndexingRegression(line):
 # INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO LINEAR REGRESSION MODELS
 def parseRowOneHotRegression(line):
     features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
-                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
-                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
+                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]),
+                                        line.vendorVec.toArray(), line.rateVec.toArray(),
                                         line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
     labPt = LabeledPoint(line.tip_amount, features)
     return  labPt
 ```
 
 ### Create a random subsampling of the data and split it into training and testing sets
+
 This code creates a random sampling of the data (25% is used here). Although it is not required for this example due to the size of the dataset, we demonstrate how you can sample the data here. Then you know how to use it for your own problem if needed. When samples are large, sampling can save significant time while training models. Next we split the sample into a training part (75% here) and a testing part (25% here) to use in classification and regression modeling.
 
 ```python
@@ -494,8 +508,8 @@ oneHotTESTreg = testData.map(parseRowOneHotRegression)
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -503,13 +517,14 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 Time taken to execute above cell: 0.31 second
 
 ### Feature scaling
+
 Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. The code for feature scaling uses the [StandardScaler](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html
-) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD). SGD is a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).   
+) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD). SGD is a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).
 
 > [!TIP]
-> We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.   
-> 
-> 
+> We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.
+>
+>
 
 Here is the code to scale variables for use with the regularized linear SGD algorithm.
 
@@ -538,8 +553,8 @@ oneHotTESTregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -547,6 +562,7 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 Time taken to execute above cell: 11.67 seconds
 
 ### Cache objects in memory
+
 The time taken for training and testing of ML algorithms can be reduced by caching the input data frame objects used for classification, regression and, scaled features.
 
 ```python
@@ -571,22 +587,23 @@ oneHotTESTregScaled.cache()
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
-**OUTPUT** 
+**OUTPUT**
 
 Time taken to execute above cell: 0.13 second
 
 ## Predict whether or not a tip is paid with binary classification models
+
 This section shows how use three models for the binary classification task of predicting whether or not a tip is paid for a taxi trip. The models presented are:
 
-* Logistic regression 
+* Logistic regression
 * Random forest
 * Gradient Boosting Trees
 
-Each model building code section is split into steps: 
+Each model building code section is split into steps:
 
 1. **Model training** data with one parameter set
 2. **Model evaluation** on a test data set with metrics
@@ -594,15 +611,16 @@ Each model building code section is split into steps:
 
 We show how to do cross-validation (CV) with parameter sweeping in two ways:
 
-1. Using **generic** custom code that can be applied to any algorithm in MLlib and to any parameter sets in an algorithm. 
-2. Using the **pySpark CrossValidator pipeline function**. CrossValidator has a few limitations for Spark 1.5.0: 
-   
+1. Using **generic** custom code that can be applied to any algorithm in MLlib and to any parameter sets in an algorithm.
+2. Using the **pySpark CrossValidator pipeline function**. CrossValidator has a few limitations for Spark 1.5.0:
+
    * Pipeline models cannot be saved or persisted for future consumption.
    * Cannot be used for every parameter in a model.
    * Cannot be used for every MLlib algorithm.
 
 ### Generic cross validation and hyperparameter sweeping used with the logistic regression algorithm for binary classification
-The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with custom code that can be applied to any of the learning algorithms in MLlib.   
+
+The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with custom code that can be applied to any of the learning algorithms in MLlib.
 
 <!-- -->
 
@@ -622,7 +640,7 @@ The code in this section shows how to train, evaluate, and save a logistic regre
 timestart = datetime.datetime.now()
 
 # LOAD LIBRARIES
-from pyspark.mllib.classification import LogisticRegressionWithLBFGS 
+from pyspark.mllib.classification import LogisticRegressionWithLBFGS
 from pyspark.mllib.evaluation import BinaryClassificationMetrics
 
 # CREATE PARAMETER GRID FOR LOGISTIC REGRESSION PARAMETER SWEEP
@@ -659,7 +677,7 @@ for i in range(nFolds):
         iters = paramGrid[j]['iterations']
         tol = paramGrid[j]['tolerance']
         # Train logistic regression model with hypermarameter set
-        model = LogisticRegressionWithLBFGS.train(trainCVLabPt, regType=regt, iterations=iters,  
+        model = LogisticRegressionWithLBFGS.train(trainCVLabPt, regType=regt, iterations=iters,
                                                   regParam=regp, tolerance = tol, intercept=True)
         predictionAndLabels = validationLabPt.map(lambda lp: (float(model.predict(lp.features)), lp.label))
         # Use ROC-AUC as accuracy metrics
@@ -675,22 +693,22 @@ trainCVLabPt.unpersist()
 validationLabPt.unpersist()
 
 # TRAIN ON FULL TRAIING SET USING BEST PARAMETERS FROM CV/PARAMETER SWEEP
-logitBest = LogisticRegressionWithLBFGS.train(oneHotTRAINbinary, regType=bestParam['regType'], 
-                                              iterations=bestParam['iterations'], 
-                                              regParam=bestParam['regParam'], tolerance = bestParam['tolerance'], 
+logitBest = LogisticRegressionWithLBFGS.train(oneHotTRAINbinary, regType=bestParam['regType'],
+                                              iterations=bestParam['iterations'],
+                                              regParam=bestParam['regParam'], tolerance = bestParam['tolerance'],
                                               intercept=True)
 
 
 # PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
-# NOTE: There are 20 coefficient terms for the 10 features, 
+# NOTE: There are 20 coefficient terms for the 10 features,
 #       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
 print("Coefficients: " + str(logitBest.weights))
 print("Intercept: " + str(logitBest.intercept))
 
-# PRINT ELAPSED TIME    
+# PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -741,10 +759,10 @@ logitBest.clearThreshold(); # This clears threshold for classification (0.5) and
 predictionAndLabelsDF = predictionAndLabels.toDF()
 predictionAndLabelsDF.registerTempTable("tmp_results");
 
-# PRINT ELAPSED TIME    
+# PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -768,7 +786,7 @@ Time taken to execute above cell: 2.67 seconds
 The *predictionAndLabelsDF* is registered as a table, *tmp_results*, in the previous cell. *tmp_results* can be used to do queries and output results into the sqlResults data-frame for plotting. Here is the code.
 
 ```python
-# QUERY RESULTS                              
+# QUERY RESULTS
 %%sql -q -o sqlResults
 SELECT * from tmp_results
 ```
@@ -778,14 +796,14 @@ Here is the code to make predictions and plot the ROC-curve.
 ```python
 # MAKE PREDICTIONS AND PLOT ROC-CURVE
 
-# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES                              
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
 %%local
 %matplotlib inline
 from sklearn.metrics import roc_curve,auc
 
 #PREDICTIONS
 predictions_pddf = sqlResults.rename(columns={'_1': 'probability', '_2': 'label'})
-prob = predictions_pddf["probability"] 
+prob = predictions_pddf["probability"]
 fpr, tpr, thresholds = roc_curve(predictions_pddf['label'], prob, pos_label=1);
 roc_auc = auc(fpr, tpr)
 
@@ -826,7 +844,7 @@ logitBest.save(sc, dirfilename);
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
+timedelta = round((timeend-timestart).total_seconds(), 2)
 print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
@@ -835,7 +853,8 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 Time taken to execute above cell: 34.57 seconds
 
 ### Use MLlib's CrossValidator pipeline function with logistic regression (Elastic regression) model
-The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with the MLlib CrossValidator pipeline function for CV with parameter sweep.   
+
+The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with the MLlib CrossValidator pipeline function for CV with parameter sweep.
 
 <!-- -->
 
@@ -886,9 +905,9 @@ test_predictions = cv_model.transform(testDataFrame)
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
+timedelta = round((timeend-timestart).total_seconds(), 2)
 print "Time taken to execute above cell: " + str(timedelta) + " seconds";
-``` 
+```
 
 **OUTPUT**
 
@@ -907,7 +926,7 @@ SELECT label, prediction, probability from tmp_results
 Here is the code to plot the ROC curve.
 
 ```python
-# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES 
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
 %%local
 from sklearn.metrics import roc_curve,auc
 
@@ -931,9 +950,10 @@ plt.show()
 
 **OUTPUT**
 
-![Logistic regression ROC curve using MLlib's CrossValidator](./media/spark-advanced-data-exploration-modeling/mllib-crossvalidator-roc-curve.png)
+![Logistic regression ROC curve using MLlib's CrossValidator](./media/spark-advanced-data-exploration-modeling/ml-lib-cross-validator-roc-curve.png)
 
 ### Random forest classification
+
 The code in this section shows how to train, evaluate, and save a random forest regression that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 
 ```python
@@ -950,7 +970,7 @@ from pyspark.mllib.evaluation import MulticlassMetrics
 categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
 
 # TRAIN RANDOMFOREST MODEL
-rfModel = RandomForest.trainClassifier(indexedTRAINbinary, numClasses=2, 
+rfModel = RandomForest.trainClassifier(indexedTRAINbinary, numClasses=2,
                                        categoricalFeaturesInfo=categoricalFeaturesInfo,
                                        numTrees=25, featureSubsetStrategy="auto",
                                        impurity='gini', maxDepth=5, maxBins=32)
@@ -975,8 +995,8 @@ rfModel.save(sc, dirfilename);
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -986,6 +1006,7 @@ Area under ROC = 0.985336538462
 Time taken to execute above cell: 26.72 seconds
 
 ### Gradient boosting trees classification
+
 The code in this section shows how to train, evaluate, and save a gradient boosting trees model that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 
 ```python
@@ -1021,8 +1042,8 @@ gbtModel.save(sc, dirfilename)
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -1032,42 +1053,44 @@ Area under ROC = 0.985336538462
 Time taken to execute above cell: 28.13 seconds
 
 ## Predict tip amount with regression models (not using CV)
+
 This section shows how use three models for the regression task: predict the tip amount paid for a taxi trip based on other tip features. The models presented are:
 
 * Regularized linear regression
 * Random forest
 * Gradient Boosting Trees
 
-These models were described in the introduction. Each model building code section is split into steps: 
+These models were described in the introduction. Each model building code section is split into steps:
 
 1. **Model training** data with one parameter set
 2. **Model evaluation** on a test data set with metrics
-3. **Saving model** in blob for future consumption   
+3. **Saving model** in blob for future consumption
 
 <!-- -->
 
-> [!NOTE] 
+> [!NOTE]
 > Cross-validation is not used with the three regression models in this section, since this was shown in detail for the logistic regression models. An example showing how to use CV with Elastic Net for linear regression is provided in the Appendix of this topic.
 
 <!-- -->
 
 <!-- -->
 
-> [!NOTE] 
+> [!NOTE]
 > In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. Elastic net regression, shown in the Appendix to this topic, can also be used instead of LinearRegressionWithSGD.
 
 <!-- -->
 
 ### Linear regression with SGD
+
 The code in this section shows how to use scaled features to train a linear regression that uses stochastic gradient descent (SGD) for optimization, and how to score, evaluate, and save the model in Azure Blob Storage (WASB).
 
 > [!TIP]
 > In our experience, there can be issues with the convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence.
-> 
-> 
+>
+>
 
 ```python
-# LINEAR REGRESSION WITH SGD 
+# LINEAR REGRESSION WITH SGD
 
 # RECORD START TIME
 timestart = datetime.datetime.now()
@@ -1081,7 +1104,7 @@ from scipy import stats
 linearModel = LinearRegressionWithSGD.train(oneHotTRAINregScaled, iterations=100, step = 0.1, regType='l2', regParam=0.1, intercept = True)
 
 # PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
-# NOTE: There are 20 coefficient terms for the 10 features, 
+# NOTE: There are 20 coefficient terms for the 10 features,
 #       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
 print("Coefficients: " + str(linearModel.weights))
 print("Intercept: " + str(linearModel.intercept))
@@ -1102,8 +1125,8 @@ linearModel.save(sc, dirfilename)
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -1119,7 +1142,8 @@ R-sqr = 0.597963951127
 Time taken to execute above cell: 38.62 seconds
 
 ### Random Forest regression
-The code in this section shows how to train, evaluate, and save a random forest model that predicts tip amount for the NYC taxi trip data.   
+
+The code in this section shows how to train, evaluate, and save a random forest model that predicts tip amount for the NYC taxi trip data.
 
 <!-- -->
 
@@ -1166,8 +1190,8 @@ rfModel.save(sc, dirfilename);
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -1179,6 +1203,7 @@ R-sqr = 0.733445485802
 Time taken to execute above cell: 25.98 seconds
 
 ### Gradient boosting trees regression
+
 The code in this section shows how to train, evaluate, and save a gradient boosting trees model that predicts tip amount for the NYC taxi trip data.
 
 **Train and evaluate**
@@ -1195,7 +1220,7 @@ from pyspark.mllib.util import MLUtils
 
 # TRAIN MODEL
 categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
-gbtModel = GradientBoostedTrees.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo, 
+gbtModel = GradientBoostedTrees.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
                                                 numIterations=10, maxBins=32, maxDepth = 4, learningRate=0.1)
 
 # EVALUATE A TEST DATA-SET
@@ -1218,8 +1243,8 @@ gbtModel.save(sc, dirfilename)
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -1263,9 +1288,11 @@ plt.show(ax)
 ![Actual-vs-predicted-tip-amounts](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## Appendix: Additional regression tasks using cross validation with parameter sweeps
+
 This appendix contains code showing how to do CV using Elastic net for linear regression and how to do CV with parameter sweep using custom code for random forest regression.
 
 ### Cross validation using Elastic net for linear regression
+
 The code in this section shows how to do cross validation using Elastic net for linear regression and how to evaluate the model against test data.
 
 ```python
@@ -1288,9 +1315,9 @@ paramGrid = ParamGridBuilder().addGrid(lr.regParam, (0.01, 0.1))\
                               .addGrid(lr.maxIter, (5, 10))\
                               .addGrid(lr.tol, (1e-4, 1e-5))\
                               .addGrid(lr.elasticNetParam, (0.25,0.75))\
-                              .build() 
+                              .build()
 
-# DEFINE PIPELINE 
+# DEFINE PIPELINE
 # SIMPLY THE MODEL HERE, WITHOUT TRANSFORMATIONS
 pipeline = Pipeline(stages=[lr])
 
@@ -1319,8 +1346,8 @@ predictionAndLabels.registerTempTable("tmp_results");
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -1355,6 +1382,7 @@ print("R-sqr = %s" % r2)
 R-sqr = 0.619184907088
 
 ### Cross validation with parameter sweep using custom code for random forest regression
+
 The code in this section shows how to do cross validation with parameter sweep using custom code for random forest regression and how to evaluate the model against test data.
 
 ```python
@@ -1418,7 +1446,7 @@ bestParam = paramGrid[np.argmin(avgAcc)];
 trainCVLabPt.unpersist()
 validationLabPt.unpersist()
 
-## TRAIN FINAL MODL WIHT BEST PARAMETERS
+## TRAIN FINAL MODL WITH BEST PARAMETERS
 rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
                                     numTrees=bestParam['numTrees'], featureSubsetStrategy="auto",
                                     impurity='variance', maxDepth=bestParam['maxDepth'], maxBins=32)
@@ -1434,8 +1462,8 @@ print("R-sqr = %s" % testMetrics.r2)
 
 # PRINT ELAPSED TIME
 timeend = datetime.datetime.now()
-timedelta = round((timeend-timestart).total_seconds(), 2) 
-print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+timedelta = round((timeend-timestart).total_seconds(), 2)
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ```
 
 **OUTPUT**
@@ -1447,6 +1475,7 @@ R-sqr = 0.740751197012
 Time taken to execute above cell: 69.17 seconds
 
 ### Clean up objects from memory and print model locations
+
 Use `unpersist()` to delete objects cached in memory.
 
 ```python
@@ -1479,7 +1508,7 @@ oneHotTESTregScaled.unpersist()
 
 PythonRDD[122] at RDD at PythonRDD.scala: 43
 
-**Output path to model files to be used in the consumption notebook. **
+**Output path to model files to be used in the consumption notebook.**
 To consume and score an independent data-set, you need to copy and paste these file names in the "Consumption notebook".
 
 ```python
@@ -1507,6 +1536,7 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0316_52_18.827237"
 
 ## What's next?
+
 Now that you have created regression and classification models with the Spark MlLib, you are ready to learn how to score and evaluate these models.
 
 **Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](spark-model-consumption.md).

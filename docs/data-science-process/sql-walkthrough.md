@@ -743,15 +743,15 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [7]: ./media/sql-walkthrough/sql-walkthrough-44-1.png
 [8]: ./media/sql-walkthrough/sql-walkthrough-46-1.png
 [9]: ./media/sql-walkthrough/sql-walkthrough-71-1.png
-[10]: ./media/sql-walkthrough/azuremltrain.png
-[11]: ./media/sql-walkthrough/azuremlpublish.png
-[12]: ./media/sql-walkthrough/ssmsconnect.png
-[13]: ./media/sql-walkthrough/executescript.png
-[14]: ./media/sql-walkthrough/sqlserverproperties.png
-[15]: ./media/sql-walkthrough/sqldefaultdirs.png
-[16]: ./media/sql-walkthrough/bulkimport.png
-[17]: ./media/sql-walkthrough/amlreader.png
-[18]: ./media/sql-walkthrough/amlscoring.png
+[10]: ./media/sql-walkthrough/azure-ml-train.png
+[11]: ./media/sql-walkthrough/azure-ml-publish.png
+[12]: ./media/sql-walkthrough/ssms-connect.png
+[13]: ./media/sql-walkthrough/execute-script.png
+[14]: ./media/sql-walkthrough/sql-server-properties.png
+[15]: ./media/sql-walkthrough/sql-default-dirs.png
+[16]: ./media/sql-walkthrough/bulk-import.png
+[17]: ./media/sql-walkthrough/aml-reader.png
+[18]: ./media/sql-walkthrough/aml-scoring.png
 
 
 <!-- Module References -->

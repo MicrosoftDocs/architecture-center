@@ -62,13 +62,13 @@ In the Studio (classic) experiment, these four training datasets are formed via 
 
 The following figure demonstrates the R script used to create feature set B in the second left branch.
 
-![create features](./media/create-features/addFeature-Rscripts.png)
+![create features](./media/create-features/add-feature-r-scripts.png)
 
 ### Results
 
 A comparison of the performance results of the four models is summarized in the following table: 
 
-![result comparison](./media/create-features/result1.png)
+![result comparison](./media/create-features/result-1.png)
 
 The best results are shown by features A+B+C. The error rate decreases when additional feature set are included in the training data. It verifies the presumption that the feature set B, C provide additional relevant information for the regression task. But adding the D feature does not seem to provide any additional reduction in the error rate.
 
@@ -86,13 +86,14 @@ In Studio (classic), there is a [Feature Hashing](/azure/machine-learning/studio
 * Second, set the "Hashing bitsize" to 8, which means 2^8=256 features will be created. The word/phase in all the text will be hashed to 256 indices. The parameter "Hashing bitsize" ranges from 1 to 31. The word(s)/phrase(s) are less likely to be hashed into the same index if setting it to be a larger number.
 * Third, set the parameter "N-grams" to 2. This value gets the occurrence frequency of unigrams (a feature for every single word) and bigrams (a feature for every pair of adjacent words) from the input text. The parameter "N-grams" ranges from 0 to 10, which indicates the maximum number of sequential words to be included in a feature.  
 
-!["Feature Hashing" module](./media/create-features/feature-Hashing1.png)
+!["Feature Hashing" module](./media/create-features/feature-hashing-1.png)
 
 The following figure shows what these new feature look like.
 
-!["Feature Hashing" example](./media/create-features/feature-Hashing2.png)
+!["Feature Hashing" example](./media/create-features/feature-hashing-2.png)
 
 ## Conclusion
+
 Engineered and selected features increase the efficiency of the training process, which attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly.
 
 Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically, the selected features are a minimal set of independent variables that explain the patterns in the data and predict outcomes successfully.

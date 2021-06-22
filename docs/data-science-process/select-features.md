@@ -17,6 +17,7 @@ categories:
   - ai-machine-learning
 ---
 # Feature selection in the Team Data Science Process (TDSP)
+
 This article explains the purposes of feature selection and provides examples of its role in the data enhancement process of machine learning. These examples are drawn from Azure Machine Learning Studio.
 
 The engineering and selection of features is one part of the Team Data Science Process (TDSP) outlined in the article [What is the Team Data Science Process?](overview.md). Feature engineering and selection are parts of the **Develop features** step of the TDSP.
@@ -27,6 +28,7 @@ The engineering and selection of features is one part of the Team Data Science P
 Normally **feature engineering** is applied first to generate additional features, and then the **feature selection** step is performed to eliminate irrelevant, redundant, or highly correlated features.
 
 ## Filter features from your data - feature selection
+
 Feature selection may be used for classification or regression tasks. The goal is to select a subset of the features from the original dataset that reduce its dimensions by using a minimal set of features to represent the maximum amount of variance in the data. This subset of features is used to train the model. Feature selection serves two main purposes.
 
 * First, feature selection often increases classification accuracy by eliminating irrelevant, redundant, or highly correlated features.
@@ -42,21 +44,22 @@ In Azure Machine Learning Studio, there are modules provided for feature selecti
 
 Consider, for example, the use of the [Filter-Based Feature Selection][filter-based-feature-selection] module. For convenience, continue using the text mining example. Assume that you want to build a regression model after a set of 256 features are created through the [Feature Hashing][feature-hashing] module, and that the response variable is the "Col1" that contains book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module [Filter-Based Feature Selection][filter-based-feature-selection] produces a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters:
 
-![Filter-Based Feature Selection module properties](./media/select-features/feature-Selection1.png)
+![Filter-Based Feature Selection module properties](./media/select-features/feature-selection-1.png)
 
 The following figure shows the resulting datasets:
 
-![Resulting dataset for Filter Based Feature Selection module](./media/select-features/feature-Selection2.png)
+![Resulting dataset for Filter Based Feature Selection module](./media/select-features/feature-selection-2.png)
 
 Each feature is scored based on the Pearson Correlation between itself and the target attribute "Col1". The features with top scores are kept.
 
 The corresponding scores of the selected features are shown in the following figure:
 
-![Scores for Filter Based Feature Selection module](./media/select-features/feature-Selection3.png)
+![Scores for Filter Based Feature Selection module](./media/select-features/feature-selection-3.png)
 
 By applying this [Filter-Based Feature Selection][filter-based-feature-selection] module, 50 out of 256 features are selected because they have the most correlated features with the target variable "Col1", based on the scoring method "Pearson Correlation".
 
 ## Conclusion
+
 Feature engineering and feature selection are two commonly Engineered and selected features increase the efficiency of the training process that attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the patterns in the data and then predict outcomes successfully.
 
 It is not always necessarily to perform feature engineering or feature selection. Whether it is needed or not depends on the data collected, the algorithm selected, and the objective of the experiment.

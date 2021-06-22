@@ -157,7 +157,7 @@ Now you can work with the Pandas data frame as covered in the article [Process A
 
 For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](sql-walkthrough.md).
 
-[1]: ./media/sql-server-virtual-machine/reader-db-featurizedinput.png
+[1]: ./media/sql-server-virtual-machine/reader-db-featurized-input.png
 
 
 <!-- Module References -->

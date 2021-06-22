@@ -17,6 +17,7 @@ categories:
   - ai-machine-learning
 ---
 # Create features for data in a Hadoop cluster using Hive queries
+
 This document shows how to create features for data stored in an Azure HDInsight Hadoop cluster using Hive queries. These Hive queries use embedded Hive User-Defined Functions (UDFs), the scripts for which are provided.
 
 The operations needed to create features can be memory intensive. The performance of Hive queries becomes more critical in such cases and can be improved by tuning certain parameters. The tuning of these parameters is discussed in the final section.
@@ -26,6 +27,7 @@ Examples of the queries that are presented are specific to the [NYC Taxi Trip Da
 This task is a step in the [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/).
 
 ## Prerequisites
+
 This article assumes that you have:
 
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](/azure/storage/common/storage-account-create)
@@ -34,6 +36,7 @@ This article assumes that you have:
 * Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql).
 
 ## <a name="hive-featureengineering"></a>Feature generation
+
 In this section, several examples of the ways in which features can be generating using Hive queries are described. Once you have generated additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, which can then be joined with the original table. Here are the examples presented:
 
 1. [Frequency-based Feature Generation](#hive-frequencyfeature)
@@ -43,6 +46,7 @@ In this section, several examples of the ways in which features can be generatin
 5. [Calculate distance between GPS coordinates](#hive-gpsdistance)
 
 ### <a name="hive-frequencyfeature"></a>Frequency-based feature generation
+
 It is often useful to calculate the frequencies of the levels of a categorical variable, or the frequencies of certain combinations of levels from multiple categorical variables. Users can use the following script to calculate these frequencies:
 
 ```hiveql
@@ -59,6 +63,7 @@ order by frequency desc;
 
 
 ### <a name="hive-riskfeature"></a>Risks of categorical variables in binary classification
+
 In binary classification, non-numeric categorical variables must be converted into numeric features when the models being used only take numeric features. This conversion is done by replacing each non-numeric level with a numeric risk. This section shows some generic Hive queries that calculate the risk values (log odds) of a categorical variable.
 
 ```hiveql
@@ -86,6 +91,7 @@ In this example, variables `smooth_param1` and `smooth_param2` are set to smooth
 After the risk table is calculated, users can assign risk values to a table by joining it with the risk table. The Hive joining query was provided in previous section.
 
 ### <a name="hive-datefeatures"></a>Extract features from datetime fields
+
 Hive comes with a set of UDFs for processing datetime fields. In Hive, the default datetime format is 'yyyy-MM-dd 00:00:00' ('1970-01-01 12:21:32' for example). This section shows examples that extract the day of a month, the month from a datetime field, and other examples that convert a datetime string in a format other than the default format to a datetime string in default format.
 
 ```hiveql
@@ -112,6 +118,7 @@ from hivesampletable limit 1;
 The *hivesampletable* in this query comes preinstalled on all Azure HDInsight Hadoop clusters by default when the clusters are provisioned.
 
 ### <a name="hive-textfeatures"></a>Extract features from text fields
+
 When the Hive table has a text field that contains a string of words that are delimited by spaces, the following query extracts the length of the string, and the number of words in the string.
 
 ```hiveql
@@ -120,6 +127,7 @@ from <databasename>.<tablename>;
 ```
 
 ### <a name="hive-gpsdistance"></a>Calculate distances between sets of GPS coordinates
+
 The query given in this section can be directly applied to the NYC Taxi Trip Data. The purpose of this query is to show how to apply an embedded mathematical function in Hive to generate features.
 
 The fields that are used in this query are the GPS coordinates of pickup and dropoff locations, named *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude*, and *dropoff\_latitude*. The queries that calculate the direct distance between the pickup and dropoff coordinates are:
@@ -144,11 +152,12 @@ limit 10;
 
 The mathematical equations that calculate the distance between two GPS coordinates can be found on the <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> site, authored by Peter Lapisu. In this Javascript, the function `toRad()` is just *lat_or_lon*pi/180, which converts degrees to radians. Here, *lat_or_lon* is the latitude or longitude. Since Hive does not provide the function `atan2`, but provides the function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query using the definition provided in <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
-![Create workspace](./media/create-features-hive/atan2new.png)
+![Create workspace](./media/create-features-hive/atan-2-new.png)
 
 A full list of Hive embedded UDFs can be found in the **Built-in Functions** section on the <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
 ## <a name="tuning"></a> Advanced topics: Tune Hive parameters to improve query speed
+
 The default parameter settings of Hive cluster might not be suitable for the Hive queries and the data that the queries are processing. This section discusses some parameters that users can tune to improve the performance of Hive queries. Users need to add the parameter tuning queries before the queries of processing data.
 
 1. **Java heap space**: For queries involving joining large datasets, or processing long records, **running out of heap space** is one of the common errors. This error can be avoided by setting parameters *mapreduce.map.java.opts* and *mapreduce.task.io.sort.mb* to desired values. Here is an example:
