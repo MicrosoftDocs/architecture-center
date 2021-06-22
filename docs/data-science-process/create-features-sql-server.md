@@ -105,7 +105,7 @@ These location-based features can be further used to generate additional count f
 
 The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data](/azure/machine-learning/studio-module-reference/import-data) module in Azure ML as shown below:
 
-![Azure ML readers](./media/sql-server-virtual-machine/reader-db-featurizedinput.png)
+![Azure ML readers](./media/sql-server-virtual-machine/reader-db-featurized-input.png)
 
 ## <a name="python"></a>Using a programming language like Python
 
