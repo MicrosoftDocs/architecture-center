@@ -86,7 +86,7 @@ Requirements for a firewall at each Internet connection and between any demilita
 
 ##### Your responsibilities
 
-Have a clear definition of what defines the boundary of a DMZ. For example, the card holder environment (CDE) is within a DMZ secured by firewall, network policy, and other controls. 
+Have a clear definition of what defines the boundary of a DMZ. For example, the card holder environment (CDE) is within a DMZ secured by firewall, network policy, and other controls. For more information, see [Cloud DMZ](/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz).
 
 For a PCI DSS infrastructure, you're responsible for securing the CDE by using network controls to block unauthorized access into and out of the network with the CDE. Network controls must be configured properly for a strong security posture, and they must be applied to:
 - Communication between the colocated components within the cluster.
@@ -175,7 +175,7 @@ Restrict inbound and outbound traffic to that which is necessary for the cardhol
 ##### Your responsibilities
 By design, Azure Virtual Network cannot be directly reached by the public internet. All inbound (or _ingress_) traffic must go through an intermediate traffic router. However, all components in the network can reach public endpoints. That outbound (or _egress_) traffic must be explicitly secured allowing only secure ciphers and TLS 1.2 or later.
 
--  Azure Application Gateway integrated WAF intercepts all ingress traffic and routes inspected traffic to the cluster. 
+-  Azure Application Gateway integrated WAF intercepts all HTTP(S) ingress traffic and routes inspected traffic to the cluster. 
 
    This traffic can originate from trusted or untrusted networks. Application Gateway is provisioned in a subnet of the spoke network and secured by an NSG. As traffic flows in, WAF rules allow or deny, and route traffic to the configured backend. For example, Application Gateway protects the CDE by denying this type of traffic: 
     - All traffic that is not TLS-encrypted. 
@@ -193,7 +193,7 @@ The cluster will need to access other services over the public internet. If you 
 Interactions with endpoints of other Azure services are over the internet. Make sure those interactions are secure. For example, as part of the regular operations, the cluster will need to get certificates from the managed key store, pull images from a container registry, and so on. You can use private links for other services, such as Azure Key Vault and Azure Container Registry, to do the preceding tasks.
 
 In addition to firewall rules and private networks, NSG flows are also secured through rules. Here some examples from this architecture where the CDE is protected by denying traffic:
-- The NSGs, on subnets that have node pools, deny any SSH access to its nodes.
+- The NSGs, on subnets that have node pools, deny any SSH access to its nodes. Have a process in place for just-in-time emergency access while still maintaining the deny-all principle. 
 - The NSG, on the subnet that has the jump box for running management tools, denies all traffic except from Azure Bastion in the hub network.
 - The NSGs, on subnets that have the private endpoints to Azure Key Vault and Azure Container Registry, deny all traffic except from the internal load balancer and the traffic over Azure Private Link.
 
@@ -279,6 +279,8 @@ Here are ways in which you can block unauthorized outbound traffic:
 - Limit outbound traffic by adding NSGs on subnets with node pools.
 - Use Kubernetes `NetworkPolicies` to restrict egress traffic from the pods. 
 - Use a service mesh to handle additional policies. For example, if you only allow TLS-encrypted traffic between pods, the service mesh proxy can handle the TLS verification. That example is demonstrated in this implementation. Envoy is deployed as the proxy. 
+- Prevent addition of public IP addresses to the networks within the CDE unless by subnets explicitly authorized, such as the Firewall subnets. 
+
 
 > [!NOTE]
 >
@@ -421,7 +423,7 @@ Application Gateway has an integrated WAF, and negotiates the TLS handshake for 
 
 Suppose you have a legacy device that needs to interact with the CDE through Azure Application Gateway. For that, Application Gateway must enable an insecure protocol. Document that exception and monitor if that protocol is used beyond that legacy device. Disable that protocol immediately after that legacy interaction is discontinued.
 
-Also, Application Gateway must not respond to requests on port 80. Do not perform redirects at the application level.
+Also, Application Gateway must not respond to requests on port 80. Do not perform redirects at the application level. This reference implementation has an NSG rule on that blocks port 80 traffic. The rule is on the subnet with Application Gateway.
 
 If a workload in your cluster cannot adhere to organizational policy around security compliance profiles or other controls (for example, limits and quotas), then make sure the exception is documented. You must monitor to ensure that only expected functionality is performed.
 
@@ -460,7 +462,7 @@ Encrypt all non-console administrative access using strong cryptography.
 
 #### Your responsibilities
 
-All administrative access to the cluster should be done by using the console. Do not expose the cluster's control plane in any dashboard product, outside of the built-in experience in the Azure portal.
+All administrative access to the cluster should be done by using the console. Do not expose the cluster's control plane.
 
 ##### Azure responsibilities
 
@@ -471,7 +473,9 @@ Maintain an inventory of system components that are in scope for PCI DSS.
 
 #### Your responsibilities
 
-All Azure resources used in the architecture must be tagged properly. The tags should indicate whether the service is in-scope or out-of-scope. Meticulous tagging will allow you to query for resources, keep an inventory, help track costs, and set alerts. Also maintain a snapshot of that documentation periodically.
+All Azure resources used in the architecture must be tagged properly. The tags help in data classification and indicate whether the service is in-scope or out-of-scope. Meticulous tagging will allow you to query for resources, keep an inventory, help track costs, and set alerts. Also maintain a snapshot of that documentation periodically.
+
+Avoid tagging in-scope or out-of-scope resources at a granular level. As the solution evolves, out-of-scope resources might become in-scope even if they indirectly interact or are adjacent to the card holder data. These resources are subject to audit, and could be part of a representative sample during audit. Consider tagging at a higher level, at the subscription and cluster level.
 
 For information about tagging considerations, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/).
 
@@ -483,7 +487,7 @@ Ensure that security policies and operational procedures for managing vendor def
 
 #### Your responsibilities
 
-It's critical that you maintain thorough documentation about the processes and policies. Personnel should be trained in the security features and configuration settings of each Azure resource. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts that are granted broad administrative privileges.
+It's critical that you maintain thorough documentation about the processes and policies. Personnel should be trained in the security features and configuration settings of each Azure resource. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for admin accounts that are granted broad administrative privileges.
 
 ### Requirement 2.6
 
@@ -491,10 +495,7 @@ Shared hosting providers must protect each entity’s hosted environment and car
 
 #### Your responsibilities
 
-Azure provides security assurances for the hosted environment that are shared. For example, App Service Environment provides a regulated environment for hosting a web application. 
-
-It's highly recommended that you use dedicated hosts for AKS nodes. That is, the compute should be in a single tenant model.
-
+Azure provides security assurances for the hosted environment that are shared. It's highly recommended that you use dedicated hosts for AKS nodes. That is, the compute should be in a single tenant model.
 
 
 ## Next steps
