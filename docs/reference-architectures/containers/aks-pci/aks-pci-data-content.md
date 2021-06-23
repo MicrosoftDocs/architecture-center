@@ -77,7 +77,7 @@ Per the standard, sensitive authentication data consists of full track data, car
 - File names. 
 - Cache.
 
-If you do need to store this information, document the business justification. 
+As general guidance, merchants shouldn't store this information. If there's a need document the business justification. 
 
 
 ### Requirement 3.3
@@ -122,9 +122,11 @@ If disk encryption is used (rather than file- or column-level database encryptio
 ##### Your responsibilities
 As a general rule, do not store state in the AKS cluster. Use an external data storage that supports storage-engine level encryption. 
 
-All stored data in Azure Storage is encrypted and decrypted by using strong cryptography. Microsoft manages the associated keys. With Azure Storage, you can also use self-managed keys. For details, see  [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview?toc=/azure/storage/blobs/toc.json).
+All stored data in Azure Storage is encrypted and decrypted by using strong cryptography. Microsoft manages the associated keys. Self-managed encryption keys are preferred. Always encrypt outside the storage layer and only write encrypted data into the storage medium, ensuring that the keys are never adjacent to the storage layer.
 
-Similar capabilities are available for databases. For Azure SQL options, see [Transparent data encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-tde-overview).
+With Azure Storage, you can also use self-managed keys. For details, see  [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview?toc=/azure/storage/blobs/toc.json).
+
+Similar capabilities are available for databases. For Azure SQL options, see [Azure SQL Transparent Data Encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview).
 
 Make sure you store your keys in a managed key store (Azure Key Vault, Azure Key Vault Managed Hardware Security Module (HSM), and others). 
 
@@ -209,7 +211,7 @@ Requirement for cryptographic key custodians to formally acknowledge that they u
 
 ##### Your responsibilities
 
-Maintain legal documentation that describes the accountabilities of the parties responsible in the operations of key management.
+Maintain documentation that describes the accountabilities of the parties responsible in the operations of key management.
 
 ### Requirement 3.7
 Ensure that security policies and operational procedures for protecting stored cardholder data are documented, in use, and known to all affected parties.
@@ -217,7 +219,7 @@ Ensure that security policies and operational procedures for protecting stored c
 #### Your responsibilities
 Create documentation as a general statement plus a series of up-to-date role guides for all personas.  Perform new-hire training and ongoing training.
 
-It's critical that you maintain thorough documentation about the processes and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skillset up to date. 
+It's critical that you maintain thorough documentation about the processes and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skillset up to date. Training requirements are addressed in [Requirement 6.5](aks-pci-malware#requirement-65) and [Requirement 12.6](aks-pci-policy#maintain-an-information-security-policy).
 
 ### Requirement 4.1
 
@@ -226,7 +228,7 @@ Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, an
 
 #### Your responsibilities
       
-Data that transits over the public internet must be encrypted. Data must be encrypted with TLS 1.2 (or later), with reduced cipher support for all transmissions. Do not support non-TLS to TLS redirects on any data transmission services. 
+Card holder data (CHD) that transits over the public internet must be encrypted. Data must be encrypted with TLS 1.2 (or later), with reduced cipher support for all transmissions. Do not support non-TLS to TLS redirects on any data transmission services. 
 
 Your design should have a strategic chain of TLS termination points. As data travels through network hops, maintain TLS at hops that require packet inspection. At the very least, have the final TLS termination point at the cluster's ingress resource. Consider taking it further within the cluster resources.
 
