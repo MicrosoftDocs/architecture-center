@@ -301,7 +301,7 @@ For information about other CAs supported by Front Door, see [Allowed certificat
 
 ### Cluster access and identity
 
-As discussed in the [AKS Baseline Reference Arechitecture](azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#integrate-azure-active-directory-for-the-cluster), consider using Azure Active Directory as a cluster access identity provider. The Azure Active Directory groups can then be used to control access to cluster resources.
+As discussed in the [AKS Baseline Reference Arechitecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#integrate-azure-active-directory-for-the-cluster), consider using Azure Active Directory as a cluster access identity provider. The Azure Active Directory groups can then be used to control access to cluster resources.
 
 When managing multiple clusters, you will need to decide on an access schema. Options include:
 
