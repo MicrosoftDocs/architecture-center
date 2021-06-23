@@ -28,4 +28,4 @@ products:
   - azure-database-postgresql
 thumbnailUrl: /azure/architecture/browse/thumbs/raincode-reference-architecture-02.png
 content: |
-   [!include[](raincode-reference-architcture-content.md)]
+   [!include[](raincode-reference-architecture-content.md)]
