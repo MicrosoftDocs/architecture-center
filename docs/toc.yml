@@ -755,6 +755,8 @@ items:
                     href: example-scenario/mlops/aml-decision-tree.yml
           - name: Architectures
             items:
+              - name: App modernization 
+                href: reference-architectures/app-modeernization/raincode-reference-architecture.yml           
               - name: Baseball decision analysis with ML.NET and Blazor
                 href: data-guide/big-data/baseball-ml-workload.md
               - name: Batch scoring for deep learning
