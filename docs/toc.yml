@@ -1324,12 +1324,12 @@ items:
                         href: serverless/code.md
                       - name: CI/CD for a serverless frontend
                         href: serverless/guide/serverless-app-cicd-best-practices.md
+                  - name: Monitoring serverless event processing
+                    href: serverless/guide/monitoring-serverless-event-processing.md
                   - name: Serverless Functions app operations
                     href: serverless-quest/functions-app-operations.md
                   - name: Serverless Functions app security
                     href: serverless-quest/functions-app-security.md
-                  - name: Monitoring serverless event processing
-                    href: serverless/guide/monitoring-serverless-event-processing.md
               - name: Architectures
                 items:
                   - name: Azure Functions in a hybrid environment
@@ -1342,18 +1342,18 @@ items:
                     href: reference-architectures/serverless/event-processing.yml     
               - name: Solution ideas
                 items:
-                  - name: Big data analytics with Azure Data Explorer
-                    href: solution-ideas/articles/big-data-azure-data-explorer.yml
-                  - name: Serverless applications using Event Grid
-                    href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
-                  - name: Serverless computing LOB apps
-                    href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
                   - name: Azure Kubernetes in event stream processing
                     href: solution-ideas/articles/serverless-event-processing-aks.yml
+                  - name: Big data analytics with Azure Data Explorer
+                    href: solution-ideas/articles/big-data-azure-data-explorer.yml
                   - name: De-batching and filtering in serverless event processing with Event Hubs
                     href: solution-ideas/articles/serverless-event-processing-filtering.yml
                   - name: Private link scenario in event stream processing
                     href: solution-ideas/articles/serverless-event-processing-private-link.yml
+                  - name: Serverless applications using Event Grid
+                    href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
+                  - name: Serverless computing LOB apps
+                    href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
       - name: DevOps
         items:
           - name: Guides
