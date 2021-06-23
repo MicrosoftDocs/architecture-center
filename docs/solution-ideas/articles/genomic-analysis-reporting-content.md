@@ -1,6 +1,10 @@
 # Precision Medicine Pipeline with Genomics
 
-The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the Microsoft Azure cloud. Microsoft Azure has data centers around the world, with the storage and compute power to meet the demands of storing and analyzing the hundreds of thousands of genomes that will be sequenced in the coming years. Microsoft Azure is accredited to comply with the major global security and privacy standards, such as ISO 27001, and has the security and provenance standards that enable HIPAA-compliant operation when handling personal health information.
+The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Azure offers an ideal solution:
+
+- Scientists plan on sequencing hundreds of thousands of genomes in coming years. The task of storing and analyzing this data requires significant computing power and storage capacity. With data centers around the world, Azure can meet these demands.
+- Azure is certified for major global security and privacy standards, such as ISO 27001.
+- Azure complies with the security and provenance standards that HIPAA establishes for personal health information.
 
 As part of making Microsoft Azure the best cloud for genomics, [Microsoft Genomics](https://azure.microsoft.com/services/genomics/) has developed an optimized secondary analysis service that can process a 30x genome in only a few hours, instead of a day or more. The Microsoft Genomics Service includes a high-performance engine that is optimized to read large files of genomic data, process them efficiently across many cores, sort and filter the results, and write them back out. This engine orchestrates the operation of the BWA aligner and the GATK HaplotypeCaller variant caller for maximum throughput. It also incorporates several other simpler components that are part of standard genomics pipelines, such as duplicate marking, base quality score recalibration, and indexing. This engine can process a single genomic sample, from raw reads to aligned reads and variant calls, in a few hours on a single multi-core server.
 
