@@ -5,7 +5,7 @@ Guarantee access to users around the world with the high-availability and low-la
 ## Architecture
 
 ![Architecture Diagram](../media/globally-distributed-mission-critical-applications-using-cosmos-db.png)
-<br /> _Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) version of this architecture._
+<br /> *Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) version of this architecture.*
 
 ## Data flow
 
@@ -15,24 +15,24 @@ Guarantee access to users around the world with the high-availability and low-la
 1. This application can range from a simple static page up until a microservices-oriented application hosted in Kubernetes for instance.
 1. The connection between the application landscape and the Cosmos DB is handled through an Azure Active Directory User who can pick up the Cosmos DB keys in Key Vault.
 1. By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region and can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions to and from your Azure Cosmos account, your application doesn't need to be redeployed or paused, it continues to be highly available at all times.
-   Underneath the covers, Cosmos DB will handle the global distribution and replication of the data based upon the number of defined regions. As an addition one should also benefit from the Automatic Failover option to fail over to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified.
+Underneath the covers, Cosmos DB will handle the global distribution and replication of the data based upon the number of defined regions. As an addition one should also benefit from the Automatic Failover option to fail over to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified.
 
 ## Components
 
-- [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager): create DNS-based load balancing / routing options for your applications with of six types of DNS-based traffic routing options, which can be nested.
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale.
+* [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager): create DNS-based load balancing / routing options for your applications with of six types of DNS-based traffic routing options, which can be nested.
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale.
 
 ### Compute options
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Create Linux and Windows virtual machines (VMs) in seconds and reduce costs.
-- [Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service): Highly available, secure, and fully managed Kubernetes service for all your application and microservice base workloads.
-- [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile.
+* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Create Linux and Windows virtual machines (VMs) in seconds and reduce costs.
+* [Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service): Highly available, secure, and fully managed Kubernetes service for all your application and microservice base workloads.
+* [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile.
 
 ### Serverless options
 
-- [Azure Functions](https://azure.microsoft.com/services/functions): More than just event-driven serverless compute.
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps): Quickly build powerful integration solutions.
+* [Azure Functions](https://azure.microsoft.com/services/functions): More than just event-driven serverless compute.
+* [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps): Quickly build powerful integration solutions.
 
 ## Considerations
 
@@ -63,40 +63,39 @@ From a security perspective, drive towards an identity-based system, where Azure
 
 More about Azure Cosmos DB:
 
-- [Manage an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account)
-- [Configure multi-region writes in your applications that use Azure Cosmos DB](/azure/cosmos-db/how-to-multi-master)
-- [Distribute your data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally)
-- [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
-- [Manage consistency levels in Azure Cosmos DB](/azure/cosmos-db/how-to-manage-consistency)
-- [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db/create-sql-api-dotnet)
-- [Use system-assigned managed identities to access Azure Cosmos DB data](/azure/cosmos-db/managed-identity-based-authentication)
-- [How does Azure Cosmos DB provide high availability](/azure/cosmos-db/high-availability)
-- [Enable automatic failover for your Azure Cosmos account](/azure/cosmos-db/how-to-manage-database-account#automatic-failover)
+* [Manage an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account)
+* [Configure multi-region writes in your applications that use Azure Cosmos DB](/azure/cosmos-db/how-to-multi-master)
+* [Distribute your data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally)
+* [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
+* [Manage consistency levels in Azure Cosmos DB](/azure/cosmos-db/how-to-manage-consistency)
+* [Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal](/azure/cosmos-db/create-sql-api-dotnet)
+* [Use system-assigned managed identities to access Azure Cosmos DB data](/azure/cosmos-db/managed-identity-based-authentication)
+* [How does Azure Cosmos DB provide high availability](/azure/cosmos-db/high-availability)
+* [Enable automatic failover for your Azure Cosmos account](/azure/cosmos-db/how-to-manage-database-account#automatic-failover)
 
 More about Azure Traffic Manager:
 
-- [What is Traffic Manager?](/azure/traffic-manager/traffic-manager-overview)
-- [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
-- [Tutorial: Configure the geographic traffic routing method using Traffic Manager](/azure/traffic-manager/traffic-manager-configure-geographic-routing-method)
+* [What is Traffic Manager?](/azure/traffic-manager/traffic-manager-overview)
+* [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
+* [Tutorial: Configure the geographic traffic routing method using Traffic Manager](/azure/traffic-manager/traffic-manager-configure-geographic-routing-method)
 
 Related solution ideas:
 
-- [Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)
-- [Deliver highly scalable customer service and ERP applications](/azure/architecture/solution-ideas/articles/erp-customer-service)
-- [Gaming using Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)
-- [IoT using Cosmos DB](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
-- [Personalization using Cosmos DB](/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db)
-- [Retail and e-commerce using Cosmos DB](/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db)
-- [Serverless apps using Cosmos DB](/azure/architecture/solution-ideas/articles/serverless-apps-using-cosmos-db)
+* [Build cloud native applications](./cloud-native-apps.yml)
+* [Deliver highly scalable customer service and ERP applications](./erp-customer-service.yml)
+* [Gaming using Cosmos DB](./gaming-using-cosmos-db.yml)
+* [IoT using Cosmos DB](./iot-using-cosmos-db.yml)
+* [Personalization using Cosmos DB](./personalization-using-cosmos-db.yml)
+* [Retail and e-commerce using Cosmos DB](./retail-and-e-commerce-using-cosmos-db.yml)
+* [Serverless apps using Cosmos DB](./serverless-apps-using-cosmos-db.yml)
 
 Related full architectures:
 
-- [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
-- [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/newsfeed-ingestion)
-- [Scalable order processing](/azure/architecture/example-scenario/data/ecommerce-order-processing)
+* [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
+* [Mass ingestion and analysis of news feeds on Azure](../../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
+* [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 
 Related architecture guidance:
-
-- [Deploying multi-region APIs that write to Cosmos DB](/azure/architecture/patterns/geodes)
-- [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-- [Choosing a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
+* [Deploying multi-region APIs that write to Cosmos DB](/azure/architecture/patterns/geodes)
+* [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+* [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
