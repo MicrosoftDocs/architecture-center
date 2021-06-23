@@ -5,7 +5,7 @@ metadata:
   description: A serverless event-driven architecture using Azure Event Hubs and Azure Functions to ingest and filter a stream of data for database storage.
   author: Sarah-Aly
   ms.author: sarah.aly
-  ms.date: 06/18/2021
+  ms.date: 06/25/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
