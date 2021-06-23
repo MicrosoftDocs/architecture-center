@@ -43,6 +43,14 @@ The availability of the Cosmos DB depends on a number of factors. The greater th
 When considering the above approach, if you achieve high availability on Azure CosmosDB Automatic Failover, then you are configuring your solution to keep the running application at it's highest possible provided SLA.
 For the application layer, Traffic Manager should be configured with nested profiles. When pushing this design to the highest level, you can scale the different application choices, per region. The per-region deployment also takes a high-availability (HA) approach.
 
+### Performance
+
+System performance is affected by a number of factors at the compute and database level. The SKU for App Service plan or other compute option affects the memory, cores, that are available in each region. Additionally, the number of regions the compute layer is deployed to dictates the scale that it is capable of handling. Deployment of additional locations take pressure off existing regions and should cause linear increases in the maximum throughput the application can fulfill.
+
+Cosmos DB should be configured such that it does not cause a bottleneck for the compute tier resources. Each database and container in Cosmos DB should be configured to auto-scale and should be supplied with a maximum RU value that ensures Cosmos DB does not throttle requests. Load tests near approximate maximum throughput for the application can be run to determine appropriate max RU values for the Cosmos DB entities. Weaker consistency levels offer higher throughput and performance benefits when compared with their stronger counterparts.
+
+Crucially, when implementing the logic in code that reads from and writes to Cosmos DB, whether it be through the SDK, Azure Functions bindings, etc. `PreferredLocations` should be used so that each regional API routes requests to the closest Cosmos DB region. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations, resulting in significant performance boosts.
+
 ### Resiliency
 
 For higher resiliency, you can use availability zones for Azure Cosmos DB deployments.
