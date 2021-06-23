@@ -1,6 +1,3 @@
-
-
-
 This scenario explains the architecture and considerations to take into account when [installing and configuring Jenkins][install-jenkins-section].
 
 ![Jenkins server running on Azure][0]
@@ -114,10 +111,10 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 
 ## Next steps
 
-* [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
-* [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service](/azure/architecture/solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service)
-* [Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview](/azure/architecture/solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview)
-* [Java CI/CD using Jenkins and Azure Web Apps](/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps)
+* [Design a CI/CD pipeline using Azure DevOps](./devops-dotnet-webapp.yml)
+* [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service](../../solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml)
+* [Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview](../../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)
+* [Java CI/CD using Jenkins and Azure Web Apps](../../solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps.yml)
 
 <!-- links -->
 

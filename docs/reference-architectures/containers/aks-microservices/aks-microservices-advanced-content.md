@@ -1,6 +1,6 @@
 This reference architecture details several configurations to consider when running microservices on Azure Kubernetes Services. Topics include configuring network policies, pod autoscaling, and distributed tracing across a microservice-based application. 
 
-This architecture builds on the [AKS Baseline architecture](https://aka.ms/architecture/aks-baseline), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
+This architecture builds on the [AKS Baseline architecture](../aks/secure-baseline-aks.yml), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-fabrikam-dronedelivery).
 
@@ -59,7 +59,7 @@ The AKS infrastructure features used in this architecture include:
 
 The example [Fabrikam Drone Delivery Shipping App](https://github.com/mspnp/aks-fabrikam-dronedelivery) shown in the preceding diagram implements the architectural components and practices discussed in this article. In this example, Fabrikam, Inc., a fictitious company, manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, the backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the drone's location with a continuously updated ETA.
 
-This request flow implements the [Publisher-Subscriber](/azure/architecture/patterns/publisher-subscriber), [Competing Consumers](/azure/architecture/patterns/competing-consumers), and [Gateway Routing](/azure/architecture/patterns/gateway-routing) cloud design patterns. The messaging flow proceeds as follows:
+This request flow implements the [Publisher-Subscriber](../../../patterns/publisher-subscriber.md), [Competing Consumers](../../../patterns/competing-consumers.md), and [Gateway Routing](../../../patterns/gateway-routing.md) cloud design patterns. The messaging flow proceeds as follows:
 
 1. An HTTPS request is submitted to schedule a drone pickup. The requests pass through Azure Application Gateway into the ingestion web application, which runs as an in-cluster microservice in AKS.
    
@@ -82,7 +82,7 @@ Implement these recommendations when deploying advanced AKS microservices archit
 
 ### Application Gateway Ingress Controller (AGIC)
 
-API [Gateway Routing](/azure/architecture/patterns/gateway-routing) is a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An API gateway acts as a reverse proxy that routes requests from clients to microservices. The Kubernetes *ingress* resource and the *ingress controller* handle most API gateway functionality by:
+API [Gateway Routing](../../../patterns/gateway-routing.md) is a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). An API gateway acts as a reverse proxy that routes requests from clients to microservices. The Kubernetes *ingress* resource and the *ingress controller* handle most API gateway functionality by:
 
 Routing client requests to the correct backend services provides a single endpoint for clients and help decouple clients from services.
 - Aggregating multiple requests into a single request to reduce chatter between the client and the backend.
@@ -266,7 +266,7 @@ The following diagram shows an example of the application dependency map that Ap
 
 ![Example of an Application Insights dependency map for an AKS microservices application.](images/application-map.png)
 
-For more information on options for instrumenting common languages for application insights integration, see [Application monitoring for Kubernetes](https://docs.microsoft.com/azure/azure-monitor/app/kubernetes-codeless).
+For more information on options for instrumenting common languages for application insights integration, see [Application monitoring for Kubernetes](/azure/azure-monitor/app/kubernetes-codeless).
 
 ## Scalability considerations
 
@@ -319,9 +319,9 @@ Consider the following points when planning for security.
 
 ## Next steps
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](https://aka.ms/architecture/aks-baseline)
-- [Design, build, and operate microservices on Azure with Kubernetes](/azure/architecture/microservices)
-- [Microservices architecture on AKS](/azure/architecture/reference-architectures/microservices/aks)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../aks/secure-baseline-aks.yml)
+- [Design, build, and operate microservices on Azure with Kubernetes](../../../microservices/index.md)
+- [Microservices architecture on AKS](./aks-microservices.yml)
 - [Monitor a microservices architecture in AKS](../../../microservices/logging-monitoring.md)
 - [Performance tuning scenario: Distributed business transactions](../../../performance/distributed-transaction.md)
-- [Building a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)
+- [Building a CI/CD pipeline for microservices on Kubernetes](../../../microservices/ci-cd-kubernetes.md)

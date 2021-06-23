@@ -211,7 +211,7 @@ or check out the following resources:
 -   [Skytap documentation](https://help.skytap.com/)
 
 -   [Mainframe file replication and sync on
-    Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)
+    Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 
 -   [Modernize mainframe & midrange
-    data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
+    data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)

@@ -228,17 +228,17 @@ View the [Profisee Azure Data Factory templates](https://github.com/profisee/azu
 
 ### Architecture guides
 
-- [Extract, transform, and load (ETL)](/azure/architecture/data-guide/relational-data/etl)
+- [Extract, transform, and load (ETL)](../../data-guide/relational-data/etl.md)
 - [Integration runtime in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
-- [Data warehousing](/azure/architecture/data-guide/relational-data/data-warehousing)
-- [Batch processing](/azure/architecture/data-guide/big-data/batch-processing)
-- [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
+- [Data warehousing](../../data-guide/relational-data/data-warehousing.md)
+- [Batch processing](../../data-guide/big-data/batch-processing.md)
+- [Choosing a data pipeline orchestration technology in Azure](../../data-guide/technology-choices/pipeline-orchestration-data-movement.md)
 
 ### Reference architectures
 
-- [Hybrid ETL with Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
-- [DevTest Image Factory](/azure/architecture/solution-ideas/articles/dev-test-image-factory)
-- [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
-- [Modernize mainframe & midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
-- [DataOps for the modern data warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
-- [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)
+- [Hybrid ETL with Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.yml)
+- [DevTest Image Factory](../../solution-ideas/articles/dev-test-image-factory.yml)
+- [Automated enterprise BI](./enterprise-bi-adf.yml)
+- [Modernize mainframe & midrange data](../migration/modernize-mainframe-data-to-azure.yml)
+- [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)
+- [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)

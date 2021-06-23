@@ -1,7 +1,8 @@
 ---
 title: Choosing an Azure compute service
 description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 03/29/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -37,6 +38,8 @@ The output from this flowchart is a **starting point** for consideration. Next, 
 
 This article includes several tables which may help you to make these tradeoff decisions. Based on this analysis, you may find that the initial candidate isn't suitable for your particular application or workload. In that case, expand your analysis to include other compute services.
 
+> [!NOTE]
+> Learn more about reviewing your compute requirements for cloud adoption, in the [Microsoft Cloud Adoption Farmework for Azure](/azure/cloud-adoption-framework/ready/considerations/compute-options).
 
 ## Understand the basic features
 
