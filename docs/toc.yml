@@ -753,6 +753,182 @@ items:
                     href: example-scenario/mlops/mlops-maturity-model.yml
                   - name: Azure ML service selection guide
                     href: example-scenario/mlops/aml-decision-tree.yml
+              - name: Team Data Science Process
+                items:
+                  - name: Overview
+                    href: data-science-process/overview.md
+                  - name: Lifecycle
+                    items:
+                      - name: Overview
+                        href: data-science-process/lifecycle.md
+                      - name: 1. Business understanding
+                        href: data-science-process/lifecycle-business-understanding.md
+                      - name: 2. Data acquisition and understanding
+                        href: data-science-process/lifecycle-data.md
+                      - name: 3. Modeling
+                        href: data-science-process/lifecycle-modeling.md
+                      - name: 4. Deployment
+                        href: data-science-process/lifecycle-deployment.md
+                      - name: 5. Customer acceptance
+                        href: data-science-process/lifecycle-acceptance.md
+                  - name: Roles and tasks
+                    items:
+                      - name: Overview
+                        href: data-science-process/roles-tasks.md            
+                      - name: Group manager
+                        href: data-science-process/group-manager-tasks.md
+                      - name: Team lead
+                        href: data-science-process/team-lead-tasks.md
+                      - name: Project lead
+                        href: data-science-process/project-lead-tasks.md
+                      - name: Individual contributor
+                        href: data-science-process/project-ic-tasks.md
+                  - name: Project planning
+                    href: data-science-process/team-data-science-process-project-templates.md
+                  - name: Development
+                    items:
+                      - name: Agile development
+                        href: data-science-process/agile-development.md
+                      - name: Collaborative coding with Git
+                        href: data-science-process/collaborative-coding-with-git.md
+                      - name: Execute data science tasks
+                        href: data-science-process/execute-data-science-tasks.md
+                      - name: Code testing
+                        href: data-science-process/code-test.md
+                      - name: Track progress
+                        href: data-science-process/track-progress.md
+                  - name: Operationalization
+                    items:
+                      - name: DevOps - CI/CD
+                        href: data-science-process/ci-cd-flask.md
+                  - name: Worked-out examples
+                    items:
+                      - name: Overview
+                        href: data-science-process/walkthroughs.md
+                      - name: Spark examples
+                        items:
+                          - name: Spark with PySpark and Scala
+                            href: data-science-process/walkthroughs-spark.md
+                          - name: Explore and model data
+                            href: data-science-process/spark-data-exploration-modeling.md
+                          - name: Advanced data exploration and modeling
+                            href: data-science-process/spark-advanced-data-exploration-modeling.md
+                          - name: Score models
+                            href: data-science-process/spark-model-consumption.md
+                      - name: Hive with HDInsight Hadoop
+                        href: data-science-process/walkthroughs-hdinsight-hadoop.md
+                      - name: U-SQL with Azure Data Lake
+                        href: data-science-process/walkthroughs-azure-data-lake.md
+                      - name: R, Python and T-SQL with SQL Server
+                        href: data-science-process/walkthroughs-sql-server.md
+                      - name: T-SQL and Python with Azure Synapse Analytics
+                        href: data-science-process/walkthroughs-sql-data-warehouse.md
+                  - name: Training
+                    items:
+                      - name: For data scientists
+                        href: data-science-process/team-data-science-process-for-data-scientists.md
+                      - name: For DevOps
+                        href: data-science-process/team-data-science-process-for-devops.md
+                  - name: How To
+                    items:
+                      - name: Set up data science environments
+                        items:
+                          - name: Environment setup
+                            href: data-science-process/environment-setup.md
+                          - name: Platforms and tools
+                            href: data-science-process/platforms-and-tools.md
+                      - name: Analyze business needs
+                        items:
+                          - name: Identify your scenario
+                            href: data-science-process/plan-your-environment.md
+                      - name: Acquire and understand data
+                        items:
+                          - name: Ingest data
+                            items:
+                              - name: Overview
+                                href: data-science-process/ingest-data.md
+                              - name: Move to/from Blob storage
+                                items:
+                                  - name: Overview
+                                    href: data-science-process/move-azure-blob.md
+                                  - name: Use Storage Explorer
+                                    href: data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md
+                                  - name: Use SSIS
+                                    href: data-science-process/move-data-to-azure-blob-using-ssis.md
+                              - name: Move to SQL on a VM
+                                href: data-science-process/move-sql-server-virtual-machine.md
+                              - name: Move to Azure SQL Database
+                                href: data-science-process/move-sql-azure.md
+                              - name: Move to Hive tables
+                                href: data-science-process/move-hive-tables.md
+                              - name: Move to SQL partitioned tables
+                                href: data-science-process/parallel-load-sql-partitioned-tables.md
+                              - name: Move from on-prem SQL
+                                href: data-science-process/move-sql-azure-adf.md
+                          - name: Explore and visualize data
+                            items:
+                              - name: Prepare data
+                                href: data-science-process/prepare-data.md
+                              - name: Explore data
+                                items:
+                                  - name: Overview
+                                    href: data-science-process/explore-data.md
+                                  - name: Explore Azure Blob Storage
+                                    href: data-science-process/explore-data-blob.md
+                                  - name: Explore SQL on a VM
+                                    href: data-science-process/explore-data-sql-server.md
+                                  - name: Explore Hive tables
+                                    href: data-science-process/explore-data-hive-tables.md
+                              - name: Sample data
+                                items:
+                                  - name: Overview
+                                    href: data-science-process/sample-data.md
+                                  - name: Use Blob Storage
+                                    href: data-science-process/sample-data-blob.md
+                                  - name: Use SQL Server
+                                    href: data-science-process/sample-data-sql-server.md
+                                  - name: Use Hive tables
+                                    href: data-science-process/sample-data-hive.md
+                              - name: Process data
+                                items:
+                                  - name: Access with Python
+                                    href: data-science-process/python-data-access.md
+                                  - name: Process blob data
+                                    href: data-science-process/data-blob.md
+                                  - name: Use Azure Data Lake
+                                    href: data-science-process/data-lake-walkthrough.md
+                                  - name: Use SQL VM
+                                    href: data-science-process/sql-server-virtual-machine.md
+                                  - name: Use data pipeline
+                                    href: data-science-process/automated-data-pipeline-cheat-sheet.md
+                                  - name: Use Spark 
+                                    href: data-science-process/spark-overview.md
+                                  - name: Use Scala and Spark
+                                    href: data-science-process/scala-walkthrough.md
+                      - name: Develop models
+                        items:
+                          - name: Engineer features
+                            items:
+                              - name: Overview
+                                href: data-science-process/create-features.md
+                              - name: Use SQL and Python
+                                href: data-science-process/create-features-sql-server.md
+                              - name: Use Hive queries
+                                href: data-science-process/create-features-hive.md
+                          - name: Select features
+                            href: data-science-process/select-features.md
+                      - name: Deploy models in production
+                        href: data-science-process/deploy-models-in-production.md
+                  - name: Related
+                    items:
+                      - name: Anomaly detection
+                        href: data-science-process/apps-anomaly-detection-api.md
+                      - name: Predictive maintenance
+                        items:
+                          - name: Overview
+                            href: data-science-process/predictive-maintenance-playbook.md
+                          - name: Technical guide
+                            href: data-science-process/predictive-maintenance-technical-guide.md
           - name: Architectures
             items:
               - name: Baseball decision analysis with ML.NET and Blazor
