@@ -113,7 +113,7 @@ Assign access based on individual personnel’s job classification and function.
 
 Determine permissions based on the clearly assigned job duties of the individual. Avoid parameters such as the system or the tenure of the employee. Give access rights to a single user or to a group. 
 
-Here are the some examples.
+Here are some examples.
 
 |Job classification|Role|
 |---|---|
@@ -130,7 +130,7 @@ Require documented approval by authorized parties specifying required privileges
 
 ##### Your responsibilities
 
-Have a gated process for approving changes in roles and permissions, including the intial assignment of privileges. Ensure those approvals are documented and available for inspection.
+Have a gated process for approving changes in roles and permissions, including the initial assignment of privileges. Ensure those approvals are documented and available for inspection.
 
 ### Requirement 7.2
 
@@ -178,7 +178,7 @@ Here are some best practices to maintain access control measures:
 
 - Ideally disable SSH access to the cluster nodes. This reference implementation doesn't generate SSH connection details for that purpose.
 
-- Any additional compute, such as jumpboxes, must be accessed by authorized users. Do not create generic logins available to the entire team.
+- Any additional compute, such as jump boxes, must be accessed by authorized users. Do not create generic logins available to the entire team.
 
 #### Requirement 7.2.2
 
@@ -186,7 +186,7 @@ Assignment of privileges to individuals based on job classification and function
 
 ##### Your responsibilities
 
-Based on 7.1.3, there will be many roles involved in cluster operations. Beyond the standard Azure resource roles, you'll need to now define the extent and process of access.
+Based on 7.1.3, there will be many roles involved in cluster operations. Beyond the standard Azure resource roles, you'll need to define the extent and process of access.
 
 For example, consider the cluster operator role. They should have a clearly-defined playbook for cluster triage activities. How different is that access from workload team? Depending on your organization, they may be the same. Here are some points to consider:
 
@@ -211,7 +211,7 @@ When you start the configuration, start with zero-trust policies. Make exception
 
 - All Azure services, Azure Key Vault, and Azure Container Registry, have *deny all* set of permissions by default.
 
-- Any administrative access points, such as a jump box, should deny all access in the initial configuraiton. All elevated permissions must be defined explicitly to the deny all rule. 
+- Any administrative access points, such as a jump box, should deny all access in the initial configuration. All elevated permissions must be defined explicitly to the deny all rule. 
 
 > [!NOTE]
 > Remember that for network access, NSGs allow all communication by default. Change that to set *deny all* as the starting rule with high priority. Then, add exceptions that will be applied before the *deny all* rule, as needed. Be consistent on the naming, so that it's easier to audit.
@@ -225,7 +225,7 @@ Ensure that security policies and operational procedures for restricting access 
 
 #### Your responsibilities
 
-It's critical that you maintain thorough documentation about the processes and policies. This includes Azure and Kubernetes RBAC policies and organizational governance policies. People operating regulated enviroments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
+It's critical that you maintain thorough documentation about the processes and policies. This includes Azure and Kubernetes RBAC policies and organizational governance policies. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
 
 ***
 
@@ -237,7 +237,7 @@ Define and implement policies and procedures to ensure proper user identificatio
 - 8.1.2 Control addition, deletion, and modification of user IDs, credentials, and other identifier objects.
 - 8.1.3 Immediately revoke access for any terminated users.
 - 8.1.4 Remove/disable inactive user accounts within 90 days.
-- 8.1.5 Manage IDs used by thid parties to access, support, or maintain system components via remote access as follows:
+- 8.1.5 Manage IDs used by third parties to access, support, or maintain system components via remote access as follows:
   - Enabled only during the time period needed and disabled when not in use.
   - Monitored when in use.
 - 8.1.6 Limit repeated access attempts by locking out the user ID after not more than six attempts.
@@ -298,7 +298,7 @@ Several of the preceding set of requirements are automatically handled by Azure 
 
 - **Password security**
 
-    Azure AD provides features that enforces the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Azure AD Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies cannot be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Azure AD password policies](/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts). Consider using advanced features that can be enforced with conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk-user).
+    Azure AD provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Azure AD Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies cannot be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Azure AD password policies](/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts). Consider using advanced features that can be enforced with conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk-user).
 
     > [!NOTE]
     > We strongly recommend that you consider passwordless options. For more information, see [Plan a passwordless authentication deployment in Azure Active Directory](azure/active-directory/authentication/howto-authentication-passwordless-deployment).
@@ -307,7 +307,7 @@ Several of the preceding set of requirements are automatically handled by Azure 
 
     You can apply the sign-in risk conditional access policy to detect if the authentication request was issued by the requesting identity. The request is validated against threat intelligence sources. These include password spray and IP address anomalies. For more information, see [Conditional Access: Sign-in risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk).
 
-You might have components that don't use Azure AD, such as access to jump boxes with SSH. For such cases, use public key encryption with at least RSA 2048 keysize. Always specify a passphrase. Have a validation process that tracks known approved public keys. Systems that use public key access mustn't be exposed to the internet.  Instead, all SSH access should be allowed through a intermediary, such as Azure Bastion to reduce the impact of a private key leak. Disable direct password access and use an alternative passwordless solution.
+You might have components that don't use Azure AD, such as access to jump boxes with SSH. For such cases, use public key encryption with at least RSA 2048 key size. Always specify a passphrase. Have a validation process that tracks known approved public keys. Systems that use public key access mustn't be exposed to the internet.  Instead, all SSH access should be allowed through an intermediary, such as Azure Bastion to reduce the impact of a private key leak. Disable direct password access and use an alternative passwordless solution.
 
 ### Requirement 8.3
 
@@ -366,7 +366,7 @@ Where other authentication mechanisms are used (for example, physical or logical
 
 #### Your responsibilities
 
-Ensure that all access to the CDE is provided on per-user identities, and this is extended into any physical or virtual tokens. This includes any VPN access into the CDE network, ensuring that enterprise point-to-site access (if any) use per-user certificates as part of that authenitcation flow.
+Ensure that all access to the CDE is provided on per-user identities, and this is extended into any physical or virtual tokens. This includes any VPN access into the CDE network, ensuring that enterprise point-to-site access (if any) use per-user certificates as part of that authentication flow.
 
 ### Requirement 8.7
 
@@ -402,7 +402,7 @@ This architecture and the implementation aren't designed to provide controls on 
 Here are some suggestions for applying technical controls:
 
 - Tune session timeouts in any administrative console access, such as jump boxes in the CDE, to minimize access.
-- Tune conditional access polices to minimize the TTL on Azure access tokens from access points, such as the Azure portal. For information, see these articles:
+- Tune conditional access policies to minimize the TTL on Azure access tokens from access points, such as the Azure portal. For information, see these articles:
 
   - [Configure authentication session management with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
   - [Configurable token lifetimes - Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
@@ -411,7 +411,7 @@ Here are some suggestions for applying technical controls:
 
 - Minimize exporting of CHD backups to on-premises destinations. Use solutions hosted in Azure to limit physical access to backups.
 
-- Minimize backups to on-premises. If this is required be aware that the on-premises destination will be in scope for audit.
+- Minimize backups to on-premises. If this is required, be aware that the on-premises destination will be in scope for audit.
 
 
 ## Next steps
