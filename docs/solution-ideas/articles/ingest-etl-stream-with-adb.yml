@@ -19,7 +19,7 @@ products:
   - "azure-iot-hub"
   - "azure-data-factory"
   - "azure-event-hubs"
-name: Build ingestion, ETL, and stream processing pipelines with Azure Databricks
+name: Ingestion, ETL, and stream processing pipelines with Azure Databricks
 summary: Create ETL pipelines for batch and streaming data with Azure Databricks to simplify data lake ingestion at any scale.
 thumbnailUrl: /azure/architecture/browse/thumbs/ingest-etl-stream-with-adb.png
 content: |
