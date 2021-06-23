@@ -62,7 +62,7 @@ Scaling is based upon many levels in this diagram. Azure Cosmos DB is purpose-bu
 
 ### Security
 
-From a security perspective, drive towards an identity-based system, where Azure Active Directory can be used to secure access to the environment. In the backend, the application is (by best design) accessed through Managed Identities, although one could also consider the approach of using Azure Active Directory Users and Azure Key Vault for securing access. Additionally, the Cosmos DB should be further secured such that the only entities capable of reading and writing to it are the various backends deployed to different regions. IP restriction can be applied to the account using the built in [firewall](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall).
+From a security perspective, drive towards an identity-based system, where Azure Active Directory can be used to secure access to the environment. In the backend, the application is (by best design) accessed through Managed Identities, although one could also consider the approach of using Azure Active Directory Users and Azure Key Vault for securing access. Additionally, the Cosmos DB should be further secured such that the only entities capable of reading and writing to it are the various backends deployed to different regions. IP restriction can be applied to the account by using the built-in [firewall](/azure/cosmos-db/how-to-configure-firewall).
 
 > [!NOTE]
 > As of Ignite March 2021, we now also support [Azure Active Directory RBAC directly on the Cosmos DB SQL API](/azure/cosmos-db/how-to-setup-rbac).
