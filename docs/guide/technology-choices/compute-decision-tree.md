@@ -168,7 +168,7 @@ Perform a more detailed evaluation looking at the following aspects of the servi
 [cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows
 [cost-app-service]: https://azure.microsoft.com/pricing/details/app-service
 [cost-service-fabric]: https://azure.microsoft.com/pricing/details/service-fabric
-[cost-azure-spring-cloud]: https://azure.microsoft.com/en-us/pricing/details/spring-cloud/
+[cost-azure-spring-cloud]: https://azure.microsoft.com/pricing/details/spring-cloud/
 [cost-functions]: https://azure.microsoft.com/pricing/details/functions
 [cost-acs]: https://azure.microsoft.com/pricing/details/kubernetes-service
 [cost-batch]: https://azure.microsoft.com/pricing/details/batch
