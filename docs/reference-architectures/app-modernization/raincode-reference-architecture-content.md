@@ -1,5 +1,3 @@
-# Refactor mainframe applications to Azure with Raincode compilers
-
 ## Overview and use cases
 
 This architecture shows how the Raincode COBOL compiler modernizes mainframe
