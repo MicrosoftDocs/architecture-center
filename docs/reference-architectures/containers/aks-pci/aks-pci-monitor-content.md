@@ -239,6 +239,8 @@ It's critical that you maintain thorough documentation about the processes and p
 
 Implement processes to test for the presence of wireless access points (802.11), and detect and identify all authorized and unauthorized wireless access points on a quarterly basis.
 
+External networks are out of scope for this documentation and must be evaluated separately.
+
 #### Your responsibilities
 
 This architecture and the implementation aren't designed to do on-premises or corporate network-to-cloud transactions over wireless connections. For considerations, refer to the guidance in the official PCI-DSS standard.
@@ -246,6 +248,8 @@ This architecture and the implementation aren't designed to do on-premises or co
 ### Requirement 11.2
 
 Run internal and external network vulnerability scans at least quarterly and after any significant change in the network (such as new system component installations, changes in network topology, firewall rule modifications, product upgrades). 
+
+For more information, see [Payment Card Industry (PCI) Data Security Standard Approved Scanning Vendors](https://www.pcisecuritystandards.org/documents/ASV_Program_Guide_v3.1.pdf?agreement=true&time=1623964812162).
 
 #### Your responsibilities
 
@@ -295,6 +299,8 @@ Use intrusion-detection and/or intrusion-prevention techniques to detect and/or 
 #### Your responsibilities
 
 Protect the AKS cluster by inspecting inbound traffic. One way is through the use of a web application firewall (WAF). In this architecture, Azure Application Gateway with integrated WAF prevents intrusion. Use the **prevent** mode to actively block the detected intrusions and attacks. Don't just use **detect** mode. For more information, see [Best practices for network connectivity and security in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-network).
+
+An alternate option is to use intrusion-detection and/or intrusion-prevention capabilities in Azure Firewall Premium. For more information, see [IDPS](/azure/firewall/premium-features#idps).
 
 Another option is enabling [Azure Monitor Network Insights](/azure/azure-monitor/insights/network-insights-overview). 
 
