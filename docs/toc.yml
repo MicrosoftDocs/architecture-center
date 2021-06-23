@@ -58,11 +58,11 @@ items:
           - name: Choose a compute service
             href: guide/technology-choices/compute-decision-tree.md
           - name: Choose a Kubernetes option
-            item:
+            items:
               - name: Kubernetes at the edge
                 href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
               - name: Bare-metal Kubernetes at the edge
-                href: operator-guides/aks/choose-bare-metal-kubernetes
+                href: operator-guides/aks/choose-bare-metal-kubernetes.yml
           - name: Choose a data store
             items:
               - name: Understand data store models
@@ -1063,10 +1063,12 @@ items:
                   - name: Common issues
                     href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
                     maintainContext: true
-              - name: Choose a Kubernetes at the edge compute option
-                href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
-              - name: Choose a bare-metal Kubernetes at the edge platform option
-                href: operator-guides/aks/choose-bare-metal-kubernetes.yml
+              - name: Choose a Kubernetes option
+                items:
+                  - name: Choose a Kubernetes at the edge option
+                    href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
+                  - name: Choose a bare-metal Kubernetes option
+                    href: operator-guides/aks/choose-bare-metal-kubernetes.yml
       - name: Databases
         items:
           - name: Guides
