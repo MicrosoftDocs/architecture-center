@@ -2,7 +2,7 @@ This reference architecture details how to run multiple instances of an Azure Ku
 
 This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
 
-[![Mutli-region deployment](images/aks-ha.png)](images/aks-ha-large.png)
+[![Mutli-region deployment](./images/aks-ha.png)](./images/aks-ha-large.png#lightbox)
 
 ![GitHub logo](../../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/aks-baseline-multi-region).
 
