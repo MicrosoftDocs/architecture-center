@@ -7,7 +7,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 **Requirement 12**&mdash;Maintain a policy that addresses information security for all personnel
 ***
 
-Microsoft completed an annual PCI DSS assessment using an approved Qualified Security Assessor (QSA). Follow a similar process when you prepare for the audit. Take into consierations all aspects of the infrastructure, development, operations, management, support, and in-scope services. For more information, see [Payment Card Industry (PCI) Data Security Standard (DSS)](/compliance/regulatory/offering-pci-dss#use-microsoft-compliance-manager-to-assess-your-risk).  
+Microsoft completed an annual PCI DSS assessment using an approved Qualified Security Assessor (QSA). Take into consierations all aspects of the infrastructure, development, operations, management, support, and in-scope services. For more information, see [Payment Card Industry (PCI) Data Security Standard (DSS)](/compliance/regulatory/offering-pci-dss#use-microsoft-compliance-manager-to-assess-your-risk).  
 
 This architecture and the implementation aren't designed to provide illustrative guidance for documenting the official security policy end-to-end. For considerations, refer to the guidance in the official PCI-DSS standard. 
 
@@ -20,7 +20,11 @@ Here are some general suggestions:
     - [Device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
     - [View reports and logs in Azure AD entitlement management](/azure/active-directory/governance/entitlement-management-reports)
 
-- As part of your inventory management, maintain a list of approved solutions that deployed as part of the PCI infrastructure and workload. This includes a list of VM images, databases, third-party solutions. You can even automate that process by building a service catalog. It provides self-service deployment using those approved solutions in a specific configuration, which adheres to ongoing platform operations. For more information, see [Establish a service catalog](/azure/cloud-adoption-framework/manage/considerations/platform#establish-a-service-catalog).
+- As part of your inventory management, maintain a list of approved solutions that deployed as part of the PCI infrastructure and workload. This includes a list of VM images, databases, third-party solutions of your choice that you bring to the CDE. You can even automate that process by building a service catalog. It provides self-service deployment using those approved solutions in a specific configuration, which adheres to ongoing platform operations. For more information, see [Establish a service catalog](/azure/cloud-adoption-framework/manage/considerations/platform#establish-a-service-catalog).
+
+- Make sure that a security contact receives Azure incident notifications from Microsoft.
+
+    These notifications indicate if your resource is compromised. This enables your security operations team to rapidly respond to potential security risks and remediate them. Ensure administrator contact information in the Azure enrollment portal includes contact information that will notify security operations directly or rapidly through an internal process. For details, see [Security operations model](/azure/cloud-adoption-framework/secure/security-operations#security-operations-model).
 
 Here are other articles that will help you plan the operational compliance. 
 - [Cloud management in the Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/)
