@@ -117,20 +117,20 @@ Here are pricing considerations for specific components:
   - [Infinite Cloud: beautiful screens from IBM i / AS400 green screens](https://www.infinitecorporation.com/infinite-cloud)
 - Optimizing costs:
   - [Microsoft Azure Well-Architected Framework](../../framework/index.md) has information about cost optimization for [VM instances](../../framework/cost/optimize-vm.md).
-  - [Checklist - Optimize cost](/azure/architecture/framework/cost/optimize-checklist)
-  - [Virtual machines](/azure/architecture/framework/cost/optimize-vm)
-  - [Understand data store models](/azure/architecture/guide/technology-choices/data-store-overview)
+  - [Checklist - Optimize cost](../../framework/cost/optimize-checklist.md)
+  - [Virtual machines](../../framework/cost/optimize-vm.md)
+  - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
 
 ## Related resources
 
 - Migrating IBM system workloads:
-  - [High-volume batch transaction processing](/azure/architecture/example-scenario/mainframe/process-batch-transactions)
-  - [IBM z/OS mainframe migration with Asysco AMT](/azure/architecture/example-scenario/mainframe/asysco-zos-migration)
-  - [Micro Focus Enterprise Server on Azure VMs](/azure/architecture/example-scenario/mainframe/micro-focus-server)
+  - [High-volume batch transaction processing](./process-batch-transactions.yml)
+  - [IBM z/OS mainframe migration with Asysco AMT](./asysco-zos-migration.yml)
+  - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
   - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
-  - [Mainframe access to Azure databases](/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases)
+  - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
   - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
-  - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)
+  - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
 - IBM System i (AS/400) information:
   - [IBM Power Systems Servers: Powering the hybrid enterprise](https://www.ibm.com/it-infrastructure/power)
   - [IBM i: A platform for innovators, by innovators](https://www.ibm.com/it-infrastructure/power/os/ibm-i)

@@ -62,9 +62,12 @@ This pattern may not be suitable:
 - When interfaces make the same or similar requests to the backend.
 - When only one interface is used to interact with the backend.
 
-## Related guidance
+## Next steps
 
 - [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/)
+
+## Related guidance
+
 - [Gateway Aggregation pattern](./gateway-aggregation.md)
 - [Gateway Offloading pattern](./gateway-offloading.md)
 - [Gateway Routing pattern](./gateway-routing.md)

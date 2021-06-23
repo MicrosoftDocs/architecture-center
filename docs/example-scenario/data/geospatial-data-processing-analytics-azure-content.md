@@ -238,7 +238,7 @@ To start implementing this solution, see this information:
 - Explore ways to [display data with Azure Maps][Azure Maps Web SDK Samples].
 
 [About Azure Key Vault]: /azure/key-vault/general/overview
-[Advanced analytics architecture]: /azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data
+[Advanced analytics architecture]: ../../solution-ideas/articles/advanced-analytics-on-big-data.yml
 [Apache Sedona (incubating)]: http://sedona.apache.org/
 [App Service documentation]: /azure/app-service/
 [App Service overview]: /azure/app-service/overview
@@ -247,28 +247,28 @@ To start implementing this solution, see this information:
 [Azure Data Explorer]: https://azure.microsoft.com/services/data-explorer/
 [Azure Data Explorer extends geospatial functionality]: https://azure.microsoft.com/updates/adx-geo-updates/
 [Azure Data Explorer geo_distance_2points() function]: /azure/data-explorer/kusto/query/geo-distance-2points-function
-[Azure Data Explorer interactive analytics]: /azure/architecture/solution-ideas/articles/interactive-azure-data-explorer
+[Azure Data Explorer interactive analytics]: ../../solution-ideas/articles/interactive-azure-data-explorer.yml
 [Azure Data Explorer performance update (EngineV3)]: /azure/data-explorer/engine-v3
 [Azure Databricks Workspace concepts]: /azure/databricks/getting-started/concepts
 [Azure Event Hubs — A big data streaming platform and event ingestion service]: /azure/event-hubs/event-hubs-about
 [Azure Event Hubs - Geo-disaster recovery]: /azure/event-hubs/event-hubs-geo-dr
-[Azure Machine Learning decision guide for optimal tool selection]: /azure/architecture/example-scenario/mlops/aml-decision-tree
+[Azure Machine Learning decision guide for optimal tool selection]: ../mlops/aml-decision-tree.yml
 [Azure Maps Web SDK Samples]: https://azuremapscodesamples.azurewebsites.net/
 [Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
 [Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
 [Azure Monitor overview]: /azure/azure-monitor/overview
-[Basic web app availability considerations]: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app#availability-considerations
-[Basic web application scalability considerations]: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app?tabs=cli#scalability-considerations
-[Basic web application authentication]: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app?tabs=cli#authentication
-[Big data analytics with Azure Data Explorer]: /azure/architecture/solution-ideas/articles/big-data-azure-data-explorer
+[Basic web app availability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml#availability-considerations
+[Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#scalability-considerations
+[Basic web application authentication]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#authentication
+[Big data analytics with Azure Data Explorer]: ../../solution-ideas/articles/big-data-azure-data-explorer.yml
 [Chapter 4. PostGIS Usage]: https://postgis.net/docs/postgis_usage.html#RT_Loading_Rasters
-[Compare the machine learning products and technologies from Microsoft - Azure Databricks]: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning#azure-databricks
+[Compare the machine learning products and technologies from Microsoft - Azure Databricks]: ../../data-guide/technology-choices/data-science-and-machine-learning.md#azure-databricks
 [Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal]: /azure/event-hubs/configure-customer-managed-key
 [Connect to a WFS service]: /azure/azure-maps/spatial-io-connect-wfs-service
 [Copy performance and scalability achievable using ADF]: /azure/data-factory/copy-activity-performance#copy-performance-and-scalability-achievable-using-adf
 [Create a data source for Azure Maps]: /azure/azure-maps/create-data-source-web-sdk#geojson-data-source
 [Create a data source for a map in Microsoft Azure Maps]: /azure/azure-maps/create-data-source-web-sdk#vector-tile-source
-[DataOps for the modern data warehouse]: /azure/architecture/example-scenario/data-warehouse/dataops-mdw
+[DataOps for the modern data warehouse]: ../data-warehouse/dataops-mdw.yml
 [Enforce HTTPS]: /azure/app-service/configure-ssl-bindings#enforce-https
 [Frameworks - OpenStreetMap Wiki]: https://wiki.openstreetmap.org/wiki/Frameworks
 [GeoJSON format]: https://tools.ietf.org/html/rfc7946
@@ -276,15 +276,15 @@ To start implementing this solution, see this information:
 [GeoServer]: https://en.wikipedia.org/wiki/GeoServer
 [Getting started with the Azure Maps Power BI visual]: /azure/azure-maps/power-bi-visual-getting-started
 [GitHub - mapbox/tippecanoe]: https://github.com/mapbox/tippecanoe
-[Health data consortium on Azure]: /azure/architecture/example-scenario/data/azure-health-data-consortium
+[Health data consortium on Azure]: ./azure-health-data-consortium.yml
 [Introducing Databricks Optimized Autoscaling on Apache Spark]: https://databricks.com/blog/2018/05/02/introducing-databricks-optimized-auto-scaling.html
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction
 [Introduction to Azure Data Lake Storage Gen2 scalability]: /azure/storage/blobs/data-lake-storage-introduction#scalability
 [Introduction to Azure Functions]: /azure/azure-functions/functions-overview
-[Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]: /azure/architecture/example-scenario/mlops/mlops-technical-paper
+[Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning]: ../mlops/mlops-technical-paper.yml
 [Mapbox Vector Tile specification]: https://github.com/mapbox/vector-tile-spec
-[Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/
-[Monitoring Azure Databricks]: /azure/architecture/databricks-monitoring/
+[Microsoft Azure Well-Architected Framework]: ../../framework/index.md
+[Monitoring Azure Databricks]: ../../databricks-monitoring/index.md
 [Open Geospatial Consortium]: https://www.osgeo.org/partners/ogc/
 [Overview of autoscale in Microsoft Azure]: /azure/azure-monitor/autoscale/autoscale-overview
 [Overview of business continuity with Azure Database for PostgreSQL - Single Server]: /azure/postgresql/concepts-business-continuity

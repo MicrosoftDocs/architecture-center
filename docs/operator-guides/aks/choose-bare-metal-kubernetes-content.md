@@ -1,7 +1,7 @@
 If you are looking to run Kubernetes at the edge and notice that managed
 solutions aren’t quite meeting your requirements, you may be [exploring
 bare-metal as an
-option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option).
+option](./choose-kubernetes-edge-compute-option.md).
 This document helps you find the best available option for your use case when
 configuring Kubernetes clusters at the edge.
 
@@ -136,18 +136,18 @@ For more information, see the following articles:
 -   [What is Azure IoT
     Edge](/azure/iot-edge/about-iot-edge)
 
--   [Choosing a Kubernetes at the edge compute option](/azure/architecture/operator-guides/aks/choose-kubernetes-edge-compute-option)
+-   [Choosing a Kubernetes at the edge compute option](./choose-kubernetes-edge-compute-option.md)
 
 ## Related resources
 
 -   [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
 
--   [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+-   [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
--   [Microservices architecture on Azure Kubernetes Service (AKS)](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
+-   [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 
--   [AI at the edge with Azure Stack Hub](/azure/architecture/solution-ideas/articles/ai-at-the-edge)
+-   [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge.yml)
 
 -   [Kubernetes on your Azure Stack Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-kubernetes-overview)
 
--   [Building a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)
+-   [Building a CI/CD pipeline for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md)

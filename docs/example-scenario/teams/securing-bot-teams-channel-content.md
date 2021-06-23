@@ -40,7 +40,7 @@ other web app.
     single public IP address that clients can use to communicate with the
     underlying bot services. Typically, a firewall is placed in its own VNet,
     which is a common pattern for [hub and
-    spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
+    spoke](../../reference-architectures/hybrid-networking/hub-spoke.yml)
     architectures, but this is a simplified example and deploys all services and
     resources into a single VNet. The Azure Firewall instance is placed in its
     own subnet.
@@ -113,11 +113,11 @@ The bots used in this scenario are hosted on Azure App Service. As a result, you
 can use the standard App Service autoscaling features to automatically scale the
 number of instances running your bot, allowing your bot to keep up with demand.
 For more information on autoscaling, see [Autoscaling best
-practices](/azure/architecture/best-practices/auto-scaling).
+practices](../../best-practices/auto-scaling.md).
 
 For other scalability topics, see the Azure Architecture Center’s [Performance
 efficiency
-checklist](/azure/architecture/framework/scalability/performance-efficiency).
+checklist](../../framework/scalability/performance-efficiency.md).
 
 ### DevOps
 
@@ -445,7 +445,7 @@ account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
     to start building bots.
 
 -   Visit the [Azure Architecture Center \| Microsoft
-    Docs](/azure/architecture/browse/) to review
+    Docs](../../browse/index.yml) to review
     related architectures and guides.
 
 ## Related resources
@@ -454,19 +454,19 @@ account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
     Blog](https://blog.botframework.com/2020/11/23/bots-secured-behind-a-firewall-teams/)
 
 -   [Azure Firewall Architecture Guide - Azure Architecture Center \| Microsoft
-    Docs](/azure/architecture/example-scenario/firewalls/)
+    Docs](../firewalls/index.yml)
 
 -   [Azure Active Directory IDaaS in Security Operations - Azure Example
     Scenarios \| Microsoft
-    Docs](/azure/architecture/example-scenario/aadsec/azure-ad-security)
+    Docs](../aadsec/azure-ad-security.yml)
 
 -   [Threat indicators for cyber threat intelligence in Azure Sentinel - Azure
     Example Scenarios \| Microsoft
-    Docs](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
+    Docs](../data/sentinel-threat-intelligence.yml)
 
 -   [Confidential computing on a healthcare platform - Azure Example Scenarios
     \| Microsoft
-    Docs](/azure/architecture/example-scenario/confidential/healthcare-inference)
+    Docs](../confidential/healthcare-inference.yml)
 
 -   [Hub-spoke network topology in Azure \| Microsoft
-    Docs](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli)
+    Docs](../../reference-architectures/hybrid-networking/hub-spoke.yml?tabs=cli)

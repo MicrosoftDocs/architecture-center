@@ -73,7 +73,7 @@ This solution provides a heterogeneous, multi-party, cloud-agnostic DLT network.
 
 ## Considerations
 
-For AKS best practices, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). You can find similar guidance for other cloud providers.
+For AKS best practices, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml). You can find similar guidance for other cloud providers.
 
 ### Availability and scalability
 
@@ -99,12 +99,11 @@ To estimate Azure resource costs, use the [Azure pricing calculator](https://azu
 
 ## Next steps
 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 - [Azure Arc Jumpstart](https://azurearcjumpstart.io/)
-- [Blockchain workflow application](/azure/architecture/solution-ideas/articles/blockchain-workflow-application)
-- [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
+- [Blockchain workflow application](../../solution-ideas/articles/blockchain-workflow-application.yml)
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
 - [Deploy Hyperledger Fabric consortium on Azure Kubernetes Service](/azure/blockchain/templates/hyperledger-fabric-consortium-azure-kubernetes-service)
 - [CI/CD workflow using GitOps - Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)
-- [Containers and container orchestrators for AWS professionals](/azure/architecture/aws-professional/compute#containers-and-container-orchestrators)
-- [Containers and container orchestrators for GCP professionals](/azure/architecture/gcp-professional/services#containers-and-container-orchestrators)
-
+- [Containers and container orchestrators for AWS professionals](../../aws-professional/compute.md#containers-and-container-orchestrators)
+- [Containers and container orchestrators for GCP professionals](../../gcp-professional/services.md#containers-and-container-orchestrators)

@@ -1,8 +1,8 @@
 This hub-spoke architecture provides an alternate solution to the
 reference architectures [hub-spoke network topology in
-Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
+Azure](../reference-architectures/hybrid-networking/hub-spoke.yml)
 and [implement a secure hybrid
-network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal).
+network](../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal).
 
 The *hub* is a virtual network in Azure that acts as a central point of
 connectivity to your on-premises network. The *spokes* are virtual networks that
@@ -113,7 +113,7 @@ This diagram illustrates a few of the advantages that this architecture can prov
 
 ## Recommendations
 
-The following recommendations apply to most scenarios. Follow them unless you
+The following recommendations apply to most scenarios. Follow them, unless you
 have a specific requirement that overrides them.
 
 ### Resource groups
@@ -167,14 +167,14 @@ For more information about setting up the gateway, see the following reference
 architectures, depending on your connection type:
 
 -   [Hybrid network using
-    ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute)
+    ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
 -   [Hybrid network using a VPN
-    Gateway](/azure/architecture/reference-architectures/hybrid-networking/vpn)
+    Gateway](../reference-architectures/hybrid-networking/vpn.yml)
 
 For greater availability, you can use ExpressRoute plus a VPN for failover. See
 [Connect an on-premises network to Azure using ExpressRoute with VPN
-failover](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover).
+failover](../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml).
 
 A hub-spoke topology cannot be used without a gateway, even if you don't need
 connectivity with your on-premises network.
@@ -206,7 +206,7 @@ remote networks, you must:
 -   Configure all peering connections to **allow forwarded traffic**.
 
 For additional information, see [Choose between virtual network peering and VPN
-gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)*.*
+gateways](../reference-architectures/hybrid-networking/vnet-peering.yml)*.*
 
 ## Considerations
 
@@ -281,28 +281,28 @@ pricing](https://azure.microsoft.com/pricing/details/virtual-wan/).
 Learn more:
 
 -   [Hub-spoke network topology in
-    Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
+    Azure](../reference-architectures/hybrid-networking/hub-spoke.yml)
 
 -   [Design a hybrid Domain Name System solution with
-    Azure](/azure/architecture/hybrid/hybrid-dns-infra)
+    Azure](../hybrid/hybrid-dns-infra.yml)
 
 -   [Implement a secure hybrid
-    network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
+    network](../reference-architectures/dmz/secure-vnet-dmz.yml)
 
 -   [What is Azure
     ExpressRoute?](/azure/expressroute/expressroute-introduction)
 
 -   [Connect an on-premises network to Azure using
-    ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover)
+    ExpressRoute](../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 
 -   [Firewall and Application Gateway for virtual
-    networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+    networks](../example-scenario/gateway/firewall-application-gateway.yml)
 
 -   [Extend an on-premises network using
-    VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn)
+    VPN](../reference-architectures/hybrid-networking/vpn.yml)
 
 -   [Secure and govern workloads with network level
-    segmentation](/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation)
+    segmentation](../reference-architectures/hybrid-networking/network-level-segmentation.yml)
 
 ## Related resources
 

@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 Azure Synapse Analytics brings together data integration, enterprise data
 warehousing, and big data analytics to help you build a modern data platform
 capable of handling the most common data challenges facing large organizations.
@@ -5,11 +7,13 @@ Azure Virtual Network allows you to create your own private network in the Azure
 public cloud and managed network, and Azure Private Endpoint allows you to
 securely integrate managed cloud services into these private networks.
 
-The example solution described in this article demonstrates how to combine these
+## Potential use cases
+
+The solution described in this article demonstrates how to combine these
 technologies to build a modern data platform able to ingest, process, store,
 serve, and visualize data from different sources, both structured and
 semistructured, while meeting the high security standards your organization
-expects. This includes supporting common requirements such as:
+expects. This includes supporting common requirements, such as:
 
 -   **Securing data sources.** Data sources inside the on-premises corporate
     network or on the virtual network are secured behind a firewall. These
@@ -176,24 +180,24 @@ The data flows through the solution as follows:
     dedicated SQL pools by accessing the appropriate private endpoints connected
     to the VNet.
 
-## Components
+### Components
 
 -   [Azure Synapse
-    Analytics](https://azure.microsoft.com/services/synapse-analytics/)
+    Analytics](https://azure.microsoft.com/services/synapse-analytics)
 
 -   [Azure Data Lake
-    Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
+    Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
 
 -   [Azure SQL
-    Database](https://azure.microsoft.com/products/azure-sql/database/)
+    Database](https://azure.microsoft.com/products/azure-sql/database)
 
 -   [Virtual
-    Network](https://azure.microsoft.com/services/virtual-network/)
+    Network](https://azure.microsoft.com/services/virtual-network)
 
 -   [Azure Private
-    Link](https://azure.microsoft.com/services/private-link/)
+    Link](https://azure.microsoft.com/services/private-link)
 
--   [Power BI](https://powerbi.microsoft.com/)
+-   [Power BI](https://powerbi.microsoft.com)
 
 ## Next steps
 
@@ -229,7 +233,7 @@ Synapse Analytics:
 -   [Azure Synapse Analytics Managed Virtual
     Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet)
 
--   [Synapse Mana private
+-   [Synapse Managed private
     endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints)
 
 -   [Configure Azure Storage firewalls and virtual
@@ -247,19 +251,19 @@ Synapse Analytics:
 ### Related architecture guidance
 
 -   [Analytics end-to-end with Azure
-    Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+    Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
 
 -   [Choosing an analytical data store in
-    Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
+    Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 
 -   [Automated enterprise
-    BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
+    BI](../../reference-architectures/data/enterprise-bi-adf.yml)
 
 -   [Enterprise business
-    intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
+    intelligence](../../reference-architectures/data/enterprise-bi-synapse.yml)
 
 -   [Advanced Analytics
-    Architecture](/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data)
+    Architecture](./advanced-analytics-on-big-data.yml)
 
 -   [Real-time analytics on big data
-    architecture](/azure/architecture/solution-ideas/articles/real-time-analytics)
+    architecture](./real-time-analytics.yml)
