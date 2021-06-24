@@ -24,7 +24,7 @@ on Azure supports the following features:
 
 -   Support for Db2 (through Microsoft’s HIS) and SQL Server.
 
--   Visual Studio integration, featuring a debugger, compiler, configurations,
+-   Visual Studio integration, featuring a debugger, compiler, configurations,#
     IntelliSense, code colorizer, and project management.
 
 -   Support for all COBOL data types, with mainframe memory representation.
@@ -55,7 +55,7 @@ you to:
 -   Control your total cost of ownership (TCO) by using Azure’s scalability and
     availability features.
 
-Potential use cases
+## Potential use cases
 
 Many use cases can benefit from the Raincode compiler; possibilities include:
 
@@ -80,16 +80,16 @@ Many use cases can benefit from the Raincode compiler; possibilities include:
 -   Taking advantage of the latest software development innovations: tools,
     frameworks, languages, and practices.
 
-Architecture
+## Architecture
 
-## Legacy IBM z/OS architecture
+### Legacy IBM z/OS architecture
 
 The following diagram shows an example of a legacy COBOL-based mainframe
 architecture before migration to Azure.
 
 ![Graphical example of legacy COBOL-based mainframe architecture.](media/raincode-reference-architecture-01.png)
 
-## Mapping annotations from source IBM z/OS to Azure
+### Mapping annotations from source IBM z/OS to Azure
 
 A.) IBM 3270 terminal emulation for demand and online users is replaced by a web
 browser to access system resources in Azure.
@@ -122,14 +122,14 @@ host a separate OS. While this example shows only Z/OS instances, other LPARs
 running on the same hardware can host other operating environments, like z/VM,
 or other engines, like zIIP or IFL.
 
-## Postmigration, Azure-based architecture
+### Postmigration, Azure-based architecture
 
 This diagram shows how the legacy architecture can be migrated to Azure, taking
 advantage of the Raincode compiler and many other modern Azure services.
 
 ![Legacy architecture migration to Azure workflow.](media/raincode-reference-architecture-02.png)
 
-## Azure technical annotations
+### Azure technical annotations
 
 1. User access provided over TLS port 443 for accessing web-based applications.
 Web-based Applications presentation layer can be kept virtually unchanged to
@@ -146,9 +146,7 @@ mainframe applications and deploy them on .NET Core.
 4. Cloud-native applications are a collection of independent and autonomous
 services packaged as lightweight containers.
 
->   Unlike virtual machines, containers can scale out and scale in rapidly.
->   Since the unit of scaling shifts to containers, infrastructure utilization
->   is optimized.
+    Unlike virtual machines, containers can scale out and scale in rapidly. Since the unit of scaling shifts to containers, infrastructure utilization is    optimized.
 
 5. Data services use a combination of high-performance storage on Ultra or
 Premium solid-state disks (SSDs), file storage on NetApp or Azure Files, and
@@ -167,7 +165,7 @@ migration tools can convert DMS/RDMS schemas to SQL.
 place. Raincode provides RACF and Top Secret identity integration using Active
 Directory extensions.
 
-Components
+## Components
 
 -   [Azure Kubernetes Service
     (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully
@@ -222,18 +220,18 @@ Components
     PostgreSQL](https://azure.microsoft.com/services/postgresql/) is an Azure
     PaaS service for PostgreSQL databases.
 
-Considerations
+## Considerations
 
 The following considerations apply to this solution.
 
-## Availability
+### Availability
 
 -   Raincode architecture uses [Azure Site
     Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror
     Azure VMs to a secondary Azure region for quick failover and disaster
     recovery (DR) if an Azure datacenter fails.
 
-## Operations
+### Operations
 
 -   Each service of a cloud-native application goes through an independent life
     cycle, which is managed through an agile DevOps process.
@@ -241,7 +239,7 @@ The following considerations apply to this solution.
 -   Multiple continuous integration/continuous delivery (CI/CD) pipelines may
     work in tandem to deploy and manage a cloud-native application.
 
-## Performance
+### Performance
 
 -   Cloud-native applications are a collection of independent and autonomous
     services packaged as lightweight containers.
@@ -251,7 +249,7 @@ The following considerations apply to this solution.
 -   Since the unit of scaling shifts to containers, infrastructure usage
     is optimized.
 
-## Security
+### Security
 
 -   This solution uses an [Azure network security group
     (NSG)](/azure/virtual-network/network-security-groups-overview)
@@ -262,7 +260,7 @@ The following considerations apply to this solution.
     a private, direct connection isolated to the Azure networking backbone from
     the Azure VMs to Azure SQL Database.
 
-## Pricing
+### Pricing
 
 -   The Raincode COBOL compiler facilitates new development in C\# and
     eliminates the financial burden of COBOL licensing costs.
@@ -270,7 +268,7 @@ The following considerations apply to this solution.
 -   Native support for SQL and CICS. The source code debugged is the same as the
     source being maintained, rather than the output of a pre-processor.
 
-Next steps
+## Next steps
 
 For more information, please contact <legacy2azure@microsoft.com> or check out
 the following resources:
@@ -278,7 +276,7 @@ the following resources:
 -   Read the [Raincode technical
     landscape](https://www.raincode.com/technical-landscape/cobol/).
 
-Related resources
+## Related resources
 
 -   [Mainframe and midrange
     migration](https://azure.microsoft.com/migration/mainframe/)
