@@ -56,7 +56,7 @@ These other uses cases have similar design patterns:
 
 ## Related resources
 
-Fully deployable architectures:
+See these related architectures:
 
 - [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
 - [Retail - Buy online, pickup in store (BOPIS)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
