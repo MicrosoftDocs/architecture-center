@@ -15,15 +15,17 @@ When you're hosting a workload in a Kubernetes, it's not sufficient to rely on t
 
 ## Build and maintain a secure network and systems
 
-**Requirement 1**&mdash;Install and maintain a firewall configuration to protect cardholder data.
+### **Requirement 1**&mdash;Install and maintain a firewall configuration to protect cardholder data.
 
-### AKS feature support
+#### AKS feature support
 
 AKS supports deploying a cluster in a private virtual network as a private cluster. Communication between the cluster and AKS-managed Kubernetes API server is over a trusted network. With a private cluster you can use  Azure Virtual Network, Nework Security Group (NSG), and other built-in network controls to secure the entire cardholder data environment (CDE). This will prohibit any unauthorized public access between the internet and the environment. For details about how to provision such a cluster, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).  
 
 Azure Firewall is integrated with AKS and can limit outbound traffic from the cluster, which is a key component of the CDE. The configuration is made easy with an AKS FQDN Tag. The recommended process is provided in [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](https://docs.microsoft.com/en-us/azure/firewall/protect-azure-kubernetes-service). 
 
 AKS clusters require some public internet access to reach the managed control plane. Limit outbound traffic to the internet using Azure Firewall and NSGs on the cluster subnet. For information, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/limit-egress-traffic).
+
+#### Your responsibilities
 
 |Requirement|Responsibility|
 |---|---|
@@ -33,13 +35,13 @@ AKS clusters require some public internet access to reach the managed control pl
 |[Requirement 1.4](#requirement-14)|Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. |
 |[Requirement 1.5](#requirement-15)|Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.|
 
-**Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
+### **Requirement 2**&mdash;Do not use vendor-supplied defaults for system passwords and other security parameters.
 
-### AKS feature support
+#### AKS feature support
 
 TBD
 
-
+#### Your responsibilities
 |Requirement|Responsibility|
 |---|---|
 |[Requirement 2.1](#requirement-21)|Always change vendor-supplied defaults and remove or disable unnecessary default accounts before installing a system on the network.|
