@@ -2,21 +2,26 @@
 metadata:
   title: Deliver highly scalable customer service and ERP applications
   titleSuffix: Azure Solution Ideas
+  description: Use Azure SQL and Azure Cosmos DB to deliver highly scalable customer service and ERP applications that work with structured and unstructured data.
   author: doodlemania2
-  description: Deliver highly scalable customer service and ERP applications with Azure SQL and Azure Cosmos DB
+  ms.author: pnp
   ms.date: 06/26/2020
-  ms.custom: fcp
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - databases
+  ms.custom:
+    - fcp
 name: Deliver highly scalable customer service and ERP applications
 azureCategories:
   - databases
-summary: Deliver highly scalable customer service and ERP applications with Azure SQL and Azure Cosmos DB
+summary: Use Azure SQL and Azure Cosmos DB to deliver highly scalable customer service and ERP applications that work with structured and unstructured data.
 products:
-  - azure
-  - azure-arc
+  - azure-cosmos-db
+  - azure-data-lake-gen2
+  - azure-sql-database
+  - azure-synapse-analytics
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/erp-customer-service.png
 content: |

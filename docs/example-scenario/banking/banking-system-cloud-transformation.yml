@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Banking system cloud transformation on Azure
-  description: Solution for monitoring banking system infrastructure scalability and performance.
+  description: Use simulated and actual applications and existing workloads to monitor the reaction of the solution infrastructure for scalability and performance.
   author: doodlemania2
   ms.author: pnp
   ms.date: 8/11/2020
@@ -14,16 +14,17 @@ metadata:
     - fcp
     - cse
     - example-scenario
+    - internal-intro
 name: Banking system cloud transformation on Azure
 azureCategories:
   - devops
-summary: Solution for monitoring banking system infrastructure scalability and performance.
+summary: Use simulated and actual applications and existing workloads to monitor the reaction of the solution infrastructure for scalability and performance.
 products:
-  - azure
-  - azure-devops
+  - azure-event-hubs
+  - azure-kubernetes-service
   - azure-monitor
   - azure-pipelines
-  - github
+  - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/banking-system-solution-arch.png
 content: |
    [!include[](banking-system-cloud-transformation-content.md)]

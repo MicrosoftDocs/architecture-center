@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Learn about the Gridwich pipeline-generated admin scripts and how to run them.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 11/12/2020
   ms.topic: conceptual
   ms.service: architecture-center
@@ -13,11 +14,14 @@ metadata:
 name: Gridwich pipeline-generated admin scripts
 summary: Learn about the Gridwich pipeline-generated admin scripts and how to run them.
 products:
-  - azure
-  - azure-devops
+  - azure-active-directory
+  - azure-event-grid
+  - azure-functions
+  - azure-key-vault
+  - azure-logic-apps
+  - azure-media-services
   - azure-pipelines
   - azure-storage
-  - github
-thumbnailUrl: ""
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](run-admin-scripts-content.md)]

@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore CNAME -->
 
 
@@ -145,7 +144,7 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 <!-- links -->
 
 [AFD-pricing]: https://azure.microsoft.com/pricing/details/frontdoor
-[AAF-devops-deployment-multi-region]: ../../framework/devops/deployment.md#consider-deploying-across-multiple-regions
+[AAF-devops-deployment-multi-region]: ../../framework/devops/release-engineering-cd.md#consider-deploying-across-multiple-regions
 [bandwidth-pricing]: https://azure.microsoft.com/pricing/details/bandwidth
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.yml

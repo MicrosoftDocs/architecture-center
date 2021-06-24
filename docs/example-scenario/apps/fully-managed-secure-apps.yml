@@ -2,16 +2,16 @@
 metadata:
   title: Securely managed web applications
   titleSuffix: Azure Example Scenarios
-  description: 'Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.'
+  description: Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.
   author: fmustaf
-  ms.date: 05/09/2019
   ms.author: faisalm
-  ms.category:
-    - security
-    - web
+  ms.date: 05/09/2019
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - security
+    - web
   ms.custom:
     - fasttrack
     - security
@@ -22,16 +22,13 @@ name: Securely managed web applications
 azureCategories:
   - security
   - web
-summary: 'Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.'
+summary: Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.
 products:
-  - azure
-  - azure-arc
-  - azure-devops
-  - azure-dns
-  - github
-  - vs
-  - windows
-  - windows-server
+  - azure-app-service
+  - azure-application-gateway
+  - azure-sql-database
+  - azure-vpn-gateway
+  - azure-web-application-firewall
 thumbnailUrl: /azure/architecture/browse/thumbs/ilb-ase-architecture.png
 content: |
    [!include[](fully-managed-secure-apps-content.md)]

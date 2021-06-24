@@ -6,6 +6,9 @@ ms.date: 09/28/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-app-service
+  - azure-kubernetes-service
 ---
 
 # Release Engineering: Rollback
@@ -20,7 +23,7 @@ When deploying an application to Azure App Service, consider utilizing deploymen
 
 **Learn more**
 
-For more information on using Azure App Service deployment slots, see [Set up staging environments in Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-staging-slots)
+For more information on using Azure App Service deployment slots, see [Set up staging environments in Azure App Service](/azure/app-service/deploy-staging-slots)
 
 ## Azure Kubernetes Service (AKS)
 
@@ -69,7 +72,7 @@ A deployment record is created when deploying Azure infrastructure and solutions
 
 **Learn more**
 
-For more information, see [Rollback on an error to successful deployment](https://docs.microsoft.com/azure/azure-resource-manager/templates/rollback-on-error)
+For more information, see [Rollback on an error to successful deployment](/azure/azure-resource-manager/templates/rollback-on-error)
 
 ## Logic apps
 
@@ -79,4 +82,4 @@ When making changes to an Azure logic application, a new version of the applicat
 
 **Learn more**
 
-For more information, see [Manage logic apps in the Azure portal](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-azure-portal)
+For more information, see [Manage logic apps in the Azure portal](/azure/logic-apps/manage-logic-apps-with-azure-portal)

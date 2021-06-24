@@ -1,8 +1,5 @@
-
-
-
 ## Motivations
-In an Internet of Things (IoT) solution, IoT devices send [events](https://docs.microsoft.com/azure/architecture/example-scenario/iot/introduction-to-solutions#events) (notifications, acknowledgments, telemetry) to application to gain insights. Applications may require specific subsets of events for processing or storage at different end points. These events may also need to be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
+In an Internet of Things (IoT) solution, IoT devices send [events](./introduction-to-solutions.yml#events) (notifications, acknowledgments, telemetry) to application to gain insights. Applications may require specific subsets of events for processing or storage at different end points. These events may also need to be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern.
 
 ## Use cases
 A retail outlet is monitoring the fridges for their frozen food section. 
@@ -10,7 +7,7 @@ A retail outlet is monitoring the fridges for their frozen food section.
 -   The data science team is building an anomaly detection model to identify issues with the fridges before any of them breaks down. A message routing rule can send all the raw telemetry data to a storage account specifically for the data science team to use for training and modeling. 
 
 ## Architecture
-![Architecture diagram illustrating use of rules to route events to different Azure services](media/event-routing.png)
+![Architecture diagram illustrating use of rules to route events to different Azure services](media/event-routing.svg)
 
 In an IoT platform, rules can be created for fine-grained routing of events. One or more rules can be configured in the IoT platform. The rules will be applied to the ingress events and are routed to the specific endpoint(s). 
 
@@ -38,7 +35,4 @@ This pattern is not recommended for:
 
 
 ## See also
-[Azure IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)
-
-
-
+[Azure IoT Hub message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c)

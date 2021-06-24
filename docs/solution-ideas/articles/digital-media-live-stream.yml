@@ -2,22 +2,29 @@
 metadata:
   title: Live streaming digital media
   titleSuffix: Azure Solution Ideas
+  description: This livestreaming solution captures video of interviews, conferences, sporting events, and other events in real time and broadcasts to consumers in real time.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: 'A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online.'
-  ms.custom: 'acom-architecture, media, ''https://azure.microsoft.com/solutions/architecture/digital-media-live-stream/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - media
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - media
+    - "https://azure.microsoft.com/solutions/architecture/digital-media-live-stream/"
   social_image_url: /azure/architecture/solution-ideas/articles/media-live-stream.png
 name: Live streaming digital media
 azureCategories:
   - media
-summary: 'A live streaming solution allows you to capture video in real-time and broadcast it to consumers in real time, such as streaming interviews, conferences, and sporting events online.'
+summary: This livestreaming solution captures video of interviews, conferences, sporting events, and other events in real time and broadcasts to consumers in real time.
 products:
-  - azure
-  - azure-live-ondemand-streaming
+  - azure-blob-storage
+  - azure-cdn
+  - azure-media-player
+  - azure-media-services
 thumbnailUrl: /azure/architecture/browse/thumbs/digital-media-live-stream.png
 content: |
    [!include[](digital-media-live-stream-content.md)]

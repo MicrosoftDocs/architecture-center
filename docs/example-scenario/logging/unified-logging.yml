@@ -2,7 +2,7 @@
 metadata:
   title: Unified logging for microservices applications
   titleSuffix: Azure Example Scenarios
-  description: 'Learn about logging, tracing, and monitoring for microservices apps. Run synthetic logging for testing, and create structured logs for analysis.'
+  description: Learn about logging, tracing, and monitoring for microservices apps and learn how to run synthetic logging for testing and create structured logs for analysis.
   author: lanallai
   ms.date: 07/13/2020
   ms.topic: conceptual
@@ -16,14 +16,15 @@ metadata:
 name: Unified logging for microservices applications
 azureCategories:
   - devops
-summary: 'Learn about logging, tracing, and monitoring for microservices apps. Run synthetic logging for testing, and create structured logs for analysis.'
+summary: Learn about logging, tracing, and monitoring for microservices apps and learn how to run synthetic logging for testing and create structured logs for analysis.
 products:
-  - azure
-  - azure-arc
+  - azure-blob-storage
+  - azure-data-lake-storage
+  - azure-event-hubs
+  - azure-logic-apps
   - azure-monitor
   - azure-sentinel
-  - dotnet
-  - github
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/paas-tracing-logging.png
 content: |
    [!include[](unified-logging-content.md)]

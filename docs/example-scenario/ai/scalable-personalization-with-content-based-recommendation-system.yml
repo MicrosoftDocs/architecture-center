@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: Build a content-based recommendation system
+  description: Create content-based recommendation systems that can deliver personalized recommendations to your customers with Azure Machine Learning and Databricks.
+  author: gramhagen
+  ms.author: scgraham
+  ms.date: 05/31/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - ai-machine-learning
+    - featured
+  ms.custom:
+    - azcat-ai
+    - AI
+    - example-scenario
+    - ai-machine-learning
+    - aml-project-improvement
+  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-scalable-personalization.png
+name: Build a content-based recommendation system
+azureCategories:
+  - ai-machine-learning
+  - featured
+summary: Create content-based recommendation systems that can deliver personalized recommendations to your customers with Azure Machine Learning and Databricks.
+products:
+  - azure-blob-storage
+  - azure-container-registry
+  - azure-databricks
+  - azure-kubernetes-service
+  - azure-machine-learning
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-scalable-personalization.png
+content: |
+  [!include[](scalable-personalization-with-content-based-recommendation-system-content.md)]

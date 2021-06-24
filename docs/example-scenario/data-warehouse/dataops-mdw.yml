@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: DataOps for the modern data warehouse
-  description: How to apply DevOps principles to data pipelines built according to the modern data  (MDW) architectural pattern on Microsoft Azure
+  description: How to apply DevOps principles to data pipelines built according to the modern data warehouse (MDW) architectural pattern with Microsoft Azure.
   author: doodlemania2
   ms.author: pnp
   ms.date: 07/14/2020
@@ -17,17 +17,13 @@ metadata:
 name: DataOps for the modern data warehouse
 azureCategories:
   - databases
-summary: How to apply DevOps principles to data pipelines built according to the modern data  (MDW) architectural pattern on Microsoft Azure
+summary: How to apply DevOps principles to data pipelines built according to the modern data warehouse (MDW) architectural pattern with Microsoft Azure.
 products:
-  - azure
+  - azure-data-factory
   - azure-databricks
   - azure-devops
-  - azure-monitor
-  - azure-storage
-  - github
-  - office
-  - power-bi
-  - vs
+  - azure-key-vault
+  - azure-synapse-analytics
 thumbnailUrl: /azure/architecture/browse/thumbs/street-parking-availability.png
 content: |
    [!include[](dataops-mdw-content.md)]

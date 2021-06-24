@@ -18,9 +18,7 @@ azureCategories:
   - iot
 summary: Learn about how applications can use cloud-to-device messaging or direct methods to send commands to IoT devices.
 products:
-  - azure
-  - azure-iot
-  - dotnet
+  - azure-iot-hub
 thumbnailUrl: /azure/architecture/browse/thumbs/cloud-to-device-message.png
 content: |
    [!include[](cloud-to-device-content.md)]

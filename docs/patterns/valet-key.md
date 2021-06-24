@@ -2,15 +2,15 @@
 title: Valet Key pattern
 titleSuffix: Cloud Design Patterns
 description: Use a token or key that provides clients with restricted direct access to a specific resource or service.
-keywords: design pattern
 author: dragon119
 ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Valet Key pattern
@@ -151,11 +151,16 @@ public class ValuesController : ApiController
 
 ## Next steps
 
-The following patterns and guidance might also be relevant when implementing this pattern:
+The following guidance might be relevant when implementing this pattern:
 
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/valet-key).
-- [Gatekeeper pattern](./gatekeeper.md). This pattern can be used in conjunction with the Valet Key pattern to protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service. The gatekeeper validates and sanitizes requests, and passes requests and data between the client and the application. Can provide an additional layer of security, and reduce the attack surface of the system.
-- [Static Content Hosting pattern](./static-content-hosting.md). Describes how to deploy static resources to a cloud-based storage service that can deliver these resources directly to the client to reduce the requirement for expensive compute instances. Where the resources aren't intended to be publicly available, the Valet Key pattern can be used to secure them.
 - [Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS](https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas/)
 - [Using Shared Access Signatures](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 - [Shared Access Signature Authentication with Service Bus](/azure/service-bus-messaging/service-bus-sas)
+
+## Related guidance
+
+The following patterns might also be relevant when implementing this pattern:
+
+- [Gatekeeper pattern](./gatekeeper.md). This pattern can be used in conjunction with the Valet Key pattern to protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service. The gatekeeper validates and sanitizes requests, and passes requests and data between the client and the application. Can provide an additional layer of security, and reduce the attack surface of the system.
+- [Static Content Hosting pattern](./static-content-hosting.md). Describes how to deploy static resources to a cloud-based storage service that can deliver these resources directly to the client to reduce the requirement for expensive compute instances. Where the resources aren't intended to be publicly available, the Valet Key pattern can be used to secure them.

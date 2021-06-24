@@ -1,34 +1,33 @@
 ### YamlMime:Architecture
 metadata:
-  title: Deploy AI and machine learning at the edge by using Azure Stack Edge
-  description: Run intelligence workloads directly on IoT devices by using Azure Stack Edge
+  title: Deploy AI and machine learning at the edge
+  description: Learn how to extend rapid machine learning inference from the cloud to on-premises and edge locations with Azure Stack Edge.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 07/16/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - ai-machine-learning
-  ms.subservice: reference-architecture
   ms.custom:
     - fcp
     - reference-architecture
-name: Deploy AI and machine learning at the edge by using Azure Stack Edge
+    - e2e-hybrid
+    - internal-intro
+    - ai-machine-learning
+    - aml-project-improvement
+name: Deploy AI and ML computing on-premises and to the edge
 azureCategories:
   - hybrid
   - ai-machine-learning
-summary: Run intelligence workloads directly on IoT devices by using Azure Stack Edge
+summary: Learn how to extend rapid machine learning inference from the cloud to on-premises and edge locations with Azure Stack Edge.
 products:
-  - azure
-  - azure-arc
-  - azure-expressroute
-  - azure-functions
-  - azure-iot
-  - azure-pipelines
-  - azure-stack
-  - azure-storage
-  - github
-  - vs
+  - azure-container-registry
+  - azure-iot-edge
+  - azure-machine-learning
+  - azure-stack-edge
 thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ai-ml-azure-stack-edge.png
 content: |
-   [!include[](deploy-ai-ml-azure-stack-edge-content.md)]
+  [!include[](deploy-ai-ml-azure-stack-edge-content.md)]

@@ -2,26 +2,31 @@
 metadata:
   title: Project 15 Open Platform
   titleSuffix: Azure Solution Ideas
+  description: Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.
   author: AltaOhms
-  description: 'Learn how to use Internet of Things technologies of Project 15 to accelerate scientific innovation in species tracking, ecosystem monitoring, and other areas.'
+  ms.author: pnp
   ms.date: 11/09/2020
-  ms.custom: 'iot, fcp'
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - iot
+  ms.custom:
+    - iot
+    - fcp
 name: Project 15 Open Platform
 azureCategories:
   - iot
-summary: 'Learn how to use Internet of Things technologies of Project 15 to accelerate scientific innovation in species tracking, ecosystem monitoring, and other areas.'
+summary: Use Internet of Things technologies with the Project 15 Open Platform to accelerate innovation in species tracking, ecosystem monitoring, and other areas.
 products:
-  - aspnet
-  - azure
+  - azure-app-service
+  - azure-event-grid
+  - azure-event-hubs
   - azure-functions
-  - azure-iot
-  - azure-maps
-  - github
-  - office
+  - azure-iot-hub
+  - azure-signalr-service
+  - azure-stream-analytics
+  - azure-time-series-insights
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/project-15-ref-architecture.png
 content: |

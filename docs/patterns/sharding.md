@@ -2,15 +2,17 @@
 title: Sharding pattern
 titleSuffix: Cloud Design Patterns
 description: Use the Sharding design pattern to divide a data store into a set of horizontal partitions or shards.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure-disk-storage
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Sharding pattern
@@ -208,11 +210,16 @@ Trace.TraceInformation("Fanout query complete - Record Count: {0}",
                         results.Count);
 ```
 
-## Related patterns and guidance
+## Next steps
 
-The following patterns and guidance might also be relevant when implementing this pattern:
+The following guidance might also be relevant when implementing this pattern:
 
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). It might be necessary to maintain consistency for data distributed across different shards. Summarizes the issues surrounding maintaining consistency over distributed data, and describes the benefits and tradeoffs of different consistency models.
 - [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)). Sharding a data store can introduce a range of additional issues. Describes these issues in relation to partitioning data stores in the cloud to improve scalability, reduce contention, and optimize performance.
+
+## Related guidance
+
+The following patterns might also be relevant when implementing this pattern:
+
 - [Index Table pattern](./index-table.md). Sometimes it isn't possible to completely support queries just through the design of the shard key. Enables an application to quickly retrieve data from a large data store by specifying a key other than the shard key.
 - [Materialized View pattern](./materialized-view.md). To maintain the performance of some query operations, it's useful to create materialized views that aggregate and summarize data, especially if this summary data is based on information that's distributed across shards. Describes how to generate and populate these views.

@@ -2,19 +2,20 @@
 metadata:
   title: Stromasys Charon-SSP Solaris emulator on Azure VMs
   titleSuffix: Azure Example Scenarios
+  description: Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 09/09/2020
-  description: Learn how Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.
-  ms.custom: fcp
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.custom:
+    - fcp
 name: Stromasys Charon-SSP Solaris emulator on Azure VMs
-summary: Learn how Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.
+summary: Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.
 products:
-  - azure
-  - azure-expressroute
-  - azure-files
   - azure-storage
-  - windows
-  - windows-server
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/solaris.png
 content: |
    [!include[](solaris-azure-content.md)]

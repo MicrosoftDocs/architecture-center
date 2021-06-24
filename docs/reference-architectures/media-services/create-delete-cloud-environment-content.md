@@ -1,5 +1,5 @@
 
-
+An environment is a collection of resources that can be targeted by deployment jobs in a pipeline. By leveraging an environment to deploy the resources, Azure DevOps is able to keep a history of all of the deployments, and quickly access the commits related to a deployment.
 
 This article describes how to use the `ci_cd_ext_release` or `tf_destroy_env` pipeline to create or delete a new cloud development or testing environment. The `ci_cd_ext_release` pipeline uses the **gridwich-cicd-variables.single_env** variable group.
 
@@ -7,7 +7,7 @@ To create the Azure DevOps project, pipelines, and variable groups, see [Gridwic
 
 The following procedures use placeholder project name `gridwich-clone`, app name `cl1grw`, and environment name `f233`. Replace these placeholders with your own values as appropriate.
 
-## Create an environment
+## Create an environment in Azure DevOps
 
 1. In your organization's Azure DevOps `gridwich-clone` project, select **Pipelines** in the left navigation, and then select the **ci_cd_ext_release** pipeline.
    

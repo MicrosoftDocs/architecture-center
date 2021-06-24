@@ -2,14 +2,14 @@
 metadata:
   title: A computer-aided engineering service
   titleSuffix: Azure Example Scenarios
-  description: Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on Azure.
+  description: This example scenario demonstrates delivery of a software-as-a-service (SaaS) platform built on the high-performance computing (HPC) capabilities of Azure.
   author: alexbuckgit
   ms.date: 08/22/2018
-  ms.category:
-    - compute
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - compute
   ms.custom:
     - HPC
     - example-scenario
@@ -17,16 +17,12 @@ metadata:
 name: A computer-aided engineering service
 azureCategories:
   - compute
-summary: Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on Azure.
+summary: This example scenario demonstrates delivery of a software-as-a-service (SaaS) platform built on the high-performance computing (HPC) capabilities of Azure.
 products:
-  - azure
-  - azure-automation
-  - azure-cyclecloud
-  - azure-devops
-  - azure-functions
-  - dynamics
-  - windows
-  - windows-server
+  - azure-application-gateway
+  - azure-blob-storage
+  - azure-kubernetes-service
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-hpc-saas.png
 content: |
    [!include[](hpc-saas-content.md)]

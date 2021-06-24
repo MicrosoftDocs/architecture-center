@@ -2,24 +2,26 @@
 metadata:
   title: Line of Business Extension
   titleSuffix: Azure Solution Ideas
+  description: Modernize legacy systems by automating processes. Schedule calculations, connect to third party data sources or legacy systems, and process and share data.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 08/24/2020
-  description: This example shows how you can modernize your legacy systems that cannot support new processes and provide better user experience.
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - mobile
     - functions
-  ms.subservice: solution-idea
 name: Line of Business Extension
 azureCategories:
   - mobile
-summary: This example shows how you can modernize your legacy systems that cannot support new processes and provide better user experience.
+summary: Modernize legacy systems by automating processes. Schedule calculations, connect to third party data sources or legacy systems, and process and share data.
 products:
-  - azure
+  - azure-data-factory
   - azure-functions
+  - azure-sql-database
   - power-apps
   - power-bi
-  - powerapps
 thumbnailUrl: /azure/architecture/browse/thumbs/lob.png
 content: |
    [!include[](lob-content.md)]

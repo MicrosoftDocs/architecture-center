@@ -6,6 +6,8 @@ ms.date: 09/17/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-active-directory
 ms.custom:
   - article
 ---
@@ -75,6 +77,3 @@ If a security vulnerability is discovered, update the software with the fix as s
  - [Applications and services](design-apps-services.md)
  - [Application classification](design-apps-considerations.md)
  - [Regulatory compliance](design-regulatory-compliance.md)
-
-
-

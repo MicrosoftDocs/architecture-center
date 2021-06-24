@@ -6,7 +6,8 @@ ms.date: 12/01/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: references_regions
+ms.custom:
+  - references_regions
 ---
 
 # Design for scaling
@@ -43,7 +44,13 @@ You automatically scale between the minimum and maximum number of instances to r
 
 ![Autoscale](../_images/design-autoscale.png)
 
-For more information, see [Autoscaling](/azure/architecture/best-practices/auto-scaling).
+For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
+
+### Understand scale targets
+
+Scale operations (horizontal - changing the number of identical instances, vertical - switching to more/less powerful instances) can be fast, but usually take time to complete. It's important to understand how this delay affects the application under load and if degraded performance is acceptable.
+
+For more information, see [Best practices for Autoscale](/azure/azure-monitor/platform/autoscale-best-practices#choose-the-thresholds-carefully-for-all-metric-types).
 
 ## Take advantage of platform autoscaling features
 
@@ -56,7 +63,7 @@ Here's how you can benefit from autoscaling features:
 > [!NOTE]
 > Providing your application is explicitly designed to handle some of its instances being terminated, remember to use autoscaling to scale down/in resources that are no longer necessary for the given load in order to reduce operational costs.
 
-For more information, see [Autoscaling](/azure/architecture/best-practices/auto-scaling).
+For more information, see [Autoscaling](../../best-practices/auto-scaling.md).
 
 ## Autoscale CPU or memory-intensive applications
 
@@ -78,17 +85,16 @@ The way autoscaling works is that metrics are collected for the resource (CPU an
 Other Azure services include the following:
 
 - [**Azure Service Fabric**](/azure/service-fabric/service-fabric-overview) - Virtual machine scale sets offer autoscale capabilities for true IaaS scenarios.
-- [**Azure App Gateway**](/azure/application-gateway/overview) and [**Azure API Management**](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) - PaaS offerings for ingress services that enable autoscale.
-- [**Azure Functions**](/azure/azure-functions/functions-overview), [**Azure Logic Apps**](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview), and [**App Services**](https://docs.microsoft.com/azure/app-service/overview) - Serverless pay-per-use consumption modeling that inherently provide autoscaling capabilities.
-- [**Azure SQL Database**](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability) - PaaS platform to change performance characteristics of a database on the fly and assign more resources when needed or release the resources when they are not needed. Allows [scaling up/down](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#scaling-updown), [read scale-out](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#read-scale-out), and [global scale-out/sharding](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#global-scale-outsharding) capabilities.
+- [**Azure App Gateway**](/azure/application-gateway/overview) and [**Azure API Management**](/azure/api-management/api-management-key-concepts) - PaaS offerings for ingress services that enable autoscale.
+- [**Azure Functions**](/azure/azure-functions/functions-overview), [**Azure Logic Apps**](/azure/logic-apps/logic-apps-overview), and [**App Services**](/azure/app-service/overview) - Serverless pay-per-use consumption modeling that inherently provide autoscaling capabilities.
+- [**Azure SQL Database**](/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability) - PaaS platform to change performance characteristics of a database on the fly and assign more resources when needed or release the resources when they are not needed. Allows [scaling up/down](/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#scaling-updown), [read scale-out](/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#read-scale-out), and [global scale-out/sharding](/archive/blogs/sqlserverstorageengine/azure-sql-database-scalability#global-scale-outsharding) capabilities.
 
-Each service documents its autoscale capabilities. Review [Autoscale overview](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview) for a general discussion on Azure platform autoscale.
+Each service documents its autoscale capabilities. Review [Autoscale overview](/azure/azure-monitor/platform/autoscale-overview) for a general discussion on Azure platform autoscale.
 
 > [!NOTE]
-> If your application does not have built-in ability to autoscale, or isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. See [Azure Automation](https://docs.microsoft.com/azure/virtual-desktop/set-up-scaling-script) for possible solutions.
+> If your application does not have built-in ability to autoscale, or isn't configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. See [Azure Automation](/azure/virtual-desktop/set-up-scaling-script) for possible solutions.
 
 ## Next steps
 
 >[!div class="nextstepaction"]
 >[Plan for capacity](./design-capacity.md)
-

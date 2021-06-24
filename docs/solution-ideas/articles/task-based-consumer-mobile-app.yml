@@ -2,26 +2,33 @@
 metadata:
   title: Task-Based Consumer Mobile App
   titleSuffix: Azure Solution Ideas
+  description: This mobile app architecture simplifies authentication, stores and syncs data, sends notifications, automates builds and tests, and monitors and analyzes usage.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: 'Learn how the task-based consumer mobile app architecture is created with a step-by-step flow chart that shows the integration with Azure App Service Mobile Apps, Visual Studio, and Xamarin to simplify the build process.'
-  ms.custom: 'acom-architecture, Consumer Mobile App, Offline Mobile App, Mobile App Authentication, app-dev, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/task-based-consumer-mobile-app/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - mobile
     - developer-tools
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - Consumer Mobile App
+    - Offline Mobile App
+    - Mobile App Authentication
+    - app-dev
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/task-based-consumer-mobile-app/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/task-based-consumer-mobile-app.png
 name: Task-Based Consumer Mobile App
 azureCategories:
   - mobile
   - developer-tools
-summary: 'Learn how the task-based consumer mobile app architecture is created with a step-by-step flow chart that shows the integration with Azure App Service Mobile Apps, Visual Studio, and Xamarin to simplify the build process.'
+summary: This mobile app architecture simplifies authentication, stores and syncs data, sends notifications, automates builds and tests, and monitors and analyzes usage.
 products:
-  - azure
-  - azure-sdks
-  - vs
-  - windows
+  - azure-app-service
+  - azure-app-service-mobile
   - xamarin
 thumbnailUrl: /azure/architecture/browse/thumbs/task-based-consumer-mobile-app.png
 content: |

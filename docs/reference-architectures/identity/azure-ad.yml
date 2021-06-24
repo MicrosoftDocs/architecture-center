@@ -4,27 +4,28 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
   author: doodlemania2
+  ms.author: pnp
   ms.date: 08/28/2019
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - identity
     - hybrid
-  ms.subservice: reference-architecture
   ms.custom:
-    - seodec18
     - identity
     - reference-architecture
+    - e2e-hybrid
+    - 2021-refresh
 name: Integrate on-premises AD domains with Azure AD
 azureCategories:
   - identity
   - hybrid
 summary: Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
 products:
-  - azure
-  - sql-server
-  - vs
-  - windows
+  - azure-active-directory
+  - azure-virtual-network
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-ad.png
 content: |
    [!include[](azure-ad-content.md)]

@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: JMeter implementation reference for load testing pipeline solution
-  description: Scalable cloud load testing pipeline creates and destroys infrastructure on-demand for stress testing.
+  description: This article provides an overview of an implementation for a scalable cloud load testing pipeline.
   author: doodlemania2
   ms.author: pnp
   ms.date: 8/11/2020
@@ -17,11 +17,11 @@ metadata:
 name: JMeter implementation reference for load testing pipeline solution
 azureCategories:
   - devops
-summary: Scalable cloud load testing pipeline creates and destroys infrastructure on-demand for stress testing.
+summary: This article provides an overview of an implementation for a scalable cloud load testing pipeline.
 products:
-  - azure
+  - azure-container-instances
+  - azure-container-registry
   - azure-pipelines
-  - github
 thumbnailUrl: /azure/architecture/browse/thumbs/load-testing-pipeline-jmeter.png
 content: |
    [!include[](jmeter-load-testing-pipeline-implementation-reference-content.md)]

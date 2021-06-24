@@ -1,15 +1,15 @@
 ### YamlMime:Architecture
 metadata:
   title: Digital image-based modeling on Azure
-  description: Accelerate digital image-based modeling on Azure using Avere and Agisoft PhotoScan
+  description: This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure-as-a-service (IaaS).
   author: doodlemania2
   ms.date: 01/11/2019
-  ms.category:
-    - compute
-    - storage
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - compute
+    - storage
   ms.custom:
     - cat-team
     - Linux
@@ -20,14 +20,11 @@ name: Digital image-based modeling on Azure
 azureCategories:
   - compute
   - storage
-summary: Accelerate digital image-based modeling on Azure using Avere and Agisoft PhotoScan
+summary: This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure-as-a-service (IaaS).
 products:
-  - azure
-  - azure-batch
-  - azure-cyclecloud
-  - azure-storage
-  - github
-  - windows
+  - azure-blob-storage
+  - azure-key-vault
+  - azure-virtual-machines
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-image-modeling.png
 content: |
    [!include[](image-modeling-content.md)]

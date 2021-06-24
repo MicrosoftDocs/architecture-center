@@ -2,24 +2,36 @@
 metadata:
   title: Oracle Database Migration to Azure
   titleSuffix: Azure Solution Ideas
+  description: Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: Oracle DB migrations can be accomplished in multiple ways. This architecture covers one of these options wherein Oracle Active Data Guard is used to migrate the Database.
-  ms.custom: 'acom-architecture, data, Oracle, Oracle Database, Oracle DB, Oracle on Azure, Oracle DB architecture, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-migration-to-azure/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - databases
     - migration
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - data
+    - Oracle
+    - Oracle Database
+    - Oracle DB
+    - Oracle on Azure
+    - Oracle DB architecture
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-migration-to-azure/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/reference-architecture-for-oracle-database-migration-to-azure.png
 name: Oracle Database Migration to Azure
 azureCategories:
   - databases
   - migration
-summary: Oracle DB migrations can be accomplished in multiple ways. This architecture covers one of these options wherein Oracle Active Data Guard is used to migrate the Database.
+summary: Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.
 products:
-  - azure
+  - azure-load-balancer
   - azure-expressroute
+  - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/reference-architecture-for-oracle-database-migration-to-azure.png
 content: |
    [!include[](reference-architecture-for-oracle-database-migration-to-azure-content.md)]

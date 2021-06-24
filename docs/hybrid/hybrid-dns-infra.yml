@@ -1,30 +1,30 @@
 ### YamlMime:Architecture
 metadata:
   title: Design a hybrid Domain Name System solution with Azure
-  description: Hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure
+  description: Learn how to design a hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 07/23/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: reference-architecture
   ms.category:
     - hybrid
     - networking
-  ms.subservice: reference-architecture
   ms.custom:
     - fcp
     - reference-architecture
+    - e2e-hybrid
 name: Design a hybrid Domain Name System solution with Azure
 azureCategories:
   - hybrid
   - networking
-summary: Hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure
+summary: Learn how to design a hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure.
 products:
-  - azure
   - azure-bastion
   - azure-dns
   - azure-expressroute
-  - vs
-  - windows
+  - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-dns-infra.png
 content: |
    [!include[](hybrid-dns-infra-content.md)]

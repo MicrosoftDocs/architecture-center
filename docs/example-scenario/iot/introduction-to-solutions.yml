@@ -2,7 +2,7 @@
 metadata:
   title: IoT solutions conceptual overview
   titleSuffix: Azure Example Scenarios
-  description: 'Get an overview of the functional interactions between events, insights, and actions in Azure Internet of Things (IoT) solutions.'
+  description: Get an overview of the functional interactions between events, insights, and actions in Azure Internet of Things (IoT) solutions.
   author: wamachine
   ms.date: 08/10/2020
   ms.topic: conceptual
@@ -16,10 +16,10 @@ metadata:
 name: IoT solutions conceptual overview
 azureCategories:
   - iot
-summary: 'Get an overview of the functional interactions between events, insights, and actions in Azure Internet of Things (IoT) solutions.'
+summary: Get an overview of the functional interactions between events, insights, and actions in Azure Internet of Things (IoT) solutions.
 products:
-  - azure
   - azure-iot
-thumbnailUrl: /azure/architecture/browse/thumbs/devices-events-insights.png
+  - azure-iot-hub
+thumbnailUrl: /azure/architecture/browse/thumbs/devices-events-insights.svg
 content: |
    [!include[](introduction-to-solutions-content.md)]

@@ -2,16 +2,15 @@
 metadata:
   title: Run a Jenkins server on Azure
   titleSuffix: Azure Reference Architectures
-  description: 'Recommended architecture that shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).'
+  description: This scenario explains the architecture and considerations to take into account when installing and configuring Jenkins.
   author: njray
   ms.date: 11/19/2020
-  ms.category:
-    - devops
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - devops
   ms.custom:
-    - seodec18
     - devops
     - example-scenario
     - devx-track-jenkins
@@ -19,9 +18,13 @@ metadata:
 name: Run a Jenkins server on Azure
 azureCategories:
   - devops
-summary: 'Recommended architecture that shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).'
+summary: This scenario explains the architecture and considerations to take into account when installing and configuring Jenkins.
 products:
-  - azure
-thumbnailUrl: ""
+  - azure-active-directory
+  - azure-blob-storage
+  - azure-key-vault
+  - azure-monitor
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-jenkins.png
 content: |
    [!include[](jenkins-content.md)]

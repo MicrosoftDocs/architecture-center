@@ -6,6 +6,8 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-active-directory
 ms.custom:
   - article
 ---
@@ -39,7 +41,7 @@ When assigning a role to a user consider what actions the role can perform and w
 
 For more information, see [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). 
   
-For information about implementing role-based authorization in an ASP.NET application, see [Role-based authorization](/azure/architecture/multitenant-identity/authorize#role-based-authorization).  
+For information about implementing role-based authorization in an ASP.NET application, see [Role-based authorization](../../multitenant-identity/authorize.md#role-based-authorization).  
 
 ## Resource-based authorization
 
@@ -50,7 +52,7 @@ With role-based authorization, a user gets the same level of control on a resour
 
 You'll need to implement custom logic for resource-based authorization. That logic might be a mapping of resources, Azure AD object (like role, group, user), and permissions.
 
-For information and code sample about implementing resource-based authorization in an ASP.NET application, see [Resource-based authorization](/azure/architecture/multitenant-identity/authorize#resource-based-authorization).
+For information and code sample about implementing resource-based authorization in an ASP.NET application, see [Resource-based authorization](../../multitenant-identity/authorize.md#resource-based-authorization).
 
 ## Authorization for critical accounts
 

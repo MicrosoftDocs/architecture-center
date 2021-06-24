@@ -1,30 +1,32 @@
 ### YamlMime:Architecture
 metadata:
   title: IoT and data analytics
-  description: Use IoT devices and data analytics to provide comprehensive management and operation of construction projects.
+  description: Build solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making.
   author: alexbuckgit
   ms.date: 08/29/2018
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
   ms.category:
     - iot
     - analytics
     - management-and-governance
-  ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: example-scenario
   ms.custom:
     - IoT
     - data-analytics
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/data/media/architecture-big-data-with-iot.png
+  social_image_url: /azure/architecture/example-scenario/data/media/architecture-big-data-with-iot.svg
 name: IoT and data analytics
 azureCategories:
   - iot
   - analytics
   - management-and-governance
-summary: Use IoT devices and data analytics to provide comprehensive management and operation of construction projects.
+summary: Build solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making.
 products:
-  - azure
-  - azure-databricks
-thumbnailUrl: ""
+  - azure-cosmos-db
+  - azure-iot-hub
+  - azure-sql-database
+  - azure-table-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-big-data-with-iot.svg
 content: |
    [!include[](big-data-with-iot-content.md)]

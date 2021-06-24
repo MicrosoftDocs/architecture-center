@@ -2,26 +2,38 @@
 metadata:
   title: Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview
   titleSuffix: Azure Solution Ideas
+  description: When you develop apps, use a continuous integration and continuous deployment (CI/CD) pipeline to automatically push changes to Azure virtual machines.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: 'Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you''ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.'
-  ms.custom: 'acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, devops, interactive-diagram, is-deployable, ''https://azure.microsoft.com/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - devops
     - developer-tools
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - devops
+    - continuous integration
+    - continuous delivery
+    - CI/CD
+    - continuous deployment
+    - devops
+    - interactive-diagram
+    - is-deployable
+    - "https://azure.microsoft.com/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png
 name: Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview
 azureCategories:
   - devops
   - developer-tools
-summary: 'Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you''ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.'
+summary: When you develop apps, use a continuous integration and continuous deployment (CI/CD) pipeline to automatically push changes to Azure virtual machines.
 products:
-  - azure
+  - azure-log-analytics
+  - azure-managed-disks
+  - azure-vm-scalesets
   - github
-  - vs
-  - windows
 thumbnailUrl: /azure/architecture/browse/thumbs/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png
 content: |
    [!include[](immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview-content.md)]

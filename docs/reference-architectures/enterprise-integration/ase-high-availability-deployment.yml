@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.
   author: dsk-2015
+  ms.author: pnp
   ms.date: 05/08/2020
   ms.topic: conceptual
   ms.service: architecture-center
@@ -19,12 +20,13 @@ azureCategories:
   - featured
 summary: Recommended architecture for deploying an enterprise application using App Services Environment in multiple availability zones.
 products:
-  - aspnet
-  - azure
+  - azure-active-directory
+  - azure-application-gateway
+  - azure-cache-redis
   - azure-firewall
   - azure-pipelines
-  - dotnet
-  - github
+  - azure-virtual-network
+
 thumbnailUrl: /azure/architecture/browse/thumbs/ha-ase-deployment.png
 content: |
    [!include[](ase-high-availability-deployment-content.md)]

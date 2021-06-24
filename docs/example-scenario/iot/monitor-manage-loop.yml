@@ -2,7 +2,7 @@
 metadata:
   title: IoT monitor and manage loops
   titleSuffix: Azure Example Scenarios
-  description: 'Learn about monitor and manage loops, an IoT process pattern that continually monitors networked devices and ensures they remain within tolerance.'
+  description: Learn how an IoT monitor and manage loop is a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices.
   author: hanuk
   ms.date: 08/10/2020
   ms.topic: conceptual
@@ -12,10 +12,9 @@ metadata:
     - fcp
     - example-scenario
 name: IoT monitor and manage loops
-summary: 'Learn about monitor and manage loops, an IoT process pattern that continually monitors networked devices and ensures they remain within tolerance.'
+summary: Learn how an IoT monitor and manage loop is a supervisory system that continually monitors a physical system controlled by a set of networked IoT devices.
 products:
-  - azure
   - azure-iot
-thumbnailUrl: /azure/architecture/browse/thumbs/monitor-and-manage.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/monitor-and-manage.png
 content: |
    [!include[](monitor-manage-loop-content.md)]

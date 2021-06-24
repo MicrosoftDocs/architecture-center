@@ -1,6 +1,3 @@
-
-
-
 Present-day data storage solutions like the Azure data platform offer improved scalability and performance over mainframe and midrange systems. By modernizing, you can take advantage of these benefits. However, updating technology, infrastructure, and practices is complex. The process involves an exhaustive investigation of business and engineering activities. Data management is one aspect to consider when modernizing. But you also need to look at data visualization and integration.
 
 Successful modernizations use a [data-first strategy][Five reasons a data-first strategy works]. With this approach, organizations focus on the data, rather than the new system. Data management is no longer merely an item on the modernization checklist. Instead, the data becomes the centerpiece. Sustainable systems result, as harmonized, quality-oriented data solutions replace fragmented, poorly governed ones.
@@ -198,51 +195,51 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 - [Azure data platform end-to-end][Azure data platform end-to-end]
 
 [ADABAS]: https://www.softwareag.com/en_corporate/platform/adabas-natural.html
-[Get started with AzCopy]: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10
-[Azure data architecture guide]: https://docs.microsoft.com/azure/architecture/data-guide/
+[Get started with AzCopy]: /azure/storage/common/storage-use-azcopy-v10
+[Azure data architecture guide]: ../../data-guide/index.md
 [Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
 [Azure Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage/
-[Azure data platform end-to-end]: https://docs.microsoft.com/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end
-[Azure Database for MariaDB documentation]: https://docs.microsoft.com/azure/mariadb/
+[Azure data platform end-to-end]: ../../example-scenario/dataplate2e/data-platform-end-to-end.yml
+[Azure Database for MariaDB documentation]: /azure/mariadb/
 [Azure Database for PostgreSQL]: https://azure.microsoft.com/services/postgresql/
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Azure Services overview]: https://azurecharts.com/overview
 [Azure SQL]: https://azure.microsoft.com/services/azure-sql/
 [Azure SQL Database]: https://azure.microsoft.com/services/sql-database/
-[Azure Storage]: https://docs.microsoft.com/azure/storage/
+[Azure Storage]: /azure/storage/
 [Azure virtual machines]: https://azure.microsoft.com/services/virtual-machines/
 [Comparison of hierarchical and relational databases]: https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.apg/ims_comparehierandreldbs.htm
-[Configure HIS component for performance]: https://docs.microsoft.com/host-integration-server/core/data-for-host-files#configuringForPerformance
-[Data Provider]: https://docs.microsoft.com/host-integration-server/core/data-for-host-files
-[Data Providers for Host Files Security and Protection]: https://docs.microsoft.com/host-integration-server/core/data-providers-for-host-files-security-and-protection
+[Configure HIS component for performance]: /host-integration-server/core/data-for-host-files#configuringForPerformance
+[Data Provider]: /host-integration-server/core/data-for-host-files
+[Data Providers for Host Files Security and Protection]: /host-integration-server/core/data-providers-for-host-files-security-and-protection
 [Datacom]: https://www.broadcom.com/products/mainframe/databases-database-mgmt/datacom
 [Email address for information on Azure Data Engineering Mainframe and Midrange Modernization]: mailto:datasqlninja@microsoft.com
 [ELT]: https://www.ibm.com/cloud/learn/etl#toc-etl-vs-elt-goFgkQcP
 [ETL]: https://www.ibm.com/cloud/learn/etl
-[Five reasons a data-first strategy works]: https://resources.syniti.com/featured-articles/5-reasons-a-data-first-strategy-works
+[Five reasons a data-first strategy works]: https://resources.syniti.com/data-quality/5-reasons-a-data-first-strategy-works
 [Flat files]: https://www.pcmag.com/encyclopedia/term/flat-file
-[Gateway considerations]: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations
+[Gateway considerations]: /data-integration/gateway/service-gateway-onprem#considerations
 [GDG]: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm
-[Hyperscale service tier]: https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale
+[Hyperscale service tier]: /azure/azure-sql/database/service-tier-hyperscale
 [IBM Db2 10.5 for Linux, Unix and Windows documentation]: https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.kc.doc/welcome.html
-[IBM Db2 for i]: https://www.ibm.com/support/pages/ibm-db2-i
+[IBM Db2 for i]: https://www.ibm.com/support/pages/db2-ibm-i
 [IBM Db2 for z/OS]: https://www.ibm.com/analytics/db2/zos
 [IDMS]: https://www.broadcom.com/products/mainframe/databases-database-mgmt/idms
 [IMS]: https://www.ibm.com/it-infrastructure/z/ims
-[Install an on-premises data gateway]: https://docs.microsoft.com/data-integration/gateway/service-gateway-install
+[Install an on-premises data gateway]: /data-integration/gateway/service-gateway-install
 [MariaDB]: https://mariadb.org/
 [Migration guide]: https://datamigration.microsoft.com/
 [MySQL Community Edition]: https://www.mysql.com/products/community/
 [Network model]: https://web.archive.org/web/20060904190944/http://coronet.iicm.edu/wbtmaster/allcoursescontent/netlib/ndm1.htm
-[Performance tuning steps]: https://docs.microsoft.com/azure/data-factory/copy-activity-performance#performance-tuning-steps
+[Performance tuning steps]: /azure/data-factory/copy-activity-performance#performance-tuning-steps
 [PostgreSQL]: https://www.postgresql.org/
 [The rise of the multimodel database]: https://www.infoworld.com/article/2861579/the-rise-of-the-multimodel-database.html
-[SQL Server Integration Services]: https://docs.microsoft.com/sql/integration-services/sql-server-integration-services
-[SQL Server Migration Assistant for Db2]: https://docs.microsoft.com/sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql
+[SQL Server Integration Services]: /sql/integration-services/sql-server-integration-services
+[SQL Server Migration Assistant for Db2]: /sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql
 [VSAM]: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_169.htm
-[Welcome to Azure Cosmos DB]: https://docs.microsoft.com/azure/cosmos-db/introduction
-[What is an on-premises data gateway?]: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem
-[What is Azure Database for MySQL?]: https://docs.microsoft.com/azure/mysql/overview
-[What is Azure SQL Managed Instance?]: https://docs.microsoft.com/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview
-[What is HIS]: https://docs.microsoft.com/host-integration-server/what-is-his
+[Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
+[What is an on-premises data gateway?]: /data-integration/gateway/service-gateway-onprem
+[What is Azure Database for MySQL?]: /azure/mysql/overview
+[What is Azure SQL Managed Instance?]: /azure/azure-sql/managed-instance/sql-managed-instance-paas-overview
+[What is HIS]: /host-integration-server/what-is-his
 [What is NoSQL? Databases for a cloud-scale future]: https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html

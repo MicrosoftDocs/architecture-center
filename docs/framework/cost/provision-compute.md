@@ -6,6 +6,8 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-functions
 ms.custom:
   - article
 ---
@@ -56,7 +58,7 @@ Use [Azure Batch](/azure/batch/batch-technical-overview) to run large-scale para
 
 ## Use PaaS as an alternative to buying VMs
 
-When you use the IaaS model, you do have final control over the VMs. It may appear to be a cheaper option at first, but when you add operational and maintenance costs, the cost increases. When you use the PaaS model, these extra costs are included in the pricing. In some cases, this means that PaaS services can be a cheaper than managing VMs on your own. For help finding areas in the architecture where it may be natural to incorporate PaaS options, see [Managed services](/azure/architecture/framework/cost/design-paas).
+When you use the IaaS model, you do have final control over the VMs. It may appear to be a cheaper option at first, but when you add operational and maintenance costs, the cost increases. When you use the PaaS model, these extra costs are included in the pricing. In some cases, this means that PaaS services can be a cheaper than managing VMs on your own. For help finding areas in the architecture where it may be natural to incorporate PaaS options, see [Managed services](./design-paas.md).
 
 **How can I cut costs with hosting my web apps in PaaS?**
 ***

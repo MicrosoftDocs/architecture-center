@@ -1,11 +1,10 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-
-
-This reference architecture shows how an emulator called Charon-SSP from the Microsoft partner, Stromasys, can run SPARC processor-based Solaris virtual machines (VMs) in Azure. Charon-SSP is a member of the Charon cross-platform hardware virtualization product family. The emulator can create virtual replicas of Sun-4m, Sun-4u, or Sun-4v SPARC family members on standard x86-64 Linux physical computers or hypervisors.
+This article shows how an emulator called Charon-SSP from the Microsoft partner, Stromasys, can run SPARC processor-based Solaris virtual machines (VMs) in Azure. Charon-SSP is a member of the Charon cross-platform hardware virtualization product family. The emulator can create virtual replicas of Sun-4m, Sun-4u, or Sun-4v SPARC family members on standard x86-64 Linux physical computers or hypervisors.
 
 Running applications in an emulator on Azure has several benefits, such as reduced operational costs and energy consumption. You can also run multiple application instances on a single x86-64 standard host or existing virtualization infrastructure, giving you the advantages of consolidation while easing legacy system management and maintenance.
 
-## Use cases
+## Potential use cases
 
 - Enable low-friction "lift-and-shift" from on-premises workloads running on SPARC Solaris machines into Azure.
 - Continue to use applications that run on end-of-life SPARCstation or SPARCserver, without changes.
@@ -41,7 +40,7 @@ Running applications in an emulator on Azure has several benefits, such as reduc
   
 - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services like Microsoft Azure and Microsoft 365.
   
-- [Stromasys Charon-SSP](https://azuremarketplace.microsoft.com/marketplace/apps/stromasys.virtual_sparc_in_azure_cloud) emulator recreates the SPARC virtual hardware layer on industry standard x86-64 computer systems and VMs. The virtual SPARC virtual hardware layer is compatible with any Sun software running on it, so there's no need for code conversion or source code. Charon-SSP is fully compatible with SPARC storage, Ethernet, and serial I/O hardware.
+- [Stromasys Charon-SSP](https://www.stromasys.com/solutions/charon-ssp) emulator recreates the SPARC virtual hardware layer on industry standard x86-64 computer systems and VMs. The virtual SPARC virtual hardware layer is compatible with any Sun software running on it, so there's no need for code conversion or source code. Charon-SSP is fully compatible with SPARC storage, Ethernet, and serial I/O hardware.
 
 ## Next steps
 

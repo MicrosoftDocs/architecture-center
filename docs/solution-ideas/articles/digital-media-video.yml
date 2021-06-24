@@ -2,24 +2,32 @@
 metadata:
   title: Video-on-demand digital media
   titleSuffix: Azure Solution Ideas
+  description: Upload, encode, and distribute video files with Azure services. Stream content to any video-capable endpoint device, mobile application, or desktop browser.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: 'A basic video-on-demand solution that gives you the capability to stream recorded video content such as movies, news clips, sports segments, training videos, and customer support tutorials to any video-capable endpoint device, mobile application, or desktop browser. Video files are uploaded to Azure Blob storage, encoded to a multi-bitrate standard format, and then distributed via all major adaptive bit-rate streaming protocols (HLS, MPEG-DASH, Smooth) to the Azure Media Player client.'
-  ms.custom: 'acom-architecture, media, ''https://azure.microsoft.com/solutions/architecture/digital-media-video/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - media
     - web
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - media
+    - "https://azure.microsoft.com/solutions/architecture/digital-media-video/"
+    - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media-video.png
 name: Video-on-demand digital media
 azureCategories:
   - media
   - web
-summary: 'A basic video-on-demand solution that gives you the capability to stream recorded video content such as movies, news clips, sports segments, training videos, and customer support tutorials to any video-capable endpoint device, mobile application, or desktop browser. Video files are uploaded to Azure Blob storage, encoded to a multi-bitrate standard format, and then distributed via all major adaptive bit-rate streaming protocols (HLS, MPEG-DASH, Smooth) to the Azure Media Player client.'
+summary: Upload, encode, and distribute video files with Azure services. Stream content to any video-capable endpoint device, mobile application, or desktop browser.
 products:
-  - azure
-  - github
+  - azure-blob-storage
+  - azure-cdn
+  - azure-encoding
+  - azure-media-player
 thumbnailUrl: /azure/architecture/browse/thumbs/digital-media-video.png
 content: |
    [!include[](digital-media-video-content.md)]

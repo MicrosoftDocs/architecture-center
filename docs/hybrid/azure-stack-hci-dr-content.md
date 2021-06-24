@@ -1,6 +1,3 @@
-
-
-
 The following reference architecture illustrates how to design and implement disaster recovery of Azure Stack HCI by using stretched clustering. 
 
 ![Diagram illustrating an active-active and an active-passive Azure Stack HCI stretched cluster, with storage volumes and cluster performance history replicating via Storage Replica. In the active-active mode, there is replication traffic in each direction, with both sites hosting Azure Stack HCI VMs. In the active-passive mode, replication is unidirectional, with the active site hosting Azure Stack HCI VMs.][architectural-diagram]
@@ -117,33 +114,33 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 
 [architectural-diagram]: images/azure_stack_hci_dr.png
 [architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure_stack_hci_dr.vsdx
-[azure-well-architected-framework]: https://docs.microsoft.com/azure/architecture/framework/
+[azure-well-architected-framework]: ../framework/index.md
 [microsoft-component]: https://docs.microsoft.com/
-[azs-hci]: https://docs.microsoft.com/azure-stack/hci/overview
-[storage-replica]: https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview
-[cloud-witness]: https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
-[live-migration]: https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/live-migration-overview
-[hci-hardware-requirements]: https://docs.microsoft.com/azure-stack/hci/deploy/before-you-start#server-requirements
-[create-cluster-with-wac]: https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster
-[create-cluster-with-powershell]: https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell
-[create-stretched-volumes-with-wac]: https://docs.microsoft.com/azure-stack/hci/manage/create-stretched-volumes
-[create-stretched-volumes-with-powershell]: https://docs.microsoft.com/azure-stack/hci/manage/create-stretched-volumes
-[azure-policy-guest-configuration]: https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration
-[resource-context-log-analytics-access-mode]: https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment#access-mode
-[azure-monitor]: https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview
-[change-tracking-and-inventory]: https://docs.microsoft.com/azure/automation/change-tracking
-[update-management]: https://docs.microsoft.com/azure/automation/update-management/overview
-[site-to-site-network-reqs]: https://docs.microsoft.com/azure-stack/hci/concepts/plan-host-networking#site-to-site-requirements-stretched-cluster
-[site-to-site-rdma-considerations]: https://docs.microsoft.com/azure-stack/hci/concepts/plan-host-networking#rdma-considerations
-[set-srnetworkconstraint]: https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint?view=win10-ps
-[sr-initial-sync]: https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-frequently-asked-questions#FAQ12
-[sr-volume-reqs]: https://docs.microsoft.com/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#provision-operating-system-features-roles-storage-and-network
-[sr-resync]: https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-storage-resync
-[cluster-quorum]: https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum#cluster-quorum-overview
-[pool-quorum]: https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum#pool-quorum-overview
-[cluster-sets]: https://docs.microsoft.com/windows-server/storage/storage-spaces/cluster-sets
-[azure-backup]: https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup
-[azure-site-recovery]: https://docs.microsoft.com/azure-stack/hci/manage/azure-site-recovery
+[azs-hci]: /azure-stack/hci/overview
+[storage-replica]: /windows-server/storage/storage-replica/storage-replica-overview
+[cloud-witness]: /windows-server/failover-clustering/deploy-cloud-witness
+[live-migration]: /windows-server/virtualization/hyper-v/manage/live-migration-overview
+[hci-hardware-requirements]: /azure-stack/hci/deploy/before-you-start#server-requirements
+[create-cluster-with-wac]: /azure-stack/hci/deploy/create-cluster
+[create-cluster-with-powershell]: /azure-stack/hci/deploy/create-cluster-powershell
+[create-stretched-volumes-with-wac]: /azure-stack/hci/manage/create-stretched-volumes
+[create-stretched-volumes-with-powershell]: /azure-stack/hci/manage/create-stretched-volumes
+[azure-policy-guest-configuration]: /azure/governance/policy/concepts/guest-configuration
+[resource-context-log-analytics-access-mode]: /azure/azure-monitor/platform/design-logs-deployment#access-mode
+[azure-monitor]: /azure/azure-monitor/insights/vminsights-overview
+[change-tracking-and-inventory]: /azure/automation/change-tracking
+[update-management]: /azure/automation/update-management/overview
+[site-to-site-network-reqs]: /azure-stack/hci/concepts/plan-host-networking#site-to-site-requirements-stretched-cluster
+[site-to-site-rdma-considerations]: /azure-stack/hci/concepts/plan-host-networking#rdma-considerations
+[set-srnetworkconstraint]: /powershell/module/storagereplica/set-srnetworkconstraint?view=win10-ps
+[sr-initial-sync]: /windows-server/storage/storage-replica/storage-replica-frequently-asked-questions#FAQ12
+[sr-volume-reqs]: /windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#provision-operating-system-features-roles-storage-and-network
+[sr-resync]: /windows-server/storage/storage-spaces/understand-storage-resync
+[cluster-quorum]: /windows-server/storage/storage-spaces/understand-quorum#cluster-quorum-overview
+[pool-quorum]: /windows-server/storage/storage-spaces/understand-quorum#pool-quorum-overview
+[cluster-sets]: /windows-server/storage/storage-spaces/cluster-sets
+[azure-backup]: /azure-stack/hci/manage/use-azure-backup
+[azure-site-recovery]: /azure-stack/hci/manage/azure-site-recovery
 [resiliencydefaultperiod]: https://techcommunity.microsoft.com/t5/failover-clustering/virtual-machine-compute-resiliency-in-windows-server-2016/ba-p/372027
-[azure-security-center]: https://docs.microsoft.com/azure-stack/hci/concepts/security#part-2-use-azure-security-center
-[sr-firewall-reqs]: https://docs.microsoft.com/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#prerequisites
+[azure-security-center]: /azure-stack/hci/concepts/security#part-2-use-azure-security-center
+[sr-firewall-reqs]: /windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#prerequisites

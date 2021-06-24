@@ -2,7 +2,7 @@
 metadata:
   title: Field and cloud edge gateways
   titleSuffix: Azure Example Scenarios
-  description: 'Learn about Iot gateways, communications protocols, and provisioning.'
+  description: Learn about the capabilities of IoT Edge field gateways and protocol cloud gateways.
   author: wamachine
   ms.date: 08/21/2020
   ms.topic: conceptual
@@ -16,10 +16,10 @@ metadata:
 name: Field and cloud edge gateways
 azureCategories:
   - iot
-summary: 'Learn about Iot gateways, communications protocols, and provisioning.'
+summary: Learn about the capabilities of IoT Edge field gateways and protocol cloud gateways.
 products:
-  - azure
   - azure-iot
-thumbnailUrl: /azure/architecture/browse/thumbs/field-edge-gateways.png
+  - azure-iot-edge
+thumbnailUrl: /azure/architecture/browse/thumbs/field-edge-gateways.svg
 content: |
    [!include[](field-cloud-edge-gateways-content.md)]

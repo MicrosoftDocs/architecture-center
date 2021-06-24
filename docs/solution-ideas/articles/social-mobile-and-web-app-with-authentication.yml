@@ -2,30 +2,38 @@
 metadata:
   title: Social App for Mobile and Web with Authentication
   titleSuffix: Azure Solution Ideas
+  description: Build and implement a mobile client app architecture that offers authentication abilities and social image sharing with a companion web app, even while offline.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 12/16/2019
-  description: 'View a detailed, step-by-step diagram depicting the build process and implementation of the mobile client app architecture that offers social image sharing with a companion web app and authentication abilities, even while offline.'
-  ms.custom: 'acom-architecture, identity, web-app, Social Image Sharing, Image Processing App, Image Share App, Companion Web App, interactive-diagram, ''https://azure.microsoft.com/solutions/architecture/social-mobile-and-web-app-with-authentication/'''
+  ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: solution-idea
   ms.category:
     - mobile
     - web
     - identity
-  ms.subservice: solution-idea
+  ms.custom:
+    - acom-architecture
+    - identity
+    - web-app
+    - Social Image Sharing
+    - Image Processing App
+    - Image Share App
+    - Companion Web App
+    - interactive-diagram
+    - "https://azure.microsoft.com/solutions/architecture/social-mobile-and-web-app-with-authentication/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/social-mobile-and-web-app-with-authentication.png
 name: Social App for Mobile and Web with Authentication
 azureCategories:
   - mobile
   - web
   - identity
-summary: 'View a detailed, step-by-step diagram depicting the build process and implementation of the mobile client app architecture that offers social image sharing with a companion web app and authentication abilities, even while offline.'
+summary: Build and implement a mobile client app architecture that offers authentication abilities and social image sharing with a companion web app, even while offline.
 products:
-  - azure
+  - azure-app-service-mobile
   - azure-functions
-  - azure-sdks
-  - azure-storage
-  - dotnet
-  - github
+  - azure-traffic-manager
   - vs
   - xamarin
 thumbnailUrl: /azure/architecture/browse/thumbs/social-mobile-and-web-app-with-authentication.png

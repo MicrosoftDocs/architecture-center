@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Vehicle data ingestion, processing, and visualization are key capabilities needed
 to create connected car solutions. By capturing and analyzing this data, we can
@@ -31,7 +30,7 @@ Imagine a car manufacturing company that wants to create a solution to:
     [OBD-II](https://wikipedia.org/wiki/On-board_diagnostics) port, view
     repair procedures, or to view an exploded 3D parts diagram).
 
-## Reference architecture
+## Architecture
 
 ![Reference architecture](media/architecture-realtime-analytics-vehicle-data1.png)
 
@@ -79,7 +78,7 @@ The data flows through the solution as follows:
         chips to enable maintenance, update, and control. Sometimes abbreviated
         AS3.
 
-7.  [General-purpose MQTT brokering](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime?view=iotedge-2020-11#using-the-mqtt-broker) is now available in Azure IoT Edge. The Azure
+7.  [General-purpose MQTT brokering](/azure/iot-edge/iot-edge-runtime?view=iotedge-2020-11#using-the-mqtt-broker) is now available in Azure IoT Edge. The Azure
     Sphere device will publish messages to the IoT Hub built-in MQTT topic
     (```devices/{sphere_deviceid}/messages/events/```).
 
@@ -90,7 +89,7 @@ The data flows through the solution as follows:
 8.  A service technician, wearing a HoloLens, can subscribe to the MQTT topic
     (```devices/{sphere_deviceid}/messages/events/```) and securely view OBD-II data
     using a HoloLens application containing an MQTT client. The HoloLens MQTT
-    client must be [authorized to connect and subscribe](https://docs.microsoft.com/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11#authorization) to the topic. By
+    client must be [authorized to connect and subscribe](/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11#authorization) to the topic. By
     connecting the HoloLens directly to the IoT Edge gateway, the service
     technician can view the vehicle’s data in near real-time, avoiding the
     latency of sending the data to the cloud and back. The service technician
@@ -126,10 +125,10 @@ The data flows through the solution as follows:
     Analytics](https://azure.microsoft.com/services/azure-sql/) are in the
     Serving storage layer. Azure Stream Analytics can write messages directly to
     Cosmos DB using an
-    [output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs).
+    [output](/azure/stream-analytics/stream-analytics-define-outputs).
     Data can be aggregated and moved from Cosmos DB and Azure SQL to Azure
     Synapse using [Azure Data
-    Factory](https://docs.microsoft.com/azure/data-factory/).
+    Factory](/azure/data-factory/).
 
 -   [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is a distributed system for storing and analyzing
     large datasets. Its use of massive parallel processing (MPP) makes it
@@ -164,14 +163,14 @@ The data flows through the solution as follows:
 -   Read about the [Azure Sphere cellular-enabled guardian device powered by
     AT&T](https://azure.microsoft.com/blog/attpowered-guardian-device-with-azure-sphere-enables-highly-secured-simple-and-scalable-connectivity-from-anywhere/).
 
--   Review [Publish and subscribe with Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11) to understand how to
+-   Review [Publish and subscribe with Azure IoT Edge](/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11) to understand how to
     configure general-purpose MQTT brokering in IoT Edge.
 
--   Review [Set up up Azure IoT Edge for Azure Sphere](https://docs.microsoft.com/azure-sphere/app-development/setup-iot-edge) to learn how to use Azure
+-   Review [Set up up Azure IoT Edge for Azure Sphere](/azure-sphere/app-development/setup-iot-edge) to learn how to use Azure
     Sphere Device Certificate for IoT Edge.
 
 -   Review the [Azure IoT Reference
-    Architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/)
+    Architecture](../../reference-architectures/iot.yml)
     that shows a recommended architecture for IoT applications on Azure using
     PaaS (platform-as-a-service) components.
 

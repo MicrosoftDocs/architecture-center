@@ -2,21 +2,22 @@
 metadata:
   title: Move Azure resources across regions
   titleSuffix: Azure Solution Ideas
-  description: 'Learn the key steps, considerations, and strategies for moving Azure resources across regions by examining an example scenario.'
+  description: Move Azure resources across regions efficiently, securely, and seamlessly. See key steps, considerations, and strategies for planning and carrying out a move.
   author: doodlemania2
+  ms.author: pnp
   ms.date: 09/15/2020
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.custom:
     - fcp
 name: Move Azure resources across regions
-summary: 'Learn the key steps, considerations, and strategies for moving Azure resources across regions by examining an example scenario.'
+summary: Move Azure resources across regions efficiently, securely, and seamlessly. See key steps, considerations, and strategies for planning and carrying out a move.
 products:
-  - azure
-  - azure-automation
+  - azure-active-directory-domain
   - azure-expressroute
-  - azure-iot
-  - microsoft-edge
+  - azure-load-balancer
+  - azure-vpn-gateway
 thumbnailUrl: /azure/architecture/browse/thumbs/move-azure-resources-architecture-diagram.png
 content: |
    [!include[](move-azure-resources-across-regions-content.md)]

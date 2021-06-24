@@ -2,15 +2,15 @@
 metadata:
   title: Scalable order processing
   titleSuffix: Azure Example Scenarios
-  description: 'This example demonstrates a highly scalable, resilient architecture for online order processing, using managed Azure services such as Cosmos DB and HDInsight.'
+  description: This example demonstrates a highly scalable, resilient architecture for e-commerce order processing, using managed Azure services such as Cosmos DB and HDInsight.
   author: alexbuckgit
   ms.date: 07/10/2018
-  ms.category:
-    - web
-    - databases
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - web
+    - databases
   ms.custom:
     - fasttrack
     - web-apps
@@ -20,11 +20,10 @@ name: Scalable order processing
 azureCategories:
   - web
   - databases
-summary: 'This example demonstrates a highly scalable, resilient architecture for online order processing, using managed Azure services such as Cosmos DB and HDInsight.'
+summary: This example demonstrates a highly scalable, resilient architecture for e-commerce order processing, using managed Azure services such as Cosmos DB and HDInsight.
 products:
-  - azure
-  - azure-arc
-  - azure-monitor
+  - azure-cosmos-db
+  - azure-hdinsight
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ecommerce-order-processing.png
 content: |
    [!include[](ecommerce-order-processing-content.md)]
