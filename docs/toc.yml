@@ -1860,10 +1860,10 @@ items:
                 href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml
       - name: Mainframe + Midrange
         items:
-          - name: Architectures
-            items:      
-              - name: App modernization
-                items:
+          - name: App modernization
+            items:
+              - name: Architectures
+                items:      
                   - name: High-volume batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
                   - name: IBM System i to Azure using Infinite i
@@ -1884,22 +1884,26 @@ items:
                     href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
                   - name: Unisys mainframe migration with Asysco
                     href: reference-architectures/migration/unisys-mainframe-migration.yml
-              - name: Data modernization
-                items:
+              - name: Solution ideas
+                items:      
+                  - name: Migrate IBM applications with TmaxSoft OpenFrame
+                    href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
+                  - name: Solaris emulator on Azure VMs
+                    href: solution-ideas/articles/solaris-azure.yml
+          - name: Data modernization
+            items:
+              - name: Architectures
+                items:  
                   - name: Modernize mainframe and midrange data
                     href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
                   - name: Replicate and sync mainframe data in Azure
                     href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
-          - name: Solution ideas
-            items:      
-              - name: Mainframe access to Azure databases
-                href: solution-ideas/articles/mainframe-access-azure-databases.yml
-              - name: Mainframe file replication on Azure
-                href: solution-ideas/articles/mainframe-azure-file-replication.yml
-              - name: Migrate IBM applications with TmaxSoft OpenFrame
-                href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
-              - name: Solaris emulator on Azure VMs
-                href: solution-ideas/articles/solaris-azure.yml
+              - name: Solution ideas
+                items:      
+                  - name: Mainframe access to Azure databases
+                    href: solution-ideas/articles/mainframe-access-azure-databases.yml
+                  - name: Mainframe file replication on Azure
+                    href: solution-ideas/articles/mainframe-azure-file-replication.yml
       - name: Management + Governance
         items:
           - name: Architectures
