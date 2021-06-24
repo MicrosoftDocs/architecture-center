@@ -31,7 +31,7 @@ These other uses cases have similar design patterns:
 1. API Management makes the processed telemetry available to data users such as web apps, mobile apps, Azure maps, and Azure Power BI. It can also make the data available to third parties.
 1. Web and mobile applications built with Azure App Service provide custom functionality based on data from Azure API Management. The apps can use Azure Maps for real-time tracking of vehicles and other assets. Web apps can display Power BI reports and custom visualizations for analytics and summary reports.
 
-## Components
+### Components
 
 - [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) is a hosted and secure IoT application platform that connects IoT devices to the cloud quickly and easily.
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) is a big-data streaming platform and event ingestion service. It can receive and process millions of events per second. A real-time analytics provider, batching adapter, or storage adapter can transform and store data that is sent to an event hub.
