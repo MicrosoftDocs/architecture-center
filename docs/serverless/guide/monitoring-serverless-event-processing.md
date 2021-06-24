@@ -1,9 +1,9 @@
 ---
 title: Monitoring serverless event processing
 description: Guidance on monitoring serverless event-driven architectures using Application Insights.
-author: Sarah-Aly
-ms.author: Sarah.Aly
-ms.date: 06/18/2021
+author: rasavant-ms
+ms.author: rasavant
+ms.date: 06/25/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -19,6 +19,7 @@ products:
   - azure-functions
 ms.custom:
   - guide
+  - fcp
 ---
 <!-- cSpell:ignore todatetime dateformatter tostring kusto -->
 
