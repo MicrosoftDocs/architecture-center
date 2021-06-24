@@ -19,6 +19,7 @@ products:
   - azure-functions
 ms.custom:
   - guide
+  - fcp
 ---
 <!-- cSpell:ignore todatetime dateformatter tostring kusto KEDA -->
 
