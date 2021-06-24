@@ -1,9 +1,9 @@
 ---
 title: Monitoring serverless event processing
 description: Guidance on monitoring serverless event-driven architectures using Application Insights.
-author: Sarah-Aly
-ms.author: Sarah.Aly
-ms.date: 06/18/2021
+author: rasavant-ms
+ms.author: rasavant
+ms.date: 06/25/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -20,7 +20,7 @@ products:
 ms.custom:
   - guide
 ---
-<!-- cSpell:ignore todatetime dateformatter tostring kusto -->
+<!-- cSpell:ignore todatetime dateformatter tostring kusto KEDA -->
 
 # Monitoring serverless event processing
 
@@ -28,7 +28,7 @@ This article provides guidance on monitoring [serverless](https://azure.microsof
 
 Monitoring provides insight into the behavior and health of your systems. It helps you build a holistic view of the environment, retrieve historic trends, correlate diverse factors, and measure changes in performance, consumption, or error rate. Monitoring can be used to define alerts when conditions occur that could impact the quality of your service or conditions of particular interest to your specific environment.
 
-This article uses [Azure Monitor](https://azure.microsoft.com/services/monitor/) to provide monitoring of a serverless application built using [Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure Functions](https://azure.microsoft.com/services/functions/). It discusses useful metrics to monitor, how to integrate with Application Insights, capturing custom metrics, and provides code samples.
+This article uses [Azure Monitor](https://azure.microsoft.com/services/monitor/) to provide monitoring of a serverless application built using [Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure Functions](https://azure.microsoft.com/services/functions/). It discusses useful metrics to monitor, how to integrate with [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), capturing custom metrics, and provides code samples.
 
 ## Assumptions
 
@@ -40,7 +40,7 @@ This article assumes you have an architecture like the one described in the [Ser
 
 ## Metrics from Azure Monitor
 
-First we need to decide which metrics will be needed in order to formulate useful insights about the architecture. Each resource performs different tasks, and these in turn generate different metrics.
+First we need to decide which metrics will be needed before we can begin to formulate useful insights about the architecture. Each resource performs different tasks, and in turn generate different metrics.
 
 These metrics from Event Hub will be of interest to capture useful insights:
 
@@ -67,7 +67,7 @@ Similarly, these metrics from Azure Functions will be of interest to capture use
 - Requests in application queue
 - Response time
 
-## Using diagnostics logging to capture insights from the above metrics
+## Using diagnostics logging to capture insights
 
 When analyzed together, the above metrics can be used to formulate and capture the following insights:
 
@@ -92,20 +92,20 @@ The log and metric categories that we are interested in are:
 - EventHubVNetConnectionEvent
 - AllMetrics
 
-Azure documentation provides instructions on how to [Set up diagnostic logs for an Azure event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs#enable-diagnostic-logs). The following screenshot also shows an example *Diagnostic setting* configuration panel with the correct log and metric categories selected, and a Log Analytics workspace set as the destination. (If an external system is being used to analyze the logs, the option to *Stream to an event hub* can be used instead.)
+Azure documentation provides instructions on how to [Set up diagnostic logs for an Azure event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs#enable-diagnostic-logs). The following screenshot shows an example *Diagnostic setting* configuration panel with the correct log and metric categories selected, and a Log Analytics workspace set as the destination. (If an external system is being used to analyze the logs, the option to *Stream to an event hub* can be used instead.)
 
 :::image type="content" source="images/monitoring-srvrls-evnt-procs-diagnostic-setting.png" alt-text="Screenshot of an Event Hub diagnostic settings configuration panel showing the correct log and metric categories selected, and a Log Analytics workspace set as the destination." lightbox="images/monitoring-srvrls-evnt-procs-diagnostic-setting.png":::
 
 > [!NOTE]
-> In order to utilize log diagnostics to capture insights, you should create Event Hubs in different namespaces. This is because of a constraint in Azure.
+> In order to utilize log diagnostics to capture insights, you should create event hubs in different namespaces. This is because of a constraint in Azure.
 >
-> The Event Hubs set in a given Event Hub namespace is represented in Azure Monitor metrics under a dimension called `EntityName`. In the Azure portal, data for a specific Event Hub can be viewed on that instance of Azure Monitor. But when the metrics data is routed to the log diagnostics, there is currently no way to view data per Event Hub by filtering on the `EntityName` dimension.
+> The Event Hubs set in a given Event Hubs namespace is represented in Azure Monitor metrics under a dimension called `EntityName`. In the Azure portal, data for a specific event hub normally can be viewed on that instance of Azure Monitor. But when the metrics data is routed to the log diagnostics, there is currently no way to view data per event hub by filtering on the `EntityName` dimension.
 >
-> As a workaround, creating Event Hubs in different namespaces helps make it possible to locate metrics for a specific hub.
+> As a workaround, creating event hubs in different namespaces helps make it possible to locate metrics for a specific hub.
 
 ## Using Application Insights
 
-Application Insights can be enabled for capturing metrics and custom telemetry from Azure Functions. This allows you to define analytics that suit your own purposes, providing another way to get important insights for the serverless event processing scenario.
+You can enable Application Insights to capture metrics and custom telemetry from Azure Functions. This allows you to define analytics that suit your own purposes, providing another way to get important insights for the serverless event processing scenario.
 
 This screenshot shows an example listing of custom metrics and telemetry within Application Insights:
 
@@ -147,7 +147,7 @@ Here is an example of what a custom message might look like in the Application I
 
 If the incoming Event Hub message or `EventData[]` is logged as a part of this custom `ILogger` message, then that is also made available in Application Insights. This can be very useful.
 
-For our serverless event processing scenario, we log the JSON serialized message body that's received from the Event Hub. This allows us to capture the raw byte array, along with SystemProperties like `x-opt-sequence-number`, `x-opt-offset`, and `x-opt-enqueued-time`. To determine when each message was received by the Event Hub, the `x-opt-enqueued-time` property is used.
+For our serverless event processing scenario, we log the JSON serialized message body that's received from the event hub. This allows us to capture the raw byte array, along with `SystemProperties` like `x-opt-sequence-number`, `x-opt-offset`, and `x-opt-enqueued-time`. To determine when each message was received by the Event Hub, the `x-opt-enqueued-time` property is used.
 
 **Sample query:**
 
@@ -172,7 +172,7 @@ The sample query would return a message similar to the following example result,
 
 ### Tracking message flow using a transaction ID with Application Insights
 
-In Applicaton Insights, we can view all the telemetry related to a particular transaction by doing a Transaction search query on the transaction's `Operation Id` value. This can be especially useful for capturing the percentile values of average times for messages as the transaction moves through the event stream pipeline.
+In Application Insights, we can view all the telemetry related to a particular transaction by doing a Transaction search query on the transaction's `Operation Id` value. This can be especially useful for capturing the percentile values of average times for messages as the transaction moves through the event stream pipeline.
 
 The following screenshot shows an example Transaction search in the Application Insights interface. The desired `Operation ID` is entered in the query field, identified with a magnifying glass icon (and shown here outlined in a red box). At the bottom of the main pane, the `Results` tab shows matching events in sequential order. In each event entry, the `Operation ID` value is highlighted in dark blue for easy verification.
 
@@ -215,7 +215,7 @@ log.LogInformation("TransformingFunction: Processed sensorDataJson={sensorDataJs
     processingLatency);
 ```
 
-The resulting logs created on Application Insights contain the above parameters as custom dimensions as shown in this screenshot:
+The resulting logs created on Application Insights contain the above parameters as custom dimensions, as shown in this screenshot:
 
 :::image type="content" source="images/monitoring-srvrls-evnt-procs-custom-dimensions.png" alt-text="Screenshot showing logs created in Application Insights by the previous C-sharp code sample." lightbox="images/monitoring-srvrls-evnt-procs-custom-dimensions.png":::
 
@@ -250,7 +250,7 @@ traces
 
 Currently, structured logging isn't supported in Java Azure functions for capturing custom dimensions in the Application Insights traces table.
 
-As an example, here is the log statement in the Java TransformingFunction:
+As an example, here is the log statement in the Java `TransformingFunction`:
 
 ```java
 LoggingUtilities.logSuccessInfo(
@@ -264,7 +264,7 @@ LoggingUtilities.logSuccessInfo(
 );
 ```
 
-The resulting logs created on Application Insights contain the above parameters in message as shown below:
+The resulting logs created on Application Insights contain the above parameters in the message as shown below:
 
 :::image type="content" source="images/monitoring-srvrls-evnt-procs-appinsights-msg-java.png" alt-text="Screenshot showing logs created in Application Insights by the previous Java code sample." lightbox="images/monitoring-srvrls-evnt-procs-appinsights-msg-java.png":::
 
@@ -298,5 +298,5 @@ traces
 
 - [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
 - [De-batching and filtering in serverless event processing with Event Hubs](../../solution-ideas/articles/serverless-event-processing-filtering.yml) describes in more detail how these portions of the reference architecture work.
-- [Private link scenario in event stream processing](../../solution-ideas/articles/serverless-event-processing-private-link.yml) is a solution idea for implementing a similar architecture in a VNet with private endpoints, in order to enhance security.
+- [Private link scenario in event stream processing](../../solution-ideas/articles/serverless-event-processing-private-link.yml) is a solution idea for implementing a similar architecture in a virtual network (VNet) with private endpoints, in order to enhance security.
 - [Azure Kubernetes in event stream processing](../../solution-ideas/articles/serverless-event-processing-aks.yml) describes a variation of a serverless event-driven architecture running on Azure Kubernetes with KEDA scaler.

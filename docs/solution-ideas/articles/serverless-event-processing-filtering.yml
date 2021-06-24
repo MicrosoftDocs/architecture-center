@@ -3,8 +3,8 @@ metadata:
   title: De-batching and filtering in serverless event processing with Event Hubs
   titleSuffix: Azure Solution Ideas
   description: A serverless event-driven architecture using Azure Event Hubs and Azure Functions to ingest and filter a stream of data for database storage.
-  author: Sarah-Aly
-  ms.author: sarah.aly
+  author: rasavant-ms
+  ms.author: rasavant
   ms.date: 06/25/2021
   ms.topic: conceptual
   ms.service: architecture-center

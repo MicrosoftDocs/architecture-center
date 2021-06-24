@@ -3,8 +3,8 @@ metadata:
   title: Azure Kubernetes in event stream processing
   titleSuffix: Azure Solution Ideas
   description: A serverless event-driven architecture running on Azure Kubernetes with KEDA scaler that ingests and processes a stream of data, then writes the results to a DB.
-  author: Sarah-Aly
-  ms.author: sarah.aly
+  author: rasavant-ms
+  ms.author: rasavant
   ms.date: 06/25/2021
   ms.topic: conceptual
   ms.service: architecture-center

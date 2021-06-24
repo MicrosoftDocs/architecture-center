@@ -7,7 +7,7 @@ To learn more about the basic concepts, considerations, and approaches for serve
 
 ## Potential use cases
 
-A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub-triggered functions.
+A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub&#8211;triggered functions.
 
 ## Architecture
 
@@ -16,18 +16,18 @@ A popular use case for implementing an end-to-end event stream processing patter
 1. VNet integration is used to put all Azure resources behind [Azure Private Endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
 1. Events arrive at the Input Event Hub.
 1. The De-batching and Filtering Azure Function is triggered to handle the event. This step filters out unwanted events and de-batches the received events before submitting them to the Output Event Hub.
-1. If the De-batching and Filtering Azure Function fails to store the event successfully, the event is submitted to the Headsetter Event Hub 1.
+1. If the De-batching and Filtering Azure Function fails to store the event successfully, the event is submitted to the Deadletter Event Hub 1.
 1. Events arriving at the Output Event Hub trigger the Transforming Azure Function. This Azure Function transforms the event into a message for the Cosmos DB.
 1. The event is stored in a Cosmos DB database.
 1. If the Transforming Azure Function fails to store the event successfully, the event is saved to the Deadletter Event Hub 2.
 
 > [!NOTE]
-> Subnets are not shown in the diagram for simplicity.
+> For simplicity, subnets are not shown in the diagram.
 
 ### Components
 
 - [Azure Private Endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet.
-- [Event Hub](https://azure.microsoft.com/services/event-hubs/) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
+- [Event Hubs](https://azure.microsoft.com/services/event-hubs/) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
 - [Azure Functions](https://azure.microsoft.com/services/functions/) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Cosmos DB SQL API](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
