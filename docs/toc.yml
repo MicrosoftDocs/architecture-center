@@ -1508,6 +1508,8 @@ items:
                         href: serverless/code.md
                       - name: CI/CD for a serverless frontend
                         href: serverless/guide/serverless-app-cicd-best-practices.md
+                  - name: Monitoring serverless event processing
+                    href: serverless/guide/monitoring-serverless-event-processing.md
                   - name: Serverless Functions app operations
                     href: serverless-quest/functions-app-operations.md
                   - name: Serverless Functions app security
@@ -1524,8 +1526,14 @@ items:
                     href: reference-architectures/serverless/event-processing.yml     
               - name: Solution ideas
                 items:
+                  - name: Azure Kubernetes in event stream processing
+                    href: solution-ideas/articles/serverless-event-processing-aks.yml
                   - name: Big data analytics with Azure Data Explorer
                     href: solution-ideas/articles/big-data-azure-data-explorer.yml
+                  - name: De-batching and filtering in serverless event processing with Event Hubs
+                    href: solution-ideas/articles/serverless-event-processing-filtering.yml
+                  - name: Private link scenario in event stream processing
+                    href: solution-ideas/articles/serverless-event-processing-private-link.yml
                   - name: Serverless applications using Event Grid
                     href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
                   - name: Serverless computing LOB apps
