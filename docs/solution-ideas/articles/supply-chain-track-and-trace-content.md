@@ -56,6 +56,6 @@ The first service bus effectively serves as an "Outbox" for IoT Hub and the seco
 
 * [Deploy to Azure](https://aka.ms/tryworkbench)
 
-## Related Resource
+## Related resource
 
 * [Real-time asset tracking and management using IoT Central](real-time-asset-tracking-mgmt-iot-central.yml)
