@@ -6,7 +6,14 @@ The growing scale, complexity, and security requirements of genomics make it an 
 - Azure is certified for major global security and privacy standards, such as ISO 27001.
 - Azure complies with the security and provenance standards that HIPAA establishes for personal health information.
 
-As part of making Microsoft Azure the best cloud for genomics, [Microsoft Genomics](https://azure.microsoft.com/services/genomics/) has developed an optimized secondary analysis service that can process a 30x genome in only a few hours, instead of a day or more. The Microsoft Genomics Service includes a high-performance engine that is optimized to read large files of genomic data, process them efficiently across many cores, sort and filter the results, and write them back out. This engine orchestrates the operation of the BWA aligner and the GATK HaplotypeCaller variant caller for maximum throughput. It also incorporates several other simpler components that are part of standard genomics pipelines, such as duplicate marking, base quality score recalibration, and indexing. This engine can process a single genomic sample, from raw reads to aligned reads and variant calls, in a few hours on a single multi-core server.
+This document outlines a cloud solution for genomics that uses Azure. A key component is [Microsoft Genomics](https://azure.microsoft.com/services/genomics/). This service offers an optimized secondary analysis implementation that can process a 30x genome in a few hours. Standard technologies can take days. Microsoft Genomics uses a high-performance engine that is optimized for these tasks:
+
+- Reading large files of genomic data
+- Processing them efficiently across many cores
+- Sorting and filtering the results
+- Writing the results to output files
+
+To maximize throughput, this engine operates a BWA aligner and a GATK HaplotypeCaller variant caller. It also uses several other components that make up standard genomics pipelines. Examples include duplicate marking, base quality score recalibration, and indexing. In a few hours, the engine can process a single genomic sample on a single multi-core server. The processing starts with raw reads and produces aligned reads and variant calls.
 
 The Microsoft Genomics service controller manages the processing of batches of genomes distributed across pools of machines in the cloud. It maintains a queue of incoming requests, distributes them to servers running the genomics engine, monitors their performance and progress, and evaluates the results. It ensures that the service runs reliably and securely at scale, behind a secure web service API. Clients don’t need to deal with the complexity of managing and updating their hardware and software, and can rely on fast, efficient execution of an accurate best-practices genomics pipeline. The results can be easily connected to tertiary analysis and machine learning services.
 
