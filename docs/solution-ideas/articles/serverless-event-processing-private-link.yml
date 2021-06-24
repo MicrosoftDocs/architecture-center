@@ -20,6 +20,6 @@ products:
   - azure-cosmos-db
 name: Serverless event stream processing in a VNet with private endpoints
 summary: A serverless event-driven architecture in a VNet with private endpoints that ingests and processes a stream of data, then writes the results to a database.
-thumbnailUrl: /azure/architecture/browse/thumbs/BROWSE-PNG-FILENAME.png
+thumbnailUrl: /azure/architecture/browse/thumbs/serverless-event-processing-private-link-card.png
 content: |
   [!include[](serverless-event-processing-private-link-content.md)]

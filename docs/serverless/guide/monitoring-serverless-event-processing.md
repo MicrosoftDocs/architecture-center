@@ -27,9 +27,9 @@ ms.custom:
 
 This article provides guidance on monitoring [serverless](https://azure.microsoft.com/solutions/serverless/) event-driven architectures.
 
-Monitoring provides insight into the behavior and health of your systems. It helps you build a holistic view of the environment, retrieve historic trends, correlate diverse factors, and measure changes in performance, consumption, or error rate. Monitoring can be used to define alerts when conditions occur that could impact the quality of your service or conditions of particular interest to your specific environment.
+Monitoring provides insight into the behavior and health of your systems. It helps you build a holistic view of the environment, retrieve historic trends, correlate diverse factors, and measure changes in performance, consumption, or error rate. You can use monitoring to define alerts when conditions occur that could impact the quality of your service, or when conditions of particular interest to your specific environment arise.
 
-This article uses [Azure Monitor](https://azure.microsoft.com/services/monitor/) to provide monitoring of a serverless application built using [Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure Functions](https://azure.microsoft.com/services/functions/). It discusses useful metrics to monitor, how to integrate with [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview), capturing custom metrics, and provides code samples.
+This article demonstrates using [Azure Monitor](https://azure.microsoft.com/services/monitor/) to monitor a serverless application built using [Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure Functions](https://azure.microsoft.com/services/functions/). It discusses useful metrics to monitor, describes how to integrate with [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) and capture custom metrics, and provides code samples.
 
 ## Assumptions
 
@@ -41,7 +41,7 @@ This article assumes you have an architecture like the one described in the [Ser
 
 ## Metrics from Azure Monitor
 
-First we need to decide which metrics will be needed before we can begin to formulate useful insights about the architecture. Each resource performs different tasks, and in turn generate different metrics.
+First we need to decide which metrics will be needed before we can begin to formulate useful insights about the architecture. Each resource performs different tasks, and in turn generates different metrics.
 
 These metrics from Event Hub will be of interest to capture useful insights:
 

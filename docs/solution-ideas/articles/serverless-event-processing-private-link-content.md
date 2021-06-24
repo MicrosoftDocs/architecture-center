@@ -11,7 +11,7 @@ A popular use case for implementing an end-to-end event stream processing patter
 
 ## Architecture
 
-[![Diagram showing data flowing into a VNet and then being processed by the architecture described in this article.](../media/serverless-event-processing-private-link.png)](../media/serverless-event-processing-private-link.png#lightbox)
+[![Diagram showing data flowing into a VNet and then being processed by the architecture described in this article.](../media/serverless-event-processing-private-link-diagram.png)](../media/serverless-event-processing-private-link-diagram.png#lightbox)
 
 1. VNet integration is used to put all Azure resources behind [Azure Private Endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
 1. Events arrive at the Input Event Hub.

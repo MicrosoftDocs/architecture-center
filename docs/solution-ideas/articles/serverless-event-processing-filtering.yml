@@ -19,6 +19,6 @@ products:
   - azure-cosmos-db
 name: De-batching and filtering in serverless event processing with Event Hubs
 summary: A serverless event-driven architecture using Azure Event Hubs and Azure Functions to ingest and filter a stream of data for database storage.
-thumbnailUrl: /azure/architecture/browse/thumbs/BROWSE-PNG-FILENAME.png
+thumbnailUrl: /azure/architecture/browse/thumbs/serverless-event-processing-filtering-card.png
 content: |
   [!include[](serverless-event-processing-filtering-content.md)]
