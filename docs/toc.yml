@@ -2121,34 +2121,34 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: SAP HANA on HLI with HA and DR
-                href: reference-architectures/sap/hana-large-instances.yml
+              - name: Dev/test for SAP
+                href: example-scenario/apps/sap-dev-test.yml
+              - name: SAP BusinessObjects BI platform
+                href: /azure/virtual-machines/workloads/sap/businessobjects-deployment-guide
+                maintainContext: true
+              - name: SAP BusinessObjects BI platform for Linux
+                href: /azure/virtual-machines/workloads/sap/businessobjects-deployment-guide-linux
+                maintainContext: true
+              - name: SAP BW/4HANA in Linux on Azure
+                href: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
+              - name: SAP deployment using an Oracle DB
+                href: example-scenario/apps/sap-production.yml
               - name: SAP HANA on HLI general architecture
                 href: /azure/virtual-machines/workloads/sap/hana-architecture
                 maintainContext: true
               - name: SAP HANA on HLI network architecture
                 href: /azure/virtual-machines/workloads/sap/hana-network-architecture
                 maintainContext: true
+              - name: SAP HANA on HLI with HA and DR
+                href: reference-architectures/sap/hana-large-instances.yml
               - name: SAP HANA Scale-up on Linux
                 href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
               - name: SAP NetWeaver on Windows on Azure
                 href: reference-architectures/sap/sap-netweaver.yml
               - name: SAP S/4HANA in Linux on Azure
                 href: reference-architectures/sap/sap-s4hana.yml
-              - name: SAP BW/4HANA in Linux on Azure
-                href: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
-              - name: SAP BusinessObjects BI platform
-                href: /azure/virtual-machines/workloads/sap/businessobjects-deployment-guide
-                maintainContext: true
-              - name: SAP BusinessObjects BI platform for Linux on Azure
-                href: /azure/virtual-machines/workloads/sap/businessobjects-deployment-guide-linux
-                maintainContext: true
-              - name: SAP deployment using an Oracle DB
-                href: example-scenario/apps/sap-production.yml
               - name: SAP System on Oracle Database on Azure
                 href: example-scenario/apps/sap-on-oracle.yml
-              - name: Dev/test for SAP
-                href: example-scenario/apps/sap-dev-test.yml
           - name: Solution ideas
             items:
               - name: SAP NetWeaver on SQL Server
