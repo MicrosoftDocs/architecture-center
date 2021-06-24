@@ -1,28 +1,3 @@
----
-title: Real-time IoT updates for cloud apps with Azure SignalR Service
-description: Use Azure SignalR Service to update cloud applications. This service sends real-time IoT data to clients like web pages and mobile apps.
-author: falloutxAY
-ms.author: ansyeo
-ms.date: 06/23/2021
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - iot
-products:
-  - azure-functions
-  - azure-iot-edge
-  - azure-iot-hub
-  - azure-maps
-  - azure-signalr-service
-categories: iot
-ms.custom:
-  - fcp
-  - guide
----
-
-# Real-time IoT updates for cloud apps
-
 Internet of Things (IoT) applications often need real-time data from IoT devices. For instance, some apps display telemetry or alert data that they obtain from devices. With traditional polling methods, these client apps ask the devices for state changes.
 
 This guide outlines a way for clients like web pages or mobile apps to receive updates from devices in real time. Cloud apps no longer submit HTTP requests for up-to-date information. Instead, Azure SignalR Service pushes content to clients as soon as it's available. As a managed service, Azure SignalR Service simplifies the process of adding real-time communication to apps.

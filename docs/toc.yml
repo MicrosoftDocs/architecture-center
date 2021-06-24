@@ -1596,8 +1596,8 @@ items:
                 items:
                   - name: Analyze and optimize loop
                     href: example-scenario/iot/analyze-optimize-loop.yml
-                  - name: Real-time IoT updates for cloud apps
-                    href: example-scenario/iot/real-time-iot-updates-cloud-apps.md
+                  - name: Real-time IoT updates
+                    href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
                   - name: Event routing
                     href: example-scenario/iot/event-routing.yml
                   - name: Measure and control loop
