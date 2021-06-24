@@ -5,7 +5,7 @@ metadata:
   description: A serverless event-driven architecture running on Azure Kubernetes with KEDA scaler that ingests and processes a stream of data, then writes the results to a DB.
   author: Sarah-Aly
   ms.author: sarah.aly
-  ms.date: 06/18/2021
+  ms.date: 06/25/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

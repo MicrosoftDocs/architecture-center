@@ -5,7 +5,7 @@ metadata:
   description: A serverless event-driven architecture in a VNet with private endpoints that ingests and processes a stream of data, then writes the results to a database.
   author: Sarah-Aly
   ms.author: sarah.aly
-  ms.date: 06/18/2021
+  ms.date: 06/23/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
