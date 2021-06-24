@@ -1105,6 +1105,8 @@ items:
                 href: solution-ideas/articles/erp-customer-service.yml
               - name: Hybrid big data with HDInsight
                 href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml
+              - name: Ingestion, ETL, and stream processing pipelines with Azure Databricks
+                href: solution-ideas/articles/ingest-etl-stream-with-adb.yml  
               - name: Interactive analytics with Azure Data Explorer
                 href: solution-ideas/articles/interactive-azure-data-explorer.yml
               - name: Interactive price analytics
