@@ -1888,6 +1888,8 @@ items:
                     href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
                   - name: Unisys mainframe migration with Asysco
                     href: reference-architectures/migration/unisys-mainframe-migration.yml
+                  - name: Using LzLabs Software Defined Mainframe (SDM) in Azure
+                    href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
               - name: Solution ideas
                 items:      
                   - name: Migrate IBM applications with TmaxSoft OpenFrame
