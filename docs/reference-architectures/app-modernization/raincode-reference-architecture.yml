@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Refactor mainframe applications to Azure with Raincode compilers
-  description: This architecture shows how the Raincode COBOL compiler modernizes mainframe legacy applications by seamlessly migrating and integrating them with a modern, Azure-based technology stack without changing a single line of code. 
+  description: This architecture shows how the Raincode COBOL compiler modernizes mainframe legacy applications. 
   author: EdPrice-MSFT
   ms.author: jfrost
   ms.date: 06/23/2021
@@ -17,7 +17,7 @@ name: Refactor mainframe applications to Azure with Raincode compilers
 azureCategories:
   - integration
   - databases
-summary: This architecture shows how the Raincode COBOL compiler modernizes mainframe legacy applications by seamlessly migrating and integrating them with a modern, Azure-based technology stack without changing a single line of code. 
+summary: This architecture shows how the Raincode COBOL compiler modernizes mainframe legacy applications.
 products:
   - azure-virtual-machines
   - azure-kubernetes-service

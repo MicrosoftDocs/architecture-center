@@ -87,37 +87,37 @@ Many use cases can benefit from the Raincode compiler; possibilities include:
 The following diagram shows an example of a legacy COBOL-based mainframe
 architecture before migration to Azure.
 
-![Graphical example of legacy COBOL-based mainframe architecture.](media/raincode-reference-architecture-01.png)
+[![Graphical example of legacy COBOL-based mainframe architecture.](media/raincode-reference-architecture-01.png)](media/raincode-reference-architecture-01.png#lightbox)
 
 ### Mapping annotations from source IBM z/OS to Azure
 
-A.) IBM 3270 terminal emulation for demand and online users is replaced by a web
+A. IBM 3270 terminal emulation for demand and online users is replaced by a web
 browser to access system resources in Azure.
 
-B.) COBOL and other legacy application code is converted to C\#/.NET. Raincode
+B. COBOL and other legacy application code is converted to C\#/.NET. Raincode
 generates 100-percent thread-safe and managed code for .NET and .NET Core.
 
-C.) Raincode COBOL compiler modernizes mainframe legacy applications by
+C. Raincode COBOL compiler modernizes mainframe legacy applications by
 seamlessly migrating and integrating them with a modern, cloud-based technology
 stack without changing a single line of code.
 
-D.) Workload automation, scheduling, reporting, and system monitoring functions
+D. Workload automation, scheduling, reporting, and system monitoring functions
 can retain current platforms, as they are Azure capable today.
 
-E.) Legacy database structures like Db2 and IDMS can be migrated to Azure SQL
+E. Legacy database structures like Db2 and IDMS can be migrated to Azure SQL
 Database with all the DR/HA capabilities that Azure provides. Raincode also
 supports static or dynamic SQL queries through SQL Server or on Azure SQL DB.
 
-F.) File structures (VSAM, flat files, virtual tape, and the like) map easily to
+F. File structures (VSAM, flat files, virtual tape, and the like) map easily to
 Azure data constructs within structured files and/or blob storage. Features like
 redundant geographic replication and Azure Auto Failover Group Replication are
 available to provide data protection.
 
-G.) An optional printer subsystem manages on-premises printers.
+G. An optional printer subsystem manages on-premises printers.
 
-H.) z/OS running on Logical Partitions (LPARs).
+H. z/OS running on Logical Partitions (LPARs).
 
-I.) LPARs represent a subset of a computer’s hardware resources. Each LPAR can
+I. LPARs represent a subset of a computer’s hardware resources. Each LPAR can
 host a separate OS. While this example shows only Z/OS instances, other LPARs
 running on the same hardware can host other operating environments, like z/VM,
 or other engines, like zIIP or IFL.
@@ -127,7 +127,7 @@ or other engines, like zIIP or IFL.
 This diagram shows how the legacy architecture can be migrated to Azure, taking
 advantage of the Raincode compiler and many other modern Azure services.
 
-![Legacy architecture migration to Azure workflow.](media/raincode-reference-architecture-02.png)
+[![Legacy architecture migration to Azure workflow.](media/raincode-reference-architecture-02.png)](media/raincode-reference-architecture-02.png#lightbox)
 
 ### Azure technical annotations
 
