@@ -22,6 +22,6 @@ products:
   - azure-resource-manager
 name: Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment
 summary: An approach for rehosting mainframe legacy applications in Azure using the LzLabs Software Defined Mainframe platform.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/lzlabs-software-defined-mainframe-in-azure-architecture-card.png
 content: |
   [!include[](lzlabs-software-defined-mainframe-in-azure-content.md)]
