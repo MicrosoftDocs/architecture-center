@@ -1,8 +1,8 @@
-This article provides insights on designing, sizing, and implementing a Microsoft FSLogix Profile Container solution for large enterprises, as well as shows how to avoid performance problems in production. This article is an extension of the [Windows Virtual Desktop at enterprise scale](./windows-virtual-desktop.yml) article.
+This article provides insights on designing, sizing, and implementing a Microsoft FSLogix Profile Container solution for large enterprises, as well as shows how to avoid performance problems in production. This article is an extension of the [Azure Virtual Desktop at enterprise scale](./windows-virtual-desktop.yml) article.
 
 [FSLogix](/fslogix/) is a set of solutions that enhance, enable, and simplify non-persistent Windows computing environments. FSLogix solutions are appropriate for virtual environments in both public and private clouds. These solutions may also be used to create more portable computing sessions when using physical devices.
 
-For combining FSLogix with Azure Virtual Desktop as a desktop virtualization solution on Azure, store your profiles on either [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as described in [Storage options for FSLogix profile containers in Windows Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile). This way you can leverage another Azure platform service that requires zero infrastructure, and simplify management of your storage environment.
+For combining FSLogix with Azure Virtual Desktop as a desktop virtualization solution on Azure, store your profiles on either [Azure Files](/azure/storage/files/storage-files-introduction) or [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as described in [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile). This way you can leverage another Azure platform service that requires zero infrastructure, and simplify management of your storage environment.
 
 ## FSLogix filter driver architecture
 
@@ -14,7 +14,7 @@ The conceptual architecture diagram below shows how FSLogix works within the ope
 
 ## Profile Container and Office Container
 
-FSLogix [Profile Container](/fslogix/configure-profile-container-tutorial) and [Office Container](/fslogix/configure-office-container-tutorial) are the solutions provided by Microsoft to store *roaming* user profiles in Windows Virtual Desktop.
+FSLogix [Profile Container](/fslogix/configure-profile-container-tutorial) and [Office Container](/fslogix/configure-office-container-tutorial) are the solutions provided by Microsoft to store *roaming* user profiles in Azure Virtual Desktop.
 
 The Office Container is a subset of Profile Container. Although all of the benefits of the Office Container are also available in the Profile Container, there are times when it may be beneficial to use them together. It's important to completely understand the configuration process, especially when using them together.
 
@@ -23,7 +23,7 @@ Profile Container is used to redirect the full user profile. Profile Container i
 There are several reasons why Profile Container and Office Container may be used together. For more information, read the comparison of [Profile Container vs. Office Container](/fslogix/profile-container-office-container-cncpt).
 
 > [!NOTE]
-> The recommendation in Azure Virtual Desktop is to use Profile Container without Office Container, unless you are planning for specific business continuity and disaster recovery (BCDR) scenarios, as described in this [section](/disaster-recovery).
+> The recommendation in Azure Virtual Desktop is to use Profile Container without Office Container, unless you are planning for specific business continuity and disaster recovery (BCDR) scenarios, as described in this [section](#business-continuity-and-disaster-recovery-bcdr).
 
 ### Multiple profile connections
 
@@ -54,9 +54,9 @@ Additionally, the following table gives an example of how many resources an FSLo
 
 ### Storage options for FSLogix profile containers
 
-Azure offers multiple storage solutions that you can use to store your FSLogix profile container. We recommend storing FSLogix profile containers on Azure Files or Azure NetApp Files for most customer scenarios. The article [Storage options for FSLogix profile containers in Windows Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile) compares the different managed storage solutions Azure offers for Windows Virtual Desktop FSLogix user profile containers.
+Azure offers multiple storage solutions that you can use to store your FSLogix profile container. We recommend storing FSLogix profile containers on Azure Files or Azure NetApp Files for most customer scenarios. The article [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile) compares the different managed storage solutions Azure offers for Azure Virtual Desktop FSLogix user profile containers.
 
-[Storage spaces direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) is supported in conjunction with FSLogix and Azure Virtual Desktop as well. It is a self-managed storage solution that is out of scope for this article. Customers can get most value out of either Azure Files or Azure NetApp Files while simplifying management of Windows Virtual Desktop.
+[Storage spaces direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) is supported in conjunction with FSLogix and Azure Virtual Desktop as well. It is a self-managed storage solution that is out of scope for this article. Customers can get most value out of either Azure Files or Azure NetApp Files while simplifying management of Azure Virtual Desktop.
 
 ## Best practices
 
@@ -95,7 +95,7 @@ The table below shows you how you can further optimize your AVD environment. Det
 
 Azure NetApp Files has been proven to be a great managed storage solution for FSLogix Profiles and Azure Virtual Desktop. The low latency and the high amount of IOPs is a great mixture for enterprises at scale.
 
-Currently, up to 1000 IP connections per active VNet are possible. These are the open connections per VM over the VNet to the share; that is, this limitation is applicable per VM and not per session. This also includes VNET Peerings as well. The following subsections can help you to proactively design your environment. Read [Benefits of using Azure NetApp Files with Windows Virtual Desktop](/azure/azure-netapp-files/solutions-windows-virtual-desktop) for more information.
+Currently, up to 1000 IP connections per active VNet are possible. These are the open connections per VM over the VNet to the share; that is, this limitation is applicable per VM and not per session. This also includes VNET Peerings as well. The following subsections can help you to proactively design your environment. Read [Benefits of using Azure NetApp Files with Azure Virtual Desktop](/azure/azure-netapp-files/solutions-windows-virtual-desktop) for more information.
 
 #### Pooled scenarios
 

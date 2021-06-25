@@ -23,7 +23,7 @@ Not all data stores in a given category provide the same feature-set. Most data 
 Generally, you should start by considering which storage model is best suited for your requirements. Then consider a particular data store within that category, based on factors such as feature set, cost, and ease of management.
 
 > [!NOTE]
-> Learn more about identifying and reviewing your data service requirements for cloud adoption, in the [Microsoft Cloud Adoption Farmework for Azure](/azure/cloud-adoption-framework/ready/considerations/data-options). Likewise, you can also learn about [selecting storage tools and services](/azure/cloud-adoption-framework/ready/considerations/storage-options).
+> Learn more about identifying and reviewing your data service requirements for cloud adoption, in the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/ready/considerations/data-options). Likewise, you can also learn about [selecting storage tools and services](/azure/cloud-adoption-framework/ready/considerations/storage-options).
 
 ## Relational database management systems
 
