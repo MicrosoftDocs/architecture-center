@@ -1656,6 +1656,8 @@ items:
                 href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml
       - name: Mainframe + Midrange
         items:
+          - name: Get started
+            href: mainframe/mainframe-midrange-architecture.md
           - name: Architectures
             items:      
               - name: App modernization
