@@ -8,6 +8,8 @@ ms.date: 06/25/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.category:
+  - hybrid
 products:
   - azure
 ms.custom:
