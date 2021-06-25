@@ -23,7 +23,7 @@ On the application side, programs were often written in one of two flavors: eith
 
 On the data side, data is usually stored in files and in databases. Mainframe and midrange databases commonly come in a variety of possible structures, such as relational, hierarchical, and network, among others. There are different types of file organizational systems, where some of them can be indexed and can act as a key-value stores. Further, data encoding in mainframes can be different from the encoding usually handled in non-mainframe systems. Therefore, data migrations should be handled with upfront planning. There are many options for migrating to the Azure data platform.
 
-![Mainframe + Midrange Overview](img/main_types.png "Mainframe + Midrange Overview")
+![Mainframe + Midrange Overview](images/main_types.png "Mainframe + Midrange Overview")
 
 ## Migrating legacy systems to Azure
 
