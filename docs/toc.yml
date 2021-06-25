@@ -1858,7 +1858,7 @@ items:
               - name: Add IP spaces to peered virtual networks
                 href: networking/prefixes/add-ip-space-peered-vnet.md
               - name: Azure Application Gateway guide
-                href: networking/guide/images/waf-application-gateway.md
+                href: networking/guide/waf-application-gateway.md
               - name: Azure Firewall architecture guide
                 href: example-scenario/firewalls/index.yml
               - name: Virtual network peering and VPN gateways
