@@ -712,6 +712,9 @@ items:
             href: example-scenario/mlops/mlops-technical-paper.yml
           - name: Build a speech-to-text transcription pipeline
             href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
+          - name: Computer vision on the edge
+            href: reference-architectures/ai/end-to-end-smart-factory.yml
+
       - name: Media and entertainment
         items:
           - name: Overview
