@@ -63,7 +63,7 @@ You're billed based on metered instances of Application Gateway based on the met
 
 > The example is based on the current price and is subject to change. This is shown for information purposes only.
 
-![Azure Application Gateway pricing Cost Review](../images/application-gateway-sample-cost.png)
+![Azure Application Gateway pricing Cost Review](./images/application-gateway-sample-cost.png)
 
 Evaluate the various metrics and capacity units and determine the cost drivers. 
 
@@ -97,7 +97,7 @@ Application Gateway v2 scales out based on many aspects, such as CPU, memory, ne
 
 Consider this equation when calculating instance counts.
 
-![Approximate instance count](../images/autoscale-instance.svg)
+![Approximate instance count](./images/autoscale-instance.svg)
 
 After you've estimated the instance count, compare that value to the maximum instance count. This will indicate how close you are to the maximum available capacity. 
 
