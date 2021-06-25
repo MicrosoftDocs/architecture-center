@@ -121,6 +121,7 @@ Refactoring requires minimal changes to applications. This often enables the app
 
 #### Refactor architectures
 
+| | |
 |-|-|
 |IBM z/OS mainframe migration with Asysco AMT [![IBM z/OS mainframe migration with Asysco AMT](images/refactor_asysco_zos.png)](/azure/architecture/example-scenario/mainframe/asysco-zos-migration)|Micro Focus Enterprise Server on Azure VMs [![Micro Focus Enterprise Server on Azure VMs](images/refactor_microfocus_zos.png)](/azure/architecture/example-scenario/mainframe/micro-focus-server)|
 |Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure [![Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](images/refactor_zos_cf.png)](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)|Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus [![Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](images/refactor_astadia_unisys.png)](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)|
@@ -132,6 +133,7 @@ Re-engineering for migration focuses on modifying and extending application func
 
 #### Re-engineer architectures
 
+| | |
 |-|-|
 |High-volume batch transaction processing [![High-volume batch transaction processing](images/reeng_batch_transactions.png)](/azure/architecture/example-scenario/mainframe/process-batch-transactions)|Integrate IBM mainframe and midrange message queues with Azure [![Integrate IBM mainframe and midrange message queues with Azure](images/reeng_ibm_mq.png)](/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure)|
 
@@ -141,6 +143,7 @@ Another pattern for migrations into Azure (for legacy systems) is what is known 
 
 #### Dedicated hardware architectures
 
+| | |
 |-|-|
 |Migrate AIX workloads to Skytap on Azure [![Migrate AIX workloads to Skytap on Azure](images/dh_skytap_aix.png)](/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-skytap)|Migrate IBM i series applications to Skytap on Azure [![Migrate IBM i series applications to Skytap on Azure](images/dh_skytap_as400.png)](/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-applications)|
 
@@ -150,6 +153,7 @@ A key part of legacy migrations and transformations to Azure is consideration fo
 
 ### Data movement and migration architectures
 
+| | |
 |-|-|
 |Modernize mainframe & midrange data [![Modernize mainframe & midrange data](images/data_modernize_mainframe_data.png)](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)|Replicate and sync mainframe data in Azure [![Replicate and sync mainframe data in Azure](images/data_sync_mainframe_data.png)](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)|
 |Mainframe access to Azure databases [![Mainframe access to Azure databases](images/data_mainframe_access.png)](/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases)|Mainframe file replication and sync on Azure [![Mainframe file replication and sync on Azure](images/data_mainframe_file_replication.png)](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)|
