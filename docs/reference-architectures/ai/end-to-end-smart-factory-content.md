@@ -13,7 +13,7 @@ the edge to the cloud and back. It is divided into three operational areas:
 
 -   **MLOps**. This architecture reflects a best practice to productionize
     machine learning called
-    [MLOps](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deploymenthttps:/docs.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment),
+    [MLOps](/azure/machine-learning/concept-model-management-and-deployment),
     a life cycle management approach based on DevOps techniques. MLOps automates
     the process of using ML models for complex decision-making (that is,
     “productionizing” the model) and is a top benefit for a smart factory. The
@@ -21,7 +21,7 @@ the edge to the cloud and back. It is divided into three operational areas:
     evaluate, and deploy the machine learning models.
 
 -   **IoT**. Real-time images from [connected
-    cameras](https://docs.microsoft.com/azure/architecture/example-scenario/iot/introduction-to-solutions)
+    cameras](/azure/architecture/example-scenario/iot/introduction-to-solutions)
     are used to run the ML model to inference video frames. Cached video streams
     are also used for auditing purposes and to retrain the models.
 
@@ -56,7 +56,7 @@ the edge to the cloud and back. It is divided into three operational areas:
 
 -   **MLOps**. This architecture reflects a best practice to productionize
     machine learning called
-    [MLOps](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deploymenthttps:/docs.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment),
+    [MLOps](/azure/machine-learning/concept-model-management-and-deployment),
     a life cycle management approach based on DevOps techniques. MLOps automates
     the process of using ML models for complex decision-making (that is,
     “productionizing” the model) and is a top benefit for a smart factory. The
@@ -64,7 +64,7 @@ the edge to the cloud and back. It is divided into three operational areas:
     evaluate, and deploy the machine learning models.
 
 -   **IoT**. Real-time images from [connected
-    cameras](https://docs.microsoft.com/azure/architecture/example-scenario/iot/introduction-to-solutions)
+    cameras](/azure/architecture/example-scenario/iot/introduction-to-solutions)
     are used to run the ML model to inference video frames. Cached video streams
     are also used for auditing purposes and to retrain the models.
 
@@ -160,26 +160,26 @@ the edge to the cloud and back. It is divided into three operational areas:
 ### Components
 
 [Azure Video
-Analyzer](https://docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-docs/overview)
+Analyzer](/azure/azure-video-analyzer/video-analyzer-docs/overview)
 enables developers to quickly build an AI-powered video analytics solution to
 extract actionable insights from videos, whether stored or streaming.
 
-[Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/about-iot-hub)
+[Azure IoT Hub](/azure/iot-hub/about-iot-hub)
 acts as a central message hub for communications in both directions between an
 IoT application and its attached devices.
 
 [Azure Machine
-Learning](https://docs.microsoft.com/en-us/azure/machine-learning/) is used to
+Learning](/azure/machine-learning/) is used to
 build, train, deploy, and manage ML models in a cloud-based environment.
 
 [Microsoft
-Dataverse](https://docs.microsoft.com/en-us/powerapps/maker/data-platform/data-platform-intro)
+Dataverse](/powerapps/maker/data-platform/data-platform-intro)
 is the cloud-based storage platform used by Power Apps to support
 human-in-the-loop notifications and to store metadata associated with the MLOps
 data pipeline.
 
 [Azure Container
-Registry](https://docs.microsoft.com/en-us/azure/container-registry/) creates
+Registry](/azure/container-registry/) creates
 and manages the Docker registry. Container Registry builds, stores, and manages
 Docker container images, including containerized ML models.
 
@@ -188,36 +188,36 @@ provides a local data store for the ML data store and a Premium data cache for
 training the ML model.
 
 [Azure Data Lake Storage Gen
-2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
+2](/azure/storage/blobs/data-lake-storage-introduction)
 provides low-cost, tiered storage on top of Azure Blob Storage. In this example,
 it provides the archival video store for the raw video files and metadata.
 
 [Azure Logic
-Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview) is
+Apps](/azure/logic-apps/logic-apps-overview) is
 used to create and run the automated notification workflow that sends SMS and
 email alerts to the site engineers.
 
 [Microsoft Power
-Apps](https://docs.microsoft.com/en-us/powerapps/powerapps-overview) is a suite
+Apps](/powerapps/powerapps-overview) is a suite
 of apps, services, and connectors, together with a data platform, that provides
 a rapid application development environment.
 
 [Azure Data
-Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction) is an
+Factory](/azure/data-factory/introduction) is an
 ETL and data integration service that allows you to create data-driven workflows
 for orchestrating data movement and transforming data at scale. Here, it
 orchestrates the data in an ETL pipeline to the inferencing data, which it
 stores for retraining purposes.
 
 [Azure
-DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
+DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
 provides team-based developer services. In this example, it’s used to validate
 ML code, trigger Azure Machine Learning pipelines with serverless tasks, compare
 ML models, and build the inferencing service container on the edge. It features
 Azure Pipelines for creating continuous integration (CI) and continuous
 deployment (CD) pipelines.
 
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
+[Azure Monitor](/azure/azure-monitor/overview)
 collects telemetry from Azure resources so teams can proactively identify
 problems and maximize performance and reliability.
 
@@ -263,13 +263,13 @@ This smart factory is set up with the following roles:
     and validate a model. Training can be triggered manually or automatically
     when new data populates the dataset or when a change is made to the training
     scripts. Data scientists work in an [Azure Machine Learning
-    workspace](https://docs.microsoft.com/en-us/azure/machine-learning/concept-workspace)
+    workspace](/azure/machine-learning/concept-workspace)
     capable of automatically registering, deploying, and managing models.
 
 -   **IoT engineer**. In the MLOps lifecycle, the IoT Engineers use [Azure
-    Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+    Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
     to publish [IoT Edge
-    modules](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge),
+    modules](/azure/iot-edge/about-iot-edge),
     which run in containers, to Container Registry. Using a continuous
     deployment (CD) pipeline, they can deploy and scale the infrastructure on
     demand.
@@ -287,7 +287,7 @@ This smart factory is set up with the following roles:
 
 The majority of the components used in this example scenario are managed
 services that will automatically scale. The [availability of the
-services](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=machine-learning-service,virtual-machines&regions=all)
+services](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,virtual-machines&regions=all)
 used in this example varies by region.
 
 Apps based on machine learning typically require one set of resources for
@@ -319,7 +319,7 @@ transaction rates like this human-in-the-loop video labeling scenario.
 
 For general guidance on designing scalable solutions, see the [performance
 efficiency
-checklist](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/performance-efficiency)
+checklist](/azure/architecture/framework/scalability/performance-efficiency)
 in the Azure Architecture Center.
 
 ### Scalability
@@ -336,7 +336,7 @@ Factory maximizes data movement by providing a highly performant, cost-effective
 solution.
 
 Scalability for the IoT application depends on [IoT Hub quotas and
-throttling](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-quotas-throttling).
+throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling).
 Factors to consider include the maximum daily quota of messages into IoT Hub,
 the quota of connected devices in an IoT Hub instance, and the ingestion and
 processing throughput.
@@ -348,25 +348,25 @@ that only authorized users can access the environment, data, and reports. This
 solution also uses Azure Key Vault to manage passwords and secrets associated
 with the deployment of IoT Edge modules. Storage is encrypted using
 [customer-managed
-keys](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-overview).
+keys](/azure/storage/common/customer-managed-keys-overview).
 
 For general guidance on designing secure solutions, see the [Azure Security
-Documentation](https://docs.microsoft.com/en-us/azure/security) and the [Azure
+Documentation](/azure/security) and the [Azure
 IoT reference
-architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot).
+architecture](/azure/architecture/reference-architectures/iot).
 
 ### DevOps
 
 DevOps practices are used to orchestrate the end-to-end approach used in this
 example. If your organization is new to DevOps, the [DevOps
-Checklist](https://docs.microsoft.com/azure/architecture/checklist/dev-ops) can
+Checklist](/azure/architecture/checklist/dev-ops) can
 help you get started.
 
 The MLOps [maturity
-model](https://docs.microsoft.com/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+model](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
 lays out practices that support DevOps and contribute to running a successful ML
 environment. The [Azure Machine Learning decision guide for optimal tool
-selection](https://docs.microsoft.com/azure/architecture/example-scenario/mlops/aml-decision-tree)
+selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)
 can also help you determine the best Azure services for your team’s ML projects.
 
 ## Deploy this scenario
@@ -393,34 +393,34 @@ Here are a few related GitHub resources you can use:
 In general, use the [Azure pricing
 calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 For other considerations, see [Cost
-Optimization](https://docs.microsoft.com/en-us/azure/architecture/framework/cost/)
+Optimization](/azure/architecture/framework/cost/)
 in the Well-Architected Framework.
 
 Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure
 Key Vault services, which incur extra costs. For more information, see [How
 Azure Machine Learning works: Architecture and
-concepts](https://docs.microsoft.com/en-us/azure/machine-learning/concept-azure-machine-learning-architecture).
+concepts](/azure/machine-learning/concept-azure-machine-learning-architecture).
 Azure Machine Learning pricing includes charges for the virtual machines that
 are used for training the model in the public cloud.
 
 ## Next steps
 
 [How Azure Machine Learning works: Architecture and
-concepts](https://docs.microsoft.com/en-us/azure/machine-learning/concept-azure-machine-learning-architecture)
+concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)
 
 [Azure IoT reference
-architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot)
+architecture](/azure/architecture/reference-architectures/iot)
 
 ## Related resources
 
 [Dow uses vision AI at the edge to boost employee safety and security with
-Azure](https://customers.microsoft.com/en-us/story/1349423518578860629-dow-chemicals-azure-video-analyzer)
+Azure](https://customers.microsoft.com/story/1349423518578860629-dow-chemicals-azure-video-analyzer)
 
 [Build intelligent applications infused with world-class
 AI](https://mybuild.microsoft.com/sessions/2ba55238-d398-46f9-9ff2-eafcd9d69df3)
 
 [Azure IoT for safer
-workplaces](https://azure.microsoft.com/en-us/solutions/safer-workplaces-iot/)
+workplaces](https://azure.microsoft.com/solutions/safer-workplaces-iot/)
 .png)](media/end-to-end-smart-factory-01.png#lightbox)
 
 ### Data flow
@@ -497,26 +497,26 @@ workplaces](https://azure.microsoft.com/en-us/solutions/safer-workplaces-iot/)
 ### Components
 
 [Azure Video
-Analyzer](https://docs.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-docs/overview)
+Analyzer](/azure/azure-video-analyzer/video-analyzer-docs/overview)
 enables developers to quickly build an AI-powered video analytics solution to
 extract actionable insights from videos, whether stored or streaming.
 
-[Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/about-iot-hub)
+[Azure IoT Hub](/azure/iot-hub/about-iot-hub)
 acts as a central message hub for communications in both directions between an
 IoT application and its attached devices.
 
 [Azure Machine
-Learning](https://docs.microsoft.com/en-us/azure/machine-learning/) is used to
+Learning](/azure/machine-learning/) is used to
 build, train, deploy, and manage ML models in a cloud-based environment.
 
 [Microsoft
-Dataverse](https://docs.microsoft.com/en-us/powerapps/maker/data-platform/data-platform-intro)
+Dataverse](/powerapps/maker/data-platform/data-platform-intro)
 is the cloud-based storage platform used by Power Apps to support
 human-in-the-loop notifications and to store metadata associated with the MLOps
 data pipeline.
 
 [Azure Container
-Registry](https://docs.microsoft.com/en-us/azure/container-registry/) creates
+Registry](/azure/container-registry/) creates
 and manages the Docker registry. Container Registry builds, stores, and manages
 Docker container images, including containerized ML models.
 
@@ -525,36 +525,36 @@ provides a local data store for the ML data store and a Premium data cache for
 training the ML model.
 
 [Azure Data Lake Storage Gen
-2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
+2](/azure/storage/blobs/data-lake-storage-introduction)
 provides low-cost, tiered storage on top of Azure Blob Storage. In this example,
 it provides the archival video store for the raw video files and metadata.
 
 [Azure Logic
-Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview) is
+Apps](/azure/logic-apps/logic-apps-overview) is
 used to create and run the automated notification workflow that sends SMS and
 email alerts to the site engineers.
 
 [Microsoft Power
-Apps](https://docs.microsoft.com/en-us/powerapps/powerapps-overview) is a suite
+Apps](/powerapps/powerapps-overview) is a suite
 of apps, services, and connectors, together with a data platform, that provides
 a rapid application development environment.
 
 [Azure Data
-Factory](https://docs.microsoft.com/en-us/azure/data-factory/introduction) is an
+Factory](/azure/data-factory/introduction) is an
 ETL and data integration service that allows you to create data-driven workflows
 for orchestrating data movement and transforming data at scale. Here, it
 orchestrates the data in an ETL pipeline to the inferencing data, which it
 stores for retraining purposes.
 
 [Azure
-DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
+DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
 provides team-based developer services. In this example, it’s used to validate
 ML code, trigger Azure Machine Learning pipelines with serverless tasks, compare
 ML models, and build the inferencing service container on the edge. It features
 Azure Pipelines for creating continuous integration (CI) and continuous
 deployment (CD) pipelines.
 
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
+[Azure Monitor](/azure/azure-monitor/overview)
 collects telemetry from Azure resources so teams can proactively identify
 problems and maximize performance and reliability.
 
@@ -600,13 +600,13 @@ This smart factory is set up with the following roles:
     and validate a model. Training can be triggered manually or automatically
     when new data populates the dataset or when a change is made to the training
     scripts. Data scientists work in an [Azure Machine Learning
-    workspace](https://docs.microsoft.com/en-us/azure/machine-learning/concept-workspace)
+    workspace](/azure/machine-learning/concept-workspace)
     capable of automatically registering, deploying, and managing models.
 
 -   **IoT engineer**. In the MLOps lifecycle, the IoT Engineers use [Azure
-    Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+    Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
     to publish [IoT Edge
-    modules](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge),
+    modules](/azure/iot-edge/about-iot-edge),
     which run in containers, to Container Registry. Using a continuous
     deployment (CD) pipeline, they can deploy and scale the infrastructure on
     demand.
@@ -624,7 +624,7 @@ This smart factory is set up with the following roles:
 
 The majority of the components used in this example scenario are managed
 services that will automatically scale. The [availability of the
-services](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=machine-learning-service,virtual-machines&regions=all)
+services](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,virtual-machines&regions=all)
 used in this example varies by region.
 
 Apps based on machine learning typically require one set of resources for
@@ -656,7 +656,7 @@ transaction rates like this human-in-the-loop video labeling scenario.
 
 For general guidance on designing scalable solutions, see the [performance
 efficiency
-checklist](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/performance-efficiency)
+checklist](/azure/architecture/framework/scalability/performance-efficiency)
 in the Azure Architecture Center.
 
 ### Scalability
@@ -673,7 +673,7 @@ Factory maximizes data movement by providing a highly performant, cost-effective
 solution.
 
 Scalability for the IoT application depends on [IoT Hub quotas and
-throttling](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-quotas-throttling).
+throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling).
 Factors to consider include the maximum daily quota of messages into IoT Hub,
 the quota of connected devices in an IoT Hub instance, and the ingestion and
 processing throughput.
@@ -685,25 +685,25 @@ that only authorized users can access the environment, data, and reports. This
 solution also uses Azure Key Vault to manage passwords and secrets associated
 with the deployment of IoT Edge modules. Storage is encrypted using
 [customer-managed
-keys](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-overview).
+keys](/azure/storage/common/customer-managed-keys-overview).
 
 For general guidance on designing secure solutions, see the [Azure Security
-Documentation](https://docs.microsoft.com/en-us/azure/security) and the [Azure
+Documentation](/azure/security) and the [Azure
 IoT reference
-architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot).
+architecture](/azure/architecture/reference-architectures/iot).
 
 ### DevOps
 
 DevOps practices are used to orchestrate the end-to-end approach used in this
 example. If your organization is new to DevOps, the [DevOps
-Checklist](https://docs.microsoft.com/azure/architecture/checklist/dev-ops) can
+Checklist](/azure/architecture/checklist/dev-ops) can
 help you get started.
 
 The MLOps [maturity
-model](https://docs.microsoft.com/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+model](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
 lays out practices that support DevOps and contribute to running a successful ML
 environment. The [Azure Machine Learning decision guide for optimal tool
-selection](https://docs.microsoft.com/azure/architecture/example-scenario/mlops/aml-decision-tree)
+selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)
 can also help you determine the best Azure services for your team’s ML projects.
 
 ## Deploy this scenario
@@ -730,31 +730,31 @@ Here are a few related GitHub resources you can use:
 In general, use the [Azure pricing
 calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 For other considerations, see [Cost
-Optimization](https://docs.microsoft.com/en-us/azure/architecture/framework/cost/)
+Optimization](/azure/architecture/framework/cost/)
 in the Well-Architected Framework.
 
 Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure
 Key Vault services, which incur extra costs. For more information, see [How
 Azure Machine Learning works: Architecture and
-concepts](https://docs.microsoft.com/en-us/azure/machine-learning/concept-azure-machine-learning-architecture).
+concepts](/azure/machine-learning/concept-azure-machine-learning-architecture).
 Azure Machine Learning pricing includes charges for the virtual machines that
 are used for training the model in the public cloud.
 
 ## Next steps
 
 [How Azure Machine Learning works: Architecture and
-concepts](https://docs.microsoft.com/en-us/azure/machine-learning/concept-azure-machine-learning-architecture)
+concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)
 
 [Azure IoT reference
-architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot)
+architecture](/azure/architecture/reference-architectures/iot)
 
 ## Related resources
 
 [Dow uses vision AI at the edge to boost employee safety and security with
-Azure](https://customers.microsoft.com/en-us/story/1349423518578860629-dow-chemicals-azure-video-analyzer)
+Azure](https://customers.microsoft.com/story/1349423518578860629-dow-chemicals-azure-video-analyzer)
 
 [Build intelligent applications infused with world-class
 AI](https://mybuild.microsoft.com/sessions/2ba55238-d398-46f9-9ff2-eafcd9d69df3)
 
 [Azure IoT for safer
-workplaces](https://azure.microsoft.com/en-us/solutions/safer-workplaces-iot/)
+workplaces](https://azure.microsoft.com/solutions/safer-workplaces-iot/)
