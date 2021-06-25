@@ -101,7 +101,7 @@ Consider the following details about endianness:
 
 The following figure visually shows you the difference between big endian and little endian.
 
-![Endianness Explained](img/endian.png "Endianness explained")
+![Endianness Explained](images/endian.png "Endianness explained")
 
 ## High-level architectural types
 
