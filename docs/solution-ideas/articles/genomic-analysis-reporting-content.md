@@ -1,29 +1,30 @@
 # Precision Medicine Pipeline with Genomics
 
-The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Azure offers an ideal solution:
+This document presents a solution for genomic analysis and reporting. The solution provides a clinical genomics workflow that automates these tasks:
+
+- Take data from a sequencer.
+- Move the data through secondary and tertiary analysis.
+- Provide results that clinicians can consume.
+
+The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure cloud services in addition to open-source tools. It takes advantage of the security features, performance, and scalability of the Azure global cloud infrastructure:
 
 - Scientists plan on sequencing hundreds of thousands of genomes in coming years. The task of storing and analyzing this data requires significant computing power and storage capacity. With data centers around the world, Azure can meet these demands.
 - Azure is certified for major global security and privacy standards, such as ISO 27001.
 - Azure complies with the security and provenance standards that HIPAA establishes for personal health information.
 
-This document outlines a cloud solution for genomics that uses Azure. A key component is [Microsoft Genomics](https://azure.microsoft.com/services/genomics/). This service offers an optimized secondary analysis implementation that can process a 30x genome in a few hours. Standard technologies can take days. Microsoft Genomics uses a high-performance engine that is optimized for these tasks:
-
-- Reading large files of genomic data
-- Processing them efficiently across many cores
-- Sorting and filtering the results
-- Writing the results to output files
-
-To maximize throughput, this engine operates a BWA aligner and a GATK HaplotypeCaller variant caller. It also uses several other components that make up standard genomics pipelines. Examples include duplicate marking, base quality score recalibration, and indexing. In a few hours, the engine can process a single genomic sample on a single multi-core server. The processing starts with raw reads and produces aligned reads and variant calls.
-
-The Microsoft Genomics service controller manages the processing of batches of genomes distributed across pools of machines in the cloud. It maintains a queue of incoming requests, distributes them to servers running the genomics engine, monitors their performance and progress, and evaluates the results. It ensures that the service runs reliably and securely at scale, behind a secure web service API. Clients don’t need to deal with the complexity of managing and updating their hardware and software, and can rely on fast, efficient execution of an accurate best-practices genomics pipeline. The results can be easily connected to tertiary analysis and machine learning services.
+A key component of the solution is [Microsoft Genomics](https://azure.microsoft.com/services/genomics/). This service offers an optimized secondary analysis implementation that can process a 30x genome in a few hours. Standard technologies can take days.
 
 ## Potential use cases
 
-This Azure solution provides a framework for end to end genomic analysis and reporting using a combination of Azure native and open source tools. The goal is to support a clinical genomics workflow that can be automated to take data from a sequencer, move it through secondary and tertiary analysis, and ultimately provide data that is ready to be consumed by the clinician.
+This solution applies to many areas:
+
+- Risk scoring patients for cancer
+- Identifying patients with genetic markers that predispose them to disease
+- Generating patient cohorts for studies
 
 ## Architecture
 
-<img src="Genomics_1.0.png" width="75%"/>
+<img src="../media/genomic-analysis-reporting-architecture.png"/>
 
 Azure Data Factory orchestrates the workflow:
 
@@ -45,11 +46,35 @@ Azure Data Factory orchestrates the workflow:
 
 ## Components
 
+The solution uses the following components:
+
+### Microsoft Genomics
+
+[Microsoft Genomics](https://docs.microsoft.com/azure/genomics/) offers an efficient and accurate genomics pipeline that implements the industry's best practices. Its high-performance engine is optimized for these tasks:
+
+- Reading large files of genomic data
+- Processing them efficiently across many cores
+- Sorting and filtering the results
+- Writing the results to output files
+
+To maximize throughput, this engine operates a Burrows-Wheeler Aligner (BWA) and a Genome Analysis Toolkit (GATK) HaplotypeCaller variant caller. It also uses several other components that make up standard genomics pipelines. Examples include duplicate marking, base quality score recalibration, and indexing. In a few hours, the engine can process a single genomic sample on a single multi-core server. The processing starts with raw reads and produces aligned reads and variant calls.
+
+Internally, the Microsoft Genomics controller manages manages these aspects of the process:
+
+- Distributing batches of genomes across pools of machines in the cloud
+- Maintaining a queue of incoming requests
+- Distributing the requests to servers that run the genomics engine
+- Monitoring the servers' performance and progress
+- Evaluating the results
+- Ensuring that processing runs reliably and securely at scale, behind a secure web service API
+
+You can easily use Microsoft Genomics results in tertiary analysis and machine learning services. And you don't need to manage or update hardware or software.
+
+### Other components
+
 - [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) is used for the overall orchestration and automation of the workflow. Specifically, we use [pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) for the data movement to Azure and in sequence to trigger each step of the workflow.
 
 - [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/) provides the initial landing zone for the fastq as well as the output target for the vcf/gvcf generated by Microsoft Genomics. Additionally, blob storage has [tiering](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) functionality that allows the fastq files to be archived to inexpensive long term storage after being processed.
-
-- [Microsoft Genomics](https://docs.microsoft.com/azure/genomics/) performs secondary analysis and outputs the vcf/gvcf to Azure Blob Storage.
 
 - [Azure Databricks](https://docs.microsoft.com/azure/databricks/) provides the additional computational resources to run Jupyter Notebooks for annotation of the vcf/gvcf and to merge the annotated file with other relevant datasets and run the final analysis against the merged data, which is then output to Azure Data Lake Store Gen2.
 
@@ -61,9 +86,34 @@ Azure Data Factory orchestrates the workflow:
 
 ## Considerations
 
-- Given the sensitive nature of the data, governance and security should be established following the guidelines found in the [Cloud Adoption Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/) and [Enterprise Scale Landing Zones](https://docs.microsoft.comazure/cloud-adoption-framework/ready/enterprise-scale/).
-- Customers subject to HIPAA/HITECH Act compliance obligations should review [Microsoft Azure HIPAA/HITECH Act Implementation Guidance](https://aka.ms/azurehipaaguidance), as well as the white paper “[Practical guide to designing secure health solutions using Microsoft Azure](https://aka.ms/azureindustrysecurity)” to learn about concrete steps needed to maintain compliance on Azure and to better understand what it takes to adopt a cloud platform in a secure manner.
-  - Components of the solution presented are in scope for HIPAA per the [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft%20Azure%20Compliance%20Offerings.pdf), any substitute components should be validated against the list found in the appendix before being incorporated into the overall solution.
+The technologies in this solution offer availability, scalability, and security.
+
+### Security considerations
+
+Because of the sensitive nature of medical data, establish governance and security by following the guidelines in these documents:
+
+- [Cloud Adoption Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/)
+- [Enterprise Scale Landing Zones](https://docs.microsoft.comazure/cloud-adoption-framework/ready/enterprise-scale/)
+
+Concerning Health Insurance Portability and Accountability Act (HIPAA) and Health Information Technology for Economic and Clinical Health (HITECH) Act compliance:
+
+- See these documents for information on adopting a cloud platform in a secure manner and maintaining compliance while using Azure:
+
+  - [Microsoft Azure HIPAA/HITECH Act Implementation Guidance](https://aka.ms/azurehipaaguidance)
+  - The white paper [Practical guide to designing secure health solutions using Microsoft Azure](https://aka.ms/azureindustrysecurity)
+
+- Components of this solution presented are in scope for HIPAA according to [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft%20Azure%20Compliance%20Offerings.pdf). If you substitute any other components, validate them first against the list in that document's appendix.
+
+Several components play additional roles in securing data:
+
+- [Data Factory encrypts data that it transfers. It also uses Azure Key Vault or certificates to encrypt credentials.][Security considerations for data movement in Azure Data Factory]
+- [Azure Databricks provides many tools for securing network infrastructure and data][Azure Databricks security guide]. Examples include [access control lists][Access control in Azure Databricks], [secrets][Secret management in Azure Databricks], and [no public IP (NPIP)][Secure cluster connectivity (No Public IP / NPIP)].
+
+- [Azure Blob storage supports Storage Service Encryption (SSE)][Azure Storage encryption for data at rest], which automatically encrypts data before storing it. It also provides [many other ways to project data and networks][Security recommendations for Blob storage].
+- [Data Lake Storage provides access control][Access control lists (ACLs) in Azure Data Lake Storage Gen2]. Its model supports these types of controls:
+
+  - Azure role-based access control (RBAC)
+  - Portable Operating System Interface (POSIX) access control lists (ACLs)
 
 ## Related resources
 
@@ -71,3 +121,13 @@ Azure Data Factory orchestrates the workflow:
 - [Genomics Quickstart Starter Kit](https://github.com/microsoft/Genomics-Quickstart)
 - [Burrows-Wheeler Aligner](http://bio-bwa.sourceforge.net/)
 - [Genome Analysis Toolkit](https://gatk.broadinstitute.org/hc/en-us)
+
+
+[Access control lists (ACLs) in Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-access-control
+[Access control in Azure Databricks]: /azure/databricks/security/access-control/
+[Azure Databricks security guide]: /azure/databricks/security/
+[Azure Storage encryption for data at rest]: /azure/storage/common/storage-service-encryption
+[Secure cluster connectivity (No Public IP / NPIP)]: /azure/databricks/security/secure-cluster-connectivity
+[Secret management in Azure Databricks]: /azure/databricks/security/secrets/
+[Security considerations for data movement in Azure Data Factory]: /azure/data-factory/data-movement-security-considerations
+[Security recommendations for Blob storage]: /azure/storage/blobs/security-recommendations
