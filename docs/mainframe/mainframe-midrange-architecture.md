@@ -1,5 +1,5 @@
 ---
-title: Azure mainframe and midrange architecture
+title: Azure mainframe and midrange architecture concepts and patterns
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.
 author: jjfrost
@@ -17,7 +17,7 @@ ms.custom:
   - fcp
 ---
 
-# Azure mainframe and midrange architecture
+# Azure mainframe and midrange architecture concepts and patterns
 
 Mainframe and midrange  hardware is comprised of a family of systems from various vendors (all with a history and goal of high performance, high throughput, and sometimes high availability). These systems were often _scale-up_ and monolithic, meaning they were a single, large frame with multiple processing units, shared memory, and shared storage.
 
