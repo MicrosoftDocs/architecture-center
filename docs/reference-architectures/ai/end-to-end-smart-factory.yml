@@ -2,7 +2,7 @@
 metadata:
   title: End-to-end manufacturing using computer vision on the edge
   description: In this example, cameras are attached to a smart device that runs a machine learning model.
-  author: brimille
+  author: EdPrice-MSFT
   ms.author: tinglee
   ms.date: 06/24/2021
   ms.topic: conceptual
