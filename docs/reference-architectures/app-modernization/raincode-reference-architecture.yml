@@ -4,7 +4,7 @@ metadata:
   description: This architecture shows how the Raincode COBOL compiler modernizes mainframe legacy applications. 
   author: EdPrice-MSFT
   ms.author: jfrost
-  ms.date: 06/23/2021
+  ms.date: 06/25/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -13,6 +13,7 @@ metadata:
     - databases
   ms.custom:
     - reference-architecture
+    - fcp
 name: Refactor mainframe applications to Azure with Raincode compilers
 azureCategories:
   - integration

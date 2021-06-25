@@ -1,5 +1,3 @@
-## Overview and use cases
-
 This architecture shows how the Raincode COBOL compiler modernizes mainframe
 legacy applications by seamlessly migrating and integrating them with a modern,
 Azure-based technology stack without changing a single line of code. With
@@ -85,7 +83,7 @@ Many use cases can benefit from the Raincode compiler; possibilities include:
 ### Legacy IBM z/OS architecture
 
 The following diagram shows an example of a legacy COBOL-based mainframe
-architecture before migration to Azure.
+architecture, before migration to Azure.
 
 [![Graphical example of legacy COBOL-based mainframe architecture.](media/raincode-reference-architecture-01.png)](media/raincode-reference-architecture-01.png#lightbox)
 
@@ -129,7 +127,7 @@ advantage of the Raincode compiler and many other modern Azure services.
 
 [![Legacy architecture migration to Azure workflow.](media/raincode-reference-architecture-02.png)](media/raincode-reference-architecture-02.png#lightbox)
 
-### Azure technical annotations
+#### Azure workflow
 
 1. User access provided over TLS port 443 for accessing web-based applications.
 Web-based Applications presentation layer can be kept virtually unchanged to
@@ -165,7 +163,7 @@ migration tools can convert DMS/RDMS schemas to SQL.
 place. Raincode provides RACF and Top Secret identity integration using Active
 Directory extensions.
 
-## Components
+### Components
 
 -   [Azure Kubernetes Service
     (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully
@@ -236,15 +234,15 @@ The following considerations apply to this solution.
 -   Each service of a cloud-native application goes through an independent life
     cycle, which is managed through an agile DevOps process.
 
--   Multiple continuous integration/continuous delivery (CI/CD) pipelines may
+-   Multiple continuous integration/continuous delivery (CI/CD) pipelines can
     work in tandem to deploy and manage a cloud-native application.
 
 ### Performance
 
 -   Cloud-native applications are a collection of independent and autonomous
-    services packaged as lightweight containers.
+    services that are packaged as lightweight containers.
 
--   Unlike virtual machines, containers can scale out and scale in rapidly.
+-   Unlike virtual machines, containers can rapidly scale out and scale in.
 
 -   Since the unit of scaling shifts to containers, infrastructure usage
     is optimized.
@@ -257,10 +255,10 @@ The following considerations apply to this solution.
 
 -   [Private Link for Azure SQL
     Database](/azure/azure-sql/database/private-endpoint-overview) provides
-    a private, direct connection isolated to the Azure networking backbone from
+    a private, direct connection that is isolated to the Azure networking backbone, from
     the Azure VMs to Azure SQL Database.
 
-### Pricing
+## Pricing
 
 -   The Raincode COBOL compiler facilitates new development in C\# and
     eliminates the financial burden of COBOL licensing costs.
@@ -274,12 +272,15 @@ For more information, please contact <legacy2azure@microsoft.com> or check out
 the following resources:
 
 -   Read the [Raincode technical
-    landscape](https://www.raincode.com/technical-landscape/cobol/).
-
-## Related resources
+    landscape](https://www.raincode.com/technical-landscape/cobol).
 
 -   [Mainframe and midrange
-    migration](https://azure.microsoft.com/migration/mainframe/)
+    migration](https://azure.microsoft.com/migration/mainframe)
+
+-   [Mainframe rehosting on Azure virtual
+    machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+
+## Related resources
 
 -   [Modernize mainframe & midrange
     data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
@@ -289,9 +290,6 @@ the following resources:
 
 -   [Replicate and sync mainframe data in
     Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
-
--   [Mainframe rehosting on Azure virtual
-    machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 
 -   [Refactor IBM z/OS mainframe Coupling Facility (CF) to
     Azure](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)
