@@ -1,4 +1,6 @@
- Mining companies can have Azure continually monitor the performance data from their equipment or from other assets. Analysis of the data identifies anomalies and results in recommendations for maintenance and repair. Such monitoring can prevent failures and reduce operating costs.
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
+Mining companies can have Azure continually monitor the performance data from their equipment or from other assets. Analysis of the data identifies anomalies and results in recommendations for maintenance and repair. Such monitoring can prevent failures and reduce operating costs.
 
 ## Potential use cases
 
@@ -6,8 +8,7 @@
 
 ## Architecture
 
-![Diagram of an example IoT implementation that includes an edge network.](../media/monitor-mining-equipment.png
-)
+:::image type="content" source="../media/monitor-mining-equipment.png" alt-text="Architecture for monitoring mining equipment" lightbox="../media/monitor-mining-equipment.png":::
 
 The data flows through the solution as follows:
 
@@ -58,24 +59,24 @@ Information about the Delta Lake open-source project for building a Lakehouse ar
 
 See the following related database architectural guidance:
 
-- [Azure Data Architecture Guide](/azure/architecture/data-guide)
-- [Non-relational data and NoSQL](/azure/architecture/data-guide/big-data/non-relational-data)
-- [Big data architectures](/azure/architecture/data-guide/big-data)
-- [Batch processing](/azure/architecture/data-guide/big-data/batch-processing)
-- [Choosing a batch processing technology in Azure](/azure/architecture/data-guide/technology-choices/batch-processing)
-- [Data lakes](/azure/architecture/data-guide/scenarios/data-lake)
-- [Choosing a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
-- [Modernize mainframe & midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
-- [Profisee master data management with Azure Data Factory](/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory)
-- [Master Data Management powered by CluedIn](/azure/architecture/reference-architectures/data/cluedin)
-- [DataOps for the modern data warehouse](/azure/architecture/example-scenario/data-warehouse/dataops-mdw)
-- [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)
-- [Real Time Analytics on Big Data Architecture](/azure/architecture/solution-ideas/articles/real-time-analytics)
+- [Azure Data Architecture Guide](../../data-guide/index.md)
+- [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.md)
+- [Big data architectures](../../data-guide/big-data/index.md)
+- [Batch processing](../../data-guide/big-data/batch-processing.md)
+- [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
+- [Data lakes](../../data-guide/scenarios/data-lake.md)
+- [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
+- [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Profisee master data management with Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
+- [Master Data Management powered by CluedIn](../../reference-architectures/data/cluedin.yml)
+- [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)
+- [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
+- [Real Time Analytics on Big Data Architecture](./real-time-analytics.yml)
 
 See the following related IoT architectural guidance:
 
-- [IoT solutions conceptual overview](/azure/architecture/example-scenario/data/big-data-with-iot)
-- [Vision with Azure IoT Edge](/azure/architecture/guide/iot-edge-vision)
-- [Azure Industrial IoT Analytics Guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
-- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
-- [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
+- [IoT solutions conceptual overview](../../example-scenario/data/big-data-with-iot.yml)
+- [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
+- [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.md)
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
+- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)

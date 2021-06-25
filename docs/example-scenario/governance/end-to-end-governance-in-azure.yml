@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: End-to-end governance in Azure
+  titleSuffix: Azure Example Scenarios
+  description: When using CI/CD pipelines to automate deployments, apply RBAC not just on the ARM side, but also earlier in the process as developers check in their code.
+  author: julie-ng
+  ms.author: edprice
+  ms.date: 05/31/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - devops
+  - management-and-governance
+  - security
+products:
+  - azure-active-directory
+  - azure-devops
+  - azure-pipelines
+  - azure-resource-manager
+name: End-to-end governance in Azure when using CI/CD
+summary: When using CI/CD pipelines to automate deployments, apply RBAC not just on the ARM side, but also earlier in the process as developers check in their code.
+thumbnailUrl: /azure/architecture/browse/thumbs/e2e-governance-in-azure.png
+content: |
+  [!include[](end-to-end-governance-in-azure-content.md)]

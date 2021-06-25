@@ -1,8 +1,3 @@
-
-
-
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
 
 ## Architecture
@@ -11,7 +6,7 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 
 *Download an [SVG](/azure/architecture/solution-ideas/media/anomaly-detector.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
 1. Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.
 2. Aggregates, samples, and computes the raw data to generate the time series or calls the Anomaly Detector API directly if the time series is already prepared and responds with the detection results.

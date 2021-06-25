@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 04/26/2021
+ms.date: 06/21/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -23,10 +23,113 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 New and updated articles in Azure Architecture Center
 
+## June 2021
+
+### New Articles
+
+- [IoT device connectivity for healthcare facilities](./solution-ideas/articles/healthcare-network.yml)
+- [Low-latency network connections for industry](./solution-ideas/articles/low-latency-network.yml)
+- [Video capture and analytics for retail](./solution-ideas/articles/video-analytics.yml)
+- [Data governance with Profisee and Azure Purview](./reference-architectures/data/profisee-master-data-management-purview.yml)
+- [SAS on Azure architecture guide](./guide/sas/sas-overview.yml)
+- [Solutions for government industry](./industries/government.md)
+- [Solutions for manufacturing industry](./industries/manufacturing.md)
+- [Solutions for media and entertainment industry](./industries/media.md)
+- [Use Application Gateway Ingress Controller (AGIC) with a multi-tenant Azure Kubernetes Service (AKS)](./example-scenario/aks-agic/aks-agic.yml)
+- [Integrate IBM mainframe and midrange message queues with Azure](./example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)
+- [Container orchestration for microservices](./microservices/design/orchestration.md)
+- [Geospatial data processing and analytics](./example-scenario/data/geospatial-data-processing-analytics-azure.yml)
+
+### Updated Articles
+
+- [Defect prevention with predictive maintenance](./solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml)  ([#dcd0ca0b4](https://github.com/MicrosoftDocs/architecture-center/commit/dcd0ca0b4))
+- [Predictive maintenance](./solution-ideas/articles/predictive-maintenance.yml)  ([#f8757e66a](https://github.com/MicrosoftDocs/architecture-center/commit/f8757e66a))
+- [Predictive marketing with machine learning](./solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml)  ([#19c754a51](https://github.com/MicrosoftDocs/architecture-center/commit/19c754a51))
+- [Ops automation using Event Grid](./solution-ideas/articles/ops-automation-using-event-grid.yml)  ([#aff74ddcc](https://github.com/MicrosoftDocs/architecture-center/commit/aff74ddcc))
+- [Scheduler Agent Supervisor pattern](./patterns/scheduler-agent-supervisor.md)  ([#1ca81010f](https://github.com/MicrosoftDocs/architecture-center/commit/1ca81010f))
+- [Predictive aircraft engine monitoring](./solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)  ([#07bb3323c](https://github.com/MicrosoftDocs/architecture-center/commit/07bb3323c))
+- [Interactive price analytics](./solution-ideas/articles/interactive-price-analytics.yml)  ([#73d82b8f9](https://github.com/MicrosoftDocs/architecture-center/commit/73d82b8f9))
+- [Firewall and Application Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#062ecd459](https://github.com/MicrosoftDocs/architecture-center/commit/062ecd459))
+- [Using Azure file shares in a hybrid environment](./hybrid/azure-file-share.yml)  ([#062ecd459](https://github.com/MicrosoftDocs/architecture-center/commit/062ecd459))
+- [Development and test environments for SAP workloads on Azure](./example-scenario/apps/sap-dev-test.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
+- [Connect standalone servers by using Azure Network Adapter](./hybrid/azure-network-adapter.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
+- [Hybrid availability and performance monitoring](./hybrid/hybrid-perf-monitoring.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
+- [Run SAP BW/4HANA with Linux virtual machines on Azure](./reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
+- [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
+- [Azure Firewall Architecture Guide](./example-scenario/firewalls/index.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
+- [Design a hybrid Domain Name System solution with Azure](./hybrid/hybrid-dns-infra.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
+- [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
+- [Secure and govern workloads with network level segmentation](./reference-architectures/hybrid-networking/network-level-segmentation.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
+- [Oracle Database Migration to Azure](./solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml)  ([#a9151be38](https://github.com/MicrosoftDocs/architecture-center/commit/a9151be38))
+- [Campaign optimization with Azure HDInsight Spark clusters](./solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml)  ([#c7e5ee59d](https://github.com/MicrosoftDocs/architecture-center/commit/c7e5ee59d))
+- [Geode pattern](./patterns/geodes.md)  ([#23bf31342](https://github.com/MicrosoftDocs/architecture-center/commit/23bf31342))
+- [Batch scoring of Spark models on Azure Databricks](./reference-architectures/ai/batch-scoring-databricks.yml)  ([#709ab189d](https://github.com/MicrosoftDocs/architecture-center/commit/709ab189d))
+- [Patterns and implementations](./example-scenario/banking/patterns-and-implementations.yml)  ([#28ec3c23a](https://github.com/MicrosoftDocs/architecture-center/commit/28ec3c23a))
+- [Unisys mainframe migration](./reference-architectures/migration/unisys-mainframe-migration.yml)  ([#28ec3c23a](https://github.com/MicrosoftDocs/architecture-center/commit/28ec3c23a))
+- [Modern Customer Support Portal](./solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml)  ([#28ec3c23a](https://github.com/MicrosoftDocs/architecture-center/commit/28ec3c23a))
+- [Scalable web and mobile applications using Azure Database for MySQL](./solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)  ([#28ec3c23a](https://github.com/MicrosoftDocs/architecture-center/commit/28ec3c23a))
+- [Scalable web and mobile applications using Azure Database for PostgreSQL](./solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)  ([#28ec3c23a](https://github.com/MicrosoftDocs/architecture-center/commit/28ec3c23a))
+- [Serverless application architectures using Event Grid](./solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)  ([#938c9c30b](https://github.com/MicrosoftDocs/architecture-center/commit/938c9c30b))
+- [Extract, transform, and load (ETL) using HDInsight](./solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)  ([#576e6050c](https://github.com/MicrosoftDocs/architecture-center/commit/576e6050c))
+- [Gaming using Azure Database for MySQL](./solution-ideas/articles/gaming-using-azure-database-for-mysql.yml)  ([#c226dac06](https://github.com/MicrosoftDocs/architecture-center/commit/c226dac06))
+- [Gaming using Cosmos DB](./solution-ideas/articles/gaming-using-cosmos-db.yml)  ([#c226dac06](https://github.com/MicrosoftDocs/architecture-center/commit/c226dac06))
+
+## May 2021
+
+### New Articles
+
+- [Deploy machine learning models to AKS](./solution-ideas/articles/machine-learning-model-deployment-aks.yml)
+- [Suggest content tags with deep learning and NLP](./solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml)
+- [Choose a bare-metal Kubernetes at the edge platform option](./operator-guides/aks/choose-bare-metal-kubernetes.yml)
+- [Big data analytics with enterprise-grade security using Azure Synapse](./solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
+- [Choose an Internet of Things (IoT) solution in Azure](./example-scenario/iot/iot-central-iot-hub-cheat-sheet.md)
+- [Migrate IBM i series applications to Skytap on Azure](./example-scenario/mainframe/migrate-ibm-i-series-applications.yml)
+- [End-to-end governance in Azure](./example-scenario/governance/end-to-end-governance-in-azure.yml)
+- [Migrate AIX workloads to Skytap on Azure](./example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml)
+- [IBM System i (AS/400) to Azure using Infinite i](./example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml)
+- [Securing your Microsoft Teams channel bot and web app behind a firewall](./example-scenario/teams/securing-bot-teams-channel.yml)
+- [Modern analytics architecture with Azure Databricks](./solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
+- [Hub-spoke network topology with Azure Virtual WAN](./networking/hub-spoke-vwan-architecture.yml)
+- [Azure Automation State Configuration](./example-scenario/state-configuration/state-configuration.yml)
+- [Environment monitoring and supply chain optimization with IoT](./solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
+- [Choose a Kubernetes at the edge compute option](./operator-guides/aks/choose-kubernetes-edge-compute-option.md)
+- [Protect APIs with Azure Application Gateway and Azure API Management](./reference-architectures/apis/protect-apis.yml)
+- [Mainframe access to Azure databases](./solution-ideas/articles/mainframe-access-azure-databases.yml)
+
+### Updated Articles
+
+- [Demand forecasting and price optimization](./solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)  ([#5a1229602](https://github.com/MicrosoftDocs/architecture-center/commit/5a1229602))
+- [Master data management with Profisee and Azure Data Factory](./reference-architectures/data/profisee-master-data-management-data-factory.yml)  ([#17ea32c34](https://github.com/MicrosoftDocs/architecture-center/commit/17ea32c34))
+- [Tune hyperparameters for ML models in Python](./reference-architectures/ai/training-python-models.yml)  ([#af9e26703](https://github.com/MicrosoftDocs/architecture-center/commit/af9e26703))
+- [Master data management with Azure and CluedIn](./reference-architectures/data/cluedin.yml)  ([#dda038b41](https://github.com/MicrosoftDocs/architecture-center/commit/dda038b41))
+- [Connect standalone servers by using Azure Network Adapter](./hybrid/azure-network-adapter.yml)  ([#0add7e188](https://github.com/MicrosoftDocs/architecture-center/commit/0add7e188))
+- [Building solutions for high availability using Availability Zones](./high-availability/building-solutions-for-high-availability.md)  ([#865b0d3c7](https://github.com/MicrosoftDocs/architecture-center/commit/865b0d3c7))
+- [Extend your on-premises big data investments with HDInsight](./solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml)  ([#7d3f28be1](https://github.com/MicrosoftDocs/architecture-center/commit/7d3f28be1))
+- [Customer churn prediction using real-time analytics](./solution-ideas/articles/customer-churn-prediction.yml)  ([#10aa45877](https://github.com/MicrosoftDocs/architecture-center/commit/10aa45877))
+- [Create personalized marketing solutions](./solution-ideas/articles/personalized-marketing.yml)  ([#17a5639ec](https://github.com/MicrosoftDocs/architecture-center/commit/17a5639ec))
+- [Improper Instantiation antipattern](./antipatterns/improper-instantiation/index.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
+- [Web API design best practices](./best-practices/api-design.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
+- [Microsoft Azure Well-Architected Framework](./framework/index.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
+- [Multitenancy and identity management](./multitenant-identity/index.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
+- [What is the CQRS pattern?](./patterns/cqrs.md)  ([#0e6bfd084](https://github.com/MicrosoftDocs/architecture-center/commit/0e6bfd084))
+- [Digital Campaign Management](./solution-ideas/articles/digital-marketing-using-azure-database-for-postgresql.yml)  ([#cb6fd63d1](https://github.com/MicrosoftDocs/architecture-center/commit/cb6fd63d1))
+- [Forecast energy and power demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#71cc3da42](https://github.com/MicrosoftDocs/architecture-center/commit/71cc3da42))
+- [Population Health Management for Healthcare](./solution-ideas/articles/population-health-management-for-healthcare.yml)  ([#a6b3ca8ee](https://github.com/MicrosoftDocs/architecture-center/commit/a6b3ca8ee))
+- [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#830bceb7a](https://github.com/MicrosoftDocs/architecture-center/commit/830bceb7a))
+- [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#8f87a6f08](https://github.com/MicrosoftDocs/architecture-center/commit/8f87a6f08))
+
 ## April 2021
 
 ### New Articles
 
+- [Challenges of monitoring distributed architectures](./framework/scalability/design-distributed.md)
+- [Performance data integration](./framework/scalability/monitor-analyze.md)
+- [Application profiling considerations for performance monitoring](./framework/scalability/monitor-application.md)
+- [Infrastructure metrics and logs](./framework/scalability/monitor-infrastructure.md)
+- [Monitor performance for scalability and reliability](./framework/scalability/monitor-scalability-reliability.md)
+- [Optimize scalability and reliability of cloud applications](./framework/scalability/optimize.md)
+- [Principles of the performance efficiency](./framework/scalability/principles.md)
+- [Resilient identity and access management with Azure Active Directory (Azure AD)](./guide/resilience/resilience-overview.md)
 - [Health data consortium on Azure](./example-scenario/data/azure-health-data-consortium.yml)
 - [Multi-cloud blockchain distributed ledger technology (DLT)](./example-scenario/blockchain/multi-cloud-blockchain.yml)
 - [Mining equipment monitoring](./solution-ideas/articles/monitor-mining-equipment.yml)
@@ -45,6 +148,16 @@ New and updated articles in Azure Architecture Center
 
 ### Updated Articles
 
+- [Performance testing](./framework/scalability/performance-test.md)  ([#e0da81093](https://github.com/MicrosoftDocs/architecture-center/commit/e0da81093))
+- [Connect an on-premises network to Azure using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)  ([#c7658b1e4](https://github.com/MicrosoftDocs/architecture-center/commit/c7658b1e4))
+- [AWS to Azure services comparison](./aws-professional/services.md)  ([#6977828f3](https://github.com/MicrosoftDocs/architecture-center/commit/6977828f3))
+- [Integrate on-premises AD domains with Azure AD](./reference-architectures/identity/azure-ad.yml)  ([#60f2a286f](https://github.com/MicrosoftDocs/architecture-center/commit/60f2a286f))
+- [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#3d7e81c62](https://github.com/MicrosoftDocs/architecture-center/commit/3d7e81c62))
+- [AI enrichment with image and text processing](./solution-ideas/articles/cognitive-search-with-skillsets.yml)  ([#bc9b4d291](https://github.com/MicrosoftDocs/architecture-center/commit/bc9b4d291))
+- [Customer support and feedback analysis](./solution-ideas/articles/customer-feedback-and-analytics.yml)  ([#b11756f8a](https://github.com/MicrosoftDocs/architecture-center/commit/b11756f8a))
+- [Knowledge mining in digital asset management](./solution-ideas/articles/digital-asset-management.yml)  ([#0be6a124c](https://github.com/MicrosoftDocs/architecture-center/commit/0be6a124c))
+- [Auditing, risk, and compliance management](./solution-ideas/articles/auditing-and-risk-compliance.yml)  ([#a8c74be11](https://github.com/MicrosoftDocs/architecture-center/commit/a8c74be11))
+- [Knowledge mining for content research](./solution-ideas/articles/content-research.yml)  ([#63aa7dcaf](https://github.com/MicrosoftDocs/architecture-center/commit/63aa7dcaf))
 - [Knowledge mining in contract management](./solution-ideas/articles/contract-management.yml)  ([#83c1d852b](https://github.com/MicrosoftDocs/architecture-center/commit/83c1d852b))
 - [Knowledge mining in business process management](./solution-ideas/articles/business-process-management.yml)  ([#6cd92030c](https://github.com/MicrosoftDocs/architecture-center/commit/6cd92030c))
 - [Azure Automation in a hybrid environment](./hybrid/azure-automation-hybrid.yml)  ([#4b61262db](https://github.com/MicrosoftDocs/architecture-center/commit/4b61262db))
@@ -58,7 +171,7 @@ New and updated articles in Azure Architecture Center
 - [Create a FAQ bot from existing data](./solution-ideas/articles/faq-chatbot-with-data-champion-model.yml)  ([#f94089281](https://github.com/MicrosoftDocs/architecture-center/commit/f94089281))
 - [Enterprise bot for employee productivity](./solution-ideas/articles/enterprise-productivity-chatbot.yml)  ([#0b756a1d6](https://github.com/MicrosoftDocs/architecture-center/commit/0b756a1d6))
 - [Commerce chatbot for customer service](./solution-ideas/articles/commerce-chatbot.yml)  ([#7db95b95e](https://github.com/MicrosoftDocs/architecture-center/commit/7db95b95e))
-- [Forecast Energy and Power Demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#11ed71746](https://github.com/MicrosoftDocs/architecture-center/commit/11ed71746))
+- [Forecast energy and power demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#11ed71746](https://github.com/MicrosoftDocs/architecture-center/commit/11ed71746))
 - [Interactive voice response app with bot](./solution-ideas/articles/interactive-voice-response-bot.yml)  ([#bf6a366e8](https://github.com/MicrosoftDocs/architecture-center/commit/bf6a366e8))
 - [Deploy AD DS in an Azure virtual network](./reference-architectures/identity/adds-extend-domain.yml)  ([#9528be3c9](https://github.com/MicrosoftDocs/architecture-center/commit/9528be3c9))
 - [Globally distributed applications using Cosmos DB](./solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)  ([#38c7a8478](https://github.com/MicrosoftDocs/architecture-center/commit/38c7a8478))
@@ -66,8 +179,6 @@ New and updated articles in Azure Architecture Center
 - [Unified logging for microservices applications](./example-scenario/logging/unified-logging.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [On-premises data gateway for Azure Logic Apps](./hybrid/gateway-logic-apps.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Stream processing with Azure Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
-- [Integrate on-premises AD domains with Azure AD](./reference-architectures/identity/azure-ad.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
-- [Demand Forecasting and Price Optimization](./solution-ideas/articles/demand-forecasting-and-price-optimization.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [DevOps in a hybrid environment](./solution-ideas/articles/devops-in-a-hybrid-environment.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Microservices with AKS](./solution-ideas/articles/microservices-with-aks.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
@@ -82,7 +193,6 @@ New and updated articles in Azure Architecture Center
 - [Virtual health on Microsoft Cloud for Healthcare](./example-scenario/mch-health/virtual-health-mch.yml)
 - [IoT Edge data storage and processing](./solution-ideas/articles/data-storage-edge.yml)
 - [Micro Focus Enterprise Server on Azure VMs](./example-scenario/mainframe/micro-focus-server.yml)
-- [Multi-region web app with private connectivity to database](./example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 ### Updated Articles
 
@@ -90,7 +200,7 @@ New and updated articles in Azure Architecture Center
 - [Deploy highly available NVAs](./reference-architectures/dmz/nva-ha.yml)  ([#c74ce415c](https://github.com/MicrosoftDocs/architecture-center/commit/c74ce415c))
 - [FSLogix for the enterprise](./example-scenario/wvd/windows-virtual-desktop-fslogix.yml)  ([#209fb5636](https://github.com/MicrosoftDocs/architecture-center/commit/209fb5636))
 - [Asynchronous Request-Reply Pattern](./patterns/async-request-reply.md)  ([#90c11f879](https://github.com/MicrosoftDocs/architecture-center/commit/90c11f879))
-- [Sequential Convoy](./patterns/sequential-convoy.md)  ([#90c11f879](https://github.com/MicrosoftDocs/architecture-center/commit/90c11f879))
+- [Sequential Convoy pattern](./patterns/sequential-convoy.md)  ([#90c11f879](https://github.com/MicrosoftDocs/architecture-center/commit/90c11f879))
 - [AWS to Azure services comparison](./aws-professional/services.md)  ([#84834a8ab](https://github.com/MicrosoftDocs/architecture-center/commit/84834a8ab))
 - [Personalization using Cosmos DB](./solution-ideas/articles/personalization-using-cosmos-db.yml)  ([#1851c37c2](https://github.com/MicrosoftDocs/architecture-center/commit/1851c37c2))
 - [Bursting from AKS with ACI](./solution-ideas/articles/scale-using-aks-with-aci.yml)  ([#1851c37c2](https://github.com/MicrosoftDocs/architecture-center/commit/1851c37c2))
@@ -115,7 +225,7 @@ New and updated articles in Azure Architecture Center
 - [Retail Assistant with Visual Capabilities](./solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
 - [Visual Assistant](./solution-ideas/articles/visual-assistant.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
 - [Population Health Management for Healthcare](./solution-ideas/articles/population-health-management-for-healthcare.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
-- [Predictive Maintenance](./solution-ideas/articles/predictive-maintenance.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
+- [Predictive maintenance](./solution-ideas/articles/predictive-maintenance.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
 - [Product recommendations for retail using Azure](./solution-ideas/articles/product-recommendations.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
 - [Speech Services](./solution-ideas/articles/speech-services.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
 - [Operational excellence design principles](./framework/devops/principles.md)  ([#1b40291dd](https://github.com/MicrosoftDocs/architecture-center/commit/1b40291dd))
@@ -124,109 +234,6 @@ New and updated articles in Azure Architecture Center
 - [Performance testing and antipatterns](./antipatterns/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
 - [No Caching antipattern](./antipatterns/no-caching/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
 - [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
-- [Community Jury](./guide/responsible-innovation/community-jury/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
+- [Community jury](./guide/responsible-innovation/community-jury/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
 - [Responsible Innovation toolkit](./guide/responsible-innovation/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
-- [Interactive voice response app with bot](./solution-ideas/articles/interactive-voice-response-bot.yml)  ([#6dd285b14](https://github.com/MicrosoftDocs/architecture-center/commit/6dd285b14))
-- [Machine Learning model training with AKS](./solution-ideas/articles/machine-learning-with-aks.yml)  ([#6dd285b14](https://github.com/MicrosoftDocs/architecture-center/commit/6dd285b14))
-- [Data integration with Logic Apps and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)  ([#8b0ddb852](https://github.com/MicrosoftDocs/architecture-center/commit/8b0ddb852))
-- [Overview of Azure load-balancing options](./guide/technology-choices/load-balancing-overview.md)  ([#0e9e32e10](https://github.com/MicrosoftDocs/architecture-center/commit/0e9e32e10))
-
-## February 2021
-
-### New Articles
-
-- [Azure services for securing network connectivity](./framework/security/design-network-connectivity.md)
-- [Best practices for endpoint security on Azure](./framework/security/design-network-endpoints.md)
-- [Traffic flow security in Azure](./framework/security/design-network-flow.md)
-- [Implement network segmentation patterns on Azure](./framework/security/design-network-segmentation.md)
-- [Profisee master data management with Azure Data Factory](./reference-architectures/data/profisee-master-data-management-data-factory.yml)
-- [Retry Storm antipattern](./antipatterns/retry-storm/index.md)
-- [Data integration with Logic Apps and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)
-- [Multi-region load balancing with Traffic Manager and Application Gateway](./high-availability/reference-architecture-traffic-manager-application-gateway.md)
-- [Observability patterns and metrics for performance tuning](./databricks-monitoring/databricks-observability.yml)
-- [Cost optimization in a hybrid workload](./framework/hybrid/hybrid-cost.md)
-- [Operational excellence in a hybrid workload](./framework/hybrid/hybrid-opex.md)
-- [Overview of a hybrid workload](./framework/hybrid/hybrid-overview.md)
-- [Performance efficiency in a hybrid workload](./framework/hybrid/hybrid-performance-efficiency.md)
-- [Reliability in a hybrid workload](./framework/hybrid/hybrid-reliability.md)
-- [Security in a hybrid workload](./framework/hybrid/hybrid-security.md)
-- [Best practices for designing reliability in Azure applications](./framework/resiliency/design-best-practices.md)
-- [Design for reliability](./framework/resiliency/design-checklist.md)
-- [Target and non-functional requirements](./framework/resiliency/design-requirements.md)
-- [Resiliency and dependencies](./framework/resiliency/design-resiliency.md)
-- [Monitoring best practices for reliability in Azure applications](./framework/resiliency/monitor-best-practices.md)
-- [Monitoring for reliability](./framework/resiliency/monitor-checklist.md)
-- [Health modeling for reliability](./framework/resiliency/monitor-model.md)
-- [Testing best practices for reliability in Azure applications](./framework/resiliency/test-best-practices.md)
-- [Testing for reliability](./framework/resiliency/test-checklist.md)
-- [SAP System on Oracle Database on Azure](./example-scenario/apps/sap-on-oracle.yml)
-- [Consumer health portal on Azure](./example-scenario/digital-health/health-portal.yml)
-- [Azure security test practices](./framework/security/monitor-test.md)
-
-### Updated Articles
-
-- [Error handling for resilient applications in Azure](./framework/resiliency/app-design-error-handling.md)  ([#ab0252856](https://github.com/MicrosoftDocs/architecture-center/commit/ab0252856))
-- [Testing applications for availability and resiliency](./framework/resiliency/testing.md)  ([#ab0252856](https://github.com/MicrosoftDocs/architecture-center/commit/ab0252856))
-- [SAP S/4HANA in Linux on Azure](./reference-architectures/sap/sap-s4hana.yml)  ([#d40445bc9](https://github.com/MicrosoftDocs/architecture-center/commit/d40445bc9))
-- [Security monitoring in Azure](./framework/security/monitor.md)  ([#9022aaa34](https://github.com/MicrosoftDocs/architecture-center/commit/9022aaa34))
-- [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
-- [Interactive querying with HDInsight](./solution-ideas/articles/interactive-querying-with-hdinsight.yml)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
-- [Loan charge-off prediction with Azure HDInsight Spark clusters](./solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)  ([#22f51f8aa](https://github.com/MicrosoftDocs/architecture-center/commit/22f51f8aa))
-- [Release Engineering Application Development](./framework/devops/release-engineering-app-dev.md)  ([#4ce44dc46](https://github.com/MicrosoftDocs/architecture-center/commit/4ce44dc46))
-- [Repeatable Infrastructure](./framework/devops/automation-infrastructure.md)  ([#76d5bba76](https://github.com/MicrosoftDocs/architecture-center/commit/76d5bba76))
-- [Run SAP NetWeaver in Windows on Azure](./reference-architectures/sap/sap-netweaver.yml)  ([#95eae78c8](https://github.com/MicrosoftDocs/architecture-center/commit/95eae78c8))
-- [Resiliency checklist for Azure services](./checklist/resiliency-per-service.md)  ([#7cdb50680](https://github.com/MicrosoftDocs/architecture-center/commit/7cdb50680))
-- [Overview of Azure load-balancing options](./guide/technology-choices/load-balancing-overview.md)  ([#e03196c5f](https://github.com/MicrosoftDocs/architecture-center/commit/e03196c5f))
-- [Application integration using Event Grid](./solution-ideas/articles/application-integration-using-event-grid.yml)  ([#59dad762b](https://github.com/MicrosoftDocs/architecture-center/commit/59dad762b))
-- [Firewall and Application Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#5878d41a2](https://github.com/MicrosoftDocs/architecture-center/commit/5878d41a2))
-- [Checklist - Optimize cost](./framework/cost/optimize-checklist.md)  ([#ebeea2501](https://github.com/MicrosoftDocs/architecture-center/commit/ebeea2501))
-- [Gaming using Azure Database for MySQL](./solution-ideas/articles/gaming-using-azure-database-for-mysql.yml)  ([#89bf505fa](https://github.com/MicrosoftDocs/architecture-center/commit/89bf505fa))
-- [Gaming using Cosmos DB](./solution-ideas/articles/gaming-using-cosmos-db.yml)  ([#89bf505fa](https://github.com/MicrosoftDocs/architecture-center/commit/89bf505fa))
-- [FSLogix for the enterprise](./example-scenario/wvd/windows-virtual-desktop-fslogix.yml)  ([#0e5401839](https://github.com/MicrosoftDocs/architecture-center/commit/0e5401839))
-- [Run SAP BW/4HANA with Linux virtual machines on Azure](./reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)  ([#c6bd4aa54](https://github.com/MicrosoftDocs/architecture-center/commit/c6bd4aa54))
-- [Azure identity and access management considerations](./framework/security/design-identity.md)  ([#1fddfae3d](https://github.com/MicrosoftDocs/architecture-center/commit/1fddfae3d))
-- [AKS triage - node health](./operator-guides/aks/aks-triage-node-health.md)  ([#1fddfae3d](https://github.com/MicrosoftDocs/architecture-center/commit/1fddfae3d))
-- [Asynchronous messaging options in Azure](./guide/technology-choices/messaging.md)  ([#41fcaf2f4](https://github.com/MicrosoftDocs/architecture-center/commit/41fcaf2f4))
-- [Event Sourcing pattern](./patterns/event-sourcing.md)  ([#41fcaf2f4](https://github.com/MicrosoftDocs/architecture-center/commit/41fcaf2f4))
-- [Intelligent apps using Azure Database for MySQL](./solution-ideas/articles/intelligent-apps-using-azure-database-for-mysql.yml)  ([#5f989d44b](https://github.com/MicrosoftDocs/architecture-center/commit/5f989d44b))
-- [SAP on Azure Architecture Guide](./reference-architectures/sap/sap-overview.yml)  ([#2f9fca44b](https://github.com/MicrosoftDocs/architecture-center/commit/2f9fca44b))
-- [Capacity](./framework/scalability/capacity.md)  ([#ad3b5835c](https://github.com/MicrosoftDocs/architecture-center/commit/ad3b5835c))
-- [Attestation, authentication, and provisioning](./example-scenario/iot/attestation-provisioning.yml)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
-- [Controlling IoT devices using a Voice Assistant](./solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml)  ([#c68ae5ffd](https://github.com/MicrosoftDocs/architecture-center/commit/c68ae5ffd))
-- [Serverless event processing](./reference-architectures/serverless/event-processing.yml)  ([#d7256cda4](https://github.com/MicrosoftDocs/architecture-center/commit/d7256cda4))
-
-## January 2021
-
-### New Articles
-
-- [Operational Excellence patterns](./framework/devops/devops-patterns.md)
-- [Reliability patterns](./framework/resiliency/reliability-patterns.md)
-- [Performance Efficiency patterns](./framework/scalability/performance-efficiency-patterns.md)
-- [Security patterns](./framework/security/security-patterns.md)
-- [Cloud design patterns](./patterns/index-patterns.md)
-- [Monitoring for performance efficiency](./framework/scalability/monitor.md)
-- [Restrict interservice communications](./example-scenario/service-to-service/restrict-communications.yml)
-- [Replicate and sync mainframe data in Azure](./reference-architectures/migration/sync-mainframe-data-with-azure.yml)
-- [Alerting for DevOps](./framework/devops/alerts.md)
-- [Data encryption in Azure](./framework/security/design-storage-encryption.md)
-- [Key and secret management in Azure](./framework/security/design-storage-keys.md)
-- [Caching data for performance optimization](./framework/scalability/optimize-cache.md)
-- [Partitioning data for performance optimization](./framework/scalability/optimize-partition.md)
-- [Sustain performance efficiency over time](./framework/scalability/optimize-sustain.md)
-- [AKS Day-2 Operations Guide - Patch and upgrade guidance](./operator-guides/aks/aks-upgrade-practices.md)
-- [Azure Kubernetes Service (AKS) day-2 operations guide](./operator-guides/aks/day-2-operations-guide.md)
-- [Checklist - Design for performance efficiency](./framework/scalability/design-checklist.md)
-- [Checklist - Testing for performance efficiency](./framework/scalability/test-checklist.md)
-- [Master Data Management with Azure and CluedIn](./reference-architectures/data/cluedin.yml)
-
-### Updated Articles
-
-- [Data protection in Azure](./framework/security/design-storage.md)  ([#bd8084fcf](https://github.com/MicrosoftDocs/architecture-center/commit/bd8084fcf))
-- [Backup and disaster recovery for Azure applications](./framework/resiliency/backup-and-recovery.md)  ([#3ca257b3d](https://github.com/MicrosoftDocs/architecture-center/commit/3ca257b3d))
-- [Field and cloud edge gateways](./example-scenario/iot/field-cloud-edge-gateways.yml)  ([#49a77e199](https://github.com/MicrosoftDocs/architecture-center/commit/49a77e199))
-- [Monitoring for DevOps](./framework/devops/monitoring.md)  ([#ad603400e](https://github.com/MicrosoftDocs/architecture-center/commit/ad603400e))
-- [Business Metrics](./framework/resiliency/business-metrics.md)  ([#fb285c5fb](https://github.com/MicrosoftDocs/architecture-center/commit/fb285c5fb))
-- [Design for scaling](./framework/scalability/design-scale.md)  ([#65a7ef214](https://github.com/MicrosoftDocs/architecture-center/commit/65a7ef214))
-- [Background jobs guidance](./best-practices/background-jobs.md)  ([#13889c62e](https://github.com/MicrosoftDocs/architecture-center/commit/13889c62e))
-- [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#2fab3faaf](https://github.com/MicrosoftDocs/architecture-center/commit/2fab3faaf))
 

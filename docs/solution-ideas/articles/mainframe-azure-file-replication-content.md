@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 Moving data from on-premises to Azure is the backbone of migrating on-premises mainframe and midrange applications. Several modernization scenarios require replicating files to Azure quickly, or maintaining a sync between on-premises and Azure files.
 
 This article discusses several different processes for moving files to Azure, converting and transforming file data, and storing the data on-premises and in Azure. The article highlights a wide range of Azure services to demonstrate the possibilities.
@@ -94,8 +96,7 @@ Various file moving, integration, and storage scenarios use different components
 
 ## Related resources
 
-- [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
-- [Modernize mainframe and midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
-- [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)
-- [Unisys mainframe migration with Asysco](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)
-
+- [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
+- [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](./migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
+- [Unisys mainframe migration with Asysco](../../reference-architectures/migration/unisys-mainframe-migration.yml)

@@ -10,6 +10,8 @@ products:
   - azure-machine-learning
 ms.custom:
   - guide
+categories:
+  - ai-machine-learning
 ---
 
 <!-- cSpell:ignore maggsl scikit -->
@@ -52,7 +54,7 @@ With many layers in each neural network-and sometimes using multiple neural netw
 
 - [Training of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/training-python-models.yml)
 
-- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/realtime-scoring-python.yml)
+- [Real-time scoring of Python scikit-learn and deep learning models on Azure](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 
 ### Bots
 
@@ -140,7 +142,7 @@ Decision/Recommendation.
 - [Try Azure Cognitive Services for
     free](https://azure.microsoft.com/try/cognitive-services/)
 
-- [Choosing a Microsoft cognitive services
+- [Choosing a Microsoft Cognitive Services
     technology](../../data-guide/technology-choices/cognitive-services.md)
 
 - [Choosing a natural language processing technology in
@@ -397,7 +399,7 @@ and scikit-learn.
     Azure](../../reference-architectures/ai/batch-scoring-deep-learning.yml)
 
 - [Real-time scoring of Python scikit-learn and deep learning models on
-    Azure](../../reference-architectures/ai/realtime-scoring-python.yml)
+    Azure](../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml)
 
 - [Machine learning operationalization (MLOps) for Python models using Azure
     Machine

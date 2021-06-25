@@ -193,7 +193,7 @@ For warm path storage, consider using Azure Cosmos DB. For more information, see
 
 ## Next steps
 
-- For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf) (PDF).
+- For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture).
 
 - For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](/azure/iot-fundamentals/).
 

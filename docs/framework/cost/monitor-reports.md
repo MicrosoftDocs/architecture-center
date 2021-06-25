@@ -22,6 +22,7 @@ To monitor the cost of the workload, use Azure cost tools or custom reports. The
 Azure provides cost tools that can help track cloud spend and make recommendations.
 
 - [Azure Advisor](/azure/advisor/advisor-cost-recommendations)
+- [Advisor Score](/azure/advisor/azure-advisor-score)
 - [Azure Cost Management](/azure/cost-management-billing/costs/)
 
 ### Cost analysis

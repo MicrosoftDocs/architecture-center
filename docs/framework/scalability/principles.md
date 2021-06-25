@@ -32,7 +32,7 @@ Any development effort must go through continuous performance testing. The tests
 [**Continuously monitor the application and the supporting infrastructure**](monitor.md)
 
 - **Have a data-driven approach**&mdash;Base your decisions on the data captured from repeatable processes. Archive data to monitor performance changes  _over time_, not just compared to the last measurement taken. 
-- **Monitor the health of current workloads**&mdash;In monitoring strategy, consider scalability _and_ but resiliency of the infrastructure, application, and dependent services. For scalability, look at the metrics would allow you to provision resources dynamically and scale with demand. For reliability, look for early warning signs that might require proactive intervention. 
+- **Monitor the health of current workloads**&mdash;In monitoring strategy, consider scalability _and_ resiliency of the infrastructure, application, and dependent services. For scalability, look at the metrics would allow you to provision resources dynamically and scale with demand. For reliability, look for early warning signs that might require proactive intervention. 
 - **Troubleshoot performance issues**&mdash;Issues in performance can arise from database queries, connectivity between services, under-provision resources, or memory leaks in code. Application telemetry and profiling can be useful tools for troubleshooting your application.
 
 [**Identify improvement opportunities with resolution planning**](optimize.md)
@@ -56,10 +56,9 @@ Use this checklist to review your application architecture from a performance de
 ## Related links
 - Performance efficiency impacts the entire architecture spectrum. Bridge gaps in you knowledge of Azure by reviewing the five pillars of the [Microsoft Azure Well-Architected Framework](../index.md).
 
-- To assess your workload using pillars, see the [Microsoft Azure Well-Architected Review](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=5c2bcc40-1c41-47b1-8729-1fba49dbe408).
+- To assess your workload using pillars, see the [Microsoft Azure Well-Architected Review](/assessments/?mode=pre-assessment&session=5c2bcc40-1c41-47b1-8729-1fba49dbe408).
 
 
 
 
 
-  

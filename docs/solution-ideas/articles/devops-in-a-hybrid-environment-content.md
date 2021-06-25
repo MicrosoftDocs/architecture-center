@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 In many scenarios, the adoption of the Azure cloud as a business solution involves the migration of an on-premises environment. It is usually not practical to deprecate the on-premises environment quickly, and in many cases the on-premises environment will need to persist alongside the cloud environment for a significant amount of time. The tools provided in Azure allow for the implementation of a DevOps strategy that capably manages both cloud and on-premises environments in tandem.
 
@@ -31,6 +30,6 @@ In many scenarios, the adoption of the Azure cloud as a business solution involv
 
 ## Next steps
 
-* [Run containers in a hybrid environment](/azure/architecture/hybrid/hybrid-containers)
-* [CI/CD for Azure Web Apps](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps)
-* [DevTest and DevOps for microservice solutions](/azure/architecture/solution-ideas/articles/dev-test-microservice)
+* [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
+* [CI/CD for Azure Web Apps](./azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml)
+* [DevTest and DevOps for microservice solutions](./dev-test-microservice.yml)

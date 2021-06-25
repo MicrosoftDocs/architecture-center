@@ -50,8 +50,8 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 
 ## Reference architecture
 Here are some reference architectures related to building CI/CD pipelines:
-- [CI/CD for microservices architectures](/azure/architecture/microservices/ci-cd)
-- [CI/CD for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)
+- [CI/CD for microservices architectures](../../microservices/ci-cd.md)
+- [CI/CD for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md)
 
 ## Next step
 We recommend monitoring activities that maintain the security posture. These activities can highlight, if the current security practices are effective or are there new requirements.

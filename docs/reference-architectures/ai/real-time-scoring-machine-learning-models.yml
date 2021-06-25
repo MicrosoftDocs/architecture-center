@@ -1,0 +1,33 @@
+### YamlMime:Architecture
+metadata:
+  title: Real-time scoring of machine learning models
+  titleSuffix: Azure Reference Architectures
+  description: Deploy Python machine learning models as web services to make real-time predictions using Azure Machine Learning and Azure Kubernetes Service (AKS).
+  author: msalvaris
+  ms.author: pnp
+  ms.date: 01/28/2019
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - ai-machine-learning
+    - developer-tools
+  ms.custom:
+    - azcat-ai
+    - reference-architecture
+    - ai-machine-learning
+    - aml-project-improvement
+name: Real-time scoring of machine learning models in Python
+azureCategories:
+  - ai-machine-learning
+  - developer-tools
+summary: Deploy Python machine learning models as web services to make real-time predictions using Azure Machine Learning and Azure Kubernetes Service (AKS).
+products:
+  - azure-container-registry
+  - azure-kubernetes-service
+  - azure-machine-learning
+  - azure-monitor
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/python-model-architecture.png
+content: |
+  [!include[](real-time-scoring-machine-learning-models-content.md)]

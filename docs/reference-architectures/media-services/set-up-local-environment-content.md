@@ -142,4 +142,4 @@ Manually add the following two values to *local.settings.json*:
 
 ## Next steps
 - [Create or delete a Gridwich cloud sandbox or test environment](create-delete-cloud-environment.yml)
-- [Test a deployed Gridwich app locally](test-encoding.yml#test-locally)
+- [Test a deployed Gridwich app locally](test-encoding.yml#how-to-test-gridwich-projects-locally)

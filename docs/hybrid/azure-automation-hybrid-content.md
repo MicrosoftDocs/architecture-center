@@ -1,6 +1,3 @@
-
-
-
 This reference architecture illustrates how to extend automation to on-premises or other cloud providers. It describes the services that must be deployed in Azure to provide automated management and configuration across on-premises or other cloud providers. The same architecture can be applied on Azure virtual machines (VMs) that reside behind a firewall, with outbound connectivity over the 443 TCP port.
 
 ![Azure Automation in a hybrid environment][architectural-diagram]
@@ -285,11 +282,11 @@ To test and deploy the runbook on a Hybrid Runbook Worker Group, use the followi
 
 More about Azure Automation:
 
-- [Azure Automation in a hybrid environment](/azure/architecture/hybrid/azure-automation-hybrid)
+- [Azure Automation in a hybrid environment](./azure-automation-hybrid.yml)
 - [Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker)
 - [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account)
 - [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
-- [Azure Automation Update Management](/azure/architecture/hybrid/azure-update-mgmt)
+- [Azure Automation Update Management](./azure-update-mgmt.yml)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
 - [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview)
 - [Azure Arc Overview](/azure/azure-arc/overview)

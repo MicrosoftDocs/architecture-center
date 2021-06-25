@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 As workplaces and other group spaces reopen after the COVID-19 shutdown, people need to follow health and safety guidelines for safe social distancing, mask and PPE use, and occupancy limits. **Bosch COVID-19 Safe Solution** combines existing closed-circuit TV (CCTV) infrastructure with the [Azure intelligent edge](https://azure.microsoft.com/overview/future-of-cloud/) and other Azure and Microsoft services to help organizations monitor, follow, and improve these health and safety practices.
 
@@ -22,7 +21,7 @@ This article showcases a COVID-19 Safe Solution that is being implemented in wor
 
 ![Architecture diagram: Bosch COVID-19 Safe Solution for monitoring and alerting with Azure IoT Edge.](../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png)
 
-*Download a [Visio file][visio-download] of this architecture.*
+*Download the [PNG file][visio-download] of this architecture.*
 
 1. CCTVs send video data to Internet of Things (IoT) edge servers. Edge computing handles device registration, provisioning, and data ingestion.
 2. The Bosch Algorithm Engineering and Model Training Environment uses custom vision analytics to continually retrain machine learning (ML) models, and directly updates edge servers.

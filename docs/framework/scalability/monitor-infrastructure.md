@@ -87,6 +87,6 @@ You can also use the [Pricing Calculator](https://azure.microsoft.com/pricing/ca
 
 ## Related links
 - [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported)
-- [Network performance monitor](/azure/azure-monitor/insights/)
+- [Network performance monitor](/azure/azure-monitor/insights/network-performance-monitor)
 - [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)
 > [Back to the main article](monitor.md)

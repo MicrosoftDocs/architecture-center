@@ -60,7 +60,7 @@ Events coming from different application components or different component tiers
 
 Event correlation between the layers of the application provides the ability to connect tracing data of the complete application stack. Once this connection is made, you can see a complete picture of where time is spent at each layer. You can then query the repositories of tracing data in correlation to a unique identifier that represents a completed transaction that has flowed through the system.
 
-For more information, see [Distributed tracing](/azure/architecture/microservices/logging-monitoring#distributed-tracing).
+For more information, see [Distributed tracing](../../microservices/logging-monitoring.md#distributed-tracing).
 
 ## Critical targets
 
@@ -83,7 +83,7 @@ If you are using Application Insights to collect instrumentation data, there are
 
 
 ## Related links
-- [Distributed tracing](/azure/architecture/microservices/logging-monitoring#distributed-tracing)
+- [Distributed tracing](../../microservices/logging-monitoring.md#distributed-tracing)
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 - [Azure Monitor](/azure/azure-monitor/overview)
 > [Back to the main article](monitor.md)

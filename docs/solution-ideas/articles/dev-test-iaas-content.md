@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 *Infrastructure as a service (IaaS)* is a form of cloud computing that provides virtualized computing resources. *Development testing (DevTest)* is a software development approach that integrates testing early in the development phase. In this solution, configuring DevTest operations for an IaaS application reduces the cost and overhead of development and test environments, while facilitating faster development through automated virtual machine (VM) and VM image integration and deployment.
 
@@ -45,7 +44,7 @@ This scenario uses a separate DevTest and Production [Azure Active Directory (Az
   
 - [GitHub](https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories) is a code hosting platform for version control and collaboration. A GitHub repository contains all project files and their revision history. Developers can work together to contribute, discuss, and manage code in the repository.
   
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) deploys the VM application images. Pipelines can also deploy the VM resources themselves, through [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview). This [infrastructure-as-code](/azure/devops/learn/what-is-infrastructure-as-code) can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) deploys the VM application images. Pipelines can also deploy the VM resources themselves, through [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview). This [infrastructure-as-code](/devops/deliver/what-is-infrastructure-as-code) can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.
   
 - [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps in Azure](devsecops-in-azure.yml).
   

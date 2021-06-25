@@ -1,16 +1,13 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-
-
-## Overview
-
-This gaming solution architecture elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. This specific scenario is based on a gaming scenario, but the design patterns are relevant for many industries requiring the process high-traffic web calls and API requests such as e-commerce and retail applications.
+This gaming solution idea elastically scales your database to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences on a global scale. This specific scenario is based on a gaming scenario, but the design patterns are relevant for many industries that are required to process high-traffic web calls and API requests, such as e-commerce and retail applications.
 
 ## Architecture
 
 ![Architecture Diagram](../media/gaming-using-cosmos-db.png)
 *Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions or Containers and APIs published via Azure API Gateway. 
 2. Azure CDN serves static images and game content to the user that are stored in Azure Blob Storage.
 3. Azure Cosmos DB stores user's game state data.
@@ -43,3 +40,20 @@ This architecture includes the following components:
 - [Azure Functions](https://azure.microsoft.com/services/functions/) are serverless compute options that allow applications to run on-demand without having to manage infrastructure.
 
 - [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/#overview) is a massively scalable push notification engine for quickly sending notifications to variety of mobile devices and platforms.
+
+## Next steps
+
+Review the following articles on Cosmos DB:
+
+- [Common Azure Cosmos DB Use Cases](/azure/cosmos-db/use-cases) 
+- [Change feed in Azure Cosmos DB](/azure/cosmos-db/change-feed)
+- [Time to Live (TTL) in Azure Cosmos DB](/azure/cosmos-db/time-to-live)
+- [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
+- [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units)
+- [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partition-data)
+
+The following solution ideas feature Azure Cosmos DB:
+
+* [Globally distributed applications using Cosmos DB](./globally-distributed-mission-critical-applications-using-cosmos-db.yml)
+* [Retail and e-commerce using Cosmos DB](./retail-and-e-commerce-using-cosmos-db.yml)
+* [Serverless apps using Cosmos DB](./serverless-apps-using-cosmos-db.yml)

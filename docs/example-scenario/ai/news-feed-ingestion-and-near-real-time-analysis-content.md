@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore newsfeeds njray Redlock -->
 
 
@@ -108,9 +107,9 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 
 ## Next steps
 
-* [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-* [Choosing a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
-* [Choosing a big data storage technology in Azure](/azure/architecture/data-guide/technology-choices/data-storage)
+* [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+* [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
+* [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
 * [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 * [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 * [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
@@ -119,12 +118,12 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 
 Additional analytics architectures:
 
-* [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
-* [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
-* [Data warehousing and analytics](/azure/architecture/example-scenario/data/data-warehouse)
-* [Mass ingestion and analysis of news feeds on Azure](/azure/architecture/example-scenario/ai/newsfeed-ingestion)
-* [Stream processing with Azure Databricks](/azure/architecture/reference-architectures/data/stream-processing-databricks)
-* [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)
+* [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)
+* [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
+* [Data warehousing and analytics](../data/data-warehouse.yml)
+* [Mass ingestion and analysis of news feeds on Azure](./news-feed-ingestion-and-near-real-time-analysis.yml)
+* [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
+* [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 
 
 [architecture]: ./media/mass-ingestion-newsfeeds-architecture.png
