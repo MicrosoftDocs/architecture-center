@@ -156,7 +156,7 @@ A key part of legacy migrations and transformations to Azure is consideration fo
 | | |
 |-|-|
 |Modernize mainframe & midrange data [![Modernize mainframe & midrange data](images/data_modernize_mainframe_data.png)](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)|Replicate and sync mainframe data in Azure [![Replicate and sync mainframe data in Azure](images/data_sync_mainframe_data.png)](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)|
-|Mainframe access to Azure databases [![Mainframe access to Azure databases](images/data_mainframe_access.png)](/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases)|Mainframe file replication and sync on Azure [![Mainframe file replication and sync on Azure](images/data_mainframe_file_replication.png)](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)|
+|Mainframe access to Azure databases [![Mainframe access to Azure databases](images/data_mainframe_access.png)](/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases)|Mainframe file replication and sync on Azure [![Mainframe file replication and sync on Azure](images/data_mainframe_file_replication.png)](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)|
 
 ## Next steps
 
