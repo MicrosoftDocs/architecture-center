@@ -1596,14 +1596,14 @@ items:
                 items:
                   - name: Analyze and optimize loop
                     href: example-scenario/iot/analyze-optimize-loop.yml
-                  - name: Real-time IoT updates
-                    href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
                   - name: Event routing
                     href: example-scenario/iot/event-routing.yml
                   - name: Measure and control loop
                     href: example-scenario/iot/measure-control-loop.yml
                   - name: Monitor and manage loop
                     href: example-scenario/iot/monitor-manage-loop.yml
+                  - name: Real-time IoT updates
+                    href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
                   - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
               - name: Choosing an Internet of Things (IoT) solution in Azure
