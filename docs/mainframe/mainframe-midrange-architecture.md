@@ -95,18 +95,21 @@ Midrange data is stored and organized in variety of ways, from relational and hi
 
 Consider the following details about endianness:
 
-- RISC and x86 processors differ in endianness, a term used to describe how a system stores bytes in computer memory.  
+- RISC and x86 processors differ in _endianness_, a term used to describe how a system stores bytes in computer memory.  
 - RISC-based computers are known as big endian systems, because they store the most significant (“big”) value first—that is, in the lowest storage address.  
-- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant (“little”) value) first.
+- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant (“little”) value) first. 
+
+The following figure visually shows you the difference between big endian and little endian.
 
 ![Endianness Explained](img/endian.png "Endianness explained")
 
 ## High-level architectural types
 
 ### Rehost
+
 Often referred to as a lift-and-shift migration, this option doesn't require code changes. You can use it to quickly migrate your existing applications to Azure. Each application is migrated as is, to reap the benefits of the cloud (without the risk and cost that are associated with code changes).
 
-#### Rehost Architectures
+#### Rehost architectures
 
 | | |
 |-|-|
@@ -116,10 +119,99 @@ Often referred to as a lift-and-shift migration, this option doesn't require cod
 
 Refactoring requires minimal changes to applications. This often enables the application architecture to leverage Azure platform as a service (PaaS) and to leverage additional cloud offerings. For example, you could migrate compute components of existing applications to Azure App Service or to Azure Kubernetes Service (AKS).  You could also refactor relational and nonrelational databases into various options, such as Azure SQL Managed Instance, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Cosmos DB.
 
-#### Refactor Architectures
+#### Refactor architectures
 
 | | |
 |-|-|
 |IBM z/OS mainframe migration with Asysco AMT [![IBM z/OS mainframe migration with Asysco AMT](img/refactor_asysco_zos.png)](/azure/architecture/example-scenario/mainframe/asysco-zos-migration)|Micro Focus Enterprise Server on Azure VMs [![Micro Focus Enterprise Server on Azure VMs](img/refactor_microfocus_zos.png)](/azure/architecture/example-scenario/mainframe/micro-focus-server)|
 |Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure [![Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](img/refactor_zos_cf.png)](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)|Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus [![Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](img/refactor_astadia_unisys.png)](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)|
 |Unisys mainframe migration with Asysco [![Unisys mainframe migration with Asysco](img/refactor_asysco_unisys.png)](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)|IBM System i to Azure using Infinite i [![IBM System i to Azure using Infinite i](img/refactor_infinite_i.png)](/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i)|
+
+### Re-engineer
+
+Re-engineering for migration focuses on modifying and extending application functionality and the code base to optimize the application architecture for cloud scalability.  For example, you could break down a monolithic application into a group of microservices that work together and scale easily.  You could also rearchitect relational and nonrelational databases to a fully managed database solution, such as SQL Managed Instance, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Cosmos DB.
+
+#### Re-engineer architectures
+
+| | |
+|-|-|
+|High-volume batch transaction processing [![High-volume batch transaction processing](img/reeng_batch_transactions.png)](/azure/architecture/example-scenario/mainframe/process-batch-transactions)|Integrate IBM mainframe and midrange message queues with Azure [![Integrate IBM mainframe and midrange message queues with Azure](img/reeng_ibm_mq.png)](/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure)|
+
+### Dedicated hardware
+
+Another pattern for migrations into Azure (for legacy systems) is what is known as _dedicated hardware_. This pattern is where legacy hardware (such as IBM Power Systems) runs inside the Azure datacenter, with an Azure managed-service wrapping around the hardware, which enables easy cloud management and automation. Further, this hardware is available to connect to and use with other Azure IaaS and PaaS services.
+
+#### Dedicated hardware architectures
+
+| | |
+|-|-|
+|Migrate AIX workloads to Skytap on Azure [![Migrate AIX workloads to Skytap on Azure](img/dh_skytap_aix.png)](/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-skytap)|Migrate IBM i series applications to Skytap on Azure [![Migrate IBM i series applications to Skytap on Azure](img/dh_skytap_as400.png)](/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-applications)|
+
+### Data movement and migration
+
+A key part of legacy migrations and transformations to Azure is consideration for data. This can include not only data movement, but also data replication and synchronization.
+
+### Data movement and migration architectures
+
+| | |
+|-|-|
+|Modernize mainframe & midrange data [![Modernize mainframe & midrange data](img/data_modernize_mainframe_data.png)](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)|Replicate and sync mainframe data in Azure [![Replicate and sync mainframe data in Azure](img/data_sync_mainframe_data.png)](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)|
+|Mainframe access to Azure databases [![Mainframe access to Azure databases](img/data_mainframe_access.png)](/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases)|Mainframe file replication and sync on Azure [![Mainframe file replication and sync on Azure](img/data_mainframe_file_replication.png)](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)|
+
+## Next steps
+
+- For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
+- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+## Related resources
+
+The white papers, blogs, webinars, and other resources are available to help you on your journey, to understand the pathways to migrate legacy systems into Azure:
+
+### Whitepapers
+
+- [Stromasys Charon-SSP Solaris Emulator: Azure Setup Guide](https://azure.microsoft.com/resources/stromasys-charon-ssp-solaris-emulator-azure-setup-guide)
+- [Stromasys legacy server emulation on Azure: Running applications designed for SPARC, Alpha, VAX, PDP-11, and HP 3000](https://azure.microsoft.com/resources/stromasys-legacy-server-emulation-on-azure-running-applications-designed-for-sparc-alpha-vax-pdp-11-and-hp-3000)
+- [Deploy Db2 pureScale on Azure (Whitepaper)](https://azure.microsoft.com/en-us/resources/stromasys-legacy-server-emulation-on-azure-running-applications-designed-for-sparc-alpha-vax-pdp-11-and-hp-3000)
+- [Install IBM DB2 pureScale on Azure (Azure Docs)](/azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json)
+- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration)
+- [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications)
+- [Set up Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 in Azure](https://techcommunity.microsoft.com/t5/azure-global/set-up-micro-focus-enterprise-server-4-0-and-enterprise/ba-p/306502)
+- [Set up IBM Z Development and Test Environment 12.0 in Azure](https://techcommunity.microsoft.com/t5/azure-global/set-up-ibm-z-development-and-test-environment-12-0-in-azure/ba-p/306506)
+- [Move mainframe compute and storage to Azure](https://azure.microsoft.com/resources/move-mainframe-compute-and-storage-to-azure)
+- [E-Book: Install TmaxSoft OpenFrame on Azure](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure)
+
+### Webinars
+
+- [Angelbeat - Retail Industry Legacy Webinar](https://youtu.be/UXgcz94d_1s)
+- [Mainframe Transformation to Azure](https://www.youtube.com/watch?v=30um4RI1c_M&list=PLW5Fjy7MTRY74fcCN5Z4S9VvgFuQZunf5&index=2)
+- [Mainframe Transformation: Azure is the New Mainframe](https://www.astadia.com/video/mainframe-transformation-azure-is-the-new-mainframe)
+- [ClearPath MCP Software Series For Azure](https://www.youtube.com/watch?v=TPe8fBCgQ7k&feature=youtu.be)
+- [Leverage the Power of Azure with Steve Read](https://www.astadia.com/podcast/leverage-the-power-of-azure-with-steve-read)
+- [Carahsoft - Monolithic Mainframe to Azure Gov Cloud The USAF Journey](https://www.carahsoft.com/learn/event/27813-Monolithic-Mainframe-to-Azure-Gov-Cloud--The-USAF-Journey)
+- [Carahsoft - Topics in Government Mainframe Transformation to Azure Gov Cloud](https://www.carahsoft.com/learn/event/27405-Topics-in-Government-Mainframe-Transformation-to-Azure-Gov-Cloud)
+- [Skytap on Azure Webinar](https://info.microsoft.com/ww-ondemand-migrate-traditional-workloads-with-skytap-on-azure.html)
+- [Bridge to Application Modernization: Virtualized SPARC/PA-RISK/DEC to Azure ](https://whitepapers.theregister.com/paper/view/11086/legacy-server-emulation-on-azure)
+- [Mainframe Modernization to Azure with Jonathon Frost and Jim Dugan](https://www.astadia.com/podcast/jonathan-frost-and-jim-dugan-principal-program-managers-at-microsoft)
+
+### Blog posts
+
+- [Running Micro Focus Enterprise Server 4.0 in a Docker Container in Azure](https://techcommunity.microsoft.com/t5/azure-global/running-micro-focus-enterprise-server-4-0-in-a-docker-container/ba-p/358622)
+- [Deploy Micro Focus Enterprise Server 4.0 to AKS](https://techcommunity.microsoft.com/t5/azure-global/deploy-micro-focus-enterprise-server-4-0-to-aks/ba-p/513042)
+- [Migrating iSeries (AS/400) Legacy Applications to Azure](https://techcommunity.microsoft.com/t5/azure-global/migrating-iseries-as-400-legacy-applications-to-azure/ba-p/874758)
+- [Migrating iSeries (AS/400) Legacy Applications to Azure with Infinite](https://techcommunity.microsoft.com/t5/azure-global/migrating-iseries-as-400-legacy-applications-to-azure-with/ba-p/874726)
+- [Migrating AIX Workloads to Azure: Approaches and Best Practices](https://techcommunity.microsoft.com/t5/azure-global/migrating-aix-workloads-to-azure-approaches-and-best-practices/ba-p/1085983)
+- [Using Containers for Mainframe Modernization](https://techcommunity.microsoft.com/t5/azure-global/using-containers-for-mainframe-modernization/ba-p/775841)
+- [Deploying NTT Data UniKix in Azure, Part 1 Deploying the VM](https://techcommunity.microsoft.com/t5/azure-global/deploying-ntt-data-unikix-in-azure-part-1-deploying-the-vm/ba-p/775840)
+- [MIPS Equivalent Sizing for IBM CICS Cobol Applications Migrated to Microsoft Azure](https://techcommunity.microsoft.com/t5/azure-global/mips-equivalent-sizing-for-ibm-cics-cobol-applications-migrated/ba-p/731665)
+- [Set up Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 in Azure](https://techcommunity.microsoft.com/t5/azure-global/set-up-micro-focus-enterprise-server-4-0-and-enterprise/ba-p/306502)
+- [Set up IBM Z Development and Test Environment 12.0 in Azure](https://techcommunity.microsoft.com/t5/azure-global/set-up-ibm-z-development-and-test-environment-12-0-in-azure/ba-p/306506)
+
+### Customer Stories
+Different industries are migrating from legacy mainframe and midrange systems in innovative and inspiring ways. Following are a number of customer case studies and success stories:
+
+- [Mainframe to Azure: A Real World Modernization Case Study (GEICO and AIS)](https://www.ais.com/mainframe-to-azure-a-real-world-modernization-case-study)
+- [Jefferson County, Alabama](https://www.jccal.org/Default.asp?ID=2096&pg=Mainframe%20Migration)
+- [Customer Technical Story: Actuarial Services Company - DEC Alpha to Azure using Stromasys](https://customers.microsoft.com/en-us/story/786886-legacy-alpha-application-gets-a-new-life-as-saas-on-microsoft-azure)
+- [TRASMEDITERRANEA ACCIONA: FULL STEAM AHEAD - Freight company moves to the cloud with Visual COBOL](https://www.microfocus.com/media/success-story/trasmediterranea-acciona_tcm6-210848.pdf)
+- [Astadia & USAF Complete Mission-Critical Mainframe-to-Cloud Migration | Business Wire](https://www.businesswire.com/news/home/20210504005086/en/Astadia-USAF-Complete-Mission-Critical-Mainframe-to-Cloud-Migration)
+- [United States Air Force | Case Study (astadia.com)](https://www.astadia.com/case-studies/united-states-air-force)
