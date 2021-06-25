@@ -1105,6 +1105,8 @@ items:
                 href: solution-ideas/articles/erp-customer-service.yml
               - name: Hybrid big data with HDInsight
                 href: solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml
+              - name: Ingestion, ETL, and stream processing pipelines with Azure Databricks
+                href: solution-ideas/articles/ingest-etl-stream-with-adb.yml  
               - name: Interactive analytics with Azure Data Explorer
                 href: solution-ideas/articles/interactive-azure-data-explorer.yml
               - name: Interactive price analytics
@@ -1506,6 +1508,8 @@ items:
                         href: serverless/code.md
                       - name: CI/CD for a serverless frontend
                         href: serverless/guide/serverless-app-cicd-best-practices.md
+                  - name: Monitoring serverless event processing
+                    href: serverless/guide/monitoring-serverless-event-processing.md
                   - name: Serverless Functions app operations
                     href: serverless-quest/functions-app-operations.md
                   - name: Serverless Functions app security
@@ -1522,8 +1526,14 @@ items:
                     href: reference-architectures/serverless/event-processing.yml     
               - name: Solution ideas
                 items:
+                  - name: Azure Kubernetes in event stream processing
+                    href: solution-ideas/articles/serverless-event-processing-aks.yml
                   - name: Big data analytics with Azure Data Explorer
                     href: solution-ideas/articles/big-data-azure-data-explorer.yml
+                  - name: De-batching and filtering in serverless event processing with Event Hubs
+                    href: solution-ideas/articles/serverless-event-processing-filtering.yml
+                  - name: Private link scenario in event stream processing
+                    href: solution-ideas/articles/serverless-event-processing-private-link.yml
                   - name: Serverless applications using Event Grid
                     href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
                   - name: Serverless computing LOB apps
@@ -1806,6 +1816,8 @@ items:
                     href: example-scenario/iot/measure-control-loop.yml
                   - name: Monitor and manage loop
                     href: example-scenario/iot/monitor-manage-loop.yml
+                  - name: Real-time IoT updates
+                    href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
                   - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
               - name: Choose an IoT solution
@@ -1854,6 +1866,8 @@ items:
                 href: solution-ideas/articles/iot-predictive-maintenance.yml
               - name: Process real-time vehicle data using IoT
                 href: example-scenario/data/realtime-analytics-vehicle-iot.yml
+              - name: Real-time asset tracking and management using IoT Central
+                href: solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml
               - name: Safe Buildings with IoT and Azure
                 href: solution-ideas/articles/safe-buildings.yml
               - name: Voice assistants and IoT devices
@@ -2065,6 +2079,8 @@ items:
             items:
               - name: Add IP spaces to peered virtual networks
                 href: networking/prefixes/add-ip-space-peered-vnet.md
+              - name: Azure Application Gateway guide
+                href: networking/guide/waf-application-gateway.md
               - name: Azure Firewall architecture guide
                 href: example-scenario/firewalls/index.yml
               - name: Virtual network peering and VPN gateways

@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Serverless event stream processing in a VNet with private endpoints
+  titleSuffix: Azure Solution Ideas
+  description: A serverless event-driven architecture in a VNet with private endpoints that ingests and processes a stream of data, then writes the results to a database.
+  author: rasavant-ms
+  ms.author: rasavant
+  ms.date: 06/25/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - analytics
+  - compute
+  - devops
+products:
+  - azure-private-link
+  - azure-event-hubs
+  - azure-functions
+  - azure-cosmos-db
+name: Serverless event stream processing in a VNet with private endpoints
+summary: A serverless event-driven architecture in a VNet with private endpoints that ingests and processes a stream of data, then writes the results to a database.
+thumbnailUrl: /azure/architecture/browse/thumbs/serverless-event-processing-private-link-card.png
+content: |
+  [!include[](serverless-event-processing-private-link-content.md)]
