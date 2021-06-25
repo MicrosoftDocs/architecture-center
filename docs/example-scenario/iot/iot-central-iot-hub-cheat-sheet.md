@@ -1,5 +1,5 @@
 ---
-title: Choosing an Internet of Things (IoT) solution in Azure
+title: Choose an Internet of Things (IoT) solution in Azure
 titleSuffix: Azure Architecture Center
 description: You can use this content to decide if you can use a managed solution based on Azure IoT Central, or if you should consider building a PaaS solution using Azure IoT Hub.
 author: EdPrice-MSFT
@@ -12,7 +12,7 @@ products:
   - azure-iot-hub
   - azure-iot-central
 ---
-# Choosing an Internet of Things (IoT) solution in Azure
+# Choose an Internet of Things (IoT) solution in Azure
 
 IoT solutions require a combination of technologies to effectively connect
 events, devices, and actions to cloud applications. In Azure, you have many
