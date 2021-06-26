@@ -1,10 +1,10 @@
-Enterprise operations must follow many regulatory requirements, data privacy regulations, and security standards. Security must follow the principle of least privilege access. Audits must track who changed what and when on all production systems.
+Enterprise companies' operations must follow many regulatory requirements, data privacy regulations, and security standards. Security must follow the principle of least privilege access. Audits must track who changed what and when on all production systems.
 
 Organizations that use Kubernetes to run their application workloads must follow these requirements when securing their clusters. Kubernetes isn't secure by default, but operators can use its features to make it secure.
 
 [GitOps](https://www.gitops.tech/) is an operational framework for Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation.
 
-Kubernetes describes everything from cluster state to application deployments declaratively with code. In GitOps, *infrastructure as code* declares the desired state of infrastructure components like virtual machines (VMs), networks, and firewalls as code. The code is version controlled and auditable.
+Kubernetes describes everything from cluster state to application deployments declaratively with code. In GitOps, [infrastructure as code (IaC)](https://wikipedia.org/wiki/Infrastructure_as_code) uses code to declare the desired state of infrastructure components like virtual machines (VMs), networks, and firewalls. This code is version controlled and auditable.
 
 GitOps for Kubernetes places the cluster infrastructure desired state under version control. A component within the cluster continuously syncs the code. Rather than having direct access to the cluster, most operations happen through code changes that can be reviewed and audited. This approach supports the security principle of least privilege access.
 
@@ -79,7 +79,7 @@ GitOps has many benefits, but as cluster landscapes grow, so does the number of 
 
 This solution provides several security-related benefits. With the GitOps approach, individual developers or administrators don't directly access the Kubernetes clusters to apply changes or updates. Instead, users push changes to a Git repository, and the GitOps operator, Flux in this case, reads them and applies them to the cluster. This approach follows the security best practice of least privilege by not giving DevOps teams write permissions to the Kubernetes API. In diagnostic or troubleshooting scenarios, you can grant cluster permissions for a limited time on a case-by-case basis.
 
-To make sure the AKS clusters are using security best practices, this solution enforces OPA policies with a validating admission webhook. Syncier Security Tower includes a set of policies based on Kubernetes security standards, which you can provision on a cluster scope. Syncier Security Tower provides early feedback via PR review for Kubernetes manifests that violate the policies.
+To make sure the AKS clusters are using security best practices, this solution enforces OPA policies with a validating admission webhook. Syncier Security Tower includes a set of policies based on Kubernetes security standards, which you can provision on a cluster scope. Syncier Security Tower provides early feedback via PR review if proposed Kubernetes manifests violate the policies.
 
 Apart from the task of setting up repository permissions, consider implementing the following security measures in Git repositories that sync to AKS clusters:
 
@@ -89,7 +89,7 @@ Apart from the task of setting up repository permissions, consider implementing 
 
 - **Immutable history:** Only allow new commits on top of existing changes. Immutable history is especially important for auditing purposes.
 
-- **Further security measures:** Require your GitHub users to activate two-factor authentication. Also, allow only signed commits, which can't be altered after the fact.
+- **Further security measures:** Require your GitHub users to activate [two-factor authentication](https://wikipedia.org/wiki/Multi-factor_authentication). Also, allow only signed commits, which can't be altered after the fact.
 
 ### Operations
 
@@ -112,9 +112,9 @@ Take the following steps to provision a GitOps setup for AKS:
 1. Run the following commands in a Bash shell. Set the variables `GITHUB_TOKEN`, `GITHUB_USER`, and `GITHUB_REPO` according to your environment.
    
    ```bash
-   export GITHUB_TOKEN="token"
-   export GITHUB_USER="user"
-   export GITHUB_REPO="repo"
+   export GITHUB_TOKEN="<your token>"
+   export GITHUB_USER="<your username>"
+   export GITHUB_REPO="<your repository>"
    
    flux bootstrap github \
       --owner=$GITHUB_USER \
