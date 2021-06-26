@@ -123,7 +123,7 @@ You don't have to sit at the extremes of these scales. Instead, you could consid
 - Use a combination of single-tenant and multitenant deployments. For example, you might have most of your customers' data and application tiers on multitenant infrastructure, but deploy single-tenant infrastructure for customers who require higher performance or data isolation.
 - Deploy multiple instances of your solution geographically and having each tenant pinned to a specific deployment. This is particularly effective when you have tenants in different geographies.
 
-**Benefits:** There are good reasons to consider vertical partitioning. Since you are still sharing infrastructure, you can still gain some of the cost benefits of having shared multitenant deployments. You can deploy cheaper, shared resources for certain customers, like those who are trialing your service, and even bill customers a higher rate to be on a single-tenant deployment, thereby recouping some of your costs.
+**Benefits:** Since you are still sharing infrastructure, you can still gain some of the cost benefits of having shared multitenant deployments. You can deploy cheaper, shared resources for certain customers, like those who are trialing your service, and even bill customers a higher rate to be on a single-tenant deployment, thereby recouping some of your costs.
 
 **Risks:** Your codebase will likely need to be designed to support both multitenant and single-tenant deployments, and if you plan to allow migration between infrastructure, you need to consider how you migrate customers from a multitenant deployment to their own single-tenant deployment.
 
