@@ -71,7 +71,7 @@ One of the biggest considerations when designing a multitenant architecture is t
 - Sharing some common resources, while keeping other resources separate for each tenant.
 - Keeping data on separate physical infrastructure. In the cloud, this might require separate Azure resources for each tenant, or it could even mean literally deploying separate physical infrastructure using [dedicated hosts](/azure/virtual-machines/dedicated-hosts).
 
-Rather than thinking of isolation as being a discrete property, you should think about isolation as being a continuum. You can deploy systems that are more or less isolated depending on your requirements.
+Rather than thinking of isolation as being a discrete property, you should think about isolation as being a continuum. You can deploy components of your architecture that are more or less isolated than other components in the same architecture depending on your requirements.
 
 The level of isolation impacts many aspects of your architecture, including:
 
