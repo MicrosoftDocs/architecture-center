@@ -39,7 +39,7 @@ Your definition of _tenant_ will impact some of the things you need to consider 
 
 ## How do you decide which model to use?
 
-Selecting a tenancy model isn't just a technical decision - it's also a commercial decision that you need to make. You need to consider the following questions?
+Selecting a tenancy model isn't just a technical decision - it's also a commercial decision that you need to make. You need to consider questions like the following.
 
 - What are your business objectives?
 - Will your customers accept all forms of multitenancy? How would each multitenancy model impact your, or their, compliance requirements?
