@@ -42,6 +42,7 @@ When onboarding a new tenant, consider the following:
 - Does the customer have any specific disaster recovery requirements, such as a recovery time objective (RTO) or a recovery point objective (RPO)? Are these different from the guarantees you provide to other customers?
 - What information do you require to be able to fully onboard the customer?
 - Does the platform provides different pricing options and billing models?
+- Does the customer require pre-production environments? And are there set expectations on availability for that environment? Is it transient (on-demand) or always available?
 
 Once a tenant has been onboarded, they move into a 'business as usual' mode. However, there are still several important lifecycle events that can occur even when they are in this mode.
 
