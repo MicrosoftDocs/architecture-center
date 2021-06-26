@@ -26,7 +26,7 @@ The chief benefit of this approach is a fairly rapid move to Azure compared to o
 [![Diagram of the prior on-premises mainframe architecture after it has been virtualized and migrated to Azure. For a detailed explanation of both architectures, consult the accompanying article text.](./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration-inline.png)](./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration-expanded.png#lightbox)
 *Download an [SVG of this postmigration diagram](./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration.svg).*
 
-### Architectural annotations
+### Workflow
 
 The legend matches both diagrams to highlight the similarities between the original and migrated state of the system.
 
@@ -80,13 +80,13 @@ To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPat
 
 For more information, please contact **legacy2azure@microsoft.com**, or check out the following resources:
 
-- [Azure Mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe/)
+- [Azure Mainframe and midrange migration](https://azure.microsoft.com/migration/mainframe)
 - [Mainframe rehosting on Azure virtual machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Unisys CloudForte for Azure in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/unisys-azuremp-stealth.cloudforte_for_azure?tab=Overview)
 - [Unisys Cloud Migration Services](https://www.unisys.com/offerings/cloud-services/cloud-migration)
-- [Unisys Stealth](https://stealthsecurity.unisys.com/)
+- [Unisys Stealth](https://stealthsecurity.unisys.com)
 - [Unisys Documentation Libraries](https://www.unisys.com/about-us/support/documentation-libraries)
-- [Azure Virtual Network documentation](/azure/virtual-network/)
+- [Azure Virtual Network documentation](/azure/virtual-network)
 - [Manage Azure Virtual Network interface cards](/azure/virtual-network/virtual-network-network-interface)
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
 - [What is Azure Files?](/azure/storage/files/storage-files-introduction)
@@ -95,7 +95,7 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 ## Related resources
 
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
-- [Azure Database Migration Guides](https://datamigration.microsoft.com/)
+- [Azure Database Migration Guides](https://datamigration.microsoft.com)
 - [Unisys mainframe migration to Azure using Asysco](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)
 - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
 - [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
