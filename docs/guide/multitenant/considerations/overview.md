@@ -25,8 +25,8 @@ When you're considering a multitenant architecture, there are a number of decisi
 
 In a multitenant architecture, you share some or all of your resources between tenants. This means that a multitenant architecture can give you cost and operational efficiency. However, multitenancy introduces complexities, including the following:
 
-- How do you define what a _tenant_ is, for your specific solution? Does a tenant correspond to a customer, a user, or another construct, like a family or a team?
-- Which tenancy model will you use, and how much isolation will you have between tenants?
+- How do you define what a _tenant_ is, for your specific solution? Does a tenant correspond to a customer, a user, or a group of users like a team?
+- How will you deploy your infrastructure to support multitenancy, and how much isolation will you have between tenants?
 - What commercial pricing models will your solution offer, and how will your pricing models affect your multitenancy requirements?
 - What level of service do you need to provide to your tenants? Consider performance, resiliency, security, and compliance requirements, like data residency.
 - How do you plan to grow your business or solution, and will it scale to the number of tenants you expect?
