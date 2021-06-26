@@ -36,7 +36,7 @@ This solution follows a strong GitOps approach.
    - Manages Gatekeeper and the applications.
    - Updates itself.
    
-1. **Open Policy Agent (OPA) Gatekeeper** enforces policies. Gatekeeper validates cluster configuration changes against provisioned policies, and applies the changes only if they comply with policies.
+1. **Open Policy Agent (OPA) Gatekeeper** enforces policies with a validating admission webhook. Gatekeeper validates cluster configuration changes against provisioned policies, and applies the changes only if they comply with policies.
    
 1. **Syncier Security Tower** is a GitOps control kit that provides an overview of all AKS clusters and helps manage policies. Syncier Security Tower:
    
@@ -97,7 +97,7 @@ GitOps can increase DevOps productivity. One of the most useful features is the 
 
 GitOps teams often manage multiple environments for the same application. It's typical to have several stages of an application deployed to different Kubernetes clusters or namespaces. The Git repository, which is the single source of truth, shows which versions of applications are currently deployed to a cluster.
 
-Tools like Syncier Security Tower can extract this information from the repository and display it in a user-friendly way. Syncier Security Tower provides an overview that shows which container images and versions are deployed in each environment.
+Syncier Security Tower extracts this information from the repository and displays it in a user-friendly way. An overview shows which container images and versions are deployed in each environment.
 
 DevOps teams can use advanced Syncier Security Tower features to get insights into who changed what and when in an application, or browse and filter based on factors like change type or resource kind. Syncier Security Tower provides a control center to activate policies and compare compliance state over different clusters.
 
