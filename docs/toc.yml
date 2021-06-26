@@ -945,6 +945,8 @@ items:
                 href: reference-architectures/ai/batch-scoring-databricks.yml
               - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
+              - name: Computer vision on the edge
+                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
               - name: Distributed deep learning training
