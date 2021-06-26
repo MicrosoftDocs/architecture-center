@@ -77,7 +77,7 @@ The level of isolation impacts many aspects of your architecture, including:
 
 - **Security.** If you share infrastructure between multiple tenants, you need to be especially careful not to access data from one tenant when returning responses to another. You need a strong foundation for your identity strategy, and you need to consider both tenant and user identity within your authorization process.
 - **Cost.** Shared infrastructure can be used by multiple tenants, so it's cheaper.
-- **Performance.:** If you're sharing infrastructure, your system's performance may suffer as more customers use it, since the resources may be consumed faster
+- **Performance.:** If you're sharing infrastructure, your system's performance may suffer as more customers use it, since the resources may be consumed faster.
 - **Reliability.** If you're using a single set of shared infrastructure, can a problem with one tenant's components result in an outage for everyone?
 
 Your solution architecture can influence the options you've got available to you for isolation. For example, let's think about an example three-tier solution architecture:
