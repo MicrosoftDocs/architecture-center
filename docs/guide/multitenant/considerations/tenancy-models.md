@@ -39,7 +39,7 @@ Your definition of _tenant_ will impact some of the things you need to consider 
 
 ## How do you decide which model to use?
 
-Selecting a tenancy model isn't just a technical decision - it's also a commercial decision that you need to make. You need to consider the following questions?
+Selecting a tenancy model isn't just a technical decision - it's also a commercial decision that you need to make. You need to consider questions like the following.
 
 - What are your business objectives?
 - Will your customers accept all forms of multitenancy? How would each multitenancy model impact your, or their, compliance requirements?
@@ -71,13 +71,13 @@ One of the biggest considerations when designing a multitenant architecture is t
 - Sharing some common resources, while keeping other resources separate for each tenant.
 - Keeping data on separate physical infrastructure. In the cloud, this might require separate Azure resources for each tenant, or it could even mean literally deploying separate physical infrastructure using [dedicated hosts](/azure/virtual-machines/dedicated-hosts).
 
-Rather than thinking of isolation as being a discrete property, you should think about isolation as being a continuum. You can deploy systems that are more or less isolated depending on your requirements.
+Rather than thinking of isolation as being a discrete property, you should think about isolation as being a continuum. You can deploy components of your architecture that are more or less isolated than other components in the same architecture depending on your requirements.
 
 The level of isolation impacts many aspects of your architecture, including:
 
 - **Security.** If you share infrastructure between multiple tenants, you need to be especially careful not to access data from one tenant when returning responses to another. You need a strong foundation for your identity strategy, and you need to consider both tenant and user identity within your authorization process.
 - **Cost.** Shared infrastructure can be used by multiple tenants, so it's cheaper.
-- **Performance.:** If you're sharing infrastructure, your system's performance may suffer as more customers use it, since the resources may be consumed faster
+- **Performance.:** If you're sharing infrastructure, your system's performance may suffer as more customers use it, since the resources may be consumed faster.
 - **Reliability.** If you're using a single set of shared infrastructure, can a problem with one tenant's components result in an outage for everyone?
 - **Responsiveness to individual tenants' needs.** When you deploy infrastructure that is dedicated to one tenant, you may be able to tune the configuration for the resources for that specific tenant's requirements. You might even consider this in your pricing model, and enable customers to pay more for isolated deployments.
 
@@ -111,7 +111,7 @@ At the opposite extreme, you can consider a fully multitenant deployment, where 
 
 - Take care to ensure you separate data for each tenant, and not to leak data between tenants. You may need to manage sharding your data yourself. Additionally, you may need to be concerned about the effects that individual tenants can have on the overall system. For example, if a single large tenant tries to perform a heavy query or operation, will it affect other tenants?
 
-- There are other considerations when considering a fully multitenanted deployment. Determine how you [track and associate your Azure costs to tenants](measure-consumption.md), if this is important to you. And while maintenance can be simpler with a single deployment since you only have to update one set of resources, it's also often riskier, since any changes may affect your entire customer base.
+- Determine how you [track and associate your Azure costs to tenants](measure-consumption.md), if this is important to you. And while maintenance can be simpler with a single deployment since you only have to update one set of resources, it's also often riskier, since any changes may affect your entire customer base.
 
 - Scale can be a factor to consider as well. You are more likely to reach [Azure resource scale limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) when you have a shared set of infrastructure. For example, if you use a storage account as part of your solution, then as your scale increases the number of requests to that storage account could reach the limit of what the storage account can handle. To avoid hitting a resource quota limit, you might consider deploying multiple instances of your resources (for example, multiple AKS clusters or storage accounts), or even distributing your tenants across resources deployed into multiple Azure subscriptions.
 
@@ -124,7 +124,7 @@ You don't have to sit at the extremes of these scales. Instead, you could consid
 - Use a combination of single-tenant and multitenant deployments. For example, you might have most of your customers' data and application tiers on multitenant infrastructure, but deploy single-tenant infrastructure for customers who require higher performance or data isolation.
 - Deploy multiple instances of your solution geographically and having each tenant pinned to a specific deployment. This is particularly effective when you have tenants in different geographies.
 
-**Benefits:** There are good reasons to consider vertical partitioning. Since you are still sharing infrastructure, you can still gain some of the cost benefits of having shared multitenant deployments. You can deploy cheaper, shared resources for certain customers, like those who are trialing your service, and even bill customers a higher rate to be on a single-tenant deployment, thereby recouping some of your costs.
+**Benefits:** Since you are still sharing infrastructure, you can still gain some of the cost benefits of having shared multitenant deployments. You can deploy cheaper, shared resources for certain customers, like those who are trialing your service, and even bill customers a higher rate to be on a single-tenant deployment, thereby recouping some of your costs.
 
 **Risks:** Your codebase will likely need to be designed to support both multitenant and single-tenant deployments, and if you plan to allow migration between infrastructure, you need to consider how you migrate customers from a multitenant deployment to their own single-tenant deployment. You also need to have a clear understanding of which of your logical tenants are on which sets of physical infrastructure, so that you can communicate information about system issues or upgrades to the relevant customers.
 
