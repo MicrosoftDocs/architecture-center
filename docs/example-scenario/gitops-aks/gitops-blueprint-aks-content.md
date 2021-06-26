@@ -1,6 +1,6 @@
-Enterprise companies' operations must follow many regulatory requirements, data privacy regulations, and security standards. Security must follow the principle of least privilege access. Audits must track who changed what and when on all production systems.
+Enterprise companies' operations must follow many regulatory requirements, data privacy regulations, and security standards. Security should follow the principle of least privilege access. Audits need to track who changed what and when on all production systems.
 
-Organizations that use Kubernetes to run their application workloads must follow these requirements when securing their clusters. Kubernetes isn't secure by default, but operators can use its features to make it secure.
+Organizations that use Kubernetes to run their application workloads have to follow these requirements when securing their clusters. Kubernetes isn't secure by default, but operators can use its features to make it secure.
 
 [GitOps](https://www.gitops.tech/) is an operational framework for Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation.
 
