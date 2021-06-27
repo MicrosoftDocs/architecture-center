@@ -1898,6 +1898,8 @@ items:
                     href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml  
                   - name: Refactor IBM z/OS mainframe CF on Azure
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+                  - name: Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization
+                    href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
                   - name: Unisys Dorado mainframe migration with Astadia & Micro Focus
                     href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
                   - name: Unisys mainframe migration with Asysco
