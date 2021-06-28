@@ -18,12 +18,12 @@ The chief benefit of this approach is a fairly rapid move to Azure compared to o
 
 **Example source (premigration) architecture.** The architecture below illustrates a typical, on-premises Unisys ClearPath Forward Libra (legacy Burroughs A Series/MCP) mainframe.
 
-[![Diagram of a typical on-premises mainframe architecture with Unisys ClearPath Forward Libra (legacy Burroughs A Series/MCP). This architecture is shown as migrated to Azure in the next accompanying diagram. For a detailed explanation of both architectures, consult the accompanying article text.](./media/unisys-clearpath-forward-mainframe-rehost-diagram-premigration-inline.png)](./media/unisys-clearpath-forward-mainframe-rehost-diagram-premigration-expanded.png#lightbox)
+[![Diagram of a typical on-premises mainframe architecture with Unisys ClearPath Forward Libra. For details, consult the accompanying article text.](./media/unisys-clearpath-forward-mainframe-rehost-diagram-premigration-inline.png)](./media/unisys-clearpath-forward-mainframe-rehost-diagram-premigration-expanded.png#lightbox)
 *Download an [SVG of this premigration diagram](./media/unisys-clearpath-forward-mainframe-rehost-diagram-premigration.svg).*
 
 **Example Azure (postmigration) architecture.** The architecture below illustrates an example utilizing virtualization technologies from Microsoft partner Unisys with respect to the legacy Unisys CPF Libra mainframe.
 
-[![Diagram of the prior on-premises mainframe architecture after it has been virtualized and migrated to Azure. For a detailed explanation of both architectures, consult the accompanying article text.](./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration-inline.png)](./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration-expanded.png#lightbox)
+[![Diagram of the prior mainframe architecture after being virtualized in Azure. For details, consult the accompanying article text.](./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration-inline.png)](./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration-expanded.png#lightbox)
 *Download an [SVG of this postmigration diagram](./media/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration.svg).*
 
 ### Workflow
