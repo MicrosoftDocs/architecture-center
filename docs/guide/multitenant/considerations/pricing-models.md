@@ -143,6 +143,24 @@ The following diagram illustrates these pricing patterns.
 
 ![Diagram showing the different discount pricing that can be applied to a price model.](media/pricing-models/discount-pricing.png)
 
+## Non-production environment discounts
+
+In many cases customers require access to a non-production environment that they can use for testing, training or creating their own internal documentation. These environments usually have lower consumption requirements and costs to operate. For example, an SLA might not be provided and [rate limits](#rate-limits) might be set at lower values. You might also consider much more aggressive [autoscaling](https://docs.microsoft.com/en-us/azure/architecture/framework/cost/optimize-autoscale) on your Azure services.
+
+There are several methods that are appropriate for providing non-production environments:
+
+- By using existing [freemium tier](#freemium-pricing). This should be carefully monitored as some organizations may create many testing and training environments which will consume additional resources to operate.
+- Offer a testing/training tier with lower [usage limits](#usage-limits). You may choose to limit this tier only to customers who have an existing paid tenant.
+- Offer a discounted [per-user](#per-user-pricing), [per-active user](#per-active-user-pricing) or [per-unit](#per-unit-pricing) pricing with a lower or no service level agreement.
+
+> [!WARNING]
+> Time-limited trial freemium tiers aren't usually suitable for testing and training environments because they usually need to be available for the life-time of the production service.
+
+- For tenants using [flat-rate pricing](#flat-rate-pricing), non-production environments might be negotiated as part of the agreement.
+
+> [!NOTE]
+> Feature based pricing is not usually a good option for non-production environments unless the features offered are the same as what the production environment offers. This is because tenants will usually want to test and provide training on all features available to them in production.
+
 ## Unprofitable pricing models
 
 An unprofitable pricing model is one where it costs you more to deliver the service than the revenue you earn. For example, you might charge a flat rate per tenant without any limits for your service, but then build your service with consumption-based Azure resources and without per tenant [usage limits](#usage-limits). In this situation, you may be at risk of your tenants overusing your service and making it unprofitable to serve them.
