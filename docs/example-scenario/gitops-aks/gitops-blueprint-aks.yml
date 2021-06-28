@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: See a GitOps blueprint for an Azure Kubernetes Services (AKS) cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.
   author: EdPrice-MSFT
-  ms.author: pnp
+  ms.author: makor
   ms.date: 06/25/2021
   ms.topic: conceptual
   ms.service: architecture-center
