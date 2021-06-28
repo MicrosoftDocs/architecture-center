@@ -28,6 +28,7 @@ One of the benefits of cloud technology is continuous improvement and evolution.
 Consider the following questions:
 
 - Do your customers have expectations or requirements about when they can be updated? These might be formally communicated to you in contracts or service-level agreements, or they may be informal.
+- Do your customers expect service-defined or even self-defined maintenance windows? They might need to communicate to their own customers about any potential outages.
 - Do your customers have any regulatory concerns that require additional approval before updates can be applied? For example, if you provide a health solutions with IoT components, you may need to get approval from the United States Food and Drug Administration (FDA) before any applying an update.
 - Are any of your customers particularly sensitive or resistant to having updates applied? Try to understand why. For example, if they run a physical store or a retail website, they may want to avoid updates around Black Friday as the risks are higher than potential benefits.
 - What's your track record of successfully completing updates without any impact to your customers? You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure you quickly identify any issues that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
@@ -43,7 +44,7 @@ You also need to consider the following questions from your own perspective:
 - Can your deployment strategy support rollbacks to previous versions? Is this something you want to enable?
 
 > [!NOTE]
-> Consider whether you need to take your solution offline for updates or maintenance. Generally, outage windows are seen as an outdated practice, and modern DevOps practices and cloud technologies enable you to avoid downtime during updates and maintenance. You need to design for this, so it's important to consider your update process when you're designing your solution architecture. For more information on achieving zero-downtime deployments, see [Achieving no downtime through versioned service updates](/devops/operate/achieving-no-downtime-versioned-service-updates).
+> Consider whether you need to take your solution offline for updates or maintenance. Generally, outage windows are seen as an outdated practice, and modern DevOps practices and cloud technologies enable you to avoid downtime during updates and maintenance. You need to design for this, so it's important to consider your update process when you're designing your solution architecture. Note that even if you don't plan for outages, you may still consider defining a regular maintenance window so that your customers understand that changes happen during specific times. For more information on achieving zero-downtime deployments, see [Achieving no downtime through versioned service updates](/devops/operate/achieving-no-downtime-versioned-service-updates).
 
 ## Find a balance
 
@@ -68,8 +69,20 @@ Consider the following questions:
 
 - Will you notify customers of upcoming updates?
 - If you do, will you implicitly request permission by providing an opt-out process?
+- Do you have a scheduled maintenance window that you use when you apply updates?
 - What if you have an emergency update, like a critical security patch? Can you force updates in those situations?
 - If you can't proactively notify customer of upcoming updates, can you provide retrospective notifications? For example, can you update a page on your website with the list of updates you've applied?
+
+## Communicate with your customer support team
+
+It's important that your own support team has full visibility into updates that have been applied to each tenant. Customer support representatives should be able to answer the following questions easily:
+
+- Have updates recently been applied to a tenant's infrastructure?
+- What was the nature of those updates?
+- What was the previous version?
+- How frequently are updates applied to this tenant?
+
+If one of your customers has a problem because of an update, you need to ensure your customer support team has the information necessary to understand what's changed.
 
 ## Deployment strategies to support updates
 
