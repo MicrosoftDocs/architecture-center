@@ -96,7 +96,7 @@ In many systems, the number of users isn't the element that has the greatest eff
 
 You may choose to offer your solution with different tiers of functionality at different price points. For example, you might provide two monthly flat-rate or per-unit prices, one being a basic offering with a subset of features available, and the other presenting the comprehensive set of your solution's features.
 
-This model may also offer different service level agreements for different tiers. For example, your basic tier may offer 99.9% uptime whereas a premium tier may offer 99.99%. The higher SLA could be implemented by using services and features that enable higher [availability targets](../../../framework/resiliency/business-metrics.md#workload-availability-targets).
+This model may also offer different service level agreements for different tiers. For example, your basic tier may offer 99.9% uptime whereas a premium tier may offer 99.99%. The higher service level agreement (SLA) could be implemented by using services and features that enable higher [availability targets](../../../framework/resiliency/business-metrics.md#workload-availability-targets).
 
 Although this model can be very commercially beneficial, it does require mature engineering practices to do well. With careful consideration this model can be very effective.
 
@@ -108,7 +108,7 @@ Although this model can be very commercially beneficial, it does require mature 
 
 ### Freemium pricing
 
-You might choose to offer a free tier of your service, with basic functionality and no service level guaranteees. You then might offer a separate paid tier, with additional features and a formal service-level agreement (SLA). The free tier may also be offered as a time-limited trial, and during the trial your customers might have full or limited functionality available. This is referred to as a freemium model, which is effectively an extension of the [feature-based pricing model](#feature--and-service-level-based-pricing).
+You might choose to offer a free tier of your service, with basic functionality and no service level guaranteees. You then might offer a separate paid tier, with additional features and a formal service-level agreement. The free tier may also be offered as a time-limited trial, and during the trial your customers might have full or limited functionality available. This is referred to as a freemium model, which is effectively an extension of the [feature-based pricing model](#feature--and-service-level-based-pricing).
 
 **Benefits:** It's very easy to market a solution when it's free.
 
@@ -142,6 +142,22 @@ Common discount pricing patterns include:
 The following diagram illustrates these pricing patterns.
 
 ![Diagram showing the different discount pricing that can be applied to a price model.](media/pricing-models/discount-pricing.png)
+
+## Non-production environment discounts
+
+In many cases customers require access to a non-production environment that they can use for testing, training, or for creating their own internal documentation. Non-production environments usually have lower consumption requirements and costs to operate. For example, non-production environments often aren't subject to SLAs, and [rate limits](#rate-limits) might be set at lower values. You might also consider more aggressive [autoscaling](../../../framework/cost/optimize-autoscale.md) on your Azure services.
+
+Equally, customers often expect non-production environments to be significantly cheaper than their production environments. There are several alternatives that might be appropriate when you provide non-production environments:
+
+- Offer a [freemium tier](#freemium-pricing), like you might already do for paid customers. This should be carefully monitored as some organizations may create many testing and training environments, which will consume additional resources to operate.
+  > [!NOTE]
+  > Time-limited trials using freemium tiers aren't usually suitable for testing and training environments. Customers usually need their non-production environments to be available for the lifetime of the production service.
+- Offer a testing or training tier of your service, with [lower usage limits](#usage-limits). You may choose to restrict the availability of this tier to customers who have an existing paid tenant.
+- Offer a discounted [per-user](#per-user-pricing), [per-active user](#per-active-user-pricing) or [per-unit](#per-unit-pricing) pricing for non-production tenants, with a lower or no service level agreement.
+- For tenants using [flat-rate pricing](#flat-rate-pricing), non-production environments might be negotiated as part of the agreement.
+
+> [!NOTE]
+> Feature-based pricing is not usually a good option for non-production environments unless the features offered are the same as what the production environment offers. This is because tenants will usually want to test and provide training on all the same feature set that's available to them in production.
 
 ## Unprofitable pricing models
 
