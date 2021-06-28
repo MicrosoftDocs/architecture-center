@@ -62,7 +62,7 @@ Currently, the solution for scaling SDM is to scale up the virtual machines by a
 
 ### Security
 
-Access to Azure assets is managed via the Azure portal and/or ARM. Security for the SDM is managed using the Vault component of SDM. This migrates the security and permissions from RACF or Top Secret into an LDAP-based environment for management in Azure.
+Access to Azure assets is managed via the Azure portal and/or Azure Resource Manager. Security for the SDM is managed using the Vault component of SDM. This migrates the security and permissions from RACF or Top Secret into an LDAP-based environment for management in Azure.
 
 ## Pricing
 
