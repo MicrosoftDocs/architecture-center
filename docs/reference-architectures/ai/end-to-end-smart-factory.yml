@@ -13,6 +13,7 @@ metadata:
   ms.custom:
     - reference-architecture
     - ai-machine-learning
+    - fcp
 name: End-to-end manufacturing using computer vision on the edge
 azureCategories:
   - ai-machine-learning

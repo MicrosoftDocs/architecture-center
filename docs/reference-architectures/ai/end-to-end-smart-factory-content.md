@@ -338,7 +338,7 @@ Here are a few related GitHub resources you can use:
 -   This project shows you how to do [object detection on edge
     devices](https://github.com/liupeirong/MLOpsManufacturing/tree/main/samples/edge-object-detection)
     and route the detection results to the cloud! The repository includes
-    pipelines that fully automate the azure resource deployments as well as the
+    pipelines that fully automate the Azure resource deployments as well as the
     deployment of edge modules to do the object detection.
 
 -   [Azure Debugging Relay for
