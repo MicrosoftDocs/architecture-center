@@ -2,7 +2,7 @@ Enterprise companies' operations must follow many regulatory requirements, data 
 
 Organizations that use Kubernetes to run their application workloads have to follow these requirements when securing their clusters. Kubernetes isn't secure by default, but operators can use its features to make it secure.
 
-[GitOps](https://www.gitops.tech/) is an operational framework for Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation.
+[GitOps](https://www.gitops.tech) is an operational framework for Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation.
 
 Kubernetes describes everything from cluster state to application deployments declaratively with code. In GitOps, [infrastructure as code (IaC)](https://wikipedia.org/wiki/Infrastructure_as_code) uses code to declare the desired state of infrastructure components like virtual machines (VMs), networks, and firewalls. This code is version controlled and auditable.
 
@@ -45,11 +45,11 @@ This solution follows a strong GitOps approach.
    - Introduces risk acceptance whenever policies can't be applied for good reasons.
    - Provides security policies to OPA Gatekeeper.
 
-## Components
+### Components
 
 This solution uses the following components:
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/Kubernetes-service/) is a highly available, secure, and fully managed Kubernetes service in Azure. In AKS, Azure manages the Kubernetes API server, and cluster owners and operators access and manage the Kubernetes nodes and node pools.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/Kubernetes-service) is a highly available, secure, and fully managed Kubernetes service in Azure. In AKS, Azure manages the Kubernetes API server, and cluster owners and operators access and manage the Kubernetes nodes and node pools.
 
 - [GitHub](https://github.com) is a code hosting platform for version control and collaboration. GitHub offers Git distributed version control, source code management, and other features.
 
@@ -57,11 +57,11 @@ This solution uses the following components:
 
 - [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper) is a project that integrates the open-source OPA admission controller with Kubernetes. Kubernetes admission controllers enforce policies on objects during create, update, and delete operations, and are fundamental to Kubernetes policy enforcement.
 
-- [Syncier Security Tower](https://securitytower.syncier.com/) is a tool that Syncier developed and makes publicly available to help overcome GitOps security and compliance challenges. To help ensure that only trusted images run in the cluster, Syncier Security Tower comes with a set of best-practice policies that are grouped by well-known security standards.
+- [Syncier Security Tower](https://securitytower.syncier.com) is a tool that Syncier developed and makes publicly available to help overcome GitOps security and compliance challenges. To help ensure that only trusted images run in the cluster, Syncier Security Tower comes with a set of best-practice policies that are grouped by well-known security standards.
 
 ### Alternatives
 
-In this architecture, Flux is the GitOps operator that reconciles the cluster desired state in the Git repository with the deployed resources in the AKS cluster. An alternative to Flux is the open-source [Argo CD project](https://argoproj.github.io/argo-cd/), a declarative, GitOps continuous delivery tool for Kubernetes. Both Argo CD and Flux are widely used, and are listed as Cloud Native Computing Foundation (CNCF) incubation projects.
+In this architecture, Flux is the GitOps operator that reconciles the cluster desired state in the Git repository with the deployed resources in the AKS cluster. An alternative to Flux is the open-source [Argo CD project](https://argoproj.github.io/argo-cd), a declarative, GitOps continuous delivery tool for Kubernetes. Both Argo CD and Flux are widely used, and are listed as Cloud Native Computing Foundation (CNCF) incubation projects.
 
 ## Considerations
 
@@ -107,7 +107,7 @@ Take the following steps to provision a GitOps setup for AKS:
 
 1. Create an AKS cluster by following the [quickstart guide](/azure/aks/kubernetes-walkthrough) through **Connect to the cluster.** Stop before **Run the application**, and don't deploy anything in the cluster yet.
    
-1. Install the Flux CLI by following the Flux [installation instructions](https://fluxcd.io/docs/installation/).
+1. Install the Flux CLI by following the Flux [installation instructions](https://fluxcd.io/docs/installation).
    
 1. Run the following commands in a Bash shell. Set the variables `GITHUB_TOKEN`, `GITHUB_USER`, and `GITHUB_REPO` according to your environment.
    
@@ -166,18 +166,17 @@ You've now successfully provisioned a running GitOps setup. From here, you can:
 
 ## Pricing
 
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs.
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
-- AKS offers free cluster management. Costs are limited to the compute, storage, and networking resources AKS uses to host nodes. Refer to [Azure Virtual Machine](https://azure.microsoft.com/pricing/details/virtual-machines/) or [Azure Container Instances](https://azure.microsoft.com/pricing/details/container-instances/) pricing to review specific pricing details for each compute service.
+- AKS offers free cluster management. Costs are limited to the compute, storage, and networking resources AKS uses to host nodes. Refer to [Azure Virtual Machine](https://azure.microsoft.com/pricing/details/virtual-machines) or [Azure Container Instances](https://azure.microsoft.com/pricing/details/container-instances) pricing to review specific pricing details for each compute service.
 
 - GitHub offers a free service, but to use advanced security-related features like code owners or required reviewers, you need the **Team** plan. For more information, see the [GitHub pricing page](https://github.com/pricing).
 
 ## Next steps
 
-- [Guide To GitOps](https://www.weave.works/technologies/gitops/)
-- [Open Policy Agent](https://www.openpolicyagent.org/)
+- [Guide To GitOps](https://www.weave.works/technologies/gitops)
+- [Open Policy Agent](https://www.openpolicyagent.org)
 
 ## Related resources
 - [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
 - [Secure DevOps for AKS](/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes)
-
