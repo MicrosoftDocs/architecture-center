@@ -1830,6 +1830,8 @@ items:
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md      
           - name: Architectures
             items:
+              - name: Computer vision on the edge
+                href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: IoT reference architecture
                 href: reference-architectures/iot.yml
               - name: IoT and data analytics
