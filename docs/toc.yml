@@ -933,6 +933,8 @@ items:
                             href: data-science-process/predictive-maintenance-technical-guide.md
           - name: Architectures
             items:
+              - name: App modernization 
+                href: reference-architectures/app-modernization/raincode-reference-architecture.yml           
               - name: Baseball decision analysis with ML.NET and Blazor
                 href: data-guide/big-data/baseball-ml-workload.md
               - name: Batch scoring for deep learning
@@ -1820,6 +1822,8 @@ items:
                     href: example-scenario/iot/measure-control-loop.yml
                   - name: Monitor and manage loop
                     href: example-scenario/iot/monitor-manage-loop.yml
+                  - name: Real-time IoT updates
+                    href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
                   - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
               - name: Choose an IoT solution
@@ -1876,6 +1880,8 @@ items:
                 href: solution-ideas/articles/iot-controlling-devices-with-voice-assistant.yml
       - name: Mainframe + Midrange
         items:
+          - name: Get started
+            href: mainframe/mainframe-midrange-architecture.md
           - name: App modernization
             items:
               - name: Architectures
@@ -1896,10 +1902,14 @@ items:
                     href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml  
                   - name: Refactor IBM z/OS mainframe CF on Azure
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+                  - name: Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization
+                    href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
                   - name: Unisys Dorado mainframe migration with Astadia & Micro Focus
                     href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
                   - name: Unisys mainframe migration with Asysco
                     href: reference-architectures/migration/unisys-mainframe-migration.yml
+                  - name: Using LzLabs Software Defined Mainframe (SDM) in Azure
+                    href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
               - name: Solution ideas
                 items:      
                   - name: Migrate IBM applications with TmaxSoft OpenFrame
@@ -2081,6 +2091,8 @@ items:
             items:
               - name: Add IP spaces to peered virtual networks
                 href: networking/prefixes/add-ip-space-peered-vnet.md
+              - name: Azure Application Gateway guide
+                href: networking/guide/waf-application-gateway.md
               - name: Azure Firewall architecture guide
                 href: example-scenario/firewalls/index.yml
               - name: Virtual network peering and VPN gateways
