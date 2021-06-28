@@ -73,7 +73,7 @@ It's tempting to think of tenants or customers as static, unchanging entities. H
 - Similarly, in business scenarios, companies may split or divest.
 - In consumer scenarios, individual users may join or leave families.
 
-Consider whether you need to provide capabilities to manage the merging and separation of data, user identities, and resources.
+Consider whether you need to provide capabilities to manage the merging and separation of data, user identities, and resources. Also, consider how data ownership affects your handling of merge and split operations. For example, consider a consumer photography application built for families to share photos with one another. Are the photos owned by the individual family members who contributed them, or by the family as a whole? If a user leaves the family, should their data be removed or remain in the family's data set? If a user joins another family, should their old photos move with them?
 
 ## Offboard tenants
 
