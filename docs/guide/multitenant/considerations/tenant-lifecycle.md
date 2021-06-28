@@ -50,6 +50,10 @@ Once a tenant has been onboarded, they move into a 'business as usual' mode. How
 
 You will need to consider how you apply updates to your tenants' infrastructure. Different tenants may have updates applied at different times. See [Updates](updates.md) for other considerations about updating tenants' deployments.
 
+## Scale tenants' infrastructure
+
+Consider whether your tenants might have seasonal business patterns, or otherwise change the level of consumption of your solution. For example, if you provide a solution to retailers, you expect that certain times of the year will be particularly busy in some geographic regions, and quiet at other times. Consider whether this affects the way you design and scale your solution, and be aware of _noisy neighbor_ issues when a subset of tenants scale unexpectedly and impact the performance to other tenants. You can consider mitigations to apply, which might include scaling individual tenants' infrastructure, moving tenants between deployments, and provisioning a sufficient level of capacity to handle spikes and troughs in traffic.
+
 ## Move tenants between infrastructure
 
 You might need to move tenants between infrastructure for a number of reasons, including:
