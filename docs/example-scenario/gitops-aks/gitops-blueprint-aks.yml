@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: GitOps blueprint for Azure Kubernetes Service
+  title: GitOps for Azure Kubernetes Service
   titleSuffix: Azure Example Scenarios
-  description: See a GitOps blueprint for an Azure Kubernetes Services (AKS) cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.
+  description: See a GitOps solution for an Azure Kubernetes Services (AKS) cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.
   author: EdPrice-MSFT
   ms.author: makor
   ms.date: 06/25/2021
@@ -17,7 +17,7 @@ products:
   - azure-kubernetes-service
   - github
 name: GitOps blueprint for Azure Kubernetes Service
-summary: See a GitOps blueprint for an Azure Kubernetes Services (AKS) cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.
+summary: See a GitOps solution for an Azure Kubernetes Services (AKS) cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.
 thumbnailUrl: /azure/architecture/browse/thumbs/gitops-blueprint-aks.png
 content: |
   [!include[](gitops-blueprint-aks-content.md)]
