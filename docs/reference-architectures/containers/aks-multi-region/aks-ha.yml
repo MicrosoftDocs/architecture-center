@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Highly available AKS cluster
+  title: AKS Baseline for Multi-Region Clusters
   description: Run Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.
   author: PageWriter-MSFT
   ms.date: 02/02/2021
@@ -15,7 +15,7 @@ metadata:
     - seojul20
     - containers
     - reference-architecture
-name: Highly available AKS cluster
+name: AKS Baseline for Multi-Region Clusters
 azureCategories:
   - containers
 summary: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster to multiple regions.

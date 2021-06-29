@@ -1,6 +1,6 @@
 This reference architecture details how to run multiple instances of an Azure Kubernetes Service (AKS) cluster across multiple regions in an active/active and highly available configuration.
 
-This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
+This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the multi-region content.
 
 [![Mutli-region deployment](./images/aks-ha.png)](./images/aks-ha-large.png#lightbox)
 
@@ -11,9 +11,7 @@ This architecture builds on the [AKS Baseline architecture](/azure/architecture/
 Many components and Azure services are used in the multi-region AKS reference architecture. Only those with uniqueness to this multi-cluster architecture are listed below. For the remaining, please reference the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
 
 - **Multiple clusters / multiple regions** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
-- **Azure Front Door** Azure Front door is used to load balance and route traffic to each AKS cluster. Azure Front Door allows for layer seven global routing, both of which are required for this reference architecture.
-- **Azure Application Gateway** Each cluster in the solution is configured with an Azure Application Gateway instance sitting in front of it. These components are configured as the back ends for the Azure Front Door instance. The cluster networking configuration is fully detailed later in this document.
-- **DNS** Azure DNS resolves the Azure Front Door requests to the IP address associated with Application Gateway. 
+- **Azure Front Door** Azure Front door is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer seven global routing, both of which are required for this reference architecture.
 - **Key store** Azure Key Vault is provisioned in each region for storing sensitive values and keys.
 - **Container registry** The container images for the workload are stored in a managed container registry.  In this architecture, a single Azure Container Registry is used for all Kubernetes instances in the cluster. Geo-replication for Azure Container Registry enables replicating images to the selected Azure regions and providing continued access to images even if a region is experiencing an outage.
 
@@ -301,7 +299,7 @@ For information about other CAs supported by Front Door, see [Allowed certificat
 
 ### Cluster access and identity
 
-As discussed in the [AKS Baseline Reference Arechitecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#integrate-azure-active-directory-for-the-cluster), consider using Azure Active Directory as a cluster access identity provider. The Azure Active Directory groups can then be used to control access to cluster resources.
+As discussed in the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#integrate-azure-active-directory-for-the-cluster), consider using Azure Active Directory as a cluster access identity provider. The Azure Active Directory groups can then be used to control access to cluster resources.
 
 When managing multiple clusters, you will need to decide on an access schema. Options include:
 
@@ -309,7 +307,9 @@ When managing multiple clusters, you will need to decide on an access schema. Op
 - Create an individual access group for each Kubernetes instance which is used to grant access to objects in an individual cluster instance.
 - Define granular access controls for Kubernetes object types and namespaces, and correlate this to an Azure Directory Group structure.
 
-With the included reference implementation, a single AAD group is created for admin access. This group is specified at cluster instance deployment time using the deployment parameter file. All members of the AAD group have full access to all cluster instances. 
+With the included reference implementation, a two AAD groups are created for admin access. These groups are specified at cluster stamp deployment time using the deployment parameter file. Members of each group have full access to the coresponding cluster stamp.
+
+<insert additional content on options and trade offs - [link](https://github.com/MicrosoftDocs/architecture-center-pr/pull/2928#discussion_r658062888)]
 
 For more information on managing AKS cluster access with Azure Active Directory, see [AKS Azure AD Integration](/azure/aks/azure-ad-integration-cli).
 
@@ -317,10 +317,7 @@ For more information on managing AKS cluster access with Azure Active Directory,
 
 When using a globally distributed cluster of AKS instances, consider the architecture of the application, process, or other workloads that might run across the cluster. As state-based workload is spread across the cluster, will it need to access a state store? If a process is recreated elsewhere in the cluster due to failure, will the workload or process continue to have access to a dependant state store? State can be achieved in many ways; however, it can be complex in a single Kubernetes cluster. The complexity increases when adding in multiple clustered Kubernetes instances. Due to regional access and complexity concerns, consider architecting your applications to use a globally distributed state store service.
 
-The multi-cluster reference implementation does not include a demonstration or configuration for state concerns. If running applications across clustered AKS instance, consider architecting workload to use a globally distributed data service, a few options from Azure:
-
-- Azure Cosmos DB, a globally distributed database system that allows you to read and write data from the local replicas of your database. For more information, see [Azure Cosmos DB](/azure/cosmos-db/).
-- < Should we add others >
+The multi-cluster reference implementation does not include a demonstration or configuration for state concerns. If running applications across clustered AKS instance, consider architecting workload to use a globally distributed data service, such as Azure Cosmos DB. Azure Cosmos DB is a globally distributed database system that allows you to read and write data from the local replicas of your database. For more information, see [Azure Cosmos DB](/azure/cosmos-db/).
 
 ### Cost considerations
 
