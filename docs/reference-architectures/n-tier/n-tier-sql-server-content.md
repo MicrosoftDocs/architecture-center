@@ -39,7 +39,7 @@ The architecture has the following components.
 
 - **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the primary node. In that case, you need a *witness* to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. To learn more about the concept of quorum, see [Understanding cluster and pool quorum](/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
-- **Jumpbox**. Also called a [bastion host]. Traditionally, a secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit Remote Desktop Protocol (RDP) traffic. Azure offers the managed solution [Azure Bastion](/azure/bastion/) to meet this need.
+- **Jumpbox**. Also called a [bastion host]. Traditionally, a secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit Remote Desktop Protocol (RDP) traffic. Azure offers the managed solution [Azure Bastion](/azure/bastion/bastion-overview) to meet this need.
 
 ## Recommendations
 
