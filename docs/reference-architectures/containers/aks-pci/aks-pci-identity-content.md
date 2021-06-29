@@ -315,7 +315,7 @@ Several of the preceding set of requirements are automatically handled by Azure 
     Azure AD provides features that enforce the use of strong passwords. For example, weak passwords that belong to the global banned password list are blocked. This isn't sufficient protection. Consider adding the Azure AD Password Protection feature to create an organization-specific ban list. A password policy is applied by default. Certain policies cannot be modified and cover some of the preceding set of requirements. These include password expiration and allowed characters. For the complete list, see [Azure AD password policies](/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts). Consider using advanced features that can be enforced with conditional access policies, such as those based on user risk, which detect leaked username and password pairs. For more information, see [Conditional Access: User risk-based Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-risk-user).
 
     > [!NOTE]
-    > We strongly recommend that you consider passwordless options. For more information, see [Plan a passwordless authentication deployment in Azure Active Directory](azure/active-directory/authentication/howto-authentication-passwordless-deployment).
+    > We strongly recommend that you consider passwordless options. For more information, see [Plan a passwordless authentication deployment in Azure Active Directory](/azure/active-directory/authentication/howto-authentication-passwordless-deployment).
 
 - **User identity verification**
 

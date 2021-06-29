@@ -34,7 +34,7 @@ Provisioned in a separate virtual network. Creates VM images with base security 
 
 **Azure Virtual Machines Scale Set for jump box instances**
 
-The spoke network has an additional compute for a jump box. This machine is intended to run management tools on the AKS cluster, such as kubectl.
+The spoke network has additional compute for a jump box. This scale set is intended to be the governed access point to run tools against the AKS cluster, such as `kubectl`, as needed.
 
 **Azure Application Gateway with integrated Web Application Firewall (WAF)**
 
@@ -42,7 +42,7 @@ Azure Application Gateway load balances at Layer 7. WAF secures incoming traffic
 
 **Azure Kubernetes Service (AKS)**
 
-The hosting infrastructure that is the most important part of the card holder environment (CDE). The AKS cluster is deployed as a private cluster. So, the Kubernetes API server is not exposed to the public internet and traffic between the API server and the cluster node pools is private. 
+The hosting infrastructure, which is a key part of the card holder environment (CDE). The AKS cluster is deployed as a private cluster. So, the Kubernetes API server is not exposed to the public internet and traffic to the API server is limited to your private network. 
 
 **ACR Tasks**
 
@@ -63,7 +63,7 @@ In this architecture, the cluster has two user node pools and one system node po
 
 > [!NOTE]
 >
-> An approach for compute protection is Azure confidential computing. AKS supports confidential computing nodes that allow you to run sensitive workloads within a hardware-based trusted execution environment (TEE). For details, see [Confidential computing nodes on Azure Kubernetes Service](azure/confidential-computing/confidential-nodes-aks-overview).
+> An approach for compute protection is Azure confidential computing. AKS supports confidential computing nodes that allow you to run sensitive workloads within a hardware-based trusted execution environment (TEE). For details, see [Confidential computing nodes on Azure Kubernetes Service](/azure/confidential-computing/confidential-nodes-aks-overview).
 >
 > This architecture or the implementation doesn't use this approach.
 
@@ -75,7 +75,7 @@ The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in
 
 The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. As the solution evolves, some out-of-scope components might be in scope and more controls might need to be applied to keep them separate. 
 
-In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The in-scope and out-of-scope workloads are segmented in two separate user node pools. The application has two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM.
+In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The in-scope and out-of-scope workloads are segmented in two separate user node pools. The application has two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM or the network IP space.
 
 
 ### Ingress controller
@@ -101,7 +101,7 @@ A combination of various Azure services and feature and native Kubernetes constr
 ### Subnet security through Network Security Groups (NSGs)
 
 There are several NSGs that control the flow in and out of the cluster. Here are some examples:
-- The cluster node pools are placed in their dedicated subnets. For each subnet, there are NSGs that block any SSH access to node VMs and allow traffic from the virtual network. Traffic from the node pools is restricted to the virtual network.
+- The cluster node pools are placed in dedicated subnets. For each subnet, there are NSGs that block any SSH access to node VMs and allow traffic from the virtual network. Traffic from the node pools is restricted to the virtual network.
 - All inbound traffic from the internet is intercepted by Azure Application Gateway. NSG rules make sure, for example:
    - Only HTTPS traffic is allowed in. 
    - Traffic from Azure Control Plane is allowed.    
@@ -113,11 +113,11 @@ As your workloads, system security agents, and other components are deployed, ad
 
 ### Pod-to-pod security with NetworkPolicies
 
-This architecture attempts to implement Zero-Trust as much as possible. 
+This architecture attempts to implement Microsoft's Zero Trust principles as much as possible. 
 
-Examples of Zero-Trust networks as a concept are demonstrated in the implementation in `a0005-i` and `a0005-o` user-provided namespaces. All namespaces should have restrictive `NetworkPolicy` applied, except `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces. The policy definitions will depend on the pods running in those namespaces. Make sure you're accounting for readiness, liveliness, and startup probes and also allowance for metrics gathered by `oms-agent`. Consider standardizing on ports across your workloads so that you can provide a consistent `NetworkPolicy` and Azure Policy for allowed container ports.
+Examples of Zero Trust networks as a concept are demonstrated in the implementation in `a0005-i` and `a0005-o` user-provided namespaces. All workload namespaces should have restrictive `NetworkPolicy` applied, except `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces. The policy definitions will depend on the pods running in those namespaces. Make sure you're accounting for readiness, liveliness, and startup probes and also allowance for metrics gathered by `oms-agent`. Consider standardizing on ports across your workloads so that you can provide a consistent `NetworkPolicy` and Azure Policy for allowed container ports.
 
-In certain cases, this is not practical for communication within the cluster. Not all user-provided namespaces can use a Zero-Trust network, for instance `cluster-baseline-settings`. 
+In certain cases, this is not practical for communication within the cluster. Not all user-provided namespaces can use a Zero Trust network, for instance `cluster-baseline-settings`. 
 <Ask Chad: why? example>
 
 ### TLS encryption
