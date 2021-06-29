@@ -15,7 +15,7 @@ Typical uses for extending inference include when you need to:
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-## Components
+### Components
 
 The architecture consists of the following components:
 
@@ -82,6 +82,12 @@ Additionally, Azure Stack Edge continues to transfer data to Machine Learning fo
 - [Azure Stack Edge pricing][azure-stack-edge-pricing] is calculated as a flat-rate monthly subscription with a one-time shipping fee.
 - Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure Key Vault services, which incur extra costs. For more information, see [How Azure Machine Learning works: Architecture and concepts][azure-machine-learning-architecture].
 - [Azure Machine Learning pricing][azure-machine-learning-pricing] includes charges for the virtual machines that are used for training the model in the public cloud.
+
+## Next steps
+
+ - [Distributed training of deep learning models on Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
+ - [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
+ - [Image classification on Azure](/azure/architecture/example-scenario/ai/intelligent-apps-image-processing)
 
 [architectural-diagram]: ./images/deploy-ai-ml-azure-stack-edge.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/deploy-ai-ml-azure-stack-edge.vsdx

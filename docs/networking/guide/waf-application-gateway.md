@@ -73,7 +73,7 @@ These are key metrics for Application Gateway. This information can be used to v
 - **Fixed Billable Capacity Units**
 - **Current Capacity Units**
 
-For more information, see [Application Gateway metrics](/application-gateway/application-gateway-metrics#application-gateway-metrics).
+For more information, see [Application Gateway metrics](/azure/application-gateway/application-gateway-metrics#application-gateway-metrics).
 
 
 Make sure you account for bandwidth costs. For details, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions#traffic-across-billing-zones-and-regions). 
@@ -86,7 +86,7 @@ Make sure you account for bandwidth costs. For details, see [Traffic across bill
 The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. When compared to v1 SKU, v2 has capabilities that enhance the performance of the workload. For example, better TLS offload performance, quicker deployment and update times, zone redundancy, and more. For more information about autoscaling features, see [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
 If you are running v1 SKU gateways, consider migrating to v2 SKU. See  
-[Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](/application-gateway/migrate-v1-v2).
+[Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](/azure/application-gateway/migrate-v1-v2).
 
 General best practices related to Performance Efficiency are described in [Performance efficiency principles](/azure/architecture/framework/scalability/principles). 
 
