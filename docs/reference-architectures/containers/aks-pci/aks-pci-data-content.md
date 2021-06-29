@@ -229,7 +229,7 @@ Ensure that security policies and operational procedures for protecting stored c
 #### Your responsibilities
 Create documentation as a general statement plus a series of up-to-date role guides for all personas.  Perform new-hire training and ongoing training.
 
-It's critical that you maintain thorough documentation about the processes and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skillset up to date. Training requirements are addressed in [Requirement 6.5](aks-pci-malware.md#requirement-65) and [Requirement 12.6](aks-pci-policy.md#maintain-an-information-security-policy).
+It's critical that you maintain thorough documentation about the processes and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skillset up to date. Training requirements are addressed in [Requirement 6.5](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-malware#requirement-65) and [Requirement 12.6](aks-pci-policy.md).
 
 ### Requirement 4.1
 
