@@ -939,6 +939,8 @@ items:
                 href: solution-ideas/articles/monitor-azure-data-explorer.yml
               - name: Oil and Gas tank level forecasting
                 href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
+              - name: Precision medicine pipeline with genomics
+                href: solution-ideas/articles/genomic-analysis-reporting.yml
               - name: Predicting length of stay in hospitals
                 href: solution-ideas/articles/predicting-length-of-stay-in-hospitals.yml
               - name: Predictive aircraft engine monitoring
