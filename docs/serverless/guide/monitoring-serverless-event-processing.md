@@ -12,6 +12,11 @@ ms.category:
   - developer-tools
   - analytics
   - compute
+categories:
+  - devops
+  - developer-tools
+  - analytics
+  - compute
 products:
   - azure-monitor
   - azure-application-insights
