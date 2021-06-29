@@ -26,7 +26,7 @@ ms.custom:
   - guide
   - fcp
 ---
-<!-- cSpell:ignore todatetime dateformatter tostring kusto KEDA -->
+<!-- cSpell:ignore todatetime dateformatter tostring kusto KEDA datetimes isfuzzy Ccmd rasavant -->
 
 # Monitoring serverless event processing
 
