@@ -9,7 +9,7 @@ The recommendations and examples are extracted from this accompanying reference 
 
 ![Architecture of an AKS PCI infrastructure](images/regulated-architecture.svg)
 
-That architecture is based on a hub and spoke topology; with one hub and two spokes. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. There are two spoke virtual networks. One spoke contains the AKS cluster that provides the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images for your workloads.
+That network architecture is based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for SRE cluster access. There are two spoke virtual networks. One spoke contains the AKS cluster that is a component of the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images used for controlled SRE access to the environment.
 
 
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ The baseline architecture provided a subnet for Bastion but didn't provision the
 
 **Azure Image Builder**
 
-Provisioned in a separate virtual network. Creates VM images with base security and configuration. In this architecture, it's customized to build secure node images with Ubuntu 18.04-LTS platform (MSFT-provided) image with management tools such as Azure CLI, kubectl and kubelogin, flux CLI.
+Provisioned in a separate virtual network. Creates VM images with base security and configuration. In this architecture, it's customized to build secure node images with management tools such as Azure CLI, `kubectl`, and Flux CLI pre-installed.
 
 **Azure Virtual Machines Scale Set for jump box instances**
 
@@ -59,7 +59,7 @@ Here are some significant changes from the baseline architecture:
 
 ### Node pool segmentation
 
-In this architecture, the cluster has two user node pools and one system node pool. The compute choice for the node pools remain the same.
+In this architecture, the cluster has two user node pools and one system node pool. The compute choice for the node pools remain the same. Each node pool resides in a dedicated subnet to provide an added network isolation boundary between compute tiers.
 
 > [!NOTE]
 >
@@ -77,18 +77,19 @@ The key strategy is to provide the required level of segmentation. One way is to
 
 In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The in-scope and out-of-scope workloads are segmented in two separate user node pools. The application has two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM.
 
-
 ### Ingress controller
-Kubernetes ingress controller inside the cluster has been changed to NGINX. In the baseline architecture, we chose Traefik. This change illustrates that the service can be changed based on your choice.
+
+Kubernetes ingress controller inside the cluster has been changed to NGINX. In the baseline architecture, used Traefik. This change illustrates that this component can be changed based on your workloads' requirements.
 
 ### Private Kubernetes API server
-The baseline architecture deployed the AKS cluster in public mode. This means all communication with the AKS-managed Kubernetes API server is over the public internet. This is not acceptable in this architecture because PCI-DSS prohibits public exposure to any system components. In this regulated architecture, the cluster is deployed as a private cluster. Network traffic between the Kubernetes API server and your node pools is private. The API server is exposed through a Private Endpoint in the cluster's network. The security is further enhanced with the use of Azure Virtual Network, an NSG, and other built-in features. These are described in [Network configuration](#networking-configuration).
+
+The baseline architecture deployed the AKS cluster in public mode. This means all communication with the AKS-managed Kubernetes API server is over the public internet. This is not acceptable in this architecture because PCI-DSS prohibits public exposure to any system components. In this regulated architecture, the cluster is deployed as a private cluster. Network traffic to the Kubernetes API server is limited to your private network. The API server is exposed through a Private Endpoint in the cluster's network. The security is further enhanced with the use of NSGs and other built-in features. These are described in [Network configuration](#networking-configuration).
 
 ### Pod security
 
-When describing your workload's security needs, use relevant `securityContext` settings for your containers. This includes basic settings such as like `fsGroup`, `runAsUser` / `runAsGroup`, and setting `allowPriviledgeEscalation` to false (unless required). Be clear about defining and removing Linux capabilities and defining your SELinux options in seLinuxOptions. 
+When describing your workload's security needs, use relevant `securityContext` settings for your containers. This includes basic settings such as like `fsGroup`, `runAsUser` / `runAsGroup`, and setting `allowPriviledgeEscalation` to false (unless required). Be clear about defining and removing Linux capabilities and defining your SELinux options in `seLinuxOptions`.
 
-Avoid referencing images by their tags in your deployment manifests. Instead, use the actual image ID. That way, you can reliably map container scan results with the actual content running in your cluster. You can enforce it through Azure Policy for image name to include image ID pattern in the allowed regular expression. Also follow this guidance when using the Dockerfile FROM command.
+Avoid referencing images by their tags in your deployment manifests. Instead, use the actual image ID. That way, you can reliably map container scan results with the actual content running in your cluster. You can enforce it through Azure Policy for image name to include image ID pattern in the allowed regular expression. Also follow this guidance when using the Dockerfile `FROM` instruction.
 
 ## Networking configuration
 
@@ -107,7 +108,7 @@ There are several NSGs that control the flow in and out of the cluster. Here are
    - Traffic from Azure Control Plane is allowed.    
    For details, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
 - On the subnets that have Azure Container Registry agents, NSGs allow only necessary outbound traffic. For instance, to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.  
-- The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub.
+- The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub, and limited outbound connections. Jump boxes do not have universal internet access, and are controlled at both the subnet NSG and Azure Firewall.
 
 As your workloads, system security agents, and other components are deployed, add more NSG rules that help define the type of traffic that should be allowed and traffic shouldn't traverse those subnet boundaries. Because each node pool lives in its own subnet, observe the traffic patterns, and then apply more specific rules.
 
