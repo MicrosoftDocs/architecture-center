@@ -95,7 +95,7 @@ The log and metric categories that we are interested in are:
 
 Azure documentation provides instructions on how to [Set up diagnostic logs for an Azure event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs#enable-diagnostic-logs). The following screenshot shows an example *Diagnostic setting* configuration panel with the correct log and metric categories selected, and a Log Analytics workspace set as the destination. (If an external system is being used to analyze the logs, the option to *Stream to an event hub* can be used instead.)
 
-:::image type="content" source="images/monitoring-srvrls-evnt-procs-diagnostic-setting.png" alt-text="Screenshot of an Event Hub diagnostic settings configuration panel showing the correct log and metric categories selected, and a Log Analytics workspace set as the destination." lightbox="images/monitoring-srvrls-evnt-procs-diagnostic-setting.png":::
+:::image type="content" source="images/monitoring-serverless-event-processing-diagnostic-setting.png" alt-text="Screenshot of an Event Hub diagnostic settings configuration panel showing the correct log and metric categories selected, and a Log Analytics workspace set as the destination." lightbox="images/monitoring-serverless-event-processing-diagnostic-setting.png":::
 
 > [!NOTE]
 > In order to utilize log diagnostics to capture insights, you should create event hubs in different namespaces. This is because of a constraint in Azure.
@@ -110,7 +110,7 @@ You can enable Application Insights to capture metrics and custom telemetry from
 
 This screenshot shows an example listing of custom metrics and telemetry within Application Insights:
 
-:::image type="content" source="images/monitoring-srvrls-evnt-procs-appinsights-messages.png" alt-text="Screenshot showing an example listing of custom metrics and telemetry within Application Insights." lightbox="images/monitoring-srvrls-evnt-procs-appinsights-messages.png":::
+:::image type="content" source="images/monitoring-serverless-event-processing-application-insights-messages.png" alt-text="Screenshot showing an example listing of custom metrics and telemetry within Application Insights." lightbox="images/monitoring-serverless-event-processing-application-insights-messages.png":::
 
 ### Default custom metrics
 
@@ -128,7 +128,7 @@ These metrics can be used to efficiently calculate the aggregated averages acros
 
 This screenshot shows what these default custom metrics look like when viewed in Application Insights:
 
-:::image type="content" source="images/monitoring-srvrls-evnt-procs-appinsights-cust-metrics.png" alt-text="Screenshot showing what default custom metrics look like when viewed in Application Insights." lightbox="images/monitoring-srvrls-evnt-procs-appinsights-cust-metrics.png":::
+:::image type="content" source="images/monitoring-serverless-event-processing-application-insights-custom-metrics.png" alt-text="Screenshot showing what default custom metrics look like when viewed in Application Insights." lightbox="images/monitoring-serverless-event-processing-application-insights-custom-metrics.png":::
 
 ### Custom messages
 
@@ -144,7 +144,7 @@ The `traces` table has the following important properties (among others):
 
 Here is an example of what a custom message might look like in the Application Insights interface:
 
-:::image type="content" source="images/monitoring-srvrls-evnt-procs-appinsights-custom-msg.png" alt-text="Screenshot showing an example of a custom message in the Application Insights 'traces' data table." lightbox="images/monitoring-srvrls-evnt-procs-appinsights-custom-msg.png":::
+:::image type="content" source="images/monitoring-serverless-event-processing-application-insights-custom-message.png" alt-text="Screenshot showing an example of a custom message in the Application Insights 'traces' data table." lightbox="images/monitoring-serverless-event-processing-application-insights-custom-message.png":::
 
 If the incoming Event Hub message or `EventData[]` is logged as a part of this custom `ILogger` message, then that is also made available in Application Insights. This can be very useful.
 
@@ -177,7 +177,7 @@ In Application Insights, we can view all the telemetry related to a particular t
 
 The following screenshot shows an example Transaction search in the Application Insights interface. The desired `Operation ID` is entered in the query field, identified with a magnifying glass icon (and shown here outlined in a red box). At the bottom of the main pane, the `Results` tab shows matching events in sequential order. In each event entry, the `Operation ID` value is highlighted in dark blue for easy verification.
 
-:::image type="content" source="images/monitoring-srvrls-evnt-procs-transaction-search.png" alt-text="Screenshot showing an example Transaction search in the Application Insights interface." lightbox="images/monitoring-srvrls-evnt-procs-transaction-search.png":::
+:::image type="content" source="images/monitoring-serverless-event-processing-transaction-search.png" alt-text="Screenshot showing an example Transaction search in the Application Insights interface." lightbox="images/monitoring-serverless-event-processing-transaction-search.png":::
 
 A query generated for a specific operation ID will look like the following. Note that the `Operation ID` GUID is specified in the third line's `where * has` clause. This example further narrows the query between two different `datetimes`.
 
@@ -191,7 +191,7 @@ union isfuzzy=true availabilityResults, requests, exceptions, pageViews, traces,
 
 Here is a screenshot of what the query and its matching results might look like in the Application Insights interface:
 
-:::image type="content" source="images/monitoring-srvrls-evnt-procs-search-log.png" alt-text="Screenshot showing part of the Application Insights interface with the results of a query generated for a specific Operation ID. The actual query is visible in a top area, and the matching results are listed below." lightbox="images/monitoring-srvrls-evnt-procs-search-log.png":::
+:::image type="content" source="images/monitoring-serverless-event-processing-search-log.png" alt-text="Screenshot showing part of the Application Insights interface with the results of a query generated for a specific Operation ID. The actual query is visible in a top area, and the matching results are listed below." lightbox="images/monitoring-serverless-event-processing-search-log.png":::
 
 ## Capture custom metrics from Azure Functions
 
@@ -218,7 +218,7 @@ log.LogInformation("TransformingFunction: Processed sensorDataJson={sensorDataJs
 
 The resulting logs created on Application Insights contain the above parameters as custom dimensions, as shown in this screenshot:
 
-:::image type="content" source="images/monitoring-srvrls-evnt-procs-custom-dimensions.png" alt-text="Screenshot showing logs created in Application Insights by the previous C-sharp code sample." lightbox="images/monitoring-srvrls-evnt-procs-custom-dimensions.png":::
+:::image type="content" source="images/monitoring-serverless-event-processing-custom-dimensions.png" alt-text="Screenshot showing logs created in Application Insights by the previous C-sharp code sample." lightbox="images/monitoring-serverless-event-processing-custom-dimensions.png":::
 
 These logs can be queried as follows:
 
@@ -267,7 +267,7 @@ LoggingUtilities.logSuccessInfo(
 
 The resulting logs created on Application Insights contain the above parameters in the message as shown below:
 
-:::image type="content" source="images/monitoring-srvrls-evnt-procs-appinsights-msg-java.png" alt-text="Screenshot showing logs created in Application Insights by the previous Java code sample." lightbox="images/monitoring-srvrls-evnt-procs-appinsights-msg-java.png":::
+:::image type="content" source="images/monitoring-serverless-event-processing-application-insights-message-java.png" alt-text="Screenshot showing logs created in Application Insights by the previous Java code sample." lightbox="images/monitoring-serverless-event-processing-application-insights-message-java.png":::
 
 These logs can be queried as follows:
 
