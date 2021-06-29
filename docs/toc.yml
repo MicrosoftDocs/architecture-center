@@ -932,9 +932,7 @@ items:
                           - name: Technical guide
                             href: data-science-process/predictive-maintenance-technical-guide.md
           - name: Architectures
-            items:
-              - name: App modernization 
-                href: reference-architectures/app-modernization/raincode-reference-architecture.yml           
+            items:  
               - name: Baseball decision analysis with ML.NET and Blazor
                 href: data-guide/big-data/baseball-ml-workload.md
               - name: Batch scoring for deep learning
@@ -1887,8 +1885,8 @@ items:
           - name: App modernization
             items:
               - name: Architectures
-                items:      
-                  - name: High-volume batch transaction processing
+                items:           
+                  - name: Batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
                   - name: IBM System i to Azure using Infinite i
                     href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
@@ -1900,21 +1898,23 @@ items:
                     href: example-scenario/mainframe/micro-focus-server.yml                     
                   - name: Migrate AIX workloads to Skytap on Azure
                     href: example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml
-                  - name: Migrate IBM i series applications to Skytap on Azure
+                  - name: Migrate IBM i series to Skytap on Azure
                     href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml  
-                  - name: Refactor IBM z/OS mainframe CF on Azure
+                  - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
-                  - name: Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization
+                  - name: Refactor mainframe with Raincode compilers
+                    href: reference-architectures/app-modernization/raincode-reference-architecture.yml    
+                  - name: Unisys CPF rehost using Unisys virtualization
                     href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
-                  - name: Unisys Dorado mainframe migration with Astadia & Micro Focus
+                  - name: Unisys Dorado migration with Astadia & Micro Focus
                     href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
                   - name: Unisys mainframe migration with Asysco
                     href: reference-architectures/migration/unisys-mainframe-migration.yml
-                  - name: Using LzLabs Software Defined Mainframe (SDM) in Azure
+                  - name: Using LzLabs SDM in Azure
                     href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
               - name: Solution ideas
                 items:      
-                  - name: Migrate IBM applications with TmaxSoft OpenFrame
+                  - name: Migrate IBM apps with TmaxSoft OpenFrame
                     href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
                   - name: Solaris emulator on Azure VMs
                     href: solution-ideas/articles/solaris-azure.yml
@@ -1924,7 +1924,7 @@ items:
                 items:  
                   - name: Modernize mainframe and midrange data
                     href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
-                  - name: Replicate and sync mainframe data in Azure
+                  - name: Replicate and sync mainframe data
                     href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
               - name: Solution ideas
                 items:      
