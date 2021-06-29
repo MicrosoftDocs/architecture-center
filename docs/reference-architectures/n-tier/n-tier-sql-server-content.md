@@ -115,7 +115,7 @@ In the past, a VM that's managed by the customer might be used as a jumpbox. In 
 - The jumpbox has minimal performance requirements, so select a small VM size. Create a [public IP address] for the jumpbox. Place the jumpbox in the same virtual network as the other VMs, but in a separate management subnet.
 - To secure the jumpbox, add an NSG rule that allows RDP connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow RDP traffic from the management subnet.
 
-For a customer-managed VM, all these rules apply. However, the current recommendation is to use [Azure Bastion](/azure/bastion/), a managed jumpbox solution that allows for HTML5 access to RDP or SSH behind Azure AD protection. This is a much simpler solution that ultimately has a lower total cost of ownership (TCO) for the customer.
+For a customer-managed VM, all these rules apply. However, the current recommendation is to use [Azure Bastion](/azure/bastion/bastion-overview), a managed jumpbox solution that allows for HTML5 access to RDP or SSH behind Azure AD protection. This is a much simpler solution that ultimately has a lower total cost of ownership (TCO) for the customer.
 
 ## Scalability considerations
 
