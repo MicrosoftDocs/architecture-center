@@ -3,7 +3,7 @@
 This document presents a solution for genomic analysis and reporting. Its processes and results are appropriate for precision medicine scenarios—areas of medical care that use genetic profiling. Specifically, the solution provides a clinical genomics workflow that automates these tasks:
 
 - Take data from a sequencer.
-- Move the data through secondary and tertiary analysis.
+- Move the data through secondary analysis.
 - Provide results that clinicians can consume.
 
 The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure cloud services in addition to open-source tools. It takes advantage of the security features, performance, and scalability that the Azure global cloud infrastructure provides:
@@ -39,7 +39,7 @@ Azure Data Factory orchestrates the workflow:
 
 1. Jupyter Notebook annotates the output file. The notebook runs on Azure Databricks.
 1. Azure Data Lake Storage stores the annotated file.
-1. Another Jupyter notebook merges the file with additional datasets and analyzes the data.
+1. Jupyter Notebook merges the file with other datasets and analyzes the data.
 1. Data Lake Storage stores the processed data.
 1. Clinicians view the findings:
 
@@ -59,7 +59,7 @@ The solution uses the following components:
 - Sorting and filtering the results
 - Writing the results to output files
 
-To maximize throughput, this engine operates a Burrows-Wheeler Aligner (BWA) and a Genome Analysis Toolkit (GATK) HaplotypeCaller variant caller. It also uses several other components that make up standard genomics pipelines. Examples include duplicate marking, base quality score recalibration, and indexing. In a few hours, the engine can process a single genomic sample on a single multi-core server. The processing starts with raw reads. It produces aligned reads and variant calls.
+To maximize throughput, this engine operates a Burrows-Wheeler Aligner (BWA) and a Genome Analysis Toolkit (GATK) HaplotypeCaller variant caller. The engine also uses several other components that make up standard genomics pipelines. Examples include duplicate marking, base quality score recalibration, and indexing. In a few hours, the engine can process a single genomic sample on a single multi-core server. The processing starts with raw reads. It produces aligned reads and variant calls.
 
 Internally, the Microsoft Genomics controller manages these aspects of the process:
 
@@ -84,7 +84,7 @@ You can easily use Microsoft Genomics results in tertiary analysis and machine l
 
 - [Power BI][Power BI] is a collection of software services and apps. You can use Power BI to connect and display unrelated sources of data. In this solution, you can populate Power BI dashboards with the results. Clinicians can then create visuals from the final dataset.
 
-- [Azure Healthcare APIs][Azure Healthcare APIs] is a managed, standards-based, compliant API for clinical health data. You can use the reference architectures and implementations in [Health Architectures][Health Architectures] when you use Azure Healthcare APIs. In this scenario, Azure Healthcare APIs passes a FHIR bundle to the EHR with the clinical data.
+- [Azure Healthcare APIs][Azure Healthcare APIs] is a managed, standards-based, compliant API for clinical health data. You can use the reference architectures and implementations in [Health Architectures][Health Architectures] when you use Azure Healthcare APIs. In this scenario, Azure Healthcare APIs passes an FHIR bundle to the EHR with the clinical data.
 
 ## Considerations
 
@@ -108,7 +108,7 @@ The following considerations align with the [Microsoft Azure Well-Architected Fr
 ### Scalability considerations
 
 - [Data Factory transforms data at scale][Azure Data Factory FAQ].
-- [Azure Databricks clusters resize as needed][Azure Databricks clusters resize as needed].
+- [The clusters in Azure Databricks resize as needed][Azure Databricks clusters resize as needed].
 - For information on optimizing scalability in Blob Storage, see [Performance and scalability checklist for Blob Storage].
 - Data Lake Storage is scalable by design. It can [manage exabytes of data][Introduction to Azure Data Lake Storage Gen2].
 - [Microsoft Genomics runs exabyte-scale workloads][Microsoft Genomics - Support your most demanding sequencing needs].
@@ -137,7 +137,7 @@ Concerning compliance with HIPAA and the Health Information Technology for Econo
 
 #### General security features
 
-Several components play additional roles in securing data:
+Several components also secure data in other ways:
 
 - [Data Factory encrypts data that it transfers. It also uses Azure Key Vault or certificates to encrypt credentials.][Security considerations for data movement in Azure Data Factory]
 - [Azure Databricks provides many tools for securing network infrastructure and data][Azure Databricks security guide]. Examples include [access control lists][Access control in Azure Databricks], [secrets][Secret management in Azure Databricks], and [no public IP (NPIP)][Secure cluster connectivity (No Public IP / NPIP)].
@@ -188,22 +188,22 @@ Fully deployable architectures:
 [Access control in Azure Databricks]: /azure/databricks/security/access-control
 [Automated enterprise BI]: /azure/architecture/reference-architectures/data/enterprise-bi-adf
 [Azure Data Factory FAQ]: /azure/data-factory/frequently-asked-questions#data-flows
-[Azure Databricks]: /azure/databricks
+[Azure Databricks]: https://azure.microsoft.com/services/databricks
 [Azure Databricks clusters resize as needed]: https://databricks.com/blog/2018/05/02/introducing-databricks-optimized-auto-scaling.html
 [Azure Databricks general pricing information]: /azure/architecture/reference-architectures/data/stream-processing-databricks#azure-databricks
 [Azure Databricks security guide]: /azure/databricks/security
 [Azure Databricks service page]: https://azure.microsoft.com/services/databricks
-[Azure Healthcare APIs]: /azure/healthcare-apis/fhir
+[Azure Healthcare APIs]: /azure/healthcare-apis/fhir/overview
 [Azure Storage costs]: https://azure.microsoft.com/pricing/details/storage
 [Azure Storage encryption for data at rest]: /azure/storage/common/storage-service-encryption
-[Blob Storage]: /azure/storage/blobs
+[Blob Storage]: https://azure.microsoft.com/services/storage/blobs
 [Burrows-Wheeler Aligner]: http://bio-bwa.sourceforge.net
 [Clinical insights with Microsoft Cloud for Healthcare]: /azure/architecture/example-scenario/mch-health/medical-data-insights
 [Cloud Adoption Framework]: /azure/cloud-adoption-framework
-[Data Factory]: /azure/data-factory/introduction
+[Data Factory]: https://azure.microsoft.com/services/data-factory
 [Data Factory pipelines]: /azure/data-factory/concepts-pipelines-activities
 [Data Factory pricing]: https://azure.microsoft.com/pricing/details/data-factory
-[Data Lake Storage]: /azure/storage/blobs/data-lake-storage-introduction
+[Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
 [Data Lake Storage pricing]: https://azure.microsoft.com/pricing/details/storage/data-lake
 [Data warehousing and analytics]: /azure/architecture/example-scenario/data/data-warehouse
 [Enterprise Scale Landing Zones]: /azure/cloud-adoption-framework/ready/enterprise-scale
@@ -226,7 +226,7 @@ Fully deployable architectures:
 [Microsoft Genomics - Support your most demanding sequencing needs]: /azure/genomics/overview-what-is-genomics#support-your-most-demanding-sequencing-needs
 [Performance and scalability checklist for Blob Storage]: /azure/storage/blobs/storage-performance-checklist
 [Population health management for healthcare]: /azure/architecture/solution-ideas/articles/population-health-management-for-healthcare
-[Power BI]: /power-bi/fundamentals
+[Power BI]: /power-bi/fundamentals/power-bi-overview
 [Practical guide to designing secure health solutions using Microsoft Azure]: https://aka.ms/azureindustrysecurity
 [Replicate and sync mainframe data in Azure]: /azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure
 [Secure cluster connectivity (No Public IP / NPIP)]: /azure/databricks/security/secure-cluster-connectivity
