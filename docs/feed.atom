@@ -2,12 +2,708 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-06-22T00:47:32.273Z</updated>
+    <updated>2021-06-28T13:00:36.533Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure"/>
+        <updated>2021-06-28T08:53:15.000Z</updated>
+        <summary type="html"><![CDATA[An approach for rehosting mainframe legacy applications in Azure using the LzLabs Software Defined Mainframe platform.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[End-to-end manufacturing using computer vision on the edge]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/ai/end-to-end-smart-factory</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/ai/end-to-end-smart-factory"/>
+        <updated>2021-06-27T09:30:38.000Z</updated>
+        <summary type="html"><![CDATA[In this example, cameras are attached to a smart device that runs a machine learning model.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost"/>
+        <updated>2021-06-27T09:10:22.000Z</updated>
+        <summary type="html"><![CDATA[<Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Refactor mainframe applications to Azure with Raincode compilers]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture"/>
+        <updated>2021-06-25T19:22:22.000Z</updated>
+        <summary type="html"><![CDATA[This architecture shows how the Raincode COBOL compiler modernizes mainframe legacy applications.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure mainframe and midrange architecture concepts and patterns]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/mainframe/mainframe-midrange-architecture</id>
+        <link href="https://docs.microsoft.com/azure/architecture/mainframe/mainframe-midrange-architecture"/>
+        <updated>2021-06-25T18:10:43.000Z</updated>
+        <summary type="html"><![CDATA[An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Real-time IoT updates]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/iot/real-time-iot-updates-cloud-apps</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot/real-time-iot-updates-cloud-apps"/>
+        <updated>2021-06-25T17:16:10.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure SignalR Service to update cloud applications. This service sends real-time IoT data to clients like web pages and mobile apps.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Well-Architected Framework review of Azure Application Gateway]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/networking/guide/waf-application-gateway</id>
+        <link href="https://docs.microsoft.com/azure/architecture/networking/guide/waf-application-gateway"/>
+        <updated>2021-06-25T08:02:17.000Z</updated>
+        <summary type="html"><![CDATA[This guidance provides best practices for the Application Gateway v2 family of SKUs based on  five pillars of architecture excellence.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitoring serverless event processing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless/guide/monitoring-serverless-event-processing</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless/guide/monitoring-serverless-event-processing"/>
+        <updated>2021-06-24T23:20:27.000Z</updated>
+        <summary type="html"><![CDATA[Guidance on monitoring serverless event-driven architectures using Application Insights.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes in event stream processing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/serverless-event-processing-aks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/serverless-event-processing-aks"/>
+        <updated>2021-06-24T23:20:27.000Z</updated>
+        <summary type="html"><![CDATA[A serverless event-driven architecture running on Azure Kubernetes with KEDA scaler that ingests and processes a stream of data, then writes the results to a DB.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[De-batching and filtering in serverless event processing with Event Hubs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/serverless-event-processing-filtering</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/serverless-event-processing-filtering"/>
+        <updated>2021-06-24T23:20:27.000Z</updated>
+        <summary type="html"><![CDATA[A serverless event-driven architecture using Azure Event Hubs and Azure Functions to ingest and filter a stream of data for database storage.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serverless event stream processing in a VNet with private endpoints]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/serverless-event-processing-private-link</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/serverless-event-processing-private-link"/>
+        <updated>2021-06-24T23:20:27.000Z</updated>
+        <summary type="html"><![CDATA[A serverless event-driven architecture in a VNet with private endpoints that ingests and processes a stream of data, then writes the results to a database.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Real-time asset tracking and management using IoT Central]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central"/>
+        <updated>2021-06-24T20:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure IoT Central to capture real-time asset data, and tools like Azure Functions, Azure Notification Hubs, and Power BI to create alerts and reports.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build ETL pipelines with Azure Databricks]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ingest-etl-stream-with-adb</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ingest-etl-stream-with-adb"/>
+        <updated>2021-06-24T19:22:33.000Z</updated>
+        <summary type="html"><![CDATA[Create ETL pipelines for batch and streaming data with Azure Databricks to simplify data lake ingestion at any scale.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Agile development of data science projects - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/agile-development</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/agile-development"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Machine Learning Anomaly Detection API - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/apps-anomaly-detection-api</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/apps-anomaly-detection-api"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Machine Learning data pipeline cheat sheet - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/automated-data-pipeline-cheat-sheet</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/automated-data-pipeline-cheat-sheet"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[A printable cheat sheet that shows you how to set up an automated data pipeline to your Azure Machine Learning web service whether your data is on-premises, streaming, in Azure, or in a third-party cloud service.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Create a CI/CD pipeline with Azure Pipelines - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/ci-cd-flask</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/ci-cd-flask"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Create a continuous integration and continuous delivery pipeline for Artificial Intelligence (AI) applications using Docker and Kubernetes.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Test data science code with Azure DevOps Services - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/code-test</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/code-test"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Data science code testing on Azure with the UCI adult income prediction dataset with the Team Data Science Process and Azure DevOps Services]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Collaborative coding with Git - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/collaborative-coding-with-git</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/collaborative-coding-with-git"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[How to do collaborative code development for data science projects using Git with agile planning.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Create features for data in an Azure HDInsight Hadoop cluster - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/create-features-hive</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/create-features-hive"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Examples of Hive queries that generate features in data stored in an Azure HDInsight Hadoop cluster.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Create features in SQL Server using SQL and Python - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/create-features-sql-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/create-features-sql-server"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Generate features for data stored in a SQL Server VM on Azure using SQL and Python - part of the Team Data Science Process.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Feature engineering in machine learning - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/create-features</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/create-features"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn about feature engineering and its role in the data enhancement process of machine learning.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Process Azure blob data with advanced analytics - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/data-blob</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/data-blob"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Explore data and generate features from data stored in Azure Blob storage using advanced analytics.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scalable Data Science with Azure Data Lake - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/data-lake-walkthrough</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/data-lake-walkthrough"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[How to use Azure Data Lake to do data exploration and binary classification tasks on a dataset.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy models in production - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/deploy-models-in-production</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/deploy-models-in-production"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[How to deploy models to production enabling them to play an active role in making business decisions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Set up data science environments in Azure - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/environment-setup</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/environment-setup"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Set up data science environments on Azure for use in the Team Data Science Process.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Execute data science tasks - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/execute-data-science-tasks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/execute-data-science-tasks"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[How a data scientist can execute a data science project in a trackable, version controlled, and collaborative way.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Explore data in Azure Blob Storage with pandas - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/explore-data-blob</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/explore-data-blob"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[How to explore data that is stored in Azure blob container using the pandas Python package.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Explore data in Hive tables with Hive queries - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/explore-data-hive-tables</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/explore-data-hive-tables"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Use sample Hive scripts that are used to explore data in Hive tables in an HDInsight Hadoop cluster.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Explore data in SQL Server virtual machine - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/explore-data-sql-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/explore-data-sql-server"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[How to explore data that is stored in a SQL Server VM on Azure using SQL or a programming language like Python.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Explore data in the Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/explore-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/explore-data"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Explore data in different storage environments that are typically used in the Team Data Science Process.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team Data Science Process group manager tasks]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/group-manager-tasks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/group-manager-tasks"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Follow this detailed walkthrough of the tasks a group manager completes on a data science team project.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure HDInsight Hadoop Cluster on 1-TB dataset - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/hive-criteo-walkthrough</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/hive-criteo-walkthrough"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Using the Team Data Science Process for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Explore data in a Hadoop cluster - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/hive-walkthrough</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/hive-walkthrough"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Using the Team Data Science Process for an end-to-end scenario, employing an HDInsight Hadoop cluster to build and deploy a model.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Load data into Azure Storage environments - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/ingest-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/ingest-data"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn about how to ingest data into various target environments where the data is stored and processed.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Customer acceptance stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle-acceptance</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle-acceptance"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the customer acceptance stage of your data-science projects]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Business understanding in Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle-business-understanding"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the business understanding stage of your data-science projects in the Team Data Science Process.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data acquisition and understanding of Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle-data"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the data acquisition and understanding stage of your data-science projects]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deployment stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle-deployment</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle-deployment"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the deployment stage of your data-science projects]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modeling stage of the Team Data Science Process lifecycle]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle-modeling"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[The goals, tasks, and deliverables for the modeling stage of your data-science projects]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The Team Data Science Process lifecycle]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/lifecycle"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[The Team Data Science Process (TDSP) provides a recommended lifecycle that you can use to structure your data-science projects.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Move Data to and from Azure Blob storage - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/move-azure-blob</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/move-azure-blob"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Move Data to and from Azure Blob storage using Azure Storage Explorer, AzCopy, Python, and SSIS.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Move Blob storage data with Azure Storage Explorer - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/move-data-to-azure-blob-using-azure-storage-explorer</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/move-data-to-azure-blob-using-azure-storage-explorer"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Storage Explorer to upload and download data from Azure Blob Storage.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Move Blob storage data with SSIS connectors - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/move-data-to-azure-blob-using-ssis"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to move Data to or from Azure Blob Storage using SQL Server Integration Services Feature Pack for Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Create Hive tables and load data from Blob storage - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/move-hive-tables</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/move-hive-tables"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Use Hive queries to create Hive tables and load data from Azure Blob Storage. Partition Hive tables and use the Optimized Row Columnar (ORC) formatting to improve query performance.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SQL Server data to SQL Database with Azure Data Factory - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/move-sql-azure-adf</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/move-sql-azure-adf"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Set up an ADF pipeline that composes two data migration activities that together move data on a daily basis between databases on-premises and in the cloud.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Move data to an Azure SQL Database - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/move-sql-azure</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/move-sql-azure"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Move data from flat files (CSV or TSV formats) or from data stored in a SQL Server to an Azure SQL Database.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Move data to a SQL Server virtual machine - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/move-sql-server-virtual-machine</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/move-sql-server-virtual-machine"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Move data from flat files or from on-premises SQL Server to SQL Server on Azure VM.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What is the Team Data Science Process?]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/overview"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Provides a data science methodology to deliver predictive analytics solutions and intelligent applications.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Parallel bulk data import in SQL partition tables - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/parallel-load-sql-partitioned-tables</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/parallel-load-sql-partitioned-tables"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Build partitioned tables for fast parallel bulk importing of data to a SQL Server database.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Identify scenarios for Azure Machine Learning - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/plan-sample-scenarios</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/plan-sample-scenarios"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Select the appropriate scenarios for doing advanced predictive analytics with the Team Data Science Process.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Identify scenarios and plan the analytics process - Team Data Science Process | Azure Machine Learning]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/plan-your-environment</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/plan-your-environment"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Identify scenarios and plan for advanced analytics data processing by considering a series of key questions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Platforms and tools for data science projects - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/platforms-and-tools</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/platforms-and-tools"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Itemizes and discusses the data and analytics resources available to enterprises standardizing on the Team Data Science Process.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Predictive maintenance for aerospace with Azure - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/predictive-maintenance-architecture</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/predictive-maintenance-architecture"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Predictive maintenance architecture diagram of the Solution Template for aerospace, utilities, transportation.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure AI guide for predictive maintenance solutions - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/predictive-maintenance-playbook</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/predictive-maintenance-playbook"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[A comprehensive description of the data science that powers predictive maintenance solutions in multiple vertical industries.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Guide to predictive maintenance for aerospace - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/predictive-maintenance-technical-guide</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/predictive-maintenance-technical-guide"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[A technical guide to the Solution Template for predictive maintenance in aerospace, utilities, and transportation.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Prep data for ML Studio (classic) - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/prepare-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/prepare-data"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Pre-process and clean data to prepare it to be used effectively for machine learning.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tasks for an individual contributor in the Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/project-ic-tasks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/project-ic-tasks"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[A detailed walkthrough of the tasks for an individual contributor on a data science team project.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tasks for the project lead in the Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/project-lead-tasks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/project-lead-tasks"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[A detailed walkthrough of the tasks for a project lead on a Team Data Science Process team]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Access datasets with Python client library - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/python-data-access</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/python-data-access"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team Data Science Process roles and tasks]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/roles-tasks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/roles-tasks"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[An outline of the key components, personnel roles, and associated tasks for a data science group.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sample data in Azure Blob Storage - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/sample-data-blob</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/sample-data-blob"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Sampling data stored in Azure Blob Storage by downloading it programmatically and then sampling it using procedures written in Python.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sample data in Azure HDInsight Hive tables - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/sample-data-hive</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/sample-data-hive"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Down-sample data stored in Azure HDInsight Hive tables using Hive queries to reduce the data to a size more manageable for analysis.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sample Data in SQL Server on Azure - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/sample-data-sql-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/sample-data-sql-server"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Sample data stored in SQL Server on Azure using SQL or the Python programming language, then move it to Azure Machine Learning.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Sample data in different Azure Storage locations - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/sample-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/sample-data"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Sample data in Azure blob containers, SQL Server, and Hive tables to reduce it to a smaller but representative and more manageable size.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data Science using Scala and Spark on Azure - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/scala-walkthrough</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/scala-walkthrough"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[How to use Scala for supervised machine learning tasks with the Spark scalable MLlib and Spark ML packages on an Azure HDInsight Spark cluster.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Feature selection in the Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/select-features</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/select-features"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Explains the purpose of feature selection and provides examples of their role in the data enhancement process of machine learning.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Advanced data exploration and modeling with Spark - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/spark-advanced-data-exploration-modeling</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/spark-advanced-data-exploration-modeling"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Use HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data exploration and modeling with Spark - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/spark-data-exploration-modeling</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/spark-data-exploration-modeling"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on HDInsight Spark.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Operationalize Spark-built machine learning models - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/spark-model-consumption</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/spark-model-consumption"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[How to load and score learning models stored in Azure Blob Storage (WASB) with Python.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data science using Spark on Azure HDInsight - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/spark-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/spark-overview"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[The Spark MLlib toolkit brings considerable machine learning modeling capabilities to the distributed HDInsight environment.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Explore data in a SQL Server virtual machine - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/sql-server-virtual-machine</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/sql-server-virtual-machine"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Explore + process data and generate features using Python or SQL in a SQL Server virtual machine on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build and deploy a model in a SQL Server VM - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/sql-walkthrough</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/sql-walkthrough"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Build and deploy a machine learning model using SQL Server on an Azure VM with a publicly available dataset.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build and deploy a model using Azure Synapse Analytics - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/sqldw-walkthrough</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/sqldw-walkthrough"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Build and deploy a machine learning model using Azure Synapse Analytics with a publicly available dataset.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team Data Science Process for data scientists]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/team-data-science-process-for-data-scientists</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/team-data-science-process-for-data-scientists"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Guidance on a set of objectives that are typically used to implement comprehensive data science solutions with Azure technologies using the Team Data Science Process and Azure Machine Learning.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team Data Science Process for DevOps]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/team-data-science-process-for-devops</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/team-data-science-process-for-devops"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Developer Operations (DevOps) functions that are specific to an Advanced Analytics and Cognitive Services solution implementation.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team Data Science Process project planning]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/team-data-science-process-project-templates</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/team-data-science-process-project-templates"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Microsoft Project and Excel templates that help you plan and manage data science projects.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tasks for the team lead in the Team Data Science Process Team]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/team-lead-tasks</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/team-lead-tasks"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[A detailed walkthrough of the tasks for a team lead on a Team Data Science Process team]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Track progress of Team Data Science Process projects]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/track-progress</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/track-progress"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[How data science group managers, team leads, and project leads can track the progress of a data science project.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analytics using U-SQL on Azure Data Lake - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs-azure-data-lake</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs-azure-data-lake"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Examples that walk through the use of U-SQL on Azure Data Lake to do predictive analytics.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analytics on Azure HDInsight Hadoop using Hive - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs-hdinsight-hadoop</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs-hdinsight-hadoop"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Examples of the Team Data Science Process that walk through the use of Hive on Azure HDInsight Hadoop to do predictive analytics.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analytics on HDInsight Spark with PySpark, Scala - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs-spark</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs-spark"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Examples of the Team Data Science Process that walk through the use of PySpark and Scala on an Azure HDInsight Spark.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analytics on Azure Synapse Analytics with T-SQL, Python - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs-sql-data-warehouse</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs-sql-data-warehouse"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Examples that walk through the use of Azure Synapse Analytics to do predictive analytics.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analytics on SQL Server with R, Python, and T-SQL - Team Data Science Process]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs-sql-server</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs-sql-server"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[Examples that walk through the use R, Python, and T-SQL in SQL Server to do predictive analytics.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Walkthroughs executing the Team Data Science Process on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-science-process/walkthroughs"/>
+        <updated>2021-06-23T20:48:06.000Z</updated>
+        <summary type="html"><![CDATA[How to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rate Limiting pattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/patterns/rate-limiting-pattern</id>
+        <link href="https://docs.microsoft.com/azure/architecture/patterns/rate-limiting-pattern"/>
+        <updated>2021-06-23T18:00:59.000Z</updated>
+        <summary type="html"><![CDATA[You can use a rate limiting pattern to help you avoid or minimize throttling errors.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Analytics solution journey]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/analytics-start-here</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/analytics-start-here"/>
+        <updated>2021-06-22T02:52:13.000Z</updated>
+        <summary type="html"><![CDATA[Analytics solutions turn volumes of data into useful business intelligence (BI), such as reports and visualizations, and inventive artificial intelligence (AI), such as forecasts based on machine learning.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[IoT device connectivity for healthcare facilities]]></title>
         <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/healthcare-network</id>
@@ -103,6 +799,14 @@
         <updated>2021-06-01T19:17:31.000Z</updated>
         <summary type="html"><![CDATA[Collect, process, and store geospatial data by using managed Azure services. Make the data available through web apps. Visualize, explore, and analyze the data.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Repeatable Infrastructure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/devops/automation-infrastructure</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/devops/automation-infrastructure"/>
+        <updated>2021-06-24T14:09:22.000Z</updated>
+        <summary type="html"><![CDATA[Repeatable Infrastructure]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Defect prevention with predictive maintenance]]></title>
@@ -1145,6 +1849,14 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Multi-region web app with private connectivity to database]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region"/>
+        <updated>2021-03-02T00:11:26.000Z</updated>
+        <summary type="html"><![CDATA[Lock down access to a highly available Azure SQL Database. Connect multi-tenant Azure App Service web apps in different Azure regions to the database privately.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[IoT and data analytics]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/big-data-with-iot</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/big-data-with-iot"/>
@@ -1462,6 +2174,30 @@
         <link href="https://docs.microsoft.com/azure/architecture/guide/responsible-innovation"/>
         <updated>2021-03-02T20:49:14.000Z</updated>
         <summary type="html"><![CDATA[Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Interactive voice response app with bot]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/interactive-voice-response-bot</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/interactive-voice-response-bot"/>
+        <updated>2021-03-01T23:57:42.000Z</updated>
+        <summary type="html"><![CDATA[Process customer requests with an intelligent interactive voice response (IVR) application. Build automated systems from scratch or extend existing systems.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data integration with Logic Apps and SQL Server]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/integration/logic-apps-data-integration</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/integration/logic-apps-data-integration"/>
+        <updated>2021-03-01T23:02:34.000Z</updated>
+        <summary type="html"><![CDATA[Automate data integration tasks by using Azure Logic Apps. Configure API calls to trigger tasks like storing data in an on-premises SQL Server database.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of Azure load-balancing options]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview"/>
+        <updated>2021-03-01T22:01:07.000Z</updated>
+        <summary type="html"><![CDATA[An overview of Azure load-balancing options.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>

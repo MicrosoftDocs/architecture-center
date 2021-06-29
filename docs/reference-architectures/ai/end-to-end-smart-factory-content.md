@@ -41,7 +41,7 @@ the edge to the cloud and back. It is divided into three operational areas:
 
 ## Architecture
 
-[![Diagram Description automatically generated](_images/end-to-end-smart-factory-01.png)](_images/end-to-end-smart-factory-01.png#lightbox)
+[![End-to-end approach to computer vision from the edge to the cloud and back workflow](_images/end-to-end-smart-factory-01.png)](_images/end-to-end-smart-factory-01.png#lightbox)
 
 ### Data flow
 
