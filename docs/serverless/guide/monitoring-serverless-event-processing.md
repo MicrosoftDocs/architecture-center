@@ -29,7 +29,7 @@ This article provides guidance on monitoring [serverless](https://azure.microsof
 
 Monitoring provides insight into the behavior and health of your systems. It helps you build a holistic view of the environment, retrieve historic trends, correlate diverse factors, and measure changes in performance, consumption, or error rate. You can use monitoring to define alerts when conditions occur that could impact the quality of your service, or when conditions of particular interest to your specific environment arise.
 
-This article demonstrates using [Azure Monitor](https://azure.microsoft.com/services/monitor/) to monitor a serverless application built using [Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure Functions](https://azure.microsoft.com/services/functions/). It discusses useful metrics to monitor, describes how to integrate with [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) and capture custom metrics, and provides code samples.
+This article demonstrates using [Azure Monitor](https://azure.microsoft.com/services/monitor/) to monitor a serverless application built using [Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure Functions](https://azure.microsoft.com/services/functions/). It discusses useful metrics to monitor, describes how to integrate with [Application Insights](/azure/azure-monitor/app/app-insights-overview) and capture custom metrics, and provides code samples.
 
 ## Assumptions
 
@@ -93,7 +93,7 @@ The log and metric categories that we are interested in are:
 - EventHubVNetConnectionEvent
 - AllMetrics
 
-Azure documentation provides instructions on how to [Set up diagnostic logs for an Azure event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs#enable-diagnostic-logs). The following screenshot shows an example *Diagnostic setting* configuration panel with the correct log and metric categories selected, and a Log Analytics workspace set as the destination. (If an external system is being used to analyze the logs, the option to *Stream to an event hub* can be used instead.)
+Azure documentation provides instructions on how to [Set up diagnostic logs for an Azure event hub](/azure/event-hubs/event-hubs-diagnostic-logs#enable-diagnostic-logs). The following screenshot shows an example *Diagnostic setting* configuration panel with the correct log and metric categories selected, and a Log Analytics workspace set as the destination. (If an external system is being used to analyze the logs, the option to *Stream to an event hub* can be used instead.)
 
 :::image type="content" source="images/monitoring-serverless-event-processing-diagnostic-setting.png" alt-text="Screenshot of an Event Hub diagnostic settings configuration panel showing the correct log and metric categories selected, and a Log Analytics workspace set as the destination." lightbox="images/monitoring-serverless-event-processing-diagnostic-setting.png":::
 
@@ -197,7 +197,7 @@ Here is a screenshot of what the query and its matching results might look like 
 
 ### .NET functions
 
-[Structured logging](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library?tabs=v2%2Ccmd#structured-logging) is used in the .NET Azure functions for capturing custom dimensions in the Application Insights traces table. These custom dimensions can then be used for querying data.
+[Structured logging](/azure/azure-functions/functions-dotnet-class-library?tabs=v2%2Ccmd#structured-logging) is used in the .NET Azure functions for capturing custom dimensions in the Application Insights traces table. These custom dimensions can then be used for querying data.
 
 As an example, here is the log statement in the .NET `TransformingFunction`:
 
