@@ -32,7 +32,7 @@ The baseline architecture provided a subnet for Bastion but didn't provision the
 
 Provisioned in a separate virtual network. Creates VM images with base security and configuration. In this architecture, it's customized to build secure node images with Ubuntu 18.04-LTS platform (MSFT-provided) image with management tools such as Azure CLI, kubectl and kubelogin, flux CLI.
 
-**Azure Virtual Machines Scale Set (VMSS) for jump box instances**
+**Azure Virtual Machines Scale Set for jump box instances**
 
 The spoke network has an additional compute for a jump box. This machine is intended to run management tools on the AKS cluster, such as kubectl.
 
@@ -50,7 +50,7 @@ Provides an automated way of building and maintaining container images.
 
 **Azure Key Vault**
 
-Stores and manages secrets needed for cluster operations, such as certificates and encyrption keys.
+Stores and manages secrets needed for cluster operations, such as certificates and encryption keys.
 
 
 ## Cluster configuration
@@ -73,7 +73,7 @@ The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in
 
 - Out-of-scope&mdash;Other workloads that may share services but are isolated from the in-scope components.
 
-The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. Be aware that as the solution evolves, some out-of-scope components might be in scope and more controls might need to be applied to keep them separate. 
+The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. As the solution evolves, some out-of-scope components might be in scope and more controls might need to be applied to keep them separate. 
 
 In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The in-scope and out-of-scope workloads are segmented in two separate user node pools. The application has two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM.
 
@@ -161,7 +161,7 @@ For more details on using PowerShell to configure conditional access, see [Azure
   
 
 ## Disk encryption
-When desgining encryption for data at rest, consider storage disks, AKS agent node VMs, other VMs, and any temporary and OS disks. 
+When designing encryption for data at rest, consider storage disks, AKS agent node VMs, other VMs, and any temporary and OS disks. 
 
 ### Storage disks
 
@@ -243,7 +243,7 @@ Key differentiators over Baseline:
 
 ## Related Azure Services
 
-Here are link to feature documentation of some key components of this architecture.  
+Here are the links to feature documentation of some key components of this architecture.  
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/)
 - [Azure Firewall](/azure/firewall-manager/overview) 

@@ -20,7 +20,7 @@ AKS provides audit logs at multiple levels that can be useful protecting the sys
 
 RBAC (role-based access control) can be used to manage the resource access policy as a standard practice on Azure.
 
-All logs should be stored in a customer-owned storage account or Log Analytics. That way, you can quickly generate insights from a large volume of data. All logs are kept with at least three copies in a region. You can have more copies by enabling cross-region backup or replication. All log entries are availalbe only through secured HTTP(s) channels.
+All logs should be stored in a customer-owned storage account or Log Analytics. That way, you can quickly generate insights from a large volume of data. All logs are kept with at least three copies in a region. You can have more copies by enabling cross-region backup or replication. All log entries are available only through secured HTTP(s) channels.
 
 Azure's alerting framework allows you to configure alerts to detect suspicious access. You can set what alerts need to be fired and the events. Users can also manually check the full log using Log Analytics with filtering capability based on type of the activity, content of the activity, or caller of the activity.
 
@@ -47,7 +47,7 @@ AKS is integrated with Azure monitoring services:
 
 - Azure Security Center provides many security scanning features. For example Security center scans images pulled and pushed to container registries and provides recommendations. For details, see [Vulnerability management - scanning container images](/azure/security-center/container-security#vulnerability-management---scanning-container-images). You can also use [file integrity monitoring (FIM)](/azure/security-center/security-center-file-integrity-monitoring) to check system files. 
 
-- Azure Monitor can be used to set alerts based on event type to protect system integrity and security. When there are any expected system failures on AKS nodes, AKS auto-heals the resource in a timely manner without interruption to system processing. 
+- Azure Monitor can be used to set alerts based on event type to protect system integrity and security. When there are any expected system failures on AKS nodes, AKS autoheals the resource in a timely manner without interruption to system processing. 
 
 AKS clusters are protected by Azure Application Gateway with Web Application Firewall (WAF). This can be configured in detect mode to log alerts and threats. A stronger mode is the preventive mode, which actively blocks detected intrusions and attacks. For details, see [Best practices for network connectivity and security in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-network).
 
@@ -82,7 +82,7 @@ We recommend that you use these ways to track operations performed on each compo
 
     - Diagnostic setting for AKS. From the provided AKS categories, enable Kubernetes audit logs. This includes `kube-audit` or `kube-audit-admin`, and `guard`. 
     
-      Enable `kube-audit-admin` to see log-data API server calls that might modify the state of your cluster. If you need an audit trail of all API server interactions (including non-modifying events such read requests), enable `kube-audit` instead. Be aware that those events can be prolific, create noise, and add to the cost. These logs have information about the access and identity name that's used to make the request. 
+      Enable `kube-audit-admin` to see log-data API server calls that might modify the state of your cluster. If you need an audit trail of all API server interactions (including non-modifying events such read requests), enable `kube-audit` instead. Those events can be prolific, create noise, and add to the cost. These logs have information about the access and identity name that's used to make the request. 
       
       Enable `guard` logs to track managed Azure AD and Azure role-based access control (RBAC) audits. 
 
@@ -115,7 +115,7 @@ AKS provides audit logs at multiple levels, as described in [Requirement 10.1](#
 
 - By default, activity logs provide information about critical Azure resource operations. All logs include status, time, and the identity that started the operation.
 - Enable diagnostic settings to access all records of all API calls made into the AKS cluster. The logs provide details about the requestor, the time stamp, the source of request, and the contents of the request. Store the logs in a Log Analytics workspace with an appropriate retention period. Enable Log Analytics workspace logging to make sure that even access to this audit trail is logged.
-- Include audit logging to additional compute such as  build agents and jump boxes. Disable access to the systems directly as root. This will ensure all actions are being performed under a specific identity. 
+- Include audit logging for other compute such as  build agents and jump boxes. Disable access to the systems directly as root. This will ensure all actions are being performed under a specific identity. 
 - Log unsuccessful access attempts. This includes access requests to components such as Azure Storage, Azure Key Vault, the AKS API server, and any RDP/SSH access on additional compute.
 - Take advantage of features, offered by third-party security agents, that can help analyze user patterns inside your AKS cluster. This might be useful for user-access audit data.
 

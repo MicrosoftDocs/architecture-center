@@ -19,7 +19,7 @@ When you're hosting a workload in a Kubernetes, it's not sufficient to rely on t
 
 #### AKS feature support
 
-AKS supports deploying a cluster in a private virtual network as a private cluster. Communication between the cluster and AKS-managed Kubernetes API server is over a trusted network. With a private cluster you can use  Azure Virtual Network, Nework Security Group (NSG), and other built-in network controls to secure the entire cardholder data environment (CDE). This will prohibit any unauthorized public access between the internet and the environment. For details about how to provision such a cluster, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).  
+AKS supports deploying a cluster in a private virtual network as a private cluster. Communication between the cluster and AKS-managed Kubernetes API server is over a trusted network. With a private cluster you can use  Azure Virtual Network, Network Security Group (NSG), and other built-in network controls to secure the entire cardholder data environment (CDE). This will prohibit any unauthorized public access between the internet and the environment. For details about how to provision such a cluster, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).  
 
 Azure Firewall is integrated with AKS and can limit outbound traffic from the cluster, which is a key component of the CDE. The configuration is made easy with an AKS FQDN Tag. The recommended process is provided in [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](https://docs.microsoft.com/en-us/azure/firewall/protect-azure-kubernetes-service). 
 
@@ -75,7 +75,7 @@ Current network diagram that identifies all connections between the cardholder d
 
 ##### Your responsibilities
 
-As part of your documentation, maintain a network flow diagram that shows the incoming and outgoing traffic with security controls. This includes traffic flow from other networks including any wireless network to the CDE. The diagram also show flows within the cluster. There are some specific requirements for diagrams, they should show the intrusion sensors. The controls for 
+As part of your documentation, maintain a network flow diagram that shows the incoming and outgoing traffic with security controls. This includes traffic flow from other networks including any wireless network to the CDE. The diagram should also show flows within the cluster. There are some specific requirements for diagrams, they should show the intrusion sensors. The controls for 
 
 This image shows the network diagram of the reference implementation.
 
