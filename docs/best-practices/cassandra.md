@@ -15,15 +15,15 @@ ms.custom:
 
 <!-- cSpell:ignore arsenv arsenvlad DataStax mdadm -->
 
-# Azure Managed Instance for Apache Cassandra
-
-If you are looking for a more automated service for running Apache Cassandra on Azure virtual machines, consider using [Azure Managed Instance for Apache Cassandra](https://docs.microsoft.com/azure/managed-instance-apache-cassandra/). This service automates the deployment, management (patching and node health), and scaling of nodes within an Apache Cassandra cluster. It also provides the capability for [hybrid clusters](https://docs.microsoft.com/azure/managed-instance-apache-cassandra/configure-hybrid-cluster), allowing Apache Cassandra datacenters deployed in Azure to join an existing on-premise or third-party hosted Cassandra ring. The service is deployed using [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
-
 # Run Apache Cassandra on Azure VMs
 
 This article describes performance considerations for running Apache Cassandra on Azure virtual machines.
 
 These recommendations are based on the results of performance tests, which you can find on [GitHub][repo]. You should use these recommendations as a baseline and then test against your own workload.
+
+## Azure Managed Instance for Apache Cassandra
+
+If you are looking for a more automated service for running Apache Cassandra on Azure virtual machines, consider using [Azure Managed Instance for Apache Cassandra](https://docs.microsoft.com/azure/managed-instance-apache-cassandra/). This service automates the deployment, management (patching and node health), and scaling of nodes within an Apache Cassandra cluster. It also provides the capability for [hybrid clusters](https://docs.microsoft.com/azure/managed-instance-apache-cassandra/configure-hybrid-cluster), allowing Apache Cassandra datacenters deployed in Azure to join an existing on-premise or third-party hosted Cassandra ring. The service is deployed using [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
 ## Azure VM sizes and disk types
 
