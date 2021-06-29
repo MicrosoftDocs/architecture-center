@@ -107,9 +107,9 @@ Test your deployment by [forcing a manual failover][sql-alwayson-force-failover]
 
 ### Jumpbox
 
-When you run virtual machines in a private virtual network, as in this architecture, there's a need to access virtual machines for software installation, patching, and so on.  But, making these machines accessible to the public internet isn't a good idea because it increases the attack surface significantly. Instead, a jumpbox is used as a middle access layer.
+When you run virtual machines in a private virtual network, as in this architecture, there's a need to access virtual machines for software installation, patching, and so on. But, making these machines accessible to the public internet isn't a good idea because it increases the attack surface significantly. Instead, a jumpbox is used as a middle access layer.
 
-In the past, a VM that's managed by the customer might be used as a jumpbox.  In that scenario, the following recommendations apply:
+In the past, a VM that's managed by the customer might be used as a jumpbox. In that scenario, the following recommendations apply:
 
 - Don't allow RDP access from the public internet to the VMs that run the application workload. Instead, all RDP access to these VMs should go through the jumpbox. An administrator logs in to the jumpbox and then logs in to the other VM from the jumpbox. The jumpbox allows RDP traffic from the internet, but only from known, safe IP addresses.
 - The jumpbox has minimal performance requirements, so select a small VM size. Create a [public IP address] for the jumpbox. Place the jumpbox in the same virtual network as the other VMs, but in a separate management subnet.
