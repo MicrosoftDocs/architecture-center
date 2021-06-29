@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This example shows how to achieve fast and reliable service quality during seasonal and other high-traffic demand periods. This approach can be used to manage:
 
@@ -12,7 +11,7 @@ This example shows how to achieve fast and reliable service quality during seaso
 ![Architecture Diagram](../media/aks-demand-spikes.png)
 *Download an [SVG](../media/aks-demand-spikes.svg)*
 
-## Data Flow
+## Data flow
 
 The data flows through the solution as follows:
 
@@ -34,7 +33,7 @@ This scenario is implemented several Azure components:
 - [Azure CDN](https://azure.microsoft.com/services/cdn/): A global CDN solution for delivering high-bandwidth content.
 - [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs/): Send push notifications to any platform from any back end.
 
-## Next Steps
+## Next steps
 
 - [What is Kubernetes?](https://azure.microsoft.com/topic/what-is-kubernetes/)
 - [Learn about Kubernetes on Azure](https://azure.microsoft.com/overview/kubernetes-on-azure/)

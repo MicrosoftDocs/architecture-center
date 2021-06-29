@@ -2,15 +2,17 @@
 title: Federated Identity pattern
 titleSuffix: Cloud Design Patterns
 description: Use the Federated Identity design pattern to delegate authentication to an external identity provider.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure-active-directory
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Federated Identity pattern
@@ -85,7 +87,7 @@ The figure shows how tenants authenticate with their own identity provider (step
 
 Tenants won't need to remember separate credentials to access the application, and an administrator at the tenant’s company can configure in its own AD FS the list of users that can access the application.
 
-## Related guidance
+## Next steps
 
 - [Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 - [Active Directory Domain Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))

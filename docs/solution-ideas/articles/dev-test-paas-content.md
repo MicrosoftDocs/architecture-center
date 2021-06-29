@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 In *platform as a service (PaaS)* cloud computing, a service provider delivers a platform for clients to develop, run, and manage applications without having to build and maintain infrastructure. Solution development based on Azure Platform resources and services removes the overhead of managing virtual machines, virtual networks, disks, and related configurations.
 
@@ -50,7 +49,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
   
 - [Azure Boards](https://azure.microsoft.com/services/devops/boards/) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban methodologies, customizable dashboards, and integrated reporting.
   
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) deploys the VM application images. Pipelines can also deploy the VM resources themselves, through [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview). This [infrastructure-as-code](/azure/devops/learn/what-is-infrastructure-as-code) can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) deploys the VM application images. Pipelines can also deploy the VM resources themselves, through [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview). This [infrastructure-as-code](/devops/deliver/what-is-infrastructure-as-code) can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.
   
 - [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps in Azure](devsecops-in-azure.yml) and [DevSecOps in GitHub](devsecops-in-github.yml).
   
@@ -58,7 +57,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
   
 - [Terraform](https://www.terraform.io/) is a third-party tool that provisions and modifies resources per environment. The current solution provisions an environment stack of Azure App Service, Azure Cache for Redis, and Azure SQL Database.
   
-  Terraform also supports cross-platform [infrastructure-as-code](/azure/devops/learn/what-is-infrastructure-as-code) configuration and deployment across Azure and other cloud providers. Infrastructure-as-code lets developers validate infrastructure changes the same way they validate code changes.
+  Terraform also supports cross-platform [infrastructure-as-code](/devops/deliver/what-is-infrastructure-as-code) configuration and deployment across Azure and other cloud providers. Infrastructure-as-code lets developers validate infrastructure changes the same way they validate code changes.
   
 - [Azure App Service](/azure/app-service/overview) is a fully managed web hosting service for building web apps. App Service supports DevOps capabilities like CD, package management, staging environments, custom domains, and TLS/SSL certificates.
   

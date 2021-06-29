@@ -1,6 +1,6 @@
 ---
 title: Tradeoffs for performance efficiency
-description: Tradeoffs for performance efficiency
+description: Discover the pros and cons of performance optimization. Learn about tradeoffs between performance efficiency, operational excellence, reliability, scalability, and more.
 author: v-aangie
 ms.date: 01/07/2021
 ms.topic: conceptual
@@ -9,15 +9,21 @@ ms.subservice: well-architected
 ms.custom:
   - What scalability tradeoffs are you making?
   - article
+  - seo-aac-fy21q3
+keywords:
+  - Performance efficiency
+  - cost efficiency
+  - performance optimization
+  - operational excellence
 ---
 
 # Tradeoffs for performance efficiency
 
-As you design the workload, consider tradeoffs between performance optimization and other aspects of the design, such as cost, operability, reliability, and security.
+As you design the workload, consider tradeoffs between performance optimization and other aspects of the design, such as cost efficiency, operability, reliability, and security.
 
-## Performance efficiency vs. cost
+## Performance efficiency vs. cost efficiency
 
-Cost can increase as a result of boosting performance. Many performance factors impact cost. 
+Cost can increase as a result of boosting performance. Here are a few factors to consider when optimizing for performance and how they impact cost:
 
 - Avoid cost estimation of a workload at consistently high utilization. Consumption-based pricing will be more expensive that the equivalent provisioned pricing. Smooth out the peaks to get a consistent flow of compute and data. Ideally, use manual and autoscaling to find the right balance. Scaling up is generally more expensive than scaling out.
 
@@ -25,7 +31,7 @@ Cost can increase as a result of boosting performance. Many performance factors 
 
 - Every render cycle of a payload consumes both compute and memory. You can use caching to reduce load on servers and save with pre-canned storage and bandwidth costs. The savings can be dramatic, especially for static content services.
 
-     - While caching can reduce cost, there are some performance tradeoffs. For example, Azure Traffic Manager pricing is based on the number of DNS (Domain Name Service) queries that reach the service. You can reduce that number through caching and configure how often the cache is refreshed. Relying on the cache that isn't frequently updated will cause longer user failover times if an endpoint is unavailable.
+  - While caching can reduce cost, there are some performance tradeoffs. For example, Azure Traffic Manager pricing is based on the number of DNS (Domain Name Service) queries that reach the service. You can reduce that number through caching and configure how often the cache is refreshed. Relying on the cache that isn't frequently updated will cause longer user failover times if an endpoint is unavailable.
 
 - Using dedicated resources for batch processing long running jobs will increase the cost. You can lower cost by provisioning Spot VMs but be prepared for the job to be interrupted every time Azure evicts the VM.
 
@@ -41,7 +47,7 @@ One operational process that can help to identify performance issues early is [a
 
 ### Fast builds
 
-Another operational process is making sure that your product is in a deployable state through a fast [build](../devops/release-engineering-performance.md#build-times) process. Builds provide crucial information about the status of your product.
+Another operational efficiency process is making sure that your product is in a deployable state through a fast [build](../devops/release-engineering-performance.md#build-times) process. Builds provide crucial information about the status of your product.
 
 The following can help faster builds:
 
@@ -52,7 +58,7 @@ The following can help faster builds:
 
 For an explanation of these items, see [Builds](../devops/release-engineering-performance.md#build-times).
 
-### Monitoring
+### Monitoring performance optimization
 
 As you consider making performance improvements, monitoring should be done to verify that your application is running correctly. Monitoring should include the application, platform, and networking. To learn more, see [Monitoring](../devops/monitoring.md).
 
@@ -66,7 +72,7 @@ Reliable applications are *resilient* and *highly available* (HA). Resiliency al
 
 Some reliability considerations are:
 
-- Use the [Circuit Breaker](../../patterns/circuit-breaker.md#related-patterns-and-guidance) pattern to provide stability while the system recovers from a failure and minimizes the impact on performance.
+- Use the [Circuit Breaker](../../patterns/circuit-breaker.md) pattern to provide stability while the system recovers from a failure and minimizes the impact on performance.
 
 - Achieve levels of scale and performance needed for your solution by segregating read and write interfaces by implementing the [CQRS pattern](../../patterns/cqrs.md).
 

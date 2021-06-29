@@ -6,6 +6,8 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-monitor
 ms.custom:
   - fasttrack-edit
   - article

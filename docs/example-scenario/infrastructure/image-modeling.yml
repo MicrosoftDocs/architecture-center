@@ -4,12 +4,12 @@ metadata:
   description: This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure-as-a-service (IaaS).
   author: doodlemania2
   ms.date: 01/11/2019
-  ms.category:
-    - compute
-    - storage
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - compute
+    - storage
   ms.custom:
     - cat-team
     - Linux

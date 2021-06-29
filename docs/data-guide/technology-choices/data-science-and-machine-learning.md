@@ -6,6 +6,8 @@ ms.date: 09/01/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-machine-learning
 ms.custom:
   - contperf-fy21q1
   - guide
@@ -94,7 +96,7 @@ Use Cognitive Services to develop apps across devices and platforms. The APIs ke
 - [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services)
 - [Machine Learning Services on SQL Server Big Data Clusters](/sql/big-data-cluster/machine-learning-services)
 - [Azure SQL Managed Instance Machine Learning Services](/azure/azure-sql/managed-instance/machine-learning-services-overview)
-- [Machine learning in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-mllib-notebook)
+- [Machine learning in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning)
 - [Machine learning and AI with ONNX in Azure SQL Edge](/azure/azure-sql-edge/onnx-overview)
 - [Machine Learning extension for Azure Data Studio](/sql/azure-data-studio/machine-learning-extension)
 
