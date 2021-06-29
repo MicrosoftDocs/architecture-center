@@ -39,7 +39,7 @@ The architecture has the following components.
 
 - **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the primary node. In that case, you need a *witness* to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. To learn more about the concept of quorum, see [Understanding cluster and pool quorum](/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
-- **Jumpbox**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
+- **Jumpbox**. Also called a [bastion host]. Traditionally. a secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic. Azure offers a managed solution known as [Azure Bastion](/azure/bastion/) that meets this need.
 
 ## Recommendations
 
@@ -107,11 +107,15 @@ Test your deployment by [forcing a manual failover][sql-alwayson-force-failover]
 
 ### Jumpbox
 
-Don't allow RDP access from the public Internet to the VMs that run the application workload. Instead, all RDP access to these VMs should go through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows RDP traffic from the Internet, but only from known, safe IP addresses.
+When running virtual machines in an private virtual network as in this architecture, there's a need to access virtual machines for software installation, patching, etc.  But, opening up access to these machines to the public Internet is not desireable, as it increases the attack surface significantly.  Instead, a jumpbox is used as a middle access layer.
 
-The jumpbox has minimal performance requirements, so select a small VM size. Create a [public IP address] for the jumpbox. Place the jumpbox in the same virtual network as the other VMs, but in a separate management subnet.
+In the past, a VM be used that is managed by the customer.  In this case, the following recommendations would apply:
 
-To secure the jumpbox, add an NSG rule that allows RDP connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow RDP traffic from the management subnet.
+- Don't allow RDP access from the public Internet to the VMs that run the application workload. Instead, all RDP access to these VMs should go through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows RDP traffic from the Internet, but only from known, safe IP addresses.
+- The jumpbox has minimal performance requirements, so select a small VM size. Create a [public IP address] for the jumpbox. Place the jumpbox in the same virtual network as the other VMs, but in a separate management subnet.
+- To secure the jumpbox, add an NSG rule that allows RDP connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow RDP traffic from the management subnet.
+
+For a customer-managed VM, all of these rules apply. However, the current recommendation is to use [Azure Bastion](/azure/bastion/), a managed jumpbox solution that allows for HTML5 access to RDP or SSH behind Azure AD protection.  This is a much simpler solution ultimately with a lower total cost of ownership (TCO) for the customer.
 
 ## Scalability considerations
 
