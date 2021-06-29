@@ -4,10 +4,6 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 Kubernetes has native role-based access control (RBAC) that manages permissions to the Kubernetes API. There are several built-in roles with specific permissions or actions on Kubernetes resources. Azure Kubernetes Service (AKS) supports those built-in roles and custom roles for granular control. Those actions can be authorized (or denied) to a user through Kubernetes RBAC.
 
-AKS is fully integrated with Azure Active Directory (Azure AD) as the identity provider. You don't have to manage separate user identities and credentials for Kubernetes. You can add Azure AD users for Kubernetes RBAC. This integration makes it possible to do role assignments to Azure AD users.
-
-For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac).
-
 This architecture and the implementation aren't designed to provide controls on physical access to on-premises resources or datacenters. One benefit of hosting your CDE in Azure, as opposed to your platform at the edge or in your datacenter, is that restricting physical access is mostly already handled through Azure datacenter security. There aren't any responsibilities for the organization in management of physical hardware.
 
 > [!IMPORTANT]
@@ -18,7 +14,19 @@ This architecture and the implementation aren't designed to provide controls on 
 
 ## Implement strong access control measures
 
-**Requirement 7**&mdash;Restrict access to cardholder data by business need to know
+### **Requirement 7**&mdash;Restrict access to cardholder data by business need to know
+
+#### AKS feature support
+
+AKS is fully integrated with Azure Active Directory (Azure AD) as the identity provider. 
+
+You don't have to manage separate user identities and credentials for Kubernetes. You can add Azure AD users for Kubernetes RBAC. This integration makes it possible to do role assignments to Azure AD users. Azure AD RBAC supports for role definitions, such as viewer, writer, service admin, cluster admin as built-in roles. Also you can create custom roles for more granular control. .
+
+By default, Azure RBAC is set to deny all so a resource cannot be accessed without granted permissions. AKS limits SSH access to AKS worker nodes and uses AKS network policy to control access to workloads in the pods. 
+
+For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac) and [Secure your cluster with Azure Policy](/azure/aks/use-pod-security-on-azure-policy).
+
+#### Your responsibilities
 
 |Requirement|Responsibility|
 |---|---|
@@ -26,7 +34,13 @@ This architecture and the implementation aren't designed to provide controls on 
 |[Requirement 7.2](#requirement-72)|Establish an access control system for systems components that restricts access based on a user’s need to know, and is set to “deny all” unless specifically allowed.|
 |[Requirement 7.3](#requirement-73)|Ensure that security policies and operational procedures for restricting access to cardholder data are documented, in use, and known to all affected parties.|
 
-**Requirement 8**&mdash;Identify and authenticate access to system components
+### **Requirement 8**&mdash;Identify and authenticate access to system components
+
+#### AKS feature support
+
+Because of AKS and Azure AD integration, you can leverage ID management and authorization capabilities, including access management, identifier objects management, and others. For more information, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
+
+#### Your responsibilities
 
 |Requirement|Responsibility|
 |---|---|

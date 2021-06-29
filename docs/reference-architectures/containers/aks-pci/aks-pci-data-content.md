@@ -12,7 +12,12 @@ This architecture and the implementation are focused on infrastructure and not t
 
 ## Protect Cardholder Data 
 
-**Requirement 3**&mdash;Protect stored cardholder data
+### **Requirement 3**&mdash;Protect stored cardholder data
+
+#### AKS feature support
+TBD
+
+#### Your responsibilities
 
 |Requirement|Responsibility|
 |---|---|
@@ -25,7 +30,12 @@ This architecture and the implementation are focused on infrastructure and not t
 |[Requirement 3.7](#requirement-37)|Ensure that security policies and operational procedures for protecting stored cardholder data are documented, in use, and known to all affected parties.|
 
 ***
-**Requirement 4**&mdash;Encrypt transmission of cardholder data across open, public networks.
+### **Requirement 4**&mdash;Encrypt transmission of cardholder data across open, public networks.
+
+#### AKS feature support
+TBD
+
+#### Your responsibilities
 
 |Requirement|Responsibility|
 |---|---|

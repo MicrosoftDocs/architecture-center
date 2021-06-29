@@ -10,7 +10,22 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 ## Regularly Monitor and Test Networks
 
-**Requirement 10**&mdash;Track and monitor all access to network resources and cardholder data
+### **Requirement 10**&mdash;Track and monitor all access to network resources and cardholder data
+
+#### AKS feature support
+
+Azure provides the Container Insights feature that monitoring containers, including AKS clusters. For more information, see [Container insights overview](/azure/azure-monitor/insights/container-insights-overview).
+
+AKS provides audit logs at multiple levels that can be useful protecting the system and data proactively. Activity logs provide information about, operations related to account and secret management; diagnostic setting management; server management; and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. You can also access all chronological records of all API calls made into the AKS cluster. This includes information about the caller, time when the call was made, source where the call was initiated, and so on. For more information, see [Enable and review Kubernetes control plane logs in Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs). 
+
+RBAC (role-based access control) can be used to manage the resource access policy as a standard practice on Azure.
+
+All logs should be stored in a customer-owned storage account or Log Analytics. That way, you can quickly generate insights from a large volume of data. All logs are kept with at least three copies in a region. You can have more copies by enabling cross-region backup or replication. All log entries are availalbe only through secured HTTP(s) channels.
+
+Azure's alerting framework allows you to configure alerts to detect suspicious access. You can set what alerts need to be fired and the events. Users can also manually check the full log using Log Analytics with filtering capability based on type of the activity, content of the activity, or caller of the activity.
+
+
+#### Your responsibilities
 
 |Requirement|Responsibility|
 |---|---|
@@ -24,7 +39,20 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 |[Requirement 10.8](#requirement-108)|Additional requirement for service providers only: Respond to failures of any critical security controls in a timely manner. Processes for responding to failures in security controls must include|
 |[Requirement 10.9](#requirement-109)|Ensure that security policies and operational procedures for monitoring all access to network resources and cardholder data are documented, in use, and known to all affected parties.|
 
-**Requirement 11**&mdash;Regularly test security systems and processes
+### **Requirement 11**&mdash;Regularly test security systems and processes
+
+#### AKS feature support
+ 
+AKS is integrated with Azure monitoring services:
+
+- Azure Security Center provides many security scanning features. For example Security center scans images pulled and pushed to container registries and provides recommendations. For details, see [Vulnerability management - scanning container images](/azure/security-center/container-security#vulnerability-management---scanning-container-images). You can also use [file integrity monitoring (FIM)](/azure/security-center/security-center-file-integrity-monitoring) to check system files. 
+
+- Azure Monitor can be used to set alerts based on event type to protect system integrity and security. When there are any expected system failures on AKS nodes, AKS auto-heals the resource in a timely manner without interruption to system processing. 
+
+AKS clusters are protected by Azure Application Gateway with Web Application Firewall (WAF). This can be configured in detect mode to log alerts and threats. A stronger mode is the preventive mode, which actively blocks detected intrusions and attacks. For details, see [Best practices for network connectivity and security in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-network).
+
+
+#### Your responsibilities
 
 |Requirement|Responsibility|
 |---|---|
