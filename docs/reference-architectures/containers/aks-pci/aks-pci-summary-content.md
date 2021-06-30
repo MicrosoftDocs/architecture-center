@@ -1,7 +1,12 @@
 
-The Azure Well-Architected Framework is a set of guiding tenets that can be used to assess a solution through the quality  pillars of architecture excellence: [Cost Optimization](#cost-optimization), Operational Excellence, Performance Efficiency, Reliability, and Security. 
+The Azure Well-Architected Framework is a set of guiding tenets that can be used to assess a solution through the quality  pillars of architecture excellence: 
+- [Cost Optimization](#cost-optimization)
+- Operational Excellence
+- Performance Efficiency
+- Reliability
+- [Security](#security)
 
-> This article is part of a series. Read the [introduction](aks-pci-intro.yml).
+> This article ends this series. Read the [introduction](aks-pci-intro.yml).
 
 This guidance provided in this series incorporate Well-Architected principles in all design choices. This article summarizes those choices.  The [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) implementation demonstrates those principles, as applicable. 
 
@@ -32,6 +37,7 @@ Azure provides several built-in policies for most services. Review these [Azure 
 Compliance must be systematically monitored and maintained. Regular compliance attestations are performed. Knowing whether your cloud resources are in compliance, will help prepare for attestations and audit. 
 
 Take advantage the regulatory compliance dashboard provided by Azure Security Center. By continuously monitoring the dashboard, you can keep track of the compliance status of your workload. 
+
 ![Compliance dashboard](.\images\regulatory-compliance-pci.png)
 
 ## Identity
@@ -101,7 +107,7 @@ If you do not have Network Watchers and NSG Flow Logs enabled on your subscripti
 
 ## Cost Optimization
 
-As you create groups of Azure resources, apply tags so that they can tracked for cost. Use cost management tools like Azure Advisor, Advisor Score, and Azure Cost Management for tracking and analyzing cost. 
+Because of the compliance requirements and strict security controls, a clear tradeoff is cost. We recommend, that you establish initial estimates by using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 Here's a high-level represenation of the cost impact of the main resources used by this architecture.
 
@@ -118,7 +124,9 @@ The cost associated with some resources, such as Azure Firewall, can be amortize
 There are other ways to lower costs, consider:
 
 - Reserved instances?
+<ask chad>
 
+As you create groups of Azure resources, apply tags so that they can tracked for cost. Use cost management tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Azure Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices) for tracking and analyzing cost. 
 
 
 
