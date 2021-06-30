@@ -4,7 +4,8 @@ Transform your data into actionable insights using the best-in-class machine lea
 
 ## Architecture
 
-![Architecture Diagram](../media/advanced-analytics-on-big-data.png)
+:::image type="content" source="../media/advanced-analytics-on-big-data.png" alt-text="Diagram of a an advanced analytics architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Azure Analysis Services, Azure Cosmos DB and Power BI." border="false":::
+
 *Download an [SVG](../media/advanced-analytics-on-big-data.svg) of this architecture.*
 
 ### Data flow
