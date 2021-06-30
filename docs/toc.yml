@@ -1730,6 +1730,8 @@ items:
                     href: multitenant-identity/adfs.md
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
+              - name: Secure development with single-page applications (SPAs)
+                href: guide/resilience/azure-ad-secure-single-page-application.md
           - name: Architectures
             items:
               - name: AD DS resource forests in Azure
