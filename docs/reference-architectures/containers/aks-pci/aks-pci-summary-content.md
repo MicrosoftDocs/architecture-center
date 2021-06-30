@@ -1,5 +1,5 @@
 
-The Azure Well-Architected Framework is a set of guiding tenets that can be used to assess a solution through the quality  pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security. 
+The Azure Well-Architected Framework is a set of guiding tenets that can be used to assess a solution through the quality  pillars of architecture excellence: [Cost Optimization](#cost-optimization), Operational Excellence, Performance Efficiency, Reliability, and Security. 
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml).
 
@@ -11,6 +11,49 @@ This guidance provided in this series incorporate Well-Architected principles in
 >
 
 ## Security
+
+### Governance
+The governance implementation is driven by the compliance requirements PCI-DSS 3.2.1. This influences the technical controls for maintaining segmentation, accessing resources, detecting vulnerabilities, and most importantly protecting customer data. 
+
+#### Enterprise segmentation strategy
+
+To maintain complete isolation, we recommend that the regulated infrastructure is deployed in a standalone subscription. If you have multiple subscriptions that are necessary for compliance, consider grouping them under a management group hierarchy that applies the relevant Azure Policies uniformly across your in-scope subscriptions. With in the subscription, apply Azure Policies at a relatively local scope subscription or resource group. These policies build the guardrails of a landing zone.
+
+#### Policy enforcement
+
+Enforce security controls by enabling Azure Policies. For example in this regulated architecture, you can prevent misconfiguration of the cardholder data environment. You can apply an Azure policy that doesn't allow public IP allocations on the VM nodes. Such allocations are detected and reported or blocked
+
+For information about policies you can enable for AKS, see 
+[Azure Policy built-in definitions for Azure Kubernetes Service](/azure/aks/policy-reference).
+
+Azure provides several built-in policies for most services. Review these [Azure Policy built-in policy definitions](azure/governance/policy/samples/built-in-policies) and apply them as appropriate. 
+
+#### Compliance monitoring
+Compliance must be systematically monitored and maintained. Regular compliance attestations are performed. Knowing whether your cloud resources are in compliance, will help prepare for attestations and audit. 
+
+Take advantage the regulatory compliance dashboard provided by Azure Security Center. By continuously monitoring the dashboard, you can keep track of the compliance status of your workload. 
+![Compliance dashboard](.\images\regulatory-compliance-pci.png)
+
+## Identity
+
+## Network security
+
+Attacker access containment is considered when making investments into security solutions.The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data. When each user has focused scope of permissions, the impact of compromising an account will be limited.
+
+None of the above.
+
+
+## Data security
+
+## Secret management
+
+## Secure DevOps
+
+## Security monitoring
+
+## Threat analysis
+
+
 
 In a hub and spoke topology, having separate virtual networks for each entity provides basic segmentation in the networking footprint. Each network is further segmented into subnets. 
 
@@ -70,7 +113,7 @@ Have a clear understanding of what constitutes the price of a service. Azure tra
 
 ![Cost management -- Azure Firewall example](.\images\firewall-cost.png)
 
-The cost associated with some resources, such as Azure Firewall, can be amortized across multiple business units and/or applications. Another way to optimize cost might be to host a multi-tenant cluster within an organization, maximizing density with workload diversity. This approach is not recommended for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
+The cost associated with some resources, such as Azure Firewall, can be amortized across multiple business units and/or applications. Another way to optimize cost might be to host a multi-tenant cluster within an organization, maximizing density with workload diversity. This approach is _not_ recommended for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
 
 There are other ways to lower costs, consider:
 
@@ -92,8 +135,7 @@ The key strategy is to provide the required level of segmentation. One way is to
 
 In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The application has  two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM.
 
-### Management Groups
-This reference implementation is expected to be deployed in a standalone subscription. As such, Azure Policies are applied at a relatively local scope (subscription or resource group). If you have multiple subscriptions that will be under regulatory compliance, consider grouping them under a management group hierarchy that applies the relevant Azure Policies uniformly across your in-scope subscriptions.
+
 
 
 ## Security Center
