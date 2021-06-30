@@ -32,6 +32,7 @@ There are two parts to access control:
 
 OAuth, an open framework, was created to help address these challenges and provide a protocol that developers could use when building their systems.
 OAuth 2 is a delegated authorization framework. With OAuth 2, client applications have a defined scope of access to a user's data by separating authentication and authorization.
+
 Once a user is authenticated, you can use Oauth 2 for delegated authorization. Client applications request authorization from the user, and then the user grants access through an ID token. This token is presented to the identity provider to obtain a bearer token that the client application uses for authorization.
 
 Azure Active Directory (Azure AD) is the built-in solution for managing identities in the cloud. It replicates with on-premise systems so that users have a seamless experience when accessing protect services in the cloud.
@@ -315,3 +316,9 @@ The protected route uses the authorization policy to make sure that the authenti
 - [Integrate on-premises AD domains with Azure AD](/azure/architecture/reference-architectures/identity/azure-ad)
 - [Azure Active Directory identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security)
 - [Deploy AD DS in an Azure virtual network](/azure/architecture/reference-architectures/identity/adds-extend-domain)
+
+## Related resources
+
+- [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](/azure/active-directory/develop/active-directory-v2-protocols)
+- [Microsoft identity platform and implicit grant flow](/azure/active-directory/develop/v2-oauth2-implicit-grant-flow)
+- [Microsoft identity platform and OAuth 2.0 authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow)
