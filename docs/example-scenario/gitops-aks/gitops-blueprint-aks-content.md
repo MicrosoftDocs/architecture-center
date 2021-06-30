@@ -10,11 +10,11 @@ GitOps for Kubernetes places the cluster infrastructure desired state under vers
 
 GitOps not only enforces policies within the cluster, but also helps support security by providing feedback for proposed policy changes. Early feedback is more convenient for developers, and reduces risk and costs.
 
-This article describes a blueprint for using GitOps with an Azure Kubernetes Services (AKS) cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.
+This article describes a solution for using GitOps with an Azure Kubernetes Services (AKS) cluster. This solution provides full audit capabilities, policy enforcement, and early feedback.
 
 ## Potential use cases
 
-This blueprint benefits any organization that wants the advantages of deploying applications and infrastructure as code, with an audit trail of every change. The solution is especially suitable for highly regulated industries like insurance, banking, and finance.
+This solution benefits any organization that wants the advantages of deploying applications and infrastructure as code, with an audit trail of every change. The solution is especially suitable for highly regulated industries like insurance, banking, and finance.
 
 ## Architecture
 
