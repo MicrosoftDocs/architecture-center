@@ -58,6 +58,29 @@ If you do not have Network Watchers and NSG Flow Logs enabled on your subscripti
 
 ## Cost Optimization
 
+As you create groups of Azure resources, apply tags so that they can tracked for cost. Use cost management tools like Azure Advisor, Advisor Score, and Azure Cost Management for tracking and analyzing cost. 
+
+Here's a high-level represenation of the cost impact of the main resources used by this architecture.
+
+![Cost management](.\images\cost-analysis.png)
+
+The main drivers are the AKS node pools and the underlying virtual machine scale sets and Azure Firewall. Another contributor is Log Analytics. There are also incremental costs associated with Azure Defender depending on your choice of plans.
+
+Have a clear understanding of what constitutes the price of a service. Azure tracks metered usage. Here's a drilldown of Azure Firewall for this architecture.  
+
+![Cost management -- Azure Firewall example](.\images\firewall-cost.png)
+
+The cost associated with some resources, such as Azure Firewall, can be amortized across multiple business units and/or applications. Another way to optimize cost might be to host a multi-tenant cluster within an organization, maximizing density with workload diversity. This approach is not recommended for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
+
+There are other ways to lower costs, consider:
+
+- Reserved instances?
+
+
+
+
+
+
 ### Workload isolation
 The main theme of the PCI standard is to isolate the PCI workload from other workloads in terms of operations and connectivity. In this series we differentiate between those concepts as:
 

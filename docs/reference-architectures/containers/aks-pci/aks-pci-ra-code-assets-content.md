@@ -238,7 +238,7 @@ Here are the links to feature documentation of some key components of this archi
 - [Azure Firewall](/azure/firewall-manager/overview) 
 - [Azure Bastion](/azure/bastion/bastion-overview)
 - [Azure Image Builder](/azure/virtual-machines/image-builder-overview)
-- [Azure Virtual Machines Scale Set (VMSS)](/azure/virtual-machine-scale-sets/overview)
+- [Azure Virtual Machines Scale Set](/azure/virtual-machine-scale-sets/overview)
 - [Azure Application Gateway with integrated Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview)
 - [ACR Tasks](/azure/container-registry/container-registry-tasks-overview)
 - [Azure Key Vault](/azure/key-vault/general/basic-concepts)
