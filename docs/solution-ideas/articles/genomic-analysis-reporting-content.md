@@ -1,12 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This document presents a solution for genomic analysis and reporting. Its processes and results are appropriate for precision medicine scenarios—areas of medical care that use genetic profiling. Specifically, the solution provides a clinical genomics workflow that automates these tasks:
+This article presents a solution for genomic analysis and reporting. The processes and results are appropriate for precision medicine scenarios, or areas of medical care that use genetic profiling. Specifically, the solution provides a clinical genomics workflow that automates these tasks:
 
 - Take data from a sequencer.
 - Move the data through secondary analysis.
 - Provide results that clinicians can consume.
 
-The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure cloud services in addition to open-source tools. It takes advantage of the security features, performance, and scalability that the Azure global cloud infrastructure provides:
+The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure cloud services in addition to open-source tools. This approach takes advantage of the security, performance, and scalability features of the Azure cloud.
 
 - Scientists plan on sequencing hundreds of thousands of genomes in coming years. The task of storing and analyzing this data requires significant computing power and storage capacity. With data centers around the world that provide these resources, Azure can meet these demands.
 - Azure is certified for major global security and privacy standards, such as ISO 27001.
@@ -39,12 +39,10 @@ Azure Data Factory orchestrates the workflow:
 
 1. Jupyter Notebook annotates the output file. The notebook runs on Azure Databricks.
 1. Azure Data Lake Storage stores the annotated file.
-1. Jupyter Notebook merges the file with other datasets and analyzes the data.
+1. Jupyter Notebook merges the file with other datasets and analyzes the data. The notebook runs on Azure Databricks.
 1. Data Lake Storage stores the processed data.
-1. Clinicians view the findings:
-
-   1. Azure Healthcare APIs packs the data into Fast Healthcare Interoperability Resources (FHIR) bundles. The clinical data then enters the patient electronic health records (EHRs).
-   1. Power BI dashboards display the data.
+1. Azure Healthcare APIs packs the data into Fast Healthcare Interoperability Resources (FHIR) bundles. The clinical data then enters the patient electronic health records (EHRs).
+1. Clinicians view the results in Power BI dashboards.
 
 ## Components
 
@@ -101,7 +99,7 @@ The following considerations align with the [Microsoft Azure Well-Architected Fr
 ### Availability considerations
 
 - Blob Storage and Data Lake Storage are part of Azure Storage, which offers [availability through redundancy][Introduction to the core Azure Storage services].
-- [At least 99.9 percent of Data Factory pipelines run successfully][SLA for Azure Data Factory].
+- [At least 99.9 percent of Data Factory pipelines are guaranteed to run successfully][SLA for Azure Data Factory].
 - The [Azure Databricks service level agreement (SLA) guarantees 99.95 percent availability][Azure Databricks service page].
 - [Microsoft Genomics offers a 99.99 percent availability SLA for workflow requests][Microsoft Genomics - Keep your business running].
 
@@ -124,14 +122,14 @@ Because of the sensitive nature of medical data, establish governance and securi
 - [Cloud Adoption Framework][Cloud Adoption Framework]
 - [Enterprise Scale Landing Zones][Enterprise Scale Landing Zones]
 
-#### Regulation compliance
+#### Regulatory compliance
 
-Concerning compliance with HIPAA and the Health Information Technology for Economic and Clinical Health (HITECH) Act:
+To comply with HIPAA and the Health Information Technology for Economic and Clinical Health (HITECH) Act:
 
 - See these documents for information on adopting a cloud platform in a secure manner and maintaining compliance while using Azure:
 
   - [Microsoft Azure HIPAA/HITECH Act Implementation Guidance][Microsoft Azure HIPAA/HITECH Act Implementation Guidance]
-  - The white paper [Practical guide to designing secure health solutions using Microsoft Azure][Practical guide to designing secure health solutions using Microsoft Azure]
+  - [Practical guide to designing secure health solutions using Microsoft Azure][Practical guide to designing secure health solutions using Microsoft Azure]
 
 - Components of this solution are in scope for HIPAA according to [Microsoft Azure Compliance Offerings][Microsoft Azure Compliance Offerings]. If you substitute any other components, validate them first against the list in that document's appendix.
 
@@ -176,13 +174,6 @@ Fully deployable architectures:
 - [Clinical insights with Microsoft Cloud for Healthcare][Clinical insights with Microsoft Cloud for Healthcare]
 - [Health data consortium on Azure][Health data consortium on Azure]
 - [Population health management for healthcare][Population health management for Healthcare]
-
-
-
-
-
-
-
 
 [Access control lists (ACLs) in Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-access-control
 [Access control in Azure Databricks]: /azure/databricks/security/access-control
