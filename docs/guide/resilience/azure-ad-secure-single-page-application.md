@@ -295,7 +295,7 @@ For example, you can create a custom role called AppAdmin that is unique to the 
 
 When calling the protected resource after the configuration change, the bearer token has the `roles` property inside the bearer token.
 
-:::image type="content" source="media/azure-ad-secure-single-page-application/decoded-token-with-role-property.png" alt-text="Screenshot that shows an example of an appRole added to the manifest.":::
+:::image type="content" source="media/azure-ad-secure-single-page-application/decoded-token-with-role-property.png" alt-text="Screenshot that shows the role property in the bearer token.":::
 
 The API is configured using the policy builder under **Configure Services**.
 
