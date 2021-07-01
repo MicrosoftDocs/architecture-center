@@ -1,4 +1,4 @@
-B---
+---
 title: Tenancy models to consider for a multitenant solution
 titleSuffix: Azure Architecture Center
 description: This article describes the considerations you need to give to different models of multitenancy.
