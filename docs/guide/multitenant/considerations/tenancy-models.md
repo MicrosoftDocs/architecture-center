@@ -63,6 +63,10 @@ A key difference between logical and physical tenants is how isolation is enforc
 
 Sometimes, you'll see physical tenants referred to as _deployments_, _supertenants_, or _stamps_. In the rest of this document, we use the term _deployments_ to avoid confusion between logical and physical tenants.
 
+When you receive a request for a specific logical tenant, you need to map it to the physical deployment that holds that tenant's data, illustrated below:
+
+![Diagram showing the mapping between logical and physical tenants. A tenant mapping layer refers to a table that stores the relationship between logical tenants and physical deployments.](media/tenancy-models/map-logical-physical.png)
+
 ## Tenant isolation
 
 One of the biggest considerations when designing a multitenant architecture is the level of isolation that each tenant needs. Isolation can mean different things:
