@@ -14,17 +14,17 @@ There are several use cases for this solution:
 
 This solution isn't recommended for:
 
-- [Greenfield](https://wikipedia.org/wiki/Greenfield_project) deployment of data warehouses that are estimated to be > 1TB within one year.
+- [Greenfield](https://wikipedia.org/wiki/Greenfield_project) deployment of data warehouses that are estimated to be > 1 TB within one year.
 
 - Migrating on-premises data warehouses that are > 1 TB or projected to grow to that size within a year.
 
 ## Architecture
 
-![Diagram showing how legacy data can migrate and modernize with Azure Synapse, SQL Database, Data Lake Storage, and other services.](media/smb-data-warehouse.svg)
+![Diagram showing how legacy data can migrate and modernize with Azure Synapse, SQL Database, Data Lake Storage, and other services.](media/smb-data-warehouse/smb-data-warehouse.svg)
 
 1. Legacy SMB data warehouses may contain unstructured data, semi-structured data, and structured relational data that uses stored procedures for extract-transform-load/extract-load-transform (ETL/ELT) activities.
    
-1. Azure Synapse Analytics pipelines ingest the legacy data warehouses into Azure SQL Database for centralized storage. The pipelines orchestrate the flow of the migrated or partially-refactored legacy SSIS packages into SQL Database.
+1. Azure Synapse Analytics pipelines ingest the legacy data warehouses into Azure SQL Database for centralized storage. The pipelines orchestrate the flow of the migrated or partially refactored legacy SSIS packages into SQL Database.
    
    This approach is fastest to implement, and offers a smooth transition from an on-premises SQL solution to an eventual Azure platform-as-a-service (PaaS). There's an opportunity to modernize databases incrementally after the lift and shift.
    
@@ -37,7 +37,7 @@ This solution isn't recommended for:
 1. The serverless analysis section shows the big data platform tools that are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process structured, semi-structured, or non-structured data that is stored in Data Lake Storage. Serverless SQL pools are available on demand, don't require any provisioned resources, and bill per TB of processed data.
    
    Serverless SQL pools are ideal for:
-   - Ad-hoc data science explorations in T-SQL format.
+   - Ad hoc data science explorations in T-SQL format.
    - Early prototyping for data warehouse entities.
    - Defining views that consumers can use, for example Power BI, in scenarios that can tolerate performance lag.
    
@@ -47,7 +47,7 @@ This solution isn't recommended for:
 
 ## Components
 
-- [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs) is a realtime data ingestion service.
+- [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs) is a real-time data ingestion service.
 
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) performs analytics for customers with real-time dashboard requirements.
 
@@ -72,7 +72,7 @@ This solution isn't recommended for:
   - However, Azure Synapse pipelines don't support SSIS packages rehosting, which is available in Azure Data Factory.
   - [Synapse Monitor Hub](/azure/synapse-analytics/get-started-monitor) monitors Azure Synapse pipelines. [Azure Monitor](https://azure.microsoft.com/services/monitor) can monitor Data Factory.
   
-  For more information and a feature comparison between Azure Synapse pipelines and Data Factory, see [Data integration in Azure Synapse Analytics versus Azure Data Factory](azure/synapse-analytics/data-integration/concepts-data-factory-differences).
+  For more information and a feature comparison between Azure Synapse pipelines and Data Factory, see [Data integration in Azure Synapse Analytics versus Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
   
 - You can use [Synapse Analytics dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) for the enterprise data, instead of SQL Database. Review the use cases and considerations to make a decision.
 
