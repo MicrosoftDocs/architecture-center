@@ -43,13 +43,39 @@ Take advantage the regulatory compliance dashboard provided by Azure Security Ce
 ## Identity
 
 ## Network security
+In a hub and spoke topology, having separate virtual networks for each entity provides basic segmentation in the networking footprint. Each network is further segmented into subnets. 
 
-Attacker access containment is considered when making investments into security solutions.The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data. When each user has focused scope of permissions, the impact of compromising an account will be limited.
+The AKS cluster is forms the core of the the cardholder data environment (CDE). This shouldn't be accessible from public IP addresses and connectivity must be secured. Typical flows in and out of CDE can be categorized as:
 
-None of the above.
+- Inbound traffic to the cluster.
+- Outbound traffic from the cluster.
+- In-cluster traffic between pods. 
 
+To meet the requirements of a regulated environment, the cluster is deployed as a private cluster. In this mode traffic to and from the public internet is restricted. Even communication with the AKS-managed Kubernetes API server is private. Security is further enhanced with strict network controls and IP firewall rules. 
+
+- Network Security Groups (NSG) to secure communication between resources within a network.
+- Azure Firewall to filter any outbound traffic between cloud resources, the internet, and on-premises.
+- Azure Application Gateway integrated with Web Application Framework (WAF) to filter all inbound traffic from the internet is intercepted by Azure Application Gateway. 
+- Kubernetes NetworkPolicy to allow only certain paths between the pods in the cluster. 
+- Private Link to other Azure PaaS services, such as Azure Key Vault and Azure Container Registry to do operational tasks.
+
+There are monitoring process in place to make sure traffic flows as expected and any anomaly is detected and reported.
 
 ## Data security
+
+PCI-DSS 3.2.1 requires that all cardholder data (CHD) is never clear whether in transit or in storage. The data must be encrypted using industry standard encryption algorithms. Also instead of creating own.Organizations should rarely develop and maintain their own encryption algorithms. Secure standards already exist on the market and should be preferred. AES should be used as symmetric block cipher, AES-128, AES-192 and AES-256 are acceptable. Crypto APIs built into operating systems should be used where possible, instead of non-platform crypto libraries. For .NET make sure you follow the .NET Cryptography Model.
+
+The workload communicates over encrypted (TLS / HTTPS) network channels only.Any network communication between client and server where man-in-the-middle attack can occur, needs to be encrypted. All website communication should use HTTPS, no matter the perceived sensitivity of transferred data (man-in-the-middle attacks can occur anywhere on the site, not just on login forms).
+
+TLS 1.2 or 1.3 is used by default across this workload.All Microsoft Azure services fully support TLS 1.2. It is recommended to migrate solutions to support TLS 1.2 and use this version by default. TLS 1.3 is not available on Azure yet, but should be the preferred option once implemented on the platform.
+
+Secure modern hashing algorithms (SHA-2 family) are used.Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, SHA-512).
+
+Data at rest is protected with encryption.This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk. All data should be classified and encrypted with an encryption standard. How is the data classified and tagged as such so that it can be audited.
+
+Data in transit is encrypted.When data is being transferred between components, locations, or programs, it's in transit. Data in transit should be encrypted using a common encryption standard at all points to ensure data integrity. For example: web applications and APIs should use HTTPS/SSL for all communication with clients and also between each other (in micro-services architecture). Determine if all components in the solution are using a consistent standard. There are times when encryption is not possible due to technical limitations, but the reason needs to be clear and valid.
+
+Virtual disk files for virtual machines which are associated with this workload are encrypted.
 
 ## Secret management
 
@@ -61,21 +87,15 @@ None of the above.
 
 
 
-In a hub and spoke topology, having separate virtual networks for each entity provides basic segmentation in the networking footprint. Each network is further segmented into subnets. 
 
-Typical flows in and out of various network boundaries are:
-
-- Inbound traffic to the cluster.
-- Outbound traffic from the cluster.
-- In-cluster traffic between pods. 
 
 While Azure Virtual Networks (VNets) don't allow incoming traffic into the network, the resources in the network can reach out to the public internet. Consider these network controls to restrict the preceding flows:
 
-Use Network Security Groups (NSG) to secure communication between resources within a VNet.
+U
 Use Application Security Groups (ASGs) to define traffic rules for the underlying VMs that run the workload.
-Use Azure Firewall to filter traffic flowing between cloud resources, the internet, and on-premise.
 
-As your workloads, system security agents, and other components are deployed, consider adding even more NSG rules that help define the type of traffic that should and should not be traversing those subnet boundaries. Because each nodepool lives in its own subnet, you can apply more specific rules based on known/expected traffic patterns of your workload.
+
+
 
 ### Expanded NetworkPolicies
 
@@ -119,7 +139,7 @@ Have a clear understanding of what constitutes the price of a service. Azure tra
 
 ![Cost management -- Azure Firewall example](.\images\firewall-cost.png)
 
-The cost associated with some resources, such as Azure Firewall, can be amortized across multiple business units and/or applications. Another way to optimize cost might be to host a multi-tenant cluster within an organization, maximizing density with workload diversity. This approach is _not_ recommended for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
+The cost associated with some resources, such as Azure Firewall, can be spread across multiple business units and/or applications. Another way to optimize cost might be to host a multi-tenant cluster within an organization, maximizing density with workload diversity. This approach is _not_ recommended for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
 
 There are other ways to lower costs, consider:
 
