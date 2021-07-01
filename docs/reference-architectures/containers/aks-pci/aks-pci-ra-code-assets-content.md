@@ -42,7 +42,7 @@ Azure Application Gateway load balances at Layer 7. WAF secures incoming traffic
 
 **Azure Kubernetes Service (AKS)**
 
-The hosting infrastructure, which is a key part of the card holder environment (CDE). The AKS cluster is deployed as a private cluster. So, the Kubernetes API server is not exposed to the public internet and traffic to the API server is limited to your private network. 
+The hosting infrastructure, which is a key part of the cardholder data environment (CDE). The AKS cluster is deployed as a private cluster. So, the Kubernetes API server is not exposed to the public internet and traffic to the API server is limited to your private network. 
 
 **ACR Tasks**
 
@@ -135,7 +135,7 @@ The ingress controller in this implementation uses a wild-card certificate to ha
 
 > [!IMPORTANT]
 >
-> Any component that decrypts card holder data is considered to be in scope for PCI-DSS and is subject the same level of scrutiny as the other components in the card holder environment. In this architecture, Azure Application Gateway is in scope because it inspects the payload as part of its WAF functionality. An alternate architecture option is to use Azure Firewall Premium as the ingress component instead of WAF to take advantage of Firewall's signature-based IDPS capabilities. This will allow the first TLS termination to be in the cluster. However, without a dedicated WAF, you must use additional compensating controls to satisfy [Requirement 6.6](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-malware#requirement-66).
+> Any component that decrypts card holder data is considered to be in scope for PCI-DSS and is subject the same level of scrutiny as the other components in the cardholder data environment. In this architecture, Azure Application Gateway is in scope because it inspects the payload as part of its WAF functionality. An alternate architecture option is to use Azure Firewall Premium as the ingress component instead of WAF to take advantage of Firewall's signature-based IDPS capabilities. This will allow the first TLS termination to be in the cluster. However, without a dedicated WAF, you must use additional compensating controls to satisfy [Requirement 6.6](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-malware#requirement-66).
 
 ### Azure Key Vault network restrictions
 

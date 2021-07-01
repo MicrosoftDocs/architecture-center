@@ -40,9 +40,7 @@ Take advantage the regulatory compliance dashboard provided by Azure Security Ce
 
 ![Compliance dashboard](.\images\regulatory-compliance-pci.png)
 
-## Identity
-
-## Network security
+### Network security
 In a hub and spoke topology, having separate virtual networks for each entity provides basic segmentation in the networking footprint. Each network is further segmented into subnets. 
 
 The AKS cluster is forms the core of the the cardholder data environment (CDE). This shouldn't be accessible from public IP addresses and connectivity must be secured. Typical flows in and out of CDE can be categorized as:
@@ -61,21 +59,55 @@ To meet the requirements of a regulated environment, the cluster is deployed as 
 
 There are monitoring process in place to make sure traffic flows as expected and any anomaly is detected and reported.
 
-## Data security
+For details on network security, see [Network segmentation](aks-pci-network).
 
-PCI-DSS 3.2.1 requires that all cardholder data (CHD) is never clear whether in transit or in storage. The data must be encrypted using industry standard encryption algorithms. Also instead of creating own.Organizations should rarely develop and maintain their own encryption algorithms. Secure standards already exist on the market and should be preferred. AES should be used as symmetric block cipher, AES-128, AES-192 and AES-256 are acceptable. Crypto APIs built into operating systems should be used where possible, instead of non-platform crypto libraries. For .NET make sure you follow the .NET Cryptography Model.
+### Data security
 
-The workload communicates over encrypted (TLS / HTTPS) network channels only.Any network communication between client and server where man-in-the-middle attack can occur, needs to be encrypted. All website communication should use HTTPS, no matter the perceived sensitivity of transferred data (man-in-the-middle attacks can occur anywhere on the site, not just on login forms).
+PCI-DSS 3.2.1 requires that all cardholder data (CHD) is never clear whether in transit or in storage. 
 
-TLS 1.2 or 1.3 is used by default across this workload.All Microsoft Azure services fully support TLS 1.2. It is recommended to migrate solutions to support TLS 1.2 and use this version by default. TLS 1.3 is not available on Azure yet, but should be the preferred option once implemented on the platform.
+Because this architecture and the implementation are focused on infrastructure and not the workload, data management is not demonstrated. Here are some well-architected recommendations.
 
-Secure modern hashing algorithms (SHA-2 family) are used.Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, SHA-512).
+#### Data at rest
 
-Data at rest is protected with encryption.This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk. All data should be classified and encrypted with an encryption standard. How is the data classified and tagged as such so that it can be audited.
+The data must be encrypted using industry standard encryption algorithms. 
 
-Data in transit is encrypted.When data is being transferred between components, locations, or programs, it's in transit. Data in transit should be encrypted using a common encryption standard at all points to ensure data integrity. For example: web applications and APIs should use HTTPS/SSL for all communication with clients and also between each other (in micro-services architecture). Determine if all components in the solution are using a consistent standard. There are times when encryption is not possible due to technical limitations, but the reason needs to be clear and valid.
+- Don't store data in the cardholder environment. 
+- Encrypt outside the storage layer.
+- Write only encrypted data into storage medium.
+- Don't store the keys in the storage layer.
 
-Virtual disk files for virtual machines which are associated with this workload are encrypted.
+All data in Azure Storage encrypted and decrypted by using strong cryptography. Self-managed encryption keys are preferred. 
+
+If you need to store data temporarily, apply same considerations to that data. Enabling the [host-encryption feature](/azure/aks/enable-host-encryption) of AKS is strongly recommended. You can enforce encryption of temporary data with built-in Azure Policies.
+
+When you're choosing a storage technology, explore the retention features. Make sure all data is safely removed when the configured time expires. 
+
+The standard also requires that sensitive authentication data (SAD) not stored. Make sure that the data is not exposed in logs, file names, cache and other data.
+
+#### Data in transit
+
+All communication with entitties that interact with the cardholder data enviroment (CDE) must be over encrypted channels. 
+
+- Only HTTPS traffic must be allowed to flow into the CDE. In this architecture, Azure Application Gateway denies all traffic over port 80.
+- Preferably don't encrypt and decrypt data outside the CDE. If you do, consider that entity to be a part of the CDE.
+- Within the CDE, provide secure communication between pods with mTLS. You can choose to implement a service mesh for this purpose.
+- Only allow secure ciphers and TLS 1.2 or later.
+
+### Identity
+
+Follow these security principles when designing your access policies.
+
+-  Start with Zero-Trust policies. Make exceptions as needed and document them in detail.
+- Least privilege. 
+
+Kubernetes role-based access control (RBAC) that manages permissions to the Kubernetes API. AKS supports the Kubernetes roles. AKS is fully integrated with Azure Active Directory (Azure AD) that allows you to use many capabilities. 
+
+- You can add Azure AD users for Kubernetes RBAC. 
+- You can use managed identities for Azure resources and pods and scope them to the expected tasks. For example, Azure Application Gateway must have permissions to get secrets (TLS certificates) from Azure Key Vault. It must not have permissions to modify secrets.
+- Don't have standing access. Consider using [Just-In-Time AD group membership](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks).
+- Harden access management with [Conditional Access Policies in Azure AD](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This option supports many use cases, such as, multifactor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts.
+
+- Disable SSH access to the cluster nodes. 
 
 ## Secret management
 
@@ -84,22 +116,6 @@ Virtual disk files for virtual machines which are associated with this workload 
 ## Security monitoring
 
 ## Threat analysis
-
-
-
-
-
-While Azure Virtual Networks (VNets) don't allow incoming traffic into the network, the resources in the network can reach out to the public internet. Consider these network controls to restrict the preceding flows:
-
-U
-Use Application Security Groups (ASGs) to define traffic rules for the underlying VMs that run the workload.
-
-
-
-
-### Expanded NetworkPolicies
-
-Not all user-provided namespaces in this reference implementation use a zero-trust network. For example `cluster-baseline-settings` does not. We provide an example of zero-trust networks in `a0005-i` and `a0005-o` as your reference implementation of the concept. All namespaces (other than `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces) should have a maximally restrictive NetworkPolicy applied. What those policies will be will be based on the pods running in those namespaces. Ensure your accounting for readiness, liveliness, and startup probes and also accounting for metrics gathering by `oms-agent`.  Consider standardizing on ports across your workloads so that you can provide a consistent NetworkPolicy and even Azure Policy for allowed container ports.
 
 ### Key management
 
@@ -122,8 +138,44 @@ In addition to Network Watcher aiding in compliance considerations, it's also a 
 If you do not have Network Watchers and NSG Flow Logs enabled on your subscription, consider doing so via Azure Policy at the Subscription or Management Group level to provide consistent naming and region selection. See the [Deploy network watcher when virtual networks are created](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9b99dd8-06c5-4317-8629-9d86a3c6e7d9) policy combined with the [Flow logs should be enabled for every network security group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27960feb-a23c-4577-8d36-ef8b5f35e0be) policy.
 
 ## Performance Efficiency 
+Your platform must achieve the goals expected by your customers, so following the base guidance offered by the Well-Architected framework will solve for that level of concern. However, from a regulated perspective the principals set forth in Well-Architected Framework have benefits beyond customer expectation.
+	
+### Scaling
+	
+Documenting how your platform adjusts to changing demand, is one component of documenting the expected runtime behavior of your environment. Auto-scaling the resources in the workload will minimize human interaction within the CDE. An added benefit of auto scaling is you're ensuring that your surface area of your workload is at its minimum at all times. Minimizing surface area presents less targets of opportunity. Likewise, if your CDE can take advantage of resources that support "scale to zero", this benefit is magnified even more.
+	
+### Partitioning
+	
+While partitioning is often a solid strategy in performance efficiency, it can also be seen as a boon to regulated workloads in a few ways.  Having discrete components allows for crisp definition of responsibility and clear application of concepts like network policies. Isolating components provides blast radius impact control on any unexpected failures or worse, system compromise.
+	
+### Shared-nothing architecture
+	
+A core principal of performance efficiency speaks to the shared-nothing architecture. While Kubernetes, by design, is a platform in and of itself -- designed to run co-located workloads, the principal still holds true. Isolation of components in your CDE will not only yield the scalability benefits detailed in Well-Architected, but also provide logical or physical boundaries between components, which allows for targeting of relevant security controls and tighter auditing capabilities of the various components.
+	
+### Lightweight frameworks
+	
+Complexity of workloads is hard to document, hard to audit. While performance is also benefited from preferring simplicity in solutions, your regulatory requirements will also benefit from the simplicity. Using a solution that has significantly more breath than is needed exposes yourself to additional surface area for attack or misuse/misconfiguration.
 
 ## Reliability
+Many workloads benefit from reliability, but regulated workloads need to be predictable by their vary nature. They need to perform the way the system was intendend (documented) and needs to be explainable at all times. Hiccups in operations are contraindicates of a workload that has invested in reliability.
+	
+### Recovery Targets and Disaster Recovery
+	
+Due to the sensitive nature of the data handled in regulated workloads, recovery targets, specifically RPO, are critical to define. What is acceptable loss of CHD? Investment in reliability might only be matched by the investment in security.  Recovery efforts within the CDE are not processes that get to "skip" the PCI requirements, because it's a unexpected event. Expect failures and have a clear recovery plan for those failures that align with roles, responsibilities, and justified data access. Live-site site issues are not justification for deviating from any regulations.
+	
+This is especially true in full disaster recovery situation. Those events are stressful by their very nature. Having documented disaster recovery plans that still adhere to the requirements will minimize the need to document unexpected CDE or CHD access. After recovery, always review the recovery process steps to ensure no unexpected access occurred and document business justifications for any that did occur.
+	
+### Recovery
+	
+Adding resilience and recovery strategies to your architecture can prevent the need for ad-hoc access to the CDE. When the system is able to self-recover at the defined RPO without the need for direct human intervention, and done so in an auditable way, you've help eliminate unnecessary exposure of CHD, even to those individuals that are authorized to have access for situations like this.
+	
+### Address security-related risks
+	
+Beyond the general obvious potential involved with security risks, security risks can also be a source of workload downtime and data loss. The necessary investments in security will translate into workload reliability in this regard.
+	
+### Operational process
+	
+Reliability isn't just a workload runtime concern, it extends to all operational processes in and adjacent to the CDE. Well defined, automated, and tested processes for concern like image building and jumpbox management factor into a well-architected solution.
 
 ## Cost Optimization
 

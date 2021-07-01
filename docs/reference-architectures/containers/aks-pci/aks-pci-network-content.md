@@ -101,7 +101,7 @@ Requirements for a firewall at each Internet connection and between any demilita
 
 ##### Your responsibilities
 
-Have a clear definition of what defines the boundary of a DMZ. For example, the card holder environment (CDE) is within a DMZ secured by firewall, network policy, and other controls. For more information, see [Cloud DMZ](/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz).
+Have a clear definition of what defines the boundary of a DMZ. For example, the cardholder data environment (CDE) is within a DMZ secured by firewall, network policy, and other controls. For more information, see [Cloud DMZ](/azure/cloud-adoption-framework/decision-guides/software-defined-network/cloud-dmz).
 
 For a PCI DSS infrastructure, you're responsible for securing the CDE by using network controls to block unauthorized access into and out of the network with the CDE. Network controls must be configured properly for a strong security posture, and they must be applied to:
 - Communication between the colocated components within the cluster.
