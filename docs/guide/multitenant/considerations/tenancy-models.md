@@ -1,4 +1,4 @@
----
+B---
 title: Tenancy models to consider for a multitenant solution
 titleSuffix: Azure Architecture Center
 description: This article describes the considerations you need to give to different models of multitenancy.
@@ -109,7 +109,7 @@ Your application is responsible for initiating and coordinating the deployment o
 
 At the opposite extreme, you can consider a fully multitenant deployment, where all components are shared. You only have one set of infrastructure to deploy and maintain, and all tenants use it, as illustrated below:
 
-![Diagram showing three tenants, each using a single shared deployments.](media/tenancy-models/fully-multitenant-deployments.png)
+![Diagram showing three tenants, all using a single shared deployment.](media/tenancy-models/fully-multitenant-deployments.png)
 
 **Benefits:** This model is attractive because of the lower cost to operate a solution with shared components. Even if you need to deploy higher tiers or SKUs of resources, it's still often the case that the overall deployment cost is lower than a set of single-tenant resources. Additionally, if a user or tenant needs to move their data into another logical tenant, you don't have to migrate data between two separate deployments.
 
@@ -132,7 +132,7 @@ You don't have to sit at the extremes of these scales. Instead, you could consid
 
 Here's an example illustrating a shared deployment for some tenants, and a single-tenant deployment for another:
 
-![Diagram showing three tenants, each using a single shared deployments.](media/tenancy-models/vertically-partitioned-deployments.png)
+![Diagram showing three tenants. Tenants A and B share a deployment. Tenant C has a dedicated deployment.](media/tenancy-models/vertically-partitioned-deployments.png)
 
 **Benefits:** Since you are still sharing infrastructure, you can still gain some of the cost benefits of having shared multitenant deployments. You can deploy cheaper, shared resources for certain customers, like those who are trialing your service, and even bill customers a higher rate to be on a single-tenant deployment, thereby recouping some of your costs.
 
