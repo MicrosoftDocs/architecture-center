@@ -1,18 +1,18 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article presents a solution for genomic analysis and reporting. The processes and results are appropriate for precision medicine scenarios, or areas of medical care that use genetic profiling. Specifically, the solution provides a clinical genomics workflow that automates these tasks:
+This article presents a solution for genomic analysis and reporting. The processes and results are appropriate for [precision medicine][Precision medicine definition] scenarios, or areas of medical care that use genetic profiling. Specifically, the solution provides a clinical genomics workflow that automates these tasks:
 
-- Take data from a sequencer.
-- Move the data through secondary analysis.
-- Provide results that clinicians can consume.
+- Taking data from a sequencer
+- Moving the data through secondary analysis
+- Providing results that clinicians can consume
 
-The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure cloud services in addition to open-source tools. This approach takes advantage of the security, performance, and scalability features of the Azure cloud.
+The growing scale, complexity, and security requirements of genomics make it an ideal candidate for moving to the cloud. Consequently, the solution uses Azure cloud services in addition to open-source tools. This approach takes advantage of the security, performance, and scalability features of the Azure cloud:
 
 - Scientists plan on sequencing hundreds of thousands of genomes in coming years. The task of storing and analyzing this data requires significant computing power and storage capacity. With data centers around the world that provide these resources, Azure can meet these demands.
 - Azure is certified for major global security and privacy standards, such as ISO 27001.
 - Azure complies with the security and provenance standards that the Health Insurance Portability and Accountability Act (HIPAA) establishes for personal health information.
 
-A key component of the solution is [Microsoft Genomics][Microsoft Genomics]. This service offers an optimized secondary analysis implementation that can process a 30x genome in a few hours. Standard technologies can take days.
+A key component of the solution is [Microsoft Genomics][Microsoft Genomics]. This service offers an optimized secondary analysis implementation that can process a [30x genome][30x genome definition] in a few hours. Standard technologies can take days.
 
 ## Potential use cases
 
@@ -41,7 +41,7 @@ Azure Data Factory orchestrates the workflow:
 1. Azure Data Lake Storage stores the annotated file.
 1. Jupyter Notebook merges the file with other datasets and analyzes the data. The notebook runs on Azure Databricks.
 1. Data Lake Storage stores the processed data.
-1. Azure Healthcare APIs packs the data into Fast Healthcare Interoperability Resources (FHIR) bundles. The clinical data then enters the patient electronic health records (EHRs).
+1. Azure Healthcare APIs packs the data into a Fast Healthcare Interoperability Resources (FHIR) bundle. The clinical data then enters the patient electronic health record (EHR).
 1. Clinicians view the results in Power BI dashboards.
 
 ## Components
@@ -68,7 +68,7 @@ Internally, the Microsoft Genomics controller manages these aspects of the proce
 - Evaluating the results
 - Ensuring that processing runs reliably and securely at scale, behind a secure web service API
 
-You can easily use Microsoft Genomics results in tertiary analysis and machine learning services. And you don't need to manage or update hardware or software.
+You can easily use Microsoft Genomics results in tertiary analysis and machine learning services. And because Microsoft Genomics is a cloud service, you don't need to manage or update hardware or software.
 
 ### Other components
 
@@ -80,15 +80,17 @@ You can easily use Microsoft Genomics results in tertiary analysis and machine l
 
 - [Data Lake Storage][Data Lake Storage] is a scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data may be structured, semi-structured, or unstructured. It typically comes from multiple, heterogeneous sources. In this architecture, Data Lake Storage provides the final landing zone for the annotated files and the merged datasets. It also gives downstream systems access to the final output.
 
-- [Power BI][Power BI] is a collection of software services and apps. You can use Power BI to connect and display unrelated sources of data. In this solution, you can populate Power BI dashboards with the results. Clinicians can then create visuals from the final dataset.
+- [Power BI][Power BI] is a collection of software services and apps that display analytics information. You can use Power BI to connect and display unrelated sources of data. In this solution, you can populate Power BI dashboards with the results. Clinicians can then create visuals from the final dataset.
 
-- [Azure Healthcare APIs][Azure Healthcare APIs] is a managed, standards-based, compliant API for clinical health data. You can use the reference architectures and implementations in [Health Architectures][Health Architectures] when you use Azure Healthcare APIs. In this scenario, Azure Healthcare APIs passes an FHIR bundle to the EHR with the clinical data.
+- [Azure Healthcare APIs][Azure Healthcare APIs] is a managed, standards-based, compliant interface for accessing clinical health data. You can use the reference architectures and implementations in [Health Architectures][Health Architectures] when you use Azure Healthcare APIs. In this scenario, Azure Healthcare APIs passes an FHIR bundle to the EHR with the clinical data.
 
 ## Considerations
 
 The following considerations align with the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework] and apply to this solution:
 
 ### Cost considerations
+
+With most Azure services, you reduce costs by only paying for what you use:
 
 - With [Data Factory, your activity run volume determines the cost][Data Factory pricing].
 - [Azure Databricks offers many tiers, workloads, and pricing plans][Azure Databricks general pricing information] to help you minimize costs.
@@ -98,17 +100,21 @@ The following considerations align with the [Microsoft Azure Well-Architected Fr
 
 ### Availability considerations
 
-- Blob Storage and Data Lake Storage are part of Azure Storage, which offers [availability through redundancy][Introduction to the core Azure Storage services].
+The service level agreements (SLAs) of most Azure components guarantee availability:
+
 - [At least 99.9 percent of Data Factory pipelines are guaranteed to run successfully][SLA for Azure Data Factory].
-- The [Azure Databricks service level agreement (SLA) guarantees 99.95 percent availability][Azure Databricks service page].
+- The [Azure Databricks SLA guarantees 99.95 percent availability][Azure Databricks service page].
 - [Microsoft Genomics offers a 99.99 percent availability SLA for workflow requests][Microsoft Genomics - Keep your business running].
+- Blob Storage and Data Lake Storage are part of Azure Storage, which offers [availability through redundancy][Azure Storage redundancy].
 
 ### Scalability considerations
+
+Most Azure services are scalable by design:
 
 - [Data Factory transforms data at scale][Azure Data Factory FAQ].
 - [The clusters in Azure Databricks resize as needed][Azure Databricks clusters resize as needed].
 - For information on optimizing scalability in Blob Storage, see [Performance and scalability checklist for Blob Storage].
-- Data Lake Storage is scalable by design. It can [manage exabytes of data][Introduction to Azure Data Lake Storage Gen2].
+- [Data Lake Storage can manage exabytes of data][Introduction to Azure Data Lake Storage Gen2].
 - [Microsoft Genomics runs exabyte-scale workloads][Microsoft Genomics - Support your most demanding sequencing needs].
 
 ### Security considerations
@@ -119,17 +125,16 @@ The technologies in this solution meet most companies' requirements for security
 
 Because of the sensitive nature of medical data, establish governance and security by following the guidelines in these documents:
 
-- [Cloud Adoption Framework][Cloud Adoption Framework]
-- [Enterprise Scale Landing Zones][Enterprise Scale Landing Zones]
+- [Security in the Microsoft Cloud Adoption Framework for Azure][Security in the Microsoft Cloud Adoption Framework for Azure]
+- [Practical guide to designing secure health solutions using Microsoft Azure][Practical guide to designing secure health solutions using Microsoft Azure]
+- [Enterprise-scale landing zones][Enterprise Scale Landing Zones]
 
 #### Regulatory compliance
 
-To comply with HIPAA and the Health Information Technology for Economic and Clinical Health (HITECH) Act:
+- See these documents for information on complying with HIPAA and the Health Information Technology for Economic and Clinical Health (HITECH) Act:
 
-- See these documents for information on adopting a cloud platform in a secure manner and maintaining compliance while using Azure:
-
-  - [Microsoft Azure HIPAA/HITECH Act Implementation Guidance][Microsoft Azure HIPAA/HITECH Act Implementation Guidance]
-  - [Practical guide to designing secure health solutions using Microsoft Azure][Practical guide to designing secure health solutions using Microsoft Azure]
+  - [HIPAA - Azure Compliance][HIPAA - Azure Compliance]
+  - [Health Insurance Portability and Accountability Act (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act][Health Insurance Portability and Accountability Act (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act]
 
 - Components of this solution are in scope for HIPAA according to [Microsoft Azure Compliance Offerings][Microsoft Azure Compliance Offerings]. If you substitute any other components, validate them first against the list in that document's appendix.
 
@@ -175,6 +180,7 @@ Fully deployable architectures:
 - [Health data consortium on Azure][Health data consortium on Azure]
 - [Population health management for healthcare][Population health management for Healthcare]
 
+[30x genome definition]: https://sequencing.com/blog/post/what-30x-and-04x-whole-genome-sequencing#what-is-30x-whole-genome-sequencing
 [Access control lists (ACLs) in Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-access-control
 [Access control in Azure Databricks]: /azure/databricks/security/access-control
 [Automated enterprise BI]: /azure/architecture/reference-architectures/data/enterprise-bi-adf
@@ -190,7 +196,7 @@ Fully deployable architectures:
 [Blob Storage]: https://azure.microsoft.com/services/storage/blobs
 [Burrows-Wheeler Aligner]: http://bio-bwa.sourceforge.net
 [Clinical insights with Microsoft Cloud for Healthcare]: /azure/architecture/example-scenario/mch-health/medical-data-insights
-[Cloud Adoption Framework]: /azure/cloud-adoption-framework
+[Security in the Microsoft Cloud Adoption Framework for Azure]: /azure/cloud-adoption-framework/secure/
 [Data Factory]: https://azure.microsoft.com/services/data-factory
 [Data Factory pipelines]: /azure/data-factory/concepts-pipelines-activities
 [Data Factory pricing]: https://azure.microsoft.com/pricing/details/data-factory
@@ -203,11 +209,12 @@ Fully deployable architectures:
 [Geospatial data processing and analytics]: /azure/architecture/example-scenario/data/geospatial-data-processing-analytics-azure
 [Health Architectures]: https://github.com/microsoft/health-architectures
 [Health data consortium on Azure]: /azure/architecture/example-scenario/data/azure-health-data-consortium
+[Health Insurance Portability and Accountability Act (HIPAA) & Health Information Technology for Economic and Clinical Health (HITECH) Act]: /compliance/regulatory/offering-hipaa-hitech
+[HIPAA - Azure Compliance]: /azure/compliance/offerings/offering-hipaa-us
 [Hybrid ETL with Azure Data Factory]: /azure/architecture/example-scenario/data/hybrid-etl-with-adf
 [Introduction to Azure Data Lake Storage Gen2]: /azure/storage/blobs/data-lake-storage-introduction#scalability
-[Introduction to the core Azure Storage services]: /azure/storage/common/storage-introduction
+[Azure Storage redundancy]: /azure/storage/common/storage-redundancy
 [Microsoft Azure Compliance Offerings]: https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft%20Azure%20Compliance%20Offerings.pdf
-[Microsoft Azure HIPAA/HITECH Act Implementation Guidance]: https://aka.ms/azurehipaaguidance
 [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework
 [Microsoft Genomics]: https://azure.microsoft.com/services/genomics
 [Microsoft Genomics - Documentation]: /azure/genomics
@@ -219,6 +226,7 @@ Fully deployable architectures:
 [Population health management for healthcare]: /azure/architecture/solution-ideas/articles/population-health-management-for-healthcare
 [Power BI]: /power-bi/fundamentals/power-bi-overview
 [Practical guide to designing secure health solutions using Microsoft Azure]: https://aka.ms/azureindustrysecurity
+[Precision medicine definition]: https://wikipedia.org/wiki/Precision_medicine
 [Replicate and sync mainframe data in Azure]: /azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure
 [Secure cluster connectivity (No Public IP / NPIP)]: /azure/databricks/security/secure-cluster-connectivity
 [Secret management in Azure Databricks]: /azure/databricks/security/secrets
@@ -227,10 +235,3 @@ Fully deployable architectures:
 [SLA for Azure Data Factory]: https://azure.microsoft.com/support/legal/sla/data-factory/v1_2
 [Stream processing with Azure Databricks]: /azure/architecture/reference-architectures/data/stream-processing-databricks
 [Tiering functionality]: /azure/storage/blobs/storage-blob-storage-tiers
-
-
-
-
-
-
-
