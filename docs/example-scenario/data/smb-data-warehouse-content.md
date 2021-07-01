@@ -90,7 +90,7 @@ In SQL Database, you use [SQL Server Management Studio (SSMS)](/sql/ssms/sql-ser
 
 ### Scalability
 
-Serverless analysis with Azure Synapse SQL and Spark serverless pools means you can scale up computing resources based on demand.
+Serverless analysis with Azure Synapse SQL and Spark serverless pools means you can quickly scale up computing resources to meet demand.
 
 ## Pricing
 
