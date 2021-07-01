@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This article presents a solution for genomic analysis and reporting. The processes and results are appropriate for [precision medicine][Precision medicine definition] scenarios, or areas of medical care that use genetic profiling. Specifically, the solution provides a clinical genomics workflow that automates these tasks:
 
 - Taking data from a sequencer
@@ -88,16 +86,6 @@ You can easily use Microsoft Genomics results in tertiary analysis and machine l
 
 The following considerations align with the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework] and apply to this solution:
 
-### Cost considerations
-
-With most Azure services, you reduce costs by only paying for what you use:
-
-- With [Data Factory, your activity run volume determines the cost][Data Factory pricing].
-- [Azure Databricks offers many tiers, workloads, and pricing plans][Azure Databricks general pricing information] to help you minimize costs.
-- [Blob Storage costs depend on data redundancy options and volume][Azure Storage costs].
-- With [Data Lake Storage, pricing depends on many factors: your namespace type, storage capacity, and choice of tier][Data Lake Storage pricing].
-- For [Microsoft Genomics, the charge depends on the number of gigabases that each workflow processes][Microsoft Genomics - pricing].
-
 ### Availability considerations
 
 The service level agreements (SLAs) of most Azure components guarantee availability:
@@ -150,6 +138,16 @@ Several components also secure data in other ways:
 
   - Azure role-based access control (RBAC)
   - Portable Operating System Interface (POSIX) access control lists (ACLs)
+
+## Pricing
+
+With most Azure services, you can reduce costs by only paying for what you use:
+
+- With [Data Factory, your activity run volume determines the cost][Data Factory pricing].
+- [Azure Databricks offers many tiers, workloads, and pricing plans][Azure Databricks general pricing information] to help you minimize costs.
+- [Blob Storage costs depend on data redundancy options and volume][Azure Storage costs].
+- With [Data Lake Storage, pricing depends on many factors: your namespace type, storage capacity, and choice of tier][Data Lake Storage pricing].
+- For [Microsoft Genomics, the charge depends on the number of gigabases that each workflow processes][Microsoft Genomics - pricing].
 
 ## Next steps
 
