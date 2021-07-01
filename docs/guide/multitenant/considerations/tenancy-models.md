@@ -95,7 +95,11 @@ Once you've established your requirements, evaluate them against some common ten
 
 ### Automated single-tenant deployments
 
-In an automated single-tenant deployment model, you deploy a dedicated set of infrastructure for each tenant. Your application is responsible for initiating and coordinating the deployment of each tenant's resources. Typically solutions built using this model make extensive use of infrastructure as code (IaC) or the Azure Resource Manager APIs. You might use this approach when you need to provision entirely separate infrastructure for each of your customers. Consider the [Deployment stamps pattern](../../../patterns/deployment-stamp.md) when planning your deployment.
+In an automated single-tenant deployment model, you deploy a dedicated set of infrastructure for each tenant, as illustrated in this example:
+
+![Diagram showing three tenants, each with separate deployments.](media/tenancy-models/automated-single-tenant-deployments.png)
+
+Your application is responsible for initiating and coordinating the deployment of each tenant's resources. Typically solutions built using this model make extensive use of infrastructure as code (IaC) or the Azure Resource Manager APIs. You might use this approach when you need to provision entirely separate infrastructure for each of your customers. Consider the [Deployment stamps pattern](../../../patterns/deployment-stamp.md) when planning your deployment.
 
 **Benefits:** A key benefit of this approach is that data for each tenant is isolated, reducing the risk of accidental leakage. This can be important to some customers with high regulatory compliance overhead. Additionally, tenants are unlikely to affect each other's system performance, which is sometimes called the _noisy neighbor_ problem. Updates and changes can be rolled out progressively across tenants, reducing the likelihood of a system-wide outage.
 
@@ -103,7 +107,9 @@ In an automated single-tenant deployment model, you deploy a dedicated set of in
 
 ### Fully multitenant deployments
 
-At the opposite extreme, you can consider a fully multitenant deployment, where all components are shared. You only have one set of infrastructure to deploy and maintain.
+At the opposite extreme, you can consider a fully multitenant deployment, where all components are shared. You only have one set of infrastructure to deploy and maintain, and all tenants use it, as illustrated below:
+
+![Diagram showing three tenants, each using a single shared deployments.](media/tenancy-models/fully-multitenant-deployments.png)
 
 **Benefits:** This model is attractive because of the lower cost to operate a solution with shared components. Even if you need to deploy higher tiers or SKUs of resources, it's still often the case that the overall deployment cost is lower than a set of single-tenant resources. Additionally, if a user or tenant needs to move their data into another logical tenant, you don't have to migrate data between two separate deployments.
 
@@ -124,13 +130,19 @@ You don't have to sit at the extremes of these scales. Instead, you could consid
 - Use a combination of single-tenant and multitenant deployments. For example, you might have most of your customers' data and application tiers on multitenant infrastructure, but deploy single-tenant infrastructure for customers who require higher performance or data isolation.
 - Deploy multiple instances of your solution geographically and having each tenant pinned to a specific deployment. This is particularly effective when you have tenants in different geographies.
 
+Here's an example illustrating a shared deployment for some tenants, and a single-tenant deployment for another:
+
+![Diagram showing three tenants, each using a single shared deployments.](media/tenancy-models/vertically-partitioned-deployments.png)
+
 **Benefits:** Since you are still sharing infrastructure, you can still gain some of the cost benefits of having shared multitenant deployments. You can deploy cheaper, shared resources for certain customers, like those who are trialing your service, and even bill customers a higher rate to be on a single-tenant deployment, thereby recouping some of your costs.
 
 **Risks:** Your codebase will likely need to be designed to support both multitenant and single-tenant deployments, and if you plan to allow migration between infrastructure, you need to consider how you migrate customers from a multitenant deployment to their own single-tenant deployment. You also need to have a clear understanding of which of your logical tenants are on which sets of physical infrastructure, so that you can communicate information about system issues or upgrades to the relevant customers.
 
 ### Horizontally partitioned deployments
 
-You can also consider horizontally partitioning your deployments. This means you would have some shared components, while maintaining other components with single-tenant deployments. For example, you could build a single application tier, and then deploy individual databases for each tenant.
+You can also consider horizontally partitioning your deployments. This means you have some shared components, while maintaining other components with single-tenant deployments. For example, you could build a single application tier, and then deploy individual databases for each tenant, as in this illustration:
+
+![Diagram showing three tenants, each using a dedicated database and a single shared web server.](media/tenancy-models/horizontally-partitioned-deployments.png)
 
 **Benefits:** Horizontally partitioned deployments can help to mitigate a noisy neighbor problem, if you've identified that most of the load on your system is due to specific components that you can deploy separately for each tenant. For example, your databases might absorb most of your system's load because the query load is high. If a single tenant sends a large number of requests to your solution, the performance of their database might be negatively affected, but other tenants' databases - and shared components like the application tier - remain unaffected.
 
