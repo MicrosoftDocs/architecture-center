@@ -116,6 +116,7 @@ Often referred to as a lift-and-shift migration, this option doesn't require cod
 | | |
 |-|-|
 |Stromasys Charon-SSP Solaris emulator on Azure VMs [<img src="images/rehost-solaris.png" alt="Stromasys Charon-SSP Solaris emulator on Azure VMs" width=700 height="300">](/azure/architecture/solution-ideas/articles/solaris-azure) |Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame [<img src="images/rehost-tmax.png" alt="Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame" width=700 height="300">](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)|
+|Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization [<img src="images/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration-expanded.png" alt="Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization" width=700 height="300">](/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost) |Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment [<img src="images/lzlabs-software-defined-mainframe-in-azure-architecture-inline.png" alt="Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment" width=700 height="300">](/azure/architecture/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure)|
 
 ### Refactor
 
@@ -128,6 +129,7 @@ Refactoring requires minimal changes to applications. This often enables the app
 |IBM z/OS mainframe migration with Asysco AMT [![IBM z/OS mainframe migration with Asysco AMT](images/refactor-asysco-zos.png)](/azure/architecture/example-scenario/mainframe/asysco-zos-migration)|Micro Focus Enterprise Server on Azure VMs [![Micro Focus Enterprise Server on Azure VMs](images/refactor-microfocus-zos.png)](/azure/architecture/example-scenario/mainframe/micro-focus-server)|
 |Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure [![Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](images/refactor-zos-cf.png)](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)|Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus [![Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](images/refactor-astadia-unisys.png)](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)|
 |Unisys mainframe migration with Asysco [![Unisys mainframe migration with Asysco](images/refactor-asysco-unisys.png)](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)|IBM System i to Azure using Infinite i [![IBM System i to Azure using Infinite i](images/refactor-infinite.png)](/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i)|
+|Refactor mainframe applications to Azure with Raincode compilers [<img src="images/raincode-reference-architecture-01.png" alt="Refactor mainframe applications to Azure with Raincode compilers" width=700 height="200">](/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture)| |
 
 ### Re-engineer
 
