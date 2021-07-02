@@ -11,11 +11,6 @@ This guidance provided in this series incorporate Well-Architected principles in
 
 PCI DSS 3.2.1 workloads demand the rigor of being a well-architected solution. While aligning the  infrastructure with PCI requirements is critical, compliance doesn't stop at the hosting infrastructure.Not addressing the quality pillars, specifically Security, can jeopardize compliance. Well-architected solutions combine both the infrastructure and workload perspective to arrive at the rigor necessary for achieving compliant outcomes.
 
-> [!IMPORTANT]
->
-> This article is work in progress. Check back on updates.
->
-
 ## Security
 
 Follow the fundamental guidance provided in the [Security design principles](/azure/architecture/framework/security/security-principles). Best practices for a regulated environment are summarized in these sections.

@@ -14,9 +14,6 @@ This architecture and the implementation are focused on infrastructure and not t
 
 ### **Requirement 3**&mdash;Protect stored cardholder data
 
-#### AKS feature support
-TBD
-
 #### Your responsibilities
 
 |Requirement|Responsibility|
@@ -31,9 +28,6 @@ TBD
 
 ***
 ### **Requirement 4**&mdash;Encrypt transmission of cardholder data across open, public networks.
-
-#### AKS feature support
-TBD
 
 #### Your responsibilities
 
