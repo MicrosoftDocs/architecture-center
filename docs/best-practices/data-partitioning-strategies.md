@@ -117,9 +117,9 @@ Consider the following points when you design your entities for Azure table stor
 
 For more information, see [Azure storage table design guide] and [Scalable partitioning strategy].
 
-## Partitioning Azure Blob storage
+## Partitioning Azure Blob Storage
 
-Azure Blob storage makes it possible to hold large binary objects. Use block blobs in scenarios when you need to upload or download large volumes of data quickly. Use page blobs for applications that require random rather than serial access to parts of the data.
+Azure Blob Storage makes it possible to hold large binary objects. Use block blobs in scenarios when you need to upload or download large volumes of data quickly. Use page blobs for applications that require random rather than serial access to parts of the data.
 
 Each blob (either block or page) is held in a container in an Azure storage account. You can use containers to group related blobs that have the same security requirements. This grouping is logical rather than physical. Inside a container, each blob has a unique name.
 
