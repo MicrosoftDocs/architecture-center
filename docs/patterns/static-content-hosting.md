@@ -149,7 +149,7 @@ The file Index.cshtml in the Views\Home folder contains an image element that us
 <img src="@Html.StaticContentUrl("~/media/orderedList1.png")" alt="Test Image" />
 ```
 
-## Related patterns and guidance
+## Next steps
 
 - [Static Content Hosting sample][sample-app]. A sample application that demonstrates this pattern.
 - [Valet Key pattern](./valet-key.md). If the target resources aren't supposed to be available to anonymous users, use this pattern to restrict direct access.

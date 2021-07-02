@@ -348,6 +348,6 @@ public override bool OnStart()
 }
 ```
 
-## Related patterns and guidance
+## Next steps
 
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/external-configuration-store).

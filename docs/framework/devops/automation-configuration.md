@@ -157,7 +157,7 @@ Once imported into Azure State Configuration and assigned to nodes, the state co
 Use the included code sample to deploy Azure Automation State Configuration and several Azure virtual machines. The virtual machines are also onboarded to state configuration, and a configuration applied.
 
 - [Documentation: Get started with Azure Automation State Configuration](/azure/automation/automation-dsc-overview)
-- [Example Scenario: Azure Automation State Configuration](/azure/architecture/example-scenario/state-configuration/state-configuration)
+- [Example Scenario: Azure Automation State Configuration](../../example-scenario/state-configuration/state-configuration.yml)
 
 ### Chef
 

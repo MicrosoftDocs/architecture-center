@@ -142,13 +142,13 @@ The following sections list other serverless and Azure Functions-related referen
 - [Customer Reviews App with Cognitive Services](/samples/azure-samples/functions-customer-reviews/customer-reviews-cognitive-services/)
 - [Enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
 - [AI at the Edge](../solution-ideas/articles/ai-at-the-edge.yml)
-- [Mass ingestion and analysis of news feeds on Azure](../example-scenario/ai/newsfeed-ingestion.yml)
+- [Mass ingestion and analysis of news feeds on Azure](../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
 - [HIPPA and HITRUST compliant health data AI](../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
 - [Intelligent Experiences On Containers (AKS, Functions, Keda)](https://github.com/mohamedsaif/IntelligentExperiences.OnContainers)
 
 ### Data and analytics
 - [Application integration using Event Grid](../solution-ideas/articles/application-integration-using-event-grid.yml)
-- [Mass ingestion and analysis of news feeds](../example-scenario/ai/newsfeed-ingestion.yml)
+- [Mass ingestion and analysis of news feeds](../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
 - [Tier Applications & Data for Analytics](../solution-ideas/articles/tiered-data-for-analytics.yml)
 - [Operational analysis and driving process efficiency](/azure/time-series-insights/time-series-insights-update-use-cases#operational-analysis-and-driving-process-efficiency)
 

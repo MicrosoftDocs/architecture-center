@@ -7,11 +7,13 @@ This architecture demonstrates how to use [knowledge mining](https://azure.micro
 
 In the ever-changing world of regulations, organizations face the challenge of staying on top of audits and compliance. Mistakes in contracts and record-keeping can have serious financial ramifications. At the enterprise level, teams of lawyers might not be enough to catch everything when faced with thousands of pages of documentation. Knowledge mining can help organizations looking to stay compliant by enabling attorneys quickly find information from documents and flag important ideas.
 
-## Data flow for knowledge mining
+## Architecture
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
 ![Architecture Diagram: knowledge mining in auditing, risk, and compliance management.](../media/knowledge-mining-auditing-and-risk-compliance.png)
+
+### Data flow
 
 There are three steps:
 
@@ -27,7 +29,7 @@ There are three steps:
 
   The explore step is exploring the data via search, bots, existing business applications, and data visualizations. For example, you can integrate the search index into an internal application or web application for financial risks.
 
-## Components
+### Components
 
 Key technologies used to implement tools for technical content review and research
 

@@ -189,7 +189,7 @@ Be mindful of latency-sensitive interfaces between SAP and non-SAP applications.
 
 Scale-up / Scale-out:
 
-[Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
+[Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](./run-sap-hana-for-linux-virtual-machines.yml)
 
 [Configuring Azure infrastructure for SAP HANA scale-out](/azure/virtual-machines/workloads/sap/hana-vm-operations#configuring-azure-infrastructure-for-sap-hana-scale-out)
 
