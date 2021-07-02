@@ -92,7 +92,7 @@ The standard also requires that sensitive authentication data (SAD) not stored. 
 
 #### Data in transit
 
-All communication with entitties that interact with the cardholder data enviroment (CDE) must be over encrypted channels. 
+All communication with entities that interact with the cardholder data environment (CDE) must be over encrypted channels. 
 
 - Only HTTPS traffic must be allowed to flow into the CDE. In this architecture, Azure Application Gateway denies all traffic over port 80.
 - Preferably don't encrypt and decrypt data outside the CDE. If you do, consider that entity to be a part of the CDE.
@@ -178,7 +178,7 @@ The shared-nothing architecture is designed to remove contention between colocat
 Complexity of workloads is hard to document and to audit. Strive for simplicity because of the performance benefits and ease of auditing regulatory requirements. Evaluate choices that have more breath than is needed because that increases the attack surface area and potential for misuse, misconfiguration.
 
 ## Reliability
-The reliability of regulated environment needs to be predictable so that they can be explained consistently for auditing purposes. Follow the fundamental guidance provided in the [Relibility principles](/azure/architecture/framework/resiliency/overview). Best practices for a regulated environment are summarized in these sections.
+The reliability of regulated environment needs to be predictable so that they can be explained consistently for auditing purposes. Follow the fundamental guidance provided in the [Reliability principles](/azure/architecture/framework/resiliency/overview). Best practices for a regulated environment are summarized in these sections.
 
 	
 ### Recovery Targets and Disaster Recovery
@@ -203,7 +203,7 @@ Reliability extends to all operational processes in and adjacent to the CDE. Wel
 
 Because of the compliance requirements and strict security controls, a clear tradeoff is cost. We recommend, that you establish initial estimates by using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
-Here's a high-level represenation of the cost impact of the main resources used by this architecture.
+Here's a high-level representation of the cost impact of the main resources used by this architecture.
 
 ![Cost management](.\images\cost-analysis.png)
 
@@ -230,11 +230,11 @@ From the Security alerts view in Azure Security Center (or via Azure Resource Gr
 
 
 Customer-managed OS and data disk encryption
-While OS and data disks (and their caches) are already encrypted at rest with Microsoft-managed keys, for additional control over encryption keys you can use customer-managed keys for encyption at rest for both the OS and the data disks in your AKS cluster. This reference implementation doesn't actually use any disks in the cluster, and the OS disk is ephemeral. But if you use non-ephemeral OS disks or add data disks, consider using this added security solution.
+While OS and data disks (and their caches) are already encrypted at rest with Microsoft-managed keys, for additional control over encryption keys you can use customer-managed keys for encryption at rest for both the OS and the data disks in your AKS cluster. This reference implementation doesn't actually use any disks in the cluster, and the OS disk is ephemeral. But if you use non-ephemeral OS disks or add data disks, consider using this added security solution.
 
 Read more about Bing your own keys (BYOK) with Azure disks.
 
-Consider using BYOK for any other disks that might be in your final solution, such as your Azure Bastion-fronted jumpboxes. Please note that your SKU choice for VMs will be limited to only those that support this feature, and regional availability will be restricted as well.
+Consider using BYOK for any other disks that might be in your final solution, such as your Azure Bastion-fronted jump boxes. Please note that your SKU choice for VMs will be limited to only those that support this feature, and regional availability will be restricted as well.
 
 Note, we enable an Azure Policy alert detecting clusters without this feature enabled. The reference implementation will trip this policy alert because there is no diskEncryptionSetID provided on the cluster resource. The policy is in place as a reminder of this security feature that you might wish to use. The policy is set to "audit" not "block."
 
