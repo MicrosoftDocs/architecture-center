@@ -17,6 +17,8 @@ This guidance provided in this series incorporate Well-Architected principles in
 
 ## Security
 
+Follow the fundamental guidance provided in the [Security design principles](/azure/architecture/framework/security/security-principles). Best practices for a regulated environment are summarized in these sections.
+
 ### Governance
 The governance implementation is driven by the compliance requirements PCI-DSS 3.2.1. This influences the technical controls for maintaining segmentation, accessing resources, detecting vulnerabilities, and most importantly protecting customer data. 
 
@@ -97,35 +99,24 @@ All communication with entitties that interact with the cardholder data envirome
 
 Follow these security principles when designing your access policies.
 
--  Start with Zero-Trust policies. Make exceptions as needed and document them in detail.
-- Least privilege. 
+- Start with Zero-Trust policies. Make exceptions as needed.
+- Grant the least set of privileges just enough to complete a task.
+- Minimize standing access.  
 
-Kubernetes role-based access control (RBAC) that manages permissions to the Kubernetes API. AKS supports the Kubernetes roles. AKS is fully integrated with Azure Active Directory (Azure AD) that allows you to use many capabilities. 
+Kubernetes role-based access control (RBAC) manages permissions to the Kubernetes API. AKS supports those Kubernetes roles. AKS is fully integrated with Azure Active Directory (Azure AD). You can assign Azure AD identities to the roles and also to use many capabilities. 
 
-- You can add Azure AD users for Kubernetes RBAC. 
-- You can use managed identities for Azure resources and pods and scope them to the expected tasks. For example, Azure Application Gateway must have permissions to get secrets (TLS certificates) from Azure Key Vault. It must not have permissions to modify secrets.
-- Don't have standing access. Consider using [Just-In-Time AD group membership](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks).
-- Harden access management with [Conditional Access Policies in Azure AD](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This option supports many use cases, such as, multifactor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts.
+#### Zero-Trust access
+Kubernetes RBAC, Azure RBAC, and Azure services implement deny all by default. Override that setting with caution, allowing access to only those entities who need it. Another area for implementing Zero-Trust is to disable SSH access to the cluster nodes. 
 
-- Disable SSH access to the cluster nodes. 
+You can use managed identities for Azure resources and pods and scope them to the expected tasks. For example, Azure Application Gateway must have permissions to get secrets (TLS certificates) from Azure Key Vault. It must not have permissions to modify secrets.
+
+Minimize standing access by using [Just-In-Time AD group membership](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). Harden the control with [Conditional Access Policies in Azure AD](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This option supports many use cases, such as, multifactor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts.
 
 ## Secret management
 
-## Secure DevOps
+Store secrets, certificates, keys, passwords, outside of CDE. You can use the native Kubernetes secrets or a managed key store, such as Azure Key Vault. Using a managed store will help in secret management tasks, such as key rotation, certificate renewal, and so on.
 
-## Security monitoring
-
-## Threat analysis
-
-### Key management
-
-Source all secrets, certificates and keys, in a managed key store. This will help in secret management tasks, such as key rotation, certificate renewal, and so on. Azure Key Vault is a good choice for this purpose. 
-
-In a non-regulated environment, Azure Key Vault can be accessed through its public endpoint. Regulated standards, such as PCI-DSS, requires complete isolation of system components from the internet. So, when possible, communicate with Key Vault over a private network by using Private Link. For example, a common way to mount secrets on cluster pods is by using Secrets Store CSI Driver for Kubernetes. For that, the Secrets Store CSI Driver needs to get secrets from Key Vault and can do so over Private Link. 
-
-There are cases when Private Link is not supported or access is restricted. Azure Application Gateway gets the public-facing TLS certificate stored in Azure Key Vault. However, Azure Application Gateway cannot communicate with Key Vault instances that are restricted through Private Link. You can use a hybrid model, This reference implementation deploys Azure Key Vault in a hybrid model, supporting Private Link and public access specifically to allow integration with Application Gateway. If this model is not suitable for your business requirements, move the secret management process to Application Gateway for public-facing TLS certificates. It might add overhead but Key Vault instance will be completely isolated.
-
-For information, see [Create an application gateway with TLS termination using the Azure CLI](https://docs.microsoft.com/azure/application-gateway/tutorial-ssl-cli).
+Make sure access to the key store has a balance of network and access controls. By enabling managed identities, the cluster has to authenticate itself against Key Vault to get access. Also, the connectivity to the key store must not be over the public internet. Use a private network, such as Private Link.
 
 ##  Operational Excellence
 
@@ -138,23 +129,24 @@ In addition to Network Watcher aiding in compliance considerations, it's also a 
 If you do not have Network Watchers and NSG Flow Logs enabled on your subscription, consider doing so via Azure Policy at the Subscription or Management Group level to provide consistent naming and region selection. See the [Deploy network watcher when virtual networks are created](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9b99dd8-06c5-4317-8629-9d86a3c6e7d9) policy combined with the [Flow logs should be enabled for every network security group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27960feb-a23c-4577-8d36-ef8b5f35e0be) policy.
 
 ## Performance Efficiency 
-Your platform must achieve the goals expected by your customers, so following the base guidance offered by the Well-Architected framework will solve for that level of concern. However, from a regulated perspective the principals set forth in Well-Architected Framework have benefits beyond customer expectation.
-	
+
+Follow the fundamental guidance provided in the [Performance efficiency principles](/azure/architecture/framework/scalability/principles). Best practices for a regulated environment are summarized in these sections.
+
 ### Scaling
 	
-Documenting how your platform adjusts to changing demand, is one component of documenting the expected runtime behavior of your environment. Auto-scaling the resources in the workload will minimize human interaction within the CDE. An added benefit of auto scaling is you're ensuring that your surface area of your workload is at its minimum at all times. Minimizing surface area presents less targets of opportunity. Likewise, if your CDE can take advantage of resources that support "scale to zero", this benefit is magnified even more.
+Observing how the environment adjusts to changing demands will indicate the expected runtime behavior of the environment under high load. Autoscaling resources in the workload will minimize human interaction in the CDE. An added security benefit is reducing the attack surface at all times. You can maximize the benefit, by taking advantage of resources that support the scale-to-zero approach. For example AKS supports scaling down the user node pools to 0. For more information, see [Scale User node pools to 0](/azure/aks/scale-cluster#scale-user-node-pools-to-0).
 	
 ### Partitioning
 	
-While partitioning is often a solid strategy in performance efficiency, it can also be seen as a boon to regulated workloads in a few ways.  Having discrete components allows for crisp definition of responsibility and clear application of concepts like network policies. Isolating components provides blast radius impact control on any unexpected failures or worse, system compromise.
+Partitioning is a key factor for performance efficiency in regulated workloads. Having discrete components allows for crisp definition of responsibility and helps in precise controls, such as network policies. Similar to any segmentations strategy, partitioning isolates components and controls the impact of blast radius on unexpected failures or system compromise.
 	
 ### Shared-nothing architecture
 	
-A core principal of performance efficiency speaks to the shared-nothing architecture. While Kubernetes, by design, is a platform in and of itself -- designed to run co-located workloads, the principal still holds true. Isolation of components in your CDE will not only yield the scalability benefits detailed in Well-Architected, but also provide logical or physical boundaries between components, which allows for targeting of relevant security controls and tighter auditing capabilities of the various components.
+The shared-nothing architecture is designed to remove contention between colocated workloads. Also, this is a strategy for removing single points of failure. In a regulated environment, components are required to be isolated logical or physical boundaries. This aligns with the shared-nothing architecture resulting in  scalability benefits. Also, allows for targeting of relevant security controls and tighter auditing capabilities of the various components.
 	
 ### Lightweight frameworks
 	
-Complexity of workloads is hard to document, hard to audit. While performance is also benefited from preferring simplicity in solutions, your regulatory requirements will also benefit from the simplicity. Using a solution that has significantly more breath than is needed exposes yourself to additional surface area for attack or misuse/misconfiguration.
+Complexity of workloads is hard to document and to audit. Strive for simplicity because of the performance benefits and ease of auditing regulatory requirements. Evaluate choices that have more breath than is needed because that increases the attack surface area and potential for misuse, misconfiguration.
 
 ## Reliability
 Many workloads benefit from reliability, but regulated workloads need to be predictable by their vary nature. They need to perform the way the system was intendend (documented) and needs to be explainable at all times. Hiccups in operations are contraindicates of a workload that has invested in reliability.
