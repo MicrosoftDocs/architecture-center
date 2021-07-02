@@ -1,4 +1,3 @@
-
 The Azure Well-Architected Framework is a set of guiding tenets that can be used to assess a solution through the quality  pillars of architecture excellence: 
 - [Cost Optimization](#cost-optimization)
 - [Operational Excellence](#operational-excellence)
@@ -130,32 +129,28 @@ Follow the fundamental guidance provided in the [Operational excellence principl
 
 ### Separation of roles
 
-A DevOps model positions the responsibility of operations with developers. Still, many organizations do not fully embrace DevOps and maintain some degree of team separation between operations and development, either to enforce clear segregation of duties for regulated environments or to share operations as a business function.
+Enforcing clear segregation of duties for regulated environments is key. Have definitions of roles and responsibility based on the needs of the workload and interaction with the cardholder data environment (CDE). For instance, you might need an infrastructure operator (or SRE) role for operations related to the cluster and dependent services. The role is responsible for maintaining security, isolation, deployment, and observability. Formalize those definitions and decide the permissions those roles need. For example, SREs are highly privileged for cluster access but need read access to workload namespaces.
 
-Team collaboration
+### Workload isolation
 
-It is essential to understand if developers are responsible for production deployments end-to-end, or if a handover point exists where responsibility is passed to an alternative operations team, potentially to ensure strict segregation of duties such as the Sarbanes-Oxley Act where developers cannot touch financial reporting systems.
-
-Workload isolation
-
-The goal of workload isolation is to associate an application's specific resources to a team to independently manage all aspects of those resources.
+PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in terms of operations. In this implementation, the in-scope and out-of-scope workloads are segmented in two separate user node pools. Application developers	for in-scope and developers for out-of-scope workloads might have different set of permissions. Also, there will be separate quality gates. For example, the in-scope code is subject to upholding compliance and attestation while the out-of-scope isn't. There's also a need to have separate build pipelines and release management processes. 
 
 ### Operational metadata
-Keep up-to-date information about device inventory and personnel access documentation. Consider using the device discovery capability included in Microsoft Defender for Endpoint. For tracking access, you can derive that information from Azure Active Directory logs. Here are some articles to get you started:
+Requirement 12 of the PCI DSS 3.2.1 standard requires you to maintain information about workload inventory and personnel access documentation. Using Azure Tags is strongly recommended because you can collate environment information with Azure resources, resource groups, and subscriptions. 
 
-Device discovery
-View reports and logs in Azure AD entitlement management
-As part of your inventory management, maintain a list of approved solutions that deployed as part of the PCI infrastructure and workload. This includes a list of VM images, databases, third-party solutions of your choice that you bring to the CDE. You can even automate that process by building a service catalog. It provides self-service deployment using those approved solutions in a specific configuration, which adheres to ongoing platform operations. For more information, see Establish a service catalog.
+Maintain information about approved solutions that as part of the infrastructure and workload. This includes a list of VM images, databases, third-party solutions of your choice that you bring to the CDE. You can even automate that process by building a service catalog. It provides self-service deployment using those approved solutions in a specific configuration, which adheres to ongoing platform operations. 
+
+### Observability
+To fulfill Requirement 10, observability into the cardholder data environment (CDE) is critical for compliance. Activity logs provide information about, operations related to account and secret management; diagnostic setting management; server management; and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. Retain logs for up to a year for in storage accounts for long-term archival and auditing.
+
+Make sure logs are only accessed by roles that need them. Log Analytics and Azure Sentinel support various role-based access controls to manage audit trail access. 
 
 ### Response and remediation
 
-### Enable Network Watcher and Traffic Analytics
+The Azure monitoring services, Azure Monitor and Azure Security Center, can generate notifications or alerts when they detect anomalous activity. Those alerts include context information such as severity, status, and activity time. As alerts are generated, have a remediation strategy and review progress. Centralizing data a SIEM solution is recommended because integrating data can provide rich alert context.
 
-Observability into your network is critical for compliance. [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview), combined with [Traffic Analysis](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) will help provide a perspective into traffic traversing your networks. This reference implementation does not deploy NSG Flow Logs or Traffic Analysis by default. These features depend on a regional Network Watcher resource being installed on your subscription. Network Watchers are singletons in a subscription, and there is no reasonable way to include them in these specific ARM templates and account for both pre-existing network watchers (which might exist in a resource group you do not have RBAC access to) and non-preexisting situations. We strongly encourage you to enable [NSG flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) on your AKS Cluster subnets, build agent subnets, Azure Application Gateway, and other subnets that may be a source of traffic into and out of your cluster. Ensure you're sending your NSG Flow Logs to a **V2 Storage Account** and set your retention period in the Storage Account for these logs to a value that is at least as long as your compliance needs (e.g. 90 days).
+From the Security alerts view in Azure Security Center, you have access to all alerts that Azure Security Center detects on your resources. Have a triage process to  address the issue. Work with your security team to understand how relevant alerts will be made available to the workload owner(s).
 
-In addition to Network Watcher aiding in compliance considerations, it's also a highly valuable network troubleshooting utility. As your network is private and heavy with flow restrictions, troubleshooting network flow issues can be time consuming. Network Watcher can help provide additional insight when other troubleshooting means are not sufficient.
-
-If you do not have Network Watchers and NSG Flow Logs enabled on your subscription, consider doing so via Azure Policy at the Subscription or Management Group level to provide consistent naming and region selection. See the [Deploy network watcher when virtual networks are created](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9b99dd8-06c5-4317-8629-9d86a3c6e7d9) policy combined with the [Flow logs should be enabled for every network security group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27960feb-a23c-4577-8d36-ef8b5f35e0be) policy.
 
 ## Performance Efficiency 
 
@@ -219,36 +214,3 @@ As you create groups of Azure resources, apply tags so that they can tracked for
 
 
 
-
-## Security Center
-View considerations…
-Enterprise onboarding to Security Center
-The Security Center onboarding in this reference implementation is relatively simplistic. Organizations inboard in Security Center and Azure Policy typically in a more holistic and governed fashion. Review the Azure Security Center Enterprise Onboarding Guide for a complete end-to-end perspective on protecting your workloads (regulated and non) with Azure Security Center. This addresses enrollment, data exports to your SIEM or ITSM solution, Logic Apps for responding to alerts, building workflow automation, etc. All things that go beyond the base architecture of any one AKS solution, and should be addressed at the enterprise level.
-
-Create triage process for alerts
-From the Security alerts view in Azure Security Center (or via Azure Resource Graph), you have access to all alerts that Azure Security Center detects on your resources. You should have a triage process in place address or defer detected issues. Work with your security team to understand how relevant alerts will be made available to the workload owner(s).
-
-
-Customer-managed OS and data disk encryption
-While OS and data disks (and their caches) are already encrypted at rest with Microsoft-managed keys, for additional control over encryption keys you can use customer-managed keys for encryption at rest for both the OS and the data disks in your AKS cluster. This reference implementation doesn't actually use any disks in the cluster, and the OS disk is ephemeral. But if you use non-ephemeral OS disks or add data disks, consider using this added security solution.
-
-Read more about Bing your own keys (BYOK) with Azure disks.
-
-Consider using BYOK for any other disks that might be in your final solution, such as your Azure Bastion-fronted jump boxes. Please note that your SKU choice for VMs will be limited to only those that support this feature, and regional availability will be restricted as well.
-
-Note, we enable an Azure Policy alert detecting clusters without this feature enabled. The reference implementation will trip this policy alert because there is no diskEncryptionSetID provided on the cluster resource. The policy is in place as a reminder of this security feature that you might wish to use. The policy is set to "audit" not "block."
-
-Host-based encryption
-You can take OS and data disk encryption one step further and also bring the encryption up to the Azure host. Using Host-Based Encryption means that the temp disks now will be encrypted at rest using platform-managed keys. This will then cover encryption of the VMSS ephemeral OS disk and temp disks. Your SKU choice for VMs will be limited to only those that support this feature, and regional availability will be restricted as well. This feature is currently in preview. See more details about VM support for host-based encryption.
-
-Note, like above, we enable an Azure Policy detecting clusters without this feature enabled. The reference implementation will trip this policy alert because this feature is not enabled on the agentPoolProfiles. The policy is in place as a reminder of this security feature that you might wish to use once it is GA. The policy is set to "audit" not "block."
-
-
-Cluster Backups (State and Resources)
-While we generally discourage any storage of state within a cluster, you may find your workload demands in-cluster storage. Regardless if that data is in compliance scope or not, you'll often require a robust and secure process for backup and recovery. You may find a solution like Azure Backup (for Azure Disks and Azure Files), Veeam Kasten K10, or VMware Velero instrumental in achieving any PersistantVolumeClaim backup and recovery strategies.
-
-As a bonus, your selected backup system might also handle Kubernetes resource (Deployments, ConfigMaps, etc) snapshots/backups. While Flux may be your primary method to reconcile your cluster back to a well-known state, you may wish to supplement with a solution like this to provide alternative methods for critical system recovery techniques (when reconcile or rebuild is not an option). A tool like this can also be a key source of data for drift detection and cataloging system state changes over time; akin to how File Integrity Monitoring solves for file-system level drift detection, but at the Kubernetes resource level.
-
-All backup process needs to classify the data contained within the backup. This is true of data both within and external to your cluster. If the data falls within regulatory scope, you'll need extend your compliance boundaries to the lifecycle and destination of the backup -- which will be outside of the cluster. Consider geographic restrictions, encryption at rest, access controls, roles and responsibilities, auditing, time-to-live, and tampering prevention (check-sums, etc) when designing your backup system. Backups can be a vector for malicious intent, with a bad actor compromising a backup and then forcing an event in which their backup is restored.
-
-Lastly, in-cluster backup systems usually depend on begin run as highly-privileged during its operations; so consider the risk vs benefit when deciding to bring an agent like this into your cluster. Some agent's might overlap with another management solution you've brought to your cluster already for security concerns; evaluate what is the minimum set of tooling you'll need to accomplish this task and not introduce additional exposure/management into your cluster.

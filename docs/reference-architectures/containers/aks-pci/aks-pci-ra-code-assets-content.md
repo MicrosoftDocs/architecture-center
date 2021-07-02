@@ -1,4 +1,4 @@
-This article describes a reference architecture for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1 3.2.1). This architecture is focused on the infrastructure and _not_ the PCI-DSS 3.2.1 workload.
+This article describes a reference architecture for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1). This architecture is focused on the infrastructure and _not_ the PCI-DSS 3.2.1 workload.
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
 
@@ -67,7 +67,7 @@ In this architecture, the cluster has two user node pools and one system node po
 >
 > This architecture or the implementation doesn't use this approach.
 
-The PCI-DSS 3.2.1 3.2.1 requires isolation of the PCI workload from other workloads in terms of operations and connectivity. 
+The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in terms of operations and connectivity. 
 
 - In-scope&mdash;The PCI workload, the environment in which it resides, and operations.
 
@@ -180,6 +180,13 @@ We recommend that you enable the encryption-at-host feature. This will encrypt t
 That feature is extended to the data stored on the VM host of your AKS agent nodes through the [Host-Based Encryption](/azure/aks/enable-host-encryption) feature. Similar to BYOK, this feature might limit your VM SKU and region choices. 
 
 You can enforce those features through Azure Policy. 
+
+### Cluster Backups (State and Resources)
+If your workload requires in-cluster storage, have a robust and secure process for backup and recovery. Consider services, such as Azure Backup (for Azure Disks and Azure Files), for backup and recovery of any `PersistantVolumeClaim`. There are advantages if the backup system supports native Kubernetes resources. You can supplement your primary method that reconciles the cluster to a well-known state, with the backup system for critical system recovery techniques. For example, it can help in drift detection and cataloging system state changes over time at the Kubernetes resource level.
+
+Backup processes need to classify data in the backup within or external to the cluster. If the data is in scope for PCI DSS 3.2.1, extend your compliance boundaries to include the lifecycle and destination of the backup, which will be outside of the cluster. Backups can be an attack vector. When designing your backup, consider geographic restrictions, encryption at rest, access controls, roles and responsibilities, auditing, time-to-live, and tampering prevention. 
+
+In-cluster backup systems are expected to run with high privileges during its operations. Evaluate the risk and benefit of bringing a backup agent into your cluster. Does the agent capability overlap with another management solution in the cluster? What is the minimum set of tools you need to accomplish this task without expanding the attack surface.
 
 
 ## Azure Policy considerations

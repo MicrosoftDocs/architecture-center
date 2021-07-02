@@ -4,7 +4,7 @@ metadata:
   description: Learn how to deploy a microservices architecture on Azure Kubernetes Service (AKS).
   author: PageWriter-MSFT
   ms.author: pnp
-  ms.date: 06/06/2021
+  ms.date: 07/06/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

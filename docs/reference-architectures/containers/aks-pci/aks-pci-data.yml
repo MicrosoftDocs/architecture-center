@@ -4,7 +4,7 @@ metadata:
   description: Best practices for implementing Requirements 3 and Requirement 4 for a PCI-DSS 3.2.1 infrastructure. 
   author: PageWriter-MSFT
   ms.author: pnp
-  ms.date: 06/06/2021
+  ms.date: 07/06/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
