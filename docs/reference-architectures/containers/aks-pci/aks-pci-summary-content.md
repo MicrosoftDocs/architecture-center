@@ -1,9 +1,9 @@
 
 The Azure Well-Architected Framework is a set of guiding tenets that can be used to assess a solution through the quality  pillars of architecture excellence: 
 - [Cost Optimization](#cost-optimization)
-- Operational Excellence
-- Performance Efficiency
-- Reliability
+- [Operational Excellence](#operational-excellence)
+- [Performance Efficiency](#performance-efficiency)
+- [Reliability](#reliability)
 - [Security](#security)
 
 > This article ends this series. Read the [introduction](aks-pci-intro.yml).
@@ -26,6 +26,8 @@ The governance implementation is driven by the compliance requirements PCI-DSS 3
 
 To maintain complete isolation, we recommend that the regulated infrastructure is deployed in a standalone subscription. If you have multiple subscriptions that are necessary for compliance, consider grouping them under a management group hierarchy that applies the relevant Azure Policies uniformly across your in-scope subscriptions. With in the subscription, apply Azure Policies at a relatively local scope subscription or resource group. These policies build the guardrails of a landing zone.
 
+Isolate the PCI workload (in-scope) from other (out-of-scope) workloads in terms of operations and connectivity. You can create isolation through by deploying separate clusters. Or, use segmentation strategies to maintain the separation. For example, the cluster use separate node pools so that workloads never share a node VM.
+
 #### Policy enforcement
 
 Enforce security controls by enabling Azure Policies. For example in this regulated architecture, you can prevent misconfiguration of the cardholder data environment. You can apply an Azure policy that doesn't allow public IP allocations on the VM nodes. Such allocations are detected and reported or blocked
@@ -33,7 +35,7 @@ Enforce security controls by enabling Azure Policies. For example in this regula
 For information about policies you can enable for AKS, see 
 [Azure Policy built-in definitions for Azure Kubernetes Service](/azure/aks/policy-reference).
 
-Azure provides several built-in policies for most services. Review these [Azure Policy built-in policy definitions](azure/governance/policy/samples/built-in-policies) and apply them as appropriate. 
+Azure provides several built-in policies for most services. Review these [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies) and apply them as appropriate. 
 
 #### Compliance monitoring
 Compliance must be systematically monitored and maintained. Regular compliance attestations are performed. Knowing whether your cloud resources are in compliance, will help prepare for attestations and audit. 
@@ -61,7 +63,7 @@ To meet the requirements of a regulated environment, the cluster is deployed as 
 
 There are monitoring process in place to make sure traffic flows as expected and any anomaly is detected and reported.
 
-For details on network security, see [Network segmentation](aks-pci-network).
+For details on network security, see [Network segmentation](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-network).
 
 ### Data security
 
@@ -108,8 +110,10 @@ Kubernetes role-based access control (RBAC) manages permissions to the Kubernete
 #### Zero-Trust access
 Kubernetes RBAC, Azure RBAC, and Azure services implement deny all by default. Override that setting with caution, allowing access to only those entities who need it. Another area for implementing Zero-Trust is to disable SSH access to the cluster nodes. 
 
+### Least privileges
 You can use managed identities for Azure resources and pods and scope them to the expected tasks. For example, Azure Application Gateway must have permissions to get secrets (TLS certificates) from Azure Key Vault. It must not have permissions to modify secrets.
 
+### Minimize standing access
 Minimize standing access by using [Just-In-Time AD group membership](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). Harden the control with [Conditional Access Policies in Azure AD](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks). This option supports many use cases, such as, multifactor authentication, restrict authentication to devices that are managed by your Azure AD tenant, or block non-typical sign-in attempts.
 
 ## Secret management
@@ -149,25 +153,26 @@ The shared-nothing architecture is designed to remove contention between colocat
 Complexity of workloads is hard to document and to audit. Strive for simplicity because of the performance benefits and ease of auditing regulatory requirements. Evaluate choices that have more breath than is needed because that increases the attack surface area and potential for misuse, misconfiguration.
 
 ## Reliability
-Many workloads benefit from reliability, but regulated workloads need to be predictable by their vary nature. They need to perform the way the system was intendend (documented) and needs to be explainable at all times. Hiccups in operations are contraindicates of a workload that has invested in reliability.
+The reliability of regulated environment needs to be predictable so that they can be explained consistently for auditing purposes. Follow the fundamental guidance provided in the [Relibility principles](/azure/architecture/framework/resiliency/overview). Best practices for a regulated environment are summarized in these sections.
+
 	
 ### Recovery Targets and Disaster Recovery
 	
-Due to the sensitive nature of the data handled in regulated workloads, recovery targets, specifically RPO, are critical to define. What is acceptable loss of CHD? Investment in reliability might only be matched by the investment in security.  Recovery efforts within the CDE are not processes that get to "skip" the PCI requirements, because it's a unexpected event. Expect failures and have a clear recovery plan for those failures that align with roles, responsibilities, and justified data access. Live-site site issues are not justification for deviating from any regulations.
+Due to the sensitive nature of the data handled in regulated workloads, recovery targets, Recovery Point Objective (RPO), are critical to define. What is acceptable loss of cardholder data (CHD)? Recovery efforts within the cardholder data environment (CDE) are still subject to the standard requirements. Expect failures and have a clear recovery plan for those failures that align with roles, responsibilities, and justified data access. Live-site site issues are not justification for deviating from any regulations.
 	
-This is especially true in full disaster recovery situation. Those events are stressful by their very nature. Having documented disaster recovery plans that still adhere to the requirements will minimize the need to document unexpected CDE or CHD access. After recovery, always review the recovery process steps to ensure no unexpected access occurred and document business justifications for any that did occur.
+This is especially important in a full disaster recovery situation. Have clear disaster recovery documentation about that adheres to the requirements and minimizes unexpected CDE or CHD access. After recovery, always review the recovery process steps to ensure no unexpected access occurred and document business justifications for those instances.
 	
 ### Recovery
 	
-Adding resilience and recovery strategies to your architecture can prevent the need for ad-hoc access to the CDE. When the system is able to self-recover at the defined RPO without the need for direct human intervention, and done so in an auditable way, you've help eliminate unnecessary exposure of CHD, even to those individuals that are authorized to have access for situations like this.
+Adding resilience and recovery strategies to your architecture can prevent the need for adhoc access to the CDE. The system should be able to self-recover at the defined RPO without the need for direct human intervention. This way you can eliminate unnecessary exposure of CHD, even to those individuals that are authorized to have emergency access. The recovery process must be auditable. 
 	
 ### Address security-related risks
 	
-Beyond the general obvious potential involved with security risks, security risks can also be a source of workload downtime and data loss. The necessary investments in security will translate into workload reliability in this regard.
+Review security risks because they can be a source of workload downtime and data loss. The investments in security also have impact on workload reliability.
 	
 ### Operational process
 	
-Reliability isn't just a workload runtime concern, it extends to all operational processes in and adjacent to the CDE. Well defined, automated, and tested processes for concern like image building and jumpbox management factor into a well-architected solution.
+Reliability extends to all operational processes in and adjacent to the CDE. Well defined, automated, and tested processes for concern like image building and jump box management factor into a well-architected solution.
 
 ## Cost Optimization
 
