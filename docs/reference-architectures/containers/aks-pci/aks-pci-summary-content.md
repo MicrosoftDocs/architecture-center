@@ -10,6 +10,8 @@ The Azure Well-Architected Framework is a set of guiding tenets that can be used
 
 This guidance provided in this series incorporate Well-Architected principles in all design choices. This article summarizes those choices.  The [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) implementation demonstrates those principles, as applicable. 
 
+PCI DSS 3.2.1 workloads demand the rigor of being a well-architected solution. While aligning the  infrastructure with PCI requirements is critical, compliance doesn't stop at the hosting infrastructure.Not addressing the quality pillars, specifically Security, can jeopardize compliance. Well-architected solutions combine both the infrastructure and workload perspective to arrive at the rigor necessary for achieving compliant outcomes.
+
 > [!IMPORTANT]
 >
 > This article is work in progress. Check back on updates.
@@ -24,7 +26,7 @@ The governance implementation is driven by the compliance requirements PCI-DSS 3
 
 #### Enterprise segmentation strategy
 
-To maintain complete isolation, we recommend that the regulated infrastructure is deployed in a standalone subscription. If you have multiple subscriptions that are necessary for compliance, consider grouping them under a management group hierarchy that applies the relevant Azure Policies uniformly across your in-scope subscriptions. With in the subscription, apply Azure Policies at a relatively local scope subscription or resource group. These policies build the guardrails of a landing zone.
+To maintain complete isolation, we recommend that the regulated infrastructure is deployed in a standalone subscription. If you have multiple subscriptions that are necessary for compliance, consider grouping them under a management group hierarchy that applies the relevant Azure Policies uniformly across your in-scope subscriptions. With in the subscription, apply related Azure Policies at a subscription level to capture the broad policies that should apply to all clusters in the cardholder data environment (CDE), and at the resource group level to capture policies that apply to a specific cluster instance. These policies build the core guardrails of a landing zone.
 
 Isolate the PCI workload (in-scope) from other (out-of-scope) workloads in terms of operations and connectivity. You can create isolation through by deploying separate clusters. Or, use segmentation strategies to maintain the separation. For example, the cluster use separate node pools so that workloads never share a node VM.
 
@@ -124,6 +126,29 @@ Make sure access to the key store has a balance of network and access controls. 
 
 ##  Operational Excellence
 
+Follow the fundamental guidance provided in the [Operational excellence principles](/azure/architecture/framework/devops/principles). Best practices for a regulated environment are summarized in these sections.
+
+### Separation of roles
+
+A DevOps model positions the responsibility of operations with developers. Still, many organizations do not fully embrace DevOps and maintain some degree of team separation between operations and development, either to enforce clear segregation of duties for regulated environments or to share operations as a business function.
+
+Team collaboration
+
+It is essential to understand if developers are responsible for production deployments end-to-end, or if a handover point exists where responsibility is passed to an alternative operations team, potentially to ensure strict segregation of duties such as the Sarbanes-Oxley Act where developers cannot touch financial reporting systems.
+
+Workload isolation
+
+The goal of workload isolation is to associate an application's specific resources to a team to independently manage all aspects of those resources.
+
+### Operational metadata
+Keep up-to-date information about device inventory and personnel access documentation. Consider using the device discovery capability included in Microsoft Defender for Endpoint. For tracking access, you can derive that information from Azure Active Directory logs. Here are some articles to get you started:
+
+Device discovery
+View reports and logs in Azure AD entitlement management
+As part of your inventory management, maintain a list of approved solutions that deployed as part of the PCI infrastructure and workload. This includes a list of VM images, databases, third-party solutions of your choice that you bring to the CDE. You can even automate that process by building a service catalog. It provides self-service deployment using those approved solutions in a specific configuration, which adheres to ongoing platform operations. For more information, see Establish a service catalog.
+
+### Response and remediation
+
 ### Enable Network Watcher and Traffic Analytics
 
 Observability into your network is critical for compliance. [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview), combined with [Traffic Analysis](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) will help provide a perspective into traffic traversing your networks. This reference implementation does not deploy NSG Flow Logs or Traffic Analysis by default. These features depend on a regional Network Watcher resource being installed on your subscription. Network Watchers are singletons in a subscription, and there is no reasonable way to include them in these specific ARM templates and account for both pre-existing network watchers (which might exist in a resource group you do not have RBAC access to) and non-preexisting situations. We strongly encourage you to enable [NSG flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) on your AKS Cluster subnets, build agent subnets, Azure Application Gateway, and other subnets that may be a source of traffic into and out of your cluster. Ensure you're sending your NSG Flow Logs to a **V2 Storage Account** and set your retention period in the Storage Account for these logs to a value that is at least as long as your compliance needs (e.g. 90 days).
@@ -182,7 +207,7 @@ Here's a high-level represenation of the cost impact of the main resources used 
 
 ![Cost management](.\images\cost-analysis.png)
 
-The main drivers are the AKS node pools and the underlying virtual machine scale sets and Azure Firewall. Another contributor is Log Analytics. There are also incremental costs associated with Azure Defender depending on your choice of plans.
+The main drivers are the virtual machine scale sets that make up the node pools and Azure Firewall. Another contributor is Log Analytics. There are also incremental costs associated with Azure Defender depending on your choice of plans.
 
 Have a clear understanding of what constitutes the price of a service. Azure tracks metered usage. Here's a drilldown of Azure Firewall for this architecture.  
 
@@ -190,27 +215,7 @@ Have a clear understanding of what constitutes the price of a service. Azure tra
 
 The cost associated with some resources, such as Azure Firewall, can be spread across multiple business units and/or applications. Another way to optimize cost might be to host a multi-tenant cluster within an organization, maximizing density with workload diversity. This approach is _not_ recommended for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
 
-There are other ways to lower costs, consider:
-
-- Reserved instances?
-<ask chad>
-
 As you create groups of Azure resources, apply tags so that they can tracked for cost. Use cost management tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Azure Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices) for tracking and analyzing cost. 
-
-
-
-
-
-### Workload isolation
-The main theme of the PCI standard is to isolate the PCI workload from other workloads in terms of operations and connectivity. In this series we differentiate between those concepts as:
-
-- In-scope&mdash;The PCI workload, the environment in which it resides, and operations.
-
-- Out-of-scope&mdash;Other workloads that may share services but are isolated from the in-scope components.
-
-The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. 
-
-In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The application has  two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM.
 
 
 
