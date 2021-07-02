@@ -119,7 +119,6 @@ This architecture attempts to implement Microsoft's Zero Trust principles as muc
 Examples of Zero Trust networks as a concept are demonstrated in the implementation in `a0005-i` and `a0005-o` user-provided namespaces. All workload namespaces should have restrictive `NetworkPolicy` applied, except `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces. The policy definitions will depend on the pods running in those namespaces. Make sure you're accounting for readiness, liveliness, and startup probes and also allowance for metrics gathered by `oms-agent`. Consider standardizing on ports across your workloads so that you can provide a consistent `NetworkPolicy` and Azure Policy for allowed container ports.
 
 In certain cases, this is not practical for communication within the cluster. Not all user-provided namespaces can use a Zero Trust network, for instance `cluster-baseline-settings`. 
-<Ask Chad: why? example>
 
 ### TLS encryption
 
@@ -127,11 +126,9 @@ The baseline architecture provides TLS-encrypted traffic until the ingress contr
 
 ![Network configuration](./images/flow.svg)
 
-The implementation uses Tresor as its TLS certificate provider for mTLS. Consider, well-known providers if you choose to implement mTLS. Some options include CertManager, HashiCorp Vault, Key Vault, or your internal certificate provider. If you use a mesh, ensure it's compatible with certificate provider of your choice.
+The implementation uses mTLS. mTLS support can be implemented with or without a service mesh. If you use a mesh, ensure it's compatible with certificate issuer of your choice. This implementation uses [Open Service Mesh](https://openservicemesh.io).
 
-The mesh implementation uses [Open Service Mesh](https://openservicemesh.io). mTLS support can be implemented with or without a service mesh. Many service meshes do provide mTLS support. If you use a mesh, ensure it's compatible with certificate issuers of your choice.
-
-The ingress controller in this implementation uses a wild-card certificate to handle default traffic when an Ingress resource doesn't contain a specific certificate. This might be acceptable but if the organizational policy doesn't permit using wildcard certificates, you may need to adjust your ingress controller to not support a default certificate. Instead require that even the workload uses their own named certificate. This will impact how Azure Application Gateway performs backend health checks.
+The ingress controller in this implementation uses a wildcard certificate to handle default traffic when an Ingress resource doesn't contain a specific certificate. This might be acceptable but if your organizational policy doesn't permit using wildcard certificates, you may need to adjust your ingress controller to not use a wildcard certificate. 
 
 > [!IMPORTANT]
 >
