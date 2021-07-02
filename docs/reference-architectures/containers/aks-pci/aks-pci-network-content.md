@@ -1,8 +1,8 @@
-This article describes the considerations for an Azure Kubernetes Service (AKS) cluster that's configured in accordance with the Payment Card Industry Data Security Standard (PCI-DSS). 
+This article describes the considerations for an Azure Kubernetes Service (AKS) cluster that's configured in accordance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1). 
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml).
 
-The main theme of the PCI-DSS standard is security. The hub and spoke topology is a natural choice for setting up a regulated environment. It's easier to create an infrastructure that allows secure communications. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic, giving access on a need-to-know basis. In addition, you can apply several defense-in-depth approaches by adding controls at each network hop.
+The main theme of the PCI-DSS 3.2.1 standard is security. The hub and spoke topology is a natural choice for setting up a regulated environment. It's easier to create an infrastructure that allows secure communications. Network controls are placed in both hub and spoke networks and follow the Microsoft zero-trust model. The controls can be tuned with least-privilege to secure traffic, giving access on a need-to-know basis. In addition, you can apply several defense-in-depth approaches by adding controls at each network hop.
 
 When you're hosting a workload in a Kubernetes, it's not sufficient to rely on traditional network constructs, such as firewall rules. There are also Kubernetes-native constructs that control the flow of traffic in the cluster, such as the  `NetworkPolicy` resource. We highly recommend that you refer to the Kubernetes documentation to understand the core concepts about isolated pods, and ingress and egress policies.
 
@@ -10,7 +10,7 @@ When you're hosting a workload in a Kubernetes, it's not sufficient to rely on t
 >
 > The guidance and the accompanying implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture is based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the card-holder environment (CDE), and hosts the PCI DSS workload.
 >
-> ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated infrastructure. The implementation illustrates the use of various network and security controls within your CDE. This includes both network controls native to Azure and controls native to Kubernetes. It also includes an application just to demonstrate the interactions between the environment and a sample workload. The focus of this article is the infrastructure. The sample isn't indicative of an actual PCI-DSS workload. 
+> ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated infrastructure. The implementation illustrates the use of various network and security controls within your CDE. This includes both network controls native to Azure and controls native to Kubernetes. It also includes an application just to demonstrate the interactions between the environment and a sample workload. The focus of this article is the infrastructure. The sample isn't indicative of an actual PCI-DSS 3.2.1 workload. 
 
 
 ## Build and maintain a secure network and systems
@@ -177,7 +177,7 @@ In this architecture, the AKS cluster is a key component of the cardholder data 
 
 You can also choose a public cluster, but be aware of potential challenges with this option. The API server will be exposed to the internet. The DNS record will always be discoverable. So, you need to have controls to keep the cluster API protected from public access. An approach is to have tight controls through Kubernetes role-based access controls (RBAC), paired with the authorized IP ranges feature of AKS. However, this solution isn't recommended for clusters containing regulated workloads.
 
-When processing card holder data (CHD), the cluster will need to interact with networks that are considered to be trusted and untrusted. In this architecture, both the hub and spoke networks within the perimeter of PCI-DSS workload are considered to be trusted networks.
+When processing card holder data (CHD), the cluster will need to interact with networks that are considered to be trusted and untrusted. In this architecture, both the hub and spoke networks within the perimeter of PCI-DSS 3.2.1 workload are considered to be trusted networks.
 
 Untrusted networks are networks outside that perimeter. This category includes the other hubs and spokes that might be on the same infrastructure, but are outside the workload perimeter, public internet, the corporate network, or virtual networks in Azure or another cloud platform. In this architecture, the virtual network that hosts the image builder is untrusted because it has no part to play in CHD handling. The CDE's interaction with such networks should be secured as per the requirements. With this private cluster, you can use Azure Virtual Network, an NSG, and other built-in features to secure the entire environment.
 
@@ -381,7 +381,7 @@ For wireless environments connected to the cardholder data environment or transm
 
 ##### Your responsibilities
 
-This architecture and the implementation aren't designed to do on-premises or corporate network to cloud transactions over wireless connections. For considerations, refer to the guidance in the official PCI-DSS standard. 
+This architecture and the implementation aren't designed to do on-premises or corporate network to cloud transactions over wireless connections. For considerations, refer to the guidance in the official PCI-DSS 3.2.1 standard. 
 
 ### Requirement 2.2
 
@@ -389,7 +389,7 @@ Develop configuration standards for all system components.
 
 #### Your responsibilities
 
-Implement the recommendations in the Azure security benchmark. It provides a single, consolidated view of Azure security recommendations, covering industry frameworks such as CIS, NIST, PCI-DSS, and others. Use Azure Security Center features and Azure Policy to help track against the standards. Azure security benchmark is the default initiative for Azure Security Center. Consider building additional automated checks in Azure Policy and Azure Tenant Security Solution (AzTS).
+Implement the recommendations in the Azure security benchmark. It provides a single, consolidated view of Azure security recommendations, covering industry frameworks such as CIS, NIST, PCI-DSS 3.2.1, and others. Use Azure Security Center features and Azure Policy to help track against the standards. Azure security benchmark is the default initiative for Azure Security Center. Consider building additional automated checks in Azure Policy and Azure Tenant Security Solution (AzTS).
 
 Document the desired configuration state of all components in the CDE, especially for AKS nodes, jump box, build agents, and other components that interact with the cluster.
 

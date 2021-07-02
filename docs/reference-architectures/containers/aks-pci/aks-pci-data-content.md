@@ -1,8 +1,8 @@
-This article describes the considerations for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS). 
+This article describes the considerations for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1). 
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml).
 
-This architecture and the implementation are focused on infrastructure and not the workload. This article provides general considerations and best practices to help you make design decisions. Follow the requirements in the official PCI-DSS standard and use this article as additional information, where applicable. 
+This architecture and the implementation are focused on infrastructure and not the workload. This article provides general considerations and best practices to help you make design decisions. Follow the requirements in the official PCI-DSS 3.2.1 standard and use this article as additional information, where applicable. 
 
 > [!IMPORTANT]
 >
@@ -184,7 +184,7 @@ Store secret and private keys used to encrypt/decrypt cardholder data in one (or
 
 ##### Your responsibilities
 
-A PCI-DSS workload will need to use more than one encryption key as part of the data-at-rest protection strategy. A data encryption key (DEK) is used to encrypt and decrypt the CHD, but you're responsible for an additional key encryption key (KEK) to protect that DEK. You're also responsible for ensuring that the KEK is stored in a cryptographic device. 
+A PCI-DSS 3.2.1 workload will need to use more than one encryption key as part of the data-at-rest protection strategy. A data encryption key (DEK) is used to encrypt and decrypt the CHD, but you're responsible for an additional key encryption key (KEK) to protect that DEK. You're also responsible for ensuring that the KEK is stored in a cryptographic device. 
 
 You can use Azure Key Vault to store the DEK and use Azure Dedicated HSM to store the KEK. For information about HSM key management, see [What is Azure Dedicated HSM?](/azure/dedicated-hsm/overview).
 
@@ -257,7 +257,7 @@ Ensure wireless networks transmitting cardholder data or connected to the cardho
 
 ##### Your responsibilities
       
-This architecture and the implementation aren't designed to do on-premises or corporate network-to-cloud transactions over wireless connections. For considerations, refer to the guidance in the official PCI-DSS standard. 
+This architecture and the implementation aren't designed to do on-premises or corporate network-to-cloud transactions over wireless connections. For considerations, refer to the guidance in the official PCI-DSS 3.2.1 standard. 
 
 #### Requirement 4.2
 Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
@@ -268,7 +268,7 @@ If your workload requires sending emails, consider building an email quarantine 
 
 Validation should be done at the workload level and the change control process. The approval gates should understand the requirement. 
 
-For considerations, refer to the guidance in the official PCI-DSS standard. 
+For considerations, refer to the guidance in the official PCI-DSS 3.2.1 standard. 
 
 #### Requirement 4.3
 

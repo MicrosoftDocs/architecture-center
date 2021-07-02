@@ -1,4 +1,4 @@
-This article describes a reference architecture for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1). This architecture is focused on the infrastructure and _not_ the PCI-DSS workload.
+This article describes a reference architecture for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1 3.2.1). This architecture is focused on the infrastructure and _not_ the PCI-DSS 3.2.1 workload.
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml) here.
 
@@ -67,7 +67,7 @@ In this architecture, the cluster has two user node pools and one system node po
 >
 > This architecture or the implementation doesn't use this approach.
 
-The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in terms of operations and connectivity. 
+The PCI-DSS 3.2.1 3.2.1 requires isolation of the PCI workload from other workloads in terms of operations and connectivity. 
 
 - In-scope&mdash;The PCI workload, the environment in which it resides, and operations.
 
@@ -83,7 +83,7 @@ Kubernetes ingress controller inside the cluster has been changed to NGINX. In t
 
 ### Private Kubernetes API server
 
-The baseline architecture deployed the AKS cluster in public mode. This means all communication with the AKS-managed Kubernetes API server is over the public internet. This is not acceptable in this architecture because PCI-DSS prohibits public exposure to any system components. In this regulated architecture, the cluster is deployed as a private cluster. Network traffic to the Kubernetes API server is limited to your private network. The API server is exposed through a Private Endpoint in the cluster's network. The security is further enhanced with the use of NSGs and other built-in features. These are described in [Network configuration](#networking-configuration).
+The baseline architecture deployed the AKS cluster in public mode. This means all communication with the AKS-managed Kubernetes API server is over the public internet. This is not acceptable in this architecture because PCI-DSS 3.2.1 prohibits public exposure to any system components. In this regulated architecture, the cluster is deployed as a private cluster. Network traffic to the Kubernetes API server is limited to your private network. The API server is exposed through a Private Endpoint in the cluster's network. The security is further enhanced with the use of NSGs and other built-in features. These are described in [Network configuration](#networking-configuration).
 
 ### Pod security
 
@@ -135,7 +135,7 @@ The ingress controller in this implementation uses a wild-card certificate to ha
 
 > [!IMPORTANT]
 >
-> Any component that decrypts card holder data is considered to be in scope for PCI-DSS and is subject the same level of scrutiny as the other components in the cardholder data environment. In this architecture, Azure Application Gateway is in scope because it inspects the payload as part of its WAF functionality. An alternate architecture option is to use Azure Firewall Premium as the ingress component instead of WAF to take advantage of Firewall's signature-based IDPS capabilities. This will allow the first TLS termination to be in the cluster. However, without a dedicated WAF, you must use additional compensating controls to satisfy [Requirement 6.6](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-malware#requirement-66).
+> Any component that decrypts card holder data is considered to be in scope for PCI-DSS 3.2.1 and is subject the same level of scrutiny as the other components in the cardholder data environment. In this architecture, Azure Application Gateway is in scope because it inspects the payload as part of its WAF functionality. An alternate architecture option is to use Azure Firewall Premium as the ingress component instead of WAF to take advantage of Firewall's signature-based IDPS capabilities. This will allow the first TLS termination to be in the cluster. However, without a dedicated WAF, you must use additional compensating controls to satisfy [Requirement 6.6](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-malware#requirement-66).
 
 ### Azure Key Vault network restrictions
 
