@@ -63,9 +63,9 @@ In this architecture, the cluster has two user node pools and one system node po
 
 > [!NOTE]
 >
-> An approach for compute protection is Azure confidential computing. AKS supports confidential computing nodes that allow you to run sensitive workloads within a hardware-based trusted execution environment (TEE). For details, see [Confidential computing nodes on Azure Kubernetes Service](/azure/confidential-computing/confidential-nodes-aks-overview).
+> An alternate approach for compute protection is Azure confidential computing. AKS supports confidential computing nodes that allow you to run sensitive workloads within a hardware-based trusted execution environment (TEE). For details, see [Confidential computing nodes on Azure Kubernetes Service](/azure/confidential-computing/confidential-nodes-aks-overview).
 >
-> This architecture or the implementation doesn't use this approach.
+
 
 The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in terms of operations and connectivity. 
 
@@ -73,7 +73,7 @@ The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in
 
 - Out-of-scope&mdash;Other workloads that may share services but are isolated from the in-scope components.
 
-The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. As the solution evolves, some out-of-scope components might be in scope and more controls might need to be applied to keep them separate. 
+The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The downside is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. As the solution evolves, some out-of-scope components might be in scope and more controls might need to be applied to keep them separate. 
 
 In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The in-scope and out-of-scope workloads are segmented in two separate user node pools. The application has two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM or the network IP space.
 
@@ -143,9 +143,6 @@ Azure Application Gateway doesn't support sourcing TLS certificates for the HTTP
 - [Azure Application Gateway and Key Vault integration](/azure/application-gateway/key-vault-certs#how-integration-works)
 - [Create an application gateway with TLS termination using the Azure CLI](/azure/application-gateway/tutorial-ssl-cli). 
 
-If this hybrid approach isn't suitable for your deployment, move the certificate management process to Application Gateway. This will add management overhead but the Key Vault instance will be completely isolated. For information, see these articles:
-- [Azure Application Gateway and Key Vault integration](/azure/application-gateway/key-vault-certs#how-integration-works)
-- [Create an application gateway with TLS termination using the Azure CLI](/azure/application-gateway/tutorial-ssl-cli). 
 
 ### DDoS Protection
 

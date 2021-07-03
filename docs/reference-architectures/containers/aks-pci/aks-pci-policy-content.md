@@ -4,16 +4,16 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 ## Maintain an information security policy 
 
-**Requirement 12**&mdash;Maintain a policy that addresses information security for all personnel
+### **Requirement 12**&mdash;Maintain a policy that addresses information security for all personnel
 ***
 
-Microsoft completed an annual PCI DSS assessment using an approved Qualified Security Assessor (QSA). Take into considerations all aspects of the infrastructure, development, operations, management, support, and in-scope services. For more information, see [Payment Card Industry (PCI) Data Security Standard (DSS)](/compliance/regulatory/offering-PCI-DSS 3.2.1#use-microsoft-compliance-manager-to-assess-your-risk).  
+Microsoft completed an annual PCI DSS assessment using an approved Qualified Security Assessor (QSA). Take into considerations all aspects of the infrastructure, development, operations, management, support, and in-scope services. For more information, see [Payment Card Industry (PCI) Data Security Standard (DSS)](/compliance/regulatory/offering-PCI-DSS#use-microsoft-compliance-manager-to-assess-your-risk).  
 
 This architecture and the implementation aren't designed to provide illustrative guidance for documenting the official security policy end-to-end. For considerations, refer to the guidance in the official PCI-DSS 3.2.1 standard. 
 
 Here are some general suggestions:
 
-- Maintain thorough and updated documentation about the process and policies. Consider [using Microsoft Compliance Manager to assess your risk](/compliance/regulatory/offering-PCI-DSS 3.2.1#use-microsoft-compliance-manager-to-assess-your-risk). 
+- Maintain thorough and updated documentation about the process and policies. Consider [using Microsoft Compliance Manager to assess your risk](/compliance/regulatory/offering-PCI-DSS#use-microsoft-compliance-manager-to-assess-your-risk). 
 - In the annual review of the security policy, incorporate new guidance delivered by Microsoft, Kubernetes, and other third-party solutions that are part of your CDE. Some resources include vendor publications combined with guidance derived from Azure Security Center, Azure Advisor,  [Azure Well-Architected Review](https://docs.microsoft.com/assessments/), and updates in the [AKS Azure Security Baseline](https://docs.microsoft.com/security/benchmark/azure/baselines/aks-security-baseline) and [CIS Azure Kubernetes Service Benchmark](https://www.cisecurity.org/blog/new-release-cis-azure-kubernetes-service-aks-benchmark/), and others.
 -  When establishing your risk assessment process, align with a published standard where practical, for example [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). Map publications from your vendor's published security list, such as the [Microsoft Security Response Center guide](https://msrc.microsoft.com/update-guide), to your risk assessment process.
 - Keep up-to-date information about device inventory and personnel access documentation. Consider using the device discovery capability included in Microsoft Defender for Endpoint. For tracking access, you can derive that information from Azure Active Directory logs. Here are some articles to get you started:
