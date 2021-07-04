@@ -37,4 +37,4 @@ products:
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.png
 content: |
-   [!include[](azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps-content.md)]
+   [!include[](azure-devops-continuous-integration-and-continuous-deployment-for-azure-powerplatform-content.md)]
