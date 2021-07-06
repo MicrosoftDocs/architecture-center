@@ -1,4 +1,6 @@
-Small and medium businesses (SMBs) face a choice when modernizing their on-premises data warehouses for the cloud. They can adopt big data tools for future extensibility, or keep traditional, SQL-based solutions for cost efficiency, ease of maintenance, and smooth transition. However, a hybrid approach can combine easy migration of the existing data estate with the opportunity to add big data tools and processes for some use cases. SQL-based data sources can keep running and continue to modernize as appropriate.
+Small and medium businesses (SMBs) face a choice when modernizing their on-premises data warehouses for the cloud. They can adopt big data tools for future extensibility, or keep traditional, SQL-based solutions for cost efficiency, ease of maintenance, and smooth transition.
+
+However, a hybrid approach offers easy migration of the existing data estate with the opportunity to add big data tools and processes for some use cases. SQL-based data sources can keep running and continue to modernize as appropriate.
 
 This example workload shows several ways that SMBs can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end Azure data warehousing solutions integrate easily with Azure and Microsoft services and tools like Azure Machine Learning, Microsoft Power Platform, and Microsoft Dynamics.
 
@@ -38,12 +40,12 @@ This solution isn't recommended for:
    
 1. Serverless analysis tools are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process the data in Data Lake Storage. Serverless pools are available on demand, and don't require any provisioned resources.
    
-   Serverless SQL pools are ideal for:
+   Serverless pools are ideal for:
    - Ad hoc data science explorations in T-SQL format.
    - Early prototyping for data warehouse entities.
    - Defining views that consumers can use, for example in Power BI, for scenarios that can tolerate performance lag.
    
-   This method is an easy way to mesh Dynamics data sources, or build centralized BI dashboards on augmented datasets. You can bring the processed data back into Dynamics and Power BI for further analysis.
+   This method is an easy way to mesh Dynamics data sources, or build centralized BI dashboards on augmented datasets. You can bring the fused, processed data back into Dynamics and Power BI for further analysis.
 
 1. Azure Synapse is tightly integrated with potential consumers of your fused datasets, like Azure Machine Learning. Other consumers can include Power Apps,  Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
 
@@ -62,7 +64,7 @@ This solution isn't recommended for:
 
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is a real-time, serverless analytics service for streaming data. Stream Analytics offers rapid, elastic scalability, enterprise-grade reliability and recovery, and built-in machine learning capabilities.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a toolset for data science model development and lifecycle management. Machine Learning is one example of the Azure and other Microsoft services that can consume fused, processed data from Data Lake Storage.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a toolset for data science model development and lifecycle management. Machine Learning is one example of the Azure and Microsoft services that can consume fused, processed data from Data Lake Storage.
 
 ## Alternatives
 
@@ -96,17 +98,17 @@ See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c
 
 - [SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single) bases costs on the selected Compute and Service tiers, and the number of vCores and Database Transaction Units (DTUs). The example shows a single database with provisioned Compute and eight vCores, based on the assumption that you need to run stored procedures in SQL Database.
 
-- [Azure Synapse pipeline](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) bases costs on the number of data pipeline activities, integration runtime hours, data flow cluster size, and execution and operation charges. Pipeline costs increase with additional data sources and amounts of data processed. The example assumes one data source batched every hour for 15 minutes on an Azure-hosted integration runtime.
+- [Data Lake Storage](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on amount of data you store and how often you use the data. The sample pricing includes 1 TB of data stored, with further transactional assumptions. The 1 TB refers to the size of the data lake, not the original legacy database size.
+
+- [Azure Synapse pipelines](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) base costs on the number of data pipeline activities, integration runtime hours, data flow cluster size, and execution and operation charges. Pipeline costs increase with additional data sources and amounts of data processed. The example assumes one data source batched every hour for 15 minutes on an Azure-hosted integration runtime.
 
 - [Azure Synapse Spark pool](https://azure.microsoft.com/pricing/details/synapse-analytics/#overview) bases pricing on node size, number of instances, and uptime. The example assumes one small compute node with five hours a week to 40 hours a month utilization.
 
 - [Azure Synapse serverless SQL pool](https://azure.microsoft.com/pricing/details/synapse-analytics/#overview) bases pricing on TBs of data processed. The sample assumes 50 TB processed a month. This figure refers to the size of the data lake, not the original legacy database size.
 
-- [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/) bases costs on the number of provisioned streaming units. The sample assumes one streaming unit used over the month.
-
 - [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) bills based on tier, throughput units provisioned, and ingress traffic received. The example assumes one throughput unit in Standard tier over one million events for a month.
 
-- [Data Lake Storage](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on amount of data you store and how often you use the data. The sample pricing includes 1 TB of data stored, with further transactional assumptions. The 1 TB refers to the size of the data lake, not the original legacy database size.
+- [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/) bases costs on the number of provisioned streaming units. The sample assumes one streaming unit used over the month.
 
 ## Next steps
 
