@@ -2,7 +2,7 @@
 metadata:
   title: Modern data warehouse for small and medium business
   titleSuffix: Azure Example Scenarios
-  description: Migrate enterprise data to Azure with Azure Synapse pipelines. Analyze data with SQL and Apache Spark serverless pools. Use integrated data in Azure services.
+  description: Use Azure Synapse Analytics, SQL Database, and Data Lake Storage to modernize SMB legacy and on-premises data. Easily integrate fused data with other services.
   author: galinagpolyakova
   ms.author: gapolyak
   ms.date: 07/06/2021
@@ -15,12 +15,13 @@ azureCategories:
   - storage
 products:
   - azure-data-lake
-  - azure-event-hubs
   - azure-sql-database
-  - azure-stream-analytics
   - azure-synapse-analytics
+  - dynamics-365
+  - power-platform
+
 name: Modern data warehouse for small and medium business
-summary: Migrate enterprise data to Azure with Azure Synapse pipelines. Analyze data with SQL and Apache Spark serverless pools. Use integrated data in Azure services.
+summary: Use Azure Synapse Analytics, SQL Database, and Data Lake Storage to modernize SMB legacy and on-premises data. Easily integrate fused data with other services.
 thumbnailUrl: /azure/architecture/browse/thumbs/smb-data-warehouse.png
 content: |
   [!include[](smb-data-warehouse-content.md)]
