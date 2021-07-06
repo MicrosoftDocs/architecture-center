@@ -1,6 +1,6 @@
-To modernize their on-premises data warehouses, many small and medium businesses (SMBs) face a choice between adopting big data tools for future extensibility, or keeping traditional, SQL-based solutions for cost efficiency, ease of maintenance, and smooth transition. However, a hybrid approach can offer easy migration of existing data sources, with the opportunity to add big data tools and processes for some use cases. The existing platform can keep running as is and continue to modernize as appropriate.
+To modernize their on-premises data warehouses, many small and medium businesses (SMBs) face a choice. They can adopt big data tools for future extensibility, or keep traditional, SQL-based solutions for cost efficiency, ease of maintenance, and smooth transition. However, a hybrid approach can offer easy migration of existing data sources, with the opportunity to add big data tools and processes for some use cases. The SQL-based data sources can keep running, and continue to modernize as appropriate.
 
-This example workload shows several ways that SMBs can modernize their legacy data warehouses and explore big data tools and capabilities without overextending current budgets and skillsets. These end-to-end Azure data warehousing solutions easily integrate with other Azure and Microsoft tools for data science, self-service business intelligence (BI), and the Microsoft Dynamics business suite. https://powerplatform.microsoft.com/en-us/
+This example workload shows several ways that SMBs can modernize legacy data warehouses and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end Azure data warehousing solutions integrate easily with Azure data science and Microsoft business intelligence (BI) tools, and with the Microsoft Dynamics business suite.
 
 ## Potential use cases
 
@@ -34,9 +34,9 @@ This solution isn't recommended for:
    
    - The pipelines can also pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than simply re-platforming the data.
    
-1. Real-time data from streaming sources can also enter the system via Azure Event Hubs. Azure Stream Analytics can analyze this data in real time, for customers with real-time dashboard requirements. The data can also enter the centralized Data Lake for further analysis, storage, and reporting.
+1. Real-time data from streaming sources can also enter the system via Azure Event Hubs. Azure Stream Analytics can analyze this data immediately, for customers with real-time dashboard requirements. The data can also enter the centralized Data Lake for further analysis, storage, and reporting.
    
-1. The serverless analysis section shows the big data platform tools that are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process the structured, semi-structured, or non-structured data in Data Lake Storage. Serverless pools are available on demand, and don't require any provisioned resources.
+1. The serverless analysis section shows the big data platform tools that are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process the data in Data Lake Storage. Serverless pools are available on demand, and don't require any provisioned resources.
    
    Serverless SQL pools are ideal for:
    - Ad hoc data science explorations in T-SQL format.
@@ -45,15 +45,9 @@ This solution isn't recommended for:
    
    This method is an easy way to mesh Dynamics data sources, or build centralized BI dashboards on augmented datasets. You can bring the processed data back into Dynamics and Power BI for analysis.
 
-1. The diagram also shows the tight integration between Azure Synapse and other possible consumers of your fused datasets, like Azure Machine Learning. Other consumers can include Power Apps,  Azure Logic Apps, Azure Functions apps,and Azure App Service web apps.
+1. The diagram also shows the tight integration between Azure Synapse and potential consumers of your fused datasets, like Azure Machine Learning. Other consumers can include Power Apps,  Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
 
 ## Components
-
-- [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs) is a real-time data streaming platform and event ingestion service. Event Hubs can ingest data from anywhere and seamlessly integrate with Azure data services.
-
-- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is a real-time, serverless analytics service for streaming data. Stream Analytics offers rapid, elastic scalability, enterprise-grade reliability and recovery, and built-in machine learning capabilities.
-
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an intelligent, scalable, relational database service built for the cloud. In this solution, SQL Database holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures.
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that combines data integration, enterprise data warehousing, and big data analytics. In this solution:
 
@@ -62,7 +56,13 @@ This solution isn't recommended for:
   - [Azure Synapse serverless SQL pools](/azure/synapse-analytics/get-started-analyze-sql-on-demand) analyze unstructured and semi-structured data in Data Lake Storage on demand.
   - [Azure Synapse serverless Apache Spark pools](/azure/synapse-analytics/get-started-analyze-spark) do code-first explorations in Data Lake Storage with Spark languages like Spark SQL, pySpark, and Scala.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a toolset for data science model development and lifecycle management. In this example, Machine Learning is just one of the Azure and other services that can consume the fused, processed data.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an intelligent, scalable, relational database service built for the cloud. In this solution, SQL Database holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures.
+
+- [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs) is a real-time data streaming platform and event ingestion service. Event Hubs can ingest data from anywhere and seamlessly integrate with Azure data services.
+
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is a real-time, serverless analytics service for streaming data. Stream Analytics offers rapid, elastic scalability, enterprise-grade reliability and recovery, and built-in machine learning capabilities.
+
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a toolset for data science model development and lifecycle management. Machine Learning is just one example of the Azure and other Microsoft services that can consume the fused, processed data from Data Lake Storage.
 
 ## Alternatives
 
@@ -71,12 +71,12 @@ This solution isn't recommended for:
 - You can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory) for data integration instead of Azure Synapse pipelines. The choice depends on several factors:
   
   - Azure Synapse pipelines keep the solution design simpler, and allow collaboration inside a single Azure Synapse workspace.
-  - However, Azure Synapse pipelines don't support SSIS packages rehosting, which is available in Azure Data Factory.
-  - [Synapse Monitor Hub](/azure/synapse-analytics/get-started-monitor) monitors Azure Synapse pipelines. [Azure Monitor](https://azure.microsoft.com/services/monitor) can monitor Data Factory.
+  - Azure Synapse pipelines don't support SSIS packages rehosting, which is available in Azure Data Factory.
+  - [Synapse Monitor Hub](/azure/synapse-analytics/get-started-monitor) monitors Azure Synapse pipelines, while [Azure Monitor](https://azure.microsoft.com/services/monitor) can monitor Data Factory.
   
   For more information and a feature comparison between Azure Synapse pipelines and Data Factory, see [Data integration in Azure Synapse Analytics versus Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
   
-- You can use [Synapse Analytics dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) for storing enterprise data, instead of SQL Database. Review the use cases and considerations in this article and related resources to make a decision.
+- You can use [Synapse Analytics dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) for storing enterprise data, instead of using SQL Database. Review the use cases and considerations in this article and related resources to make a decision.
 
 ## Considerations
 
