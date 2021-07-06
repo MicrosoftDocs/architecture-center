@@ -5,7 +5,7 @@ metadata:
   description: Migrate enterprise data to Azure with Azure Synapse pipelines. Analyze data with SQL and Apache Spark serverless pools. Use integrated data in Azure services.
   author: galinagpolyakova
   ms.author: gapolyak
-  ms.date: 06/29/2021
+  ms.date: 07/06/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
