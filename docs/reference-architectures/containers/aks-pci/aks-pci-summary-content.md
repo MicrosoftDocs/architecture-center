@@ -120,7 +120,7 @@ Make sure access to the key store has a balance of network and access controls. 
 
 ##  Operational Excellence
 
-Follow the fundamental guidance provided in the [Operational excellence principles](/azure/architecture/framework/devops/principles). Best practices for a regulated environment are summarized in these sections.
+Follow the fundamental guidance provided in the [Operational Excellence principles](/azure/architecture/framework/devops/principles). Best practices for a regulated environment are summarized in these sections.
 
 ### Separation of roles
 
@@ -149,7 +149,7 @@ From the Security alerts view in Azure Security Center, you have access to all a
 
 ## Performance Efficiency 
 
-Follow the fundamental guidance provided in the [Performance efficiency principles](/azure/architecture/framework/scalability/principles). Best practices for a regulated environment are summarized in these sections.
+Follow the fundamental guidance provided in the [Performance Efficiency principles](/azure/architecture/framework/scalability/principles). Best practices for a regulated environment are summarized in these sections.
 
 ### Scaling
 	
