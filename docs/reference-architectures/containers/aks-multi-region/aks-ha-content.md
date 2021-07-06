@@ -52,7 +52,7 @@ When deploying multiple Kubernetes clusters in highly available and geographical
 
 #### Deployment
 
-You have many options for deploying an Azure Kubernetes Service cluster. The Azure portal, Azure CLI, Azure PowerShell module are all decent options for deploying individual or non-coupled AKS clusters. These tools, however, can present some challenges when working with many tightly coupled AKS clusters. For example, using the Azure portal opens the opportunity for miss-configuration due to missed steps. As well, the deployment and configuration of many clusters using the portal is a timely process requiring the focus of one or more engineers. While you can construct a repeatable and automated process using the command line tools, the onus of things like idempotency, deployment failure control, and failure recovery is on you and the scripts you build. 
+You have many options for deploying an Azure Kubernetes Service cluster. The Azure portal, Azure CLI, Azure PowerShell module are all decent options for deploying individual or non-coupled AKS clusters. These tools, however, can present some challenges when working with many tightly coupled AKS clusters. For example, using the Azure portal opens the opportunity for miss-configuration due to missed steps or unavailable configuration options. As well, the deployment and configuration of many clusters using the portal is a timely process requiring the focus of one or more engineers. While you can construct a repeatable and automated process using the command line tools, the onus of things like idempotency, deployment failure control, and failure recovery is on you and the scripts you build. 
 
 We recommend using infrastructure as code solutions, such and Azure Resource Manager templates, Bicep templates or Terraform configurations. Infrastructure as code solutions will provide an automated, scalable, and idempotent deployment solution. This reference architecture includes an ARM Template for the solutions shared services and then another for the AKS clusters + regional services. Using infrastructure as code, a deployment stamp can be defined with generalized configurations such as networking, authorization, and diagnostics. A deployment parameter file can be provided with regional-specific values. With this configuration, a single template can be used to deploy an identical stamp across any region.
 
@@ -120,17 +120,17 @@ _The following is an example from the included GitHub Action demonstrating the d
             aksIngressControllerCertificate=${{ secrets.AKS_INGRESS_CONTROLLER_CERTIFICATE_BASE64 }}
 ```
 
-#### Configuration and management
+#### Cluster bootstrapping
 
-Once each Kubernetes instance or stamp has been deployed, cluster components such as ingress controllers, identity solutions, and application components need to be deployed and configured. You will also need to consider applying security, access, and governance policies across the cluster.
+Once each Kubernetes instance or stamp has been deployed, cluster components such as ingress controllers, identity solutions, and workload components need to be deployed and configured. You will also need to consider applying security, access, and governance policies across the cluster.
 
 Similar to deployment, these configurations can become challenging to manage across several Kubernetes instances manually. Instead, consider the following options for configuration and policy at scale.
 
 ##### GitOps Pipelines
 
-Instead of manually configuring Kubertnets components, consider using automated tooling to apply configurations to a Kubernetes cluster as these configurations are checked into a source repository. This process is often referred to as GitOps, and a popular GitOps solution for Kubernetes is Flux. 
+Instead of manually configuring Kubertnets components, consider using automated tooling to apply configurations to a Kubernetes cluster as these configurations are checked into a source repository. This process is often referred to as GitOps, and a popular GitOps solutions for Kubernetes include Flux and Argo CD.
 
-GitOps and Flux are detailed in more depth in the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#cluster-cicd). The important note here is that using a GitOps based approach to configuration helps ensure that each Kubernetes instance is configured similarly without bespoke effort.  
+GitOps is detailed in more depth in the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#cluster-cicd). The important note here is that using a GitOps based approach to configuration helps ensure that each Kubernetes instance is configured similarly without bespoke effort.  
 
 ##### Azure Policy
 
@@ -154,13 +154,11 @@ _Example policy assignment that restricts the use of container images to a named
         "policyDefinitionId": "[variables('policyResourceIdEnforceImageSource')]",
         "parameters": {
             "allowedContainerImagesRegex": {
-                "value": "[concat(variables('containerRegistryName'),'.azurecr.io/.+$|mcr.microsoft.com/.+$|docker.io/fluxcd/flux.+$|docker.io/weaveworks/kured.+$|docker.io/library/.+$')]"
+                 "value": "[concat(variables('containerRegistryName'),'\.azurecr\.io\/.+$|mcr\.microsoft\.com\/.+')]"
             },
             "excludedNamespaces": {
                 "value": [
-                    "kube-system",
-                    "gatekeeper-system",
-                    "azure-arc"
+                    "gatekeeper-system"
                 ]
             },
             "effect": {
@@ -171,9 +169,20 @@ _Example policy assignment that restricts the use of container images to a named
 }
 ```
 
+#### Workload deployment
+
+In addition to AKS instance configuration, consider the workload deployed into each regional instance or stamp. Deployment solutions or pipelines will require configuration to accommodate each regional stamp.  As additional stamps are added to the global cluster, the deployment process needs to be extended or flexible enough to accommodate the new regional instances.
+
+Consider the following when planning for workload deployment.
+
+- Generalize the deployment, such as with a Helm chart, to ensure that a single deployment configuration can be used across multiple cluster stamps.
+- Use a single continuous deployment pipeline configured to deploy the workload across all cluster stamps.
+- Provide stamp-specific instance details as deployment parameters.
+- Consider how application diagnostic logging and distributed tracing are configured for application-wide observability. 
+
 ### Avalibility / Failover
 
-A significant motivation for choosing a multi-region Kubernetes architecture is service availability. That is, if a service or service component becomes un-available in one region, traffic should be routed to a region where that service is available. A multi-region architecture is complete and includes many different failure points. In this section, each of these potential failure points is discussed.
+A significant motivation for choosing a multi-region Kubernetes architecture is service availability. That is, if a service or service component becomes un-available in one region, traffic should be routed to a region where that service is available. A multi-region architecture includes many different failure points. In this section, each of these potential failure points is discussed.
 
 #### Application Pods (regional)
 
@@ -195,7 +204,7 @@ For more information, see [Horizontal Pod Autoscaler](https://kubernetes.io/docs
 
 #### Kubernets node pools (regional)
 
-Occasionally regional failure can occur to compute resources, for instance, if power becomes unavailable to a single rack of Azure servers. To protect your AKS nodes from becoming a single point regional failure, utilize Azure Availability zones. Using availability zones ensures that AKS nodes in a given availability zone are physically separated from those defined in another availability zone.
+Occasionally localized failure can occur to compute resources, for instance, if power becomes unavailable to a single rack of Azure servers. To protect your AKS nodes from becoming a single point regional failure, utilize Azure Availability zones. Using availability zones ensures that AKS nodes in a given availability zone are physically separated from those defined in another availability zone.
 
 For more information, see [AKS and Azure Availability Zones](/azure/aks/availability-zones).
 
@@ -207,11 +216,11 @@ For more information, see [Azure Front Door](/azure/frontdoor/).
 
 ### Traffic management
 
-In this architecture, the traffic flows over the internet at several points. The receiving service only accepts and forwards TLS-encrypted traffic for maximum security. For example, The spoke network only accepts TLS encrypted traffic coming from the internet. Within the spoke, the cluster only accepts TLS encrypted traffic from the gateway.
+In this architecture, the traffic flows over the internet at several points. The receiving service only accepts and forwards TLS-encrypted traffic for maximum security. For example, The gateway accepts TLS encrypted traffic coming from the internet (as routed from Azure Front Door). Within the spoke, the cluster only accepts TLS encrypted traffic from the gateway.
 
 ![Mutli-region deployment](images/aks-ingress-flow.svg)
 
-1. The user sends a request to a domain name (https://multicluster-fd-2vgfhderl7kec.azurefd.net), which is resolved to the Azure Front Door instance. This request is encrypted with a wildcard certificate (*azurefd.net) issued for all subdomains of Azure Front Door. The Azure Front Door instance validates the request against WAF policies, selects the fastest backend (based on health and latency), and uses public DNS to resolve the backend IP address (Azure Application Gateway instance).
+1. The user sends a request to a domain name (https://multicluster-fd-2vgfhderl7kec.azurefd.net), which is resolved to the Azure Front Door instance. This request is encrypted with a wildcard certificate (*.azurefd.net) issued for all subdomains of Azure Front Door. The Azure Front Door instance validates the request against WAF policies, selects the fastest backend (based on health and latency), and uses public DNS to resolve the backend IP address (Azure Application Gateway instance).
 
 2. Front Door forwards the request to the selected appropriate Application Gateway instance, which serves as the entry point for the regional stamp. The traffic flows over the internet and is encrypted by Azure Front Door. Consider a method to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. One approach is to use a Network Security Group on the subnet that contains the Application Gateway. The rules can filter inbound (or outbound) traffic based on properties such as Source, Port, Destination. The Source property allows you to set a built-in service tag that indicates IP addresses for an Azure resource. This abstraction makes it easier to configure and maintain the rule and keep track of IP addresses. 
 
@@ -318,7 +327,3 @@ For more information on managing AKS cluster access with Azure Active Directory,
 When using a globally distributed cluster of AKS instances, consider the architecture of the application, process, or other workloads that might run across the cluster. As state-based workload is spread across the cluster, will it need to access a state store? If a process is recreated elsewhere in the cluster due to failure, will the workload or process continue to have access to a dependant state store? State can be achieved in many ways; however, it can be complex in a single Kubernetes cluster. The complexity increases when adding in multiple clustered Kubernetes instances. Due to regional access and complexity concerns, consider architecting your applications to use a globally distributed state store service.
 
 The multi-cluster reference implementation does not include a demonstration or configuration for state concerns. If running applications across clustered AKS instance, consider architecting workload to use a globally distributed data service, such as Azure Cosmos DB. Azure Cosmos DB is a globally distributed database system that allows you to read and write data from the local replicas of your database. For more information, see [Azure Cosmos DB](/azure/cosmos-db/).
-
-### Cost considerations
-
-- TDB
