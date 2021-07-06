@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 06/28/2021
+ms.date: 07/06/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -23,10 +23,18 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 New and updated articles in Azure Architecture Center
 
+## July 2021
+
+### New Articles
+
+- [Precision medicine pipeline with genomics](./example-scenario/precision-medicine/genomic-analysis-reporting.yml)
+
+
 ## June 2021
 
 ### New Articles
 
+- [GitOps for Azure Kubernetes Service](./example-scenario/gitops-aks/gitops-blueprint-aks.yml)
 - [Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment](./example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml)
 - [End-to-end manufacturing using computer vision on the edge](./reference-architectures/ai/end-to-end-smart-factory.yml)
 - [Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization](./example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)
@@ -129,6 +137,7 @@ New and updated articles in Azure Architecture Center
 
 ### Updated Articles
 
+- [Deploy AI and machine learning at the edge](./hybrid/deploy-ai-ml-azure-stack-edge.yml)  ([#4664e94f3](https://github.com/MicrosoftDocs/architecture-center/commit/4664e94f3))
 - [Repeatable Infrastructure](./framework/devops/automation-infrastructure.md)  ([#51109a032](https://github.com/MicrosoftDocs/architecture-center/commit/51109a032))
 - [Defect prevention with predictive maintenance](./solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml)  ([#dcd0ca0b4](https://github.com/MicrosoftDocs/architecture-center/commit/dcd0ca0b4))
 - [Predictive maintenance](./solution-ideas/articles/predictive-maintenance.yml)  ([#f8757e66a](https://github.com/MicrosoftDocs/architecture-center/commit/f8757e66a))
@@ -273,59 +282,4 @@ New and updated articles in Azure Architecture Center
 - [Oil and Gas Tank Level Forecasting](./solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Secure DevOps for AKS](./solution-ideas/articles/secure-devops-for-kubernetes.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Multi-cloud security and identity with Azure and AWS](./aws-professional/security-identity.md)  ([#12a7e1c7c](https://github.com/MicrosoftDocs/architecture-center/commit/12a7e1c7c))
-
-## March 2021
-
-### New Articles
-
-- [Virtual health on Microsoft Cloud for Healthcare](./example-scenario/mch-health/virtual-health-mch.yml)
-- [IoT Edge data storage and processing](./solution-ideas/articles/data-storage-edge.yml)
-- [Micro Focus Enterprise Server on Azure VMs](./example-scenario/mainframe/micro-focus-server.yml)
-- [Multi-region web app with private connectivity to database](./example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
-
-### Updated Articles
-
-- [IoT and data analytics](./example-scenario/data/big-data-with-iot.yml)  ([#c8a945b01](https://github.com/MicrosoftDocs/architecture-center/commit/c8a945b01))
-- [Deploy highly available NVAs](./reference-architectures/dmz/nva-ha.yml)  ([#c74ce415c](https://github.com/MicrosoftDocs/architecture-center/commit/c74ce415c))
-- [FSLogix for the enterprise](./example-scenario/wvd/windows-virtual-desktop-fslogix.yml)  ([#209fb5636](https://github.com/MicrosoftDocs/architecture-center/commit/209fb5636))
-- [Asynchronous Request-Reply Pattern](./patterns/async-request-reply.md)  ([#90c11f879](https://github.com/MicrosoftDocs/architecture-center/commit/90c11f879))
-- [Sequential Convoy pattern](./patterns/sequential-convoy.md)  ([#90c11f879](https://github.com/MicrosoftDocs/architecture-center/commit/90c11f879))
-- [AWS to Azure services comparison](./aws-professional/services.md)  ([#84834a8ab](https://github.com/MicrosoftDocs/architecture-center/commit/84834a8ab))
-- [Personalization using Cosmos DB](./solution-ideas/articles/personalization-using-cosmos-db.yml)  ([#1851c37c2](https://github.com/MicrosoftDocs/architecture-center/commit/1851c37c2))
-- [Bursting from AKS with ACI](./solution-ideas/articles/scale-using-aks-with-aci.yml)  ([#1851c37c2](https://github.com/MicrosoftDocs/architecture-center/commit/1851c37c2))
-- [Azure Arc hybrid management and deployment for Kubernetes clusters](./hybrid/arc-hybrid-kubernetes.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
-- [Manage configurations for Azure Arc enabled servers](./hybrid/azure-arc-hybrid-config.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
-- [Using Azure file shares in a hybrid environment](./hybrid/azure-file-share.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
-- [Azure Functions in a hybrid environment](./hybrid/azure-functions-hybrid.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
-- [Run containers in a hybrid environment](./hybrid/hybrid-containers.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
-- [Digital Marketing using Azure Database for MySQL](./solution-ideas/articles/digital-marketing-using-azure-database-for-mysql.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
-- [Loan Credit Risk with SQL Server](./solution-ideas/articles/loan-credit-risk-with-sql-server.yml)  ([#1f75f2af1](https://github.com/MicrosoftDocs/architecture-center/commit/1f75f2af1))
-- [Extend on-premises AD FS to Azure](./reference-architectures/identity/adfs.yml)  ([#85a8dc1aa](https://github.com/MicrosoftDocs/architecture-center/commit/85a8dc1aa))
-- [Secure application&#x27;s configuration and dependencies](./framework/security/design-app-dependencies.md)  ([#0de988c5f](https://github.com/MicrosoftDocs/architecture-center/commit/0de988c5f))
-- [Messaging](./solution-ideas/articles/messaging.yml)  ([#945406bed](https://github.com/MicrosoftDocs/architecture-center/commit/945406bed))
-- [Image classification on Azure](./example-scenario/ai/intelligent-apps-image-processing.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
-- [Distributed training of deep learning models on Azure](./reference-architectures/ai/training-deep-learning.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
-- [AI at the edge with Azure Stack Hub](./solution-ideas/articles/ai-at-the-edge.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
-- [Anomaly Detector Process](./solution-ideas/articles/anomaly-detector-process.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
-- [Intelligent apps using Azure Database for PostgreSQL](./solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
-- [Optimize Marketing with Machine Learning](./solution-ideas/articles/optimize-marketing-with-machine-learning.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
-- [Personalized Offers](./solution-ideas/articles/personalized-offers.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
-- [Quality Assurance](./solution-ideas/articles/quality-assurance.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
-- [Retail Assistant with Visual Capabilities](./solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
-- [Visual Assistant](./solution-ideas/articles/visual-assistant.yml)  ([#ad521be0d](https://github.com/MicrosoftDocs/architecture-center/commit/ad521be0d))
-- [Population Health Management for Healthcare](./solution-ideas/articles/population-health-management-for-healthcare.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
-- [Predictive maintenance](./solution-ideas/articles/predictive-maintenance.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
-- [Product recommendations for retail using Azure](./solution-ideas/articles/product-recommendations.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
-- [Speech Services](./solution-ideas/articles/speech-services.yml)  ([#c9d97e7cc](https://github.com/MicrosoftDocs/architecture-center/commit/c9d97e7cc))
-- [Operational excellence design principles](./framework/devops/principles.md)  ([#1b40291dd](https://github.com/MicrosoftDocs/architecture-center/commit/1b40291dd))
-- [Retail and e-commerce using Cosmos DB](./solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)  ([#57565fc35](https://github.com/MicrosoftDocs/architecture-center/commit/57565fc35))
-- [Extraneous Fetching antipattern](./antipatterns/extraneous-fetching/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
-- [Performance testing and antipatterns](./antipatterns/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
-- [No Caching antipattern](./antipatterns/no-caching/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
-- [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
-- [Community jury](./guide/responsible-innovation/community-jury/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
-- [Responsible Innovation toolkit](./guide/responsible-innovation/index.md)  ([#d163fb034](https://github.com/MicrosoftDocs/architecture-center/commit/d163fb034))
-- [Interactive voice response app with bot](./solution-ideas/articles/interactive-voice-response-bot.yml)  ([#6dd285b14](https://github.com/MicrosoftDocs/architecture-center/commit/6dd285b14))
-- [Data integration with Logic Apps and SQL Server](./example-scenario/integration/logic-apps-data-integration.yml)  ([#8b0ddb852](https://github.com/MicrosoftDocs/architecture-center/commit/8b0ddb852))
-- [Overview of Azure load-balancing options](./guide/technology-choices/load-balancing-overview.md)  ([#0e9e32e10](https://github.com/MicrosoftDocs/architecture-center/commit/0e9e32e10))
 
