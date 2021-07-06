@@ -73,7 +73,7 @@ The PCI-DSS 3.2.1 requires isolation of the PCI workload from other workloads in
 
 - Out-of-scope&mdash;Other workloads that may share services but are isolated from the in-scope components.
 
-The key strategy is to provide the required level of segmentation. One way is to deploy in-scope and out-of-scope components in separate clusters. The downside is increased costs for the added infrastructure and the maintenance overhead. Another approach is to colocate all components in a shared cluster. Use segmentation strategies to maintain the separation. As the solution evolves, some out-of-scope components might be in scope and more controls might need to be applied to keep them separate. 
+The key strategy is to provide the required level of separation. The preferred way is to deploy in-scope and out-of-scope components in separate clusters. The down side is increased costs for the added infrastructure and the maintenance overhead. This implementation co-locates all components in a shared cluster for simplicity. If you choose to follow that model, use a  rigorous in-cluster segmentation strategy. No matter how you choose to maintain separation, be aware that as your solution evolves, some out-of-scope components might become in-scope.
 
 In the reference implementation, the second approach is demonstrated with a microservices application deployed to a single cluster. The in-scope and out-of-scope workloads are segmented in two separate user node pools. The application has two sets of services; one set has in-scope pods and the other is out-of-scope. Both sets are spread across two user node pools. With the use of Kubernetes taints, in-scope and out-of-scope pods are deployed to separate nodes and they never share a node VM or the network IP space.
 
@@ -116,7 +116,7 @@ As your workloads, system security agents, and other components are deployed, ad
 
 This architecture attempts to implement Microsoft's Zero Trust principles as much as possible. 
 
-Examples of Zero Trust networks as a concept are demonstrated in the implementation in `a0005-i` and `a0005-o` user-provided namespaces. All workload namespaces should have restrictive `NetworkPolicy` applied, except `kube-system`, `gatekeeper-system`, and other AKS-provided namespaces. The policy definitions will depend on the pods running in those namespaces. Make sure you're accounting for readiness, liveliness, and startup probes and also allowance for metrics gathered by `oms-agent`. Consider standardizing on ports across your workloads so that you can provide a consistent `NetworkPolicy` and Azure Policy for allowed container ports.
+Examples of Zero Trust networks as a concept are demonstrated in the implementation in `a0005-i` and `a0005-o` user-provided namespaces. All workload namespaces should have restrictive `NetworkPolicy` applied. The policy definitions will depend on the pods running in those namespaces. Make sure you're accounting for readiness, liveliness, and startup probes and also allowance for metrics gathered by `oms-agent`. Consider standardizing on ports across your workloads so that you can provide a consistent `NetworkPolicy` and Azure Policy for allowed container ports.
 
 In certain cases, this is not practical for communication within the cluster. Not all user-provided namespaces can use a Zero Trust network, for instance `cluster-baseline-settings`. 
 
@@ -205,8 +205,6 @@ Protect container images and other OCI artifacts because they contain the organi
 ## Kubernetes API Server operational access
 
 ![Kubernetes API Server operational access with a jump box](./images/aks-jumpbox.svg)
-
-In this architecture, a jump box is provisioned in a dedicated compute to run management tools such as kubectl. That access and actions should be auditable for situations, such as live-site issues. One way is with a ChatOps approach through Microsoft Teams that captures collaboration between cluster administrator, workload administrator, and others. 
 
 You can limit commands executed against the cluster, without necessarily building an operational process based around jump boxes. If you have an IAM-gated IT automation platform, make use of the pre-defined actions to control and audit the type of actions.
 
