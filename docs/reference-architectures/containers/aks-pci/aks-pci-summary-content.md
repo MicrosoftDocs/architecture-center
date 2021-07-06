@@ -101,7 +101,7 @@ Follow these security principles when designing your access policies.
 - Grant the least set of privileges just enough to complete a task.
 - Minimize standing access.  
 
-Kubernetes role-based access control (RBAC) manages permissions to the Kubernetes API. AKS supports those Kubernetes roles. AKS is fully integrated with Azure Active Directory (Azure AD). You can assign Azure AD identities to the roles and also to use many capabilities. 
+Kubernetes role-based access control (RBAC) manages permissions to the Kubernetes API. AKS supports those Kubernetes roles. AKS is fully integrated with Azure Active Directory (Azure AD). You can assign Azure AD identities to the roles and also take advantage of other capabilities. 
 
 #### Zero-Trust access
 Kubernetes RBAC, Azure RBAC, and Azure services implement deny all by default. Override that setting with caution, allowing access to only those entities who need it. Another area for implementing Zero-Trust is to disable SSH access to the cluster nodes. 
@@ -190,6 +190,8 @@ Review security risks because they can be a source of workload downtime and data
 Reliability extends to all operational processes in and adjacent to the CDE. Well defined, automated, and tested processes for concern like image building and jump box management factor into a well-architected solution.
 
 ## Cost Optimization
+
+Follow the fundamental guidance provided in the [Cost Optimization principles](/azure/architecture/framework/cost/overview). 
 
 Because of the compliance requirements and strict security controls, a clear tradeoff is cost. We recommend, that you establish initial estimates by using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
