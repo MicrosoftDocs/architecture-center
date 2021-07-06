@@ -51,7 +51,11 @@ There are a number of common pricing models that are often used with multitenant
 
 ### Consumption-based pricing
 
-A consumption model is sometimes referred to as _Pay-As-You-Go_, or _PAYG_. When you measure consumption, you can consider simple factors such as the amount of data being added to the solution, or you might consider a combination of usage attributes together. Consumption models offer a number of benefits, but can be difficult to implement in a multitenant solution.
+A consumption model is sometimes referred to as _Pay-As-You-Go_, or _PAYG_. As the use of your service increases, your revenue increases:
+
+![Diagram showing revenue increasing as the level of consumption increases.](media/pricing-models/consumption.png)
+
+When you measure consumption, you can consider simple factors such as the amount of data being added to the solution, or you might consider a combination of usage attributes together. Consumption models offer a number of benefits, but can be difficult to implement in a multitenant solution.
 
 **Benefits:** From your customers' perspective, there is minimal upfront investment required to use your solution, so this model has a low barrier to entry. From your perspective as the service operator, your hosting and management costs increase as your customers' usage and your revenue increases, which can make this a highly scalable pricing model. Consumption pricing models work especially well when the Azure services used in the solution are consumption-based too.
 
@@ -64,6 +68,10 @@ A consumption model is sometimes referred to as _Pay-As-You-Go_, or _PAYG_. When
 
 ### Per-user pricing
 
+A per-user pricing model involves charging your customers based on the number of people using your service:
+
+![Diagram showing revenue increasing as the number of users increases.](media/pricing-models/per-user.png)
+
 Per-user pricing models are very common due to their simplicity to implement in a multitenant solution. However, they are associated with several commercial risks.
 
 **Benefits:** When you bill your customers for each user, it's easy to calculate and forecast your revenue stream. Additionally, assuming that you have fairly consistent usage patterns for each user, then revenue increases at the same rate as service adoption, making this a scalable model.
@@ -74,7 +82,11 @@ Per-user pricing models are very common due to their simplicity to implement in 
 
 ### Per-active user pricing
 
-This model is similar to [per-user pricing](#per-user-pricing), but rather than requiring an upfront commitment from the customer on the number of expected users, the customer is only charged for users that actually log into and use the solution over a period. You can measure this in whatever period makes sense. Monthly periods are common, and then this metric is often recorded as _monthly active users_ or _MAU_.
+This model is similar to [per-user pricing](#per-user-pricing), but rather than requiring an upfront commitment from the customer on the number of expected users, the customer is only charged for users that actually log into and use the solution over a period:
+
+![Diagram showing revenue increasing as the number of active users increases, and not as the number of users increases.](media/pricing-models/per-active-user.png)
+
+You can measure this in whatever period makes sense. Monthly periods are common, and then this metric is often recorded as _monthly active users_ or _MAU_.
 
 **Benefits:** From your customers' perspective, this model requires low investment and risk because there is minimal waste - unused licences aren't billable. This makes it particularly attractive when marketing the solution or growing the solution for larger enterprise customers. From your perspective as service owner, your ROV is more accurately reflected to the customer by the number of monthly active users.
 
@@ -84,7 +96,11 @@ This model is similar to [per-user pricing](#per-user-pricing), but rather than 
 
 ### Per-unit pricing
 
-In many systems, the number of users isn't the element that has the greatest effect on the overall COGS. For example, in device-oriented solutions, also referred to as the _Internet of Things_ or _IoT_, it is often the number of devices that has the greatest impact on COGS. Additionally, some solutions have highly variable usage patterns, with a small number of users having a disproportionate impact on the COGS. For example, in a solution sold to brick-and-mortar retailers, a per-store pricing model might be appropriate.
+In many systems, the number of users isn't the element that has the greatest effect on the overall COGS. For example, in device-oriented solutions, also referred to as the _Internet of Things_ or _IoT_, it is often the number of devices that has the greatest impact on COGS. In these systems, a per-unit pricing model can be used, where you define what a _unit_ is, such as a device:
+
+![Diagram showing revenue increasing as the number of devices increasess.](media/pricing-models/per-unit.png)
+
+Additionally, some solutions have highly variable usage patterns, with a small number of users having a disproportionate impact on the COGS. For example, in a solution sold to brick-and-mortar retailers, a per-store pricing model might be appropriate.
 
 **Benefits:** In systems where individual users don't have a significant effect on COGS, per-unit pricing is a better way to represent the reality of how the system scales and the resulting impact to COGS. It also can improve the alignment to the actual patterns of usage for a customer. For many IoT solutions, where each device generates a predictable and constant amount of consumption, this can be an effective model to scale your solution's growth.
 
@@ -94,7 +110,9 @@ In many systems, the number of users isn't the element that has the greatest eff
 
 ### Feature- and service level-based pricing
 
-You may choose to offer your solution with different tiers of functionality at different price points. For example, you might provide two monthly flat-rate or per-unit prices, one being a basic offering with a subset of features available, and the other presenting the comprehensive set of your solution's features.
+You may choose to offer your solution with different tiers of functionality at different price points. For example, you might provide two monthly flat-rate or per-unit prices, one being a basic offering with a subset of features available, and the other presenting the comprehensive set of your solution's features:
+
+![Diagram showing revenue increasing in steps between three tiers.](media/pricing-models/feature-service-level.png)
 
 This model may also offer different service level agreements for different tiers. For example, your basic tier may offer 99.9% uptime whereas a premium tier may offer 99.99%. The higher service level agreement (SLA) could be implemented by using services and features that enable higher [availability targets](../../../framework/resiliency/business-metrics.md#workload-availability-targets).
 
@@ -108,7 +126,11 @@ Although this model can be very commercially beneficial, it does require mature 
 
 ### Freemium pricing
 
-You might choose to offer a free tier of your service, with basic functionality and no service level guaranteees. You then might offer a separate paid tier, with additional features and a formal service-level agreement. The free tier may also be offered as a time-limited trial, and during the trial your customers might have full or limited functionality available. This is referred to as a freemium model, which is effectively an extension of the [feature-based pricing model](#feature--and-service-level-based-pricing).
+You might choose to offer a free tier of your service, with basic functionality and no service level guaranteees. You then might offer a separate paid tier, with additional features and a formal service-level agreement:
+
+![Diagram showing revenue increasing from zero at a free tier to a higher amount at a paid tier.](media/pricing-models/freemium.png)
+
+The free tier may also be offered as a time-limited trial, and during the trial your customers might have full or limited functionality available. This is referred to as a freemium model, which is effectively an extension of the [feature-based pricing model](#feature--and-service-level-based-pricing).
 
 **Benefits:** It's very easy to market a solution when it's free.
 
@@ -118,7 +140,11 @@ You might choose to offer a free tier of your service, with basic functionality 
 
 ### Flat-rate pricing
 
-In this model you charge a flat rate to a tenant for access to your solution for a given period of time. The same pricing applies regardless of how much they use the service, the number of users, the number of devices they connect, or any other metric. This is the simplest model to implement and for customers to understand, and it's often requested by enterprise customers. However, it can easily become unprofitable if you need to continue to add new features or if tenant consumption increases without any additional revenue.
+In this model you charge a flat rate to a tenant for access to your solution for a given period of time. The same pricing applies regardless of how much they use the service, the number of users, the number of devices they connect, or any other metric:
+
+![Diagram showing revenue remaining consistent regardless of the amount of use.](media/pricing-models/flat-rate.png)
+
+This is the simplest model to implement and for customers to understand, and it's often requested by enterprise customers. However, it can easily become unprofitable if you need to continue to add new features or if tenant consumption increases without any additional revenue.
 
 **Benefits:** Flat-rate pricing is easy to sell, and easy for your customers to understand and budget for.
 
