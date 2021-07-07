@@ -21,6 +21,10 @@ This article describes performance considerations for running Apache Cassandra o
 
 These recommendations are based on the results of performance tests, which you can find on [GitHub][repo]. You should use these recommendations as a baseline and then test against your own workload.
 
+## Azure Managed Instance for Apache Cassandra
+
+If you're looking for a more automated service for running Apache Cassandra on Azure virtual machines, consider using [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/). This service automates the deployment, management (patching and node health), and scaling of nodes within an Apache Cassandra cluster. It also provides the capability for [hybrid clusters](/azure/managed-instance-apache-cassandra/configure-hybrid-cluster), so Apache Cassandra datacenters deployed in Azure can join an existing on-premises or third-party hosted Cassandra ring. The service is deployed by using [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). The following recommendations were adopted during the development of this service. 
+
 ## Azure VM sizes and disk types
 
 Cassandra workloads on Azure commonly use either [Standard_DS14_v2][dsv2] or [Standard_DS13_v2][dsv2] virtual machines. Cassandra workloads benefit from having more memory in the VM, so consider [memory optimized](/azure/virtual-machines/sizes-memory) virtual machine sizes, such as Standard_DS14_v2, or [local-storage optimized](/azure/virtual-machines/sizes-storage) sizes such as Standard_L16s_v2.

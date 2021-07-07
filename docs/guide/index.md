@@ -1,7 +1,7 @@
 ---
 title: Azure Application Architecture Guide
 description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
-author: doodlemania2
+author: EdPrice-MSFT
 ms.author: pnp
 ms.date: 01/08/2020
 ms.topic: conceptual
@@ -13,13 +13,13 @@ ms.custom:
 
 # Azure Application Architecture Guide
 
-This guide presents a structured approach for designing applications on Azure that are scalable, secure, resilient, and highly available. It is based on proven practices that we have learned from customer engagements.
+This guide presents a structured approach for designing applications on Azure that are scalable, secure, resilient, and highly available. The guide is based on proven practices that we have learned from customer engagements.
 
 ## Introduction
 
 The cloud is changing how applications are designed and secured. Instead of monoliths, applications are decomposed into smaller, decentralized services. These services communicate through APIs or by using asynchronous messaging or eventing. Applications scale horizontally, adding new instances as demand requires.
 
-These trends bring new challenges. Application state is distributed. Operations are done in parallel and asynchronously. Applications must be resilient when failures occur. Malicious actors continuously target applications. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system. This guide is designed to help you navigate these changes.
+These trends bring new challenges. Application states are distributed. Operations are done in parallel and asynchronously. Applications must be resilient when failures occur. Malicious actors continuously target applications. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system. This guide is designed to help you navigate these changes.
 
 <!-- markdownlint-disable MD033 -->
 
