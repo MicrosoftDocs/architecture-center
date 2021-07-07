@@ -125,7 +125,7 @@ See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c
 - For comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data, see the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
 - Learn more about:
   - [Data lakes](/azure/architecture/data-guide/scenarios/data-lake).
-  - [Data warehousing and analytics](data-warehouse.md).
+  - [Data warehousing and analytics](data-warehouse.yml).
   - [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end).
   - [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security).
   - [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse).
