@@ -21,9 +21,9 @@ When you're hosting a workload in a Kubernetes, it's not sufficient to rely on t
 
 AKS supports deploying a cluster in a private virtual network as a private cluster. Communication between the cluster and AKS-managed Kubernetes API server is over a trusted network. With a private cluster you can use  Azure Virtual Network, Network Security Group (NSG), and other built-in network controls to secure the entire cardholder data environment (CDE). This will prohibit any unauthorized public access between the internet and the environment. For details about how to provision such a cluster, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).  
 
-Azure Firewall can be integrated with AKS and can limit outbound traffic from the cluster, which is a key component of the CDE. The configuration is made easy with an AKS FQDN Tag. The recommended process is provided in [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](https://docs.microsoft.com/en-us/azure/firewall/protect-azure-kubernetes-service). 
+Azure Firewall can be integrated with AKS and can limit outbound traffic from the cluster, which is a key component of the CDE. The configuration is made easy with an AKS FQDN Tag. The recommended process is provided in [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](https://docs.microsoft.com/azure/firewall/protect-azure-kubernetes-service). 
 
-AKS clusters require some public internet access to reach the managed control plane. Limit outbound traffic to the internet using Azure Firewall and NSGs on the cluster subnet. For information, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/limit-egress-traffic).
+AKS clusters require some public internet access to reach the managed control plane. Limit outbound traffic to the internet using Azure Firewall and NSGs on the cluster subnet. For information, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/limit-egress-traffic).
 
 #### Your responsibilities
 
@@ -350,7 +350,6 @@ Ensure that security policies and operational procedures for managing firewalls 
 
 It's critical that you maintain thorough documentation about the process and policies. This is especially true when you're managing Azure Firewall rules that segment the AKS cluster. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts that are granted broad administrative privileges.
 
-***
 
 ## Requirement 2
 Do not use vendor-supplied defaults for system passwords and other security parameters

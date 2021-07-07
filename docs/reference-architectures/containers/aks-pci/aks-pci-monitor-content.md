@@ -135,12 +135,12 @@ As described in [Requirement 10.2](#requirement-102),  you can get audit logs fr
 
 For example, you want to view the preceding set of information for kube-audit-admin events by running this query:
 
-`
+```
 AzureDiagnostics
 | where Category == 'kube-audit-admin' 
 | project TimeGenerated, ResourceId, log_s,  pod_s
 | top 200 by TimeGenerated desc
-`
+```
 
 
 
@@ -261,7 +261,6 @@ Ensure that security policies and operational procedures for monitoring all acce
 
 It's critical that you maintain thorough documentation about the processes and policies. Maintain documentation about the enforced policies. As part of your monitoring efforts, people must be trained in enabling and viewing audit logs and identifying and remediating the common risks. This is particularly important for people who are part of the approval process from a policy perspective.
 
-***
 
 ### Requirement 11.1
 

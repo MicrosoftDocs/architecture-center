@@ -26,7 +26,7 @@ This architecture and the implementation are focused on infrastructure and not t
 |[Requirement 3.6](#requirement-36)|Fully document and implement all key-management processes and procedures for cryptographic keys used for encryption of cardholder data, including the following: |
 |[Requirement 3.7](#requirement-37)|Ensure that security policies and operational procedures for protecting stored cardholder data are documented, in use, and known to all affected parties.|
 
-***
+
 ### **Requirement 4**&mdash;Encrypt transmission of cardholder data across open, public networks.
 
 #### Your responsibilities

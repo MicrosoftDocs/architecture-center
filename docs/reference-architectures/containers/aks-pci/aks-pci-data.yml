@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: AKS regulated cluster for PCI-DSS 3.2.1 - Data Protection
+  title: AKS regulated cluster for PCI-DSS 3.2.1 - Data protection
   description: Best practices for implementing Requirements 3 and Requirement 4 for a PCI-DSS 3.2.1 infrastructure. 
   author: PageWriter-MSFT
   ms.author: pnp
@@ -8,7 +8,7 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
-name: AKS regulated cluster for PCI-DSS 3.2.1 - Data Protection
+name: AKS regulated cluster for PCI-DSS 3.2.1 - Data protection
 azureCategories:
   - containers
 summary: Best practices for implementing Requirements 3 and Requirement 4 for a PCI-DSS 3.2.1 infrastructure. 

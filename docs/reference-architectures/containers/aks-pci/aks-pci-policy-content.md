@@ -5,7 +5,6 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 ## Maintain an information security policy 
 
 ### **Requirement 12**&mdash;Maintain a policy that addresses information security for all personnel
-***
 
 Microsoft completed an annual PCI DSS assessment using an approved Qualified Security Assessor (QSA). Take into considerations all aspects of the infrastructure, development, operations, management, support, and in-scope services. For more information, see [Payment Card Industry (PCI) Data Security Standard (DSS)](/compliance/regulatory/offering-PCI-DSS#use-microsoft-compliance-manager-to-assess-your-risk).  
 

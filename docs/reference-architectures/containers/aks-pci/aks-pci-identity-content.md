@@ -54,7 +54,7 @@ Because of AKS and Azure AD integration, you can leverage ID management and auth
 |[Requirement 8.8](#requirement-87)|Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.|
 
 [**Requirement 9**](#requirement-9)&mdash;Restrict physical access to cardholder data
-***
+
 
 ### Requirement 7.1
 
