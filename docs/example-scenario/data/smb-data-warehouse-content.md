@@ -32,9 +32,9 @@ This solution isn't recommended for:
    
 1. Azure Synapse Analytics pipelines ingest the legacy data warehouses into Azure.
    
-   - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into Azure SQL Database. This lift-and-shift approach is fastest to implement, and offers a smooth transition from an on-premises SQL solution to an eventual Azure platform-as-a-service (PaaS). There's an opportunity to modernize databases incrementally after the lift and shift.
+   - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into Azure SQL Database. This lift-and-shift approach is fastest to implement, and offers a smooth transition from an on-premises SQL solution to an eventual Azure platform-as-a-service (PaaS). You can modernize databases incrementally after the lift and shift.
    
-   - The pipelines can also pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than simply re-platforming the data.
+   - The pipelines can also pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than simply replatforming the data.
    
 1. Real-time data from streaming sources can also enter the system via Azure Event Hubs. Azure Stream Analytics can analyze this data immediately, for customers with real-time dashboard requirements. The data can also enter the centralized Data Lake for further analysis, storage, and reporting.
    
