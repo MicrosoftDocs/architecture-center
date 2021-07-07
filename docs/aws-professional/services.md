@@ -2,7 +2,7 @@
 title: AWS to Azure services comparison
 titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.author: pnp
 ms.date: 11/11/2020
 ms.topic: reference
@@ -172,7 +172,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Command Line Interface](https://aws.amazon.com/cli/) | [CLI](/cli/azure/install-azure-cli) <br/><br/>[PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
 | [AWS CloudShell](https://aws.amazon.com/cloudshell/) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It gives you the flexibility to choose the shell experience that best suits the way you work, either Bash or PowerShell. |
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks/) | [Automation](https://azure.microsoft.com/services/automation/) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
-| [CloudFormation](https://aws.amazon.com/cloudformation/) | [Resource Manager](https://azure.microsoft.com/features/resource-manager/) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
+| [CloudFormation](https://aws.amazon.com/cloudformation/) | [Resource Manager](https://azure.microsoft.com/features/resource-manager/) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
 
 ### Devops architectures
 
@@ -335,16 +335,22 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 [view all](../browse/index.yml?azure_categories=web)
 
+## Landing zone
+
+| AWS service | Azure service | Description |
+|------|-------------|---------------|-------------|
+| [Control Tower](https://aws.amazon.com/controltower) | [Blueprints](/azure/governance/blueprints) | Set up and govern a multi account/subscription environment by creating landing zones.|
+
 ## Miscellaneous
 
 | Area | AWS service | Azure service | Description |
 |------|-------------|---------------|-------------|
-| Backend process logic | [Step Functions](https://aws.amazon.com/step-functions/) | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Cloud technology to build distributed applications using out-of-the-box connectors to reduce integration challenges. Connect apps, data and devices on-premises or in the cloud. |
-| Enterprise application services | [WorkMail](https://aws.amazon.com/workmail/), [WorkDocs](https://aws.amazon.com/workdocs/) | [Microsoft 365](https://products.office.com/) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
-| Gaming | [GameLift](https://aws.amazon.com/gamelift/), [GameSparks](https://www.gamesparks.com/) | [PlayFab](https://playfab.com/) | Managed services for hosting dedicated game servers. |
-| Media transcoding | [Elastic Transcoder](https://aws.amazon.com/elastictranscoder/) | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
-| Workflow | [Simple Workflow Service (SWF)](https://aws.amazon.com/swf/) | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
-| Hybrid | [Outposts](https://aws.amazon.com/outposts/) | [Stack](https://azure.microsoft.com/overview/azure-stack/) | Azure Stack is a hybrid cloud platform that enables you to run Azure services in your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to either Azure Stack or Azure, or you can build truly hybrid apps that take advantage of connectivity between an Azure Stack cloud and Azure. |
+| Backend process logic | [Step Functions](https://aws.amazon.com/step-functions) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Cloud technology to build distributed applications using out-of-the-box connectors to reduce integration challenges. Connect apps, data and devices on-premises or in the cloud. |
+| Enterprise application services | [WorkMail](https://aws.amazon.com/workmail), [WorkDocs](https://aws.amazon.com/workdocs) | [Microsoft 365](https://products.office.com) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
+| Gaming | [GameLift](https://aws.amazon.com/gamelift), [GameSparks](https://www.gamesparks.com) | [PlayFab](https://playfab.com) | Managed services for hosting dedicated game servers. |
+| Media transcoding | [Elastic Transcoder](https://aws.amazon.com/elastictranscoder) | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
+| Workflow | [Simple Workflow Service (SWF)](https://aws.amazon.com/swf) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
+| Hybrid | [Outposts](https://aws.amazon.com/outposts) | [Stack](https://azure.microsoft.com/overview/azure-stack) | Azure Stack is a hybrid cloud platform that enables you to run Azure services in your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to either Azure Stack or Azure, or you can build truly hybrid apps that take advantage of connectivity between an Azure Stack cloud and Azure. |
 | Media | [Elemental MediaConvert](https://aws.amazon.com/media-services) | [Media Services](https://azure.microsoft.com/services/media-services/) | Cloud-based media workflow platform to index, package, protect, and stream video at scale.|
 
 ## More learning

@@ -1,6 +1,6 @@
 ---
-title: Explore data in Azure Blob Storage with pandas - Team Data Science Process
-description: How to explore data that is stored in Azure blob container using the pandas Python package.
+title: Explore data in Azure Blob storage with pandas - Team Data Science Process
+description: How to explore data that is stored in an Azure blob container using the pandas Python package.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 04/30/2021
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, fcp
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-# Explore data in Azure Blob Storage with pandas
+# Explore data in Azure Blob storage with pandas
 
 This article covers how to explore data that is stored in Azure blob container using [pandas](https://pandas.pydata.org/) Python package.
 
@@ -26,7 +26,7 @@ This task is a step in the [Team Data Science Process](overview.md).
 This article assumes that you have:
 
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](/azure/storage/common/storage-account-create)
-* Stored your data in an Azure Blob Storage account. If you need instructions, see [Moving data to and from Azure Storage](/azure/storage/common/storage-choose-data-transfer-solution)
+* Stored your data in an Azure Blob storage account. If you need instructions, see [Moving data to and from Azure Storage](/azure/storage/common/storage-choose-data-transfer-solution)
 
 ## Load the data into a pandas DataFrame
 To explore and manipulate a dataset, it must first be downloaded from the blob source to a local file, which can then be loaded in a pandas DataFrame. Here are the steps to follow for this procedure:
@@ -46,7 +46,7 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
     #download from blob
     t1=time.time()
     blob_service_client_instance = BlobServiceClient(account_url=STORAGEACCOUNTURL, credential=STORAGEACCOUNTKEY)
-    blob_client_instance = blob_service_client.get_blob_client(CONTAINERNAME, BLOBNAME, snapshot=None)
+    blob_client_instance = blob_service_client_instance.get_blob_client(CONTAINERNAME, BLOBNAME, snapshot=None)
     with open(LOCALFILENAME, "wb") as my_blob:
         blob_data = blob_client_instance.download_blob()
         blob_data.readinto(my_blob)
