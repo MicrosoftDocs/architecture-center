@@ -9,7 +9,7 @@ The recommendations and examples are extracted from this accompanying reference 
 
 ![Architecture of an AKS PCI infrastructure.](images/regulated-architecture.svg)
 
-That network architecture is based on a hub and spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for SRE cluster access. There are two spoke virtual networks. One spoke contains the AKS cluster that is a component of the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images used for controlled SRE access to the environment.
+That network architecture is based on a hub-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for SRE cluster access. There are two spoke virtual networks. One spoke contains the AKS cluster that is a component of the card-holder environment (CDE), and hosts the PCI DSS workload. The other spoke builds virtual machine images used for controlled SRE access to the environment.
 
 
 > [!IMPORTANT]
@@ -93,7 +93,7 @@ Avoid referencing images by their tags in your deployment manifests. Instead, us
 
 ## Networking configuration
 
-The hub and spokes are all deployed in separate virtual networks, each in their private address space. By default, no traffic is allowed between any two virtual networks. Within the network, segmentation is applied by creating subnets. 
+The hub-spokes are all deployed in separate virtual networks, each in their private address space. By default, no traffic is allowed between any two virtual networks. Within the network, segmentation is applied by creating subnets. 
 
 A combination of various Azure services and features and native Kubernetes constructs provide the required level of control. Here are some options used in this architecture.   
 

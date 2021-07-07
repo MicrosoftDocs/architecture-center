@@ -41,7 +41,7 @@ Take advantage the regulatory compliance dashboard in Azure Security Center. By 
 ![Screenshot that shows the compliance dashboard.](.\images\regulatory-compliance-pci.png)
 
 ### Network security
-In a hub and spoke topology, having separate virtual networks for each entity provides basic segmentation in the networking footprint. Each network is further segmented into subnets. 
+In a hub-spoke topology, having separate virtual networks for each entity provides basic segmentation in the networking footprint. Each network is further segmented into subnets. 
 
 The AKS cluster forms the core of the CDE. It shouldn't be accessible from public IP addresses, and connectivity must be secured. Typical flows in and out of CDE can be categorized as:
 
