@@ -41,5 +41,4 @@ The advantages of tagging include:
 - Filter information. This filtering can be used in cost analysis tool in Azure portal allowing you to get granular reports.
 
 There are some limitations:
-- Tags can’t be inherited. If you tag a resource group, the resources under that group won’t inherit that tag. This aspect requires, additional efforts in looking up the parent resource group to get tagging information if you want to tag related resource.
 - Not all Azure resources can be tagged and not all taggable resources in Azure are accounted for in the Azure cost analysis tool.
