@@ -251,7 +251,7 @@ lctl set_param mdc.*.max_rpcs_in_flight=128 osc.*.max_pages_per_rpc=16M osc.*.ma
 
 #### Azure NetApp Files (NFS)
 
-SAS tests have [validated NetApp performance for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437). Specifically, tests show that Azure NetApp Files is a viable primary storage option for SAS Grid clusters of up to 32 physical cores across multiple machines.
+SAS tests have [validated NetApp performance for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437). Specifically, testing shows that Azure NetApp Files is a viable primary storage option for SAS Grid clusters of up to 32 physical cores across multiple machines. When [NetApp provided optimizations and Linux features](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) are used, Azure NetApp Files can be the primary option for clusters up to 48 physical cores across multiple machines.
 
 Consider the following points when using this service:
 
