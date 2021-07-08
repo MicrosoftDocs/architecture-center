@@ -251,13 +251,13 @@ lctl set_param mdc.*.max_rpcs_in_flight=128 osc.*.max_pages_per_rpc=16M osc.*.ma
 
 #### Azure NetApp Files (NFS)
 
-SAS tests have [validated NetApp performance for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437). Specifically, tests show that Azure NetApp Files is a viable primary storage option for SAS Grid clusters of up to 32 physical cores across multiple machines.
+SAS tests have [validated NetApp performance for SAS Grid](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/td-p/579437). Specifically, testing shows that Azure NetApp Files is a viable primary storage option for SAS Grid clusters of up to 32 physical cores across multiple machines. When [NetApp provided optimizations and Linux features](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) are used, Azure NetApp Files can be the primary option for clusters up to 48 physical cores across multiple machines.
 
 Consider the following points when using this service:
 
-- Azure NetApp Files works well with Viya 3.5 and Viya 4.0 deployments. But don't use Azure NetApp Files for the CAS cache in Viya, because the latency and write throughput is inadequate. If possible, use your VM's local ephemeral disk instead.
-- On SAS 9 Foundation with Grid 9.4, the performance of Azure NetApp Files with SAS for `SASDATA` files is good for clusters up to 32 physical cores.
-- To ensure good performance, select at least a Premium storage tier service level when deploying Azure NetApp Files. Choose the Ultra storage tier for large amounts of data. Or start with the Premium level and switch to Ultra later if needed.
+- Azure NetApp Files works well with Viya 3.5 and Viya 4.0 deployments. Don't use Azure NetApp Files for the CAS cache in Viya, because the write throughput is inadequate. If possible, use your VM's local ephemeral disk instead.
+- On SAS 9 Foundation with Grid 9.4, the performance of Azure NetApp Files with SAS for `SASDATA` files is good for clusters up to 32 physical cores. This goes up to 48 cores when [tuning](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261/highlight/true#M21648) applied.
+- To ensure good performance, select at least a Premium or Ultra storage tier [service level](/azure/azure-netapp-files/azure-netapp-files-service-levels) when deploying Azure NetApp Files. You can choose the Standard service level for very large volumes. Consider starting with the Premium level and switching to Ultra or Standard later. Service level changes can be done online, without disruption or data migrations.
 - Read and write [performance are different](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) for Azure NetApp Files. Write throughput for SAS hits limits at around 1600MiB/s while read throughput goes beyond that, to around 4500MiB/s. If you need continuous high write throughput, Azure NetApp Files may not be a good fit.
 
 ### Other data sources
