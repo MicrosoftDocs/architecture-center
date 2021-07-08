@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for measuring the consumption of each tenant in a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 06/24/2021
+ms.date: 07/09/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -20,14 +20,14 @@ ms.custom:
 
 # Measure the consumption of each tenant
 
-As a solution provider, it's important to measure the consumption of each tenant in your multitenant solution. By measuring the consumption of each tenant, you can ensure that the cost of good sold (COGS), for delivering the service to each tenant, is profitable.
+As a solution provider, it's important to measure the consumption of each tenant in your multitenant solution. By measuring the consumption of each tenant, you can ensure that the cost of goods sold (COGS), for delivering the service to each tenant, is profitable.
 
 There are two primary concerns driving the need for measuring each tenant's consumption:
 
 1. You need to measure the actual cost to serve each tenant. This is important to monitor the profitability of the solution for each tenant.
 2. You need to determine the amount to charge the tenant, when you're using [consumption-based pricing](./pricing-models.md#consumption-based-pricing).
 
-However, it's not trivial to measure the actual resources used by a tenant in a multitenant solution. Most services that can be used as part of a multitenant solution don't automatically differentiate or break down usage, based on whatever you define a tenant to be. For example, consider a service that stores data for all of your tenants in a single relational database. It's difficult to determine exactly how much space each tenant uses of that relational database, either in terms of storage or of the compute capacity that's required to service their queries and requests.
+However, it can be difficult to measure the actual resources used by a tenant in a multitenant solution. Most services that can be used as part of a multitenant solution don't automatically differentiate or break down usage, based on whatever you define a tenant to be. For example, consider a service that stores data for all of your tenants in a single relational database. It's difficult to determine exactly how much space each tenant uses of that relational database, either in terms of storage or of the compute capacity that's required to service any queries and requests.
 
 By contrast, for a single-tenant solution, you can use Azure Cost Management within the Azure portal, to get a complete cost breakdown for all the Azure resources that are consumed by that tenant.
 
@@ -38,7 +38,7 @@ Therefore, when facing these challenges, it is important to consider how to meas
 
 ## Indicative consumption metrics
 
-Modern applications that are built for the cloud are usually made up of many different services, each with different measures of consumption. For example, a storage account measures consumption based on the amount of data stored, the data transmitted, and the numbers of transactions. However, Azure App Service consumption is measured by the amount of compute resources allocated over time. If you have a solution that includes a storage account and App Service resources, then combining all these measurements together to calculate the actual COGS (cost of goods sold) can be a very difficult task. Often, it is easier to use a single indicative measurement to represent consumption in the solution.
+Modern applications (built for the cloud) are usually made up of many different services, each with different measures of consumption. For example, a storage account measures consumption based on the amount of data stored, the data transmitted, and the numbers of transactions. However, Azure App Service consumption is measured by the amount of compute resources allocated over time. If you have a solution that includes a storage account and App Service resources, then combining all these measurements together to calculate the actual COGS (cost of goods sold) can be a very difficult task. Often, it is easier to use a single indicative measurement to represent consumption in the solution.
 
 For example, in the case of a multitenant solution that shares a single relational database, you might determine that the data stored is a good indicative consumption metric.
 
