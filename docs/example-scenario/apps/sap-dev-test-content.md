@@ -1,6 +1,3 @@
-
-
-
 This example shows how to establish a development and test environment for SAP NetWeaver in a Windows or Linux environment on Azure. The database used is AnyDB. (AnyDB is the SAP term for any supported DBMS that isn't SAP HANA.) Because this architecture is designed for non-production environments, it's deployed with only one virtual machine (VM). The VM size can be changed to accommodate your organization's needs.
 
 For production use cases review the SAP reference architectures available below:
@@ -99,9 +96,9 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
-- [Run SAP NetWeaver in Windows on Azure](/azure/architecture/reference-architectures/sap/sap-netweaver)
-- [SAP on Azure Architecture Guide](/azure/architecture/reference-architectures/sap/sap-overview)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [Run SAP NetWeaver in Windows on Azure](../../reference-architectures/sap/sap-netweaver.yml)
+- [SAP on Azure Architecture Guide](../../reference-architectures/sap/sap-overview.yml)
 
 <!-- links -->
 

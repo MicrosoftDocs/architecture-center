@@ -1,6 +1,3 @@
-
-
-
 Segmentation is a model in which you take your networking footprint and create software defined perimeters using tools available in Microsoft Azure. You then set rules that govern the traffic from/to these perimeters so that you can have different security postures for various parts of your network. When you place different applications (or parts of a given application) into these perimeters, you can govern the communication between these segmented entities. If a part of your application stack is compromised, you'll be better able to contain the impact of this security breach, and prevent it from laterally spreading through the rest of your network. This ability is a key principle associated with the [Zero Trust model published by Microsoft](https://www.microsoft.com/security/blog/2019/10/23/perimeter-based-network-defense-transform-zero-trust-model/) that aims to bring world-class security thinking to your organization
 
 ## Segmentation Patterns
@@ -69,7 +66,7 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Azure firewall architecture guide](/azure/architecture/example-scenario/firewalls/)
-- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
-- [Azure Automation in a hybrid environment](/azure/architecture/hybrid/azure-automation-hybrid)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+- [Azure firewall architecture guide](../../example-scenario/firewalls/index.yml)
+- [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
+- [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../containers/aks/secure-baseline-aks.yml)

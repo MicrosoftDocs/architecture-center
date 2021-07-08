@@ -329,15 +329,15 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
-- [Securely managed web applications](/azure/architecture/example-scenario/apps/fully-managed-secure-apps)
-- [Securing your Microsoft Teams channel bot and web app behind a firewall](/azure/architecture/example-scenario/teams/securing-bot-teams-channel)
-- [Consumer health portal on Azure](/azure/architecture/example-scenario/digital-health/health-portal)
-- [Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
-- [Multitenant SaaS on Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)
-- [Enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment)
-- [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+- [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
+- [Securely managed web applications](../apps/fully-managed-secure-apps.yml)
+- [Securing your Microsoft Teams channel bot and web app behind a firewall](../teams/securing-bot-teams-channel.yml)
+- [Consumer health portal on Azure](../digital-health/health-portal.yml)
+- [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)
+- [Multitenant SaaS on Azure](../multi-saas/multitenant-saas.yml)
+- [Enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-standard-deployment.yml)
+- [High availability enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
 [azfw-overview]: /azure/firewall/overview
 [azfw-premium-features]: /azure/firewall/premium-features

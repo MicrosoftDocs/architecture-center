@@ -198,7 +198,7 @@ Be aware of latency-sensitive interfaces between SAS and non-SAS applications. C
 
 ### Identity management
 
-SAS platforms can use local user accounts. They can also use a secure LDAP server to validate users. We recommend running a domain controller in Azure. Then use the domain join feature to properly manage security access. If you haven't set up domain controllers, consider deploying [Azure Active Directory Domain Services (Azure AD DS)](/azure/architecture/reference-architectures/identity/adds-extend-domain). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
+SAS platforms can use local user accounts. They can also use a secure LDAP server to validate users. We recommend running a domain controller in Azure. Then use the domain join feature to properly manage security access. If you haven't set up domain controllers, consider deploying [Azure Active Directory Domain Services (Azure AD DS)](../../reference-architectures/identity/adds-extend-domain.yml). When you use the domain join feature, ensure machine names don't exceed the 15-character limit.
 
 > [!NOTE]
 > In some environments, there's a requirement for on-premises connectivity or shared datasets between on-premises and Azure-hosted SAS environments. In these situations, we strongly recommended deploying a domain controller in Azure.
@@ -319,7 +319,7 @@ Manage remote access to your VMs through [Azure Bastion](https://azure.microsoft
 
 For help getting started, see the following resources:
 
-- [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal)
+- [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal)
 - [Edsv4 series VMs](/azure/virtual-machines/edv4-edsv4-series)
 - [Proximity placement groups](/azure/virtual-machines/co-location)
 - [Azure availability zones](/azure/availability-zones/az-overview)

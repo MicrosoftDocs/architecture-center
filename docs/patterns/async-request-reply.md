@@ -326,4 +326,4 @@ The following information may be relevant when implementing this pattern:
 
 ## Related guidance
 
-- [Backends for Frontends pattern](/azure/architecture/patterns/backends-for-frontends)
+- [Backends for Frontends pattern](./backends-for-frontends.md)

@@ -69,19 +69,19 @@ To learn about related solutions, see this information:
 
 ### IoT architecture guides
 
-- [IoT solutions conceptual overview](/azure/architecture/example-scenario/iot/introduction-to-solutions)
-- [IoT solution architecture](/azure/architecture/example-scenario/iot/devices-platform-application)
-- [Azure industrial IoT analytics guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
+- [IoT solutions conceptual overview](./introduction-to-solutions.yml)
+- [IoT solution architecture](./devices-platform-application.yml)
+- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.md)
 
 ### IoT patterns
 
-- [IoT event routing](/azure/architecture/example-scenario/iot/event-routing)
-- [IoT measure and control loops](/azure/architecture/example-scenario/iot/measure-control-loop)
-- [IoT monitor and manage loops](/azure/architecture/example-scenario/iot/monitor-manage-loop)
+- [IoT event routing](./event-routing.yml)
+- [IoT measure and control loops](./measure-control-loop.yml)
+- [IoT monitor and manage loops](./monitor-manage-loop.yml)
 
 ### IoT architectures
 
-- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
-- [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
-- [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
-- [Project 15 Open Platform](/azure/architecture/solution-ideas/articles/project-15-iot-sustainability)
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
+- [IoT and data analytics](../data/big-data-with-iot.yml)
+- [Predictive maintenance with the intelligent IoT Edge](../predictive-maintenance/iot-predictive-maintenance.yml)
+- [Project 15 Open Platform](../../solution-ideas/articles/project-15-iot-sustainability.yml)

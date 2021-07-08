@@ -22,7 +22,7 @@ We assume that you have working knowledge of Azure Application Gateway and are w
 
 ## Cost Optimization
 
-Review and apply the [cost principles](/azure/architecture/framework/cost/overview) when making design choices. Here are some best practices. 
+Review and apply the [cost principles](../../framework/cost/overview.md) when making design choices. Here are some best practices. 
 
 #### Review Application Gateway pricing
 
@@ -76,7 +76,7 @@ These are key metrics for Application Gateway. This information can be used to v
 For more information, see [Application Gateway metrics](/azure/application-gateway/application-gateway-metrics#application-gateway-metrics).
 
 
-Make sure you account for bandwidth costs. For details, see [Traffic across billing zones and regions](/azure/architecture/framework/cost/design-regions#traffic-across-billing-zones-and-regions). 
+Make sure you account for bandwidth costs. For details, see [Traffic across billing zones and regions](../../framework/cost/design-regions.md#traffic-across-billing-zones-and-regions). 
 
 
 ## Performance Efficiency
@@ -88,7 +88,7 @@ The v2 SKU offers autoscaling to ensure that your Application Gateway can scale 
 If you are running v1 SKU gateways, consider migrating to v2 SKU. See  
 [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](/azure/application-gateway/migrate-v1-v2).
 
-General best practices related to Performance Efficiency are described in [Performance efficiency principles](/azure/architecture/framework/scalability/principles). 
+General best practices related to Performance Efficiency are described in [Performance efficiency principles](../../framework/scalability/principles.md). 
 
 #### Estimate the Application Gateway instance count
 Application Gateway v2 scales out based on many aspects, such as CPU, memory, network utilization, and more. To determine the approximate instance count, factor in these metrics:
@@ -170,13 +170,13 @@ Requests per second (RPS) on the Application Gateway will be affected if the SNA
 Ensure you have configured the **IdleTimeout** settings to match the listener and traffic characteristics of the backend application. The default value is set to 4 minutes and can be configured to a maximum of 30. For more information, see [Load Balancer TCP Reset and Idle Timeout](/azure/load-balancer/load-balancer-tcp-reset).
 
 
-For workload considerations, see [Application Monitoring](/azure/architecture/framework/devops/monitoring#application-monitoring).
+For workload considerations, see [Application Monitoring](../../framework/devops/monitoring.md#application-monitoring).
 
 
 ## Reliability
 Here are some best practices to minimize failed instances.
 
-In addition, we recommend that you review the [Principles of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+In addition, we recommend that you review the [Principles of the reliability pillar](../../framework/resiliency/overview.md).
 
 #### Plan for rule updates 
 Plan enough time for updates before accessing Application Gateway or making further changes. For example, removing servers from backend pool might take some time because they have to drain existing connections.
@@ -204,7 +204,7 @@ For more information, see these articles:
 
 ## Security
 
-Security is one of the most important aspects of any architecture. Application Gateway provides features to employ both the principle of least privilege and defense-in-defense. We recommend you also review the [Security design principles](/azure/architecture/framework/security/security-principles).
+Security is one of the most important aspects of any architecture. Application Gateway provides features to employ both the principle of least privilege and defense-in-defense. We recommend you also review the [Security design principles](../../framework/security/security-principles.md).
 
 #### Restrictions of Network Security Groups (NSGs)
 NSGs are supported on Application Gateway, but there are some restrictions. For instance, some communication with certain port ranges is prohibited. Make sure you understand the implications of those restrictions. For details, see [Network security groups](/azure/application-gateway/configuration-infrastructure#network-security-groups).
@@ -238,4 +238,4 @@ When WAF is enabled, every request must be buffered by the Application Gateway u
 
 ## Next steps
 
-[Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
+[Microsoft Azure Well-Architected Framework](../../framework/index.md)
