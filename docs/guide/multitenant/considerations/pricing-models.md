@@ -88,7 +88,7 @@ This model is similar to [per-user pricing](#per-user-pricing), but rather than 
 
 You can measure this in whatever period makes sense. Monthly periods are common, and then this metric is often recorded as _monthly active users_ or _MAU_.
 
-**Benefits:** From your customers' perspective, this model requires low investment and risk because there is minimal waste - unused licences aren't billable. This makes it particularly attractive when marketing the solution or growing the solution for larger enterprise customers. From your perspective as service owner, your ROV is more accurately reflected to the customer by the number of monthly active users.
+**Benefits:** From your customers' perspective, this model requires low investment and risk because there is minimal waste - unused licenses aren't billable. This makes it particularly attractive when marketing the solution or growing the solution for larger enterprise customers. From your perspective as service owner, your ROV is more accurately reflected to the customer by the number of monthly active users.
 
 **Complexity and operational cost:** Per-active user models requires you to record actual user usage, and to make it available to a customer as part of their bill. Measuring per-user consumption helps to ensure profitability is maintained with the COGS for a single user, but again requires additional work to measure the consumption for each user.
 
@@ -98,7 +98,7 @@ You can measure this in whatever period makes sense. Monthly periods are common,
 
 In many systems, the number of users isn't the element that has the greatest effect on the overall COGS. For example, in device-oriented solutions, also referred to as the _Internet of Things_ or _IoT_, it is often the number of devices that has the greatest impact on COGS. In these systems, a per-unit pricing model can be used, where you define what a _unit_ is, such as a device:
 
-![Diagram showing revenue increasing as the number of devices increasess.](media/pricing-models/per-unit.png)
+![Diagram showing revenue increasing as the number of devices increases.](media/pricing-models/per-unit.png)
 
 Additionally, some solutions have highly variable usage patterns, with a small number of users having a disproportionate impact on the COGS. For example, in a solution sold to brick-and-mortar retailers, a per-store pricing model might be appropriate.
 
@@ -126,7 +126,7 @@ Although this model can be very commercially beneficial, it does require mature 
 
 ### Freemium pricing
 
-You might choose to offer a free tier of your service, with basic functionality and no service level guaranteees. You then might offer a separate paid tier, with additional features and a formal service-level agreement:
+You might choose to offer a free tier of your service, with basic functionality and no service level guarantees. You then might offer a separate paid tier, with additional features and a formal service-level agreement:
 
 ![Diagram showing revenue increasing from zero at a free tier to a higher amount at a paid tier.](media/pricing-models/freemium.png)
 
@@ -220,7 +220,7 @@ Usage limits are often used in combination with [feature and service level prici
 
 ### Rate limits
 
-A common way to apply a usage limit is to add rate limits to APIs or specific application functions. This is also referred to as [throttling](../../../patterns/throttling.md). Rate limits prevent continuous overuse. They are often used to limit the number of calls to an API over a defined time period. For example, an API may only be called 20 times per minute and will return a HTTP 429 error if it is called more frequently than this.
+A common way to apply a usage limit is to add rate limits to APIs or specific application functions. This is also referred to as [throttling](../../../patterns/throttling.md). Rate limits prevent continuous overuse. They are often used to limit the number of calls to an API over a defined time period. For example, an API may only be called 20 times per minute and will return an HTTP 429 error if it is called more frequently than this.
 
 Some situations where rate limiting is often used include:
 
