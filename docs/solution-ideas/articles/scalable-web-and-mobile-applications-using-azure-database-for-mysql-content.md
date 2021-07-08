@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Rapidly build engaging, performant, and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
@@ -26,6 +23,6 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Scalable web and mobile applications using Azure Database for PostgreSQL](/azure/architecture/solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-postgresql)
-- [Social app for mobile and web with authentication](/azure/architecture/solution-ideas/articles/social-mobile-and-web-app-with-authentication)
-- [Task-based consumer mobile app](/azure/architecture/solution-ideas/articles/task-based-consumer-mobile-app)
+- [Scalable web and mobile applications using Azure Database for PostgreSQL](./scalable-web-and-mobile-applications-using-azure-database-for-postgresql.yml)
+- [Social app for mobile and web with authentication](./social-mobile-and-web-app-with-authentication.yml)
+- [Task-based consumer mobile app](./task-based-consumer-mobile-app.yml)
