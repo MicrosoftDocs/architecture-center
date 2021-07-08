@@ -1,6 +1,6 @@
 ---
 title: Secure development with single-page apps
-description: Learn how to use Azure Active Directory (Azure AD) and Oauth 2 to secure single page, cloud-native applications.
+description: Learn how to use Azure Active Directory (Azure AD) and Oauth 2.0 to secure single-page Azure applications.
 author: lanallai
 manager: danielke
 products:
@@ -17,35 +17,33 @@ ms.custom: fcp
 
 # Secure development with single-page applications (SPAs)
 
-When developing cloud-native distributed systems, securing such systems can introduce a new layer of complexity. A developer might not have experienced these complexities if they only work in an on-premise system.
+When developing cloud-native distributed systems, securing such systems can introduce a new layer of complexity.
 
-On-premise systems rely on the security boundaries that the internal network provides, and uses the directory services for user security. They can run for many years within this secure sandbox environment without problems. But as companies adopt cloud solutions, new flaws might be uncovered as systems transition to the cloud. For these systems, you might need to make compromises. You might need to invest too many person-hours for them to be publicly accessible, or the original creators might have left. In these situations, it might be simpler for you to restrict access to these systems via secure network routes and avoid public access.
+On-premise systems rely on the security boundaries that the internal network provides, and they use the directory services for user security. They can run for many years within this secure environment without problems. Moving to the cloud can present new security risks. This article describes tools that you can use to mitigate these risks.
 
-Building systems for the cloud requires a different way of working, and security should be brought into the design process. Although developers try to bring security into the design first, it might get in the way of other tasks that have a higher priority.
-
-Access control is a security methodology in which a system designer can regulate what a user can do when interacting with the application.
+One such tool is access control. Access control identifies users and regulates what they can do when interacting with an application.
 
 There are two parts to access control:
 
-- **Authentication** allows an application to establish a user, challenging them to verify their identity.
-- **Authorization** focuses on establishing what application parts users have access to once they've been authenticated.
+- **Authentication** identifies the user.
+- **Authorization** determines what the user can do in the application.
 
-OAuth, an open framework, was created to help address these challenges and provide a protocol that developers could use when building their systems.
-OAuth 2 is a delegated authorization framework. With OAuth 2, client applications have a defined scope of access to a user's data by separating authentication and authorization.
+OAuth, an open framework, helps address these challenges and provides a protocol for developers to use when building their systems.
+OAuth 2.0 is the current standard.
 
-Once a user is authenticated, you can use Oauth 2 for delegated authorization. Client applications request authorization from the user, and then the user grants access through an ID token. This token is presented to the identity provider to obtain a bearer token that the client application uses for authorization.
+OAuth 2.0 provides secure delegated access. By issuing access tokens, you can authorize third-party access to your protected resources without providing credentials.
 
-Azure Active Directory (Azure AD) is the built-in solution for managing identities in the cloud. It replicates with on-premise systems so that users have a seamless experience when accessing protect services in the cloud.
+Azure Active Directory (Azure AD) is Microsoft's built-in solution for managing identities in the cloud. It integrates with on-premise systems so that users have a seamless experience when accessing protect services in the cloud.
 
-This guide shows you how to use Azure AD and Oauth 2 to secure a single-page application.
+This guide shows you how to use Azure AD and OAuth 2.0 to secure a single-page application.
 
 ## OAuth flows
 
 OAuth flows cover many use cases, all backed by Azure AD Services. Developers use these flows to build a secure application, so that:
 
-- Their users can securely access client systems.
-- Guest users can collaborate through business-to-business transactions.
-- They can reach out to end consumers through Azure Business to Consumers (Azure B2C).
+- Users can securely access client systems.
+- Guest users can participate through business-to-business transactions.
+- Users can reach out to end consumers through Azure Business to Consumers (Azure B2C).
 
 :::image type="content" source="media/azure-ad-secure-single-page-application/azure-ad-oauth2-flow.png" alt-text="Diagram that shows the secure OAuth 2 flow between a native app and a web API.":::
 
@@ -59,9 +57,12 @@ Register a service principal for the UI and API using Azure AD Directory in the 
 
 2. Select **New registration**.
 
+    :::image type="content" source="media/azure-ad-secure-single-page-application/app-registration-new-registration.png" alt-text="Screenshot that shows the App registration page with New registration selected.":::
+
 3. To register a new application, you need:
 
     - The display name for the application.
+    - The supported account type.
     - The application type: Web, SPA, or public client/native (mobile and desktop).
     - The redirect URI. When the user is authenticated, Azure AD redirects the result to the client.
         - An example for local development is http://localhost:4200.
@@ -69,19 +70,21 @@ Register a service principal for the UI and API using Azure AD Directory in the 
 
     :::image type="content" source="media/azure-ad-secure-single-page-application/register-an-application-page.png" alt-text="Screenshot that shows the Register an application window.":::
 
-4. Select **Overview**, and then select your application name next to **Managed application in local directory**.
+4. Select **Register**.
+
+5. Once the registration is complete, select **Overview**, and then select your application name next to **Managed application in local directory**.
 
     :::image type="content" source="media/azure-ad-secure-single-page-application/managed-application-in-local-directory.png" alt-text="Screenshot that shows the Overview page with the application name selected.":::
 
-5. Select **Properties**, and then switch **User assignment required** to **Yes** to set the access permissions for the application.
+6. Select **Properties**, switch **User assignment required** to **Yes** to set the access permissions for the application, and then select **Save**.
 
     :::image type="content" source="media/azure-ad-secure-single-page-application/properties-user-assignment-required.png" alt-text="Screenshot that shows the Properties page with User assignment required turned on.":::
 
-6. Select **Users and groups**, and then add existing or new users and security groups.
+7. Select **Users and groups**, and then add existing or new users and security groups.
 
     :::image type="content" source="media/azure-ad-secure-single-page-application/add-users-and-groups.png" alt-text="Screenshot that shows the Users and groups page with Add user/group selected.":::
 
-7. Your users can access the application through [My Apps](https://myapplications.microsoft.com/).
+8. Your users can access the application through [My Apps](https://myapplications.microsoft.com/).
 
 ## Set up configuration details in the client application
 
@@ -93,7 +96,7 @@ After you create and configure the app registration in Azure, you can set up the
 
     - The `protectedResourceMap` contains a list of protected resources and their scopes in an array: [[protected resource], [scopes for resource]].
     - The `clientID` and `authority`, which is the tenant ID, are supplied to the configuration object.
-    - For protected HTTP requests, the client inserts a new header property called Authorization. It contains the bearer token for the authenticated user. The bearer token gives the downstream OAuth 2 service a secure point of entry. It can include metadata for the service when authorizing the request.
+    - For protected HTTP requests, the client inserts a new header property called Authorization. It contains the bearer token for the authenticated user. The bearer token gives the downstream OAuth 2.0 service a secure point of entry. It can include metadata for the service when authorizing the request.
 
 ```typescript
 export const protectedResourceMap: [string, string[]][]] = [
@@ -120,18 +123,20 @@ function MSALConfigFactory(): Configuration {
 }
 ```
 
+For more information on configuring an Angular library, see [Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application (SPA) using auth code flow](/azure/active-directory/develop/tutorial-v2-angular-auth-code).
+
 ## Test the application authentication
 
-Test the authentication process by having a user WITH access, and a user WITHOUT access attempt to log in to the client.
+Test the authentication process by having a user *with* access, and a user *without* access attempt to log in to the client.
 
-The user logs in to the application, and is redirected to their Azure AD tenant.
+The user logs in to the application and is redirected to their Azure AD tenant.
 
 - If the user is valid, they're authenticated and logged in.
 - If the user isn't valid, the application returns an error.
 
 ## Consume a protected resource or resource server
 
-To consume a protected resource, you should create another app registration. After the app registration is complete, the API uses the registration to expose itself and configure the app manifest to enrich the bearer token with more data.
+To consume a protected resource, create another app registration. After the app registration is complete, the API changes the bearer token to allow access.
 
 ### Expose the API
 
@@ -145,15 +150,15 @@ To consume a protected resource, you should create another app registration. Aft
 
     :::image type="content" source="media/azure-ad-secure-single-page-application/add-a-scope-application-id-uri.png" alt-text="Screenshot that shows the Add a scope window with an Application ID URI entered and Save and continue selected.":::
 
-4. Configure the scope name and consent. If you select **Admins only** for consent, Admins must grant consent for the directory.
+4. Configure the scope name and consent information. If you select **Admins only**, only Admins can grant consent for the directory.
 
     :::image type="content" source="media/azure-ad-secure-single-page-application/add-a-scope-configuration-window.png" alt-text="Screenshot that shows the Add a scope configuration window with example values entered.":::
 
 ### Add the API to the App registration
 
-Now that you've defined your permissions and exposed your API, you need to add the API to your app registration for the client.
+Now that you've defined your permissions and exposed the API, you need to add the API to the app registration for the client.
 
-1. In **App registrations**, select **API permissions**, and then **Add a permission**.
+1. In your app registration, select **API permissions**, and then **Add a permission**.
 
     :::image type="content" source="media/azure-ad-secure-single-page-application/api-permissions-add-permission.png" alt-text="Screenshot that shows the API permissions page with Add a permission selected.":::
 
@@ -165,7 +170,7 @@ Now that you've defined your permissions and exposed your API, you need to add t
 
     :::image type="content" source="media/azure-ad-secure-single-page-application/select-scope-add-permissions.png" alt-text="Screenshot that shows the selected scope with the Add permissions button selected.":::
 
-Now the API is added to the application. Since you might need to grant consent again for access to the API, consider granting admin consent so that users don't have to re-consent.
+Now the API is added to the application. Since you might need to grant consent again for access to the API, consider granting admin consent so that users don't have to reconsent.
 
 :::image type="content" source="media/azure-ad-secure-single-page-application/api-added-to-application.png" alt-text="Screenshot that shows the API added to the application.":::
 
@@ -255,7 +260,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-The controller for the API can have the relevant attributions added. These attributes offer more security, and help confirm the authenticated persons are authorized to access the protected resource.
+The controller for the API can have the relevant attributions added. These attributes offer more security and help confirm the authenticated persons are authorized to access the protected resource.
 
 ```typescript
 [Route("admin")]
@@ -294,7 +299,7 @@ More roles can be created with the application manifest that are unique to the a
 
 For example, you can create a custom role called AppAdmin that is unique to the application registration. Using the enterprise application build, you can assign users or security groups to that role.
 
-When calling the protected resource after the configuration change, the bearer token has the `roles` property inside the bearer token.
+When you call the protected resource after the configuration change, the bearer token has the `roles` property inside the bearer token.
 
 :::image type="content" source="media/azure-ad-secure-single-page-application/decoded-token-with-role-property.png" alt-text="Screenshot that shows the role property in the bearer token.":::
 
