@@ -1,6 +1,6 @@
 Small and medium businesses (SMBs) face a choice when modernizing their on-premises data warehouses for the cloud. They can adopt big data tools for future extensibility, or keep traditional, SQL-based solutions for cost efficiency, ease of maintenance, and smooth transition.
 
-However, a hybrid approach offers easy migration of the existing data estate with the opportunity to add big data tools and processes for some use cases. SQL-based data sources can keep running and continue to modernize as appropriate.
+However, a hybrid approach combines easy migration of the existing data estate with the opportunity to add big data tools and processes for some use cases. SQL-based data sources can keep running in the cloud and continue to modernize as appropriate.
 
 This example workload shows several ways that SMBs can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end Azure data warehousing solutions integrate easily with Azure and Microsoft services and tools like Azure Machine Learning, Microsoft Power Platform, and Microsoft Dynamics.
 
@@ -24,11 +24,11 @@ This solution isn't recommended for:
 
 ![Diagram showing how legacy data can migrate and modernize with Azure Synapse, SQL Database, Data Lake Storage, and other services.](media/smb-data-warehouse/smb-data-warehouse.svg)
 
-1. Legacy SMB data warehouses may contain several types of data:
+1. Legacy SMB data warehouses might contain several types of data:
    
    - Unstructured data, like documents and graphics
-   - Semi-structured data, such as logs, CSVs, JSON, and XML files.
-   - Structured relational data, including databases that use stored procedures for extract-transform-load/extract-load-transform (ETL/ELT) activities.
+   - Semi-structured data, such as logs, CSVs, JSON, and XML files
+   - Structured relational data, including databases that use stored procedures for extract-transform-load/extract-load-transform (ETL/ELT) activities
    
 1. Azure Synapse Analytics pipelines ingest the legacy data warehouses into Azure.
    
@@ -36,7 +36,7 @@ This solution isn't recommended for:
    
    - The pipelines can also pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than simply replatforming the data.
    
-1. Real-time data from streaming sources can also enter the system via Azure Event Hubs. Azure Stream Analytics can analyze this data immediately, for customers with real-time dashboard requirements. The data can also enter the centralized Data Lake for further analysis, storage, and reporting.
+1. Real-time data from streaming sources can also enter the system via Azure Event Hubs. For customers with real-time dashboard requirements, Azure Stream Analytics can analyze this data immediately. The data can also enter the centralized Data Lake for further analysis, storage, and reporting.
    
 1. Serverless analysis tools are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process the data in Data Lake Storage. Serverless pools are available on demand, and don't require any provisioned resources.
    
@@ -98,13 +98,13 @@ See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c
 
 - [SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single) bases costs on the selected Compute and Service tiers, and the number of vCores and Database Transaction Units (DTUs). The example shows a single database with provisioned Compute and eight vCores, based on the assumption that you need to run stored procedures in SQL Database.
 
-- [Data Lake Storage](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on amount of data you store and how often you use the data. The sample pricing includes 1 TB of data stored, with further transactional assumptions. The 1 TB refers to the size of the data lake, not the original legacy database size.
+- [Data Lake Storage](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on the amount of data you store and how often you use the data. The sample pricing includes 1 TB of data stored, with further transactional assumptions. The 1 TB refers to the size of the data lake, not the original legacy database size.
 
 - [Azure Synapse pipelines](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) base costs on the number of data pipeline activities, integration runtime hours, data flow cluster size, and execution and operation charges. Pipeline costs increase with additional data sources and amounts of data processed. The example assumes one data source batched every hour for 15 minutes on an Azure-hosted integration runtime.
 
 - [Azure Synapse Spark pool](https://azure.microsoft.com/pricing/details/synapse-analytics/#overview) bases pricing on node size, number of instances, and uptime. The example assumes one small compute node with five hours a week to 40 hours a month utilization.
 
-- [Azure Synapse serverless SQL pool](https://azure.microsoft.com/pricing/details/synapse-analytics/#overview) bases pricing on TBs of data processed. The sample assumes 50 TB processed a month. This figure refers to the size of the data lake, not the original legacy database size.
+- [Azure Synapse serverless SQL pool](https://azure.microsoft.com/pricing/details/synapse-analytics/#overview) bases pricing on TBs of data processed. The sample assumes 50 TBs processed a month. This figure refers to the size of the data lake, not the original legacy database size.
 
 - [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) bills based on tier, throughput units provisioned, and ingress traffic received. The example assumes one throughput unit in Standard tier over one million events for a month.
 

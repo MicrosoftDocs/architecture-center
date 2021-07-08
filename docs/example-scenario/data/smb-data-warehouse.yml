@@ -5,7 +5,7 @@ metadata:
   description: Use Azure Synapse Analytics, SQL Database, and Data Lake Storage to modernize SMB legacy and on-premises data. Easily integrate fused data with other services.
   author: galinagpolyakova
   ms.author: gapolyak
-  ms.date: 07/06/2021
+  ms.date: 07/09/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

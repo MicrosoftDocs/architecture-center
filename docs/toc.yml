@@ -1071,14 +1071,14 @@ items:
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Azure analytics end to end
                 href: example-scenario/dataplate2e/data-platform-end-to-end.yml
+              - name: Data warehouse for small and medium business
+                href: example-scenario/data/smb-data-warehouse.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
               - name: Ingestion and analysis of news feeds
                 href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
-              - name: Data warehouse for small and medium business
-                href: example-scenario/data/smb-data-warehouse.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Precision medicine pipeline with genomics
