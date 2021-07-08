@@ -298,7 +298,7 @@ After 15 seconds, one or both jobs still will not be completed. As the leases
 expire, a processor should also reduce the number of requests it dequeues and
 writes.
 
- ## Related patterns and guidance
+ ## Related guidance
 
 The following patterns and guidance might also be relevant when implementing
 this pattern:
