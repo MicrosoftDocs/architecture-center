@@ -15,6 +15,6 @@ summary: Best practices for implementing Requirements 7, Requirement 8, and Requ
 products:
   - azure-kubernetes-service
   - azure-active-directory
-thumbnailUrl: /azure/architecture/browse/thumbs/aks.png
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png
 content: |
    [!include[](aks-pci-identity-content.md)]
