@@ -49,7 +49,7 @@ This solution isn't recommended for:
 
 1. Azure Synapse is tightly integrated with potential consumers of your fused datasets, like Azure Machine Learning. Other consumers can include Power Apps,  Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
 
-## Components
+### Components
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that combines data integration, enterprise data warehousing, and big data analytics. In this solution:
 
@@ -66,7 +66,7 @@ This solution isn't recommended for:
 
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a toolset for data science model development and lifecycle management. Machine Learning is one example of the Azure and Microsoft services that can consume fused, processed data from Data Lake Storage.
 
-## Alternatives
+### Alternatives
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) could replace or complement Event Hubs. The solution you choose depends on the source of your streaming data, and whether you need cloning and bidirectional communication with the reporting devices.
 
@@ -113,19 +113,19 @@ See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c
 ## Next steps
 
 - For training content and labs, see the Microsoft Learn [Data Engineer Learning Paths](/learn/roles/data-engineer).
-- [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started).
-- [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
-- [Create a storage account for Azure Data Lake Storage](/azure/storage/blobs/create-data-lake-storage-account).
-- [Azure Event Hubs Quickstart - Create an event hub using the Azure portal](/azure/event-hubs/event-hubs-create).
-- [Quickstart - Create a Stream Analytics job by using the Azure portal](/azure/stream-analytics/stream-analytics-quick-create-portal).
-- [Quickstart: Get started with Azure Machine Learning](/azure/machine-learning/quickstart-create-resources).
+- [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
+- [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
+- [Create a storage account for Azure Data Lake Storage](/azure/storage/blobs/create-data-lake-storage-account)
+- [Azure Event Hubs Quickstart - Create an event hub using the Azure portal](/azure/event-hubs/event-hubs-create)
+- [Quickstart - Create a Stream Analytics job by using the Azure portal](/azure/stream-analytics/stream-analytics-quick-create-portal)
+- [Quickstart: Get started with Azure Machine Learning](/azure/machine-learning/quickstart-create-resources)
 
 ## Related resources
 
-- For comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data, see the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
+- For comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data, see the [Azure Data Architecture Guide](/azure/architecture/data-guide).
 - Learn more about:
-  - [Data lakes](/azure/architecture/data-guide/scenarios/data-lake).
-  - [Data warehousing and analytics](data-warehouse.yml).
-  - [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end).
-  - [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security).
-  - [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse).
+  - [Data lakes](/azure/architecture/data-guide/scenarios/data-lake)
+  - [Data warehousing and analytics](data-warehouse.yml)
+  - [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+  - [Big data analytics with enterprise-grade security using Azure Synapse](/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security)
+  - [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
