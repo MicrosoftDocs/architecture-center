@@ -142,11 +142,11 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)
-- [Windows N-tier application on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-- [N-tier application with Apache Cassandra](/azure/architecture/reference-architectures/n-tier/n-tier-cassandra)
-- [Multitenant SaaS on Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)
-- [Extend an on-premises network using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute)
+- [Azure enterprise cloud file share](./azure-files-private.yml)
+- [Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml)
+- [N-tier application with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)
+- [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
+- [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
 [architectual-diagram]: ./images/hybrid-dns-infra.png
 [architectual-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-dns-infra.vsdx

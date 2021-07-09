@@ -58,7 +58,7 @@ Unisys CPF in Azure uses ASR to ensure system availability and consistency.
 
 Unisys demonstrates operational excellence by presenting a known environment to the staff, while dragging new capabilities like ASR to provide DR failover.
 
-You can optimize your operational efficiency by deploying your solution with ARM templates, and by leveraging Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational excellence principles](/azure/architecture/framework/devops/principles) and [Monitoring for DevOps](/azure/architecture/framework/devops/monitoring).
+You can optimize your operational efficiency by deploying your solution with ARM templates, and by leveraging Azure Monitor to measure and improve your performance. See the Azure Well-Architected Framework's [Operational excellence principles](../../framework/devops/principles.md) and [Monitoring for DevOps](../../framework/devops/monitoring.md).
 
 ### Performance
 
@@ -74,7 +74,7 @@ Unisys Stealth technology effectively hides endpoints while using the additional
 
 Unisys CPF in Azure eliminates hardware maintenance and facility costs upfront. Further savings derive from not having to retrain staff how to operate or use the system. The virtualized machine runs just as it did on the datacenter floor.
 
-You can also optimize your costs by following the process to right-size the capacity of your VMs, from the beginning, along with simplified resizing, as needed. For more information, see the Azure Well-Architected Framework's [Principles of cost optimization](/azure/architecture/framework/cost/overview).
+You can also optimize your costs by following the process to right-size the capacity of your VMs, from the beginning, along with simplified resizing, as needed. For more information, see the Azure Well-Architected Framework's [Principles of cost optimization](../../framework/cost/overview.md).
 
 To estimate the cost of Azure products and configurations, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -100,7 +100,7 @@ For more information, please contact **legacy2azure@microsoft.com**, or check ou
 
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Azure Database Migration Guides](https://datamigration.microsoft.com)
-- [Unisys mainframe migration to Azure using Asysco](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)
+- [Unisys mainframe migration to Azure using Asysco](../../reference-architectures/migration/unisys-mainframe-migration.yml)
 - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
 - [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)

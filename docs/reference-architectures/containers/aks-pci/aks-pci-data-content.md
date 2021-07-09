@@ -6,7 +6,7 @@ This architecture and the implementation are focused on infrastructure and not t
 
 > [!IMPORTANT]
 >
-> The guidance and the accompanying implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload. 
+> The guidance and the accompanying implementation builds on the [AKS baseline architecture](../aks/secure-baseline-aks.yml). That architecture based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload. 
 >
 > ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does not represent or implement an actual PCI DSS workload.
 
@@ -57,7 +57,7 @@ Adhere strictly to the standard guidance about what kind of CHD can be stored. D
 
 Have governance policies around some of those choices. Built-in Azure policies enforce those choices. For example, you can restrict the volume types on the cluster pods or deny write operations on the root file system. 
 
-Review [this list of policy definitions](https://docs.microsoft.com/en-us/azure/aks/policy-reference) and apply them to the cluster, where applicable. 
+Review [this list of policy definitions](/azure/aks/policy-reference) and apply them to the cluster, where applicable. 
 
 You might need to temporarily cache data. We recommend that you protect the cached data while it's moved to a storage solution. Consider enabling the host-based encryption feature on AKS. This will encrypt the data stored on node VMs. For more information, see [Host-based encryption on Azure Kubernetes Service (AKS)](/azure/aks/enable-host-encryption). Also, enable a built-in Azure policy that requires encryption of temporary disks and cache for node pools. 
 
@@ -223,7 +223,7 @@ Ensure that security policies and operational procedures for protecting stored c
 #### Your responsibilities
 Create documentation as a general statement plus a series of up-to-date role guides for all personas.  Perform new-hire training and ongoing training.
 
-It's critical that you maintain thorough documentation about the processes and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skillset up to date. Training requirements are addressed in [Requirement 6.5](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-malware#requirement-65) and [Requirement 12.6](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-policy).
+It's critical that you maintain thorough documentation about the processes and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skillset up to date. Training requirements are addressed in [Requirement 6.5](./aks-pci-malware.yml#requirement-65) and [Requirement 12.6](./aks-pci-policy.yml).
 
 ### Requirement 4.1
 
@@ -242,7 +242,7 @@ Use Azure Policy to govern creation of resources:
 - Deny the creation of any non-HTTPS ingress resource. 
 - Deny the creation of any public IP or any public load balancers in your cluster, to ensure web traffic is being tunneled through your gateway.
 
-For more information, see [Azure encryption overview](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview).
+For more information, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
 
 
 #### Requirement 4.1.1

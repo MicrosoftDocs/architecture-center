@@ -115,8 +115,8 @@ Often referred to as a lift-and-shift migration, this option doesn't require cod
 
 | | |
 |-|-|
-|Stromasys Charon-SSP Solaris emulator on Azure VMs [<img src="images/rehost-solaris.png" alt="Stromasys Charon-SSP Solaris emulator on Azure VMs" width=700 height="300">](/azure/architecture/solution-ideas/articles/solaris-azure) |Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame [<img src="images/rehost-tmax.png" alt="Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame" width=700 height="300">](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)|
-|Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization [<img src="images/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration-expanded.png" alt="Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization" width=700 height="300">](/azure/architecture/example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost) |Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment [<img src="images/lzlabs-software-defined-mainframe-in-azure-architecture-inline.png" alt="Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment" width=700 height="300">](/azure/architecture/example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure)|
+|Stromasys Charon-SSP Solaris emulator on Azure VMs [<img src="images/rehost-solaris.png" alt="Stromasys Charon-SSP Solaris emulator on Azure VMs" width=700 height="300">](../solution-ideas/articles/solaris-azure.yml) |Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame [<img src="images/rehost-tmax.png" alt="Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame" width=700 height="300">](../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)|
+|Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization [<img src="images/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration-expanded.png" alt="Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization" width=700 height="300">](../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml) |Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment [<img src="images/lzlabs-software-defined-mainframe-in-azure-architecture-inline.png" alt="Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment" width=700 height="300">](../example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml)|
 
 ### Refactor
 
@@ -126,10 +126,10 @@ Refactoring requires minimal changes to applications. This often enables the app
 
 | | |
 |-|-|
-|IBM z/OS mainframe migration with Asysco AMT [![IBM z/OS mainframe migration with Asysco AMT](images/refactor-asysco-zos.png)](/azure/architecture/example-scenario/mainframe/asysco-zos-migration)|Micro Focus Enterprise Server on Azure VMs [![Micro Focus Enterprise Server on Azure VMs](images/refactor-microfocus-zos.png)](/azure/architecture/example-scenario/mainframe/micro-focus-server)|
-|Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure [![Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](images/refactor-zos-cf.png)](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)|Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus [![Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](images/refactor-astadia-unisys.png)](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)|
-|Unisys mainframe migration with Asysco [![Unisys mainframe migration with Asysco](images/refactor-asysco-unisys.png)](/azure/architecture/reference-architectures/migration/unisys-mainframe-migration)|IBM System i to Azure using Infinite i [![IBM System i to Azure using Infinite i](images/refactor-infinite.png)](/azure/architecture/example-scenario/mainframe/ibm-system-i-azure-infinite-i)|
-|Refactor mainframe applications to Azure with Raincode compilers [<img src="images/raincode-reference-architecture-01.png" alt="Refactor mainframe applications to Azure with Raincode compilers" width=700 height="200">](/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture)| |
+|IBM z/OS mainframe migration with Asysco AMT [![IBM z/OS mainframe migration with Asysco AMT](images/refactor-asysco-zos.png)](../example-scenario/mainframe/asysco-zos-migration.yml)|Micro Focus Enterprise Server on Azure VMs [![Micro Focus Enterprise Server on Azure VMs](images/refactor-microfocus-zos.png)](../example-scenario/mainframe/micro-focus-server.yml)|
+|Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure [![Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](images/refactor-zos-cf.png)](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)|Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus [![Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](images/refactor-astadia-unisys.png)](../example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)|
+|Unisys mainframe migration with Asysco [![Unisys mainframe migration with Asysco](images/refactor-asysco-unisys.png)](../reference-architectures/migration/unisys-mainframe-migration.yml)|IBM System i to Azure using Infinite i [![IBM System i to Azure using Infinite i](images/refactor-infinite.png)](../example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml)|
+|Refactor mainframe applications to Azure with Raincode compilers [<img src="images/raincode-reference-architecture-01.png" alt="Refactor mainframe applications to Azure with Raincode compilers" width=700 height="200">](../reference-architectures/app-modernization/raincode-reference-architecture.yml)| |
 
 ### Re-engineer
 
@@ -139,7 +139,7 @@ Re-engineering for migration focuses on modifying and extending application func
 
 | | |
 |-|-|
-|High-volume batch transaction processing [![High-volume batch transaction processing](images/reengineer-batch-transactions.png)](/azure/architecture/example-scenario/mainframe/process-batch-transactions)|Integrate IBM mainframe and midrange message queues with Azure [![Integrate IBM mainframe and midrange message queues with Azure](images/reengineer-ibm-mq.png)](/azure/architecture/example-scenario/mainframe/integrate-ibm-message-queues-azure)|
+|High-volume batch transaction processing [![High-volume batch transaction processing](images/reengineer-batch-transactions.png)](../example-scenario/mainframe/process-batch-transactions.yml)|Integrate IBM mainframe and midrange message queues with Azure [![Integrate IBM mainframe and midrange message queues with Azure](images/reengineer-ibm-mq.png)](../example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)|
 
 ### Dedicated hardware
 
@@ -149,7 +149,7 @@ Another pattern for migrations into Azure (for legacy systems) is what is known 
 
 | | |
 |-|-|
-|Migrate AIX workloads to Skytap on Azure [![Migrate AIX workloads to Skytap on Azure](images/skytap-aix.png)](/azure/architecture/example-scenario/mainframe/migrate-aix-workloads-to-skytap)|Migrate IBM i series applications to Skytap on Azure [![Migrate IBM i series applications to Skytap on Azure](images/skytap-as400.png)](/azure/architecture/example-scenario/mainframe/migrate-ibm-i-series-applications)|
+|Migrate AIX workloads to Skytap on Azure [![Migrate AIX workloads to Skytap on Azure](images/skytap-aix.png)](../example-scenario/mainframe/migrate-aix-workloads-to-skytap.yml)|Migrate IBM i series applications to Skytap on Azure [![Migrate IBM i series applications to Skytap on Azure](images/skytap-as400.png)](../example-scenario/mainframe/migrate-ibm-i-series-applications.yml)|
 
 ### Data movement and migration
 
@@ -159,13 +159,13 @@ A key part of legacy migrations and transformations to Azure is consideration fo
 
 | | |
 |-|-|
-|Modernize mainframe & midrange data [![Modernize mainframe & midrange data](images/data-modernize-mainframe-data.png)](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)|Replicate and sync mainframe data in Azure [![Replicate and sync mainframe data in Azure](images/data-sync-mainframe-data.png)](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)|
-|Mainframe access to Azure databases [![Mainframe access to Azure databases](images/data-mainframe-access.png)](/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases)|Mainframe file replication and sync on Azure [![Mainframe file replication and sync on Azure](images/data-mainframe-file-replication.png)](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)|
+|Modernize mainframe & midrange data [![Modernize mainframe & midrange data](images/data-modernize-mainframe-data.png)](../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)|Replicate and sync mainframe data in Azure [![Replicate and sync mainframe data in Azure](images/data-sync-mainframe-data.png)](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)|
+|Mainframe access to Azure databases [![Mainframe access to Azure databases](images/data-mainframe-access.png)](../solution-ideas/articles/mainframe-access-azure-databases.yml)|Mainframe file replication and sync on Azure [![Mainframe file replication and sync on Azure](images/data-mainframe-file-replication.png)](../solution-ideas/articles/mainframe-azure-file-replication.yml)|
 
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- See the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+- See the [Microsoft Azure Well-Architected Framework](../framework/index.md).
 
 ## Related resources
 

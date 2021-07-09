@@ -209,9 +209,9 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
-- [Run SAP BW/4HANA with Linux virtual machines on Azure](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)
-- [Run SAP HANA on Azure (large instances)](/azure/architecture/reference-architectures/sap/hana-large-instances)
-- [SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)
-- [SAP S/4 HANA for large instances](/azure/architecture/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr)
-- [SAP on Azure Architecture Guide](/azure/architecture/reference-architectures/sap/sap-overview)
+- [Run a Linux VM on Azure](../n-tier/linux-vm.yml)
+- [Run SAP BW/4HANA with Linux virtual machines on Azure](./run-sap-bw4hana-with-linux-virtual-machines.yml)
+- [Run SAP HANA on Azure (large instances)](./hana-large-instances.yml)
+- [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml)
+- [SAP S/4 HANA for large instances](../../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)
+- [SAP on Azure Architecture Guide](./sap-overview.yml)

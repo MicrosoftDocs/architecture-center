@@ -60,5 +60,5 @@ This solution uses the following Azure components:
 
 ## Related resources
 
-- [Manage configurations for Azure Arc enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
-- [Deploy AI and ML computing on-premises and to the edge](/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
+- [Manage configurations for Azure Arc enabled servers](../../hybrid/azure-arc-hybrid-config.yml)
+- [Deploy AI and ML computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)

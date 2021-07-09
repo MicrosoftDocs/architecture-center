@@ -8,7 +8,7 @@ This architecture and the implementation aren't designed to provide controls on 
 
 > [!IMPORTANT]
 >
-> The guidance  and the accompanying implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload. 
+> The guidance  and the accompanying implementation builds on the [AKS baseline architecture](../aks/secure-baseline-aks.yml). That architecture based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload. 
 >
 > ![Image of the GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides an Azure AD-backed, private cluster that supports just-in-time (JIT) access and conditional access models for illustrative purposes. 
 
@@ -161,7 +161,7 @@ Based on roles and responsibilities, assign roles to the infrastructure's role-b
 
 Suppose you need to give permissions to the cluster operators (mapped to the infrastructure operator role). All people who are assigned the infrastructure operator responsibilities belong to an Azure AD Group. As established in 7.1.1, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin`, that meets those requirements. You'll need to bind the Azure AD Group for infrastructure operator to `cluster-admin` by creating role bindings. There are two approaches. You can choose the built-in roles. Or, if the built-in roles do not meet your requirements (for example, they might be overly permissive), create custom roles for your bindings. 
 
-The reference implementation demonstrates the preceding example by using native Kubernetes RBAC. The same association can be accomplished with Azure RBAC. For more information, see [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/azure-ad-rbac).
+The reference implementation demonstrates the preceding example by using native Kubernetes RBAC. The same association can be accomplished with Azure RBAC. For more information, see [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](/azure/aks/azure-ad-rbac).
 
 You can choose the scope of permission at the cluster level or at the namespace level. For roles that have scoped responsibilities, such as application operators, the permissions are assigned at the namespace level for the workload.
 
@@ -418,7 +418,7 @@ Here are some suggestions for applying technical controls:
 - Tune session timeouts in any administrative console access, such as jump boxes in the CDE, to minimize access.
 - Tune conditional access policies to minimize the TTL on Azure access tokens from access points, such as the Azure portal. For information, see these articles:
 
-  - [Configure authentication session management with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
+  - [Configure authentication session management with Conditional Access](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
   - [Configurable token lifetimes - Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
 
 - For cloud-hosted CDE, there aren't any responsibilities for managing physical access and hardware. Rely on corporate network physical and logical controls.

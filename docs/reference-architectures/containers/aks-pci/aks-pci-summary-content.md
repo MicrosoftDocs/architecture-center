@@ -13,7 +13,7 @@ PCI DSS 3.2.1 workloads demand the rigor of being a well-architected solution. A
 
 ## Security
 
-Follow the fundamental guidance provided in the [Security design principles](/azure/architecture/framework/security/security-principles). Best practices for a regulated environment are summarized in these sections.
+Follow the fundamental guidance provided in the [Security design principles](../../../framework/security/security-principles.md). Best practices for a regulated environment are summarized in these sections.
 
 ### Governance
 The governance implementation is driven by the compliance requirements in PCI-DSS 3.2.1. This influences the technical controls for maintaining segmentation, accessing resources, detecting vulnerabilities, and most importantly protecting customer data. 
@@ -59,7 +59,7 @@ To meet the requirements of a regulated environment, the cluster is deployed as 
 
 Monitoring processes are in place to make sure that traffic flows as expected and that any anomaly is detected and reported.
 
-For details on network security, see [Network segmentation](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-network).
+For details on network security, see [Network segmentation](./aks-pci-network.yml).
 
 ### Data security
 
@@ -120,7 +120,7 @@ Make sure access to the key store has a balance of network and access controls. 
 
 ##  Operational Excellence
 
-Follow the fundamental guidance provided in the [Operational Excellence principles](/azure/architecture/framework/devops/principles). Best practices for a regulated environment are summarized in these sections.
+Follow the fundamental guidance provided in the [Operational Excellence principles](../../../framework/devops/principles.md). Best practices for a regulated environment are summarized in these sections.
 
 ### Separation of roles
 
@@ -149,7 +149,7 @@ From the **Security alerts** view in Azure Security Center, you have access to a
 
 ## Performance Efficiency 
 
-Follow the fundamental guidance provided in the [Performance Efficiency principles](/azure/architecture/framework/scalability/principles). Best practices for a regulated environment are summarized in these sections.
+Follow the fundamental guidance provided in the [Performance Efficiency principles](../../../framework/scalability/principles.md). Best practices for a regulated environment are summarized in these sections.
 
 ### Scaling
 	
@@ -168,7 +168,7 @@ The shared-nothing architecture is designed to remove contention between colocat
 Complexity of workloads is hard to document and to audit. Strive for simplicity because of the performance benefits and ease of auditing regulatory requirements. Evaluate choices that have more breath than is needed, because that increases the attack surface area and the potential for misuse or misconfiguration.
 
 ## Reliability
-The reliability of regulated environments needs to be predictable so that they can be explained consistently for auditing purposes. Follow the fundamental guidance provided in the [reliability principles](/azure/architecture/framework/resiliency/overview). Best practices for a regulated environment are summarized in these sections.
+The reliability of regulated environments needs to be predictable so that they can be explained consistently for auditing purposes. Follow the fundamental guidance provided in the [reliability principles](../../../framework/resiliency/overview.md). Best practices for a regulated environment are summarized in these sections.
 
 	
 ### Recovery targets and disaster recovery
@@ -191,7 +191,7 @@ Reliability extends to all operational processes in and adjacent to the CDE. Wel
 
 ## Cost Optimization
 
-Follow the fundamental guidance provided in the [Cost Optimization principles](/azure/architecture/framework/cost/overview). 
+Follow the fundamental guidance provided in the [Cost Optimization principles](../../../framework/cost/overview.md). 
 
 Because of the compliance requirements and strict security controls, a clear tradeoff is cost. We recommend, that you establish initial estimates by using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -209,4 +209,4 @@ The cost associated with some resources, such as Azure Firewall, can be spread a
 
 To keep within the budget constraints, some ways to control cost are by adjusting the Azure Application Gateway infrastructure, setting the instance count for autoscaling, and reducing the log output as long as they still meet the audit trail required by PCI-DSS 3.2.1. Always evaluate those choices against the tradeoffs on other aspects of the design that allow you to meet your SLA. For example, are you  still able to scale appropriately to meet spikes in traffic. 
 
-As you create groups of Azure resources, apply tags so that they can be tracked for cost. Use cost management tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Azure Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices) for tracking and analyzing cost. 
+As you create groups of Azure resources, apply tags so that they can be tracked for cost. Use cost management tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Azure Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices) for tracking and analyzing cost.
