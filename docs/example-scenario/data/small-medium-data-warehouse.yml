@@ -22,6 +22,6 @@ products:
 
 name: Modern data warehouse for small and medium business
 summary: Use Azure Synapse Analytics, SQL Database, and Data Lake Storage to modernize SMB legacy and on-premises data. Easily integrate fused data with other services.
-thumbnailUrl: /azure/architecture/browse/thumbs/smb-data-warehouse.png
+thumbnailUrl: /azure/architecture/browse/thumbs/small-medium-data-warehouse.png
 content: |
-  [!include[](smb-data-warehouse-content.md)]
+  [!include[](small-medium-data-warehouse-content.md)]
