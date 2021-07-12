@@ -165,6 +165,14 @@ items:
                 href: guide/responsible-innovation/harms-modeling/type-of-harm.md
           - name: Community Jury
             href: guide/responsible-innovation/community-jury/index.md
+      - name: Multitenant applications
+        items:
+          - name: Considerations
+            items:
+              - name: Map requests to tenants
+                href: guide/multitenant/considerations/map-requests.md
+              - name: Domain names
+                href: guide/multitenant/considerations/domain-names.md
       - name: Azure for AWS Professionals
         items:
           - name: Overview
