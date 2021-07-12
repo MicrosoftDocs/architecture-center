@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages.
+Adapt, evolve, and allow faster innovation to turn opportunities into strategic advantages. This solution enables you to do the following:
 
 - Create an API gateway and developer portal in minutes, and publish APIs easily for internal or external use.
 - Handle any data schema, and adapt quickly to rapid changes.
@@ -11,7 +11,7 @@ Adapt, evolve, and allow faster innovation to turn opportunities into strategic 
 ![Architecture Diagram](../media/aks-api-first.png)
 *Download an [SVG](../media/aks-api-first.svg)*
 
-## Data flow
+### Data flow
 
 The data flows through the solution as follows:
 
@@ -21,7 +21,7 @@ The data flows through the solution as follows:
 4. Applications access APIs via the API Gateway
 5. API Gateway, after ensuring the API request meets security and other policies e.g. throttling, forwards the request to service running in Kubernetes
 
-## Components
+### Components
 
 The example scenario uses several Azure components:
 

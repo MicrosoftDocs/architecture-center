@@ -6,7 +6,7 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 
 *Download an [SVG](/azure/architecture/solution-ideas/media/anomaly-detector.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
 1. Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.
 2. Aggregates, samples, and computes the raw data to generate the time series or calls the Anomaly Detector API directly if the time series is already prepared and responds with the detection results.

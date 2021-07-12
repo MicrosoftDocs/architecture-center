@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore writeback MSOL -->
 
 
@@ -144,7 +143,7 @@ For more information on installing the AD Connect Health agents and their requir
 
 ## Scalability considerations
 
-The Azure AD service supports scalability based on replicas, with a single primary replica that handles write operations plus multiple read-only secondary replicas. Azure AD transparently redirects attempted writes made against secondary replicas to the primary replica and provides eventual consistency. All changes made to the primary replica are propagated to the secondary replicas. This architecture scales well because most operations against Azure AD are reads rather than writes. For more information, see [Azure AD: Under the hood of our geo-redundant, highly available, distributed cloud directory][aad-scalability].
+The Azure AD service supports scalability based on replicas, with a single primary replica that handles write operations plus multiple read-only secondary replicas. Azure AD transparently redirects attempted writes made against secondary replicas to the primary replica and provides eventual consistency. All changes made to the primary replica are propagated to the secondary replicas. This architecture scales well because most operations against Azure AD are reads rather than writes. For more information, see [What is the Azure Active Directory architecture?][aad-scalability]
 
 For the Azure AD Connect sync server, determine how many objects you are likely to synchronize from your local directory. If you have less than 100,000 objects, you can use the default SQL Server Express LocalDB software provided with Azure AD Connect. If you have a larger number of objects, you should install a production version of SQL Server and perform a custom installation of Azure AD Connect, specifying that it should use an existing instance of SQL Server.
 
@@ -225,13 +224,13 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 - For more information on providing AD DS in Azure as infrastructure, review [Integrating on-premises AD with Azure][adds-azure-design].
 - Review [Azure AD Application Proxy][aad-application-proxy] if you intend on providing Azure AD integrations with on-premises or cloud IaaS applications.
 - Because identity is the new control plane for security, review [Identity Management Best Practices][identity-best-practices]. 
-- Furthmore, as deplying this solution requires highly privileged accounts, review [Securing privileged access][security-compass-paw], to understand security controls for privileged accounts.
+- Furthermore, as deplying this solution requires highly privileged accounts, review [Securing privileged access][security-compass-paw], to understand security controls for privileged accounts.
 
 ## Related resources
 
-* [Manage identity in multitenant applications](/azure/architecture/multitenant-identity/)
-* [Integrate on-premises AD with Azure](/azure/architecture/reference-architectures/identity/)
-* [Extend on-premises AD FS to Azure](/azure/architecture/reference-architectures/identity/adfs)
+* [Manage identity in multitenant applications](../../multitenant-identity/index.md)
+* [Integrate on-premises AD with Azure](./index.yml)
+* [Extend on-premises AD FS to Azure](./adfs.yml)
 
 
 <!-- links -->
@@ -254,7 +253,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 [aad-password-management]: /azure/active-directory/active-directory-passwords-customize
 [aad-powershell]: /powershell/module/azuread/?view=azureadps-2.0
 [aad-reporting-guide]: /azure/active-directory/active-directory-reporting-guide
-[aad-scalability]: https://blogs.technet.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory
+[aad-scalability]: /azure/active-directory/fundamentals/active-directory-architecture
 [aad-sync-best-practices]: /azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration
 [aad-sync-disaster-recovery]: /azure/active-directory/hybrid/how-to-connect-sync-operations#disaster-recovery
 [aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
@@ -272,7 +271,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 [AAF-devops]: ../../framework/devops/overview.md
 [hybrid-identity-design]: /azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview
 [aad-ca-plan]: /azure/active-directory/conditional-access/plan-conditional-access
-[adds-azure-design]: /azure/architecture/reference-architectures/identity/
+[adds-azure-design]: ./index.yml
 [identity-best-practices]: /azure/security/fundamentals/identity-management-best-practices
 [security-compass-paw]: /security/compass/overview
 [security-compass]:/security/compass/compass

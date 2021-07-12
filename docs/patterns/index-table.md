@@ -102,7 +102,7 @@ You can duplicate the movie data in the values held by each partition by adoptin
 
 ![Figure 8 - Actor partitions acting as index tables for movie data](./_images/index-table-figure-8.png)
 
-## Related patterns and guidance
+## Related guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 

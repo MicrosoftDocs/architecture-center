@@ -1130,10 +1130,10 @@
                 "ai-machine-learning",
                 "media"
             ],
-            "image": "/azure/architecture/reference-architectures/ai/_images/aml-scoring-deep-learning.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\aml-scoring-deep-learning.png",
+            "image": "/azure/architecture/reference-architectures/ai/_images/azure-machine-learning-deep-learning-scoring-pipeline.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\azure-machine-learning-deep-learning-scoring-pipeline.png",
             "publish_date": "2/06/2019",
-            "Summary": "<p>This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning. <em>Style transfer</em> is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Architecture diagram for deep learning models using Azure Machine Learning\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/aml-scoring-deep-learning.png\" /></p>\n<p><strong>Scenario</strong>: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to be able to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about neural style transfer algorithms, see <a href=\"https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf\">Image Style Transfer Using Convolutional Neural Networks</a> (PDF).</p>\n<!-- markdownlint-disable MD033 -->\n\n<p>| Style image: | Input/content video: | Output video: |\n|--------|--------|---------|\n| <img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/style_image.jpg\" width=\"300\" alt=\"Picture of a painting in particular art style.\" > | <a href=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video.mp4\" title=\"Input Video\"><img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video_image_0.jpg\" width=\"300\" height=\"300\" alt=\"Picture of an animal in a tree in realistic style.\" ></a> <em>click to view video</em> | <a href=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video.mp4\" title=\"Output Video\"><img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video_image_0.jpg\" width=\"300\" height=\"300\" alt=\"Picture of an animal in a tree, stylized to match a painting.\" ></a> <em>click to view video</em> |</p>\n<!-- markdownlint-enable MD033 -->\n\n<p>This reference architecture is designed for workloads that are triggered by the presence of new media in Azure storage.</p>\n<p>Processing involves the following steps:</p>\n<ol>\n<li>Upload a video file to storage.</li>\n<li>The video file triggers a Logic App to send a request to the Azure Machine Learning pipeline published endpoint.</li>\n<li>The pipeline processes the video, applies style transfer with MPI, and postprocesses the video.</li>\n<li>The output is saved back to blob storage once the pipeline is completed.</li>\n</ol>",
+            "Summary": "<p>This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning. <em>Style transfer</em> is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Architecture diagram for deep learning models using Azure Machine Learning\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/azure-machine-learning-deep-learning-scoring-pipeline.png\" /></p>\n<p><strong>Scenario</strong>: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to be able to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about neural style transfer algorithms, see <a href=\"https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf\">Image Style Transfer Using Convolutional Neural Networks</a> (PDF).</p>\n<!-- markdownlint-disable MD033 -->\n\n<p>| Style image: | Input/content video: | Output video: |\n|--------|--------|---------|\n| <img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/style_image.jpg\" width=\"300\" alt=\"Picture of a painting in particular art style.\" > | <a href=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video.mp4\" title=\"Input Video\"><img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video_image_0.jpg\" width=\"300\" height=\"300\" alt=\"Picture of an animal in a tree in realistic style.\" ></a> <em>click to view video</em> | <a href=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video.mp4\" title=\"Output Video\"><img src=\"https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video_image_0.jpg\" width=\"300\" height=\"300\" alt=\"Picture of an animal in a tree, stylized to match a painting.\" ></a> <em>click to view video</em> |</p>\n<!-- markdownlint-enable MD033 -->\n\n<p>This reference architecture is designed for workloads that are triggered by the presence of new media in Azure storage.</p>\n<p>Processing involves the following steps:</p>\n<ol>\n<li>Upload a video file to storage.</li>\n<li>The video file triggers a Logic App to send a request to the Azure Machine Learning pipeline published endpoint.</li>\n<li>The pipeline processes the video, applies style transfer with MPI, and postprocesses the video.</li>\n<li>The output is saved back to blob storage once the pipeline is completed.</li>\n</ol>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AML",
             "name": "batch-scoring-deep-learning",
@@ -1190,10 +1190,10 @@
                 "analytics",
                 "databases"
             ],
-            "image": "/azure/architecture/reference-architectures/ai/_images/batch-scoring-spark.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\batch-scoring-spark.png",
+            "image": "/azure/architecture/reference-architectures/ai/_images/batch-scoring-spark-models-databricks.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\batch-scoring-spark-models-databricks.png",
             "publish_date": "11/20/2019",
-            "Summary": "<p>This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks, an Apache Spark-based analytics platform optimized for Azure. The solution can be used as a template that can be generalized to other scenarios.</p>\n<p>A reference implementation for this architecture is available on\u00a0<a href=\"https://github.com/Azure/BatchSparkScoringPredictiveMaintenance\">GitHub</a>.</p>\n<p><img alt=\"Batch scoring of Spark models on Azure Databricks\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/batch-scoring-spark.png\" /></p>\n<p><strong>Scenario</strong>: A business in an asset-heavy industry wants to minimize the costs and downtime associated with unexpected mechanical failures. Using IoT data collected from their machines, they can create a predictive maintenance model. This model enables the business to maintain components proactively and repair them before they fail. By maximizing mechanical component use, they can control costs and reduce downtime.</p>\n<p>A predictive maintenance model collects data from the machines and retains historical examples of component failures. The model can then be used to monitor the current state of the components and predict if a given component will fail in the near future. For common use cases and modeling approaches, see <a href=\"https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance\">Azure AI guide for predictive maintenance solutions</a>.</p>\n<p>This reference architecture is designed for workloads that are triggered by the presence of new data from the component machines. Processing involves the following steps:</p>\n<ol>\n<li>\n<p>Ingest the data from the external data store onto an Azure Databricks data store.</p>\n</li>\n<li>\n<p>Train a machine learning model by transforming the data into a training data set, then building a Spark MLlib model. MLlib consists of most common machine learning algorithms and utilities optimized to take advantage of Spark data scalability capabilities.</p>\n</li>\n<li>\n<p>Apply the trained model to predict (classify) component failures by transforming the data into a scoring data set. Score the data with the Spark MLLib model.</p>\n</li>\n<li>\n<p>Store results on the Databricks data store for post-processing consumption.</p>\n</li>\n</ol>\n<p>Notebooks are provided on\u00a0<a href=\"https://github.com/Azure/BatchSparkScoringPredictiveMaintenance\">GitHub</a> to perform each of these tasks.</p>",
+            "Summary": "<p>This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks, an Apache Spark-based analytics platform optimized for Azure. The solution can be used as a template that can be generalized to other scenarios.</p>\n<p>A reference implementation for this architecture is available on\u00a0<a href=\"https://github.com/Azure/BatchSparkScoringPredictiveMaintenance\">GitHub</a>.</p>\n<p><img alt=\"Batch scoring of Spark models on Azure Databricks\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/batch-scoring-spark-models-databricks.png\" /></p>\n<p><strong>Scenario</strong>: A business in an asset-heavy industry wants to minimize the costs and downtime associated with unexpected mechanical failures. Using IoT data collected from their machines, they can create a predictive maintenance model. This model enables the business to maintain components proactively and repair them before they fail. By maximizing mechanical component use, they can control costs and reduce downtime.</p>\n<p>A predictive maintenance model collects data from the machines and retains historical examples of component failures. The model can then be used to monitor the current state of the components and predict if a given component will fail in the near future. For common use cases and modeling approaches, see <a href=\"https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance\">Azure AI guide for predictive maintenance solutions</a>.</p>\n<p>This reference architecture is designed for workloads that are triggered by the presence of new data from the component machines. Processing involves the following steps:</p>\n<ol>\n<li>\n<p>Ingest the data from the external data store onto an Azure Databricks data store.</p>\n</li>\n<li>\n<p>Train a machine learning model by transforming the data into a training data set, then building a Spark MLlib model. MLlib consists of most common machine learning algorithms and utilities optimized to take advantage of Spark data scalability capabilities.</p>\n</li>\n<li>\n<p>Apply the trained model to predict (classify) component failures by transforming the data into a scoring data set. Score the data with the Spark MLLib model.</p>\n</li>\n<li>\n<p>Store results on the Databricks data store for post-processing consumption.</p>\n</li>\n</ol>\n<p>Notebooks are provided on\u00a0<a href=\"https://github.com/Azure/BatchSparkScoringPredictiveMaintenance\">GitHub</a> to perform each of these tasks.</p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/BatchSparkScoringPredictiveMaintenance",
             "name": "batch-scoring-databricks",
@@ -1222,7 +1222,7 @@
             "image": "/azure/architecture/reference-architectures/ai/_images/batch-scoring-r-models.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\batch-scoring-r-models.png",
             "publish_date": "3/29/2019",
-            "Summary": "<p>This reference architecture shows how to perform batch scoring with R models using Azure Batch. The scenario is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a larger scale using R models. A reference implementation for this architecture is available on\n<a href=\"https://github.com/Azure/RBatchScoring\">GitHub</a>.</p>\n<p><img alt=\"Architecture diagram\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/batch-scoring-r-models.png\" /></p>\n<p><strong>Scenario</strong>: A supermarket chain needs to forecast sales of products over the upcoming quarter. The forecast allows the company to manage its supply chain better and ensure it can meet demand for products at each of its stores. The company updates its forecasts every week as new sales data from the previous week becomes available and the product marketing strategy for next quarter is set. Quantile forecasts are generated to estimate the uncertainty of the individual sales forecasts.</p>\n<p>Processing involves the following steps:</p>\n<ol>\n<li>\n<p>An Azure Logic App triggers the forecast generation process once per week.</p>\n</li>\n<li>\n<p>The logic app starts an Azure Container Instance running the scheduler Docker container, which triggers the scoring jobs on the Batch cluster.</p>\n</li>\n<li>\n<p>Scoring jobs run in parallel across the nodes of the Batch cluster. Each node:</p>\n<ol>\n<li>\n<p>Pulls the worker Docker image from Docker Hub and starts a container.</p>\n</li>\n<li>\n<p>Reads input data and pre-trained R models from Azure Blob storage.</p>\n</li>\n<li>\n<p>Scores the data to produce the forecasts.</p>\n</li>\n<li>\n<p>Writes the forecast results to blob storage.</p>\n</li>\n</ol>\n</li>\n</ol>\n<p>The figure below shows the forecasted sales for four products (SKUs) in one store. The black line is the sales history, the dashed line is the median (q50) forecast, the pink band represents the twenty-fifth and seventy-fifth percentiles, and the blue band represents the fifth and ninety-fifth percentiles.</p>\n<p><img alt=\"Sales forecasts\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/sales-forecasts.png\" /></p>",
+            "Summary": "<p>This reference architecture shows how to perform batch scoring with R models using Azure Batch. The scenario is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a larger scale using R models. A reference implementation for this architecture is available on\n<a href=\"https://github.com/Azure/RBatchScoring\">GitHub</a>.</p>\n<p><img alt=\"Architecture diagram\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/batch-scoring-r-models.png\" /></p>\n<p><strong>Scenario</strong>: A supermarket chain needs to forecast sales of products over the upcoming quarter. The forecast allows the company to manage its supply chain better and ensure it can meet demand for products at each of its stores. The company updates its forecasts every week as new sales data from the previous week becomes available and the product marketing strategy for next quarter is set. Quantile forecasts are generated to estimate the uncertainty of the individual sales forecasts.</p>\n<p>Processing involves the following steps:</p>\n<ol>\n<li>\n<p>An Azure Logic App triggers the forecast generation process once per week.</p>\n</li>\n<li>\n<p>The logic app starts an Azure Container Instance running the scheduler Docker container, which triggers the scoring jobs on the Batch cluster.</p>\n</li>\n<li>\n<p>Scoring jobs run in parallel across the nodes of the Batch cluster. Each node:</p>\n<ol>\n<li>\n<p>Pulls the worker Docker image from Docker Hub and starts a container.</p>\n</li>\n<li>\n<p>Reads input data and pre-trained R models from Azure Blob storage.</p>\n</li>\n<li>\n<p>Scores the data to produce the forecasts.</p>\n</li>\n<li>\n<p>Writes the forecast results to blob storage.</p>\n</li>\n</ol>\n</li>\n</ol>\n<p>The figure below shows the forecasted sales for four products (SKUs) in one store. The black line is the sales history, the dashed line is the median (q50) forecast, the pink band represents the twenty-fifth and seventy-fifth percentiles, and the blue band represents the fifth and ninety-fifth percentiles.</p>\n<p><img alt=\"Sales forecasts\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/ai/_images/batch-scoring-sales-forecasts.png\" /></p>",
             "sample_code": true,
             "github_url": "https://github.com/Azure/doAzureParallel/blob/master/docs/32-autoscale.md",
             "name": "batch-scoring-R-models",
@@ -3274,7 +3274,7 @@
             "publish_date": "12/08/2018",
             "Summary": "<p>This article shows how to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of network traffic from a perimeter network, also known as a DMZ, to other networks or subnets. To learn about implementing a DMZ in Azure, see <a href=\"https://docs.microsoft.com/azure/best-practices-network-security\">Microsoft cloud services and network security</a>. The article includes example architectures for ingress only, egress only, and both ingress and egress.</p>\n<p><strong>Prerequisites:</strong> This article assumes a basic understanding of Azure networking, <a href=\"https://docs.microsoft.com/azure/load-balancer/load-balancer-overview\">Azure load balancers</a>, and <a href=\"https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview\">user-defined routes</a> (UDRs).</p>",
             "sample_code": true,
-            "github_url": "https://github.com/mspnp/ha-nva",
+            "github_url": "https://github.com/mspnp/samples/tree/master/solutions/ha-nva",
             "name": "nva-ha",
             "popularity": 221,
             "topic": "Networking"
@@ -7039,7 +7039,7 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-machine-learning-with-aks-'",
+                "'https:--azure.microsoft.com-solutions-architecture-machine-learning-model-deployment-aks-'",
                 "acom-architecture",
                 "ai-ml",
                 "all-items",
@@ -7052,8 +7052,8 @@
                 "solution-idea"
             ],
             "type": "solution-idea",
-            "file_url": "solution-ideas/articles/machine-learning-with-aks.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/machine-learning-with-aks",
+            "file_url": "solution-ideas/articles/machine-learning-model-deployment-aks.md",
+            "http_url": "/azure/architecture/solution-ideas/articles/machine-learning-model-deployment-aks",
             "word_count": 138,
             "read_time": "1 min read",
             "Title": "Machine Learning model training with AKS",
@@ -7062,10 +7062,10 @@
                 "ai-machine-learning",
                 "containers"
             ],
-            "image": "/azure/architecture/solution-ideas/media/machine-learning-with-aks.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\machine-learning-with-aks.png",
+            "image": "/azure/architecture/solution-ideas/media/machine-learning-model-deployment-to-aks.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\machine-learning-model-deployment-to-aks.png",
             "publish_date": "12/16/2019",
-            "Summary": "<p>Training of models using large datasets is a complex and resource intensive task. Use familiar tools such as TensorFlow and Kubeflow to simplify training of Machine Learning models. Your ML models will run in AKS clusters backed by GPU enabled VMs.</p>",
+            "Summary": "<p>Deploy machine learning models on Azure Kubernetes Service (AKS) for high-scale production inference. Use familiar tools such as Kubeflow to simplify deployment of Machine Learning models. Your ML models will run in AKS clusters backed by GPU enabled VMs.</p>",
             "Flow": {
                 "FlowStep_A": "Package ML model into a container and publish to ACR",
                 "FlowStep_B": "Azure Blob storage hosts training data sets and trained model",
@@ -7073,7 +7073,7 @@
                 "FlowStep_D": "Serve production model using Kubeflow, promoting a consistent environment across test, control and production",
                 "FlowStep_E": "AKS supports GPU enabled VM"
             },
-            "name": "machine-learning-with-aks",
+            "name": "machine-learning-model-deployment-aks",
             "popularity": 91,
             "topic": "AI + Machine Learning"
         },
@@ -9041,8 +9041,8 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/ai/realtime-scoring-python.md",
-            "http_url": "/azure/architecture/reference-architectures/ai/realtime-scoring-python",
+            "file_url": "reference-architectures/ai/real-time-scoring-machine-learning-models.md",
+            "http_url": "/azure/architecture/reference-architectures/ai/real-time-scoring-machine-learning-models",
             "word_count": 1980,
             "read_time": "8 min read",
             "Title": "Real-time scoring of Python models",
@@ -9071,7 +9071,7 @@
             },
             "sample_code": true,
             "github_url": "https://github.com/Microsoft/MLAKSDeployAML",
-            "name": "realtime-scoring-python",
+            "name": "real-time-scoring-machine-learning-models",
             "popularity": 148,
             "topic": "AI + Machine Learning"
         },
@@ -11119,8 +11119,8 @@
                 "reference-architecture"
             ],
             "type": "reference-architecture",
-            "file_url": "reference-architectures/ai/speech-ai-ingestion.md",
-            "http_url": "/azure/architecture/reference-architectures/ai/speech-ai-ingestion",
+            "file_url": "reference-architectures/ai/speech-to-text-transcription-pipeline.md",
+            "http_url": "/azure/architecture/reference-architectures/ai/speech-to-text-transcription-pipeline",
             "word_count": 1651,
             "read_time": "7 min read",
             "Title": "Speech-to-text conversion",
@@ -11128,13 +11128,13 @@
             "category": [
                 "ai-machine-learning"
             ],
-            "image": "/azure/architecture/reference-architectures/ai/_images/audio-files-upload.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\audio-files-upload.png",
+            "image": "/azure/architecture/reference-architectures/ai/_images/speech-to-text-audio-files-upload.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\ai\\_images\\speech-to-text-audio-files-upload.png",
             "publish_date": "3/25/2020",
             "Summary": "<p>Customer care centers are an integral part of the success of many businesses. You can improve the efficiency of your call centers by using speech AI. Speech recognition and the analysis of high volumes of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes. Enterprise solutions that use the Speech APIs of Azure Cognitive Services can be implemented to consume and process such high volumes of discrete data.</p>\n<p>The reference architecture described in this article shows how to build an audio ingestion and speech-to-text transcription pipeline for customer care centers. This pipeline processes batches of recorded audio files and stores the transcribed text files in Azure Blob storage. This architecture doesn't implement real-time speech processing.</p>\n<p>This pipeline can later feed into the next phase of your speech AI implementation. In that phase, you can process transcribed text to recognize and remove sensitive information, perform sentiment analysis, and so on.</p>\n<p>The reference implementation for this architecture is available on <a href=\"https://github.com/mspnp/cognitive-services-reference-implementation\">GitHub</a>.</p>",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/cognitive-services-reference-implementation",
-            "name": "speech-ai-ingestion",
+            "name": "speech-to-text-transcription-pipeline",
             "popularity": 0,
             "topic": "AI + Machine Learning"
         },

@@ -87,7 +87,7 @@ The figure shows how tenants authenticate with their own identity provider (step
 
 Tenants won't need to remember separate credentials to access the application, and an administrator at the tenant’s company can configure in its own AD FS the list of users that can access the application.
 
-## Related guidance
+## Next steps
 
 - [Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 - [Active Directory Domain Services](/previous-versions/windows/server-2008/bb897402(v=msdn.10))

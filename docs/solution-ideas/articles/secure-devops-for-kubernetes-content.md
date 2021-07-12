@@ -1,4 +1,3 @@
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 DevOps and Kubernetes are better together. By implementing secure DevOps together with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster, at scale. Put guardrails around the development processes, by using CI/CD with dynamic policy controls, and then accelerate your feedback loop with constant monitoring. Use Azure Pipelines to deliver fast, while ensuring the enforcement of critical policies, with Azure Policy. Azure provides you real-time observability for your build and release pipelines, and the ability to apply a compliance audit and reconfigurations easily.
@@ -33,16 +32,16 @@ DevOps and Kubernetes are better together. By implementing secure DevOps togethe
 
 ## Next steps
 
-- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices).
+- To learn about hosting Microservices on AKS, see [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml).
 - To see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 
 ## Related resources
 
-- If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](https://docs.microsoft.com/en-us/learn/modules/aks-workshop/) to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
+- If you need a refresher in Kubernetes, complete the [Azure Kubernetes Service Workshop](/learn/modules/aks-workshop/) to deploy a multi-container application to Kubernetes on Azure Kubernetes Service (AKS).
 - See [Build and deploy to Azure Kubernetes Service](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops).
 
 See the related architectures:
 
-* [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
-* [Building a telehealth system on Azure](/azure/architecture/example-scenario/apps/telehealth-system)
-* [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+* [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)
+* [Building a telehealth system on Azure](../../example-scenario/apps/telehealth-system.yml)
+* [Microservices with AKS](./microservices-with-aks.yml)

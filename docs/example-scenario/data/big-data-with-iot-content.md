@@ -1,6 +1,3 @@
-
-
-
 This example scenario is relevant to organizations building solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making. Potential applications include construction, mining, manufacturing, or other industry solutions involving large volumes of data from many IoT-based data inputs.
 
 In this scenario, a construction equipment manufacturer builds vehicles, meters, and drones that use IoT and GPS technologies to emit telemetry data. The company wants to modernize their data architecture to better monitor operating conditions and equipment health. Replacing the company's legacy solution using on-premises infrastructure would be both time intensive and labor intensive, and would not be able to scale sufficiently to handle the anticipated data volume.
@@ -79,18 +76,18 @@ Guidance for big data architectures is available in the [Azure Data Architecture
 
 Additional IoT architectures:
 
-- [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
-- [IoT using Cosmos DB](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
-- [Retail - Buy online, pickup in store (BOPIS)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
-- [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
-- [Secure your IoT SaaS app with the Microsoft identity platform](/azure/architecture/example-scenario/iot-aad/iot-aad)
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
+- [IoT using Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
+- [Retail - Buy online, pickup in store (BOPIS)](../iot/vertical-buy-online-pickup-in-store.yml)
+- [Predictive maintenance with the intelligent IoT Edge](../predictive-maintenance/iot-predictive-maintenance.yml)
+- [Secure your IoT SaaS app with the Microsoft identity platform](../../reference-architectures/iot.yml)
 
 IoT architecture guides:
 
-- [IoT concepts](/azure/architecture/example-scenario/iot/introduction-to-solutions)
-- [Azure IoT Edge Vision](/azure/architecture/guide/iot-edge-vision)
-- [Azure industrial IoT analytics guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
-- [IoT patterns](/azure/architecture/example-scenario/iot/measure-control-loop)
+- [IoT concepts](../iot/introduction-to-solutions.yml)
+- [Azure IoT Edge Vision](../../guide/iot-edge-vision/index.md)
+- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.md)
+- [IoT patterns](../iot/measure-control-loop.yml)
 
 <!-- links -->
 
