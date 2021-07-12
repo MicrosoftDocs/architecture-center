@@ -186,42 +186,42 @@ Equally, customers often expect non-production environments to be significantly 
 
 ## Unprofitable pricing models
 
-An unprofitable pricing model is one where it costs you more to deliver the service than the revenue you earn. For example, you might charge a flat rate per tenant without any limits for your service, but then build your service with consumption-based Azure resources and without per tenant [usage limits](#usage-limits). In this situation, you may be at risk of your tenants overusing your service and making it unprofitable to serve them.
+An unprofitable pricing model costs you more to deliver the service than the revenue you earn. For example, you might charge a flat rate per tenant without any limits for your service, but then you would build your service with consumption-based Azure resources and without per-tenant [usage limits](#usage-limits). In this situation, you may be at risk of your tenants overusing your service and, thus, making it unprofitable to serve them.
 
 Generally, you want to avoid unprofitable pricing models. However, there are situations where you might choose to adopt an unprofitable pricing model, including:
 
 - A free service is being offered to enable growth.
 - Additional revenue streams are provided by services or add-on features.
-- Hosting a specific tenant provides some other commercial value, such as having them as an anchor tenant in a new market.
+- Hosting a specific tenant provides another commercial value, such as using them as an anchor tenant in a new market.
 
 In the case that you inadvertently create an unprofitable pricing model, there are some ways to mitigate the risks associated with them, including:
 
 - Limit the use of the service through [usage limits](#usage-limits).
 - Require the use of capacity reservations.
-- Request the tenant move to a higher feature/service tier.
+- Request the tenant move to a higher feature or service tier.
 
 ### Risky pricing models
 
-When implementing a pricing model for a solution, you will usually have to make assumptions about how it will be used. If these assumptions turn out to be incorrect or the usage patterns change over time then your pricing model may become unprofitable. Pricing models that are at risk of becoming unprofitable are known as _risky pricing_ models. For example, if you adopt a pricing model that expects users to self-limit the amount they use your solution then you may have implemented a risky pricing model.
+When implementing a pricing model for a solution, you will usually have to make assumptions about how it will be used. If these assumptions turn out to be incorrect or the usage patterns change over time, then your pricing model may become unprofitable. Pricing models that are at risk of becoming unprofitable are known as _risky pricing_ models. For example, if you adopt a pricing model that expects users to self-limit the amount that they use your solution, then you may have implemented a risky pricing model.
 
-Most SaaS solutions will add new features regularly. This increases the ROV to users, which may also lead to increases in the amount the solution is used. This could result in a solution that becomes unprofitable if the use of new features drives usage, but the pricing model doesn't factor this in.
+Most SaaS solutions will add new features regularly. This increases the ROV to users, which may also lead to increases in the amount the solution is used. This could result in a solution that becomes unprofitable, if the use of new features drives usage, but the pricing model doesn't factor this in.
 
-For example, if you introduce a new video upload feature to your solution which uses a consumption-based resource, and user uptake of the feature is higher than expected, then consider a combination of [usage limits](#usage-limits) and [feature and service level pricing](#feature--and-service-level-based-pricing).
+For example, if you introduce a new video upload feature to your solution, which uses a consumption-based resource, and user uptake of the feature is higher than expected, then consider a combination of [usage limits](#usage-limits) and [feature and service level pricing](#feature--and-service-level-based-pricing).
 
 ## Usage limits
 
-_Usage limits_ enable you to restrict the usage of your service in order to prevent your pricing models from becoming unprofitable, or to prevent a single tenant from consuming a disproportionate amount of the capacity of your service. This can be especially important in multitenant services where a single tenant can impact the experience of other tenants by over-consuming resources.
+_Usage limits_ enable you to restrict the usage of your service in order to prevent your pricing models from becoming unprofitable, or to prevent a single tenant from consuming a disproportionate amount of the capacity of your service. This can be especially important in multitenant services, where a single tenant can impact the experience of other tenants by over-consuming resources.
 
 > [!NOTE]
-> It's important to make your customers aware that you apply usage limits. Implementing usage limits without making your customers aware of the limit will result in customer dissatisfaction. This means that it's important to identify and plan usage limits ahead of time. The goal should be to plan for it, and to communicate the limits to customers before they become necessary.
+> It's important to make your customers aware that you apply usage limits. If you implement usage limits without making your customers aware of the limit, then it will result in customer dissatisfaction. This means that it's important to identify and plan usage limits ahead of time. The goal should be to plan for the limit, and to then communicate the limits to customers before they become necessary.
 
-Usage limits are often used in combination with [feature and service level pricing](#feature--and-service-level-based-pricing) to provide a higher amount of usage at higher tiers. Limits are also commonly used to protect core components that will cause system bottlenecks or performance issues if over-consumed.
+Usage limits are often used in combination with [feature and service-level pricing](#feature--and-service-level-based-pricing), to provide a higher amount of usage at higher tiers. Limits are also commonly used to protect core components that will cause system bottlenecks or performance issues, if they are over-consumed.
 
 ### Rate limits
 
-A common way to apply a usage limit is to add rate limits to APIs or specific application functions. This is also referred to as [throttling](../../../patterns/throttling.md). Rate limits prevent continuous overuse. They are often used to limit the number of calls to an API over a defined time period. For example, an API may only be called 20 times per minute and will return an HTTP 429 error if it is called more frequently than this.
+A common way to apply a usage limit is to add rate limits to APIs or to specific application functions. This is also referred to as [throttling](../../../patterns/throttling.md). Rate limits prevent continuous overuse. They are often used to limit the number of calls to an API, over a defined time period. For example, an API may only be called 20 times per minute, and it will return an HTTP 429 error, if it is called more frequently than this.
 
-Some situations where rate limiting is often used include:
+Some situations, where rate limiting is often used, include the following:
 
 - REST APIs.
 - Asynchronous tasks.
@@ -229,35 +229,35 @@ Some situations where rate limiting is often used include:
 - Actions that incur a high cost to execute.
 - Report generation.
 
-Implementing rate limiting does increase the solution complexity, but services like Azure API Management can make this simpler by applying [rate limit policies](/azure/api-management/api-management-access-restriction-policies).
+Implementing rate limiting cam increase the solution complexity, but services like Azure API Management can make this simpler by applying [rate limit policies](/azure/api-management/api-management-access-restriction-policies).
 
 ## Pricing model lifecycle
 
-Like any other part of your solution, pricing models have a lifecycle. As your application evolves over time, you may need to change your pricing models. This may be driven by changing customer needs, commercial requirements, or changes to functionality within your application. Some common pricing lifecycle changes include:
+Like any other part of your solution, pricing models have a lifecycle. As your application evolves over time, you might need to change your pricing models. This may be driven by changing customer needs, commercial requirements, or changes to functionality within your application. Some common pricing lifecycle changes include the following:
 
 - Adding a completely new pricing model. For example, adding a [consumption pricing model](#consumption-based-pricing) to a solution that currently offers a [flat rate model](#flat-rate-pricing).
 - Retiring an existing pricing model.
 - Adding a tier to an existing pricing model.
 - Retiring a tier in an existing pricing model.
 - Changing usage limits on a feature in a pricing model.
-- Adding or removing features from a [feature and service level pricing model](#feature--and-service-level-based-pricing).
-- Changing from a business-to-consumer (B2C) commercial model to a business-to-business (B2B) commercial model, which then necessitates new pricing structures for your business customers.
+- Adding or removing features from a [feature and service-level pricing model](#feature--and-service-level-based-pricing).
+- Changing from a business-to-consumer (B2C) commercial model, to a business-to-business (B2B) commercial model. This change then necessitates new pricing structures for your business customers.
 
-It is usually complex to implement and manage many different pricing models at once. It's also confusing to your customers. So, it's better to implement only one or two models with a small number of tiers. This makes your solution more accessible and easier to manage.
+It is usually complex to implement and manage many different pricing models at once. It's also confusing to your customers. So, it's better to implement only one or two models, with a small number of tiers. This makes your solution more accessible and easier to manage.
 
 > [!NOTE]
 > Pricing models and billing functions should be tested, ideally using automated testing, just like any other part of your system. The more complex the pricing models, the more testing is required, and so the cost of development and new features will increase.
 
-When changing pricing models you will need to consider a number of factors, including:
+When changing pricing models, you will need to consider the following factors:
 
 - Will tenants want to migrate to the new model?
 - Is it easy for tenants to migrate to the new model?
 - Will new pricing models expose your service to risk? For example, are you removing rate limits that are currently protecting critical resources from overuse?
 - Do tenants have a clear path for migrating to the new pricing model?
-- How will you prevent tenants using older pricing models so that you can retire them?
-- Are tenants likely to receive _bill shock_ - a negative reaction to an unexpected bill - upon changing pricing models?
-- Are you monitoring performance and utilization of your services for new or changed pricing models, so that you can ensure continued profitability?
-- Are you able to clearly communicate the ROV for new pricing models to your existing tenants?
+- How will you prevent tenants from using older pricing models, so that you can retire them?
+- Are tenants likely to receive _bill shock_ (a negative reaction to an unexpected bill) upon changing pricing models?
+- Are you monitoring the performance and utilization of your services, for new or changed pricing models, so that you can ensure continued profitability?
+- Are you able to clearly communicate the ROV for new pricing models, to your existing tenants?
 
 ## Next steps
 
