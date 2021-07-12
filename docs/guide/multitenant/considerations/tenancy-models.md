@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations you need to give to different models of multitenancy.
 author: johndowns
 ms.author: jodowns
-ms.date: 06/17/2021
+ms.date: 07/14/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -17,39 +17,40 @@ ms.category:
   - fcp
 ms.custom:
   - guide
+  - fcp
 ---
 
 # Tenancy models to consider for a multitenant solution
 
-There are many different ways that you can design a solution to be multitenanted. Mostly this decision hinges on whether and how you share resources between your tenants. Intuitively, you might want to avoid sharing *any* resources, but this quickly becomes expensive as your business scales and you onboard more and more tenants.
+There are many different ways that you can design a solution to be multitenanted. Mostly this decision hinges on whether and how you share resources between your tenants. Intuitively, you might want to avoid sharing *any* resources, but this quickly becomes expensive, as your business scales and as you onboard more and more tenants.
 
-It's helpful to think about the different models of multitenancy by first understanding how you define tenants for your specific organization, what business drivers you have, and how you plan to scale your solution.
+It's helpful to think about the different models of multitenancy, by first understanding how you define tenants for your specific organization, what business drivers you have, and how you plan to scale your solution.
 
 ## Define a tenant
 
-First, you need to define a *tenant* for your organization. Consider who your customer is - in other words, who are you providing your services to? There are two common models:
+First, you need to define a *tenant* for your organization. Consider who your customer is. In other words, who are you providing your services to? There are two common models:
 
-- **Business to business (B2B)**. If your customers are other organizations, you are likely to consider your tenants to be those customers. However, consider whether your customers might have divisions (teams or departments), or if they have a presence in multiple countries. You may need to consider having a single customer map to multiple tenants if there are different requirements for these subgroups. Similarly, a customer might want to maintain two instances of your service so they can keep their development and production environments separated from each other. Generally, a single tenant will have multiple users - for example, all of your customer's employees will be users within the same tenant.
-- **Business to consumer (B2C)**. If your customers are consumers, it's often more complicated to relate customers, tenants, and users. In some scenarios, each consumer could be their own tenant. However, consider whether your solution might be used by families, groups of friends, clubs, associations, or other groupings that might need to access and manage their data together. For example, a music streaming service might support both individual users and families, and treat each of these account types differently when it comes to separating them into tenants.
+- **Business-to-business (B2B)**. If your customers are other organizations, you are likely to consider your tenants to be those customers. However, consider whether your customers might have divisions (teams or departments), or if they have a presence in multiple countries. You may need to consider having a single customer map to multiple tenants, if there are different requirements for these subgroups. Similarly, a customer might want to maintain two instances of your service, so they can keep their development and production environments separated from each other. Generally, a single tenant will have multiple users. For example, all of your customer's employees will be users within the same tenant.
+- **Business-to-consumer (B2C)**. If your customers are consumers, it's often more complicated to relate customers, tenants, and users. In some scenarios, each consumer could be their own tenant. However, consider whether your solution might be used by families, groups of friends, clubs, associations, or other groupings that might need to access and manage their data together. For example, a music-streaming service might support both individual users and families, and it might treat each of these account types differently, when it comes to separating them into tenants.
 
-Your definition of _tenant_ will impact some of the things you need to consider or emphasize when you architect your solution. For example:
+Your definition of _tenant_ will impact some of the things that you need to consider or emphasize, when you architect your solution. For example, consider these different types of tenants:
 
 - If your tenants are individual people or families, you may need to be particularly concerned about how you handle personal data, and the data sovereignty laws within each jurisdiction you serve.
-- If your tenants are businesses, you may need to be mindful of your customers' requirements for regulatory compliance, isolation of their data, and ensuring you meet a specified service level objective (SLO), such as uptime or service availability.
+- If your tenants are businesses, you may need to be mindful of your customers' requirements for regulatory compliance, the isolation of their data, and ensuring you meet a specified service-level objective (SLO), such as uptime or service availability.
 
 ## How do you decide which model to use?
 
-Selecting a tenancy model isn't just a technical decision - it's also a commercial decision that you need to make. You need to consider questions like the following.
+Selecting a tenancy model isn't just a technical decision; it's also a commercial decision that you need to make. You need to consider questions like the following:
 
 - What are your business objectives?
-- Will your customers accept all forms of multitenancy? How would each multitenancy model impact your, or their, compliance requirements?
+- Will your customers accept all forms of multitenancy? How would each multitenancy model impact your compliance requirements, or your customer's compliance requirements?
 - Will a single-tenant solution scale to your future growth aspirations?
 - How large is your operations team, and how much of your infrastructure management are you able to automate?
 - Do your customers expect you to meet service-level agreements (SLAs), or do you have SLOs that you are aiming for?
 
-If you expect that your business is going to scale to a large number of customers, it will be very important to deploy shared infrastructure. Otherwise, you'll have to maintain a large and ever-growing fleet of instances. Deploying individual Azure resources for each customer is likely to be unsustainable, unless you provision and use dedicated subscription per tenant. When sharing the same Azure subscription across multiple tenants, [Azure resource quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) may start to apply, and the operational costs to deploy and reconfigure these resources become higher with each new customer.
+If you expect that your business is going to scale to a large number of customers, it will be very important to deploy shared infrastructure. Otherwise, you'll have to maintain a large and ever-growing fleet of instances. Deploying individual Azure resources, for each customer, is likely to be unsustainable, unless you provision and use a dedicated subscription, per tenant. When sharing the same Azure subscription across multiple tenants, [Azure resource quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) might start to apply, and the operational costs to deploy and reconfigure these resources become higher, with each new customer.
 
-Conversely, if you expect that your business is only going to have a few customers, it might be worth considering having single-tenant resources dedicated to each customer. Similarly, if your customers' isolation requirements are high, a set of single-tenant infrastructure might be appropriate.
+Conversely, if you expect that your business is only going to have a few customers, it might be worth considering to have single-tenant resources that are dedicated to each customer. Similarly, if your customers' isolation requirements are high, a single-tenant infrastructure might be appropriate.
 
 ## Logical and physical tenants
 
