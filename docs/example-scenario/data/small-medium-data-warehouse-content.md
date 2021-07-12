@@ -30,22 +30,24 @@ Legacy SMB data warehouses might contain several types of data:
    - Semi-structured data, such as logs, CSVs, JSON, and XML files
    - Structured relational data, including databases that use stored procedures for extract-transform-load/extract-load-transform (ETL/ELT) activities
    
-Azure Synapse Analytics pipelines (1) ingest the legacy data warehouses into Azure.
+1. Azure Synapse Analytics pipelines ingest the legacy data warehouses into Azure.
    
    - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into Azure SQL Database. This lift-and-shift approach is fastest to implement, and offers a smooth transition from an on-premises SQL solution to an eventual Azure platform-as-a-service (PaaS). You can modernize databases incrementally after the lift and shift.
    
    - The pipelines can also pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than simply replatforming the data.
    
-Real-time data from streaming sources can also enter the system via Azure Event Hubs (3). For customers with real-time dashboard requirements, Azure Stream Analytics can analyze this data immediately. The data can also enter (4) the centralized Data Lake for further analysis, storage, and reporting.
+2. This method is an easy way to mesh Dynamics data sources, or build centralized BI dashboards on augmented datasets. You can bring the fused, processed data back into Dynamics and Power BI for further analysis.
+
+3. Real-time data from streaming sources can also enter the system via Azure Event Hubs. For customers with real-time dashboard requirements, Azure Stream Analytics can analyze this data immediately. 
+
+4. The data can also enter the centralized Data Lake for further analysis, storage, and reporting.
    
-Serverless analysis tools (5) are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process the data in Data Lake Storage. Serverless pools are available on demand, and don't require any provisioned resources.
+5. Serverless analysis tools are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process the data in Data Lake Storage. Serverless pools are available on demand, and don't require any provisioned resources.
    
    Serverless pools are ideal for:
    - Ad hoc data science explorations in T-SQL format.
    - Early prototyping for data warehouse entities.
    - Defining views that consumers can use, for example in Power BI, for scenarios that can tolerate performance lag.
-   
-   This method is an easy way to mesh Dynamics data sources (2), or build centralized BI dashboards on augmented datasets. You can bring the fused, processed data back into Dynamics and Power BI for further analysis.
 
 Azure Synapse is tightly integrated with potential consumers of your fused datasets, like Azure Machine Learning. Other consumers can include Power Apps,  Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
 
