@@ -283,19 +283,19 @@ the following resources:
 ## Related resources
 
 -   [Modernize mainframe & midrange
-    data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
+    data](../migration/modernize-mainframe-data-to-azure.yml)
 
 -   [Mainframe file replication and sync on
-    Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)
+    Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 
 -   [Replicate and sync mainframe data in
-    Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
+    Azure](../migration/sync-mainframe-data-with-azure.yml)
 
 -   [Refactor IBM z/OS mainframe Coupling Facility (CF) to
-    Azure](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)
+    Azure](../zos/refactor-zos-coupling-facility.yml)
 
 -   [IBM z/OS mainframe migration with Asysco
-    AMT](/azure/architecture/example-scenario/mainframe/asysco-zos-migration)
+    AMT](../../example-scenario/mainframe/asysco-zos-migration.yml)
 
 -   [Migrate IBM mainframe applications to Azure with TmaxSoft
-    OpenFrame](/azure/architecture/solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe)
+    OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)

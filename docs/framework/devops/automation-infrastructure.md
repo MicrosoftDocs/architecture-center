@@ -27,14 +27,14 @@ Organizations which centrally manage, govern, or support multiple workloads in t
 
 The following is a series of links from the Cloud Adoption Framework to help deploy Azure Landing Zones:
 
-- All Azure Landing Zones adhere to a [common set of design areas](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-areas) to guide configuration of required environment considerations including: Identity, Network topology and connectivity, Resource organization, Governance disciplines, Operations baseline, and Business continuity and disaster recovery (BCDR)
-- All Azure Landing Zones can be deployed through the Azure portal, but are designed to leverage infrastructure as code to create, [test](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/test-driven-development), and [refactor](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/refactor) repeatable deployments of the environmental configuration.
-- The Cloud Adoption Framework provides a number of [Azure Landing Zone implementation options](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/implementation-options), including:
+- All Azure Landing Zones adhere to a [common set of design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas) to guide configuration of required environment considerations including: Identity, Network topology and connectivity, Resource organization, Governance disciplines, Operations baseline, and Business continuity and disaster recovery (BCDR)
+- All Azure Landing Zones can be deployed through the Azure portal, but are designed to leverage infrastructure as code to create, [test](/azure/cloud-adoption-framework/ready/considerations/test-driven-development), and [refactor](/azure/cloud-adoption-framework/ready/landing-zone/refactor) repeatable deployments of the environmental configuration.
+- The Cloud Adoption Framework provides a number of [Azure Landing Zone implementation options](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options), including:
   - Start small & expand implementation using Azure Blueprints and ARM Templates
   - Enterprise-Scale implementation using Azure Policy and ARM Templates
   - CAF Terraform modules and a variety of landing zone options 
 
-To get started with Azure Landing Zones to create consistent, repeatable environment configuration see the article series on [Azure Landing Zones](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/).
+To get started with Azure Landing Zones to create consistent, repeatable environment configuration see the article series on [Azure Landing Zones](/azure/cloud-adoption-framework/ready/landing-zone/).
 
 If Azure Landing Zones are not a fit for your organization, you should consider the following sections of this article to manual integrate environment configuration into your DevOps pipelines. 
 

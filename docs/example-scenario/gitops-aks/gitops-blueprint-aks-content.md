@@ -178,5 +178,5 @@ You've now successfully provisioned a running GitOps setup. From here, you can:
 - [Open Policy Agent](https://www.openpolicyagent.org)
 
 ## Related resources
-- [Azure Kubernetes Service solution journey](/azure/architecture/reference-architectures/containers/aks-start-here)
-- [Secure DevOps for AKS](/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes)
+- [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)
+- [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)

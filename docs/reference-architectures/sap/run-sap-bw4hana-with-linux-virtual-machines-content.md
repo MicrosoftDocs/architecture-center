@@ -1,6 +1,3 @@
-
-
-
 SAP BW/4HANA is an enterprise data warehouse solution designed for the cloud and optimized for the SAP HANA platform. The following example focuses specifically on the SAP BW/4HANA application tier. It's suitable for a small-scale production environment of SAP BW/4HANA on Azure, where high availability is a priority.
 
 This example workload also draws on the foundation of a pair of SAP on Azure reference architectures: [SAP NetWeaver (Windows) for AnyDB on virtual machines](./sap-netweaver.yml) and [SAP S/4HANA for Linux virtual machines on Azure](./sap-s4hana.yml). A similar deployment approach is used for SAP BW/4HANA workloads. The application layer is deployed using virtual machines that can be changed in size to accommodate your organization's needs.
@@ -254,9 +251,9 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
-- [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
-- [Run SAP HANA on Azure (large instances)](/azure/architecture/reference-architectures/sap/hana-large-instances)
-- [SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)
-- [SAP S/4 HANA for large instances](/azure/architecture/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr)
-- [SAP on Azure Architecture Guide](/azure/architecture/reference-architectures/sap/sap-overview)
+- [Run a Linux VM on Azure](../n-tier/linux-vm.yml)
+- [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](./run-sap-hana-for-linux-virtual-machines.yml)
+- [Run SAP HANA on Azure (large instances)](./hana-large-instances.yml)
+- [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml)
+- [SAP S/4 HANA for large instances](../../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)
+- [SAP on Azure Architecture Guide](./sap-overview.yml)

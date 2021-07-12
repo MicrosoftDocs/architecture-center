@@ -21,7 +21,7 @@ the edge to the cloud and back. It is divided into three operational areas:
     evaluate, and deploy the machine learning models.
 
 -   **IoT**. Real-time images from [connected
-    cameras](/azure/architecture/example-scenario/iot/introduction-to-solutions)
+    cameras](../../example-scenario/iot/introduction-to-solutions.yml)
     are used to run the ML model to inference video frames. Cached video streams
     are also used for auditing purposes and to retrain the models.
 
@@ -276,7 +276,7 @@ transaction rates like this human-in-the-loop video labeling scenario.
 
 For general guidance on designing scalable solutions, see the [performance
 efficiency
-checklist](/azure/architecture/framework/scalability/performance-efficiency)
+checklist](../../framework/scalability/performance-efficiency.md)
 in the Azure Architecture Center.
 
 ### Scalability
@@ -310,20 +310,20 @@ keys](/azure/storage/common/customer-managed-keys-overview).
 For general guidance on designing secure solutions, see the [Azure Security
 Documentation](/azure/security) and the [Azure
 IoT reference
-architecture](/azure/architecture/reference-architectures/iot).
+architecture](../iot.yml).
 
 ### DevOps
 
 DevOps practices are used to orchestrate the end-to-end approach used in this
 example. If your organization is new to DevOps, the [DevOps
-Checklist](/azure/architecture/checklist/dev-ops) can
+Checklist](../../checklist/dev-ops.md) can
 help you get started.
 
 The MLOps [maturity
-model](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+model](../../example-scenario/mlops/mlops-technical-paper.yml)
 lays out practices that support DevOps and contribute to running a successful ML
 environment. The [Azure Machine Learning decision guide for optimal tool
-selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)
+selection](../../example-scenario/mlops/aml-decision-tree.yml)
 can also help you determine the best Azure services for your team’s ML projects.
 
 ## Deploy this scenario
@@ -350,7 +350,7 @@ Here are a few related GitHub resources you can use:
 In general, use the [Azure pricing
 calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 For other considerations, see [Cost
-Optimization](/azure/architecture/framework/cost/)
+Optimization](../../framework/cost/index.yml)
 in the Well-Architected Framework.
 
 Azure Machine Learning also deploys Container Registry, Azure Storage, and Azure
@@ -366,7 +366,7 @@ are used for training the model in the public cloud.
 concepts](/azure/machine-learning/concept-azure-machine-learning-architecture)
 
 [Azure IoT reference
-architecture](/azure/architecture/reference-architectures/iot)
+architecture](../iot.yml)
 
 ## Related resources
 

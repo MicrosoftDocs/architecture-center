@@ -105,6 +105,6 @@ Related full architectures:
 * [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 
 Related architecture guidance:
-* [Deploying multi-region APIs that write to Cosmos DB](/azure/architecture/patterns/geodes)
+* [Deploying multi-region APIs that write to Cosmos DB](../../patterns/geodes.md)
 * [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 * [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
