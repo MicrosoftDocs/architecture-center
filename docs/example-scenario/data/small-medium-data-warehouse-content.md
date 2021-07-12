@@ -45,7 +45,7 @@ Serverless analysis tools (5) are available in the Azure Synapse Analytics works
    - Early prototyping for data warehouse entities.
    - Defining views that consumers can use, for example in Power BI, for scenarios that can tolerate performance lag.
    
-   This method (2) is an easy way to mesh Dynamics data sources, or build centralized BI dashboards on augmented datasets. You can bring the fused, processed data back into Dynamics and Power BI for further analysis.
+   This method is an easy way to mesh Dynamics data sources (2), or build centralized BI dashboards on augmented datasets. You can bring the fused, processed data back into Dynamics and Power BI for further analysis.
 
 Azure Synapse is tightly integrated with potential consumers of your fused datasets, like Azure Machine Learning. Other consumers can include Power Apps,  Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
 
