@@ -1,4 +1,4 @@
-Small and medium businesses (SMBs) face a choice when modernizing their on-premises data warehouses for the cloud. They can adopt big data tools for future extensibility, or keep traditional, SQL-based solutions for cost efficiency, ease of maintenance, and smooth transition.
+Small and medium businesses (SMBs) face a choice when modernizing their on-premises data warehouses for the cloud. They can adopt big data tools for future extensibility, or keep traditional, SQL-based solutions for cost efficiency, ease of maintenance, and smooth transition. 
 
 However, a hybrid approach combines easy migration of the existing data estate with the opportunity to add big data tools and processes for some use cases. SQL-based data sources can keep running in the cloud and continue to modernize as appropriate.
 
@@ -24,6 +24,7 @@ This solution isn't recommended for:
 
 ![Diagram showing how legacy data can migrate and modernize with Azure Synapse, SQL Database, Data Lake Storage, and other services.](media/small-medium-data-warehouse/small-medium-data-warehouse.svg)
 
+To be updated now
 1. Legacy SMB data warehouses might contain several types of data:
    
    - Unstructured data, like documents and graphics
