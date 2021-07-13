@@ -1227,7 +1227,7 @@ items:
                     href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
                   - name: Choose a bare-metal Kubernetes option
                     href: operator-guides/aks/choose-bare-metal-kubernetes.yml
-         - name: Reference architectures
+          - name: Reference architectures
             items:
               - name: AKS baseline cluster
                 href: reference-architectures/containers/aks/secure-baseline-aks.yml
