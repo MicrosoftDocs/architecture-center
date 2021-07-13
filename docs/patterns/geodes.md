@@ -3,7 +3,8 @@ title: Geode pattern
 titleSuffix: Cloud Design Patterns
 description: Deploy backend services into a set of geographical nodes, each of which can service any client request in any region.
 author: willeastbury
-ms.date: 03/17/2020
+ms.author: lucashh
+ms.date: 06/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
