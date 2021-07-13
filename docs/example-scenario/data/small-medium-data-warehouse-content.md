@@ -24,7 +24,7 @@ This solution isn't recommended for:
 
 ![Diagram showing how legacy data can migrate and modernize with Azure Synapse, SQL Database, Data Lake Storage, and other services.](media/small-medium-data-warehouse/small-medium-data-warehouse.svg)
 
-- Legacy SMB data warehouses might contain several types of data:
+Legacy SMB data warehouses might contain several types of data:
    
    - Unstructured data, like documents and graphics
    - Semi-structured data, such as logs, CSVs, JSON, and XML files
@@ -49,7 +49,7 @@ This solution isn't recommended for:
    - Early prototyping for data warehouse entities.
    - Defining views that consumers can use, for example in Power BI, for scenarios that can tolerate performance lag.
 
-- Azure Synapse is tightly integrated with potential consumers of your fused datasets, like Azure Machine Learning. Other consumers can include Power Apps,  Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
+Azure Synapse is tightly integrated with potential consumers of your fused datasets, like Azure Machine Learning. Other consumers can include Power Apps,  Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
 
 ### Components
 
