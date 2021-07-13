@@ -24,12 +24,14 @@ This solution isn't recommended for:
 
 ![Diagram showing how legacy data can migrate and modernize with Azure Synapse, SQL Database, Data Lake Storage, and other services.](media/small-medium-data-warehouse/small-medium-data-warehouse.svg)
 
-- Legacy SMB data warehouses might contain several types of data:
+Legacy SMB data warehouses might contain several types of data:
    
    - Unstructured data, like documents and graphics
    - Semi-structured data, such as logs, CSVs, JSON, and XML files
    - Structured relational data, including databases that use stored procedures for extract-transform-load/extract-load-transform (ETL/ELT) activities
-   
+
+The following data flow demonstrates the ingestion of your chosen data type:
+
 1. Azure Synapse Analytics pipelines ingest the legacy data warehouses into Azure.
    
    - The pipelines orchestrate the flow of migrated or partially refactored legacy databases and SSIS packages into Azure SQL Database. This lift-and-shift approach is fastest to implement, and offers a smooth transition from an on-premises SQL solution to an eventual Azure platform-as-a-service (PaaS). You can modernize databases incrementally after the lift and shift.
@@ -49,7 +51,7 @@ This solution isn't recommended for:
    - Early prototyping for data warehouse entities.
    - Defining views that consumers can use, for example in Power BI, for scenarios that can tolerate performance lag.
 
-- Azure Synapse is tightly integrated with potential consumers of your fused datasets, like Azure Machine Learning. Other consumers can include Power Apps,  Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
+Azure Synapse is tightly integrated with potential consumers of your fused datasets, like Azure Machine Learning. Other consumers can include Power Apps,  Azure Logic Apps, Azure Functions apps, and Azure App Service web apps.
 
 ### Components
 
