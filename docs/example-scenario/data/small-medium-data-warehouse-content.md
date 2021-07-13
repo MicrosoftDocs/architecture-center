@@ -36,7 +36,7 @@ This solution isn't recommended for:
    
    - The pipelines can also pass unstructured, semi-structured, and structured data into Azure Data Lake Storage for centralized storage and analysis with other sources. Use this approach when fusing data provides more business benefit than simply replatforming the data.
    
-2. This method is an easy way to mesh Dynamics data sources, or build centralized BI dashboards on augmented datasets. You can bring the fused, processed data back into Dynamics and Power BI for further analysis.
+2. Microsoft Dynamics data sources can be used to build centralized BI dashboards on augmented datasets using Synapse Serverless analysis tools. You can bring the fused, processed data back into Dynamics and Power BI for further analysis. 
 
 3. Real-time data from streaming sources can also enter the system via Azure Event Hubs. For customers with real-time dashboard requirements, Azure Stream Analytics can analyze this data immediately. 
 
