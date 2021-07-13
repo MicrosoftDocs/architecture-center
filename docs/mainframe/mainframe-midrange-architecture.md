@@ -195,7 +195,6 @@ The white papers, blogs, webinars, and other resources are available to help you
 - [Carahsoft - Topics in Government Mainframe Transformation to Azure Gov Cloud](https://www.carahsoft.com/learn/event/27405-Topics-in-Government-Mainframe-Transformation-to-Azure-Gov-Cloud)
 - [Skytap on Azure Webinar](https://info.microsoft.com/ww-ondemand-migrate-traditional-workloads-with-skytap-on-azure.html)
 - [Bridge to Application Modernization: Virtualized SPARC/PA-RISK/DEC to Azure ](https://whitepapers.theregister.com/paper/view/11086/legacy-server-emulation-on-azure)
-- [Mainframe Modernization to Azure with Jonathon Frost and Jim Dugan](https://www.astadia.com/podcast/jonathan-frost-and-jim-dugan-principal-program-managers-at-microsoft)
 
 ### Blog posts
 
