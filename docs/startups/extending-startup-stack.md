@@ -12,10 +12,10 @@ ms.custom:
 
 # Extending the Startup Stack
 
-## Background Workers
+## Background Jobs
+
+- [Best Practices](/azure/architecture/best-practices/background-jobs)
 
 ## Machine Learning
 
 ## Analytics
-
-## Industry-Specific Extensions

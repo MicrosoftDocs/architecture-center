@@ -22,6 +22,8 @@ An _"interesting"_ stack can be problematic in two ways: as the cause of bugs an
 
 Below is a simple diagram of the Basic Startup Stack – a recommended set of components that provide _just enough_ to get your product off the ground and into the hands of your customers. For 80% of startups, this stack will be all you need to test the basic hypotheses built into your product. For some (for example those doing machine learning, working with IoT, or working in highly regulated environments), other components may be required. See Extending your architecture below for examples.
 
+_Block Diagram Goes Here_
+
 ## Components
 
 ### App Server
@@ -36,7 +38,7 @@ Once you have your code running somewhere, you need to store your data somewhere
 
 ### Continuous Integration/Continuous Deployment (CI/CD)
 
-One of the greatest impediments to speed as you’re iterating on a product can be repeatable and rapid deployments. A well-configured CI/CD pipeline mean that the process of taking code and getting it deployed on your app server is a non-event. This quick and easy deployment means that you can see the results of your labor quickly. Frequent integration avoids divergent code-bases, which often lead to conflicts when you eventually merge.
+One of the greatest impediments to speed when you’re iterating on a product can be a lack of repeatable and rapid deployments. A well-configured CI/CD pipeline means that the process of taking code and getting it deployed on your app server becomes a non-event. This quick and easy deployment means that you can see the results of your labor quickly. Frequent integration avoids divergent code-bases, which often lead to conflicts when you eventually merge.
 
 ### Monitoring
 
@@ -53,3 +55,32 @@ A content delivery network might seem like a premature optimization. With few cu
 A CDN will cache static content closer to your customers and provide a façade behind which you can iterate on your APIs and the rest of your architecture.
 
 ## Example
+
+An exciting startup, Contoso, is building a product that will revolutionize the way we think about widgets. Contoso's technical cofounder, Jane, has experience building micro-service driven applications for large enterprises. Contoso's application, while ambitious, doesn't yet need that architecture so they have opted for a more simple monolithic design.
+
+Jane has built an early prototype using a Python backend, with a React frontend written in Typescript. They've been running demos on their laptop but with the first customer sales meetings looming, it's time to deploy the app.
+
+Based on the Basic Startup Stack, and the technologies used by Contoso, Jane has decided on the following architecture:
+
+<span style="color: red;">_Insert Architecture Diagram_</span>
+
+### Technology Choices
+
+| Component         | Service                                                           |                                                                                                                                                                      |
+| ----------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **App Server**    | [Azure App Service](/azure/app-service/overview)                  | A simple way to deploy scalable applications without thinking about servers, load-balancers, or other infrastructure.                                                |
+| **Database**      | [Azure Database for PostgreSQL](/azure/postgresql/overview)       | Database as a Service for one of the leading open-source RDBMS solutions. Think about developing your application rather than managing database servers.             |
+| **Monitoring**    | [Azure Monitor](/azure/azure-monitor/overview)                    | Monitor and understand what is going on across all your application's infrastructure.                                                                                |
+| **CI/CD**         | [GitHub Actions](/learn/paths/automate-workflow-github-actions/)  | Continuous integration and deployment built into your source code management – extensive support for different languages and strong integrations for Azure services. |
+| **Static Assets** | [Azure Blob storage](/azure/storage/blobs/storage-blobs-overview) | A place to store static assets while moving load away from the application servers                                                                                   |
+| **CDN**           | [Azure CDN](/azure/cdn/cdn-overview)                              | Accelerate the delivery of content to your users using a global network.                                                                                             |
+
+These choices allow Jane to limit the time spent managing infrastructure while still providing ample ability to scale as their startup wins more customers.
+
+### Sample Code
+
+TODO: Link to project with bicep/ARM template
+
+## Next Steps
+
+- Learn about [extending the basic startup stack](extending-startup-stack.md)

@@ -12,9 +12,9 @@ ms.custom:
 
 # Architecture for Startups
 
-A startup is a unique business – its purpose is to take an unproven product and test it in market. To test your product idea, you take it and actively iterate on it until you reach a point of product/market fit. Once you achieve that fit, you then scale that product and the business to take full advantage of the market opportunity.
+Building a startup is a unique challenge. The core task is to take an innovation and find a place in the market for it as a product or service. This process requires testing multiple assumptions that are built into the innovation. A successful startup must iterate through these assumptions, and grow and scale as their product gains product/market fit. After finding this fit, the startup must scale to meet the demands of the market.
 
-This staged approach means that as a developer, architect, or CTO (maybe even all three at once) you're responsible for distinct phases of development. These stages require fundamentally different approaches, and as such – different technology choices. Part of your role is to establish which phase your startup is in, and to choose the technologies and architectures that match.
+The different stages in the life of a startup mean that as a developer, architect, or CTO (maybe even all three at once) you're responsible for distinct phases of development. These stages require fundamentally different approaches, and as such – different technology choices. Part of your role is to establish which phase your startup is in, and to choose the technologies and architectures that match.
 
 ## Stages of Innovation
 
@@ -26,7 +26,7 @@ Kent Beck describes a [three-stage process of innovation](https://medium.com/@ke
 
 When a startup is in the _Explore_ stage, your imperative is to invest small amounts of time and effort on many different product ideas. Exploration is driven by the fact that most ideas won’t be right. It's only by iterating and learning that you're likely to find product/market fit. By making many small bets, the aim is to find a product idea that pays off a thousand times over.
 
-This stage requires discipline. It's easy to over-invest in an idea that you could test in a way that requires a lot less time and energy. As a technologist, you'll find this to be especially true. Making the right architectural choices to make exploration easier requires you to remember that you're exploring. You don't yet know if the current product idea is the one that will scale.
+This stage requires discipline. It's easy to over-invest in an idea that you could test in a way that requires a lot less time and energy. As a technologist, you'll find it especially easy to fall into this trap. Making the right architectural choices to make exploration easier requires you to remember that you're exploring. You don't yet know if the current product idea is the one that will scale.
 
 ### Expand
 
@@ -46,7 +46,7 @@ Cost, speed, and optionality must be balanced – too much focus on cost will co
 
 ## Extending Your Architecture
 
-As you iterate on your product, you will inevitably find areas where your architecture needs to be extended. You may complete long-running tasks in the background, or handle high-frequency updates coming from IoT devices. You might need to add full-text search, or add machine intelligence to your product.
+As you iterate on your product, there will inevitably find areas where your architecture needs to be extended. You may complete long-running tasks in the background, or handle high-frequency updates coming from IoT devices. You might need to add full-text search, or add machine intelligence to your product.
 
 You might look at your roadmap and see the need for architectural changes to accommodate items on it. The temptation is to make those architectural changes too far ahead. If you build them too early, you risk adding complexity to your architecture and infrastructure spend to your balance sheet.
 
@@ -54,7 +54,11 @@ In the early stages of a startup, any extension of your architecture should be j
 
 ## Handling Growth and Maturing Your Stack
 
-TODO
+Once a product has achieved product/market fit, there will be many demands that direct its architecture. Increased usage may require the scaling of infrastructure to handle load. New compliance requirements from enterprise customers may require greater isolation. These changes are all common steps in maturing a successful application.
+
+Changes to handle growth and add maturity are distinct from extending your architecture. They respond less to functional requirements and are more about unlocking scale. This scale could be new customers with higher regulatory requirements, increased usage from existing customers, or net new customers.
+
+There is always a temptation to prematurely optimize. These growth and maturation steps should be taken in ways that help you continue iterating and improving your product.
 
 ## Next Steps
 
