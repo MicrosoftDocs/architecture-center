@@ -66,7 +66,7 @@ Based on the Basic Startup Stack, and the technologies used by Contoso, Jane has
 
 ### Technology Choices
 
-| Component         | Service                                                           |                                                                                                                                                                      |
+| Component         | Service                                                           | Notes                                                                                                                                                                |
 | ----------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **App Server**    | [Azure App Service](/azure/app-service/overview)                  | A simple way to deploy scalable applications without thinking about servers, load-balancers, or other infrastructure.                                                |
 | **Database**      | [Azure Database for PostgreSQL](/azure/postgresql/overview)       | Database as a Service for one of the leading open-source RDBMS solutions. Think about developing your application rather than managing database servers.             |
