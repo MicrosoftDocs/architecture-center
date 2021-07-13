@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 07/06/2021
+ms.date: 07/12/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,8 +27,23 @@ New and updated articles in Azure Architecture Center
 
 ### New Articles
 
+- [Modern data warehouse for small and medium business](./example-scenario/data/small-medium-data-warehouse.yml)
+- [Secure development with single-page apps](./guide/resilience/azure-ad-secure-single-page-application.md)
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Data protection](./reference-architectures/containers/aks-pci/aks-pci-data.yml)
+- [AKS baseline cluster for a PCI-DSS 3.2.1 workload - Access controls](./reference-architectures/containers/aks-pci/aks-pci-identity.yml)
+- [AKS regulated cluster for PCI-DSS 3.2.1](./reference-architectures/containers/aks-pci/aks-pci-intro.yml)
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Vulnerability management](./reference-architectures/containers/aks-pci/aks-pci-malware.yml)
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Monitoring operations](./reference-architectures/containers/aks-pci/aks-pci-monitor.yml)
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Network segmentation](./reference-architectures/containers/aks-pci/aks-pci-network.yml)
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Policy management](./reference-architectures/containers/aks-pci/aks-pci-policy.yml)
+- [AKS regulated cluster for PCI-DSS 3.2.1](./reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml)
+- [AKS regulated cluster for PCI-DSS 3.2.1 - Summary](./reference-architectures/containers/aks-pci/aks-pci-summary.yml)
 - [Precision medicine pipeline with genomics](./example-scenario/precision-medicine/genomic-analysis-reporting.yml)
 
+### Updated Articles
+
+- [AWS to Azure services comparison](./aws-professional/services.md)  ([#03b256c32](https://github.com/MicrosoftDocs/architecture-center/commit/03b256c32))
+- [Globally distributed applications using Cosmos DB](./solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)  ([#03b256c32](https://github.com/MicrosoftDocs/architecture-center/commit/03b256c32))
 
 ## June 2021
 
@@ -62,7 +77,7 @@ New and updated articles in Azure Architecture Center
 - [Deploy models in production - Team Data Science Process](./data-science-process/deploy-models-in-production.md)
 - [Set up data science environments in Azure - Team Data Science Process](./data-science-process/environment-setup.md)
 - [Execute data science tasks - Team Data Science Process](./data-science-process/execute-data-science-tasks.md)
-- [Explore data in Azure Blob Storage with pandas - Team Data Science Process](./data-science-process/explore-data-blob.md)
+- [Explore data in Azure Blob storage with pandas - Team Data Science Process](./data-science-process/explore-data-blob.md)
 - [Explore data in Hive tables with Hive queries - Team Data Science Process](./data-science-process/explore-data-hive-tables.md)
 - [Explore data in SQL Server virtual machine - Team Data Science Process](./data-science-process/explore-data-sql-server.md)
 - [Explore data in the Team Data Science Process](./data-science-process/explore-data.md)
@@ -96,7 +111,7 @@ New and updated articles in Azure Architecture Center
 - [Tasks for the project lead in the Team Data Science Process](./data-science-process/project-lead-tasks.md)
 - [Access datasets with Python client library - Team Data Science Process](./data-science-process/python-data-access.md)
 - [Team Data Science Process roles and tasks](./data-science-process/roles-tasks.md)
-- [Sample data in Azure Blob Storage - Team Data Science Process](./data-science-process/sample-data-blob.md)
+- [Sample data in Azure Blob storage - Team Data Science Process](./data-science-process/sample-data-blob.md)
 - [Sample data in Azure HDInsight Hive tables - Team Data Science Process](./data-science-process/sample-data-hive.md)
 - [Sample Data in SQL Server on Azure - Team Data Science Process](./data-science-process/sample-data-sql-server.md)
 - [Sample data in different Azure Storage locations - Team Data Science Process](./data-science-process/sample-data.md)
@@ -281,5 +296,4 @@ New and updated articles in Azure Architecture Center
 - [Microservices with AKS](./solution-ideas/articles/microservices-with-aks.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Oil and Gas Tank Level Forecasting](./solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Secure DevOps for AKS](./solution-ideas/articles/secure-devops-for-kubernetes.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
-- [Multi-cloud security and identity with Azure and AWS](./aws-professional/security-identity.md)  ([#12a7e1c7c](https://github.com/MicrosoftDocs/architecture-center/commit/12a7e1c7c))
 
