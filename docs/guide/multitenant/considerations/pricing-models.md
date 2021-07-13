@@ -229,7 +229,7 @@ Some situations, where rate limiting is often used, include the following:
 - Actions that incur a high cost to execute.
 - Report generation.
 
-Implementing rate limiting cam increase the solution complexity, but services like Azure API Management can make this simpler by applying [rate limit policies](/azure/api-management/api-management-access-restriction-policies).
+Implementing rate limiting can increase the solution complexity, but services like Azure API Management can make this simpler by applying [rate limit policies](/azure/api-management/api-management-access-restriction-policies).
 
 ## Pricing model lifecycle
 
