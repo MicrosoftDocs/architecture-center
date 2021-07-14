@@ -146,8 +146,8 @@ For more information, see [Azure Front Door](/azure/frontdoor/).
 Similar to the AKS Baseline Reference Architecture, this architecture uses a hub-spoke network topology. In addition to the considerations specified in the [AKS Baseline Reference Arcitecture](azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#network-topology), consider the following:
 
 - Implement a hub and spoke for each regional AKS instance, where the hub and spoke virtual networks are peered.
+- Route all outbound traffic through an Azure Firewall instance found in each regional hub network. Utilize Azure Firewall Manager policies to manage firewall policies across all regions.
 - Follow the IP sizing found in the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#plan-the-ip-addresses) plus allow for additional IP addresses for both node and pod scale operations in the event of a regional failure.
-- Route all outbound traffic through an Azure Firewall instance found in each regional hub network.
 
 ### Traffic management
 
