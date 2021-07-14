@@ -14,6 +14,7 @@ Many components and Azure services are used in the multi-region AKS reference ar
 - **Azure Front Door** Azure Front door is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer seven global routing, both of which are required for this reference architecture.
 - **Key store** Azure Key Vault is provisioned in each region for storing sensitive values and keys.
 - **Container registry** The container images for the workload are stored in a managed container registry.  In this architecture, a single Azure Container Registry is used for all Kubernetes instances in the cluster. Geo-replication for Azure Container Registry enables replicating images to the selected Azure regions and providing continued access to images even if a region is experiencing an outage.
+- **Hub and Spoke network per region** A hub and spoke network pair are deployed for each AKS instance.
 
 ## Design patterns
 
@@ -136,6 +137,14 @@ For more information, see [AKS and Azure Availability Zones](/azure/aks/availabi
 In a complete regional failure, Azure Front Door will route traffic to the remaining and healthy regions. Again, take care in this situation to compensate for increased traffic / requests to the remaining cluster.
 
 For more information, see [Azure Front Door](/azure/frontdoor/).
+
+### Network topology
+
+Similar to the AKS Baseline Reference Architecture, this architecture uses a hub-spoke network topology. In addition to the considerations specified in the [AKS Baseline Reference Arcitecture](azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#network-topology), consider the following:
+
+- Implement a hub and spoke for each regional AKS instance, where the hub and spoke virtual networks are peered.
+- Follow the IP sizing found in the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#plan-the-ip-addresses) plus allow for additional IP addresses for both node and pod scale operations in the event of a regional failure.
+- Route all outbound traffic through an Azure Firewall instance found in each regional hub network.
 
 ### Traffic management
 
