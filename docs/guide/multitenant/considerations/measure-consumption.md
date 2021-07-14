@@ -24,8 +24,8 @@ As a solution provider, it's important to measure the consumption of each tenant
 
 There are two primary concerns driving the need for measuring each tenant's consumption:
 
-1. You need to measure the actual cost to serve each tenant. This is important to monitor the profitability of the solution for each tenant.
-2. You need to determine the amount to charge the tenant, when you're using [consumption-based pricing](./pricing-models.md#consumption-based-pricing).
+- You need to measure the actual cost to serve each tenant. This is important to monitor the profitability of the solution for each tenant.
+- You need to determine the amount to charge the tenant, when you're using [consumption-based pricing](./pricing-models.md#consumption-based-pricing).
 
 However, it can be difficult to measure the actual resources used by a tenant in a multitenant solution. Most services that can be used as part of a multitenant solution don't automatically differentiate or break down usage, based on whatever you define a tenant to be. For example, consider a service that stores data for all of your tenants in a single relational database. It's difficult to determine exactly how much space each tenant uses of that relational database, either in terms of storage or of the compute capacity that's required to service any queries and requests.
 
