@@ -221,7 +221,7 @@ When managing multiple clusters, you will need to decide on an access schema. Op
 
 With the included reference implementation, two AAD groups are created for admin access. These groups are specified at cluster stamp deployment time using the deployment parameter file. Members of each group have full access to the corresponding cluster stamp.
 
-For more information on managing AKS cluster access with Azure Active Directory, see [AKS Azure AD Integration](/azure/aks/azure-ad-integration-cli).
+For more information on managing AKS cluster access with Azure Active Directory, see [AKS Azure AD Integration](/azure/aks/azure-ad-rbac).
 
 ### Data, state, and cache
 
