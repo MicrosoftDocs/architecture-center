@@ -191,10 +191,6 @@ When considering monitoring for a cross-region implementation such as this refer
 
 Now that each regional cluster is omitting diagnostic logs to a single Log Analytics workspace, this data, along with resource metrics, can be used to more easily build reports and dashboards that represent the entirety of the global cluster.
 
-_Example chart showing inbound traffic across all regions. Note, no reports are included with the reference implementation, you will need to create your own._
-
-[![A chart that shows consistent traffic across two regions, except one spot where traffic stopped flowing to a region, but then resumed.](./images/monitor.png)](./images/monitor.png#lightbox)
-
 #### Azure Front Door
 
 Azure Front door is used to load balance and route traffic to each AKS cluster. Azure Front Door allows for layer seven global routing, both of which are required for this reference architecture.
