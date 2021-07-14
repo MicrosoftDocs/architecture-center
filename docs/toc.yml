@@ -2137,10 +2137,12 @@ items:
             items:
               - name: Add IP spaces to peered virtual networks
                 href: networking/prefixes/add-ip-space-peered-vnet.md
-              - name: Azure Application Gateway guide
+              - name: Azure Application Gateway WAF guide
                 href: networking/guide/waf-application-gateway.md
-              - name: Azure Firewall architecture guide
+              - name: Azure Firewall architecture overview
                 href: example-scenario/firewalls/index.yml
+              - name: Azure Firewall WAF guide
+                href: networking/guide/well-architected-framework-azure-firewall.md
               - name: Virtual network peering and VPN gateways
                 href: reference-architectures/hybrid-networking/vnet-peering.yml
           - name: Architectures
