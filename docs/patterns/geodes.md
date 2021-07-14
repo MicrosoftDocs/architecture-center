@@ -3,7 +3,8 @@ title: Geode pattern
 titleSuffix: Cloud Design Patterns
 description: Deploy backend services into a set of geographical nodes, each of which can service any client request in any region.
 author: willeastbury
-ms.date: 03/17/2020
+ms.author: lucashh
+ms.date: 06/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -92,5 +93,5 @@ This pattern might not be suitable for
 
 - Windows Active Directory implements an early variant of this pattern. Multi-primary replication means all updates and requests can in theory be served from all serviceable nodes, but FSMO roles mean that all geodes aren't equal.
 - A [geode-pattern-accelerator](https://github.com/lucashuet93/geode-pattern-accelerator) application on GitHub showcases this design pattern in practice and is designed to help developers implement it with real-world APIs.
-- The [globally distributed applications using Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db) article examines a geographical based deployment that utilizes Traffic Manager for load balancing and Azure App Service to host the API code.
+- The [globally distributed applications using Cosmos DB](../solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml) article examines a geographical based deployment that utilizes Traffic Manager for load balancing and Azure App Service to host the API code.
 - A [QnA sample application](https://github.com/xstof/qnademo) on GitHub showcases this design pattern in practice.

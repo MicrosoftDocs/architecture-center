@@ -1,6 +1,3 @@
-
-
-
 This article covers the patterns and implementations the commercial software engineer (CSE) team used when they created the [Banking system cloud transformation on Azure](banking-system-cloud-transformation.yml).
 
 ## Saga pattern
@@ -90,5 +87,5 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-* [Saga distributed transactions](/azure/architecture/reference-architectures/saga/saga)
-* [Gridwich saga orchestration](/azure/architecture/reference-architectures/media-services/gridwich-saga-orchestration)
+* [Saga distributed transactions](../../reference-architectures/saga/saga.yml)
+* [Gridwich saga orchestration](../../reference-architectures/media-services/gridwich-saga-orchestration.yml)

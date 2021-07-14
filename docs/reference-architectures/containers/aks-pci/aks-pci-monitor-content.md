@@ -4,7 +4,7 @@ This article describes the considerations for an Azure Kubernetes Service (AKS) 
 
 > [!IMPORTANT]
 >
-> The guidance  and the accompanying implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). That architecture based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload. 
+> The guidance  and the accompanying implementation builds on the [AKS baseline architecture](../aks/secure-baseline-aks.yml). That architecture based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload. 
 >
 > ![GitHub logo](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates a regulated environment.  The implementation illustrates the use of audit trails through various Azure Monitor features. It has examples of network test points within the cluster and resources that interact with the cluster subnet.
 
@@ -74,7 +74,7 @@ We recommend that you use these ways to track operations performed on each compo
 
 - Activity Log. This log provides information about the type and time of Azure resource operations. It also logs the identity that started the operation. It's enabled by default, and the information is collected as soon as the resource operation is done. This audit trail is write-only and cannot be deleted. 
 
-  Data is retained for 90 days. For longer retention options, consider [sending Activity Log entries to Azure Storage](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#send-to--azure-storage).
+  Data is retained for 90 days. For longer retention options, consider [sending Activity Log entries to Azure Storage](/azure/azure-monitor/essentials/activity-log#send-to--azure-storage).
 
     ![Screenshot that shows the Azure Activity Log.](images/activity-log.png)
 
@@ -288,7 +288,7 @@ Have a clear and agreed-upon definition of significant changes with respect to y
 
 **APPLIES TO 11.2.1**
 
-The quarterly scan for vulnerabilities must be run by skilled personnel with deep understanding of Azure networking and Kubernetes networking concepts. Map the results to [Requirement 6.1](/aks-pci-malware#requirement-61) with severity levels and resolve high-priority items. If there are significant changes, run the scans before the scheduled quarterly scan. This will help you detect new vulnerabilities so that you can proactively fix issues.
+The quarterly scan for vulnerabilities must be run by skilled personnel with deep understanding of Azure networking and Kubernetes networking concepts. Map the results to [Requirement 6.1](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-malware#requirement-61) with severity levels and resolve high-priority items. If there are significant changes, run the scans before the scheduled quarterly scan. This will help you detect new vulnerabilities so that you can proactively fix issues.
 
 This scan must also include in-cluster (pod-to-pod) networks.
 

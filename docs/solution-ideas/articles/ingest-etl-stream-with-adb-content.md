@@ -28,7 +28,7 @@ This solution is inspired by the system that [Providence Health Care](https://cu
 1. Data is ingested in the following ways:
 
     - Event queues like Event Hubs, IoT Hub, or Kafka send streaming data to Azure Databricks, which uses the optimized Delta Engine to read the data.
-    - Scheduled or triggered Data Factory pipelines copy data from different data sources in raw formats. The [Auto Loader in Azure Databricks](https://docs.microsoft.com/azure/databricks/spark/latest/structured-streaming/auto-loader) processes the data as it arrives.
+    - Scheduled or triggered Data Factory pipelines copy data from different data sources in raw formats. The [Auto Loader in Azure Databricks](/azure/databricks/spark/latest/structured-streaming/auto-loader) processes the data as it arrives.
 
 2. Azure Databricks loads the data into optimized, compressed Delta Lake tables or folders in the Bronze layer in Data Lake Storage.
 3. Streaming, scheduled, or triggered Azure Databricks jobs read new transactions from the Data Lake Storage Bronze layer. The jobs join, clean, transform, and aggregate the data before using ACID transactions to load it into curated data sets in the Data Lake Storage Silver and Gold layers.
@@ -53,7 +53,7 @@ With the medallion pattern, consisting of Bronze, Silver, and Gold storage layer
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs/) parses and scores streaming messages from various sources, including on-premises systems, and provides real-time information.
 - [Data Factory](https://azure.microsoft.com/services/data-factory/) orchestrates data pipelines for ingestion, preparation, and transformation of all your data at any scale.
 - [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) brings together streaming and batch data, including structured, unstructured, and semi-structured data like logs, files, and media.
-- [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) cleans and transforms the structureless data sets and combines them with structured data from operational databases or data warehouses.
+- [Azure Databricks](/azure/azure-databricks/) cleans and transforms the structureless data sets and combines them with structured data from operational databases or data warehouses.
 - [IoT Hub](https://azure.microsoft.com/services/iot-hub/) gives you highly secure and reliable communication between your IoT application and devices.
 - [Delta Lake](https://delta.io/) on Data Lake Storage supports ACID transactions for reliability and is optimized for efficient ingestion, processing, and queries.
 
@@ -66,6 +66,6 @@ With the medallion pattern, consisting of Bronze, Silver, and Gold storage layer
 
 Guides and fully deployable architectures:
 
-- [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-- [Stream processing with Azure Databricks](/azure/architecture/reference-architectures/data/stream-processing-databricks)
-- [Automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf)
+- [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+- [Stream processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)
+- [Automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml)

@@ -14,7 +14,7 @@ That network architecture is based on a hub-spoke topology. The hub virtual netw
 
 > [!IMPORTANT]
 >
-> The architecture and the implementation builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks). To get the most out of this article, familiarize yourself with the baseline components. In this section, we'll highlight the differences between the two architectures.
+> The architecture and the implementation builds on the [AKS baseline architecture](../aks/secure-baseline-aks.yml). To get the most out of this article, familiarize yourself with the baseline components. In this section, we'll highlight the differences between the two architectures.
 
 ## Components
 
@@ -132,7 +132,7 @@ The ingress controller in this implementation uses a wildcard certificate to han
 
 > [!IMPORTANT]
 >
-> Any component that decrypts card holder data is considered to be in scope for PCI-DSS 3.2.1, and is subject the same level of scrutiny as the other components in the cardholder data environment. In this architecture, Azure Application Gateway is in scope because it inspects the payload as part of its WAF functionality. An alternate architecture option is to use Azure Firewall Premium as the ingress component, instead of WAF, to take advantage of Azure Firewall's signature-based IDPS capabilities. This will allow the first TLS termination to be in the cluster. However, without a dedicated WAF, you must use additional compensating controls to satisfy [Requirement 6.6](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-malware#requirement-66).
+> Any component that decrypts card holder data is considered to be in scope for PCI-DSS 3.2.1, and is subject the same level of scrutiny as the other components in the cardholder data environment. In this architecture, Azure Application Gateway is in scope because it inspects the payload as part of its WAF functionality. An alternate architecture option is to use Azure Firewall Premium as the ingress component, instead of WAF, to take advantage of Azure Firewall's signature-based IDPS capabilities. This will allow the first TLS termination to be in the cluster. However, without a dedicated WAF, you must use additional compensating controls to satisfy [Requirement 6.6](./aks-pci-malware.yml#requirement-66).
 
 ### Azure Key Vault network restrictions
 
@@ -147,7 +147,7 @@ Azure Application Gateway doesn't support sourcing TLS certificates for the HTTP
 ### DDoS protection
 
 
-Enable [Azure DDoS Protection Standard](https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection) for virtual networks with a subnet that contains Application Gateway with a public IP. Doing so protects the infrastructure and workload from mass fraudulent requests. Such requests can cause service disruption or mask another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workload.
+Enable [Azure DDoS Protection Standard](/azure/ddos-protection/manage-ddos-protection) for virtual networks with a subnet that contains Application Gateway with a public IP. Doing so protects the infrastructure and workload from mass fraudulent requests. Such requests can cause service disruption or mask another concurrent attack. Azure DDoS comes at a significant cost, and is typically amortized across many workloads that span many IP addresses. Work with your networking team to coordinate coverage for your workload.
 
 
 ## Identity access management
@@ -200,7 +200,7 @@ Use distribution-less base images for your workloads. With these images, the sec
 
 Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md). This, coupled with an admission controller that supports validating signatures, can ensure that you're only running images that you've signed with your private keys. There are open-source solutions such as SSE Connaisseur or IBM Portieris that integrate those processes. 
 
-Protect container images and other OCI artifacts because they contain the organization's intellectual property. Use customer-managed keys and encrypt the contents of your registries. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys are sometimes required to meet regulatory compliance standards. Store the key in a managed key store such as Azure Key Vault. Because you create and own the key, you are responsible for operations related to key lifecycle, including rotation and management. For more information, see [Encrypt registry using a customer-managed key](https://aka.ms/acr/CMK).
+Protect container images and other OCI artifacts because they contain the organization's intellectual property. Use customer-managed keys and encrypt the contents of your registries. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys are sometimes required to meet regulatory compliance standards. Store the key in a managed key store such as Azure Key Vault. Because you create and own the key, you are responsible for operations related to key lifecycle, including rotation and management. For more information, see [Encrypt registry using a customer-managed key](/azure/container-registry/container-registry-customer-managed-keys).
 
 ## Kubernetes API Server operational access
 

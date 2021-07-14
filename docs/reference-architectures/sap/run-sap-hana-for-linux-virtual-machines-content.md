@@ -120,7 +120,7 @@ Azure NetApp Files supports snapshots for fast backup, recovery, and local repli
 
 ### Azure Site Recovery
 
-You can use [Azure Site Recovery](/azure/site-recovery/site-recovery-sap) to automatically replicate your production configuration in a secondary location. Then, to extend your recovery plans, you can use customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). An example of the custom Site Recovery Automation Runbooks script is available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery).
+You can use [Azure Site Recovery](/azure/site-recovery/site-recovery-sap) to automatically replicate your production configuration in a secondary location. Then, to extend your recovery plans, you can use customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). An example of the custom Site Recovery Automation Runbooks script is available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/asr-automation-recovery).
 
 > [!NOTE]
 > As of this writing, Site Recovery does not support the replication of virtual machines in proximity placement groups. Make sure to verify your target region’s [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity). Like all Azure services, Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
@@ -209,9 +209,9 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
-- [Run SAP BW/4HANA with Linux virtual machines on Azure](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)
-- [Run SAP HANA on Azure (large instances)](/azure/architecture/reference-architectures/sap/hana-large-instances)
-- [SAP S/4HANA in Linux on Azure](/azure/architecture/reference-architectures/sap/sap-s4hana)
-- [SAP S/4 HANA for large instances](/azure/architecture/solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr)
-- [SAP on Azure Architecture Guide](/azure/architecture/reference-architectures/sap/sap-overview)
+- [Run a Linux VM on Azure](../n-tier/linux-vm.yml)
+- [Run SAP BW/4HANA with Linux virtual machines on Azure](./run-sap-bw4hana-with-linux-virtual-machines.yml)
+- [Run SAP HANA on Azure (large instances)](./hana-large-instances.yml)
+- [SAP S/4HANA in Linux on Azure](./sap-s4hana.yml)
+- [SAP S/4 HANA for large instances](../../solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml)
+- [SAP on Azure Architecture Guide](./sap-overview.yml)

@@ -26,10 +26,10 @@ A popular use case for implementing an end-to-end event stream processing patter
 - [KEDA](https://keda.sh/) is an event-driven autoscaler used to scale containers in the Kubernetes cluster based on the number of events needing to be processed.
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs/) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
 - [Azure Functions](https://azure.microsoft.com/services/functions/) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Cosmos DB SQL API](https://docs.microsoft.com/azure/cosmos-db/introduction).
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Cosmos DB SQL API](/azure/cosmos-db/introduction).
 
 > [!NOTE]
-> For Internet of Thing (IoT) scenarios, we recommend [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). IoT Hub has a built-in endpoint that's compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the back-end processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs](https://docs.microsoft.com/azure/iot-hub/iot-hub-compare-event-hubs).
+> For Internet of Thing (IoT) scenarios, we recommend [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). IoT Hub has a built-in endpoint that's compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the back-end processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs).
 
 ## Next steps
 
@@ -40,9 +40,9 @@ A popular use case for implementing an end-to-end event stream processing patter
 
 ## Related resources
 
-- [Introduction to Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [Azure Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/)
-- [Introduction to Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
-- [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/)
-- [Overview of Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
-- [Choose an API in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/choose-api)
+- [Introduction to Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Event Hubs documentation](/azure/event-hubs/)
+- [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [Azure Functions documentation](/azure/azure-functions/)
+- [Overview of Azure Cosmos DB](/azure/cosmos-db/introduction)
+- [Choose an API in Azure Cosmos DB](/azure/cosmos-db/choose-api)

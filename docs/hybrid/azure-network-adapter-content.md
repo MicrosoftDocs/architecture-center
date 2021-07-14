@@ -1,6 +1,3 @@
-
-
-
 This reference architecture shows how to connect an on-premises standalone server to Microsoft Azure virtual networks by using the Azure Network Adapter that you deploy through Windows Admin Center (WAC). Azure Network Adapter creates a secured virtual connection over the internet, which extends your on-premises network into Azure.
 
 ![Use Azure VPN to connect a standalone server to an Azure virtual network by deploying an Azure Network Adapter using Windows Admin Center. You then can manage the Azure virtual machines (VMs) from the standalone server by using the VMs private IP address.][architectual-diagram]
@@ -155,10 +152,10 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Manage hybrid Azure workloads using Windows Admin Center](/azure/architecture/hybrid/hybrid-server-os-mgmt)
-- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
-- [Extend an on-premises network using VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn)
-- [Design a hybrid Domain Name System solution with Azure](/azure/architecture/hybrid/hybrid-dns-infra)
+- [Manage hybrid Azure workloads using Windows Admin Center](./hybrid-server-os-mgmt.yml)
+- [Hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
+- [Design a hybrid Domain Name System solution with Azure](./hybrid-dns-infra.yml)
 
 [architectual-diagram]: ./images/azure-network-adapter.png
 [architectual-diagram-large]: ./images/azure-network-adapter-large.png

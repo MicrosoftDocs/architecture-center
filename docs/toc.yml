@@ -169,6 +169,18 @@ items:
         items:
           - name: Considerations
             items:
+              - name: Overview
+                href: guide/multitenant/considerations/overview.md
+              - name: Tenancy models
+                href: guide/multitenant/considerations/tenancy-models.md
+              - name: Tenant lifecycle
+                href: guide/multitenant/considerations/tenant-lifecycle.md
+              - name: Pricing models
+                href: guide/multitenant/considerations/pricing-models.md
+              - name: Measure consumption
+                href: guide/multitenant/considerations/measure-consumption.md
+              - name: Deploy updates
+                href: guide/multitenant/considerations/updates.md
               - name: Map requests to tenants
                 href: guide/multitenant/considerations/map-requests.md
               - name: Domain names
@@ -1079,6 +1091,8 @@ items:
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Azure analytics end to end
                 href: example-scenario/dataplate2e/data-platform-end-to-end.yml
+              - name: Data warehouse for small and medium business
+                href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Data warehousing and analytics
                 href: example-scenario/data/data-warehouse.yml
               - name: Geospatial data processing and analytics
@@ -1760,6 +1774,8 @@ items:
                     href: multitenant-identity/adfs.md
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
+              - name: Secure development with single-page applications (SPAs)
+                href: guide/resilience/azure-ad-secure-single-page-application.md
           - name: Architectures
             items:
               - name: AD DS resource forests in Azure

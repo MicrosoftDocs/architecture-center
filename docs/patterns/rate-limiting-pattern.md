@@ -21,7 +21,7 @@ categories:
 # Rate Limiting pattern
 
 Many services use a [throttling
-pattern](/azure/architecture/patterns/throttling) to
+pattern](./throttling.md) to
 control the resources they consume, imposing limits on the rate at which other
 applications or services can access them. You can use a rate limiting pattern to
 help you avoid or minimize throttling errors related to these throttling limits
@@ -29,7 +29,7 @@ and to help you more accurately predict throughput.
 
 A rate limiting pattern is appropriate in many scenarios, but it is particularly
 helpful for large-scale repetitive automated tasks such as [batch
-processing](/azure/architecture/data-guide/big-data/batch-processing).
+processing](../data-guide/big-data/batch-processing.md).
 
 ## Context and problem
 
@@ -298,21 +298,21 @@ After 15 seconds, one or both jobs still will not be completed. As the leases
 expire, a processor should also reduce the number of requests it dequeues and
 writes.
 
- ## Related patterns and guidance
+ ## Related guidance
 
 The following patterns and guidance might also be relevant when implementing
 this pattern:
 
--   [Throttling](/azure/architecture/patterns/throttling).
+-   [Throttling](./throttling.md).
     The rate limiting pattern discussed here is typically implemented in
     response to a service that is throttled.
 
--   [Retry](/azure/architecture/patterns/retry).
+-   [Retry](./retry.md).
     When requests to throttled service result in throttling errors, it’s
     generally appropriate to retry those after an appropriate interval.
 
 [Queue-Based Load
-Leveling](/azure/architecture/patterns/queue-based-load-leveling) is
+Leveling](./queue-based-load-leveling.md) is
 similar but differs from the Rate Limiting pattern in several key ways: 
 
 1.  Rate Limiting doesn’t necessarily need to use queues to manage load, but it
