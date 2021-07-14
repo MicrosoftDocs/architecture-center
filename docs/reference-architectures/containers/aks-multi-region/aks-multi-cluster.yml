@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: AKS Baseline for Multi-Region Clusters
+  title: AKS baseline for multiregion clusters
   description: Run Azure Kubernetes Service (AKS) cluster in multiple regions to achieve high availability.
-  author: PageWriter-MSFT
+  author: neilpeterson
   ms.date: 02/02/2021
   ms.topic: conceptual
   ms.service: architecture-center
@@ -12,10 +12,9 @@ metadata:
     - aks
   ms.subservice: reference-architecture
   ms.custom:
-    - seojul20
     - containers
     - reference-architecture
-name: AKS Baseline for Multi-Region Clusters
+name: AKS baseline for multiregion clusters
 azureCategories:
   - containers
 summary: Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster to multiple regions.
@@ -25,8 +24,6 @@ products:
   - azure-application-gateway
   - azure-container-registry
   - azure-firewall
-  - azure-key-vault
-
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-ha.png
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-multi-cluster.png
 content: |
    [!include[](aks-multi-cluster-content.md)]
