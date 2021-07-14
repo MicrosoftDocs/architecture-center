@@ -205,7 +205,7 @@ As regional AKS instances are added, the Application Gateway deployed alongside 
 
 ##### Certificates
 
-Front Door does not support self-signed certificates even in Dev/Test environments. To enable HTTPS traffic, you need to create your TLS/SSL certificate signed by a certificate authority (CA). This architecture uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. When planning for a production cluster, use your organization's preferred method for procuring TLS certificates.
+Front Door does not support self-signed certificates even in Dev/Test environments. To enable HTTPS traffic, you need to create your TLS/SSL certificate signed by a certificate authority (CA). The reference implementation uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. When planning for a production cluster, use your organization's preferred method for procuring TLS certificates.
 
 For information about other CAs supported by Front Door, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](/azure/frontdoor/front-door-faq#does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection-).
 
