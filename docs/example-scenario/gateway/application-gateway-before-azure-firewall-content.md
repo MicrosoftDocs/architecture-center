@@ -2,11 +2,35 @@ Application security should be tackled in a multi-layered approach. One of those
 
 Different network appliances typically specialize in different aspects of the network packet: while Web Application Firewalls are looking for patterns that would indicate an attack at the web application layer, next-generation firewalls usually focus on more generic threats, not restricted to web applications. In some situations you may want to combine multiple types of network security appliances for maximum protection. When combining two or more network appliances there are different patterns that can be used. Some of these patterns are explored in [Firewall and Application Gateway for virtual networks][appgw_azfw]. This document will double down on one of the most common approaches for maximum security, the one where Azure Application Gateway is deployed before Azure Firewall:
 
-![Overall diagram](./images/appgwB4azfw_flow.png)
+![Overall diagram](./images/application-gateway-before-azure-firewall-architecture.png)
 
-In this design, traffic is encrypted with SSL at all times. The packets sent from the client encrypted with SSL will arrive first at the Azure Application Gateway with Web Firewall functionality enabled. It will decrypt the packets and inspect them searching for web application threats. Should the session be allowed, it will be encrypted again and sent over the Azure Firewall. The Azure Firewall will decrypt traffic ([TLS inspection][azfw_tls]), and validate that the packet is legitimate with its [Intrusion detection and protection][azfw_idps] features. It will finally forward the packets to their final destination in the Virtual Network (in the diagram represented as a Virtual Machine).
+This architecture uses SSL to encrypt traffic at every step.
 
-This design allows to have multiple inspection engines making sure that the traffic is legitimate: the Web Application Firewall will prevent attacks at the web layer described by the [OWASP Core Rule Set][appgw_crs], such as SQL code injection or cross-site scripting, and the Azure Firewall will apply its more generic intrusion detection and prevention rules, for example to detect malicious files uploaded to the web application.
+1. A client connects to the public IP address of Azure Application Gateway, which has (the) Web Firewall (feature) turned on.
+
+1. Application Gateway decrypts the client packets and searches for web-application threats. If Application Gateway doesn't find any threats, it takes these steps:
+
+   - Connects with one of the back end servers
+   - Encrypts the packets
+   - Forwards the client request to Azure Firewall
+
+1. Azure Firewall runs security checks:
+
+   - [TLS inspection][azfw_tls] decrypts and examines the traffic.
+   - [Intrusion detection and protection][azfw_idps] features check the packets for malicious intent.
+
+   If the packets pass the tests, Azure Firewall encrypts the packets and forwards them to the application VM.
+
+1. The VM answers the request by sending a packet to Application Gateway. The Application Gateway subnet redirects the packet to Azure Firewall.
+
+1. Azure Firewall forwards the traffic to Application Gateway.
+
+1. Application Gateway answers the client.
+
+Multiple inspection engines in this architecture ensure traffic integrity:
+
+- Web Application Firewall uses rules to prevent attacks at the web layer. Examples of attacks include SQL code injection and cross-site scripting. For more information on rules and the Open Web Application Security Project (OWASP) Core Rule Set, see [Web Application Firewall CRS rule groups and rules][appgw_crs].
+- Azure Firewall uses generic intrusion detection and prevention rules. Among other threats, these rules help identify malicious files that attack web applications.
 
 ## Azure Firewall Premium and name resolution
 
