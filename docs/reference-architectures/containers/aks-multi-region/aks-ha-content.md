@@ -193,7 +193,7 @@ Now that each regional cluster is omitting diagnostic logs to a single Log Analy
 
 _Example chart showing inbound traffic across all regions. Note, no reports are included with the reference implementation, you will need to create your own._
 
-![](./images/monitor.png)
+![A chart that shows consistent traffic across two regions, except one spot where traffic stopped flowing to a region, but then resumed.](./images/monitor.png)
 
 #### Azure Front Door
 
