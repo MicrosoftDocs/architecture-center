@@ -191,7 +191,7 @@ When considering monitoring for a cross-region implementation such as this refer
 
 Now that each regional cluster is omitting diagnostic logs to a single Log Analytics workspace, this data, along with resource metrics, can be used to more easily build reports and dashboards that represent the entirety of the global cluster.
 
-_Example chart showing inbound traffic across all regions. Note, no reports are included with the reference architecture, you will need to create your own._
+_Example chart showing inbound traffic across all regions. Note, no reports are included with the reference implementation, you will need to create your own._
 
 ![](./images/monitor.png)
 
