@@ -127,7 +127,7 @@ Take care in this situation to compensate for increased traffic / requests to th
 - Utilize Horizontal Pod Autoscaler to increase the pod replica count to compensate for the increased regional demand.
 - Utilize AKS Cluster Autoscaler to increase the Kubernetes instance node counts to compensate for the increased regional demand.
 
-For more information, see [Horizontal Pod Autoscaler](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) and [AKS cluster autoscaler](/azure/aks/cluster-autoscaler).
+For more information, see [Horizontal Pod Autoscaler](/azure/aks/concepts-scale#horizontal-pod-autoscaler) and [AKS cluster autoscaler](/azure/aks/cluster-autoscaler).
 
 #### Kubernets node pools (regional)
 
