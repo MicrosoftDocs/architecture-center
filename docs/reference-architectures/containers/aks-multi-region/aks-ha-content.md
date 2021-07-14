@@ -113,9 +113,9 @@ A significant motivation for choosing a multi-region Kubernetes architecture is 
 
 #### Application Pods (regional)
 
-A Kubernetes deployment object is used to create multiple replicas of a pod (ReplicaRet). If one is unavailable, traffic is routed between the remaining. The Kubernetes ReplicaSet attempts to keep the specified number of replicas up and running. If one instance goes down, a new instance should be re-created. Finally, liveness probes can be used to check the state of the application or process running in the pod. If the service is not responding appropriately, the liveness probe will remove the pod, which forces the ReplicaSet to create a new instance.
+A Kubernetes deployment object is used to create multiple replicas of a pod (ReplicaSet). If one is unavailable, traffic is routed between the remaining. The Kubernetes ReplicaSet attempts to keep the specified number of replicas up and running. If one instance goes down, a new instance should be re-created. Finally, liveness probes can be used to check the state of the application or process running in the pod. If the service is not responding appropriately, the liveness probe will remove the pod, which forces the ReplicaSet to create a new instance.
 
-For more information, see [Kubernetes Replicaset](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/).
+For more information, see [Kubernetes ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/).
 
 #### Application Pods (global)
 
@@ -127,7 +127,7 @@ Take care in this situation to compensate for increased traffic / requests to th
 - Utilize Horizontal Pod Autoscaler to increase the pod replica count to compensate for the increased regional demand.
 - Utilize AKS Cluster Autoscaler to increase the Kubernetes instance node counts to compensate for the increased regional demand.
 
-For more information, see [Horizontal Pod Autoscaler](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) and [AKS cluster autoscaler](/azure/aks/cluster-autoscaler).
+For more information, see [Horizontal Pod Autoscaler](/azure/aks/concepts-scale#horizontal-pod-autoscaler) and [AKS cluster autoscaler](/azure/aks/cluster-autoscaler).
 
 #### Kubernets node pools (regional)
 
@@ -155,7 +155,7 @@ With the AKS Baseline Reference Architecture, workload traffic is routed directl
 
 ![Mutli-region deployment](images/aks-ingress-flow.svg)
 
-1. The user sends a request to a domain name (https://multicluster-fd-2vgfhderl7kec.azurefd.net), which is resolved to the Azure Front Door instance. This request is encrypted with a wildcard certificate (*.azurefd.net) issued for all subdomains of Azure Front Door. The Azure Front Door instance validates the request against WAF policies, selects the fastest backend (based on health and latency), and uses public DNS to resolve the backend IP address (Azure Application Gateway instance).
+1. The user sends a request to a domain name (e.g. https://contoso-web.azurefd.net), which is resolved to the Azure Front Door instance. This request is encrypted with a wildcard certificate (*.azurefd.net) issued for all subdomains of Azure Front Door. The Azure Front Door instance validates the request against WAF policies, selects the fastest backend (based on health and latency), and uses public DNS to resolve the backend IP address (Azure Application Gateway instance).
 
 2. Front Door forwards the request to the selected appropriate Application Gateway instance, which serves as the entry point for the regional stamp. The traffic flows over the internet and is encrypted by Azure Front Door. Consider a method to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. One approach is to use a Network Security Group on the subnet that contains the Application Gateway. The rules can filter inbound (or outbound) traffic based on properties such as Source, Port, Destination. The Source property allows you to set a built-in service tag that indicates IP addresses for an Azure resource. This abstraction makes it easier to configure and maintain the rule and keep track of IP addresses. Additionally, consider utilizing the Front Door to backend `X-Azure-FDID` header to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. For more information on Front Door headers, see (Protocol support for HTTP headers in Azure Front Door)[/azure/frontdoor/front-door-http-headers-protocol#front-door-to-backend].
 
@@ -187,13 +187,13 @@ This configuration is defined in the cluster stamp ARM template so that each tim
 
 The Azure Monitor for containers feature is the recommended tool for monitoring and logging because you can view events in real time. Azure Monitor utilizes a Log Analytics workspace for storing diagnostic logs. See the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#monitor-and-collect-metrics) for more information.
 
-When considering monitoring for a cross-region implementation such as this reference architecture, it is important to consider the coupling between each stamp. In this case, consider each stamp a component of a single unit (regional cluster). The multi-region AKS reference implementation utilizes a single Log Analytics workspace for each Kubernetes cluster. Like with the other shared resources, define your regional stamp to consume information about the single log analytics workspace and connect each cluster to it.
+When considering monitoring for a cross-region implementation such as this reference architecture, it is important to consider the coupling between each stamp. In this case, consider each stamp a component of a single unit (regional cluster). The multi-region AKS reference implementation utilizes a single Log Analytics workspace, shared by each Kubernetes cluster. Like with the other shared resources, define your regional stamp to consume information about the single log analytics workspace and connect each cluster to it.
 
 Now that each regional cluster is omitting diagnostic logs to a single Log Analytics workspace, this data, along with resource metrics, can be used to more easily build reports and dashboards that represent the entirety of the global cluster.
 
-_Example chart showing inbound traffic across all regions. Note, no reports are included with the reference architecture, you will need to create your own._
+_Example chart showing inbound traffic across all regions. Note, no reports are included with the reference implementation, you will need to create your own._
 
-![](./images/monitor.png)
+![A chart that shows consistent traffic across two regions, except one spot where traffic stopped flowing to a region, but then resumed.](./images/monitor.png)
 
 #### Azure Front Door
 
@@ -205,13 +205,13 @@ As regional AKS instances are added, the Application Gateway deployed alongside 
 
 ##### Certificates
 
-Front Door does not support self-signed certificates even in Dev/Test environments. To enable HTTPS traffic, you need to create your TLS/SSL certificate signed by a certificate authority (CA). This architecture uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. When planning for a production cluster, use your organization's preferred method for procuring TLS certificates.
+Front Door does not support self-signed certificates even in Dev/Test environments. To enable HTTPS traffic, you need to create your TLS/SSL certificate signed by a certificate authority (CA). The reference implementation uses [Certbot](https://certbot.eff.org/) to create a Let's Encrypt Authority X3 certificate. When planning for a production cluster, use your organization's preferred method for procuring TLS certificates.
 
 For information about other CAs supported by Front Door, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](/azure/frontdoor/front-door-faq#does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection-).
 
 ### Cluster access and identity
 
-As discussed in the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#integrate-azure-active-directory-for-the-cluster), consider using Azure Active Directory as a cluster access identity provider. The Azure Active Directory groups can then be used to control access to cluster resources.
+As discussed in the [AKS Baseline Reference Architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks#integrate-azure-active-directory-for-the-cluster), it is recommended to use Azure Active Directory as the clusters' access identity provider. The Azure Active Directory groups can then be used to control access to cluster resources.
 
 When managing multiple clusters, you will need to decide on an access schema. Options include:
 
@@ -221,7 +221,7 @@ When managing multiple clusters, you will need to decide on an access schema. Op
 
 With the included reference implementation, two AAD groups are created for admin access. These groups are specified at cluster stamp deployment time using the deployment parameter file. Members of each group have full access to the corresponding cluster stamp.
 
-For more information on managing AKS cluster access with Azure Active Directory, see [AKS Azure AD Integration](/azure/aks/azure-ad-integration-cli).
+For more information on managing AKS cluster access with Azure Active Directory, see [AKS Azure AD Integration](/azure/aks/azure-ad-rbac).
 
 ### Data, state, and cache
 
