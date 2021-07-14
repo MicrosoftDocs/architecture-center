@@ -9,8 +9,8 @@ Learn how to create a CI/CD pipeline to manage your PowerPlatform Application li
 
 ### Data flow
 
-1. Change application source code.
-1. Commit application code and Web Apps web.config file.
+1. Developer updates code and triggers build
+1. Azure DevOps fetches solution from development environment
 1. Continuous integration triggers application build and unit tests.
 1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
 1. Deployment to Web Apps.
