@@ -11,7 +11,7 @@ This architecture builds on the [AKS Baseline architecture](/azure/architecture/
 Many components and Azure services are used in the multi-region AKS reference architecture. Only those with uniqueness to this multi-cluster architecture are listed below. For the remaining, please reference the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
 
 - **Multiple clusters / multiple regions** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
-- **Hub and Spoke network per region** A hub and spoke network pair are deployed for each AKS instance.
+- **Hub and Spoke network per region** A regional hub and spoke network pair are deployed for each regional AKS instance. Azure Firewall Manager policies are used to manage firewall policies across all regions.
 - **Regional Key store** Azure Key Vault is provisioned in each region for storing sensitive values and keys specific to the AKS instance and supporting services found in that region.
 - **Azure Front Door** Azure Front door is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer seven global routing, both of which are required for this reference architecture.
 - **Log Analytics** Regional Log Analytics instances are used for storing regional networking metrics and diagnostic logs. Additionally, a shared Log Analytics instance is used to store metrics and diagnostic logs for all AKS instances.
@@ -23,7 +23,7 @@ This reference architecture uses two cloud design patterns. [Geographical Node (
 
 #### Geographical Node pattern considerations
 
-When selecting geographical regions for each AKS cluster, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography which influence how Azure maintenance is performed. As your cluster scales beyond two regions, continue to plan for regional pair placement for each pair of AKS clusters. For more information on pared regions, see [Azure Paired Regions](/azure/best-practices-availability-paired-regions).
+When selecting regions into which each AKS cluster will be deployed, consider regions close to the workload consumer or your customers. Also, consider utilizing paired Azure regions. Paired regions consist of two regions within the same geography which influence how Azure maintenance is performed. As your cluster scales beyond two regions, continue to plan for regional pair placement for each pair of AKS clusters. For more information on pared regions, see [Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
 Within each region, the members of the AKS node pool are spread across multiple availability zones to help prevent issues due to zonal failures. AKS availability zones are specified during deployment and cannot be updated once deployed. AKS has a limited set of regional support for availability zones, which influences regional cluster placement. For more information on AKS and Availability zones, including a list of supported regions, see [AKS Availability Zones](/azure/aks/availability-zones).
 
@@ -50,9 +50,11 @@ You have many options for deploying an Azure Kubernetes Service cluster. The Azu
 
 When working with many AKS instances, we recommend considering infrastructure as code solutions, such and Azure Resource Manager templates, Bicep templates, or Terraform configurations. Infrastructure as code solutions provide an automated, scalable, and idempotent deployment solution. This reference architecture includes an ARM Template for the solutions shared services and then another for the AKS clusters + regional services. Using infrastructure as code, a deployment stamp can be defined with generalized configurations such as networking, authorization, and diagnostics. A deployment parameter file can be provided with regional-specific values. With this configuration, a single template can be used to deploy an almost identical stamp across any region.
 
+The cost of developing and maintaining infrastructure as code assets can be costly. In some cases, such as when a static / fixed amount of AKS instances are deployed, the overhead of infrastructure as code may outweigh the benefits. For these cases, using a more imperative approach, such as with command-line tools, or even a manual approach, are ok.
+
 #### Cluster deployment
 
-Once the cluster stamp has been defined, you have many options for deploying individual or multiple stamp instances. Our recommendation is to use modern continuous integration technology such as GitHub Actions or Azure Pipelines. The benefit of continuous integration based deployment solutions include:
+Once the cluster stamp definition has been defined, you have many options for deploying individual or multiple stamp instances. Our recommendation is to use modern continuous integration technology such as GitHub Actions or Azure Pipelines. The benefit of continuous integration based deployment solutions include:
 
 - Code-based deployments that allow for stamps to be added and removed using code
 - Integrated testing capabilities
@@ -149,18 +151,13 @@ Similar to the AKS Baseline Reference Architecture, this architecture uses a hub
 
 ### Traffic management
 
-In this architecture, the traffic flows over the internet at several points. The receiving service only accepts and forwards TLS-encrypted traffic for maximum security. For example, The gateway accepts TLS encrypted traffic coming from the internet (as routed from Azure Front Door). Within the spoke, the cluster only accepts TLS encrypted traffic from the gateway.
+With the AKS Baseline Reference Architecture, workload traffic is routed directly to an Azure Application Gateway instance, then forwarded onto the backend load balancer / AKS ingress resources. When working with multiple clusters, client requests are routed through an Azure Front Door instance, which routes to the Azure Application Gateway instance.
 
 ![Mutli-region deployment](images/aks-ingress-flow.svg)
 
 1. The user sends a request to a domain name (https://multicluster-fd-2vgfhderl7kec.azurefd.net), which is resolved to the Azure Front Door instance. This request is encrypted with a wildcard certificate (*.azurefd.net) issued for all subdomains of Azure Front Door. The Azure Front Door instance validates the request against WAF policies, selects the fastest backend (based on health and latency), and uses public DNS to resolve the backend IP address (Azure Application Gateway instance).
 
 2. Front Door forwards the request to the selected appropriate Application Gateway instance, which serves as the entry point for the regional stamp. The traffic flows over the internet and is encrypted by Azure Front Door. Consider a method to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. One approach is to use a Network Security Group on the subnet that contains the Application Gateway. The rules can filter inbound (or outbound) traffic based on properties such as Source, Port, Destination. The Source property allows you to set a built-in service tag that indicates IP addresses for an Azure resource. This abstraction makes it easier to configure and maintain the rule and keep track of IP addresses. Additionally, consider utilizing the Front Door to backend `X-Azure-FDID` header to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. For more information on Front Door headers, see (Protocol support for HTTP headers in Azure Front Door)[azure/frontdoor/front-door-http-headers-protocol#front-door-to-backend].
-
-3.  Application Gateway routes the traffic to its backend pool, which is the FDQN of the internal load balancer deployed as part of the cluster's ingress resources. As an added security measure, you can re-encrypt this traffic to ensure unsafe traffic doesn’t flow into the cluster subnet. 
-Application Gateway uses SSL ciphers to create a secure connection to the AKS cluster. 
-
-4. The internal load balancer forwards the traffic to the workload pods. The load balancer decrypts traffic, and this is the final TLS termination point. From here on, traffic to the pods is over HTTP. 
 
 ### Shared resource considerations
 
@@ -204,7 +201,7 @@ Azure Front door is used to load balance and route traffic to each AKS cluster. 
 
 ##### Cluster configuration
 
-As AKS instances are added to the global cluster, the Application Gateway deployed alongside the Kubernetes cluster needs to be enrolled as a backend for proper routing. In the included reference implementation, this process is managed using the Azure CLI in the deployment pipeline.
+As regional AKS instances are added, the Application Gateway deployed alongside the Kubernetes cluster needs to be enrolled as a Front Door backend for proper routing. This operation requires an update to your infrastructure as code assets. Alternatively, this operation can be decoupled from the deployment configuration and managed with tools such as the Azure CLI. The included reference implementations deployment pipeline utilizes a distinct Azure CLI step for this operation.
 
 ##### Certificates
 
@@ -233,3 +230,7 @@ When using a globally distributed cluster of AKS instances, consider the archite
 The multi-cluster reference implementation does not include a demonstration or configuration for state concerns. If running applications across clustered AKS instances, consider architecting workload to use a globally distributed data service, such as Azure Cosmos DB. Azure Cosmos DB is a globally distributed database system that allows you to read and write data from the local replicas of your database. For more information, see [Azure Cosmos DB](/azure/cosmos-db/).
 
 If your workload utilizes a caching solution, ensure that it is architected so that caching services remain functional. To do so, ensure the workload itself is resilient to cache-related failover and that the caching solitons are present on all regional AKS instances.
+
+### Cost management
+
+Use the [Azure pricing calculator](/azure.microsoft.com/pricing/calculator/) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](/azure/architecture/framework/cost/overview) section in Microsoft Azure Well-Architected Framework.
