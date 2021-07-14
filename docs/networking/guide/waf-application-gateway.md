@@ -1,7 +1,7 @@
 ---
 title:  Azure Well-Architected Framework review of Azure Application Gateway
 titleSuffix: Azure Architecture Center
-description: This guidance provides best practices for the Application Gateway v2 family of SKUs based on  five pillars of architecture excellence.
+description: This guidance provides best practices for the Application Gateway v2 family of SKUs, based on the five pillars of architecture excellence.
 author: PageWriter-MSFT
 ms.date: 06/15/2021
 ms.topic: conceptual
