@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations you need to give to domain names when building multitenant web applications.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/14/2021
+ms.date: 07/16/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
