@@ -115,7 +115,7 @@ A significant motivation for choosing a multi-region Kubernetes architecture is 
 
 A Kubernetes deployment object is used to create multiple replicas of a pod (ReplicaRet). If one is unavailable, traffic is routed between the remaining. The Kubernetes ReplicaSet attempts to keep the specified number of replicas up and running. If one instance goes down, a new instance should be re-created. Finally, liveness probes can be used to check the state of the application or process running in the pod. If the service is not responding appropriately, the liveness probe will remove the pod, which forces the ReplicaSet to create a new instance.
 
-For more information, see [Kubernetes Replicaset](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/).
+For more information, see [Kubernetes ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/).
 
 #### Application Pods (global)
 
