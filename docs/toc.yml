@@ -165,6 +165,22 @@ items:
                 href: guide/responsible-innovation/harms-modeling/type-of-harm.md
           - name: Community Jury
             href: guide/responsible-innovation/community-jury/index.md
+      - name: Multitenant applications
+        items:
+          - name: Considerations
+            items:
+              - name: Overview
+                href: guide/multitenant/considerations/overview.md
+              - name: Tenancy models
+                href: guide/multitenant/considerations/tenancy-models.md
+              - name: Tenant lifecycle
+                href: guide/multitenant/considerations/tenant-lifecycle.md
+              - name: Pricing models
+                href: guide/multitenant/considerations/pricing-models.md
+              - name: Measure consumption
+                href: guide/multitenant/considerations/measure-consumption.md
+              - name: Deploy updates
+                href: guide/multitenant/considerations/updates.md
       - name: Azure for AWS Professionals
         items:
           - name: Overview
