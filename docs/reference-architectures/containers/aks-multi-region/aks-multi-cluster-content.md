@@ -129,7 +129,7 @@ Take care in this situation to compensate for increased traffic / requests to th
 
 For more information, see [Horizontal Pod Autoscaler](/azure/aks/concepts-scale#horizontal-pod-autoscaler) and [AKS cluster autoscaler](/azure/aks/cluster-autoscaler).
 
-#### Kubernets node pools (regional)
+#### Kubernetes node pools (regional)
 
 Occasionally localized failure can occur to compute resources, for instance, if power becomes unavailable to a single rack of Azure servers. To protect your AKS nodes from becoming a single point regional failure, utilize Azure Availability zones. Using availability zones ensures that AKS nodes in a given availability zone are physically separated from those defined in another availability zone.
 
@@ -157,7 +157,7 @@ With the AKS Baseline Reference Architecture, workload traffic is routed directl
 
 1. The user sends a request to a domain name (e.g. https://contoso-web.azurefd.net), which is resolved to the Azure Front Door instance. This request is encrypted with a wildcard certificate (*.azurefd.net) issued for all subdomains of Azure Front Door. The Azure Front Door instance validates the request against WAF policies, selects the fastest backend (based on health and latency), and uses public DNS to resolve the backend IP address (Azure Application Gateway instance).
 
-2. Front Door forwards the request to the selected appropriate Application Gateway instance, which serves as the entry point for the regional stamp. The traffic flows over the internet and is encrypted by Azure Front Door. Consider a method to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. One approach is to use a Network Security Group on the subnet that contains the Application Gateway. The rules can filter inbound (or outbound) traffic based on properties such as Source, Port, Destination. The Source property allows you to set a built-in service tag that indicates IP addresses for an Azure resource. This abstraction makes it easier to configure and maintain the rule and keep track of IP addresses. Additionally, consider utilizing the Front Door to backend `X-Azure-FDID` header to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. For more information on Front Door headers, see (Protocol support for HTTP headers in Azure Front Door)[/azure/frontdoor/front-door-http-headers-protocol#front-door-to-backend].
+2. Front Door forwards the request to the selected appropriate Application Gateway instance, which serves as the entry point for the regional stamp. The traffic flows over the internet and is encrypted by Azure Front Door. Consider a method to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. One approach is to use a Network Security Group on the subnet that contains the Application Gateway. The rules can filter inbound (or outbound) traffic based on properties such as Source, Port, Destination. The Source property allows you to set a built-in service tag that indicates IP addresses for an Azure resource. This abstraction makes it easier to configure and maintain the rule and keep track of IP addresses. Additionally, consider utilizing the Front Door to backend `X-Azure-FDID` header to ensure that the Application Gateway instance only accepts traffic from the Front Door instance. For more information on Front Door headers, see (Protocol support for HTTP headers in Azure Front Door)[azure/frontdoor/front-door-http-headers-protocol].
 
 ### Shared resource considerations
 
@@ -193,7 +193,7 @@ Now that each regional cluster is omitting diagnostic logs to a single Log Analy
 
 _Example chart showing inbound traffic across all regions. Note, no reports are included with the reference implementation, you will need to create your own._
 
-![A chart that shows consistent traffic across two regions, except one spot where traffic stopped flowing to a region, but then resumed.](./images/monitor.png)
+![A chart that shows consistent traffic across two regions, except one spot where traffic stopped flowing to a region, but then resumed.](./images/monitor.png)(./images/monitor.png#lightbox)
 
 #### Azure Front Door
 
