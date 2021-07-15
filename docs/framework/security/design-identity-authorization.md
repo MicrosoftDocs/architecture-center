@@ -58,6 +58,12 @@ For information and code sample about implementing resource-based authorization 
 
 There might be cases when you need to do activities that require access to important resources. Those resources might already be accessible to critical accounts such as an administrator account. Or, you might need to elevate the access permissions until the activities are complete. Both approaches can pose significant risks. 
 
+Critical accounts are those which can produce a business-critical outcome, whether cloud administrators or workload-specific privileged users. Compromise or misuse of such an account can have a detrimental-to-material effect on the business and its information systems. It's important to identify those accounts and adopt processes including close monitoring, and lifecycle management, including retirement.
+
+Securing privileged access is a critical first step to establishing security assurances for business assets in a modern organization. The security of most or all business assets in an IT organization depends on the integrity of the privileged accounts used to administer, manage, and develop. Cyberattackers often target these accounts and other elements of privileged access to gain access to data, and systems using credential theft attacks like Pass-the-Hash, and Pass-the-Ticket.
+
+Protecting privileged access against determined adversaries requires you to take a complete and thoughtful approach to isolate these systems from risks.
+
 **Are there any processes and tools leveraged to manage privileged activities?**
 ***
 
@@ -68,12 +74,17 @@ Do not provide permanent access for any critical accounts and lower permissions 
 - Approval-based access.
 - Break glass for emergency access process to gain access.  
 
-Limit write access to production systems to service principals. No user accounts should have have regular write-access.
+Limit write access to production systems to service principals. No user accounts should have regular write-access.
+
+Ensure there's a process for disabling or deleting administrative accounts that are unused. 
 
 You can use native and third-party options to elevate access permissions for at least highly privileged if not all activities. Azure AD Privileged Identity Management (Azure AD PIM) is the recommended native solution on Azure.
 
 For more information about PIM, see [What is Azure AD Privileged Identity Management?](/azure/active-directory/privileged-identity-management/pim-configure).
 
+## Learn more
+
+[Establish lifecycle management for critical impact accounts](/azure/architecture/framework/Security/critical-impact-accounts#establish-lifecycle-management-for-critical-impact-accounts)
 
 ## Related links
 
