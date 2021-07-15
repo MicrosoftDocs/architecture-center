@@ -2,7 +2,7 @@
 title: Testing your application and Azure environment
 description: Describes DevOps testing considerations to make when designing your workload.
 author: erjosito
-ms.date: 10/21/2019
+ms.date: 07/15/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -90,6 +90,7 @@ In order to deploy software quickly and reliably, testing is a fundamental compo
 > [Release Engineering: Performance ](./release-engineering-performance.md)
 
 <!-- testing -->
+[iac]: automation-infrastructure.md
 [pipelines]: /azure/devops/pipelines
 [devopstests]: /azure/devops/test
 [telemetry]: /azure/azure-monitor/app/usage-overview
