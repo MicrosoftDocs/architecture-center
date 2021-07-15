@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the considerations for mapping requests to tenants in a multitenant solution.
 author: PlagueHO
 ms.author: dascottr
-ms.date: 07/12/2021
+ms.date: 07/16/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -21,7 +21,7 @@ ms.custom:
 
 # Map requests to tenants in a multitenant solution
 
-Whenever a request arrives into your application, you need to determine the tenant that the request is intended for. When you have tenant-specific infrastructure that may even be hosted in different geographic regions, you need to match the incoming request to a tenant, and then forward the request to the physical infrastructure that hosts that tenant's resources, as illustrated below:
+Whenever a request arrives into your application, you need to determine the tenant that the request is intended for. When you have tenant-specific infrastructure that may even be hosted in different geographic regions, you need to match the incoming request to a tenant. Then, you must forward the request to the physical infrastructure that hosts that tenant's resources, as illustrated below:
 
 ![Diagram showing mapping a request from a logical tenant to physical tenant infrastructure.](media/map-requests/map-logical-physical.png)
 
@@ -37,12 +37,12 @@ There are multiple ways you can identify the tenant for an incoming request.
 If you use [tenant-specific domain or subdomain names](./domain-names.md), it's likely that requests can be easily mapped to tenants. However, consider the following questions:
 
 - How will users know which domain name to use to access the service?
-- Do you have a central entry point, like a landing page or login page, that all tenants use? If you do, how will users identify the tenant that they need to access?
+- Do you have a central entry point, like a landing page or login page, that all the tenants use? If you do, how will users identify the tenant that they need to access?
 - What other information are you using to verify access to the tenant, such as authorization tokens? Do the authorization tokens include the tenant-specific domain names?
 
 ### HTTP request properties
 
-If you don't use tenant-specific domain names, you might still be able to use aspects of the HTTP request to identify the tenant that a particular request is for. For example, consider an HTTP request that identifies the tenant name as `tailwindtraders`. This might be communicated using:
+If you don't use tenant-specific domain names, you might still be able to use aspects of the HTTP request to identify the tenant that a particular request is for. For example, consider an HTTP request that identifies the tenant name as `tailwindtraders`. This might be communicated using the following:
 
 - **The URL path structure**, such as `https://app.contoso.com/tailwindtraders/`.
 - **A query string** in the URL, such as `https://contoso.com/app?tenant=tailwindtraders`.
@@ -51,20 +51,20 @@ If you don't use tenant-specific domain names, you might still be able to use as
 > [!IMPORTANT]
 > Custom HTTP request headers aren't useful where HTTP GET requests are issued from a web browser, or where the requests are handled by some types of web proxy. You should only use custom HTTP headers for GET operations when you're building an API, or if you control the client that issues the request and there's no web proxy included in the request processing chain.
 
-When using this approach you should consider the following:
+When using this approach, you should consider the following questions:
 
-- Will users know how to access the service? For example, if you use a query string to identify tenants, will a central landing page need to direct users to the correct tenant by adding the query string.
+- Will users know how to access the service? For example, if you use a query string to identify tenants, will a central landing page need to direct users to the correct tenant, by adding the query string?
 - Do you have a central entry point, like a landing page or login page, that all tenants use? If you do, how will users identify the tenant that they need to access?
-- Does your application provide APIs? For example, is your web application a single page application (SPA) or a mobile application with an API backend? If it is, you might be able to use an [API gateway](/azure/architecture/microservices/design/gateway) or [reverse proxy](#reverse-proxies) to perform tenant mapping.
+- Does your application provide APIs? For example, is your web application a single-page application (SPA) or a mobile application with an API backend? If it is, you might be able to use an [API gateway](/azure/architecture/microservices/design/gateway) or [reverse proxy](#reverse-proxies) to perform tenant mapping.
 
 ### Token claims
 
-Many applications use claims-based authentication and authorization protocols such as OAuth 2.0 or SAML. These protocols provide authorization tokens to the client. A token contains a set of _claims_, which are pieces of information about the client application or user. Claims can be used to communicate information like a user's email address. Your system can then include the user's email address, look up the user-to-tenant mapping, and then forward the request to the appropriate physical tenant infrastructure. Or, you might even include the tenant mapping in your identity system, and add a tenant ID claim to the token.
+Many applications use claims-based authentication and authorization protocols, such as OAuth 2.0 or SAML. These protocols provide authorization tokens to the client. A token contains a set of _claims_, which are pieces of information about the client application or user. Claims can be used to communicate information like a user's email address. Your system can then include the user's email address, look up the user-to-tenant mapping, and then forward the request to the appropriate physical tenant infrastructure. Or, you might even include the tenant mapping in your identity system, and add a tenant ID claim to the token.
 
-If you are using claims to map requests to tenants, you should consider:
+If you are using claims to map requests to tenants, you should consider the following questions:
 
 - Will you use a claim to identify a tenant? Which claim will you use?
-- Can a user be a member of multiple tenants? If this is possible then how will the user select the tenant they'd like to work with?
+- Can a user be a member of multiple tenants? If this is possible, then how will users select the tenants they'd like to work with?
 - Is there a central authentication and authorization system for all tenants? If not, how will you ensure that all token authorities issue consistent tokens and claims?
 
 ### API keys
