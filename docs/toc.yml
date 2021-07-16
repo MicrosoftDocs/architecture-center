@@ -181,6 +181,10 @@ items:
                 href: guide/multitenant/considerations/measure-consumption.md
               - name: Deploy updates
                 href: guide/multitenant/considerations/updates.md
+              - name: Map requests to tenants
+                href: guide/multitenant/considerations/map-requests.md
+              - name: Domain names
+                href: guide/multitenant/considerations/domain-names.md
       - name: Azure for AWS Professionals
         items:
           - name: Overview
