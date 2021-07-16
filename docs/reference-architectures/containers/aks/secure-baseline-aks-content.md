@@ -3,7 +3,7 @@ In this reference architecture, we’ll build a baseline infrastructure that dep
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a starting point and configure it as per your needs.
 
 > [!NOTE]
-> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the **Related articles** section for resources. 
+> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the **Related articles** section for resources.
 
 :::row:::
     :::column:::
@@ -200,6 +200,12 @@ Kubernetes has some built-in roles such as cluster-admin, edit, view, and so on.
 
 There’s also an option of using Azure roles instead of the Kubernetes built-in roles. For more information, see [Azure roles](/azure/aks/manage-azure-rbac).
 
+#### Local accounts
+
+AKS supports native [Kubernetes user authentication](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes). User access access to clusters using this method is not suggested. It is certificate-based and is performed external to your primary identity provider; making centralized user access control and governance difficult. Always manage access to your cluster via Azure Active Directory, and configure your cluster to explicitly disable local account access.
+
+In this reference implementation, access via local cluster accounts is explicitly disabled when the cluster is deployed.
+
 ## Integrate Azure Active Directory for the workload
 
 Similar to having Azure Managed Identities for the entire cluster, you can assign managed identities at the pod level. A pod managed identity allows the hosted workload to access resources through Azure Active Directory. For example, the workload stores files in the Azure Storage. When it needs to access those files, the pod will authenticate itself against the resource.
@@ -231,12 +237,11 @@ The ingress controller is a critical component of cluster. Consider these points
 - Consider restricting the ingress controller’s access to specific resources and the ability to perform certain actions. That restriction can be implemented through Kubernetes RBAC permissions. For example, in this architecture, Traefik has been granted permissions to watch, get, and list services and endpoints by using rules in the Kubernetes `ClusterRole` object.
 
 > [!NOTE]
->The choice for the appropriate ingress controller is driven by the requirements the workload, the skillset of the operator, and the supportability of the technology options. Most importantly, the ability to meet your SLO expectation. 
+>The choice for the appropriate ingress controller is driven by the requirements the workload, the skill set of the operator, and the supportability of the technology options. Most importantly, the ability to meet your SLO expectation.
 >
->Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for illustrative purposes. It shows third-party products integration with Azure services. For example, the implementation shows how to integrate Traefik with Azure AD Pod Managed Identity and Azure Key Vault. 
+>Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for illustrative purposes. It shows third-party products integration with Azure services. For example, the implementation shows how to integrate Traefik with Azure AD Pod Managed Identity and Azure Key Vault.
 >
 > Another choice is Azure Application Gateway Ingress Controller and its well integrated with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway facilitates the virtual network entry point of your cluster. It can observe traffic entering the cluster. If you have an application that requires WAF, Application Gateway is a good choice because its integrated with WAF. Also, it provides the opportunity to do TLS termination.
-
 
 ### Router settings
 
@@ -313,7 +318,6 @@ For zero-trust control and the ability to inspect traffic, all egress traffic fr
 > If you use a public load balancer as your public point for ingress traffic and egress through Azure Firewall using UDRs, you might see an [asymmetric routing situation](/azure/aks/limit-egress-traffic#add-a-dnat-rule-to-azure-firewall). This architecture uses _internal_ load balancers in a dedicated ingress subnet behind the Application Gateway. This design choice not only enhances security but also eliminates asymmetric routing concerns. Alternatively, you could route ingress traffic through your Azure Firewall before or after your Application Gateway. That approach isn't necessary or recommended for most situations.
 > For more information about asymmetric routing, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb#asymmetric-routing).
 
-
 An exception to the zero-trust control is when the cluster needs to communicate with other Azure resources. For instance, the cluster needs to pull an updated image from the container registry. The recommended approach is by using  [Azure Private Link](/azure/private-link/private-link-overview). The advantage is that specific subnets reach the service directly. Also, traffic between the cluster and the service isn't exposed to public internet. A downside is that Private Link needs additional configuration instead of using the target service over its public endpoint. Also, not all Azure services or SKUs support Private Link. For those cases, consider enabling a Service Endpoint on the subnet to access the service.
 
 If Private Link or Service Endpoints aren't an option, you can reach other services through their public endpoints, and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic will go through the static IP address of the firewall, that address can be added the service’s IP allowlist. One downside is that Azure Firewall will need to have additional rules to make sure only traffic from specific subnet is allowed.
@@ -373,7 +377,6 @@ When setting policies, apply them based on the requirements of the workload. Con
 - Do you have organization-wide requirements? If so, add those policies at the management group level. Your cluster should also assign its own workload-specific policies, even if the organization has generic policies.
 
 - Azure policies are assigned to specific scopes. Ensure the _production_ policies are also validated against your _pre-production_ environment. Otherwise, when deploying to your production environment, you may run into unexpected additional restrictions that weren't accounted for in pre-production.
-
 
 In this reference implementation Azure Policy is enabled when the AKS cluster is created and assigns the restrictive initiative in **Audit** mode to gain visibility into non-compliance.
 
@@ -539,7 +542,7 @@ Keeping your node images in sync with the latest weekly release will minimize th
 
 Monitor your container infrastructure for both active threats and potential security risks: 
  - Enable [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) for threat detection on your Kubernetes clusters.
- - Use [Azure Security Center](/azure/security-center/security-center-intro) (ASC) to monitor Kubernetes security posture. 
+ - Use [Azure Security Center](/azure/security-center/security-center-intro) (ASC) to monitor Kubernetes security posture.
  - For information about security hardening applied to AKS virtual machine hosts, see [Security Hardening in host OS](/azure/aks/security-hardened-vm-host-image).
 
 ## Cluster and workload operations (DevOps)
@@ -662,6 +665,8 @@ For other cost-related information, see [AKS pricing](https://azure.microsoft.co
 ## Next Steps
 
 - To learn about hosting Microservices on the AKS baseline, see [Advanced Azure Kubernetes Service (AKS) microservices architecture](../aks-microservices/aks-microservices-advanced.yml).
+- For deploying the AKS baseline across multiple regions, see [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml).
+- For deploying the AKS baseline into a PCI-DSS 3.2.1 environment, see [AKS regulated cluster for PCI-DSS 3.2.1](../aks-pci/aks-pci-intro.yml).
 - The see the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
 
 ## Related articles
