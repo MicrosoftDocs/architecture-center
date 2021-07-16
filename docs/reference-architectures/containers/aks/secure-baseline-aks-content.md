@@ -166,11 +166,12 @@ For the user node pool, here are some considerations:
 
 Securing access to and from the cluster is critical. Think from the cluster's perspective when you're making security choices:
 
--   *Outside-in access*. Authorize only those external entities that are allowed access to the Kubernetes API server and Azure Resource Manager.
+-   *Inside-out access*. AKS access to Azure components such as networking infrastructure, Azure Container Registry, and Azure Key Vault. Authorize only those resources that the cluster is allowed access.
+-   *Outside-in access*. Providing identities access to the Kubernetes cluster. Authorize only those external entities that are allowed access to the Kubernetes API server and Azure Resource Manager.
 
--   *Inside-out access*. Authorize only those resources that the cluster is allowed access.
+### AKS access to Azure
 
-There are two ways to manage access through Azure Active Directory (Azure AD): *service principals* or *managed identities for Azure resources*.
+There are two ways to manage AKS to Azure access through Azure Active Directory (Azure AD): *service principals* or *managed identities for Azure resources*.
 
 Of the two ways, managed identities is recommended. With service principals, you are responsible for managing and rotating secrets, either manually or programmatically. With managed identities, Azure AD manages and performs the authentication and timely rotation of secrets for you.
 
@@ -181,14 +182,16 @@ As an example for the inside-out case, let’s study the use of managed identiti
 In this architecture, the cluster accesses Azure resources that are secured by Azure AD and perform operations that support managed identities. Assign Azure role-based access control (Azure RBAC) and permissions to the cluster’s managed identities, depending on the operations that the cluster intends to do. The cluster will authenticate itself to Azure AD and then be allowed or denied access based on the roles it has been assigned. Here are some examples from this reference implementation where Azure built-in roles have been assigned to the cluster:
 
 -   [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor). The cluster’s ability to control the spoke virtual network. This role assignment allows AKS cluster system assigned identity to work with the dedicated subnet for the Internal Ingress Controller services.
-
 -   [Monitoring Metrics Publisher](/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher). The cluster’s ability to send metrics to Azure Monitor.
-
 -   [AcrPull](/azure/role-based-access-control/built-in-roles#acrpull). The cluster’s ability to pull images from the specified Azure Container Registries.
+
+### Cluster access
 
 Azure AD integration also simplifies security for outside-in access. Suppose a user wants to use kubectl. As an initial step, sends the `az aks get-credentials` command to get the credentials of the cluster. Azure AD will authenticate the user’s identity against the Azure roles that are allowed to get cluster credentials. For more information, see [Available cluster roles permissions](/azure/aks/control-kubeconfig-access#available-cluster-roles-permissions).
 
-### Associate Kubernetes RBAC to Azure Active Directory
+AKS allows for Kubernetes access using Azure Active Directory in two ways. The first is using Azure Active Directory as an identity provider integrated with the native Kubernetes RBAC system. The other is using native Azure RBAC to control cluster access. Both are detailed below.
+
+#### Associate Kubernetes RBAC to Azure Active Directory
 
 Kubernetes supports role-based access control (RBAC) through:
 
@@ -198,7 +201,11 @@ Kubernetes supports role-based access control (RBAC) through:
 
 Kubernetes has some built-in roles such as cluster-admin, edit, view, and so on. Bind those roles to Azure Active Directory users and groups to use enterprise directory to manage access. For more information, see [Use Kubernetes RBAC with Azure AD integration](/azure/aks/azure-ad-rbac).
 
-There’s also an option of using Azure roles instead of the Kubernetes built-in roles. For more information, see [Azure roles](/azure/aks/manage-azure-rbac).
+#### Use Azure RBAC for Kubernetes Authorization
+
+Instead of using Kubernetes RBAC with integrated AAD authentication, another option is to use Azure RBAC and Role assignments to enforce cluster access. The benefit to using Azure RBAC is that you do not need to configure native Kubernetes RBAC roles and role bindings.
+
+For more information, see [Azure roles](/azure/aks/manage-azure-rbac).
 
 #### Local accounts
 
