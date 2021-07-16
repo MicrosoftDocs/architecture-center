@@ -46,6 +46,7 @@ This architecture uses the following Azure components:
   - Partitioning - The partition key is what will determine how data is routed in the various partitions by Cosmos DB and needs to make sense in the context of your specific scenario. The IoT Device Id is generally the “natural” partition key for IoT applications.
 - [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) is the relational database for transactional and other non-IoT data.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is the data warehouse and reporting platform, containing aggregated data from Azure SQL and Cosmos DB. For enterprise data warehousing and big data analytics.
+- [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
 - [Power BI](https://powerbi.microsoft.com/) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Azure Analysis Services, or it can query Azure Synapse directly.
 - [Azure App Services](/azure/app-service/app-service-web-overview) can be used to build web and mobile applications. [Azure API App](https://azure.microsoft.com/services/app-service/api) can be used to expose data to third parties, based on the data stored in the Serving Layer.
 - [Azure Functions](https://azure.microsoft.com/services/functions) can be used to translate IoT message payloads (for example, from binary to JSON) or trigger actions when connected to Cosmos DB Change Feed. Azure Functions is an event-driven serverless compute platform. Build and debug locally without additional setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
@@ -54,6 +55,7 @@ This architecture uses the following Azure components:
 
 - In the transformation and analytics layer, we could use [HDInsight Storm](/azure/hdinsight/storm/apache-storm-overview), [HDInsight Spark](/azure/hdinsight/spark/apache-spark-overview) or [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) to perform streaming analytics, and [Azure Functions](https://azure.microsoft.com/services/functions/) to perform message payload transformations.
 - In the service storage layer, [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) and [Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) could be used for storing IoT messages. Both of these services also provide rich analytics capabilities.
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
 
 ## Considerations
 
