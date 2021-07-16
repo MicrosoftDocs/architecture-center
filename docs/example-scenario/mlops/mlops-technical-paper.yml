@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning
+  title: Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning
   description: Learn how to apply the machine learning operations (MLOps) maturity model to implement a machine learning solution for predicting product shipping levels.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 06/01/2020
   ms.topic: conceptual
@@ -15,7 +15,7 @@ metadata:
     - fcp
     - cse
     - e2e-hybrid
-name: Machine learning operations (MLOps) framework to upscale machine learning Lifecycle with Azure Machine Learning
+name: Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning
 azureCategories:
   - developer-tools
   - hybrid
