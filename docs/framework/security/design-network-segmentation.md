@@ -19,13 +19,16 @@ ms.custom:
 
 # Implement network segmentation patterns on Azure
 
-Create segmentation in your network footprint by defining perimeters. Main reasons for segmentation are:
+A unified enterprise segmentation strategy guides technical teams to consistently segment access using networking, applications, identity, and any other access controls. 
+Create segmentation in your network footprint by defining perimeters. The main reasons for segmentation are:
 
 - The ability to group related assets that are a part of (or support) workload operations.
 - Isolation of resources.
 - Governance policies set by the organization.
 
-Network controls can secure interactions between perimeters. This approach can strengthen the security posture and contain risks in a breach because the controls can detect, contain, and stop attackers from gaining access to entire workload.
+Network controls can secure interactions between perimeters. This approach can strengthen the security posture and contain risks in a breach because the controls can detect, contain, and stop attackers from gaining access to an entire workload.
+
+Traditional segmentation approaches typically fail to achieve their goals as they have not been developed in a method to align with business use cases and application workloads. Often this results in overwhelming complexity requiring broad firewall exceptions.
 
 **How does the organization implement network segmentation?**
 ***
@@ -38,7 +41,9 @@ This article highlights some Azure networking features that create segments and 
 ## Key points
 
 - Create software-defined perimeters in your networking footprint and secure communication paths between them.
-- Azure Virtual Networks (VNets) are created in private address spaces. By default no traffic allowed by default between any two VNets. Open paths only when it's really needed.
+- Establish a complete zero trust segmentation strategy. 
+- Align technical teams in the enterprise on micro segmentation strategies for legacy applications.
+- Azure Virtual Networks (VNets) are created in private address spaces. By default, no traffic is allowed between any two VNets. Open paths only when it's really needed.
 - Use Network Security Groups (NSG) to secure communication between resources within a VNet.
 - Use Application Security Groups (ASGs) to define traffic rules for the underlying VMs that run the workload.  
 - Use Azure Firewall to filter traffic flowing between cloud resources, the internet, and on-premise.
@@ -49,6 +54,10 @@ This article highlights some Azure networking features that create segments and 
 ## What is segmentation?
 
 You can create software-defined perimeters in your networking footprint by using the various Azure services and features. When a workload (or parts of a given workload) is placed into separate segments, you can control traffic from/to those segments to secure communication paths. If a segment is compromised, you will be able to better contain the impact and prevent it from laterally spreading through the rest of your network. This strategy aligns with the key principle of [Zero Trust model published by Microsoft](https://www.microsoft.com/security/blog/2019/10/23/perimeter-based-network-defense-transform-zero-trust-model/) that aims to bring world class security thinking to your organization.
+
+## Learn more
+
+For information about creating a segmentation strategy, see [Enterprise segmentation strategy](/azure/architecture/framework/Security/governance#enterprise-segmentation-strategy).
 
 ## Azure features for segmentation
 
