@@ -1372,7 +1372,7 @@ items:
               - name: Securing data solutions
                 href: data-guide/scenarios/securing-data-solutions.md
               - name: Application tenancy in SaaS Databases
-                items:rid
+                items:
                   - name: Tenancy models
                     href: isv/application-tenancy.md
               - name: Monitor Azure Databricks jobs
