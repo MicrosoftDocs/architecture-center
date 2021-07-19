@@ -31,12 +31,19 @@ This article describes way in which you can protect web applications with Azure 
 - Implement an automated and gated CI/CD deployment process.
 
 ## Public endpoints
+
 A public endpoint receives traffic over the internet. The endpoints make the service easily accessible to attackers. 
+
+Service Endpoints and Private Link can be leveraged to restrict access to PaaS endpoints only from authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios).
+
+Configure service endpoints and private links where appropriate.
 
 **Are all public endpoints of this workload protected?**
 ***
 
-An initial design decision is to assess whether you need a public endpoint at all. If you do, protect it with using these mechanisms.
+An initial design decision is to assess whether you need a public endpoint at all. If you do, protect it by using these mechanisms.
+
+For more information, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) and [What is Azure Private Endpoint?](/private-link/private-endpoint-overview).
 
 ### Web application firewalls (WAFs) 
 
