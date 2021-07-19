@@ -85,7 +85,14 @@ Legacy authentication methods are among the top attack vectors for cloud-hosted 
 
 ## Mitigate DDoS attacks
 
-In a distributed denial-of-service (DDoS) attack, the server is overloaded with fake traffic. DDoS attacks are common and can be debilitating. An attack can completely block access or take down the services. Enable DDoS mitigation for all business-critical web application and services.
+In a distributed denial-of-service (DDoS) attack, the server is overloaded with fake traffic. DDoS attacks are common and can be debilitating. An attack can completely block access or take down the services. The worst time to plan a DDoS strategy is while under DDoS attack. Enable DDoS mitigation for all business-critical web application and services.
+
+The major cloud service providers offer DDoS protection services of varying effectiveness and capacity. They typically provide two DDoS protection options:
+
+- DDoS protection at the cloud network fabric level: All customers of the cloud service provider benefit from these protections. The protection is usually focused at the network (layer 3) level.
+- DDoS protection at higher levels that profile your services: This kind of protection will baseline your deployments and then use machine learning techniques to detect anomalous traffic, and proactively protect based on their protection before there is service degradation.
+
+Microsoft recommends adopting advanced protection for any services where downtime will have negative impact on the business.
 
 Azure provides DDoS protection in two tiers: **Basic** and **Standard**. 
 
@@ -99,7 +106,6 @@ Azure provides DDoS protection in two tiers: **Basic** and **Standard**.
 Here are some common options:	
 
 - DDoS protection at virtual network level. The protection usually focuses on the network (layer 3) level. Azure Virtual Network resources offer both **Basic** and **Standard**. 	
-
   The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:	
   - Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 	
   - Guarantees 100% SLA. 	
@@ -113,7 +119,14 @@ Here are some common options:
 
 - DDoS protection at higher levels that profile your services. This option provides a baseline for your deployments and then uses machine learning techniques to detect anomalous traffic. Also, proactively protects based on the set protection level before service degradation. Adopt the advance protection for any services where downtime will negatively impact the business.
 
+## Suggested action
+
+Identify critical workloads that are susceptible to DDoS attacks and enable Distributed Denial of Service (DDoS) mitigations for all business-critical web applications and services.
+
+## Learn more
+
 For a list of reference architectures that demonstrate the use of DDoS protection, see [Azure DDoS Protection reference architectures](/azure/ddos-protection/ddos-protection-reference-architectures).
+
 ## Adopt DevOps
 
 Developers shouldn't publish their code directly to app servers. 
