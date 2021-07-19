@@ -42,6 +42,10 @@ This architecture consists of the following components. Some applications may no
 
 **Security monitoring** [Azure Security Center for IoT](/azure/asc-for-iot/overview) provides an end-to-end security solution for IoT workloads and simplifies their protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads from leaf devices through Edge as well as up through the clouds.
 
+### Alternatives
+
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
+
 ## Scalability considerations
 
 An IoT application should be built as discrete services that can scale independently. Consider the following scalability points:
@@ -191,10 +195,6 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 For cold path storage, Azure Blob Storage is the most cost-effective option.
 
 For warm path storage, consider using Azure Cosmos DB. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
-
-## Alternatives
-
-- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
 
 ## Next steps
 
