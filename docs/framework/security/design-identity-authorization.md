@@ -80,7 +80,7 @@ Ensure there's a process for disabling or deleting administrative accounts that 
 
 You can use native and third-party options to elevate access permissions for at least highly privileged if not all activities. Azure AD Privileged Identity Management (Azure AD PIM) is the recommended native solution on Azure.
 
-For more information about PIM, see [What is Azure AD Privileged Identity Management?](/azure/active-directory/privileged-identity-management/pim-configure).
+For more information about PIM, see [What is Azure AD Privileged Identity Management?](/azure/active-directory/privileged-identity-management/pim-configure)
 
 ## Learn more
 
