@@ -50,7 +50,7 @@ Azure Architecture Center articles:
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Speech Services](./speech-services.yml)
-* [Speech-to-text conversion](../../reference-architectures/ai/speech-ai-ingestion.yml)
+* [Speech-to-text conversion](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml)
 * [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 * [Commerce chatbot for customer service](./commerce-chatbot.yml)
 

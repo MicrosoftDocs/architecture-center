@@ -315,10 +315,15 @@ public enum OnPendingEnum {
 }
 ```
 
-## Related guidance and next steps
+## Next steps
 
 The following information may be relevant when implementing this pattern:
 
-- [Asynchronous operations in REST](https://www.adayinthelifeof.nl/2011/06/02/asynchronous-operations-in-rest/)
+- [Asynchronous operations in REST](https://www.adayinthelifeof.nl/2011/06/02/asynchronous-operations-in-rest)
 - [Azure Logic Apps - Perform long-running tasks with the polling action pattern](/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
 - For general best practices when designing a web API, see [Web API design](../best-practices/api-design.md).
+
+
+## Related guidance
+
+- [Backends for Frontends pattern](./backends-for-frontends.md)

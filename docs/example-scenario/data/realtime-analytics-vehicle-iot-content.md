@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 Vehicle data ingestion, processing, and visualization are key capabilities needed
 to create connected car solutions. By capturing and analyzing this data, we can
 decipher valuable insights and create new solutions.
@@ -28,7 +30,7 @@ Imagine a car manufacturing company that wants to create a solution to:
     [OBD-II](https://wikipedia.org/wiki/On-board_diagnostics) port, view
     repair procedures, or to view an exploded 3D parts diagram).
 
-## Reference architecture
+## Architecture
 
 ![Reference architecture](media/architecture-realtime-analytics-vehicle-data1.png)
 

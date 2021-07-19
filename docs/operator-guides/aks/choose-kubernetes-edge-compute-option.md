@@ -2,7 +2,8 @@
 title: Choose a Kubernetes at the edge compute option
 titleSuffix: Azure Architecture Center
 description: Learn about trade-offs for various options available for extending compute on the edge.
-author: edprice
+author: edprice-msft
+ms.author: prkau
 ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -270,10 +271,10 @@ For more information, see the following articles:
     Edge Pro GPU device](/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-kubernetes)
 
 - [AI at the edge with Azure Stack
-    Hub](/azure/architecture/solution-ideas/articles/ai-at-the-edge)
+    Hub](../../solution-ideas/articles/ai-at-the-edge.yml)
 
 - [Building a CI/CD pipeline for microservices on
-    Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)
+    Kubernetes](../../microservices/ci-cd-kubernetes.md)
 
 - [Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU
     device](/azure/databox-online/azure-stack-edge-gpu-monitor-kubernetes-dashboard)

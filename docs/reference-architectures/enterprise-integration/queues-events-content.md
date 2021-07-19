@@ -1,6 +1,3 @@
-
-
-
 This reference architecture integrates enterprise backend systems, using message queues and events to decouple services for greater scalability and reliability. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
 ![Reference architecture for enterprise integration using queues and events](./_images/enterprise-integration-queues-events.png)
@@ -97,9 +94,9 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 ## Next steps
 
-* [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)
-* [Enterprise business intelligence](/azure/architecture/reference-architectures/data/enterprise-bi-synapse)
-* [Custom Business Processes](/azure/architecture/solution-ideas/articles/custom-business-processes)
+* [Basic enterprise integration on Azure](./basic-enterprise-integration.yml)
+* [Enterprise business intelligence](../data/enterprise-bi-synapse.yml)
+* [Custom Business Processes](../../solution-ideas/articles/custom-business-processes.yml)
 
 [aaf-cost]: ../../framework/cost/overview.md
 [apim]: /azure/api-management

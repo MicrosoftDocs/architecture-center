@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: AKS regulated cluster for PCI-DSS 3.2.1 - Monitoring operations
+  description: Best practices for implementing Requirement 10 and Requirement 11 for a PCI-DSS 3.2.1 infrastructure.
+  author: PageWriter-MSFT
+  ms.author: pnp
+  ms.date: 07/06/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+name: AKS regulated cluster for PCI-DSS 3.2.1 - Monitoring operations
+azureCategories:
+  - containers
+summary: Best practices for implementing Requirement 10 and Requirement 11 for a PCI-DSS 3.2.1 infrastructure.
+products:
+  - azure-kubernetes-service
+  - azure-security-center
+  - azure-monitor
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png
+content: |
+   [!include[](aks-pci-monitor-content.md)]

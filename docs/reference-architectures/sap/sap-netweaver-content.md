@@ -1,16 +1,16 @@
 <!-- cSpell:ignore lbrader netweaver jump-box jump-boxes ACLs HANA SOFS SWDs SMLG ABAP SAPGUI SAPGUIs SPOF WSFC ASCS MSEE Iperf SIOS sapmnt -->
 
-# SAP NetWeaver on Windows
-
 This reference architecture shows a set of proven practices for running SAP NetWeaver in a Windows environment, on Azure, with high availability. The database is AnyDB, the SAP term for any supported database management system (DBMS) besides SAP HANA.
 
 
 The first diagram shows SAP NetWeaver in a Windows environment in an availability set scenario. The architecture uses Azure NetApp Files for the shared files layer and a proximity placement group for improved performance:
+ 
 ![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets.](./images/sap-netweaver-availability-set-proximity-placement-group-netapp.jpg)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVSet-Netapp-PPG.vsdx) that shows this architecture._
 
 The second diagram shows SAP NetWeaver in a Windows environment. Availability Zones are used for improved resilience:
+ 
 ![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with Availability Zones.](./images/sap-netweaver-availability-zones.jpg)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVZones.vsdx) that shows this architecture._
@@ -297,7 +297,7 @@ Many IT services, like administrative jump boxes, cloud-based directory services
 
 ### Automated DR with Azure Site Recovery
 
-To use Azure Site Recovery to automatically build a fully replicated production site of your original configuration, you need to run customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). For example, Site Recovery first deploys the virtual machines in availability sets. It then runs your custom scripts to attach the existing (prebuilt) load balancer, in which the backend pool is already defined, to the NIC of the failover virtual machines. An example of the custom Site Recovery Automation Runbooks script is available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery).
+To use Azure Site Recovery to automatically build a fully replicated production site of your original configuration, you need to run customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). For example, Site Recovery first deploys the virtual machines in availability sets. It then runs your custom scripts to attach the existing (prebuilt) load balancer, in which the backend pool is already defined, to the NIC of the failover virtual machines. An example of the custom Site Recovery Automation Runbooks script is available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/asr-automation-recovery).
 
 > [!NOTE]
 > In case of a regional disaster that causes a mass failover event for many Azure customers in one region, the target region's resource [capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity) isn't guaranteed. Like all Azure services, Site Recovery continues to improve its features and capabilities. See the latest [support matrix](/azure/site-recovery/azure-to-azure-support-matrix) for disaster recovery of Azure virtual machines from one Azure region to another.
@@ -402,7 +402,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 - [Running SAP Applications on the Microsoft Platform blog](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-on-Azure-General-Update-March-2019/ba-p/377456?advanced=false&collapse_discussion=true&q=sap%20azure%20general%20update&search_type=thread)
 
-- [Azure Forum](https://azure.microsoft.com/support/forums)
+- [Azure Community Support](https://azure.microsoft.com/support/forums)
 
 - [SAP Community](https://www.sap.com/community.html)
 

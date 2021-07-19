@@ -2,7 +2,8 @@
 title: Event Sourcing pattern
 titleSuffix: Cloud Design Patterns
 description: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -81,13 +82,13 @@ The length of each event stream affects managing and updating the system. If the
 
 Even though event sourcing minimizes the chance of conflicting updates to the data, the application must still be able to deal with inconsistencies that result from eventual consistency and the lack of transactions. For example, an event that indicates a reduction in stock inventory might arrive in the data store while an order for that item is being placed, resulting in a requirement to reconcile the two operations either by advising the customer or creating a back order.
 
-Event publication might be "at least once," and so consumers of the events must be idempotent. They must not reapply the update described in an event if the event is handled more than once. For example, if multiple instances of a consumer maintain and aggregate an entity's property, such as the total number of orders placed, only one must succeed in incrementing the aggregate when an order placed event occurs. While this isn't a key characteristic of event sourcing, it's the usual implementation decision.
+Event publication might be _at least once_, and so consumers of the events must be idempotent. They must not reapply the update described in an event if the event is handled more than once. For example, if multiple instances of a consumer maintain and aggregate an entity's property, such as the total number of orders placed, only one must succeed in incrementing the aggregate when an order placed event occurs. While this isn't a key characteristic of event sourcing, it's the usual implementation decision.
 
 ## When to use this pattern
 
 Use this pattern in the following scenarios:
 
-- When you want to capture intent, purpose, or reason in the data. For example, changes to a customer entity can be captured as a series of specific event types such as _Moved home_, _Closed account_, or _Deceased_.
+- When you want to capture intent, purpose, or reason in the data. For example, changes to a customer entity can be captured as a series of specific event types, such as _Moved home_, _Closed account_, or _Deceased_.
 
 - When it's vital to minimize or completely avoid the occurrence of conflicting updates to data.
 
@@ -143,7 +144,16 @@ As well as providing more scope for scalability, using an event store also provi
 
 > You can find more information about this example in [Introducing Event Sourcing](/previous-versions/msp-n-p/jj591559(v=pandp.10)).
 
-## Related patterns and guidance
+## Next steps
+
+- [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
+
+- Martin Fowler's blog:
+
+  - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
+  - [Snapshot on Martin Fowler’s Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)
+
+## Related guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
@@ -156,12 +166,3 @@ The following patterns and guidance might also be relevant when implementing thi
 - [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)). When using event sourcing with a separate read store or materialized views, the read data won't be immediately consistent, instead it'll be only eventually consistent. Summarizes the issues surrounding maintaining consistency over distributed data.
 
 - [Data Partitioning Guidance](/previous-versions/msp-n-p/dn589795(v=pandp.10)). Data is often partitioned when using event sourcing to improve scalability, reduce contention, and optimize performance. Describes how to divide data into discrete partitions, and the issues that can arise.
-
-## Community resources
-
-- [Object-relational impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch)
-
-- Martin Fowler's blog:
-
-  - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
-  - [Snapshot on Martin Fowler’s Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)

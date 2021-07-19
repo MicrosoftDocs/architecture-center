@@ -249,7 +249,7 @@ Once network connectivity is securely established, you can start using cloud com
 There are a number of workload managers offered in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
 - [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc)
-- [SUSE Linux Enterprise Server for HPC](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-15-sp1-hpc)
+- [SUSE Linux Enterprise Server for HPC](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-15-sp2)
 - [TIBCO Datasynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
 - [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
@@ -358,7 +358,6 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 - [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud)
 - [MATLAB Distributed Computing Server](/azure/virtual-machines/windows/matlab-mdcs-cluster)
 - [StarCCM+](/archive/blogs/azurecat/run-star-ccm-in-an-azure-hpc-cluster)
-- [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 ### Graphics and rendering
 

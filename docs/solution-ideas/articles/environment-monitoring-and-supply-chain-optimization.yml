@@ -25,4 +25,4 @@ products:
   - azure-databricks
 thumbnailUrl: /azure/architecture/browse/thumbs/environment-monitor-supply-chain.png
 content: |
-   [!include[](environment-monitoring-and-supply-chain-optimization.md)]
+   [!include[](environment-monitoring-and-supply-chain-optimization-content.md)]

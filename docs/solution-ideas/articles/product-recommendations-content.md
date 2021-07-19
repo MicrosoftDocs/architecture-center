@@ -43,7 +43,7 @@ This solution addresses the above problems by:
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Azure Machine Learning documentation](/azure/machine-learning/)
-* [Movie recommendations on Azure](/azure/architecture/example-scenario/ai/movie-recommendations)
+* [Movie recommendations on Azure](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
 * [Personalized marketing solutions](./personalized-marketing.yml)
 * [Personalized Offers](./personalized-offers.yml)
 * [Build a Real-time Recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)

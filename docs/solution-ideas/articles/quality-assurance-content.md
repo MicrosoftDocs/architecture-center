@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Quality assurance systems allow businesses to prevent defects throughout their processes of delivering goods or services to customers. Building such a system that collects data and identifies potential problems along a pipeline can provide enormous advantages. For example, in digital manufacturing, quality assurance across the assembly line is imperative. Identifying slowdowns and potential failures before they occur rather than after they are detected can help companies reduce costs for scrap and rework while improving productivity.
@@ -72,8 +69,8 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Azure Machine Learning documentation](/azure/machine-learning/)
-* [Defect prevention with predictive maintenance](/azure/architecture/solution-ideas/articles/defect-prevention-with-predictive-maintenance)
-* [Predictive Maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
+* [Defect prevention with predictive maintenance](./defect-prevention-with-predictive-maintenance.yml)
+* [Predictive Maintenance](./predictive-maintenance.yml)
 
 <!-- links -->
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png

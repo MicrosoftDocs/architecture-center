@@ -1,7 +1,5 @@
 <!-- cSpell:ignore lbrader HANA Fiori -->
 
-
-
 This reference architecture shows a set of proven practices for running S/4HANA and Suite on HANA in a high availability environment that supports disaster recovery on Azure. The Fiori information applies only to S/4HANA applications.
 
 ![Reference architecture for SAP S/4HANA for Linux virtual machines on Azure](./images/sap-s4hana.png)
@@ -534,7 +532,7 @@ your custom scripts to attach the existing (pre-built) load balancer, which
 already has the backend pool defined, to the NIC of the failover virtual
 machines. An example of the custom Site Recovery Automation Runbooks script is
 available on
-[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery).
+[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/asr-automation-recovery).
 
 > [!NOTE]
 > In case of a regional disaster that affects many customers in one
@@ -642,7 +640,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 - [Running SAP Applications on the Microsoft Platform Blog](/archive/blogs/saponsqlserver/sap-on-azure-general-update-for-customers-partners-april-2017)
 
-- [Azure Forum](https://azure.microsoft.com/support/forums/)
+- [Azure Community Support](https://azure.microsoft.com/support/forums/)
 
 - [SAP Community](https://www.sap.com/community.html)
 

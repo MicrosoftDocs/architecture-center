@@ -3,7 +3,7 @@ metadata:
   title: SAP System on Oracle Database on Azure
   description: This article describe SAP on Oracle Database on Azure deployment patterns.
   author: shekhag
-  ms.date: 17/02/2021
+  ms.date: 02/17/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

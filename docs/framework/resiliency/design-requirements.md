@@ -31,7 +31,7 @@ Understanding your availability expectations is vital to reviewing overall opera
 Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets. Make sure you measure and monitor key targets such as:
 
 - Mean Time Between Failures (MTBF) &mdash; The average time between failures of a particular component.
-- Mean Time Between Failures (MTBF) &mdash; The average time between failures of a particular component.
+- Mean Time To Recover (MTTR) &mdash; The average time it takes to restore a component after a failure.
 
 ### Considerations for availability targets
 
@@ -111,7 +111,7 @@ Data types should be categorized by data consistency requirements. Data consiste
 CAP theorem proves that it is impossible for a distributed data store to simultaneously provide more than two guarantees across:
 
 - **Consistency -** Every read receives the most recent write or an error.
-- **Availability -** Very request receives a non-error response, without the guarantee that it contains the most recent write.
+- **Availability -** Every request receives a non-error response, without the guarantee that it contains the most recent write.
 - **Partition tolerance -** A system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes.
 
 Determining which of these guarantees are most important in the context of application requirements is critical.
