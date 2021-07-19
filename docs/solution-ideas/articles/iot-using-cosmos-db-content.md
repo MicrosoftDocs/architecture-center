@@ -12,7 +12,7 @@ Cosmos DB is a multi-model database with wire protocol–compatible API endpoint
 
 ![Architecture](../media/iot-using-cosmos-db.svg)
 
-### Data Flow
+### Data flow
 
 1. Events generated from IoT devices are sent to the analyze and transform layer through Azure IoT Hub as a stream of messages. Azure IoT Hub stores streams of data in partitions for a configurable amount of time.
 2. Azure Databricks, running Apache Spark Streaming, picks up the messages in real time from IoT Hub, processes the data based on the business logic and sends the data to Serving layer for storage. Spark Streaming can provide real time analytics such as calculating moving averages, min and max values over time periods.
