@@ -42,6 +42,10 @@ This architecture consists of the following components. Some applications may no
 
 **Security monitoring** [Azure Security Center for IoT](/azure/asc-for-iot/overview) provides an end-to-end security solution for IoT workloads and simplifies their protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads from leaf devices through Edge as well as up through the clouds.
 
+### Alternatives
+
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
+
 ## Scalability considerations
 
 An IoT application should be built as discrete services that can scale independently. Consider the following scalability points:
@@ -65,6 +69,8 @@ IoT Hub automatically partitions device messages based on the device ID. All of 
 
 - If you store and update a single document per device, the device ID is a good partition key. Writes are evenly distributed across the keys. The size of each partition is strictly bounded, because there is a single document for each key value.
 - If you store a separate document for every device message, using the device ID as a partition key would quickly exceed the 10-GB limit per partition. Message ID is a better partition key in that case. Typically you would still include device ID in the document for indexing and querying.
+
+[Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
 
 **Azure Time Series Insights (TSI)** is an analytics, storage and visualization service for time-series data, providing capabilities including SQL-like filtering and aggregation, alleviating the need for user-defined functions. [Time Series Insights](/azure/time-series-insights/overview-what-is-tsi) provides a data explorer to visualize and query data as well as REST Query APIs. In addition to time series data, TSI is also well-suited for solutions that need to query aggregates over large sets of data. With support for multi layered storage, rich APIs, model and it’s integration with Azure IoT ecosystem, explorer for visualizations, and extensibility through Power BI, etc. TSI is our recommendation for time series data storage and analytics.
 
@@ -189,7 +195,6 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 For cold path storage, Azure Blob Storage is the most cost-effective option.
 
 For warm path storage, consider using Azure Cosmos DB. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
-
 
 ## Next steps
 
