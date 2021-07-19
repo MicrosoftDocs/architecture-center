@@ -223,7 +223,21 @@ items:
       - name: Reliability
         items:
               - name: Principles
-                href: https://microsoft-ce-csi.acrolinx.cloud:443
+                href: framework/resiliency/overview.md
+              - name: Design
+                items: 
+                  - name: Checklist
+                    href: framework/resiliency/design-checklist.md
+                  - name: Requirements
+                    href: framework/resiliency/design-requirements.md
+                  - name: Application design
+                    href: framework/resiliency/app-design.md
+                  - name: Resiliency & dependencies
+                    href: framework/resiliency/design-resiliency.md  
+                  - name: Best practices
+                    href: framework/resiliency/design-best-practices.md
+              - name: Testing
+                items:
                   - name: Checklist
                     href: framework/resiliency/test-checklist.md
                   - name: Resiliency testing
