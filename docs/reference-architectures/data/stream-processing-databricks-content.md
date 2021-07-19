@@ -22,7 +22,13 @@ The architecture consists of the following components.
 
 **Cosmos DB**. The output from Azure Databricks job is a series of records, which are written to [Cosmos DB](/azure/cosmos-db) using the Cassandra API. The Cassandra API is used because it supports time series data modeling.
 
+* [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
+
 **Azure Log Analytics**. Application log data collected by [Azure Monitor](/azure/monitoring-and-diagnostics) is stored in a [Log Analytics workspace](/azure/log-analytics). Log Analytics queries can be used to analyze and visualize metrics and inspect log messages to identify issues within the application.
+
+### Alternatives
+
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
 
 ## Data ingestion
 
@@ -388,6 +394,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 ## Deploy the solution
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
+
 
 ## Next steps
 
