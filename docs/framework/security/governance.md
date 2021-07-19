@@ -644,7 +644,7 @@ Here are ways to reduce your risk:
   
 We recommend implementing changes using pilot or other testing methods to mitigate risk of operational interruption.
   
-## Learn more
+### Learn more
   
 For more information about hash algorithms, see [Hash and Signature Algorithms](/windows/win32/seccrypto/hash-and-signature-algorithms).
 
