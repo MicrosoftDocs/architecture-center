@@ -62,8 +62,8 @@ These are the main functions for this reference model. Mapping between central f
 
 
 ## See also
-[Management groups](design-management-groups.md)
-[Centralize network management and security](network-security-containment.md)
+- [Management groups](design-management-groups.md)</br>
+- [Centralize network management and security](network-security-containment.md)
 
 ## Next steps
 Start with this reference model and manage resources across multiple subscriptions consistently and efficiently with management groups. 
