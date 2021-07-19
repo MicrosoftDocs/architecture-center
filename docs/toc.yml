@@ -165,6 +165,26 @@ items:
                 href: guide/responsible-innovation/harms-modeling/type-of-harm.md
           - name: Community Jury
             href: guide/responsible-innovation/community-jury/index.md
+      - name: Multitenant applications
+        items:
+          - name: Considerations
+            items:
+              - name: Overview
+                href: guide/multitenant/considerations/overview.md
+              - name: Tenancy models
+                href: guide/multitenant/considerations/tenancy-models.md
+              - name: Tenant lifecycle
+                href: guide/multitenant/considerations/tenant-lifecycle.md
+              - name: Pricing models
+                href: guide/multitenant/considerations/pricing-models.md
+              - name: Measure consumption
+                href: guide/multitenant/considerations/measure-consumption.md
+              - name: Deploy updates
+                href: guide/multitenant/considerations/updates.md
+              - name: Map requests to tenants
+                href: guide/multitenant/considerations/map-requests.md
+              - name: Domain names
+                href: guide/multitenant/considerations/domain-names.md
       - name: Azure for AWS Professionals
         items:
           - name: Overview
@@ -203,21 +223,7 @@ items:
       - name: Reliability
         items:
               - name: Principles
-                href: framework/resiliency/overview.md
-              - name: Design
-                items: 
-                  - name: Checklist
-                    href: framework/resiliency/design-checklist.md
-                  - name: Requirements
-                    href: framework/resiliency/design-requirements.md
-                  - name: Application design
-                    href: framework/resiliency/app-design.md
-                  - name: Resiliency & dependencies
-                    href: framework/resiliency/design-resiliency.md  
-                  - name: Best practices
-                    href: framework/resiliency/design-best-practices.md
-              - name: Testing
-                items:
+                href: https://microsoft-ce-csi.acrolinx.cloud:443
                   - name: Checklist
                     href: framework/resiliency/test-checklist.md
                   - name: Resiliency testing
@@ -1221,6 +1227,8 @@ items:
                     href: reference-architectures/containers/aks-pci/aks-pci-summary.yml                         
               - name: Advanced microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
+              - name: AKS Baseline for Multi-Region Clusters
+                href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
               - name: CI/CD pipeline for container-based workloads
                 href: example-scenario/apps/devops-with-aks.yml
           - name: Example workloads hosted in AKS clusters
@@ -1350,7 +1358,7 @@ items:
               - name: Securing data solutions
                 href: data-guide/scenarios/securing-data-solutions.md
               - name: Application tenancy in SaaS Databases
-                items:
+                items:rid
                   - name: Tenancy models
                     href: isv/application-tenancy.md
               - name: Monitor Azure Databricks jobs
