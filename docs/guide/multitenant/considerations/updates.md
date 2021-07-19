@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes considerations for updating your multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 06/17/2021
+ms.date: 07/09/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -112,5 +112,5 @@ If your service exposes an external API, consider that any updates you apply mig
 
 ## Next steps
 
-- Return to the [architectural considerations for multitenant solutions](overview.md).
+- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.md).
 - Review the [DevOps checklist](../../../checklist/dev-ops.md) in Azure Well-Architected Framework.
