@@ -151,7 +151,7 @@ The data flows through the solution as follows:
     service technicians to view vehicle data (for example, service history, OBD-II data,
     part diagrams, etc.) holographically to aid in troubleshooting and repair.
 
-## Alternatives
+### Alternatives
 
 - [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
 
