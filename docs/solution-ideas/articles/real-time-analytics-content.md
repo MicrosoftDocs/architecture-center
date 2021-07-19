@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Get insights from live streaming data with ease. Capture data continuously from any IoT device, or logs from website clickstreams, and process it in near-real time.
@@ -11,7 +8,7 @@ Get insights from live streaming data with ease. Capture data continuously from 
 
 *Download an [SVG](../media/real-time-analytics.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Easily ingest live streaming data for an application using Azure Event Hubs.
 1. Bring together all your structured data using Synapse Pipelines to Azure Blob Storage.
@@ -21,7 +18,7 @@ Get insights from live streaming data with ease. Capture data continuously from 
 1. Build analytics dashboards and embedded reports in dedicated SQL pool to share insights within your organization and use Azure Analysis Services to serve this data to thousands of users.
 1. Take the insights from Apache Spark pools to Cosmos DB to make them accessible through real time apps.
 
-## Components
+### Components
 
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is the fast, flexible, and trusted cloud data warehouse that lets you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
 * [Synapse Pipelines Documentation](/azure/data-factory/concepts-pipelines-activities) allows you to create, schedule, and orchestrate your ETL/ELT workflows.
@@ -33,9 +30,13 @@ Get insights from live streaming data with ease. Capture data continuously from 
 * [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services) is an enterprise grade analytics as a service that lets you govern, deploy, test, and deliver your BI solution with confidence.
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive unplanned analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
-## Alternatives
+### Alternatives
 
 - [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
+
+## Pricing 
+
+* [Customize and get pricing estimates](https://azure.com/e/f8f5bc2de0b64aa0ae2dd154e7b6b462)
 
 ## Next steps
 
@@ -48,7 +49,3 @@ Get insights from live streaming data with ease. Capture data continuously from 
 * [Azure Cosmos DB Documentation](/azure/cosmos-db)
 * [Analysis Services Documentation](/azure/analysis-services)
 * [Power BI Documentation](/power-bi)
-
-## Pricing Calculator
-
-* [Customize and get pricing estimates](https://azure.com/e/f8f5bc2de0b64aa0ae2dd154e7b6b462)
