@@ -220,6 +220,8 @@ items:
             href: gcp-professional/services.md
   - name: Microsoft Azure Well-Architected Framework
     items:
+      - name: Overview
+        href: framework/index.md
       - name: Reliability
         items:
               - name: Principles
@@ -364,8 +366,6 @@ items:
                 href: framework/security/governance.md
               - name: Elevate security capabilities
                 href: framework/security/governance.md
-      - name: Overview
-        href: framework/index.md
       - name: Cost Optimization
         items:
           - name: About
