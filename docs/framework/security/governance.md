@@ -50,10 +50,11 @@ enterprise organizations. Business goals, project constraints, and other factors
 often cause organizations to balance security risk against other risks and apply
 a subset of best practices at any given point.
 
-We recommend applying as many as of the best practices as early as possible, and
-then working to retrofit any gaps over time as you mature your security program.
-We recommend evaluating the following considerations when prioritizing which to
-follow first:
+We recommend applying as many of the best practices as early as possible, and
+then working to retrofit any gaps over time as you mature your security program
+to include review, prioritization, and proactive application of best practices 
+to cloud resources. We recommend evaluating the following considerations when 
+prioritizing which to follow first:
 
 - **High business impact and highly exposed systems:** These include systems with direct intrinsic value as well as the systems that provide attackers a path to them. For more information, see [Identify and classify business critical applications](./design-apps-services.md).
 
