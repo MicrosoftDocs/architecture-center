@@ -81,10 +81,10 @@ In the following diagram, Azure Application Gateway is in a spoke virtual networ
 1. Application Gateway intercepts the client packets and inspects them. If the packets pass inspection:
 
    - Application Gateway establishes a connection to one of the back end servers.
-   - The Application Gateway subnet forwards the packets to Azure Firewall.
+   - A user-defined route (UDR) in the Application Gateway subnet forwards the packets to Azure Firewall.
 
 1. Azure Firewall runs security checks on the packets. If they pass the tests, Azure Firewall forwards the packets to the application VM.
-1. The VM responds and sets the destination IP address to Application Gateway. The Application Gateway subnet redirects the packets to Azure Firewall.
+1. The VM responds and sets the destination IP address to Application Gateway. A UDR in the Application Gateway subnet redirects the packets to Azure Firewall.
 1. Azure Firewall forwards the packets to Application Gateway.
 1. Application Gateway answers the client.
 
@@ -97,26 +97,41 @@ Traffic can also arrive from an on-premises network instead of the public intern
 1. Application Gateway inspects the packets. If they pass inspection:
 
    - Application Gateway establishes a connection to one of the back end servers.
-   - The Application Gateway subnet forwards the packets to Azure Firewall.
+   - A UDR in the Application Gateway subnet forwards the packets to Azure Firewall.
 
 1. Azure Firewall runs security checks on the packets. If they pass the tests, Azure Firewall forwards the packets to the application VM.
-1. The VM responds and sets the destination IP address to Application Gateway. The Application Gateway subnet redirects the packets to Azure Firewall.
+1. The VM responds and sets the destination IP address to Application Gateway. A UDR in the Application Gateway subnet redirects the packets to Azure Firewall.
 1. Azure Firewall forwards the packets to Application Gateway.
 1. Application Gateway sends the packets to the virtual network gateway.
 1. The virtual network gateway answers the client.
 
 ## Virtual WAN example
 
-You can also use [Virtual WAN][vwan_overview] in this architecture. This component offers many benefits. For instance, it eliminates the need for user-maintained routes in spoke virtual networks. You can define static routes in virtual hub route tables instead. The programming of every virtual network that you connect to the hub then contains these routes.
+You can also use [Virtual WAN][vwan_overview] in this architecture. This component offers many benefits. For instance, it eliminates the need for user-maintained UDRs in spoke virtual networks. You can define static routes in virtual hub route tables instead. The programming of every virtual network that you connect to the hub then contains these routes.
 
 When you use Virtual WAN as a networking platform, two main differences result:
 
 - You can't link DNS private zones to a virtual hub, because Microsoft manages virtual hubs. As the subscription owner, you don't have permissions for linking private DNS zones. Instead, use DNS forwarders to implement DNS resolution for Azure Firewall. Deploy the forwarders in a shared services virtual network. For more information, see [Azure Firewall DNS settings][azfw_dns].
 - You can only use Virtual WAN to program routes in a spoke if the prefix is shorter than the virtual network prefix. This limitation becomes apparent when Application Gateway and the destination web server are in the same virtual network. In that case, Virtual WAN can't inject a route that overrides the system route for the virtual network. As a result, traffic between Application Gateway and the web server bypasses Azure Firewall.
 
-The following diagram reflects the packet flow for accessing the Azure Application Gateway from an on-premises network connected to Virtual WAN via Site-to-Site VPN or ExpressRoute, access from the Internet would be similar:
+The following diagram shows the packet flow in a case that involves Virtual WAN. In this situation, the access to Azure Application Gateway is from an on-premises network that's connected to Virtual WAN via site-to-site VPN or ExpressRoute. Access from the internet is similar.
 
 ![Virtual WAN internal traffic](./images/appgwB4azfw_vwan_internal.png)
+
+1. An on-premises client connects to the virtual network gateway.
+1. The gateway forwards the client packets to Application Gateway.
+1. Application Gateway inspects the packets. If they pass inspection:
+
+   - Application Gateway establishes a connection to one of the back end servers.
+   - The Application Gateway subnet forwards the packets to Azure Firewall.
+
+1. Azure Firewall requests DNS resolution from a DNS server in the shared services virtual network.
+1. DNS forwarders answer the resolution request. 
+1. Azure Firewall runs security checks on the packets. If they pass the tests, Azure Firewall forwards the client packets to the application VM.
+1. The VM responds and sets the destination IP address to Application Gateway. The Application Gateway subnet redirects the packets to Azure Firewall.
+1. Azure Firewall forwards the packets to Application Gateway.
+1. Application Gateway sends the packets to the virtual network gateway.
+1. The virtual network gateway answers the client.
 
 One aspect to consider in this design is that the routing advertised by the hub to the spoke Virtual Networks might have to be modified for certain services. More concretely, the Azure Application Gateway v2 does not support a 0.0.0.0/0 route pointing to anything other than the Internet, since that breaks the connectivity required by Microsoft to manage the Application Gateway. In case you are advertising a 0.0.0.0/0 route from the virtual hub, there are two ways to prevent that route from being inserted in the Application Gateway subnet:
 
