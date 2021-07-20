@@ -84,23 +84,26 @@ threats outside the networks you control.
 As organizations shift to modern architectures, many services and components
 required for applications will be accessed over the internet or on cloud
 provider networks, often by mobile and other devices off the network.
-Traditional network controls based on a *“trusted intranet”* approach will not
+Traditional network controls based on a *trusted intranet* approach will not
 be able to effectively provide security assurances for these applications. This
 shifting landscape is captured well by principles documented by the [Jericho
-Forum](https://en.wikipedia.org/wiki/Jericho_Forum) and ‘Zero Trust’ approaches.
+Forum](https://en.wikipedia.org/wiki/Jericho_Forum) and *Zero Trust* approaches.
 
-Build a risk containment strategy based on a combination of network controls and
-application, identity, and other control types.
+Build a risk containment strategy based on a combination of network controls,
+application, identity, and other control types:
 
 - Ensure that resource grouping and administrative privileges align to the
-    segmentation model (see figure XXXX)
+    segmentation model.
 
 - Ensure you are designing security controls that identify and allow expected
     traffic, access requests, and other application communications between
-    segments. Monitor communications between segments to identify on any
+    segments. Monitor communications between segments to identify any
     unexpected communications so you can investigate whether to set alerts or
     block traffic to mitigate risk of adversaries crossing segmentation
     boundaries.
+    
+- Implement technical controls that can effectively prevent, detect, and respond 
+  to threats outside the network controls.
 
 ## Build a security containment strategy
 
