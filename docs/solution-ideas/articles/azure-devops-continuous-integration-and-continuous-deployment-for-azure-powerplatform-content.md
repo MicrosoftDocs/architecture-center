@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Learn how to create a CI/CD pipeline to manage your PowerPlatform Application lifecycle using Azure DevOps.
+Learn how to create a CI/CD pipeline to manage your Power Platform Application lifecycle using Azure DevOps.
 
 ## Architecture
 
