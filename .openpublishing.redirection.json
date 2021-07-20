@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/framework/scalability/data-management.md",
+      "redirect_url": "/azure/architecture/framework/Scalability/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/blueprints/hybrid-networking/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/",
       "redirect_document_id": true
