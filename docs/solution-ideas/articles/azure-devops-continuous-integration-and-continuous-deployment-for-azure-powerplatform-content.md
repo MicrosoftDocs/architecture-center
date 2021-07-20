@@ -21,9 +21,9 @@ Learn how to create a CI/CD pipeline to manage your PowerPlatform Application li
 
 ### Components
 
-##* [Power Apps](https://powerapps.microsoft.com/): Microsoft Power Apps, low-code app building platform
-##* [Azure DevOps](https://azure.microsoft.com/services/devops/): Azure DevOps, build, test and deploy in any language, to any cloud or on-premises
-##* [Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/): Azure Repos, cloud hosted private Git repos
+* [Power Apps](https://powerapps.microsoft.com/): Microsoft Power Apps, low-code app building platform
+* [Azure DevOps](https://azure.microsoft.com/services/devops/): Azure DevOps, build, test and deploy in any language, to any cloud or on-premises
+* [Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/): Azure Repos, cloud hosted private Git repos
 
 
 ## Pricing
