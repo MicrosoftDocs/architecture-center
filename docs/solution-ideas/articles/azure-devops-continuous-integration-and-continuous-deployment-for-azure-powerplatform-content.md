@@ -1,33 +1,30 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Learn how to create a CI/CD pipeline to manage your PowerPlatform Application lifecycle.
+Learn how to create a CI/CD pipeline to manage your PowerPlatform Application lifecycle using Azure DevOps.
 
 ## Architecture
 
-![Architecture diagram](../media/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.png)
-*Download an [SVG](../media/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.svg) of this architecture.*
+![Architecture diagram](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png)
+*Download an [SVG](../media/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png) of this architecture.*
 
 ### Data flow
 
-1. Developer updates code and triggers build
-1. Azure DevOps fetches solution from development environment
-1. Continuous integration triggers application build and unit tests.
-1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
-1. Deployment to Web Apps.
-1. Azure Application Insights collects and analyzes health, performance, and usage data.
-1. Review health, performance, and usage information.
-1. Update backlog item.
+1. Solution updated, trigger build pipeline
+1. Continuous integration exports solution from development environment and commits files to Azure Repos   
+1. Continuous integration builds a managed solution, runs tests, and creates a build artifact
+1. Deployment to Build/Test environment
+1. Continuous deployment runs tests and orchestrates the deployment of the managed solution to target environments
+1. Deployment to production environment
+1. Application Insights collects and analyses health, performance, and usage data
+1. Review health, performance and usage information
+1. Update backlog item(s) as required
 
 ### Components
 
-* Application Insights: Detect, triage, and diagnose issues in your web apps and services.
-* [Web Apps](https://azure.microsoft.com/services/app-service/web): Quickly create and deploy mission critical Web apps at scale.
-* [Azure DevOps](https://azure.microsoft.com/services/devops): Services for teams to share code, track work, and ship software.
-* [Visual Studio](https://www.visualstudio.com/vs/azure): A creative launch pad for viewing and editing code,  then debugging, building, and publishing apps for Android, iOS, Windows, the web, and the cloud.
+##* [Power Apps](https://powerapps.microsoft.com/): Microsoft Power Apps, low-code app building platform
+##* [Azure DevOps](https://azure.microsoft.com/services/devops/): Azure DevOps, build, test and deploy in any language, to any cloud or on-premises
+##* [Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/): Azure Repos, cloud hosted private Git repos
 
-## Deploy this scenario
-
-* [Deploy to Azure](https://ms.portal.azure.com/#create/Microsoft.AzureProject)
 
 ## Pricing
 
@@ -35,7 +32,7 @@ Learn how to create a CI/CD pipeline to manage your PowerPlatform Application li
 
 ## Next steps
 
-* [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
-* [Use Azure DevOps to deploy to an Azure Web App](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
-* [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)
-* [Deploy to Azure Web Apps using Visual Studio and Azure DevOps](/vsts/build-release/apps/cd/deploy-docker-webapp)
+* [Application lifecycle management with Microsoft Power Platform](https://docs.microsoft.com/power-platform/alm/) 
+* [Microsoft Power Platform Build Tools for Azure DevOps](https://docs.microsoft.com/power-platform/alm/devops-build-tools)
+* [Microsoft Power Platform Build Tools tasks](https://docs.microsoft.com/en-us/power-platform/alm/devops-build-tool-tasks)
+* [Azure DevOps](https://azure.microsoft.com/services/devops/)
