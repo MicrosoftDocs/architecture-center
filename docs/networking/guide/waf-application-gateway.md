@@ -176,7 +176,7 @@ For workload considerations, see [Application Monitoring](../../framework/devops
 ## Reliability
 Here are some best practices to minimize failed instances.
 
-In addition, we recommend that you review the [Principles of the reliability pillar](../../framework/resiliency/overview.md).
+In addition, we recommend that you review the [Principles of the reliability pillar](../../framework/resiliency/principles.md).
 
 #### Plan for rule updates 
 Plan enough time for updates before accessing Application Gateway or making further changes. For example, removing servers from backend pool might take some time because they have to drain existing connections.

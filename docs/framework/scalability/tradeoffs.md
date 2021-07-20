@@ -86,7 +86,7 @@ Some reliability considerations are:
 
 - Monitor performance. Use a performance monitoring service such as [New Relic](https://newrelic.com/) or [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
 
-For resiliency, availability, and reliability considerations, see the [Reliability](../resiliency/overview.md) pillar.
+For resiliency, availability, and reliability considerations, see the [Reliability](../resiliency/principles.md) pillar.
 
 ## Performance efficiency vs. security
 
