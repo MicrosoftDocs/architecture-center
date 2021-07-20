@@ -79,7 +79,7 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
 [serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: ../../framework/resiliency/overview.md
+[resiliency]: ../../framework/resiliency/principles.md
 [security]: /azure/security
 [scalability]: ../../framework/scalability/performance-efficiency.md
 [functions-best-practices]: /azure/azure-functions/functions-best-practices

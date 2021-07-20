@@ -62,7 +62,7 @@ Key technologies used to implement this architecture:
 
 Azure Architecture Center:
 
-- Review the overview article [Principles of the reliability pillar](../../framework/resiliency/overview.md)
+- Review the overview article [Principles of the reliability pillar](../../framework/resiliency/principles.md)
 - See the related reference architecture [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
 
 Product documentation:
