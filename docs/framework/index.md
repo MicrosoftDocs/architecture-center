@@ -202,6 +202,6 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 <!-- pillars -->
 [cost-pillar]: ./cost/overview.md
 [security-pillar]: ./security/overview.md
-[resiliency-pillar]: ./resiliency/overview.md
+[resiliency-pillar]: ./resiliency/principles.md
 [scalability-pillar]: ./scalability/overview.md
 [devops-pillar]: ./devops/overview.md
