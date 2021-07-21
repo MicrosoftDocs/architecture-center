@@ -45,18 +45,20 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 | [Throttling](../../patterns/throttling.md) | Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. |
 | [Resiliency - Well Architected Framework Pillar](../../framework/resiliency/reliability-patterns.md#resiliency) | The nature of cloud hosting, where applications are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the Internet, and run on commodity hardware means there is an increased likelihood that both transient and more permanent faults will arise. |
 
-## Governance and compliance
+## Resources for Azure services
+
+### Governance and compliance
 
 * [Organizing and managing multiple Azure subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions)
 * [Cross-tenant management experiences](/azure/lighthouse/concepts/cross-tenant-management-experience): As a service provider, you can use Azure Lighthouse to manage resources for multiple customers from within your own Azure Active Directory (Azure AD) tenant. Many tasks and services can be performed across managed tenants by using Azure delegated resource management.
 * [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/overview): In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group.
 
-## Compute
+### Compute
 
 * [Best practices for cluster isolation in Azure Kubernetes Service](/azure/aks/operator-best-practices-cluster-isolation): AKS provides flexibility in how you can run multitenant clusters and isolate resources. To maximize your investment in Kubernetes, first understand and implement AKS multitenancy and isolation features. This best practices article focuses on isolation for cluster operators.
 * [Best practices for cluster security and upgrades in Azure Kubernetes Service](/azure/aks/operator-best-practices-cluster-security): As you manage clusters in Azure Kubernetes Service (AKS), workload and data security is a key consideration. When you run multitenant clusters using logical isolation, you especially need to secure resource and workload access.
 
-## Storage and data
+### Storage and data
 
 * [Azure Cosmos DB and multitenant systems](https://azure.microsoft.com/blog/azure-cosmos-db-and-multi-tenant-systems/): Blog post discussing how to build a multitenant system using Azure Cosmos DB.
 * [Azure SQL Database multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns): Set of articles describing various tenancy models available for a multitenant SaaS application using Azure SQL Database.
@@ -68,11 +70,11 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 * [Multitenant applications with Azure Cosmos DB](https://www.youtube.com/watch?v=fOQoQnQqwwU) (video)
 * [Multitenant design patterns for SaaS applications on Azure SQL Database](https://www.youtube.com/watch?v=jjNmcKBVjrc) (video)
 
-## Messaging
+### Messaging
 
 * [Azure Event Grid Domains](/azure/event-grid/event-domains): Azure Event Grid Domains allows to manage multitenant eventing architectures at scale.
 
-## Identity
+### Identity
 
 * [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps): When developing apps, developers can choose to configure their app to be either single-tenant or multitenant during app registration in Azure Active Directory.
 * [Custom-branded indentity solution with Azure AD B2C](/azure/active-directory-b2c/overview): Azure Active Directory B2C is a customer identity access management solution capable of supporting millions of users and billions of authentications per day.
@@ -80,14 +82,14 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 * [Build a multi-tenant daemon with the Microsoft identity platform endpoint](/samples/azure-samples/ms-identity-aspnet-daemon-webapp/build-multi-tenant-daemon-aad/): This sample application shows how to use the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
 * [Authenticate and authorize multi-tenant apps using Azure Active Directory (Azure AD)](/learn/modules/cna-set-up-azure-ad-use-scale/): learn how Azure AD enables you to improve the functionality of cloud-native apps in multitenant scenarios.
 
-## Analytics
+### Analytics
 
 * [Multi-tenancy solutions with Power BI embedded analytics](/power-bi/developer/embedded/embed-multi-tenancy): When designing a multitenant application as part of your PowerBI embed for your customers solution, you must carefully choose the tenancy model that best fits your needs.
 
-## IoT
+### IoT
 
 * [Multitenancy in IoT Device Provisioning Service](/azure/iot-dps/how-to-provision-multitenant): Multitenant IoT solution will commonly assign tenant devices using a group of IoT hubs that are scattered across regions.
 
-## AI/ML
+### AI/ML
 
 * [Design patterns for multitenant SaaS applications and Azure Cognitive Search](/azure/search/search-modeling-multitenant-saas-applications): This document discusses tenant isolation strategies for multitenant applications built with Azure Cognitive Search.
