@@ -59,10 +59,12 @@ Be cautious when logging sensitive application information. Don't store  persona
 
 One way to enable network visibility is by integrating network logs and analyzing the data to identify anomalies. Based on those insights, you can choose to set alerts or block traffic crossing segmentation boundaries.
 
+NSG flow logs should be captured and analyzed to monitor security. NSG flow logging enables traffic analytics to gain insights into internal and external traffic flows of an application.
+
 **How do you monitor and diagnose conditions of the network?** 
 ***
 
-Enable logs (including raw traffic) from your network devices. 
+Enable, configure, and collect network traffic logs (including raw traffic) from your network devices either with NSG flow logs or with Azure Firewall logs.
 
 Integrate network logs into a security information and event management (SIEM) service, such as Azure Sentinel. Other popular choices include Splunk, QRadar, or ArcSight ESM.
 
@@ -74,6 +76,11 @@ Here are some ways to integrate network logs:
 - [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics)
 - [Virtual network taps](/azure/virtual-network/virtual-network-tap-overview)
 - [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)
+
+For more information about network logs, reference the following articles: 
+
+- [Introduction to flow logging for network security groups](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)
+- [Azure Firewall logs and metrics](/azure/firewall/logs-and-metrics)
 
 ## Proactive monitoring
 **How do you gain access to real-time performance information at the packet level?** 
