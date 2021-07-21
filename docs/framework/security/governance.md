@@ -527,29 +527,42 @@ resource deployment in Azure and enable resource deployment and governance based
 on a desired-state approach. You can use built in configurations in Azure
 Blueprint, make your own, or just use Resource Manager scripts for smaller scope.
 
+Implement a *landing zone* concept with Azure Blueprints and Azure Policies. The purpose of a landing zone is to ensure that when a workload lands on Azure, the required *plumbing* is already in place, providing greater agility and compliance with enterprise security, and governance requirements. It is crucial that a landing zone is handed over to the workload owner with security guardrails deployed.
+
+For more information about landing zones, reference [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/)
+
 Several [Security and Compliance Blueprints](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) [samples](/azure/governance/blueprints/samples/)
 are available to use as a starting template.
+  
+**Learn more**
+
+[What is the Microsoft Cloud Adoption Framework for Azure?](/azure/cloud-adoption-framework/overview)
 
 ## Evaluate security using benchmarks
 
 Use an industry standard benchmark to evaluate your organizations current
-security posture.
+security posture. Azure Security Benchmark v2 is Microsoft's current Azure
+security benchmark.
 
 Benchmarking allows you to improve your security program by learning from
-external organizations. Benchmarking lets you know how your current security
+external organizations. It lets you know how your current security
 state compares to that of other organizations, providing both external
-validation for successful elements of your current system as well as identifying
+validation for successful elements of your current system and identifying
 gaps that serve as opportunities to enrich your team’s overall security
 strategy. Even if your security program isn’t tied to a specific benchmark or
 regulatory standard, you will benefit from understanding the documented ideal
 states by those outside and inside of your industry.
 
-- As an example, the Center for Internet Security (CIS) has created security
-    benchmarks for Azure that map to the CIS Control Framework. Another
-    reference example is the MITRE ATT&CK™ framework that defines the various
-    adversary tactics and techniques based on real-world observations. These
-    external references control mappings help you to understand any gaps between
-    your current strategy what you have and what other experts in the industry.
+As an example, the Center for Internet Security (CIS) has created security
+benchmarks for Azure that map to the CIS Control Framework. Another
+reference example is the MITRE ATT&CK™ framework that defines the various
+adversary tactics and techniques based on real-world observations. These
+external references control mappings and help you to understand any gaps between
+your current strategy, what you have, and what other experts have in the industry.
+
+### Suggested action
+  
+Develop an Azure security benchmarking strategy aligned to industry standards.
 
 ## Audit and enforce policy compliance
 
