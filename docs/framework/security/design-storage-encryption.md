@@ -66,9 +66,15 @@ For more information, reference [Authorize access to blobs using Azure Active Di
 **Does the organization use industry standard encryption algorithms instead of creating their own?**
 ***
 
-Avoid using custom encryption algorithms or direct cryptography in your workload. These methods rarely stand up to real world attacks. If custom implementation is required, developers should use well-established cryptographic algorithms and secure standards. Use Advanced Encryption Standard (AES) as a symmetric block cipher, AES-128, AES-192, and AES-256 are acceptable. 
+Organizations should not develop and maintain their own encryption algorithms. Avoid using custom encryption algorithms or direct cryptography in your workload. These methods rarely stand up to real world attacks. 
+
+Secure standards already exist on the market and should be preferred. If custom implementation is required, developers should use well-established cryptographic algorithms and secure standards. Use Advanced Encryption Standard (AES) as a symmetric block cipher, AES-128, AES-192, and AES-256 are acceptable. 
 
 Developers should use cryptography APIs built into operating systems instead of non-platform cryptography libraries. For .NET, follow the [.NET Cryptography Model](/dotnet/standard/security/cryptography-model).
+
+We advise using standard and recommended encryption algorithms.
+
+For more information, refer to [Choose an algorithm](/dotnet/standard/security/cryptography-model#choose-an-algorithm).
 
 **Are modern hashing functions used?**
 ***
