@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 07/12/2021
+ms.date: 07/20/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,15 @@ New and updated articles in Azure Architecture Center
 
 ### New Articles
 
+- [Considerations when using domain names in a multitenant solution](./guide/multitenant/considerations/domain-names.md)
+- [Map requests to tenants in a multitenant solution](./guide/multitenant/considerations/map-requests.md)
+- [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
+- [Measure consumption](./guide/multitenant/considerations/measure-consumption.md)
+- [Architectural considerations for a multitenant solution](./guide/multitenant/considerations/overview.md)
+- [Pricing models](./guide/multitenant/considerations/pricing-models.md)
+- [Tenancy models to consider for a multitenant solution](./guide/multitenant/considerations/tenancy-models.md)
+- [Tenant lifecycle considerations in a multitenant solution](./guide/multitenant/considerations/tenant-lifecycle.md)
+- [Considerations for updating a multitenant solution](./guide/multitenant/considerations/updates.md)
 - [Modern data warehouse for small and medium business](./example-scenario/data/small-medium-data-warehouse.yml)
 - [Secure development with single-page apps](./guide/resilience/azure-ad-secure-single-page-application.md)
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Data protection](./reference-architectures/containers/aks-pci/aks-pci-data.yml)
@@ -42,6 +51,16 @@ New and updated articles in Azure Architecture Center
 
 ### Updated Articles
 
+- [Best practices for endpoint security on Azure](./framework/security/design-network-endpoints.md)  ([#e6f43e210](https://github.com/MicrosoftDocs/architecture-center/commit/e6f43e210))
+- [Governance, risk, and compliance in Azure | Microsoft Docs](./framework/security/governance.md)  ([#729eb51f3](https://github.com/MicrosoftDocs/architecture-center/commit/729eb51f3))
+- [Authorization with Azure AD](./framework/security/design-identity-authorization.md)  ([#b11413e38](https://github.com/MicrosoftDocs/architecture-center/commit/b11413e38))
+- [Secure deployment in Azure](./framework/security/deploy.md)  ([#8a9b43d44](https://github.com/MicrosoftDocs/architecture-center/commit/8a9b43d44))
+- [Risk reduction with Azure | Microsoft Docs](./framework/security/resilience.md)  ([#9f81591b5](https://github.com/MicrosoftDocs/architecture-center/commit/9f81591b5))
+- [Process real-time vehicle data using IoT](./example-scenario/data/realtime-analytics-vehicle-iot.yml)  ([#dac619770](https://github.com/MicrosoftDocs/architecture-center/commit/dac619770))
+- [Stream processing with Azure Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#dac619770](https://github.com/MicrosoftDocs/architecture-center/commit/dac619770))
+- [IoT analytics with Azure Data Explorer](./solution-ideas/articles/iot-azure-data-explorer.yml)  ([#dac619770](https://github.com/MicrosoftDocs/architecture-center/commit/dac619770))
+- [Implement network segmentation patterns on Azure](./framework/security/design-network-segmentation.md)  ([#3c975501a](https://github.com/MicrosoftDocs/architecture-center/commit/3c975501a))
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](./reference-architectures/containers/aks/secure-baseline-aks.yml)  ([#bd292c628](https://github.com/MicrosoftDocs/architecture-center/commit/bd292c628))
 - [AWS to Azure services comparison](./aws-professional/services.md)  ([#03b256c32](https://github.com/MicrosoftDocs/architecture-center/commit/03b256c32))
 - [Globally distributed applications using Cosmos DB](./solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)  ([#03b256c32](https://github.com/MicrosoftDocs/architecture-center/commit/03b256c32))
 
@@ -168,7 +187,7 @@ New and updated articles in Azure Architecture Center
 - [Hybrid availability and performance monitoring](./hybrid/hybrid-perf-monitoring.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
 - [Run SAP BW/4HANA with Linux virtual machines on Azure](./reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
 - [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
-- [Azure Firewall Architecture Guide](./example-scenario/firewalls/index.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
+- [Azure Firewall architecture overview](./example-scenario/firewalls/index.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
 - [Design a hybrid Domain Name System solution with Azure](./hybrid/hybrid-dns-infra.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
 - [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
 - [Secure and govern workloads with network level segmentation](./reference-architectures/hybrid-networking/network-level-segmentation.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))

@@ -315,7 +315,7 @@ requirements. Some things to consider include:
 
 - Does your application have specific latency requirements?
 
-For additional guidance, refer to [Principles of the reliability pillar](../framework/resiliency/overview.md).
+For additional guidance, refer to [Principles of the reliability pillar](../framework/resiliency/principles.md).
 
 Depending on the availability needs of an application, the cost and design
 complexity will vary. When building for a VM workload, there will be a cost
