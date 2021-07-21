@@ -527,8 +527,16 @@ resource deployment in Azure and enable resource deployment and governance based
 on a desired-state approach. You can use built in configurations in Azure
 Blueprint, make your own, or just use Resource Manager scripts for smaller scope.
 
+Implement a *landing zone* concept with Azure Blueprints and Azure Policies. The purpose of a landing zone is to ensure that when a workload lands on Azure, the required *plumbing* is already in place, providing greater agility and compliance with enterprise security, and governance requirements. It is crucial that a landing zone is handed over to the workload owner with security guardrails deployed.
+
+For more information about landing zones, reference [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/)
+
 Several [Security and Compliance Blueprints](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) [samples](/azure/governance/blueprints/samples/)
 are available to use as a starting template.
+  
+**Learn more**
+
+[What is the Microsoft Cloud Adoption Framework for Azure?](/azure/cloud-adoption-framework/overview)
 
 ## Evaluate security using benchmarks
 
