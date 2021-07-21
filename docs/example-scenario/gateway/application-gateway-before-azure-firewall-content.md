@@ -133,22 +133,34 @@ The following diagram shows the packet flow in a case that involves Virtual WAN.
 1. Application Gateway sends the packets to the virtual network gateway.
 1. The virtual network gateway answers the client.
 
-One aspect to consider in this design is that the routing advertised by the hub to the spoke Virtual Networks might have to be modified for certain services. More concretely, the Azure Application Gateway v2 does not support a 0.0.0.0/0 route pointing to anything other than the Internet, since that breaks the connectivity required by Microsoft to manage the Application Gateway. In case you are advertising a 0.0.0.0/0 route from the virtual hub, there are two ways to prevent that route from being inserted in the Application Gateway subnet:
+With this design, you might need to modify the routing that the hub advertises to the spoke virtual networks. Specifically, version 2 of Azure Application Gateway only supports a 0.0.0.0/0 route that points to the internet. Routes with this address that don't point to the internet break the connectivity that Microsoft requires for managing Application Gateway. If your virtual hub advertises a 0.0.0.0/0 route, there are two ways to prevent that route from being inserted in the Application Gateway subnet:
 
-- You can create a route table with a route for 0.0.0.0/0 and next hop Internet, and associate it to the subnet where the Application Gateway is deployed
-- If the Application Gateway is deployed in a dedicated spoke, you can disable the propagation of the default route in the settings for the VNet connection
+- Create a route table with a route for 0.0.0.0/0 and a next hop type of internet. Associate that route with the subnet that you deploy Application Gateway in.
+- If you deploy Application Gateway in a dedicated spoke, disable the propagation of the default route in the settings for the virtual network connection.
 
 ## Example design with Azure Route Server
 
-Finally, the [Azure Route Server][ars_overview] offers another possibility to inject routes automatically in the spoke, to avoid the administrative overhead of maintaining route tables. Its design is a combination of the hub and spoke and Virtual WAN variants:
+[Azure Route Server][ars_overview] offers another way to inject routes automatically in the spoke. As a result, you can avoid the administrative overhead of maintaining route tables. Azure Route Server combines the Virtual WAN and hub and spoke variants:
 
-- The hub Virtual Network is customer-managed, so the subscription admin can do operations such as linking the hub VNet to DNS private zones.
-- Azure Route Server has the same limitation as Virtual WAN around injecting prefixes with the same or longer length than the Virtual Network prefix in the spokes. Hence, the Application Gateway and the destination web server needs to be in different Virtual Networks.
-- Whether DNS is required or not will depend on the functionality of the Network Virtual Appliance (NVA) in the hub. In the following diagram the DNS step is depicted, but note that this might vary depending on the NVA.
+- Customers manage hub virtual networks. As a result, the subscription admin can do operations like linking the hub virtual network to DNS private zones.
+- Azure Route Server has the same limitation that Virtual WAN has concerning IP address prefixes. You can only inject routes into a spoke if the prefix is shorter than the virtual network prefix. Because of this limitation, Application Gateway and the destination web server need to be in different virtual networks.
+- The functionality of the Network Virtual Appliance (NVA) in the hub determines whether your implementation needs DNS.
 
-One remark to this design is that the Azure Route Server requires today that the device injecting the routes sends them over Border Gateway Protocol (BGP). Since the Azure Firewall does not support BGP, this design would require a third-party Network Virtual Appliance (NVA):
+Azure Route Server currently requires the device that injects the routes to send them over Border Gateway Protocol (BGP). Since Azure Firewall doesn't support BGP, you need to use a third-party NVA instead of Azure Firewall.
+
+The following diagram shows the packet flow when Azure Route Server simplifies the dynamic routing:
 
 ![Route Server internal traffic](./images/appgwB4azfw_ars_internal.png)
+
+1. An on-premises client connects to the virtual network gateway.
+1. The gateway forwards the request to Application Gateway.
+1. Application Gateway connects with one of the back-end servers. The Application Gateway subnet forwards the client request to a Network Virtual Appliance (NVA).
+1. The NVA runs security checks on the client request. If the request passes the tests, the NVA requests DNS resolution from a DNS server in the shared services virtual network.
+1. The DNS server answers the resolution request.
+1. The NVA forwards the client request to the application VM.
+1. The VM answers the request.
+1. The NVA forwards the traffic to Application Gateway.19. Application Gateway sends the response to the virtual network gateway.
+1. The virtual network gateway answers the client.
 
 Note that the design with the Route Server might advertise the 0.0.0.0/0 route to the Application Gateway subnet too, which is not supported. In this case, the only solution is configuring a route table for the Application Gateway subnet with a route for 0.0.0.0/0 and next hop Internet.
 
