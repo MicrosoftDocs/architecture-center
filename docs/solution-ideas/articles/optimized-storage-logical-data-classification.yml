@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Optimized storage with logical data classification
+  titleSuffix: Azure Solution Ideas
+  description: tbd
+  author: nabilshams
+  ms.author: nasiddi
+  ms.date: 08/13/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - databases
+  - web
+products:
+  - azure-cosmos-db
+name: Optimized storage with logical data classification
+summary: tbd
+thumbnailUrl: /azure/architecture/browse/thumbs/optimized-storage-logical-data-classification.png
+content: |
+  [!include[](optimized-storage-logical-data-classification-content.md)]

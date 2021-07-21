@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Multi-region web application with custom Storage Table replication
+  titleSuffix: Azure Solution Ideas
+  description: tbd
+  author: nabilshams
+  ms.author: nasiddi
+  ms.date: 08/13/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - databases
+  - web
+products:
+  - azure-cosmos-db
+name: Multi-region web application with custom Storage Table replication
+summary: tbd
+thumbnailUrl: /azure/architecture/browse/thumbs/multi-region-web-app-multi-writes-azure-table.png
+content: |
+  [!include[](multi-region-web-app-multi-writes-azure-table-content.md)]

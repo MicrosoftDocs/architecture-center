@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Two-region web application with Table Storage failover
+  titleSuffix: Azure Solution Ideas
+  description: Learn how to use Azure Front Door, Azure App Service, Azure Functions, and Azure Table Storage to create a high-availability web application with failover.
+  author: nabilshams
+  ms.author: nasiddi
+  ms.date: 08/13/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - databases
+  - web
+  - migration
+products:
+  - azure-front-door
+  - azure-app-service
+  - azure-functions
+  - azure-table-storage
+  - azure-cache-redis
+name: Two-region web application with Table Storage failover
+summary: This architecture uses Azure Front Door, Azure App Service, Azure Functions, and Azure Table Storage to create a high-availability web application with failover.
+thumbnailUrl: /azure/architecture/browse/thumbs/multi-region-web-app-azure-table-failover.png
+content: |
+  [!include[](multi-region-web-app-azure-table-failover-content.md)]

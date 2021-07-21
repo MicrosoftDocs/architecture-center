@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Minimal storage – change feed to replicate data
+  titleSuffix: Azure Solution Ideas
+  description: tbd
+  author: nabilshams
+  ms.author: nasiddi
+  ms.date: 08/13/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - databases
+  - web
+products:
+  - azure-cosmos-db
+name: Minimal storage – change feed to replicate data
+summary: tbd
+thumbnailUrl: /azure/architecture/browse/thumbs/minimal-storage-change-feed-replicate-data.png
+content: |
+  [!include[](minimal-storage-change-feed-replicate-data-content.md)]

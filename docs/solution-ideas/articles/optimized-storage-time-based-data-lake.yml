@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Optimized storage – time based with Data Lake
+  titleSuffix: Azure Solution Ideas
+  description: tbd
+  author: nabilshams
+  ms.author: nasiddi
+  ms.date: 08/13/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - databases
+  - web
+products:
+  - azure-cosmos-db
+name: Optimized storage – time based with Data Lake
+summary: tbd
+thumbnailUrl: /azure/architecture/browse/thumbs/optimized-storage-time-based-data-lake.png
+content: |
+  [!include[](optimized-storage-time-based-data-lake-content.md)]
