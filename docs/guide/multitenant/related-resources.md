@@ -43,13 +43,16 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 | [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.md) | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. |
 | [Sharding](../../patterns/sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
 | [Throttling](../../patterns/throttling.md) | Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. |
-| [Resiliency - Well Architected Framework Pillar](../../framework/resiliency/reliability-patterns.md#resiliency) | The nature of cloud hosting, where applications are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the Internet, and run on commodity hardware means there is an increased likelihood that both transient and more permanent faults will arise. |
+
+## Microsoft Azure Well-Architected Framework
+
+While the entirety of the [Azure Well-Architected Framework](../../framework/index.md) is important for all solutions, pay special attention to the [Resiliency pillar](../../framework/resiliency/reliability-patterns.md#resiliency). The nature of cloud hosting, where applications are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the Internet, and run on commodity hardware means there is an increased likelihood that both transient and more permanent faults will arise.
 
 ## Resources for Azure services
 
 ### Governance and compliance
 
-* [Organizing and managing multiple Azure subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions)
+* [Organizing and managing multiple Azure subscriptions](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions): It's important to consider how you manage your Azure subscriptions, and how you allocate tenant resources to subscriptions.
 * [Cross-tenant management experiences](/azure/lighthouse/concepts/cross-tenant-management-experience): As a service provider, you can use Azure Lighthouse to manage resources for multiple customers from within your own Azure Active Directory (Azure AD) tenant. Many tasks and services can be performed across managed tenants by using Azure delegated resource management.
 * [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/overview): In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group.
 
