@@ -7,6 +7,8 @@ ms.date: 09/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+categories:
+  - azure
 products:
   - azure-active-directory
 ms.custom:
@@ -1186,8 +1188,8 @@ The following are the typical types of retry strategy intervals:
 
 [adal]: /azure/active-directory/develop/active-directory-authentication-libraries
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
-[CosmosClientOptions]: /dotnet/api/microsoft.azure.cosmos.cosmosclientoptions?view=azure-dotnet
+[CosmosClientOptions]: /dotnet/api/microsoft.azure.cosmos.cosmosclientoptions?view=azure-dotnets&preserve-view=true
 [dotnet-foundation]: https://dotnetfoundation.org
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
-[SearchIndexClient]: /dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet
-[SearchServiceClient]: /dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet
+[SearchIndexClient]: /dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet&preserve-view=true
+[SearchServiceClient]: /dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet&preserve-view=true
