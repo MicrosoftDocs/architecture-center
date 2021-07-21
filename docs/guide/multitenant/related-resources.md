@@ -40,7 +40,7 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 | [Deployment Stamps pattern](../../patterns/deployment-stamp.md) | Deploy multiple independent copies (scale units) of application components, including data stores. |
 | [Federated Identity](../../patterns/federated-identity.md) | Delegate authentication to an external identity provider. |
 | [Gatekeeper](../../patterns/gatekeeper.md) | Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
-| [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.md) | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. |
+| [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.md) | Use a queue that acts as a buffer between a task and a service that it invokes to smooth intermittent heavy loads. |
 | [Sharding](../../patterns/sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
 | [Throttling](../../patterns/throttling.md) | Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service. |
 
@@ -75,19 +75,19 @@ While the entirety of the [Azure Well-Architected Framework](../../framework/ind
 
 ### Messaging
 
-* [Azure Event Grid Domains](/azure/event-grid/event-domains): Azure Event Grid Domains allows to manage multitenant eventing architectures at scale.
+* [Azure Event Grid Domains](/azure/event-grid/event-domains): Azure Event Grid domains allow you to manage multitenant eventing architectures at scale.
 
 ### Identity
 
 * [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps): When developing apps, developers can choose to configure their app to be either single-tenant or multitenant during app registration in Azure Active Directory.
-* [Custom-branded indentity solution with Azure AD B2C](/azure/active-directory-b2c/overview): Azure Active Directory B2C is a customer identity access management solution capable of supporting millions of users and billions of authentications per day.
+* [Custom-branded identity solution with Azure AD B2C](/azure/active-directory-b2c/overview): Azure Active Directory B2C is a customer identity access management solution capable of supporting millions of users and billions of authentications per day.
 * [Identity management in multitenant applications](/azure/architecture/multitenant-identity/): This series of articles describes best practices for multitenancy, when using Azure AD for authentication and identity management.
 * [Build a multi-tenant daemon with the Microsoft identity platform endpoint](/samples/azure-samples/ms-identity-aspnet-daemon-webapp/build-multi-tenant-daemon-aad/): This sample application shows how to use the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
 * [Authenticate and authorize multi-tenant apps using Azure Active Directory (Azure AD)](/learn/modules/cna-set-up-azure-ad-use-scale/): learn how Azure AD enables you to improve the functionality of cloud-native apps in multitenant scenarios.
 
 ### Analytics
 
-* [Multi-tenancy solutions with Power BI embedded analytics](/power-bi/developer/embedded/embed-multi-tenancy): When designing a multitenant application as part of your PowerBI embed for your customers solution, you must carefully choose the tenancy model that best fits your needs.
+* [Multi-tenancy solutions with Power BI embedded analytics](/power-bi/developer/embedded/embed-multi-tenancy): When designing a multitenant application containing Power BI embedded, you must carefully choose the tenancy model that best fits your needs.
 
 ### IoT
 
