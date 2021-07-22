@@ -8,6 +8,12 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - article
+products:
+  - azure-devops
+categories:
+  - security
+subject: 
+  - security
 ---
 
 <!-- cSpell:ignore NIST -->
@@ -464,8 +470,9 @@ One way of managing VMs in the virtual network is by using [Azure Bastion](/azur
 
 ## Assign incident notification contact
 
-Ensure a security contact receives Azure incident notifications from Microsoft
-typically a notification that your resource is compromised and/or attacking
+Security alerts need to reach the right people in your organization. Establish a 
+designated point of contact to receive Azure incident notifications from Microsoft/Azure 
+Security Center, typically a notification that your resource is compromised and/or attacking 
 another customer.
 
 This enables your security operations team to rapidly respond to potential
@@ -473,7 +480,15 @@ security risks and remediate them.
 
 Ensure administrator contact information in the Azure enrollment portal includes
 contact information that will notify security operations (directly or rapidly
-via an internal process)
+via an internal process).
+
+**Learn more**
+
+To learn more about establishing a designated point of contact to receive Azure incident 
+notifications from Microsoft, reference the following articles:
+  
+- [Update notification settings](/azure/cost-management-billing/manage/ea-portal-administration#update-notification-settings)
+- [Configure email notifications for security alerts](/azure/security-center/security-center-provide-security-contact-details)
 
 ## Regularly review critical access
 
