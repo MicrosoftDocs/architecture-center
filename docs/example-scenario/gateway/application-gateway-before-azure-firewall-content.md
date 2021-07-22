@@ -176,9 +176,10 @@ As with Virtual WAN, you might need to modify the routing when you use Azure Rou
 
 ## Related resources
 
-
-
-
+- [Secure and govern workloads with network level segmentation][Secure and govern workloads with network level segmentation]
+- [Implement a secure hybrid network][Implement a secure hybrid network]
+- [Hub-spoke network topology in Azure][Hub-spoke network topology in Azure]
+- [Hub-spoke network topology with Azure Virtual WAN][Hub-spoke network topology with Azure Virtual WAN]
 
 
 [Application Gateway limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits
@@ -187,7 +188,11 @@ As with Virtual WAN, you might need to modify the routing when you use Azure Rou
 [Azure Firewall Premium certificates]: /azure/firewall/premium-certificates
 [Firewall and Application Gateway for virtual networks]: /azure/architecture/example-scenario/gateway/firewall-application-gateway
 [How an application gateway works]: https://docs.microsoft.com/en-us/azure/application-gateway/how-application-gateway-works
+[Hub-spoke network topology in Azure]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli
+[Hub-spoke network topology with Azure Virtual WAN]: /azure/architecture/networking/hub-spoke-vwan-architecture
 [IDPS]: /azure/firewall/premium-features#idps
+[Implement a secure hybrid network]: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal
+[Secure and govern workloads with network level segmentation]: /azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation
 [Secure networks with Zero Trust]: https://docs.microsoft.com/en-us/security/zero-trust/networks
 [TLS inspection]: /azure/firewall/premium-features#tls-inspection
 [Virtual network traffic routing]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview
