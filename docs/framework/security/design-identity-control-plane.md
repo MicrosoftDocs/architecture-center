@@ -10,6 +10,10 @@ products:
   - azure-rbac
 ms.custom:
   - article
+categories:
+  - security
+subject: 
+  - security
 ---
 
 # Azure control plane security
@@ -56,9 +60,22 @@ For example, assign security teams with the **Security Readers** permission that
 
 Unlike Azure role-based access control, management locks are used to apply a restriction across all users and roles.
 
-For critical infrastructure, use management locks to prevent deletion or modification of a resource, resource group, or subscription. Lock in use cases where only specific roles and users with permissions should be able to delete/modify resources. 
+Critical infrastructure typically doesn't change often. Use management locks to prevent deletion or modification of a resource, resource group, or subscription. Lock in use cases where only specific roles and users with permissions should be able to delete, or modify resources. 
+
+As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to `CanNotDelete` or `ReadOnly`. In the portal, the locks are called **Delete** and **Read-only**, respectively:
+
+  - *CanNotDelete* means authorized users can still read and modify a resource, but they can't delete the resource.
+  - *ReadOnly* means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the *Reader* role.
+
+When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
+
+Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
+
+Identify critical infrastructure and evaluate resource lock suitability. 
 
 Set locks in the DevOps process carefully because modification locks can sometimes block automation. For examples of those blocks and considerations, see [Considerations before applying locks](/azure/azure-resource-manager/management/lock-resources#considerations-before-applying-locks).
+
+For more information about implementing resource locks to protect critical infrastructure, reference [Lock resources to prevent unexpected changes](/azure/azure-resource-manager/management/lock-resources?tabs=json).
 
 ## Application deployment
 **Is there a direct access to the application infrastructure through Azure portal, Command-line Interface (CLI), or REST API?**

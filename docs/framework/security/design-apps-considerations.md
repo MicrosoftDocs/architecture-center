@@ -8,6 +8,12 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - article
+products:
+  - azure-devops
+categories:
+  - security
+subject: 
+  - security
 ---
 # Application classification for security
 
@@ -46,7 +52,12 @@ Identify applications that have a high potential impact and,or a high potential 
 
 
 ## Use Azure services for fundamental components 
-Use Azure services databases, encryption, identity directory, and authentication instead of developing custom solutions.
+
+Developers should use services available from a cloud provider for well-established functions like databases, encryption, identity directory, and authentication, instead of building or adopting custom implementations, or third-party solutions that require integration with the cloud provider. These services provide better security, reliability, and efficiency because cloud providers operate and secure them with dedicated teams with deep expertise in those areas. 
+
+Using these services also frees your developer resources from reinventing the proverbial wheel so that they can focus development time on your unique requirements for your business. This practice should be followed to avoid risk during new application development and to reduce risk in existing applications either during the planned update cycle, or with a security-focused application update.
+
+We recommend using cloud services from your cloud provider for identity, data protection, key management, and application configurations:
 
 - **Identity** – User directories and other authentication functions are complex to develop and critically important to security assurances. Avoid custom authentication solutions. Instead  choose native capabilities like Azure Active Directory ([Azure AD](/azure/active-directory/)), [Azure AD B2B](/azure/active-directory/b2b/), [Azure AD B2C](/azure/active-directory-b2c/), or third-party solutions to authenticate and grant permission to users, partners, customers, applications, services, and other entities. For more information, see [Security with identity and access management (IAM) in Azure](design-identity.md).
 
@@ -55,6 +66,8 @@ Use Azure services databases, encryption, identity directory, and authentication
 - **Key management** – Always authenticate with identity services rather than handling cryptographic key. For situations where you need to keys, use a managed key store such as [Azure Key Vault](/azure/key-vault/). This will make sure keys are handled safely in application code. You can use [CredScan](https://secdevtools.azurewebsites.net/helpcredscan.html) to discover potentially exposed keys in your application code.
 
 - **Application Configurations** – Inconsistent configurations for applications can create security risks. [Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags, which helps mitigate this risk.
+
+For more information about using cloud services instead of custom implementations, reference [Applications and services](/azure/architecture/framework/security/design-apps-services#use-cloud-services-instead-of-custom-implementations).
 
 ## Use native capabilities
 
