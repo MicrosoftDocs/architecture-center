@@ -57,7 +57,7 @@ items:
         items:
           - name: Choose a compute service
             href: guide/technology-choices/compute-decision-tree.md
-          - name: Choose a Kubernetes option
+          - name: Choose a Kubernetes edge option
             items:
               - name: Kubernetes at the edge
                 href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
