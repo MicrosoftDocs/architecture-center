@@ -56,8 +56,6 @@ For budget concerns, you get a considerable amount of functionality at no cost t
 
 ## Azure Architecture Center (AAC) resources related to hybrid cost
 
-Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc: https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server
-
 - [Manage configurations for Azure Arc enabled servers](../../hybrid/azure-arc-hybrid-config.yml)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
 - [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](../../hybrid/azure-arc-sql-server.yml)
