@@ -394,6 +394,30 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
         </a>
     </li>
 </ul>
+<ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/example-scenario/wvd/windows-virtual-desktop">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="Diagram of an architecture for Azure Virtual Desktops on Azure." src="../example-scenario/wvd/images/windows-virtual-desktop.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Windows Desktops using Azure Virtual Desktop on Azure</h3>
+                    </div>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
+                        <p>Build a VDI environment for Windows Desktops using Azure Virtual Desktop on Azure.</p>
+                    </div>
+                </div>
+            </article>
+        </a>
+    </li>
+</ul>
+
+Run GPU powered virtual machines in Azure in same region as HPC output for lowest latency, access and visualize remotely through Azure Virtual Desktop, Citrix or VMware Horizon.
+- [GPU Optimized Virtual Machine Sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu)
+- [Configure GPU Acceleration for Azure Virtual Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-vm-gpu)
 
 ## Performance Benchmarks
 
