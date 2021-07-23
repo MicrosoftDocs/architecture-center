@@ -96,4 +96,4 @@ This pattern might not be suitable for
 - A [geode-pattern-accelerator](https://github.com/lucashuet93/geode-pattern-accelerator) application on GitHub showcases this design pattern in practice and is designed to help developers implement it with real-world APIs.
 - The [globally distributed applications using Cosmos DB](../solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml) article examines a geographical based deployment that utilizes Traffic Manager for load balancing and Azure App Service to host the API code.
 - A [QnA sample application](https://github.com/xstof/qnademo) on GitHub showcases this design pattern in practice.
-- Geode [Cache over SAP OData APIs] (https://github.com/MartinPankraz/AzCosmosDB-OData-Shim) A sample OData API Geode set backed by Cosmos as a globally accelerated data cache for SAP Retail applications.
+- Geode [Cache over SAP OData APIs](https://github.com/MartinPankraz/AzCosmosDB-OData-Shim) A sample OData API Geode set backed by Cosmos as a globally accelerated data cache for SAP Retail applications.
