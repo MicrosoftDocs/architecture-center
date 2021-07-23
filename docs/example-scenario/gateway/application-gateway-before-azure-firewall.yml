@@ -15,7 +15,7 @@ metadata:
     - fcp
     - guide
     - internal-intro
-name: Azure Firewall and Application Gateway for virtual networks
+name: Zero-trust network for web applications with Azure Firewall and Application Gateway
 azureCategories:
   - networking
   - security

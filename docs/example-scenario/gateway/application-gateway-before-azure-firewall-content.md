@@ -110,7 +110,8 @@ When you use Virtual WAN as a networking platform, two main differences result:
 - You can't link DNS private zones to a virtual hub, because Microsoft manages virtual hubs. As the subscription owner, you don't have permissions for linking private DNS zones. As a result, you can't associate a DNS private zone with the secure hub that contains Azure Firewall Premium. To implement DNS resolution for Azure Firewall Premium, use DNS servers instead:
 
   - Configure the [Azure Firewall DNS Settings][Azure Firewall DNS settings] to use custom DNS servers.
-  - Deploy the servers in a shared services virtual network that you connect to the virtual WAN. You can link a DNS private zone to the shared services virtual network. Then the DNS servers can resolve the names that Application Gateway uses in HTTP host headers. For more information, see [Azure Firewall DNS Settings][Azure Firewall DNS settings].
+  - Deploy the servers in a shared services virtual network that you connect to the virtual WAN.
+  - Link a DNS private zone to the shared services virtual network. The DNS servers can then resolve the names that Application Gateway uses in HTTP host headers. For more information, see [Azure Firewall DNS Settings][Azure Firewall DNS settings].
 
 - You can only use Virtual WAN to program routes in a spoke if the prefix is shorter than the virtual network prefix. This limitation becomes apparent when Application Gateway and the destination web server are in the same virtual network. In that case, Virtual WAN can't inject a route that overrides the system route for the virtual network. As a result, traffic between Application Gateway and the web server bypasses Azure Firewall Premium.
 
