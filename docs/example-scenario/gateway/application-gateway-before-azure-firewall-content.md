@@ -3,11 +3,11 @@ This guide outlines a strategy for implementing [zero-trust][Zero trust definiti
 Different types of network appliances typically inspect different aspects of network packets:
 
 - Web application firewalls look for patterns that indicate an attack at the web application layer.
-- Next-generation firewalls usually focus on generic threats and not just on web applications.
+- Next-generation firewalls usually focus on generic threats, not just on web applications.
 
-In some situations, you can combine different types of network security appliances to maximize protection. You can then choose from different design patterns. [Firewall and Application Gateway for virtual networks][Firewall and Application Gateway for virtual networks] describes some of these patterns. This document focuses on one of those patterns that's a common approach for maximizing security. Specifically, this guide discusses deploying Azure Application Gateway before Azure Firewall, as this diagram illustrates:
+In some situations, you can combine different types of network security appliances to maximize protection. You can then choose from different design patterns when deciding how to arrange the appliances. [Firewall and Application Gateway for virtual networks][Firewall and Application Gateway for virtual networks] describes some of these patterns. This document focuses on one pattern that's a common approach for maximizing security. Specifically, this guide discusses deploying Azure Application Gateway before Azure Firewall Premium, as this diagram illustrates:
 
-![Overall diagram](./images/application-gateway-before-azure-firewall-architecture.png)
+:::image type="content" source="./images/application-gateway-before-azure-firewall-architecture.png" alt-text="Architecture diagram showing the packet flow in a web app network that uses Application Gateway in front of Azure Firewall Premium.":::
 
 This architecture uses the secure sockets layer (SSL) protocol to encrypt traffic at every step.
 
@@ -48,18 +48,20 @@ HTTP Host headers don't typically contain IP addresses. Instead, the headers con
 
 ## Digital certificates
 
-This architecture contains three distinct SSL connections. Digital certificates validate each one. The following diagram shows the common names (CNs) and certificate authorities (CAs) that the SSL sessions and certificates use:
+The following diagram shows the common names (CNs) and certificate authorities (CAs) that the architecture's SSL sessions and certificates use:
 
-![SSL sessions](./images/application-gateway-before-azure-firewall-certificates.png)
+:::image type="content" source="./images/application-gateway-before-azure-firewall-certificates.png" alt-text="Architecture diagram showing the common names and certificate authorities that a web app network uses when a load balancer is in front of a firewall.":::
+
+This architecture contains three distinct SSL connections. Digital certificates validate each one:
 
 - From clients to Application Gateway: In Application Gateway, you deploy the digital certificate that clients see. A well-known CA such as DigiCert or Let's Encrypt typically issues such a certificate.
-- From Application Gateway to Azure Firewall Premium: In order to decrypt and inspect TLS traffic, Azure Firewall Premium dynamically generates certificates. Azure Firewall Premium also presents itself to Application Gateway as the web server. A private CA signs the certificates that Azure Firewall Premium generates. For more information, see [Azure Firewall Premium certificates][Azure Firewall Premium certificates]. Application Gateway needs to validate those certificates. You configure the root CA that Azure Firewall Premium uses in the application's HTTP settings.
+- From Application Gateway to Azure Firewall Premium: To decrypt and inspect TLS traffic, Azure Firewall Premium dynamically generates certificates. Azure Firewall Premium also presents itself to Application Gateway as the web server. A private CA signs the certificates that Azure Firewall Premium generates. For more information, see [Azure Firewall Premium certificates][Azure Firewall Premium certificates]. Application Gateway needs to validate those certificates. You configure the root CA that Azure Firewall Premium uses in the application's HTTP settings.
 - From Azure Firewall Premium to the web server: Azure Firewall Premium establishes an SSL session with the destination web server. Azure Firewall Premium verifies that a well-known CA has signed the web server SSL packets.
 
 Application Gateway and Azure Firewall Premium handle certificates differently because their roles differ slightly:
 
 - Application Gateway is a *reverse web proxy*. It protects web servers from malicious clients by intercepting HTTP and HTTPS requests. Declare each protected server in the back-end pool of Application Gateway with its IP address or fully qualified domain name. Legitimate clients should be able to access each application. So configure Application Gateway with a digital certificate that a public CA has signed. Use a CA that any SSL client will accept.
-- Azure Firewall Premium is a *forward web proxy*, or simply a web proxy. It protects clients from malicious web servers by intercepting SSL calls from the protected clients. When a protected client makes an HTTP request, the forward proxy impersonates the target web server by generating digital certificates on the fly and presenting them to the client. A private CA that Azure Firewall Premium uses signs the dynamically generated certificates. Configure the protected clients to trust that private CA. In this architecture, Azure Firewall Premium protects requests from Application Gateway to the web server. Application Gateway trusts the CA that Azure Firewall Premium uses.
+- Azure Firewall Premium is a *forward web proxy*, or simply a web proxy. It protects clients from malicious web servers by intercepting SSL calls from the protected clients. When a protected client makes an HTTP request, the forward proxy impersonates the target web server by generating digital certificates on the spot and presenting them to the client. Azure Firewall Premium uses a private CA. That CA signs the dynamically generated certificates. Configure the protected clients to trust that private CA. In this architecture, Azure Firewall Premium protects requests from Application Gateway to the web server. Application Gateway trusts the CA that Azure Firewall Premium uses.
 
 ## Hub and spoke example
 
@@ -77,7 +79,7 @@ With traditional hub and spoke architectures, DNS private zones provide an easy 
 
 The following diagram shows the packet flow when Application Gateway is in a spoke virtual network. In this case, a client connects from the public internet.
 
-![Hub And Spoke internal traffic](./images/appgwB4azfw_hns_external.png)
+:::image type="content" source="./images/application-gateway-before-azure-hub-spoke-external.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network with a load balancer and a firewall. Clients connect from the public internet.":::
 
 1. A client submits a request to a web server.
 1. Application Gateway intercepts the client packets and examines them. If the packets pass inspection, a user-defined route (UDR) in the Application Gateway subnet forwards the packets to Azure Firewall Premium.
@@ -88,7 +90,7 @@ The following diagram shows the packet flow when Application Gateway is in a spo
 
 Traffic can also arrive from an on-premises network instead of the public internet. The traffic flows either through a site-to-site virtual private network (VPN) or ExpressRoute. In this scenario, the traffic first reaches a virtual network gateway in the hub. The rest of the network flow is the same as the previous case.
 
-![Hub And Spoke internal traffic](./images/appgwB4azfw_hns_internal.png)
+:::image type="content" source="./images/application-gateway-before-azure-hub-spoke-internal.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network with a load balancer and a firewall. Clients connect from an on-premises network.":::
 
 1. An on-premises client connects to the virtual network gateway.
 1. The gateway forwards the client packets to Application Gateway.
@@ -114,7 +116,7 @@ When you use Virtual WAN as a networking platform, two main differences result:
 
 The following diagram shows the packet flow in a case that uses Virtual WAN. In this situation, access to Application Gateway is from an on-premises network. A site-to-site VPN or ExpressRoute connects that network to Virtual WAN. Access from the internet is similar.
 
-![Virtual WAN internal traffic](./images/appgwB4azfw_vwan_internal.png)
+:::image type="content" source="./images/application-gateway-before-azure-vwan-internal.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network that includes a load balancer, a firewall, and Virtual WAN.":::
 
 1. An on-premises client connects to the VPN.
 1. The VPN forwards the client packets to Application Gateway.
@@ -127,7 +129,7 @@ The following diagram shows the packet flow in a case that uses Virtual WAN. In 
 1. Application Gateway sends the packets to the VPN.
 1. The VPN answers the client.
 
-With this design, you might need to modify the routing that the hub advertises to the spoke virtual networks. Specifically, version 2 of Application Gateway only supports a 0.0.0.0/0 route that points to the internet. Routes with this address that don't point to the internet break the connectivity that Microsoft requires for managing Application Gateway. If your virtual hub advertises a 0.0.0.0/0 route, prevent that route from propagating to the Application Gateway subnet by taking one of these steps:
+With this design, you might need to modify the routing that the hub advertises to the spoke virtual networks. Specifically, Application Gateway v2 only supports a 0.0.0.0/0 route that points to the internet. Routes with this address that don't point to the internet break the connectivity that Microsoft requires for managing Application Gateway. If your virtual hub advertises a 0.0.0.0/0 route, prevent that route from propagating to the Application Gateway subnet by taking one of these steps:
 
 - Create a route table with a route for 0.0.0.0/0 and a next hop type of `Internet`. Associate that route with the subnet that you deploy Application Gateway in.
 - If you deploy Application Gateway in a dedicated spoke, disable the propagation of the default route in the settings for the virtual network connection.
@@ -144,7 +146,7 @@ The following diagram shows the packet flow when Route Server simplifies dynamic
 - Route Server currently requires the device that injects the routes to send them over Border Gateway Protocol (BGP). Since Azure Firewall Premium doesn't support BGP, use a third-party Network Virtual Appliance (NVA) instead.
 - The functionality of the NVA in the hub determines whether your implementation needs DNS.
 
-![Route Server internal traffic](./images/appgwB4azfw_ars_internal.png)
+:::image type="content" source="./images/application-gateway-before-azure-firewall-route-server-internal.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network that includes a load balancer, a firewall, and Route Server.":::
 
 1. An on-premises client connects to the virtual network gateway.
 1. The gateway forwards the client packets to Application Gateway.
@@ -178,15 +180,15 @@ As with Virtual WAN, you might need to modify the routing when you use Route Ser
 [Azure Firewall limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits
 [Azure Firewall Premium certificates]: /azure/firewall/premium-certificates
 [Firewall and Application Gateway for virtual networks]: /azure/architecture/example-scenario/gateway/firewall-application-gateway
-[How an application gateway works]: https://docs.microsoft.com/en-us/azure/application-gateway/how-application-gateway-works
+[How an application gateway works]: /azure/application-gateway/how-application-gateway-works
 [Hub-spoke network topology in Azure]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli
 [Hub-spoke network topology with Azure Virtual WAN]: /azure/architecture/networking/hub-spoke-vwan-architecture
 [IDPS]: /azure/firewall/premium-features#idps
 [Implement a secure hybrid network]: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal
 [Secure and govern workloads with network level segmentation]: /azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation
-[Secure networks with Zero Trust]: https://docs.microsoft.com/en-us/security/zero-trust/networks
+[Secure networks with Zero Trust]: /security/zero-trust/networks
 [TLS inspection]: /azure/firewall/premium-features#tls-inspection
-[Virtual network traffic routing]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview
+[Virtual network traffic routing]: /azure/virtual-network/virtual-networks-udr-overview
 [Web Application Firewall CRS rule groups and rules]: /azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules
 [What is Azure Route Server (Preview)?]: /azure/route-server/overview
 [What is Azure Virtual WAN?]: /azure/virtual-wan/virtual-wan-about
