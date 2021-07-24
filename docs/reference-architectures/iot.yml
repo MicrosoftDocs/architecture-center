@@ -5,7 +5,7 @@ metadata:
   description: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
   author: mcosner 
   ms.author: mcosner
-  ms.date: 09/10/2020
+  ms.date: 07/24/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
