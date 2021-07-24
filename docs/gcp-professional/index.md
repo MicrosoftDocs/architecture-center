@@ -1,7 +1,8 @@
 ---
 title: Azure for GCP professionals
 description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the GCP and Azure platforms. Take advantage of your GCP experience in Azure.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: petuton
 ms.date: 03/15/2020
 ms.topic: reference
 ms.service: architecture-center
@@ -50,7 +51,9 @@ Azure levels of management scope
 Azure services can be purchased using several pricing options, depending on your organization's size and needs. See the [pricing overview](https://azure.microsoft.com/pricing) page for details.
 
 [Azure subscriptions](/azure/virtual-machines/linux/infrastructure-example) are a grouping of resources with an assigned owner responsible for billing and permissions management.
-The Google Cloud's `Project` is conceptually similar to the Azure subscription in terms of billing and quotas/limits, however from functional perspective it is closer to the Azure Resource Group - a logical unit where cloud resources are actually deployed to. 
+
+Google Cloud's `Project` is conceptually similar to the Azure subscription, in terms of billing and quotas/limits. However, from a functional perspective, it is closer to the Azure Resource Group - a logical unit where cloud resources are deployed to. 
+
 Subscriptions are assigned three types of administrator accounts:
 
 - **Account Administrator**. The subscription owner and the account billed for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription.
