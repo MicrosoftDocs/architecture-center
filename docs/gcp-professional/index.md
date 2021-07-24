@@ -53,7 +53,7 @@ Azure services can be purchased using several pricing options, depending on your
 [Azure subscriptions](/azure/virtual-machines/linux/infrastructure-example) are a grouping of resources with an assigned owner responsible for billing and permissions management.
 
 Google Cloud's `Project` is conceptually similar to the Azure subscription, in terms of billing and quotas/limits. However, from a functional perspective, it is closer to the Azure Resource Group - a logical unit where cloud resources are deployed to. 
-
+Note that unlike in GCP, there is no maximum number of subscriptions, that is a tenant (account in Google Cloud's terms) can have unlimited number of subscriptions, whereas GCP has a default limit of 30 projects per account.
 Subscriptions are assigned three types of administrator accounts:
 
 - **Account Administrator**. The subscription owner and the account billed for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription.
