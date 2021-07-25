@@ -1,7 +1,8 @@
 ---
-title: GCP to Azure Services Comparison
-description: Understand the differences between specific GCP and Azure services.
-author: doodlemania2
+title: Google Cloud to Azure services comparison
+description: Understand the differences between specific Google Cloud and Azure services.
+author: EdPrice-MSFT
+ms.author: petuton
 ms.date: 03/15/2020
 ms.topic: reference
 ms.service: architecture-center
@@ -11,30 +12,31 @@ products:
 ms.custom:
   - fcp
 keywords:
-  - GCP experts
+  - Google Cloud experts
   - Azure comparison
-  - GCP comparison
-  - difference between Azure and GCP
+  - Google Cloud comparison
+  - difference between Azure and Google Cloud
   - Azure and GCP
+  - Azure and Google Cloud
 ---
 
-# GCP to Azure services comparison
+# Google Cloud to Azure services comparison
 
-This article helps you understand how Microsoft Azure services compare to Google Cloud Platform (GCP). Whether you are planning a multi-cloud solution with Azure and GCP, or migrating to Azure, you can compare the IT capabilities of Azure and GCP services in all categories.
+This article helps you understand how Microsoft Azure services compare to Google Cloud. (Note that Google Cloud used to be called the Google Cloud Platform (GCP).) Whether you are planning a multi-cloud solution with Azure and Google Cloud, or migrating to Azure, you can compare the IT capabilities of Azure and Google Cloud services in all the technology categories.
 
-This article compares services that are roughly comparable. Not every GCP service or Azure service is listed, and not every matched service has exact feature-for-feature parity.
+This article compares services that are roughly comparable. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature-for-feature parity.
 
-For an overview of Azure for GCP users, see Introduction to [Azure for GCP Professionals](./index.md).
+For an overview of Azure for Google Cloud users, see the introduction to [Azure for Google Cloud Professionals](./index.md).
 
 ## Marketplace
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [GCP Marketplace](https://cloud.google.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace/) | Easy-to-deploy and automatically configured third-party applications, including single virtual machine or multiple virtual machine solutions. |
+| [Google Cloud Marketplace](https://cloud.google.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace/) | Easy-to-deploy and automatically configured third-party applications, including single virtual machine or multiple virtual machine solutions. |
 
 ## AI and Machine Learning
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [AI Hub](https://cloud.google.com/ai-hub) | [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) | A cloud service to train, deploy, automate, and manage machine learning models. |
 | [TensorFlow](https://www.tensorflow.org/) | [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) | ML.NET is an open source and cross-platform machine learning framework for both machine learning & AI. |
@@ -64,27 +66,27 @@ For an overview of Azure for GCP users, see Introduction to [Azure for GCP Profe
 
 ### Data warehouse
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [BigQuery](https://cloud.google.com/bigquery) | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
 | [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Big Data Clusters](/sql/big-data-cluster/big-data-cluster-overview?view=sql-server-ver15&preserve-view=true) | Allow you to deploy scalable clusters of SQL Server, Spark, and HDFS containers running on Kubernetes. These components are running side by side to enable you to read, write, and process big data from Transact-SQL or Spark, allowing you to easily combine and analyze your high-value relational data with high-volume big data. |
 
 ### Big data processing
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Dataproc](https://cloud.google.com/dataproc) | [Azure HDInsight](/azure/hdinsight/) | Managed Apache Spark-based analytics platform. |
 
 ### Data Orchestration and ETL
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud Data Fusion](https://cloud.google.com/data-fusion) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines. |
 | [Cloud Data Catalog](https://cloud.google.com/data-catalog) | [Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/) | A fully managed service that serves as a system of registration and system of discovery for enterprise data sources |
 
 ### Analytics and visualization
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud Dataflow](https://cloud.google.com/dataflow) | [Azure Databricks](https://azure.microsoft.com/services/databricks/#documentation) | Managed platform for streaming batch data based on Open Source Apache products. |
 | [Datastudio](https://datastudio.google.com/overview) <br/><br/> [Looker](https://cloud.google.com/looker) | [Power BI](https://powerbi.microsoft.com/) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. |
@@ -95,7 +97,7 @@ For an overview of Azure for GCP users, see Introduction to [Azure for GCP Profe
 
 ### Virtual servers
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Compute Engine](https://cloud.google.com/compute#documentation) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | Virtual servers allow users to deploy, manage, and maintain OS and server software. Instance types provide combinations of CPU/RAM. Users pay for what they use with the flexibility to change sizes. |
 | [Batch](https://cloud.google.com/kubernetes-engine/docs/concepts/) | [Azure Batch](https://azure.microsoft.com/services/batch/) | Run large-scale parallel and high-performance computing applications efficiently in the cloud. |
@@ -104,7 +106,7 @@ For an overview of Azure for GCP users, see Introduction to [Azure for GCP Profe
 
 ### Containers and container orchestrators
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud Run](https://cloud.google.com/run#documentation) | [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) | Azure Container Instances is the fastest and simplest way to run a container in Azure, without having to provision any virtual machines or adopt a higher-level orchestration service. |
 | [Artifact Registry (beta)](https://cloud.google.com/artifacts/docs) <br/><br/> [Container Registry](https://cloud.google.com/container-registry/docs) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Allows customers to store Docker formatted images. Used to create all types of container deployments on Azure. |
@@ -126,13 +128,13 @@ Here are some architectures that use AKS as the orchestrator.
 
 ### Functions
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud Functions](https://cloud.google.com/functions/#documentation) | [Azure Functions](https://azure.microsoft.com/services/functions/) | Integrate systems and run backend processes in response to events or schedules without provisioning or managing servers. |
 
 ##  Database
 
-| Type | GCP Service | Azure Service | Description |
+| Type | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
 | Relational database (PaaS) | [Cloud SQL](https://cloud.google.com/sql#documentation) ( SQL Server, MySQL, PostgreSQL ) | [SQL Server Options](/azure/sql-database/sql-database-paas-vs-sql-server-iaas) <br/><br/>Azure Database for [MySQL](/azure/mysql/) <br/><br/>Azure Database for [PostgreSQL](/azure/postgresql/) | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform. |
 | | Cloud Spanner | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform. |
@@ -141,7 +143,7 @@ Here are some architectures that use AKS as the orchestrator.
 
 ## DevOps and application monitoring
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Operations (formerly Stackdriver)](https://cloud.google.com/products/operations) | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | Maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources on which they depend. |
 | [Cloud Trace](https://cloud.google.com/trace) | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | Maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources on which they depend. |
@@ -153,13 +155,13 @@ Here are some architectures that use AKS as the orchestrator.
 | [Cloud Developer Tools](https://cloud.google.com/products/tools) (including Cloud Code) | [Azure Developer Tools](https://azure.microsoft.com/product-categories/developer-tools/) | Collection of tools for building, debugging, deploying, diagnosing, and managing multiplatform scalable apps and services. |
 | [Gcloud SDK](https://cloud.google.com/sdk) | [Azure CLI](/cli/azure/?view=azure-cli-latest&preserve-view=true) | The Azure command-line interface (Azure CLI) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. |
 | [Cloud Shell](https://cloud.google.com/shell) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell. |
-| [PowerShell on GCP](https://cloud.google.com/tools/powershell/docs/quickstart) | [Azure PowerShell](/powershell/azure/?view=azps-3.7.0&preserve-view=true) | Azure PowerShell is a set of cmdlets for managing Azure resources directly from the PowerShell command line. Azure PowerShell is designed to make it easy to learn and get started with, but provides powerful features for automation. Written in .NET Standard, Azure PowerShell works with PowerShell 5.1 on Windows, and PowerShell 6.x and higher on all platforms. |
+| [PowerShell on Google Cloud](https://cloud.google.com/tools/powershell/docs/quickstart) | [Azure PowerShell](/powershell/azure/?view=azps-3.7.0&preserve-view=true) | Azure PowerShell is a set of cmdlets for managing Azure resources directly from the PowerShell command line. Azure PowerShell is designed to make it easy to learn and get started with, but provides powerful features for automation. Written in .NET Standard, Azure PowerShell works with PowerShell 5.1 on Windows, and PowerShell 6.x and higher on all platforms. |
 | [Cloud Deployment Manager](https://cloud.google.com/deployment-manager) | [Azure Automation](https://azure.microsoft.com/services/automation/) | Delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. It comprises process automation, configuration management, update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources. |
 | [Cloud Deployment Manager](https://cloud.google.com/deployment-manager) | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks. |
 
 ## Internet of things (IoT)
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud IoT Core](https://cloud.google.com/iot/docs) | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/),[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#documentation),[HDInsight Kafka](/azure/hdinsight/) | Process and route streaming data to subsequent processing engine or storage or database platform. |
@@ -167,7 +169,7 @@ Here are some architectures that use AKS as the orchestrator.
 
 ## Management
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud Billing](https://cloud.google.com/billing/docs) | [Azure Billing API](/azure/billing/billing-usage-rate-card-overview) | Services to help generate, monitor, forecast, and share billing data for resource usage by time, organization, or product resources. |
 | Cloud Console | [Azure portal](https://azure.microsoft.com/features/azure-portal/) | A unified management console that simplifies building, deploying, and operating your cloud resources. |
@@ -175,14 +177,14 @@ Here are some architectures that use AKS as the orchestrator.
 
 ## Messaging and eventing
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) | Supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. |
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) | A fully managed event routing service that allows for uniform event consumption using a publish/subscribe model. |
 
 ## Networking
 
-| Area | GCP service | Azure service | Description |
+| Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
 | Cloud virtual networking | [Virtual Private Network (VPC)](https://cloud.google.com/vpc) | [Azure Virtual Network (Vnet)](/azure/virtual-network/virtual-networks-overview) | Provides an isolated, private environment in the cloud. Users have control over their virtual networking environment, including selection of their own IP address range, adding/updating address ranges, creation of subnets, and configuration of route tables and network gateways. |
 | DNS management | [Cloud DNS](https://cloud.google.com/dns) | [Azure DNS](/azure/dns/dns-overview) | Manage your DNS records using the same credentials and billing and support contract as your other Azure services |
@@ -212,7 +214,7 @@ Here are some architectures that use AKS as the orchestrator.
 
 ## Security
 
-| Area | GCP service | Azure service | Description |
+| Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
 | Authentication and Authorization | [Cloud IAM](https://cloud.google.com/iam) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups and use permissions to allow and deny access to resources. |
 | | [Cloud IAM](https://cloud.google.com/iam) | [Azure role-based access control](/azure/role-based-access-control/overview) | Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
@@ -229,40 +231,40 @@ Here are some architectures that use AKS as the orchestrator.
 
 ### Object storage
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud Storage](https://cloud.google.com/storage#documentation)<br/><br/> [Cloud Storage for Firebase](https://firebase.google.com/products/storage/) | [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
 
 ### Virtual server disks
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Persistant Disk](https://cloud.google.com/compute/docs/disks/)<br/><br/> [Local SSD](https://cloud.google.com/compute/docs/disks/local-ssd) | [Azure managed disks](https://azure.microsoft.com/services/storage/disks/) | SSD storage optimized for I/O intensive read/write operations. For use as high-performance Azure virtual machine storage. |
 
 ### File Storage
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Filestore](https://cloud.google.com/filestore/docs) | [Azure Files](https://azure.microsoft.com/services/storage/files/),[Azure NetApp Files](https://azure.microsoft.com/services/netapp/#overview) | File based storage and hosted NetApp Appliance Storage. |
 | [Drive Enterprise](https://cloud.google.com/drive-enterprise) | [OneDrive For business](https://products.office.com/onedrive/onedrive-for-business) | Shared files from from personal devices to cloud |
 
 ### Bulk data transfer
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
 | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
 
 ## Application services
 
-| GCP service | Azure service | Description |
+| Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [App Engine](https://cloud.google.com/appengine/docs) | [Azure App Service](https://azure.microsoft.com/services/app-service) | Managed hosting platform providing easy to use services for deploying and scaling web applications and services. |
 | Apigee | [Azure API Management](https://azure.microsoft.com/services/api-management/) | A turnkey solution for publishing APIs to external and internal consumers. |
 
 ## Miscellaneous
 
-| Area | GCP service | Azure service | Description |
+| Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
 | Workflow | [Composer](https://cloud.google.com/composer) | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
 | Enterprise application services | [G Suite](https://gsuite.google.com/) | [Microsoft 365](https://products.office.com/) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
