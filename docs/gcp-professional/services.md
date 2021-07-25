@@ -73,7 +73,7 @@ For an overview of Azure for GCP users, see Introduction to [Azure for GCP Profe
 
 | GCP service | Azure service | Description |
 | --- | --- | --- |
-| [Dataproc](https://cloud.google.com/dataproc) | [Azure HDInsight](/azure/hdinsight/) <br><br> [Azure Synapse Analytics](https://docs.microsoft.com/en-gb/azure/synapse-analytics/overview-what-is) <br><br> [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/scenarios/what-is-azure-databricks) | Managed Apache Spark-based analytics platform. |
+| [Dataproc](https://cloud.google.com/dataproc) | [Azure HDInsight](/azure/hdinsight/) <br><br> [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) <br><br> [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) | Managed Apache Spark-based analytics platform. |
 
 ### Data Orchestration and ETL
 
