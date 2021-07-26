@@ -75,7 +75,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Dataproc](https://cloud.google.com/dataproc) | [Azure HDInsight](/azure/hdinsight/) | Managed Apache Spark-based analytics platform. |
+| [Dataproc](https://cloud.google.com/dataproc) | [Azure HDInsight](/azure/hdinsight/) <br><br> [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) <br><br> [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) | Managed Apache Spark-based analytics platform. |
 
 ### Data Orchestration and ETL
 
