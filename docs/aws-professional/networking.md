@@ -33,6 +33,12 @@ In AWS, Route 53 provides both DNS name management and DNS-level traffic routing
 Azure provides similar site-to-site dedicated connections through its
 [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute) service. ExpressRoute allows you to connect your local network directly to Azure resources using a dedicated private network connection. Azure also offers more conventional [site-to-site VPN connections](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) at a lower cost.
 
+## Route Tables
+
+AWs provides Route Table containing routes to direct traffic from subnet/gateway subnet to the destination. In Azure this feature is available in the name of User Defined routes. 
+
+[User Deined routes] (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview).You can create custom, or user-defined(static), routes in Azure to override Azure's default system routes, or to add additional routes to a subnet's route table
+
 ## Network service comparison
 
 [!INCLUDE [Networking Services](../../includes/aws/networking.md)]
