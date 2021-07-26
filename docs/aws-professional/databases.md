@@ -40,7 +40,7 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 - [Data Factory](https://azure.microsoft.com/documentation/services/data-factory): provides data orchestration and data pipeline functionality.
 
-- [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse): large-scale relational data storage.
+- [Azure Synapse Analytics](https://azure.microsoft.com/documentation/services/synapse-analytics): large-scale datawarehouse and big data system.
 
 - [Data Lake Store](https://azure.microsoft.com/documentation/services/data-lake-store): large-scale storage optimized for big data analytics workloads.
 
