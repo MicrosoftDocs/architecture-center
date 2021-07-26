@@ -1,6 +1,6 @@
 ---
-author: LazaUK
-ms.author: lturakulov
+author: EdPrice-MSFT
+ms.author: pnp
 ms.topic: include
 ms.service: architecture-center
 ---
