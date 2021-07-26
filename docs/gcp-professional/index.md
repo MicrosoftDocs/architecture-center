@@ -1,7 +1,8 @@
 ---
-title: Azure for GCP professionals
-description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the GCP and Azure platforms. Take advantage of your GCP experience in Azure.
-author: doodlemania2
+title: Azure for Google Cloud professionals
+description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the Google Cloud and Azure platforms. Take advantage of your Google Cloud experience in Azure.
+author: EdPrice-MSFT
+ms.author: petuton
 ms.date: 03/15/2020
 ms.topic: reference
 ms.service: architecture-center
@@ -9,28 +10,29 @@ ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
 keywords:
-  - GCP experts
+  - Google Cloud experts
   - Azure comparison
-  - GCP comparison
-  - difference between Azure and GCP
+  - Google Cloud comparison
+  - difference between Azure and Google Cloud
   - Azure and GCP
+  - Azure and Google Cloud
 ---
 
-# Azure for GCP Professionals
+# Azure for Google Cloud Professionals
 
-This article helps Google Cloud Platform (GCP) experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the GCP and Azure platforms.
+This article helps Google Cloud experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the Google Cloud and Azure platforms. (Note that Google Cloud was previously called Google Cloud Platform (GCP).)
 
 You'll learn:
 
 - How accounts and resources are organized in Azure.
 - How available solutions are structured in Azure.
-- How the major Azure services differ from GCP services.
+- How the major Azure services differ from Google Cloud services.
 
-Azure and GCP built their capabilities independently over time so that each has important implementation and design differences.
+Azure and Google Cloud built their capabilities independently over time so that each has important implementation and design differences.
 
 ## Overview
 
-Like GCP, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both GCP and Azure allow you to build highly available solutions based on Linux or Windows hosts. So, if you're used to development using Linux and OSS technology, both platforms can do the job.
+Like Google Cloud, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both Google Cloud and Azure allow you to build highly available solutions based on Linux or Windows hosts. So, if you're used to development using Linux and OSS technology, both platforms can do the job.
 
 While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Exact one-to-one relationships between the services required to build a solution are not always clear. In other cases, a particular service might be offered on one platform, but not the other.
 
@@ -102,7 +104,7 @@ Failures can vary in the scope of their impact. Some hardware failures, such as 
 
 One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements. Not every application needs redundancy across regions to guard against a regional outage. In general, a tradeoff exists between greater redundancy and reliability versus higher cost and complexity.
 
-In GCP, a region has two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets** , **availability zones** , and **paired regions**.
+In Google Cloud, a region has two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets** , **availability zones** , and **paired regions**.
 
 The following table summarizes each option.
 
@@ -127,7 +129,7 @@ Availability sets
 
 ### Availability zones
 
-Like GCP, Azure regions can have Availability zones. An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
+Like Google Cloud, Azure regions can have Availability zones. An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
 
 ![Diagram showing a zone redundant virtual machine deployment with a Region that contains three zones with a subnet that crosses all three zones.](./images/availability_zones.png)
 
@@ -155,7 +157,7 @@ Region Pairs in Azure
 
 ## Services
 
-For a listing of how services map between platforms, see [GCP to Azure services](./services.md) comparison.
+For a listing of how services map between platforms, see [Google Cloud to Azure services](./services.md) comparison.
 
 Not all Azure products and services are available in all regions. Consult the [Products by Region](https://azure.microsoft.com/global-infrastructure/services) page for details. You can find the uptime guarantees and downtime credit policies for each Azure product or service on the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla) page.
 
