@@ -145,14 +145,13 @@ This diagram incorporates the following workflow:
 
 After 15 seconds, one or both jobs still will not be completed. As the leases expire, a processor should also reduce the number of requests it dequeues and writes.
 
-![GitHub logo](../../../_images/github.png) A implementation of this pattern, implemented in Go, is available on [GitHub](https://github.com/mspnp/go-batcher).
+![GitHub logo](../_images/github.png) A implementation of this pattern, implemented in Go, is available on [GitHub](https://github.com/mspnp/go-batcher).
 
 ## Related guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 
 - [Throttling](./throttling.md). The rate limiting pattern discussed here is typically implemented in response to a service that is throttled.
-
 - [Retry](./retry.md). When requests to throttled service result in throttling errors, it's generally appropriate to retry those after an appropriate interval.
 
 [Queue-Based Load Leveling](./queue-based-load-leveling.md) is similar but differs from the Rate Limiting pattern in several key ways:
