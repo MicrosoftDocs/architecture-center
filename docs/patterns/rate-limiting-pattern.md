@@ -67,13 +67,13 @@ Azure provides several durable messaging services that you can use with this pat
 - [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues/)
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
-![Azure Service Bus workflow](./_images/rate-limiting-pattern-01.png)
+![A durable messaging flow with three job processors calling into a throttled service.](./_images/rate-limiting-pattern-01.png)
 
 When you're sending records, the time period you use for releasing records may be more granular than the period the service throttles on. Systems often set throttles based on timespans you can easily comprehend and work with. However, for the computer running a service, these timeframes may be very long compared to how fast it can process information. For instance, a system might throttle per second or per minute, but commonly the code is processing on the order of nanoseconds or milliseconds.
 
 While not required, it's often recommended to send smaller amounts of records more frequently to improve throughput. So rather than trying to batch things up for a release once a second or once a minute, you can be more granular than that to keep your resource consumption (memory, CPU, network, etc.) flowing at a more even rate, preventing potential bottlenecks due to sudden bursts of requests. For example, if a service allows 100 operations per second, the implementation of a rate limiter may even out requests by releasing 20 operations every 200 milliseconds, as shown in the following graph.
 
-![rate limited flow](./_images/rate-limiting-pattern-02.png)
+![A chart showing rate limiting over time.](./_images/rate-limiting-pattern-02.png)
 
 In addition, it's sometimes necessary for multiple uncoordinated processes to share a throttled service. To implement rate limiting in this scenario you can logically partition the service's capacity and then use a distributed mutual exclusion system to manage exclusive locks on those partitions. The uncoordinated processes can then compete for locks on those partitions whenever they need capacity. For each partition that a process holds a lock for, it's granted a certain amount of capacity.
 
@@ -114,7 +114,7 @@ The following example application allows users to submit records of various type
 
 All components of the application (API, job processor A, and job processor B) are separate processes that may be scaled independently. The processes do not directly communicate with one another.
 
-![example workflow](./_images/rate-limiting-pattern-04.png)
+![A multi-queue, multi-processor flow with partitioned storage for leases, writing to a database.](./_images/rate-limiting-pattern-04.png)
 
 This diagram incorporates the following workflow:
 
@@ -145,7 +145,7 @@ This diagram incorporates the following workflow:
 
 After 15 seconds, one or both jobs still will not be completed. As the leases expire, a processor should also reduce the number of requests it dequeues and writes.
 
-![GitHub logo](../_images/github.png) A implementation of this pattern, implemented in Go, is available on [GitHub](https://github.com/mspnp/go-batcher).
+![GitHub logo](../_images/github.png) An implementation of this pattern, implemented in Go, is available on [GitHub](https://github.com/mspnp/go-batcher).
 
 ## Related guidance
 
