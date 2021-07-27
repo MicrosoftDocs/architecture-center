@@ -116,7 +116,7 @@ As your workloads, system security agents, and other components are deployed, ad
 
 This architecture attempts to implement the "zero trust" principles of Microsoft as much as possible. 
 
-Examples of Zero Trust networks as a concept are demonstrated in the implementation in `a0005-i` and `a0005-o` user-provided namespaces. All workload namespaces should have restrictive `NetworkPolicy` applied. The policy definitions will depend on the pods running in those namespaces. Make sure you're accounting for readiness, liveliness, and startup probes and also allowance for metrics gathered by `oms-agent`. Consider standardizing on ports across your workloads so that you can provide a consistent `NetworkPolicy` and Azure Policy for allowed container ports.
+Examples of Zero Trust networks as a concept are demonstrated in the implementation in `a0005-i` and `a0005-o` user-provided namespaces. All workload namespaces should have restrictive NetworkPolicy applied. The policy definitions will depend on the pods running in those namespaces. Make sure you're accounting for readiness, liveliness, and startup probes and also allowance for metrics gathered by the Log Analytics agent. Consider standardizing on ports across your workloads so that you can provide a consistent NetworkPolicy and Azure Policy for allowed container ports.
 
 In certain cases, this is not practical for communication within the cluster. Not all user-provided namespaces can use a zero trust network (for example, `cluster-baseline-settings` can't use one). 
 
