@@ -546,7 +546,7 @@ Implement a *landing zone* concept with Azure Blueprints and Azure Policies. The
 
 For more information about landing zones, reference [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/)
 
-Several [Security and Compliance Blueprints](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) [samples](/azure/governance/blueprints/samples/)
+Several [Security and Compliance Blueprints](https://servicetrust.microsoft.com/ViewPage/SCCIntroPage) [samples](/azure/governance/blueprints/samples/)
 are available to use as a starting template.
   
 **Learn more**
