@@ -43,7 +43,7 @@ Configure service endpoints and private links where appropriate.
 
 An initial design decision is to assess whether you need a public endpoint at all. If you do, protect it by using these mechanisms.
 
-For more information, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) and [What is Azure Private Endpoint?](/private-link/private-endpoint-overview).
+For more information, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) and [What is Azure Private Endpoint?](/azure/private-link/private-endpoint-overview).
 
 ### Web application firewalls (WAFs) 
 
