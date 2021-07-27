@@ -1,7 +1,4 @@
-
-
-
-This reference architecture shows how to connect an on-premises network to virtual networks on Azure, using [Azure ExpressRoute][expressroute-introduction]. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to connect an on-premises network to virtual networks on Azure, using [Azure ExpressRoute][expressroute-introduction]. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
 
 ![[0]][0]
 
@@ -220,12 +217,6 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 > Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
 >
 
-## DevOps considerations
-
-Use the Infrastructure as Code (IaC) process for deploying the infrastructure. In this architecture, we've used a set of [Azure Building Blocks][azbb] custom templates deployed using the Azure portal. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent. 
-
-For a given resource, there can be other resources that must exist before the resource is deployed. Azure Building Blocks templates are also good for dependency tracking because they allow you to define dependencies for resources that are deployed in the same template. 
-
 ### Network monitoring
 
 Use the Network Watcher to monitor and troubleshoot the network components, tools like Traffic Analytics will show you the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager has the ability to monitor information about Microsoft ExpressRoute circuits.
@@ -267,47 +258,10 @@ Virtual machine scale sets are available on all Linux and windows VM sizes. You 
 
 For more information, see [Azure VM pricing][linux-vms-pricing].
 
-
-## Deploy the solution
-
-**Prerequisites**. You must have an existing on-premises infrastructure already configured with a suitable network appliance.
-
-To deploy the solution, perform the following steps.
-
-1. Click the link below.
-
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy.json)
-
-1. Wait for the link to open in the Azure portal, then follow these steps:
-   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-er-rg` in the text box.
-   - Select the region from the **Location** drop down box.
-   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   - Click the **Purchase** button.
-
-1. Wait for the deployment to complete.
-
-1. Click the link below.
-
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy-expressRouteCircuit.json)
-
-1. Wait for the link to open in the Azure portal, then follow these steps:
-   - Select **Use existing** in the **Resource group** section and enter `ra-hybrid-er-rg` in the text box.
-   - Select the region from the **Location** drop down box.
-   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   - Click the **Purchase** button.
-
-1. Wait for the deployment to complete.
-
 <!-- links -->
 
 [highly-available-network-architecture]: ./expressroute-vpn-failover.yml
-
-
 [AAF-devops]: ../../framework/devops/overview.md
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki
-[expressroute-technical-overview]: /azure/expressroute/expressroute-introduction
 [expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
@@ -317,25 +271,11 @@ To deploy the solution, perform the following steps.
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction
 [expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
-[expressroute-limits]: /azure/azure-subscription-service-limits#networking-limits
-
 [aaf-cost]: ../../framework/cost/overview.md
 [azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator
-[expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
-[configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
-[sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
-[link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
-[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-[ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
-[expressroute-introduction]: /azure/expressroute/expressroute-introduction
-[expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
-[expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
-
-
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [visio-download]: https://arch-center.azureedge.net/hybrid-network-architectures.vsdx
-
 [0]: ./images/expressroute.png "Hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
 [2]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"
