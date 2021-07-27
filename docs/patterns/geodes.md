@@ -15,6 +15,8 @@ ms.custom:
   - fasttrack-new
   - fasttrack-edit
   - design-pattern
+categories:
+  - databases
 ---
 
 # Geode pattern
