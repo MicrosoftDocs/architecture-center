@@ -2,6 +2,7 @@
 title: Deploy AI-based footfall detection solution in Azure and Azure Stack Hub
 description: Learn how to deploy an AI-based footfall detection solution for analyzing visitor traffic in retail stores using Azure and Azure Stack Hub.
 author: BryanLa
+ms.service: azure
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
@@ -25,10 +26,10 @@ In this solution, you learn how to:
 > - Use the Custom Vision AI Dev Kit for inference at the edge.
 
 > [!Tip]  
-> ![Hybrid pillars diagram](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
 > 
-> The article [Hybrid app design considerations](overview-app-design-considerations.md) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
+> The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ## Prerequisites
 
@@ -159,7 +160,7 @@ Now that data is flowing to Azure Stream Analytics from the camera, we need to m
 
 4. Select **Renew authorization** and sign in to your Power BI account.
   
-    ![Renew authorization prompt in Power BI](./media/solution-deployment-guide-retail-footfall-detection/image2.png)
+    ![Renew authorization prompt in Power BI](media/solution-deployment-guide-retail-footfall-detection/image2.png)
 
 5. Save the output settings.
 
@@ -193,5 +194,5 @@ porter uninstall footfall-camera –tag intelligentedge/footfall-camera-deployme
 
 ## Next steps
 
-- Learn more about [Hybrid app design considerations](overview-app-design-considerations.md)
+- Learn more about [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
 - Review and propose improvements to [the code for this sample on GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis).

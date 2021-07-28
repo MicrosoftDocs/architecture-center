@@ -1679,23 +1679,23 @@ items:
               - name: Hybrid deployments
                 items:
                 - name: Configure hybrid cloud connectivity in Azure and Azure Stack Hub
-                  href: solution-deployment-guide-connectivity.md
+                  href: hybrid/deployments/solution-deployment-guide-connectivity.md
                 - name: Configure hybrid cloud identity for Azure and Azure Stack Hub apps
-                  href: solution-deployment-guide-identity.md
+                  href: hybrid/deployments/solution-deployment-guide-identity.md
                 - name: Deploy AI-based footfall detection solution in Azure and Azure Stack Hub
-                  href: solution-deployment-guide-retail-footfall-detection.md
+                  href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
                 - name: Deploy an app that scales cross-cloud in Azure and Azure Stack Hub
-                  href: solution-deployment-guide-cross-cloud-scaling.md
+                  href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md
                 - name: Deploy highly available Kubernetes cluster on Azure Stack Hub
-                  href: solution-deployment-guide-highly-available-kubernetes.md
+                  href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
                 - name: Deploy a highly available MongoDB solution to Azure and Azure Stack Hub
-                  href: solution-deployment-guide-mongodb-ha.md
+                  href: hybrid/deployments/solution-deployment-guide-mongodb-ha.md
                 - name: Deploy hybrid app with on-premises data that scales cross-cloud
-                  href: solution-deployment-guide-cross-cloud-scaling-onprem-data.md
+                  href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
                 - name: Deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub
-                  href: solution-deployment-guide-sql-ha.md
+                  href: hybrid/deployments/solution-deployment-guide-sql-ha.md
                 - name: Direct traffic with a geo-distributed app using Azure and Azure Stack Hub
-                  href: solution-deployment-guide-geo-distributed.md
+                  href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
               - name: FSLogix for the enterprise
                 href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
               - name: Administer SQL Server anywhere with Azure Arc
