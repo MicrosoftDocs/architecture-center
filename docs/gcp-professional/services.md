@@ -102,7 +102,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Compute Engine](https://cloud.google.com/compute#documentation) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | Virtual servers allow users to deploy, manage, and maintain OS and server software. Instance types provide combinations of CPU/RAM. Users pay for what they use with the flexibility to change sizes. |
 | [Batch](https://cloud.google.com/kubernetes-engine/docs/concepts/) | [Azure Batch](https://azure.microsoft.com/services/batch/) | Run large-scale parallel and high-performance computing applications efficiently in the cloud. |
 | [Compute Engine Managed Instance Groups](https://cloud.google.com/compute/docs/instance-groups/) | [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) | Allows you to automatically change the number of VM instances. You set defined metric and thresholds that determine if the platform adds or removes instances. |
-| [VMware as a service](https://cloud.google.com/solutions/vmware-as-a-service) | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution. Seamlessly move VMware-based workloads from your datacenter to Azure and integrate your VMware environment with Azure. Keep managing your existing environments with the same VMware tools that you already know, while you modernize your applications with Azure native services. Azure VMware Solution is a Microsoft service that is verified by VMware, and it runs on Azure infrastructure. |
+| [VMware as a service](https://cloud.google.com/solutions/vmware-as-a-service) | [Azure VMware by CloudSimple](https://azure.microsoft.com/services/azure-vmware-cloudsimple/) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution by CloudSimple. Keep using the VMware tools you already know to manage workloads on Azure without disrupting network, security, or data protection policies. |
 
 ### Containers and container orchestrators
 
@@ -274,16 +274,18 @@ Here are some architectures that use AKS as the orchestrator.
 | Monitoring | [Cloud Monitoring](https://cloud.google.com/monitoring) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | Service which provides visibility into the performance, uptime, and overall health of cloud-powered applications. |
 | Logging | [Cloud Logging](https://cloud.google.com/logging) | [Log Analytics](/azure/azure-monitor/log-query/get-started-portal/) | Service for real-time log management and analysis. |
 
-## Azure Migration Tools
+## Migration Tools
 
-| Type | Azure Service | Description |
+| Google Cloud service | Azure Service | Description |
 | --- | --- | --- |
-| Generic Database migrationGuide (SQL or Open Source Database) | [Database migration guide](https://datamigration.microsoft.com/) | Migration of database schema and data from one database format to a specific database technology in the cloud. |
-| SQL Server Database Migration Assessment Tool | [Data MigrationAssistant](/sql/dma/dma-overview?view=sql-server-ver15&preserve-view=true) | Assessment of SQL Server database before migration |
-| SQL Server Database Migration Tool | [Data Migration Service](/azure/dms/) | Actual migration of database to Azure |
-| Open source Database Migration Tool | Database Native Tool likemysqldump,pg\dump | Actual Migration of open source database to Azure |
-| Assessment and migration tool | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | Assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations. |
-| Migration tool | [Movere](https://www.movere.io/) | Movere is a discovery solution that provides the data and insights needed to plan cloud migrations and continuously optimize, monitor and analyze IT environments with confidence. |
+| [Migrate for Anthos] (https://cloud.google.com/migrate/anthos) | [Azure Migrate: App Containerization tool] (https://docs.microsoft.com/en-us/azure/migrate/tutorial-app-containerization-aspnet-kubernetes) | Modernize your application by migrating it to AKS or App Services containers. |
+| [Migrate for Compute Engine] (https://cloud.google.com/migrate/compute-engine) | [The Azure Migrate: Server Migration tool] (https://docs.microsoft.com/en-us/azure/migrate/migrate-services-overview) | Migrate servers from anywhere to Azure. |
+| [Google Cloud VMware Engine] (https://cloud.google.com/vmware-engine) | [Azure VMware Solution] (https://azure.microsoft.com/en-au/services/azure-vmware/#product-overview) | Move or extend on-premises VMware environments to Azure. |
+| [Database Migration Service] (https://cloud.google.com/database-migration) | [Azure Database Migration Service] (https://docs.microsoft.com/en-us/azure/dms/dms-overview) | Fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime. |
+| [Google Cloud Rapid Assessment & Migration Program (RAMP)] (https://cloud.google.com/solutions/cloud-migration-program) | [Azure Migration and Modernization Program] (https://azure.microsoft.com/en-au/migration/migration-modernization-program/#overview) | Learn how to move your apps, data, and infrastructure to Azure using a proven cloud migration and modernization approach. |
+|  | [Movere] (https://docs.microsoft.com/en-us/azure/migrate/migrate-services-overview#movere) | Increases business intelligence by accurately presenting entire IT environments within a single day. |
+|  | [Data Migration Assistant] (https://docs.microsoft.com/en-us/sql/dma/dma-overview) |  It helps pinpoint potential problems blocking migration. It identifies unsupported features, new features that can benefit you after migration, and the right path for database migration. |
+|  | [Web app migration assistant] (https://appmigration.microsoft.com/) | Assess on-premises web apps and migrate them to Azure. |
 
 ## More learning
 
