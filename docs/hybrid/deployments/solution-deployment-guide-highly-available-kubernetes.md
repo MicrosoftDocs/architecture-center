@@ -3,7 +3,6 @@ title: Deploy highly available Kubernetes cluster on Azure Stack Hub
 description: Learn how to deploy a Kubernetes cluster solution for high availability using Azure and Azure Stack Hub.
 author: BryanLa
 ms.service: azure
-ms.prod: hybrid
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: bryanla

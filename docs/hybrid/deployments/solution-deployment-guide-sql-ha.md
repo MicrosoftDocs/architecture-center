@@ -3,7 +3,6 @@ title: Deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub
 description: Learn how to deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub.
 author: BryanLa
 ms.service: azure
-ms.prod: hybrid
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
