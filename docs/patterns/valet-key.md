@@ -11,6 +11,12 @@ ms.custom:
   - design-pattern
 keywords:
   - design pattern
+categories:
+  - compute
+  - web
+products:
+  - azure
+  - azure-storage
 ---
 
 # Valet Key pattern
@@ -151,8 +157,7 @@ public class ValuesController : ApiController
 The following guidance might be relevant when implementing this pattern:
 
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/valet-key).
-- [Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS](https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas/)
-- [Using Shared Access Signatures](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
 - [Shared Access Signature Authentication with Service Bus](/azure/service-bus-messaging/service-bus-sas)
 
 ## Related guidance
