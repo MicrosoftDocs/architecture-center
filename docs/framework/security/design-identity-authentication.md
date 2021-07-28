@@ -78,10 +78,10 @@ Keep your cloud identity synchronized with the existing identity systems to ensu
 Consider using [Azure AD Connect](/azure/active-directory/connect/active-directory-aadconnect) for synchronizing Azure AD with your existing on-premises directory. For migration projects, have a requirement to complete this task before an Azure migration and development projects begin.
 
 > [!IMPORTANT]
-> Don’t synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
+> Don't synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
 >
 >
-> Synchronization is blocked by default in the default Azure AD Connect configuration. Make sure that you haven’t customized this configuration. For information about filtering in Azure AD, see [Azure AD Connect sync: Configure filtering](/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering).
+> Synchronization is blocked by default in the default Azure AD Connect configuration. Make sure that you haven't customized this configuration. For information about filtering in Azure AD, see [Azure AD Connect sync: Configure filtering](/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering).
 
 For more information, see [hybrid identity providers](/azure/active-directory/hybrid/whatis-hybrid-identity).
 
@@ -144,7 +144,7 @@ Workloads can be exposed over public internet and location-based network control
 
 Configure Azure AD Conditional Access by setting up Access policy for Azure management based on your operational needs. For information, see [Manage access to Azure management with Conditional Access](/azure/role-based-access-control/conditional-access-azure-management).
 
-Conditional Access can be an effective in phasing out legacy authentication and associated protocols. The policies must be enforced for all admins and other critical impact accounts. Start by using metrics and logs to determine users who still authenticate with old clients. Next, disable any down-level protocols that aren’t used, and set up conditional access for all users who aren’t using legacy protocols. Finally, give notice and guidance to users about upgrading before blocking legacy authentication completely. For  more information, see [Azure AD Conditional Access support for blocking legacy auth](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417).
+Conditional Access can be an effective in phasing out legacy authentication and associated protocols. The policies must be enforced for all admins and other critical impact accounts. Start by using metrics and logs to determine users who still authenticate with old clients. Next, disable any down-level protocols that aren't used, and set up conditional access for all users who aren't using legacy protocols. Finally, give notice and guidance to users about upgrading before blocking legacy authentication completely. For  more information, see [Azure AD Conditional Access support for blocking legacy auth](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417).
 
 ## Next
 Grant or deny access to a system by verifying the accessor's identity.
