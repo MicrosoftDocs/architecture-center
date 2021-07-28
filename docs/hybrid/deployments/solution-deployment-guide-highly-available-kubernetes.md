@@ -42,7 +42,7 @@ In this solution deployment guide, you learn how to:
 
 Before getting started with this deployment guide, make sure you:
 
-- Review the [High availability Kubernetes cluster pattern](pattern-highly-available-kubernetes.md) article.
+- Review the [High availability Kubernetes cluster pattern](/hybrid/app-solutions/pattern-highly-available-kubernetes) article.
 - Review the contents of the [companion GitHub repository](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/AKSe-on-AzStackHub), which contains additional assets referenced in this article.
 - Have an account that can access the [Azure Stack Hub user portal](/azure-stack/user/azure-stack-use-portal), with at least ["contributor" permissions](/azure-stack/user/azure-stack-manage-permissions).
 
@@ -170,7 +170,7 @@ When deploying self-hosted Agents for Azure Pipelines, you may deploy either on 
 
 * [Azure Pipelines agents](/azure/devops/pipelines/agents/agents) on [Windows](/azure/devops/pipelines/agents/v2-windows) or [Linux](/azure/devops/pipelines/agents/v2-linux)
 
-The pattern [Deployment (CI/CD) considerations](pattern-highly-available-kubernetes.md#deployment-cicd-considerations) section contains a decision flow that helps you to understand whether to use Microsoft-hosted agents or self-hosted agents:
+The pattern [Deployment (CI/CD) considerations](/hybrid/app-solutions/pattern-highly-available-kubernetes#deployment-cicd-considerations) section contains a decision flow that helps you to understand whether to use Microsoft-hosted agents or self-hosted agents:
 
 [![decision flow self hosted agents](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.png)](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.png#lightbox)
 
@@ -234,7 +234,7 @@ Before installing our sample application, there's another step to configure the 
 
 Our sample application is also packaged as a Helm Chart, like the [Azure Monitoring Agent](#configure-monitoring) in the previous step. As such, it's straightforward to deploy the application onto our Kubernetes cluster. You can find the [Helm Chart files in the companion GitHub repo](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/AKSe-on-AzStackHub/application/helm)
 
-The sample application is a three tier application, deployed onto a Kubernetes cluster on each of two Azure Stack Hub instances. The application uses a MongoDB database. You can learn more about how to get the data replicated across multiple instances in the pattern [Data and Storage considerations](pattern-highly-available-kubernetes.md#data-and-storage-considerations).
+The sample application is a three tier application, deployed onto a Kubernetes cluster on each of two Azure Stack Hub instances. The application uses a MongoDB database. You can learn more about how to get the data replicated across multiple instances in the pattern [Data and Storage considerations](/hybrid/app-solutions/pattern-highly-available-kubernetes#data-and-storage-considerations).
 
 After deploying the Helm Chart for the application, you'll see all three tiers of your application represented as deployments and stateful sets (for the database) with a single pod:
 
