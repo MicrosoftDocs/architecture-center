@@ -11,6 +11,12 @@ ms.custom:
   - design-pattern
 keywords:
   - design pattern
+categories:
+  - compute
+  - web
+products:
+  - azure
+  - azure-storage
 ---
 
 # Valet Key pattern
@@ -87,7 +93,7 @@ This pattern is useful for the following situations:
 
 This pattern might not be useful in the following situations:
 
-- If the application must perform some task on the data before it's stored or before it's sent to the client. For example, if the application needs to perform validation, log access success, or execute a transformation on the data. However, some data stores and clients are able to negotiate and carry out simple transformations such as compression and decompression (for example, a web browser can usually handle GZip formats).
+- If the application must perform some task on the data before it's stored or before it's sent to the client. For example, if the application needs to perform validation, log access success, or execute a transformation on the data. However, some data stores and clients are able to negotiate and carry out simple transformations such as compression and decompression (for example, a web browser can usually handle gzip formats).
 
 - If the design of an existing application makes it difficult to incorporate the pattern. Using this pattern typically requires a different architectural approach for delivering and receiving data.
 
@@ -101,7 +107,7 @@ Azure supports shared access signatures on Azure Storage for granular access con
 
 Azure shared access signatures also support server-stored access policies that can be associated with a specific resource such as a table or blob. This feature provides additional control and flexibility compared to application-generated shared access signature tokens, and should be used whenever possible. Settings defined in a server-stored policy can be changed and are reflected in the token without requiring a new token to be issued, but settings defined in the token can't be changed without issuing a new token. This approach also makes it possible to revoke a valid shared access signature token before it's expired.
 
-> For more information, see [Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS](https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas/) and [Using Shared Access Signatures](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) on MSDN.
+> For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview).
 
 The following code shows how to create a shared access signature token that's valid for five minutes. The `GetSharedAccessReferenceForUpload` method returns a shared access signatures token that can be used to upload a file to Azure Blob Storage.
 
@@ -118,11 +124,9 @@ public class ValuesController : ApiController
   private StorageEntitySas GetSharedAccessReferenceForUpload(string blobName)
   {          
       var blob = blobServiceClient.GetBlobContainerClient(this.blobContainer).GetBlobClient(blobName);
-
       var storageSharedKeyCredential = new StorageSharedKeyCredential(blobServiceClient.AccountName, ConfigurationManager.AppSettings["AzureStorageEmulatorAccountKey"]);
 
       var blobSasBuilder = new BlobSasBuilder
-
       {
           BlobContainerName = this.blobContainer,
           BlobName = blobName,
@@ -130,13 +134,12 @@ public class ValuesController : ApiController
           StartsOn = DateTimeOffset.UtcNow.AddMinutes(-5),
           ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(5)
       };
-      policy.SetPermissions(BlobSasPermissions.Write);
-      var sas = policy.ToSasQueryParameters(storageSharedKeyCredential).ToString();
+      blobSasBuilder.SetPermissions(BlobSasPermissions.Write);
   
       return new StorageEntitySas
       {
           BlobUri = blob.Uri,
-          Credentials = sas
+          Credentials = blobSasBuilder.ToSasQueryParameters(storageSharedKeyCredential).ToString()
       };
   }
   public struct StorageEntitySas
@@ -154,8 +157,7 @@ public class ValuesController : ApiController
 The following guidance might be relevant when implementing this pattern:
 
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/valet-key).
-- [Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS](https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas/)
-- [Using Shared Access Signatures](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
 - [Shared Access Signature Authentication with Service Bus](/azure/service-bus-messaging/service-bus-sas)
 
 ## Related guidance
