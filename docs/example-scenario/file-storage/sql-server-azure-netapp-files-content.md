@@ -1,4 +1,9 @@
-Intro
+The most demanding SQL Server database workloads require very high I/O capacity. They also need low-latency access to storage. This document describes a high-bandwidth, low-latency solution for SQL Server workloads. It provides shared file access with the Server Message Block (SMB) protocol.
+
+The solution uses SQL Server on Azure Virtual Machines. It also uses Azure NetApp Files. This shared file storage service provides various benefits:
+
+- With block storage, virtual machines have imposed limits for disk operations. These limits affect I/O capacity and bandwidth. With Azure NetApp Files, only network bandwidth limits are relevant. And they only apply to data egress. In other words, VM-level disk I/O limits don't affect Azure NetApp Files. As a result, SQL Server with Azure NetApp Files can outperform SQL Server that's connected to disk storage, even when the former runs on much smaller VMs.
+- Azure NetApp Files offers flexibility. Specifically, you can enlarge or shrink deployments on demand. In contrast, traditional on-premises configurations are sized for maximum workload requirements. Consequently, on-premises configurations are only most cost-effective at maximum utilization. With Azure NetApp Files, you can change the configuration continuously and optimize it for the current workload requirement.
 
 ## Potential use cases
 
@@ -52,7 +57,7 @@ The technologies in this solution meet most companies' requirements for security
 
 ## Deploy the solution
 
-
+For information on implementing this solution, see [Solution architectures using Azure NetApp Files][Solution architectures using Azure NetApp Files - SQL Server].
 
 ## Pricing
 
@@ -75,4 +80,5 @@ Fully deployable architectures:
 [Azure Virtual Machines]: https://azure.microsoft.com/en-us/services/virtual-machines/#overview
 [Azure Virtual Network]: https://azure.microsoft.com/en-us/services/virtual-network/
 [SMB Continuous Availability (CA) shares (Preview)]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/whats-new#march-2021
+[Solution architectures using Azure NetApp Files - SQL Server]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-solution-architectures#sql-server
 [What is SQL Server on Azure Virtual Machines (Windows)]: https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
