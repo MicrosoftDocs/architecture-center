@@ -14,6 +14,8 @@ products:
   - azure-ddos-protection
 ms.custom:
   - article
+categories:
+  - networking
 ---
 
 # Best practices for endpoint security on Azure
@@ -157,7 +159,8 @@ Application resources allowing multiple methods to publish app content, such as 
 
 ## Next step
 
-> [!div class="nextstepaction"] > [Data flow](design-network-flow.md)
+> [!div class="nextstepaction"]
+> [Data flow](design-network-flow.md)
 
 ### Related links
 

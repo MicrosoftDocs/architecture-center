@@ -16,6 +16,8 @@ products:
 ms.custom:
   - guide
   - internal-intro
+categories:
+  - compute
 ---
 
 # Modernize enterprise applications with Azure Service Fabric
