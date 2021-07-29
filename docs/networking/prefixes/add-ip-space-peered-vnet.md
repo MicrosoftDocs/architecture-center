@@ -10,8 +10,10 @@ ms.subservice: azure-guide
 ms.custom:
   - fcp
   - article
-service:
+categories:
   - networking
+products:
+  - azure-virtual-network
 ---
 
 <!-- cSpell:ignore randycampbell CIDR endregion -->
