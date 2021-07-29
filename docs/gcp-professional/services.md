@@ -276,14 +276,16 @@ Here are some architectures that use AKS as the orchestrator.
 
 ## Azure Migration Tools
 
-| Type | Azure Service | Description |
-| --- | --- | --- |
-| Generic Database migrationGuide (SQL or Open Source Database) | [Database migration guide](https://datamigration.microsoft.com/) | Migration of database schema and data from one database format to a specific database technology in the cloud. |
-| SQL Server Database Migration Assessment Tool | [Data MigrationAssistant](/sql/dma/dma-overview?view=sql-server-ver15&preserve-view=true) | Assessment of SQL Server database before migration |
-| SQL Server Database Migration Tool | [Data Migration Service](/azure/dms/) | Actual migration of database to Azure |
-| Open source Database Migration Tool | Database Native Tool likemysqldump,pg\dump | Actual Migration of open source database to Azure |
-| Assessment and migration tool | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | Assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations. |
-| Migration tool | [Movere](https://www.movere.io/) | Movere is a discovery solution that provides the data and insights needed to plan cloud migrations and continuously optimize, monitor and analyze IT environments with confidence. |
+Area | Google Cloud service | Azure Service | Description |
+| --- | --- | --- | --- |
+App migration to containers | [Migrate for Anthos](https://cloud.google.com/migrate/anthos) | [Azure Migrate: App Containerization tool](https://docs.microsoft.com/en-us/azure/migrate/tutorial-app-containerization-aspnet-kubernetes) | Modernize your application by migrating it to AKS or App Services containers. |
+Migration of virtual machines | [Migrate for Compute Engine](https://cloud.google.com/migrate/compute-engine) | [The Azure Migrate: Server Migration tool](https://docs.microsoft.com/en-us/azure/migrate/migrate-services-overview) | Migrate servers from anywhere to Azure. |
+VMware migration | [Google Cloud VMware Engine](https://cloud.google.com/vmware-engine) | [Azure VMware Solution](https://azure.microsoft.com/en-au/services/azure-vmware/#product-overview) | Move or extend on-premises VMware environments to Azure. |
+Migration of databases | [Database Migration Service](https://cloud.google.com/database-migration) | [Azure Database Migration Service](https://docs.microsoft.com/en-us/azure/dms/dms-overview) | Fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime. |
+Migration programs | [Google Cloud Rapid Assessment & Migration Program (RAMP)](https://cloud.google.com/solutions/cloud-migration-program) | [Azure Migration and Modernization Program](https://azure.microsoft.com/en-au/migration/migration-modernization-program/#overview) | Learn how to move your apps, data, and infrastructure to Azure using a proven cloud migration and modernization approach. |
+Server assessment |  | [Movere](https://docs.microsoft.com/en-us/azure/migrate/migrate-services-overview#movere) | Increases business intelligence by accurately presenting entire IT environments within a single day. |
+Database assessment |  | [Data Migration Assistant](https://docs.microsoft.com/en-us/sql/dma/dma-overview) |  It helps pinpoint potential problems blocking migration. It identifies unsupported features, new features that can benefit you after migration, and the right path for database migration. |
+Web app assessment and migration |  | [Web app migration assistant](https://appmigration.microsoft.com/) | Assess on-premises web apps and migrate them to Azure. |
 
 ## More learning
 
