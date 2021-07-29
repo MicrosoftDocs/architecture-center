@@ -33,11 +33,10 @@ In AWS, Route 53 provides both DNS name management and DNS-level traffic routing
 Azure provides similar site-to-site dedicated connections through its
 [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute) service. ExpressRoute allows you to connect your local network directly to Azure resources using a dedicated private network connection. Azure also offers more conventional [site-to-site VPN connections](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) at a lower cost.
 
-## Content Delivery Networks - Azure CND, AWS Cloud Front
-In Amazon, AWS provides CDN services with the name of CloudFront. This is similar to the  Azure Content Delivery Network (CDN). 
+## Content Delivery Networks - CloudFront and Azure CDN
+In AWS, CloudFront provides CDN services, to globally deliver data, videos, applications, and APIs. This is similar to Azure Content Delivery Network (CDN). 
 
-[Azure CDN] (https://azure.microsoft.com/en-in/services/cdn/)
-Azure CDN Standard is a feature-inclusive content delivery network bundle capable of handling most content delivery network workloads. Customers can choose to use Azure Content Delivery Network Standard from Verizon or Akamai.
+[Azure CDN](https://azure.microsoft.com/services/cdn) is a feature-inclusive content delivery network bundle that is capable of handling most CDN workloads. Customers can choose to use Azure Content Delivery Network Standard from Verizon or Akamai. For a full list of Azure CDN product offerings, see [What are the comparisons between Azure CDN product features?](/azure/cdn/cdn-features).
 
 
 ## Network service comparison
