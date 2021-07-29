@@ -35,9 +35,9 @@ Azure provides similar site-to-site dedicated connections through its
 
 ## Route Tables
 
-AWs provides Route Table containing routes to direct traffic from subnet/gateway subnet to the destination. In Azure this feature is available in the name of User-Defined routes. 
+AWS provides route tables that contain routes to direct traffic from a subnet/gateway subnet to the destination. In Azure, this feature is called user-defined routes. 
 
-[User Defined routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) service.You can create custom, or user-defined(static), routes in Azure to override Azure's default system routes, or to add more routes to a subnet's route table
+With [user-defined routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview), you can create custom or user-defined (static) routes in Azure, to override Azure's default system routes, or to add more routes to a subnet's route table.
 
 ## Network service comparison
 
