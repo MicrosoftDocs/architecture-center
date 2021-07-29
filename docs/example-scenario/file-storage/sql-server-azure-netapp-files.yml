@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Precision medicine pipeline with genomics
+  titleSuffix: Azure Example Scenarios
+  description: Build a precision medicine pipeline for genomic analysis and reporting. Use Microsoft Genomics for efficient secondary and tertiary analysis.
+  author: matthansen0
+  ms.author: mahans
+  ms.date: 07/02/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - analytics
+  - compute
+products:
+  - azure-blob-storage
+  - azure-data-factory
+  - azure-data-lake-storage
+  - azure-databricks
+  - azure-genomics
+name: Precision medicine pipeline with genomics
+summary: Build a precision medicine pipeline for genomic analysis and reporting. Use Microsoft Genomics for efficient secondary and tertiary analysis.
+thumbnailUrl: /azure/architecture/browse/thumbs/genomic-analysis-reporting-architecture-thumbnail.png
+content: |
+  [!include[](genomic-analysis-reporting-content.md)]
