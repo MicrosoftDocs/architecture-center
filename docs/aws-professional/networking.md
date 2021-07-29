@@ -37,7 +37,7 @@ Azure provides similar site-to-site dedicated connections through its
 
 AWs provides Route Table containing routes to direct traffic from subnet/gateway subnet to the destination. In Azure this feature is available in the name of User-Defined routes. 
 
-[User Denied routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).You can create custom, or user-defined(static), routes in Azure to override Azure's default system routes, or to add more routes to a subnet's route table
+[User Denied routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) .You can create custom, or user-defined(static), routes in Azure to override Azure's default system routes, or to add more routes to a subnet's route table
 
 ## Network service comparison
 
