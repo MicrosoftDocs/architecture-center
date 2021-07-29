@@ -233,26 +233,26 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud Storage](https://cloud.google.com/storage#documentation)<br/><br/> [Cloud Storage for Firebase](https://firebase.google.com/products/storage/) | [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
+| [Cloud Storage](https://cloud.google.com/storage#section-1)<br/><br/> [Cloud Storage for Firebase](https://firebase.google.com/products/storage/) | [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service designed for storing unstructured data, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, data lakes, high-performance computing, and machine learning.|
 
-### Virtual server disks
+### Block Storage
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Persistant Disk](https://cloud.google.com/compute/docs/disks/)<br/><br/> [Local SSD](https://cloud.google.com/compute/docs/disks/local-ssd) | [Azure managed disks](https://azure.microsoft.com/services/storage/disks/) | SSD storage optimized for I/O intensive read/write operations. For use as high-performance Azure virtual machine storage. |
+| [Persistant Disk](https://cloud.google.com/compute/docs/disks/)<br/><br/> [Local SSD](https://cloud.google.com/compute/docs/disks/local-ssd) | [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks/) | Block level storage volumes (HDDs & SSDs) used with virtual machines, for use cases including clustered applications,containerised workloads, and other mission & business critical applications.|
 
 ### File Storage
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Filestore](https://cloud.google.com/filestore/docs) | [Azure Files](https://azure.microsoft.com/services/storage/files/),[Azure NetApp Files](https://azure.microsoft.com/services/netapp/#overview) | File based storage and hosted NetApp Appliance Storage. |
-| [Drive Enterprise](https://cloud.google.com/drive-enterprise) | [OneDrive For business](https://products.office.com/onedrive/onedrive-for-business) | Shared files from from personal devices to cloud |
+| [Filestore](https://cloud.google.com/filestore/docs) | [Azure Files](https://azure.microsoft.com/services/storage/files/), [Azure NetApp Files](https://azure.microsoft.com/services/netapp/#overview) | File based storage and hosted NetApp Appliance Storage. |
+| [Google Drive](https://workspace.google.com/products/drive) | [OneDrive For business](https://products.office.com/onedrive/onedrive-for-business) | Cloud storage and file sharing solution for businesses to store, access and share files anytime and anywhere. |
 
 ### Bulk data transfer
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
+| [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
 | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
 
 ## Application services
