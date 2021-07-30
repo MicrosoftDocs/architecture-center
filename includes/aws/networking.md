@@ -1,6 +1,6 @@
 ---
 author: kobile70
-ms.author: adboegli
+ms.author: vaboya
 ms.topic: include
 ms.service: architecture-center
 ---
@@ -15,6 +15,7 @@ ms.service: architecture-center
 Dedicated network | [Direct Connect](https://aws.amazon.com/directconnect) | [ExpressRoute](https://azure.microsoft.com/services/expressroute) | Establishes a dedicated, private network connection from a location to the cloud provider (not over the Internet). |
 | Load balancing | [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html) | [Load Balancer](https://azure.microsoft.com/services/load-balancer)  | Azure Load Balancer load balances traffic at layer 4 (TCP or UDP). Standard Load Balancer also supports cross-region or global load balancing. |
 | &nbsp; |  [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) | [Application Gateway](https://azure.microsoft.com/services/application-gateway) | Application Gateway is a layer 7 load balancer. It supports SSL termination, cookie-based session affinity, and round robin for load-balancing traffic. |
+| Private Link | [AWS Private Link](https://aws.amazon.com/privatelink) | [Azure Private Link](https://azure.microsoft.com/services/private-link) | Azure Private Link provides private access to services that are hosted on the Azure platform. This keeps your data on the Microsoft network. |
 
 ### Networking architectures
 
