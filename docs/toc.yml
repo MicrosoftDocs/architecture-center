@@ -1676,6 +1676,26 @@ items:
         items:
           - name: Guides
             items:
+              - name: Hybrid deployments
+                items:
+                - name: Configure hybrid cloud connectivity in Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-connectivity.md
+                - name: Configure hybrid cloud identity for Azure and Azure Stack Hub apps
+                  href: hybrid/deployments/solution-deployment-guide-identity.md
+                - name: Deploy AI-based footfall detection solution in Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
+                - name: Deploy an app that scales cross-cloud in Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md
+                - name: Deploy highly available Kubernetes cluster on Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
+                - name: Deploy a highly available MongoDB solution to Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-mongodb-ha.md
+                - name: Deploy hybrid app with on-premises data that scales cross-cloud
+                  href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
+                - name: Deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-sql-ha.md
+                - name: Direct traffic with a geo-distributed app using Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
               - name: FSLogix for the enterprise
                 href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
               - name: Administer SQL Server anywhere with Azure Arc
@@ -1944,6 +1964,8 @@ items:
                     href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
                   - name: IBM z/OS migration with Asysco AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml                    
+                  - name: IBM z/OS online transaction processing on Azure
+                    href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml                    
                   - name: Integrate IBM MQ with Azure
                     href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
                   - name: Micro Focus Enterprise Server on Azure
