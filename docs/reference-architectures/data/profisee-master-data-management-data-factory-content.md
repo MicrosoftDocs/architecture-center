@@ -1,4 +1,4 @@
-Azure is used as the core of many digital transformation programs, but it is dependent on the quality and consistency of data from multiple sources—business applications, databases, data feeds, and so on—and delivers value through business intelligence, analytics, machine learning, and more. Profisee’s Master Data Management (MDM) solution completes the Azure data estate with a practical method to ‘align and combine’ data from multiple sources by enforcing consistent data standards on source data (match, merge, standardize, verify, correct). Native integration with Azure Data Factory and other Azure Data Services further streamlines this process to accelerate the delivery Azure business benefits.
+Azure is used as the core of many digital transformation programs, but it is dependent on the quality and consistency of data from multiple sources—business applications, databases, data feeds, and so on—and delivers value through business intelligence, analytics, machine learning, and more. Profisee's Master Data Management (MDM) solution completes the Azure data estate with a practical method to 'align and combine' data from multiple sources by enforcing consistent data standards on source data (match, merge, standardize, verify, correct). Native integration with Azure Data Factory and other Azure Data Services further streamlines this process to accelerate the delivery Azure business benefits.
 
 A core aspect of how MDM solutions function is that they combine data from multiple sources to create a "golden record master" that contains the best-known and trusted data for each record. This structure is built out domain-by-domain according to requirements, but it nearly always requires multiple domains. Common domains are customer, product, and location, but domains can represent anything from reference data to contracts and drug names. In general, the better domain coverage that can be built out relative to the broad Azure data requirements the better.  
 
@@ -15,9 +15,9 @@ This architectural pattern demonstrates how MDM can be incorporated into the Azu
    - Structured transactional data – Business events that occur at a specific point in time, such as an order, invoice, or interaction. Transactions include the metrics for that transaction (for example, sales price) and references to master data (for example, the product and customer involved in a purchase). Transactional data is typically high volume, low complexity, and static (does not change over time).
    - Unstructured data – Can include documents, images, videos, social media content, audio, and so on. Modern analytics platforms can increasingly use unstructured data to glean new insights previously unavailable. Unstructured data is often associated to master data, such as the customer associated to a social media account, or the product associated to an image.
 
-2. **Source master data load** – Master data from source business applications is loaded into the MDM application. Source data should be loaded “as is”, with complete lineage information and minimal transformations. 
+2. **Source master data load** – Master data from source business applications is loaded into the MDM application. Source data should be loaded “as is”, with complete lineage information and minimal transformations.
 
-3. **Automated MDM processing** – The MDM solution uses automated processes to standardize, verify, and enrich data (or example, verify and standardize address data), identify data quality issues, group duplicate records (or example, duplicate customers), and generate master records (also known as golden records). 
+3. **Automated MDM processing** – The MDM solution uses automated processes to standardize, verify, and enrich data (or example, verify and standardize address data), identify data quality issues, group duplicate records (or example, duplicate customers), and generate master records (also known as golden records).
 
 4. **Data stewardship** – As necessary, data stewards can review and manage groups of matched records, create/manage data relationships, fill in missing information, and resolve data quality issues. Multiple alternate hierarchical roll-ups can be managed as required (for example, product hierarchies).
 
@@ -62,7 +62,7 @@ The preceding image shows the details for integrating with the Profisee MDM solu
 
 ### Azure Data Factory templates for Profisee
 
-In collaboration with Microsoft, Profisee has developed a set of Azure Data Factory templates that make it faster and easier to integrate Profisee into the Azure Data Services ecosystem. These templates use Azure Data Factories REST data source and data sink to read and write data from Profisee’s REST Gateway API. Templates are provided for both reading from and writing to Profisee. 
+In collaboration with Microsoft, Profisee has developed a set of Azure Data Factory templates that make it faster and easier to integrate Profisee into the Azure Data Services ecosystem. These templates use Azure Data Factories REST data source and data sink to read and write data from Profisee's REST Gateway API. Templates are provided for both reading from and writing to Profisee. 
 
 :::image type="content" source="images/profisee-data-factory-template.png" alt-text="Screenshot that shows MDM Profisee and the Azure Data Factory template.":::
 
@@ -158,7 +158,7 @@ Consolidating customer data for analytics is the most common MDM use case. Organ
 
 ### Product 360
 
-Product data is often spread across multiple enterprise applications, such as ERP, PLM, or e-commerce. The result is a challenge understanding the total catalog of products that have inconsistent definitions for properties such as the product’s name, description, and characteristics. This is complicated by different definitions of reference data. Symptoms include the following challenges:
+Product data is often spread across multiple enterprise applications, such as ERP, PLM, or e-commerce. The result is a challenge understanding the total catalog of products that have inconsistent definitions for properties such as the product's name, description, and characteristics. This is complicated by different definitions of reference data. Symptoms include the following challenges:
 
 * Inability to support different alternative hierarchical rollup and drill-down paths for product analytics.
 

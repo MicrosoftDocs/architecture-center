@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 07/20/2021
+ms.date: 07/26/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,7 @@ New and updated articles in Azure Architecture Center
 
 ### New Articles
 
+- [Related resources for multitenancy](./guide/multitenant/related-resources.md)
 - [Considerations when using domain names in a multitenant solution](./guide/multitenant/considerations/domain-names.md)
 - [Map requests to tenants in a multitenant solution](./guide/multitenant/considerations/map-requests.md)
 - [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
@@ -51,9 +52,18 @@ New and updated articles in Azure Architecture Center
 
 ### Updated Articles
 
+- [Azure control plane security](./framework/security/design-identity-control-plane.md)  ([#640bf5672](https://github.com/MicrosoftDocs/architecture-center/commit/640bf5672))
+- [Governance, risk, and compliance in Azure | Microsoft Docs](./framework/security/governance.md)  ([#620895bf9](https://github.com/MicrosoftDocs/architecture-center/commit/620895bf9))
+- [Application classification for security](./framework/security/design-apps-considerations.md)  ([#59e141b41](https://github.com/MicrosoftDocs/architecture-center/commit/59e141b41))
+- [Security management groups](./framework/security/design-management-groups.md)  ([#c52ebb1fc](https://github.com/MicrosoftDocs/architecture-center/commit/c52ebb1fc))
+- [Check for identity, network, data risks](./framework/security/monitor-identity-network.md)  ([#bba64a1c7](https://github.com/MicrosoftDocs/architecture-center/commit/bba64a1c7))
+- [Data encryption in Azure](./framework/security/design-storage-encryption.md)  ([#ec82faa93](https://github.com/MicrosoftDocs/architecture-center/commit/ec82faa93))
+- [Authorization with Azure AD](./framework/security/design-identity-authorization.md)  ([#270fa9445](https://github.com/MicrosoftDocs/architecture-center/commit/270fa9445))
+- [Azure services for securing network connectivity](./framework/security/design-network-connectivity.md)  ([#ee4dde647](https://github.com/MicrosoftDocs/architecture-center/commit/ee4dde647))
+- [Governance considerations for secure deployment in Azure](./framework/security/deploy-governance.md)  ([#97041e892](https://github.com/MicrosoftDocs/architecture-center/commit/97041e892))
+- [Authentication with Azure AD](./framework/security/design-identity-authentication.md)  ([#2d559ecdb](https://github.com/MicrosoftDocs/architecture-center/commit/2d559ecdb))
+- [Azure security test practices](./framework/security/monitor-test.md)  ([#ff08688cd](https://github.com/MicrosoftDocs/architecture-center/commit/ff08688cd))
 - [Best practices for endpoint security on Azure](./framework/security/design-network-endpoints.md)  ([#e6f43e210](https://github.com/MicrosoftDocs/architecture-center/commit/e6f43e210))
-- [Governance, risk, and compliance in Azure | Microsoft Docs](./framework/security/governance.md)  ([#729eb51f3](https://github.com/MicrosoftDocs/architecture-center/commit/729eb51f3))
-- [Authorization with Azure AD](./framework/security/design-identity-authorization.md)  ([#b11413e38](https://github.com/MicrosoftDocs/architecture-center/commit/b11413e38))
 - [Secure deployment in Azure](./framework/security/deploy.md)  ([#8a9b43d44](https://github.com/MicrosoftDocs/architecture-center/commit/8a9b43d44))
 - [Risk reduction with Azure | Microsoft Docs](./framework/security/resilience.md)  ([#9f81591b5](https://github.com/MicrosoftDocs/architecture-center/commit/9f81591b5))
 - [Process real-time vehicle data using IoT](./example-scenario/data/realtime-analytics-vehicle-iot.yml)  ([#dac619770](https://github.com/MicrosoftDocs/architecture-center/commit/dac619770))
@@ -315,4 +325,5 @@ New and updated articles in Azure Architecture Center
 - [Microservices with AKS](./solution-ideas/articles/microservices-with-aks.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Oil and Gas Tank Level Forecasting](./solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
 - [Secure DevOps for AKS](./solution-ideas/articles/secure-devops-for-kubernetes.yml)  ([#6c34b75fc](https://github.com/MicrosoftDocs/architecture-center/commit/6c34b75fc))
+- [Multi-cloud security and identity with Azure and AWS](./aws-professional/security-identity.md)  ([#12a7e1c7c](https://github.com/MicrosoftDocs/architecture-center/commit/12a7e1c7c))
 

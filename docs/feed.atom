@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-07-20T21:50:54.372Z</updated>
+    <updated>2021-07-26T13:54:45.513Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Related resources for multitenancy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/related-resources</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/related-resources"/>
+        <updated>2021-07-25T22:04:46.000Z</updated>
+        <summary type="html"><![CDATA[This article provides a set of links and resources for architects and developers of multitenant solutions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Considerations when using domain names in a multitenant solution]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/considerations/domain-names</id>
@@ -177,27 +185,99 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Best practices for endpoint security on Azure]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-network-endpoints</id>
-        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-network-endpoints"/>
-        <updated>2021-07-19T17:17:46.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for protecting application endpoints.]]></summary>
+        <title type="html"><![CDATA[Azure control plane security]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-identity-control-plane</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-identity-control-plane"/>
+        <updated>2021-07-22T01:02:41.000Z</updated>
+        <summary type="html"><![CDATA[Security considerations for Azure control plane.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Governance, risk, and compliance in Azure | Microsoft Docs]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/security/governance</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/governance"/>
-        <updated>2021-07-19T16:57:59.000Z</updated>
+        <updated>2021-07-22T00:21:14.000Z</updated>
         <summary type="html"><![CDATA[Learn how to define security priorities around governance, risk, and compliance, beginning with definitions of these concepts and how they affect security.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Application classification for security]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-apps-considerations</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-apps-considerations"/>
+        <updated>2021-07-21T23:57:13.000Z</updated>
+        <summary type="html"><![CDATA[Security considerations for your applications and services in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Security management groups]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-management-groups</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-management-groups"/>
+        <updated>2021-07-21T23:56:36.000Z</updated>
+        <summary type="html"><![CDATA[Strategies using management groups to manage resources across multiple subscriptions consistently and efficiently.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Check for identity, network, data risks]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/monitor-identity-network</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/monitor-identity-network"/>
+        <updated>2021-07-21T22:52:36.000Z</updated>
+        <summary type="html"><![CDATA[Monitor identity-related risk events for warning on potentially compromised identities and remediate those risks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data encryption in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage-encryption</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage-encryption"/>
+        <updated>2021-07-21T22:19:27.000Z</updated>
+        <summary type="html"><![CDATA[Protect data in transit and at rest through encryption in Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Authorization with Azure AD]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authorization</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authorization"/>
-        <updated>2021-07-19T16:51:04.000Z</updated>
+        <updated>2021-07-21T21:43:48.000Z</updated>
         <summary type="html"><![CDATA[Use Azure AD roles to define clear lines of responsibility, access, and separation of duties.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure services for securing network connectivity]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-network-connectivity</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-network-connectivity"/>
+        <updated>2021-07-21T21:12:15.000Z</updated>
+        <summary type="html"><![CDATA[Best practices for securing access to internet, PaaS services, and on-premises networks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Governance considerations for secure deployment in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/deploy-governance</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/deploy-governance"/>
+        <updated>2021-07-21T19:17:38.000Z</updated>
+        <summary type="html"><![CDATA[Governance for CI/CD pipelines to make sure right access and work is executed.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Authentication with Azure AD]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authentication</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authentication"/>
+        <updated>2021-07-21T01:13:48.000Z</updated>
+        <summary type="html"><![CDATA[Authentication considerations when using Azure AD for a workload.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure security test practices]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/monitor-test</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/monitor-test"/>
+        <updated>2021-07-20T23:22:47.000Z</updated>
+        <summary type="html"><![CDATA[Test and validate the workload frequently to detect attacks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Best practices for endpoint security on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-network-endpoints</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-network-endpoints"/>
+        <updated>2021-07-19T17:17:46.000Z</updated>
+        <summary type="html"><![CDATA[Best practices for protecting application endpoints.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -2094,6 +2174,14 @@
         <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes"/>
         <updated>2021-04-06T15:19:22.000Z</updated>
         <summary type="html"><![CDATA[Implement secure DevOps with Kubernetes on Azure to achieve balance between speed and security and to deliver code faster at scale.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multi-cloud security and identity with Azure and AWS]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/security-identity</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/security-identity"/>
+        <updated>2021-04-01T20:25:22.000Z</updated>
+        <summary type="html"><![CDATA[Guidance for integrating security and identity services across Azure and AWS]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>
