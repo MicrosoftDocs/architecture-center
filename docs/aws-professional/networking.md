@@ -34,8 +34,8 @@ Azure provides similar site-to-site dedicated connections through its
 [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute) service. ExpressRoute allows you to connect your local network directly to Azure resources using a dedicated private network connection. Azure also offers more conventional [site-to-site VPN connections](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) at a lower cost.
 
 ## Private Link
-Simlar to AWS Privae link. Azure Provides a Azure Private link feature which provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services.
-[Azure Private Link](https://azure.microsoft.com/services/private-link)
+
+Simlar to AWS PrivateLink, [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
 
 ## Network service comparison
 
