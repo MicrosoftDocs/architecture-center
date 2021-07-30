@@ -1,7 +1,7 @@
 ---
 title: Noisy Neighbor antipattern
 titleSuffix: Performance antipatterns for cloud apps
-description: TODO
+description: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
 author: johndowns
 ms.date: 07/29/2021
 ms.topic: conceptual
@@ -66,4 +66,4 @@ Construct an example with Application Insights and Cosmos DB?
 
 ## Related resources
 
- * TODO
+- TODO
