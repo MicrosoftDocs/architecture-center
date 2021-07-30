@@ -140,7 +140,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [QuickSight](https://aws.amazon.com/quicksight/) | [Power BI](https://powerbi.microsoft.com/) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data.
 | [CloudSearch](https://aws.amazon.com/cloudsearch/) | [Cognitive Search](https://azure.microsoft.com/services/search/) | Delivers full-text search and related search analytics and capabilities. |
 | [Athena](https://aws.amazon.com/athena/) | [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics/) | Provides a serverless interactive query service that uses standard SQL for analyzing databases. |
-
+| [Elasticsearch Service](https://aws.amazon.com/elasticsearch-service/the-elk-stack/) | [Elastic on Azure](https://azure.microsoft.com/en-us/overview/linux-on-azure/elastic/) |  Petabyte scale and real time matters for application performance management (APM), log and metrics management, security analytics, and security endpoint protection. |
 ### Analytics architectures
 
 <ul class="grid">
