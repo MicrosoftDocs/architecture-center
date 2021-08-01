@@ -341,6 +341,14 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 |------|-------------|---------------|-------------|
 | [Control Tower](https://aws.amazon.com/controltower) | [Blueprints](/azure/governance/blueprints) | Set up and govern a multi account/subscription environment by creating landing zones.|
 
+## End User Computing
+
+| AWS service | Azure service | Description |
+|------|-------------|---------------|-------------|
+| [Workspaces](https://aws.amazon.com/workspaces), [AppStream2.0](https://aws.amazon.com/appstream2) | [Azure Virtual Desktop](azure/virtual-desktop) | Managed virtual desktops and applications service that enables corporate network and data access to users anytime, anywhere from supported devices. Amazon Workspaces support Windows and Linux Virtual Desktops. Azure Virtual Desktops support multi-session Windows 10 Virtual Desktops.|
+| [WorkLink](https://aws.amazon.com/worklink/) | [Application Proxy](/azure/active-directory/app-proxy/application-proxy) | Providing access to Intranet applications without requiring VPN connectivity. Amazon WorkLink is limited to iOS and Android Devices.|
+
+
 ## Miscellaneous
 
 | Area | AWS service | Azure service | Description |
