@@ -12,15 +12,15 @@ ms.subservice: cloud-fundamentals
 
 ## Simple Email Service
 
-AWS provides the Simple Email Service (SES) for sending notification, transactional, or marketing emails. In Azure, third-party solutions like [SendGrid](https://sendgrid.com/partners/azure) provide email services.
+AWS provides the Simple Email Service (SES) which enables devdelopers to support several email use cases including transactional, marketing or mass email communications. In Azure, third-party solutions like [SendGrid](https://sendgrid.com/partners/azure) provide email services which can be incorporated into solutions to cater for various use cases. 
 
 ## Simple Queueing Service
 
-AWS Simple Queueing Service (SQS) provides a messaging system for connecting applications, services, and devices within the AWS platform. Azure has two services that provide similar functionality:
+AWS Simple Queueing Service (SQS) is a fully managed message queuing service that enables developers to decouple and scale microservices, distributed systems, and serverless applications. Azure has two services that provide similar functionality:
 
 - [Queue storage](/azure/storage/queues/storage-nodejs-how-to-use-queues): a cloud messaging service that allows communication between application components within Azure.
 
-- [Service Bus](https://azure.microsoft.com/services/service-bus): a more robust messaging system for connecting applications, services, and devices. Using the related [Service Bus relay](/azure/service-bus-relay/relay-what-is-it), Service Bus can also connect to remotely hosted applications and services.
+- [Service Bus](https://azure.microsoft.com/services/service-bus): a robust messaging system for connecting applications, services, and devices. Using the related [Service Bus relay](/azure/service-bus-relay/relay-what-is-it), Service Bus can also connect to remotely hosted applications and services.
 
 ## Messaging components
 
