@@ -2267,6 +2267,8 @@ items:
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
+              - name: Zero-trust network for web applications
+                href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
           - name: Architectures
             items:
               - name: Azure AD in Security Operations
