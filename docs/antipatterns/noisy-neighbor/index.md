@@ -26,25 +26,27 @@ A benefit of multitenant systems is that resources can be pooled and shared amon
 
 Consider an example multitenant system with two tenants. Tenant A's usage patterns and tenant B's usage patterns coincide, which means that at peak times, the total resource usage is higher than the capacity of the system:
 
-![TODO](_images/noisy-neighbor-single.png)
+![Figure showing the resource usage of two tenants. Tenant A consumes the complete set of system resources, meaning tenant B experiences failures.](_images/noisy-neighbor-single.png)
 
 It's likely that whichever tenant's request arrived first will take precedence, and the other tenant will experience a noisy neighbor problem. Alternatively, both tenants may find their performance suffers.
 
 The noisy neighbor problem also occurs even when each individual tenant is consuming relatively small amounts of the system's capacity, but the collective resource usage of many tenants results in a peak in overall usage:
 
-![TODO](_images/noisy-neighbor-multiple.png)
+![Figure with 3 tenants, each consuming less the maximum throughput of the solution. In total, the three tenants consume the complete system resources.](_images/noisy-neighbor-multiple.png)
 
 This can happen when you have multiple tenants that all have similar usage patterns, or where you haven't provisioned sufficient capacity for the collective load on the system.
 
 ## How to fix the problem
 
-From client:
+Noisy neighbor problems are an inherent risk in multitenant systems, and it's not possible to completely eliminate the possibility of being impacted by a noisy neighbor. However, there are some steps that both clients and service providers can take to reduce the likelihood of noisy neighbor problems, or to mitigate their effects when they are observed.
+
+### Actions that clients can take
 
 - Purchase reserved capacity if available. For example, when using Cosmos DB, purchase [reserved throughput](/azure/cosmos-db/optimize-cost-throughput), and when using ExpressRoute, [provision separate circuits for environments that are sensitive to performance](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure)
 - Migrate to single-tenant instance/stamp
 - Handle throttling properly
 
-From service:
+### Actions that service providers can take
 
 - Monitor overall and per-tenant resource usage. Configure alerts and automation to handle issues.
 - Apply resource governance to avoid a single tenant overwhelming the others. This might take the form of quota enforcement through throttling, and rate limiting.
