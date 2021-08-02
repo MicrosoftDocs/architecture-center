@@ -63,6 +63,8 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
 
 ## How to detect the problem
 
+From client side, might see same operation taking different amounts of time or failing intermittently
+
 - Look for resource usage spikes. Set up alerts, and make sure you have a clear understanding of your normal baseline resource usage.
 - Look at all resources - e.g. CPU, memory, disk IO, database usage, networking metrics, PaaS metrics etc
 - Operations for a tenant fail even though the tenant isn't using high numbers of resources
