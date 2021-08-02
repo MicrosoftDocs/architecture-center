@@ -26,13 +26,13 @@ A benefit of multitenant systems is that resources can be pooled and shared amon
 
 Consider an example multitenant system with two tenants. Tenant A's usage patterns and tenant B's usage patterns coincide, which means that at peak times, the total resource usage is higher than the capacity of the system:
 
-TODO figure
+![TODO](_images/noisy-neighbor-single.png)
 
 It's likely that whichever tenant's request arrived first will take precedence, and the other tenant will experience a noisy neighbor problem. Alternatively, both tenants may find their performance suffers.
 
-Another form of the noisy neighbor problem occurs when the collective resource usage of many tenants results in an peak in overall usage, even if the individual usage for each tenant is fairly low.
+The noisy neighbor problem also occurs even when each individual tenant is consuming relatively small amounts of the system's capacity, but the collective resource usage of many tenants results in a peak in overall usage:
 
-TODO figure
+![TODO](_images/noisy-neighbor-multiple.png)
 
 This can happen when you have multiple tenants that all have similar usage patterns, or where you haven't provisioned sufficient capacity for the collective load on the system.
 
@@ -40,24 +40,31 @@ This can happen when you have multiple tenants that all have similar usage patte
 
 From client:
 
+- Purchase reserved capacity if available. For example, when using Cosmos DB, purchase [reserved throughput](/azure/cosmos-db/optimize-cost-throughput), and when using ExpressRoute, [provision separate circuits for environments that are sensitive to performance](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure)
 - Migrate to single-tenant instance/stamp
 - Handle throttling properly
 
 From service:
 
-- Throttling helps to avoid a single tenant overwhelming the others
-- To avoid collective usage issues, monitor overall system usage and ensure you rebalance tenants if needed - look at load patterns
+- Monitor overall and per-tenant resource usage. Configure alerts and automation to handle issues.
+- Apply resource governance to avoid a single tenant overwhelming the others. This might take the form of quota enforcement through throttling, and rate limiting.
+- Consider restricting the operations that tenants can perform, to avoid tenants taking actions that might negatively impact other tenants.
+- Consider provisioning more infrastructure, such as by upgrading your components, or by provisioning an additional deployment stamp if you follow that pattern.
+- Consider allowing tenants to purchase pre-provisioned/reserved capacity.
+- If you host multiple instances of your solution, consider re-balancing tenants across instances/stamps. For example, consider placing tenants with predictable usage patterns across multiple stamps to flatten the peaks in usage.
+- Consider whether you have background processes, or resource-intensive workloads that aren't time-sensitive. Run these asynchronously at off-peak times to preserve your peak resource capacity for time-sensitive workloads.
 
 ## Considerations
 
 - Tenants likely don't mean to cause issues. It's the service provider's job to ensure that this can't happen - it's not good to blame tenants for using the resources, since they likely are naive to the problem.
+- However, sometimes there could be bad actors that DDOS a multitenant system if it does not have usage governance, quota enforcement, and throttling.
 
 ## How to detect the problem
 
-- Look for resource usage spikes
+- Look for resource usage spikes. Set up alerts, and make sure you have a clear understanding of your normal baseline resource usage.
 - Look at all resources - e.g. CPU, memory, disk IO, database usage, networking metrics, PaaS metrics etc
 - Operations for a tenant fail even though the tenant isn't using high numbers of resources
-- If possible, track resource consumption by tenant
+- Track resource consumption by tenant
   - e.g. Cosmos DB RUs on each request, and log by tenant ID
 
 ## Example diagnosis
