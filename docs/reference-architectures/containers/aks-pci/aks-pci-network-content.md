@@ -46,7 +46,7 @@ AKS clusters require some public internet access to reach the managed control pl
 |[Requirement 2.3](#requirement-23)|Encrypt all non-console administrative access using strong cryptography.|
 |[Requirement 2.4](#requirement-24)|Maintain an inventory of system components that are in scope for PCI DSS.|
 |[Requirement 2.5](#requirement-25)|Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.|
-|[Requirement 2.6](#requirement-26)|Shared hosting providers must protect each entity’s hosted environment and cardholder data.|
+|[Requirement 2.6](#requirement-26)|Shared hosting providers must protect each entity's hosted environment and cardholder data.|
 
 ### Requirement 1.1
 
@@ -142,11 +142,10 @@ Documentation of business justification and approval for use of all services, pr
 
 ##### Your responsibilities
 
-Have detailed documentation that describes the services, protocols, and ports used in the network controls. Deny all permissions except for explicitly allowed ports. Document business justification and documented security features if the use of insecure protocols can't be avoided. Here are some examples from the reference implementation for Azure Firewall. Firewall rules must be scoped exclusively to their related resources. That is, only traffic from specific sources is allowed to go to specific FQDN targets. Here are some cases to allow traffic.
+Have detailed documentation that describes the services, protocols, and ports used in the network controls. Deny all except for explicitly allowed ports. Document business justification and documented security features if the use of insecure protocols can't be avoided. Here are some examples from the reference implementation for Azure Firewall. Firewall rules must be scoped exclusively to their related resources. That is, only traffic from specific sources is allowed to go to specific FQDN targets. Here are some cases to allow traffic.
 
 |Rule|Protocol:Port|Source|Destination|Justification
 |---|---|---|---|---|
-|Allow network time protocol (NTP) traffic.|UDP:123|AKS node pools||To support time synchronization between servers.|
 |Allow secure communication between the nodes and the control plane.|HTTPS:443|Authorized IP address ranges assigned to the cluster node pools| List of FQDN targets in the AKS control plane. This is specified with the `AzureKubernetesService` FQDN tag.|The nodes need access to the control plane for management tools, state and configuration information, and information about which nodes can be scaled.|
 |Allow secure communication between Flux and GitHub.|HTTPS:443|AKS node pools|github.com,api.github.com|Flux is a third-party integration that runs on the nodes. It synchronizes cluster configuration with a private GitHub repository.|
 
@@ -503,7 +502,7 @@ It's critical that you maintain thorough documentation about the processes and p
 
 ### Requirement 2.6
 
-Shared hosting providers must protect each entity’s hosted environment and cardholder data.
+Shared hosting providers must protect each entity's hosted environment and cardholder data.
 
 #### Your responsibilities
 
