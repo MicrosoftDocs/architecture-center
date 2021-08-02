@@ -1,9 +1,9 @@
 ---
 title: Google Cloud to Azure services comparison
 description: Understand the differences between specific Google Cloud and Azure services.
-author: EdPrice-MSFT
+author: cjnova
 ms.author: petuton
-ms.date: 03/15/2020
+ms.date: 08/2/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -99,19 +99,19 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Compute Engine](https://cloud.google.com/compute#documentation) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | Virtual servers allow users to deploy, manage, and maintain OS and server software. Instance types provide combinations of CPU/RAM. Users pay for what they use with the flexibility to change sizes. |
-| [Batch](https://cloud.google.com/kubernetes-engine/docs/concepts/) | [Azure Batch](https://azure.microsoft.com/services/batch/) | Run large-scale parallel and high-performance computing applications efficiently in the cloud. |
+| [Compute Engine](https://cloud.google.com/compute#documentation) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) | Virtual servers allow users to deploy, manage, and maintain OS and server software. Instance types provide combinations of CPU/RAM. Users pay for what they use with the flexibility to change sizes. |
+| [Batch](https://cloud.google.com/kubernetes-engine/docs/concepts) | [Azure Batch](https://azure.microsoft.com/services/batch/) | Run large-scale parallel and high-performance computing applications efficiently in the cloud. |
 | [Compute Engine Autoscaler](https://cloud.google.com/compute/docs/autoscaler) | [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) | Allows you to automatically change the number of VM instances. You set defined metric and thresholds that determine if the platform adds or removes instances. |
-| [Cloud GPUs](https://cloud.google.com/gpu) | [GPU Optimized VMs](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu) | GPU optimized VM sizes are specialized virtual machines available with single, multiple, or fractional GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads. |
-| [VMware Engine](https://cloud.google.com/vmware-engine) | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution. Seamlessly move VMware-based workloads from your datacenter to Azure and integrate your VMware environment with Azure. Keep managing your existing environments with the same VMware tools that you already know, while you modernize your applications with Azure native services. Azure VMware Solution is a Microsoft service that is verified by VMware, and it runs on Azure infrastructure. |
+| [Cloud GPUs](https://cloud.google.com/gpu) | [GPU Optimized VMs](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu) | GPU optimized VM sizes are specialized virtual machines that are available with single, multiple, or fractional GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads. |
+| [VMware Engine](https://cloud.google.com/vmware-engine) | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution. Seamlessly move VMware-based workloads from your datacenter to Azure, and integrate your VMware environment with Azure. Keep managing your existing environments with the same VMware tools that you already know, while you modernize your applications with Azure native services. Azure VMware Solution is a Microsoft service that is verified by VMware, and it runs on Azure infrastructure. |
 
 ### Containers and container orchestrators
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud Run](https://cloud.google.com/run#documentation) | [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) | Azure Container Instances is the fastest and simplest way to run a container in Azure, without having to provision any virtual machines or adopt a higher-level orchestration service. |
-| [Artifact Registry (beta)](https://cloud.google.com/artifacts/docs) <br/><br/> [Container Registry](https://cloud.google.com/container-registry/docs) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Allows customers to store Docker formatted images. Used to create all types of container deployments on Azure. |
-| [Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine#documentation) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | Deploy orchestrated containerized applications with Kubernetes. Simplify cluster management and monitoring through automatic upgrades and a built-in operations console. See [AKS solution journey](../reference-architectures/containers/aks-start-here.md). |
+| [Cloud Run](https://cloud.google.com/run#documentation) | [Azure Container Instances](https://azure.microsoft.com/services/container-instances) | Azure Container Instances is the fastest and simplest way to run a container in Azure, without having to provision any virtual machines or adopt a higher-level orchestration service. |
+| [Artifact Registry (beta)](https://cloud.google.com/artifacts/docs) <br/><br/> [Container Registry](https://cloud.google.com/container-registry/docs) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry) | Allows customers to store Docker formatted images. Used to create all types of container deployments on Azure. |
+| [Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine#documentation) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | Deploy orchestrated containerized applications with Kubernetes. Simplify cluster management and monitoring through automatic upgrades and a built-in operations console. See [AKS solution journey](../reference-architectures/containers/aks-start-here.md). |
 | [Kubernetes Engine Monitoring](https://cloud.google.com/monitoring/kubernetes-engine) | [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview) | Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to: Managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS); Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine); Azure Container Instances, Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910&preserve-view=true) or on-premises; or [Azure Red Hat OpenShift](/azure/openshift/intro-openshift). |
 | [Anthos Service Mesh](https://cloud.google.com/service-mesh/docs) | [Service Fabric Mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview) | Fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. |
 
@@ -137,9 +137,9 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Type | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
-| Relational database (PaaS) | [Cloud SQL](https://cloud.google.com/sql#documentation) ( SQL Server, MySQL, PostgreSQL ) | [SQL Server Options](/azure/sql-database/sql-database-paas-vs-sql-server-iaas) <br/><br/>Azure Database for [MySQL](/azure/mysql/) <br/><br/>Azure Database for [PostgreSQL](/azure/postgresql/) | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform. |
-| | Cloud Spanner | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform. |
-| NoSQL (PaaS) | [Cloud Bigtable](https://cloud.google.com/bigtable/docs)<br/><br/> [Cloud Firestore](https://cloud.google.com/firestore/docs)<br/><br/> [Firebase Realtime Database](https://firebase.google.com/products/realtime-database/) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | Globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar. |
+| Relational database (PaaS) | [Cloud SQL](https://cloud.google.com/sql#documentation) ( SQL Server, MySQL, PostgreSQL ) | [SQL Server Options](/azure/sql-database/sql-database-paas-vs-sql-server-iaas) <br/><br/>Azure Database for [MySQL](/azure/mysql/) <br/><br/>Azure Database for [PostgreSQL](/azure/postgresql) | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform. |
+| | Cloud Spanner | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform. |
+| NoSQL (PaaS) | [Cloud Bigtable](https://cloud.google.com/bigtable/docs)<br/><br/> [Cloud Firestore](https://cloud.google.com/firestore/docs)<br/><br/> [Firebase Realtime Database](https://firebase.google.com/products/realtime-database) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | Globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar. |
 | Caching | [Cloud Memorystore](https://cloud.google.com/memorystore/docs)<br/><br/> [Redis Enterprise Cloud](https://console.cloud.google.com/apis/library/gcp.redisenterprise.com?pli=1) | [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) | An in-memory–based, distributed caching service that provides a high-performance store typically used to offload non-transactional work from a database. |
 
 ## DevOps and application monitoring
@@ -147,9 +147,9 @@ Here are some architectures that use AKS as the orchestrator.
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Operations (formerly Stackdriver)](https://cloud.google.com/products/operations) | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | Maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources on which they depend. |
-| [Cloud Trace](https://cloud.google.com/trace) | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | Maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources on which they depend. |
-| [Cloud Debugger](https://cloud.google.com/debugger) | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | Maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources on which they depend. |
-| [Cloud Profiler](https://cloud.google.com/profiler) | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | Maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources on which they depend. |
+| [Cloud Trace](https://cloud.google.com/trace) | [Azure Monitor](https://azure.microsoft.com/services/monitor) | Maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources on which they depend. |
+| [Cloud Debugger](https://cloud.google.com/debugger) | [Azure Monitor](https://azure.microsoft.com/services/monitor) | Maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources on which they depend. |
+| [Cloud Profiler](https://cloud.google.com/profiler) | [Azure Monitor](https://azure.microsoft.com/services/monitor) | Maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources on which they depend. |
 | [Cloud Source Repositories](https://cloud.google.com/source-repositories) | [Azure DevOps Repos](https://azure.microsoft.com/services/devops/repos/?nav=min), [GitHub Repos](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-repositories) | A cloud service for collaborating on code development. |
 | [Cloud Build](https://cloud.google.com/cloud-build) | [Azure DevOps Pipelines](https://azure.microsoft.com/services/devops/pipelines/?nav=min), [GitHub Actions](https://github.com/features/actions) | Fully managed build service that supports continuous integration and deployment. |
 | [Artifact Registry](https://cloud.google.com/artifact-registry/docs/overview) | [Azure DevOps Artifacts](https://azure.microsoft.com/services/devops/artifacts/), [GitHub Packages](https://github.com/features/packages) | Add fully integrated package management to your continuous integration/continuous delivery (CI/CD) pipelines with a single click. Create and share Maven, npm, NuGet, and Python package feeds from public and private sources with teams of any size. |
@@ -226,7 +226,7 @@ Here are some architectures that use AKS as the orchestrator.
 | Data at rest encryption | [Encryption by default](https://cloud.google.com/security/encryption-at-rest) | [Azure Storage Service Encryption](/azure/storage/storage-service-encryption) - encryption by default | Azure Storage Service Encryption helps you protect and safeguard your data and meet your organizational security and compliance commitments. |
 | Security | [Security Command Center](https://cloud.google.com/security-command-center) | [Azure Security Center](https://azure.microsoft.com/services/security-center/) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
 | | [Web Security Scanner](https://cloud.google.com/security-scanner) | [Azure Security Center](https://azure.microsoft.com/services/security-center/) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
-| | [Event Threat Detection](https://cloud.google.com/event-threat-detection) | [Azure Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection/) | Detect and investigate advanced attacks on-premises and in the cloud. |
+| | [Event Threat Detection](https://cloud.google.com/event-threat-detection) | [Azure Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection) | Detect and investigate advanced attacks on-premises and in the cloud. |
 
 ## Storage
 
@@ -234,19 +234,19 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud Storage](https://cloud.google.com/storage#documentation)<br/><br/> [Cloud Storage for Firebase](https://firebase.google.com/products/storage/) | [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
+| [Cloud Storage](https://cloud.google.com/storage#documentation)<br/><br/> [Cloud Storage for Firebase](https://firebase.google.com/products/storage) | [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
 
 ### Virtual server disks
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Persistant Disk](https://cloud.google.com/compute/docs/disks/)<br/><br/> [Local SSD](https://cloud.google.com/compute/docs/disks/local-ssd) | [Azure managed disks](https://azure.microsoft.com/services/storage/disks/) | SSD storage optimized for I/O intensive read/write operations. For use as high-performance Azure virtual machine storage. |
+| [Persistant Disk](https://cloud.google.com/compute/docs/disks)<br/><br/> [Local SSD](https://cloud.google.com/compute/docs/disks/local-ssd) | [Azure managed disks](https://azure.microsoft.com/services/storage/disks) | SSD storage optimized for I/O intensive read/write operations. For use as high-performance Azure virtual machine storage. |
 
 ### File Storage
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Filestore](https://cloud.google.com/filestore/docs) | [Azure Files](https://azure.microsoft.com/services/storage/files/),[Azure NetApp Files](https://azure.microsoft.com/services/netapp/#overview) | File based storage and hosted NetApp Appliance Storage. |
+| [Filestore](https://cloud.google.com/filestore/docs) | [Azure Files](https://azure.microsoft.com/services/storage/files),[Azure NetApp Files](https://azure.microsoft.com/services/netapp/#overview) | File based storage and hosted NetApp Appliance Storage. |
 | [Drive Enterprise](https://cloud.google.com/drive-enterprise) | [OneDrive For business](https://products.office.com/onedrive/onedrive-for-business) | Shared files from from personal devices to cloud |
 
 ### Bulk data transfer
@@ -254,7 +254,7 @@ Here are some architectures that use AKS as the orchestrator.
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
-| [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
+| [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Data Box](https://azure.microsoft.com/services/storage/databox) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
 
 ## Application services
 
@@ -267,8 +267,8 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
-| Workflow | [Composer](https://cloud.google.com/composer) | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
-| Enterprise application services | [G Suite](https://gsuite.google.com/) | [Microsoft 365](https://products.office.com/) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
+| Workflow | [Composer](https://cloud.google.com/composer) | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
+| Enterprise application services | [G Suite](https://gsuite.google.com) | [Microsoft 365](https://products.office.com/) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
 | Gaming | [Game Servers](https://cloud.google.com/game-servers/docs) | [Azure PlayFab](https://playfab.com/) | Managed services for hosting dedicated game servers. |
 | Hybrid | [Anthos](https://cloud.google.com/anthos) | [Azure Arc](https://azure.microsoft.com/services/azure-arc/) | For customers who want to simplify complex and distributed environments across on-premises, edge and multi-cloud, Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure. |
 | Blockchain | [Digital Asset](https://developers.google.com/digital-asset-links) | [Azure Blockchain Service](https://azure.microsoft.com/services/blockchain-service/) | Azure Blockchain Service is a fully managed ledger service that enables users the ability to grow and operate blockchain networks at scale in Azure. |
@@ -279,12 +279,12 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Type | Azure Service | Description |
 | --- | --- | --- |
-| Generic Database migrationGuide (SQL or Open Source Database) | [Database migration guide](https://datamigration.microsoft.com/) | Migration of database schema and data from one database format to a specific database technology in the cloud. |
+| Generic Database migrationGuide (SQL or Open Source Database) | [Database migration guide](https://datamigration.microsoft.com) | Migration of database schema and data from one database format to a specific database technology in the cloud. |
 | SQL Server Database Migration Assessment Tool | [Data MigrationAssistant](/sql/dma/dma-overview?view=sql-server-ver15&preserve-view=true) | Assessment of SQL Server database before migration |
-| SQL Server Database Migration Tool | [Data Migration Service](/azure/dms/) | Actual migration of database to Azure |
+| SQL Server Database Migration Tool | [Data Migration Service](/azure/dms) | Actual migration of database to Azure |
 | Open source Database Migration Tool | Database Native Tool likemysqldump,pg\dump | Actual Migration of open source database to Azure |
-| Assessment and migration tool | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | Assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations. |
-| Migration tool | [Movere](https://www.movere.io/) | Movere is a discovery solution that provides the data and insights needed to plan cloud migrations and continuously optimize, monitor and analyze IT environments with confidence. |
+| Assessment and migration tool | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate) | Assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations. |
+| Migration tool | [Movere](https://www.movere.io) | Movere is a discovery solution that provides the data and insights needed to plan cloud migrations and continuously optimize, monitor and analyze IT environments with confidence. |
 
 ## More learning
 
