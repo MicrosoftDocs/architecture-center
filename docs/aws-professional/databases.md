@@ -1,8 +1,9 @@
 ---
 title: Comparing AWS and Azure database technology
 description: A comparison of the differences between database technologies between Azure and AWS
-author: doodlemania2
-ms.date: 05/21/2020
+author: splitfinity
+ms.author: yubaijna
+ms.date: 08/2/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -42,7 +43,7 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 - [Data Factory](https://azure.microsoft.com/documentation/services/data-factory): provides data orchestration and data pipeline functionality.
 
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): an enterprise analytics service that accelerates time to insight across data warehouses and big data        systems.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): an enterprise analytics service that accelerates time to insight, across data warehouses and big data systems.
 
 - [Data Lake Store](https://azure.microsoft.com/documentation/services/data-lake-store): large-scale storage optimized for big data analytics workloads.
 
@@ -52,7 +53,7 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 - [Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview): large-scale analytics service optimized to work with Data Lake Store
 
-- [Power BI](https://powerbi.microsoft.com): a business analytics service which provides the capabilities to creach rich interactive data visualizations.
+- [Power BI](https://powerbi.microsoft.com): a business analytics service that provides the capabilities to creach rich interactive data visualizations.
 
 ## Service comparison
 
