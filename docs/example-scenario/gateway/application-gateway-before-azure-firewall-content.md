@@ -7,7 +7,7 @@ Typically, different types of network appliances inspect different aspects of ne
 
 In some situations, you can combine different types of network security appliances to increase protection. A separate guide, [Firewall and Application Gateway for virtual networks][Firewall and Application Gateway for virtual networks], describes design patterns that you can use to arrange the various appliances. This document focuses on a common pattern for maximizing security, in which Azure Application Gateway acts before Azure Firewall Premium. The following diagram illustrates this pattern:
 
-:::image type="content" source="./images/application-gateway-before-azure-firewall-architecture.png" alt-text="Architecture diagram showing the packet flow in a web app network that uses Application Gateway in front of Azure Firewall Premium.":::
+:::image type="content" source="./images/application-gateway-before-azure-firewall-architecture.png" alt-text="Architecture diagram showing the packet flow in a web app network that uses Application Gateway in front of Azure Firewall Premium." border="false":::
 
 This architecture uses the secure sockets layer (SSL) protocol to encrypt traffic at every step.
 
@@ -53,7 +53,7 @@ HTTP Host headers usually don't contain IP addresses. Instead, the headers conta
 
 The following diagram shows the common names (CNs) and certificate authorities (CAs) that the architecture's SSL sessions and certificates use:
 
-:::image type="content" source="./images/application-gateway-before-azure-firewall-certificates.png" alt-text="Architecture diagram showing the common names and certificate authorities that a web app network uses when a load balancer is in front of a firewall.":::
+:::image type="content" source="./images/application-gateway-before-azure-firewall-certificates.png" alt-text="Architecture diagram showing the common names and certificate authorities that a web app network uses when a load balancer is in front of a firewall." border="false":::
 
 ### SSL connections
 
@@ -94,7 +94,7 @@ With traditional hub and spoke architectures, DNS private zones provide an easy 
 
 The following diagram shows the packet flow when Application Gateway is in a spoke virtual network. In this case, a client connects from the public internet.
 
-:::image type="content" source="./images/application-gateway-before-azure-hub-spoke-external.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network with a load balancer and a firewall. Clients connect from the public internet.":::
+:::image type="content" source="./images/application-gateway-before-azure-hub-spoke-external.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network with a load balancer and a firewall. Clients connect from the public internet." border="false":::
 
 1. A client submits a request to a web server.
 1. Application Gateway intercepts the client packets and examines them. If the packets pass inspection, a user-defined route (UDR) in the Application Gateway subnet forwards the packets to Azure Firewall Premium.
@@ -105,7 +105,7 @@ The following diagram shows the packet flow when Application Gateway is in a spo
 
 Traffic can also arrive from an on-premises network instead of the public internet. The traffic flows either through a site-to-site virtual private network (VPN) or through ExpressRoute. In this scenario, the traffic first reaches a virtual network gateway in the hub. The rest of the network flow is the same as the previous case.
 
-:::image type="content" source="./images/application-gateway-before-azure-hub-spoke-internal.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network with a load balancer and a firewall. Clients connect from an on-premises network.":::
+:::image type="content" source="./images/application-gateway-before-azure-hub-spoke-internal.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network with a load balancer and a firewall. Clients connect from an on-premises network." border="false":::
 
 1. An on-premises client connects to the virtual network gateway.
 1. The gateway forwards the client packets to Application Gateway.
@@ -132,7 +132,7 @@ When you use Virtual WAN as a networking platform, two main differences result:
 
 The following diagram shows the packet flow in a case that uses Virtual WAN. In this situation, access to Application Gateway is from an on-premises network. A site-to-site VPN or ExpressRoute connects that network to Virtual WAN. Access from the internet is similar.
 
-:::image type="content" source="./images/application-gateway-before-azure-vwan-internal.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network that includes a load balancer, a firewall, and Virtual WAN.":::
+:::image type="content" source="./images/application-gateway-before-azure-vwan-internal.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network that includes a load balancer, a firewall, and Virtual WAN." border="false":::
 
 1. An on-premises client connects to the VPN.
 1. The VPN forwards the client packets to Application Gateway.
@@ -162,7 +162,7 @@ The following diagram shows the packet flow when Route Server simplifies dynamic
 - Route Server currently requires the device that injects the routes to send them over Border Gateway Protocol (BGP). Since Azure Firewall Premium doesn't support BGP, use a third-party Network Virtual Appliance (NVA) instead.
 - The functionality of the NVA in the hub determines whether your implementation needs DNS.
 
-:::image type="content" source="./images/application-gateway-before-azure-firewall-route-server-internal.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network that includes a load balancer, a firewall, and Route Server.":::
+:::image type="content" source="./images/application-gateway-before-azure-firewall-route-server-internal.png" alt-text="Architecture diagram showing the packet flow in a hub and spoke network that includes a load balancer, a firewall, and Route Server." border="false":::
 
 1. An on-premises client connects to the virtual network gateway.
 1. The gateway forwards the client packets to Application Gateway.
