@@ -1,8 +1,9 @@
 ---
 title: Comparing AWS and Azure compute services
 description: A comparison of the differences between compute services between Azure and AWS
-author: doodlemania2
-ms.date: 05/21/2020
+author: BrianQu
+ms.author: yuanzhiqu
+ms.date: 08/03/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
