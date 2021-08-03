@@ -7,7 +7,13 @@ The solution uses SQL Server on Azure Virtual Machines. It also uses Azure NetAp
 
 ## Potential use cases
 
-This solution applies to many areas:
+This solution applies to many use cases:
+
+- Running new SQL Server instances that require high availability and have high performance standards.
+- Migrating highly performant, highly available SQL Server instances from on-premises infrastructure to Azure Virtual Machines (VMs).
+- Deploying cost-effective, enterprise-scale SQL Server Always On Failover Cluster HA architectures by using Availability Sets and SMB shared storage.
+- Deploying enterprise-scale disaster recovery architectures for hybrid or Azure systems by using SQL server Always On Availability Groups.
+- Enhancing enterprise-scale SQL Server systems with fast cloning for use in test and development environments. This addition can benefit cases that require advanced data management capabilities to meet aggressive data protection SLAs.
 
 
 
@@ -39,32 +45,44 @@ The solution uses the following components:
 
 ## Key benefits
 
-Intro sentence
+The following sections outline the benefits that this architecture provides.
 
 ### Azure NetApp Files key value proposition
 
-[Azure NetApp Files][What is Azure NetApp Files] meets the core requirements of running high-performance workloads like databases in the cloud. This service uses a bare metal fleet of all-flash storage. It provides various benefits:
+[Azure NetApp Files][What is Azure NetApp Files] meets the core requirements of running high-performance workloads like databases in the cloud. This service uses a bare metal fleet of all-flash storage and provides various benefits:
 
 - Enterprise-class performance. Azure NetApp Files offers shared and highly scalable storage along with very low latencies of less than 1 ms. This combination makes the service very well suited for using the SMB protocol to run SQL Server workloads over the network.
 - High availability. The [service level agreement (SLA) for Azure NetApp Files][SLA for Azure NetApp Files] guarantees 99.99 percent availability.
 - Advanced data management. Snapshots provide fast and efficient backup and recovery solutions that achieve aggressive recovery time objective (RTO) and recovery point objective (RPO) SLAs. Space-efficient clones enhance development and test environments.
 
- As an Azure native service, Azure NetApp Files runs within the Azure data center environment. As a result, you can provision, consume, and scale Azure NetApp Files just like other Azure storage options.
+ As an Azure native service, Azure NetApp Files runs within the Azure data center environment. You can provision, consume, and scale Azure NetApp Files just like other Azure storage options.
 
 ### SQL Server on Azure NetApp Files key value proposition
 
-Maybe add intro sentence to lead in to image.
+This image highlights the benefits of using SQL Server on Azure NetApp Files.
 
 :::image type="complex" source="./media/sql-server-azure-net-app-files-key-values.png" alt-text="Architecture diagram showing how information flows through a genomics analysis and reporting pipeline." border="false":::
    The diagram contains two boxes. The first, on the left, has the label Azure Data Factory for orchestration. The second box has the label Clinician views. The first box contains several smaller boxes that represent data or various Azure components. Arrows connect the boxes, and numbered labels on the arrows correspond with the numbered steps in the document text. Two arrows flow between the boxes, ending in the Clinician views box. One arrow points to a clinician icon. The other points to a Power BI icon.
 :::image-end:::
 
 - For small databases, you can deploy database and log files into a single volume. Such simplified configurations are easy to manage.
-- For larger databases, it can be more efficient to configure multiple volumes. You can also use a [manual Quality of Service (QoS) capacity pool][Manual QoS volume quota and throughput] for more granular control over performance requirements.
+- For larger databases, it can be more efficient to configure multiple volumes. You can also use a [manual Quality of Service (QoS) capacity pool][Manual QoS volume quota and throughput]. This type of pool provides more granular control over performance requirements.
 
 ### Key benefits of SQL Server with Azure NetApp Files
 
+Add intro sentence and turn these bullets in H4s.
+
 - Simple and reliable service. Azure NetApp Files is a simple-to-consume Azure native platform service. It uses reliability features that the NetApp data management software ONTAP provides. With this software, you can quickly and reliably provision enterprise-grade SMB volumes for SQL Server and other workloads.
+- Highly performant systems. Azure DCs and the Azure SDN and ARM frameworks use high-performance, all-flash ONTAP enterprise systems. As a result, you get high-bandwidth, low-latency shared storage that's comparable to an on-premises solution. It provides the performance that the most demanding enterprise workloads require.
+- Enterprise-scale data management. This architecture fulfills the requirements of the most demanding, business-critical applications and workloads, even those that require advanced data management features. ONTAP provides functionality in this area that's unmatched in the industry:
+
+  - Time-efficient and space-efficient snapshots and cloning
+  - On-demand capacity and performance scaling
+  - Efficient replication
+
+  With Azure NetApp Files, this functionality is available as an Azure native platform service.
+- Hybrid disaster recovery. The combination of Always On Availability Groups (AOAG) and Azure NetApp Files provides disaster recovery (DR) for this architecture. The DR solutions are appropriate for cloud and hybrid systems. The plans work with data centers that are located on-premises and across multiple regions. As an alternative, [cross-region replication][Cross-region replication of Azure NetApp Files volumes] can also provide efficient disaster recovery across regions in Azure.
+
 
 
 ## Considerations
@@ -109,6 +127,7 @@ Fully deployable architectures:
 [Azure NetApp Files]: https://azure.microsoft.com/en-us/services/netapp/
 [Azure Virtual Machines]: https://azure.microsoft.com/en-us/services/virtual-machines/#overview
 [Azure Virtual Network]: https://azure.microsoft.com/en-us/services/virtual-network/
+[Cross-region replication of Azure NetApp Files volumes]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-introduction
 [Manual QoS volume quota and throughput]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput
 [SLA for Azure NetApp Files]: https://azure.microsoft.com/en-us/support/legal/sla/netapp/v1_1/
 [SMB Continuous Availability (CA) shares (Preview)]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/whats-new#march-2021
