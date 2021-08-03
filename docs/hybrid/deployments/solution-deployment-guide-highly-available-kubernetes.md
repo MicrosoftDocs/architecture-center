@@ -8,6 +8,11 @@ ms.date: 12/03/2020
 ms.author: bryanla
 ms.reviewer: bryanla
 ms.lastreviewed: 12/03/2020
+category:
+  - hybrid
+  - compute
+products:
+  - azure-stack-hub
 ---
 
 # Deploy a high availability Kubernetes cluster on Azure Stack Hub
@@ -84,7 +89,7 @@ The VM should have a Public IP Address and should be accessible via SSH (Port 22
 > [!TIP]
 > You can use a tool of your choice like MobaXterm, puTTY or PowerShell in Windows 10 to connect to a Linux VM using SSH.
 
-```bash
+```console
 ssh <username>@<ipaddress>
 ```
 
@@ -114,7 +119,7 @@ The cluster is now up-and-running and in the next step we'll connect to it.
 
 You can now connect to the previously created Kubernetes cluster, either via SSH (using the SSH key specified as part of the deployment) or via `kubectl` (recommended). The Kubernetes command-line tool `kubectl` is available for Windows, Linux, and macOS [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/). It's already pre-installed and configured on the master nodes of our cluster.
 
-```bash
+```console
 ssh azureuser@<k8s-master-lb-ip>
 ```
 
@@ -127,7 +132,7 @@ It's not recommended to use the master node as a jumpbox for administrative task
 
 You can now try various commands using `kubectl` to check the status of your cluster.
 
-```bash
+```console
 kubectl get nodes
 ```
 
@@ -139,7 +144,7 @@ k8s-linuxpool-35064155-2   Ready    agent    v1.14.8
 k8s-master-35064155-0      Ready    master   v1.14.8
 ```
 
-```bash
+```console
 kubectl cluster-info
 ```
 
@@ -155,7 +160,7 @@ Metrics-server is running at https://aks.***/api/v1/namespaces/kube-system/servi
 
 ## Connect Azure Pipelines to Kubernetes clusters
 
-To connect Azure Pipelines to the newly deployed Kubernetes cluster, we need its kube config (`.kube/config`) file as explained in the previous step.
+To connect Azure Pipelines to the newly deployed Kubernetes cluster, we need its kubeconfig (`.kube/config`) file as explained in the previous step.
 
 * Connect to one of the master nodes of your Kubernetes cluster.
 * Copy the content of the `.kube/config` file.
@@ -236,7 +241,7 @@ The sample application is a three tier application, deployed onto a Kubernetes c
 
 After deploying the Helm Chart for the application, you'll see all three tiers of your application represented as deployments and stateful sets (for the database) with a single pod:
 
-```kubectl
+```console
 kubectl get pod,deployment,statefulset
 ```
 
@@ -256,11 +261,11 @@ statefulset.apps/ratings-mongodb             1/1
 
 On the services, side you'll find the nginx-based Ingress Controller and its public IP address:
 
-```kubectl
+```console
 kubectl get service
 ```
 
-```console
+```output
 NAME                                         TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)
 kubernetes                                   ClusterIP      10.0.0.1       <none>        443/TCP
 nginx-ingress-1588931383-controller          LoadBalancer   10.0.114.180   *public-ip*   443:30667/TCP
@@ -281,7 +286,7 @@ kubectl autoscale deployment ratings-web --cpu-percent=80 --min=1 --max=10
 
 You may check the current status of autoscaler by running:
 
-```kubectl
+```console
 kubectl get hpa
 ```
 
@@ -324,7 +329,7 @@ There are also some post-deployment operational considerations worth discussing,
 Consider the following topics when upgrading the Kubernetes cluster:
 
 - Upgrading a Kubernetes cluster is a complex Day 2 operation that can be done using AKS Engine. For more information, see [Upgrade a Kubernetes cluster on Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade).
-- AKS Engine allows you to upgrade clusters to newer Kubernetes and base OS image versions. For more information, see [Steps to upgrade to a newer Kubernetes version](/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade#steps-to-upgrade-to-a-newer-kubernetes-version). 
+- AKS Engine allows you to upgrade clusters to newer Kubernetes and base OS image versions. For more information, see [Steps to upgrade to a newer Kubernetes version](/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade#steps-to-upgrade-to-a-newer-kubernetes-version).
 - You can also upgrade only the underlying nodes to newer base OS image versions. For more information, see [Steps to only upgrade the OS image](/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade#steps-to-only-upgrade-the-os-image).
 
 Newer base OS images contain security and kernel updates. It's the cluster operator's responsibility to monitor the availability of newer Kubernetes Versions and OS Images. The operator should plan and execute these upgrades using AKS Engine. The base OS images must be downloaded from the Azure Stack Hub Marketplace by the Azure Stack Hub Operator.
