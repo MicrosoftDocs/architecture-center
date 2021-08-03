@@ -112,19 +112,53 @@ Most Azure services are scalable by design:
 
 The technologies in this solution meet most companies' requirements for security.
 
+### Storage considerations
+
+Install SQL Server with SMB fileshare storage. SQL Server 2012 (11.x) and later versions support SMB file server as a storage option. Database engine user databases and system databases like Master, Model, MSDB, and TempDB provide that support. This consideration applies to SQL Server stand-alone and SQL Server failover cluster installations (FCI). For more information, see [Install SQL Server with SMB fileshare storage][Install SQL Server with SMB fileshare storage].
+
+### Data protection considerations
+
+Azure NetApp Files can quickly create space-efficient snapshots that offer these benefits:
+
+- They're storage efficient.
+- You can quickly create, replicate, restore, or clone them.
+- They don't impact on volume performance.
+- They provide scalability. You can create them frequently, and you can retain many at a time.
+
+For SQL Server, snapshots provide a way to create very frequent database consistency points. You only need limited additional capacity to create those points. And you can restore and clone them very quickly. This ability significantly improves data protection SLAs and test and development operations. 
+
+To create application consistent database snapshots, you can use the [NetApp SQL Server Database Quiesce Tool][Real-time, high-level reference design].
+
+
+
+
+
 ## Deploy the solution
 
 For information on implementing this solution, see [Solution architectures using Azure NetApp Files][Solution architectures using Azure NetApp Files - SQL Server].
 
 ## Pricing
 
-With most Azure services, you can reduce costs by only paying for what you use:
+Cloud resources usually place limits on I/O operations. This constraint prevents sudden slowdowns due to resource exhaustion or unexpected outages. VMs have disk throughput limitations and network bandwidth limitations. The network limitations are typically higher than disk throughput limitations. Network bandwidth limitations apply to network-attached storage. But disk I/O limitations don't apply. As a result, network-attached storage can achieve better performance than disk I/O.
 
-- With [Data Factory, your activity run volume determines the cost][Data Factory pricing].
-- [Azure Databricks offers many tiers, workloads, and pricing plans][Azure Databricks general pricing information] to help you minimize costs.
-- [Blob Storage costs depend on data redundancy options and volume][Azure Storage costs].
-- With [Data Lake Storage, pricing depends on many factors: your namespace type, storage capacity, and choice of tier][Data Lake Storage pricing].
-- For [Microsoft Genomics, the charge depends on the number of gigabases that each workflow processes][Microsoft Genomics - pricing].
+Because of these factors, smaller VMs can provide similar or better performance than larger ones with this architecture. Smaller VMs offer these advantages over larger ones:
+
+- They're less costly.
+- They carry a lower SQL Aerver license cost.
+- The network-attached storage does not have an I/O cost component.
+
+These savings outweigh any additional cost of using Azure NetApp Files instead of disk storage solutions. 
+
+For example, consider the cost of SQL Server with this configuration:
+
+- 50TiB storage
+- 80.000 IOPs
+- E64-32s_v3 VMs with 128GB RAM
+
+If Azure NetApp Files runs on E16-4/16s with 128GB RAM:
+
+- The cost of Ultra SSD with SQL Server is x% greater than Azure NetApp Files.
+- The cost of Premium SSD is y% greater than Azure NetApp Files.
 
 ## Next steps
 
@@ -141,7 +175,9 @@ Fully deployable architectures:
 [Azure Virtual Machines]: https://azure.microsoft.com/en-us/services/virtual-machines/#overview
 [Azure Virtual Network]: https://azure.microsoft.com/en-us/services/virtual-network/
 [Cross-region replication of Azure NetApp Files volumes]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-introduction
+[Install SQL Server with SMB fileshare storage]: https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option?view=sql-server-2017
 [Manual QoS volume quota and throughput]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput
+[Real-time, high-level reference design]: https://docs.netapp.com/us-en/netapp-solutions/ent-apps-db/sql-srv-anf_reference_design_real-time_high-level_design.html#backup-and-recovery
 [SLA for Azure NetApp Files]: https://azure.microsoft.com/en-us/support/legal/sla/netapp/v1_1/
 [SMB Continuous Availability (CA) shares (Preview)]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/whats-new#march-2021
 [Solution architectures using Azure NetApp Files - SQL Server]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-solution-architectures#sql-server
