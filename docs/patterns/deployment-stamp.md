@@ -3,7 +3,7 @@ title: Deployment Stamps pattern
 titleSuffix: Cloud Design Patterns
 description: Deploy multiple independent copies of application components.
 author: johndowns
-ms.date: 11/26/2019
+ms.date: 08/04/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -19,7 +19,7 @@ ms.custom:
 
 # Deployment Stamps pattern
 
-The deployment stamp pattern involves provisioning, managing, and monitoring a heterogeneous group of resources to host and operate multiple workloads or tenant applications. Each individual copy is called a *stamp*, or sometimes a *service unit* or *scale unit*. In a multi-tenant environment, every stamp or scale unit can serve a predefined number of tenants. Multiple stamps can be deployed to scale the solution almost linearly and serve an increasing number of tenants. This approach can improve the scalability of your solution, allow you to deploy instances across multiple regions, and separate your customer data.
+The deployment stamp pattern involves provisioning, managing, and monitoring a heterogeneous group of resources to host and operate multiple workloads or tenants. Each individual copy is called a *stamp*, or sometimes a *service unit* or *scale unit*. In a multi-tenant environment, every stamp or scale unit can serve a predefined number of tenants. Multiple stamps can be deployed to scale the solution almost linearly and serve an increasing number of tenants. This approach can improve the scalability of your solution, allow you to deploy instances across multiple regions, and separate your customer data.
 
 ## Context and problem
 
