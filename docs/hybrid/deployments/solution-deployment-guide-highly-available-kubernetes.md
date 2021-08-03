@@ -8,7 +8,7 @@ ms.date: 12/03/2020
 ms.author: bryanla
 ms.reviewer: bryanla
 ms.lastreviewed: 12/03/2020
-category:
+categories:
   - hybrid
   - compute
 products:
