@@ -316,7 +316,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 ## Web applications
 
 | AWS service | Azure service | Description |
-|------|-------------|---------------|-------------|
+|------|-------------|---------------|
 | [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) | [App Service](https://azure.microsoft.com/services/app-service) | Managed hosting platform providing easy to use services for deploying and scaling web applications and services. |
 | [API Gateway](https://aws.amazon.com/api-gateway) | [API Management](https://azure.microsoft.com/services/api-management/) | A turnkey solution for publishing APIs to external and internal consumers. |
 | [CloudFront](https://aws.amazon.com/cloudfront/) | [Content Delivery Network](https://azure.microsoft.com/services/cdn/) | A global content delivery network that delivers audio, video, applications, images, and other files. |
@@ -339,15 +339,15 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 ## Landing zone
 
 | AWS service | Azure service | Description |
-|------|-------------|---------------|-------------|
+|------|-------------|---------------|
 | [Control Tower](https://aws.amazon.com/controltower) | [Blueprints](/azure/governance/blueprints) | Set up and govern a multi account/subscription environment by creating landing zones.|
 
-## End-User Computing
+## End-user computing
 
 | AWS service | Azure service | Description |
-|------|-------------|---------------|-------------|
-| [Workspaces](https://aws.amazon.com/workspaces), [AppStream2.0](https://aws.amazon.com/appstream2) | [Azure Virtual Desktop](azure/virtual-desktop) | Manage virtual desktops and applications to enable corporate network and data access to users, anytime, anywhere, from supported devices. Amazon Workspaces support Windows and Linux Virtual Desktops. Azure Virtual Desktops support multi-session Windows 10 Virtual Desktops.|
-| [WorkLink](https://aws.amazon.com/worklink) | [Application Proxy](/azure/active-directory/app-proxy/application-proxy) | Provides access to Intranet applications, without requiring VPN connectivity. Amazon WorkLink is limited to iOS and Android Devices.|
+|------|-------------|---------------|
+| [WorkSpaces](https://aws.amazon.com/workspaces), [AppStream 2.0](https://aws.amazon.com/appstream2) | [Azure Virtual Desktop](/azure/virtual-desktop) | Manage virtual desktops and applications to enable corporate network and data access to users, anytime, anywhere, from supported devices. Amazon WorkSpaces support Windows and Linux virtual desktops. Azure Virtual Desktop supports multi-session Windows 10 virtual desktops.|
+| [WorkLink](https://aws.amazon.com/worklink) | [Application Proxy](/azure/active-directory/app-proxy/application-proxy) | Provides access to intranet applications, without requiring VPN connectivity. Amazon WorkLink is limited to iOS and Android devices.|
 
 ## Miscellaneous
 
