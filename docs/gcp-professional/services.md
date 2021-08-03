@@ -3,7 +3,7 @@ title: Google Cloud to Azure services comparison
 description: Understand the differences between specific Google Cloud and Azure services.
 author: EdPrice-MSFT
 ms.author: petuton
-ms.date: 03/15/2020
+ms.date: 08/03/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -34,7 +34,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- | --- |
 | [Google Cloud Marketplace](https://cloud.google.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace/) | Easy-to-deploy and automatically configured third-party applications, including single virtual machine or multiple virtual machine solutions. |
 
-## AI and Machine Learning
+## AI and machine learning
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
@@ -77,7 +77,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- | --- |
 | [Dataproc](https://cloud.google.com/dataproc) | [Azure HDInsight](/azure/hdinsight/) <br><br> [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) <br><br> [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) | Managed Apache Spark-based analytics platform. |
 
-### Data Orchestration and ETL
+### Data orchestration and ETL
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
@@ -115,6 +115,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Anthos Service Mesh](https://cloud.google.com/service-mesh/docs) | [Service Fabric Mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview) | Fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. |
 
 #### Container architectures
+
 Here are some architectures that use AKS as the orchestrator.
 <ul class="grid">
 
@@ -234,26 +235,26 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud Storage](https://cloud.google.com/storage#documentation)<br/><br/> [Cloud Storage for Firebase](https://firebase.google.com/products/storage/) | [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
+| [Cloud Storage](https://cloud.google.com/storage#section-1)<br/><br/> [Cloud Storage for Firebase](https://firebase.google.com/products/storage/) | [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service designed for storing unstructured data, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, data lakes, high-performance computing, and machine learning.|
 
-### Virtual server disks
-
-| Google Cloud service | Azure service | Description |
-| --- | --- | --- |
-| [Persistant Disk](https://cloud.google.com/compute/docs/disks/)<br/><br/> [Local SSD](https://cloud.google.com/compute/docs/disks/local-ssd) | [Azure managed disks](https://azure.microsoft.com/services/storage/disks/) | SSD storage optimized for I/O intensive read/write operations. For use as high-performance Azure virtual machine storage. |
-
-### File Storage
+### Block storage
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Filestore](https://cloud.google.com/filestore/docs) | [Azure Files](https://azure.microsoft.com/services/storage/files/),[Azure NetApp Files](https://azure.microsoft.com/services/netapp/#overview) | File based storage and hosted NetApp Appliance Storage. |
-| [Drive Enterprise](https://cloud.google.com/drive-enterprise) | [OneDrive For business](https://products.office.com/onedrive/onedrive-for-business) | Shared files from from personal devices to cloud |
+| [Persistant Disk](https://cloud.google.com/compute/docs/disks)<br/><br/> [Local SSD](https://cloud.google.com/compute/docs/disks/local-ssd) | [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks) | Block-level storage volumes (HDDs & SSDs) are used with virtual machines. Use cases include clustered applications, containerized workloads, and other mission and business critical applications.|
+
+### File storage
+
+| Google Cloud service | Azure service | Description |
+| --- | --- | --- |
+| [Filestore](https://cloud.google.com/filestore/docs) | [Azure Files](https://azure.microsoft.com/services/storage/files/), [Azure NetApp Files](https://azure.microsoft.com/services/netapp/#overview) | File based storage and hosted NetApp Appliance Storage. |
+| [Google Drive](https://workspace.google.com/products/drive) | [OneDrive For business](https://products.office.com/onedrive/onedrive-for-business) | Cloud storage and file sharing solution for businesses to store, access and share files anytime and anywhere. |
 
 ### Bulk data transfer
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
+| [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
 | [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
 
 ## Application services
@@ -261,17 +262,17 @@ Here are some architectures that use AKS as the orchestrator.
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [App Engine](https://cloud.google.com/appengine/docs) | [Azure App Service](https://azure.microsoft.com/services/app-service) | Managed hosting platform providing easy to use services for deploying and scaling web applications and services. |
-| Apigee | [Azure API Management](https://azure.microsoft.com/services/api-management/) | A turnkey solution for publishing APIs to external and internal consumers. |
+| Apigee | [Azure API Management](https://azure.microsoft.com/services/api-management) | A turnkey solution for publishing APIs to external and internal consumers. |
 
 ## Miscellaneous
 
 | Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
-| Workflow | [Composer](https://cloud.google.com/composer) | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
-| Enterprise application services | [G Suite](https://gsuite.google.com/) | [Microsoft 365](https://products.office.com/) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
-| Gaming | [Game Servers](https://cloud.google.com/game-servers/docs) | [Azure PlayFab](https://playfab.com/) | Managed services for hosting dedicated game servers. |
-| Hybrid | [Anthos](https://cloud.google.com/anthos) | [Azure Arc](https://azure.microsoft.com/services/azure-arc/) | For customers who want to simplify complex and distributed environments across on-premises, edge and multi-cloud, Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure. |
-| Blockchain | [Digital Asset](https://developers.google.com/digital-asset-links) | [Azure Blockchain Service](https://azure.microsoft.com/services/blockchain-service/) | Azure Blockchain Service is a fully managed ledger service that enables users the ability to grow and operate blockchain networks at scale in Azure. |
+| Workflow | [Composer](https://cloud.google.com/composer) | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
+| Enterprise application services | [G Suite](https://gsuite.google.com) | [Microsoft 365](https://products.office.com/) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
+| Gaming | [Game Servers](https://cloud.google.com/game-servers/docs) | [Azure PlayFab](https://playfab.com) | Managed services for hosting dedicated game servers. |
+| Hybrid | [Anthos](https://cloud.google.com/anthos) | [Azure Arc](https://azure.microsoft.com/services/azure-arc) | For customers who want to simplify complex and distributed environments across on-premises, edge and multi-cloud, Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure. |
+| Blockchain | [Digital Asset](https://developers.google.com/digital-asset-links) | [Azure Blockchain Service](https://azure.microsoft.com/services/blockchain-service) | Azure Blockchain Service is a fully managed ledger service that enables users the ability to grow and operate blockchain networks at scale in Azure. |
 | Monitoring | [Cloud Monitoring](https://cloud.google.com/monitoring) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | Service which provides visibility into the performance, uptime, and overall health of cloud-powered applications. |
 | Logging | [Cloud Logging](https://cloud.google.com/logging) | [Log Analytics](/azure/azure-monitor/log-query/get-started-portal/) | Service for real-time log management and analysis. |
 
