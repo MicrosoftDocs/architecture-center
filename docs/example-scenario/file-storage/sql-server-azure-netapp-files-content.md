@@ -91,8 +91,17 @@ The following considerations align with the [Microsoft Azure Well-Architected Fr
 
 ### Availability considerations
 
-The service level agreements (SLAs) of most Azure components guarantee availability:
+When using SQL Server databases in Azure, implement a high availability and disaster recovery solution to avoid any downtime:
 
+- Use an [Always On Failover Cluster (AOFC)][Windows Server Failover Cluster with SQL Server on Azure VMs] with two databases on two separate virtual machines.
+- Put both virtual machines in the same virtual network. Then they can access each other over the private persistent IP address.
+- Place the virtual machines in the same [availability set][Availability sets overview]. Then Azure can place them in separate fault domains and upgrade domains.
+- For geo-redundancy:
+
+  - Set up the two databases to replicate between two different regions.
+  - Configure [Always On Application Groups (AOAG)][Always On availability group on SQL Server on Azure VMs].
+
+:::image type="complex" source="./media/sql-server-azure-net-app-files-availability.png" alt-text="Architecture diagram showing how information flows through a genomics analysis and reporting pipeline." border="false":::
 
 ### Scalability considerations
 
@@ -124,6 +133,10 @@ With most Azure services, you can reduce costs by only paying for what you use:
 
 Fully deployable architectures:
 
+
+
+[Always On availability group on SQL Server on Azure VMs]: https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/availability-group-overview
+[Availability sets overview]: https://docs.microsoft.com/en-us/azure/virtual-machines/availability-set-overview
 [Azure NetApp Files]: https://azure.microsoft.com/en-us/services/netapp/
 [Azure Virtual Machines]: https://azure.microsoft.com/en-us/services/virtual-machines/#overview
 [Azure Virtual Network]: https://azure.microsoft.com/en-us/services/virtual-network/
@@ -134,3 +147,4 @@ Fully deployable architectures:
 [Solution architectures using Azure NetApp Files - SQL Server]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-solution-architectures#sql-server
 [What is Azure NetApp Files]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction
 [What is SQL Server on Azure Virtual Machines (Windows)]: https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
+[Windows Server Failover Cluster with SQL Server on Azure VMs]: https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/hadr-windows-server-failover-cluster-overview
