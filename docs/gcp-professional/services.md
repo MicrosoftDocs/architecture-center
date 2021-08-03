@@ -3,7 +3,7 @@ title: Google Cloud to Azure services comparison
 description: Understand the differences between specific Google Cloud and Azure services.
 author: EdPrice-MSFT
 ms.author: petuton
-ms.date: 08/45/2021
+ms.date: 08/03/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
