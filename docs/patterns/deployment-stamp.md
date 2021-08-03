@@ -55,8 +55,8 @@ Because of the complexity that is involved in deploying identical copies of the 
 
 You can deploy updates automatically to all stamps in parallel, in which case you might consider technologies like Resource Manager templates or [Azure Deployment Manager](/azure/azure-resource-manager/deployment-manager-overview) to coordinate the deployment of your infrastructure and applications. Alternatively, you may decide to gradually roll out updates to some stamps first, and then progressively to others. Azure Deployment Manager can also manage this type of staged rollout, or you could consider using a release management tool like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) to orchestrate deployments to each stamp. For more information, see:
 
-- [Integrate ARM templates with Azure Pipelines](/azure/azure-resource-manager/templates/add-template-to-azure-pipelines)
 - [Integrate Bicep with Azure Pipelines](/azure/azure-resource-manager/bicep/add-template-to-azure-pipelines)
+- [Integrate JSON ARM templates with Azure Pipelines](/azure/azure-resource-manager/templates/add-template-to-azure-pipelines)
 
 Carefully consider the topology of the Azure subscriptions and resource groups for your deployments:
 
