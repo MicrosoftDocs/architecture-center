@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 11/11/2020
+ms.date: 8/4/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -64,12 +64,12 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [SageMaker](https://aws.amazon.com/sagemaker/) | [Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) | A cloud service to train, deploy, automate, and manage machine learning models. |
-| [Alexa Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Bot Framework](https://dev.botframework.com/) | Build and connect intelligent bots that interact with your users using text/SMS, Skype, Teams, Slack, Microsoft 365 mail, Twitter, and other popular services. |
-| [Lex](https://aws.amazon.com/lex/) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | API capable of converting speech to text, understanding intent, and converting text back to speech for natural responsiveness. |
-| [Lex](https://aws.amazon.com/lex/) | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | Allows your applications to understand user commands contextually. |
-| [Polly](https://aws.amazon.com/polly/), [Transcribe](https://aws.amazon.com/transcribe/) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | Enables both Speech to Text, and Text into Speech capabilities. |
-| [Rekognition](https://aws.amazon.com/rekognition/) | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) | [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](https://azure.microsoft.com/services/cognitive-services/face/): Detect, identify, and analyze faces and facial expressions in photos. |
+| [SageMaker](https://aws.amazon.com/sagemaker) | [Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) | A cloud service to train, deploy, automate, and manage machine learning models. |
+| [Alexa Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Bot Framework](https://dev.botframework.com) | Build and connect intelligent bots that interact with your users using text/SMS, Skype, Teams, Slack, Microsoft 365 mail, Twitter, and other popular services. |
+| [Lex](https://aws.amazon.com/lex/) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech) | API capable of converting speech to text, understanding intent, and converting text back to speech for natural responsiveness. |
+| [Lex](https://aws.amazon.com/lex/) | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) | Allows your applications to understand user commands contextually. |
+| [Polly](https://aws.amazon.com/polly/), [Transcribe](https://aws.amazon.com/transcribe) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech) | Enables both Speech to Text, and Text into Speech capabilities. |
+| [Rekognition](https://aws.amazon.com/rekognition) | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) | [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](https://azure.microsoft.com/services/cognitive-services/face): Detect, identify, and analyze faces and facial expressions in photos. |
 | [Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Virtual Assistant](/azure/bot-service/bot-builder-virtual-assistant-introduction?view=azure-bot-service-4.0&preserve-view=true) | The Virtual Assistant Template brings together a number of best practices we've identified through the building of conversational experiences and automates integration of components that we've found to be highly beneficial to Bot Framework developers.
 
 ### AI and machine learning architectures
@@ -174,7 +174,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks/) | [Automation](https://azure.microsoft.com/services/automation/) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
 | [CloudFormation](https://aws.amazon.com/cloudformation/) | [Resource Manager](https://azure.microsoft.com/features/resource-manager/) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
 
-### Devops architectures
+### DevOps architectures
 
 <ul class="grid">
 
@@ -345,8 +345,8 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 | AWS service | Azure service | Description |
 |------|-------------|---------------|-------------|
-| [Workspaces](https://aws.amazon.com/workspaces), [AppStream2.0](https://aws.amazon.com/appstream2) | [Azure Virtual Desktop](azure/virtual-desktop) | Managed virtual desktops and applications service that enables corporate network and data access to users anytime, anywhere from supported devices. Amazon Workspaces support Windows and Linux Virtual Desktops. Azure Virtual Desktops support multi-session Windows 10 Virtual Desktops.|
-| [WorkLink](https://aws.amazon.com/worklink/) | [Application Proxy](/azure/active-directory/app-proxy/application-proxy) | Providing access to Intranet applications without requiring VPN connectivity. Amazon WorkLink is limited to iOS and Android Devices.|
+| [Workspaces](https://aws.amazon.com/workspaces), [AppStream2.0](https://aws.amazon.com/appstream2) | [Azure Virtual Desktop](azure/virtual-desktop) | Manage virtual desktops and applications to enable corporate network and data access to users, anytime, anywhere, from supported devices. Amazon Workspaces support Windows and Linux Virtual Desktops. Azure Virtual Desktops support multi-session Windows 10 Virtual Desktops.|
+| [WorkLink](https://aws.amazon.com/worklink) | [Application Proxy](/azure/active-directory/app-proxy/application-proxy) | Provides access to Intranet applications, without requiring VPN connectivity. Amazon WorkLink is limited to iOS and Android Devices.|
 
 
 ## Miscellaneous
