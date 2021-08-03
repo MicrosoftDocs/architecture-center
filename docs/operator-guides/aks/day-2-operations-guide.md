@@ -9,8 +9,11 @@ ms.service: architecture-center
 ms.subservice: guide
 products:
   - azure-kubernetes-service
+  - azure-monitor
 ms.custom:
   - e2e-aks
+categories:
+  - compute
 ---
 
 # Azure Kubernetes Services (AKS) day-2 operations guide
