@@ -119,7 +119,7 @@ Use the built-in features in Azure AD B2C to [protect against threats](/azure/ac
 
 ### Azure Application Insights
 
-Any [personal data](/azure/azure-monitor/platform/personal-data-mgmt) should be obfuscated before being sent to Application Insights. [Role-based access controls for application insights](/azure/azure-monitor/app/resources-roles-access-control) should also be put in place to only allow authorized users to view data sent to Application Insights. You can read more at [Security practices for Azure Application Insights](/azure/azur-monitor/app/data-retention-privacy#how-secure-is-my-data).
+Any [personal data](/azure/azure-monitor/platform/personal-data-mgmt) should be obfuscated before being sent to Application Insights. [Role-based access controls for application insights](/azure/azure-monitor/app/resources-roles-access-control) should also be put in place to only allow authorized users to view data sent to Application Insights. You can read more at [Security practices for Azure Application Insights](/azure/azure-monitor/app/data-retention-privacy#how-secure-is-my-data).
 
 Additionally, see the [Security practices for Azure Notification Hub](/azure/notification-hubs/notification-hubs-push-notification-security).
 
