@@ -1,9 +1,9 @@
 The most demanding SQL Server database workloads require very high I/O capacity. They also need low-latency access to storage. This document describes a high-bandwidth, low-latency solution for SQL Server workloads. It provides shared file access with the Server Message Block (SMB) protocol.
 
-The solution uses SQL Server on Azure Virtual Machines. It also uses Azure NetApp Files. This shared file storage service provides various benefits:
+The solution uses SQL Server on Azure Virtual Machines. It also uses Azure NetApp Files, a shared file storage service. Azure NetApp Files provides various benefits:
 
-- With block storage, virtual machines have imposed limits for disk operations. These limits affect I/O capacity and bandwidth. With Azure NetApp Files, only network bandwidth limits are relevant. And they only apply to data egress. In other words, VM-level disk I/O limits don't affect Azure NetApp Files. As a result, SQL Server with Azure NetApp Files can outperform SQL Server that's connected to disk storage, even when the former runs on much smaller VMs.
-- Azure NetApp Files offers flexibility. Specifically, you can enlarge or shrink deployments on demand. In contrast, traditional on-premises configurations are sized for maximum workload requirements. Consequently, on-premises configurations are only most cost-effective at maximum utilization. With Azure NetApp Files, you can change the configuration continuously and optimize it for the current workload requirement.
+- VM-level disk I/O limits don't affect Azure NetApp Files. So you can use smaller VMs than you would with disk storage, without degrading performance. As [Pricing][Pricing section of this article] explains, this approach significantly reduces costs.
+- Azure NetApp Files offers flexibility. As [Highly performant systems][Highly performant systems section of this article] discusses, you can enlarge or reduce deployments on demand to make your configuration cost effective.
 
 ## Potential use cases
 
@@ -26,7 +26,7 @@ This solution applies to many use cases:
 The components in the solution function and interact in these ways:
 
 - SQL Server runs on an Azure VM within the SQL subnet.
-- In the ANF subnet, Azure NetApp Files stores the database and log files.
+- In the Azure NetApp Files subnet, Azure NetApp Files stores the database and log files.
 - SQL Server accesses database files by using version 3 of Server Message Block (SMB), a network file sharing protocol.
 - Azure NetApp Files has the [SMB Continuous Availability shares option][SMB Continuous Availability (CA) shares (Preview)] turned on. This feature makes SMB Transparent Failover possible, so you can do non-disruptive maintenance on Azure NetApp Files.
 
@@ -45,7 +45,7 @@ The solution uses the following components:
 
 ## Key benefits
 
-This image highlights the benefits of using SQL Server with Azure NetApp Files.
+This image shows the benefits of using SQL Server with Azure NetApp Files.
 
 :::image type="complex" source="./media/sql-server-azure-net-app-files-key-values.png" alt-text="Architecture diagram showing how information flows through a genomics analysis and reporting pipeline." border="false":::
    The diagram contains two boxes. The first, on the left, has the label Azure Data Factory for orchestration. The second box has the label Clinician views. The first box contains several smaller boxes that represent data or various Azure components. Arrows connect the boxes, and numbered labels on the arrows correspond with the numbered steps in the document text. Two arrows flow between the boxes, ending in the Clinician views box. One arrow points to a clinician icon. The other points to a Power BI icon.
@@ -60,6 +60,10 @@ As a simple-to-consume Azure native service, Azure NetApp Files runs within the 
 [Azure NetApp Files][What is Azure NetApp Files] uses a bare-metal fleet of all-flash storage. Besides shared and highly scalable storage, Azure NetApp Files provides latencies of less than 1 ms. These factors make this service very well suited for using the SMB protocol to run SQL Server workloads over networks. 
 
 Azure DCs and the Azure SDN and ARM frameworks use high-performance, all-flash ONTAP enterprise systems. As a result, you get high-bandwidth, low-latency shared storage that's comparable to an on-premises solution. The performance of this architecture meets the requirements of the most demanding, business-critical enterprise workloads.
+
+With Azure NetApp Files, you can enlarge or shrink deployments on demand. In contrast, traditional on-premises configurations are sized for maximum workload requirements. Consequently, on-premises configurations are only most cost-effective at maximum utilization. With the scalability of Azure NetApp Files, you can change the configuration continuously and optimize it for the current workload requirement.
+
+As [Pricing][Pricing section of this article] explains, using Azure NetApp Files instead of a block storage solution reduces the SQL Server total cost of ownership (TCO).
 
 #### Enterprise-scale data management
 
@@ -110,7 +114,9 @@ The technologies in this solution meet most companies' requirements for security
 
 ## Deploy the solution
 
-For general information on implementing this solution, see [Solution architectures using Azure NetApp Files][Solution architectures using Azure NetApp Files - SQL Server].
+For resources on deploying SQL Server on Azure NetApp Files, see [Solution architectures using Azure NetApp Files][Solution architectures using Azure NetApp Files - SQL Server].
+
+For information on how to deploy and access Azure NetApp Files volumes, see [Azure NetApp Files documentation][Azure NetApp Files documentation].
 
 Also keep these specific points in mind:
 
@@ -121,23 +127,21 @@ Also keep these specific points in mind:
 
 - Install SQL Server with SMB fileshare storage. SQL Server 2012 (11.x) and later versions support SMB file server as a storage option. Database engine user databases and system databases like Master, Model, MSDB, and TempDB provide that support. This consideration applies to SQL Server stand-alone and SQL Server failover cluster installations (FCI). For more information, see [Install SQL Server with SMB fileshare storage][Install SQL Server with SMB fileshare storage].
 
+[Azure NetApp Files documentation]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/
+
 ## Pricing
 
-Cloud resources usually place limits on I/O operations. This constraint prevents sudden slowdowns due to resource exhaustion or unexpected outages. VMs have disk throughput limitations and network bandwidth limitations. The network limitations are typically higher than disk throughput limitations. Network bandwidth limitations apply to network-attached storage. But disk I/O limitations don't apply. As a result, network-attached storage can achieve better performance than disk I/O.
+Cloud resources usually place limits on I/O operations. This practice prevents sudden slowdowns due to resource exhaustion or unexpected outages. As a result, VMs have disk throughput limitations and network bandwidth limitations. The network limitations are typically higher than disk throughput limitations.
 
-Because of these factors, smaller VMs can provide similar or better performance than larger ones with this architecture. Smaller VMs offer these advantages over larger ones:
+With network-attached storage, only network bandwidth limits are relevant, and they only apply to data egress. In other words, VM-level disk I/O limits don't affect Azure NetApp Files. Because of these factors, network-attached storage can achieve better performance than disk I/O. This fact holds up even when Azure NetApp Files runs on smaller VMs.
+
+Smaller VMs offer these advantages over larger ones:
 
 - They're less costly.
-- They carry a lower SQL Aerver license cost.
+- They carry a lower SQL Server license cost.
 - The network-attached storage doesn't have an I/O cost component.
 
-These savings outweigh any additional cost of using Azure NetApp Files instead of disk storage solutions. For example, consider an environment that uses SQL Server with this configuration:
-
-- 50TiB storage
-- 80.000 IOPs
-- E64-32s_v3 VMs with 128GB RAM
-
-Suppose Azure NetApp Files runs on E16-4/16s with 128GB RAM. The cost of Azure NetApp Files is then 40 percent of the cost of Ultra SSD and 46 percent of the cost of Premium SSD.
+These savings outweigh any cost differences between Azure NetApp Files and disk storage solutions. For a detailed TCO analysis, see [Benefits of using Azure NetApp Files for SQL Server deployment][Benefits of using Azure NetApp Files for SQL Server deployment - Detailed cost analysis].
 
 ## Next steps
 
@@ -159,9 +163,11 @@ Fully deployable architectures that use Azure NetApp Files:
 [Azure Virtual Network]: https://azure.microsoft.com/en-us/services/virtual-network/
 [Cross-region replication of Azure NetApp Files volumes]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-introduction
 [FSLogix for the enterprise]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix
+[Highly performant systems section of this article]: #highly-performant-systems
 [Install SQL Server with SMB fileshare storage]: https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option?view=sql-server-2017
 [Manual QoS volume quota and throughput]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput
 [Migration overview: SQL Server to SQL Server on Azure VMs]: https://docs.microsoft.com/en-us/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview
+[Pricing section of this article]: #pricing
 [Real-time, high-level reference design]: https://docs.netapp.com/us-en/netapp-solutions/ent-apps-db/sql-srv-anf_reference_design_real-time_high-level_design.html#backup-and-recovery
 [Run SAP BW/4HANA with Linux virtual machines on Azure]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines
 [Run SAP NetWeaver in Windows on Azure]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-netweaver
