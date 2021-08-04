@@ -1,7 +1,8 @@
 ---
 title: "High Performance Computing (HPC) on Azure"
 description: Learn about High Performance Computing on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
-author: doodlemania2
+author: SMBrook
+ms.author: sibrook
 ms.date: 8/14/2019
 ms.topic: guide
 ms.service: architecture-center
@@ -368,7 +369,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 - [Microsoft Cognitive Toolkit](/cognitive-toolkit/cntk-on-azure)
 - [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
-### MPI Providers
+### MPI providers
 
 - [Microsoft MPI](/message-passing-interface/microsoft-mpi)
 
@@ -415,11 +416,11 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
     </li>
 </ul>
 
-Run GPU powered virtual machines in Azure in same region as HPC output for lowest latency, access and visualize remotely through Azure Virtual Desktop, Citrix or VMware Horizon.
-- [GPU Optimized Virtual Machine Sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu)
-- [Configure GPU Acceleration for Azure Virtual Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-vm-gpu)
+Run GPU powered virtual machines in Azure in the same region as the HPC output for the lowest latency, access, and to visualize remotely through Azure Virtual Desktop, Citrix, or VMware Horizon.
+- [GPU Optimized Virtual Machine Sizes](/azure/virtual-machines/sizes-gpu)
+- [Configure GPU Acceleration for Azure Virtual Desktop](/azure/virtual-desktop/configure-vm-gpu)
 
-## Performance Benchmarks
+## Performance benchmarks
 
 - [Compute benchmarks](/azure/virtual-machines/windows/compute-benchmark-scores)
 
