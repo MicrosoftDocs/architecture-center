@@ -8,7 +8,7 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
-name: Series about an AKS regulated cluster for PCI-DSS 3.2.1 (1 of 8)
+name: Introduction of an AKS regulated cluster for PCI-DSS 3.2.1 (Part 1 of 9)
 azureCategories:
   - containers
   - security

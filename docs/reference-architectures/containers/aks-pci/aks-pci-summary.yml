@@ -10,9 +10,10 @@ metadata:
   ms.subservice: reference-architecture
   ms.category:
     - containers
-name: AKS regulated cluster for PCI-DSS 3.2.1 - Summary
+name: Architecture summary of an AKS regulated cluster (Part 9 of 9)
 azureCategories:
   - containers
+  - security
 summary: Summary of a well-architected design of a PCI-DSS 3.2.1 infrastructure as a tenant on the AKS environment.
 products:
   - azure-kubernetes-service

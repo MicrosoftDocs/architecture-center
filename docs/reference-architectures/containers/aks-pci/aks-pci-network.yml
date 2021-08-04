@@ -1,17 +1,19 @@
 ### YamlMime:Architecture
 metadata:
   title: AKS regulated cluster for PCI-DSS 3.2.1 - Network segmentation
-  description: Best practices for implementing Requirements 1 and Requirement 2 for a PCI-DSS 3.2.1 infrastructure. 
+  description: Best practices for setting up networking as per Requirement 1 and 2 of PCI-DSS 3.2.1. 
   author: PageWriter-MSFT
   ms.author: pnp
   ms.date: 07/06/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
-name: AKS regulated cluster for PCI-DSS 3.2.1 - Network segmentation
+name: Configure networking of an AKS regulated cluster for PCI-DSS 3.2.1 (Part 3 of 9)
 azureCategories:
   - containers
-summary: Best practices for implementing Requirements 1 and Requirement 2 for a PCI-DSS 3.2.1 infrastructure. 
+  - networking
+  - security
+summary: Best practices for implementing networking requirements for a PCI-DSS 3.2.1 infrastructure.  
 products:
   - azure-kubernetes-service
   - azure-firewall
@@ -19,6 +21,6 @@ products:
   - azure-active-directory
   - azure-security-center
   - azure-monitor
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci-network.png
 content: |
    [!include[](aks-pci-network-content.md)]
