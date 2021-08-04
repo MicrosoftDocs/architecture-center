@@ -17,6 +17,7 @@ Azure services can be purchased using several pricing options, depending on your
 <!-- markdownlint-disable MD033 -->
 
 ![Comparison of structure and ownership of AWS accounts and Azure subscriptions](./images/azure-aws-account-compare.png "Comparison of structure and ownership of AWS accounts and Azure subscriptions")
+
 <br/>*Comparison of structure and ownership of AWS accounts and Azure subscriptions*
 <br/><br/>
 

@@ -8,9 +8,11 @@ ms.date: 12/03/2020
 ms.author: bryanla
 ms.reviewer: bryanla
 ms.lastreviewed: 12/03/2020
-
-# Intent: As an Azure Stack Hub operator, I want to deploy a Kubernets cluster using Azure and Azure Stack Hub so I can support highly available apps.
-# Keyword: high availability kubernetes cluster azure stack hub
+categories:
+  - hybrid
+  - compute
+products:
+  - azure-stack-hub
 ---
 
 # Deploy a high availability Kubernetes cluster on Azure Stack Hub
@@ -20,6 +22,7 @@ This article will show you how to build a highly available Kubernetes cluster en
 In this solution deployment guide, you learn how to:
 
 > [!div class="checklist"]
+>
 > - Download and prepare the AKS Engine
 > - Connect to the AKS Engine Helper VM
 > - Deploy a Kubernetes cluster
@@ -31,11 +34,11 @@ In this solution deployment guide, you learn how to:
 > - Configure Traffic Manager
 > - Upgrade Kubernetes
 > - Scale Kubernetes
-
+>
 > [!Tip]  
 > ![Hybrid pillars](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
-> 
+>
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ## Prerequisites
@@ -55,14 +58,14 @@ AKS Engine is a binary that can be used from any Windows or Linux host that can 
 
 The step-by-step process and requirements for AKS Engine are documented here:
 
-* [Install the AKS Engine on Linux in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux) (or using [Windows](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows))
+- [Install the AKS Engine on Linux in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux) (or using [Windows](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows))
 
 AKS Engine is a helper tool to deploy and operate (unmanaged) Kubernetes clusters (in Azure and Azure Stack Hub).
 
 The details and differences of AKS Engine on Azure Stack Hub are described here:
 
-* [What is the AKS Engine on Azure Stack Hub?](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)
-* [AKS Engine on Azure Stack Hub](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md) (on GitHub)
+- [What is the AKS Engine on Azure Stack Hub?](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)
+- [AKS Engine on Azure Stack Hub](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md) (on GitHub)
 
 The sample environment will use Terraform to automate the deployment of the AKS Engine VM. You can find the [details and code in the companion GitHub repo](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/blob/master/AKSe-on-AzStackHub/src/tf/aksengine/README.md).
 
@@ -129,11 +132,11 @@ It's not recommended to use the master node as a jumpbox for administrative task
 
 You can now try various commands using `kubectl` to check the status of your cluster.
 
-```bash
+```console
 kubectl get nodes
 ```
 
-```console
+```output
 NAME                       STATUS   ROLE     VERSION
 k8s-linuxpool-35064155-0   Ready    agent    v1.14.8
 k8s-linuxpool-35064155-1   Ready    agent    v1.14.8
@@ -141,11 +144,11 @@ k8s-linuxpool-35064155-2   Ready    agent    v1.14.8
 k8s-master-35064155-0      Ready    master   v1.14.8
 ```
 
-```bash
+```console
 kubectl cluster-info
 ```
 
-```console
+```output
 Kubernetes master is running at https://aks.***
 CoreDNS is running at https://aks.***/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 kubernetes-dashboard is running at https://aks.***/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
@@ -157,14 +160,14 @@ Metrics-server is running at https://aks.***/api/v1/namespaces/kube-system/servi
 
 ## Connect Azure Pipelines to Kubernetes clusters
 
-To connect Azure Pipelines to the newly deployed Kubernetes cluster, we need its kube config (`.kube/config`) file as explained in the previous step.
+To connect Azure Pipelines to the newly deployed Kubernetes cluster, we need its kubeconfig (`.kube/config`) file as explained in the previous step.
 
 * Connect to one of the master nodes of your Kubernetes cluster.
 * Copy the content of the `.kube/config` file.
 * Go to Azure DevOps > Project Settings > Service Connections to create a new "Kubernetes" service connection (use KubeConfig as Authentication method)
 
 > [!IMPORTANT]
-> Azure Pipelines (or its build agents) must have access to the Kubernetes API. If there is an Internet connection from Azure Pipelines to the Azure Stack Hub Kubernetes clusetr, you'll need to deploy a self-hosted Azure Pipelines Build Agent.
+> Azure Pipelines (or its build agents) must have access to the Kubernetes API. If there is an Internet connection from Azure Pipelines to the Azure Stack Hub Kubernetes cluster, you'll need to deploy a self-hosted Azure Pipelines Build Agent.
 
 When deploying self-hosted Agents for Azure Pipelines, you may deploy either on Azure Stack Hub, or on a machine with network connectivity to all required management endpoints. See the details here:
 
@@ -212,7 +215,7 @@ This command will install the Azure Monitor agent on your Kubernetes cluster:
 kubectl get pods -n kube-system
 ```
 
-```console
+```output
 NAME                                       READY   STATUS
 omsagent-8qdm6                             1/1     Running
 omsagent-r6ppm                             1/1     Running
@@ -226,7 +229,7 @@ The Operations Management Suite (OMS) Agent on your Kubernetes cluster will send
 [![Azure Monitor cluster details](media/solution-deployment-guide-highly-available-kubernetes/azure-monitor-on-stack-2.png)](media/solution-deployment-guide-highly-available-kubernetes/azure-monitor-on-stack-2.png#lightbox)
 
 > [!IMPORTANT]
-> If Azure Monitor does not show any Azure Stack Hub data, please make sure that you have followed the instructions on [how to add AzureMonitor-Containers solution to a Azure Loganalytics workspace](https://github.com/Microsoft/OMS-docker/blob/ci_feature_prod/docs/solution-onboarding.md) carefully.
+> If Azure Monitor does not show any Azure Stack Hub data, please make sure that you have followed the instructions on [how to add AzureMonitor-Containers solution to a Azure Log Analytics workspace](https://github.com/Microsoft/OMS-docker/blob/ci_feature_prod/docs/solution-onboarding.md) carefully.
 
 ## Deploy the application
 
@@ -238,11 +241,11 @@ The sample application is a three tier application, deployed onto a Kubernetes c
 
 After deploying the Helm Chart for the application, you'll see all three tiers of your application represented as deployments and stateful sets (for the database) with a single pod:
 
-```kubectl
+```console
 kubectl get pod,deployment,statefulset
 ```
 
-```console
+```output
 NAME                                         READY   STATUS
 pod/ratings-api-569d7f7b54-mrv5d             1/1     Running
 pod/ratings-mongodb-0                        1/1     Running
@@ -258,11 +261,11 @@ statefulset.apps/ratings-mongodb             1/1
 
 On the services, side you'll find the nginx-based Ingress Controller and its public IP address:
 
-```kubectl
+```console
 kubectl get service
 ```
 
-```console
+```output
 NAME                                         TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)
 kubernetes                                   ClusterIP      10.0.0.1       <none>        443/TCP
 nginx-ingress-1588931383-controller          LoadBalancer   10.0.114.180   *public-ip*   443:30667/TCP
@@ -274,20 +277,24 @@ ratings-web                                  ClusterIP      10.0.161.124   <none
 The "External IP" address is our "application endpoint". It's how users will connect to open the application and will also be used as the endpoint for our next step [Configure Traffic Manager](#configure-traffic-manager).
 
 ## Autoscale the application
+
 You can optionally configure the [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/) to scale up or down based on certain metrics like CPU utilization. The following command will create a Horizontal Pod Autoscaler that maintains 1 to 10 replicas of the Pods controlled by the ratings-web deployment. HPA will increase and decrease the number of replicas (via the deployment) to maintain an average CPU utilization across all Pods of 80%.
 
 ```kubectl
 kubectl autoscale deployment ratings-web --cpu-percent=80 --min=1 --max=10
 ```
+
 You may check the current status of autoscaler by running:
 
-```kubectl
+```console
 kubectl get hpa
 ```
-```
-NAME         REFERENCE                     TARGET    MINPODS   MAXPODS   REPLICAS   AGE
+
+```output
+NAME          REFERENCE                      TARGET    MINPODS   MAXPODS   REPLICAS   AGE
 ratings-web   Deployment/ratings-web/scale   0% / 80%  1         10        1          18s
 ```
+
 ## Configure Traffic Manager
 
 To distribute traffic between two (or more) deployments of the application, we'll use [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview). Azure Traffic Manager is a DNS-based traffic load balancer in Azure.
@@ -306,11 +313,12 @@ In Azure, we configure Traffic Manager to point to the two different instances o
 As you can see, the two endpoints point to the two instances of the deployed application from the [previous section](#deploy-the-application).
 
 At this point:
-- The Kubernetes infrastructure has been created, including an Ingress Controller.
+
+- The Kubernetes infrastructure has been created, including an ingress controller.
 - Clusters have been deployed across two Azure Stack Hub instances.
 - Monitoring has been configured.
 - Azure Traffic Manager will load balance traffic across the two Azure Stack Hub instances.
-- On top of this infrastructure, the sample three-tier application has been deployed in an automated way using Helm Charts. 
+- On top of this infrastructure, the sample three-tier application has been deployed in an automated way using Helm Charts.
 
 The solution should now be up and accessible to users!
 
@@ -321,8 +329,8 @@ There are also some post-deployment operational considerations worth discussing,
 Consider the following topics when upgrading the Kubernetes cluster:
 
 - Upgrading a Kubernetes cluster is a complex Day 2 operation that can be done using AKS Engine. For more information, see [Upgrade a Kubernetes cluster on Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade).
-- AKS Engine allows you to upgrade clusters to newer Kubernetes and base OS image versions. For more information, see [Steps to upgrade to a newer Kubernetes version](/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade#steps-to-upgrade-to-a-newer-kubernetes-version). 
-- You can also upgrade only the underlaying nodes to newer base OS image versions. For more information, see [Steps to only upgrade the OS image](/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade#steps-to-only-upgrade-the-os-image).
+- AKS Engine allows you to upgrade clusters to newer Kubernetes and base OS image versions. For more information, see [Steps to upgrade to a newer Kubernetes version](/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade#steps-to-upgrade-to-a-newer-kubernetes-version).
+- You can also upgrade only the underlying nodes to newer base OS image versions. For more information, see [Steps to only upgrade the OS image](/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade#steps-to-only-upgrade-the-os-image).
 
 Newer base OS images contain security and kernel updates. It's the cluster operator's responsibility to monitor the availability of newer Kubernetes Versions and OS Images. The operator should plan and execute these upgrades using AKS Engine. The base OS images must be downloaded from the Azure Stack Hub Marketplace by the Azure Stack Hub Operator.
 

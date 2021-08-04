@@ -3,7 +3,7 @@ title: Google Cloud to Azure services comparison
 description: Understand the differences between specific Google Cloud and Azure services.
 author: fbinotto
 ms.author: petuton
-ms.date: 08/02/2021
+ms.date: 08/03/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -34,7 +34,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- | --- |
 | [Google Cloud Marketplace](https://cloud.google.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace/) | Easy-to-deploy and automatically configured third-party applications, including single virtual machine or multiple virtual machine solutions. |
 
-## AI and Machine Learning
+## AI and machine learning
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
@@ -77,7 +77,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- | --- |
 | [Dataproc](https://cloud.google.com/dataproc) | [Azure HDInsight](/azure/hdinsight/) <br><br> [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) <br><br> [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) | Managed Apache Spark-based analytics platform. |
 
-### Data Orchestration and ETL
+### Data orchestration and ETL
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
@@ -102,7 +102,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Compute Engine](https://cloud.google.com/compute#documentation) | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | Virtual servers allow users to deploy, manage, and maintain OS and server software. Instance types provide combinations of CPU/RAM. Users pay for what they use with the flexibility to change sizes. |
 | [Batch](https://cloud.google.com/kubernetes-engine/docs/concepts/) | [Azure Batch](https://azure.microsoft.com/services/batch/) | Run large-scale parallel and high-performance computing applications efficiently in the cloud. |
 | [Compute Engine Managed Instance Groups](https://cloud.google.com/compute/docs/instance-groups/) | [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) | Allows you to automatically change the number of VM instances. You set defined metric and thresholds that determine if the platform adds or removes instances. |
-| [VMware as a service](https://cloud.google.com/solutions/vmware-as-a-service) | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution. Seamlessly move VMware-based workloads from your datacenter to Azure and integrate your VMware environment with Azure. Keep managing your existing environments with the same VMware tools that you already know, while you modernize your applications with Azure native services. Azure VMware Solution is a Microsoft service that is verified by VMware, and it runs on Azure infrastructure. |
+| [VMware Engine](https://cloud.google.com/vmware-engine) | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution. Seamlessly move VMware-based workloads from your datacenter to Azure and integrate your VMware environment with Azure. Keep managing your existing environments with the same VMware tools that you already know, while you modernize your applications with Azure native services. Azure VMware Solution is a Microsoft service that is verified by VMware, and it runs on Azure infrastructure. |
 
 ### Containers and container orchestrators
 
@@ -115,6 +115,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Anthos Service Mesh](https://cloud.google.com/service-mesh/docs) | [Service Fabric Mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview) | Fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. |
 
 #### Container architectures
+
 Here are some architectures that use AKS as the orchestrator.
 <ul class="grid">
 
@@ -213,7 +214,6 @@ Here are some architectures that use AKS as the orchestrator.
 | Other Connectivity Options | [S2S](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal),[P2S](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) | [Direct Interconnect](https://cloud.google.com/network-connectivity/docs/direct-peering),[Partner Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-overview),[Carrier Peering](https://cloud.google.com/network-connectivity/docs/carrier-peering) | Point to Site lets you create a secure connection to your virtual network from an individual client computer. Site to Site is a connection between two or more networks, such as a corporate network and a branch office network. |
 
 ## Security
-
 | Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
 | Authentication and Authorization | [Cloud IAM](https://cloud.google.com/iam) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups and use permissions to allow and deny access to resources. |
@@ -221,11 +221,14 @@ Here are some architectures that use AKS as the orchestrator.
 | | Resource Manager | [Azure Subscription Management](/azure/cloud-adoption-framework/decision-guides/subscriptions) | Structure to organize and manage assets in Azure. |
 | | Multi-factor Authentication | [Azure Active Directory Multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication) | Safeguard access to data and applications while meeting user demand for a simple sign-in process. |
 | | [Firebase Authentication](https://firebase.google.com/docs/auth) | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c) | A highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. |
+| | [BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise/docs/overview) | [Azure Active Directory Conditional Access](/azure/active-directory/conditional-access/overview) | Azure Active Directory uses the Conditional Access tool to bring signals together, to make decisions, and to enforce organizational policies in a Zero Trust security model. |
 | Encryption | [Cloud KMS](https://cloud.google.com/kms),[Secret Manager](https://cloud.google.com/secret-manager) | [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) | Provides security solution and works with other services by providing a way to manage, create, and control encryption keys stored in hardware security modules (HSM). |
 | Data at rest encryption | [Encryption by default](https://cloud.google.com/security/encryption-at-rest) | [Azure Storage Service Encryption](/azure/storage/storage-service-encryption) - encryption by default | Azure Storage Service Encryption helps you protect and safeguard your data and meet your organizational security and compliance commitments. |
+| | [Confidential Computing](https://cloud.google.com/confidential-computing) | [Azure Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/#overview) | Protects data that's in use, by performing computations in a hardware-based trusted execution environment (TEE). | [Encryption by default](https://cloud.google.com/security/encryption-at-rest) | [Azure Storage Service Encryption](/azure/storage/storage-service-encryption) - encryption by default | Azure Storage Service Encryption helps you protect and safeguard your data and meet your organizational security and compliance commitments. |
 | Security | [Security Command Center](https://cloud.google.com/security-command-center) | [Azure Security Center](https://azure.microsoft.com/services/security-center/) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
 | | [Web Security Scanner](https://cloud.google.com/security-scanner) | [Azure Security Center](https://azure.microsoft.com/services/security-center/) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
 | | [Event Threat Detection](https://cloud.google.com/event-threat-detection) | [Azure Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection/) | Detect and investigate advanced attacks on-premises and in the cloud. |
+| | [Chronicle](https://cloud.google.com/chronicle) | [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel) | A cloud-native security information and event manager (SIEM) platform that uses built-in AI to help analyze large volumes of data from all sources, including users, applications, servers, and devices that are running on-premises or in any cloud. |
 
 ## Storage
 
@@ -235,7 +238,7 @@ Here are some architectures that use AKS as the orchestrator.
 | --- | --- | --- |
 | [Cloud Storage](https://cloud.google.com/storage#documentation)<br/><br/> [Cloud Storage for Firebase](https://firebase.google.com/products/storage) | [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
 
-### Virtual server disks
+### Block storage
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
@@ -245,15 +248,15 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Filestore](https://cloud.google.com/filestore/docs) | [Azure Files](https://azure.microsoft.com/services/storage/files),[Azure NetApp Files](https://azure.microsoft.com/services/netapp/#overview) | File based storage and hosted NetApp Appliance Storage. |
-| [Drive Enterprise](https://cloud.google.com/drive-enterprise) | [OneDrive For business](https://products.office.com/onedrive/onedrive-for-business) | Shared files from from personal devices to cloud |
+| [Filestore](https://cloud.google.com/filestore/docs) | [Azure Files](https://azure.microsoft.com/services/storage/files/), [Azure NetApp Files](https://azure.microsoft.com/services/netapp/#overview) | File based storage and hosted NetApp Appliance Storage. |
+| [Google Drive](https://workspace.google.com/products/drive) | [OneDrive For business](https://products.office.com/onedrive/onedrive-for-business) | Cloud storage and file sharing solution for businesses to store, access and share files anytime and anywhere. |
 
 ### Bulk data transfer
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
-| [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Data Box](https://azure.microsoft.com/services/storage/databox) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
+| [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
+| [Transfer Appliance](https://cloud.google.com/transfer-appliance/docs/2.0) | [Azure Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
 
 ## Application services
 
