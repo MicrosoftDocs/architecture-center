@@ -17,6 +17,7 @@ Azure provides several different relational database services that are the equiv
 - [SQL Database](/azure/sql-database/sql-database-technical-overview)
 - [Azure Database for MySQL](/azure/mysql/overview)
 - [Azure Database for PostgreSQL](/azure/postgresql/overview)
+- [Azure Database for MariaDB](/azure/mariadb/overview)
 
 Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql/) can be deployed using Azure VM Instances.
 
@@ -34,15 +35,16 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 ## Analytics and big data
 
-[The Cortana Intelligence Suite](https://azure.microsoft.com/suites/cortana-intelligence-suite) is Azure's package of products and services designed to capture, organize, analyze, and visualize large amounts of data. The Cortana suite consists of the following services:
+Azure provides a package of products and services designed to capture, organize, analyze, and visualize large amounts of data consisting of the following services:
 
 - [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight): managed Apache distribution that includes Hadoop, Spark, Storm, or HBase.
 
 - [Data Factory](https://azure.microsoft.com/documentation/services/data-factory): provides data orchestration and data pipeline functionality.
 
-- [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse): large-scale relational data storage.
+- [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/): large-scale relational data storage using either serverless or dedicated resources.
+- [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/): a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers.
 
-- [Data Lake Store](https://azure.microsoft.com/documentation/services/data-lake-store): large-scale storage optimized for big data analytics workloads.
+- [Data Lake Store](https://azure.microsoft.com/documentation/services/data-lake-store): analytics service that brings together enterprise data warehousing and Big Data analytics. Query data on your terms, using either serverless or dedicated resources—at scale.
 
 - [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning): used to build and apply predictive analytics on data.
 
@@ -58,8 +60,8 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 ### See also
 
-- [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com)
+- [Azure AI Gallery](https://gallery.azure.ai/)
 
-- [Understanding Microsoft big data solutions](/previous-versions/msp-n-p/dn749804(v=pandp.10))
+- [Cloud-scale analytics](https://azure.microsoft.com/en-us/solutions/big-data/#overview)
 
-- [Azure Data Lake and Azure HDInsight Blog](/archive/blogs/azuredatalake/)
+- [Big data architecture style](/azure/architecture/guide/architecture-styles/big-data)
