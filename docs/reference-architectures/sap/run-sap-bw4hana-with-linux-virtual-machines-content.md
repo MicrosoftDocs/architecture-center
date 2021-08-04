@@ -88,7 +88,7 @@ For information about whether a virtual machine type has been certified for scal
 
 In application servers pool, you can adjust the number of virtual machines based on your requirements. [Azure is certified](/azure/virtual-machines/workloads/sap/sap-certifications) to run SAP BW/4HANA on Red Hat Enterprise Linux and SUSE Linux Enterprise.
 
-To manage logon groups for ABAP application servers, it’s common to use the SMLG transaction to load-balance different groups, such as:
+To manage logon groups for ABAP application servers, it's common to use the SMLG transaction to load-balance different groups, such as:
 
 - Logon users.
 - SM61 for batch server groups.
@@ -98,7 +98,7 @@ These transactions use the load-balancing capability within the message server o
 
 ### SAP Central Services cluster
 
-This example shows a highly available cluster that uses Azure NetApp Files as a shared file storage solution. High availability for the Central Services cluster requires shared storage. NetApp Files provides a simple option so you don’t have to deploy the Linux cluster infrastructure. An alternative is to set up a highly available [NFS service](/azure/virtual-machines/workloads/sap/high-availability-guide-suse#setting-up-a-highly-available-nfs-server).
+This example shows a highly available cluster that uses Azure NetApp Files as a shared file storage solution. High availability for the Central Services cluster requires shared storage. NetApp Files provides a simple option so you don't have to deploy the Linux cluster infrastructure. An alternative is to set up a highly available [NFS service](/azure/virtual-machines/workloads/sap/high-availability-guide-suse#setting-up-a-highly-available-nfs-server).
 
 You can also deploy Central Services to a single virtual machine with Premium-managed disks and get a 99.9-percent availability [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 
@@ -118,7 +118,7 @@ Azure also supports high availability in a [multi-SID installation](/azure/virtu
 #### Proximity placement groups
 
 This example architecture also uses a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios)
-to reduce network latency between virtual machines. This type of group places a location constraint on virtual machine deployments and minimizes the physical distance between them. The group’s placement varies as follows:
+to reduce network latency between virtual machines. This type of group places a location constraint on virtual machine deployments and minimizes the physical distance between them. The group's placement varies as follows:
 
 - In a single SID installation, you should place all Central Services and application servers in the proximity placement group anchored by the SAP HANA database.
 

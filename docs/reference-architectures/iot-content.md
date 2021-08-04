@@ -3,13 +3,11 @@
 
 This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 
-![Diagram of the architecture](./_images/iot-refarch.svg)
+![Diagram of the architecture](./iot/images/iot-refarch.svg)
 
 IoT applications can be described as **things** (devices) sending data that generates **insights**. These insights generate **actions** to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).
 
-This reference architecture uses Azure PaaS (platform-as-a-service) components. Another recommended option for building IoT solutions on Azure is:
-
-- [Azure IoT Central](/azure/iot-central/). IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.
+This reference architecture uses Azure PaaS (platform-as-a-service) components.  Microsoft recommends using [Azure IoT Central](/azure/iot-central/), which is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.
 
 At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.
 
@@ -50,7 +48,7 @@ This architecture consists of the following components. Some applications may no
 
 An IoT application should be built as discrete services that can scale independently. Consider the following scalability points:
 
-**IoTHub**. For IoT Hub, consider the following scale factors:
+**IoT Hub**. For IoT Hub, consider the following scale factors:
 
 - The maximum [daily quota](/azure/iot-hub/iot-hub-devguide-quotas-throttling) of messages into IoT Hub.
 - The quota of connected devices in an IoT Hub instance.

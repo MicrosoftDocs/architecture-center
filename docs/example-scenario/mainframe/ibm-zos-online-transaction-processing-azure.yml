@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: IBM z/OS online transaction processing on Azure
+  titleSuffix: Azure Example Scenarios
+  description: Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost-effective, responsive, scalable, and adaptable.
+  author: ashish-khandelwal-ms
+  ms.author: askhande
+  ms.date: 07/30/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - migration
+products:
+  - azure-front-door
+  - azure-traffic-manager
+  - azure-kubernetes-service
+  - azure-spring-cloud
+  - azure-cache-redis
+name: IBM z/OS online transaction processing on Azure
+summary: Migrate a z/OS online transaction processing (OLTP) workload to an Azure application that is cost-effective, responsive, scalable, and adaptable.
+thumbnailUrl: /azure/architecture/browse/thumbs/ibm-zos-online-transaction-processing-on-azure.png
+content: |
+  [!include[](ibm-zos-online-transaction-processing-azure-content.md)]
