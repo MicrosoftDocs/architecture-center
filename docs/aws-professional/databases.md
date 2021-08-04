@@ -53,7 +53,7 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 - [Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview): large-scale analytics service optimized to work with Data Lake Store
 
-- [Power BI](https://powerbi.microsoft.com): a business analytics service that provides the capabilities to creach rich interactive data visualizations.
+- [Power BI](https://powerbi.microsoft.com): a business analytics service that provides the capabilities to create rich interactive data visualizations.
 
 ## Service comparison
 
