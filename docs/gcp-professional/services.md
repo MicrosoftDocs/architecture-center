@@ -181,7 +181,7 @@ Here are some architectures that use AKS as the orchestrator.
 | --- | --- | --- |
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) | Supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. |
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) | A fully managed event routing service that allows for uniform event consumption using a publish/subscribe model. |
-| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs/) | A real-time data ingestion and microbatching service used to build dynamic data pipelines and integrates with other Azure services. |
+| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/) | A real-time data ingestion and microbatching service used to build dynamic data pipelines and integrates with other Azure services. |
 
 ## Networking
 
