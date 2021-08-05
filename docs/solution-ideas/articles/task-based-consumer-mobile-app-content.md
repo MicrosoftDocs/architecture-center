@@ -41,7 +41,7 @@ The links to the right provide documentation on deploying and managing the Azure
 ## Components
 
 * Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://www.visualstudio.com/vs) 2017 or [Visual Studio](https://www.visualstudio.com/vs) for Mac.
-* [Xamarin](https://www.visualstudio.com/xamarin): Create mobile apps for iOS and Android using C# and Azure SDKs.
+* [Building Cross-Platform Applications](/xamarin/cross-platform/app-fundamentals/building-cross-platform-applications/): Create mobile apps for iOS and Android using C# and Azure SDKs.
 * [Visual Studio App Center](https://www.visualstudio.com/app-center): App Center enables a continuous integration and deployment workflow by pulling code from BitBucket, GitHub, and Visual Studio Team Services.
 * [App Service](https://azure.microsoft.com/services/app-service): The client app uses one of the mobile client SDKs to connect to an Azure Mobile App backend. The client SDKs have built-in support for offline sync and authentication, making it much easier to build a full-featured app.
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
