@@ -374,7 +374,7 @@
     {
       "source_path": "docs/reliability/index.md",
       "redirect_url": "/azure/architecture/framework/resiliency/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reliability/requirements.md",
