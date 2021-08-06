@@ -7,6 +7,11 @@ ms.date: 08/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
+products:
+ - azure
+categories:
+ - management-and-governance
+ - security
 ms.custom:
   - article
 ---
