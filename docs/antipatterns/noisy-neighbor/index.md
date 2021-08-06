@@ -73,10 +73,6 @@ From a service's perspective, the noisy neighbor issue may appear in several way
 - Spikes in resource usage. It's important to have a clear understanding of your normal baseline resource usage, and to configure monitoring and alerts to detect spikes in resource usage. Ensure you consider all of the resources that could affect your service's performance or available. These include metrics like server CPU and memory usage, disk IO, database usage, network traffic, and metrics exposed by managed services such as the number of requests and synthetic and abstract performance metrics, such as Azure Cosmos DB request units.
 - Failures when performing an operation for a tenant, even when that tenant isn't using a large proportion of the system's resources. Such a pattern may indicate the tenant is a victim of the noisy neighbor problem. Consider tracking the resource consumption by tenant. For example, when using Azure Cosmos DB, consider logging the request units used for each request, and add the tenant's identifier as a dimension to the telemetry so you can aggregate the request unit consumption for each tenant.
 
-## Example diagnosis
-
-Construct an example with Application Insights and Cosmos DB? <!-- TODO -->
-
 ## Related resources
 
  * [Architectural considerations for a multitenant solution](../../guide/multitenant/considerations/overview.md)
