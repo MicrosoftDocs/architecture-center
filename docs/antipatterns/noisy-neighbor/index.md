@@ -3,7 +3,7 @@ title: Noisy Neighbor antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
 author: johndowns
-ms.date: 07/29/2021
+ms.date: 08/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
@@ -38,7 +38,7 @@ This can happen when you have multiple tenants that all have similar usage patte
 
 ## How to fix the problem
 
-Noisy neighbor problems are an inherent risk in multitenant systems, and it's not possible to completely eliminate the possibility of being impacted by a noisy neighbor. However, there are some steps that both clients and service providers can take to reduce the likelihood of noisy neighbor problems, or to mitigate their effects when they are observed.
+Noisy neighbor problems are an inherent risk in multitenant systems, and it's not possible to completely eliminate the possibility of being affected by a noisy neighbor. However, there are some steps that both clients and service providers can take to reduce the likelihood of noisy neighbor problems, or to mitigate their effects when they are observed.
 
 ### Actions that clients can take
 
@@ -52,7 +52,7 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
 - Apply resource governance to avoid a single tenant overwhelming the system and reducing the capacity available to others. This might take the form of quota enforcement through throttling or rate limiting.
 - Consider provisioning more infrastructure. This might involve scaling up by upgrading some of your solution components, or it might involve scaling out by provisioning additional shards if you follow the [Sharding pattern](../../patterns/sharding.md) or stamps if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
 - Consider allowing tenants to purchase pre-provisioned or reserved capacity. This provides tenants with more certainty that your solution adequately handles their workload.
-- Consider aproaches to smooth out the resource usage:
+- Consider approaches to smooth out the resource usage:
   - If you host multiple instances of your solution, consider re-balancing tenants across the instances or stamps. For example, consider placing tenants with predictable and similar usage patterns across multiple stamps to flatten the peaks in their usage.
   - Consider whether you have background processes, or resource-intensive workloads that aren't time-sensitive. Run these asynchronously at off-peak times to preserve your peak resource capacity for time-sensitive workloads.
 - Consider whether your services provide controls to mitigate noisy neighbor problems. For example, when using Kubernetes [consider using pod limits](/azure/aks/developer-best-practices-resource-management), and when using Service Fabric, [consider using the built-in governance capabilities](/azure/service-fabric/service-fabric-resource-governance).
@@ -66,17 +66,16 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
 
 ## How to detect the problem
 
-From client side, might see same operation taking different amounts of time or failing intermittently
+From a client's perspective, the noisy neighbor problem typically manifests as failed server requests, or requests that take a long time to complete. In particular, if the same request succeeds at other times and appears to fail randomly, there may be a noisy neighbor issue. Client applications should record telemetry to track the success rate and performance of the requests to services, and should also record baseline performance metrics for comparison purposes.
 
-- Look for resource usage spikes. Set up alerts, and make sure you have a clear understanding of your normal baseline resource usage.
-- Look at all resources - e.g. CPU, memory, disk IO, database usage, networking metrics, PaaS metrics etc
-- Operations for a tenant fail even though the tenant isn't using high numbers of resources
-- Track resource consumption by tenant
-  - e.g. Cosmos DB RUs on each request, and log by tenant ID
+From a service's perspective, the noisy neighbor issue may appear in several ways:
+
+- Spikes in resource usage. It's important to have a clear understanding of your normal baseline resource usage, and to configure monitoring and alerts to detect spikes in resource usage. Ensure you consider all of the resources that could affect your service's performance or available. These include metrics like server CPU and memory usage, disk IO, database usage, network traffic, and metrics exposed by managed services such as the number of requests and synthetic and abstract performance metrics, such as Azure Cosmos DB request units.
+- Failures when performing an operation for a tenant, even when that tenant isn't using a large proportion of the system's resources. Such a pattern may indicate the tenant is a victim of the noisy neighbor problem. Consider tracking the resource consumption by tenant. For example, when using Azure Cosmos DB, consider logging the request units used for each request, and add the tenant's identifier as a dimension to the telemetry so you can aggregate the request unit consumption for each tenant.
 
 ## Example diagnosis
 
-Construct an example with Application Insights and Cosmos DB?
+Construct an example with Application Insights and Cosmos DB? <!-- TODO -->
 
 ## Related resources
 
