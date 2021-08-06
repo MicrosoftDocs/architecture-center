@@ -18,7 +18,7 @@ ms.custom:
 
 # Azure Well-Architected Framework review of Azure Firewall
 
-This article provides architectural best practices for the Azure Application Gateway v2 family of SKUs. The guidance is based on the five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+This article provides architectural best practices for Azure Firewall. The guidance is based on the five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
 
 ## Cost Optimization
 
