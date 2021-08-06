@@ -1,6 +1,6 @@
 ---
 title: Azure for Google Cloud professionals
-description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the Google Cloud and Azure platforms. Take advantage of your Google Cloud experience in Azure.
+description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
 author: EdPrice-MSFT
 ms.author: petuton
 ms.date: 03/15/2020
