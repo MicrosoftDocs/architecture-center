@@ -77,7 +77,7 @@ This table lists various best practices. The **Related pillars or patterns** col
 [Overview of the performance efficiency pillar]: ../framework/scalability/overview.md
 [Overview of the security pillar]: ../framework/security/overview.md
 [Principles of cost optimization]: ../framework/cost/overview.md
-[Principles of the reliability pillar]: ../framework/resiliency/overview.md
+[Principles of the reliability pillar]: ../framework/resiliency/principles.md
 [Retry guidance for Azure services]: ./retry-service-specific.md
 [Transient fault handling]: ./transient-faults.md
 [Web API design]: ./api-design.md

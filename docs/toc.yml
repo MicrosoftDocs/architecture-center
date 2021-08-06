@@ -57,7 +57,7 @@ items:
         items:
           - name: Choose a compute service
             href: guide/technology-choices/compute-decision-tree.md
-          - name: Choose a Kubernetes option
+          - name: Choose a Kubernetes edge option
             items:
               - name: Kubernetes at the edge
                 href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
@@ -181,6 +181,12 @@ items:
                 href: guide/multitenant/considerations/measure-consumption.md
               - name: Deploy updates
                 href: guide/multitenant/considerations/updates.md
+              - name: Map requests to tenants
+                href: guide/multitenant/considerations/map-requests.md
+              - name: Domain names
+                href: guide/multitenant/considerations/domain-names.md
+          - name: Related resources
+            href: guide/multitenant/related-resources.md
       - name: Azure for AWS Professionals
         items:
           - name: Overview
@@ -218,6 +224,150 @@ items:
     items:
       - name: Overview
         href: framework/index.md
+      - name: Reliability
+        items:
+              - name: Principles
+                href: framework/resiliency/principles.md
+              - name: Design
+                items: 
+                  - name: Checklist
+                    href: framework/resiliency/design-checklist.md
+                  - name: Requirements
+                    href: framework/resiliency/design-requirements.md
+                  - name: Application design
+                    href: framework/resiliency/app-design.md
+                  - name: Resiliency & dependencies
+                    href: framework/resiliency/design-resiliency.md  
+                  - name: Best practices
+                    href: framework/resiliency/design-best-practices.md
+              - name: Testing
+                items:
+                  - name: Checklist
+                    href: framework/resiliency/test-checklist.md
+                  - name: Resiliency testing
+                    href: framework/resiliency/testing.md
+                  - name: Backup & recovery
+                    href: framework/resiliency/backup-and-recovery.md
+                  - name: Error handling
+                    href: framework/resiliency/app-design-error-handling.md
+                  - name: Chaos engineering
+                    href: framework/resiliency/chaos-engineering.md
+                  - name: Best practices
+                    href: framework/resiliency/test-best-practices.md
+              - name: Monitoring
+                items:
+                  - name: Checklist
+                    href: framework/resiliency/monitor-checklist.md
+                  - name: Application health
+                    href: framework/resiliency/monitoring.md
+                  - name: Health modeling
+                    href: framework/resiliency/monitor-model.md
+                  - name: Best practices
+                    href: framework/resiliency/monitor-best-practices.md
+              - name: Reliability patterns
+                href: framework/resiliency/reliability-patterns.md
+      - name: Security
+        items:
+          - name: About
+            href: framework/security/overview.md
+          - name: Principles
+            href: framework/security/security-principles.md
+          - name: Design
+            items:
+              - name: Governance
+                items:
+                  - name: Overview
+                    href: framework/security/design-governance.md
+                  - name: Segmentation strategy
+                    href: framework/security/design-segmentation.md
+                  - name: Management groups
+                    href: framework/security/design-management-groups.md
+                  - name: Administration
+                    href: framework/security/design-admins.md
+              - name: Identity and access management
+                items:
+                  - name: Checklist
+                    href: framework/security/design-identity.md
+                  - name: Roles and responsibilities
+                    href: framework/security/design-identity-role-definitions.md
+                  - name: Control plane
+                    href: framework/security/design-identity-control-plane.md
+                  - name: Authentication
+                    href: framework/security/design-identity-authentication.md
+                  - name: Authorization
+                    href: framework/security/design-identity-authorization.md
+                  - name: Best practices
+                    href: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+              - name: Networking
+                items:
+                  - name: Checklist
+                    href: framework/security/design-network.md
+                  - name: Network segmentation
+                    href: framework/security/design-network-segmentation.md
+                  - name: Connectivity
+                    href: framework/security/design-network-connectivity.md
+                  - name: Application endpoints
+                    href: framework/security/design-network-endpoints.md
+                  - name: Data flow
+                    href: framework/security/design-network-flow.md               
+                  - name: Best practices
+                    href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+              - name: Data protection
+                items:
+                  - name: Checklist
+                    href: framework/security/design-storage.md
+                  - name: Encryption 
+                    href: framework/security/design-storage-encryption.md
+                  - name: Key and secret management
+                    href: framework/security/design-storage-keys.md
+                  - name: Best practices  
+                    href: /azure/security/fundamentals/encryption-overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+              - name: Applications and services
+                items:
+                  - name: Application security considerations
+                    href: framework/security/design-apps-services.md
+                  - name: Application classification
+                    href: framework/security/design-apps-considerations.md
+                  - name: Threat analysis
+                    href: framework/security/design-threat-model.md
+                  - name: Securing PaaS deployments
+                    href: /azure/security/fundamentals/paas-deployments?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+                  - name: Compliance requirements
+                    href: framework/security/design-regulatory-compliance.md
+                  - name: Configuration and dependencies
+                    href: framework/security/design-app-dependencies.md
+          - name: Build-deploy
+            items:
+              - name: Checklist
+                href: framework/security/deploy.md
+              - name: Governance considerations
+                href: framework/security/deploy-governance.md
+              - name: Infrastructure provisioning
+                href: framework/security/deploy-infrastructure.md                
+              - name: Code deployments
+                href: framework/security/deploy-code.md
+          - name: Monitor
+            items:
+              - name: Checklist
+                href: framework/security/monitor.md
+              - name: Tools
+                href: framework/security/monitor-tools.md
+              - name: Security operations
+                href: framework/security/monitor-security-operations.md
+              - name: Validate and test
+                href: framework/security/monitor-test.md
+              - name: Review and audit
+                href: framework/security/monitor-audit.md
+              - name: Identity and network risks
+                href: framework/security/monitor-identity-network.md
+          - name: Optimize
+            items:
+              - name: Automate
+                href: framework/security/governance.md
+              - name: Replace insecure protocols
+                href: framework/security/governance.md
+              - name: Elevate security capabilities
+                href: framework/security/governance.md
       - name: Cost Optimization
         items:
           - name: About
@@ -383,150 +533,6 @@ items:
             href: framework/scalability/performance-efficiency-patterns.md
           - name: Tradeoffs 
             href: framework/scalability/tradeoffs.md
-      - name: Reliability
-        items:
-              - name: Principles
-                href: framework/resiliency/overview.md
-              - name: Design
-                items: 
-                  - name: Checklist
-                    href: framework/resiliency/design-checklist.md
-                  - name: Requirements
-                    href: framework/resiliency/design-requirements.md
-                  - name: Application design
-                    href: framework/resiliency/app-design.md
-                  - name: Resiliency & dependencies
-                    href: framework/resiliency/design-resiliency.md  
-                  - name: Best practices
-                    href: framework/resiliency/design-best-practices.md
-              - name: Testing
-                items:
-                  - name: Checklist
-                    href: framework/resiliency/test-checklist.md
-                  - name: Resiliency testing
-                    href: framework/resiliency/testing.md
-                  - name: Backup & recovery
-                    href: framework/resiliency/backup-and-recovery.md
-                  - name: Error handling
-                    href: framework/resiliency/app-design-error-handling.md
-                  - name: Chaos engineering
-                    href: framework/resiliency/chaos-engineering.md
-                  - name: Best practices
-                    href: framework/resiliency/test-best-practices.md
-              - name: Monitoring
-                items:
-                  - name: Checklist
-                    href: framework/resiliency/monitor-checklist.md
-                  - name: Application health
-                    href: framework/resiliency/monitoring.md
-                  - name: Health modeling
-                    href: framework/resiliency/monitor-model.md
-                  - name: Best practices
-                    href: framework/resiliency/monitor-best-practices.md
-              - name: Reliability patterns
-                href: framework/resiliency/reliability-patterns.md
-      - name: Security
-        items:
-          - name: About
-            href: framework/security/overview.md
-          - name: Principles
-            href: framework/security/security-principles.md
-          - name: Design
-            items:
-              - name: Governance
-                items:
-                  - name: Overview
-                    href: framework/security/design-governance.md
-                  - name: Segmentation strategy
-                    href: framework/security/design-segmentation.md
-                  - name: Management groups
-                    href: framework/security/design-management-groups.md
-                  - name: Administration
-                    href: framework/security/design-admins.md
-              - name: Identity and access management
-                items:
-                  - name: Checklist
-                    href: framework/security/design-identity.md
-                  - name: Roles and responsibilities
-                    href: framework/security/design-identity-role-definitions.md
-                  - name: Control plane
-                    href: framework/security/design-identity-control-plane.md
-                  - name: Authentication
-                    href: framework/security/design-identity-authentication.md
-                  - name: Authorization
-                    href: framework/security/design-identity-authorization.md
-                  - name: Best practices
-                    href: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
-              - name: Networking
-                items:
-                  - name: Checklist
-                    href: framework/security/design-network.md
-                  - name: Network segmentation
-                    href: framework/security/design-network-segmentation.md
-                  - name: Connectivity
-                    href: framework/security/design-network-connectivity.md
-                  - name: Application endpoints
-                    href: framework/security/design-network-endpoints.md
-                  - name: Data flow
-                    href: framework/security/design-network-flow.md               
-                  - name: Best practices
-                    href: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
-              - name: Data protection
-                items:
-                  - name: Checklist
-                    href: framework/security/design-storage.md
-                  - name: Encryption 
-                    href: framework/security/design-storage-encryption.md
-                  - name: Key and secret management
-                    href: framework/security/design-storage-keys.md
-                  - name: Best practices  
-                    href: /azure/security/fundamentals/encryption-overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
-              - name: Applications and services
-                items:
-                  - name: Application security considerations
-                    href: framework/security/design-apps-services.md
-                  - name: Application classification
-                    href: framework/security/design-apps-considerations.md
-                  - name: Threat analysis
-                    href: framework/security/design-threat-model.md
-                  - name: Securing PaaS deployments
-                    href: /azure/security/fundamentals/paas-deployments?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
-                  - name: Compliance requirements
-                    href: framework/security/design-regulatory-compliance.md
-                  - name: Configuration and dependencies
-                    href: framework/security/design-app-dependencies.md
-          - name: Build-deploy
-            items:
-              - name: Checklist
-                href: framework/security/deploy.md
-              - name: Governance considerations
-                href: framework/security/deploy-governance.md
-              - name: Infrastructure provisioning
-                href: framework/security/deploy-infrastructure.md                
-              - name: Code deployments
-                href: framework/security/deploy-code.md
-          - name: Monitor
-            items:
-              - name: Checklist
-                href: framework/security/monitor.md
-              - name: Tools
-                href: framework/security/monitor-tools.md
-              - name: Security operations
-                href: framework/security/monitor-security-operations.md
-              - name: Validate and test
-                href: framework/security/monitor-test.md
-              - name: Review and audit
-                href: framework/security/monitor-audit.md
-              - name: Identity and network risks
-                href: framework/security/monitor-identity-network.md
-          - name: Optimize
-            items:
-              - name: Automate
-                href: framework/security/governance.md
-              - name: Replace insecure protocols
-                href: framework/security/governance.md
-              - name: Elevate security capabilities
-                href: framework/security/governance.md
       - name: Workloads
         items:          
           - name: Hybrid
@@ -1237,6 +1243,8 @@ items:
                     href: reference-architectures/containers/aks-pci/aks-pci-summary.yml                         
               - name: Advanced microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
+              - name: AKS Baseline for Multi-Region Clusters
+                href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
               - name: CI/CD pipeline for container-based workloads
                 href: example-scenario/apps/devops-with-aks.yml
           - name: Example workloads hosted in AKS clusters
@@ -1286,6 +1294,9 @@ items:
                         href: operator-guides/aks/aks-triage-container-registry.md
                   - name: Patching and upgrade guidance
                     href: operator-guides/aks/aks-upgrade-practices.md
+                  - name: Monitoring with Azure Monitor
+                    href: /azure/aks/monitor-aks?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+                    maintainContext: true
                   - name: Common issues
                     href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
                     maintainContext: true
@@ -1668,6 +1679,26 @@ items:
         items:
           - name: Guides
             items:
+              - name: Hybrid deployments
+                items:
+                - name: Configure hybrid cloud connectivity in Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-connectivity.md
+                - name: Configure hybrid cloud identity for Azure and Azure Stack Hub apps
+                  href: hybrid/deployments/solution-deployment-guide-identity.md
+                - name: Deploy AI-based footfall detection solution in Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
+                - name: Deploy an app that scales cross-cloud in Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md
+                - name: Deploy highly available Kubernetes cluster on Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
+                - name: Deploy a highly available MongoDB solution to Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-mongodb-ha.md
+                - name: Deploy hybrid app with on-premises data that scales cross-cloud
+                  href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
+                - name: Deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-sql-ha.md
+                - name: Direct traffic with a geo-distributed app using Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
               - name: FSLogix for the enterprise
                 href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
               - name: Administer SQL Server anywhere with Azure Arc
@@ -1936,6 +1967,8 @@ items:
                     href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
                   - name: IBM z/OS migration with Asysco AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml                    
+                  - name: IBM z/OS online transaction processing on Azure
+                    href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml                    
                   - name: Integrate IBM MQ with Azure
                     href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
                   - name: Micro Focus Enterprise Server on Azure
@@ -2239,6 +2272,8 @@ items:
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
+              - name: Zero-trust network for web applications
+                href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
           - name: Architectures
             items:
               - name: Azure AD in Security Operations

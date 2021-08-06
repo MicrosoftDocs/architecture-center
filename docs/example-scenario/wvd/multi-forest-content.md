@@ -71,8 +71,8 @@ Keep in mind the following considerations while designing your workload based on
 
 The following design considerations apply to user profile containers, cloud cache containers, and [MSIX](/windows/msix/overview) packages:
 
-- Both [Azure Files and NetApp files](/azure/virtual-desktop/store-FSLogix-profile#azure-platform-details) can be used in this scenario. Choose the right solution based on factors such as expected performance, cost, and so on.
-- Both Azure Storage accounts and NetApp files present the same limitation of being able to join to one single AD DS at a time. In these cases, multiple Azure Storage accounts or NetApp instances will be required.
+- Both [Azure Files and Azure NetApp Files](/azure/virtual-desktop/store-FSLogix-profile#azure-platform-details) can be used in this scenario. Choose the right solution based on factors such as expected performance, cost, and so on.
+- Both Azure Storage accounts and Azure NetApp Files present the same limitation of being able to join to one single AD DS at a time. In these cases, multiple Azure Storage accounts or Azure NetApp Files instances will be required.
 
 ### Azure Active Directory
 

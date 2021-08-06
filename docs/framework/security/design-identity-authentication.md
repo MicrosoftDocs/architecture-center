@@ -78,10 +78,10 @@ Keep your cloud identity synchronized with the existing identity systems to ensu
 Consider using [Azure AD Connect](/azure/active-directory/connect/active-directory-aadconnect) for synchronizing Azure AD with your existing on-premises directory. For migration projects, have a requirement to complete this task before an Azure migration and development projects begin.
 
 > [!IMPORTANT]
-> Don’t synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
+> Don't synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
 >
 >
-> Synchronization is blocked by default in the default Azure AD Connect configuration. Make sure that you haven’t customized this configuration. For information about filtering in Azure AD, see [Azure AD Connect sync: Configure filtering](/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering).
+> Synchronization is blocked by default in the default Azure AD Connect configuration. Make sure that you haven't customized this configuration. For information about filtering in Azure AD, see [Azure AD Connect sync: Configure filtering](/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering).
 
 For more information, see [hybrid identity providers](/azure/active-directory/hybrid/whatis-hybrid-identity).
 
@@ -104,18 +104,34 @@ Those methods apply to all users, but should be applied first and strongest to a
 An implementation of this strategy is enabling single sign-on (SSO) to devices, apps, and services. By signing in once using a single user account, you can grant access to all the applications and resources as per the business needs. Users don't have to manage multiple sets of usernames and passwords and you can provision or de-provision application access automatically. For more information, see [Single sign-on](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/). 
 
 ## Use modern password protection
-Require modern protections through methods that reduce the use of passwords. 
+Require modern protections through methods that reduce the use of passwords. Modern authentication protocols support strong controls such as MFA and should be used instead of legacy authentication methods. Use of legacy methods increases risk of credential exposure.
 
-For Azure, enable protections in Azure AD. 
+Modern authentication is a method of identity management that offers more secure user authentication and authorization. It's available for Office 365 hybrid deployments of Skype for Business server on-premises and Exchange server on-premises, and split-domain Skype for Business hybrids.
+
+Modern authentication is an umbrella term for a combination of authentication and authorization methods between a client (for example, your laptop or your phone) and a server, as well as some security measures that rely on access policies that you may already be familiar with. It includes:
+
+- *Authentication methods*: Multi-factor authentication (MFA); smart card authentication; client certificate-based authentication
+- *Authorization methods*: Microsoft's implementation of Open Authorization (OAuth)
+- *Conditional access policies*: Mobile Application Management (MAM) and Azure Active Directory (Azure AD) Conditional Access
+
+Review workloads that do not leverage modern authentication protocols and convert where possible. In addition, standardize using modern authentication protocols for all future workloads.
+
+For Azure, enable protections in Azure AD:
+
 1.	Configure Azure AD Connect to synchronize password hashes. For information, see [Implement password hash synchronization with Azure AD Connect sync](/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
 
 2.	Choose whether to automatically or manually remediate issues found in a report. For more information, see [Monitor identity risks](monitor-identity-network.md). 
 	
-For more information about supporting modern passwords in Azure AD, see these articles.
+For more information about supporting modern passwords in Azure AD, see the following articles:
+
 - [What is Identity Protection?](/azure/active-directory/identity-protection/overview)
 - [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](/azure/active-directory/authentication/concept-password-ban-bad-on-premises)
 - [Users at risk security report](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
 - [Risky sign-ins security report](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+
+For more information about supporting modern passwords in Office 365, see the following article:
+
+[What is modern authentication?](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide#what-is-modern-authentication)
 
 ## Enable conditional access
 
@@ -128,7 +144,7 @@ Workloads can be exposed over public internet and location-based network control
 
 Configure Azure AD Conditional Access by setting up Access policy for Azure management based on your operational needs. For information, see [Manage access to Azure management with Conditional Access](/azure/role-based-access-control/conditional-access-azure-management).
 
-Conditional Access can be an effective in phasing out legacy authentication and associated protocols. The policies must be enforced for all admins and other critical impact accounts. Start by using metrics and logs to determine users who still authenticate with old clients. Next, disable any down-level protocols that aren’t used, and set up conditional access for all users who aren’t using legacy protocols. Finally, give notice and guidance to users about upgrading before blocking legacy authentication completely. For  more information, see [Azure AD Conditional Access support for blocking legacy auth](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417).
+Conditional Access can be an effective in phasing out legacy authentication and associated protocols. The policies must be enforced for all admins and other critical impact accounts. Start by using metrics and logs to determine users who still authenticate with old clients. Next, disable any down-level protocols that aren't used, and set up conditional access for all users who aren't using legacy protocols. Finally, give notice and guidance to users about upgrading before blocking legacy authentication completely. For  more information, see [Azure AD Conditional Access support for blocking legacy auth](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417).
 
 ## Next
 Grant or deny access to a system by verifying the accessor's identity.

@@ -66,7 +66,7 @@ Register a service principal for the UI and API using Azure AD Directory in the 
     - The application type: Web, SPA, or public client/native (mobile and desktop).
     - The redirect URI. When the user is authenticated, Azure AD redirects the result to the client.
         - An example for local development is http://localhost:4200.
-        - An example for production is https://portal.contoso.com.
+        - An example for production is 'https://portal.contoso.com'.
 
     :::image type="content" source="media/azure-ad-secure-single-page-application/register-an-application-page.png" alt-text="Screenshot that shows the Register an application window.":::
 

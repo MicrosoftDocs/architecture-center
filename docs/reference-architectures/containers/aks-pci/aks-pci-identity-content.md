@@ -8,9 +8,9 @@ This architecture and the implementation aren't designed to provide controls on 
 
 > [!IMPORTANT]
 >
-> The guidance  and the accompanying implementation builds on the [AKS baseline architecture](../aks/secure-baseline-aks.yml). That architecture based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload. 
+> The guidance  and the accompanying implementation builds on the [AKS baseline architecture](../aks/secure-baseline-aks.yml). That architecture based on a hub-and-spoke topology. The hub virtual network contains the firewall to control egress traffic, gateway traffic from on-premises networks, and a third network for maintenance. The spoke virtual network contains the AKS cluster that provides the cardholder data environment (CDE) and hosts the PCI DSS workload.
 >
-> ![Image of the GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides an Azure AD-backed, private cluster that supports just-in-time (JIT) access and conditional access models for illustrative purposes. 
+> ![Image of the GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure with identity and access management controls. This implementation provides an Azure AD-backed, private cluster that supports just-in-time (JIT) access and conditional access models for illustrative purposes.
 
 ## Implement strong access control measures
 
@@ -18,11 +18,11 @@ This architecture and the implementation aren't designed to provide controls on 
 
 #### AKS feature support
 
-AKS is fully integrated with Azure Active Directory (Azure AD) as the identity provider. 
+AKS is fully integrated with Azure Active Directory (Azure AD) as the identity provider.
 
-You don't have to manage separate user identities and credentials for Kubernetes. You can add Azure AD users for Kubernetes RBAC. This integration makes it possible to do role assignments to Azure AD users. Azure AD RBAC supports for role definitions, such as viewer, writer, service admin, cluster admin as built-in roles. Also you can create custom roles for more granular control. .
+You don't have to manage separate user identities and credentials for Kubernetes. You can add Azure AD users for Kubernetes RBAC. This integration makes it possible to do role assignments to Azure AD users. Azure AD RBAC supports for role definitions, such as viewer, writer, service admin, cluster admin as built-in roles. Also you can create custom roles for more granular control.
 
-By default, Azure RBAC is set to deny all so a resource cannot be accessed without granted permissions. AKS limits SSH access to AKS worker nodes and uses AKS network policy to control access to workloads in the pods. 
+By default, Azure RBAC is set to deny all so a resource cannot be accessed without granted permissions. AKS limits SSH access to AKS worker nodes and uses AKS network policy to control access to workloads in the pods.
 
 For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac) and [Secure your cluster with Azure Policy](/azure/aks/use-pod-security-on-azure-policy).
 
@@ -31,7 +31,7 @@ For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/a
 |Requirement|Responsibility|
 |---|---|
 |[Requirement 7.1](#requirement-71)|Limit access to system components and cardholder data to only those individuals whose job requires such access.|
-|[Requirement 7.2](#requirement-72)|Establish an access control system for systems components that restricts access based on a user’s need to know, and is set to “deny all” unless specifically allowed.|
+|[Requirement 7.2](#requirement-72)|Establish an access control system for systems components that restricts access based on a user's need to know, and is set to "deny all" unless specifically allowed.|
 |[Requirement 7.3](#requirement-73)|Ensure that security policies and operational procedures for restricting access to cardholder data are documented, in use, and known to all affected parties.|
 
 ### **Requirement 8**&mdash;Identify and authenticate access to system components
@@ -66,7 +66,7 @@ Here are some considerations:
 
 - Make sure your implementation is aligned with the organization's requirements, and with compliance requirements about identity management.
 - Minimize standing permissions especially for critical impact accounts.
-- Follow the principle of least-privilege access. Provide just enough access to complete the task. 
+- Follow the principle of least-privilege access. Provide just enough access to complete the task.
 
 #### Requirement 7.1.1
 
@@ -93,7 +93,7 @@ While the definition of roles and responsibilities around those areas might be a
 - Set direction for use of RBAC, Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources.
 - Incident monitoring and response team. Investigate and remediate security incidents in security information and event management (SIEM) or Azure Security Center.
 
-Then, formalize the definition by determining what level of access is required for the role with respect to the workload and the infrastructure. Here's a simple definition for illustrative purposes. 
+Then, formalize the definition by determining what level of access is required for the role with respect to the workload and the infrastructure. Here's a simple definition for illustrative purposes.
 
 |Role|Responsibilities|Access levels
 |---|---|---|
@@ -105,7 +105,6 @@ Then, formalize the definition by determining what level of access is required f
 |**Policy, security owners**| Have security or regulation compliance expertise. Define policies that protect the security and regulatory compliance of the company employees, its assets, and those of the company's customers. Works with all other roles to ensure policy is applied and auditable through every phase.|Read access to the workload and the cluster. Also access to log and audit data.|
 |**Network operators**|Allocation of enterprise-wide virtual network and subnets. Configuration and maintenance of Azure Firewall, WAF, NSGs, and DNS configuration.|Highly-privileged in the networking layer. No write permission within the cluster.|
 
-
 #### Requirement 7.1.2
 
 Restrict access to privileged user IDs to least privileges necessary to perform job responsibilities.
@@ -115,17 +114,17 @@ Restrict access to privileged user IDs to least privileges necessary to perform 
 Based on the job functions, strive to minimize access without causing disruptions. Here are some best practices:
 
 - The identity should have just enough access to complete a task.
-- Minimize standing permissions, especially on critical-impact identities that have access to in-scope components. 
-- Add extra restrictions where possible. One way is to provide conditional access based on access criteria. 
+- Minimize standing permissions, especially on critical-impact identities that have access to in-scope components.
+- Add extra restrictions where possible. One way is to provide conditional access based on access criteria.
 - Conduct a regular review and audit of users and groups that have access in your subscriptions, even for read-access. Avoid inviting external identities.
 
 #### Requirement 7.1.3
 
-Assign access based on individual personnel’s job classification and function.
+Assign access based on individual personnel's job classification and function.
 
 ##### Your responsibilities
 
-Determine permissions based on the clearly assigned job duties of the individual. Avoid parameters such as the system or the tenure of the employee. Give access rights to a single user or to a group. 
+Determine permissions based on the clearly assigned job duties of the individual. Avoid parameters such as the system or the tenure of the employee. Give access rights to a single user or to a group.
 
 Here are some examples.
 
@@ -148,7 +147,7 @@ Have a gated process for approving changes in roles and permissions, including t
 
 ### Requirement 7.2
 
-Establish an access control system for systems components that restricts access based on a user’s need to know, and is set to “deny all” unless specifically allowed.
+Establish an access control system for systems components that restricts access based on a user's need to know, and is set to “deny all” unless specifically allowed.
 
 #### Your responsibilities
 
@@ -159,19 +158,19 @@ Based on roles and responsibilities, assign roles to the infrastructure's role-b
 - **Kubernetes RBAC** is a native Kubernetes authorization model that controls access to the _Kubernetes control plane_, exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
 - **Azure RBAC** is an Azure AD-based authorization model that controls access to the _Azure control plane_. This is an association of your Azure AD tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources, such as networks, an AKS cluster, and managed identities.
 
-Suppose you need to give permissions to the cluster operators (mapped to the infrastructure operator role). All people who are assigned the infrastructure operator responsibilities belong to an Azure AD Group. As established in 7.1.1, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin`, that meets those requirements. You'll need to bind the Azure AD Group for infrastructure operator to `cluster-admin` by creating role bindings. There are two approaches. You can choose the built-in roles. Or, if the built-in roles do not meet your requirements (for example, they might be overly permissive), create custom roles for your bindings. 
+Suppose you need to give permissions to the cluster operators (mapped to the infrastructure operator role). All people who are assigned the infrastructure operator responsibilities belong to an Azure AD Group. As established in 7.1.1, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin`, that meets those requirements. You'll need to bind the Azure AD Group for infrastructure operator to `cluster-admin` by creating role bindings. There are two approaches. You can choose the built-in roles. Or, if the built-in roles do not meet your requirements (for example, they might be overly permissive), create custom roles for your bindings.
 
 The reference implementation demonstrates the preceding example by using native Kubernetes RBAC. The same association can be accomplished with Azure RBAC. For more information, see [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](/azure/aks/azure-ad-rbac).
 
 You can choose the scope of permission at the cluster level or at the namespace level. For roles that have scoped responsibilities, such as application operators, the permissions are assigned at the namespace level for the workload.
 
-In addition, the roles also need Azure RBAC permissions so that they are able to do their tasks. For example, the cluster operator needs to access Azure Monitor through the portal. So, the infrastructure operator role must have the appropriate RBAC assignment. 
+In addition, the roles also need Azure RBAC permissions so that they are able to do their tasks. For example, the cluster operator needs to access Azure Monitor through the portal. So, the infrastructure operator role must have the appropriate RBAC assignment.
 
 Apart from people and their roles, Azure resources and even pods within the cluster have managed identities. Those identities need a set of permissions through Azure RBAC, and must be tightly scoped based on the expected tasks. For example, Azure Application Gateway must have permissions to get secrets (TLS certificates) from Azure Key Vault. It must not have permissions to modify secrets.
 
 Here are some best practices:
 
-- Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are JIT and which are standing. 
+- Maintain meticulous documentation about each role and the assigned permissions. Keep clear distinction about which permissions are JIT and which are standing.
 
 - Monitor the roles for changes, such as in assignment changes or role definitions. Create alerts on changes even if they are expected to gain visibility into intentions behind the changes.
 
@@ -369,7 +368,7 @@ Do not use group, shared, or generic IDs, passwords, or other authentication met
 
 Don't share or reuse identities for functionally different parts of the cluster or pods. For example, don't use a team account to access data or cluster resources. Make sure the identity documentation is clear about not using shared accounts.
 
-Disable root users in the CDE. Do not use the built-in `--admin` to clusters within the CDE.
+Disable root users in the CDE. Disable usage of Kubernetes local accounts so that users cannot use the built-in `--admin` access to clusters within the CDE.
 
 ### Requirement 8.6
 

@@ -16,7 +16,7 @@ As you design the workload, consider tradeoffs between cost optimization and oth
 
 **What is most important for the business: lowest cost, no downtime, high throughput?**
 ***
-An optimal design doesn’t equate to a low-cost design. There might be risky choices made in favor of a cheaper solution.
+An optimal design doesn't equate to a low-cost design. There might be risky choices made in favor of a cheaper solution.
 
 ## Cost versus reliability
 Cost has a direct correlation with reliability.
@@ -30,7 +30,7 @@ For example, to support high availability, you choose to host the application ac
 
 If the cost of high availability exceeds the cost of downtime, you can save by using Azure platform-managed replication and recover data from the backup storage.
 
-For resiliency, availability, and reliability considerations, see the [Reliability](../resiliency/overview.md?branch=master) pillar.
+For resiliency, availability, and reliability considerations, see the [Reliability](../resiliency/principles.md?branch=master) pillar.
 
 ## Cost versus performance efficiency
 
