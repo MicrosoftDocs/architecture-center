@@ -127,7 +127,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 - Use FQDN filtering in network rules
   - You can use FQDNs in network rules based on DNS resolution in Azure Firewall and Firewall policy. This capability allows you to filter outbound traffic with any TCP/UDP protocol (including NTP, SSH, RDP, and more). You must enable DNS Proxy to use FQDNs in your network rules. See how it works: [Azure Firewall FQDN filtering in network rules](/azure/firewall/fqdn-filtering-network-rules#how-it-works)
 - If filtering inbound Internet traffic with Azure Firewall policy DNAT, for security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
-- Use Azure Firewall to secure Private Endpoints (Virtual Wan Scenario). See more at: [Secure traffic destined to private endpoints in Azure Virtual WAN](/azure/firewall-manager/private-link-inspection-secure-virtual-hub)
+- Use Azure Firewall to secure Private Endpoints (Virtual WAN scenario). See more at: [Secure traffic destined to private endpoints in Azure Virtual WAN](/azure/firewall-manager/private-link-inspection-secure-virtual-hub)
 - Configure Threat intelligence
   - Threat intelligence-based filtering can be configured for your Azure Firewall policy to alert and deny traffic from and to known malicious IP addresses and domains. See more at: [Azure Firewall threat intelligence configuration](/azure/firewall-manager/threat-intelligence-settings)
 - Use Azure Firewall Manager
