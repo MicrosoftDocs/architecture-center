@@ -45,7 +45,7 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 | [Sharding](../../patterns/sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
 | [Throttling](../../patterns/throttling.md) | Control the consumption of resources that are used by an instance of an application, an individual tenant, or an entire service. |
 
-## Antipattern
+## Antipatterns
 
 Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/index.md), in which the activity of one tenant can have a negative impact on another tenant's use of the system.
 
