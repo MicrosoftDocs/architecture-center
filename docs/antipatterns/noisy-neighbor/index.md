@@ -26,7 +26,7 @@ A benefit of multitenant systems is that resources can be pooled and shared amon
 
 Consider an example multitenant system with two tenants. Tenant A's usage patterns and tenant B's usage patterns coincide, which means that at peak times, the total resource usage is higher than the capacity of the system:
 
-![Figure showing the resource usage of two tenants. Tenant A consumes the complete set of system resources, meaning tenant B experiences failures.](_images/noisy-neighbor-single.png)
+![Diagram showing two tenants. Tenant A ](_images/noisy-neighbor-single.png)
 
 It's likely that whichever tenant's request arrived first will take precedence, and the other tenant will experience a noisy neighbor problem. Alternatively, both tenants may find their performance suffers.
 
@@ -43,8 +43,8 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
 ### Actions that clients can take
 
 - Purchase reserved capacity if available. For example, when using Cosmos DB, purchase [reserved throughput](/azure/cosmos-db/optimize-cost-throughput), and when using ExpressRoute, [provision separate circuits for environments that are sensitive to performance](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure)
-- Migrate to single-tenant instance/stamp
-- Handle throttling properly
+- Migrate to single-tenant instance/stamp or to service tiers with higher isolation guarantees. For example, when using Service Bus, [migrate to the premium tier](/azure/service-bus-messaging/service-bus-premium-messaging), and when using Azure Cache for Redis, [provision a standard or premium tier cache](/azure/azure-cache-for-redis/cache-best-practices#configuration-and-concepts)    .
+- Handle throttling properly    
 
 ### Actions that service providers can take
 
@@ -55,11 +55,13 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
 - Consider allowing tenants to purchase pre-provisioned/reserved capacity.
 - If you host multiple instances of your solution, consider re-balancing tenants across instances/stamps. For example, consider placing tenants with predictable usage patterns across multiple stamps to flatten the peaks in usage.
 - Consider whether you have background processes, or resource-intensive workloads that aren't time-sensitive. Run these asynchronously at off-peak times to preserve your peak resource capacity for time-sensitive workloads.
+- Consider whether your services provide controls to mitigate noisy neighbor problems. For example, when using Kubernetes [consider using pod limits](/azure/aks/developer-best-practices-resource-management), and when using Service Fabric, [consider using the built-in governance capabilities](/azure/service-fabric/service-fabric-resource-governance).
 
 ## Considerations
 
-- Tenants likely don't mean to cause issues. It's the service provider's job to ensure that this can't happen - it's not good to blame tenants for using the resources, since they likely are naive to the problem.
+- Tenants likely don't mean to cause issues.
 - However, sometimes there could be bad actors that DDOS a multitenant system if it does not have usage governance, quota enforcement, and throttling.
+- It's the service provider's job to ensure that this can't happen - it's not good to blame tenants for using the resources, since they likely are naive to the problem.
 
 ## How to detect the problem
 
@@ -77,4 +79,4 @@ Construct an example with Application Insights and Cosmos DB?
 
 ## Related resources
 
-- TODO
+ * [Transient fault handling best practices](../../best-practices/transient-faults.md)
