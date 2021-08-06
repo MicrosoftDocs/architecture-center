@@ -3,7 +3,7 @@ title: Retry Storm antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Avoid retrying failed requests to a service too often.
 author: johndowns
-ms.date: 02/23/2021
+ms.date: 08/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
@@ -65,7 +65,7 @@ From a service's perspective, symptoms of this problem could include a large num
 
 ## Example diagnosis
 
-The following sections illustrate one approach to detecting a potential retry storm, but on the client side and the service side.
+The following sections illustrate one approach to detecting a potential retry storm, both on the client side and the service side.
 
 ### Identifying from client telemetry
 
