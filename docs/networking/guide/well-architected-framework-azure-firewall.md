@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - azure-application-gateway
+  - azure-firewall
 categories:
   - networking
 ms.custom:
