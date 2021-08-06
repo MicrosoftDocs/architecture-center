@@ -1,7 +1,7 @@
 ---
 title: Google Cloud to Azure services comparison
 description: Understand the differences between specific Google Cloud and Azure services.
-author: EdPrice-MSFT
+author: fbinotto
 ms.author: petuton
 ms.date: 08/03/2021
 ms.topic: reference
@@ -216,13 +216,14 @@ Here are some architectures that use AKS as the orchestrator.
 ## Security
 | Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
-| Authentication and Authorization | [Cloud IAM](https://cloud.google.com/iam) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups and use permissions to allow and deny access to resources. |
+| Authentication and Authorization | [Cloud IAM](https://cloud.google.com/iam) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups and use permissions to allow and deny access to resources. |
 | | [Cloud IAM](https://cloud.google.com/iam) | [Azure role-based access control](/azure/role-based-access-control/overview) | Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
-| | Resource Manager | [Azure Subscription Management](/azure/cloud-adoption-framework/decision-guides/subscriptions/) | Structure to organize and manage assets in Azure. |
-| | Multi-factor Authentication | [Azure Active Directory Multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) | Safeguard access to data and applications while meeting user demand for a simple sign-in process. |
-| | [Firebase Authentication](https://firebase.google.com/docs/auth) | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) | A highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. |
+| | Resource Manager | [Azure Subscription Management](/azure/cloud-adoption-framework/decision-guides/subscriptions) | Structure to organize and manage assets in Azure. |
+| | Multi-factor Authentication | [Azure Active Directory Multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication) | Safeguard access to data and applications while meeting user demand for a simple sign-in process. |
+| | [Firebase Authentication](https://firebase.google.com/docs/auth) | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c) | A highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. |
 | | [BeyondCorp Enterprise](https://cloud.google.com/beyondcorp-enterprise/docs/overview) | [Azure Active Directory Conditional Access](/azure/active-directory/conditional-access/overview) | Azure Active Directory uses the Conditional Access tool to bring signals together, to make decisions, and to enforce organizational policies in a Zero Trust security model. |
-| Encryption | [Cloud KMS](https://cloud.google.com/kms), [Secret Manager](https://cloud.google.com/secret-manager) | [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) | Provides security solution and works with other services by providing a way to manage, create, and control encryption keys stored in hardware security modules (HSM). |
+| Encryption | [Cloud KMS](https://cloud.google.com/kms),[Secret Manager](https://cloud.google.com/secret-manager) | [Azure Key Vault](https://azure.microsoft.com/services/key-vault) | Provides security solution and works with other services by providing a way to manage, create, and control encryption keys stored in hardware security modules (HSM). |
+| Data at rest encryption | [Encryption by default](https://cloud.google.com/security/encryption-at-rest) | [Azure Storage Service Encryption](/azure/storage/storage-service-encryption) - encryption by default | Azure Storage Service Encryption helps you protect and safeguard your data and meet your organizational security and compliance commitments. |
 | | [Confidential Computing](https://cloud.google.com/confidential-computing) | [Azure Confidential Computing](https://azure.microsoft.com/solutions/confidential-compute/#overview) | Protects data that's in use, by performing computations in a hardware-based trusted execution environment (TEE). | [Encryption by default](https://cloud.google.com/security/encryption-at-rest) | [Azure Storage Service Encryption](/azure/storage/storage-service-encryption) - encryption by default | Azure Storage Service Encryption helps you protect and safeguard your data and meet your organizational security and compliance commitments. |
 | Security | [Security Command Center](https://cloud.google.com/security-command-center) | [Azure Security Center](https://azure.microsoft.com/services/security-center) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
 | | [Web Security Scanner](https://cloud.google.com/security-scanner) | [Azure Security Center](https://azure.microsoft.com/services/security-center) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
@@ -235,13 +236,13 @@ Here are some architectures that use AKS as the orchestrator.
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud Storage](https://cloud.google.com/storage#section-1)<br/><br/> [Cloud Storage for Firebase](https://firebase.google.com/products/storage/) | [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service designed for storing unstructured data, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, data lakes, high-performance computing, and machine learning.|
+| [Cloud Storage](https://cloud.google.com/storage#documentation)<br/><br/> [Cloud Storage for Firebase](https://firebase.google.com/products/storage) | [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
 
 ### Block storage
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Persistant Disk](https://cloud.google.com/compute/docs/disks)<br/><br/> [Local SSD](https://cloud.google.com/compute/docs/disks/local-ssd) | [Azure Disk Storage](https://azure.microsoft.com/services/storage/disks) | Block-level storage volumes (HDDs & SSDs) are used with virtual machines. Use cases include clustered applications, containerized workloads, and other mission and business critical applications.|
+| [Persistant Disk](https://cloud.google.com/compute/docs/disks)<br/><br/> [Local SSD](https://cloud.google.com/compute/docs/disks/local-ssd) | [Azure managed disks](https://azure.microsoft.com/services/storage/disks) | SSD storage optimized for I/O intensive read/write operations. For use as high-performance Azure virtual machine storage. |
 
 ### File storage
 
@@ -269,23 +270,25 @@ Here are some architectures that use AKS as the orchestrator.
 | Area | Google Cloud service | Azure service | Description |
 | --- | --- | --- | --- |
 | Workflow | [Composer](https://cloud.google.com/composer) | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
-| Enterprise application services | [G Suite](https://gsuite.google.com) | [Microsoft 365](https://products.office.com/) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
+| Enterprise application services | [G Suite](https://gsuite.google.com) | [Microsoft 365](https://products.office.com) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
 | Gaming | [Game Servers](https://cloud.google.com/game-servers/docs) | [Azure PlayFab](https://playfab.com) | Managed services for hosting dedicated game servers. |
 | Hybrid | [Anthos](https://cloud.google.com/anthos) | [Azure Arc](https://azure.microsoft.com/services/azure-arc) | For customers who want to simplify complex and distributed environments across on-premises, edge and multi-cloud, Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure. |
 | Blockchain | [Digital Asset](https://developers.google.com/digital-asset-links) | [Azure Blockchain Service](https://azure.microsoft.com/services/blockchain-service) | Azure Blockchain Service is a fully managed ledger service that enables users the ability to grow and operate blockchain networks at scale in Azure. |
 | Monitoring | [Cloud Monitoring](https://cloud.google.com/monitoring) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | Service which provides visibility into the performance, uptime, and overall health of cloud-powered applications. |
-| Logging | [Cloud Logging](https://cloud.google.com/logging) | [Log Analytics](/azure/azure-monitor/log-query/get-started-portal/) | Service for real-time log management and analysis. |
+| Logging | [Cloud Logging](https://cloud.google.com/logging) | [Log Analytics](/azure/azure-monitor/log-query/get-started-portal) | Service for real-time log management and analysis. |
 
-## Azure Migration Tools
+## Migration tools
 
-| Type | Azure Service | Description |
-| --- | --- | --- |
-| Generic Database migrationGuide (SQL or Open Source Database) | [Database migration guide](https://datamigration.microsoft.com/) | Migration of database schema and data from one database format to a specific database technology in the cloud. |
-| SQL Server Database Migration Assessment Tool | [Data MigrationAssistant](/sql/dma/dma-overview?view=sql-server-ver15&preserve-view=true) | Assessment of SQL Server database before migration |
-| SQL Server Database Migration Tool | [Data Migration Service](/azure/dms/) | Actual migration of database to Azure |
-| Open source Database Migration Tool | Database Native Tool likemysqldump,pg\dump | Actual Migration of open source database to Azure |
-| Assessment and migration tool | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | Assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations. |
-| Migration tool | [Movere](https://www.movere.io/) | Movere is a discovery solution that provides the data and insights needed to plan cloud migrations and continuously optimize, monitor and analyze IT environments with confidence. |
+Area | Google Cloud service | Azure Service | Description |
+| --- | --- | --- | --- |
+App migration to containers | [Migrate for Anthos](https://cloud.google.com/migrate/anthos) | [Azure Migrate: App Containerization tool](/azure/migrate/tutorial-app-containerization-aspnet-kubernetes) | Modernize your application by migrating it to AKS or App Services containers. |
+Migration of virtual machines | [Migrate for Compute Engine](https://cloud.google.com/migrate/compute-engine) | [Azure Migrate: Server Migration tool](/azure/migrate/migrate-services-overview) | Migrate servers from anywhere to Azure. |
+VMware migration | [Google Cloud VMware Engine](https://cloud.google.com/vmware-engine) | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware/#product-overview) | Move or extend on-premises VMware environments to Azure. |
+Migration of databases | [Database Migration Service](https://cloud.google.com/database-migration) | [Azure Database Migration Service](/azure/dms/dms-overview) | Fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime. |
+Migration programs | [Google Cloud Rapid Assessment & Migration Program (RAMP)](https://cloud.google.com/solutions/cloud-migration-program) | [Azure Migration and Modernization Program](https://azure.microsoft.com/migration/migration-modernization-program/#overview) | Learn how to move your apps, data, and infrastructure to Azure using a proven cloud migration and modernization approach. |
+Server assessment |  | [Movere](/azure/migrate/migrate-services-overview#movere) | Increases business intelligence by accurately presenting entire IT environments within a single day. |
+Database assessment |  | [Data Migration Assistant](/sql/dma/dma-overview) |  It helps pinpoint potential problems blocking migration. It identifies unsupported features, new features that can benefit you after migration, and the right path for database migration. |
+Web app assessment and migration |  | [Web app migration assistant](https://appmigration.microsoft.com) | Assess on-premises web apps and migrate them to Azure. |
 
 ## More learning
 
