@@ -26,12 +26,16 @@ In AWS, Route 53 provides both DNS name management and DNS-level traffic routing
 
 - [Azure DNS](https://azure.microsoft.com/documentation/services/dns) provides domain and DNS management.
 
-- [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) provides DNS level traffic routing, load balancing, and failover capabilities.
+- [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) provides DNS level traffic routing, load balancing, and failover capabilities.
 
 ## Direct Connect and Azure ExpressRoute
 
 Azure provides similar site-to-site dedicated connections through its
 [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute) service. ExpressRoute allows you to connect your local network directly to Azure resources using a dedicated private network connection. Azure also offers more conventional [site-to-site VPN connections](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) at a lower cost.
+
+## Private Link
+
+Simlar to AWS PrivateLink, [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
 
 ## VPC Peering, Azure VNet Peering
 
