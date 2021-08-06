@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure load-balancing options
 titleSuffix: Azure Application Architecture Guide
-description: An overview of Azure load-balancing options.
+description: Read an overview of Azure load-balancing options. The term 'load balancing' refers to the distribution of workloads across many computing resources.
 author: EdPrice-MSFT
 ms.author: pnp
 ms.date: 03/02/2021

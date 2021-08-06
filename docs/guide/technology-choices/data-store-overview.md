@@ -1,7 +1,7 @@
 ---
 title: Understand data store models
 titleSuffix: Azure Application Architecture Guide
-description: Describes different data storage models found in Azure data services.
+description: Read about the different data storage models that are found in Azure data services. Understand the main storage models and their tradeoffs.
 author: dsk-2015
 ms.author: pnp
 ms.date: 08/08/2020

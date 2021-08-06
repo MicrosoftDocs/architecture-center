@@ -1,6 +1,6 @@
 ---
 title: Processing free-form text for search
-description: 
+description: Learn to support free-form text for search, by constructing a specialized index that's precomputed against a collection of documents.
 author: zoinerTejada
 ms.date: 11/30/2020
 ms.topic: conceptual

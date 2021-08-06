@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure Well-Architected Framework
 titleSuffix: Azure Architecture Center
-description: Azure Well-Architected Framework describes five pillars of cost optimization, operational excellence, performance efficiency, reliability, and security, that result in a high quality and scalable cloud architecture.
+description: Review the five pillars of Azure Well-Architected Framework: cost optimization, operational excellence, performance efficiency, reliability, and security.
 author: david-stanford 
 ms.author: pnp
 ms.date: 11/20/2019

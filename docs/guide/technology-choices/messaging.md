@@ -1,7 +1,7 @@
 ---
 title: Asynchronous messaging options in Azure
 titleSuffix: Azure Application Architecture Guide
-description: Overview of choosing asynchronous messaging for Azure apps.
+description: Read an overview of asynchronous messaging options for Azure apps. These options include Azure Service Bus, Event Grid, and Event Hubs.
 author: PageWriter-MSFT
 ms.date: 10/30/2019
 ms.topic: conceptual

@@ -1,6 +1,6 @@
 ---
 title: Overview of the security pillar
-description: Describes the security pillar
+description: Read an overview of the security pillar of the Microsoft Azure Well-Architected Framework. View links to different security articles.
 author: david-stanford
 ms.date: 10/21/2019
 ms.topic: conceptual
