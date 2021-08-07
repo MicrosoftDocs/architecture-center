@@ -1,6 +1,6 @@
 ---
 title: Designing a microservices architecture
-description: This reference implementation illustrates best practices for a microservices architecture
+description: Review best practices for a microservices architecture, which require a different approach to designing and building applications.
 author: doodlemania2
 ms.date: 02/26/2019
 ms.topic: conceptual
