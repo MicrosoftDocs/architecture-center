@@ -209,19 +209,27 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 [view all](../browse/index.yml?azure_categories=iot)
 
-## Management
+## Management and Governance
 
 | AWS service | Azure service | Description |
 |-------------|---------------|-------------|
+| [AWS Organizations](https://aws.amazon.com/organizations/) | [Management Groups](/azure/governance/management-groups/)| Azure management groups help you organize your resources and subscriptions.|
+| [AWS Well-Architected Tool](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html)|[Azure Well-Architected Review](https://docs.microsoft.com/en-us/assessments/?mode=pre-assessment)|Examine your workload through the lenses of reliability, cost management, operational excellence, security and performance efficiency. |
 | [Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor) | [Advisor](https://azure.microsoft.com/services/advisor) | Provides analysis of cloud resource configuration and security so subscribers can ensure they're making use of best practices and optimum configurations. |
-| [Usage and Billing Report](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-gettingstarted-turnonreports.html) | [Billing API](/azure/billing/billing-usage-rate-card-overview) | Services to help generate, monitor, forecast, and share billing data for resource usage by time, organization, or product resources. |
+| [AWS Billing and Cost Management](https://docs.aws.amazon.com/account-billing/index.html) | [Azure Cost Management and Billing](/azure/cost-management-billing/) | Azure Cost Management and Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending, and optimize resource use. |
 | [Management Console](https://aws.amazon.com/console) | [Portal](https://azure.microsoft.com/features/azure-portal/) | A unified management console that simplifies building, deploying, and operating your cloud resources. |
-| [Application Discovery Service](https://aws.amazon.com/application-discovery) | [Migrate](https://azure.microsoft.com/services/azure-migrate) | Assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations. |
-| [EC2 Systems Manager](https://aws.amazon.com/systems-manager) | [Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
+| [Application Discovery Service](https://aws.amazon.com/application-discovery) | [Migrate](https://azure.microsoft.com/services/azure-migrate/) | Assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations. |
+| [Systems Manager](https://aws.amazon.com/systems-manager) | [Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
 | [Personal Health Dashboard](https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard) | [Resource Health](/azure/resource-health/resource-health-overview) | Provides detailed information about the health of resources as well as recommended actions for maintaining resource health. |
-| [CloudTrail](https://aws.amazon.com/cloudtrail) | [Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
+| [CloudTrail](https://aws.amazon.com/cloudtrail) | [Activity log](/azure/azure-monitor/essentials/activity-log) | The Activity log is a platform log in Azure that provides insight into subscription-level events such as when a resource is modified or when a virtual machine is started. |
 | [CloudWatch](https://aws.amazon.com/cloudwatch) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | Application Insights, is an extensible Application Performance Management (APM) service for developers and DevOps professionals.|
+| [Config](https://aws.amazon.com/config/) | [Application Change Analysis](/azure/azure-monitor/app/change-analysis)| Application Change Analysis detects various types of changes, from the infrastructure layer all the way to application deployment.|
 | [Cost Explorer](https://aws.amazon.com/aws-cost-management) | [Cost Management](https://azure.microsoft.com/services/cost-management) | Optimize cloud costs while maximizing cloud potential. |
+| [Control Tower](https://aws.amazon.com/controltower) | [Blueprints](/azure/governance/blueprints) | Set up and govern a multi account/subscription environment by creating landing zones.|
+| [Resource Groups & Tag Editor](https://docs.aws.amazon.com/ARG/)|[Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview)  [& Tags](s/azure/azure-resource-manager/management/tag-resources)| A Resource Group is a container that holds related resources for an Azure solution. Apply tags to your Azure resources to logically organize them by categories.|
+| [AWS AppConfig](https://aws.amazon.com/systems-manager/features/appconfig/) | [Azure App Configuration](/azure/azure-app-configuration/)| Azure App Configuration is a managed service that helps developers centralize their application and feature settings simply and securely.|
+| [Service Catalog](https://aws.amazon.com/servicecatalog) | [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/)|Offer cloud solutions that are easy for consumers to deploy and operate.
+| [SDKs and tools](https://aws.amazon.com/getting-started/tools-sdks/) | [SDKs and tools](https://azure.microsoft.com/en-us/downloads/]) | Manage and interact with Azure services the way you prefer, programmatically from your language of choice using the Azure SDKs,  our collection of tools, or both.|
 
 ## Messaging and eventing
 
@@ -336,12 +344,6 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 </ul>
 
 [view all](../browse/index.yml?azure_categories=web)
-
-## Landing zone
-
-| AWS service | Azure service | Description |
-|------|-------------|---------------|
-| [Control Tower](https://aws.amazon.com/controltower) | [Blueprints](/azure/governance/blueprints) | Set up and govern a multi account/subscription environment by creating landing zones.|
 
 ## End-user computing
 
