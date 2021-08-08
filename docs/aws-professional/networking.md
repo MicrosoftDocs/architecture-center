@@ -1,8 +1,9 @@
 ---
 title: Comparing AWS and Azure networking options
 description: A comparison of the different networking options between Azure and AWS
-author: doodlemania2
-ms.date: 05/21/2020
+author: Kaspanitz 
+ms.author: johanv
+ms.date: 08/09/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -14,9 +15,9 @@ products:
 
 ## Elastic Load Balancing, Azure Load Balancer, and Azure Application Gateway
 
-The Azure equivalent of the four Elastic Load Balancing services are:
+The Azure equivalent of the Elastic Load Balancing services are:
 
-- [Load Balancer](/azure/load-balancer/load-balancer-overview): provides similar capabilities to the AWS Classic Load Balancer, AWS Network Load Balancer and AWS Gateway Load Balancer, allowing you to distribute traffic to multiple VMs at the network level. Azure Load Balancer supports inbound and outbound scenarios with low latency, high throughput, and scalability up to millions of flows for all TCP and UDP applications.
+- [Load Balancer](/azure/load-balancer/load-balancer-overview): provides similar capabilities to the AWS Classic Load Balancer, AWS Network Load Balancer, and AWS Gateway Load Balancer, allowing you to distribute traffic to multiple VMs at the network level. Azure Load Balancer supports inbound and outbound scenarios with low latency, high throughput, and scalability up to millions of flows for all TCP and UDP applications.
 
 - [Application Gateway](/azure/application-gateway/overview): offers application-level rule-based routing comparable to the AWS Application Load Balancer.
 
