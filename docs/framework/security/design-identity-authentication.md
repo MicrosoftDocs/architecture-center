@@ -1,6 +1,6 @@
 ---
 title: Authentication with Azure AD
-description: Authentication considerations when using Azure AD for a workload.
+description: Review the authentication considerations when you're using Azure Active Directory (Azure AD) for a workload.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: conceptual
