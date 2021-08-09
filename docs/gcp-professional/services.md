@@ -68,8 +68,8 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [BigQuery](https://cloud.google.com/bigquery) | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
-| [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Big Data Clusters](/sql/big-data-cluster/big-data-cluster-overview?view=sql-server-ver15&preserve-view=true) | Allow you to deploy scalable clusters of SQL Server, Spark, and HDFS containers running on Kubernetes. These components are running side by side to enable you to read, write, and process big data from Transact-SQL or Spark, allowing you to easily combine and analyze your high-value relational data with high-volume big data. |
+| [BigQuery](https://cloud.google.com/bigquery) | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
+| [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Big Data Clusters](/sql/big-data-cluster/big-data-cluster-overview?view=sql-server-ver15&preserve-view=true) <br/><br/> [Azure Databricks](https://azure.microsoft.com/services/databricks) | Allow you to deploy scalable clusters of SQL Server, Spark, and HDFS containers that run on Kubernetes. These components are running side by side, to enable you to read, write, and process big data from Transact-SQL or Spark, which allows you to easily combine and analyze your high-value relational data with high-volume big data. |
 
 ### Big data processing
 
