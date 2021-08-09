@@ -44,7 +44,7 @@ Azure provides a package of products and services designed to capture, organize,
 - [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/): large-scale relational data storage using either serverless or dedicated resources.
 - [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/): a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers.
 
-- [Data Lake Store](https://azure.microsoft.com/documentation/services/data-lake-store): analytics service that brings together enterprise data warehousing and Big Data analytics. Query data on your terms, using either serverless or dedicated resources—at scale.
+- [Data Lake Store](https://azure.microsoft.com/documentation/services/data-lake-store): analytics service that brings together enterprise data warehousing and big data analytics. Query data on your terms, using either serverless or dedicated resources—at scale.
 
 - [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning): used to build and apply predictive analytics on data.
 
