@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
 
-# Relational Database technologies on Azure and AWS
+# Relational database technologies on Azure and AWS
 
 ## RDS and Azure relational database services
 
