@@ -1,5 +1,5 @@
 ---
-title: Solutions for government industry
+title: Solutions for the government industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable government solutions.
 author: dsk-2015
@@ -20,7 +20,7 @@ categories:
   - web
 ---
 
-# Solutions for government industry
+# Solutions for the government industry
 
 Microsoft Azure provides a mission-critical cloud platform, Azure Government, that delivers breakthrough innovation to US government customers and their partners. US federal, state, local, and tribal governments and their partners can have secure and dedicated access to this platform, with operations controlled by screened US citizens.
 
