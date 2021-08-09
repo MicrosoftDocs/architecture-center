@@ -25,6 +25,8 @@ Many cases can benefit from the Astadia and Micro Focus pattern:
    The diagram contains two areas, one for Azure components, and one for on-premises components. The on-premises area is simple, with icons for a user and a network service. The Azure area is complex. Boxes containing icons fill the Azure area. The boxes represent a virtual network, sets of virtual machines, third-party software, database services, storage solutions, and other components. Arrows connect some boxes. Number and letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
+*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
 1. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
 
    - To minimize the need for retraining, you can avoid modifying the web application presentation layer during migration. But you can also update the presentation layer to align with UX requirements.
@@ -287,6 +289,7 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Optimize VM costs]: ../../framework/cost/optimize-vm.md
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-architecture-diagram.vsdx
 [VM pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 [What are ARM templates?]: /azure/azure-resource-manager/templates/overview
 [What is Application Insights?]: /azure/azure-monitor/app/app-insights-overview
