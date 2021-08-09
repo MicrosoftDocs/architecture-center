@@ -89,7 +89,7 @@ The second diagram shows how you can use Azure platform as a service (PaaS) serv
 - [AKS](https://azure.microsoft.com/services/kubernetes-service): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure.
 - [Batch](https://azure.microsoft.com/services/batch): Batch is designed to run general purpose batch computing in the cloud across many nodes that can scale based on the workload being executed. It’s a perfect fit for ETL or AI use cases where multiple tasks are executed in parallel, independent from each other.
 - [Functions](https://azure.microsoft.com/services/functions): Use Functions to run small pieces of code without worrying about application infrastructure. With Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
-- [Azure App Service](https://azure.microsoft.com/services/app-service): With [WebJobs](azure/app-service/webjobs-create), which comes with App Service, you can code reusable background business logic as web jobs.
+- [Azure App Service](https://azure.microsoft.com/services/app-service): With [WebJobs](/azure/app-service/webjobs-create), which comes with App Service, you can code reusable background business logic as web jobs.
 - [Azure Cache for Redis](https://azure.microsoft.com/en-us/services/cache/): Applications that use a high volume of backend data can be developed to scale and deliver a highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis offers both the Redis open-source (OSS Redis) and a commercial product from Redis Labs, Redis Enterprise, as a managed service.
 
 #### Storage
@@ -145,7 +145,7 @@ The second diagram shows how you can use Azure platform as a service (PaaS) serv
 ### Resiliency
 
 - You can use Azure Monitor and Application Insights, on top of Log Analytics, to monitor the health of an Azure resource. Set alerts to proactively manage your resource health.
-- For more information on resiliency in Azure, see [Designing reliable Azure applications](azure/architecture/framework/resiliency/app-design).
+- For more information on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Pricing
 
@@ -160,4 +160,5 @@ See [Azure mainframes batch application](https://azure.com/e/c7fa52f13c2f4806ac0
 
 ## Related resources
 
-- [Azure mainframe and midrange architecture concepts and patterns](mainframe-midrange-architecture.md)
+- [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
+- [High-volume batch transaction processing](process-batch-transactions-content.md)
