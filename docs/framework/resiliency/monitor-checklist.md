@@ -1,6 +1,6 @@
 ---
 title: Monitoring for reliability
-description: Describes considerations for reliability in application monitoring.
+description: Review considerations for reliability in application monitoring. See a list of Azure services that you can use for monitoring.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
