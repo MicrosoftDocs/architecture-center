@@ -36,7 +36,7 @@ The first diagram shows the architecture of a typical batch application running 
 
 The second diagram shows how you can use Azure platform as a service (PaaS) services to re-engineer a similar application with added capabilities and flexibility.
 
-:::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.png" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="azure-reengineered-mainframe-batch-application-architecture-expanded.png":::
+:::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.png" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="media/azure-reengineered-mainframe-batch-application-architecture-expanded.png":::
 
 *To download a Visio file of this architecture, see (link coming soon).*
 
