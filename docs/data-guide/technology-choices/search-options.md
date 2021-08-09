@@ -1,6 +1,6 @@
 ---
 title: Choosing a search data store
-description: 
+description: Compare technology choices for search data stores in Azure. Options include Azure Cognitive Search, Elasticsearch, HDInsight with Solr, and Azure SQL Database.
 author: zoinerTejada
 ms.date: 11/30/2020
 ms.topic: conceptual

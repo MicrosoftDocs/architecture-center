@@ -1,7 +1,7 @@
 ---
 title: Big compute architecture style
 titleSuffix: Azure Application Architecture Guide
-description: Describes benefits, challenges, and best practices for Big Compute architectures on Azure.
+description: Understand the benefits, challenges, and best practices of the Big Compute architecture style on Azure.
 author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: conceptual
