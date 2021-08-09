@@ -36,7 +36,7 @@ The first diagram shows the architecture of a typical batch application running 
 
 The second diagram shows how you can use Azure platform as a service (PaaS) services to re-engineer a similar application with added capabilities and flexibility.
 
-:::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.png" alt-text="Diagram of a typical batch application running on a z/OS mainframe.":::
+:::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.png" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="azure-reengineered-mainframe-batch-application-architecture-expanded.png":::
 
 *To download a Visio file of this architecture, see (link coming soon).*
 
@@ -156,9 +156,9 @@ See [Azure mainframes batch application](https://azure.com/e/c7fa52f13c2f4806ac0
 ## Next steps
 
 - For more information, contact datasqlninja@microsoft.com.
-- See the [Azure migration guide](https://datamigration.microsoft.com).
+- See the [Azure database migration guides](https://datamigration.microsoft.com).
 
 ## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
-- [High-volume batch transaction processing](process-batch-transactions-content.md)
+- [High-volume batch transaction processing](process-batch-transactions.yml)
