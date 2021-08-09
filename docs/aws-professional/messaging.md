@@ -1,8 +1,8 @@
 ---
 title: Comparing AWS and Azure messaging services
 description: A comparison of the differences between the messaging services of Azure and AWS
-author: splitfinity
-ms.author: yubaijna
+author: bgener
+ms.author: bogenera
 ms.date: 08/10/2021
 ms.topic: reference
 ms.service: architecture-center

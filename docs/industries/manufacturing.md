@@ -1,5 +1,5 @@
 ---
-title: Solutions for manufacturing industry
+title: Solutions for the manufacturing industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable manufacturing solutions.
 author: dsk-2015
@@ -18,7 +18,7 @@ categories:
   - web
 ---
 
-# Solutions for manufacturing industry
+# Solutions for the manufacturing industry
 
 Manufacturing sector, a hallmark of the modern industrialized world, encompasses all steps from procuring raw materials to transforming into final product. Starting from household manufacturing in the pre-industrial era, this sector has evolved through stages such as mechanized assembly lines and automation, every new development adding to faster and more efficient manufacturing processes. Cloud computing can bring forth the next revolution for manufacturing companies by transforming their IT infrastructures and processes from error-prone on-premises to highly available, secure, and efficient cloud, as well as providing cutting edge Internet of Things (IoT), AI/ML, and analytics solutions.
 
