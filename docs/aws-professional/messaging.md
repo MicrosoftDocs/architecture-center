@@ -20,7 +20,7 @@ AWS Simple Queueing Service (SQS) provides a messaging system for connecting app
 
 - [Queue storage](/azure/storage/queues/storage-nodejs-how-to-use-queues): a cloud messaging service that allows communication between application components within Azure.
 
-- [Service Bus](https://azure.microsoft.com/services/service-bus): a more robust messaging system for connecting applications, services, and devices. Using the related [Service Bus relay](/azure/service-bus-relay/relay-what-is-it), Service Bus can also connect to remotely hosted applications and services.
+- [Service Bus](https://azure.microsoft.com/services/service-bus): a more robust messaging system for connecting applications, services, and devices. The service supports both message queues and publish-subscribe topics and standard protocols, i.e. HTTP/REST API (synchronous) and AMQP (asynchronous, guaranteed message delivery) to send and receive messages. Using the related [Service Bus relay](/azure/service-bus-relay/relay-what-is-it), Service Bus can also connect to remotely hosted applications and services.
 
 ## Messaging components
 
