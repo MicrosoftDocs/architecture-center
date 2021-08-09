@@ -42,7 +42,7 @@ Details about Azure Security Center pricing can be found [here][azure-security-c
 
 ### Customized Log Analytics Workspace
 
-**Azure Sentinel** needs access to a Log Analytics workspace. In this scenario, you can’t use the default ASC Log Analytics workspace with Azure Sentinel. You’ll need to create a customized workspace. Data retention for a customized workspace is based on the workspace pricing tier, and you can find pricing models for Monitor Logs [here][azure-monitor-storage-pricing].
+**Azure Sentinel** needs access to a Log Analytics workspace. In this scenario, you can't use the default ASC Log Analytics workspace with Azure Sentinel. You'll need to create a customized workspace. Data retention for a customized workspace is based on the workspace pricing tier, and you can find pricing models for Monitor Logs [here][azure-monitor-storage-pricing].
 
 > [!NOTE]
 > Azure Sentinel can run on workspaces in any general availability (GA) region of Log Analytics except the China and Germany (Sovereign) regions. Data that Azure Sentinel generates, such as incidents, bookmarks, and alert rules, which may contain some customer data sourced from these workspaces, is saved either in Europe (for Europe-based workspaces), in Australia (for Australia-based workspaces), or in the East US (for workspaces located in any other region).
@@ -51,21 +51,21 @@ Details about Azure Security Center pricing can be found [here][azure-security-c
 
 The Log Analytics Agent for Windows and Linux is designed to have very minimal impact on the performance of VMs or physical systems.
 
-Azure Security Center operational process won’t interfere with your normal operational procedures. Instead, it passively monitors your deployments and provides recommendations based on the security policies you enable.
+Azure Security Center operational process won't interfere with your normal operational procedures. Instead, it passively monitors your deployments and provides recommendations based on the security policies you enable.
 
 ## Manageability considerations
 
 ### Azure Security Center roles
 
-Security Center assesses your resources’ configuration to identify security issues and vulnerabilities, and displays information related to a resource when you are assigned the role of owner, contributor, or reader for the subscription or resource group to which a resource belongs.
+Security Center assesses your resources' configuration to identify security issues and vulnerabilities, and displays information related to a resource when you are assigned the role of owner, contributor, or reader for the subscription or resource group to which a resource belongs.
 
 In addition to these roles, there are two specific Security Center roles:
 
-- **Security Reader**. A user that belongs to this role has read only rights to Security Center. The user can observe recommendations, alerts, a security policy, and security states, but can’t make changes.
+- **Security Reader**. A user that belongs to this role has read only rights to Security Center. The user can observe recommendations, alerts, a security policy, and security states, but can't make changes.
 
 - **Security Admin**. A user that belongs to this role has the same rights as the Security Reader, and also can update security policies, and dismiss alerts and recommendations. Typically, these are users that manage the workload.
 
-- The security roles, **Security Reader** and **Security Admin**, have access only in Security Center. The security roles don’t have access to other Azure service areas, such as storage, web, mobile, or IoT.
+- The security roles, **Security Reader** and **Security Admin**, have access only in Security Center. The security roles don't have access to other Azure service areas, such as storage, web, mobile, or IoT.
 
 ### Azure Sentinel subscription
 
@@ -183,7 +183,7 @@ After you onboard your Azure subscription, you can enable Security Center to pro
 
 1. Return to the **Getting Started** tab as previously described.
 1. Select **Configure** under **Add new non-Azure computers**. A list of your Log Analytics workspaces displays, and it should include the **ASC-SentinelWorkspace** that you created.
-1. On the **Direct Agent** blade there is a link for downloading the agent and keys for your workspace ID to use during agent configuration. You don’t need to download the agent manually. It’ll be installed as a VM extension in the following steps.
+1. On the **Direct Agent** blade there is a link for downloading the agent and keys for your workspace ID to use during agent configuration. You don't need to download the agent manually. It'll be installed as a VM extension in the following steps.
 1. To the right of **Workspace ID**, select **Copy**, and then paste the ID into Notepad.
 1. To the right of **Primary Key**, select **Copy**, and then paste the key into Notepad.
 
@@ -252,7 +252,7 @@ All three requirements should be in place if you worked through the previous sec
 1. You can select whether you want the alerts from Azure Security Center to automatically generate incidents in Azure Sentinel. Under **Create incidents**, select **Enabled** to turn on the default analytics rule that automatically creates incidents from alerts. You can then edit this rule under **Analytics**, in the **Active rules** tab.
 1. To use the relevant schema in Log Analytics for the Azure Security Center alerts, search for **SecurityAlert**.
 
-One advantage of using Azure Sentinel as your SIEM is that it provides data correlation across multiple sources, which enables you to have an end-to-end visibility of your organization’s security-related events.
+One advantage of using Azure Sentinel as your SIEM is that it provides data correlation across multiple sources, which enables you to have an end-to-end visibility of your organization's security-related events.
 
 > [!NOTE]
 > To learn how to increase visibility in your data and identify potential threats, refer to [Azure playbooks on TechNet Gallery][technet-gallery-azure-playbooks], which has a collection of resources including a lab in which you can simulate attacks. You should not use this lab in a production environment.

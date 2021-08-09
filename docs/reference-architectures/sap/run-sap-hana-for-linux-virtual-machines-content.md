@@ -46,7 +46,7 @@ with the database. We recommend using Azure [proximity placement groups](/azure/
 ### Load balancer
 
 We recommend using the Standard Load Balancer and enabling [high availability ports](/azure/load-balancer/load-balancer-ha-ports-overview).
-This setup avoids the need to configure load-balancing rules for many SAP ports. With [Standard Load Balancer](/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer), you can also create a high availability solution across [Azure Availability Zones](/azure/availability-zones/az-overview). The Standard Load Balancer is secure by default, and no virtual machines behind the Standard Load Balancer will have outbound internet connectivity. To enable outbound internet in the virtual machines, you must consider your [Standard Load Balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration. Instead, you can use Azure Basic Load Balancer. It’s offered at no charge but doesn't support zones and has no SLA.
+This setup avoids the need to configure load-balancing rules for many SAP ports. With [Standard Load Balancer](/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer), you can also create a high availability solution across [Azure Availability Zones](/azure/availability-zones/az-overview). The Standard Load Balancer is secure by default, and no virtual machines behind the Standard Load Balancer will have outbound internet connectivity. To enable outbound internet in the virtual machines, you must consider your [Standard Load Balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration. Instead, you can use Azure Basic Load Balancer. It's offered at no charge but doesn't support zones and has no SLA.
 
 For SAP HANA database clusters, you must enable Direct Server Return (DSR), also known as Floating IP. This feature allows the server to respond to the IP
 address of the load balancer front end. This direct connection keeps the load balancer from becoming the bottleneck in the path of data transmission. If
@@ -100,7 +100,7 @@ This architecture uses Linux clustering to detect system failures and make autom
 
 ## Disaster recovery considerations
 
-In this architecture, HSR is used for database replication to a database instance in the secondary region. It’s optional to use a cluster in the secondary region, but doing so can improve SAP HANA availability after a disaster recovery failover.
+In this architecture, HSR is used for database replication to a database instance in the secondary region. It's optional to use a cluster in the secondary region, but doing so can improve SAP HANA availability after a disaster recovery failover.
 
 In addition to a local, two-node high availability implementation, HSR supports multi-tier and [multitarget](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/ba457510958241889a459e606bbcf3d3.html) replication. HSR thus allows for inter-zone and inter-region replication. Multitarget replication is available for SAP HANA 2.0 SPS 03 and later.
 
@@ -114,7 +114,7 @@ You can also use [virtual network peering](../hybrid-networking/hub-spoke.yml). 
 
 ### Azure NetApp Files
 
-As an option, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) can be used to provide a scalable and high-performance storage solution for SAP HANA data and log files. It’s also a good solution for Linux cluster shared storage—for example, when building Pacemaker clusters for (A)SCS. With Azure NetApp Files, it's easy to provision file shares for Linux workloads without deploying an NFS file server. This provisioning helps simplify the SAP landscape.
+As an option, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) can be used to provide a scalable and high-performance storage solution for SAP HANA data and log files. It's also a good solution for Linux cluster shared storage—for example, when building Pacemaker clusters for (A)SCS. With Azure NetApp Files, it's easy to provision file shares for Linux workloads without deploying an NFS file server. This provisioning helps simplify the SAP landscape.
 
 Azure NetApp Files supports snapshots for fast backup, recovery, and local replication. For cross-region content replication, you can use the [NetApp Cloud Sync Service](https://azuremarketplace.microsoft.com/marketplace/apps/netapp.cloud-sync-service?tab=Overview), rsync, or another copy function.
 
@@ -123,7 +123,7 @@ Azure NetApp Files supports snapshots for fast backup, recovery, and local repli
 You can use [Azure Site Recovery](/azure/site-recovery/site-recovery-sap) to automatically replicate your production configuration in a secondary location. Then, to extend your recovery plans, you can use customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). An example of the custom Site Recovery Automation Runbooks script is available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/asr-automation-recovery).
 
 > [!NOTE]
-> As of this writing, Site Recovery does not support the replication of virtual machines in proximity placement groups. Make sure to verify your target region’s [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity). Like all Azure services, Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
+> As of this writing, Site Recovery does not support the replication of virtual machines in proximity placement groups. Make sure to verify your target region's [resource capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity). Like all Azure services, Site Recovery continues to add features and capabilities. For the latest information about Azure-to-Azure replication, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix).
 
 ## Management and operations considerations
 
