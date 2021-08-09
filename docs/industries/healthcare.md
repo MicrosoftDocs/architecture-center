@@ -1,5 +1,5 @@
 ---
-title: Solutions for healthcare industry
+title: Solutions for the healthcare industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure and other Microsoft services for building efficient and reliable healthcare solutions.
 author: dsk-2015
@@ -21,7 +21,7 @@ categories:
 keywords: Azure
 ---
 
-# Solutions for healthcare industry
+# Solutions for the healthcare industry
 
 The healthcare industry includes various systems that provide curative, preventative, rehabilitative, and palliative care to patients. Proper management of these systems enables healthcare providers and managers provide high-quality care and treatment for their patients. With Azure cloud and other Microsoft services, you can now create highly efficient and resilient healthcare systems that take care of not only the patient-provider interactions, but also provide clinical and data insights, leading to a more patient-centric strategy for the healthcare institute.
 

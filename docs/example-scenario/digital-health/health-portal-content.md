@@ -54,7 +54,7 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 ### Alternatives
 
-- [Twillo's SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview) may be used as an alternative for email notifications. SendGrid has direct marketplace integration in Azure, is easy to set up, and has a free tier of email services. However, if customers already have an Office 365 subscription and if they plan on sending a large number of emails, using Office 365 integration could be a more cost effective solution.
+- [Twillo's SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer?tab=Overview) may be used as an alternative for email notifications. SendGrid has direct marketplace integration in Azure, is easy to set up, and has a free tier of email services. However, if customers already have an Office 365 subscription and if they plan on sending a large number of emails, using Office 365 integration could be a more cost effective solution.
 
 - [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/) may be used for interoperability of medical records, using HL7 or FHIR communication standards. This service should be used if your application needs to receive or transmit medical records from other systems. For instance, if this were a portal for medical providers, Azure API for FHIR could integrate with the provider's electronic medical records system directly.
 
