@@ -21,4 +21,4 @@ name: Re-engineer mainframe batch applications on Azure
 summary: Learn how to re-engineer mainframe batch applications to use Azure services. This architecture change can help manage increased resource cost.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-reengineered-mainframe-batch-application-thumb.png
 content: |
-  [!include[](<reengineer-mainframe-batch-apps-azure-content.md)]
+  [!include[](reengineer-mainframe-batch-apps-azure-content.md)]
