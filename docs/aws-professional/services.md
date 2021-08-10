@@ -104,6 +104,23 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 [view all](../browse/index.yml?azure_categories=databases)
 
+### Time series
+
+| AWS service | Azure service | Description |
+| ----------- | ------------- | ----------- |
+| [Amazon Timestream](https://aws.amazon.com/timestream/ ) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) <br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/en-us/services/time-series-insights) | Fully managed, low latency, distributed big data analytics platform to run complex queries across petabytes of data. Hihgly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+
+### Time series architectures
+
+<ul class="grid">
+
+[!INCLUDE [IoT analytics with Azure Data Explorer](../../includes/cards/iot-azure-data-explorer.md)]
+[!INCLUDE [Azure Data Explorer interactive analytics](../../includes/cards/interactive-azure-data-explorer.md)]
+
+</ul>
+
+
+
 ### Big data processing
 
 | AWS service | Azure service | Description |
@@ -119,6 +136,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 [!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
 [!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
+[!INCLUDE [Big data analytics with Azure Data Explorer](../../includes/cards/big-data-azure-data-explorer.md)]
 
 </ul>
 
