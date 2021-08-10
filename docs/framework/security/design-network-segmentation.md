@@ -42,7 +42,7 @@ Traditional segmentation approaches typically fail to achieve their goals as the
 
 An evolving emerging best practice recommendation is to adopt a Zero Trust strategy based on user, device, and application identities. In contrast to network access controls that are based on elements such as source and destination IP address, protocols, and port numbers, Zero Trust enforces and validates access control at _access time_. This avoids the need to play a prediction game for an entire deployment, network, or subnet — only the destination resource needs to provide the necessary access controls.
 
-- Azure Network Security Groups can be used for basic layer 3 and 4 access controls between Azure Virtual Networks, their subnets, and the Internet.
+- Azure Network Security Groups can be used for basic layer 3 and 4 access controls between Azure Virtual Networks, their subnets, and the internet.
 - Azure Web Application Firewall and the Azure Firewall can be used for more advanced network access controls that require application layer support.
 - Local Admin Password Solution (LAPS) or a third-party Privileged Access Management can set strong local admin passwords and just-in-time access to them.
 
