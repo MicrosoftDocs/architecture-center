@@ -1,6 +1,6 @@
 ---
 title: Autoscale instances
-description: Describes autoscaling strategies for lowering cost
+description: Discover autoscaling strategies to lower the cost in virtual machine instances or stateless applications in Azure.
 author: PageWriter-MSFT
 ms.date: 05/12/2020
 ms.topic: conceptual
