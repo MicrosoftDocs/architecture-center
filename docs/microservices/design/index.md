@@ -1,6 +1,6 @@
 ---
 title: Designing a microservices architecture
-description: This reference implementation illustrates best practices for a microservices architecture
+description: Learn how to design and build a microservices architecture on Azure by following a reference implementation that illustrates best practices.
 author: doodlemania2
 ms.date: 02/26/2019
 ms.topic: conceptual
