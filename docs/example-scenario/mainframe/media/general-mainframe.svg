@@ -1144,7 +1144,7 @@
 			<v:textRect cx="15.0375" cy="470.143" width="30.08" height="30.075"/>
 			<ellipse cx="15.0375" cy="470.143" rx="15.0375" ry="15.0375" class="st43"/>
 			<text x="9.67" y="474.34" class="st44" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>H</text>		</g>
-		<g id="shape1404-289" v:mID="1404" v:groupContext="shape" transform="translate(526.767,-37.5718)">
+		<g id="shape1404-289" v:mID="1404" v:groupContext="shape" transform="translate(248.925,-37.5718)">
 			<title>Sheet.1404</title>
 			<desc>G</desc>
 			<v:userDefs>
@@ -1332,13 +1332,13 @@
 			<text x="11.31" y="474.34" class="st44" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>E</text>		</g>
 		<g id="shape1414-327" v:mID="1414" v:groupContext="shape" transform="translate(578.517,-30.5539)">
 			<title>Sheet.1414</title>
-			<desc>Operating system on partition</desc>
+			<desc>Partition</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(123000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="182.25" cy="463.125" width="364.5" height="44.1107"/>
 			<path d="M0 485.18 L364.5 485.18 L364.5 441.07 L0 441.07 L0 485.18 Z" class="st2"/>
-			<text x="97.17" y="466.73" class="st39" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Operating system on partition</text>		</g>
+			<text x="157.57" y="466.73" class="st39" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Partition</text>		</g>
 	</g>
 </svg>
