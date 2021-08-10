@@ -36,7 +36,7 @@ Because Front Door adds a new hop, there are added security operations. If the a
 
 Another consideration is cost. The architecture should take advantage of the extensive feature set (not just failover) to justify the added cost. 
 
-Traffic Manager is a DNS-based load-balancing service. It balances only at the domain level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs.
+Traffic Manager is a DNS-based load-balancing service. It balances and fails over only at the DNS level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs.
 
 You can combine both load balancers, if needed. For example, you want the DNS-based failover but you want to add a POP experience in front of that traffic-managed infrastructure.
 
