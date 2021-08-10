@@ -213,15 +213,15 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 |-------------|---------------|-------------|
-| [Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor) | [Advisor](https://azure.microsoft.com/services/advisor) | Provides analysis of cloud resource configuration and security so subscribers can ensure they're making use of best practices and optimum configurations. |
+| [Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor) | [Advisor](/azure/advisor/advisor-overview) | Services which provide an analysis of cloud resource configuration and security so subscribers can ensure they're making use of best practices and optimum configurations. |
 | [Usage and Billing Report](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-gettingstarted-turnonreports.html) | [Billing API](/azure/billing/billing-usage-rate-card-overview) | Services to help generate, monitor, forecast, and share billing data for resource usage by time, organization, or product resources. |
-| [Management Console](https://aws.amazon.com/console) | [Portal](https://azure.microsoft.com/features/azure-portal/) | A unified management console that simplifies building, deploying, and operating your cloud resources. |
-| [Application Discovery Service](https://aws.amazon.com/application-discovery) | [Migrate](https://azure.microsoft.com/services/azure-migrate) | Assesses on-premises workloads for migration to Azure, performs performance-based sizing, and provides cost estimations. |
-| [EC2 Systems Manager](https://aws.amazon.com/systems-manager) | [Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
-| [Personal Health Dashboard](https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard) | [Resource Health](/azure/resource-health/resource-health-overview) | Provides detailed information about the health of resources as well as recommended actions for maintaining resource health. |
-| [CloudTrail](https://aws.amazon.com/cloudtrail) | [Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
-| [CloudWatch](https://aws.amazon.com/cloudwatch) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | Application Insights, is an extensible Application Performance Management (APM) service for developers and DevOps professionals.|
-| [Cost Explorer](https://aws.amazon.com/aws-cost-management) | [Cost Management](https://azure.microsoft.com/services/cost-management) | Optimize cloud costs while maximizing cloud potential. |
+| [Management Console](https://aws.amazon.com/console) | [Portal](https://azure.microsoft.com/features/azure-portal/) | Management consoles which are aimed at simplifying the building, deploying and operating of cloud resources. |
+| [Application Discovery Service](https://aws.amazon.com/application-discovery) | [Migrate](/azure/migrate/) | Services which allow for the assessment of on-premises workloads for migration to the cloud, performs performance-based sizing, and provides cost estimations. |
+| [EC2 Systems Manager](https://aws.amazon.com/systems-manager) | [Monitor](/azure/azure-monitor/overview) | Services for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
+| [Personal Health Dashboard](https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard) | [Resource Health](/azure/resource-health/resource-health-overview) | Servives which provide detailed information about the health of resources as well as recommended actions for maintaining resource health. |
+| [CloudTrail](https://aws.amazon.com/cloudtrail) | [Monitor](azure/azure-monitor/overview) | Comprehensive services for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
+| [CloudWatch](https://aws.amazon.com/cloudwatch) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | Services which provide developers and DevOps professionals with telemetry insights and information for applications which have been deployed in order to better understand how their applications are performing and identify areas for optimization. |
+| [Cost Explorer](https://aws.amazon.com/aws-cost-management) | [Cost Management](/azure/cost-management-billing/cost-management-billing-overview) | Services which aid in optimizing cloud costs while maximizing cloud potential. |
 
 ## Messaging and eventing
 
