@@ -32,11 +32,11 @@ When choosing a load balancer, consider your requirements and the feature set of
 
 Front Door has Layer 7 capabilities: SSL offload, path-based routing, fast failover, caching, and others to improve performance and high-availability of your applications. You might experience faster packet travel times because the infrastructure is onboarded on Azure network sooner. 
 
-Because Front Door adds a new hop, there are added security operations. If the architecture complies to regulatory requirements, there might be restrictions about the additional traffic TLS termination point. The TLS cipher suites selected by Front Door must meet your organization's security bar. Also, Front Door expects the backend services to use [certificates used by Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). For routing, you need to provide an allow list of IPs, of the backend services, as a POP. Those IPs are shared by other customers. 
+Because Front Door adds a new hop, there are added security operations. If the architecture complies to regulatory requirements, there might be restrictions about the additional traffic TLS termination point. The TLS cipher suites selected by Front Door must meet your organization's security bar. Also, Front Door expects the backend services to use [certificates used by Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). 
 
 Another consideration is cost. The architecture should take advantage of the extensive feature set (not just failover) to justify the added cost. 
 
-Traffic Manager is a DNS-based load-balancing service. It balances only at the domain level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs.
+Traffic Manager is a DNS-based load-balancing service. It balances and fails over only at the DNS level. For that reason, it can't fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS TTLs.
 
 You can combine both load balancers, if needed. For example, you want the DNS-based failover but you want to add a POP experience in front of that traffic-managed infrastructure.
 
