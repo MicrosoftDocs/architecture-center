@@ -57,7 +57,7 @@ You can create software-defined perimeters in your networking footprint by using
 
 ## Learn more
 
-For information about creating a segmentation strategy, see [Enterprise segmentation strategy](/azure/architecture/framework/Security/governance#enterprise-segmentation-strategy).
+For information about creating a segmentation strategy, see [Enterprise segmentation strategy](./governance.md#enterprise-segmentation-strategy).
 
 ## Azure features for segmentation
 

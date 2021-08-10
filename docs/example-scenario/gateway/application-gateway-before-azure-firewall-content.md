@@ -195,13 +195,13 @@ As with Virtual WAN, you might need to modify the routing when you use Route Ser
 [Azure Firewall DNS settings]: /azure/firewall/dns-settings
 [Azure Firewall limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits
 [Azure Firewall Premium certificates]: /azure/firewall/premium-certificates
-[Firewall and Application Gateway for virtual networks]: /azure/architecture/example-scenario/gateway/firewall-application-gateway
+[Firewall and Application Gateway for virtual networks]: ./firewall-application-gateway.yml
 [How an application gateway works]: /azure/application-gateway/how-application-gateway-works
-[Hub-spoke network topology in Azure]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli
-[Hub-spoke network topology with Azure Virtual WAN]: /azure/architecture/networking/hub-spoke-vwan-architecture
+[Hub-spoke network topology in Azure]: ../../reference-architectures/hybrid-networking/hub-spoke.yml?tabs=cli
+[Hub-spoke network topology with Azure Virtual WAN]: ../../networking/hub-spoke-vwan-architecture.yml
 [IDPS]: /azure/firewall/premium-features#idps
-[Implement a secure hybrid network]: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal
-[Secure and govern workloads with network level segmentation]: /azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation
+[Implement a secure hybrid network]: ../../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal
+[Secure and govern workloads with network level segmentation]: ../../reference-architectures/hybrid-networking/network-level-segmentation.yml
 [Secure networks with Zero Trust]: /security/zero-trust/networks
 [TLS inspection]: /azure/firewall/premium-features#tls-inspection
 [Virtual network traffic routing]: /azure/virtual-network/virtual-networks-udr-overview
