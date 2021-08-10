@@ -13,7 +13,7 @@ This solution applies to many use cases:
 - Migrating highly performant, highly available SQL Server instances from on-premises infrastructure to Azure Virtual Machines.
 - Using availability sets and SMB shared storage to deploy cost-effective, enterprise-scale, highly available SQL Server Always On Failover Cluster Instances.
 - Deploying enterprise-scale disaster recovery (DR) architectures for hybrid or Azure systems by using SQL Server Always On availability groups.
-- Enhancing enterprise-scale SQL Server systems with fast cloning for use in test and development environments. This enhancement can benefit cases that require advanced data management capabilities to meet aggressive data protection service level agreement (SLAs).
+- Enhancing enterprise-scale SQL Server systems with fast cloning for use in test and development environments. This enhancement can benefit cases that require advanced data management capabilities to meet aggressive data protection service level agreements (SLAs).
 
 ## Architecture
 
@@ -82,9 +82,12 @@ The following considerations apply to this solution:
 
 ### Availability considerations
 
-The [SLA for Azure NetApp Files][SLA for Azure NetApp Files] guarantees 99.99 percent availability.
+For Azure NetApp Files:
 
-When using SQL Server databases in Azure, implement an HA and DR solution to avoid downtime:
+- The [SLA for this service][SLA for Azure NetApp Files] guarantees 99.99 percent availability.
+- You can [convert existing SMB volumes to use Continuous Availability][Convert existing SMB volumes to use Continuous Availability].
+
+For SQL Server on Azure Virtual Machines, implement an HA and DR solution to avoid downtime:
 
 - Use an instance of [Always On Failover Cluster Instances][Windows Server Failover Cluster with SQL Server on Azure VMs] with two databases on two separate VMs.
 - Put both VMs in the same virtual network. Then they can access each other over the private persistent IP address.
@@ -137,7 +140,8 @@ These savings outweigh any pricing differences between Azure NetApp Files and di
 
 ## Next steps
 
-- For information on migrating SQL Server to Azure while retaining application and OS control, see [Migration overview: SQL Server to SQL Server on Azure VMs][Migration overview: SQL Server to SQL Server on Azure VMs].
+- For information about setting up a SQL Server VM, see [Quickstart: Create SQL Server 2017 on a Windows virtual machine in the Azure portal].
+- To learn how to migrate SQL Server to Azure while retaining application and OS control, see [Migration overview: SQL Server to SQL Server on Azure VMs][Migration overview: SQL Server to SQL Server on Azure VMs].
 - For information about SQL Server on Azure NetApp Files, see the [solutions architectures landing page][Solution architectures using Azure NetApp Files - SQL Server].
 
 ## Related resources
@@ -155,6 +159,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Azure Virtual Machines]: https://azure.microsoft.com/en-us/services/virtual-machines/#overview
 [Azure Virtual Network]: https://azure.microsoft.com/en-us/services/virtual-network/
 [Benefits of using Azure NetApp Files for SQL Server deployment - Detailed cost analysis]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server#detailed-cost-analysis
+[Convert existing SMB volumes to use Continuous Availability]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/convert-smb-continuous-availability
 [Cross-region replication of Azure NetApp Files volumes]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-introduction
 [FAQs About Azure NetApp Files - Security FAQs]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs
 [FSLogix for the enterprise]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix
@@ -163,6 +168,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Manual QoS volume quota and throughput]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput
 [Migration overview: SQL Server to SQL Server on Azure VMs]: https://docs.microsoft.com/en-us/azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview
 [Pricing section of this article]: #pricing
+[Quickstart: Create SQL Server 2017 on a Windows virtual machine in the Azure portal]: https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart
 [Real-time, high-level reference design]: https://docs.netapp.com/us-en/netapp-solutions/ent-apps-db/sql-srv-anf_reference_design_real-time_high-level_design.html#backup-and-recovery
 [Run SAP BW/4HANA with Linux virtual machines on Azure]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines
 [Run SAP NetWeaver in Windows on Azure]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-netweaver
