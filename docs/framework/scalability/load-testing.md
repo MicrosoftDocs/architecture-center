@@ -1,6 +1,6 @@
 ---
 title: Load Testing
-description: 
+description: Learn about load testing in Azure. Test at expected peak load, know Azure service limits, understand app behavior under load, measure typical loads, and more.
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: conceptual
