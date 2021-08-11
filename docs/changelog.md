@@ -1,6 +1,6 @@
 ---
 title: What's New in Azure Architecture Center
-description: New and updated articles in Azure Architecture Center
+description: New and updated articles in the Azure Architecture Center (AAC) that help you design, build, and operate solutions on Azure.
 author: doodlemania2
 ms.date: 08/09/2021
 ms.topic: article

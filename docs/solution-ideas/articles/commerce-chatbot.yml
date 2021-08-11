@@ -2,7 +2,7 @@
 metadata:
   title: Commerce chatbot for customer service
   titleSuffix: Azure Solution Ideas
-  description: Use Azure Bot and Azure Cognitive Services to process natural language text and voice requests to create conversational interfaces for common customer service scenarios.
+  description: Learn how to use Azure Bot and Azure Cognitive Services to create conversational interfaces for common customer service scenarios.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/16/2019

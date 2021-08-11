@@ -67,7 +67,7 @@ We recommend using cloud services from your cloud provider for identity, data pr
 
 - **Application Configurations** – Inconsistent configurations for applications can create security risks. [Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags, which helps mitigate this risk.
 
-For more information about using cloud services instead of custom implementations, reference [Applications and services](/azure/architecture/framework/security/design-apps-services#use-cloud-services-instead-of-custom-implementations).
+For more information about using cloud services instead of custom implementations, reference [Applications and services](./design-apps-services.md).
 
 ## Use native capabilities
 

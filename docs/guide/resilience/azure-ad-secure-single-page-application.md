@@ -318,9 +318,9 @@ The protected route uses the authorization policy to make sure that the authenti
 
 ## Next steps
 
-- [Integrate on-premises AD domains with Azure AD](/azure/architecture/reference-architectures/identity/azure-ad)
-- [Azure Active Directory identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security)
-- [Deploy AD DS in an Azure virtual network](/azure/architecture/reference-architectures/identity/adds-extend-domain)
+- [Integrate on-premises AD domains with Azure AD](../../reference-architectures/identity/azure-ad.yml)
+- [Azure Active Directory identity management and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml)
+- [Deploy AD DS in an Azure virtual network](../../reference-architectures/identity/adds-extend-domain.yml)
 
 ## Related resources
 
