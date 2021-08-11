@@ -18,6 +18,8 @@ Various scenarios can benefit from this solution:
    A vertical line divides the diagram into two parts, one for mainframe components and one for Azure components. The mainframe part has the label I B M and contains two components. The first component is a cylinder that represents a database. The second component is a rectangle filled with the names of mainframe languages and environments. Arrows point back and forth between the cylinder and the rectangle. The Azure part of the diagram contains two rectangles with arrows pointing back and forth between them. The first rectangle represents software and contains a computer icon. The second rectangle contains two icons. One icon has the label PaaS and shows a database in a cloud. The other icon has the label IaaS and shows a computer. Arrows also point back and forth between the mainframe database cylinder and the rectangle that represents software in the Azure part.
 :::image-end:::
 
+*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
 1. Host Integration Server (HIS) software runs on an on-premises or Azure virtual machine (VM). HIS connects IBM systems with Azure systems.
 
 1. Mainframe and midrange applications run on the on-premises system. These applications use languages and environments like COBOL, CICS, TSO, PL1, Java, and JCL. The solution involves adjusting the Db2 database configuration. The applications can then access Azure databases in the same way that they access local mainframe or midrange tables.
@@ -90,6 +92,7 @@ This solution uses the following components. See the [Azure pricing calculator][
 [Planning and Architecting Solutions Using Microsoft Service for DRDA]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda
 [Replicate and sync mainframe data in Azure]: ../../reference-architectures/migration/sync-mainframe-data-with-azure.yml
 [SQL Server technical documentation]: /sql/sql-server/
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1826653-PR-2782-mainframe-access-azure-databases-architecture.vsdx
 [What is Azure SQL Database?]: /azure/azure-sql/database/sql-database-paas-overview
 [What is Azure SQL?]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
 [What is HIS]: /host-integration-server/what-is-his

@@ -26,6 +26,8 @@ This solution applies to many areas:
    The diagram contains two boxes. The first, on the left, has the label Azure Data Factory for orchestration. The second box has the label Clinician views. The first box contains several smaller boxes that represent data or various Azure components. Arrows connect the boxes, and numbered labels on the arrows correspond with the numbered steps in the document text. Two arrows flow between the boxes, ending in the Clinician views box. One arrow points to a clinician icon. The other points to a Power BI icon.
 :::image-end:::
 
+*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
 Azure Data Factory orchestrates the workflow:
 
 1. Data Factory transfers the initial sample file to Azure Blob Storage. The file is in FASTQ format.
@@ -233,3 +235,4 @@ Fully deployable architectures:
 [SLA for Azure Data Factory]: https://azure.microsoft.com/support/legal/sla/data-factory/v1_2
 [Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
 [Tiering functionality]: /azure/storage/blobs/storage-blob-storage-tiers
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1848830-PR-3162-genomic-analysis-reporting-architecture.vsdx
