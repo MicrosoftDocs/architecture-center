@@ -1,7 +1,7 @@
 ---
 title: Cloud design patterns
 titleSuffix: Azure Architecture Center
-description: Design patterns for building reliable, scalable, secure applications in the cloud.
+description: Learn about design patterns for building reliable, scalable, secure applications in the cloud by walking through examples based on Microsoft Azure.
 author: dragon119
 ms.date: 03/01/2018
 ms.topic: conceptual

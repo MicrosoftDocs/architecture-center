@@ -91,7 +91,7 @@ Design virtual networks and subnets for growth. We recommend planning subnets ba
 
 ### Learn more
 
-- [Design virtual network subnet security](/azure/architecture/framework/Security/network-security-containment#design-virtual-network-subnet-security)
+- [Design virtual network subnet security](./network-security-containment.md#design-virtual-network-subnet-security)
 - [Design an IP addressing schema for your Azure deployment](/learn/modules/design-ip-addressing-for-azure/)
 
 ## Internet edge traffic

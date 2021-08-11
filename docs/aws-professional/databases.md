@@ -44,7 +44,7 @@ Azure provides a package of products and services designed to capture, organize,
 
 - [Data Factory](https://azure.microsoft.com/documentation/services/data-factory): provides data orchestration and data pipeline functionality.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/documentation/services/synapse-analytics): large-scale relational data storage using either serverless or dedicated resources.
+- [Azure Synapse Analytics](https://azure.microsoft.com/documentation/services/synapse-analytics): an enterprise analytics service that accelerates time to insight, across data warehouses and big data systems.
 
 - [Azure Databricks](/azure/databricks/): a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers.
 
@@ -71,4 +71,3 @@ Azure provides a package of products and services designed to capture, organize,
 - [Big data architecture style](/azure/architecture/guide/architecture-styles/big-data)
 
 - [Azure Data Lake and Azure HDInsight blog](/archive/blogs/azuredatalake/)
-

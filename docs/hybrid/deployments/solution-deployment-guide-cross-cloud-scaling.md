@@ -361,4 +361,4 @@ A flexible and robust multi-cloud service provides data security, back up and re
 
 ## Next steps
 
-- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](/azure/architecture/patterns).
+- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](../../patterns/index.md).
