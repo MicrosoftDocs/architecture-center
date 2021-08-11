@@ -1,6 +1,6 @@
 ---
 title: Performance testing and antipatterns
-description: Build scalability solutions for common stressors by learning about performance antipatterns. These are common practices that are likely to cause scalability problems when an application is under pressure.
+description: Learn about performance antipatterns, common practices that are likely to cause scalability problems when an application is under pressure.
 author: dragon119
 ms.date: 06/05/2017
 ms.topic: conceptual
