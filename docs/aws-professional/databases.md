@@ -9,23 +9,25 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
 
-# Database technologies on Azure and AWS
+# Relational database technologies on Azure and AWS
 
 ## RDS and Azure relational database services
 
-Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (RDS).
+Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (RDS). These include: 
 
 - [SQL Database](/azure/sql-database/sql-database-technical-overview)
 - [Azure Database for MySQL](/azure/mysql/overview)
 - [Azure Database for PostgreSQL](/azure/postgresql/overview)
 
-Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql/) can be deployed using Azure VM Instances.
+Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql) can be deployed using Azure VM Instances.
 
 Costs for AWS RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels.
 
 ### See also
 
 - [Azure SQL Database Tutorials](/azure/azure-sql/database/single-database-create-quickstart)
+
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
 
 - [Configure geo-replication for Azure SQL Database with the Azure portal](/azure/azure-sql/database/active-geo-replication-configure-portal)
 
@@ -51,7 +53,7 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 - [Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview): large-scale analytics service optimized to work with Data Lake Store
 
-- [Power BI](https://powerbi.microsoft.com): used to power data visualization.
+- [Power BI](https://powerbi.microsoft.com): a business analytics service that provides the capabilities to create rich interactive data visualizations.
 
 ## Service comparison
 
@@ -59,7 +61,7 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 ### See also
 
-- [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com)
+- [Azure AI Gallery](https://gallery.azure.ai)
 
 - [Understanding Microsoft big data solutions](/previous-versions/msp-n-p/dn749804(v=pandp.10))
 

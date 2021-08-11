@@ -1,17 +1,18 @@
 ### YamlMime:Architecture
 metadata:
   title: AKS regulated cluster for PCI-DSS 3.2.1 - Policy management
-  description: Best practices for implementing Requirement 12 for a PCI-DSS 3.2.1 infrastructure.
+  description: Guidance for documenting security policies as per Requirement 12 of PCI-DSS 3.2.1.
   author: PageWriter-MSFT
   ms.author: pnp
   ms.date: 07/06/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
-name: AKS regulated cluster for PCI-DSS 3.2.1 - Policy management
+name: Governance, risk, and compliance of for a PCI-DSS 3.2.1 infrastructure  (Part 8 of 9)
 azureCategories:
   - containers
-summary: Best practices for implementing Requirement 12 for a PCI-DSS 3.2.1 infrastructure.
+  - management-and-governance
+summary: Guidance for documenting security policies for a PCI-DSS 3.2.1 infrastructure.
 products:
   - azure-kubernetes-service
   - azure-firewall
