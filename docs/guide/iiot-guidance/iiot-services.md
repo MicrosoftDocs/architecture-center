@@ -1,7 +1,7 @@
 ---
 title: Services in an Azure Industrial IoT solution
 titleSuffix: Azure Application Architecture Guide
-description: Guidance on services in an IIoT analytics solution.
+description: Explore services in an IIoT analytics solution, such as time series service, microservices, rules and calculation engine, notifications, Microsoft 365, and more.
 author: khilscher
 ms.author: kehilsch
 ms.date: 07/17/2020

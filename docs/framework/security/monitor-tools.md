@@ -1,6 +1,6 @@
 ---
 title: Security monitoring tools in Azure
-description: Monitor your data in Azure
+description: Use security monitoring tools in Azure. Also get general security advice, such as detecting threats early and protecting resources against DDoS attacks.
 author: v-aangie
 ms.date: 09/20/2020
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Azure Industrial IoT guidance
 titleSuffix: Azure Application Architecture Guide
-description: Architectural guidance on Azure Industrial IoT Analytics.
+description: Examine architectural guidance on Azure Industrial IoT (IIoT) analytics using platform as a service (PaaS) components.
 author: khilscher
 ms.author: kehilsch
 ms.date: 07/17/2020

@@ -1,7 +1,7 @@
 ---
 title: Alerts in IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: This article describes the persistence of alerts in an Azure IoT Edge Vision solution.
+description: Learn about the persistence of alerts in an Azure IoT Edge Vision solution. An alert is a response to an event that's triggered by the AI model.
 author: MSKeith
 ms.author: keith
 ms.date: 10/22/2020
