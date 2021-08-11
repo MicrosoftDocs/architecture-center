@@ -21,6 +21,8 @@ This solution applies to many use cases:
    A large rectangle labeled S Q L resource group fills most of the diagram. Inside it is another rectangle labeled S Q L virtual network. It contains two smaller rectangles, one for the S Q L subnet and one for the Azure NetApp Files subnet. The S Q L subnet rectangle contains an icon for S Q L Server on Azure Virtual Machines. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled S M B 3 connects the two subnet rectangles. A colored key indicates that S Q L data in the database file system has a high performance requirement. The database log files have a medium performance requirement.
 :::image-end:::
 
+*Download an [SVG][Main architecture diagram in .svg format] of this architecture.*
+
 The components function and interact in these ways:
 
 - This architecture uses SQL Server on Azure Virtual Machines. Through that database solution, SQL Server runs on Azure VMs within the SQL subnet.
@@ -44,6 +46,8 @@ This image shows the benefits of using SQL Server with Azure NetApp Files.
 :::image type="complex" source="./media/sql-server-azure-netapp-files-key-values.png" alt-text="Architecture diagram listing features and benefits of Azure NetApp Files. The diagram also shows the different layers of a system that uses this service." border="false":::
    The diagram contains two sections. On the left, four boxes list features and advantages of Azure NetApp Files. The right contains boxes. One box is labeled Production, and one is labeled Testing and development at scale. Both contain database and V M icons. A third box is labeled Storage layer. It contains icons for database data and for Azure NetApp Files. A colored key indicates that database data and logs have a high performance requirement. Cloned database data and logs have a medium-high requirement. Copies of clones have a low requirement, as do all database binaries.
 :::image-end:::
+
+*Download an [SVG][Key benefits diagram in .svg format] of this architecture.*
 
 #### Simple and reliable service
 
@@ -101,6 +105,8 @@ For SQL Server on Azure Virtual Machines, implement an HA and DR solution to avo
 :::image type="complex" source="./media/sql-server-azure-netapp-files-availability.png" alt-text="Architecture diagram showing how SQL Server Always On Failover Cluster Instances and Azure NetApp Files use SMB 3 to communicate in a virtual network." border="false":::
    A large rectangle labeled S Q L resource group fills most of the diagram. Inside it is another rectangle labeled S Q L virtual network. It contains two smaller rectangles, one for the S Q L subnet and one for the Azure NetApp Files subnet. The S Q L subnet rectangle contains icons for S Q L Server on Azure Virtual Machines and S Q L Server Always On Failover Cluster Instances. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled S M B 3 connects the two subnet rectangles. A colored key indicates that S Q L data in the database file system has a high performance requirement. The database log files have a medium performance requirement.
 :::image-end:::
+
+*Download an [SVG][Cluster architecture diagram in .svg format] of this architecture.*
 
 ### Scalability considerations
 
@@ -162,12 +168,15 @@ Fully deployable architectures that use Azure NetApp Files:
 [Azure Virtual Machines]: https://azure.microsoft.com/services/virtual-machines/#overview
 [Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network
 [Benefits of using Azure NetApp Files for SQL Server deployment - Detailed cost analysis]: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server#detailed-cost-analysis
+[Cluster architecture diagram in .svg format]: ./media/sql-server-azure-netapp-files-availability.svg
 [Convert existing SMB volumes to use Continuous Availability]: /azure/azure-netapp-files/convert-smb-continuous-availability
 [Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction
 [FAQs About Azure NetApp Files - Security FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs
 [FSLogix for the enterprise]: ../wvd/windows-virtual-desktop-fslogix.yml
 [Highly performant systems section of this article]: #highly-performant-systems
 [Install SQL Server with SMB fileshare storage]: /sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option?view=sql-server-2017
+[Key benefits diagram in .svg format]: ./media/sql-server-azure-netapp-files-key-values.svg
+[Main architecture diagram in .svg format]: ./media/sql-server-azure-netapp-files-architecture.svg
 [Manual QoS volume quota and throughput]: /azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput
 [Migration overview: SQL Server to SQL Server on Azure VMs]: /azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview
 [Pricing section of this article]: #pricing
