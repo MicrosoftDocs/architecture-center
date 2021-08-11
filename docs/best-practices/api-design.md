@@ -2,7 +2,8 @@
 title: Web API design best practices
 titleSuffix: Azure Architecture Center
 description: Learn the best practices for designing web APIs that support platform independence and service evolution.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 01/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
@@ -238,7 +239,7 @@ Here are some typical error conditions that might be encountered when processing
 
 ### DELETE methods
 
-If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information. If the resource doesn't exist, the web server can return HTTP 404 (Not Found).
+If the delete operation is successful, the web server should respond with HTTP status code 204 (No Content), indicating that the process has been successfully handled, but that the response body contains no further information. If the resource doesn't exist, the web server can return HTTP 404 (Not Found).
 
 ### Asynchronous operations
 

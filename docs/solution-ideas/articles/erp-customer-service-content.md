@@ -3,7 +3,7 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Today’s organizations are generating ever-increasing amounts of structured and unstructured data. With Azure managed databases and Azure Synapse Analytics, they can deliver insights to their employees via ERP applications and Power BI, as well as superior customer service through web and mobile applications, scaling without limits as data volumes and application users increase.
+Today's organizations are generating ever-increasing amounts of structured and unstructured data. With Azure managed databases and Azure Synapse Analytics, they can deliver insights to their employees via ERP applications and Power BI, as well as superior customer service through web and mobile applications, scaling without limits as data volumes and application users increase.
 
 ## Architecture
 
@@ -18,7 +18,7 @@ First, the company must ingest data from various sources.
 
 From there, they use Azure SQL Database Hyperscale to run a highly scalable ERP system:
 
-1. Ingest relational data using Azure Synapse Pipelines into Azure SQL Database. The company’s ERP system runs on Azure SQL Database and leverages the Hyperscale service tier to scale compute or storage up to 100 TB.
+1. Ingest relational data using Azure Synapse Pipelines into Azure SQL Database. The company's ERP system runs on Azure SQL Database and leverages the Hyperscale service tier to scale compute or storage up to 100 TB.
 2. This data is surfaced via ERP client applications to help the company manage their business processes.
 
 To improve service to their customers, they build highly scalable customer service applications that can scale to millions of users:
@@ -36,7 +36,7 @@ Finally, they surface business intelligence insights to users across the company
 - [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.
 - [Azure SQL Database Hyperscale](/azure/azure-sql/database/service-tier-hyperscale) is a storage tier in Azure SQL Database that leverages Azure architecture to scale out storage and compute resources.  Hyperscale supports up to 100TB of storage and provides nearly instantaneous backups and fast database restores in minutes – regardless of the size of data operation.
 - [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
-- [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it’s used to analyze and visualize data.
+- [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it's used to analyze and visualize data.
 
 ## Next Steps
 

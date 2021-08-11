@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: AKS regulated cluster for PCI-DSS 3.2.1
+  title: Architecture of an AKS regulated cluster for PCI-DSS 3.2.1
   description: Learn about architectural recommendations and code assets from the accompanying reference implementation.
   author: PageWriter-MSFT
   ms.author: pnp
@@ -8,11 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
-  ms.custom:
-    - microservices
-name: AKS regulated cluster for PCI-DSS 3.2.1
+name: Architecture of an AKS regulated cluster for PCI-DSS 3.2.1 (Part 2 of 9)
 azureCategories:
   - containers
+  - networking
+  - identity
+  - security
 summary: Learn about architectural recommendations and code assets from the accompanying reference implementation.
 products:
   - azure-kubernetes-service

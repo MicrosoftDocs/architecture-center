@@ -50,28 +50,4 @@ This series is split into several articles. Each article outlines the high-level
 Start by understanding the regulated architecture and the design choices.
 
 > [!div class="nextstepaction"]
-> [Architecture of an AKS regulated cluster for PCI-DSS 3.2.1 3.2.1](aks-pci-ra-code-assets.yml)
-
-
-
-	
-																
-																
-																
-																
-																
-																
-																
-																
-																
-																
-																
-																
-																
-																
-																
-																
-																
-																
-																
-																							
+> [Architecture of an AKS regulated cluster for PCI-DSS 3.2.1](aks-pci-ra-code-assets.yml)
