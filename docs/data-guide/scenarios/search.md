@@ -1,6 +1,6 @@
 ---
 title: Processing free-form text for search
-description: 
+description: Learn how free-form text processing can support search by producing useful, actionable data from large amounts of text.
 author: zoinerTejada
 ms.date: 11/30/2020
 ms.topic: conceptual
