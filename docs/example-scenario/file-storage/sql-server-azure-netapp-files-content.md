@@ -17,7 +17,7 @@ This solution applies to many use cases:
 
 ## Architecture
 
-:::image type="complex" source="./media/sql-server-azure-net-app-files-architecture.png" alt-text="Architecture diagram showing how SQL Server and Azure NetApp Files work in different subnets of the same virtual network and use SMB 3 to communicate." border="false":::
+:::image type="complex" source="./media/sql-server-azure-netapp-files-architecture.png" alt-text="Architecture diagram showing how SQL Server and Azure NetApp Files work in different subnets of the same virtual network and use SMB 3 to communicate." border="false":::
    A large rectangle labeled S Q L resource group fills most of the diagram. Inside it is another rectangle labeled S Q L virtual network. It contains two smaller rectangles, one for the S Q L subnet and one for the Azure NetApp Files subnet. The S Q L subnet rectangle contains an icon for S Q L Server on Azure Virtual Machines. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled S M B 3 connects the two subnet rectangles. A colored key indicates that S Q L data in the database file system has a high performance requirement. The database log files have a medium performance requirement.
 :::image-end:::
 
@@ -41,7 +41,7 @@ The solution uses the following components:
 
 This image shows the benefits of using SQL Server with Azure NetApp Files.
 
-:::image type="complex" source="./media/sql-server-azure-net-app-files-key-values.png" alt-text="Architecture diagram listing features and benefits of Azure NetApp Files. The diagram also shows the different layers of a system that uses this service." border="false":::
+:::image type="complex" source="./media/sql-server-azure-netapp-files-key-values.png" alt-text="Architecture diagram listing features and benefits of Azure NetApp Files. The diagram also shows the different layers of a system that uses this service." border="false":::
    The diagram contains two sections. On the left, four boxes list features and advantages of Azure NetApp Files. The right contains boxes. One box is labeled Production, and one is labeled Testing and development at scale. Both contain database and V M icons. A third box is labeled Storage layer. It contains icons for database data and for Azure NetApp Files. A colored key indicates that database data and logs have a high performance requirement. Cloned database data and logs have a medium-high requirement. Copies of clones have a low requirement, as do all database binaries.
 :::image-end:::
 
@@ -97,7 +97,8 @@ For SQL Server on Azure Virtual Machines, implement an HA and DR solution to avo
   - Set up the two databases to replicate between two different regions.
   - Configure [Always On availability groups][Always On availability group on SQL Server on Azure VMs].
 
-:::image type="complex" source="./media/sql-server-azure-net-app-files-availability.png" alt-text="Architecture diagram showing how SQL Server Always On Failover Cluster Instances and Azure NetApp Files use SMB 3 to communicate in a virtual network." border="false":::
+
+:::image type="complex" source="./media/sql-server-azure-netapp-files-availability.png" alt-text="Architecture diagram showing how SQL Server Always On Failover Cluster Instances and Azure NetApp Files use SMB 3 to communicate in a virtual network." border="false":::
    A large rectangle labeled S Q L resource group fills most of the diagram. Inside it is another rectangle labeled S Q L virtual network. It contains two smaller rectangles, one for the S Q L subnet and one for the Azure NetApp Files subnet. The S Q L subnet rectangle contains icons for S Q L Server on Azure Virtual Machines and S Q L Server Always On Failover Cluster Instances. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled S M B 3 connects the two subnet rectangles. A colored key indicates that S Q L data in the database file system has a high performance requirement. The database log files have a medium performance requirement.
 :::image-end:::
 
