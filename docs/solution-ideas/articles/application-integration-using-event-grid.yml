@@ -2,7 +2,7 @@
 metadata:
   title: Application integration using Event Grid
   titleSuffix: Azure Solution Ideas
-  description: This scenario shows you how to create an application topic to send your app's event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure.
+  description: Learn how to integrate your app with Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/16/2019
