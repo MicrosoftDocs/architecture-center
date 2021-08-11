@@ -18,7 +18,7 @@ The architecture consists of the following components and capabilities:
 - **[SQL Server][sql-server]**. This data platform gives you a wide range of choices of development languages, data types, on-premises or cloud environments, and operating systems.
 - **[Azure Arc][azure-arc]**. This cloud-based service extends the Azure Resource Manager-based management model to non-Azure resources including virtual machines (VMs), Kubernetes clusters, and containerized databases.
 - **[Azure Arc enabled servers][azure-arc-enabled-servers]**. This hybrid service allows you to manage your Windows and Linux machines, hosted outside of Azure, on your corporate network or other cloud provider. This is similar to how you manage native Azure VMs.
-- **[Azure Arc enabled SQL Server][azure-arc-enabled-sql-server]**. This part of the Azure Arc enabled servers extends Azure services to SQL Server instances, hosted outside of Azure in the customer’s datacenter, on the edge or in a multi-cloud environment.
+- **[Azure Arc enabled SQL Server][azure-arc-enabled-sql-server]**. This part of the Azure Arc enabled servers extends Azure services to SQL Server instances, hosted outside of Azure in the customer's datacenter, on the edge or in a multi-cloud environment.
 - **[Kubernetes][kubernetes-open-source]**. This is a portable, extensible open-source platform for managing and orchestrating containerized workloads.
 - **[Azure Kubernetes Service][azure-kubernetes-service]**. This is a service that makes it simple to deploy a managed Kubernetes cluster in Azure.
 - **[Azure Stack HCI (20H2)][azs-hci]**. This is a hyperconverged infrastructure (HCI) cluster solution that hosts virtualized Windows and Linux operating system (OS) workloads and their storage in a hybrid on-premises environment. A cluster consists of two to 16 physical nodes.
@@ -143,7 +143,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 > To enhance the security of data in transit to Azure, you should [configure servers hosting the SQL Server instances to use Transport Layer Security (TLS) 1.2][server-configure-tls-12].
 
 [architectural-diagram]: images/azure_arc_sql_srvr.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure_arc_sql_srvr.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_arc_sql_srvr.vsdx
 [azure-well-architected-framerwork]: ../framework/index.md
 [sql-server]: /sql/sql-server/
 [azure-arc]: /azure/azure-arc/overview

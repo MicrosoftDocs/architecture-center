@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
 author: BrianQu 
 ms.author: yuanzhiqu
-ms.date: 8/4/2021
+ms.date: 8/10/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -128,8 +128,8 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Data Pipeline](https://aws.amazon.com/datapipeline), [Glue](https://aws.amazon.com/glue/) | [Data Factory](https://azure.microsoft.com/services/data-factory) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines. |
-| [Glue](https://aws.amazon.com/glue) | [Data Catalog](https://azure.microsoft.com/services/data-catalog) | A fully managed service that serves as a system of registration and system of discovery for enterprise data sources |
+| [Data Pipeline](https://aws.amazon.com/datapipeline), [Glue](https://aws.amazon.com/glue) | [Data Factory](https://azure.microsoft.com/services/data-factory) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines. |
+| [Glue](https://aws.amazon.com/glue) | [Azure Purview](https://azure.microsoft.com/services/purview) | A unified data governance service that helps you manage and govern your on-premises, multicloud, and software as a service (SaaS) data. |
 | [Dynamo DB](https://aws.amazon.com/dynamodb)| [Table Storage](https://azure.microsoft.com/services/storage/tables), [Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | NoSQL key-value store for rapid development using massive semi-structured datasets.|
 
 ### Analytics and visualization
@@ -139,7 +139,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Kinesis Analytics](https://aws.amazon.com/kinesis/data-analytics) | [Stream Analytics](https://azure.microsoft.com/services/stream-analytics) <br/><br/> [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) <br/><br/> [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics) <br/><br/>[Data Lake Store](https://azure.microsoft.com/services/data-lake-store) | Storage and analysis platforms that create insights from large quantities of data, or data that originates from many sources. |
 | [QuickSight](https://aws.amazon.com/quicksight) | [Power BI](https://powerbi.microsoft.com/) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data.
 | [CloudSearch](https://aws.amazon.com/cloudsearch) | [Cognitive Search](https://azure.microsoft.com/services/search/) | Delivers full-text search and related search analytics and capabilities. |
-| [Athena](https://aws.amazon.com/athena) | [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics) | Provides a serverless interactive query service that uses standard SQL for analyzing databases. |
+| [Athena](https://aws.amazon.com/athena) | [Data Lake Analytics](https://azure.microsoft.com/services/data-lake-analytics) <br/><br/> [Azure Synapse Analytics](/synapse-analytics/overview-what-is)| Provides a serverless interactive query service that uses standard SQL for analyzing databases. <br/><br/> Azure Synapse Analytics is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. It gives you the freedom to query data on your terms, using either serverless or dedicated resources at scale.|
 | [Elasticsearch Service](https://aws.amazon.com/elasticsearch-service/the-elk-stack) | [Elastic on Azure](https://azure.microsoft.com/overview/linux-on-azure/elastic) |  Use the Elastic Stack (Elastic, Logstash, and Kibana) to search, analyze, and visualize in real time. |
 
 ### Analytics architectures
@@ -171,6 +171,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | [Developer Tools](https://aws.amazon.com/products/developer-tools) | [Developer Tools](https://azure.microsoft.com/tools) | Collection of tools for building, debugging, deploying, diagnosing, and managing multiplatform scalable apps and services. |
 | [CodeBuild](https://aws.amazon.com/codebuild) | [DevOps](https://azure.microsoft.com/services/devops/) | Fully managed build service that supports continuous integration and deployment. |
 | [Command Line Interface](https://aws.amazon.com/cli) | [CLI](/cli/azure/install-azure-cli) <br/><br/>[PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
+| [eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html) | [az aks](/cli/azure/aks?view=azure-cli-latest) | Manage Azure Kubernetes Services. |
 | [AWS CloudShell](https://aws.amazon.com/cloudshell) | [Azure Cloud Shell](/azure/cloud-shell/overview) | Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It gives you the flexibility to choose the shell experience that best suits the way you work, either Bash or PowerShell. |
 | [OpsWorks (Chef-based)](https://aws.amazon.com/opsworks) | [Automation](https://azure.microsoft.com/services/automation) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
 | [CloudFormation](https://aws.amazon.com/cloudformation) | [Resource Manager](https://azure.microsoft.com/features/resource-manager) <br/><br/>[Bicep](/azure/azure-resource-manager/bicep/overview) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks.
@@ -191,10 +192,10 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [IoT](https://aws.amazon.com/iot) | [IoT Hub](https://azure.microsoft.com/services/iot-hub) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
-| [Greengrass](https://aws.amazon.com/greengrass/) | [IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
-| [Kinesis Firehose](https://aws.amazon.com/kinesis/data-firehose/), [Kinesis Streams](https://aws.amazon.com/kinesis/data-streams) | [Event Hubs](https://azure.microsoft.com/services/event-hubs) | Services that allow the mass ingestion of small data inputs, typically from devices and sensors, to process and route the data. |
-| [IoT Things Graph](https://aws.amazon.com/iot-things-graph) | [Digital Twins](https://azure.microsoft.com/services/digital-twins) | Azure Digital Twins is an IoT service that helps you create comprehensive models of physical environments. Create spatial intelligence graphs to model the relationships and interactions between people, places, and devices. Query data from a physical space rather than disparate sensors.
+| [IoT Core](https://aws.amazon.com/iot-core) | [IoT Hub](https://azure.microsoft.com/services/iot-hub) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
+| [Greengrass](https://aws.amazon.com/greengrass) | [IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly onto IoT devices, catering to on-premises scenarios. |
+| [Kinesis Firehose](https://aws.amazon.com/kinesis/data-firehose), [Kinesis Streams](https://aws.amazon.com/kinesis/data-streams) | [Event Hubs](https://azure.microsoft.com/services/event-hubs) | Services that facilitate the mass ingestion of events (messages), typically from devices and sensors. The data can then be processed in real-time micro-batches or be written to storage for further analysis. |
+| [IoT Things Graph](https://aws.amazon.com/iot-things-graph) | [Digital Twins](https://azure.microsoft.com/services/digital-twins) | Services you can use to create digital representations of real-world things, places, business processes, and people. Use these services to gain insights, drive the creation of better products and new customer experiences, and optimize operations and costs. |
 
 ### IOT architectures
 
@@ -354,13 +355,15 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | Area | AWS service | Azure service | Description |
 |------|-------------|---------------|-------------|
 | Backend process logic | [Step Functions](https://aws.amazon.com/step-functions) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Cloud technology to build distributed applications using out-of-the-box connectors to reduce integration challenges. Connect apps, data and devices on-premises or in the cloud. |
-| Enterprise application services | [WorkMail](https://aws.amazon.com/workmail), [WorkDocs](https://aws.amazon.com/workdocs) | [Microsoft 365](https://products.office.com) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
-| Gaming | [GameLift](https://aws.amazon.com/gamelift), [GameSparks](https://www.gamesparks.com) | [PlayFab](https://playfab.com) | Managed services for hosting dedicated game servers. |
+| Enterprise application services | [WorkMail](https://aws.amazon.com/workmail), [WorkDocs](https://aws.amazon.com/workdocs), [Chime](https://aws.amazon.com/chime) | [Microsoft 365](https://products.office.com) | Fully integrated cloud service that provides communications, email, and document management in the cloud and is available on a wide variety of devices. |
+| Gaming | [GameLift](https://aws.amazon.com/gamelift) | [PlayFab](https://playfab.com) | Managed services for hosting dedicated game servers. |
 | Media transcoding | [Elastic Transcoder](https://aws.amazon.com/elastictranscoder) | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
 | Workflow | [Simple Workflow Service (SWF)](https://aws.amazon.com/swf) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
 | Hybrid | [Outposts](https://aws.amazon.com/outposts) | [Stack](https://azure.microsoft.com/overview/azure-stack) | Azure Stack is a hybrid cloud platform that enables you to run Azure services in your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to either Azure Stack or Azure, or you can build truly hybrid apps that take advantage of connectivity between an Azure Stack cloud and Azure. |
 | Media | [Elemental MediaConvert](https://aws.amazon.com/media-services) | [Media Services](https://azure.microsoft.com/services/media-services/) | Cloud-based media workflow platform to index, package, protect, and stream video at scale.|
-
+| Satellite | [Ground Station](https://aws.amazon.com/ground-station/) | [Azure Orbital](/azure/networking/azure-orbital-overview) | Fully Managed cloud based ground station as a service.|
+| Blockchain | [Amazon Managed Blockchain](https://aws.amazon.com/managed-blockchain/) | [Azure Blockchain Service](/azure/blockchain/service/overview) | Fully Managed service that gives users the ability to grow and operate blockchain networks at scale.|
+| Quantum computing | [Amazon Braket](https://aws.amazon.com/braket/) | [Azure Quantum](/azure/quantum/) | Managed Quantum Computing Service that developers, researchers and bsuiness can use to run quantum computing programs.|
 ## More learning
 
 If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/learn/modules/welcome-to-azure) module on [Microsoft Learn](/learn).
