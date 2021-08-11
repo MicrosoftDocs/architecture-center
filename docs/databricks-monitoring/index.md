@@ -1,6 +1,6 @@
 ---
 title: Monitoring Azure Databricks with Azure Monitor
-description: Read about sending monitoring data from Azure Databricks, an Apache Spark-based analytics service, to Azure Monitor, the monitoring data platform for Azure.
+description: Learn how to extend the core monitoring functionality of Azure Databricks to send Apache Spark metrics, events, and logging information to Azure Monitor.
 author: PeterTaylor9999
 ms.date: 03/26/2019
 ms.topic: conceptual
