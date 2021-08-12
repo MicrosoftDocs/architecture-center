@@ -35,6 +35,8 @@ landingContent:
             url: monitor-checklist.md
           - text: Reliability patterns
             url: reliability-patterns.md
+          - text: Take the Azure Well-Architected Review
+            url: /assessments/?mode=pre-assessment&session=700d09be-b6cf-4ebb-b7ff-de545ce7fbab
       - linkListType: learn
         links:
           - text: Reliability 
@@ -44,36 +46,34 @@ landingContent:
           - text: Inside Azure Datacenter Architecture with Mark Russinovich
             url: https://www.youtube.com/watch?v=69PrhWQorEM
   # Card 
-  - title: Design within the cost limits
+  - title: Design for resiliency and availability
     linkLists:
       - linkListType: get-started
         links:
-          - text: Organization structure
-            url: design-model.md#organization-structure
-          - text: Capture clear requirements
-            url: design-capture-requirements.md   
-          - text: Consider the cost constraints
-            url: design-model.md#cost-constraints
-          - text: Consider tradeoffs
-            url: tradeoffs.md                     
+          - text: Consider target and non-functional requirements
+            url: design-requirements.md
+          - text: Use availability zones within a region
+            url: app-design.md#use-availability-zones-within-a-region   
+          - text: Respond to failure
+            url: app-design.md#respond-to-failure
+          - text: Build resiliency with failure mode analysis
+            url: design-resiliency.md#build-resiliency-with-failure-mode-analysis
+          - text: Understand the impact of dependencies
+            url: design-resiliency.md#understand-the-impact-of-dependencies                      
       - linkListType: concept
         links:
-          - text: Develop a cost model
-            url: design-model.md 
-          - text: Understand the usage meters
-            url: design-resources.md
-          - text: Cost impact across regions 
-            url: design-regions.md
-          - text: Consumption or fixed? 
-            url: design-price.md
-          - text: Use PaaS 
-            url: design-paas.md                                                           
-          - text: Estimate an initial cost 
-            url: design-initial-estimate.md  
+          - text: Understand best practices
+            url: design-best-practices.md
+          - text: Ensure connectivity
+            url: design-best-practices.md#ensure-connectivity
+          - text: Use zone-aware services 
+            url: design-best-practices.md#use-zone-aware-services
+          - text: Design for scalability
+            url: design-best-practices.md#design-for-scalability
       - linkListType: video
         links:
-          - text: How is your organization modeling cloud costs?
-            url: https://www.microsoft.com/videoplayer/embed/RE4zlDU      
+          - text: Zone to zone disaster recovery with Azure Site Recovery
+            url: https://www.youtube.com/watch?v=pG82RVO3mEI       
  # Card
   - title: Provision the right resources
     linkLists:
