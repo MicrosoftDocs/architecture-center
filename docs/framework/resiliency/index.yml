@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Reliability documentation
-summary: Apply resiliency principles in your architecture to return an application to a fully functioning state after a failure occurs. A reliable workload is both resilient and available.
+summary: Apply resiliency principles to your architecture to ensure an application returns to a fully functioning state after a failure occurs. A reliable workload is both resilient and available.
 
 metadata: 
   title: conceptual
-  description: Learn how to apply resiliency principles in your architecture to return an application to a fully functioning state after a failure occurs.
+  description: Learn how to apply resiliency principles to your architecture to ensure an application returns to a fully functioning state after a failure occurs.
   services: na
   author: v-stacywray
   ms.author: v-stacywray
