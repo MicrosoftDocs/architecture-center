@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Reliability documentation
-summary: Apply resiliency principles in your architecture to return an application to a fully functioning state after a failure occurs. A reliable workload is one that is both resilient and available.
+summary: Apply resiliency principles in your architecture to return an application to a fully functioning state after a failure occurs. A reliable workload is both resilient and available.
 
 metadata: 
   title: conceptual
@@ -26,25 +26,23 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Principles
-            url: overview.md
+            url: principles.md
           - text: Design checklist
             url: design-checklist.md
-          - text: Provision checklist
-            url: provision-checklist.md
-          - text: Monitor checklist
+          - text: Testing checklist
+            url: test-checklist.md
+          - text: Monitoring checklist
             url: monitor-checklist.md
-          - text: Optimize checklist
-            url: optimize-checklist.md  
-          - text: Tradeoffs
-            url: tradeoffs.md
+          - text: Reliability patterns
+            url: reliability-patterns.md
       - linkListType: learn
         links:
-          - text: Cost optimization 
-            url: /learn/modules/azure-well-architected-introduction/3-cost-optimization
+          - text: Reliability 
+            url: /learn/modules/azure-well-architected-introduction/6-reliability
       - linkListType: video
         links:
-          - text: What trade-offs have you made to optimize for cost?
-            url: https://www.microsoft.com/videoplayer/embed/RE4zw3n
+          - text: Inside Azure Datacenter Architecture with Mark Russinovich
+            url: https://www.youtube.com/watch?v=69PrhWQorEM
   # Card 
   - title: Design within the cost limits
     linkLists:
