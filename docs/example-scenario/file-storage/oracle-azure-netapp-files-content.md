@@ -36,7 +36,7 @@ The components function and interact in these ways:
 The solution uses the following components:
 
 - [Azure NetApp Files][Azure NetApp Files] makes it easy to migrate and run file-based applications with no code change. This shared file-storage service is a joint development from Microsoft and NetApp.
-- [Virtual Machines][Azure Virtual Machines] is the infrastructure as a service (IaaS) offer that deploys on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. This solution uses Linux VMs.
+- [Virtual Machines][Azure Virtual Machines] is the infrastructure as a service (IaaS) offer that deploys on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. This solution uses [Linux VMs with Oracle Database software][Oracle VM images and their deployment on Microsoft Azure].
 - [Oracle Database][Oracle Database] is a multi-model database management system. It supports all data types and workloads.
 - [Azure Virtual Network][Azure Virtual Network] is a networking service that manages virtual private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
 
@@ -44,19 +44,19 @@ The solution uses the following components:
 
 This image shows the benefits of using Azure NetApp Files with Oracle Database.
 
-:::image type="complex" source="./media/sql-server-azure-netapp-files-key-values.png" alt-text="Architecture diagram listing features and benefits of Azure NetApp Files. The diagram also shows the different layers of a system that uses this service." border="false":::
-   The diagram contains two sections. On the left, four boxes list features and advantages of Azure NetApp Files. The right contains boxes. One box is labeled Production, and one is labeled Testing and development at scale. Both contain database and V M icons. A third box is labeled Storage layer. It contains icons for database data and for Azure NetApp Files. A colored key indicates that database data and logs have a high performance requirement. Cloned database data and logs have a medium-high requirement. Copies of clones have a low requirement, as do all database binaries.
+:::image type="complex" source="./media/oracle-azure-netapp-files-key-values.png" alt-text="Architecture diagram listing features and benefits of Azure NetApp Files. The diagram also shows the different layers of a system that uses this service." border="false":::
+   The diagram contains two sections. On the left, four boxes list features and advantages of Azure NetApp Files. The right section also contains boxes. One box is labeled Production, and one is labeled Testing and development at scale. Both contain database and V M icons. A third box is labeled Storage layer. It contains icons for database data and for Azure NetApp Files. A colored key indicates that database data and logs have a high performance requirement. Cloned database data and logs have a medium-high requirement. Copies of clones have a low requirement.
 :::image-end:::
 
 *Download an [SVG][Key benefits diagram in .svg format] of this architecture.*
 
 #### Simple and reliable service
 
-As a simple-to-consume Azure native service, Azure NetApp Files runs within the Azure data center environment. You can provision, consume, and scale Azure NetApp Files just like other Azure storage options. Azure NetApp Files uses reliability features that the NetApp data management software ONTAP provides. With this software, you can quickly and reliably provision enterprise-grade SMB volumes for SQL Server and other workloads.
+As a simple-to-consume Azure native service, Azure NetApp Files runs within the Azure data center environment. You can provision, consume, and scale Azure NetApp Files just like other Azure storage options. Azure NetApp Files uses reliability features that the NetApp data management software ONTAP provides. With this software, you can quickly and reliably provision enterprise-grade NFS volumes for Oracle Database and other enterprise application workloads.
 
 #### Highly performant systems
 
-[Azure NetApp Files][What is Azure NetApp Files] uses a bare-metal fleet of all-flash storage. Besides shared and highly scalable storage, Azure NetApp Files provides latencies of less than 1 millisecond. These factors make this service very well suited for using the SMB protocol to run SQL Server workloads over networks.
+[Azure NetApp Files][What is Azure NetApp Files] uses a bare-metal fleet of all-flash storage. Besides shared and highly scalable storage, Azure NetApp Files provides latencies of less than 1 millisecond. These factors make this service very well suited for using the NFS protocol to run Oracle Database workloads over networks.
 
 Azure DCsv2-series VMs have built-in high-performance, all-flash ONTAP enterprise systems. These systems are also integrated in the Azure software-defined networking (SDN) and Azure Resource Manager frameworks. As a result, you get high-bandwidth, low-latency shared storage that's comparable to an on-premises solution. The performance of this architecture meets the requirements of the most demanding, business-critical enterprise workloads.
 
@@ -70,16 +70,16 @@ This solution can handle workloads that require advanced data management feature
 
 - Space-efficient cloning enhances development and test environments.
 - On-demand capacity and performance scaling makes efficient use of resources.
-- Snapshots create frequent database consistency points. You can use the [NetApp SQL Server Database Quiesce Tool][Real-time, high-level reference design] to take snapshots. They provide these benefits:
+- Snapshots create frequent database consistency points and provide these benefits:
 
-  - They're storage efficient.
+  - They're storage efficient. You only need limited additional capacity to create snapshots.
   - You can quickly create, replicate, restore, or clone them. As a result, they provide backup and recovery solutions that achieve aggressive recovery time objective (RTO) and recovery point objective (RPO) SLAs.
-  - They don't impact volume performance. You only need limited additional capacity to create snapshots.
+  - They don't impact volume performance.
   - They provide scalability. You can create them frequently and retain many at a time.
 
 #### Hybrid DR
 
-The combination of Always On availability groups and Azure NetApp Files provides DR for this architecture. Those DR solutions are appropriate for cloud and hybrid systems. Their plans work across multiple regions and with on-premises data centers. As an alternative, [cross-region replication][Cross-region replication of Azure NetApp Files volumes] can also provide efficient DR across regions in Azure.
+The combination of Oracle Data Guard (ODG) and Azure NetApp Files provides DR for this architecture. Those DR solutions are appropriate for cloud and hybrid systems. Their plans work across multiple regions and with on-premises data centers. As an alternative, [cross-region replication][Cross-region replication of Azure NetApp Files volumes] can also provide efficient DR across regions in Azure.
 
 ## Considerations
 
@@ -87,27 +87,45 @@ The following considerations apply to this solution:
 
 ### Availability considerations
 
-For Azure NetApp Files:
+For Azure NetApp Files: Check that these points are still relevant for Oracle
 
 - The [SLA for this service][SLA for Azure NetApp Files] guarantees 99.99 percent availability.
 - You can [convert existing SMB volumes to use Continuous Availability][Convert existing SMB volumes to use Continuous Availability].
 
-For SQL Server on Azure Virtual Machines, implement an HA and DR solution to avoid downtime:
+Somehow work in these points:
 
-- Use an instance of [Always On Failover Cluster Instances][Windows Server Failover Cluster with SQL Server on Azure VMs] with two databases on two separate VMs.
+- Use Oracle hot backup mode and ANF APIs to orchestrate database consistent snapshots for fast backup and recovery.
+- Besides backup/restore, the database contents can be replicated to a different region by using Cross Region Replication (CRR), which utilizes storage-based replication, and does not take any VM resources. Using CRR customers can ensure their data is available in a different Azure region to protect them against service interruptions. But check for redundancy with Hybrid DR section.
+[CRR]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-create-peering
+
+When you use Oracle Database in Azure, implement an HA and DR solution to avoid downtime:
+
+- Use [ODG][Implement Oracle Data Guard on an Azure Linux virtual machine].
+- Run the database on one virtual machine.
+- Deploy a secondary VM, but only install the binaries on it.
 - Put both VMs in the same virtual network. Then they can access each other over the private persistent IP address.
-- Place the VMs in the same [availability set][Availability sets overview]. Then Azure can place them in separate fault domains and upgrade domains.
-- For geo-redundancy:
 
-  - Set up the two databases to replicate between two different regions.
-  - Configure [Always On availability groups][Always On availability group on SQL Server on Azure VMs].
+ODG on Azure Virtual Machines functions like ODG in on-premises systems. But this product relies on its underlying architecture. To increase redundancy and availability when running ODG on Azure VMs, use one of these options:
 
+- Place the Oracle VMs in the same availability set. This approach provides protection during these events:
 
-:::image type="complex" source="./media/sql-server-azure-netapp-files-availability.png" alt-text="Architecture diagram showing how SQL Server Always On Failover Cluster Instances and Azure NetApp Files use SMB 3 to communicate in a virtual network." border="false":::
-   A large rectangle labeled S Q L resource group fills most of the diagram. Inside it is another rectangle labeled S Q L virtual network. It contains two smaller rectangles, one for the S Q L subnet and one for the Azure NetApp Files subnet. The S Q L subnet rectangle contains icons for S Q L Server on Azure Virtual Machines and S Q L Server Always On Failover Cluster Instances. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled S M B 3 connects the two subnet rectangles. A colored key indicates that S Q L data in the database file system has a high performance requirement. The database log files have a medium performance requirement.
+  - Outages within a data center that equipment failures cause. VMs within an availability set don't share resources.
+  - Updates. VMs within an availability set undergo updates at different times.
+
+- Place the Oracle VMs in different availability zones. This approach provides protection against the failure of an entire datacenter. Each zone represents a set of datacenters within a region. If you place resources in different availability zones, datacenter-level outages can't take all your VMs offline.
+
+You can only choose one of these options. An Azure VM cannot participate in availability sets and zones. Each option has advantages:
+
+- Availability zones provide better availability than availability sets. Zones guarantee 99.99 percent availability. Sets guarantee 99.95 percent.
+- You can place VMs that are in the same availability set in a [proximity placement group][Proximity placement groups]. This configuration minimizes the network latency between the VMs by guaranteeing that they're close to each other. In contrast, VMs that you place in different availability zones have greater network latency between them. It then takes longer to synchronize data between the primary and secondary replicas. As a result, the primary replica may experience delays. There's also an increased chance of data loss during unplanned failovers.
+
+Test the solution that you choose under load. Ensure that it meets SLAs for performance and availability.
+
+:::image type="complex" source="./media/oracle-azure-netapp-files-availability.png" alt-text="Architecture diagram showing how Oracle Data Guard protects data in a virtual network that includes Azure NetApp Files and Oracle Database." border="false":::
+   A large rectangle labeled Oracle resource group fills most of the diagram. Inside it is another rectangle labeled Oracle virtual network. It contains two smaller rectangles, one for the Oracle subnet and one for the Azure NetApp Files subnet. The Oracle subnet rectangle contains icons for Oracle Database and virtual machines. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled d N F S connects the two subnet rectangles. A colored key indicates that log data in the database file system has a high performance requirement. The data files have a medium-to-high performance requirement.
 :::image-end:::
 
-*Download an [SVG][Cluster architecture diagram in .svg format] of this architecture.*
+*Download an [SVG][Data Guard architecture diagram in .svg format] of this architecture.*
 
 ### Scalability considerations
 
@@ -170,19 +188,22 @@ Fully deployable architectures that use Azure NetApp Files:
 [Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network
 [Benefits of using Azure NetApp Files for SQL Server deployment - Detailed cost analysis]: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server#detailed-cost-analysis
 [Benefits of using Azure NetApp Files with Oracle Database]: https://docs.microsoft.com/en-us/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database
-[Cluster architecture diagram in .svg format]: ./media/sql-server-azure-netapp-files-availability.svg
+[Data Guard architecture diagram in .svg format]: ./media/oracle-azure-netapp-files-availability.svg
 [Convert existing SMB volumes to use Continuous Availability]: /azure/azure-netapp-files/convert-smb-continuous-availability
 [Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction
 [FAQs About Azure NetApp Files - Security FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs
 [FSLogix for the enterprise]: ../wvd/windows-virtual-desktop-fslogix.yml
 [Highly performant systems section of this article]: #highly-performant-systems
+[Implement Oracle Data Guard on an Azure Linux virtual machine]: https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard
 [Install SQL Server with SMB fileshare storage]: /sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option?view=sql-server-2017
-[Key benefits diagram in .svg format]: ./media/sql-server-azure-netapp-files-key-values.svg
+[Key benefits diagram in .svg format]: ./media/oracle-azure-netapp-files-key-values.svg
 [Main architecture diagram in .svg format]: ./media/oracle-azure-netapp-files-architecture.svg
 [Manual QoS volume quota and throughput]: /azure/azure-netapp-files/azure-netapp-files-performance-considerations#manual-qos-volume-quota-and-throughput
 [Migration overview: SQL Server to SQL Server on Azure VMs]: /azure/azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview
 [Oracle Database]: https://www.oracle.com/database/
+[Oracle VM images and their deployment on Microsoft Azure]: https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-vm-solutions
 [Pricing section of this article]: #pricing
+[Proximity placement groups]: https://docs.microsoft.com/en-us/azure/virtual-machines/co-location
 [Quickstart: Create SQL Server 2017 on a Windows virtual machine in the Azure portal]: /azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart
 [Real-time, high-level reference design]: https://docs.netapp.com/us-en/netapp-solutions/ent-apps-db/sql-srv-anf_reference_design_real-time_high-level_design.html#backup-and-recovery
 [Run SAP BW/4HANA with Linux virtual machines on Azure]: ../../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml

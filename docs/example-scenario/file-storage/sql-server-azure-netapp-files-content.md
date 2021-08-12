@@ -71,9 +71,9 @@ This solution can handle workloads that require advanced data management feature
 - On-demand capacity and performance scaling makes efficient use of resources.
 - Snapshots create frequent database consistency points. You can use the [NetApp SQL Server Database Quiesce Tool][Real-time, high-level reference design] to take snapshots. They provide these benefits:
 
-  - They're storage efficient.
+  - They're storage efficient. You only need limited additional capacity to create snapshots.
   - You can quickly create, replicate, restore, or clone them. As a result, they provide backup and recovery solutions that achieve aggressive recovery time objective (RTO) and recovery point objective (RPO) SLAs.
-  - They don't impact volume performance. You only need limited additional capacity to create snapshots.
+  - They don't impact volume performance.
   - They provide scalability. You can create them frequently and retain many at a time.
 
 #### Hybrid DR
