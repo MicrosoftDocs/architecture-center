@@ -1,8 +1,8 @@
 ---
 title: What's New in Azure Architecture Center
-description: New and updated articles in Azure Architecture Center
+description: New and updated articles in the Azure Architecture Center (AAC) that help you design, build, and operate solutions on Azure.
 author: doodlemania2
-ms.date: 08/02/2021
+ms.date: 08/09/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -25,6 +25,13 @@ New and updated articles in Azure Architecture Center
 
 ## August 2021
 
+### Updated Articles
+
+- [Big compute architecture style](./guide/architecture-styles/big-compute.md)  ([#e05914861](https://github.com/MicrosoftDocs/architecture-center/commit/e05914861))
+- [AWS to Azure services comparison](./aws-professional/services.md)  ([#74c7ff58d](https://github.com/MicrosoftDocs/architecture-center/commit/74c7ff58d))
+- [Serverless Functions reference architectures](./serverless-quest/reference-architectures.md)  ([#1ec2c2e0b](https://github.com/MicrosoftDocs/architecture-center/commit/1ec2c2e0b))
+- [Deploy highly available Kubernetes cluster on Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md)  ([#7b1fd4002](https://github.com/MicrosoftDocs/architecture-center/commit/7b1fd4002))
+- [Related resources for multitenancy](./guide/multitenant/related-resources.md)  ([#78c8b0fda](https://github.com/MicrosoftDocs/architecture-center/commit/78c8b0fda))
 
 ## July 2021
 
@@ -47,7 +54,7 @@ New and updated articles in Azure Architecture Center
 - [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
 - [Measure consumption](./guide/multitenant/considerations/measure-consumption.md)
 - [Architectural considerations for a multitenant solution](./guide/multitenant/considerations/overview.md)
-- [Pricing models](./guide/multitenant/considerations/pricing-models.md)
+- [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md)
 - [Tenancy models to consider for a multitenant solution](./guide/multitenant/considerations/tenancy-models.md)
 - [Tenant lifecycle considerations in a multitenant solution](./guide/multitenant/considerations/tenant-lifecycle.md)
 - [Considerations for updating a multitenant solution](./guide/multitenant/considerations/updates.md)
@@ -60,7 +67,7 @@ New and updated articles in Azure Architecture Center
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Monitoring operations](./reference-architectures/containers/aks-pci/aks-pci-monitor.yml)
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Network segmentation](./reference-architectures/containers/aks-pci/aks-pci-network.yml)
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Policy management](./reference-architectures/containers/aks-pci/aks-pci-policy.yml)
-- [AKS regulated cluster for PCI-DSS 3.2.1](./reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml)
+- [Architecture of an AKS regulated cluster for PCI-DSS 3.2.1](./reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml)
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Summary](./reference-architectures/containers/aks-pci/aks-pci-summary.yml)
 - [Precision medicine pipeline with genomics](./example-scenario/precision-medicine/genomic-analysis-reporting.yml)
 
@@ -187,9 +194,9 @@ New and updated articles in Azure Architecture Center
 - [Video capture and analytics for retail](./solution-ideas/articles/video-analytics.yml)
 - [Data governance with Profisee and Azure Purview](./reference-architectures/data/profisee-master-data-management-purview.yml)
 - [SAS on Azure architecture guide](./guide/sas/sas-overview.yml)
-- [Solutions for government industry](./industries/government.md)
-- [Solutions for manufacturing industry](./industries/manufacturing.md)
-- [Solutions for media and entertainment industry](./industries/media.md)
+- [Solutions for the government industry](./industries/government.md)
+- [Solutions for the manufacturing industry](./industries/manufacturing.md)
+- [Solutions for the media and entertainment industry](./industries/media.md)
 - [Use Application Gateway Ingress Controller (AGIC) with a multi-tenant Azure Kubernetes Service (AKS)](./example-scenario/aks-agic/aks-agic.yml)
 - [Integrate IBM mainframe and midrange message queues with Azure](./example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)
 - [Container orchestration for microservices](./microservices/design/orchestration.md)
