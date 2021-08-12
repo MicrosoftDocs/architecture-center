@@ -66,7 +66,7 @@ For critical infrastructure, use management locks to prevent deletion or modific
 Set locks in the DevOps process carefully because modification locks can sometimes block automation. For examples of those blocks and considerations, see [Considerations before applying locks](/azure/azure-resource-manager/management/lock-resources#considerations-before-applying-locks).
 
 
-## Next
+## Next steps
 Grant or deny access to a system by verifying whether the accessor has the permissions to perform the requested action. 
 
 > [!div class="nextstepaction"]

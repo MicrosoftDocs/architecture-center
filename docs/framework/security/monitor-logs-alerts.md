@@ -17,7 +17,7 @@ subject:
   - monitoring
 ---
 
-# Security logs and alerts 
+# Security logs and alerts using Azure services
 
 Logs provide insight into the operations of a workload, the infrastructure, network communications, and so on. When suspicious activity is detected, use alerts as a way of detecting potential threats. As part of your defense-in-depth strategy and continuous monitoring, respond to the alerts to prevent security assurance from decaying over time. 
 
@@ -45,12 +45,20 @@ An important aspect of monitoring is tracking operations. For example, you want 
 
 On Azure, that information is emitted as [platform logs](/azure/azure-monitor/essentials/platform-logs-overview) by the resources and the platform on which they run. They are tracked by Azure Resource Manager as and when subscription-level events occur. Each resource emits logs specific to the service.
 
-Consider sending your logs to a storage account for statistical analysis.
+Consider storing your data for audit purposes or statistical analysis. You can retain data in your log analytics workspace and specify the data type. This example sets the retention for `SecurityEvents` to 730 days:
+
+```
+PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview {"properties":  {"retentionInDays": 730 } }
+
+```
+Retaining data in this manner can reduce your costs for data retention over time. For information about the type of data you can retain, see [security data types](/azure/azure-monitor/reference/tables/tables-category#security).
+
+Another way is to send the logs to a storage account. 
 
 ## Alerts
 Security alerts are notifications that are generated when anomalous activity is detected on the resources used by the workload or the platform.
 
-With the Azure Defender plan, Azure Security Center  analyzes log data and shows a list of alerts that's based on logs collected from resources within a scope. Alerts include context information such as severity, status, activity time. Security center also provides a correlated view called **incidents**. Use this data to analyze what actions the attacker took, and what resources were affected.
+With the Azure Defender plan, Azure Security Center  analyzes log data and shows a list of alerts that's based on logs collected from resources within a scope. Alerts include context information such as severity, status, activity time. Security center also provides a correlated view called **incidents**. Use this data to analyze what actions the attacker took, and what resources were affected. Have strategies to react to alerts as soon as they are generated. An option is to  handle alerts in Azure Functions.
 
 Use the data to support these activities:
 
@@ -81,6 +89,8 @@ Make sure a high volume of low value data doesn't flow into those solutions.
 If you don’t have a reasonable expectation that the data will provide value, deprioritize integration of these events. For example, high volume of firewall denies events may create noise without actual actions.
 
 That choice will help in rapid response and remediation by filtering out false positives, and elevate true positives, and so on. Also it will lower SIEM cost, false positives, and increase performance.
+
+Other ways of log integration may involve a hybrid model that mixes centralized and decentralized (distributed among teams) approaches. For details, see [Important considerations for an access control strategy](/azure/azure-monitor/logs/design-logs-deployment#important-considerations-for-an-access-control-strategy).
 
 ## Next
 Responding to alerts is an essential way to prevent security assurance decay, and designing for defense-in depth and least privilege strategies.

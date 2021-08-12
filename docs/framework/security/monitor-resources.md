@@ -20,6 +20,8 @@ subject:
 
 Identify common security risks significantly reduces overall risk to the organization. Use Azure Security Center to monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues. Common issues include internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more.
 
+I would start setting the tone to our users that all resources (we could list them from here as way to introduce the, compute, networking, data, etc.) are going to require different monitoring mechanisms as well as Azure services. For instance when working with Containers we are gonna need Azure Monitor for Containers or if this about to monitor Azure Functions you want to enable Azure Application Insights and we could go over one by one if there is a desire for that.
+
 ## Key points
 > [!div class="checklist"]
 > - Enable Azure Defender as a defense-in-depth measure. Use resource-specific Defender features such as Azure Defender for Servers, Azure Defender for Endpoint, Azure Defender for Storage.
@@ -27,6 +29,14 @@ Identify common security risks significantly reduces overall risk to the organiz
 > - Review all network flow logs through network watcher. See diagnostic logs in Azure Security Center.
 > - Integrate all logs in a central SIEM solution to analyze and detect suspicious behavior.
 > - Monitor identity-related risk events in Azure AD reporting amd Azure Active Directory Identity Protection.
+
+## General best practices
+- Monitor suspicious activities from administrative accounts.
+- Monitor the location from where Azure resources are being managed.
+- Monitor attempts to access deactivated credentials.
+- Use automated tools to monitor network resource configurations and detect changes.
+
+For more information, see [Azure security baseline for Azure Monitor](/security/benchmark/azure/baselines/monitor-security-baseline).
 
 ## Virtual machines
 

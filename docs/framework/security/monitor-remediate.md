@@ -31,7 +31,7 @@ Start by remediating common security risks. These risks are usually from well-es
 
 ## Track Secure Score
 
-**Does you review and remediate common risks within Azure tenants?**
+**Do you review and remediate common risks in the workload boundary?**
 ***
 
 Monitor the security posture of VMs, networks, storage, data services, and various other contributing factors. [Secure Score](/azure/security-center/secure-score-security-controls) in Azure Security Center shows a composite score that represents the security posture at the subscription level.  
@@ -65,7 +65,7 @@ As you review the results and apply recommendations, track the progress and prio
     |IoT Security|IoT Resources | IoT Operations Team|
 
 > [!NOTE] 
-> In the DevOps model, some application teams may be responsible for their own application resources.
+> As a technical workload owner, work with your organization's dedicated team that monitors Secure Score. In the DevOps model, workload teams may be responsible for their own resources.
 
 :::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
 
@@ -73,9 +73,9 @@ As you review the results and apply recommendations, track the progress and prio
 
 ## Review and remediate recommendations
 
-Azure Security Center monitors the security status of machines, networks, storage and data services, and applications to discover potential security issues. Enable this capability at no additional cost to  detect vulnerable virtual machines connected to internet, missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more.  
+Azure Security Center monitors the security status of machines, networks, storage and data services, and applications to discover potential security issues. Enable this capability at no additional cost to detect vulnerable virtual machines connected to internet, missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more.  
 
-View the recommendations to see the potential security issues and apply the [Azure security center recommendations](/azure/security-center/security-center-recommendations) to execute technical remediations. .
+View the recommendations to see the potential security issues and apply the [Azure security center recommendations](/azure/security-center/security-center-recommendations) to execute technical remediations.
 
 ![Azure secure score](images/secure-score.png)
 
@@ -89,13 +89,15 @@ For more information, see [Continuous export](/azure/security-center/continuous-
 
 A common approach for maintaining the security posture is through Azure Policy. 
 
-Along with organizational policies, a workload owner can use scoped policies for governance purposes, such as check misconfiguration, prohibit certain resource types, and others. The resources are evaluated against rules to identify unhealthy resources that are risky. Post evaluation, certain actions are required as remediation. The actions can be in enforced through Azure Policy effects. 
+Along with organizational policies, a workload owner can use scoped policies for governance purposes, such as check misconfiguration, prohibit certain resource types, and others. The resources are evaluated against rules to identify unhealthy resources that are risky. Post evaluation, certain actions are required as remediation. The actions can be enforced through Azure Policy effects. 
 
 For example, a workload runs in an Azure Kubernetes Service (AKS) cluster. The business goals require the workload to run in a highly restrictive environment. As a workload owner, you want the resource group to contain AKS clusters that are private. You can enforce that requirement with the **Deny** effect. It will prevent a cluster from being created if that rule isn't satisfied. 
 
+That sort of isolation can be maintained through policies at a higher level such as the subscription level or even management groups. 
+
 Another use case is that it can be automatically remediated by deploying related resources. For example, the organization wants all storage resources in a subscription to send logs to a common Log Analytics workspace. If a storage account doesn't pass the policy, a deployment is automatically started as remediation. That remediation can be enforced through **DeployIfNotExist**. There are some considerations. 
 - There's a significant wait before the resource is updated and the deployment starts. In the preceding example, there won't be logs captured during that wait time. Avoid using this effect for resources that cannot tolerate a delay. 
-- The resource deployed because of **DeployIfNotExist** is owned by a separate identity. That identity must have high enough privileges to make changes to the subscription. 
+- The resource deployed because of **DeployIfNotExist** are created by a separate identity than that of the identity that did the original deployment. That identity must have high enough privileges to make the required changes.
 
 
 ## Manage alerts

@@ -1,6 +1,6 @@
 ---
 title: Security audits
-description: use benchmarking to assess your current security state with respect to other organizations.
+description: Use benchmarking to assess your current security state with respect to other organizations.
 author: PageWriter-MSFT
 ms.date: 4/06/2021
 ms.topic: conceptual
@@ -70,7 +70,7 @@ Perform regulatory compliance attestation. Attestations are done by an independe
 
 Regularly review roles that have high privileges. Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change. Consider auditing at least twice a year.
 
-As people in the organization and on the project change, make sure that only the right people have access to the application infrastructure. Auditing and reviewing the access control reduces the attack vector to the application. 
+As people in the organization and on the project change, make sure that only the right people, have access to the application infrastructure and just enough privileges to complete the task. Auditing and reviewing the access control reduces the attack vector to the application. 
 
 Azure control plane depends on Azure AD. You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review). These reviews are often centrally performed often as part of internal or external audit activities. 
 

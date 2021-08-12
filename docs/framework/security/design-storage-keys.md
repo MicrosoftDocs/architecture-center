@@ -55,7 +55,7 @@ Suppose you need to store sensitive data in Azure Blob Storage. You can use Azur
 
 API keys, database connection strings, and passwords can get leaked. Also, data encryption keys are considered to be sensitive information. 
 
-Store all application keys and secrets in managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview) and not within the application code or configuration. Storing encryption keys a managed store further limits access.
+Store all application keys and secrets in managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview) and not within the application code or configuration. Storing encryption keys a managed store further limits access. The workload can access the secrets by authenticating itself against Key Vault by using managed identities. That access can be restricted with Azure RBAC.
 
 Make sure that no keys and secrets for any environment types (Dev/Test, or production) are stored in application configuration files or CI/CD pipelines. Developers can use [Visual Studio Connected Services](/azure/key-vault/general/vs-key-vault-add-connected-service) or local-only files to access credentials.
 
@@ -80,7 +80,7 @@ There are various approaches. Options include Microsoft-managed Keys, Customer-m
 **Are keys and secrets rotated frequently?**
 ***
 
-To reduce the attack vectors, secrets require rotation and are prone to expiration. The process should be automated and executed without any human interactions. Storing them in a managed simplifies those operational tasks by handling key rotation.
+To reduce the attack vectors, secrets require rotation and be prone to expiration. The process should be automated and executed without any human interactions. Storing them in a managed store simplifies those operational tasks by handling key rotation.
 
 Replace secrets after they've reached the end of their active lifetime or if they've been compromised. Renewed certificates should also use a new key. Have a process for situations where keys get compromised (leaked) and need to be regenerated on-demand. For example, secrets rotation in SQL Database.
 

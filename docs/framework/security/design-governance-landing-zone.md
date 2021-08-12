@@ -1,5 +1,5 @@
 ---
-title: Azure landing zone
+title: Zero-trust landing zone in Azure
 description: Security controls on a prepared infrastructure into which a workload can get deployed.
 author: PageWriter-MSFT
 ms.date: 03/05/2021
@@ -15,7 +15,7 @@ ms.custom:
   - article
 ---
 
-# Azure landing zone
+# Zero-trust landing zone in Azure
 
 A _landing zone_ refers to a prepared infrastructure into which a workload gets deployed. For example, a hub and spoke topology. It already has the compute, data sources, access controls, and networking components provisioned. When a workload lands on Azure, the required plumbing is ready; the workload needs to plug into it.
 
@@ -39,7 +39,7 @@ For information about an enterprise-scale reference architecture, see [Cloud Ado
 - [Platform automation and DevOps](/azure/cloud-adoption-framework/ready/platform-automation-and-devops.md)
 
 ## Azure services
-**How does the organization consistently deploy environments of this workload that follows organizational policies?**
+**How do you consistently deploy landing zones that follow organizational policies?**
 ***
 
 Key Azure services that can help in creating a landing zone:
@@ -50,7 +50,7 @@ Key Azure services that can help in creating a landing zone:
 - [Azure Monitor](/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor) provides centralized operations for monitoring and viewing logs from all resources provisioned. 
 
 ## Next
-Use management groups can manage resources across multiple subscriptions consistently and efficiently. 
+Use management groups to manage resources across multiple subscriptions consistently and efficiently. 
 
 > [!div class="nextstepaction"]
 > [Management groups](design-management-groups.md)

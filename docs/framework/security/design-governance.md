@@ -25,8 +25,13 @@ As part of overall design, prioritize where to invest the available resources; f
 **What considerations for compliance and governance did you make?**
 ***
 > [!div class="checklist"]
-> - Understand the regulatory requirements and the requirements for operational data that may be used for audits. 
-> - Design the workload within the security controls set in the landing zone into which the deployment is deployed.
+> - Create a landing zone for the workload. The infrastructure must have appropriate controls and be repeatable with every deployment.
+> - Enforce creation and deletion of services and their configuration through Azure Policies. 
+> - Ensure consistency across the enterprise by applying policies, permissions, and tags across all subscriptions through careful implementation of root management group.
+> - Understand regulatory requirements and operational data that may be used for audits. 
+> - Continuously monitor and assess the compliance of your workload. Perform regular attestations to avoid fines.
+> - Review and apply recommendations from Azure. 
+> - Remediate basic vulnerabilites to keep the attacker costs high.
 
 ## In this section
 
@@ -57,7 +62,7 @@ Here are some reference architectures related to governance:
 
 ## Next steps
 
-We recommend that you review the practices and tools have you implemented as part of the development cycle.
+We recommend that you review the practices and tools implemented as part of the development cycle.
 
 > [!div class="nextstepaction"]
 > [Application development](./design-apps-services.md)

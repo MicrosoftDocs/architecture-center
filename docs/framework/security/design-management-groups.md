@@ -78,9 +78,8 @@ You can assign this permission by using:
 ### Policy management across some or all resources 
 
 Before defining the policies, consider:
-- How is the organization’s security monitored, audited, and reported? Is there mandatory reporting? 
-- Are the existing security practices are working? 
-- Are there new requirements? 
+- How is the organization’s security audited and reported? Is there mandatory reporting? 
+- Are the existing security practices working? 
 - Are there any requirements specific to industry, government, or regulatory requirements?
 
 Designate group(s) (or individual roles) for central functions that affect shared services and applications. 
