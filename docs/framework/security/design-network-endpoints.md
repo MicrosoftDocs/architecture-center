@@ -1,6 +1,6 @@
 ---
 title: Best practices for endpoint security on Azure
-description: Best practices for protecting application endpoints.
+description: Examine best practices for protecting application endpoints in Azure. Explore public endpoints. Mitigate distributed denial-of-service (DDoS) attacks.
 author: PageWriter-MSFT
 ms.date: 02/03/2021
 ms.topic: conceptual

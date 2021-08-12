@@ -1,7 +1,7 @@
 ---
 title: External Configuration Store pattern
 titleSuffix: Cloud Design Patterns
-description: Move configuration information out of the application deployment package to a centralized location.
+description: Examine the External Configuration Store pattern, which moves configuration information out of the application deployment package to a centralized location.
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
