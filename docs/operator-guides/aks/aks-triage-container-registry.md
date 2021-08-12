@@ -1,7 +1,7 @@
 ---
 title: AKS triage - container registry connectivity
 titleSuffix: Azure Architecture Center
-description: Triage step to verify the connection to the container registry.
+description: Learn about verifying the connection to the container registry as part of a triage step for Azure Kubernetes Service (AKS) clusters.
 author: kevingbb
 ms.date: 10/12/2020
 ms.topic: conceptual

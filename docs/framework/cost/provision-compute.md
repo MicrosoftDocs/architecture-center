@@ -1,6 +1,6 @@
 ---
 title: Compute
-description: Describes cost tradeoffs for compute services
+description: Get cost estimates for compute hosting models such as IaaS, PaaS, or FaaS. Predict cost estimates using the Pricing Calculator in Azure.
 author: v-aangie
 ms.date: 08/26/2020
 ms.topic: conceptual

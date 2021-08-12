@@ -1,7 +1,7 @@
 ---
 title: AKS triage - cluster health
 titleSuffix: Azure Architecture Center
-description: Triage step to verify the overall AKS cluster health.
+description: Learn to check the overall health of a Azure Kubernetes Service (AKS) cluster, as part of a triage step for AKS clusters.
 author: kevingbb
 ms.date: 10/12/2020
 ms.topic: conceptual
