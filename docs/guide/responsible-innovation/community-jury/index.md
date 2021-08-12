@@ -1,7 +1,7 @@
 ---
 title: Community jury
 titleSuffix: Azure Application Architecture Guide
-description: Community jury is a stakeholder collaboration technique that allows project teams to understand the perceptions and concerns of stakeholders, and take actions based on this understanding.
+description: Learn about the Community jury stakeholder collaboration technique that allows project teams to understand the perceptions and concerns of stakeholders.
 author: dcass
 ms.date: 05/18/2020
 ms.topic: conceptual

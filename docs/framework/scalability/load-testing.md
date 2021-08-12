@@ -1,6 +1,6 @@
 ---
 title: Load Testing
-description: 
+description: Learn how load testing in Azure can help you assess the performance, stability, and behavior of your application.  
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: conceptual
@@ -15,7 +15,7 @@ ms.custom:
 
 ## Testing at expected peak load
 
-Load test your application at the expected peak load to ensure there are no challenges around performance or stability when operating at full capacity. Review [Changes to load test functionality in Visual Studio and cloud load testing in Azure DevOps](/azure/devops/test/load-test/overview?view=azure-devops) to get an overview of the Microsoft provided load testing tools, along with a comprehensive list of third-party tools you can leverage as well.
+Load test your application at the expected peak load to ensure there are no challenges around performance or stability when operating at full capacity. Review [Changes to load test functionality in Visual Studio and cloud load testing in Azure DevOps](/azure/devops/test/load-test/overview?view=azure-devops&preserve-view=true) to get an overview of the Microsoft provided load testing tools, along with a comprehensive list of third-party tools you can leverage as well.
 
 ## Azure service limits
 

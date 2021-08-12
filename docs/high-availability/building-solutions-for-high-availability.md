@@ -1,7 +1,7 @@
 ---
 title: Building solutions for high availability using Availability Zones
 titleSuffix: High Availability
-description: The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers.
+description: Learn about the Azure Availability Zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.
 author: EdPrice-MSFT
 ms.date: 04/07/2020
 ms.topic: conceptual

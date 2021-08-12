@@ -123,4 +123,4 @@ Don't create any subscriptions under the root management group. This hierarchy e
 > [!IMPORTANT] 
 > Plan, test, and validate all enterprise-wide changes on the root management group before applying (policy, tags, Azure RBAC model, and so on). You can use a test lab. This can be representative lab tenant or lab segment in production tenant. Another option is to use a production pilot. This can be a segment management group or designated subset in subscription(s) management group. Validate changes to make sure the requirements have the desired effect.
 
-For more information, reference [Use root management group carefully](/azure/architecture/framework/security/governance#use-root-management-group-carefully).
+For more information, reference [Use root management group carefully](./governance.md#use-root-management-group-carefully).
