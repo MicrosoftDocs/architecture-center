@@ -134,7 +134,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure Advisor
-            url: azure/advisor/advisor-cost-recommendations
+            url: /azure/advisor/advisor-overview
           - text: Advisor Score
             url: /azure/advisor/azure-advisor-score
           - text: Azure Kubernetes Service (AKS)
