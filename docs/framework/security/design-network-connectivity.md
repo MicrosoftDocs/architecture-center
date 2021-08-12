@@ -1,6 +1,6 @@
 ---
 title: Azure services for securing network connectivity
-description: Best practices for securing access to internet, PaaS services, and on-premises networks.
+description: Learn about best practices for securing access to the internet, Azure platform as a service (PaaS) services, and on-premises networks.
 author: PageWriter-MSFT
 ms.date: 02/03/2021
 ms.topic: conceptual

@@ -1,6 +1,6 @@
 ---
 title: Health modeling for reliability
-description: How to use application health modeling to improve application reliability in Azure
+description: Use health modeling to improve application reliability in Azure. Differentiate between healthy and unhealthy states. Know how to quantify application states.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual

@@ -1,6 +1,6 @@
 ---
 title: Key and secret management in Azure
-description: Protect keys by storing in them in managed key store.
+description: Examine key and secret management considerations in Azure. Protect keys by storing them in the managed key vault service.
 author: PageWriter-MSFT
 ms.date: 12/03/2020
 ms.topic: conceptual
