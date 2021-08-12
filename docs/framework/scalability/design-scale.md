@@ -12,7 +12,7 @@ ms.custom:
 
 # Design for scaling
 
-Scaling is the ability of a system to handle increased load. Services covered by [Azure Autoscale](https://azure.microsoft.com/en-us/features/autoscale/) can scale automatically to match demand to accommodate workload. They will scale out to ensure capacity during workload peaks and scaling will return to normal automatically when the peak drops.
+Scaling is the ability of a system to handle increased load. Services covered by [Azure Autoscale](https://azure.microsoft.com/features/autoscale/) can scale automatically to match demand to accommodate workload. They will scale out to ensure capacity during workload peaks and scaling will return to normal automatically when the peak drops.
 
 ## Plan for growth
 
