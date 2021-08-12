@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
 author: BrianQu 
 ms.author: yuanzhiqu
-ms.date: 8/4/2021
+ms.date: 8/13/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -64,7 +64,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [SageMaker](https://aws.amazon.com/sagemaker) | [Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) | A cloud service to train, deploy, automate, and manage machine learning models. |
+| [SageMaker](https://aws.amazon.com/sagemaker) | [Machine Learning](https://azure.microsoft.com/services/machine-learning-services) | A cloud service to train, deploy, automate, and manage machine learning models. |
 | [Alexa Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Bot Framework](https://dev.botframework.com) | Build and connect intelligent bots that interact with your users using text/SMS, Skype, Teams, Slack, Microsoft 365 mail, Twitter, and other popular services. |
 | [Lex](https://aws.amazon.com/lex) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech) | API capable of converting speech to text, understanding intent, and converting text back to speech for natural responsiveness. |
 | [Lex](https://aws.amazon.com/lex) | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) | Allows your applications to understand user commands contextually. |
@@ -108,7 +108,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Amazon Timestream](https://aws.amazon.com/timestream/ ) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer) <br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/en-us/services/time-series-insights) | Fully managed, low latency, distributed big data analytics platform to run complex queries across petabytes of data. Hihgly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+| [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
 
 ### Time series architectures
 
@@ -118,8 +118,6 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 [!INCLUDE [Azure Data Explorer interactive analytics](../../includes/cards/interactive-azure-data-explorer.md)]
 
 </ul>
-
-
 
 ### Big data processing
 
