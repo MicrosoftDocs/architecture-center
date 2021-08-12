@@ -113,6 +113,13 @@ Often referred to as a lift-and-shift migration, this option doesn't require cod
 
 #### Rehost architectures
 
+<ul class="grid">
+
+[!INCLUDE [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../includes/cards/migrate-mainframe-apps-with-tmaxsoft-openframe.md)]
+[!INCLUDE [Modernize mainframe and midrange data](../../includes/cards/modernize-mainframe-data-to-azure.md)]
+
+</ul>
+
 | | |
 |-|-|
 |Stromasys Charon-SSP Solaris emulator on Azure VMs [<img src="images/rehost-solaris.png" alt="Stromasys Charon-SSP Solaris emulator on Azure VMs" width=700 height="300">](../solution-ideas/articles/solaris-azure.yml) |Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame [<img src="images/rehost-tmax.png" alt="Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame" width=700 height="300">](../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)|
