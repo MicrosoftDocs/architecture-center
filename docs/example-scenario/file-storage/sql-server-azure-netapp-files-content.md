@@ -39,6 +39,10 @@ The solution uses the following components:
 - [SQL Server on Azure Virtual Machines][What is SQL Server on Azure Virtual Machines (Windows)] provides a way to migrate SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, SQL Server on Azure Virtual Machines offers the flexibility and hybrid connectivity of Azure. But this database solution also provides the performance, security, and analytics of SQL Server. You can continue to use your current SQL Server version. You can also access the latest SQL Server updates and releases.
 - [Azure Virtual Network][Azure Virtual Network] is a networking service that manages virtual private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
 
+### Alternatives
+
+This solution uses Always On availability groups for DR. As an alternative, [cross-region replication][Cross-region replication of Azure NetApp Files volumes] provides efficient DR across regions in Azure. Cross-region replication uses storage-based replication. It does not use VM resources. For more information, see [Create volume replication for Azure NetApp Files][Create volume replication for Azure NetApp Files].
+
 ## Key benefits
 
 This image shows the benefits of using SQL Server with Azure NetApp Files.
@@ -78,7 +82,7 @@ This solution can handle workloads that require advanced data management feature
 
 #### Hybrid DR
 
-The combination of Always On availability groups and Azure NetApp Files provides DR for this architecture. Those DR solutions are appropriate for cloud and hybrid systems. Their plans work across multiple regions and with on-premises data centers. As an alternative, [cross-region replication][Cross-region replication of Azure NetApp Files volumes] can also provide efficient DR across regions in Azure.
+The combination of Always On availability groups and Azure NetApp Files provides DR for this architecture. Those DR solutions are appropriate for cloud and hybrid systems. Their plans work across multiple regions and with on-premises data centers.
 
 ## Considerations
 
@@ -129,7 +133,7 @@ Also keep these points in mind:
 - Consider the database size:
 
   - For small databases, you can deploy database and log files into a single volume. Such simplified configurations are easy to manage.
-  - For large databases, it can be more efficient to configure multiple volumes. You can also use a [manual Quality of Service (QoS) capacity pool][Manual QoS volume quota and throughput]. This type of pool provides more granular control over performance requirements.
+  - For large databases, it can be more efficient to configure multiple volumes. You can also use a [manual Quality of Service (QoS) capacity pool][Manual QoS volume quota and throughput]. This type provides more granular control over performance requirements.
 
 - Install SQL Server with SMB fileshare storage. SQL Server 2012 (11.x) and later versions support SMB file server as a storage option. Database engine user databases and system databases like Master, Model, MSDB, and TempDB provide that support. This point applies to SQL Server stand-alone and SQL Server failover cluster installations (FCI). For more information, see [Install SQL Server with SMB fileshare storage][Install SQL Server with SMB fileshare storage].
 
@@ -170,6 +174,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Benefits of using Azure NetApp Files for SQL Server deployment - Detailed cost analysis]: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server#detailed-cost-analysis
 [Cluster architecture diagram in .svg format]: ./media/sql-server-azure-netapp-files-availability.svg
 [Convert existing SMB volumes to use Continuous Availability]: /azure/azure-netapp-files/convert-smb-continuous-availability
+[Create volume replication for Azure NetApp Files]: /azure/azure-netapp-files/cross-region-replication-create-peering
 [Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction
 [FAQs About Azure NetApp Files - Security FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs
 [FSLogix for the enterprise]: ../wvd/windows-virtual-desktop-fslogix.yml
