@@ -1,6 +1,6 @@
 ---
 title: Artificial intelligence (AI)
-description: Artificial intelligence (AI)
+description: Get started with artificial intelligence (AI). Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: maggsl
 ms.date: 04/14/2020
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Image storage in IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: This article describes the considerations for image storage in an Azure IoT Edge Vision solution.
+description: Learn about image storage and management in an Azure IoT Edge Vision solution. Read a description of a typical storage workflow.
 author: MSKeith
 ms.author: keith
 ms.date: 10/22/2020
