@@ -17,7 +17,7 @@ products:
 
 The Azure equivalent of the Elastic Load Balancing services are:
 
-- [Load Balancer](/azure/load-balancer/load-balancer-overview): Provides the same network layer 4 capabilities as the AWS Network Load Balancer and Classic Load Balancer, allowing you to distribute traffic for multiple VMs at the network level. It also provides failover capability.
+- [Load Balancer](/azure/load-balancer/load-balancer-overview): Provides the same network layer 4 capabilities as the AWS Network Load Balancer and Classic Load Balancer, allowing you to distribute traffic for multiple VMs at the network level. It also provides a failover capability.
 
 - [Application Gateway](/azure/application-gateway/overview): Offers application-level rule-based routing comparable to the AWS Application Load Balancer.
 
