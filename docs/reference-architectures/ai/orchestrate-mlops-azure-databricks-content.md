@@ -2,7 +2,7 @@ This scenario describes an approach to [machine learning operations
 (MLOps)](/azure/machine-learning/concept-model-management-and-deployment)
 that involves running model training and batch scoring on Azure Databricks using
 Databricks Notebook as an orchestrator, as well as managing the end-to-end
-machine learning life cycle using the open source
+machine learning life cycle using the open-source
 [MLflow](/azure/databricks/applications/mlflow/)
 platform.
 
@@ -23,7 +23,7 @@ stages needed for model training or batch scoring.
 
 A Databricks Notebook orchestrator can be executed using a Databricks job on an
 existing Databricks cluster or a new cluster, an approach that allows you to
-gain more control over orchestration by taking advantage of additional
+gain more control over orchestration by taking advantage of another
 Databricks features such as widgets, notebook-scoped libraries, jobs, and more.
 
 ## Architecture
@@ -98,7 +98,7 @@ adds potential benefits:
 
 -   An alternative to MLflow projects
 
-    -   This approach allows the re-use of an existing Databricks cluster. To
+    -   This approach allows the reuse of an existing Databricks cluster. To
         run an MLflow project against Azure Databricks, a new cluster must be
         created; an existing cluster cannot be used. However, in certain
         situations it’s not possible to create a new cluster on Databricks—for
@@ -107,7 +107,7 @@ adds potential benefits:
         offers a workaround.
 
     -   This approach can be used completely within the Databricks ecosystem, by
-        leveraging features like Jobs or Node Pools without interacting with
+        using features like Jobs or Node Pools without interacting with
         external systems (for example, MLflow CLI). This might be required if
         Databricks access is restricted behind a VPN.
 
@@ -127,7 +127,7 @@ This scenario uses the following components:
 -   [MLOps](/azure/machine-learning/concept-model-management-and-deployment), based on DevOps principles and practices that increase the efficiency
     of workflows.
 
--   [MLflow](/azure/databricks/applications/mlflow/), an open source platform for managing the end-to-end machine learning
+-   [MLflow](/azure/databricks/applications/mlflow/), an open-source platform for managing the end-to-end machine learning
     life cycle.
 
 -   [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), a data analytics platform optimized for the Microsoft
@@ -159,7 +159,7 @@ Learning](/azure/machine-learning/concept-mlflow#train-mlflow-projects).
 ## Pricing
 
 Costs related to this use case will depend on the standard pricing for the
-following services, based on you usage:
+following services, based on your usage:
 
 -   [Azure Databricks
     pricing](https://azure.microsoft.com/en-in/pricing/details/databricks/)
@@ -175,7 +175,7 @@ following services, based on you usage:
 A sample implementation of this concept is available on the [Azure Databricks MLOps using MLflow repository](https://github.com/Azure-Samples/azure-databricks-mlops-mlflow)
 . This sample provides:
 
--   A way to run Python based MLOps without using [MLflow projects](https://mlflow.org/docs/latest/projects.html), but still
+-   A way to run Python-based MLOps without using [MLflow projects](https://mlflow.org/docs/latest/projects.html), but still
     using MLflow for managing the end-to-end machine learning life cycle.
 
 -   A sample of machine learning source code structure along with unit test
