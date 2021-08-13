@@ -71,6 +71,13 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [BigQuery](https://cloud.google.com/bigquery) | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
 | [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Big Data Clusters](/sql/big-data-cluster/big-data-cluster-overview?view=sql-server-ver15&preserve-view=true) <br/><br/> [Azure Databricks](https://azure.microsoft.com/services/databricks) | Allow you to deploy scalable clusters of SQL Server, Spark, and HDFS containers running on Kubernetes. These components are running side by side to enable you to read, write, and process big data from Transact-SQL or Spark, allowing you to easily combine and analyze your high-value relational data with high-volume big data. |
 
+### Time series
+
+| Google Cloud service | Azure service | Description |
+| ----------- | ------------- | ----------- |
+| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+
+
 ### Big data processing
 
 | Google Cloud service | Azure service | Description |
