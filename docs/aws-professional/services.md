@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
 author: BrianQu 
 ms.author: yuanzhiqu
-ms.date: 8/11/2021
+ms.date: 8/13/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -64,7 +64,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [SageMaker](https://aws.amazon.com/sagemaker) | [Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) | A cloud service to train, deploy, automate, and manage machine learning models. |
+| [SageMaker](https://aws.amazon.com/sagemaker) | [Machine Learning](https://azure.microsoft.com/services/machine-learning-services) | A cloud service to train, deploy, automate, and manage machine learning models. |
 | [Alexa Skills Kit](https://developer.amazon.com/alexa/alexa-skills-kit) | [Bot Framework](https://dev.botframework.com) | Build and connect intelligent bots that interact with your users using text/SMS, Skype, Teams, Slack, Microsoft 365 mail, Twitter, and other popular services. |
 | [Lex](https://aws.amazon.com/lex) | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech) | API capable of converting speech to text, understanding intent, and converting text back to speech for natural responsiveness. |
 | [Lex](https://aws.amazon.com/lex) | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) | Allows your applications to understand user commands contextually. |
@@ -104,6 +104,21 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 [view all](../browse/index.yml?azure_categories=databases)
 
+### Time series
+
+| AWS service | Azure service | Description |
+| ----------- | ------------- | ----------- |
+| [Amazon Timestream](https://aws.amazon.com/timestream) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+
+### Time series architectures
+
+<ul class="grid">
+
+[!INCLUDE [IoT analytics with Azure Data Explorer](../../includes/cards/iot-azure-data-explorer.md)]
+[!INCLUDE [Azure Data Explorer interactive analytics](../../includes/cards/interactive-azure-data-explorer.md)]
+
+</ul>
+
 ### Big data processing
 
 | AWS service | Azure service | Description |
@@ -119,6 +134,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 [!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
 [!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
+[!INCLUDE [Big data analytics with Azure Data Explorer](../../includes/cards/big-data-azure-data-explorer.md)]
 
 </ul>
 
@@ -128,8 +144,8 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Data Pipeline](https://aws.amazon.com/datapipeline), [Glue](https://aws.amazon.com/glue/) | [Data Factory](https://azure.microsoft.com/services/data-factory) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines. |
-| [Glue](https://aws.amazon.com/glue) | [Data Catalog](https://azure.microsoft.com/services/data-catalog) | A fully managed service that serves as a system of registration and system of discovery for enterprise data sources |
+| [Data Pipeline](https://aws.amazon.com/datapipeline), [Glue](https://aws.amazon.com/glue) | [Data Factory](https://azure.microsoft.com/services/data-factory) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines. |
+| [Glue](https://aws.amazon.com/glue) | [Azure Purview](https://azure.microsoft.com/services/purview) | A unified data governance service that helps you manage and govern your on-premises, multicloud, and software as a service (SaaS) data. |
 | [Dynamo DB](https://aws.amazon.com/dynamodb)| [Table Storage](https://azure.microsoft.com/services/storage/tables), [Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | NoSQL key-value store for rapid development using massive semi-structured datasets.|
 
 ### Analytics and visualization
@@ -192,10 +208,10 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [IoT](https://aws.amazon.com/iot) | [IoT Hub](https://azure.microsoft.com/services/iot-hub) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
-| [Greengrass](https://aws.amazon.com/greengrass/) | [IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
-| [Kinesis Firehose](https://aws.amazon.com/kinesis/data-firehose/), [Kinesis Streams](https://aws.amazon.com/kinesis/data-streams) | [Event Hubs](https://azure.microsoft.com/services/event-hubs) | Services that allow the mass ingestion of small data inputs, typically from devices and sensors, to process and route the data. |
-| [IoT Things Graph](https://aws.amazon.com/iot-things-graph) | [Digital Twins](https://azure.microsoft.com/services/digital-twins) | Azure Digital Twins is an IoT service that helps you create comprehensive models of physical environments. Create spatial intelligence graphs to model the relationships and interactions between people, places, and devices. Query data from a physical space rather than disparate sensors.
+| [IoT Core](https://aws.amazon.com/iot-core) | [IoT Hub](https://azure.microsoft.com/services/iot-hub) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
+| [Greengrass](https://aws.amazon.com/greengrass) | [IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly onto IoT devices, catering to on-premises scenarios. |
+| [Kinesis Firehose](https://aws.amazon.com/kinesis/data-firehose), [Kinesis Streams](https://aws.amazon.com/kinesis/data-streams) | [Event Hubs](https://azure.microsoft.com/services/event-hubs) | Services that facilitate the mass ingestion of events (messages), typically from devices and sensors. The data can then be processed in real-time micro-batches or be written to storage for further analysis. |
+| [IoT Things Graph](https://aws.amazon.com/iot-things-graph) | [Digital Twins](https://azure.microsoft.com/services/digital-twins) | Services you can use to create digital representations of real-world things, places, business processes, and people. Use these services to gain insights, drive the creation of better products and new customer experiences, and optimize operations and costs. |
 
 ### IOT architectures
 
@@ -267,8 +283,8 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | [Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
 | [Identity and Access Management (IAM)](https://aws.amazon.com/iam) | [Azure role-based access control](/azure/role-based-access-control/overview) | Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
 | [Organizations](https://aws.amazon.com/organizations) | [Subscription Management + Azure RBAC](/azure/azure-subscription-service-limits) | Security policy and role management for working with multiple accounts. |
-| [Multi-Factor Authentication](https://aws.amazon.com/iam/features/mfa/) | [Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) | Safeguard access to data and applications while meeting user demand for a simple sign-in process. |
-| [Directory Service](https://aws.amazon.com/directoryservice/) | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | Provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory. |
+| [Multi-Factor Authentication](https://aws.amazon.com/iam/features/mfa) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory) | Safeguard access to data and applications while meeting user demand for a simple sign-in process. |
+| [Directory Service](https://aws.amazon.com/directoryservice) | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | Provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory. |
 | [Cognito](https://aws.amazon.com/cognito) | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c) | A highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. |
 | [Organizations](https://aws.amazon.com/organizations) | [Policy](https://azure.microsoft.com/services/azure-policy/) | Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. |
 | [Organizations](https://aws.amazon.com/organizations) | [Management Groups](/azure/governance/management-groups/) | Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale, no matter what type of subscriptions you have. |
@@ -360,9 +376,9 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | Workflow | [Simple Workflow Service (SWF)](https://aws.amazon.com/swf) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
 | Hybrid | [Outposts](https://aws.amazon.com/outposts) | [Stack](https://azure.microsoft.com/overview/azure-stack) | Azure Stack is a hybrid cloud platform that enables you to run Azure services in your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to either Azure Stack or Azure, or you can build truly hybrid apps that take advantage of connectivity between an Azure Stack cloud and Azure. |
 | Media | [Elemental MediaConvert](https://aws.amazon.com/media-services) | [Media Services](https://azure.microsoft.com/services/media-services/) | Cloud-based media workflow platform to index, package, protect, and stream video at scale.|
-| Satellite | [Ground Station](https://aws.amazon.com/ground-station/) | [Azure Orbital](/azure/networking/azure-orbital-overview) | Fully Managed cloud based ground station as a service.|
-| Blockchain | [Amazon Managed Blockchain](https://aws.amazon.com/managed-blockchain/) | [Azure Blockchain Service](/azure/blockchain/service/overview) | Fully Managed service that gives users the ability to grow and operate blockchain networks at scale.|
-| Quantum computing | [Amazon Braket](https://aws.amazon.com/braket/) | [Azure Quantum](/azure/quantum/) | Managed Quantum Computing Service that developers, researchers and bsuiness can use to run quantum computing programs.|
+| Satellite | [Ground Station](https://aws.amazon.com/ground-station) | [Azure Orbital](/azure/networking/azure-orbital-overview) | Fully Managed cloud based ground station as a service.|
+| Blockchain | [Amazon Managed Blockchain](https://aws.amazon.com/managed-blockchain) | [Azure Blockchain Service](/azure/blockchain/service/overview) | Fully Managed service that gives users the ability to grow and operate blockchain networks at scale.|
+| Quantum computing | [Amazon Braket](https://aws.amazon.com/braket) | [Azure Quantum](/azure/quantum) | Managed Quantum Computing Service that developers, researchers and business can use to run quantum computing programs.|
 ## More learning
 
 If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/learn/modules/welcome-to-azure) module on [Microsoft Learn](/learn).

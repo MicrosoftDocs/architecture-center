@@ -1,6 +1,6 @@
 ---
 title: Run Apache Cassandra on Azure VMs
-description: Performance considerations for running Apache Cassandra on Azure virtual machines
+description: Examine performance considerations for running Apache Cassandra on Azure virtual machines. Use these recommendations as a baseline to test against your workload.
 author: arsenvlad
 ms.author: arsenv
 ms.date: 09/19/2019
