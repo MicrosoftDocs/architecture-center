@@ -1,6 +1,6 @@
 ---
 title: Performance testing
-description: Describes testing considerations for performance efficiency
+description: Explore testing considerations for performance efficiency. Establish baselines. Learn about testing for load, stress, and multiple regions.
 author: v-aangie
 ms.date: 12/02/2020
 ms.topic: conceptual

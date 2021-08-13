@@ -1,6 +1,6 @@
 ---
 title: Authorization with Azure AD
-description: Use Azure AD roles to define clear lines of responsibility, access, and separation of duties.
+description: Use Azure Active Directory (Azure AD) roles to define clear lines of responsibility, access, and separation of duties.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: conceptual
@@ -51,7 +51,7 @@ For information about implementing role-based authorization in an ASP.NET applic
 
 **Learn more**
 
-- [Avoid granular and custom permissions](/azure/architecture/framework/Security/critical-impact-accounts#avoid-granular-and-custom-permissions)
+- [Avoid granular and custom permissions](./critical-impact-accounts.md#avoid-granular-and-custom-permissions)
 - [Delegate administration in Azure AD](/azure/active-directory/roles/security-planning)
 
 ## Resource-based authorization
@@ -95,7 +95,7 @@ For more information about PIM, see [What is Azure AD Privileged Identity Manage
 
 ## Learn more
 
-[Establish lifecycle management for critical impact accounts](/azure/architecture/framework/Security/critical-impact-accounts#establish-lifecycle-management-for-critical-impact-accounts)
+[Establish lifecycle management for critical impact accounts](./critical-impact-accounts.md#establish-lifecycle-management-for-critical-impact-accounts)
 
 ## Related links
 
