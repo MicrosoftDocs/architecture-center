@@ -105,7 +105,7 @@ In addition, many third-party management tools like [Hashicorp's Terraform](http
 
 - [Azure resource group guidelines](/azure/azure-resource-manager/resource-group-overview#resource-groups)
 
-## Regions and Availabilty Zones
+## Regions and Availability Zones
 
 Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. In rare situations, an entire region could become unavailable.
 
