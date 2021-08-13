@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Consumer health portal on Azure
-  description: Describes an architecture for consumer health portal in a digital health solution.
+  description: In this example scenario, explore an Azure architecture for a consumer health portal in a digital health solution.
   author: matthansen0
   ms.author: mahans
   ms.date: 02/12/2021

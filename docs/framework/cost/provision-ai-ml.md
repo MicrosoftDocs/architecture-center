@@ -1,6 +1,6 @@
 ---
 title: Cost for AI + Machine Learning services
-description: Describes cost strategies for serverless technologies
+description: Develop cost estimates and strategies for serverless technologies using Azure Machine Learning, Azure Cognitive Services, or Azure Bot Service.
 author: PageWriter-MSFT
 ms.date: 09/02/2020
 ms.topic: conceptual

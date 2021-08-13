@@ -1,6 +1,6 @@
 ---
 title: Role of security
-description: Describes the role that security plays in the cloud
+description: Understand the role that security plays in the cloud. Learn about specialization, the shared responsibility model, and key strategies.
 author: david-stanford
 ms.date: 10/20/2019
 ms.topic: conceptual

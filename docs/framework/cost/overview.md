@@ -1,6 +1,6 @@
 ---
 title: Principles of cost optimization
-description: Describes the Principles of cost optimization.
+description: Understand cost optimization principles, which are a series of important considerations that can help achieve both business objectives and cost justification.
 author: david-stanford
 ms.date: 05/13/2020
 ms.topic: conceptual

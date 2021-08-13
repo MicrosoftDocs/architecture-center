@@ -1,7 +1,7 @@
 ---
 title: Claim-Check pattern
 titleSuffix: Cloud Design Patterns
-description: Split a large message into a claim check and a payload to avoid overwhelming a message bus.
+description: Examine the Claim-Check pattern, which splits a large message into a claim check and a payload to avoid overwhelming a message bus.
 author: yorek
 ms.date: 03/05/2019
 ms.topic: conceptual

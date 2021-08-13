@@ -1,6 +1,6 @@
 ---
 title: Testing for reliability
-description: Describes considerations for reliability in application testing.
+description: Use a reliability checklist for app testing. Validate existing thresholds, targets, assumptions, the health and capacity models, and operational procedures.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
