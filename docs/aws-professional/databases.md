@@ -40,19 +40,19 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 Azure provides a package of products and services designed to capture, organize, analyze, and visualize large amounts of data consisting of the following services:
 
-- [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight): managed Apache distribution that includes Hadoop, Spark, Storm, or HBase.
+- [HDInsight](/azure/hdinsight): managed Apache distribution that includes Hadoop, Spark, Storm, or HBase.
 
-- [Data Factory](https://azure.microsoft.com/documentation/services/data-factory): provides data orchestration and data pipeline functionality.
+- [Data Factory](/azure/data-factory): provides data orchestration and data pipeline functionality.
 
-- [Azure Synapse Analytics](https://azure.microsoft.com/documentation/services/synapse-analytics): an enterprise analytics service that accelerates time to insight, across data warehouses and big data systems.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): an enterprise analytics service that accelerates time to insight, across data warehouses and big data systems.
 
 - [Azure Databricks](/azure/databricks/): a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers.
 
-- [Data Lake Store](https://azure.microsoft.com/documentation/services/data-lake-store): analytics service that brings together enterprise data warehousing and big data analytics. Query data on your terms, using either serverless or dedicated resources—at scale.
+- [Data Lake Store](/azure/data-lake-store): analytics service that brings together enterprise data warehousing and big data analytics. Query data on your terms, using either serverless or dedicated resources—at scale.
 
-- [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning): used to build and apply predictive analytics on data.
+- [Machine Learning](/azure/machine-learning): used to build and apply predictive analytics on data.
 
-- [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics): real-time data analysis.
+- [Stream Analytics](/azure/stream-analytics): real-time data analysis.
 
 - [Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview): large-scale analytics service optimized to work with Data Lake Store
 

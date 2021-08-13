@@ -1,7 +1,7 @@
 ---
 title: Performance Efficiency checklist
 titleSuffix: Azure Design Review Framework
-description: Scalability checklist guidance for design concerns for Azure Autoscaling.
+description: Examine a performance efficiency checklist to make sure your workload can scale. Review application design, data management, and implementation guidance.
 author: dragon119
 ms.date: 01/10/2018
 ms.topic: conceptual
