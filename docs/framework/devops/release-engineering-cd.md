@@ -1,6 +1,6 @@
 ---
 title: Release Engineering Continuous deployment
-description: Release Engineering Continuous deployment
+description: Understand automated processes for release deployment that you can run on demand and rerun if something fails.
 author: neilpeterson
 ms.date: 09/28/2020
 ms.topic: conceptual

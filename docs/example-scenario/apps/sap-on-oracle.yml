@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: SAP System on Oracle Database on Azure
-  description: This article describe SAP on Oracle Database on Azure deployment patterns.
+  description: Examine deployment patterns for SAP systems on Oracle Database that align with the pillars of the Azure Well-Architected Framework.
   author: shekhag
   ms.date: 02/17/2021
   ms.topic: conceptual
