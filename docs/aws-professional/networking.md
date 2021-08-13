@@ -36,7 +36,7 @@ Azure provides similar site-to-site dedicated connections through its
 
 ## Private Link
 
-Simlar to AWS PrivateLink, [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
+Similar to AWS PrivateLink, [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
 
 ## VPC Peering, Azure VNet Peering
 
