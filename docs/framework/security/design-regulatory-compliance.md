@@ -1,6 +1,6 @@
 ---
 title: Regulatory compliance
-description: Security enforcement through standards published by law, authorities, and regulators.
+description: Understand how to meet regulatory compliance for Azure cloud architectures. Gather regulatory requirements. Use the Microsoft Trust Center.
 author: PageWriter-MSFT
 ms.date: 10/29/2020
 ms.topic: conceptual

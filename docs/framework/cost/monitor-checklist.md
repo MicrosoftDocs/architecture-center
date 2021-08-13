@@ -1,6 +1,6 @@
 ---
 title: Checklist - Monitor cost
-description: Describes Azure tools that you can use to monitor your cloud costs.
+description: Review a checklist to monitor your Azure workload cost. Checklist items include getting cost data from diverse sources, using resource tag policies, and more.
 author: david-stanford
 ms.date: 05/12/2020
 ms.topic: conceptual

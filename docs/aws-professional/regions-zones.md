@@ -1,6 +1,6 @@
 ---
 title: Comparing AWS and Azure regions and zones
-description: A comparison of the regions and zones between Azure and AWS
+description: Review a comparison of the regions and zones between Azure and AWS. Explore availability sets, availability zones, and paired regions in Azure.
 author: doodlemania2
 ms.date: 08/12/2020
 ms.topic: reference
