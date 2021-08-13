@@ -147,8 +147,6 @@ landingContent:
             url: /azure/architecture/networking/guide/waf-application-gateway.md?branch=pr-en-us-168785#reliability
           - text: Key Vault
             url: /azure/key-vault/general/disaster-recovery-guidance?branch=pr-en-us-168785
-          - text: Azure Data Lake Storage Gen 2
-            url: /azure/storage/blobs/data-lake-storage-introduction?branch=pr-en-us-168785
           - text: Azure Backup
             url: /azure/backup/backup-create-rs-vault?branch=pr-en-us-168785#set-storage-redundancy
           - text: Azure Site Recovery
