@@ -71,3 +71,4 @@ Azure provides a package of products and services designed to capture, organize,
 - [Big data architecture style](/azure/architecture/guide/architecture-styles/big-data)
 
 - [Azure Data Lake and Azure HDInsight blog](/archive/blogs/azuredatalake/)
+
