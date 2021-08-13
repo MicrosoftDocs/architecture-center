@@ -1,6 +1,6 @@
 ---
 title: Secure application's configuration and dependencies
-description: Check the dependencies, frameworks, and libraries.
+description: Review application security for IaaS and PaaS. Make sure your configuration is secure. Also check the dependencies, frameworks, and libraries.
 author: PageWriter-MSFT
 ms.date: 10/27/2020
 ms.topic: conceptual
