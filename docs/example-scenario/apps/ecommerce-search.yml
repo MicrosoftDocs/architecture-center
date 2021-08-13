@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Intelligent product search engine for e-commerce
+  title: Intelligent e-commerce product search engine
   titleSuffix: Azure Example Scenarios
   description: This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
   author: jelledruyts

@@ -1,5 +1,5 @@
 ---
-title: R developer's guide to Azure - R programming
+title: R developer's guide - R programming
 description: Learn about the Azure services that support the R programming language and how R developers can use them to extend their data science workloads into the cloud.
 services: machine-learning
 author: AnalyticJeremy

@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Extend an on-premises network using ExpressRoute
+  title: On-premises network using ExpressRoute
   description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
   author: doodlemania2
   ms.author: pnp

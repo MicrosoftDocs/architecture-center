@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Microservices architecture on Azure Service Fabric
+  title: Service Fabric microservices architecture
   description: Learn how to deploy microservices to Azure Service Fabric which can be used as a starting point for most cluster configuration deployments.
   author: PageWriter-MSFT
   ms.author: pnp

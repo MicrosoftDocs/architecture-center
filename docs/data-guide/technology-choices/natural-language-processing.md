@@ -1,5 +1,5 @@
 ---
-title: Choosing a natural language processing technology
+title: Natural language processing technology
 description: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
 author: zoinerTejada
 ms.date: 02/25/2020
