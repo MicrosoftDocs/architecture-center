@@ -66,7 +66,7 @@ Automatic scaling may not be appropriate for batch jobs that happen too close to
 To deploy this reference architecture, follow the steps described in the [GitHub repo][github].
 
 [acr]: /azure/container-registry/container-registry-intro
-[amls]: /azure/machine-learning/service/overview-what-is-azure-ml
+[amls]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [batch-scoring]: /azure/machine-learning/service/how-to-run-batch-predictions
 [cli]: /cli/azure
 [create-resources]: https://github.com/microsoft/az-ml-batch-score/blob/master/01_DataPrep.ipynb
