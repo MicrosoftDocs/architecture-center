@@ -51,7 +51,7 @@ Suppose you need to store sensitive data in Azure Blob Storage. You can use Azur
 
 ## Key storage
 
-Store all application keys and secrets in managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview). Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access.
+Store all application keys and secrets in managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview). Data encryption keys are often encrypted. Store them in Azure Key Vault to further limit access.
 
 Make sure that no keys and secrets for any environment types (Dev/Test, or production) are stored in application configuration files or CI/CD pipelines. Developers can use [Visual Studio Connected Services](/azure/key-vault/general/vs-key-vault-add-connected-service) or local-only files to access credentials.
 
