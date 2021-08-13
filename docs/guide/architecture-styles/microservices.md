@@ -1,7 +1,7 @@
 ---
 title: Microservices architecture style
 titleSuffix: Azure Application Architecture Guide
-description: Describes benefits, challenges, and best practices for microservices architectures on Azure.
+description: Read about the benefits, challenges, and best practices of the microservices architecture style on Azure.
 author: doodlemania2
 ms.date: 10/30/2019
 ms.topic: conceptual

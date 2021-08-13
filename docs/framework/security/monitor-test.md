@@ -1,6 +1,6 @@
 ---
 title: Azure security test practices
-description: Test and validate the workload frequently to detect attacks.
+description: Explore Azure security test practices, such as testing and validating the workload frequently to detect attacks.
 author: PageWriter-MSFT
 ms.date: 02/01/2021
 ms.topic: conceptual

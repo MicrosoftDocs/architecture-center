@@ -1,6 +1,6 @@
 ---
 title: Design Azure applications for efficiency
-description: Describes the design options for application efficiency
+description: Review design options for application efficiency in Azure, such as asynchronous programming, queued and batched requests, data compression, and session affinity.
 author: v-aangie
 ms.date: 12/01/2020
 ms.topic: conceptual
