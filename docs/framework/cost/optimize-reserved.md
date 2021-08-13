@@ -1,6 +1,6 @@
 ---
 title: Reserved instances
-description: Optimize by using Azure Reservations to lower cost
+description: Use reserved instances through Azure Reservations to lower cost. With reserved instances, there’s a significant discount when compared to pay-as-you-go pricing.
 author: PageWriter-MSFT
 ms.date: 05/12/2020
 ms.topic: conceptual

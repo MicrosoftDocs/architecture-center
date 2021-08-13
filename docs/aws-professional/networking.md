@@ -1,6 +1,6 @@
 ---
 title: Comparing AWS and Azure networking options
-description: A comparison of the different networking options between Azure and AWS
+description: Compare networking options between Azure and AWS. The comparisons cover cloud virtual networking, cross-premises connectivity, DNS management, and more.
 author: Kaspanitz 
 ms.author: johanv
 ms.date: 08/09/2021
@@ -36,7 +36,7 @@ Azure provides similar site-to-site dedicated connections through its
 
 ## Private Link
 
-Simlar to AWS PrivateLink, [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
+Similar to AWS PrivateLink, [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
 
 ## VPC Peering, Azure VNet Peering
 
