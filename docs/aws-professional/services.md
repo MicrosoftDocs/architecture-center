@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
 author: BrianQu 
 ms.author: yuanzhiqu
-ms.date: 8/13/2021
+ms.date: 08/13/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -369,16 +369,15 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 | Area | AWS service | Azure service | Description |
 |------|-------------|---------------|-------------|
-| Backend process logic | [Step Functions](https://aws.amazon.com/step-functions) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Cloud technology to build distributed applications using out-of-the-box connectors to reduce integration challenges. Connect apps, data and devices on-premises or in the cloud. |
+| Backend process logic | [Step Functions](https://aws.amazon.com/step-functions) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Cloud technology to build distributed applications using out-of-the-box connectors to reduce integration challenges. Connect apps, data, and devices on-premises or in the cloud. |
 | Enterprise application services | [WorkMail](https://aws.amazon.com/workmail), [WorkDocs](https://aws.amazon.com/workdocs), [Chime](https://aws.amazon.com/chime) | [Microsoft 365](https://products.office.com) | Fully integrated cloud service that provides communications, email, and document management in the cloud and is available on a wide variety of devices. |
 | Gaming | [GameLift](https://aws.amazon.com/gamelift) | [PlayFab](https://playfab.com) | Managed services for hosting dedicated game servers. |
 | Media transcoding | [Elastic Transcoder](https://aws.amazon.com/elastictranscoder) | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
 | Workflow | [Simple Workflow Service (SWF)](https://aws.amazon.com/swf) | [Logic Apps](https://azure.microsoft.com/services/logic-apps) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
 | Hybrid | [Outposts](https://aws.amazon.com/outposts) | [Stack](https://azure.microsoft.com/overview/azure-stack) | Azure Stack is a hybrid cloud platform that enables you to run Azure services in your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to either Azure Stack or Azure, or you can build truly hybrid apps that take advantage of connectivity between an Azure Stack cloud and Azure. |
 | Media | [Elemental MediaConvert](https://aws.amazon.com/media-services) | [Media Services](https://azure.microsoft.com/services/media-services/) | Cloud-based media workflow platform to index, package, protect, and stream video at scale.|
-| Satellite | [Ground Station](https://aws.amazon.com/ground-station) | [Azure Orbital](/azure/networking/azure-orbital-overview) | Fully Managed cloud based ground station as a service.|
-| Blockchain | [Amazon Managed Blockchain](https://aws.amazon.com/managed-blockchain) | [Azure Blockchain Service](/azure/blockchain/service/overview) | Fully Managed service that gives users the ability to grow and operate blockchain networks at scale.|
-| Quantum computing | [Amazon Braket](https://aws.amazon.com/braket) | [Azure Quantum](/azure/quantum) | Managed Quantum Computing Service that developers, researchers and business can use to run quantum computing programs.|
+| Satellite | [Ground Station](https://aws.amazon.com/ground-station/) | [Azure Orbital](/azure/networking/azure-orbital-overview) | Fully Managed cloud-based ground station as a service.|
+| Quantum computing | [Amazon Braket](https://aws.amazon.com/braket/) | [Azure Quantum](/azure/quantum/) | Managed Quantum Computing Service that developers, researchers, and business can use to run quantum computing programs.|
 ## More learning
 
 If you are new to Azure, review the interactive [Core Cloud Services - Introduction to Azure](/learn/modules/welcome-to-azure) module on [Microsoft Learn](/learn).
