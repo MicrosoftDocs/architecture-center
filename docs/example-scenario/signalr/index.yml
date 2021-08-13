@@ -2,7 +2,7 @@
 metadata:
   title: Sharing location in real time using low-cost serverless Azure services
   titleSuffix: Azure Example Scenarios
-  description: In this scenario, learn how to architect a solution that processes changes to underlying data within a web view without the need for a page refresh using real-time services.
+  description: Learn how to architect a solution that processes changes to underlying data within a web view without the need for a page refresh using real-time services.
   author: talhanaveed
   ms.author: pnp
   ms.date: 12/09/2019

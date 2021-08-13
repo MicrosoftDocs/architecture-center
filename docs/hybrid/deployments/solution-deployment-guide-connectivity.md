@@ -212,4 +212,4 @@ You can see the connection in the **Connections** page of the virtual network ga
 
 ## Next steps
 
-- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](/azure/architecture/patterns).
+- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](../../patterns/index.md).
