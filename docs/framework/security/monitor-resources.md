@@ -18,9 +18,9 @@ subject:
 
 # Monitor Azure resources in Azure Security Center
 
-Identify common security risks significantly reduces overall risk to the organization. Use Azure Security Center to monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues. Common issues include internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more.
+Most cloud architecture have compute, networking, data, and identity components and each require different monitoring mechanisms. Even Azure services have individual monitoring needs. For instance, to monitor Azure Functions you want to enable Azure Application Insights.
 
-I would start setting the tone to our users that all resources (we could list them from here as way to introduce the, compute, networking, data, etc.) are going to require different monitoring mechanisms as well as Azure services. For instance when working with Containers we are gonna need Azure Monitor for Containers or if this about to monitor Azure Functions you want to enable Azure Application Insights and we could go over one by one if there is a desire for that.
+Azure Security Center has many plans that monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues. Common issues include internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more.
 
 ## Key points
 > [!div class="checklist"]
@@ -31,12 +31,21 @@ I would start setting the tone to our users that all resources (we could list th
 > - Monitor identity-related risk events in Azure AD reporting amd Azure Active Directory Identity Protection.
 
 ## General best practices
+
+Identifying common security activities will significantly reduce the overall risk.
+
 - Monitor suspicious activities from administrative accounts.
 - Monitor the location from where Azure resources are being managed.
 - Monitor attempts to access deactivated credentials.
 - Use automated tools to monitor network resource configurations and detect changes.
 
 For more information, see [Azure security baseline for Azure Monitor](/security/benchmark/azure/baselines/monitor-security-baseline).
+
+### IaaS and PaaS security
+
+In an IaaS model, you can host the workload on Azure infrastructure. Azure provides security assurances that maintain isolation and timely security updates to the infrastructure. For greater control, you host the entire IaaS solution on-premises or in a hosted data center and are responsible for security. You must implement security on the host, virtual machine, network, and storage. For instance if you have your own VNet, consider enabling Azure Private Link over Azure Monitor so you can access this over a private endpoint.
+
+In PaaS, you have a shared responsibity with Azure in protecting the data. 
 
 ## Virtual machines
 
@@ -58,9 +67,9 @@ For a full list of features, see [Feature coverage for machines](/azure/security
 
 ## Containers
 
-Application containers architectures have an extra layer of abstraction and orchestration. That complexity requires specific security measures that protect against common container attacks such as supply chain attacks. 
+Containerized workloads have an extra layer of abstraction and orchestration. That complexity requires specific security measures that protect against common container attacks such as supply chain attacks.
 
-- Use container registries that are validated for security. Images in public registries may contain malware or unwanted applications that can only get detected when the container is running. Build a process for developers to request and rapidly get security validation of new containers and images. The process should validate against your security standards. This includes applying security updates, scanning for unwanted code such as backdoors and illicit crypto coin miners, scanning for security vulnerabilities, and application of secure development practices.
+- Use container registries that are validated for security. Images in public registries might contain malware or unwanted applications that activate when the container is running. Build a process for developers to request and rapidly get security validation of new containers and images. The process should validate against your security standards. This includes applying security updates, scanning for unwanted code such as backdoors and illicit crypto coin miners, scanning for security vulnerabilities, and application of secure development practices.
 
     A popular process pattern is the quarantine pattern. This pattern allows you to get your images on a dedicated container registry and subject them to security or compliance scrutiny applicable for your organization. After it's validated, they can then be released from quarantine and promoted to being available.
 
@@ -79,8 +88,7 @@ Application containers architectures have an extra layer of abstraction and orch
 
 - Use security monitoring tools that are container aware to monitor for anomalous behavior and enable investigation of incidents. 
 
-    Azure Defender for container registries protections for AKS clusters, container hosts
-(virtual machines running Docker), and ACR registries. When enabled, the images that are pulled or pushed to registries are subject to vulnerability scans. 
+    Azure Defender for container registries are designed to protect AKS clusters, container hosts (virtual machines running Docker), and ACR registries. When enabled, the images that are pulled or pushed to registries are subject to vulnerability scans. 
 
 For more information, see these articles:
 
@@ -106,15 +114,16 @@ Then, focus on observability of specific services by reviewing the diagnostic lo
 
 - Is your virtual machine exposed to public internet. If so, do you have tight rules on network security groups to protect the machine?
 - Are the network security groups (NSG) and rules that control access to the virtual machines overly permissive? 
-- Do you have overly-permissive inbound rules for management ports in your Network Security Group? 
 - Are the storage accounts receiving traffic over secure connections?
 
-Follow the recommendations provided by Security Center. For more information, see [Networking recommendations](/azure/security-center/recommendations-reference#networking-recommendations).
+Follow the recommendations provided by Security Center. For more information, see [Networking recommendations](/azure/security-center/recommendations-reference#networking-recommendations). Use [Azure Firewall logs](/azure/firewall/logs-and-metrics) and metrics for observability into operational and audit logs.
 
 Integrate all logs into a security information and event management (SIEM) service, such as Azure Sentinel. The SIEM solutions support ingestion of large amounts of information and can analyze large datasets quickly. Based on those insights, you can:
 - Set alerts or block traffic crossing segmentation boundaries.
 - Identify anomalies. 
 - Tune the intake to significantly reduce the false positive alerts. 
+
+
 
 ## Identity
 Monitor identity-related risk events using adaptive machine learning algorithms, heuristics quickly before the attacker can gain deeper access into the system.
@@ -137,17 +146,16 @@ Azure AD uses adaptive machine learning algorithms, heuristics, and known compro
 Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events. 
 
 ### Connected tenants
-Make sure the security team is aware of all enrollments and associated subscriptions connected to your existing environment (through ExpressRoute or Site-Site VPN. Monitor them as part of the overall enterprise.
+Make sure the security team is aware of all enrollments and associated subscriptions connected to your existing environment through ExpressRoute or Site-Site VPN. Monitor them as part of the overall enterprise.
 
 Assess if organizational policies and applicable regulatory requirements are followed for the connected tenants. This applies to all Azure environments that connect to your production environment network.
 
-For information about permissions for this access, see [Assign privileges for managing the environment section]/azure/architecture/framework/security/governance?branch=master#assign-privileges-for-managing-the-environment).
+For information about permissions for this access, see [Assign privileges for managing the environment section](/azure/architecture/framework/security/governance?branch=master#assign-privileges-for-managing-the-environment).
 
-**Is personal information detected and removed/obfuscated automatically?**
-***
 
-Be cautious when logging sensitive application information. Don't store  personal information such as contact information, payment information, and so on, in any application logs. Apply protective measures, such as obfuscation. Machine learning tools can help with this measure. For more information, see [PII Detection cognitive skill](/azure/search/cognitive-search-skill-pii-detection).
+## CI/CD pipelines
 
+DevOps practices are for change management of the workload through continuous integration, continuous delivery (CI/CD). Make sure you add security validation in the pipelines. Follow the guidance described in [Learn how to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops).
 
 ## Next
 > [!div class="nextstepaction"]
