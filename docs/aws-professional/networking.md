@@ -48,7 +48,7 @@ In AWS, a VPC peering connection is a networking connection between two VPCs, wh
 
 In AWS, CloudFront provides CDN services, to globally deliver data, videos, applications, and APIs. This is similar to Azure Content Delivery Network (CDN). 
 
-[Azure CDN](https://azure.microsoft.com/services/cdn) is a feature-inclusive content delivery network bundle that is capable of handling most CDN workloads. Customers can choose to use Azure Content Delivery Network Standard from Verizon or Akamai. For a full list of Azure CDN product offerings, see [What are the comparisons between Azure CDN product features?](/azure/cdn/cdn-features).
+[Azure CDN](https://azure.microsoft.com/services/cdn) is a feature-inclusive content delivery network bundle that is capable of handling most CDN workloads. Customers can choose to use Azure Content Delivery Network Standard from Verizon or Akamai. For a full list of Azure CDN product offerings, see [What are the comparisons between Azure CDN product features?](/azure/cdn/cdn-features)
 
 ## Network service comparison
 
