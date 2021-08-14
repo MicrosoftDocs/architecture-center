@@ -1,5 +1,5 @@
 ---
-title: Resiliency checklist for Azure services
+title: Resiliency checklist for services
 titleSuffix: Azure Design Review Framework
 description: Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.
 author: PeterTaylor9999

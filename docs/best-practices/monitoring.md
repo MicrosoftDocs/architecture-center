@@ -1,5 +1,5 @@
 ---
-title: Monitoring and diagnostics guidance
+title: Monitoring, diagnostics advice
 titleSuffix: Best practices for cloud applications
 description: Learn how to track how users use your distributed applications and services, trace resource utilization, and monitor the health and performance.
 author: dragon119

@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Development and test environments for SAP workloads on Azure
+  title: SAP workload development and test settings
   titleSuffix: Azure Example Scenarios
   description: Learn how to establish non-production development and test environments for SAP NetWeaver in a Windows or Linux environment on Azure.
   author: AndrewDibbins

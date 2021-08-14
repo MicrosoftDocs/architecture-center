@@ -1,5 +1,5 @@
 ---
-title: Performance efficiency in a hybrid workload
+title: Performance efficiency in hybrid workload
 description: Includes guidance and recommendations that apply to the Performance Efficiency pillar in a hybrid and multi-cloud workload.
 author: v-aangie
 ms.date: 02/19/2021
