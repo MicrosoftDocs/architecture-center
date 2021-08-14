@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Attestation, authentication, and provisioning
+  title: Attestation, authentication, provisioning
   titleSuffix: Azure Example Scenarios
   description: Understand how devices attest their identity, authenticate, and get provisioned within Azure IoT Hubs.
   author: wamachine

@@ -1,5 +1,5 @@
 ---
-title: Error handling for resilient applications in Azure
+title: Error handling for resilient apps
 description: Review best practices for handling errors in resilient Azure applications. Understand transient fault handling, request timeouts, cascading failures, and more.
 author: v-aangie
 ms.date: 02/17/2021

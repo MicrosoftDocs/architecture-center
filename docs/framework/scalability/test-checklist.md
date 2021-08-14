@@ -1,5 +1,5 @@
 ---
-title: Checklist - Testing for performance efficiency
+title: Performance efficiency checklist
 titleSuffix: Azure Testing Review Framework
 description: Review checklist guidance for testing concerns with Azure performance efficiency. Maintain systems properly and fix defects before problems reach system users.
 author: v-aangie
