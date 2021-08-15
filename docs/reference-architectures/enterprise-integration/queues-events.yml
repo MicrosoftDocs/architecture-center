@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enterprise integration using queues and events
+  title: Enterprise integration with queues and events
   description: This reference architecture integrates enterprise backend systems, using message queues and events to decouple services for greater scalability and reliability.
   author: mattfarm
   ms.author: pnp

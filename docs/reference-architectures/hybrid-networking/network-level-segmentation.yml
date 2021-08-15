@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Secure and govern workloads with network level segmentation
+  title: Network-level segmentation workloads
   titleSuffix: Azure Reference Architectures
   description: Learn how to use network level segmentation to secure virtual networks by using the wide and diverse set of segmentation options available in Microsoft Azure.
   author: tremansdoerfer
