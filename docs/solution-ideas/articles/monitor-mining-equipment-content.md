@@ -10,6 +10,8 @@ Mining companies can have Azure continually monitor the performance data from th
 
 :::image type="content" source="../media/monitor-mining-equipment.png" alt-text="Architecture for monitoring mining equipment" lightbox="../media/monitor-mining-equipment.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/US-1816419-PR-2777-monitor-mining-equipment.vsdx) of this architecture.*
+
 The data flows through the solution as follows:
 
 1. Equipment and other assets have integrated sensor systems that deliver sensor data (in CSV files) to a folder in an FTP server or to Azure Storage.

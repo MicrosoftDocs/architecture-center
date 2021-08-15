@@ -51,9 +51,9 @@
 		.st41 {fill:url(#grad9-68);stroke:#295687;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.375}
 		.st42 {fill:#295687;stroke:#295687;stroke-linecap:butt;stroke-width:0.3732}
 		.st43 {fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.72}
-		.st44 {marker-end:url(#mrkr4-151);stroke:#4472c4;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
-		.st45 {fill:#4472c4;fill-opacity:1;stroke:#4472c4;stroke-opacity:1;stroke-width:0.090252707581227}
-		.st46 {marker-end:url(#mrkr5-160);marker-start:url(#mrkr5-158);stroke:#4472c4;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
+		.st44 {marker-end:url(#mrkr4-151);stroke:#4472c4;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st45 {fill:#4472c4;fill-opacity:1;stroke:#4472c4;stroke-opacity:1;stroke-width:0.28409090909091}
+		.st46 {marker-end:url(#mrkr5-160);marker-start:url(#mrkr5-158);stroke:#4472c4;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
 		.st47 {fill:#000000;font-family:Calibri;font-size:0.833336em}
 		.st48 {fill:#a5a5a5;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st49 {fill:#d8d8d8;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
@@ -223,20 +223,20 @@
 		<g id="lend4">
 			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
 		</g>
-		<marker id="mrkr4-151" class="st45" v:arrowType="4" v:arrowSize="2" v:setback="22.16" refX="-22.16" orient="auto"
+		<marker id="mrkr4-151" class="st45" v:arrowType="4" v:arrowSize="2" v:setback="7.04" refX="-7.04" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
-			<use xlink:href="#lend4" transform="scale(-11.08,-11.08) "/>
+			<use xlink:href="#lend4" transform="scale(-3.52,-3.52) "/>
 		</marker>
 		<g id="lend5">
 			<path d="M 2 1 L 0 0 L 1.98117 -0.993387 C 1.67173 -0.364515 1.67301 0.372641 1.98465 1.00043 " style="stroke:none"/>
 		</g>
-		<marker id="mrkr5-158" class="st45" v:arrowType="5" v:arrowSize="2" v:setback="17.95" refX="17.95" orient="auto"
+		<marker id="mrkr5-158" class="st45" v:arrowType="5" v:arrowSize="2" v:setback="5.8" refX="5.8" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
-			<use xlink:href="#lend5" transform="scale(11.08) "/>
+			<use xlink:href="#lend5" transform="scale(3.52) "/>
 		</marker>
-		<marker id="mrkr5-160" class="st45" v:arrowType="5" v:arrowSize="2" v:setback="19.39" refX="-19.39" orient="auto"
+		<marker id="mrkr5-160" class="st45" v:arrowType="5" v:arrowSize="2" v:setback="6.16" refX="-6.16" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
-			<use xlink:href="#lend5" transform="scale(-11.08,-11.08) "/>
+			<use xlink:href="#lend5" transform="scale(-3.52,-3.52) "/>
 		</marker>
 	</defs>
 	<g v:mID="6" v:index="1" v:groupContext="backgroundPage">
@@ -670,21 +670,21 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(98000):26"/>
 			</v:userDefs>
-			<path d="M0 432 L32.22 432" class="st44"/>
+			<path d="M0 432 L30.72 432" class="st44"/>
 		</g>
 		<g id="shape1356-152" v:mID="1356" v:groupContext="shape" transform="translate(52.7658,-260.961) rotate(-0.770491)">
 			<title>Sheet.1356</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(101000):26"/>
 			</v:userDefs>
-			<path d="M4.49 432 L4.85 432 L54.31 432" class="st46"/>
+			<path d="M5.8 432 L6.16 432 L53 432" class="st46"/>
 		</g>
 		<g id="shape1364-161" v:mID="1364" v:groupContext="shape" transform="translate(918,243) rotate(90)">
 			<title>Sheet.1364</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(105000):26"/>
 			</v:userDefs>
-			<path d="M0 432 L32.82 432" class="st44"/>
+			<path d="M0 432 L31.32 432" class="st44"/>
 		</g>
 		<g id="shape1367-166" v:mID="1367" v:groupContext="shape" transform="translate(140.4,-344.637)">
 			<title>Sheet.1367</title>
@@ -2758,7 +2758,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(120000):26"/>
 			</v:userDefs>
-			<path d="M4.49 432 L4.85 432 L31.73 432" class="st46"/>
+			<path d="M5.8 432 L6.16 432 L30.42 432" class="st46"/>
 		</g>
 		<g id="shape4-195" v:mID="4" v:groupContext="shape" transform="translate(15.825,-251.921)">
 			<title>Sheet.4</title>
@@ -3080,12 +3080,12 @@
 			<rect x="0" y="404.916" width="46.3309" height="27.0843" class="st51"/>
 			<text x="8.94" y="415.76" class="st52" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>TN3270 <tspan
 						x="7.67" dy="1.2em" class="st11">terminal</tspan></text>		</g>
-		<g id="shape1379-202" v:mID="1379" v:groupContext="shape" transform="translate(59.441,-316.401) rotate(1.2724)">
+		<g id="shape1379-202" v:mID="1379" v:groupContext="shape" transform="translate(49.8481,-316.508)">
 			<title>Sheet.1379</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(124000):26"/>
 			</v:userDefs>
-			<path d="M4.49 432 L4.85 432 L63.05 432" class="st46"/>
+			<path d="M5.8 432 L6.16 432 L64.6 432" class="st46"/>
 		</g>
 		<g id="group1383-209" transform="translate(560.775,-21)" v:mID="1383" v:groupContext="group" v:layerMember="1">
 			<v:custProps>
@@ -7004,7 +7004,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(159000):26"/>
 			</v:userDefs>
-			<path d="M4.49 432 L4.85 432 L33.21 432" class="st46"/>
+			<path d="M5.8 432 L6.16 432 L31.9 432" class="st46"/>
 		</g>
 		<g id="shape1464-303" v:mID="1464" v:groupContext="shape" v:layerMember="2" transform="translate(285.579,-358.409)">
 			<title>Numbered Label.1402</title>
@@ -8157,7 +8157,7 @@
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(184000):26"/>
 			</v:userDefs>
-			<path d="M4.49 432 L4.85 432 L31.54 432" class="st46"/>
+			<path d="M5.8 432 L6.16 432 L30.22 432" class="st46"/>
 		</g>
 		<g id="shape1380-356" v:mID="1380" v:groupContext="shape" transform="translate(63.3338,-321.806)">
 			<title>Sheet.1380</title>
