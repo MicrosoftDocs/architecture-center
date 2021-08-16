@@ -8,7 +8,7 @@ ms.date: 08/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
-azureCategories:
+categories:
   - containers
 products:
   - azure-kubernetes-service
