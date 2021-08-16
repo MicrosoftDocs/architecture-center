@@ -33,6 +33,8 @@ landingContent:
             url: release-engineering-app-dev.md
           - text: Monitoring checklist
             url: /azure/architecture/checklist/dev-ops
+          - text: DevOps Culture
+            url: /azure/architecture/checklist/dev-ops#culture
           - text: DevOps patterns
             url: devops-patterns.md
       - linkListType: learn
@@ -112,53 +114,49 @@ landingContent:
           - text: "Continuous Delivery and Release Management | DevOps for Mobile"
             url: https://channel9.msdn.com/Shows/On-NET/Continuous-Delivery--Release-Management--DevOps-for-Mobile?term=Release%20management&pubDate=3years&lang-en=true&pageSize=15                                      
  # Card
-  - title: Monitor reliability
+  - title: Monitor for DevOps
     linkLists:
-      - linkListType: overview
-        links:
-          - text: Diagnose application health
-            url: monitoring.md
-          - text: Use health models for reliability
-            url: monitor-model.md
       - linkListType: concept
         links:
-          - text: Understand monitoring best practices
-            url: monitor-best-practices.md
-          - text: Implement health probes and check functions
-            url: monitor-best-practices.md#implement-health-probes-and-check-functions
-          - text: Check long-running workflows
-            url: monitor-best-practices.md#check-long-running-workflows
-          - text: Maintain application logs
-            url: monitor-best-practices.md#maintain-application-logs
+          - text: Understand application and platform monitoring
+            url: monitoring.md
+          - text: Analyze alerts
+            url: alerts.md
+          - text: Monitor best practices
+            url: monitoring.md#monitoring-best-practices
       - linkListType: video
         links:
-          - text: SQL high availability by service tier
-            url: https://www.youtube.com/watch?v=2WbRgjrpXkU
+          - text: Continuous Monitoring for Web Perf and Accessibility
+            url: https://channel9.msdn.com/Shows/DevOps-Lab/Continuous-Monitoring-for-Web-Perf-and-Accessibility?term=devops%20monitoring&pubDate=3years&lang-en=true
+          - text: Monitoring AKS with Azure 
+            url: https://channel9.msdn.com/Shows/DevOps-Lab/Monitoring-AKS-with-Azure-Sentinel?term=DevOps%20Monitoring&pubDate=3years&lang-en=true
  # Card
-  - title: Reliability tools and services
+  - title: DevOps tools and services
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Advisor
-            url: /azure/advisor/advisor-overview
-          - text: Advisor Score
-            url: /azure/advisor/azure-advisor-score
-          - text: Azure Kubernetes Service (AKS)
-            url: /azure/aks/availability-zones?branch=pr-en-us-168785
-          - text: Azure SQL Database
-            url: /azure/azure-sql/database/high-availability-sla?branch=pr-en-us-168785
-          - text: Azure API Management
-            url: /azure/api-management/zone-redundancy?branch=pr-en-us-168785
-          - text: Application Gateway (V2)
-            url: /azure/architecture/networking/guide/waf-application-gateway.md?branch=pr-en-us-168785#reliability
-          - text: Key Vault
-            url: /azure/key-vault/general/disaster-recovery-guidance?branch=pr-en-us-168785
-          - text: Azure Backup
-            url: /azure/backup/backup-create-rs-vault?branch=pr-en-us-168785#set-storage-redundancy
-          - text: Azure Site Recovery
-            url: /azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery?branch=pr-en-us-168785             
+          - text: Azure Active Directory (Azure AD)
+            url: https://azure.microsoft.com/services/active-directory/
+          - text: Azure DevOps
+            url: https://azure.microsoft.com/en-us/services/devops/repos/
+          - text: Azure Diagnostics
+            url: /azure/azure-monitor/agents/diagnostics-extension-overview
+          - text: Azure Monitor
+            url: /azure/azure-monitor/overview
+          - text: Azure Resource Manager
+            url: /azure/azure-resource-manager/
+          - text: Azure Role-Based Access Control (RBAC)
+            url: /azure/role-based-access-control/overview
+          - text: Bridge to Kubernetes
+            url: /visualstudio/bridge/bridge-to-kubernetes-vs?preserve-view=true&view=vs-2019
+          - text: Docker Desktop
+            url: https://www.docker.com/products/docker-desktop
+          - text: Git 
+            url: /devops/develop/git/what-is-git
+          - text: Podman
+            url: https://developers.redhat.com/articles/podman-next-generation-linux-container-tools          
  # Card
-  - title: Reliability APIs
+  - title: DevOps APIs
     linkLists:
       - linkListType: reference
         links:
