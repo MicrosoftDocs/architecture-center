@@ -45,7 +45,11 @@ Autoscaling in Azure is handled by two services:
 
 ## Container Service
 
-The [Azure Kubernetes Service](/azure/aks/intro-kubernetes) supports Docker containers managed through Kubernetes.
+The [Azure Kubernetes Service](/azure/aks/intro-kubernetes) supports Docker containers managed through Kubernetes. 
+
+For Linux node pools, containerd is used for node pools using Kubernetes version 1.19 and greater, and Docker is used for node pools using Kubernetes 1.18 and earlier. For Windows Server 2019 node pools, containerd is available in preview and can be used in node pools using Kubernetes 1.20 and greater, but Docker is still used by default.
+
+[Learn more](https://docs.microsoft.com/en-us/azure/aks/cluster-configuration#container-runtime-configuration)
 
 ## Distributed Systems Platform
 
