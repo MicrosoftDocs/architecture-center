@@ -135,8 +135,6 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Active Directory (Azure AD)
-            url: https://azure.microsoft.com/services/active-directory/
           - text: Azure DevOps
             url: https://azure.microsoft.com/en-us/services/devops/repos/
           - text: Azure Diagnostics
@@ -149,22 +147,28 @@ landingContent:
             url: /azure/role-based-access-control/overview
           - text: Bridge to Kubernetes
             url: /visualstudio/bridge/bridge-to-kubernetes-vs?preserve-view=true&view=vs-2019
+          - text: Chef
+            url: https://docs.chef.io/chef_overview/
           - text: Docker Desktop
             url: https://www.docker.com/products/docker-desktop
           - text: Git 
             url: /devops/develop/git/what-is-git
-          - text: Podman
-            url: https://developers.redhat.com/articles/podman-next-generation-linux-container-tools          
+          - text: Terraform
+            url: automation-infrastructure.md#automate-deployments-with-terraform        
  # Card
   - title: DevOps APIs
     linkLists:
       - linkListType: reference
         links:
-          - text: API Management
-            url: /rest/api/apimanagement/
-          - text: Recovery Services vault
-            url: /rest/api/recoveryservices/
-          - text: Backup REST API
-            url: /rest/api/backup/
-          - text: Site Recovery REST API 
-            url: /rest/api/site-recovery/
+          - text: Alerts - Get All
+            url: /rest/api/monitor/alertsmanagement/alerts/get-all
+          - text: Automation REST API
+            url: /rest/api/automation/
+          - text: Azure Container Instances
+            url: /rest/api/container-instances/
+          - text: Azure Deployment Manager
+            url: /rest/api/deploymentmanager/
+          - text: Azure Resource Health
+            url: /rest/api/resourcehealth/
+          - text: Network Monitoring
+            url: /rest/api/operationsmanager/network-monitoring
