@@ -44,38 +44,36 @@ landingContent:
           - text: Getting Started with DevOps
             url: https://channel9.msdn.com/events/All-Around-Azure/All-Around-Azure-DevOps-with-GitHub/Session-1-Getting-started-with-DevOps?term=Operational%20Excellence%20devops&pubDate=year&lang-en=true&pageSize=15&skip=45
   # Card 
-  - title: Design for availability and resiliency
+  - title: Automate business solutions
     linkLists:
       - linkListType: get-started
         links:
-          - text: Consider target and non-functional requirements
-            url: design-requirements.md
-          - text: Use availability zones within a region
-            url: app-design.md#use-availability-zones-within-a-region   
-          - text: Respond to failure
-            url: app-design.md#respond-to-failure
-          - text: Build resiliency with failure mode analysis
-            url: design-resiliency.md#build-resiliency-with-failure-mode-analysis
-          - text: Understand the impact of dependencies
-            url: design-resiliency.md#understand-the-impact-of-dependencies                      
+          - text: Activate resources on demand
+            url: automation-overview.md
+          - text: Create repeatable and consistent environments
+            url: automation-infrastructure.md  
+          - text: Configure programmatic infrastructure
+            url: automation-configuration.md
+          - text: Automate operational tasks
+            url: automation-tasks.md                      
       - linkListType: concept
         links:
-          - text: Understand design best practices
-            url: design-best-practices.md
-          - text: Ensure connectivity
-            url: design-best-practices.md#ensure-connectivity
-          - text: Use zone-aware services 
-            url: design-best-practices.md#use-zone-aware-services
-          - text: Design for scalability
-            url: design-best-practices.md#design-for-scalability
+          - text: Understand automation best practices
+            url: automation-overview.md#automation-best-practices
+          - text: Deploy infrastructure with code
+            url: automation-infrastructure.md#deploy-infrastructure-with-code
+          - text: Bootstrap automation
+            url: automation-configuration.md#bootstrap-automation
+          - text: Understand Azure Functions
+            url: automation-tasks.md#azure-functions
       - linkListType: learn
         links:
-          - text: Design a geographically distributed application
-            url: /learn/modules/design-a-geographically-distributed-application/?branch=pr-en-us-168785
+          - text: Toil automation
+            url: https://www.coursera.org/lecture/developing-a-google-sre-culture/toil-automation-BpNqj
       - linkListType: video
         links:
-          - text: Zone to zone disaster recovery with Azure Site Recovery
-            url: https://www.youtube.com/watch?v=pG82RVO3mEI       
+          - text: Azure DevOps with ARM templates
+            url: https://channel9.msdn.com/Shows/DevOps-Lab/ARM-Series-12-Azure-DevOps-With-ARM-Templates?term=DevOps%20automation&pubDate=year&lang-en=true       
  # Card
   - title: Test for availability and resiliency
     linkLists:
