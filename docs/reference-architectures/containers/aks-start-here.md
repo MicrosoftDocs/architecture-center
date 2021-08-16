@@ -1,13 +1,15 @@
 ---
 title: Azure Kubernetes Service (AKS) architecture design
 titleSuffix: Azure Architecture Center
-description: An overview of Microsoft''s Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.
+description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.
 author: ckittel
 ms.author: pnp
 ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: reference-architecture
+azureCategories:
+  - containers
 products:
   - azure-kubernetes-service
 ms.custom:
@@ -43,7 +45,7 @@ We recommend you start from the baseline implementation and modify it to align t
 
 ## Suite of baseline implementations 
 
-We've provided a set of additional baseline implementations to illustrate how you can adopt and configure components of AKS Baseline Cluster for various scenarios. 
+We've provided a set of more baseline implementations to illustrate how you can adopt and configure components of AKS Baseline Cluster for various scenarios. 
 
 ### Microservices
 
@@ -66,7 +68,7 @@ A highly available solution needs multiple instances of the baseline cluster acr
 > [!div class="nextstepaction"]
 > [Baseline for multiregion clusters](/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster)
 
-### Best practices
+## Best practices
 
 As organizations such as yours have adopted Azure, the [Cloud Adoption Framework](/azure/cloud-adoption-framework/get-started/) provides them prescriptive guidance as they move between the phases of the cloud adoption lifecycle. The Cloud Adoption Framework includes tools, programs, and content to simplify adoption of Kubernetes and related cloud-native practices at scale.
 
@@ -99,11 +101,11 @@ Kubernetes and AKS are both moving fast. The platform is evolving and just knowi
 
 ## Additional resources
 
-The typical AKS solution journey depicted above ranges from learning about AKS to growing your existing clusters to meet new product and customer demands. However, you might also just be looking for additional reference and supporting material to help along the way for your specific situation.
+The typical AKS solution journey shown ranges from learning about AKS to growing your existing clusters to meet new product and customer demands. However, you might also just be looking for additional reference and supporting material to help along the way for your specific situation.
 
 ### Example solutions
 
-If you're seeking additional reference material that use AKS as their foundation, here are a few to consider.
+If you're seeking additional references that use AKS as their foundation, here are a few to consider.
 
 * [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 * [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)
