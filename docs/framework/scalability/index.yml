@@ -83,42 +83,34 @@ landingContent:
           - text: "Autoscale applications on Kubernetes with Kubernetes Event-Driven Autoscaling (KEDA)"
             url: https://channel9.msdn.com/Shows/Azure-Friday/Autoscale-applications-on-Kubernetes-with-Kubernetes-Event-Driven-Autoscaling-KEDA?term=Autoscaling&pubDate=3years&lang-en=true
  # Card
-  - title: Engineer modern release management strategies
+  - title: Testing for performance efficiency
     linkLists:
       - linkListType: overview
         links:
-          - text: Configure development environments
-            url: release-engineering-app-dev.md#development-environments
-          - text: Practice continuous integration
-            url: release-engineering-ci.md            
-          - text: Perform release testing
-            url: release-engineering-testing.md
-          - text: Consider performance
-            url: release-engineering-performance.md
-          - text: Evaluate release deployment
-            url: release-engineering-cd.md
-          - text: Anticipate deployment issues
-            url: release-engineering-rollback.md
+          - text: Performance testing
+            url: performance-test.md
+          - text: Load testing
+            url: performance-test.md#load-testing           
+          - text: Stress testing
+            url: performance-test.md#stress-testing
+          - text: Multiregion testing
+            url: performance-test.md#multiregion-testing
+          - text: Testing tools
+            url: test-tools.md
       - linkListType: concept
         links:
-          - text: Understand source control
-            url: release-engineering-app-dev.md#source-control
-          - text: Consider continuous integration pipelines
-            url: release-engineering-ci.md#continuous-integration-pipelines
-          - text: Automate testing 
-            url: release-engineering-testing.md#automated-testing
-          - text: Optimize your build
-            url: release-engineering-performance.md#build-times
-          - text: Document your release processes
-            url: release-engineering-cd.md#document-release-process
-          - text: Stage your workloads
-            url: release-engineering-cd.md#stage-your-workloads
-          - text: Roll back with Azure App Service
-            url: release-engineering-rollback.md#azure-app-service
+          - text: Establish baselines
+            url: performance-test.md#establish-baselines
+          - text: Configure the environment based on testing results
+            url: performance-test.md#configure-the-environment-based-on-testing-results
+          - text: Consider caching data
+            url: test-tools.md#caching-data
+          - text: Use a content delivery network
+            url: test-tools.md#content-delivery-network
       - linkListType: video
         links:
-          - text: "Continuous Delivery and Release Management | DevOps for Mobile"
-            url: https://channel9.msdn.com/Shows/On-NET/Continuous-Delivery--Release-Management--DevOps-for-Mobile?term=Release%20management&pubDate=3years&lang-en=true&pageSize=15                                      
+          - text: Scale your cloud app with Azure Cache for Redis
+            url: https://channel9.msdn.com/Shows/Azure-Friday/Scale-Your-Cloud-App-with-Azure-Cache-for-Redis?term=Azure%20Redis%20to%20cache%20data&pubDate=3years&lang-en=true                                    
  # Card
   - title: Monitor for DevOps
     linkLists:
