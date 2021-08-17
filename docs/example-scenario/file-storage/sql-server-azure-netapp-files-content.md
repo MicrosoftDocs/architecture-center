@@ -17,8 +17,8 @@ This solution applies to many use cases:
 
 ## Architecture
 
-:::image type="complex" source="./media/sql-server-azure-netapp-files-architecture.png" alt-text="Architecture diagram showing how S Q L Server and Azure NetApp Files work in different subnets of the same virtual network and use S M B 3 to communicate." border="false":::
-   A large rectangle labeled S Q L resource group fills most of the diagram. Inside it is another rectangle labeled S Q L virtual network. It contains two smaller rectangles, one for the S Q L subnet and one for the Azure NetApp Files subnet. The S Q L subnet rectangle contains an icon for S Q L Server on Azure Virtual Machines. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled S M B 3 connects the two subnet rectangles. A colored key indicates that S Q L data in the database file system has a high performance requirement. The database log files have a medium performance requirement.
+:::image type="complex" source="./media/sql-server-azure-netapp-files-architecture.png" alt-text="Architecture diagram showing how SQL Server and Azure NetApp Files work in different subnets of the same virtual network and use S M B 3 to communicate." border="false":::
+   A large rectangle labeled SQL resource group fills most of the diagram. Inside it is another rectangle labeled SQL virtual network. It contains two smaller rectangles, one for the SQL subnet and one for the Azure NetApp Files subnet. The SQL subnet rectangle contains an icon for SQL Server on Azure Virtual Machines. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled S M B 3 connects the two subnet rectangles. A colored key indicates that SQL data in the database file system has a high performance requirement. The database log files have a medium performance requirement.
 :::image-end:::
 
 *Download an [SVG][Main architecture diagram in .svg format] of this architecture.*
@@ -26,8 +26,7 @@ This solution applies to many use cases:
 The components function and interact in these ways:
 
 - This architecture uses SQL Server on Azure Virtual Machines. Through that database solution, SQL Server runs on Azure VMs within the SQL subnet.
-- In the Azure NetApp Files subnet, Azure NetApp Files stores the database and log files.
-- SQL Server uses SMB 3 to access database files.
+- In the Azure NetApp Files subnet, Azure NetApp Files provides SMB 3 access to the database and log files.
 - Azure NetApp Files has the [SMB Continuous Availability shares option][SMB Continuous Availability (CA) shares (Preview)] turned on. This feature makes SMB Transparent Failover possible, so you can do non-disruptive maintenance on Azure NetApp Files.
 
 ### Components
@@ -35,7 +34,7 @@ The components function and interact in these ways:
 The solution uses the following components:
 
 - [Azure NetApp Files][Azure NetApp Files] makes it easy to migrate and run file-based applications with no code change. This shared file-storage service is a joint development from Microsoft and NetApp.
-- [Virtual Machines][Azure Virtual Machines] is the infrastructure as a service (IaaS) offer that deploys on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. This solution uses Windows VMs.
+- [Virtual Machines][Azure Virtual Machines] is an infrastructure-as-a-service (IaaS) offer that deploys on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. This solution uses Windows VMs.
 - [SQL Server on Azure Virtual Machines][What is SQL Server on Azure Virtual Machines (Windows)] provides a way to migrate SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, SQL Server on Azure Virtual Machines offers the flexibility and hybrid connectivity of Azure. But this database solution also provides the performance, security, and analytics of SQL Server. You can continue to use your current SQL Server version. You can also access the latest SQL Server updates and releases.
 - [Azure Virtual Network][Azure Virtual Network] is a networking service that manages virtual private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
 
@@ -55,7 +54,7 @@ This image shows the benefits of using SQL Server with Azure NetApp Files.
 
 #### Simple and reliable service
 
-As a simple-to-consume Azure native service, Azure NetApp Files runs within the Azure data center environment. You can provision, consume, and scale Azure NetApp Files just like other Azure storage options. Azure NetApp Files uses reliability features that the NetApp data management software ONTAP provides. With this software, you can quickly and reliably provision enterprise-grade SMB volumes for SQL Server and other workloads.
+As a simple-to-consume Azure native service, Azure NetApp Files runs within the Azure datacenter environment. You can provision, consume, and scale Azure NetApp Files just like other Azure storage options. Azure NetApp Files uses reliability features that the NetApp data management software ONTAP provides. With this software, you can quickly and reliably provision enterprise-grade SMB volumes for SQL Server and other workloads.
 
 #### Highly performant systems
 
@@ -63,7 +62,7 @@ As a simple-to-consume Azure native service, Azure NetApp Files runs within the 
 
 Azure DCsv2-series VMs have built-in high-performance, all-flash ONTAP enterprise systems. These systems are also integrated in the Azure software-defined networking (SDN) and Azure Resource Manager frameworks. As a result, you get high-bandwidth, low-latency shared storage that's comparable to an on-premises solution. The performance of this architecture meets the requirements of the most demanding, business-critical enterprise workloads.
 
-With Azure NetApp Files, you can enlarge or shrink deployments on demand. In contrast, traditional on-premises configurations are sized for maximum workload requirements. Consequently, on-premises configurations are only most cost-effective at maximum utilization. With the scalability of Azure NetApp Files, you can change the configuration continuously and optimize it for the current workload requirement.
+Azure NetApp Files offers on-demand scalability. You can enlarge or shrink deployments to optimize each workload's configuration.
 
 As [Pricing][Pricing section of this article] explains, using Azure NetApp Files instead of a block storage solution reduces the SQL Server total cost of ownership (TCO).
 
@@ -71,7 +70,7 @@ As [Pricing][Pricing section of this article] explains, using Azure NetApp Files
 
 This solution can handle workloads that require advanced data management features. ONTAP provides functionality in this area that's unmatched in the industry:
 
-- Space-efficient cloning enhances development and test environments.
+- Space-efficient, instantaneous cloning enhances development and test environments.
 - On-demand capacity and performance scaling makes efficient use of resources.
 - Snapshots create frequent database consistency points. You can use the [NetApp SQL Server Database Quiesce Tool][Real-time, high-level reference design] to take snapshots. They provide these benefits:
 
@@ -82,7 +81,7 @@ This solution can handle workloads that require advanced data management feature
 
 #### Hybrid DR
 
-The combination of Always On availability groups and Azure NetApp Files provides DR for this architecture. Those DR solutions are appropriate for cloud and hybrid systems. Their plans work across multiple regions and with on-premises data centers.
+The combination of Always On availability groups and Azure NetApp Files provides DR for this architecture. Those DR solutions are appropriate for cloud and hybrid systems. Their plans work across multiple regions and with on-premises datacenters.
 
 ## Considerations
 
@@ -106,8 +105,8 @@ For SQL Server on Azure Virtual Machines, implement an HA and DR solution to avo
   - Configure [Always On availability groups][Always On availability group on SQL Server on Azure VMs].
 
 
-:::image type="complex" source="./media/sql-server-azure-netapp-files-availability.png" alt-text="Architecture diagram showing how S Q L Server Always On Failover Cluster Instances and Azure NetApp Files use S M B 3 to communicate in a virtual network." border="false":::
-   A large rectangle labeled S Q L resource group fills most of the diagram. Inside it is another rectangle labeled S Q L virtual network. It contains two smaller rectangles, one for the S Q L subnet and one for the Azure NetApp Files subnet. The S Q L subnet rectangle contains icons for S Q L Server on Azure Virtual Machines and S Q L Server Always On Failover Cluster Instances. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled S M B 3 connects the two subnet rectangles. A colored key indicates that S Q L data in the database file system has a high performance requirement. The database log files have a medium performance requirement.
+:::image type="complex" source="./media/sql-server-azure-netapp-files-availability.png" alt-text="Architecture diagram showing how SQL Server Always On Failover Cluster Instances protects data in a virtual network that includes Azure NetApp Files." border="false":::
+   A large rectangle labeled SQL resource group fills most of the diagram. Inside it is another rectangle labeled SQL virtual network. It contains two smaller rectangles, one for a SQL subnet and one for an Azure NetApp Files subnet. The SQL subnet rectangle contains icons for SQL Server on Azure Virtual Machines and SQL Server Always On Failover Cluster Instances. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled S M B 3 connects the two subnet rectangles. A colored key indicates that SQL data in the database file system has a high performance requirement. The database log files have a medium performance requirement.
 :::image-end:::
 
 *Download an [SVG][Cluster architecture diagram in .svg format] of this architecture.*
@@ -139,15 +138,20 @@ Also keep these points in mind:
 
 ## Pricing
 
-Cloud resources usually place limits on I/O operations. This practice prevents sudden slowdowns due to resource exhaustion or unexpected outages. As a result, VMs have disk throughput limitations and network bandwidth limitations. The network limitations are typically higher than disk throughput limitations.
+Using Azure NetApp Files instead of a block storage solution can reduce costs for these reasons:
 
-With network-attached storage, only network bandwidth limits are relevant, and they only apply to data egress. In other words, VM-level disk I/O limits don't affect Azure NetApp Files. Because of these factors, network-attached storage can achieve better performance than disk I/O. This fact holds up even when Azure NetApp Files runs on smaller VMs.
+- You can make the configuration cost-efficient. Traditional on-premises configurations are sized for maximum workload requirements. Consequently, these configurations are most cost-effective at maximum utilization. In contrast, an Azure NetApp Files deployment is scalable. You can optimize the configuration for the current workload requirement to reduce expenses.
 
-Smaller VMs offer these pricing advantages over larger ones:
+- You can use smaller VMs:
 
-- They're less costly.
-- They carry a lower SQL Server license cost.
-- The network-attached storage doesn't have an I/O cost component.
+  - Azure NetApp Files provides low-latency storage access. With smaller VMs, you then get the same performance that larger VMs deliver with ultra disk storage.
+  - Cloud resources usually place limits on I/O operations. This practice prevents sudden slowdowns due to resource exhaustion or unexpected outages. As a result, VMs have disk throughput limitations and network bandwidth limitations. The network limitations are typically higher than disk throughput limitations. With network-attached storage, only network bandwidth limits are relevant, and they only apply to data egress. In other words, VM-level disk I/O limits don't affect Azure NetApp Files. Because of these factors, network-attached storage can achieve better performance than disk I/O. This fact holds up even when Azure NetApp Files runs on smaller VMs.
+
+  Smaller VMs offer these pricing advantages over larger ones:
+
+  - They're less costly.
+  - They carry a lower SQL Server license cost.
+  - The network-attached storage doesn't have an I/O cost component.
 
 These savings outweigh any pricing differences between Azure NetApp Files and disk storage solutions. For a detailed TCO analysis, see [Benefits of using Azure NetApp Files for SQL Server deployment][Benefits of using Azure NetApp Files for SQL Server deployment - Detailed cost analysis].
 
