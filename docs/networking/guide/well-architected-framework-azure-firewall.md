@@ -22,13 +22,13 @@ This article provides architectural best practices for Azure Firewall. The guida
 
 ## Cost Optimization
 
-Review underutilized Azure Firewall instances, identify, and delete Azure Firewall deployments not in use. To identify Azure Firewall deployments not in use, verify if the Firewall has any Rules (Classic) for NAT, Network and Application, or if the DNS Proxy setting if configured to **Disabled**. You can also use monitoring metrics to determine if the Firewall is in use. Check if there are any User Defined Routes pointing to the Firewall’s private IP.
+Review underutilized Azure Firewall instances, identify, and delete Azure Firewall deployments not in use. To identify Azure Firewall deployments not in use, start analyzing the Monitoring Metrics and User Defined Routes (UDRs) associated with subnets pointing to the Firewall’s private IP, and then combine that with some additional validations such as if the Azure Firewall has any Rules (Classic) for NAT, or Network and Application, or even if the DNS Proxy setting if configured to **Disabled**, as well as with internal documentation about your environment and deployments. See details about Monitoring Logs and Metrics at [Monitor Azure Firewall logs and metrics](/azure/firewall/firewall-diagnostics) and [SNAT port utilization](/azure/firewall/logs-and-metrics#metrics).
 
-Share the same Azure Firewall across multiple workloads and Virtual Networks. Deploy a central Azure Firewall in the Hub Virtual Network and share the same Firewall across many Spoke Virtual Networks connected to the same Hub.
+Share the same Azure Firewall across multiple workloads and Virtual Networks. Deploy a central Azure Firewall in the Hub Virtual Network and share the same Firewall across many Spoke Virtual Networks connected to the same Hub from the same region. Ensure that there is no unexpected cross-region traffic as part of the hub-spoke.
 
-Stop Azure Firewall deployments (Virtual Wan Secured Hub deployments only) that do not need to run for 24hrs, this could be the case for development environments used only during business hours.
+Stop Azure Firewall deployments that do not need to run for 24hrs, this could be the case for development environments used only during business hours. See more detail at [Deallocate and allocate Azure Firewall](/powershell/module/az.network/set-azfirewall?#4--deallocate-and-allocate-the-firewall).
 
-Properly size the number of Public IP you Firewall needs. Validate if all the associated Public IPs are in use, if they are not, dissociate and delete them.
+Properly size the number of Public IP you Firewall needs. Validate if all the associated Public IPs are in use, if they are not, dissociate and delete them. Use IP Groups to reduce management overhead. Evaluate SNAT Ports utilization before removing IP Addresses. See details about Monitoring Logs and Metrics at [Monitor Azure Firewall logs and metrics](/azure/firewall/firewall-diagnostics) and [SNAT port utilization](/azure/firewall/logs-and-metrics#metrics).
 
 Use Azure Firewall Manager and its Policies to reduce operational costs by increasing efficiency and reducing management overhead. Review your Firewall Manager policies and associations and inheritance carefully, Policies are billed based on firewall associations. A policy with zero or one firewall association is free of charge. A policy with multiple firewall associations is billed at a fixed rate. See more detail at [Pricing - Firewall Manager](https://azure.microsoft.com/pricing/details/firewall-manager) .
 
@@ -38,7 +38,6 @@ Review the differences between the two Azure Firewall Skus. The Standard is usua
 
 ### General Administration and Governance
 
-- Azure Firewall provides 99.95% SLA when deployed in a single Availability Zone, and 99.99% SLA when deployed in multi-zones.
 - Use Azure Firewall to govern:
   - Internet Outbound traffic (VMs and Services accessing the internet)
   - Non-HTTP/S inbound traffic
@@ -49,21 +48,28 @@ Review the differences between the two Azure Firewall Skus. The Standard is usua
   - URL filtering - extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, www.contoso.com/a/c instead of www.contoso.com.
   - Web categories - administrators can allow or deny user access to website categories such as gambling websites, social media websites, and others.
   - See more details at: [Azure Firewall Premium Preview features](/azure/firewall/premium-features)
-- Use Firewall Manager to deploy and manage multiple Azure Firewalls across Azure Virtual WAN Hubs, and/or Hub/Spoke Vnet based deployments.
-- We recommend the Azure Firewall to be deployed in the Hub Vnet, very specific scenarios may require additional Azure Firewall deployments in Spoke Virtual Networks, but that is not common.
+- Use Firewall Manager to deploy and manage multiple Azure Firewalls across Azure Virtual WAN Hubs and hub-spoke based deployments.
 - Create a global Azure Firewall policy to govern security posture across the global network environment and assign it to all Azure Firewalls. Allows for granular policies to meet requirements of specific regions by delegating incremental Firewall Policies to local security teams via RBAC.
 - Configure supported 3rd party SaaS security providers within Firewall Manager if you want to use such solutions to protect outbound connections.
 - For existing deployments, migrate Azure Firewall Rules to Azure Firewall Manager Policies, and use Azure Firewall Manager to centrally manage your Firewalls and Policies.
+
+### Infrastructure Provisioning and Changes
+
+- We recommend the Azure Firewall to be deployed in the Hub Vnet, very specific scenarios may require additional Azure Firewall deployments in Spoke Virtual Networks, but that is not common.
 - Prefer using IP Prefixes.
 - Be familiar with the Limits and Limitations, especially SNAT Ports. Do not exceed limits and be aware of the limitations. See Azure Firewall Limits at [Azure subscription limits and quotas -  Azure Resource  Manager](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits) and about any existing usability limitation at [Azure Firewall FAQ](/azure/firewall/firewall-faq)
+- For concurrent deployments make sure that used IP Groups, Policies, and Firewalls do not have concurrent PUT operations on them, and updates to the IP Groups and Policies have an implicit Firewall update that is run afterwards.
+- Have a dev and test environment to validate firewall changes.
+- Well-architected also involves the consideration placement of the resources to align with functional and non-functional requirements, Azure Firewall, Application Gateway and Load Balancers can be combined in multiple ways to achieve different goals, see the following scenarios with detailed recommendations: [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 
 ### Networking
 
-- An Azure Firewall is a dedicated deployment in your virtual network. Within your virtual network, a [dedicated subnet](/azure/application-gateway/configuration-infrastructure#virtual-network-and-dedicated-subnet) is required for the Azure Firewall. Azure Firewall will provision more virtual machine instances as it scales. A /26 address space for its subnets ensures that the firewall has enough IP addresses available to accommodate the scaling. Azure Firewall does not need a subnets bigger than /26, and the Azure Firewall subnet name must be named **AzureFirewallSubnet**, this is a requirement.
+An Azure Firewall is a dedicated deployment in your virtual network. Within your virtual network, a [dedicated subnet](/azure/application-gateway/configuration-infrastructure#virtual-network-and-dedicated-subnet) is required for the Azure Firewall. Azure Firewall will provision more capacity as it scales. A /26 address space for its subnets ensures that the firewall has enough IP addresses available to accommodate the scaling. Azure Firewall does not need a subnets bigger than /26, and the Azure Firewall subnet name must be **AzureFirewallSubnet**.
 - If you are considering using Forced Tunneling feature, you will need an additional /26 address space for the Azure Firewall Management Subnet, and it must to be named **AzureFirewallManagementSubnet**, this is also a requirement.
 - Azure Firewall always starts with 2 instances, it can scale up to 20 instances, and you cannot see those individual instances. You can only deploy a single Azure Firewall in each Vnet.
 - Azure Firewall must have direct Internet connectivity. If your **AzureFirewallSubnet** learns a default route to your on-premises network via BGP, you must configure Azure Firewall in Forced Tunneling mode. If this is an existing Azure Firewall, which cannot be reconfigured in Forced Tunneling mode, it is recommended to create an UDR with a 0.0.0.0/0 route with the **NextHopType** value set as **Internet** and associate it with the **AzureFirewallSubnet** to maintain internet connectivity.
-- When deploying a new Azure Firewall, if you enable the Forced Tunneling mode, you can now set the Public IP Address to **None** deploying a fully private Data Plane. However, the Management Plane still requires a Public IP for management purposes only, the internal traffic from Virtual Networks, and/or on-premises will not use that Public IP. See more about Force tunneling at: [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling)
+- When deploying a new Azure Firewall, if you enable the Forced Tunneling mode, you can set the Public IP Address to **None** deploying a fully private Data Plane. However, the Management Plane still requires a Public IP for management purposes only, the internal traffic from Virtual Networks, and/or on-premises will not use that Public IP. See more about Force tunneling at: [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling).
+- When having multi-region Azure environments, remember that Azure Firewall is a regional service, therefor you'll likely have one instance per regional hub.
 
 ### Monitoring
 
@@ -108,13 +114,15 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 - Azure Firewall always starts with 2 instances, and it scales up and down based on CPU and Network Throughput. After Auto scale, Azure Firewall ends up with either n-1 or n+1 instances.
 - Scaling up happens if the threshold for CPU or throughput are greater than 60% for more than 5 min.
 - Scaling down happens if the threshold for CPU or throughput are under 60% for more than 30 min. The scale down process happens gracefully (deleting instances). The Active Connections on the deprovisioned instances are disconnected and switched over to other instances, for majority of applications this process does not cause any downtime, but applications should have some type of auto-reconnect capability, majority already have.
-- If performing load tests, make sure to create an artificial traffic 20 minutes prior to the test to allow the Azure Firewall to scale up.
-- Use logging to see scale up and down events.
+- If performing load tests, make sure to create initial traffic that is not part of your load tests 20 minutes prior to the test to allow the Azure Firewall to scale up its instances to the maximum. Use Diagnostics settings to capture scale up and down events.
 - Do not exceed 10k Network Rules, and make sure use IP Groups. When creating Network Rules, remember that for each rule, Azure actually multiples **Ports x IP Addresses**, so if you 1 Rule with 4 IP Address Ranges and 5 Ports, you will be actually consuming 20 Network Rules, always try to summarize IP ranges.
 - There are no restrictions for Application Rules.
-- Add the Allow rules first, make sure you do not have too many Deny rules, add them to the lowest priority levels.
+- Add the Allow rules first, then add the Deny rules to the lowest priority levels.
 
 ## Reliability
+
+- Azure Firewall provides 99.95% SLA when deployed in a single Availability Zone, and 99.99% SLA when deployed in multi-zones.
+- For workloads designed to be resistant to failures and fault-tolerant, remember to take into consideration that Azure Firewalls and Virtual Networks are regional resources. 
 
 - Closely Monitor Metrics, especially SNAT port utilization, Firewall Health State and Throughput.
 
