@@ -722,7 +722,7 @@ items:
             href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
           - name: Web app private database connectivity
             href: example-scenario/private-web-app/private-web-app.yml
-          - name: Windows Virtual Desktop for the enterprise
+          - name: Azure Virtual Desktop for the enterprise
             href: example-scenario/wvd/windows-virtual-desktop.yml
       - name: Manufacturing
         items:
