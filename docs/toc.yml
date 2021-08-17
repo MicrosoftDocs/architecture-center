@@ -482,6 +482,8 @@ items:
       - name: Performance Efficiency
         items:
           - name: About
+            href: framework/scalability/index.yml
+          - name: Overview
             href: framework/scalability/overview.md
           - name: Principles
             href: framework/scalability/principles.md            
