@@ -2,12 +2,100 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-08-02T15:12:16.754Z</updated>
+    <updated>2021-08-16T15:36:42.343Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[General mainframe refactor to Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/general-mainframe-refactor</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/general-mainframe-refactor"/>
+        <updated>2021-08-11T18:22:24.000Z</updated>
+        <summary type="html"><![CDATA[See how to refactor general mainframe applications to run more cost-effectively and efficiently on Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Google Cloud to Azure services comparison]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/gcp-professional/services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/gcp-professional/services"/>
+        <updated>2021-08-13T16:59:40.000Z</updated>
+        <summary type="html"><![CDATA[Understand the differences between specific Google Cloud and Azure services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[High Performance Computing (HPC) on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/topics/high-performance-computing</id>
+        <link href="https://docs.microsoft.com/azure/architecture/topics/high-performance-computing"/>
+        <updated>2021-08-13T01:00:50.000Z</updated>
+        <summary type="html"><![CDATA[Learn about High Performance Computing on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure mainframe and midrange architecture concepts and patterns]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/mainframe/mainframe-midrange-architecture</id>
+        <link href="https://docs.microsoft.com/azure/architecture/mainframe/mainframe-midrange-architecture"/>
+        <updated>2021-08-12T21:52:03.000Z</updated>
+        <summary type="html"><![CDATA[An overview of Microsoft's Azure mainframe and midrange architectural concepts and guidance offerings.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AWS to Azure services comparison]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/services"/>
+        <updated>2021-08-12T18:44:01.000Z</updated>
+        <summary type="html"><![CDATA[Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement network segmentation patterns on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-network-segmentation</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-network-segmentation"/>
+        <updated>2021-08-10T21:19:54.000Z</updated>
+        <summary type="html"><![CDATA[Use network-level segmentation to secure virtual networks. Understand Azure features for segmentation. Review three different segmentation patterns.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus"/>
+        <updated>2021-08-10T14:26:25.000Z</updated>
+        <summary type="html"><![CDATA[Migrate Unisys Dorado mainframe systems with Astadia and Micro Focus products. Move to Azure without rewriting code, switching data models, or updating screens.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Big compute architecture style]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/architecture-styles/big-compute</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/architecture-styles/big-compute"/>
+        <updated>2021-08-09T13:02:57.000Z</updated>
+        <summary type="html"><![CDATA[Understand the benefits, challenges, and best practices of the Big Compute architecture style on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Serverless Functions reference architectures]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless-quest/reference-architectures</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless-quest/reference-architectures"/>
+        <updated>2021-08-03T22:06:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn about serverless reference architectures.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy highly available Kubernetes cluster on Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes"/>
+        <updated>2021-08-03T19:57:10.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy a Kubernetes cluster solution for high availability using Azure and Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Related resources for multitenancy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/related-resources</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/related-resources"/>
+        <updated>2021-08-02T16:47:58.000Z</updated>
+        <summary type="html"><![CDATA[This article provides a set of links and resources for architects and developers of multitenant solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Zero-trust network for web applications with Azure Firewall and Application Gateway]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall</id>
@@ -145,7 +233,7 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Pricing models]]></title>
+        <title type="html"><![CDATA[Pricing models for a multitenant solution]]></title>
         <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/considerations/pricing-models</id>
         <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/considerations/pricing-models"/>
         <updated>2021-07-14T03:54:48.000Z</updated>
@@ -197,7 +285,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-data</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-data"/>
         <updated>2021-07-07T19:40:34.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for implementing Requirements 3 and Requirement 4 for a PCI-DSS 3.2.1 infrastructure.]]></summary>
+        <summary type="html"><![CDATA[Best practices for securing data as per Requirement 3 and 4 of PCI-DSS 3.2.1.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -205,7 +293,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-identity</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-identity"/>
         <updated>2021-07-07T19:40:34.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for implementing Requirements 7, Requirement 8, and Requirement 9 for a PCI-DSS 3.2.1 infrastructure.]]></summary>
+        <summary type="html"><![CDATA[Best practices for implementing access controls as per Requirement 7, 8, and 9 of PCI-DSS 3.2.1.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -213,7 +301,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-intro</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-intro"/>
         <updated>2021-07-07T19:40:34.000Z</updated>
-        <summary type="html"><![CDATA[Get started on the architectural design by addressing the applicable PCI-DSS 3.2.1 requirements as a tenant on the AKS environment. The guidance covers the compliance aspects of the environment including infrastructure, interactions with the workload, operations, management, and interactions between services. Azure Kubernetes Service (AKS).]]></summary>
+        <summary type="html"><![CDATA[Get started on your architecture design by addressing the applicable PCI-DSS 3.2.1 requirements as a tenant on the AKS environment. The guidance covers the compliance aspects of the environment including infrastructure, interactions with the workload, operations, management, and interactions between services. Azure Kubernetes Service (AKS).]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -221,7 +309,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-malware</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-malware"/>
         <updated>2021-07-07T19:40:34.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for implementing Requirements 5 and Requirement 6 for a PCI-DSS 3.2.1 infrastructure.]]></summary>
+        <summary type="html"><![CDATA[Best practices for detecting vulnerabilities as per Requirement 5 and 6 of PCI-DSS 3.2.1.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -229,7 +317,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-monitor</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-monitor"/>
         <updated>2021-07-07T19:40:34.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for implementing Requirement 10 and Requirement 11 for a PCI-DSS 3.2.1 infrastructure.]]></summary>
+        <summary type="html"><![CDATA[Best practices for monitoring a PCI-DSS 3.2.1 infrastructure as per Requirement 10, and 11.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -237,7 +325,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-network</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-network"/>
         <updated>2021-07-07T19:40:34.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for implementing Requirements 1 and Requirement 2 for a PCI-DSS 3.2.1 infrastructure.]]></summary>
+        <summary type="html"><![CDATA[Best practices for setting up networking as per Requirement 1 and 2 of PCI-DSS 3.2.1.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -245,11 +333,11 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-policy</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-policy"/>
         <updated>2021-07-07T19:40:34.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for implementing Requirement 12 for a PCI-DSS 3.2.1 infrastructure.]]></summary>
+        <summary type="html"><![CDATA[Guidance for documenting security policies as per Requirement 12 of PCI-DSS 3.2.1.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[AKS regulated cluster for PCI-DSS 3.2.1]]></title>
+        <title type="html"><![CDATA[Architecture of an AKS regulated cluster for PCI-DSS 3.2.1]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets"/>
         <updated>2021-07-07T19:40:34.000Z</updated>
@@ -277,7 +365,7 @@
         <id>https://docs.microsoft.com/azure/architecture/aws-professional/networking</id>
         <link href="https://docs.microsoft.com/azure/architecture/aws-professional/networking"/>
         <updated>2021-07-30T00:26:09.000Z</updated>
-        <summary type="html"><![CDATA[A comparison of the different networking options between Azure and AWS]]></summary>
+        <summary type="html"><![CDATA[Compare networking options between Azure and AWS. The comparisons cover cloud virtual networking, cross-premises connectivity, DNS management, and more.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -285,7 +373,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-network-endpoints</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-network-endpoints"/>
         <updated>2021-07-29T17:48:40.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for protecting application endpoints.]]></summary>
+        <summary type="html"><![CDATA[Examine best practices for protecting application endpoints in Azure. Explore public endpoints. Mitigate distributed denial-of-service (DDoS) attacks.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -293,7 +381,7 @@
         <id>https://docs.microsoft.com/azure/architecture//gcp-professional</id>
         <link href="https://docs.microsoft.com/azure/architecture//gcp-professional"/>
         <updated>2021-07-27T23:57:29.000Z</updated>
-        <summary type="html"><![CDATA[Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the Google Cloud and Azure platforms. Take advantage of your Google Cloud experience in Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -301,7 +389,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-identity-control-plane</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-identity-control-plane"/>
         <updated>2021-07-22T01:02:41.000Z</updated>
-        <summary type="html"><![CDATA[Security considerations for Azure control plane.]]></summary>
+        <summary type="html"><![CDATA[Examine security considerations for Azure control plane. A control plane refers to the management of resources in your subscription.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -317,7 +405,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-apps-considerations</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-apps-considerations"/>
         <updated>2021-07-21T23:57:13.000Z</updated>
-        <summary type="html"><![CDATA[Security considerations for your applications and services in Azure.]]></summary>
+        <summary type="html"><![CDATA[Understanding the Azure hosting models of legacy and modern apps through IaaS and PaaS, and the security responsibilities of those models.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -341,7 +429,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage-encryption</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage-encryption"/>
         <updated>2021-07-21T22:19:27.000Z</updated>
-        <summary type="html"><![CDATA[Protect data in transit and at rest through encryption in Azure.]]></summary>
+        <summary type="html"><![CDATA[Protect data in transit and at rest through encryption in Azure. Learn about Azure encryption features and standard encryption algorithms.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -349,7 +437,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authorization</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authorization"/>
         <updated>2021-07-21T21:43:48.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure AD roles to define clear lines of responsibility, access, and separation of duties.]]></summary>
+        <summary type="html"><![CDATA[Use Azure Active Directory (Azure AD) roles to define clear lines of responsibility, access, and separation of duties.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -357,7 +445,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-network-connectivity</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-network-connectivity"/>
         <updated>2021-07-21T21:12:15.000Z</updated>
-        <summary type="html"><![CDATA[Best practices for securing access to internet, PaaS services, and on-premises networks.]]></summary>
+        <summary type="html"><![CDATA[Learn about best practices for securing access to the internet, Azure platform as a service (PaaS) services, and on-premises networks.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -373,7 +461,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authentication</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authentication"/>
         <updated>2021-07-21T01:13:48.000Z</updated>
-        <summary type="html"><![CDATA[Authentication considerations when using Azure AD for a workload.]]></summary>
+        <summary type="html"><![CDATA[Review the authentication considerations when you're using Azure Active Directory (Azure AD) for a workload.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -381,7 +469,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/security/monitor-test</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/monitor-test"/>
         <updated>2021-07-20T23:22:47.000Z</updated>
-        <summary type="html"><![CDATA[Test and validate the workload frequently to detect attacks.]]></summary>
+        <summary type="html"><![CDATA[Explore Azure security test practices, such as testing and validating the workload frequently to detect attacks.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -413,7 +501,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks"/>
         <updated>2021-07-19T15:10:17.000Z</updated>
-        <summary type="html"><![CDATA[Create an end-to-end stream processing pipeline in Azure using Azure Databricks.]]></summary>
+        <summary type="html"><![CDATA[Learn how to create a four stage end-to-end stream processing pipeline in Azure using Azure Databricks.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -429,11 +517,11 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-network-segmentation</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-network-segmentation"/>
         <updated>2021-07-16T22:30:56.000Z</updated>
-        <summary type="html"><![CDATA[Use network level segmentation to secure virtual networks.]]></summary>
+        <summary type="html"><![CDATA[Use network-level segmentation to secure virtual networks. Understand Azure features for segmentation. Review three different segmentation patterns.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Baseline architecture for an Azure Kubernetes Service (AKS) cluster]]></title>
+        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks"/>
         <updated>2021-07-16T17:44:35.000Z</updated>
@@ -1201,7 +1289,7 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Solutions for government industry]]></title>
+        <title type="html"><![CDATA[Solutions for the government industry]]></title>
         <id>https://docs.microsoft.com/azure/architecture/industries/government</id>
         <link href="https://docs.microsoft.com/azure/architecture/industries/government"/>
         <updated>2021-06-10T22:43:29.000Z</updated>
@@ -1209,7 +1297,7 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Solutions for manufacturing industry]]></title>
+        <title type="html"><![CDATA[Solutions for the manufacturing industry]]></title>
         <id>https://docs.microsoft.com/azure/architecture/industries/manufacturing</id>
         <link href="https://docs.microsoft.com/azure/architecture/industries/manufacturing"/>
         <updated>2021-06-10T22:43:29.000Z</updated>
@@ -1217,7 +1305,7 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Solutions for media and entertainment industry]]></title>
+        <title type="html"><![CDATA[Solutions for the media and entertainment industry]]></title>
         <id>https://docs.microsoft.com/azure/architecture/industries/media</id>
         <link href="https://docs.microsoft.com/azure/architecture/industries/media"/>
         <updated>2021-06-10T22:43:29.000Z</updated>
@@ -1269,7 +1357,7 @@
         <id>https://docs.microsoft.com/azure/architecture/framework/devops/automation-infrastructure</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/devops/automation-infrastructure"/>
         <updated>2021-06-24T14:09:22.000Z</updated>
-        <summary type="html"><![CDATA[Repeatable Infrastructure]]></summary>
+        <summary type="html"><![CDATA[Review the concept of repeatable infrastructure. Use Azure Landing Zones. Deploy infrastructure with code. Automate deployments with ARM templates and Terraform.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1309,7 +1397,7 @@
         <id>https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor</id>
         <link href="https://docs.microsoft.com/azure/architecture/patterns/scheduler-agent-supervisor"/>
         <updated>2021-06-18T03:33:00.000Z</updated>
-        <summary type="html"><![CDATA[Coordinate a set of actions across a distributed set of services and other remote resources.]]></summary>
+        <summary type="html"><![CDATA[Explore the Scheduler Agent Supervisor pattern, which coordinates a set of actions across a distributed set of services and other remote resources.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1345,11 +1433,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Development and test environments for SAP workloads on Azure]]></title>
+        <title type="html"><![CDATA[SAP workload development and test settings]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-dev-test</id>
         <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/sap-dev-test"/>
         <updated>2021-06-16T03:03:20.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to establish non-production development and test environments for SAP NetWeaver on Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn how to establish non-production development and test environments for SAP NetWeaver in a Windows or Linux environment on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1373,11 +1461,11 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines"/>
         <updated>2021-06-16T03:03:20.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the SAP BW/4HANA application tier and how it's suitable for a small-scale production environment of SAP BW/4HANA on Azure where high availability is a priority.]]></summary>
+        <summary type="html"><![CDATA[Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure]]></title>
+        <title type="html"><![CDATA[SAP HANA for Linux VMs in scale-up systems]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines"/>
         <updated>2021-06-16T03:03:20.000Z</updated>
@@ -1409,11 +1497,11 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Secure and govern workloads with network level segmentation]]></title>
+        <title type="html"><![CDATA[Network-level segmentation workloads]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation"/>
         <updated>2021-06-16T02:42:51.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use network level segmentation to secure virtual networks.]]></summary>
+        <summary type="html"><![CDATA[Learn how to use network level segmentation to secure virtual networks by using the wide and diverse set of segmentation options available in Microsoft Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1701,7 +1789,7 @@
         <id>https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability</id>
         <link href="https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability"/>
         <updated>2021-05-21T19:24:37.000Z</updated>
-        <summary type="html"><![CDATA[The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers.]]></summary>
+        <summary type="html"><![CDATA[Learn about the Azure Availability Zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -1749,7 +1837,7 @@
         <id>https://docs.microsoft.com/azure/architecture//framework</id>
         <link href="https://docs.microsoft.com/azure/architecture//framework"/>
         <updated>2021-05-19T08:44:48.000Z</updated>
-        <summary type="html"><![CDATA[Azure Well-Architected Framework describes five pillars of cost optimization, operational excellence, performance efficiency, reliability, and security, that result in a high quality and scalable cloud architecture.]]></summary>
+        <summary type="html"><![CDATA[Learn about the five pillars of the Azure Well-Architected Framework and how they can produce a high quality, stable, and efficient cloud architecture.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

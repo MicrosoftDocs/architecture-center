@@ -1,6 +1,6 @@
 ---
 title: Azure services for securing network connectivity
-description: Best practices for securing access to internet, PaaS services, and on-premises networks.
+description: Learn about best practices for securing access to the internet, Azure platform as a service (PaaS) services, and on-premises networks.
 author: PageWriter-MSFT
 ms.date: 02/03/2021
 ms.topic: conceptual
@@ -91,7 +91,7 @@ Design virtual networks and subnets for growth. We recommend planning subnets ba
 
 ### Learn more
 
-- [Design virtual network subnet security](/azure/architecture/framework/Security/network-security-containment#design-virtual-network-subnet-security)
+- [Design virtual network subnet security](./network-security-containment.md#design-virtual-network-subnet-security)
 - [Design an IP addressing schema for your Azure deployment](/learn/modules/design-ip-addressing-for-azure/)
 
 ## Internet edge traffic

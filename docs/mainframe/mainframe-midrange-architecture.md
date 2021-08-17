@@ -113,7 +113,14 @@ Often referred to as a lift-and-shift migration, this option doesn't require cod
 
 #### Rehost architectures
 
-| Example migrate| Example modernize  |
+<ul class="grid">
+
+[!INCLUDE [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../includes/cards/migrate-mainframe-apps-with-tmaxsoft-openframe.md)]
+[!INCLUDE [Modernize mainframe and midrange data](../../includes/cards/modernize-mainframe-data-to-azure.md)]
+
+</ul>
+
+| | |
 |-|-|
 |Stromasys Charon-SSP Solaris emulator on Azure VMs [<img src="images/rehost-solaris.png" alt="Stromasys Charon-SSP Solaris emulator on Azure VMs" width=700 height="300">](../solution-ideas/articles/solaris-azure.yml) |Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame [<img src="images/rehost-tmax.png" alt="Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame" width=700 height="300">](../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)|
 |Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization [<img src="images/unisys-clearpath-forward-mainframe-rehost-diagram-postmigration-expanded.png" alt="Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization" width=700 height="300">](../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml) |Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment [<img src="images/lzlabs-software-defined-mainframe-in-azure-architecture-inline.png" alt="Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment" width=700 height="300">](../example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml)|

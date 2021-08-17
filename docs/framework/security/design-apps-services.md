@@ -1,6 +1,6 @@
 ---
 title: Applications and services
-description: Secure your applications and services in Azure
+description: Secure your applications and services in Azure. Applications and the data associated with them act as the primary store of business value on a cloud platform.
 author: v-aangie
 ms.date: 09/17/2020
 ms.topic: conceptual

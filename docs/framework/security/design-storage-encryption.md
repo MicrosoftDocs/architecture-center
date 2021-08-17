@@ -1,6 +1,6 @@
 ---
 title: Data encryption in Azure
-description: Protect data in transit and at rest through encryption in Azure.
+description: Protect data in transit and at rest through encryption in Azure. Learn about Azure encryption features and standard encryption algorithms.
 author: PageWriter-MSFT
 ms.date: 12/03/2020
 ms.topic: conceptual

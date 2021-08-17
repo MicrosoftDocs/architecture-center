@@ -1,6 +1,6 @@
 ---
 title: Team roles and responsibilities
-description: Define clear lines of responsibility and separation of duties.
+description: Learn to define clear lines of responsibility and establish separation of duties as part of Azure identity and access management.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: conceptual
