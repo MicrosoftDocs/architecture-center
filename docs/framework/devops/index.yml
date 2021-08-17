@@ -136,7 +136,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure DevOps
-            url: https://azure.microsoft.com/en-us/services/devops/repos/
+            url: https://azure.microsoft.com/services/devops/repos/
           - text: Azure Diagnostics
             url: /azure/azure-monitor/agents/diagnostics-extension-overview
           - text: Azure Monitor
