@@ -83,7 +83,7 @@ landingContent:
           - text: "Autoscale applications on Kubernetes with Kubernetes Event-Driven Autoscaling (KEDA)"
             url: https://channel9.msdn.com/Shows/Azure-Friday/Autoscale-applications-on-Kubernetes-with-Kubernetes-Event-Driven-Autoscaling-KEDA?term=Autoscaling&pubDate=3years&lang-en=true
  # Card
-  - title: Testing for performance efficiency
+  - title: Test for performance efficiency
     linkLists:
       - linkListType: overview
         links:
@@ -112,24 +112,59 @@ landingContent:
           - text: Scale your cloud app with Azure Cache for Redis
             url: https://channel9.msdn.com/Shows/Azure-Friday/Scale-Your-Cloud-App-with-Azure-Cache-for-Redis?term=Azure%20Redis%20to%20cache%20data&pubDate=3years&lang-en=true                                    
  # Card
-  - title: Monitor for DevOps
+  - title: Monitor for Performance Efficiency
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Consider application profiling
+            url: monitor-application.md
+          - text: Analyze infrastructure metrics and logs
+            url: monitor-infrastructure.md
+          - text: Integrate performance data
+            url: monitor-analyze.md
+          - text: Monitor performance for scalability and reliability
+            url: monitor-scalability-reliability.md
       - linkListType: concept
         links:
-          - text: Understand application and platform monitoring
-            url: monitoring.md
-          - text: Analyze alerts
-            url: alerts.md
-          - text: Monitor best practices
-            url: monitoring.md#monitoring-best-practices
+          - text: Collect application logs
+            url: monitor-application.md#application-logs
+          - text: View platform metrics
+            url: monitor-infrastructure.md#platform-metrics
+          - text: Correlate and evaluate data
+            url: monitor-analyze.md#data-interpretation
+          - text: Consider cost implications
+            url: monitor-analyze.md#cost-considerations
       - linkListType: video
         links:
-          - text: Continuous Monitoring for Web Perf and Accessibility
-            url: https://channel9.msdn.com/Shows/DevOps-Lab/Continuous-Monitoring-for-Web-Perf-and-Accessibility?term=devops%20monitoring&pubDate=3years&lang-en=true
-          - text: Monitoring AKS with Azure 
-            url: https://channel9.msdn.com/Shows/DevOps-Lab/Monitoring-AKS-with-Azure-Sentinel?term=DevOps%20Monitoring&pubDate=3years&lang-en=true
+          - text: Azure Application Insights Profiler
+            url: https://channel9.msdn.com/Shows/Visual-Studio-Toolbox/Azure-Application-Insights-Profiler?term=Collect%20data%20with%20Azure%20Application%20Insights&pubDate=3years&lang-en=true
  # Card
-  - title: DevOps tools and services
+  - title: Optimize for Performance Efficiency
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Caching data for performance optimization
+            url: optimize-cache.md
+          - text: Partition data for performance optimization
+            url: optimize-partition.md
+          - text: Sustain performance efficiency over time
+            url: optimize-sustain.md
+      - linkListType: concept
+        links:
+          - text: Consider capacity
+            url: optimize.md#capacity-considerations
+          - text: Determine acceptable performance optimization
+            url: optimize-partition.md#determine-acceptable-performance-optimization
+          - text: Optimize autoscaling
+            url: optimize-sustain.md#optimize-autoscaling
+          - text: Partition critical workload
+            url: optimize-sustain.md#separate-out-critical-workload
+      - linkListType: video
+        links:
+          - text: 
+            url: 
+ # Card
+  - title: 
     linkLists:
       - linkListType: reference
         links:
