@@ -13,6 +13,11 @@
     - iot
   ms.custom:
     - internal-intro
+  azureCategories:
+    - iot
+  products:
+    - azure-iot-hub
+
 ---
 
 # Getting started with Azure IoT Solutions
@@ -69,5 +74,4 @@ For more detailed information about the recommended architecture for PaaS soluti
 * [Azure IoT Central documentation](/azure/iot-central)
 * [Azure IoT Hub](/azure/iot-hub)
 * [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
-* [Azure Digital Twins](azure/digital-twins)
 * [Azure IoT Edge documentation](/azure/iot-edge)
