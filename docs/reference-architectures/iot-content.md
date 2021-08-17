@@ -63,10 +63,12 @@ IoT Hub automatically partitions device messages based on the device ID. All of 
 
 **Functions**. When reading from the Event Hubs endpoint, there is a maximum of function instance per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
 
-**Cosmos DB**. To scale out a Cosmos DB collection, create the collection with a partition key and include the partition key in each document that you write. For more information, see [Best practices when choosing a partition key](/azure/cosmos-db/partitioning-overview#choose-partitionkey).
+**Cosmos DB**. To scale out a Cosmos DB collection, create the collection with a partition key and include the partition key in each document that you write. Here are some simple examples.
 
 - If you store and update a single document per device, the device ID is a good partition key. Writes are evenly distributed across the keys. The size of each partition is strictly bounded, because there is a single document for each key value.
-- If you store a separate document for every device message, using the device ID as a partition key would quickly exceed the 10-GB limit per partition. Message ID is a better partition key in that case. Typically you would still include device ID in the document for indexing and querying.
+- If you store a separate document for every device message, using the device ID as a partition key would quickly exceed the logical partition limit per partition. Message ID is a better partition key in that case. Typically you would still include device ID in the document for indexing and querying.
+
+A common approach is to create a synthetic key composed of multiple attributes to help with data distribution. For more information, see [Best practices when choosing a partition key](/azure/cosmos-db/partitioning-overview#choose-partitionkey).
 
 [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
 
