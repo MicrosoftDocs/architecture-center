@@ -13,7 +13,7 @@
     - iot
   ms.custom:
     - internal-intro
-  azureCategories:
+  categories:
     - iot
   products:
     - azure-iot-hub
