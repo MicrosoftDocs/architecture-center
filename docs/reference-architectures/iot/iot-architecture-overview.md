@@ -35,15 +35,15 @@ For a conceptual overview of IoT solutions, see [IoT solution concepts](https://
 
 ## Learn about Azure IoT
 
-If you are interested in learning about Azure IoT concepts in detail using a sandbox subscription, see [Introduction to Azure IoT](https://docs.microsoft.com/en-us/learn/paths/introduction-to-azure-iot/). This is a five hour learning path that consists of eight training modules.
+If you are interested in learning about Azure IoT concepts in detail using a sandbox subscription, see [Introduction to Azure IoT](https://docs.microsoft.com/learn/paths/introduction-to-azure-iot/). This is a five hour learning path that consists of eight training modules.
 
 ## Decide Between SaaS and PaaS solutions
 
 Microsoft enables you to create an IoT solution using PaaS services or a SaaS application. PaaS (platform as a service) is a cloud computing model in which Microsoft delivers Azure hardware and software tools over the internet, enabling you to create solutions from individual services. SaaS (software as a service) is a software distribution model in which Microsoft makes Azure applications available to customers over the internet.
 
-Microsoft has a fully managed, enterprise-ready SaaS offering, [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/core/overview-iot-central).  We recommend this as a starting point for all customers. Using **Azure IoT Central**, you can quickly deploy a new application, connect physical or simulated devices, and customize the application to your specific requirements.
+Microsoft has a fully managed, enterprise-ready SaaS offering, [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central).  We recommend this as a starting point for all customers. Using **Azure IoT Central**, you can quickly deploy a new application, connect physical or simulated devices, and customize the application to your specific requirements.
 
-Microsoft also also enables you to build solutions using Azure PaaS components. You can use these to connect and provision things, analyze the insights they collect , and take action about those insights. For more information, see [Azure IoT reference architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot).
+Microsoft also also enables you to build solutions using Azure PaaS components. You can use these to connect and provision things, analyze the insights they collect , and take action about those insights. For more information, see [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot).
 
 ## Design an IoT Architecture
 
@@ -55,9 +55,9 @@ A standard IoT solution architecture consists of five basic elements.
 * **Business integration** performs actions based on insights from the device data.
 * **Security monitoring** provides an end-to-end security solution for IoT workloads. Use Azure Security Center for IoT.
 
-These fundamentals exist whether you are using a PaaS or a SaaS solution. However, the Saas solution offered by Microsoft, [Azure IoT Central](https://docs.microsoft.com/en-us/azure/iot-central/core/overview-iot-central), abstracts many of the technical choices and allows you to focus exclusively on your solution.
+These fundamentals exist whether you are using a PaaS or a SaaS solution. However, the Saas solution offered by Microsoft, [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central), abstracts many of the technical choices and allows you to focus exclusively on your solution.
 
-For more detailed information about the recommended architecture for PaaS solutions, see [Azure IoT reference architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot).
+For more detailed information about the recommended architecture for PaaS solutions, see [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot).
 
 ## Deploy your first Azure IoT solution
 
@@ -66,10 +66,10 @@ For more detailed information about the recommended architecture for PaaS soluti
 ## Additional Resources
 
 * [Azure IoT documentation](https://docs.microsoft.com/azure/iot-fundamentals/)
-* [Azure IoT Central documentation](https://docs.microsoft.com/en-us/azure/iot-central/)
-* [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)
-* [Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/en-us/azure/iot-dps/)
-* [Azure Digital Twins](https://docs.microsoft.com/en-us/azure/digital-twins/)
-* [Azure IoT Edge documentation](https://docs.microsoft.com/en-us/azure/iot-edge/?view=iotedge-2020-11)
+* [Azure IoT Central documentation](https://docs.microsoft.com/azure/iot-central/)
+* [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/)
+* [Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)
+* [Azure Digital Twins](https://docs.microsoft.com/azure/digital-twins/)
+* [Azure IoT Edge documentation](https://docs.microsoft.com/azure/iot-edge/)
 
 7
