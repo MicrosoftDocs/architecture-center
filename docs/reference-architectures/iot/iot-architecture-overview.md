@@ -22,21 +22,12 @@
 
 # Getting started with Azure IoT Solutions
 
-IoT (Internet of Things) is a collection of managed and platform services that connect and control IoT assets. We can consider how these services work together across three components to form an IoT solution:
+IoT (Internet of Things) is a collection of managed and platform services that connect and control IoT assets. For example, consider an industrial motor connected to the cloud. The motor collects and sends temperature data. This data is used to evaluate whether the motor is performing as expected. This information can then be used to prioritize a maintenance schedule for the motor (action).
 
-* **Things** are physical devices such as industrial equipment, sensors, or microcontrollers that connect to the cloud.
-* **Insights** are data collected by the things. The data can be analyzed and turned into actionable knowledge by people or by artificial intelligence (AI).
-* **Actions** are the ways people respond to the insights.
+Azure IoT supports a large range of devices, including industrial equipment, microcontrollers, sensors, and so on. When connected to the cloud, these devices can send data to your custom solution. The data can then be processed to gain custom insights about the device. You can use these insights to monitor, manage, and control your environment.
 
-You can also consider these three components by the processes they generate.
-
-* **Things send events.** Devices send information to your solution.
-* **Events generate insights.** Rules set in the solution evaluate the events for contextual insights.
-* **Insights inform actions.** The insight determines which event handler should be tasked with handling the event.
-
-For an example, consider an industrial motor (thing) connected to the cloud. The motor collects and sends temperature data. This data is used to evaluate whether the motor is performing as expected (insight). The insight can then be used to prioritize a maintenance schedule for the motor (action).
-
-For a conceptual overview of IoT solutions, see [IoT solution concepts](/azure/architecture/example-scenario/iot/introduction-to-solutions).
+> [!div class="nextstepaction"]
+> [IoT solution concepts](/azure/architecture/example-scenario/iot/introduction-to-solutions)
 
 ## Learn about Azure IoT
 
@@ -58,13 +49,11 @@ A standard IoT solution architecture consists of five basic elements.
 * **Provisioning** connects the devices to the cloud.
 * **Processing** analyzes data from devices to gather insights.
 * **Business integration** performs actions based on insights from the device data.
-* **Security monitoring** provides an end-to-end security solution for IoT workloads. Use Azure Security Center for IoT.
+* **Security monitoring** provides an end-to-end security solution for IoT workloads. Use Azure Defender for IoT.
 
 These fundamentals exist whether you are using a PaaS or a SaaS solution. However, the Saas solution offered by Microsoft, [Azure IoT Central](/azure/iot-central/core/overview-iot-central), abstracts many of the technical choices and allows you to focus exclusively on your solution.
 
 For more detailed information about the recommended architecture for PaaS solutions, see [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot).
-
-## Deploy your first Azure IoT solution
 
 ## Monitor and optimize your Azure IoT solution
 
