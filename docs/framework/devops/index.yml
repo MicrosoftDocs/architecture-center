@@ -33,7 +33,7 @@ landingContent:
             url: release-engineering-app-dev.md
           - text: Monitoring checklist
             url: /azure/architecture/checklist/dev-ops
-          - text: DevOps Culture
+          - text: DevOps culture
             url: /azure/architecture/checklist/dev-ops#culture
           - text: DevOps patterns
             url: devops-patterns.md
