@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Security documentation
-summary: Apply security principles to your architecture to boost assurances against deliberate attacks and abuse of your valuable data, and systems.
+summary: Apply security principles to your architecture for added assurance against deliberate attacks and abuse of your valuable data, and systems.
 
 metadata: 
   title: conceptual
-  description: Learn how to apply security principles to your architecture to boost assurances against deliberate attacks and abuse of your valuable data, and systems.
+  description: Learn how to apply security principles to your architecture for added assurance against deliberate attacks and abuse of your valuable data, and systems.
   services: na
   author: v-stacywray
   ms.author: v-stacywray
@@ -52,40 +52,44 @@ landingContent:
           - text: "Cloud Security Posture Management (CSPM) with Azure Security Center"
             url: https://channel9.msdn.com/Shows/Azure-Friday/Cloud-Security-Posture-Management-CSPM-with-Azure-Security-Center?term=Security%20overview&pubDate=3years&lang-en=true
   # Card 
-  - title: Design for performance efficiency
+  - title: Design for security
     linkLists:
       - linkListType: get-started
         links:
-          - text: Monitoring distributed architectures
-            url: design-distributed.md
-          - text: Design scalable Azure applications
-            url: design-apps.md  
-          - text: Design Azure applications for efficiency
-            url: design-efficiency.md
-          - text: Design for scaling
-            url: design-scale.md   
-          - text: Plan for capacity
-            url: design-capacity.md                   
+          - text: Plan segmentation
+            url: design-segmentation.md
+          - text: Consider team roles and responsibilities
+            url: design-identity-role-definitions.md 
+          - text: Implement network segmentation
+            url: design-network-segmentation.md
+          - text: Encrypt data
+            url: design-storage-encryption.md  
+          - text: Understand application security
+            url: design-apps-services.md                 
       - linkListType: concept
         links:
-          - text: Consider team expertise
-            url: design-distributed.md#team-expertise
-          - text: Choose the right data storage
-            url: design-apps.md#choose-the-right-data-storage
-          - text: Reduce response time with asynchronous programming
-            url: design-efficiency.md#reduce-response-time-with-asynchronous-programming
-          - text: Plan for growth
-            url: design-scale.md#plan-for-growth
-          - text: Scale out rather than scaling up
-            url: design-capacity.md#scale-out-rather-than-scaling-up
+          - text: Support segmentation with management groups
+            url: design-management-groups.md#support-your-segmentation-strategy-with-management-groups
+          - text: Identity management and access control best practices
+            url: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          - text: Network best practices
+            url: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          - text: Encryption best practices
+            url: /azure/security/fundamentals/encryption-overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          - text: Analyze application threats
+            url: design-threat-model.md
+          - text: Gather compliance requirements
+            url: design-regulatory-compliance.md
+          - text: Secure application configuration and dependencies
+            url: design-app-dependencies.md
       - linkListType: learn
         links:
-          - text: Advancing resilience through chaos engineering and fault injection
-            url: https://azure.microsoft.com/en-us/blog/advancing-resilience-through-chaos-engineering-and-fault-injection/
-      - linkListType: video
+          - text: Design and implement network security
+            url: /learn/modules/design-implement-network-security-monitoring/
+      - linkListType: whats-new
         links:
-          - text: "Autoscale applications on Kubernetes with Kubernetes Event-Driven Autoscaling (KEDA)"
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Autoscale-applications-on-Kubernetes-with-Kubernetes-Event-Driven-Autoscaling-KEDA?term=Autoscaling&pubDate=3years&lang-en=true
+          - text: What's new in Azure Network Security?
+            url: https://channel9.msdn.com/Shows/The-Launch-Space/Whats-new-in-Azure-Network-Security?term=Security&pubDate=3years&lang-en=true
  # Card
   - title: Test for performance efficiency
     linkLists:
