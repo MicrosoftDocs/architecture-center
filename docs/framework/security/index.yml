@@ -164,32 +164,35 @@ landingContent:
           - text: Enabling secure remote work with using Windows Virtual Desktop
             url: https://channel9.msdn.com/Shows/Azure-Friday/Enabling-secure-remote-work-using-Windows-Virtual-Desktop?term=Azure%20Secure%20Score&pubDate=3years&lang-en=true
  # Card
-  - title: Performance tools and services
+  - title: Security tools and services
     linkLists:
       - linkListType: reference
         links:
-          - text: Application Insights
-            url: /azure/azure-monitor/app/app-insights-overview
-          - text: Azure Autoscale
-            url: /azure/azure-monitor/autoscale/autoscale-overview
-          - text: Azure Blob storage
-            url: /azure/storage/blobs/storage-blobs-introduction
-          - text: "Azure Content Delivery Network (CDN)"
-            url: /azure/cdn/cdn-overview
-          - text: Azure Cosmos DB 
-            url: https://azure.microsoft.com/en-us/services/cosmos-db/
-          - text: Azure Front Door 
-            url: /azure/frontdoor/front-door-caching#file-compression
-          - text: Azure Monitor
-            url: /azure/azure-monitor/overview
-          - text: Azure SQL Database
-            url: https://azure.microsoft.com/en-us/products/azure-sql/database/
-          - text: B-series virtual machines
-            url: /azure/virtual-machines/sizes-b-series-burstable
-          - text: Microsoft Well-Architected Review
-            url: /assessments/?mode=pre-assessment&session=5c2bcc40-1c41-47b1-8729-1fba49dbe408      
+          - text: Azure AD Conditional Access
+            url: /azure/active-directory/conditional-access/overview
+          - text: Azure AD Connect 
+            url: /azure/active-directory/hybrid/whatis-hybrid-identity
+          - text: "Azure AD Privileged Identity Management (PIM)"
+            url: /azure/active-directory/privileged-identity-management/pim-configure
+          - text: Azure Key Vault
+            url: /azure/key-vault/general/overview
+          - text: Azure Resource Manager  
+            url: /azure/azure-resource-manager/management/overview
+          - text: "Azure role-based access control (RBAC)"
+            url: /azure/role-based-access-control/overview
+          - text: Azure Storage Service Encryption
+            url: /azure/storage/common/storage-service-encryption
+          - text: Multifactor Authentication
+            url: /azure/active-directory/authentication/howto-mfa-userstates
+          - text: Passwordless
+            url: /windows/security/identity-protection/hello-for-business/hello-identity-verification
+          - text: "Passwordless (Authenticator app)"
+            url: /azure/active-directory/authentication/howto-authentication-phone-sign-in
+
+          
+      
  # Card
-  - title: Performance APIs
+  - title: Security APIs
     linkLists:
       - linkListType: reference
         links:
