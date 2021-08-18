@@ -91,36 +91,32 @@ landingContent:
           - text: What's new in Azure Network Security?
             url: https://channel9.msdn.com/Shows/The-Launch-Space/Whats-new-in-Azure-Network-Security?term=Security&pubDate=3years&lang-en=true
  # Card
-  - title: Test for performance efficiency
+  - title: Secure build and deploy
     linkLists:
       - linkListType: overview
         links:
-          - text: Performance testing
-            url: performance-test.md
-          - text: Load testing
-            url: performance-test.md#load-testing           
-          - text: Stress testing
-            url: performance-test.md#stress-testing
-          - text: Multiregion testing
-            url: performance-test.md#multiregion-testing
-          - text: Testing tools
-            url: test-tools.md
+          - text: Consider secure deployment governance
+            url: deploy-governance.md
+          - text: Understand infrastructure provisioning
+            url: deploy-infrastructure.md          
+          - text: Deploy code
+            url: deploy-code.md
       - linkListType: concept
         links:
-          - text: Establish baselines
-            url: performance-test.md#establish-baselines
-          - text: Configure the environment based on testing results
-            url: performance-test.md#configure-the-environment-based-on-testing-results
-          - text: Consider caching data
-            url: test-tools.md#caching-data
-          - text: Use a content delivery network
-            url: test-tools.md#content-delivery-network
+          - text: Minimize access
+            url: deploy-governance.md#minimize-access
+          - text: "Understand Infrastructure as Code (IaC)"
+            url: deploy-infrastructure.md#infrastructure-as-code-iac
+          - text: Roll back and roll forward
+            url: deploy-code.md#rollback-and-roll-forward
+          - text: Scanning credentials
+            url: deploy-code.md#credential-scanning
       - linkListType: video
         links:
-          - text: Scale your cloud app with Azure Cache for Redis
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Scale-Your-Cloud-App-with-Azure-Cache-for-Redis?term=Azure%20Redis%20to%20cache%20data&pubDate=3years&lang-en=true                                    
+          - text: Ask the right questions about secure application development on Azure
+            url: https://channel9.msdn.com/Shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure?term=Secure%20deploy&pubDate=3years&lang-en=true
  # Card
-  - title: Monitor for performance efficiency
+  - title: Security monitoring
     linkLists:
       - linkListType: overview
         links:
