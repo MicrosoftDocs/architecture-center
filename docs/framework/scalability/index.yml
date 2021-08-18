@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Performance Efficiency documentation
-summary: Apply scalability principles to your architecture to meet users' demands in an efficient manner.
+summary: Apply scalability principles to your architecture to meet users' demands efficiently.
 
 metadata: 
   title: conceptual
-  description: Learn how to apply scalability principles to your architecture to meet users' demands in an efficient manner.
+  description: Learn how to apply scalability principles to your architecture to meet users' demands efficiently.
   services: na
   author: v-stacywray
   ms.author: v-stacywray
@@ -35,13 +35,13 @@ landingContent:
             url: test-checklist.md
           - text: Optimize checklist
             url: optimize.md
-          - text: Performance Efficiency patterns
+          - text: Performance efficiency patterns
             url: /azure/architecture/checklist/dev-ops#culture
           - text: Tradeoffs
             url: tradeoffs.md
       - linkListType: learn
         links:
-          - text: Performance Efficiency 
+          - text: Performance efficiency 
             url: /learn/modules/azure-well-architected-introduction/5-performance-efficiency
       - linkListType: video
         links:
@@ -112,7 +112,7 @@ landingContent:
           - text: Scale your cloud app with Azure Cache for Redis
             url: https://channel9.msdn.com/Shows/Azure-Friday/Scale-Your-Cloud-App-with-Azure-Cache-for-Redis?term=Azure%20Redis%20to%20cache%20data&pubDate=3years&lang-en=true                                    
  # Card
-  - title: Monitor for Performance Efficiency
+  - title: Monitor for performance efficiency
     linkLists:
       - linkListType: overview
         links:
@@ -139,7 +139,7 @@ landingContent:
           - text: Azure Application Insights Profiler
             url: https://channel9.msdn.com/Shows/Visual-Studio-Toolbox/Azure-Application-Insights-Profiler?term=Collect%20data%20with%20Azure%20Application%20Insights&pubDate=3years&lang-en=true
  # Card
-  - title: Optimize for Performance Efficiency
+  - title: Optimize for performance efficiency
     linkLists:
       - linkListType: overview
         links:
