@@ -193,15 +193,11 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Alerts - Get All
-            url: /rest/api/monitor/alertsmanagement/alerts/get-all
-          - text: Automation REST API
-            url: /rest/api/automation/
-          - text: Azure Container Instances
-            url: /rest/api/container-instances/
-          - text: Azure Deployment Manager
-            url: /rest/api/deploymentmanager/
-          - text: Azure Resource Health
-            url: /rest/api/resourcehealth/
-          - text: Network Monitoring
-            url: /rest/api/operationsmanager/network-monitoring
+          - text: Azure CDN REST API
+            url: /rest/api/cdn/
+          - text: Azure Monitor REST API
+            url: /rest/api/monitor/
+          - text: Azure Redis Cache
+            url: /rest/api/redis/
+          - text: Azure Storage REST API
+            url: /rest/api/storageservices/
