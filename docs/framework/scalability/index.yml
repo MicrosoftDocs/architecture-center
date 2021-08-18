@@ -161,35 +161,35 @@ landingContent:
             url: optimize-sustain.md#separate-out-critical-workload
       - linkListType: video
         links:
-          - text: 
-            url: 
+          - text: Optimize costs of your backups with Azure Backup
+            url: https://channel9.msdn.com/Shows/Inside-Azure-for-IT/Optimize-costs-of-your-backups-with-Azure-Backup?term=Optimize%20for%20performance&pubDate=3years&lang-en=true&pageSize=15
  # Card
-  - title: 
+  - title: Performance tools and services
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure DevOps
-            url: https://azure.microsoft.com/services/devops/repos/
-          - text: Azure Diagnostics
-            url: /azure/azure-monitor/agents/diagnostics-extension-overview
+          - text: Application Insights
+            url: /azure/azure-monitor/app/app-insights-overview
+          - text: Azure Autoscale
+            url: /azure/azure-monitor/autoscale/autoscale-overview
+          - text: Azure Blob storage
+            url: /azure/storage/blobs/storage-blobs-introduction
+          - text: "Azure Content Delivery Network (CDN)"
+            url: /azure/cdn/cdn-overview
+          - text: Azure Cosmos DB 
+            url: https://azure.microsoft.com/en-us/services/cosmos-db/
+          - text: Azure Front Door 
+            url: /azure/frontdoor/front-door-caching#file-compression
           - text: Azure Monitor
             url: /azure/azure-monitor/overview
-          - text: Azure Resource Manager
-            url: /azure/azure-resource-manager/
-          - text: Azure Role-Based Access Control (RBAC)
-            url: /azure/role-based-access-control/overview
-          - text: Bridge to Kubernetes
-            url: /visualstudio/bridge/bridge-to-kubernetes-vs?preserve-view=true&view=vs-2019
-          - text: Chef
-            url: https://docs.chef.io/chef_overview/
-          - text: Docker Desktop
-            url: https://www.docker.com/products/docker-desktop
-          - text: Git 
-            url: /devops/develop/git/what-is-git
-          - text: Terraform
-            url: automation-infrastructure.md#automate-deployments-with-terraform        
+          - text: Azure SQL Database
+            url: https://azure.microsoft.com/en-us/products/azure-sql/database/
+          - text: B-series virtual machines
+            url: /azure/virtual-machines/sizes-b-series-burstable
+          - text: Microsoft Well-Architected Review
+            url: /assessments/?mode=pre-assessment&session=5c2bcc40-1c41-47b1-8729-1fba49dbe408      
  # Card
-  - title: DevOps APIs
+  - title: Performance APIs
     linkLists:
       - linkListType: reference
         links:
