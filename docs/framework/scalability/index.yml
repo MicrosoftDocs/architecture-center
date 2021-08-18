@@ -36,7 +36,7 @@ landingContent:
           - text: Optimize checklist
             url: optimize.md
           - text: Performance efficiency patterns
-            url: /azure/architecture/checklist/dev-ops#culture
+            url: performance-efficiency-patterns.md
           - text: Tradeoffs
             url: tradeoffs.md
       - linkListType: learn
