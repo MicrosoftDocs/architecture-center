@@ -269,6 +269,8 @@ items:
       - name: Security
         items:
           - name: About
+            href: framework/security/index.yml
+          - name: Overview
             href: framework/security/overview.md
           - name: Principles
             href: framework/security/security-principles.md
