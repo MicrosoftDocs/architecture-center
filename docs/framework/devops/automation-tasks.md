@@ -1,6 +1,6 @@
 ---
 title: Automated Tasks
-description: Automated Tasks
+description: Automate operational tasks, which can include any action or activity you may perform while managing systems, system access, and processes in Azure.
 author: neilpeterson
 ms.date: 10/15/2020
 ms.topic: conceptual

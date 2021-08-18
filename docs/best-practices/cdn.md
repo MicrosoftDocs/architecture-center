@@ -1,5 +1,5 @@
 ---
-title: Content Delivery Network guidance
+title: CDN guidance
 titleSuffix: Best practices for cloud applications
 description: Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.
 author: dragon119

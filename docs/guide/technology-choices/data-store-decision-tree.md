@@ -1,7 +1,7 @@
 ---
 title: Data store decision tree
 titleSuffix: Azure Application Architecture Guide
-description: A graphical representation of choosing your data store.
+description: Select an Azure data store for your application. View a graphical representation of choosing your data store.
 author: dsk-2015
 ms.date: 08/08/2020
 ms.topic: conceptual

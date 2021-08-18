@@ -113,6 +113,13 @@ Often referred to as a lift-and-shift migration, this option doesn't require cod
 
 #### Rehost architectures
 
+<ul class="grid">
+
+[!INCLUDE [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../includes/cards/migrate-mainframe-apps-with-tmaxsoft-openframe.md)]
+[!INCLUDE [Modernize mainframe and midrange data](../../includes/cards/modernize-mainframe-data-to-azure.md)]
+
+</ul>
+
 | | |
 |-|-|
 |Stromasys Charon-SSP Solaris emulator on Azure VMs [<img src="images/rehost-solaris.png" alt="Stromasys Charon-SSP Solaris emulator on Azure VMs" width=700 height="300">](../solution-ideas/articles/solaris-azure.yml) |Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame [<img src="images/rehost-tmax.png" alt="Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame" width=700 height="300">](../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)|
@@ -124,7 +131,7 @@ Refactoring requires minimal changes to applications. This often enables the app
 
 #### Refactor architectures
 
-| | |
+|Example | |
 |-|-|
 |IBM z/OS mainframe migration with Asysco AMT [![IBM z/OS mainframe migration with Asysco AMT](images/refactor-asysco-zos.png)](../example-scenario/mainframe/asysco-zos-migration.yml)|Micro Focus Enterprise Server on Azure VMs [![Micro Focus Enterprise Server on Azure VMs](images/refactor-microfocus-zos.png)](../example-scenario/mainframe/micro-focus-server.yml)|
 |Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure [![Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](images/refactor-zos-cf.png)](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)|Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus [![Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](images/refactor-astadia-unisys.png)](../example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)|
@@ -175,7 +182,7 @@ The white papers, blogs, webinars, and other resources are available to help you
 
 - [Stromasys Charon-SSP Solaris Emulator: Azure Setup Guide](https://azure.microsoft.com/resources/stromasys-charon-ssp-solaris-emulator-azure-setup-guide)
 - [Stromasys legacy server emulation on Azure: Running applications designed for SPARC, Alpha, VAX, PDP-11, and HP 3000](https://azure.microsoft.com/resources/stromasys-legacy-server-emulation-on-azure-running-applications-designed-for-sparc-alpha-vax-pdp-11-and-hp-3000)
-- [Deploy Db2 pureScale on Azure (Whitepaper)](https://azure.microsoft.com/en-us/resources/stromasys-legacy-server-emulation-on-azure-running-applications-designed-for-sparc-alpha-vax-pdp-11-and-hp-3000)
+- [Deploy Db2 pureScale on Azure (Whitepaper)](https://azure.microsoft.com/resources/stromasys-legacy-server-emulation-on-azure-running-applications-designed-for-sparc-alpha-vax-pdp-11-and-hp-3000)
 - [Install IBM DB2 pureScale on Azure (Azure Docs)](/azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration)
 - [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications)
@@ -214,7 +221,7 @@ Different industries are migrating from legacy mainframe and midrange systems in
 
 - [Mainframe to Azure: A Real World Modernization Case Study (GEICO and AIS)](https://www.ais.com/mainframe-to-azure-a-real-world-modernization-case-study)
 - [Jefferson County, Alabama](https://www.jccal.org/Default.asp?ID=2096&pg=Mainframe%20Migration)
-- [Customer Technical Story: Actuarial Services Company - DEC Alpha to Azure using Stromasys](https://customers.microsoft.com/en-us/story/786886-legacy-alpha-application-gets-a-new-life-as-saas-on-microsoft-azure)
+- [Customer Technical Story: Actuarial Services Company - DEC Alpha to Azure using Stromasys](https://customers.microsoft.com/story/786886-legacy-alpha-application-gets-a-new-life-as-saas-on-microsoft-azure)
 - [TRASMEDITERRANEA ACCIONA: FULL STEAM AHEAD - Freight company moves to the cloud with Visual COBOL](https://www.microfocus.com/media/success-story/trasmediterranea-acciona_tcm6-210848.pdf)
 - [Astadia & USAF Complete Mission-Critical Mainframe-to-Cloud Migration | Business Wire](https://www.businesswire.com/news/home/20210504005086/en/Astadia-USAF-Complete-Mission-Critical-Mainframe-to-Cloud-Migration)
 - [United States Air Force | Case Study (astadia.com)](https://www.astadia.com/case-studies/united-states-air-force)

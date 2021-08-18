@@ -722,7 +722,7 @@ items:
             href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
           - name: Web app private database connectivity
             href: example-scenario/private-web-app/private-web-app.yml
-          - name: Windows Virtual Desktop for the enterprise
+          - name: Azure Virtual Desktop for the enterprise
             href: example-scenario/wvd/windows-virtual-desktop.yml
       - name: Manufacturing
         items:
@@ -1963,6 +1963,8 @@ items:
                 items:           
                   - name: Batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
+                  - name: General mainframe refactor to Azure
+                    href: example-scenario/mainframe/general-mainframe-refactor.yml
                   - name: IBM System i to Azure using Infinite i
                     href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
                   - name: IBM z/OS migration with Asysco AMT

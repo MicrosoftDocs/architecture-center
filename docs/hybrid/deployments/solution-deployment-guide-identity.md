@@ -71,4 +71,4 @@ To connect to Azure Stack Hub using code, use the Azure Resource Manager endpoin
 ## Next steps
 
 - To learn more about how identity is handled in Azure Stack Hub, see [Identity architecture for Azure Stack Hub](/azure-stack/operator/azure-stack-identity-architecture).
-- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](/azure/architecture/patterns).
+- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](../../patterns/index.md).

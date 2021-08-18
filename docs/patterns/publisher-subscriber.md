@@ -1,6 +1,6 @@
 ---
 title: Publisher-Subscriber pattern
-description: Enable an application to announce events to multiple interested consumers asynchronously.
+description: Learn about the Publisher-Subscriber pattern, which enables an application to announce events to many interested consumers asynchronously.
 author: alexbuckgit
 ms.date: 12/07/2018
 ms.topic: conceptual

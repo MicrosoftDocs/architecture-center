@@ -98,7 +98,7 @@ Set up a regular cadence (typically monthly) to review Azure secure score and pl
 
 | Data & Storage Resources| Responsible Technical Team |
 | ------------- |-------------| 
-|SQL/Redis/Data Lake Analytics/Data Lake Store|	Database Team|
+|SQL/Redis/Data Lake Analytics/Data Lake Store|    Database Team|
 |Storage Accounts|Storage/Infrastructure Team|
 
 | Identity and Access Resources | Responsible Technical Team |
@@ -171,8 +171,8 @@ A clear and simple segmentation strategy helps contain risk while enabling
 productivity and business operations.
 
 An enterprise segmentation strategy is defined higher than a traditional
-*“network segmentation”* security strategy. Traditional segmentation approaches for on premises environments frequently failed to achieve
-their goals because they were developed “bottom-up” by different technical teams
+*"network segmentation"* security strategy. Traditional segmentation approaches for on premises environments frequently failed to achieve
+their goals because they were developed "bottom-up" by different technical teams
 and were not aligned well with business use cases and application workloads.
 This resulted in overwhelming complexity that generates support issues and often
 undermines the original purpose with broad network firewall exceptions.
@@ -433,7 +433,7 @@ Ensure policy and processes enable (and require) rapid application of security
 updates to virtual machines.
 
 Attackers constantly scan public cloud IP ranges for open management ports and
-attempt “easy” attacks like common passwords and unpatched vulnerabilities.
+attempt "easy" attacks like common passwords and unpatched vulnerabilities.
 
 Enable [Azure Security Center](/azure/security-center/security-center-apply-system-updates)
 to identify missing security updates & apply them.
@@ -570,7 +570,7 @@ states by those outside and inside of your industry.
 
 As an example, the Center for Internet Security (CIS) has created security
 benchmarks for Azure that map to the CIS Control Framework. Another
-reference example is the MITRE ATT&CK™ framework that defines the various
+reference example is the MITRE ATT&CK&trade; framework that defines the various
 adversary tactics and techniques based on real-world observations. These
 external references control mappings and help you to understand any gaps between
 your current strategy, what you have, and what other experts have in the industry.
@@ -682,9 +682,11 @@ For more information about hash algorithms, see [Hash and Signature Algorithms](
 Consider whether to utilize specialized security capabilities in your enterprise
 architecture.
 
-These measures have the potential to enhance security and meet regulatory
+Dedicated HSMs and Confidential Computing have the potential to enhance security and meet regulatory
 requirements, but can introduce complexity that may negatively impact your
 operations and efficiency.
+
+### Suggested actions
 
 We recommend careful consideration and judicious use of these security measures
 as required:
@@ -695,3 +697,5 @@ as required:
 
 - **Confidential Computing**  
     [Confidential Computing may help meet regulatory or security requirements](https://azure.microsoft.com/blog/azure-confidential-computing/).
+
+Learn more about [elevated security capabilities for Azure workloads](https://azure.microsoft.com/solutions/confidential-compute/).

@@ -1,7 +1,7 @@
 ---
 title: Retry Storm antipattern
 titleSuffix: Performance antipatterns for cloud apps
-description: Avoid retrying failed requests to a service too often.
+description: Understand the Retry Storm antipattern, so you can avoid retrying failed requests to a service too often.
 author: johndowns
 ms.date: 08/06/2021
 ms.topic: conceptual

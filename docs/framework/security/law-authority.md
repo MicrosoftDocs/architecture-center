@@ -1,6 +1,6 @@
 ---
 title: What do the law, authorities, and regulators require in Azure | Microsoft Docs
-description: Governments and other organizations frequently publish standards to help define good security practices (due diligence) so that organizations can avoid being negligent in security.
+description: Learn how to find information about the good security practices (due diligence) that the law, authorities, and regulators require for your organization.
 author: PageWriter-MSFT
 ms.date: 07/15/2019
 ms.topic: conceptual
