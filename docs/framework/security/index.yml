@@ -5,7 +5,7 @@ summary: Apply security principles to your architecture to boost assurances agai
 
 metadata: 
   title: conceptual
-  description: Learn how to apply security principles to your architecture to boost assurances against deliberate attacks and abuse of your valuable data, and systems.
+  description: Learn how to apply security principles to your architecture to boost assurances against deliberate attacks and abuse of your valuable data, and systems.de
   services: na
   author: v-stacywray
   ms.author: v-stacywray
@@ -28,25 +28,29 @@ landingContent:
           - text: Overview
             url: overview.md
           - text: Principles
-            url: principles.md
-          - text: Design checklist
-            url: design-checklist.md
-          - text: Test checklist
-            url: test-checklist.md
-          - text: Optimize checklist
-            url: optimize.md
-          - text: Performance efficiency patterns
-            url: performance-efficiency-patterns.md
-          - text: Tradeoffs
-            url: tradeoffs.md
+            url: security-principles.md
+          - text: Design governance
+            url: design-governance.md
+          - text: Identity checklist
+            url: design-identity.md
+          - text: Network checklist
+            url: design-network.md
+          - text: Data checklist
+            url: design-storage.md
+          - text: Build and deploy checklist
+            url: deploy.md
+          - text: Monitor checklist
+            url: monitor.md
+          - text: Automation governance, risk, and compliance
+            url: governance.md
       - linkListType: learn
         links:
-          - text: Performance efficiency 
-            url: /learn/modules/azure-well-architected-introduction/5-performance-efficiency
+          - text: Security 
+            url: /learn/modules/azure-well-architected-introduction/7-security
       - linkListType: video
         links:
-          - text: "Azure SQL Capacity Planning: Overview"
-            url: https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Capacity-Planning-Overview?term=Capacity&pubDate=3years&lang-en=true
+          - text: "Cloud Security Posture Management (CSPM) with Azure Security Center"
+            url: https://channel9.msdn.com/Shows/Azure-Friday/Cloud-Security-Posture-Management-CSPM-with-Azure-Security-Center?term=Security%20overview&pubDate=3years&lang-en=true
   # Card 
   - title: Design for performance efficiency
     linkLists:
