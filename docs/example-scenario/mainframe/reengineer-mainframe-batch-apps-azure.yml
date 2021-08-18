@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Re-engineer mainframe batch applications on Azure
+  title: Re-engineer IBM z/OS batch applications on Azure
   titleSuffix: Azure Example Scenarios
-  description: Learn how to re-engineer mainframe batch applications to use Azure services. This architecture change can help manage increased resource cost.
+  description: Use Azure services to re-engineer mainframe batch applications. This architecture change can reduce costs and improve scalability.
   author: EdPrice-MSFT
   ms.author: askhande
   ms.date: 8/13/2021
@@ -11,6 +11,7 @@ metadata:
   ms.subservice: example-scenario
 azureCategories:
   - developer-tools
+  - migration
 products:
   - azure-data-factory
   - azure-databricks

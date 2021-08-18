@@ -1,15 +1,15 @@
 
 Mainframes are primarily used for processing large amounts of data. Batch processing is a way of processing a high volume of transactions that are grouped together, and then making bulk updates against the database. Once triggered, they require minimal to no user interaction. For example, mainframe systems make it possible for banks and other financial institutions to do end-of-quarter processing and produce reports, like quarterly stock or pension statements.
 
-This reference architecture shows how you can re-engineer a z/OS mainframes batch application to deliver a secure, scalable, and highly available system in the cloud using Azure. Because of ever evolving business needs, data and applications need to deliver and scale without worrying about infrastructure. This re-engineering exercise can help businesses in finance, health, insurance, and retail minimize their product or feature delivery times. This minimization also helps manage their ever-increasing cost of resources required to maintain and optimize the monolith mainframe batch applications. These applications only get more complex with every code release.
+This reference architecture shows how you can use Azure to re-engineer a z/OS mainframe batch application to deliver a secure, scalable, and highly available system in the cloud using Azure. Because of ever evolving business needs, data and applications need to deliver and scale without affecting your infrastructure. Re-engineering to the cloud can help businesses in finance, health, insurance, and retail minimize their product or feature delivery times, and reduce costs.
 
 ## Potential use cases
 
-Refer to this architecture for mainframe applications you're re-engineering on Azure.
+Use this architecture to re-engineer mainframe applications on Azure. The architecture works best for:
 
-- Mainframe batch applications with high compute and memory.
+- Resource-intensive mainframe batch applications.
 - Batch applications that need high compute during a certain time, like end of month, quarter, or year.
-- Mainframe batch processes that are repetitive and not resource-intensive, but might need utilization by external systems.
+- Mainframe batch processes that are repetitive and not resource-intensive but might need utilization by external systems.
 
 ## Architecture
 
@@ -17,93 +17,97 @@ The first diagram shows the architecture of a typical batch application running 
 
 :::image type="content" source="media/mainframe-batch-application-diagram.png" alt-text="Diagram of a typical batch application running on a z/OS mainframe.":::
 
-1. Mainframe batch processes are triggered at a scheduled time using an Operation, Planning, and Control (OPC) Scheduler, or based on event visibility. This event is the file creation and arrival of the message in the message queue.
-2. A mainframe direct-access storage device (DASD) is used to store input and output files. For example, flat files that are required by the application. You can trigger the batch process by creating a file on the DASD storage.
-3. The batch process is an execution of a set of jobs. For example, a job internally running a user or system program to do a specific task. Usually, batch processes are run without user interaction. All batch jobs on a mainframe are executed under the control of a Job Execution System (JES).
+*Download a [VSDX](https://arch-center.azureedge.net/us-1858749-pr-3417-mainframe-batch-application-example.vsdx) file of this architecture.*
+
+1. Mainframe batch processes can be triggered at a scheduled time using an Operation, Planning, and Control (OPC) Scheduler. They can also be triggered by a message placed in a message queue, like a message that announces that a file was created.
+2. A mainframe direct-access storage device (DASD) is used to store input and output files; for example, flat files that are required by the application. You can trigger the batch process by creating a file on the DASD storage.
+3. The batch process is an execution of a set of jobs, like a job internally running a user or system program to do a specific task. Usually, batch processes are run without user interaction. All batch jobs on a mainframe are executed under the control of a Job Execution System (JES).
 4. Programs in batch processes can read/write data from:
 
     - A file-based database like Virtual Storage Access Method (VSAM).
     - A relational database like Db2 or Informix.
     - A non-relational database like Information Management System (IMS).
-    - Message queues.
+    - A message queue.
 
-5. The output of the job execution can be monitored through an OPC or Tivoli Workload Scheduler (TWS). A System Display and Search Facility (SDSF) in the JES is also used on the mainframe to check the job execution status.
+5. The output of the job execution can be monitored through an OPC scheduler or Tivoli Workload Scheduler (TWS). A System Display and Search Facility (SDSF) in the JES is also used on the mainframe to check job execution status.
 6. The management tier provides the following services:
 
     - Source control, like Endeavor or Changeman.
     - Security, like Resource Access Control Facility (RACF). This security provides authentication for running batches, accessing files, and accessing the database.
     - Output management that supports the storage and search of job execution logs.
 
-The second diagram shows how you can use Azure platform as a service (PaaS) services to re-engineer a similar application with added capabilities and flexibility.
+The second diagram shows how you can use Azure services to re-engineer a similar application with added capabilities and flexibility.
 
 :::image type="content" source="media/azure-reengineered-mainframe-batch-application-architecture.png" alt-text="Diagram of a batch application re-engineered using Azure services. Multiple example services are included." lightbox="media/azure-reengineered-mainframe-batch-application-architecture-expanded.png":::
 
-*To download a Visio file of this architecture, see (link coming soon).*
+*Download a [VSDX](https://arch-center.azureedge.net/us-1858749-pr-3417-azure-reengineer-mainframe-batch-example.vsdx) file of this architecture.*
 
-1. **Trigger**: Use one of the following options to trigger the batch process implemented in Azure:
+1. Use one of the following triggers to start the Azure batch process.
 
-    - A native scheduler, like the **Azure Data Bricks** job scheduler or **Azure Function** scheduler.
+    - Use the **Azure Databricks** job scheduler or **Azure Function** scheduler.
     - Create a recurring batch process task with **Azure Logic Apps**.
-    - A storage event, like the creation or deletion of file in **Azure Blob** or **File storage**.
-    - A message-based trigger, like the arrival of a message on the **Azure Service Bus**.
-    - Create an **Azure Data Factory** trigger. Data Factory triggers can trigger pipelines with tasks to run custom activity. This activity happens in Azure Batch, Azure Databricks notebooks, or Azure Functions on a scheduled or event basis.
+    - Use a storage event, like the creation or deletion of a file in **Azure Blob** or **File storage**.
+    - Use a message-based trigger, like the arrival of a message on the **Azure Service Bus**.
+    - Create an **Azure Data Factory** trigger.
 
-2. **Azure Storage**: Store files migrated from the mainframe on Azure Blob Storage or Azure Files. Batch processes re-engineered on Azure can read/write data from this storage. Azure storage provides multiple tiers of hot, cool, and archive data. Effective usage of these storage tiers can give you a price-to-performance advantage.
-3. **Application tier**: Azure provides various services to implement a mainframe batch workload. Select specific services that are based on your business requirements. For example, compute power required, total execution time, the ability to split mainframe batch process into smaller units, and cost sensitivity.
+2. Store files migrated from the mainframe by using Azure Blob Storage or Azure Files. Batch processes re-engineered on Azure can read/write data from this storage.
+3. Azure provides various services to implement a mainframe batch workload. Select specific services that are based on your business requirements. For example, compute power required, total execution time, the ability to split mainframe batch process into smaller units, and cost sensitivity.
 
-    1. **Azure Databricks**: Azure Databricks is an Apache Spark-based analytics platform. Jobs can be written in the R, Python, Java, Scala, and Spark SQL languages. Azure Databricks provide a compute environment with fast cluster start times, auto termination, and autoscaling. It has built in integration with Azure storage like Azure Blob Storage and Azure Data Lake storage. Use Azure Databricks if you need to process large amounts of data in a short time. It's also a good choice if you need to run Extract, Transform, and Load (ETL) workloads.
-    2. **Batch process deployment to Azure Kubernetes Service (AKS) or Azure Service Fabric**: AKS and Service Fabric provide an infrastructure to implement a service-based application architecture. Only consider this option if you plan a large migration to Azure for multiple existing applications or services. It should also be in line with your overall cloud migration strategy. It might not be cost effective for a single application.</li>
-    **Azure Spring Cloud**: You can refactor your mainframe application using Java Spring Boot. The best way to run Spring Boot apps on Azure is to use Azure Spring Cloud, a fully managed Spring Cloud service. Java developers can use it to easily build and run Spring-boot based microservices on Azure.
-    3. **Azure Batch**: You can re-engineer your mainframe batch application using .NET or Java. Batch provides necessary infrastructure to run this application at scale. It creates and manages a pool of virtual machines (VMs), installs the applications you want to run, and then schedules jobs to run on the VMs. There's no cluster or job scheduler software to install, manage, or scale. Write applications in any programming languages supported by Windows or Linux.
-    4. **Azure PaaS services**: You can re-engineer short running batch programs like COBOL or PL/1 written in the mainframe. For these programs, use Azure PaaS services like Functions, Web Jobs, or Logic Apps.
+    1. Azure Databricks is an Apache Spark-based analytics platform. Jobs can be written in the R, Python, Java, Scala, and Spark SQL languages. It provides a compute environment with fast cluster start times, auto termination, and autoscaling. It has built-in integration with Azure storage like Azure Blob Storage and Azure Data Lake storage. Use Azure Databricks if you need to process large amounts of data in a short time. It's also a good choice if you need to run Extract, Transform, and Load (ETL) workloads.
+    2. AKS and Service Fabric provide an infrastructure to implement a service-based application architecture. It might not be cost effective for a single application.</li>
+    You can refactor your mainframe application using Java Spring Boot. The best way to run Spring Boot apps on Azure is to use Azure Spring Cloud, a fully managed Spring Cloud service. Java developers can use it to easily build and run Spring Boot Microservices on Azure.
+    3. You can re-engineer your mainframe batch application using .NET or Java. Batch provides the infrastructure to run this application at scale. It creates and manages a pool of virtual machines (VMs), installs the applications, and then schedules jobs to run on the VMs. There's no cluster or job scheduler software to install, manage, or scale. Write applications in any programming language supported by Windows or Linux.
+    4. You can re-engineer short running COBOL or PL/1 batch programs. For these programs, use Azure services like Functions, WebJobs, or Logic Apps.
 
-4. **Data tier**: Azure provides variety of data services to store and retrieve data.
+4. Azure provides various data services to store and retrieve data.
 
-    - **Azure relational database offerings**: You can migrate mainframe relational databases like Db2 and Informix with minimal changes to the Azure relational database offerings' visibility. For example, Azure SQL VM, Azure SQL DB, or Azure SQL MI. You can also use any open-source Relational Database Management System (RDBMS) like Azure PostgreSQL. The selection of an Azure database depends on the type of workload, cross-database queries, two-phase commit requirements, and many other factors.  
-    - **Azure non-relational database offerings**: You can migrate mainframe non-relational databases like IMS, Integrated Data Management System (IDMS), or VSAM to Azure Cosmos DB. Azure Cosmos DB provides fast response times, automatic and instant scalability, and guaranteed speed at any scale. Azure Cosmos DB is a cost-effective option for unpredictable or sporadic workloads of any size or scale. Developers can easily get started without having to plan for or manage capacity.
-    - **Azure Cache**: You can re-engineer an application on Azure by using Azure cache to improve performance. First, the application tries to read data from the cache. If the requested data isn't available in the cache, the application gets the data from the actual data source. Then the application stores that data in the cache for later requests. When the next request comes to an application, it retrieves data from the cache without going to the actual data source.
+    - You can migrate mainframe relational databases like Db2 and Informix with minimal changes to the Azure relational database offerings' visibility. For example, relational database services like Azure SQL VM, Azure SQL DB, or Azure SQL MI. You can also use any open-source Relational Database Management System (RDBMS) like Azure PostgreSQL. The selection of an Azure database depends on the type of workload, cross-database queries, two-phase commit requirements, and many other factors.  
+    - You can migrate mainframe non-relational databases like IMS, Integrated Data Management System (IDMS), or VSAM to Azure Cosmos DB. Azure Cosmos DB provides fast response times, automatic and instant scalability, and guaranteed speed at any scale. It's a cost-effective option for unpredictable or sporadic workloads of any size or scale. Developers can easily get started without having to plan for or manage capacity.
+    - You can use Azure Cache for Redis to speed up a re-engineered application.
 
-5. **Monitoring**: Applications, the OS, and Azure resources can use agents to send logs and metrics to **Azure Monitor Logs**.
+5. Applications, the OS, and Azure resources can use agents to send logs and metrics to **Azure Monitor Logs**.
 
     - **Application Insight** monitors your migrated application. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues.
-    - **Azure Log Analytics** helps store, index, query, and derives analytics from the log data collected.
+    - **Azure Log Analytics** helps store, index, query, and derive analytics from the log data collected.
 
-    You can use the output of Log Analytics and Application Insights to create alerts, dashboards, or export to external services. You can also use the output to do an action like the scaling of a VM.
+    You can use the output of Log Analytics and Application Insights to create alerts and dashboards, or export to external services. You can also use the output to do an action like the scaling of a VM.
 
-6. **Management tier**: This tier provides Azure services for source control, security, and output management. These services might consist of Azure DevOps and Azure Active Directory (Azure AD).
+6. This tier provides Azure services for source control, security, and output management. These services might consist of Azure DevOps and Azure Active Directory (Azure AD).
 
 ### Components
 
 #### Network and identity
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute): ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute): ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services like Microsoft Azure and Office 365.
 - [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
-- [Azure AD](https://azure.microsoft.com/services/active-directory): Azure AD is an identity and access management service, which can be synced with an on-premises directory.
+- [Azure AD](https://azure.microsoft.com/services/active-directory): Azure AD is an identity and access management service that can sync with an on-premises directory.
 
 #### Application
 
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps): Logic Apps helps you create and run automated recurring tasks and processes on a schedule. You can call services inside and outside Azure like HTTP or HTTPS endpoints. You can also post messages to Azure services like Azure Service Bus, or get files uploaded to a file share.
-- [Service Bus](https://azure.microsoft.com/services/service-bus): You can use the Service Bus to make an available system for UI talking to back-end services. This system can decouple applications and services and increase reliability and use.
+- [Service Bus](https://azure.microsoft.com/services/service-bus): You can use the Service Bus for messaging between a user interface and back-end services. This system can decouple applications and services and increase reliability and use.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks): Azure Databricks is a cloud-based data engineering tool that's used for processing and transforming large amounts of data. You can then explore that data through machine learning models.
-- [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud): Azure Spring Cloud makes it easy to deploy, manage, and run spring microservices to Azure. It supports both Java and .NET Core.
+- [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud): Azure Spring Cloud makes it easy to deploy, manage, and run Spring microservices to Azure. It supports both Java and .NET Core.
 - [AKS](https://azure.microsoft.com/services/kubernetes-service): AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure.
-- [Batch](https://azure.microsoft.com/services/batch): Batch is designed to run general purpose batch computing in the cloud across many nodes that can scale based on the workload being executed. It’s a perfect fit for ETL or AI use cases where multiple tasks are executed in parallel, independent from each other.
+- [Batch](https://azure.microsoft.com/services/batch): Batch is designed to run general purpose batch computing in the cloud across many VMs that can scale based on the workload being executed. It’s a perfect fit for ETL or AI use cases where multiple tasks are executed in parallel, independent from each other.
 - [Functions](https://azure.microsoft.com/services/functions): Use Functions to run small pieces of code without worrying about application infrastructure. With Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
-- [Azure App Service](https://azure.microsoft.com/services/app-service): With [WebJobs](/azure/app-service/webjobs-create), which comes with App Service, you can code reusable background business logic as web jobs.
+- [Azure App Service](https://azure.microsoft.com/services/app-service): With [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs.
 - [Azure Cache for Redis](https://azure.microsoft.com/en-us/services/cache/): Applications that use a high volume of backend data can be developed to scale and deliver a highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis offers both the Redis open-source (OSS Redis) and a commercial product from Redis Labs, Redis Enterprise, as a managed service.
 
 #### Storage
 
+Azure storage provides multiple tiers of hot, cool, and archive data. Effective usage of these storage tiers can give you a price-to-performance advantage.
+
 - [Blob Storage](https://azure.microsoft.com/services/storage/blobs): Scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
-- [Azure Files](https://azure.microsoft.com/services/storage/files): Simple, secure, and serverless enterprise-grade cloud file shares. Files can particularly come in handy for re-engineered mainframe solutions. It provides an effective add-on for the managed SQL storage.
+- [Azure Files](https://azure.microsoft.com/services/storage/files): Simple, secure, and serverless enterprise-grade cloud file shares. Azure Files can particularly come in handy for re-engineered mainframe solutions. It provides an effective add-on for the managed SQL storage.
 - [Table Storage](https://azure.microsoft.com/services/storage/tables/#overview): A NoSQL key-value store for rapid development using large semi-structured datasets.
-- [Azure Queues](https://azure.microsoft.com/services/storage/queues): Simple, cost-effective, durable message queueing for large workloads.
-- [Azure SQL](https://azure.microsoft.com/products/azure-sql): Azure’s fully managed PaaS service for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL MI, Azure SQL VM, and MariaDB.
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): A no-SQL offering that you can use to migrate non-tabular data off of the mainframes.
+- [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues): Simple, cost-effective, durable message queueing for large workloads.
+- [Azure SQL](https://azure.microsoft.com/products/azure-sql): Azure’s fully managed family of services for SQL Server. You can migrate and use the relational data efficiently with other Azure services like Azure SQL Managed Instance, SQL Server on Azure Virtual Machines, and Azure Database for MariaDB.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): A no-SQL offering that you can use to migrate non-tabular data from the mainframes.
 
 #### Monitoring
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor): Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Contains the Application Insights, Azure Monitor Logs, and Azure Log Analytics features.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor): Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It contains the Application Insights, Azure Monitor Logs, and Azure Log Analytics features.
 
 #### Management
 
@@ -113,7 +117,7 @@ The second diagram shows how you can use Azure platform as a service (PaaS) serv
     - **Azure Pipelines**: A language, platform, and cloud agnostic CI/CD platform with support for containers or Kubernetes.
     - **Azure Repos**: Provides cloud-hosted private git repos.
     - **Azure Artifacts**: Provides integrated package management with support for Maven, npm, Python, and NuGet package feeds from public or private sources.
-    - **Azure Test Plans**: provides an integrated planned and exploratory testing solution.
+    - **Azure Test Plans**: provides an integrated, planned, and exploratory testing solution.
 
 ## Considerations
 
@@ -129,7 +133,7 @@ The second diagram shows how you can use Azure platform as a service (PaaS) serv
     - Azure Databricks
     - AKS
     - Spring Cloud
-    - Azure Batch
+    - Batch
     - Azure Functions
     - Logic Apps
 
@@ -137,14 +141,14 @@ The second diagram shows how you can use Azure platform as a service (PaaS) serv
 
 ### Security
 
-- This reference architecture uses ExpressRoute for a private and efficient connection to Azure from on-premise environment. However, you can also create a [site to site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
+- This reference architecture uses ExpressRoute for a private and efficient connection to Azure from the on-premises environment. However, you can also create a [site to site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
 - You can authenticate Azure resources by using Azure AD. You can manage permissions with role-based access control (RBAC).
 - Database services in Azure support various security options like Data Encryption at Rest.
-- For more information on designing secure solutions, see the [Azure security documentation](https://docs.microsoft.com/azure/security).
+- For more information on designing secure solutions, see [Azure security documentation](https://docs.microsoft.com/azure/security).
 
 ### Resiliency
 
-- You can use Azure Monitor and Application Insights, on top of Log Analytics, to monitor the health of an Azure resource. Set alerts to proactively manage your resource health.
+- You can use Azure Monitor and Application Insights, in addition to Log Analytics, to monitor the health of an Azure resource. Set alerts to proactively manage your resource health.
 - For more information on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ## Pricing
