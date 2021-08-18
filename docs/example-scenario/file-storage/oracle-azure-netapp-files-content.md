@@ -2,8 +2,8 @@ The most demanding Oracle Database workloads require very high I/O capacity. The
 
 The solution uses Azure NetApp Files, a shared file storage service. Azure NetApp Files provides various benefits:
 
-- Disk I/O limits that apply at the virtual machine (VM) level don't affect Azure NetApp Files. So you can use smaller VMs than you would with disk storage, without degrading performance. As [Pricing][Pricing section of this article] explains later in this article, this approach significantly reduces costs.
-- Azure NetApp Files offers flexibility. As [Highly performant systems][Highly performant systems section of this article] discusses later, you can enlarge or reduce deployments on demand to make your configuration cost effective.
+- Disk I/O limits that apply at the virtual machine (VM) level don't affect Azure NetApp Files. You can use smaller VMs than you would with disk storage, without degrading performance. This approach significantly reduces costs.
+- Azure NetApp Files offers flexibility. You can enlarge or reduce deployments on demand to make your configuration cost effective.
 
 ## Potential use cases
 
@@ -42,11 +42,11 @@ The solution uses the following components:
 
 ### Alternatives
 
-This solution uses Oracle Data Guard (ODG) for disaster recovery (DR). A few alternatives exist:
+This solution uses Oracle Data Guard (ODG) for disaster recovery (DR), and snapshots for local replication. A few additional options exist:
 
 #### Cross-region replication
 
-[Cross-region replication][Cross-region replication of Azure NetApp Files volumes] provides efficient DR across regions in Azure. You can use cross-region replication instead of ODG for DR. Cross-region replication uses storage-based replication. It doesn't use VM resources. For more information, see [Create volume replication for Azure NetApp Files][Create volume replication for Azure NetApp Files].
+[Cross-region replication][Cross-region replication of Azure NetApp Files volumes] provides efficient DR across regions in Azure. Cross-region replication uses storage-based replication. It doesn't use VM resources. For more information, see [Create volume replication for Azure NetApp Files][Create volume replication for Azure NetApp Files].
 
 #### Availability sets and availability zones
 
@@ -139,11 +139,9 @@ Azure NetApp Files secures data in many ways. For information about inherent pro
 
 ## Deploy the solution
 
-For resources on deploying Oracle Database on Azure VMs with Azure NetApp Files, see [Solution architectures using Azure NetApp Files][Solution architectures using Azure NetApp Files - Oracle].
+- For resources on deploying Oracle Database on Azure VMs with Azure NetApp Files, see [Solution architectures using Azure NetApp Files][Solution architectures using Azure NetApp Files - Oracle].
 
-For information on how to deploy and access Azure NetApp Files volumes, see [Azure NetApp Files documentation][Azure NetApp Files documentation].
-
-Also keep these points in mind:
+- For information on how to deploy and access Azure NetApp Files volumes, see [Azure NetApp Files documentation][Azure NetApp Files documentation].
 
 - Consider the database size:
 
@@ -152,7 +150,7 @@ Also keep these points in mind:
 
 ## Pricing
 
-Using Azure NetApp Files instead of a block storage solution can reduce costs for these reasons:
+Using Azure NetApp Files instead of a block storage solution can reduce costs:
 
 - You can make the configuration cost-efficient. Traditional on-premises configurations are sized for maximum workload requirements. Consequently, these configurations are most cost-effective at maximum utilization. In contrast, an Azure NetApp Files deployment is scalable. You can optimize the configuration for the current workload requirement to reduce expenses.
 
@@ -207,7 +205,6 @@ Fully deployable architectures that use Azure NetApp Files:
 [Oracle database performance on Azure NetApp Files single volumes]: /azure/azure-netapp-files/performance-oracle-single-volumes
 [Oracle VM images and their deployment on Microsoft Azure]: /azure/virtual-machines/workloads/oracle/oracle-vm-solutions
 [Performance considerations for Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-performance-considerations
-[Pricing section of this article]: #pricing
 [Proximity placement groups]: /azure/virtual-machines/co-location
 [Run SAP BW/4HANA with Linux virtual machines on Azure]: ../../reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
 [Run SAP NetWeaver in Windows on Azure]: ../../reference-architectures/sap/sap-netweaver.yml
