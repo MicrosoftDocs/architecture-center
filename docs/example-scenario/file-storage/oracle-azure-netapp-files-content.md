@@ -1,17 +1,17 @@
 The most demanding Oracle Database workloads require very high I/O capacity. They also need low-latency access to storage. This document describes a high-bandwidth, low-latency solution for Oracle Database workloads. It provides shared file access with the network file system (NFS) protocol.
 
-The solution uses Azure NetApp Files, a shared file storage service. Azure NetApp Files provides various benefits:
+The solution uses Azure NetApp Files, a shared file-storage service. Azure NetApp Files provides various benefits:
 
-- Disk I/O limits that apply at the virtual machine (VM) level don't affect Azure NetApp Files. You can use smaller VMs than you would with disk storage, without degrading performance. This approach significantly reduces costs.
+- Disk I/O limits that apply at the virtual machine (VM) level don't affect Azure NetApp Files. As a result, you can use smaller VMs than you would with disk storage, without degrading performance. This approach significantly reduces costs.
 - Azure NetApp Files offers flexibility. You can enlarge or reduce deployments on demand to make your configuration cost effective.
 
 ## Potential use cases
 
 This solution applies to many use cases:
 
-- Running new Oracle Database instances that require high availability (HA) and have high performance standards.
+- Running new Oracle Database instances that require high availability (HA) and have high standards for performance.
 - Migrating highly performant, highly available Oracle Database instances from on-premises infrastructure to Azure Virtual Machines.
-- Enhancing enterprise-scale Oracle Database systems with fast cloning for use in test and development environments. This enhancement can benefit cases that require advanced data management capabilities to meet aggressive data protection service level agreements (SLAs).
+- Enhancing enterprise-scale Oracle Database systems with fast cloning for use in test and development environments. This enhancement can benefit cases that require advanced data management capabilities. It can help these cases meet aggressive data protection service level agreements (SLAs).
 - Migrating Exadata systems to Azure.
 - Implementing Oracle Pacemaker clusters that use NFS shared storage.
 - Deploying SAP AnyDB, or Oracle 19c.
@@ -19,7 +19,7 @@ This solution applies to many use cases:
 ## Architecture
 
 :::image type="complex" source="./media/oracle-azure-netapp-files-architecture.png" alt-text="Architecture diagram showing how Oracle Database and Azure NetApp Files work in different subnets of the same virtual network and use d N F S to communicate." border="false":::
-   A large rectangle labeled Oracle resource group fills most of the diagram. Inside it is another rectangle labeled Oracle virtual network. It contains two smaller rectangles, one for the Oracle subnet and one for the Azure NetApp Files subnet. The Oracle subnet rectangle contains an icon for Oracle Database. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled d N F S connects the two subnet rectangles. A colored key indicates that data in the database has a high performance requirement.
+   A large rectangle labeled Oracle resource group fills most of the diagram. Inside it, another rectangle is labeled Oracle virtual network. It contains two smaller rectangles, one for the Oracle subnet and one for the Azure NetApp Files subnet. The Oracle subnet rectangle contains an icon for Oracle Database. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled d N F S connects the two subnet rectangles. A colored key indicates that data in the database requires high performance.
 :::image-end:::
 
 *Download an [SVG][Main architecture diagram in .svg format] of this architecture.*
@@ -42,7 +42,7 @@ The solution uses the following components:
 
 ### Alternatives
 
-This solution uses Oracle Data Guard (ODG) for disaster recovery (DR), and snapshots for local replication. A few additional options exist:
+This solution uses Oracle Data Guard (ODG) for disaster recovery (DR), and snapshots for local replication. A few options exist:
 
 #### Cross-region replication
 
@@ -54,12 +54,12 @@ ODG on Azure Virtual Machines functions like ODG in on-premises systems. But thi
 
 - Place the Oracle VMs in the same availability set. This approach provides protection during these events:
 
-  - Outages within a datacenter that equipment failures cause. VMs within an availability set don't share resources.
+  - Outages that equipment failures cause within a datacenter. VMs within an availability set don't share resources.
   - Updates. VMs within an availability set undergo updates at different times.
 
 - Place the Oracle VMs in different availability zones. This approach provides protection against the failure of an entire datacenter. Each zone represents a set of datacenters within a region. If you place resources in different availability zones, datacenter-level outages can't take all your VMs offline.
 
-You can only choose one of these options. An Azure VM cannot participate in availability sets and zones. Each option has advantages:
+You can only choose one of these options. An Azure VM can't participate in availability sets and zones. Each option has advantages:
 
 - Availability zones provide better availability than availability sets. Zones guarantee 99.99 percent availability. Sets guarantee 99.95 percent.
 - You can place VMs that are in the same availability set in a [proximity placement group][Proximity placement groups]. This configuration minimizes the network latency between the VMs by guaranteeing that they're close to each other. In contrast, VMs that you place in different availability zones have greater network latency between them. It then takes longer to synchronize data between the primary and secondary replicas. As a result, the primary replica may experience delays. There's also an increased chance of data loss during unplanned failovers.
@@ -71,7 +71,7 @@ Test the solution that you choose under load. Ensure that it meets SLAs for perf
 This image shows the benefits of using Azure NetApp Files with Oracle Database.
 
 :::image type="complex" source="./media/oracle-azure-netapp-files-key-values.png" alt-text="Architecture diagram listing features and benefits of Azure NetApp Files. The diagram also shows the different layers of a system that uses this service." border="false":::
-   The diagram contains two sections. On the left, four boxes list features and advantages of Azure NetApp Files. The right section also contains boxes. One box is labeled Production, and one is labeled Testing and development at scale. Both contain database and V M icons. A third box is labeled Storage layer. It contains icons for database data and for Azure NetApp Files. A colored key indicates that database data and logs have a high performance requirement. Cloned database data and logs have a medium-high requirement. Copies of clones have a low requirement.
+   The diagram contains two sections. On the left, four boxes list features and advantages of Azure NetApp Files. The right section also contains boxes. One box is labeled Production, and one is labeled Testing and development at scale. Both contain database and V M icons. A third box is labeled Storage layer. It contains icons for database data and for Azure NetApp Files. A colored key indicates that database data and logs require high performance. Cloned database data and logs have a medium-high requirement. Copies of clones have a low requirement.
 :::image-end:::
 
 *Download an [SVG][Key benefits diagram in .svg format] of this architecture.*
@@ -86,7 +86,7 @@ As a simple-to-consume Azure native service, Azure NetApp Files runs within the 
 
 Azure DCsv2-series VMs have built-in high-performance, all-flash ONTAP enterprise systems. These systems are also integrated in the Azure software-defined networking (SDN) and Azure Resource Manager frameworks. As a result, you get high-bandwidth, low-latency shared storage that's comparable to an on-premises solution. The performance of this architecture meets the requirements of the most demanding, business-critical enterprise workloads. For more information on the performance benefits of Azure NetApp Files, see [Benefits of using Azure NetApp Files with Oracle Database][Benefits of using Azure NetApp Files with Oracle Database].
 
-Azure NetApp Files offers on-demand scalability. You can enlarge or shrink deployments to optimize each workload's configuration.
+Azure NetApp Files offers on-demand scalability. You can enlarge or reduce deployments to optimize each workload's configuration.
 
 #### Enterprise-scale data management
 
@@ -96,10 +96,10 @@ This solution can handle workloads that require advanced data management feature
 - On-demand capacity and performance scaling makes efficient use of resources.
 - Snapshots create frequent database consistency points and provide these benefits:
 
-  - They're storage efficient. You only need limited additional capacity to create snapshots.
+  - They're storage efficient. You only need limited capacity to create snapshots.
   - You can quickly create, replicate, restore, or clone them. As a result, they provide backup and recovery solutions that achieve aggressive recovery time objective (RTO) and recovery point objective (RPO) SLAs.
-  - They don't impact volume performance.
-  - They provide scalability. You can create them frequently and retain many at a time.
+  - They don't affect volume performance.
+  - They provide scalability. You can create them frequently and store many simultaneously.
 
 #### Hybrid DR
 
@@ -116,7 +116,7 @@ For Azure NetApp Files:
 - The [SLA for this service][SLA for Azure NetApp Files] guarantees 99.99 percent availability.
 - As [Enterprise-scale data management][Enterprise-scale data management section of this article] discusses, you can use snapshots in backup and recovery solutions. Use Oracle hot backup mode and Azure NetApp Files APIs to orchestrate database-consistent snapshots.
 
-When you use Oracle Database in Azure, implement an HA and DR solution to avoid downtime:
+When you use Oracle Database in Azure, implement a solution for HA and DR to avoid downtime:
 
 - Use [ODG][Implement Oracle Data Guard on an Azure Linux virtual machine].
 - Run the database on one virtual machine.
@@ -124,7 +124,7 @@ When you use Oracle Database in Azure, implement an HA and DR solution to avoid 
 - Put both VMs in the same virtual network. Then they can access each other over the private persistent IP address.
 
 :::image type="complex" source="./media/oracle-azure-netapp-files-availability.png" alt-text="Architecture diagram showing how Oracle Data Guard protects data in a virtual network that includes Azure NetApp Files and Oracle Database." border="false":::
-   A large rectangle labeled Oracle resource group fills most of the diagram. Inside it is another rectangle labeled Oracle virtual network. It contains two smaller rectangles, one for the Oracle subnet and one for the Azure NetApp Files subnet. The Oracle subnet rectangle contains icons for Oracle Database and virtual machines. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled d N F S connects the two subnet rectangles. A colored key indicates that log data in the database file system has a high performance requirement. The data files have a medium-to-high performance requirement.
+   A large rectangle labeled Oracle resource group fills most of the diagram. Inside it, another rectangle is labeled Oracle virtual network. It contains two smaller rectangles, one for the Oracle subnet and one for the Azure NetApp Files subnet. The Oracle subnet rectangle contains icons for Oracle Database and virtual machines. The Azure NetApp Files subnet rectangle contains icons for Azure NetApp Files and database files. An arrow labeled d N F S connects the two subnet rectangles. A colored key indicates that log data in the database file system requires high performance. The data files have a medium-to-high performance requirement.
 :::image-end:::
 
 *Download an [SVG][Data Guard architecture diagram in .svg format] of this architecture.*
@@ -150,14 +150,14 @@ Azure NetApp Files secures data in many ways. For information about inherent pro
 
 ## Pricing
 
-Using Azure NetApp Files instead of a block storage solution can reduce costs:
+Using Azure NetApp Files instead of block storage can reduce costs:
 
-- You can make the configuration cost-efficient. Traditional on-premises configurations are sized for maximum workload requirements. Consequently, these configurations are most cost-effective at maximum utilization. In contrast, an Azure NetApp Files deployment is scalable. You can optimize the configuration for the current workload requirement to reduce expenses.
+- You can make the configuration cost-efficient. Traditional on-premises configurations are sized for maximum workload requirements. Consequently, these configurations are most cost-effective at maximum usage. In contrast, an Azure NetApp Files deployment is scalable. You can optimize the configuration for the current workload requirement to reduce expenses.
 
 - You can use smaller VMs:
 
-  - Azure NetApp Files provides low-latency storage access. With smaller VMs, you then get the same performance that larger VMs deliver with ultra disk storage.
-  - Cloud resources usually place limits on I/O operations. This practice prevents sudden slowdowns due to resource exhaustion or unexpected outages. As a result, VMs have disk throughput limitations and network bandwidth limitations. The network limitations are typically higher than disk throughput limitations. With network-attached storage, only network bandwidth limits are relevant, and they only apply to data egress. In other words, VM-level disk I/O limits don't affect Azure NetApp Files. Because of these factors, network-attached storage can achieve better performance than disk I/O. This fact holds up even when Azure NetApp Files runs on smaller VMs.
+  - Azure NetApp Files provides low-latency storage access. With smaller VMs, you get the same performance that larger VMs deliver with ultra disk storage.
+  - Cloud resources usually place limits on I/O operations. This practice prevents sudden slowdowns that resource exhaustion or unexpected outages can cause. As a result, VMs have disk throughput limitations and network bandwidth limitations. The network limitations are typically higher than disk throughput limitations. With network-attached storage, only network bandwidth limits are relevant, and they only apply to data egress. In other words, VM-level disk I/O limits don't affect Azure NetApp Files. Because of these factors, network-attached storage can achieve better performance than disk I/O. This fact holds up even when Azure NetApp Files runs on smaller VMs.
 
   Smaller VMs offer these pricing advantages over larger ones:
 
@@ -165,7 +165,7 @@ Using Azure NetApp Files instead of a block storage solution can reduce costs:
   - They carry a lower Oracle Database license cost, especially when you use smaller, constrained-code SKUs.
   - The network-attached storage doesn't have an I/O cost component.
 
-These savings outweigh any pricing differences between Azure NetApp Files and disk storage solutions.
+These factors overcome any pricing differences between Azure NetApp Files and disk storage solutions.
 
 ## Next steps
 
