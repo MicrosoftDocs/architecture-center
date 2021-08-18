@@ -120,28 +120,32 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Consider application profiling
-            url: monitor-application.md
-          - text: Analyze infrastructure metrics and logs
-            url: monitor-infrastructure.md
-          - text: Integrate performance data
-            url: monitor-analyze.md
-          - text: Monitor performance for scalability and reliability
-            url: monitor-scalability-reliability.md
+          - text: Security monitoring tools in Azure
+            url: monitor-tools.md
+          - text: Security operations in Azure
+            url: monitor-security-operations.md
+          - text: Validate and test security design
+            url: monitor-test.md
+          - text: Review and audit security posture
+            url: monitor-audit.md
+          - text: Check for identity, network, and data risks
+            url: monitor-identity-network.md
       - linkListType: concept
         links:
-          - text: Collect application logs
-            url: monitor-application.md#application-logs
-          - text: View platform metrics
-            url: monitor-infrastructure.md#platform-metrics
-          - text: Correlate and evaluate data
-            url: monitor-analyze.md#data-interpretation
-          - text: Consider cost implications
-            url: monitor-analyze.md#cost-considerations
+          - text: Prevent, detect, and respond to threats
+            url: monitor-tools.md#prevent-detect-and-respond-to-threats
+          - text: Security operations best practices
+            url: monitor-security-operations.md#security-operations-principles
+          - text: "Penetration testing (pentesting)"
+            url: monitor-test.md#penetration-testing-pentesting
+          - text: Review critical access
+            url: monitor-audit.md#review-critical-access
+          - text: Review identity risks
+            url: monitor-identity-network.md#review-identity-risks
       - linkListType: video
         links:
-          - text: Azure Application Insights Profiler
-            url: https://channel9.msdn.com/Shows/Visual-Studio-Toolbox/Azure-Application-Insights-Profiler?term=Collect%20data%20with%20Azure%20Application%20Insights&pubDate=3years&lang-en=true
+          - text: Improving app security with Application Security Groups
+            url: https://channel9.msdn.com/Shows/Azure-Enablement/Improving-app-security-with-Application-Security-Groups?term=Validate%20and%20test%20security&pubDate=3years&lang-en=true
  # Card
   - title: Optimize for performance efficiency
     linkLists:
