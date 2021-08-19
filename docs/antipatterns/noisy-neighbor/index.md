@@ -52,7 +52,6 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
 - Monitor the resource usage for your system, both overall and for each tenant. Configure alerts to detect spikes in resource usage, and if possible, configure automation to automatically mitigate known issues by [scaling up or out](../../framework/scalability/design-scale.md).
 - Apply resource governance, to avoid a single tenant that's overwhelming the system and reducing the capacity available to others. This might take the form of quota enforcement, through the [Throttling pattern](../../patterns/throttling.md) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.md).
 - Consider provisioning more infrastructure. This might involve scaling up by upgrading some of your solution components, or it might involve scaling out by provisioning additional shards, if you follow the [Sharding pattern](../../patterns/sharding.md), or stamps, if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
-
 - Consider allowing tenants to purchase pre-provisioned or reserved capacity. This provides tenants with more certainty that your solution adequately handles their workload.
 - Consider approaches to smooth out the resource usage:
   - If you host multiple instances of your solution, consider re-balancing tenants across the instances or stamps. For example, consider placing tenants with predictable and similar usage patterns, across multiple stamps, to flatten the peaks in their usage.
