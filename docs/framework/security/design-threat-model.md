@@ -10,6 +10,10 @@ products:
   - azure-active-directory
 ms.custom:
   - article
+categories:
+  - security
+subject: 
+  - security
 ---
 
 # Application threat analysis
