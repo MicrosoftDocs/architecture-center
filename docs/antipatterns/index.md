@@ -16,6 +16,11 @@ keywords:
   - scalability solutions
   - anti-pattern
   - performance testing
+products:
+ - azure
+categories:
+ - management-and-governance
+ - security
 ---
 
 # Performance testing and antipatterns for cloud applications
