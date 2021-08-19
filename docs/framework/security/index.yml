@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Security documentation
-summary: Apply security principles to your architecture for added assurance against deliberate attacks and abuse of your valuable data, and systems.
+summary: Apply security principles to your architecture to protect against attacks on your data and systems.
 
 metadata: 
   title: conceptual
-  description: Learn how to apply security principles to your architecture for added assurance against deliberate attacks and abuse of your valuable data, and systems.
+  description: Learn how to apply security principles to your architecture to protect against attacks on your data and systems.
   services: na
   author: v-stacywray
   ms.author: v-stacywray
