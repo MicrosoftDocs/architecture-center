@@ -2176,6 +2176,8 @@ items:
                 href: networking/guide/waf-application-gateway.md
               - name: Azure Firewall architecture guide
                 href: example-scenario/firewalls/index.yml
+              - name: Azure NAT gateway architecture guide
+                href: networking/guide/waf-network-address-translation-gateway.md
               - name: Virtual network peering and VPN gateways
                 href: reference-architectures/hybrid-networking/vnet-peering.yml
           - name: Architectures
