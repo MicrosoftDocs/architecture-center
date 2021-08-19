@@ -1,7 +1,7 @@
 ---
 title: Azure Kubernetes Service (AKS) day-2 operations guide
 titleSuffix: Azure Architecture Center
-description: Learn about AKS day-2 operations like triage, patching, upgrading, and troubleshooting.
+description: Learn about Azure Kubernetes Services (AKS) day-2 operations, such as triage, patching, upgrading, and troubleshooting.
 author: kevingbb
 ms.date: 01/11/2021
 ms.topic: conceptual
@@ -9,8 +9,11 @@ ms.service: architecture-center
 ms.subservice: guide
 products:
   - azure-kubernetes-service
+  - azure-monitor
 ms.custom:
   - e2e-aks
+categories:
+  - compute
 ---
 
 # Azure Kubernetes Services (AKS) day-2 operations guide
@@ -32,4 +35,5 @@ The Day-2 operations guide assumes that you've deployed the [Azure Kubernetes Se
 
 - [AKS cluster triage practices](aks-triage-practices.md)
 - [AKS patching and upgrade processes](aks-upgrade-practices.md)
+- [Monitoring AKS with Azure Monitor](/azure/aks/monitor-aks?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json)
 - [Common AKS issues](/azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json)

@@ -1,8 +1,9 @@
 ---
 title: Overview of Azure load-balancing options
 titleSuffix: Azure Application Architecture Guide
-description: An overview of Azure load-balancing options.
+description: Learn about Azure load-balancing services and how you can use them to distribute your workloads across multiple computing resources.
 author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -48,7 +49,7 @@ The following table summarizes the Azure load balancing services by these catego
 | Azure Front Door | Global | HTTP(S) |
 | Traffic Manager | Global | non-HTTP(S) |
 | Application Gateway | Regional | HTTP(S) |
-| Azure Load Balancer | Global | non-HTTP(S) |
+| Azure Load Balancer | Regional | non-HTTP(S) |
 
 ## Azure load balancing services
 

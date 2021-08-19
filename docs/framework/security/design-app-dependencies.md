@@ -1,6 +1,6 @@
 ---
 title: Secure application's configuration and dependencies
-description: Check the dependencies, frameworks, and libraries.
+description: Review application security for IaaS and PaaS. Make sure your configuration is secure. Also check the dependencies, frameworks, and libraries.
 author: PageWriter-MSFT
 ms.date: 10/27/2020
 ms.topic: conceptual
@@ -61,9 +61,7 @@ Use Azure Policy to deploy desired settings where applicable. Block resources th
 
 It's important to be aware of the implications of using third-party frameworks and libraries in your application code. These components can result in vulnerabilities. Here are some best practices:
 
-- Validate the security of any open-source code added to your application. Tools that can help this assessment:
-    - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
-    - [NPM audit](https://docs.npmjs.com/cli/audit)
+- Validate the security of any open-source code added to your application. Tools that can help this assessment are OWASP Dependency-Check and NPM audit.
 
 - Maintain a list of frameworks and libraries as part of the application inventory. Also, keep track of versions in use.
 
@@ -88,3 +86,7 @@ Tracking expiry dates of SSL/TLS certificates and renewing them in due time is t
 - [Application threat analysis](design-threat-model.md)
 - [Regulatory compliance](design-regulatory-compliance.md)
 
+## Community resources
+
+- [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
+- [NPM audit](https://docs.npmjs.com/cli/audit)

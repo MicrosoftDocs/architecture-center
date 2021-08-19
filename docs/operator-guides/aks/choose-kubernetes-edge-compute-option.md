@@ -95,10 +95,10 @@ who seek to have maximum control of their clusters.
     Defender](/azure/security-center/azure-defender),
     and other services.
 
-- Because cluster configuration isn't trivial, it’s especially important to
+- Because cluster configuration isn't trivial, it's especially important to
     be mindful of CI/CD. Tracking and acting on upstream changes of various
-    plugins, and making sure those changes don’t affect the health of your
-    cluster, becomes a direct responsibility. It’s important for you to have a
+    plugins, and making sure those changes don't affect the health of your
+    cluster, becomes a direct responsibility. It's important for you to have a
     strong CI/CD solution, strong testing, and monitoring in place.
 
 ### Tooling options
@@ -134,7 +134,7 @@ Networking:
 
 Operational cost:
 
-- Without the support that comes with managed services, it’s up to the
+- Without the support that comes with managed services, it's up to the
     organization to maintain and operate the cluster as a whole (storage,
     networking, upgrades, observability, application management). The
     operational cost is considered high.

@@ -1,5 +1,5 @@
 ---
-title: Solutions for retail industry
+title: Solutions for the retail industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable retail solutions.
 author: dsk-2015
@@ -21,7 +21,7 @@ categories:
   - web
 ---
 
-# Solutions for retail industry
+# Solutions for the retail industry
 
 Retail is one of the fastest growing industries worldwide, generating some of the biggest revenues and accounting to almost a third of American jobs. The core of retail industry is selling products and services to consumers, through channels such as, storefront, catalog, television, and online. Retailers can enhance or reimagine their customer's journey using Microsoft Azure services by:
 
@@ -37,6 +37,9 @@ Using Azure services, retailers can easily achieve these goals. For use cases an
 > [!VIDEO https://www.youtube.com/embed/Vn5x7VM7UwQ]
 
 <br>
+
+> [!NOTE]
+> Learn more about a retail company's journey to cloud adoption, in [Cloud adoption for the retail industry](/azure/cloud-adoption-framework/industry/retail).
 
 ## Architectures for retail
 

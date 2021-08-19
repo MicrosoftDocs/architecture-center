@@ -2,7 +2,7 @@
 metadata:
   title: Stream processing with Azure Databricks
   titleSuffix: Azure Reference Architectures
-  description: Create an end-to-end stream processing pipeline in Azure using Azure Databricks.
+  description: Learn how to create a four stage end-to-end stream processing pipeline in Azure using Azure Databricks.
   author: PeterTaylor9999
   ms.author: pnp
   ms.date: 11/30/2018

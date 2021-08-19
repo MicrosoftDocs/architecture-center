@@ -1,6 +1,6 @@
 ---
 title: Authentication with Azure AD
-description: Authentication considerations when using Azure AD for a workload.
+description: Review the authentication considerations when you're using Azure Active Directory (Azure AD) for a workload.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: conceptual
@@ -55,7 +55,7 @@ Managed Identity can help an API be more secure because it replaces the use of h
 
 **How is user authentication handled in the application?**
 ***
-Don't use custom implementations to manage user credentials. Instead, use Azure AD or other managed identity providers such as Microsoft account Azure B2C. Managed identity providers provide additional security features such as modern password protections, MFA (Multi-factor authentication), and resets. In general, passwordless protections are preferred. Also, modern protocols like OAuth 2.0 use token-based authentication with limited timespan.
+Don't use custom implementations to manage user credentials. Instead, use Azure AD or other managed identity providers such as Microsoft account Azure B2C. Managed identity providers provide additional security features such as modern password protections, multi-factor authentication (MFA), and resets. In general, passwordless protections are preferred. Also, modern protocols like OAuth 2.0 use token-based authentication with limited timespan.
 
 **Are authentication tokens cached securely and encrypted when sharing across web servers?**
 ***
@@ -78,10 +78,10 @@ Keep your cloud identity synchronized with the existing identity systems to ensu
 Consider using [Azure AD Connect](/azure/active-directory/connect/active-directory-aadconnect) for synchronizing Azure AD with your existing on-premises directory. For migration projects, have a requirement to complete this task before an Azure migration and development projects begin.
 
 > [!IMPORTANT]
-> Don’t synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
+> Don't synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
 >
 >
-> Synchronization is blocked by default in the default Azure AD Connect configuration. Make sure that you haven’t customized this configuration. For information about filtering in Azure AD, see [Azure AD Connect sync: Configure filtering](/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering).
+> Synchronization is blocked by default in the default Azure AD Connect configuration. Make sure that you haven't customized this configuration. For information about filtering in Azure AD, see [Azure AD Connect sync: Configure filtering](/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering).
 
 For more information, see [hybrid identity providers](/azure/active-directory/hybrid/whatis-hybrid-identity).
 
@@ -96,7 +96,7 @@ Remove the use of passwords, when possible. Also, require the same set of creden
 
 Here are some methods of authentication. The list is ordered by highest cost/difficulty to attack (strongest/preferred options) to lowest cost/difficult to attack: 
 - Passwordless authentication. Some examples of this method include [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) or [Authenticator App](/azure/active-directory/authentication/howto-authentication-phone-sign-in). 
-- Multifactor authentication. Although this method is more effective than passwords, we recommend that you avoid relying on SMS text message-based MFA. For more information, see [Enable per-user Azure Active Directory Multi-Factor Authentication to secure sign-in events](/azure/active-directory/authentication/howto-mfa-userstates).
+- MFA. Although this method is more effective than passwords, we recommend that you avoid relying on SMS text message-based MFA. For more information, see [Enable per-user Azure Active Directory MFA to secure sign-in events](/azure/active-directory/authentication/howto-mfa-userstates).
 - Managed Identities. See [Use identity-based authentication](#use-identity-based-authentication).
 
 Those methods apply to all users, but should be applied first and strongest to accounts with administrative privileges. 
@@ -110,7 +110,7 @@ Modern authentication is a method of identity management that offers more secure
 
 Modern authentication is an umbrella term for a combination of authentication and authorization methods between a client (for example, your laptop or your phone) and a server, as well as some security measures that rely on access policies that you may already be familiar with. It includes:
 
-- *Authentication methods*: Multi-factor authentication (MFA); smart card authentication; client certificate-based authentication
+- *Authentication methods*: MFA; smart card authentication; client certificate-based authentication
 - *Authorization methods*: Microsoft's implementation of Open Authorization (OAuth)
 - *Conditional access policies*: Mobile Application Management (MAM) and Azure Active Directory (Azure AD) Conditional Access
 
@@ -140,11 +140,11 @@ Grant access requests based on the requestors' trust level and the target resour
 **Are there any conditional access requirements for the application?**
 ***
 
-Workloads can be exposed over public internet and location-based network controls are not applicable. To enable conditional access, understand what restrictions are required for the use case. For example, multi-factor authentication (MFA) is a necessity for remote access; IP-based filtering can be used to enable adhoc debugging (VPNs are preferred).
+Workloads can be exposed over public internet and location-based network controls are not applicable. To enable conditional access, understand what restrictions are required for the use case. For example, MFA is a necessity for remote access; IP-based filtering can be used to enable adhoc debugging (VPNs are preferred).
 
 Configure Azure AD Conditional Access by setting up Access policy for Azure management based on your operational needs. For information, see [Manage access to Azure management with Conditional Access](/azure/role-based-access-control/conditional-access-azure-management).
 
-Conditional Access can be an effective in phasing out legacy authentication and associated protocols. The policies must be enforced for all admins and other critical impact accounts. Start by using metrics and logs to determine users who still authenticate with old clients. Next, disable any down-level protocols that aren’t used, and set up conditional access for all users who aren’t using legacy protocols. Finally, give notice and guidance to users about upgrading before blocking legacy authentication completely. For  more information, see [Azure AD Conditional Access support for blocking legacy auth](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417).
+Conditional Access can be an effective in phasing out legacy authentication and associated protocols. The policies must be enforced for all admins and other critical impact accounts. Start by using metrics and logs to determine users who still authenticate with old clients. Next, disable any down-level protocols that aren't used, and set up conditional access for all users who aren't using legacy protocols. Finally, give notice and guidance to users about upgrading before blocking legacy authentication completely. For  more information, see [Azure AD Conditional Access support for blocking legacy auth](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417).
 
 ## Next
 Grant or deny access to a system by verifying the accessor's identity.

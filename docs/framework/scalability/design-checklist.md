@@ -1,7 +1,7 @@
 ---
 title: Checklist - Design for performance efficiency
 titleSuffix: Azure Design Review Framework
-description: Checklist guidance for design concerns for Azure performance efficiency.
+description: Review checklist guidance for design concerns for Azure performance efficiency. Examine application design, data management, and implementation.
 author: v-aangie
 ms.date: 01/08/2021
 ms.topic: conceptual
