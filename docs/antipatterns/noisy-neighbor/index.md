@@ -44,12 +44,12 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
 
 - Purchase reserved capacity if available. For example, when using Cosmos DB, purchase [reserved throughput](/azure/cosmos-db/optimize-cost-throughput), and when using ExpressRoute, [provision separate circuits for environments that are sensitive to performance](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure).
 - Migrate to single-tenant instance of the service, or to a service tier with stronger isolation guarantees. For example, when using Service Bus, [migrate to the premium tier](/azure/service-bus-messaging/service-bus-premium-messaging), and when using Azure Cache for Redis, [provision a standard or premium tier cache](/azure/azure-cache-for-redis/cache-best-practices#configuration-and-concepts).
-- Ensure your application handles server throttling, to reduce making unnecessary requests to the service.
+- Ensure your application handles [service throttling](../../patterns/throttling.md), to reduce making unnecessary requests to the service.
 
 ### Actions that service providers can take
 
-- Monitor the resource usage for your system, both overall and for each tenant. Configure alerts to detect spikes in resource usage, and if possible, configure automation to automatically mitigate known issues by scaling up or out.
-- Apply resource governance to avoid a single tenant overwhelming the system and reducing the capacity available to others. This might take the form of quota enforcement through throttling or rate limiting.
+- Monitor the resource usage for your system, both overall and for each tenant. Configure alerts to detect spikes in resource usage, and if possible, configure automation to automatically mitigate known issues by [scaling up or out](../../framework/scalability/design-scale.md).
+- Apply resource governance to avoid a single tenant overwhelming the system and reducing the capacity available to others. This might take the form of quota enforcement through thr [Throttling pattern](../../patterns/throttling.md) or the [Rate Limiting pattern](../../patterns/rate-limiting-pattern.md).
 - Consider provisioning more infrastructure. This might involve scaling up by upgrading some of your solution components, or it might involve scaling out by provisioning additional shards if you follow the [Sharding pattern](../../patterns/sharding.md) or stamps if you follow the [Deployment Stamps pattern](../../patterns/deployment-stamp.md).
 - Consider allowing tenants to purchase pre-provisioned or reserved capacity. This provides tenants with more certainty that your solution adequately handles their workload.
 - Consider approaches to smooth out the resource usage:
@@ -57,12 +57,15 @@ Noisy neighbor problems are an inherent risk in multitenant systems, and it's no
   - Consider whether you have background processes, or resource-intensive workloads that aren't time-sensitive. Run these asynchronously at off-peak times to preserve your peak resource capacity for time-sensitive workloads.
 - Consider whether your services provide controls to mitigate noisy neighbor problems. For example, when using Kubernetes [consider using pod limits](/azure/aks/developer-best-practices-resource-management), and when using Service Fabric, [consider using the built-in governance capabilities](/azure/service-fabric/service-fabric-resource-governance).
 - If applicable, consider restricting the operations that tenants can perform. For example, prevent tenants from executing operations that will run very large database queries. This mitigates the risk of tenants taking actions that might negatively impact other tenants.
+- If applicable, consider providing a Quality of Service (QoS) system. When you apply QoS, you prioritize some processes or workloads ahead of others. By factoring QoS into your design and architecture, you can ensure that high-priority operations take precedence when there's pressure on your resources.
 
 ## Considerations
 
 - In most cases, individual tenants don't mean to cause noisy neighbor issues. Individual tenants may not even be aware that their workloads cause noisy neighbor issues for others.
 - However, it's also possible that tenants do use vulnerabilities in shared components to attack a service, either individually or by executing a distributed denial of service (DDoS) attack.
 - Regardless of the cause, it's important to treat these problems as resource governance issues, and to apply usage quotas, throttling, and governance controls to mitigate the problem.
+  > [!NOTE]
+  > Make sure that you tell your clients about any throttling that you apply, or any usage quotas on your service. It's important that they reliably handle failed requests, and that they aren't surprised by any limitations or quotas you apply.
 
 ## How to detect the problem
 
