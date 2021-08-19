@@ -41,7 +41,7 @@ landingContent:
             url: deploy.md
           - text: Monitor checklist
             url: monitor.md
-          - text: Automation governance, risk, and compliance
+          - text: Governance, risk, and compliance
             url: governance.md
       - linkListType: learn
         links:
@@ -196,8 +196,7 @@ landingContent:
           - text: Azure Security Center
             url: /rest/api/securitycenter/
           - text: Adaptive Network Hardenings
-            url: /rest/api/securitycenter/adaptive-network-hardenings
-            
+            url: /rest/api/securitycenter/adaptive-network-hardenings  
           - text: Alerts
             url: /rest/api/securitycenter/alerts
           - text: Iot Security Solution
