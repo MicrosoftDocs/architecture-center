@@ -4,7 +4,7 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/16/2021
+ms.date: 08/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
