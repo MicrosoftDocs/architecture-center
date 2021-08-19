@@ -88,6 +88,8 @@ Follow the guidance in the linked articles to deploy and adopt branch strategy.
 - [About branches and branch policies](/azure/devops/repos/git/branch-policies-overview?view=azure-devops)
 - [Adopt a Git branching strategy](/azure/devops/repos/git/git-branching-guidance?view=azure-devops)
 
+## Next
+
 > [!div class="nextstepaction"]
 > [Secure infrastructure deployments](./deploy-infrastructure.md)
 
