@@ -30,7 +30,7 @@ Here are some general best practices for conducting security operations:
 - Prioritize security investments into systems that have high intrinsic value. For example, administrator accounts.
 - Proactively hunt for adversaries as your system matures.  This effort will reduce the time that a higher skilled adversary can operate in the environment. For example, skilled enough to evade reactive alerts.
 
-For information about the metrics that the Microsoft’s SOC team uses , see [Microsoft SOC](https://aka.ms/ITSOC).
+For information about the metrics that the Microsoft's SOC team uses , see [Microsoft SOC](https://aka.ms/ITSOC).
 
 ## Tools
 
@@ -65,7 +65,7 @@ Incident responders are part of a central SecOps team and need to understand sec
 
 ## Hybrid enterprise view
 
-Security operations tooling and processes should be designed for attacks on cloud and on-premises assets. Attackers don’t restrict their actions to a particular environment when targeting an organization. They attack resources on any platform using any method available. They can pivot between cloud and on-premises resources using identity or other means. This enterprise-wide view will enable SecOps to rapidly detect, respond, and recover from attacks, reducing organizational risk.
+Security operations tooling and processes should be designed for attacks on cloud and on-premises assets. Attackers don't restrict their actions to a particular environment when targeting an organization. They attack resources on any platform using any method available. They can pivot between cloud and on-premises resources using identity or other means. This enterprise-wide view will enable SecOps to rapidly detect, respond, and recover from attacks, reducing organizational risk.
 
 ## Leverage native detections and controls
 

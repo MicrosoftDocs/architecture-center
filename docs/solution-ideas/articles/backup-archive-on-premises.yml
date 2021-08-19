@@ -2,7 +2,7 @@
 metadata:
   title: Archive on-premises data to cloud
   titleSuffix: Azure Solution Ideas
-  description: Use this architecture to archive your on-premises data to Azure Blob storage.
+  description: In this architecture, archive your on-premises data to the cloud using StorSimple and Azure Blob Storage.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/16/2019

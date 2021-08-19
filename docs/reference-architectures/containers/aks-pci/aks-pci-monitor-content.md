@@ -122,6 +122,7 @@ AKS provides audit logs at multiple levels, as described in [Requirement 10.1](#
 ### Requirement 10.3
 
 Record at least the following audit trail entries for all system components for each event:
+
 - 10.3.1 User identification
 - 10.3.2 Type of event
 - 10.3.3 Date and time
@@ -135,14 +136,12 @@ As described in [Requirement 10.2](#requirement-102),  you can get audit logs fr
 
 For example, you want to view the preceding set of information for kube-audit-admin events by running this query:
 
-```
+```kusto
 AzureDiagnostics
 | where Category == 'kube-audit-admin' 
 | project TimeGenerated, ResourceId, log_s,  pod_s
 | top 200 by TimeGenerated desc
 ```
-
-
 
 ![Screenshot that shows a diagnostic example.](images/aks-diagnostic-example.png)
 
@@ -157,13 +156,11 @@ The result set shows the information as part of the log_s field.
 |Origination of event|user|
 |Identity or name of affected data, system component, or resource| objectRef|
 
-
 For information about the master log, see [View the control plane component logs](/azure/aks/view-control-plane-logs).
-
 
 ### Requirement 10.4
 
-Using time-synchronization technology, synchronize all critical system clocks and times and ensure that the following is implemented for acquiring, distributing, and storing time. 
+Using time-synchronization technology, synchronize all critical system clocks and times and ensure that the following is implemented for acquiring, distributing, and storing time.
 
 - 10.4.1 Critical systems have the correct and consistent time.
 - 10.4.2 Time data is protected.
@@ -173,11 +170,12 @@ Note: One example of time synchronization technology is Network Time Protocol (N
 
 #### Your responsibilities
 
-The default configuration of AKS uses ntp.ubuntu.org (and its pool) as the time synchronization source. The cluster nodes will need to synchronize with that source at regular intervals. Don't block that outbound traffic. Likewise, any additional compute you bring into your CDE should use an NTP source of your choice.
+AKS uses NTP from the the underlying Azure hosts and does not require any outbound network traffic allowances to support this. Other VMs you add to your CDE might use external NTP servers such as ntp.ubuntu.org (and its pool) as their time synchronization source. Any additional compute you bring into your CDE should explicitly use the NTP source of your choice and should be documented.
 
 ### Requirement 10.5
 
 Limit viewing of audit trails to those with a job-related need.
+
 - 10.5.1 Limit viewing of audit trails to those with a job-related need.
 - 10.5.2 Protect audit trail files from unauthorized modifications.
 - 10.5.3 Promptly back up audit trail files to a centralized log server or media that is difficult to alter.
@@ -211,7 +209,7 @@ Review logs and security events for all system components to identify anomalies 
     - Logs of all system components that store, process, or transmit CHD and/or SAD
     - Logs of all critical system components
     - Logs of all servers and system components that perform security functions (for example, firewalls, intrusion-detection systems/intrusion-prevention systems (IDS/IPS), authentication servers, e-commerce redirection servers, etc.)."
-- 10.6.2 Review logs of all other system components periodically based on the organization’s policies and risk management strategy, as determined by the organization’s annual risk assessment.
+- 10.6.2 Review logs of all other system components periodically based on the organization's policies and risk management strategy, as determined by the organization's annual risk assessment.
 - 10.6.3 Follow up exceptions and anomalies identified during the review process.
 
 #### Your responsibilities
@@ -288,7 +286,7 @@ Have a clear and agreed-upon definition of significant changes with respect to y
 
 **APPLIES TO 11.2.1**
 
-The quarterly scan for vulnerabilities must be run by skilled personnel with deep understanding of Azure networking and Kubernetes networking concepts. Map the results to [Requirement 6.1](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-malware#requirement-61) with severity levels and resolve high-priority items. If there are significant changes, run the scans before the scheduled quarterly scan. This will help you detect new vulnerabilities so that you can proactively fix issues.
+The quarterly scan for vulnerabilities must be run by skilled personnel with deep understanding of Azure networking and Kubernetes networking concepts. Map the results to [Requirement 6.1](./aks-pci-malware.yml#requirement-61) with severity levels and resolve high-priority items. If there are significant changes, run the scans before the scheduled quarterly scan. This will help you detect new vulnerabilities so that you can proactively fix issues.
 
 This scan must also include in-cluster (pod-to-pod) networks.
 

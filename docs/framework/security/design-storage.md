@@ -1,6 +1,6 @@
 ---
 title: Data protection in Azure
-description: Design considerations about securing and encrypting data storage in Azure.
+description: Explore data protection considerations in Azure. Classify, protect, and monitor sensitive data assets using access control, encryption, and logging.
 author: v-aangie
 ms.date: 09/17/2020
 ms.topic: conceptual

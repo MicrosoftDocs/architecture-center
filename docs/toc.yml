@@ -724,7 +724,7 @@ items:
             href: example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml
           - name: Web app private database connectivity
             href: example-scenario/private-web-app/private-web-app.yml
-          - name: Windows Virtual Desktop for the enterprise
+          - name: Azure Virtual Desktop for the enterprise
             href: example-scenario/wvd/windows-virtual-desktop.yml
       - name: Manufacturing
         items:
@@ -1296,6 +1296,9 @@ items:
                         href: operator-guides/aks/aks-triage-container-registry.md
                   - name: Patching and upgrade guidance
                     href: operator-guides/aks/aks-upgrade-practices.md
+                  - name: Monitoring with Azure Monitor
+                    href: /azure/aks/monitor-aks?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+                    maintainContext: true
                   - name: Common issues
                     href: /azure/aks/troubleshooting?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
                     maintainContext: true
@@ -1678,6 +1681,26 @@ items:
         items:
           - name: Guides
             items:
+              - name: Hybrid deployments
+                items:
+                - name: Configure hybrid cloud connectivity in Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-connectivity.md
+                - name: Configure hybrid cloud identity for Azure and Azure Stack Hub apps
+                  href: hybrid/deployments/solution-deployment-guide-identity.md
+                - name: Deploy AI-based footfall detection solution in Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md
+                - name: Deploy an app that scales cross-cloud in Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling.md
+                - name: Deploy highly available Kubernetes cluster on Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md
+                - name: Deploy a highly available MongoDB solution to Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-mongodb-ha.md
+                - name: Deploy hybrid app with on-premises data that scales cross-cloud
+                  href: hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data.md
+                - name: Deploy a SQL Server 2016 availability group to Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-sql-ha.md
+                - name: Direct traffic with a geo-distributed app using Azure and Azure Stack Hub
+                  href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
               - name: FSLogix for the enterprise
                 href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
               - name: Administer SQL Server anywhere with Azure Arc
@@ -1942,10 +1965,14 @@ items:
                 items:           
                   - name: Batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
+                  - name: General mainframe refactor to Azure
+                    href: example-scenario/mainframe/general-mainframe-refactor.yml
                   - name: IBM System i to Azure using Infinite i
                     href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
                   - name: IBM z/OS migration with Asysco AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml                    
+                  - name: IBM z/OS online transaction processing on Azure
+                    href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml                    
                   - name: Integrate IBM MQ with Azure
                     href: example-scenario/mainframe/integrate-ibm-message-queues-azure.yml
                   - name: Micro Focus Enterprise Server on Azure
@@ -2247,6 +2274,8 @@ items:
                 href: reference-architectures/n-tier/high-security-iaas.yml
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
+              - name: Zero-trust network for web applications
+                href: example-scenario/gateway/application-gateway-before-azure-firewall.yml
           - name: Architectures
             items:
               - name: Azure AD in Security Operations

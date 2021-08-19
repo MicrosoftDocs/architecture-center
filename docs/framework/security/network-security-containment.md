@@ -25,7 +25,7 @@ cloud-based assets, it is still a top priority for the large portfolio of legacy
 assets (which were built with the assumption that a network firewall-based
 perimeter was in place). Many attackers still employ scanning and exploit
 methods across public cloud provider IP ranges, successfully penetrating
-defenses for those who don’t follow basic network security hygiene. Network
+defenses for those who don't follow basic network security hygiene. Network
 security controls also provide a defense-in-depth element to your strategy that
 help protect, detect, contain, and eject attackers who make their way into your
 cloud deployments.
@@ -54,7 +54,7 @@ When you centralize network management and security you reduce the potential for
 inconsistent strategies that can create potential attacker exploitable security
 risks. Because all divisions of the IT and development organizations do not have
 the same level of network management and security knowledge and sophistication,
-organizations benefit from leveraging a centralized network team’s expertise and
+organizations benefit from leveraging a centralized network team's expertise and
 tooling.
 
 [Azure Security Center](/azure/security-center/security-center-network-recommendations)
@@ -67,7 +67,7 @@ your organization (defined in Governance, Risk, and Compliance section).
 
 This will reduce confusion and resulting challenges with different technical
 teams (networking, identity, applications, etc.) each developing their own
-segmentation and delegation models that don’t align with each other. This leads
+segmentation and delegation models that don't align with each other. This leads
 to a straightforward and unified security strategy, which helps reduce the
 number of errors due to human error and inability to increase reliability
 through automation.
@@ -138,7 +138,7 @@ inadequate and security organizations need to evolve their methods.
     helping you protect and discover threats in the past, you might consider
     using them for your cloud-based assets. If you discover that they have not
     added significant value, discontinue their use and explore native solutions
-    on your cloud service provider’s platform that deliver similar value.
+    on your cloud service provider's platform that deliver similar value.
 
 An evolving emerging best practice recommendation is to adopt a Zero Trust
 strategy based on user, device, and application identities. In contrast to
@@ -194,11 +194,11 @@ and monitoring:
     uncommon) attacks. Partner solutions consistently cost more than native
     controls. In addition, configuration of partner solutions can be very
     complex and more fragile than native controls because they do not integrate
-    with cloud’s fabric controllers.
+    with cloud's fabric controllers.
 
 The decision to use native versus partner controls should be based on your
-organization’s experience and requirements. If the features of the advanced
-firewall solutions don’t provide sufficient return on investment, you may
+organization's experience and requirements. If the features of the advanced
+firewall solutions don't provide sufficient return on investment, you may
 consider using the native capabilities that are designed to be easy to configure
 and scale.
 
@@ -276,11 +276,6 @@ downtime will have negative impact on the business.
 
 An example of advanced DDoS protection is the [Azure DDoS Protection
 Service](/azure/virtual-network/ddos-protection-overview).
-
-The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:
-- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
-- Guarantees 100% SLA. 
-- Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
 
 The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:
 - Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 

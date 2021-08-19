@@ -158,7 +158,7 @@ Try these Microsoft Learning paths:
 [acr]: /azure/container-registry
 [aks]: /azure/aks/intro-kubernetes
 [aks-Calculator]: https://azure.microsoft.com/pricing/calculator/?service=kubernetes-service
-[aml]: /azure/machine-learning/service/overview-what-is-azure-ml
+[aml]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [aml-aks]: /azure/machine-learning/how-to-deploy-azure-kubernetes-service
 [autoscaler]: /azure/aks/autoscaler
 [autoscale-pods]: /azure/aks/tutorial-kubernetes-scale#autoscale-pods
