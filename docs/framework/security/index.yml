@@ -182,25 +182,25 @@ landingContent:
             url: /azure/role-based-access-control/overview
           - text: Azure Storage Service Encryption
             url: /azure/storage/common/storage-service-encryption
+          - text: Microsoft Azure Well-Architected Review
+            url: /assessments/?mode=pre-assessment&session=78e17f1e-0a08-40f5-820d-86d848b72048
           - text: Multifactor Authentication
             url: /azure/active-directory/authentication/howto-mfa-userstates
           - text: Passwordless
-            url: /windows/security/identity-protection/hello-for-business/hello-identity-verification
-          - text: "Passwordless (Authenticator app)"
-            url: /azure/active-directory/authentication/howto-authentication-phone-sign-in
-
-          
-      
+            url: /windows/security/identity-protection/hello-for-business/hello-identity-verification    
  # Card
   - title: Security APIs
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure CDN REST API
-            url: /rest/api/cdn/
-          - text: Azure Monitor REST API
-            url: /rest/api/monitor/
-          - text: Azure Redis Cache
-            url: /rest/api/redis/
-          - text: Azure Storage REST API
-            url: /rest/api/storageservices/
+          - text: Azure Security Center
+            url: /rest/api/securitycenter/
+          - text: Adaptive Network Hardenings
+            url: /rest/api/securitycenter/adaptive-network-hardenings
+            
+          - text: Alerts
+            url: /rest/api/securitycenter/alerts
+          - text: Iot Security Solution
+            url: /rest/api/securitycenter/iot-security-solution
+          - text: Secure Scores
+            url: /rest/api/securitycenter/secure-scores
