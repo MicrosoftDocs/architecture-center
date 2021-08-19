@@ -79,12 +79,11 @@ A common approach is to design an outbound-only network virtual appliance (NVA) 
 
 ![firewalls with load balancer sandwich and NAT gateway](./images/natgw_fw_vmss.svg)
 
-Azure Security Center can monitor for any suspicious outbound connectivity through a NAT gateway. This is an alert feature in [Azure Security Center](/services/security-center).
+Azure Security Center can monitor for any suspicious outbound connectivity through a NAT gateway. This is an alert feature in [Azure Security Center](/azure/security-center).
 
 ## Next steps
 
 - [Microsoft Well-Architected Framework](/azure/architecture/framework/)
-- [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb)
 - [Tutorial: Create a NAT gateway using the Azure portal](/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal)
 
 ## Related resources
