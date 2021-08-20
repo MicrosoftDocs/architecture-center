@@ -8,15 +8,15 @@ As your organization recognizes the power of data science and machine learning, 
 - Reproducing results
 - Deploying machine learning models into production
 
-This article outlines a solution that meets those needs. Azure Databricks forms the core of the solution. This platform integrates seamlessly with other services such as Azure Data Lake Storage, Azure Machine Learning, and Azure Kubernetes Service (AKS). Together, these services provide a solution for data science and machine learning with these qualities:
+This article outlines a solution that meets those needs. Azure Databricks forms the core of the architecture. The storage layer Delta Lake and the machine learning platform MLflow also play significant roles. These components integrate seamlessly with other services such as Azure Data Lake Storage, Azure Machine Learning, and Azure Kubernetes Service (AKS). Together, these services provide a solution for data science and machine learning with these qualities:
 
-- **Simple**: An open data lake with a curated layer in an open-source format simplifies the architecture. Delta Lake provides access to the Azure Data Lake Storage data lake. Delta Lake supports atomicity, consistency, isolation, and durability (ACID) transactions for reliability. Delta Lake is optimized for transforming and cleansing batch and streaming data. Time travel features provide consistent snapshots of source data. Data scientists can train models on those snapshots instead of creating separate copies.
-- **Open**: Support for open source, open standards, and open frameworks help future proof your architecture. Azure Databricks and Azure Machine Learning natively support MLflow and Delta Lake for industry-leading MLOps. Track experiments, projects and models in a central location. A standard model format helps you integrate with a broad ecosystem of deployment tools.
-- **Collaborative**: Data science and MLOps teams can work together, using MLflow tracking to record and query experiments, including code, data, config, and results, then deploy models to the central MLflow model registry. Data engineering teams can easily leverage deployed models as part of their data ingestion, ETL and streaming pipelines.
+- **Simple**: An open data lake with a curated layer in an open-source format simplifies the architecture. Delta Lake provides access to the Azure Data Lake Storage data lake. This platform supports atomicity, consistency, isolation, and durability (ACID) transactions for reliability. Delta Lake is optimized for transforming and cleansing batch and streaming data. Its time travel features provide consistent snapshots of source data. Data scientists can train models on those snapshots instead of creating separate copies.
+- **Open**: To minimize the need for future updates, the solution supports open-source code, open standards, and open frameworks. Azure Databricks and Azure Machine Learning natively support MLflow and Delta Lake. Together, these components provide industry-leading *machine learning operations (MLOps)*, or DevOps for machine learning. You can use the solution to track experiments, projects, and models in a central location. A broad range of deployment tools integrate with the solution's standardized model format.
+- **Collaborative**: Data science and MLOps teams work together with this solution. They use MLflow tracking to record and query experiments. Stored information includes code, data, config, and results. The teams also deploy models to the central MLflow model registry. Data engineers then use deployed models in data ingestion, extract-transform-load (ETL), and streaming pipelines.
 
 ## Potential use cases
 
-The platform that AGL built for energy forecasting inspired this solution. Besides energy providers, any organization that performs these tasks can also benefit from this solution:
+A [platform that AGL built for energy forecasting](https://customers.microsoft.com/en-us/story/844796-agl-energy-azure) inspired this solution. That platform provides quick and cost-effective training, deployment, and lifecycle management for thousands of parallel models. Besides energy providers, this solution can benefit any organization that performs these tasks:
 
 - Uses data science
 - Builds and trains machine learning models
@@ -35,18 +35,11 @@ Examples include organizations in these areas:
    The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains rectangles, one that pictures databases and one that contains integration tools. A server icon that represents the self-hosted integration runtime is also located in the on-premises part. The Azure part also contains rectangles. One is for pipelines. Others are for services that the solution uses for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. These arrows represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
 :::image-end:::
 
-This reference architecture is inspired by the platform built by [AGL Energy](https://customers.microsoft.com/en-us/story/844796-agl-energy-azure), allowing quick and cost-effective training, deployment, and lifecycle management for thousands of parallel models.
+1. Intro statement for the first step:
 
-1. Code from a variety of languages, frameworks, and libraries prepares the data. Coding possibilities include:
-
-   - Python
-   - R
-   - SQL
-   - Spark
-   - Pandas
-   - Koalas
-
-   Azure Data Lake Storage stores the prepared, refined, and cleansed data in Delta Lake format. Delta Lake forms the curated layer of the data lake. It makes the refined data available in an open-source format.
+   - Code from a variety of languages, frameworks, and libraries prepares the data. Coding possibilities include Python, R, SQL, Spark, Pandas, and Koalas.
+   - Azure Data Lake Storage stores the prepared, refined, and cleansed data in Delta Lake format.
+   - Delta Lake forms the curated layer of the data lake. It makes the refined data available in an open-source format.
 
 1. Azure Databricks organizes data into layers:
 
@@ -58,31 +51,56 @@ This reference architecture is inspired by the platform built by [AGL Energy](ht
 
 1. When the best model is ready for production, Azure Databricks deploys it to the MLflow model repository. This centralized registry stores information on production models. It also makes models available to other components:
 
-   - Spark and Python pipelines can ingest models. These pipelines handle batch workloads or streaming extract-transform-load (ETL) processes.
+   - Spark and Python pipelines can ingest models. These pipelines handle batch workloads or streaming ETL processes.
    - REST APIs provide access to models for many purposes:
 
      - Interactive scoring in mobile and web applications
      - Testing
 
-1. The solution can also deploy models in other services, such as Azure Machine Learning and Azure Kubernetes Service.
-
-This solution uses a shared data lake that's based on the open Delta Lake format. It provides a consistent standard for data preparation, model training, and model serving. To minimize the need for future updates, this architecture uses open frameworks. A variety of services, applications, frameworks, and tools can consume the models as a result.
+1. The solution can also deploy models to other services, such as Azure Machine Learning and Azure Kubernetes Service.
 
 ### Components
 
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) brings together streaming and batch data, including structured, unstructured, and semi-structured data (logs, files, and media).
+- [Data Lake Storage][Data Lake Storage] is a scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data may be structured, semi-structured, or unstructured. It typically comes from multiple, heterogeneous sources like logs, files, and media. And it may be static, from batches, or streaming.
 
-- [Azure Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/) provides scalable compute and GPU clusters to perform data science, build and train machine learning models using pre-installed, optimized libraries. MLflow integration provides experiment tracking, model repository and model serving. Azure Databricks offers scalability:
+- [Azure Databricks][Azure Databricks] is a data analytics platform. Its fully managed Spark clusters run data science workloads. Azure Databricks also uses pre-installed, optimized libraries to build and train machine learning models. MLflow integration with Azure Databricks provides a way to track experiments, store models in repositories, and make models available to other services. Azure Databricks offers scalability:
 
   - Single-node compute clusters handle small data sets and single-model runs.
   - For large data sets, multi-node compute or graphics processing unit (GPU) clusters are available. These clusters use libraries and frameworks like HorovodRunner and Hyperopt for parallel-model runs.
 
-- [Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning) helps you easily build, deploy, and manage predictive analytics solutions.
+- [Delta Lake][Delta Lake] is a storage layer that uses an open file format. This layer runs on top of cloud storage such as Data Lake Storage. Delta Lake supports data versioning, rollback, and transactions for updating, deleting, and merging data. Delta Lake format provides a consistent standard for data preparation, model training and model serving.
 
-- [AKS](https://docs.microsoft.com/en-us/azure/aks/) is a highly available, secure, and fully managed Kubernetes service that makes it easy to deploy and manage containerized applications.
+- [MLflow][MLflow] is an open-source platform for the machine learning lifecycle. Its components monitor machine learning models during training and running. MLflow also stores models and loads them in production. Because MLflow uses open frameworks, a variety of services, applications, frameworks, and tools can consume the models.
+
+- [Machine Learning][Machine Learning] is a cloud-based environment that helps you build, deploy, and manage predictive analytics solutions. With these models, you can forecast behavior, outcomes, and trends.
+
+- [AKS][AKS] is a highly available, secure, and fully managed Kubernetes service. AKS makes it easy to deploy and manage containerized applications.
 
 ## Next steps
 
-- [AGL Energy](https://customers.microsoft.com/en-us/story/844796-agl-energy-azure) builds a standardized platform, allowing quick and cost-effective training, deployment, and lifecycle management for thousands of parallel models.
-- [Open Grid Europe (OGE)](https://customers.microsoft.com/en-us/story/1378282338316029794-open-grid-europe-azure-en) monitors gas pipelines using artificial intelligence models developed using Azure Databricks and MLflow.
-- [SAS](https://customers.microsoft.com/en-us/story/781802-sas-travel-transportation-azure-machine-learning) collaborates on research and develops new models to improve everyday operations and identify patterns in the company’s data.
+- [AGL Energy][AGL Energy] builds a standardized platform that provides quick and cost-effective training, deployment, and lifecycle management for thousands of parallel models.
+- [Open Grid Europe (OGE)][Open Grid Europe (OGE)] uses artificial intelligence models to monitor gas pipelines. OGE uses Azure Databricks and MLflow to develop the models.
+- [Scandinavian Airlines (SAS)](https://customers.microsoft.com/story/781802-sas-travel-transportation-azure-machine-learning) collaborates with Azure Databricks on research and uses Azure Machine Learning to develop predictive models. By identifying patterns in the company's data, the models improve everyday operations.
+
+## Related resources
+
+- [Choose an analytical data store in Azure][Choose an analytical data store in Azure]
+- [Batch scoring of Spark models on Azure Databricks][Batch scoring of Spark models on Azure Databricks]
+- [Stream processing with Azure Databricks][Stream processing with Azure Databricks]
+- [Ingestion, ETL, and stream processing pipelines with Azure Databricks][Ingestion, ETL, and stream processing pipelines with Azure Databricks]
+- [Modern analytics architecture with Azure Databricks][Modern analytics architecture with Azure Databricks]
+
+[AGL Energy]: https://customers.microsoft.com/story/844796-agl-energy-azure
+[AKS]: https://azure.microsoft.com/services/kubernetes-service/
+[Azure Databricks]: https://azure.microsoft.com/services/databricks/
+[Batch scoring of Spark models on Azure Databricks]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/batch-scoring-databricks
+[Choose an analytical data store in Azure]: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/analytical-data-stores
+[Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
+[Delta Lake]: https://databricks.com/product/delta-lake-on-databricks
+[Ingestion, ETL, and stream processing pipelines with Azure Databricks]: https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ingest-etl-stream-with-adb
+[Machine Learning]: https://azure.microsoft.com/services/machine-learning/
+[MLflow]: https://mlflow.org/
+[Modern analytics architecture with Azure Databricks]: https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture
+[Open Grid Europe (OGE)]: https://customers.microsoft.com/story/1378282338316029794-open-grid-europe-azure-en
+[Scandinavian Airlines (SAS)][Scandinavian Airlines (SAS)]: https://customers.microsoft.com/story/781802-sas-travel-transportation-azure-machine-learning
+[Stream processing with Azure Databricks]: https://docs.microsoft.com/azure/architecture/reference-architectures/data/stream-processing-databricks
