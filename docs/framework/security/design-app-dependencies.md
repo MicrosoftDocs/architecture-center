@@ -44,7 +44,7 @@ Application code and configuration should not share the same lifecycle to enable
 **Is platform-specific information removed from server-client communication?**
 ***
 
-Do not reveal information about the application platform. Such information (for example, "X-Powered-By", "X-ASPNET-VERSION") can get exposed through HTTP banners HTTP headers, error messages, website footers. Malicious actors can use this information when mapping attack vectors of the application.
+Do not reveal information about the application platform. Such information (for example, "X-Powered-By", "X-ASPNET-VERSION") can get exposed through HTTP banners, HTTP headers, error messages, and website footers. Malicious actors can use this information when mapping attack vectors of the application.
 
 **Suggested actions**
 
