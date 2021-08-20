@@ -55,6 +55,8 @@ WAFs provide a basic level of security for web applications. WAFs are appropriat
 
 WAFs mitigate the risk of an attacker to exploit commonly seen security vulnerabilities for applications. WAFs provide a basic level of security for web applications. This mechanism is an important mitigation because attackers target web applications for an ingress point into an organization (similar to a client endpoint).
 
+External application endpoints should be protected against common attack vectors, from Denial of Service (DoS) attacks like Slowloris to app-level exploits, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door, WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection (Azure DDoS Protection).
+
 Azure Application Gateway has WAF capabilities to inspect web traffic and detect attacks at the HTTP layer. It's a load balancer and HTTP(S) full reverse proxy that can do secure socket layer (SSL) encryption and decryption.
 
 For example, your workload is hosted in Application Service Environments(ILB ASE). The APIs are consolidated internally and exposed to external users. This external exposure could be achieved using an Application Gateway. This service is a load balancer. It forwards request to the internal API Management service, which in turn consumes the APIs deployed in the ASE. Application Gateway is also configured over port 443 for secured and reliable outbound calls.
@@ -64,6 +66,17 @@ For example, your workload is hosted in Application Service Environments(ILB ASE
 > The design considerations for the preceding example are described in [Publishing internal APIs to external users](../../example-scenario/apps/publish-internal-apis-externally.yml).
 
 Azure Front Door and Azure Content Delivery Network (CDN) also have WAF capabilities.
+
+#### Suggestion actions
+
+Protect all public endpoints with appropriate solutions such as Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection, or any third-party solution.
+
+**Learn more**
+
+- [What is Azure Firewall?](/azure/firewall/overview)
+- [Azure DDoS Protection Standard overview](/azure/ddos-protection/ddos-protection-overview)
+- [Azure Front Door documentation](/azure/frontdoor/)
+- [What is Azure Application Gateway?](/application-gateway/overview)
 
 ### Azure Firewall
 
