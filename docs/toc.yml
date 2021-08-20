@@ -147,6 +147,8 @@ items:
                 href: antipatterns/monolithic-persistence/index.md
               - name: No Caching
                 href: antipatterns/no-caching/index.md
+              - name: Noisy Neighbor
+                href: antipatterns/noisy-neighbor/index.md
               - name: Retry Storm
                 href: antipatterns/retry-storm/index.md
               - name: Synchronous I/O
