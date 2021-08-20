@@ -1,5 +1,5 @@
 ---
-  title: Getting started
+  title: Getting started with Azure IoT solutions
   titleSuffix: Azure Reference Architectures
   description: An overview of Azure IoT architectures.  Learn basic concepts around getting started with Azure IoT, how to get started building an IoT solution, or understand how to optimize an IoT solution for production.
   author: mcosner
@@ -20,7 +20,7 @@
 
 ---
 
-# Getting started with Azure IoT Solutions
+# Getting started with Azure IoT solutions
 
 IoT (Internet of Things) is a collection of managed and platform services that connect and control IoT assets. For example, consider an industrial motor connected to the cloud. The motor collects and sends temperature data. This data is used to evaluate whether the motor is performing as expected. This information can then be used to prioritize a maintenance schedule for the motor.
 
@@ -36,7 +36,7 @@ If you are interested in learning about Azure IoT concepts in detail using a san
 > [!div class="nextstepaction"]
 > [Introduction to Azure IoT](/learn/paths/introduction-to-azure-iot)
 
-## Decide Between SaaS and PaaS solutions
+## Decide between SaaS and PaaS solutions
 
 Microsoft enables you to create an IoT solution using PaaS services or a SaaS application. PaaS (platform as a service) is a cloud computing model in which Microsoft delivers Azure hardware and software tools over the internet, enabling you to create solutions from individual services. SaaS (software as a service) is a software distribution model in which Microsoft makes Azure applications available to customers over the internet.
 
@@ -50,7 +50,7 @@ Microsoft also also enables you to build solutions using Azure PaaS components. 
 > [!div class="nextstepaction"]
 > [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
 
-## Design an IoT Architecture
+## Design an IoT architecture
 
 A standard IoT solution architecture consists of five basic elements.
 
@@ -72,10 +72,38 @@ You can use the insights gathered from your device data to monitor, manage, and 
 > [!div class="nextstepaction"]
 > [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
 
-## Additional Resources
+## Next steps
 
 * [Azure IoT documentation](/azure/iot-fundamentals)
 * [Azure IoT Central documentation](/azure/iot-central)
 * [Azure IoT Hub](/azure/iot-hub)
 * [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
 * [Azure IoT Edge documentation](/azure/iot-edge)
+
+## Related resources
+
+See the related IoT architecture guides:
+* [IoT solutions conceptual overview](/architecture/example-scenario/iot/introduction-to-solutions)
+* [Choose an Internet of Things (IoT) solution in Azure](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet)
+* [Vision with Azure IoT Edge](/azure/architecture/guide/iot-edge-vision)
+* [Azure Industrial IoT Analytics Guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
+
+See the related IoT reference architectures and example scenarios:
+* [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+* [End-to-end manufacturing using computer vision on the edge](/azure/architecture/reference-architectures/ai/end-to-end-smart-factory)
+* [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
+* [IoT using Cosmos DB](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
+* [Retail - Buy online, pickup in store (BOPIS)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
+* [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
+
+See the related IoT solution ideas:
+* [Condition Monitoring for Industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
+* [Contactless IoT interfaces with Azure intelligent edge](/azure/architecture/solution-ideas/articles/contactless-interfaces)
+* [COVID-19 safe environments with IoT Edge monitoring and alerting](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)
+* [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
+* [IoT connected light, power, and internet for emerging markets](/azure/architecture/solution-ideas/articles/iot-power-management)
+* [UVEN smart and secure disinfection and lighting](/azure/architecture/solution-ideas/articles/uven-disinfection)
+* [Mining equipment monitoring](/azure/architecture/solution-ideas/articles/monitor-mining-equipment)
+* [Predictive Maintenance for Industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
+* [Process real-time vehicle data using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)
+* [Cognizant Safe Buildings with IoT and Azure](/azure/architecture/solution-ideas/articles/safe-buildings)
