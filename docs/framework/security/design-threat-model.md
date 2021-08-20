@@ -26,9 +26,9 @@ Start by gathering information about each component of the application. The answ
 |Is the application activity logged and fed into a Security Information and Event Management (SIEM) through Azure Monitor or a similar solution?|Detect and investigate attacks quickly.|
 |Is critical data protected with encryption that has been approved by the security team?| Prevent unauthorized copying of data at rest.|
 |Is inbound and outbound network traffic encrypted using TLS?|Prevent unauthorized copying of data in transit.|
-|Is the application protected against Distributed Denial of Service (DDoS) attacks using services such as Azure DDoS protection?|Detect attacks designed to overload the application so it can’t be used.|
+|Is the application protected against Distributed Denial of Service (DDoS) attacks using services such as Azure DDoS protection?|Detect attacks designed to overload the application so it can't be used.|
 |Does the application store any logon credentials or keys to access other applications, databases, or services?| Identify whether an attack can use your application to attack other systems.|
-|Do the application controls allow you to fulfill regulatory requirements?| Protect user’s private data and avoid compliance fines.|
+|Do the application controls allow you to fulfill regulatory requirements?| Protect user's private data and avoid compliance fines.|
 
 
 ## 2- Evaluate the application design progressively
@@ -52,25 +52,32 @@ Microsoft Security Development Lifecycle uses STRIDE and provides a tool to assi
 > - [Guidance on DevOps pipeline security](https://www.owasp.org/index.php/OWASP_AppSec_Pipeline#tab=Main) by OWASP.
 
 ## 3- Mitigate the identified threats
-The threat modeling tool produces a report of all the threats identified. After a potential threat is identified, determine and how it can be detected and the response to that attack. 
+The threat modeling tool produces a report of all the threats identified. After a potential threat is identified, determine how it can be detected and the response to that attack. Define a process and timeline which minimizes exposure to any identified vulnerabilities in the workload, so that those vulnerabilities cannot be left unaddressed.
 
-Use the _Defense-in-Depth_ approach. This can help identify controls needed in the design to mitigate risk if a primary security control fails. Evaluate how likely it is for the primary control to fail. If it does, what is the extent of the potential organizational risk? Also, what is the effectiveness of the additional control (especially in cases that would cause the primary control to fail). Based on the evaluation apply Defense-in-Depth measures to address potential failures of security controls. 
+Use the _Defense-in-Depth_ approach. This can help identify controls needed in the design to mitigate risk if a primary security control fails. Evaluate how likely it is for the primary control to fail. If it does, what is the extent of the potential organizational risk? Also, what is the effectiveness of the additional control (especially in cases that would cause the primary control to fail). Based on the evaluation apply Defense-in-Depth measures to address potential failures of security controls.
 
-The principle of _least privilege_ is one way of implementing Defense-in-Depth. It limits the damage that can be done by a single account. Grant least number of privileges to accounts that allows them to accomplish with the required permissions within a time period. This helps mitigate the damage of an attacker who gains access to the account to compromise security assurances. 
+The principle of _least privilege_ is one way of implementing Defense-in-Depth. It limits the damage that can be done by a single account. Grant least number of privileges to accounts that allows them to accomplish with the required permissions within a time period. This helps mitigate the damage of an attacker who gains access to the account to compromise security assurances.
+
+There's often a disconnect between organizational leadership and technical teams regarding business requirements for critical workloads.  This can create undesired outcomes and is especially sensitive when it pertains to information security. Routinely reviewing business critical workload requirements with executive sponsors to define requirements provides an opportunity to align expectations and ensure operational resource allocation to the initiative.
 
 **How are threats addressed once found?**
 ***
 Here are some best practices:
 
-- Make sure the results are communicated to the interested teams. 
-- Upload the threat modeling report to a tracking tool. Create work items that can be validated and addressed by the developers. Cyber security teams can also use the report to determine attack vectors during a penetration test. 
-- As new features are added to the application, update the threat model report and integrate it into the code management process. Triage security issues into the next release cycle or a faster release, depending on the severity. 
+- Make sure the results are communicated to the interested teams.
+- Prioritize the vulnerabilities and fix the most important in a timely manner.
+- Upload the threat modeling report to a tracking tool. Create work items that can be validated and addressed by the developers. Cyber security teams can also use the report to determine attack vectors during a penetration test.
+- As new features are added to the application, update the threat model report and integrate it into the code management process. Triage security issues into the next release cycle or a faster release, depending on the severity.
 
 For information about mitigation strategies, see [RapidAttack](/security/compass/human-operated-ransomware).
 
 **How long does it typically take to deploy a security fix into production?**
 ***
 If a security vulnerability is discovered, update the software with the fix as soon as possible. Have processes, tools, and approvals in place to roll out the fix quickly. 
+
+### Learn more
+
+[Threat modeling](https://www.microsoft.com/securityengineering/sdl/threatmodeling)
 
 ## Next steps
 

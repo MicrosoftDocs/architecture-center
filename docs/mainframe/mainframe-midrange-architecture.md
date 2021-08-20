@@ -195,7 +195,7 @@ The white papers, blogs, webinars, and other resources are available to help you
 
 - [Angelbeat - Retail Industry Legacy Webinar](https://youtu.be/UXgcz94d_1s)
 - [Mainframe Transformation to Azure](https://www.youtube.com/watch?v=30um4RI1c_M&list=PLW5Fjy7MTRY74fcCN5Z4S9VvgFuQZunf5&index=2)
-- [Mainframe Transformation: Azure is the New Mainframe](https://www.astadia.com/video/mainframe-transformation-azure-is-the-new-mainframe)
+- [Mainframe Transformation: Azure is the New Mainframe](https://www.astadia.com/videos/mainframe-modernization-to-microsoft-azure-with-bob-ellsworth-live-stream)
 - [ClearPath MCP Software Series For Azure](https://www.youtube.com/watch?v=TPe8fBCgQ7k&feature=youtu.be)
 - [Leverage the Power of Azure with Steve Read](https://www.astadia.com/podcast/leverage-the-power-of-azure-with-steve-read)
 - [Carahsoft - Monolithic Mainframe to Azure Gov Cloud The USAF Journey](https://www.carahsoft.com/learn/event/27813-Monolithic-Mainframe-to-Azure-Gov-Cloud--The-USAF-Journey)
