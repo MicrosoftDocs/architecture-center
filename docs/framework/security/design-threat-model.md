@@ -35,7 +35,7 @@ Start by gathering information about each component of the application. The answ
 
 **Suggested actions**
 
-Assign tasks to the individual people who are responsible for a particular risk identified during threat modelling.
+Assign tasks to the individual people who are responsible for a particular risk identified during threat modeling.
 
 **Learn more**
 
