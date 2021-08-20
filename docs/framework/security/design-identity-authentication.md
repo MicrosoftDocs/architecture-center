@@ -11,10 +11,6 @@ products:
   - azure-kubernetes-service
 ms.custom:
   - article
-categories:
-  - security
-subject: 
-  - security
 ---
 
 # Authentication with Azure AD
@@ -59,7 +55,7 @@ Managed Identity can help an API be more secure because it replaces the use of h
 
 **How is user authentication handled in the application?**
 ***
-Don't use custom implementations to manage user credentials. Instead, use Azure AD or other managed identity providers such as Microsoft account Azure B2C. Managed identity providers provide additional security features such as modern password protections, multi-factor authentication (MFA), and resets. In general, passwordless protections are preferred. Also, modern protocols like OAuth 2.0 use token-based authentication with limited timespan.
+Don't use custom implementations to manage user credentials. Instead, use Azure AD or other managed identity providers such as Microsoft account Azure B2C. Managed identity providers provide additional security features such as modern password protections, multifactor authentication (MFA), and resets. In general, passwordless protections are preferred. Also, modern protocols like OAuth 2.0 use token-based authentication with limited timespan.
 
 **Are authentication tokens cached securely and encrypted when sharing across web servers?**
 ***
