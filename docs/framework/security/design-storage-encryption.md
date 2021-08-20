@@ -81,12 +81,25 @@ For more information, refer to [Choose an algorithm](/dotnet/standard/security/c
 Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, SHA-512).
 
 ## Data at rest
-Classify and protect all information storage objects. Use encryption to make sure the contents of file cannot be accessed by unauthorized users.
+
+All important data should be classified and encrypted with an encryption standard. Classify and protect all information storage objects. Use encryption to make sure the contents of files cannot be accessed by unauthorized users. Data at rest is encrypted by default in Azure, but is your critical data classified and tagged, or labeled so that it can be audited?
+
+Your most sensitive data might include business, financial, healthcare, or personal information. Discovering and classifying this data can play a pivotal role in your organization's information protection approach. It can serve as infrastructure for:
+
+- Helping to meet standards for data privacy and requirements for regulatory compliance.
+- Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
+- Controlling access to and hardening the security of databases that contain highly sensitive data.
+
+**Suggested action**
+
+Classify your data. Consider using [Data Discovery & Classification](/azure/azure-sql/database/data-discovery-and-classification-overview) in Azure SQL Database.
 
 ### Data classification
-A crucial and an initial exercise for protecting data is to organize it into categories based on certain criteria. The classification criteria can be your business needs, compliance requirements, and the type of data. 
+
+A crucial initial exercise for protecting data is to organize it into categories based on certain criteria. The classification criteria can be your business needs, compliance requirements, and the type of data.
 
 Depending on the category, you can protect it through:
+
 - Standard encryption mechanisms.
 - Enforce security governance through policies.
 - Conduct audits to make sure the security measures are compliant.
