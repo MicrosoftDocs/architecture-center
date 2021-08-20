@@ -33,9 +33,9 @@ This article describes some considerations that can help monitor the workload fo
 
 ## Review identity risks
 
-Most security incidents take place after an attacker initially gains access using a stolen identity. 
+Ensure that your organization is prepared to respond to an identity theft event. Most security incidents take place after an attacker initially gains access using a stolen identity.
 
-Suppose an attacker gains access using a stolen identity. Even though the identity has low privileges, the attacker can use it to traverse laterally and gain access to more privileged identities. This way the attacker can control access to the target data or systems.
+Suppose an attacker gains access using a stolen identity. Even though the identity has low privileges, the attacker can use it to traverse laterally and gain access to more privileged identities. This repeats as needed until the attacker controls access to the ultimate target data or systems.
 
 **Does the organization actively monitor identity-related risk events related to potentially compromised identities?**
 ***
@@ -47,9 +47,13 @@ Review the reported risk events in these ways:
 - Use the reporting capabilities of [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection).
 - Use the Identity Protection risk events API to get programmatic access to security detections by using Microsoft Graph. See [riskDetection](/graph/api/resources/riskdetection?view=graph-rest-1.0&preserve-view=true) and [riskyUser](/graph/api/resources/riskyuser?view=graph-rest-1.0&preserve-view=true) APIs.
 
-Azure AD uses adaptive machine learning algorithms, heuristics, and known compromised credentials (username/password pairs) to detect suspicious actions that are related to your user accounts. These username/password pairs come from monitoring public and dark web and by working with security researchers, law enforcement, security teams at Microsoft, and others. 
+Azure AD uses adaptive machine learning algorithms, heuristics, and known compromised credentials (username/password pairs) to detect suspicious actions that are related to your user accounts. These username/password pairs come from monitoring public and dark web, and by working with security researchers, law enforcement, security teams at Microsoft, and others.
 
-Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events. 
+Build a strategy to monitor for identity risks and establish processes for responding to identity risk alerts. Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events.
+
+**Learn more**
+
+For more information, reference [Monitor identity risk](governance.md#monitor-identity-risk)
 
 ## Mask personal information
 
