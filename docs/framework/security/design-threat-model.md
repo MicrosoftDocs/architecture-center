@@ -17,7 +17,10 @@ ms.custom:
 Do a comprehensive analysis to identify threats, attacks, vulnerabilities, and counter measures. Having this information can protect the application and threats it might pose to the system. Start with simple questions to gain insight into potential risks. Then, progress to advanced techniques using threat modeling.  
 
 ## 1- Gather information about the basic security controls
-Start by gathering information about each component of the application. The answers to these questions will identify gaps in basic protection and understand the attack vectors. 
+
+A threat modeling tool will produce a report of all threats identified. This report is typically uploaded into a tracking tool, or converted to work items that can be validated and addressed by the developers. As new features are added to the solution, the threat model should be updated and integrated into the code management process. If a security issue is found, there should be a process to triage issue severity and determine when and how to remediate (such as in the next release cycle, or a faster release).
+
+Start by gathering information about each component of the application. The answers to these questions will identify gaps in basic protection and clarify the attack vectors.
 
 |Ask this question ...|To determine controls that ...|
 |---|---|
@@ -30,6 +33,13 @@ Start by gathering information about each component of the application. The answ
 |Does the application store any logon credentials or keys to access other applications, databases, or services?| Identify whether an attack can use your application to attack other systems.|
 |Do the application controls allow you to fulfill regulatory requirements?| Protect user's private data and avoid compliance fines.|
 
+**Suggested actions**
+
+Assign tasks to the individual people who are responsible for a particular risk identified during threat modelling.
+
+**Learn more**
+
+[Threat modeling](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling)
 
 ## 2- Evaluate the application design progressively
 Analyze application components and connections and their relationships. Threat modeling is a crucial engineering exercise that includes defining security requirements, identifying and mitigating threats, and validating those mitigations. This technique can be used at any stage of application development or production, but it's most effective during the design stages of a new functionality. 
