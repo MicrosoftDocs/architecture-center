@@ -11,6 +11,10 @@ products:
   - azure-kubernetes-service
 ms.custom:
   - article
+categories:
+  - security
+subject: 
+  - security
 ---
 
 # Authentication with Azure AD
@@ -131,11 +135,11 @@ For more information about supporting modern passwords in Azure AD, see the foll
 
 For more information about supporting modern passwords in Office 365, see the following article:
 
-[What is modern authentication?](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide#what-is-modern-authentication)
+[What is modern authentication?](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide#what-is-modern-authentication&preserve-view=true)
 
 ## Enable conditional access
 
-Modern cloud-based applications are typically accessible over the internet, making network location-based access inflexible and single-factor passwords a liability. Conditional access describes your authentication policy for an access decision. For example, if a user is connecting from an InTune managed corporate PC, they might not be challenged for MFA every time, but if the user suddenly connects from a different device in a different geography, MFA is required.
+Modern cloud-based applications are typically accessible over the internet, making network location-based access inflexible and single-factor passwords a liability. Conditional access describes your authentication policy for an access decision. For example, if a user is connecting from an InTune-managed corporate PC, they might not be challenged for MFA every time, but if the user suddenly connects from a different device in a different geography, MFA is required.
 
 Grant access requests based on the requestors' trust level and the target resources' sensitivity.
 
@@ -146,7 +150,7 @@ Workloads can be exposed over public internet and location-based network control
 
 Configure Azure AD Conditional Access by setting up Access policy for Azure management based on your operational needs. For information, see [Manage access to Azure management with Conditional Access](/azure/role-based-access-control/conditional-access-azure-management).
 
-Conditional access can be an effective in phasing out legacy authentication and associated protocols. The policies must be enforced for all admins and other critical impact accounts. Start by using metrics and logs to determine users who still authenticate with old clients. Next, disable any down-level protocols that aren't used, and set up conditional access for all users who aren't using legacy protocols. Finally, give notice and guidance to users about upgrading before blocking legacy authentication completely. For more information, see [Azure AD Conditional Access support for blocking legacy auth](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417).
+Conditional access can be an effective way to phase out legacy authentication and associated protocols. The policies must be enforced for all admins and other critical impact accounts. Start by using metrics and logs to determine users who still authenticate with old clients. Next, disable any down-level protocols that aren't used, and set up conditional access for all users who aren't using legacy protocols. Finally, give notice and guidance to users about upgrading before blocking legacy authentication completely. For more information, see [Azure AD Conditional Access support for blocking legacy auth](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417).
 
 ### Suggested actions
 
