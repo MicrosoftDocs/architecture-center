@@ -374,7 +374,7 @@
     {
       "source_path": "docs/reliability/index.md",
       "redirect_url": "/azure/architecture/framework/resiliency/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/reliability/requirements.md",
@@ -1771,6 +1771,41 @@
     {
       "source_path": "docs/reference-architectures/ai/index.md",
       "redirect_url": "/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/predictive-maintenance.md",
+      "redirect_url": "/azure/architecture/data-guide/big-data/ai-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/defect-prevention-with-predictive-maintenance.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/defect-prevention-with-predictive-maintenance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/movie-recommendations.md",
+      "redirect_url": "/azure/architecture/example-scenario/ai/movie-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/product-recommendations.md",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/real-time-recommendation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/visual-assistant.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/visual-assistant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/ai/commerce-chatbot.md",
+      "redirect_url": "/azure/architecture/reference-architectures/ai/conversational-bot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/example-scenario/ai/intelligent-apps-image-processing.md",
+      "redirect_url": "/azure/architecture/example-scenario/ai/intelligent-apps-image-processing",
       "redirect_document_id": false
     },
     {

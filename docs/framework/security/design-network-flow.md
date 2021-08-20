@@ -1,6 +1,6 @@
 ---
 title: Traffic flow security in Azure
-description: Best practices for protecting a workload from data exfiltration.
+description: Examine traffic flow security in Azure. Learn about best practices for protecting a workload from data exfiltration.
 author: PageWriter-MSFT
 ms.date: 02/03/2021
 ms.topic: conceptual

@@ -1,6 +1,6 @@
 ---
 title: Azure control plane security
-description: Security considerations for Azure control plane.
+description: Examine security considerations for Azure control plane. A control plane refers to the management of resources in your subscription.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: conceptual

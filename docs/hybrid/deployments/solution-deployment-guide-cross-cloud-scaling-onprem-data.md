@@ -543,4 +543,4 @@ Use the following steps as a guide to configure automatic traffic switching.
 
 ## Next steps
 
-- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](/azure/architecture/patterns).
+- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](../../patterns/index.md).

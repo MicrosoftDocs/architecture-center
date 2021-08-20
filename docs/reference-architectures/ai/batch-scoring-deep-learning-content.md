@@ -121,7 +121,7 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 [aml-compute]: /azure/machine-learning/service/concept-compute-target
 [aml-pipeline]: /azure/machine-learning/service/concept-ml-pipelines
-[amls]: /azure/machine-learning/service/overview-what-is-azure-ml
+[amls]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [blob-storage]: /azure/storage/blobs/storage-blobs-introduction
 [deployment]: https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AML
 [deployment2]: https://github.com/Azure/Batch-Scoring-Deep-Learning-Models-With-AKS

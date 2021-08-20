@@ -53,7 +53,7 @@ For the preceding example, an approach is to use these management groups:
 
 ## Azure role assignment 
 
-Grant roles the appropriate permissions that start with least privilege and add more based your operational needs. Provide clear guidance to your technical teams that implement permissions. This clarity makes it easier to detect and correct that reduces human errors such as overpermissioning.
+Grant roles the appropriate permissions that start with least privilege and add more based on your operational needs. Provide clear guidance to your technical teams that implement permissions. This clarity makes it easier to detect and correct that reduces human errors such as overpermissioning.
 
 -  Assign permissions at management group for the segment rather than the individual subscriptions. This will drive consistency and ensure application to future subscriptions.
 
@@ -123,4 +123,4 @@ Don't create any subscriptions under the root management group. This hierarchy e
 > [!IMPORTANT] 
 > Plan, test, and validate all enterprise-wide changes on the root management group before applying (policy, tags, Azure RBAC model, and so on). You can use a test lab. This can be representative lab tenant or lab segment in production tenant. Another option is to use a production pilot. This can be a segment management group or designated subset in subscription(s) management group. Validate changes to make sure the requirements have the desired effect.
 
-For more information, reference [Use root management group carefully](/azure/architecture/framework/security/governance#use-root-management-group-carefully).
+For more information, reference [Use root management group carefully](./governance.md#use-root-management-group-carefully).

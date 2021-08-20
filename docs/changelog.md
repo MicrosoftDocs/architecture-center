@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 08/02/2021
+ms.date: 08/16/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -25,6 +25,22 @@ New and updated articles in Azure Architecture Center
 
 ## August 2021
 
+### New Articles
+
+- [General mainframe refactor to Azure](./example-scenario/mainframe/general-mainframe-refactor.yml)
+
+### Updated Articles
+
+- [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#53026fe45](https://github.com/MicrosoftDocs/architecture-center/commit/53026fe45))
+- [High Performance Computing (HPC) on Azure](./topics/high-performance-computing.md)  ([#fec1f53c4](https://github.com/MicrosoftDocs/architecture-center/commit/fec1f53c4))
+- [Azure mainframe and midrange architecture concepts and patterns](./mainframe/mainframe-midrange-architecture.md)  ([#264a94102](https://github.com/MicrosoftDocs/architecture-center/commit/264a94102))
+- [AWS to Azure services comparison](./aws-professional/services.md)  ([#bac7c5914](https://github.com/MicrosoftDocs/architecture-center/commit/bac7c5914))
+- [Implement network segmentation patterns on Azure](./framework/security/design-network-segmentation.md)  ([#25ecd8538](https://github.com/MicrosoftDocs/architecture-center/commit/25ecd8538))
+- [Unisys Dorado mainframe migration to Azure with Astadia &amp; Micro Focus](./example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)  ([#c3d7d6875](https://github.com/MicrosoftDocs/architecture-center/commit/c3d7d6875))
+- [Big compute architecture style](./guide/architecture-styles/big-compute.md)  ([#e05914861](https://github.com/MicrosoftDocs/architecture-center/commit/e05914861))
+- [Serverless Functions reference architectures](./serverless-quest/reference-architectures.md)  ([#1ec2c2e0b](https://github.com/MicrosoftDocs/architecture-center/commit/1ec2c2e0b))
+- [Deploy highly available Kubernetes cluster on Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md)  ([#7b1fd4002](https://github.com/MicrosoftDocs/architecture-center/commit/7b1fd4002))
+- [Related resources for multitenancy](./guide/multitenant/related-resources.md)  ([#78c8b0fda](https://github.com/MicrosoftDocs/architecture-center/commit/78c8b0fda))
 
 ## July 2021
 
@@ -47,7 +63,7 @@ New and updated articles in Azure Architecture Center
 - [AKS baseline for multiregion clusters](./reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
 - [Measure consumption](./guide/multitenant/considerations/measure-consumption.md)
 - [Architectural considerations for a multitenant solution](./guide/multitenant/considerations/overview.md)
-- [Pricing models](./guide/multitenant/considerations/pricing-models.md)
+- [Pricing models for a multitenant solution](./guide/multitenant/considerations/pricing-models.md)
 - [Tenancy models to consider for a multitenant solution](./guide/multitenant/considerations/tenancy-models.md)
 - [Tenant lifecycle considerations in a multitenant solution](./guide/multitenant/considerations/tenant-lifecycle.md)
 - [Considerations for updating a multitenant solution](./guide/multitenant/considerations/updates.md)
@@ -60,7 +76,7 @@ New and updated articles in Azure Architecture Center
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Monitoring operations](./reference-architectures/containers/aks-pci/aks-pci-monitor.yml)
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Network segmentation](./reference-architectures/containers/aks-pci/aks-pci-network.yml)
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Policy management](./reference-architectures/containers/aks-pci/aks-pci-policy.yml)
-- [AKS regulated cluster for PCI-DSS 3.2.1](./reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml)
+- [Architecture of an AKS regulated cluster for PCI-DSS 3.2.1](./reference-architectures/containers/aks-pci/aks-pci-ra-code-assets.yml)
 - [AKS regulated cluster for PCI-DSS 3.2.1 - Summary](./reference-architectures/containers/aks-pci/aks-pci-summary.yml)
 - [Precision medicine pipeline with genomics](./example-scenario/precision-medicine/genomic-analysis-reporting.yml)
 
@@ -86,7 +102,7 @@ New and updated articles in Azure Architecture Center
 - [Stream processing with Azure Databricks](./reference-architectures/data/stream-processing-databricks.yml)  ([#dac619770](https://github.com/MicrosoftDocs/architecture-center/commit/dac619770))
 - [IoT analytics with Azure Data Explorer](./solution-ideas/articles/iot-azure-data-explorer.yml)  ([#dac619770](https://github.com/MicrosoftDocs/architecture-center/commit/dac619770))
 - [Implement network segmentation patterns on Azure](./framework/security/design-network-segmentation.md)  ([#3c975501a](https://github.com/MicrosoftDocs/architecture-center/commit/3c975501a))
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](./reference-architectures/containers/aks/secure-baseline-aks.yml)  ([#bd292c628](https://github.com/MicrosoftDocs/architecture-center/commit/bd292c628))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/secure-baseline-aks.yml)  ([#bd292c628](https://github.com/MicrosoftDocs/architecture-center/commit/bd292c628))
 - [AWS to Azure services comparison](./aws-professional/services.md)  ([#03b256c32](https://github.com/MicrosoftDocs/architecture-center/commit/03b256c32))
 - [Globally distributed applications using Cosmos DB](./solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)  ([#03b256c32](https://github.com/MicrosoftDocs/architecture-center/commit/03b256c32))
 
@@ -187,9 +203,9 @@ New and updated articles in Azure Architecture Center
 - [Video capture and analytics for retail](./solution-ideas/articles/video-analytics.yml)
 - [Data governance with Profisee and Azure Purview](./reference-architectures/data/profisee-master-data-management-purview.yml)
 - [SAS on Azure architecture guide](./guide/sas/sas-overview.yml)
-- [Solutions for government industry](./industries/government.md)
-- [Solutions for manufacturing industry](./industries/manufacturing.md)
-- [Solutions for media and entertainment industry](./industries/media.md)
+- [Solutions for the government industry](./industries/government.md)
+- [Solutions for the manufacturing industry](./industries/manufacturing.md)
+- [Solutions for the media and entertainment industry](./industries/media.md)
 - [Use Application Gateway Ingress Controller (AGIC) with a multi-tenant Azure Kubernetes Service (AKS)](./example-scenario/aks-agic/aks-agic.yml)
 - [Integrate IBM mainframe and midrange message queues with Azure](./example-scenario/mainframe/integrate-ibm-message-queues-azure.yml)
 - [Container orchestration for microservices](./microservices/design/orchestration.md)
@@ -208,15 +224,15 @@ New and updated articles in Azure Architecture Center
 - [Interactive price analytics](./solution-ideas/articles/interactive-price-analytics.yml)  ([#73d82b8f9](https://github.com/MicrosoftDocs/architecture-center/commit/73d82b8f9))
 - [Firewall and Application Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#062ecd459](https://github.com/MicrosoftDocs/architecture-center/commit/062ecd459))
 - [Using Azure file shares in a hybrid environment](./hybrid/azure-file-share.yml)  ([#062ecd459](https://github.com/MicrosoftDocs/architecture-center/commit/062ecd459))
-- [Development and test environments for SAP workloads on Azure](./example-scenario/apps/sap-dev-test.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
+- [SAP workload development and test settings](./example-scenario/apps/sap-dev-test.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
 - [Connect standalone servers by using Azure Network Adapter](./hybrid/azure-network-adapter.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
 - [Hybrid availability and performance monitoring](./hybrid/hybrid-perf-monitoring.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
 - [Run SAP BW/4HANA with Linux virtual machines on Azure](./reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
-- [Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
+- [SAP HANA for Linux VMs in scale-up systems](./reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)  ([#2fc21f223](https://github.com/MicrosoftDocs/architecture-center/commit/2fc21f223))
 - [Azure Firewall architecture overview](./example-scenario/firewalls/index.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
 - [Design a hybrid Domain Name System solution with Azure](./hybrid/hybrid-dns-infra.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
 - [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
-- [Secure and govern workloads with network level segmentation](./reference-architectures/hybrid-networking/network-level-segmentation.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
+- [Network-level segmentation workloads](./reference-architectures/hybrid-networking/network-level-segmentation.yml)  ([#8d88a2c4f](https://github.com/MicrosoftDocs/architecture-center/commit/8d88a2c4f))
 - [Oracle Database Migration to Azure](./solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure.yml)  ([#a9151be38](https://github.com/MicrosoftDocs/architecture-center/commit/a9151be38))
 - [Campaign optimization with Azure HDInsight Spark clusters](./solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters.yml)  ([#c7e5ee59d](https://github.com/MicrosoftDocs/architecture-center/commit/c7e5ee59d))
 - [Geode pattern](./patterns/geodes.md)  ([#23bf31342](https://github.com/MicrosoftDocs/architecture-center/commit/23bf31342))
