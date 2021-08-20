@@ -82,7 +82,9 @@ Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, S
 
 ## Data at rest
 
-All important data should be classified and encrypted with an encryption standard. Classify and protect all information storage objects. Use encryption to make sure the contents of files cannot be accessed by unauthorized users. Data at rest is encrypted by default in Azure, but is your critical data classified and tagged, or labeled so that it can be audited?
+All important data should be classified and encrypted with an encryption standard. Classify and protect all information storage objects. Use encryption to make sure the contents of files cannot be accessed by unauthorized users.
+
+Data at rest is encrypted by default in Azure, but is your critical data classified and tagged, or labeled so that it can be audited?
 
 Your most sensitive data might include business, financial, healthcare, or personal information. Discovering and classifying this data can play a pivotal role in your organization's information protection approach. It can serve as infrastructure for:
 
