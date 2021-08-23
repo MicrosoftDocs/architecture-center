@@ -57,7 +57,7 @@ Minimize the number of people who have access to secure information or resources
 
 **Learn more**
 
-For more information about pipeline permission and security roles, reference [Set different levels of pipeline permissions](/azure/devops/pipelines/policies/permissions?view=azure-devops).
+For more information about pipeline permission and security roles, reference [Set different levels of pipeline permissions](/azure/devops/pipelines/policies/permissions?view=azure-devops&preserve-view=true).
 
 ## Execution scope
 
@@ -86,8 +86,8 @@ Having multiple branches is recommended where each branch has a purpose and acce
 
 ## Learn more
 
-- [About branches and branch policies](/azure/devops/repos/git/branch-policies-overview?view=azure-devops)
-- [Adopt a Git branching strategy](/azure/devops/repos/git/git-branching-guidance?view=azure-devops)
+- [About branches and branch policies](/azure/devops/repos/git/branch-policies-overview?view=azure-devops&preserve-view=true)
+- [Adopt a Git branching strategy](/azure/devops/repos/git/git-branching-guidance?view=azure-devops&preserve-view=true)
 - [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops&preserve-view=true)
 
 ## Next
