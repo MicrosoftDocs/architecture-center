@@ -22,7 +22,7 @@ An _"interesting"_ stack can be problematic in two ways: as the cause of bugs an
 
 Below is a simple diagram of the Basic Startup Stack – a recommended set of components that provide _just enough_ to get your product off the ground and into the hands of your customers. For 80% of startups, this stack will be all you need to test the basic hypotheses built into your product. For some (for example those doing machine learning, working with IoT, or working in highly regulated environments), other components may be required. See Extending your architecture below for examples.
 
-_Block Diagram Goes Here_
+:::image type="content" source="images/startup-stack-blocks.png" alt-text="A block diagram of the Basic Startup Stack":::
 
 ## Components
 
@@ -62,7 +62,7 @@ Jane has built an early prototype using a Python backend, with a React frontend 
 
 Based on the Basic Startup Stack, and the technologies used by Contoso, Jane has decided on the following architecture:
 
-<span style="color: red;">_Insert Architecture Diagram_</span>
+:::image type="content" source="images/startup-stack-architecture.png" alt-text="The startup stack architecture used by Contoso to deploy their application to Azure":::
 
 ### Technology Choices
 
