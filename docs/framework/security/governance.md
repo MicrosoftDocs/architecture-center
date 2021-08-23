@@ -508,7 +508,7 @@ You can conduct the review manually or through an automated process by using too
 ## Discover and remediate common risks
 
 Identify well-known risks for your Azure tenants, remediate those risks, and
-track your progress using Secure Score.
+track your progress using Secure Score. Secure Score is a snapshot of your security posture relative to Microsoft recommendations.
 
 Identifying and remediating common security hygiene risks significantly reduces
 overall risk to your organization by increasing cost to attackers. When you
