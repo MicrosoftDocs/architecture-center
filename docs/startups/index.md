@@ -46,7 +46,7 @@ Cost, speed, and optionality must be balanced – too much focus on cost will co
 
 ## Extending Your Architecture
 
-As you iterate on your product, there will inevitably find areas where your architecture needs to be extended. You may complete long-running tasks in the background, or handle high-frequency updates coming from IoT devices. You might need to add full-text search, or add machine intelligence to your product.
+As you iterate on your product, there will inevitably find areas where your architecture needs to be extended. You may complete long-running tasks in the background, or handle high-frequency updates coming from IoT devices. You might need to add full-text search, or add artificial intelligence to your product.
 
 You might look at your roadmap and see the need for architectural changes to accommodate items on it. The temptation is to make those architectural changes too far ahead. If you build them too early, you risk adding complexity to your architecture and infrastructure spend to your balance sheet.
 
