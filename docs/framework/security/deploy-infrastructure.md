@@ -52,8 +52,8 @@ Apply security controls to self-hosted build agents in the same manner as with o
 
 ## Learn more
 
-- [Azure Pipelines agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser)
-- [I'm running a firewall and my code is in Azure Repos. What URLs does the agent need to communicate with?](/azure/devops/pipelines/agents/v2-windows?view=azure-devops#im-running-a-firewall-and-my-code-is-in-azure-repos-what-urls-does-the-agent-need-to-communicate-with)
+- [Azure Pipelines agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser&preserve-view=true)
+- [I'm running a firewall and my code is in Azure Repos. What URLs does the agent need to communicate with?](/azure/devops/pipelines/agents/v2-windows?view=azure-devops#im-running-a-firewall-and-my-code-is-in-azure-repos-what-urls-does-the-agent-need-to-communicate-with&preserve-view=true)
 
 ## Next step
 
