@@ -37,7 +37,7 @@ In the general case, the traffic flow and basic configuration look like the [sin
 
 #### Configuration
 
-For the web app to work with Azure DNS private zones, this architecture uses App Service VNet Integration. When the web app and database run in the same region, the configuration is straightforward. As [Azure DNS private zones][Azure DNS Private Zones] explains, when you set `WEBSITE_VNET_ROUTE_ALL` to `1`, the DNS resolution works correctly within the region.
+For the web app to work with Azure DNS private zones, this architecture uses App Service VNet Integration. When the web app and database run in the same region, the configuration is straightforward. As [Azure DNS private zones][Azure DNS Private Zones] explains, when you enable **Route All** on the web app's regional VNet Integration settings, the DNS resolution works correctly within the region.
 
 For cross-region private connectivity, the configuration is challenging. With regional VNet Integration, [you can't reach resources across global peering connections][Regional VNet Integration]. As a result, [global peering][Virtual network peering] between the virtual networks isn't an option. When the primary database fails over to the secondary region, the web app in the primary region can't reach the private endpoint of the secondary database.
 
