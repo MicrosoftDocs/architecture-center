@@ -64,7 +64,7 @@ To secure access to your key vaults, control permissions to keys and secrets an 
 
 ## Operational considerations
 
-Key and certificate rotation is often the cause of application outages. Even Azure has experienced expired certificates in the past. It is critical that the rotation of keys and certificates be scheduled and fully operationalized. The rotation process should be automated and tested to ensure effectiveness. Azure Key Vault supports key rotation and auditing.
+Key and certificate rotation is often the cause of application outages. Even Azure has experienced expired certificates. It is critical that the rotation of keys and certificates be scheduled and fully operationalized. The rotation process should be automated and tested to ensure effectiveness. Azure Key Vault supports key rotation and auditing.
 
 **Who is responsible to manage the keys and secrets in the application context?**
 ***
