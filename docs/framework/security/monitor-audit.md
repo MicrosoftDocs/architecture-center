@@ -14,7 +14,7 @@ ms.custom:
 
 # Security audits 
 
-To make sure that the security posture doesn’t degrade over time, have regular auditing that checks compliance with organizational standards. Enable, acquire, and store audit logs for Azure services.
+To make sure that the security posture doesn't degrade over time, have regular auditing that checks compliance with organizational standards. Enable, acquire, and store audit logs for Azure services.
 
 ## Key points
 > [!div class="checklist"]
@@ -34,11 +34,19 @@ To make sure that the security posture doesn’t degrade over time, have regular
 **Is access to the control plane and data plane of the application periodically reviewed?**
 ***
 
-Regularly review roles that have high privileges. Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change. Consider auditing at least twice a year.
+Compliance is important for several reasons. Aside from signifying levels of standards, like `ISO 27001` and others, noncompliance with regulatory guidelines may bring sanctions and penalties. Regularly review roles that have high privileges. Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change. Consider auditing at least twice a year.
 
-As people in the organization and on the project change, make sure that only the right people have access to the application infrastructure. Auditing and reviewing the access control reduces the attack vector to the application. 
+As people in the organization and on the project change, make sure that only the right people have access to the application infrastructure. Auditing and reviewing the access control reduces the attack vector to the application.
 
-Azure control plane depends on Azure AD. You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review). These reviews are often centrally performed often as part of internal or external audit activities. 
+Azure control plane depends on Azure AD. You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review). These reviews are often centrally performed often as part of internal or external audit activities.
+
+### Suggested action
+
+Use Azure Defender (Azure Security Center) to continuously assess and monitor your compliance score.
+
+### Learn more
+
+[Assess your regulatory compliance](/azure/security-center/security-center-compliance-dashboard#assess-your-regulatory-compliance)
 
 ## Enforce policy compliance
 
@@ -76,7 +84,7 @@ Use the data to support these activities:
 - Investigation of an incident. For example, required for common queries.
 - Proactive hunting activities.
 
-Integrating more data can allow you to enrich alerts with additional context that enable rapid response and remediation (filter false positives, and elevate true positives, and so on.), but collection is not detection. If you don’t have a reasonable expectation that the data will provide value (for example, high volume of firewall denies events), you may deprioritize integration of these events.
+Integrating more data can allow you to enrich alerts with additional context that enable rapid response and remediation (filter false positives, and elevate true positives, and so on.), but collection is not detection. If you don't have a reasonable expectation that the data will provide value (for example, high volume of firewall denies events), you may deprioritize integration of these events.
 
 ## Next steps
 - [Security health modeling](monitor.md)

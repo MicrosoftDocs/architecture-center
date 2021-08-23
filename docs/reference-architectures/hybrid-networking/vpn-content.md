@@ -1,12 +1,59 @@
 
 
 
-This reference architecture shows how to extend a network from on premises or from Azure Stack into an Azure virtual network, using a site-to-site virtual private network (VPN). Traffic flows between the on-premises network and Azure through an IPSec VPN tunnel or through the Azure Stack multitenant VPN gateway. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to extend a network from on premises or from Azure Stack into an Azure virtual network, using a site-to-site virtual private network (VPN). Traffic flows between the on-premises network and Azure through an IPSec VPN tunnel or through the Azure Stack multitenant VPN gateway.
 
 <img src="./images/vpn.png" alt="Hybrid network spanning on-premises and Azure infrastructures" aria-describedby="description-1">
 <p id="description-1" class="visually-hidden">A diagram of the VPN gateway architecture. An on-premises network connects to an Azure virtual network through a VPN gateway. A virtual network in Azure Stack also connects to the VPN gateway through public VIPs.</p>
 
 *Download a [Visio file][visio-download] of this architecture.*
+
+## Reference deployment
+
+This deployment creates two resource groups; the first holds a mock on-premises network, the second a set of hub and spoke networks. The mock on-premises network and the hub network are connected using Azure Virtual Network gateways to form a site-to-site connection. This configuration is very similar to how you would connect your on-premises datacenter to Azure.
+
+This deployment can take up to 45 minutes to complete. The recommended deployment method is using the portal option found below.
+
+#### [Azure portal](#tab/portal)
+
+Use the following button to deploy the reference using the Azure portal.
+
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmaster%2Fsolutions%2Fsecure-hybrid-network%2Fazuredeploy.json)
+
+#### [Azure CLI](#tab/cli)
+
+Run the following command to deploy two resource groups and the secure network reference architecture using the Azure CLI. 
+
+When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
+
+```azurecli
+az deployment sub create --location eastus \
+    --template-uri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+```
+
+#### [PowerShell](#tab/powershell)
+
+Run the following command to deploy two resource groups and the secure network reference architecture using PowerShell. 
+
+When prompted, enter values for an admin user name and password. These values are used to log into the included virtual machines.
+
+```azurepowershell
+New-AzSubscriptionDeployment -Location eastus `
+    -TemplateUri https://raw.githubusercontent.com/mspnp/samples/master/solutions/secure-hybrid-network/azuredeploy.json
+```
+
+---
+
+Once the deployment has been completed, verify site-to-site connectivity by looking at the newly created connection resources. While in the Azure portal, search for 'connections' and note that the status of each connection.
+
+![Screenshot showing the status of connections.](../dmz/images/portal-connections.png)
+
+The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-prem network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
+
+For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
+
+> [!div class="nextstepaction"]
+> [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/)
 
 ## Architecture
 
