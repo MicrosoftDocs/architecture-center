@@ -60,7 +60,7 @@ To prevent credentials from being stored in the source code or configuration fil
 
 ## Suggested actions
 
-Incorporate Secure Devops on Azure toolkit and the guidance published by the Organization for Web App Security Project (OWASP), or an equivalent guiding organization.
+Incorporate Secure DevOps on Azure toolkit and the guidance published by the Organization for Web App Security Project (OWASP), or an equivalent guiding organization.
 
 ## Learn more
 
