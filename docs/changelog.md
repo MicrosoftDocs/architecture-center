@@ -12,7 +12,7 @@ ms.service: architecture-center
 
 The Azure Architecture Center (AAC) helps you design, build, and operate solutions on Azure. Learn about the cloud architectural styles and design patterns. Use the technology choices and guides to decide the services that are right for your solution. The guidance is based on all aspects of building for the cloud, such as operations, security, reliability, performance, and cost optimization.
   
-  
+<br/>
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
@@ -21,7 +21,7 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
   title="New and updated articles in Azure Architecture Center"
   href="/azure/architecture/feed.atom" />
 
-New and updated articles in Azure Architecture Center
+New and updated articles in Azure Architecture Center.
 
 ## August 2021
 
