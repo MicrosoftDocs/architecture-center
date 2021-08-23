@@ -32,7 +32,7 @@ The first diagram shows the architecture of a typical batch application running 
 5. The output of the job execution can be monitored through an OPC scheduler or Tivoli Workload Scheduler (TWS). A System Display and Search Facility (SDSF) in the JES is also used on the mainframe to check job execution status.
 6. The management tier provides the following services:
 
-    - Source control, like Endeavor or Changeman.
+    - Source control, like Endevor or Changeman.
     - Security, like Resource Access Control Facility (RACF). This security provides authentication for running batches, accessing files, and accessing the database.
     - Output management that supports the storage and search of job execution logs.
 
@@ -54,7 +54,7 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 3. Azure provides various services to implement a mainframe batch workload. Select specific services that are based on your business requirements. For example, compute power required, total execution time, the ability to split mainframe batch process into smaller units, and cost sensitivity.
 
     1. Azure Databricks is an Apache Spark-based analytics platform. Jobs can be written in the R, Python, Java, Scala, and Spark SQL languages. It provides a compute environment with fast cluster start times, auto termination, and autoscaling. It has built-in integration with Azure storage like Azure Blob Storage and Azure Data Lake storage. Use Azure Databricks if you need to process large amounts of data in a short time. It's also a good choice if you need to run Extract, Transform, and Load (ETL) workloads.
-    2. AKS and Service Fabric provide an infrastructure to implement a service-based application architecture. It might not be cost effective for a single application.</li>
+    2. AKS and Service Fabric provide an infrastructure to implement a service-based application architecture. It might not be cost effective for a single application.
     You can refactor your mainframe application using Java Spring Boot. The best way to run Spring Boot apps on Azure is to use Azure Spring Cloud, a fully managed Spring Cloud service. Java developers can use it to easily build and run Spring Boot Microservices on Azure.
     3. You can re-engineer your mainframe batch application using .NET or Java. Batch provides the infrastructure to run this application at scale. It creates and manages a pool of virtual machines (VMs), installs the applications, and then schedules jobs to run on the VMs. There's no cluster or job scheduler software to install, manage, or scale. Write applications in any programming language supported by Windows or Linux.
     4. You can re-engineer short running COBOL or PL/1 batch programs. For these programs, use Azure services like Functions, WebJobs, or Logic Apps.
@@ -92,7 +92,7 @@ The second diagram shows how you can use Azure services to re-engineer a similar
 - [Batch](https://azure.microsoft.com/services/batch): Batch is designed to run general purpose batch computing in the cloud across many VMs that can scale based on the workload being executed. It’s a perfect fit for ETL or AI use cases where multiple tasks are executed in parallel, independent from each other.
 - [Functions](https://azure.microsoft.com/services/functions): Use Functions to run small pieces of code without worrying about application infrastructure. With Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
 - [Azure App Service](https://azure.microsoft.com/services/app-service): With [WebJobs](/azure/app-service/webjobs-create), a feature of App Service, you can code reusable background business logic as web jobs.
-- [Azure Cache for Redis](https://azure.microsoft.com/en-us/services/cache/): Applications that use a high volume of backend data can be developed to scale and deliver a highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis offers both the Redis open-source (OSS Redis) and a commercial product from Redis Labs, Redis Enterprise, as a managed service.
+- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/): Applications that use a high volume of backend data can be developed to scale and deliver a highly optimized performance by integrating with an in-memory data store like Redis. Azure Cache for Redis offers both the Redis open-source (OSS Redis) and a commercial product from Redis Labs, Redis Enterprise, as a managed service.
 
 #### Storage
 
