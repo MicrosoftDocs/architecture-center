@@ -18,6 +18,9 @@ subject:
 
 The automated build and release pipelines should update a workload to a new version seamlessly without breaking dependencies. Augment the automation with processes that allow high priority fixes to get deployed quickly.
 
+Organizations should leverage existing guidance and automation when securing applications in the cloud, rather than starting from zero.
+Using resources and lessons learned by external organizations that are early adopters of these models can accelerate the improvement of an organizations security posture with less expenditure of effort and resources.
+
 ## Key points
 
 > [!div class="checklist"]
@@ -54,6 +57,14 @@ To prevent credentials from being stored in the source code or configuration fil
 - Scan all dependencies, such as third-party libraries and framework components, as part of the CI process. Investigate vulnerable components that are flagged by the tool. Combine this task with other code scanning tasks that inspect code churn, test results, and coverage.
 - Use a combination of dynamic application security testing (DAST) and static application security testing (SAST). DAST tests the application while its in use. SAST scans the source code and detects vulnerabilities based on its design or implementation. Some technology options are provided by OWASP. For more information, see [SAST Tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) and [Vulnerability Scanning Tools](https://owasp.org/www-community/Vulnerability_Scanning_Tools).
 - Use scanning tools that are specialized in technologies used by the workload. For example, if the workload is containerized, run container-aware scanning tools to detect risks in the container registry, before use, and during use.
+
+## Suggested actions
+
+Incorporate Secure DevOps on Azure toolkit and the guidance published by the Organization for Web App Security Project (OWASP), or an equivalent guiding organization.
+
+## Learn more
+
+[Follow DevOps security guidance](/azure/architecture/framework/security/design-apps-services#follow-devops-security-guidance)
 
 
 ## Community links
