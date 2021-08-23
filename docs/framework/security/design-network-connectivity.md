@@ -127,7 +127,7 @@ Web applications typically have one public entry point and don't expose subseque
 
 **Learn more**
 
-- [Set up Azure App Service access restrictions](/app-service/app-service-ip-restrictions)
+- [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions)
 - [Azure Front Door documentation](/azure/app-service/app-service-ip-restrictions)
 
 ## Connection with Azure PaaS services
