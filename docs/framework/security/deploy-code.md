@@ -44,14 +44,16 @@ An approval process that is complex and takes a significant amount of time can d
 > [!IMPORTANT]
 > Deploying a security fix is a priority, but it shouldn't be at the cost of introducing a regression or bug. When designing an emergency pipeline, carefully consider which automated tests can be bypassed. Evaluate the value of each test against the execution time. For example, unit tests usually complete quickly. Integration or end-to-end tests can run for a long time.
 
-Involve the security team in the planning and design of the DevOps process. Your automated pipeline design should have the flexibility to support both regular and emergency deployments. This is important to support the rapid and responsible application of both security fixes and other urgent, important fixes. 
+Involve the security team in the planning and design of the DevOps process. Your automated pipeline design should have the flexibility to support both regular and emergency deployments. This is important to support the rapid and responsible application of both security fixes and other urgent, important fixes.
 
 ## Credential scanning
-Credentials, keys, certificates grant access to the data or service used by the workload. Storing credentials in code pose a significant security risk.
+
+Credentials, keys, and certificates grant access to the data or service used by the workload. Storing credentials in code poses a significant security risk. Ensure that static code scanning tools are an integrated part of the continuous integration (CI) process.
 
 **Are code scanning tools an integrated part of the continuous integration (CI) process for this workload?**
 ***
-To prevent credentials from being stored in the source code or configuration files, integrate code scanning tools within the CI/CD pipeline. 
+To prevent credentials from being stored in the source code or configuration files, integrate code scanning tools within the CI/CD pipeline:
+
 - During design time, use code analyzers to prevent credentials from getting pushed to the source code repository. For example, .NET Compiler Platform (Roslyn) Analyzers inspect your C# or Visual Basic code. 
 - During the build process, use pipeline add-ons to catch credentials in the source code. Some options include [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security) and [OWASP source code analysis tools](https://owasp.org/www-community/Source_Code_Analysis_Tools).
 - Scan all dependencies, such as third-party libraries and framework components, as part of the CI process. Investigate vulnerable components that are flagged by the tool. Combine this task with other code scanning tasks that inspect code churn, test results, and coverage.
@@ -64,10 +66,11 @@ Incorporate Secure DevOps on Azure toolkit and the guidance published by the Org
 
 ## Learn more
 
-[Follow DevOps security guidance](/azure/architecture/framework/security/design-apps-services#follow-devops-security-guidance)
-
+- [Follow DevOps security guidance](/azure/architecture/framework/security/design-apps-services#follow-devops-security-guidance)
+- [Getting started with Credential Scanner (CredScan)](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 ## Community links
+
 - [OWASP source code analysis tools](https://owasp.org/www-community/Source_Code_Analysis_Tools)
 - [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security)
 - [Vulnerability Scanning Tools](https://owasp.org/www-community/Vulnerability_Scanning_Tools)
