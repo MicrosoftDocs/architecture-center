@@ -116,7 +116,6 @@ Often referred to as a lift-and-shift migration, this option doesn't require cod
 <ul class="grid">
 
 [!INCLUDE [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../includes/cards/migrate-mainframe-apps-with-tmaxsoft-openframe.md)]
-[!INCLUDE [Modernize mainframe and midrange data](../../includes/cards/modernize-mainframe-data-to-azure.md)]
 
 </ul>
 
@@ -163,6 +162,12 @@ Another pattern for migrations into Azure (for legacy systems) is what is known 
 A key part of legacy migrations and transformations to Azure is consideration for data. This can include not only data movement, but also data replication and synchronization.
 
 ### Data movement and migration architectures
+
+<ul class="grid">
+
+[!INCLUDE [Modernize mainframe and midrange data](../../includes/cards/modernize-mainframe-data-to-azure.md)]
+
+</ul>
 
 | | |
 |-|-|
