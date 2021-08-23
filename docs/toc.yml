@@ -228,6 +228,8 @@ items:
         href: framework/index.md
       - name: Reliability
         items:
+              - name: About
+                href: framework/resiliency/index.yml
               - name: Principles
                 href: framework/resiliency/principles.md
               - name: Design
