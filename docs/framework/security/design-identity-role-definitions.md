@@ -45,11 +45,11 @@ Designate groups (or individual roles) that will be responsible for central func
 
 ## Learn more
 
-[Clear lines of responsibility](/azure/architecture/framework/Security/governance#clear-lines-of-responsibility)
+[Clear lines of responsibility](/azure/architecture/framework/Security/governance#clear-lines-of-responsibility-)
 
 ## Next
 
-Restrict access to Azure resources based on a need-to-know basis starting with the principle of least privilege security and add more based your operational needs.
+Restrict access to Azure resources based on a need-to-know basis starting with the principle of least privilege security and add more based on your operational needs.
 
 > [!div class="nextstepaction"]
 > [Azure control plane security](design-identity-control-plane.md)
