@@ -70,8 +70,8 @@ landingContent:
             url: automation-tasks.md#azure-functions
       - linkListType: learn
         links:
-          - text: Toil automation
-            url: https://www.coursera.org/lecture/developing-a-google-sre-culture/toil-automation-BpNqj
+          - text: Choose the best Azure service to automate your business processes
+            url: /learn/modules/choose-azure-service-to-integrate-and-automate-business-processes/
       - linkListType: video
         links:
           - text: Azure DevOps with ARM templates
