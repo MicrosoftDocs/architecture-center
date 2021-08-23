@@ -46,7 +46,7 @@ New-AzSubscriptionDeployment -Location eastus `
 
 Once the deployment has been completed, verify site-to-site connectivity by looking at the newly created connection resources. While in the Azure portal, search for 'connections' and note that the status of each connection.
 
-![Screenshot showing the status of connections.](./images/portal-connections.png)
+![Screenshot showing the status of connections.](../dmz/images/portal-connections.png)
 
 The IIS instance found in the spoke network can be accessed from the virtual machine located in the mock on-prem network. Create a connection to the virtual machine using the included Azure Bastion host, open a web browser, and navigate to the address of the application's network load balancer.
 
