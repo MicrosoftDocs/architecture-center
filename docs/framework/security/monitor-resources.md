@@ -45,7 +45,7 @@ For more information, see [Azure security baseline for Azure Monitor](/security/
 
 In an IaaS model, you can host the workload on Azure infrastructure. Azure provides security assurances that maintain isolation and timely security updates to the infrastructure. For greater control, you host the entire IaaS solution on-premises or in a hosted data center and are responsible for security. You must implement security on the host, virtual machine, network, and storage. For instance if you have your own VNet, consider enabling Azure Private Link over Azure Monitor so you can access this over a private endpoint.
 
-In PaaS, you have a shared responsibity with Azure in protecting the data. 
+In PaaS, you have shared responsibility with Azure in protecting the data. 
 
 ## Virtual machines
 
