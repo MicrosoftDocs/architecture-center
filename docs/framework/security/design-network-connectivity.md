@@ -50,6 +50,8 @@ To secure communication within a VNet, set rules that inspect traffic. Then, *al
 
 For traffic between subnets, the recommended way is through [Network Security Groups (NSG)](/azure/virtual-network/security-overview). Define rules on each NSG that checks traffic to and from single IP address, multiple IP addresses, or entire subnets.
 
+If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked, or more permissive access than expected is allowed. Azure Firewall (and Firewall Manager) can be used to centralize and manage firewall policies.
+
 Another way is to use network virtual appliances (NVAs) that check inbound (ingress) and outbound (egress) traffic and filters based on rules.
 
 **How do you route network traffic through NVAs for security boundary policy enforcement, auditing, and inspection?**
@@ -89,10 +91,16 @@ The exception is when you want to use security groups only for network logging p
 
 Design virtual networks and subnets for growth. We recommend planning subnets based on common roles and functions that use common protocols for those roles and functions. This allows you to add resources to the subnet without making changes to security groups that enforce network level access controls.
 
+### Suggested actions
+
+Use NSG or consider using Azure Firewall to protect and control traffic within the VNET.
+
 ### Learn more
 
+- [Azure firewall documentation](/azure/firewall/)
 - [Design virtual network subnet security](./network-security-containment.md#design-virtual-network-subnet-security)
 - [Design an IP addressing schema for your Azure deployment](/learn/modules/design-ip-addressing-for-azure/)
+- [Network security groups](/azure/virtual-network/network-security-groups-overview)
 
 ## Internet edge traffic
 
