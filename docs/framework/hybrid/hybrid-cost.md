@@ -27,7 +27,7 @@ Other considerations are described in the [Principles of cost optimization](../c
 
 Define the following for your workloads:
 
-- **Monitor cloud spend with hybrid workloads**. Track cost trends and forecast future spend in dashboards in Azure of your on-prem data estates with Azure Arc.
+- **Monitor cloud spend with hybrid workloads**. Track cost trends and forecast future spend with dashboards in Azure for your on-prem data estates with Azure Arc.
 - **Keep within cost constraints**.
    - Create, apply, and enforce standardized and custom tags and policies.
    - Enforce run-time conformance and audit resources with Azure Policy.
@@ -102,7 +102,7 @@ Click the following links for guidance in provisioning:
 
 ## Monitor and optimize
 
-Treat cost monitoring and optimization as a process, rather than a point-in-time activity. You can conduct regular cost reviews and forecast the capacity needs so that you can provision resources dynamically and sale with demand.
+Treat cost monitoring and optimization as a process, rather than a point-in-time activity. You can conduct regular cost reviews and forecast the capacity needs so that you can provision resources dynamically and scale with demand.
 
 - [Managing the Azure Arc enabled servers agent](/azure/azure-arc/servers/manage-agent/)
    - Bring all your resources into a single system so you can organize and inventory through a variety of Azure scopes, such as Management groups, Subscriptions, and Resource Groups.
