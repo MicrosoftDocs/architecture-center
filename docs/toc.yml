@@ -447,6 +447,8 @@ items:
             href: framework/cost/tradeoffs.md
       - name: Operational Excellence
         items:
+          - name: About
+            href: framework/devops/index.yml
           - name: Overview
             href: framework/devops/overview.md
           - name: Principles
