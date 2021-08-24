@@ -31,7 +31,7 @@ Azure Sentinel can help simplify data collection across different sources, inclu
 ### Azure Arc management security capabilities
 
 - Access unique Azure security capabilities such as Azure Security Center.
-- Centrally manage and access for resources with Role-Based Access Control.
+- Centrally manage access for resources with Role-Based Access Control.
 - Centrally manage and enforce compliance and simplify audit reporting with Azure Policy.
  
 ### Azure Arc enabled data services security capabilities
@@ -44,7 +44,7 @@ Azure Sentinel can help simplify data collection across different sources, inclu
 - **Protection in transit**. Storage Replica offers built-in security for its replication traffic. This includes packet signing, AES-128-GCM full data encryption, support for Intel AES-NI encryption acceleration, and pre-authentication integrity man-in-the-middle attack prevention.
    - Storage Replica also utilizes Kerberos AES256 for authentication between the replicating nodes.
 - **Encryption at rest**. Azure Stack HCI supports BitLocker Drive Encryption for its data volumes, thus facilitating compliance with standards such as FIPS 140-2 and HIPAA.
-- **Integration with a range of Azure services that provide more security advantages**. You can integrate virtualized workloads that run on Azure Stack HCI clusters with such Azure services as Azure Security Center.
+- **Integration with a range of Azure services that provide more security advantages**. You can integrate virtualized workloads that run on Azure Stack HCI clusters with Azure services such as Azure Security Center.
 - **Firewall-friendly configuration**. Storage Replica traffic requires a limited number of open ports between the replicating nodes.
 
 ## Design
@@ -70,7 +70,7 @@ A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchro
 
 ## Monitor
 
-- Across products: Integrate with Azure Sentinel, Azure Defender.
+- Across products: Integrate with Azure Sentinel and Azure Defender.
 - Bring Azure Security Center to your on-prem data and servers with Arc.
 - Set security policies, resource boundaries, and RBAC for workloads across the hybrid infra.
-- Proper admin roles for read, modify, re-onboard, and delete a machine.
+- Proper<!--not clear if this should be 'Prepare' or is a fragment of a larger sentence --> admin roles for read, modify, re-onboard, and delete a machine.
