@@ -9,6 +9,10 @@ ms.subservice: well-architected
 products:
   - azure-active-directory
   - azure-key-vault
+categories:
+  - security
+subject:
+  - security
 ms.custom:
   - article
 categories:
@@ -22,7 +26,7 @@ Encryption is an essential tool for security because it restricts access. Howeve
 ## Key points
 - Use identity-based access control instead of cryptographic keys.
 - Store keys and secrets in managed key vault service. Control permissions with an access model.
-- Rotate keys and other secrets frequently. Replace secrets at the end their lifetime or if they have been compromised.
+- Rotate keys and other secrets frequently. Replace secrets at the end their lifetime or if they've been compromised.
 
 ## Identity-based access control
 
@@ -30,7 +34,7 @@ There are many ways to provide access control over storage resources available, 
 
 **Do you prioritize authentication through identity services for a workload over cryptographic keys?**
 ***
-Protecting cryptographic keys can often get overlooked or implemented poorly. Managing keys securely with application code is especially difficult and can lead to mistakes such as accidentally publishing sensitive access keys to public code repositories.
+Protection of cryptographic keys can often get overlooked or implemented poorly. Managing keys securely with application code is especially difficult and can lead to mistakes such as accidentally publishing sensitive access keys to public code repositories.
 
 Use of identity-based option for storage access control is recommended. This option uses role-based access controls (RBAC) over storage resources. Use RBAC to assign permissions to users, groups, and applications at a certain scope. Identity systems such as Azure Active Directory(Azure AD) offer secure and usable experience for access control with built-in mechanisms for handling key rotation, monitoring for anomalies, and others.
 
@@ -51,7 +55,9 @@ Suppose you need to store sensitive data in Azure Blob Storage. You can use Azur
 
 ## Key storage
 
-Store all application keys and secrets in managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview). Data encryption keys are often encrypted. Store them in Azure Key Vault to further limit access.
+API keys, database connection strings, and passwords can get leaked. Also, data encryption keys are considered to be sensitive information. 
+
+Store all application keys and secrets in managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview) and not within the application code or configuration. Storing encryption keys a managed store further limits access. The workload can access the secrets by authenticating itself against Key Vault by using managed identities. That access can be restricted with Azure RBAC.
 
 Make sure that no keys and secrets for any environment types (Dev/Test, or production) are stored in application configuration files or CI/CD pipelines. Developers can use [Visual Studio Connected Services](/azure/key-vault/general/vs-key-vault-add-connected-service) or local-only files to access credentials.
 
@@ -64,23 +70,32 @@ To secure access to your key vaults, control permissions to keys and secrets an 
 
 ## Operational considerations
 
-**Who is responsible to manage the keys and secrets in the application context?**
+**Who is responsible for managing keys and secrets in the application context?**
 ***
 
 Central SecOps team provides guidance on how keys and secrets are managed (governance). Application DevOps team is responsible for managing the application-related keys and secrets.
 
 **What types of keys and secrets are used and how are those generated?**
 ***
-There are various approaches that the workload team uses. Options include Microsoft-managed Keys, Customer-managed Keys, Bring Your Own Key. The decision is often driven by security, compliance and specific data classification requirements. Have a clear understanding these requirements to determine the most suitable type of keys. 
+There are various approaches. Options include Microsoft-managed Keys, Customer-managed Keys, Bring Your Own Key. The decision is often driven by security, compliance and specific data classification requirements. Have a clear understanding these requirements to determine the most suitable type of keys. 
 
 **Are keys and secrets rotated frequently?**
 ***
-Key rotation reduces the attack vectors and should be automated and executed without any human interactions.
 
-**What mechanisms are in place for replacing secrets if needed?**
+To reduce the attack vectors, secrets require rotation and be prone to expiration. The process should be automated and executed without any human interactions. Storing them in a managed store simplifies those operational tasks by handling key rotation.
+
+Replace secrets after they've reached the end of their active lifetime or if they've been compromised. Renewed certificates should also use a new key. Have a process for situations where keys get compromised (leaked) and need to be regenerated on-demand. For example, secrets rotation in SQL Database.
+
+For more information, see [Key Vault Key Rotation](/azure/key-vault/secrets/tutorial-rotation-dual).
+
+By using managed identities, you remove the operational overhead for storing the secrets or certificates of service principals.
+
+**Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?**
 ***
-Replace secrets after they have reached the end of their active lifetime or if they have been compromised. Renewed certificates should also use a new key. Have a process for situations where keys get compromised (leaked) and need to be regenerated on-demand. For example, secrets rotation in SQL Database.
 
+A common cause of application outage are expired SSL/TLS certificates.
+
+Avoid outages by tracking the expiry dates of SSL/TLS certificates and renewing them in due time. Ideally, the process should be automated, although this often depends on used certificate authority (CA). If not automated, use alerts to make sure expiry dates do not go unnoticed.
 
 ## Next steps
 Protect data at rest and in transit through encryption. Make sure you use standard encryption algorithms. 
