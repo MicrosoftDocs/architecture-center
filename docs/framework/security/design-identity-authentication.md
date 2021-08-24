@@ -108,7 +108,7 @@ An implementation of this strategy is enabling single sign-on (SSO) to devices, 
 
 **Suggested actions**
 
-Organizations should attempt to ensure policy and processes require restricting and monitoring direct internet connectivity by virtual machines.
+Organizations should attempt to ensure policy and processes require restricting, and monitoring direct internet connectivity by virtual machines.
 
 **Learn more**
 
