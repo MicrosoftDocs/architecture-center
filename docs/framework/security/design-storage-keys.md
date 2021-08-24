@@ -64,6 +64,8 @@ To secure access to your key vaults, control permissions to keys and secrets an 
 
 ## Operational considerations
 
+Key and certificate rotation is often the cause of application outages. Even Azure has experienced expired certificates. It is critical that the rotation of keys and certificates be scheduled and fully operationalized. The rotation process should be automated and tested to ensure effectiveness. Azure Key Vault supports key rotation and auditing.
+
 **Who is responsible to manage the keys and secrets in the application context?**
 ***
 
@@ -81,8 +83,16 @@ Key rotation reduces the attack vectors and should be automated and executed wit
 ***
 Replace secrets after they have reached the end of their active lifetime or if they have been compromised. Renewed certificates should also use a new key. Have a process for situations where keys get compromised (leaked) and need to be regenerated on-demand. For example, secrets rotation in SQL Database.
 
+## Suggested actions
+
+Implement a process for SSL certificate management and the automated renewal process with Azure Key Vault.
+
+## Learn more
+
+[Tutorial: Configure certificate auto-rotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates)
 
 ## Next steps
+
 Protect data at rest and in transit through encryption. Make sure you use standard encryption algorithms. 
 
 > [!div class="nextstepaction"]
