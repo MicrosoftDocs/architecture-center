@@ -46,7 +46,7 @@ As you review the results and apply recommendations, track the progress and prio
 - Set up a regular cadence (typically monthly) to review the secure score and plan initiatives with specific improvement goals. 
 - Assign stakeholders for monitoring and improving the score. Gamify the activity if possible to increase engagement and focus from the responsible teams.
     
-    Have dedicated teams that monitor Secure Score and follow up with technical teams. Typically, these teams are responsible. 
+    As a technical workload owner, work with your organization's dedicated team that monitors Secure Score. In the DevOps model, workload teams may be responsible for their own resources. Typically, these teams are responsible. 
     - Security posture management team
     - Vulnerability management or governance, risk, and compliance team
     - Architecture team
@@ -64,8 +64,6 @@ As you review the results and apply recommendations, track the progress and prio
     |Networking Resources||Networking Team and Network Security Team|
     |IoT Security|IoT Resources | IoT Operations Team|
 
-> [!NOTE] 
-> As a technical workload owner, work with your organization's dedicated team that monitors Secure Score. In the DevOps model, workload teams may be responsible for their own resources.
 
 :::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
 

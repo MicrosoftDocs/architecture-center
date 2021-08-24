@@ -75,7 +75,7 @@ You can assign this permission by using:
 > [!IMPORTANT] 
 > Treat security teams as critical impact accounts and apply the same protections as administrators.
 
-### Policy management across some or all resources 
+### Policy management 
 
 Before defining the policies, consider:
 - How is the organization’s security audited and reported? Is there mandatory reporting? 

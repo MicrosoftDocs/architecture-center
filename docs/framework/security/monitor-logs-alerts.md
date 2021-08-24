@@ -71,7 +71,9 @@ For more information, see [Security alerts and incidents](/azure/security-center
 
 ## Centralize logs and alerts
 
-A central view of log and data is recommended. Some advantages include:
+Organizations typically follow one of three models when deploying logs: centralized, decentralized, or hybrid. The choice depends on organizational structures. For example, if each team owns their resource group, log data is segregated per resource. While access control to that data might be easy to set up, it's difficult to correlate logs. This might be challenging for the SecOps team who need a holistic view to analyze the data.
+
+Consider a central view of log and data, when applicable. Some advantages include:
 - The resources in the workload can share a common log workspace reducing duplication.
 - Single point of observability with all log data makes it easier consume data for hunting activities, querying, and statistical evaluation.
 - The integrated data can be fed into modern machine learning analytics platforms support ingestion of large amounts of information and can analyze large datasets quickly. In addition, these solutions can be tuned to significantly reduce the false positive alerts.

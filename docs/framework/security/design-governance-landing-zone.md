@@ -17,7 +17,7 @@ ms.custom:
 
 # Zero-trust landing zone in Azure
 
-A _landing zone_ refers to a prepared infrastructure into which a workload gets deployed. For example, a hub and spoke topology. It already has the compute, data sources, access controls, and networking components provisioned. When a workload lands on Azure, the required plumbing is ready; the workload needs to plug into it.
+A _landing zone_ refers to a prepared infrastructure into which a workload gets deployed. It already has the compute, data sources, access controls, and networking components provisioned. When a workload lands on Azure, the required plumbing is ready; the workload needs to plug into it.
 
 From a security perspective, there are several benefits. First, a landing zone offers isolation by creating segments. You can isolate assets at several layers from Azure enrollment down to a subscription that has the resources for the workload. This strategy of having resources within a boundary that is separate from other parts of the organization is an effective way of detecting and containing adversary movements.
 
@@ -45,9 +45,9 @@ For information about an enterprise-scale reference architecture, see [Cloud Ado
 Key Azure services that can help in creating a landing zone:
 
 - [Azure Blueprints](/azure/governance/blueprints/overview) sketches a solution's design parameters based on an organization's standards, patterns, and requirements.
+- [Azure Resource Manager template specs](/azure/azure-resource-manager/templates/template-specs)  stores an Azure Resource Manager template (ARM template) in Azure for later deployment.
 - [Azure Policy](/azure/governance/policy/overview) enforces organizational standards and to assess compliance at-scale.
 - [Azure AD](/services/active-directory/) and [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) work in conjunction to provide identity and access controls.
-- [Azure Monitor](/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor) provides centralized operations for monitoring and viewing logs from all resources provisioned. 
 
 ## Next
 Use management groups to manage resources across multiple subscriptions consistently and efficiently. 

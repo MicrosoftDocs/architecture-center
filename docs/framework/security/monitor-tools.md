@@ -29,7 +29,7 @@ Azure provides several monitoring tools that observe the operations and detect a
 
 |Service|Use case|
 |---|---|
-|[**Azure Security Center**](/azure/security-center/security-center-intro)| Strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud (whether they're in Azure or not) and  on-premises. Get a unified view into the infrastructure and resources provisioned for the workload. |
+|[**Azure Security Center**](/azure/security-center/security-center-intro)| Strengthens the security posture of your data centers, and provides advanced threat protection across your workloads in the cloud (whether they're in Azure or not) and on-premises. Get a unified view into the infrastructure and resources provisioned for the workload. |
 |[**Azure Sentinel**](/azure/sentinel/overview)|Use the native security information event management (SIEM) and security orchestration automated response (SOAR) solution on Azure. Receive intelligent security analytics and threat intelligence across the enterprise.|
 |[**Azure DDoS Protection**](/azure/virtual-network/ddos-protection-overview)| Defend against distributed denial of service (DDoS) attacks.|
 |[**Azure Rights Management (RMS)**](/azure/information-protection/what-is-azure-rms)| Protect files and emails across multiple devices.|
@@ -39,14 +39,14 @@ Azure provides several monitoring tools that observe the operations and detect a
 
 Enable Azure Security Center at the subscription level to monitor all resource provisioned in that scope. At no additional cost, it provides continuous observability into resources, reports issues, and recommends fixes. By regularly reviewing and fixing issues, you can improve the security posture, detect threats early, prevent breaches.
 
-Beyond just observability, Security Center offers an advanced mode through its integration with **Azure Defender**. When this plan is enabled, built-in policies, custom policies, and initiatives protect resources and block malicious actors. You can also monitor compliance with regulatory standards - such as NIST, Azure CIS, Azure Security Benchmark. For pricing details, see [Security Center pricing](https://azure.microsoft.com/en-us/pricing/details/azure-defender/). 
+Beyond just observability, Security Center offers an advanced mode through its integration with **Azure Defender**. When these plans are enabled, built-in policies, custom policies, and initiatives protect resources and block malicious actors. You can also monitor compliance with regulatory standards - such as NIST, Azure CIS, Azure Security Benchmark. For pricing details, see [Security Center pricing](https://azure.microsoft.com/pricing/details/azure-defender/).
 
 
 ## Azure Sentinel
 
-If your business has hybrid workloads that runs on and multiple cloud platforms, and, or across cloud and on-premises, make sure that you have a centralized view of all data related to those resources. To get that view you need security information event management (SIEM) and security orchestration automated response (SOAR) solutions. These solutions connect to all security sources, monitor them, and analyze the correlated data.
+Your organization might run workloads on multiple cloud platforms, and, or across cloud and on-premises, or managed by various teams within the organization. Having a centralized view of all data is recommended. To get that view you need security information event management (SIEM) and security orchestration automated response (SOAR) solutions. These solutions connect to all security sources, monitor them, and analyze the correlated data.
 
-Azure Sentinel and is a native control that combines SIEM and SOAR capabilities. It collects events and logs from various connected sources. Based on the data sources and their alerts, Sentinel creates incidents, performs threat analysis for early detection. Through intelligent analytics and queries, you can be proactive with hunting activities. In case of incidents, you can automate workflows. Also, with workbook templates you can quickly gain insights through visualization.
+Azure Sentinel and is a native control that combines SIEM and SOAR capabilities. It analyzes events and logs from various connected sources. Based on the data sources and their alerts, Sentinel creates incidents, performs threat analysis for early detection. Through intelligent analytics and queries, you can be proactive with hunting activities. In case of incidents, you can automate workflows. Also, with workbook templates you can quickly gain insights through visualization.
 
 ## Azure DDoS Protection
 
@@ -54,7 +54,7 @@ A Distributed Denial of Service (DDoS) attack attempts to exhaust an application
 
 Every property in Azure is protected by Azure's infrastructure DDoS (Basic) Protection at no additional cost. The scale and capacity of the globally deployed Azure network provides defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. DDoS Protection Basic requires no user configuration or application changes. DDoS Protection Basic helps protect all Azure services, including PaaS services like Azure DNS.
 
-Azure DDoS Protection Standard, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. It has several advantages over the basic service, including logging, alerting, telemetry, SLA guarantee and cost protection.
+Azure DDoS Protection Standard provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. It has several advantages over the basic service, including logging, alerting, telemetry, SLA guarantee and cost protection.
 
 Azure DDoS Protection Standard is designed for [services that are deployed in a virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services). For other services, the default DDoS Protection Basic service applies. To learn more about supported architectures, see [DDoS Protection reference architectures](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures).
 

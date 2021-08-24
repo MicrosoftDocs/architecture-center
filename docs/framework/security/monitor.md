@@ -29,13 +29,13 @@ Regularly monitor resources to maintain the security posture and detect vulnerab
 
 > [!div class="checklist"]
 > - Use native tools in Azure to monitor the workload resources and the infrastructure in which it runs.
+> - Consider investing in a Security Operations Center (SOC), or SecOps team and incident response plan.
 > - Monitor traffic, access requests, and application communication between segments.
 > - Discover and remediate common risks to improve secure score in Azure Security Center.
 > - Use an industry standard benchmark to evaluate the security posture by learning from external organizations.
-> - Send logs and alerts to a central security log management.
+> - Send logs and alerts to a central security log management for analysis.
 > - Perform regular internal and external compliance audits, including regulatory compliance attestations.
-> - Establish a Security Operations Center (SOC), or SecOps team and incident response plan.
-> - Regularly test your security design and implementation using test cases based on real-world attacks., 
+> - Regularly test your security design and implementation using test cases based on real-world attacks.
 
 ## In this section
 Follow these questions to assess the workload at a deeper level.
@@ -45,7 +45,7 @@ Follow these questions to assess the workload at a deeper level.
 |[**What tools do you use to monitor security?**](monitor-tools.md)|Use Azure tools and services to monitor your security posture and also remediate incidents.|
 |[**How do you discover common risks to resources used in the workload?**](monitor-resources.md)|Azure Security Center provides recommendations for resources that remediate common risks.|
 |[**Have you centralized logs and alerts to SIEM and SOAR?**](monitor-logs-alerts.md)|Integrate logs from Azure resources and platform to a central location. This will help in statistical analysis and auditing.|
-|[**How do you discover and remediate common risks within Azure tenants?**](monitor-remediate.md)|Formally review Azure Security Center's Secure Score on a regular basis and take actions out of it.|
+|[**How do you discover and remediate common risks in the Azure subscription that contains the resources for the workload?**](monitor-remediate.md)|Formally review Azure Security Center's Secure Score on a regular basis and take actions out of it.|
 |[**How do you monitor and maintain your compliance of this workload?**](monitor-audit.md)|Activities related to enabling, acquiring, and storing audit logs for Azure services.|
 |[**How is the security of the workload validated?**](monitor-test.md)|Test the defense of the workload by simulating real-world attacks. Use penetration testing to simulate one-time attack and red teams to simulate long-term persistent attack groups.|
 |[**Are operational processes for incident response defined and tested?**](monitor-security-operations.md)|Guidance for the central SecOps team for monitoring security-related telemetry data and investigating security breaches.|
