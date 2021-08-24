@@ -112,6 +112,8 @@ Azure security features are sufficient for common attacks, easy to configure, an
 
 Most workloads are composed of multiple tiers where several services can serve each tier. Common examples of tiers are web front ends, business processes, reporting and analysis, backend infrastructure, and so on.
 
+Public access to any workload should be judiciously approved and planned, as public entry points represent a key possible vector of compromise. When allowing access from public IPs to any back-end service, limiting the range of allowed IPs can significantly reduce the attack surface of that service. For example, if using Azure Front Door, you can limit backend tiers to allow Front Door IPs only; or if a partner uses your API, limit access to only their nominated public IP(s).
+
 **How do you configure traffic flow between multiple application tiers?**
 ***
 Use Azure Virtual Network Subnet to allocate separate address spaces for different elements or tiers within the workload. Then, define different access policies to control traffic flows between those tiers and restrict access. You can implement those restrictions through IP filtering or firewall rules.
@@ -119,7 +121,14 @@ Use Azure Virtual Network Subnet to allocate separate address spaces for differe
 **Do you need to restrict access to the backend infrastructure?**
 ***
 
+Restrict access to backend services to a minimal set of public IP addresses with App Services IP restrictions or Azure Front Door.
+
 Web applications typically have one public entry point and don't expose subsequent APIs and database servers over the internet. Expose only a minimal set of public IP addresses based on need _and_ only those who really need it. For example, when using gateway services, such as Azure Front Door, it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely.
+
+**Learn more**
+
+- [Set up Azure App Service access restrictions](/app-service/app-service-ip-restrictions)
+- [Azure Front Door documentation](/azure/app-service/app-service-ip-restrictions)
 
 ## Connection with Azure PaaS services
 
@@ -148,7 +157,7 @@ In a hybrid architecture, the workload runs partly on-premises and partly in Azu
 **How do you establish cross premises connectivity?**
 ***
 
-Use Azure ExpressRoute to set up cross premises connectivity to on-premises networks. This service uses a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. This way, you can reduce the risk of potential of access to company’s information assets on-premises.
+Use Azure ExpressRoute to set up cross premises connectivity to on-premises networks. This service uses a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. This way, you can reduce the risk of potential of access to company's information assets on-premises.
 
 **How do you access VMs?**
 ***
