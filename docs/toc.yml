@@ -228,6 +228,8 @@ items:
         href: framework/index.md
       - name: Reliability
         items:
+              - name: About
+                href: framework/resiliency/index.yml
               - name: Principles
                 href: framework/resiliency/principles.md
               - name: Design
@@ -271,6 +273,8 @@ items:
       - name: Security
         items:
           - name: About
+            href: framework/security/index.yml
+          - name: Overview
             href: framework/security/overview.md
           - name: Principles
             href: framework/security/security-principles.md
@@ -443,6 +447,8 @@ items:
             href: framework/cost/tradeoffs.md
       - name: Operational Excellence
         items:
+          - name: About
+            href: framework/devops/index.yml
           - name: Overview
             href: framework/devops/overview.md
           - name: Principles
@@ -484,6 +490,8 @@ items:
       - name: Performance Efficiency
         items:
           - name: About
+            href: framework/scalability/index.yml
+          - name: Overview
             href: framework/scalability/overview.md
           - name: Principles
             href: framework/scalability/principles.md            
@@ -2007,6 +2015,8 @@ items:
                 items:  
                   - name: Modernize mainframe and midrange data
                     href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+                  - name: Re-engineer mainframe batch applications on Azure
+                    href: example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
                   - name: Replicate and sync mainframe data
                     href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
               - name: Solution ideas

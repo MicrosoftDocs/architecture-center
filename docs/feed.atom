@@ -2,12 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-08-16T15:36:42.343Z</updated>
+    <updated>2021-08-23T20:57:42.954Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Noisy Neighbor antipattern]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/antipatterns/noisy-neighbor</id>
+        <link href="https://docs.microsoft.com/azure/architecture/antipatterns/noisy-neighbor"/>
+        <updated>2021-08-20T18:30:22.000Z</updated>
+        <summary type="html"><![CDATA[Learn how the activity of one tenant can impact the performance of other tenants in a multitenant system.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Getting started with Azure IoT solutions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/iot/iot-architecture-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/iot/iot-architecture-overview"/>
+        <updated>2021-08-20T17:46:15.000Z</updated>
+        <summary type="html"><![CDATA[An overview of Azure IoT architectures.  Learn basic concepts around getting started with Azure IoT, how to get started building an IoT solution, or understand how to optimize an IoT solution for production.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[General mainframe refactor to Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/general-mainframe-refactor</id>
@@ -17,11 +33,131 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Performance testing and antipatterns]]></title>
+        <id>https://docs.microsoft.com/azure/architecture//antipatterns</id>
+        <link href="https://docs.microsoft.com/azure/architecture//antipatterns"/>
+        <updated>2021-08-20T18:30:22.000Z</updated>
+        <summary type="html"><![CDATA[Build scalability solutions for common stressors by learning about performance antipatterns. These are common practices that are likely to cause scalability problems when an application is under pressure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Team roles and responsibilities]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-identity-role-definitions</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-identity-role-definitions"/>
+        <updated>2021-08-23T20:50:54.000Z</updated>
+        <summary type="html"><![CDATA[Learn to define clear lines of responsibility and establish separation of duties as part of Azure identity and access management.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Code deployment security considerations in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/deploy-code</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/deploy-code"/>
+        <updated>2021-08-23T17:38:34.000Z</updated>
+        <summary type="html"><![CDATA[Security strategy for automated deployment pipelines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend an on-premises network using VPN]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn"/>
+        <updated>2021-08-23T16:56:58.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to extend a network from on premises or from Azure Stack into an Azure virtual network, using a site-to-site virtual private network (VPN).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Security logs and audits]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/monitor-audit</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/monitor-audit"/>
+        <updated>2021-08-23T16:49:24.000Z</updated>
+        <summary type="html"><![CDATA[Security logging and monitoring focuses on activities related to enabling, acquiring, and storing audit logs for Azure services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Google Cloud to Azure services comparison]]></title>
         <id>https://docs.microsoft.com/azure/architecture/gcp-professional/services</id>
         <link href="https://docs.microsoft.com/azure/architecture/gcp-professional/services"/>
-        <updated>2021-08-13T16:59:40.000Z</updated>
+        <updated>2021-08-23T07:30:44.000Z</updated>
         <summary type="html"><![CDATA[Understand the differences between specific Google Cloud and Azure services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Application threat analysis]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-threat-model</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-threat-model"/>
+        <updated>2021-08-20T22:54:40.000Z</updated>
+        <summary type="html"><![CDATA[Use threat modeling to identify threats, attacks, vulnerabilities, and countermeasures that can affect an application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Secure application's configuration and dependencies]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-app-dependencies</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-app-dependencies"/>
+        <updated>2021-08-20T21:50:04.000Z</updated>
+        <summary type="html"><![CDATA[Review application security for IaaS and PaaS. Make sure your configuration is secure. Also check the dependencies, frameworks, and libraries.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Governance, risk, and compliance in Azure | Microsoft Docs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/governance</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/governance"/>
+        <updated>2021-08-20T21:18:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to define security priorities around governance, risk, and compliance, beginning with definitions of these concepts and how they affect security.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Authentication with Azure AD]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authentication</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-identity-authentication"/>
+        <updated>2021-08-20T20:45:13.000Z</updated>
+        <summary type="html"><![CDATA[Review the authentication considerations when you're using Azure Active Directory (Azure AD) for a workload.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data encryption in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-storage-encryption</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-storage-encryption"/>
+        <updated>2021-08-20T18:35:12.000Z</updated>
+        <summary type="html"><![CDATA[Protect data in transit and at rest through encryption in Azure. Learn about Azure encryption features and standard encryption algorithms.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Best practices for endpoint security on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-network-endpoints</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-network-endpoints"/>
+        <updated>2021-08-20T17:57:00.000Z</updated>
+        <summary type="html"><![CDATA[Examine best practices for protecting application endpoints in Azure. Explore public endpoints. Mitigate distributed denial-of-service (DDoS) attacks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure services for securing network connectivity]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-network-connectivity</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-network-connectivity"/>
+        <updated>2021-08-20T17:27:36.000Z</updated>
+        <summary type="html"><![CDATA[Learn about best practices for securing access to the internet, Azure platform as a service (PaaS) services, and on-premises networks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Governance considerations for secure deployment in Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/deploy-governance</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/deploy-governance"/>
+        <updated>2021-08-20T05:13:32.000Z</updated>
+        <summary type="html"><![CDATA[Governance for CI/CD pipelines to make sure right access and work is executed.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multi-tier web application built for HA/DR]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery"/>
+        <updated>2021-08-17T17:03:19.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create a resilient multitier web application built for high availability and disaster recovery on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Kubernetes Service (AKS) architecture design]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here"/>
+        <updated>2021-08-16T23:10:20.000Z</updated>
+        <summary type="html"><![CDATA[An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
