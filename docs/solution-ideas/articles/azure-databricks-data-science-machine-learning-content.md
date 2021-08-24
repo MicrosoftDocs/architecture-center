@@ -99,7 +99,7 @@ Examples include organizations in these areas:
 [AKS]: https://azure.microsoft.com/services/kubernetes-service
 [Azure Databricks]: https://azure.microsoft.com/services/databricks
 [Batch scoring of Spark models on Azure Databricks]: ../../reference-architectures/ai/batch-scoring-databricks.yml
-[Choose an analytical data store in Azure]: ../../data-guide/technology-choices/analytical-data-stores.yml
+[Choose an analytical data store in Azure]: ../../data-guide/technology-choices/analytical-data-stores.md
 [Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
 [Delta Lake]: https://databricks.com/product/delta-lake-on-databricks
 [Ingestion, ETL, and stream processing pipelines with Azure Databricks]: ./ingest-etl-stream-with-adb.yml
