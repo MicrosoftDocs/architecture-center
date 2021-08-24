@@ -120,6 +120,8 @@ Azure security features are sufficient for common attacks, easy to configure, an
 
 Most workloads are composed of multiple tiers where several services can serve each tier. Common examples of tiers are web front ends, business processes, reporting and analysis, backend infrastructure, and so on.
 
+Application resources allowing multiple methods to publish app content (such as FTP, Web Deploy) should have the unused endpoints disabled. For Azure Web Apps, SCM is the recommended endpoint and it can be protected separately with network restrictions for sensitive scenarios.
+
 Public access to any workload should be judiciously approved and planned, as public entry points represent a key possible vector of compromise. When allowing access from public IPs to any back-end service, limiting the range of allowed IPs can significantly reduce the attack surface of that service. For example, if using Azure Front Door, you can limit backend tiers to allow Front Door IPs only; or if a partner uses your API, limit access to only their nominated public IP(s).
 
 **How do you configure traffic flow between multiple application tiers?**
@@ -133,10 +135,15 @@ Restrict access to backend services to a minimal set of public IP addresses with
 
 Web applications typically have one public entry point and don't expose subsequent APIs and database servers over the internet. Expose only a minimal set of public IP addresses based on need _and_ only those who really need it. For example, when using gateway services, such as Azure Front Door, it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely.
 
+**Suggested actions**
+
+Restrict and protect application publishing methods.
+
 **Learn more**
 
 - [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions)
 - [Azure Front Door documentation](/azure/app-service/app-service-ip-restrictions)
+- [Deploy your app to Azure App Service using FTP/S](/azure/app-service/deploy-ftp?tabs=portal)
 
 ## Connection with Azure PaaS services
 
