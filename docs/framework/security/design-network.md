@@ -6,6 +6,13 @@ ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+categories: 
+  - security
+subject:
+  - security
+  - networking
 ms.custom:
   - article
 ---
@@ -63,7 +70,7 @@ Here are some reference architectures related to network security:
 Monitor the communication between segments. Use data to identify anomalies, set alerts, or block traffic to mitigate the risk of attackers crossing segmentation boundaries. 
 
 > [!div class="nextstepaction"]
-> [Monitor identity, network, data risks](./monitor-identity-network.md)
+> [Monitor identity, network, data risks](./monitor-resources.md)
 
 ## Related links
 
