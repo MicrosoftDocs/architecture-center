@@ -46,15 +46,15 @@ Below are the defenses that can be built to achieve secure access to VMs:
 
 The components of this architecture are listed below:
 
-- [Azure Active Directory (Azure AD) Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/). We use it to limit permanent administrator access to standard and custom privileged roles. In this specific case, we used it to enable just-in-time identity-based access to a custom role.
+- [Azure Active Directory (Azure AD) Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/). We use it to limit permanent administrator access to standard and custom privileged roles. In this specific case, we used it to enable just-in-time identity-based access to a custom role.
 
-- [Azure Security Center's just-in-time (JIT) Virtual Machine Access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). We use it to enable just-in-time network-based access to the desired VM/s.  This service, once enabled, adds a deny rule on the Azure Network Security Group (NSG) that protects the VM network interface or the subnet where the VM network interface lives. That will block all unnecessary management communication to the VM, which minimizes the attack surface of the VM. Once the user request access to the VM, a temporary time-bound allow rule, that has higher priority than the deny rule, is added to the same NSG. That will allow the user to connect to the VM either through Azure Bastion, or RDP/SSH directly depending how it is configured. The Azure Bastion option is the recommended approach.
+- [Azure Security Center's just-in-time (JIT) Virtual Machine Access](/azure/security-center/security-center-just-in-time). We use it to enable just-in-time network-based access to the desired VM/s.  This service, once enabled, adds a deny rule on the Azure Network Security Group (NSG) that protects the VM network interface or the subnet where the VM network interface lives. That will block all unnecessary management communication to the VM, which minimizes the attack surface of the VM. Once the user request access to the VM, a temporary time-bound allow rule, that has higher priority than the deny rule, is added to the same NSG. That will allow the user to connect to the VM either through Azure Bastion, or RDP/SSH directly depending how it is configured. The Azure Bastion option is the recommended approach.
 
-- [Azure RBAC Custom Roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). We use custom roles to follow the principle of least privileges, that will grant minimal required permissions to the user to allow performing the required task, but not further. The required permissions in this reference architecture are read/list virtual machines, request just-in-time VM access in Azure Security Center and connect to the virtual machine via Azure Bastion.
+- [Azure RBAC Custom Roles](/azure/role-based-access-control/custom-roles). We use custom roles to follow the principle of least privileges, that will grant minimal required permissions to the user to allow performing the required task, but not further. The required permissions in this reference architecture are read/list virtual machines, request just-in-time VM access in Azure Security Center and connect to the virtual machine via Azure Bastion.
 
-- [Azure AD Conditional Access Policy](https://docs.microsoft.com/azure/active-directory/conditional-access/overview). We use this feature of Azure AD to ensure only authenticated users that passed specific challenges in the Conditional Access Policy were permitted to access the Azure resources. This mechanism is part of [Zero Trust](https://www.microsoft.com/security/business/zero-trust) model.
+- [Azure AD Conditional Access Policy](/azure/active-directory/conditional-access/overview). We use this feature of Azure AD to ensure only authenticated users that passed specific challenges in the Conditional Access Policy were permitted to access the Azure resources. This mechanism is part of [Zero Trust](https://www.microsoft.com/security/business/zero-trust) model.
 
-- [Azure Bastion](https://docs.microsoft.com/azure/bastion/). We use this service to enable users to connect using the Internet Browser (i.e. Microsoft Edge) on port 443 (HTTPS), and the service itself will initiate the RDP connection to the VM, thus RDP/SSH ports will not be exposed to the Internet or wherever the user is coming from. While the integration is recommended, it is optional, and can easily drawn out from this architecture and use RDP protocol to connect to the VM in Azure directly.
+- [Azure Bastion](/azure/bastion/). We use this service to enable users to connect using an Internet browser (i.e. Microsoft Edge) on port 443 (HTTPS), and the service itself will initiate the RDP connection to the VM, thus RDP/SSH ports will not be exposed to the Internet or wherever the user is coming from. While the integration is recommended, it is optional, and can easily drawn out from this architecture and use RDP protocol to connect to the VM in Azure directly.
 
 ## Next steps
 
@@ -68,7 +68,7 @@ These are recommended articles and will complement the broader recommended secur
 
 These resources will help you with understanding the components of this architecture:
 
-* [Activate my Azure resource roles in Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles)
-* [Understanding just-in-time (JIT) VM access](https://docs.microsoft.com/azure/security-center/just-in-time-explained)
-* [Configure Bastion and connect to a Windows VM through a browser](https://docs.microsoft.com/azure/bastion/tutorial-create-host-portal)
-* [Secure user sign-in events with Azure AD Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa)
+* [Activate my Azure resource roles in Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles)
+* [Understanding just-in-time (JIT) VM access](/azure/security-center/just-in-time-explained)
+* [Configure Bastion and connect to a Windows VM through a browser](/azure/bastion/tutorial-create-host-portal)
+* [Secure user sign-in events with Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/tutorial-enable-azure-mfa)
