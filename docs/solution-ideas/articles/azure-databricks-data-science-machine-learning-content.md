@@ -98,15 +98,15 @@ Examples include organizations in these areas:
 [AGL achieves machine learning at scale with a standardized platform on Azure Machine Learning]: https://customers.microsoft.com/story/844796-agl-energy-azure
 [AKS]: https://azure.microsoft.com/services/kubernetes-service
 [Azure Databricks]: https://azure.microsoft.com/services/databricks
-[Batch scoring of Spark models on Azure Databricks]: ../../reference-architectures/ai/batch-scoring-databricks
-[Choose an analytical data store in Azure]: ../../data-guide/technology-choices/analytical-data-stores
+[Batch scoring of Spark models on Azure Databricks]: ../../reference-architectures/ai/batch-scoring-databricks.yml
+[Choose an analytical data store in Azure]: ../../data-guide/technology-choices/analytical-data-stores.yml
 [Data Lake Storage]: https://azure.microsoft.com/services/storage/data-lake-storage
 [Delta Lake]: https://databricks.com/product/delta-lake-on-databricks
-[Ingestion, ETL, and stream processing pipelines with Azure Databricks]: ./ingest-etl-stream-with-adb
+[Ingestion, ETL, and stream processing pipelines with Azure Databricks]: ./ingest-etl-stream-with-adb.yml
 [Machine Learning]: https://azure.microsoft.com/services/machine-learning
 [MLflow]: https://mlflow.org
-[Modern analytics architecture with Azure Databricks]: ./azure-databricks-modern-analytics-architecture
+[Modern analytics architecture with Azure Databricks]: ./azure-databricks-modern-analytics-architecture.yml
 [Open Grid Europe (OGE)]: https://customers.microsoft.com/story/1378282338316029794-open-grid-europe-azure-en
 [Scandinavian Airlines (SAS)]: https://customers.microsoft.com/story/781802-sas-travel-transportation-azure-machine-learning
-[Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks
+[Stream processing with Azure Databricks]: ../../reference-architectures/data/stream-processing-databricks.yml
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1862911-azure-databricks-data-science-machine-learning.vsdx
