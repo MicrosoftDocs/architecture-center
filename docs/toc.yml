@@ -1019,7 +1019,7 @@ items:
                 href: solution-ideas/articles/customer-churn-prediction.yml
               - name: Customer feedback
                 href: solution-ideas/articles/customer-feedback-and-analytics.yml
-              - name: Data science and machine learning with Azure Databricks
+              - name: Data science and machine learning
                 href: solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
               - name: Defect prevention
                 href: solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml
