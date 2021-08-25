@@ -2183,10 +2183,40 @@ items:
             items:
               - name: Add IP spaces to peered virtual networks
                 href: networking/prefixes/add-ip-space-peered-vnet.md
-              - name: Azure Application Gateway guide
+              - name: Azure Application Gateway WAF review
                 href: networking/guide/waf-application-gateway.md
-              - name: Azure Firewall architecture guide
+              - name: Azure Firewall architecture overview
                 href: example-scenario/firewalls/index.yml
+              - name: Azure Firewall WAF review
+                href: networking/guide/well-architected-framework-azure-firewall.md
+              - name: Segment Virtual Networks
+                href: reference-architectures/hybrid-networking/network-level-segmentation.yml
+              - name: Use Azure ExpressRoute with Power Platform
+                items:
+                  - name: Overview
+                    href: /power-platform/guidance/expressroute/overview
+                    maintainContext: true
+                  - name: Benefits of using ExpressRoute
+                    href: /power-platform/guidance/expressroute/benefits
+                    maintainContext: true
+                  - name: How ExpressRoute works
+                    href: /power-platform/guidance/expressroute/how-expressroute-works
+                    maintainContext: true
+                  - name: Before you use ExpressRoute
+                    href: /power-platform/guidance/expressroute/things-to-consider
+                    maintainContext: true
+                  - name: Understand Power Platform architecture
+                    href: /power-platform/guidance/expressroute/understanding-architecture
+                    maintainContext: true
+                  - name: Plan an ExpressRoute deployment
+                    href: /power-platform/guidance/expressroute/planning-expressroute
+                    maintainContext: true
+                  - name: Set up ExpressRoute for Power Platform
+                    href: /power-platform/guidance/expressroute/setup
+                    maintainContext: true
+                  - name: ExpressRoute readiness checklist
+                    href: /power-platform/guidance/expressroute/checklist
+                    maintainContext: true
               - name: Virtual network peering and VPN gateways
                 href: reference-architectures/hybrid-networking/vnet-peering.yml
           - name: Architectures
@@ -2211,8 +2241,6 @@ items:
                     href: hybrid/hybrid-perf-monitoring.yml
               - name: Implement a secure hybrid network
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
-              - name: Segmenting Virtual Networks
-                href: reference-architectures/hybrid-networking/network-level-segmentation.yml
           - name: Solution ideas
             items:
               - name: Low-latency network for industry
