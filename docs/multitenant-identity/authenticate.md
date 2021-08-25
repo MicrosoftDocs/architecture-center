@@ -6,13 +6,17 @@ ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - identity
+  - web
 ms.custom:
   - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: tailspin
 pnp.series.next: claims
+products:
+  - azure-active-directory
+  - azure-app-service-web
 ---
 
 <!-- cSpell:ignore OIDC multitenanted openid -->
@@ -47,7 +51,7 @@ To enable this functionality in the sample Surveys application, see the [GitHub 
 
 ## Configure the auth middleware
 
-[!INCLUDE [Obselete technology disclaimer](../../includes/multitenant-disclaimer.md)]
+[!INCLUDE [Obsolete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 This section describes how to configure the authentication middleware in ASP.NET Core for multitenant authentication with OpenID Connect.
 
