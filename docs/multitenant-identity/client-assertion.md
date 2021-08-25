@@ -13,8 +13,6 @@ ms.custom:
   - guide
 ---
 
-[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
-
 # Use client assertion to get access tokens from Azure AD
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
@@ -70,6 +68,8 @@ Notice that the `client_secret` parameter is no longer used. Instead, the `clien
 At run time, the web application reads the certificate from the certificate store. The certificate must be installed on the same machine as the web app.
 
 ## Implementing client assertion
+
+[!INCLUDE [Obselete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 The Surveys application includes a helper class that creates a [ClientAssertionCertificate](/dotnet/api/microsoft.identitymodel.clients.activedirectory.clientassertioncertificate) that you can pass to the [AuthenticationContext.AcquireTokenSilentAsync](/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokensilentasync) method to acquire a token from Azure AD.
 

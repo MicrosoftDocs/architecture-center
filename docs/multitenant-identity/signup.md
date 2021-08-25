@@ -15,8 +15,6 @@ pnp.series.prev: claims
 pnp.series.next: app-roles
 ---
 
-[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
-
 <!-- cSpell:ignore signup nameof -->
 
 # Tenant sign-up and onboarding
@@ -50,6 +48,8 @@ Only an AD administrator can give admin consent, because it grants permission on
 If the application requires additional permissions at a later point, the customer will need to sign up again and consent to the updated permissions.
 
 ## Implementing tenant sign-up
+
+[!INCLUDE [Obselete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 For the [Tailspin Surveys][Tailspin] application,  we defined several requirements for the sign-up process:
 
