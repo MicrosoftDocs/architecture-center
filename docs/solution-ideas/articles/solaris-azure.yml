@@ -9,9 +9,13 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
+  ms.category:
+    - migration
   ms.custom:
     - fcp
 name: Stromasys Charon-SSP Solaris emulator on Azure VMs
+azureCategories:
+  - migration
 summary: Charon-SSP cross-platform hypervisor emulates legacy Sun SPARC systems on industry standard x86-64 computer systems and VMs.
 products:
   - azure-storage
