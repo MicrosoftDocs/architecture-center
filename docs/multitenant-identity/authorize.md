@@ -28,8 +28,6 @@ A typical app will employ a mix of both. For example, to delete a resource, the 
 
 ## Role-based authorization
 
-[!INCLUDE [Obselete technology disclaimer](../../includes/multitenant-disclaimer.md)]
-
 The [Tailspin Surveys][Tailspin] application defines the following roles:
 
 * Administrator. Can perform all CRUD operations on any survey that belongs to that tenant.
@@ -39,6 +37,8 @@ The [Tailspin Surveys][Tailspin] application defines the following roles:
 Roles apply to *users* of the application. In the Surveys application, a user is either an administrator, creator, or reader.
 
 For a discussion of how to define and manage roles, see [Application roles].
+
+[!INCLUDE [Obselete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 Regardless of how you manage the roles, your authorization code will look similar. ASP.NET Core has an abstraction called [authorization policies][policies]. With this feature, you define authorization policies in code, and then apply those policies to controller actions. The policy is decoupled from the controller.
 

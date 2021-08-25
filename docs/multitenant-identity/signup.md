@@ -49,8 +49,6 @@ If the application requires additional permissions at a later point, the custome
 
 ## Implementing tenant sign-up
 
-[!INCLUDE [Obselete technology disclaimer](../../includes/multitenant-disclaimer.md)]
-
 For the [Tailspin Surveys][Tailspin] application,  we defined several requirements for the sign-up process:
 
 * A tenant must sign up before users can sign in.
@@ -66,6 +64,8 @@ When an anonymous user visits the Surveys application, the user is shown two but
 ![Application sign-up page](./images/sign-up-page.png)
 
 These buttons invoke actions in the `AccountController` class.
+
+[!INCLUDE [Obselete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 The `SignIn` action returns a **ChallengeResult**, which causes the OpenID Connect middleware to redirect to the authentication endpoint. This is the default way to trigger authentication in ASP.NET Core.
 
