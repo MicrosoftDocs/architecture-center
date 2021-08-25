@@ -64,69 +64,70 @@ Review the differences between the two Azure Firewall SKUs. The Standard option 
 
 ### Networking
 
-An Azure Firewall is a dedicated deployment in your virtual network. Within your virtual network, a [dedicated subnet](/azure/application-gateway/configuration-infrastructure#virtual-network-and-dedicated-subnet) is required for the Azure Firewall. Azure Firewall will provision more capacity as it scales. A /26 address space for its subnets ensures that the firewall has enough IP addresses available to accommodate the scaling. Azure Firewall does not need a subnets bigger than /26, and the Azure Firewall subnet name must be **AzureFirewallSubnet**.
-- If you are considering using Forced Tunneling feature, you will need an additional /26 address space for the Azure Firewall Management Subnet, and it must to be named **AzureFirewallManagementSubnet**, this is also a requirement.
-- Azure Firewall always starts with 2 instances, it can scale up to 20 instances, and you cannot see those individual instances. You can only deploy a single Azure Firewall in each Vnet.
-- Azure Firewall must have direct Internet connectivity. If your **AzureFirewallSubnet** learns a default route to your on-premises network via BGP, you must configure Azure Firewall in Forced Tunneling mode. If this is an existing Azure Firewall, which cannot be reconfigured in Forced Tunneling mode, it is recommended to create an UDR with a 0.0.0.0/0 route with the **NextHopType** value set as **Internet** and associate it with the **AzureFirewallSubnet** to maintain internet connectivity.
-- When deploying a new Azure Firewall, if you enable the Forced Tunneling mode, you can set the Public IP Address to **None** deploying a fully private Data Plane. However, the Management Plane still requires a Public IP for management purposes only, the internal traffic from Virtual Networks, and/or on-premises will not use that Public IP. See more about Force tunneling at: [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling).
-- When having multi-region Azure environments, remember that Azure Firewall is a regional service, therefor you'll likely have one instance per regional hub.
+An Azure Firewall is a dedicated deployment in your virtual network. Within your virtual network, a [dedicated subnet](/azure/application-gateway/configuration-infrastructure#virtual-network-and-dedicated-subnet) is required for the Azure Firewall. Azure Firewall will provision more capacity as it scales. A /26 address space for its subnets ensures that the firewall has enough IP addresses available to accommodate the scaling. Azure Firewall does not need a subnet bigger than /26, and the Azure Firewall subnet name must be **AzureFirewallSubnet**.
+- If you are considering using the forced tunneling feature, you will need an additional /26 address space for the Azure Firewall Management subnet, and you must name it **AzureFirewallManagementSubnet** (this is also a requirement).
+- Azure Firewall always starts with two instances, it can scale up to 20 instances, and you cannot see those individual instances. You can only deploy a single Azure Firewall instance in each VNet.
+- Azure Firewall must have direct Internet connectivity. If your **AzureFirewallSubnet** learns a default route to your on-premises network via BGP, then you must configure Azure Firewall in the forced tunneling mode. If this is an existing Azure Firewall instance, which cannot be reconfigured in the forced tunneling mode, then we recommended that you create a UDR with a 0.0.0.0/0 route, with the **NextHopType** value set as **Internet**. Associate it with the **AzureFirewallSubnet** to maintain internet connectivity.
+- When deploying a new Azure Firewall instance, if you enable the forced tunneling mode, you can set the Public IP Address to **None** to deploy a fully private data plane. However, the management plane still requires a public IP, for management purposes only. The internal traffic from Virtual Networks, and/or on-premises, will not use that public IP. See more about forced tunneling at [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling).
+- When you have multi-region Azure environments, remember that Azure Firewall is a regional service. Therefore, you'll likely have one instance per regional hub.
 
 ### Monitoring
 
 #### Monitoring capacity metrics
 
-The following metrics can be used by the customer as indicators of utilization of provisioned Azure Firewall capacity. Alerts can be set as needed by the customers to get notifications once a threshold has been reached for any metric.
+The following metrics can be used by the customer, as indicators of utilization of provisioned Azure Firewall capacity. Alerts can be set as needed by the customers, to get notifications once a threshold has been reached for any metric.
 
 | **Metric name** | **Explanation** |
 | :--: | :-- |
 | Application rules hit count | The number of times an application rule has been hit. <br> Unit: count |
-| Data Processed | Sum of data traversing the firewall in a given time window. <br> Unit: bytes |
-| Firewall Health State | Indicates the health of the firewall based on SNAT port availability. <br> Unit: percent <br> This metric has two dimensions: <br> - Status: Possible values are Healthy, Degraded, Unhealthy. <br> - Reason: Indicates the reason for the corresponding status of the firewall.  <br>   <br> If SNAT ports are used > 95%, they are considered exhausted and the health is 50% with status=Degraded and reason=SNAT port. The firewall keeps processing traffic and existing connections are not affected. However, new connections may not be established intermittently.  <br><br> If SNAT ports are used < 95%, then firewall is considered healthy and health is shown as 100%. <br><br> If no SNAT ports usage is reported, health is shown as 0%. |
+| Data processed | Sum of data traversing the firewall in a given time window. <br> Unit: bytes |
+| Firewall health state | Indicates the health of the firewall, based on SNAT port availability. <br> Unit: percent <br> This metric has two dimensions: <br> - Status: Possible values are Healthy, Degraded, and Unhealthy. <br> - Reason: Indicates the reason for the corresponding status of the firewall.  <br>   <br> If the SNAT ports are used > 95%, they are considered exhausted, and the health is 50% with status=Degraded and reason=SNAT port. The firewall keeps processing traffic, and the existing connections are not affected. However, new connections may not be established intermittently. <br><br> If the SNAT ports are used < 95%, then the firewall is considered healthy, and the health is shown as 100%. <br><br> If no SNAT ports usage is reported, then the health is shown as 0%. |
 | Network rules hit count | The number of times a network rule has been hit. <br> Unit: count |
-| SNAT port utilization | The percentage of SNAT ports that have been utilized by the firewall. <br> Unit: percent <br> <br> When you add more public IP addresses to your firewall, more SNAT ports are available, reducing the SNAT ports utilization. Additionally, when the firewall scales out for different reasons (for example, CPU or throughput) additional SNAT ports also become available. So effectively, a given percentage of SNAT ports utilization may go down without you adding any public IP addresses, just because the service scaled out. You can directly control the number of public IP addresses available to increase the ports available on your firewall. But, you can't directly control firewall scaling. <br><br> If your firewall is running into SNAT port exhaustion, you should add at least five public IP address. This increases the number of SNAT ports available. Another option is associating a NAT Gateway with the Azure Firewall Subnet, which can help to increase the ports up to +1M ports. |
-| Throughput | Rate of data traversing the firewall per second. <br> Unit: bits per second |
+| SNAT port utilization | The percentage of SNAT ports that have been utilized by the firewall. <br> Unit: percent <br> <br> When you add more public IP addresses to your firewall, then more SNAT ports are available. This reduces the SNAT ports utilization. Additionally, when the firewall scales out for different reasons (for example, CPU or throughput), then additional SNAT ports also become available. Effectively, a given percentage of SNAT ports utilization may go down without you adding any public IP addresses, just because the service scaled out. You can directly control the number of public IP addresses that are available, to increase the ports available on your firewall. But, you can't directly control firewall scaling. <br><br> If your firewall is running into SNAT port exhaustion, you should add at least five public IP address. This increases the number of SNAT ports available. Another option is to associate a NAT Gateway with the Azure Firewall subnet, which can help you increase the ports up to +1M ports. |
+| Throughput | Rate of data traversing the firewall, per second. <br> Unit: bits per second |
 
 #### Monitoring logs using Azure Firewall Workbook
 
-Azure Firewall exposes a few other logs and metrics for troubleshooting that can be used as indicators of issues. We recommend evaluating alerts as per the table below. Reference: [Monitor Azure Firewall logs and metrics](/azure/firewall/firewall-diagnostics)
+Azure Firewall exposes a few other logs and metrics for troubleshooting that can be used as indicators of issues. We recommend evaluating alerts, as per the table below. Refer to [Monitor Azure Firewall logs and metrics](/azure/firewall/firewall-diagnostics).
 
 | **Metric name**  | **Explanation** |
 | :--: | :-- |
-| Application rule log | Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. |
-| Network rule log | Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. |
-| DNS Proxy log| This log tracks DNS messages to a DNS server configured using DNS proxy. |
+| Application rule log | Each new connection that matches one of your configured application rules will result in a log for the accepted/denied connection. |
+| Network rule log | Each new connection that matches one of your configured network rules will result in a log for the accepted/denied connection. |
+| DNS Proxy log| This log tracks DNS messages to a DNS server that is configured using a DNS proxy. |
 
 #### Diagnostics logs and policy analytics
 
-- Diagnostic logs allow you to view Azure Firewall logs, Performance logs, and Access logs. You can use these logs in Azure to manage and troubleshoot your Azure Firewall.
+- Diagnostic logs allow you to view Azure Firewall logs, performance logs, and access logs. You can use these logs in Azure to manage and troubleshoot your Azure Firewall instance.
 
-- Policy Analytics for Azure Firewall Manager allows you to start seeing rules and flows that match the rules and hit count for those rules. By watching that you can see what rule is in use and traffic being matched, it provides full visibility of the traffic.
+- Policy analytics for Azure Firewall Manager allows you to start seeing rules and flows that match the rules and hit count for those rules. By watching what rule is in use and the traffic that's being matched, you can have full visibility of the traffic.
 
 ## Performance efficiency
 
-### SNAT Ports Exhaustion
+### SNAT ports exhaustion
 
-- If more than 512K ports will be necessary, use NAT Gateway with Azure Firewall to scale up that limit, you can have up to +1M ports when associating a NAT Gateway to the Azure Firewall Subnet. Refer to the following link: [Scale SNAT ports with Azure NAT Gateway](/azure/firewall/integrate-with-nat-gateway)
+- If more than 512K ports are necessary, use a NAT gateway with Azure Firewall. To scale up that limit, you can have up to +1M ports when associating a NAT gateway to the Azure Firewall subnet. For more information, refer to [Scale SNAT ports with Azure NAT Gateway](/azure/firewall/integrate-with-nat-gateway).
 
 ### Auto scale and performance
 
-- Azure Firewall uses auto scale, it can go up to 20 instances providing up to 20 Gbps.
-- Azure Firewall always starts with 2 instances, and it scales up and down based on CPU and Network Throughput. After Auto scale, Azure Firewall ends up with either n-1 or n+1 instances.
-- Scaling up happens if the threshold for CPU or throughput are greater than 60% for more than 5 min.
-- Scaling down happens if the threshold for CPU or throughput are under 60% for more than 30 min. The scale down process happens gracefully (deleting instances). The Active Connections on the deprovisioned instances are disconnected and switched over to other instances, for majority of applications this process does not cause any downtime, but applications should have some type of auto-reconnect capability, majority already have.
-- If performing load tests, make sure to create initial traffic that is not part of your load tests 20 minutes prior to the test to allow the Azure Firewall to scale up its instances to the maximum. Use Diagnostics settings to capture scale up and down events.
-- Do not exceed 10k Network Rules, and make sure use IP Groups. When creating Network Rules, remember that for each rule, Azure actually multiples **Ports x IP Addresses**, so if you 1 Rule with 4 IP Address Ranges and 5 Ports, you will be actually consuming 20 Network Rules, always try to summarize IP ranges.
+- Azure Firewall uses auto scale. It can go up to 20 instances that provide up to 20 Gbps.
+- Azure Firewall always starts with 2 instances. It scales up and down, based on CPU and the network throughput. After an auto scale, Azure Firewall ends up with either n-1 or n+1 instances.
+- Scaling up happens if the threshold for CPU or throughput are greater than 60%, for more than 5 minutes.
+- Scaling down happens if the threshold for CPU or throughput are under 60%, for more than 30 minutes. The scale-down process happens gracefully (deleting instances). The active connections on the deprovisioned instances are disconnected and switched over to other instances. For the majority of applications, this process does not cause any downtime, but applications should have some type of auto-reconnect capability. (The majority already has this capability.)
+- If you're performing load tests, make sure to create initial traffic that is not part of your load tests, 20 minutes prior to the test. This is to allow the Azure Firewall instance to scale up its instances to the maximum. Use diagnostics settings to capture scale-up and scale-down events.
+- Do not exceed 10k network rules, and make sure you use IP Groups. When creating network rules, remember that for each rule, Azure actually multiples **Ports x IP Addresses**, so if you have one rule with four IP address ranges and five ports, you will be actually consuming 20 network rules. Always try to summarize IP ranges.
 - There are no restrictions for Application Rules.
-- Add the Allow rules first, then add the Deny rules to the lowest priority levels.
+- Add the Allow rules first, and then add the Deny rules to the lowest priority levels.
 
 ## Reliability
 
-- Azure Firewall provides 99.95% SLA when deployed in a single Availability Zone, and 99.99% SLA when deployed in multi-zones.
-- For workloads designed to be resistant to failures and fault-tolerant, remember to take into consideration that Azure Firewalls and Virtual Networks are regional resources. 
+- Azure Firewall provides a 99.95% SLA, when deployed in a single Availability Zone. Azure Firewall provides a 99.99% SLA, when deployed in multi-zones.
+
+- For workloads designed to be resistant to failures and to be fault-tolerant, remember to take into consideration that Azure Firewalls and Virtual Networks are regional resources. 
 
 - Closely monitor metrics, especially SNAT port utilization, firewall health state, and throughput.
 
-- Avoid adding multiple individual IP addresses or IP Addresses ranges to Network Rules, use Super Nets instead or IP Groups when possible. Azure Firewall multiples **IPs x rules**, and that can make you to achieve the 10k recommended rules limit.
+- Avoid adding multiple individual IP addresses or IP address ranges to your network rules. Use super nets instead, or IP Groups when possible. Azure Firewall multiples **IPs x rules**, and that can make you reach the 10k recommended rules limit.
 
 ## Security
 
