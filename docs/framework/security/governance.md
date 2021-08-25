@@ -121,6 +121,8 @@ Set up a regular cadence (typically monthly) to review Azure secure score and pl
 
 ## Manage connected tenants
 
+Does your security team have visibility into all existing subscriptions and cloud environments? How do they discover new ones?
+
 Ensure your security organization is aware of all enrollments and associated
 subscriptions connected to your existing environment (via ExpressRoute or
 Site-Site VPN) and monitoring as part of the overall enterprise.
@@ -130,9 +132,15 @@ organizations require visibility into them. Security organizations need this
 access to assess risk and to identify whether organizational policies and
 applicable regulatory requirements are being followed.
 
+The organizations' cloud infrastructure should be well documented, with security team access to all resources required for monitoring and insight. Frequent scans of the cloud-connected assets should be performed to ensure no additional subscriptions or tenants have been added outside of organizational controls. Regularly review Microsoft guidance to ensure security team access best practices are consulted and followed.
+
+### Suggested actions
+
 Ensure all Azure environments that connect to your production
-environment/network apply your organization's policy and IT governance controls
-for security. You can discover existing connected tenants using a
+environment and network apply your organization's policy, and IT governance controls
+for security.
+
+You can discover existing connected tenants using a
 [tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions
 you may assign to security is in the [Assign privileges for managing the
 environment](#assign-privileges-for-managing-the-environment) section.
@@ -177,19 +185,19 @@ and were not aligned well with business use cases and application workloads.
 This resulted in overwhelming complexity that generates support issues and often
 undermines the original purpose with broad network firewall exceptions.
 
-Creating a unified enterprise segmentation strategy enables to guide all
-technical teams stakeholders (IT, Security, Applications, etc.) Business Units
-that is built around the business risks and needs will increase alignment to and
-understand and support sustainability of the security containment promises.
-This clarity and alignment will also reduce s the risk of human errors and
+Creating a unified enterprise segmentation strategy provides guidance to all
+technical team stakeholders (IT, Security, Applications, etc.) Business Units
+that are built around the business risks and needs will increase alignment, 
+understanding, and support for the sustainability of the security containment promises.
+This clarity and alignment will also reduce the risk of human errors and
 automation failures that can lead to security vulnerabilities, operational
 downtime, or both.
 
 While network micro-segmentation also offers promise to reduce risk (discussed
 more in [Network Security and Containment](./network-security-containment.md) section), it doesn't eliminate the
-need to align technical teams. Micro segmentation should be considered after to
-and plans to ensure the ensuring technical teams are aligned so you can avoid a
-recurrence of the internal conflicts that plagued and confusion of the
+need to align technical teams. Micro segmentation should be considered after 
+ensuring technical teams are aligned so you can avoid a
+recurrence of the internal conflicts and confusion of the
 on-premises network generation segmentation strategies.
 
 Here are Microsoft's recommendations for prioritizing initiatives on containment and
@@ -265,7 +273,7 @@ permissions based on a clearly documented strategy built from the principle of
 least privilege and your operational needs.
 
 Providing clear guidance that follows a reference model will reduce risk because
-by increasing it provides clarity for your technical teams implementing these
+it provides clarity for your technical teams implementing these
 permissions. This clarity makes it easier to detect and correct human errors
 like overpermissioning, reducing your overall risk.
 
@@ -499,8 +507,8 @@ You can conduct the review manually or through an automated process by using too
 
 ## Discover and remediate common risks
 
-Identity well-known risks for your Azure tenants, remediate those risks, and
-track your progress using Secure Score.
+Identify well-known risks for your Azure tenants, remediate those risks, and
+track your progress using Secure Score. Secure Score is a snapshot of your security posture relative to Microsoft recommendations.
 
 Identifying and remediating common security hygiene risks significantly reduces
 overall risk to your organization by increasing cost to attackers. When you

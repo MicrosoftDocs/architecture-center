@@ -43,6 +43,7 @@ Applications can include secrets like database connection strings, certificate k
 
 For more information about secret management, see [Key and secret management](design-storage-keys.md).
 
+
 **Are errors and exceptions handled properly without exposing that information to users?**
 ***
 
@@ -56,9 +57,16 @@ Application code and configuration should not share the same lifecycle to enable
 **Is platform-specific information removed from server-client communication?**
 ***
 
-Do not reveal information about the application platform. Such information (for example, "X-Powered-By", "X-ASPNET-VERSION") can get exposed through HTTP banners HTTP headers, error messages, website footers. Malicious actors can use this information when mapping attack vectors of the application.
+Do not reveal information about the application platform. Such information (for example, "X-Powered-By", "X-ASPNET-VERSION") can get exposed through HTTP banners, HTTP headers, error messages, and website footers. Malicious actors can use this information when mapping attack vectors of the application.
 
-Consider using Azure CDN to separate the hosting platform from end users. Azure API Management offers transformation policies that allow you to modify HTTP headers and remove sensitive information.
+**Suggested actions**
+
+Consider using Azure Front Door or API Management to remove platform-specific HTTP headers. Alternatively, use Azure CDN to separate the hosting platform from end users. Azure API Management offers transformation policies that allow you to modify HTTP headers and remove sensitive information.
+
+**Learn more**
+
+- [Azure Front Door Rules Engine Actions](/azure/frontdoor/front-door-rules-engine-actions)
+- [API Management documentation](/azure/api-management/)
 
 **Are Azure policies used to control the configuration of the solution resources?**
 ***

@@ -45,6 +45,10 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 | [Sharding](../../patterns/sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
 | [Throttling](../../patterns/throttling.md) | Control the consumption of resources that are used by an instance of an application, an individual tenant, or an entire service. |
 
+## Antipatterns
+
+Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/index.md), in which the activity of one tenant can have a negative impact on another tenant's use of the system.
+
 ## Microsoft Azure Well-Architected Framework
 
 While the entirety of the [Azure Well-Architected Framework](../../framework/index.md) is important for all solutions, pay special attention to the [Resiliency pillar](../../framework/resiliency/reliability-patterns.md#resiliency). The nature of cloud hosting leads to  applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.

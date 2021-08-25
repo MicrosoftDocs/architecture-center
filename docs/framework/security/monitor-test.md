@@ -65,7 +65,7 @@ Simulate a persistent threat actor targeting your environment through a red team
 - Periodic checks. The workload will get checked through a realistic attack to make sure the defense is up to date and effective.
 - Educational purposes. Based on the learnings, upgrade the knowledge and skill level. This will help the users understand the various means that an attacker may use to compromise accounts.
 
-A popular choice for ro simulate realistic attack scenarios is [Office 365 Attack Simulator](/office365/securitycompliance/attack-simulator). 
+A popular choice to simulate realistic attack scenarios is [Office 365 Attack Simulator](/office365/securitycompliance/attack-simulator). 
 
 ## Simulate alerts
 You can simulate alerts by downloading one of the following playbooks:

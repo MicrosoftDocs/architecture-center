@@ -6,6 +6,11 @@ ms.date: 02/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-stack-hci
+  - azure-arc
+categories:
+  - hybrid
 ms.custom:
   - e2e-hybrid
 ---
