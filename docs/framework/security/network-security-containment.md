@@ -241,8 +241,8 @@ use common protocols for those roles and functions. This allows you to add
 resources to the subnet without needing to make changes to security groups that
 enforce network level access controls.
 
-Do not use *"all open*" rules for inbound and outbound traffic to and from
-subnets. Use a *network "least privilege*" approach and only allow relevant
+Do not use *all open* rules for inbound and outbound traffic to and from
+subnets. Use a network *least privilege* approach and only allow relevant
 protocols. This will decrease your overall network attack surface on the subnet.
 
 All open rules (allowing inbound/outbound to and from 0.0.0.0-255.255.255.255)
@@ -283,8 +283,9 @@ An example of advanced DDoS protection is the [Azure DDoS Protection
 Service](/azure/virtual-network/ddos-protection-overview).
 
 The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:
-- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
-- Guarantees 100% SLA. 
+
+- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats.
+- Guarantees 100% SLA.
 - Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
 
 ## Decide upon an internet ingress/egress policy
@@ -301,7 +302,7 @@ security and visibility for Internet traffic. Even when your resources in the
 cloud try to respond to incoming requests from the Internet, the responses will
 be forced through on-premises network security devices.
 
-Alternately, forced tunneling fits a *"datacenter expansion"* paradigm and can
+Alternately, forced tunneling fits a *datacenter expansion* paradigm and can
 work well for a quick proof of concept, but scales poorly because of the
 increased traffic load, latency, and cost.
 
