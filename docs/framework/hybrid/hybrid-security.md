@@ -71,6 +71,6 @@ A stretched Azure Stack HCI cluster relies on Storage Replica to perform synchro
 ## Monitor
 
 - Across products: Integrate with Azure Sentinel and Azure Defender.
-- Bring Azure Security Center to your on-prem data and servers with Arc.
-- Set security policies, resource boundaries, and RBAC for workloads across the hybrid infra.
-- Proper<!--not clear if this should be 'Prepare' or is a fragment of a larger sentence --> admin roles for read, modify, re-onboard, and delete a machine.
+- Bring Azure Security Center to your on-premises data and servers with Arc.
+- Set security policies, resource boundaries, and RBAC for workloads across the hybrid infrastructure.
+- Set the correct admin roles to read, modify, re-onboard, and delete a machine.
