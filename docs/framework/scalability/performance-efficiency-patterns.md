@@ -19,7 +19,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 |                           Pattern                            |                                                                        Summary                                                                         |
 |--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|               [Cache-Aside](../../patterns/cache-aside.md)               |                                                   Load data on demand into a cache from a data store                                                   |
+|               [Cache-Aside](../../patterns/cache-aside.md)               |                                                   Load data on demand into a cache from a data store.                                                   |
 | [Choreography](../../patterns/choreography.md) | Have each component of the system participate in the decision-making process about the workflow of a business transaction, instead of relying on a central point of control. |
 |                      [CQRS](../../patterns/cqrs.md)                      |                           Segregate operations that read data from operations that update data by using separate interfaces.                           |
 |            [Event Sourcing](../../patterns/event-sourcing.md)            |                     Use an append-only store to record the full series of events that describe actions taken on data in a domain.                      |

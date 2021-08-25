@@ -80,9 +80,29 @@ Security operations tooling and processes should be designed for attacks on clou
 
 Use Azure security detections and controls instead of creating custom features for viewing and analyzing event logs. Azure services are updated with new features and have the ability to detect false positive with a higher accuracy rate.
 
-To get a unified view across the enterprise, feed the logs collected through native detections (such as Azure Monitor) into a centralized SIEM like Azure Sentinel. Avoid using  generalized log analysis tools and queries. Within Azure Monitor, create Log Analytics Workspace to store logs. You can also review logs and perform queries on log data. These tools can offer high-quality alerts.
+Integrating logs from the network devices, and even raw network traffic itself, will provide greater visibility into potential security threats flowing over the wire.
+
+To get a unified view across the enterprise, feed the logs collected through native detections (such as Azure Monitor) into a centralized security information and event management (SIEM) solution like Azure Sentinel. Avoid using generalized log analysis tools and queries. Within Azure Monitor, create Log Analytics Workspace to store logs. You can also review logs and perform queries on log data. These tools can offer high-quality alerts.
+
+The modern machine learning-based analytics platforms support ingestion of extremely large amounts of information and can analyze large datasets very quickly. In addition, these solutions can be tuned to significantly reduce false positive alerts.
+
+Examples of network logs that provide visibility include:
+
+- Security group logs - flow logs and diagnostic logs
+- Web application firewall logs
+- Virtual network taps and their equivalents
+- Azure Network Watcher
+
+### Suggested actions
+
+Integrate network device log information in advanced SIEM solutions or other analytics platforms.
+
+### Learn more
+
+[Enable enhanced network visibility](/azure/architecture/framework/Security/network-security-containment#enable-enhanced-network-visibility)
 
 ## Next steps
+
 - [Security health modeling](monitor.md)
 - [Security tools](monitor-tools.md)
 - [Security logs and audits](monitor-audit.md)
