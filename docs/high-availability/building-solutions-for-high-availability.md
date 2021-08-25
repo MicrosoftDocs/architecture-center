@@ -56,7 +56,7 @@ in Microsoft Azure Documentation.
 
 ## Availability Zones reference architectures
 
-The following architectures feature common high-availability scenarios, which features zone-based solutions:
+The following architectures feature high-availability scenarios:
 
 - [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
 - [IaaS: Web application with relational database](./ref-arch-iaas-web-and-db.yml)
