@@ -142,7 +142,7 @@ For data moving between your on-premises infrastructure and Azure, consider appr
 **Does the workload communicate over encrypted network traffic only?**
 ***
 
-Any network communication between client and server where man-in-the-middle attack can occur, must be encrypted. All website communication should use HTTPS, no matter the perceived sensitivity of transferred data. Man-in-the-middle attacks can occur anywhere on the site, not just login forms.
+Any network communication between client and server where man-in-the-middle attacks can occur, must be encrypted. All website communication should use HTTPS, no matter the perceived sensitivity of transferred data. Man-in-the-middle attacks can occur anywhere on the site, not just login forms.
 
 This mechanism can be applied to use cases such as:
 
