@@ -20,8 +20,6 @@ keywords:
   - "multitenant identity management"
 ---
 
-[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
-
 # Identity management in multitenant applications
 
 This series of articles describes best practices for multitenancy, when using Azure AD for authentication and identity management.
