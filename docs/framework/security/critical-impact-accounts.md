@@ -188,7 +188,7 @@ security dependencies for critical impact accounts
         not synchronized with on-premises active directory
 
     -   Synchronize from On Premises Active Directory 
-    - Use existing accounts hosted in the on premises active
+    - Use existing accounts hosted in the on-premises active
         directory.
 
 - **Workstations** – Choose how you will manage and secure the workstations
@@ -202,10 +202,10 @@ security dependencies for critical impact accounts
     -   Manage with Existing Systems: Join existing AD domain and use existing management/security.
 
 
-## Passwordless or multi-factor authentication for admins
+## Passwordless or multifactor authentication for admins
 
 Require all critical impact admins to use passwordless authentication or
-multi-factor authentication (MFA).
+multifactor authentication (MFA).
 
 Attack methods have evolved to the point where passwords alone cannot reliably
 protect an account. This is well documented in a [Microsoft Ignite Session](https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016).
