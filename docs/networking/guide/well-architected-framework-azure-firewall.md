@@ -112,7 +112,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
 - Azure Firewall uses auto scale. It can go up to 20 instances that provide up to 20 Gbps.
 - Azure Firewall always starts with 2 instances. It scales up and down, based on CPU and the network throughput. After an auto scale, Azure Firewall ends up with either n-1 or n+1 instances.
-- Scaling up happens if the threshold for CPU or throughput are greater than 60%, for more than 5 minutes.
+- Scaling up happens if the threshold for CPU or throughput are greater than 60%, for more than five minutes.
 - Scaling down happens if the threshold for CPU or throughput are under 60%, for more than 30 minutes. The scale-down process happens gracefully (deleting instances). The active connections on the deprovisioned instances are disconnected and switched over to other instances. For the majority of applications, this process does not cause any downtime, but applications should have some type of auto-reconnect capability. (The majority already has this capability.)
 - If you're performing load tests, make sure to create initial traffic that is not part of your load tests, 20 minutes prior to the test. This is to allow the Azure Firewall instance to scale up its instances to the maximum. Use diagnostics settings to capture scale-up and scale-down events.
 - Do not exceed 10k network rules, and make sure you use IP Groups. When creating network rules, remember that for each rule, Azure actually multiples **Ports x IP Addresses**, so if you have one rule with four IP address ranges and five ports, you will be actually consuming 20 network rules. Always try to summarize IP ranges.
@@ -131,34 +131,34 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
 ## Security
 
-- Understand rule processing logic
-  - Azure Firewall has NAT rules, network rules, and applications rules. The rules are processed according to the rule type. See more at: [Azure Firewall rule processing logic](/azure/firewall/rule-processing) and [Azure Firewall Manager rule processing logic](/azure/firewall-manager/rule-processing)
-- Use FQDN filtering in network rules
-  - You can use FQDNs in network rules based on DNS resolution in Azure Firewall and Firewall policy. This capability allows you to filter outbound traffic with any TCP/UDP protocol (including NTP, SSH, RDP, and more). You must enable DNS Proxy to use FQDNs in your network rules. See how it works: [Azure Firewall FQDN filtering in network rules](/azure/firewall/fqdn-filtering-network-rules#how-it-works)
-- If filtering inbound Internet traffic with Azure Firewall policy DNAT, for security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
-- Use Azure Firewall to secure Private Endpoints (Virtual WAN scenario). See more at: [Secure traffic destined to private endpoints in Azure Virtual WAN](/azure/firewall-manager/private-link-inspection-secure-virtual-hub)
+- Understand rule processing logic:
+  - Azure Firewall has NAT rules, network rules, and applications rules. The rules are processed according to the rule type. See more at [Azure Firewall rule processing logic](/azure/firewall/rule-processing) and [Azure Firewall Manager rule processing logic](/azure/firewall-manager/rule-processing).
+- Use FQDN filtering in network rules.
+  - You can use FQDNs in network rules, based on DNS resolution in Azure Firewall and Firewall policy. This capability allows you to filter outbound traffic with any TCP/UDP protocol (including NTP, SSH, RDP, and more). You must enable the DNS proxy to use FQDNs in your network rules. See how it works at [Azure Firewall FQDN filtering in network rules](/azure/firewall/fqdn-filtering-network-rules#how-it-works).
+- If you're filtering inbound Internet traffic with Azure Firewall policy DNAT, for security reasons, then the recommended approach is to add a specific Internet source, to allow DNAT access to the network and to avoid using wildcards.
+- Use Azure Firewall to secure private endpoints (the virtual WAN scenario). See more at [Secure traffic destined to private endpoints in Azure Virtual WAN](/azure/firewall-manager/private-link-inspection-secure-virtual-hub).
 - Configure threat intelligence:
-  - Threat intelligence-based filtering can be configured for your Azure Firewall policy to alert and deny traffic from and to known malicious IP addresses and domains. See more at: [Azure Firewall threat intelligence configuration](/azure/firewall-manager/threat-intelligence-settings)
-- Use Azure Firewall Manager
-  - Azure Firewall Manager is a security management service that provides central security policy and route management for cloud-based security perimeters.
-    - Central Azure Firewall deployment and configuration
-    - Hierarchical policies (global and local)
-    - Integrated with third-party security-as-a-service for advanced security
-    - Centralized route management
-  - Understand how Policies are applied: [Azure Firewall Manager policy overview](/azure/firewall-manager/policy-overview#hierarchical-policies)
-  - Use Azure Firewall policy to define a rule hierarchy: [Use Azure Firewall policy to define a rule hierarchy](/azure/firewall-manager/rule-hierarchy)
-- Use Azure Firewall Premium
-  - Azure Firewall Premium is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. It includes the following features:
-    - TLS inspection - decrypts outbound traffic, processes the data, then encrypts the data and sends it to the destination.
+  - Threat-intelligence-based filtering can be configured for your Azure Firewall policy to alert and deny traffic from and to known malicious IP addresses and domains. See more at [Azure Firewall threat intelligence configuration](/azure/firewall-manager/threat-intelligence-settings).
+- Use Azure Firewall Manager:
+  - Azure Firewall Manager is a security management service that provides a central security policy and route management for cloud-based security perimeters. It includes the following features:
+    - Central Azure Firewall deployment and configuration.
+    - Hierarchical policies (global and local).
+    - Integrated with third-party security-as-a-service for advanced security.
+    - Centralized route management.
+  - Understand how Policies are applied, at [Azure Firewall Manager policy overview](/azure/firewall-manager/policy-overview#hierarchical-policies).
+  - Use Azure Firewall policy to define a rule hierarchy. See [Use Azure Firewall policy to define a rule hierarchy](/azure/firewall-manager/rule-hierarchy).
+- Use Azure Firewall Premium:
+  - Azure Firewall Premium is a next-generation firewall, with capabilities that are required for highly sensitive and regulated environments. It includes the following features:
+    - TLS inspection - Decrypts outbound traffic, processes the data, encrypts the data, and then sends it to the destination.
     - IDPS - A network intrusion detection and prevention system (IDPS) allows you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
-    - URL filtering - extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, www.contoso.com/a/c instead of www.contoso.com.
-    - Web categories - administrators can allow or deny user access to website categories such as gambling websites, social media websites, and others.
+    - URL filtering - Extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, the filtered URL might be www.contoso.com/a/c instead of www.contoso.com.
+    - Web categories - Administrators can allow or deny user access to website categories, such as gambling websites, social media websites, and others.
   - See more at [Azure Firewall Premium Preview features](/azure/firewall/premium-features).
-- Deploy a security partner provider
-  - Security partner providers in Azure Firewall Manager allow you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offering to protect Internet access for your users.
-  - With a quick configuration, you can secure a hub with a supported security partner, and route and filter Internet traffic from your Virtual Networks (Virtual Networks) or branch locations within a region. You can do this with automated route management, without setting up and managing User Defined Routes (UDRs).
+- Deploy a security partner provider:
+  - Security partner providers, in Azure Firewall Manager, allow you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offering to protect Internet access for your users.
+  - With a quick configuration, you can secure a hub with a supported security partner. You can route and filter Internet traffic from your Virtual Networks (VNets) or branch locations within a region. You can do this with automated route management, without setting up and managing user-defined routes (UDRs).
   - The current supported security partners are Zscaler, Check Point, and iboss.
-  - See more at: [Deploy an Azure Firewall Manager security partner provider](/azure/firewall-manager/deploy-trusted-security-partner)
+  - See more at [Deploy an Azure Firewall Manager security partner provider](/azure/firewall-manager/deploy-trusted-security-partner).
   
  ## Next steps
 
