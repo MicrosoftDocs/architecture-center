@@ -55,7 +55,7 @@ Managed Identity can help an API be more secure because it replaces the use of h
 
 **How is user authentication handled in the application?**
 ***
-Don't use custom implementations to manage user credentials. Instead, use Azure AD or other managed identity providers such as Microsoft account Azure B2C. Managed identity providers provide additional security features such as modern password protections, multi-factor authentication (MFA), and resets. In general, passwordless protections are preferred. Also, modern protocols like OAuth 2.0 use token-based authentication with limited timespan.
+Don't use custom implementations to manage user credentials. Instead, use Azure AD or other managed identity providers such as Microsoft account Azure B2C. Managed identity providers provide additional security features such as modern password protections, multifactor authentication (MFA), and resets. In general, passwordless protections are preferred. Also, modern protocols like OAuth 2.0 use token-based authentication with limited timespan.
 
 **Are authentication tokens cached securely and encrypted when sharing across web servers?**
 ***
@@ -92,18 +92,30 @@ For more information, see [hybrid identity providers](/azure/active-directory/hy
 
 ## Use passwordless authentication
 
-Remove the use of passwords, when possible. Also, require the same set of credentials to sign in and access the resources on-premises or in the cloud. This requirement is crucial for accounts that require passwords, such as admin accounts. 
+Attackers constantly scan public cloud IP ranges for open management ports. They attempt to exploit weak credentials (*password spray*) and unpatched vulnerabilities in management protocols like SSH, and RDP. Preventing direct internet access to virtual machines stops a misconfiguration or oversight becoming more serious.
 
-Here are some methods of authentication. The list is ordered by highest cost/difficulty to attack (strongest/preferred options) to lowest cost/difficult to attack: 
-- Passwordless authentication. Some examples of this method include [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) or [Authenticator App](/azure/active-directory/authentication/howto-authentication-phone-sign-in). 
+Remove the use of passwords, when possible. Also, require the same set of credentials to sign in and access the resources on-premises or in the cloud. This requirement is crucial for accounts that require passwords, such as admin accounts.
+
+Here are some methods of authentication. The list is ordered by highest cost/difficulty to attack (strongest/preferred options) to lowest cost/difficult to attack:
+
+- Passwordless authentication. Some examples of this method include [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) or [Authenticator App](/azure/active-directory/authentication/howto-authentication-phone-sign-in).
 - MFA. Although this method is more effective than passwords, we recommend that you avoid relying on SMS text message-based MFA. For more information, see [Enable per-user Azure Active Directory MFA to secure sign-in events](/azure/active-directory/authentication/howto-mfa-userstates).
 - Managed Identities. See [Use identity-based authentication](#use-identity-based-authentication).
 
-Those methods apply to all users, but should be applied first and strongest to accounts with administrative privileges. 
+Those methods apply to all users, but should be applied first and strongest to accounts with administrative privileges.
 
-An implementation of this strategy is enabling single sign-on (SSO) to devices, apps, and services. By signing in once using a single user account, you can grant access to all the applications and resources as per the business needs. Users don't have to manage multiple sets of usernames and passwords and you can provision or de-provision application access automatically. For more information, see [Single sign-on](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/). 
+An implementation of this strategy is enabling single sign-on (SSO) to devices, apps, and services. By signing in once using a single user account, you can grant access to all the applications and resources per business needs. Users don't have to manage multiple sets of usernames and passwords. You can provision or de-provision application access automatically. For more information, see [Single sign-on](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/).
+
+**Suggested actions**
+
+Organizations should attempt to ensure policy and processes require restricting, and monitoring direct internet connectivity by virtual machines.
+
+**Learn more**
+
+[Remove Virtual Machine (VM) direct internet connectivity](/azure/architecture/framework/Security/governance#remove-virtual-machine-vm-direct-internet-connectivity)
 
 ## Use modern password protection
+
 Require modern protections through methods that reduce the use of passwords. Modern authentication protocols support strong controls such as MFA and should be used instead of legacy authentication methods. Use of legacy methods increases risk of credential exposure.
 
 Modern authentication is a method of identity management that offers more secure user authentication and authorization. It's available for Office 365 hybrid deployments of Skype for Business server on-premises and Exchange server on-premises, and split-domain Skype for Business hybrids.
@@ -118,10 +130,10 @@ Review workloads that do not leverage modern authentication protocols and conver
 
 For Azure, enable protections in Azure AD:
 
-1.	Configure Azure AD Connect to synchronize password hashes. For information, see [Implement password hash synchronization with Azure AD Connect sync](/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
+1.    Configure Azure AD Connect to synchronize password hashes. For information, see [Implement password hash synchronization with Azure AD Connect sync](/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
 
-2.	Choose whether to automatically or manually remediate issues found in a report. For more information, see [Monitor identity risks](monitor-identity-network.md). 
-	
+2.    Choose whether to automatically or manually remediate issues found in a report. For more information, see [Monitor identity risks](monitor-identity-network.md). 
+    
 For more information about supporting modern passwords in Azure AD, see the following articles:
 
 - [What is Identity Protection?](/azure/active-directory/identity-protection/overview)
@@ -131,9 +143,11 @@ For more information about supporting modern passwords in Azure AD, see the foll
 
 For more information about supporting modern passwords in Office 365, see the following article:
 
-[What is modern authentication?](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide#what-is-modern-authentication)
+[What is modern authentication?](/microsoft-365/enterprise/hybrid-modern-auth-overview?view=o365-worldwide#what-is-modern-authentication&preserve-view=true)
 
 ## Enable conditional access
+
+Modern cloud-based applications are typically accessible over the internet, making network location-based access inflexible and single-factor passwords a liability. Conditional access describes your authentication policy for an access decision. For example, if a user is connecting from an InTune-managed corporate PC, they might not be challenged for MFA every time, but if the user suddenly connects from a different device in a different geography, MFA is required.
 
 Grant access requests based on the requestors' trust level and the target resources' sensitivity.
 
@@ -144,9 +158,16 @@ Workloads can be exposed over public internet and location-based network control
 
 Configure Azure AD Conditional Access by setting up Access policy for Azure management based on your operational needs. For information, see [Manage access to Azure management with Conditional Access](/azure/role-based-access-control/conditional-access-azure-management).
 
-Conditional Access can be an effective in phasing out legacy authentication and associated protocols. The policies must be enforced for all admins and other critical impact accounts. Start by using metrics and logs to determine users who still authenticate with old clients. Next, disable any down-level protocols that aren't used, and set up conditional access for all users who aren't using legacy protocols. Finally, give notice and guidance to users about upgrading before blocking legacy authentication completely. For  more information, see [Azure AD Conditional Access support for blocking legacy auth](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417).
+Conditional access can be an effective way to phase out legacy authentication and associated protocols. The policies must be enforced for all admins and other critical impact accounts. Start by using metrics and logs to determine users who still authenticate with old clients. Next, disable any down-level protocols that aren't used, and set up conditional access for all users who aren't using legacy protocols. Finally, give notice and guidance to users about upgrading before blocking legacy authentication completely. For more information, see [Azure AD Conditional Access support for blocking legacy auth](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417).
+
+### Suggested actions
+
+Implement conditional access policies for this workload.
+
+Learn more about [Azure AD Conditional Access](/azure/active-directory/conditional-access/).
 
 ## Next
+
 Grant or deny access to a system by verifying the accessor's identity.
 
 > [!div class="nextstepaction"]
