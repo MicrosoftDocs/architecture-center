@@ -1,7 +1,7 @@
 ---
-title: Community Jury
+title: Community jury
 titleSuffix: Azure Application Architecture Guide
-description: Community jury is a stakeholder collaboration technique that allows project teams to understand the perceptions and concerns of stakeholders, and take actions based on this understanding.
+description: Learn about the Community jury stakeholder collaboration technique that allows project teams to understand the perceptions and concerns of stakeholders.
 author: dcass
 ms.date: 05/18/2020
 ms.topic: conceptual
@@ -13,15 +13,15 @@ ms.custom:
   - guide
   - seo-aac-fy21q3
 keywords:
-  - "Community jury"
-  - "stakeholder collaboration"
-  - "citizen jury"
-  - "effective collaboration"
-  - "jury solutions"
-  - "collaborative solutions"
+  - community jury
+  - stakeholder collaboration
+  - citizen jury
+  - effective collaboration
+  - jury solutions
+  - collaborative solutions
 ---
 
-# Community Jury
+# Community jury
 
 *Community jury*, an adaptation of the [citizen jury](https://jefferson-center.org/about-us/how-we-work/), is a technique where diverse stakeholders impacted by a technology are provided an opportunity to learn about a project, deliberate together, and give feedback on use cases and product design. This technique allows project teams to understand the perceptions and concerns of impacted stakeholders for effective collaboration.
 
@@ -31,7 +31,7 @@ A community jury is different from a focus group or market research; it allows t
 
 This section discusses some important benefits of community jury.
 
-### Expert Testimony
+### Expert testimony
 
 Members of a community jury hear details about the technology under consideration, directly from experts on the product team. These experts help highlight the capabilities in particular applications.
 
@@ -45,7 +45,7 @@ By bringing impacted individuals together and providing collaborative solutions 
 
 ## Community jury contributors
 
-### Product Team
+### Product team
 
 This group comprises owners who will bring the product to market, representative project managers, engineers, designers, data scientists, and others involved in the making of a product. Additionally, subject matter experts are included who can answer in-depth questions about the product.
 
@@ -59,7 +59,7 @@ Relevant artifacts could include:
 - Data Flows, for example, what data types collected, who will have access, for how long, with what protections, and so on.
 - Mockups or prototypes of proposed stakeholder collaborative solutions.
 
-#### During the Session
+#### During the session
 
 Along with providing an accessible presentation of technical details, product team witnesses should describe certain applications of the technology.
 
@@ -84,7 +84,7 @@ Bring on a neutral user researcher to ensure everyone is heard, avoiding dominat
 - Structure the sessions so that there is ample time for learning, deliberation, and cocreation. This could mean having multiple sessions that go in-depth on different topics or having longer sessions.
 - Pilot the jury with a smaller sample of community members to work out the procedural and content issues prior to the actual sessions. 
 
-#### During the Session
+#### During the session
 
 - Ensure that all perspectives are heard, including those of the project team and those of the jury members. This minimizes group-thinking as well as one or two individuals dominating the discussion.
 - Reinforce the value of the juror participation by communicating the plan for integrating jury feedback into the product planning process. Ensure that the project team is prepared to hear criticisms from the jury.
@@ -133,7 +133,7 @@ If the values of different stakeholders were in conflict with each other during 
 
 ## Additional information
 
-### Privacy Index
+### Privacy index
 
 The [Privacy Index](http://reports-archive.adm.cs.cmu.edu/anon/anon/home/ftp/usr0/ftp/isri2005/CMU-ISRI-05-138.pdf) is an approximate measure for an individual's concern about personal data privacy, and is gauged using the following:
 

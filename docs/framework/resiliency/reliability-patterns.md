@@ -1,7 +1,7 @@
 ---
 title: Reliability patterns
 titleSuffix: Cloud Design Patterns
-description: Learn about availability, high availability, and resiliency as they relate to reliability.
+description: Learn about availability, high availability, and resiliency as factors that are related to reliability patterns.
 author: v-aangie
 ms.date: 12/08/2020
 ms.topic: conceptual
@@ -9,14 +9,15 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Reliability patterns
 
 ## Availability
 
-Availability is measured as a percentage of uptime, and defines the proportion of time that a system is functional and working. Availability is affected by system errors, infrastructure problems, malicious attacks, and system load. Cloud applications typically provide users with a service level agreement (SLA), which means that applications must be designed and implemented to maximize availability. 
+Availability is measured as a percentage of uptime, and defines the proportion of time that a system is functional and working. Availability is affected by system errors, infrastructure problems, malicious attacks, and system load. Cloud applications typically provide users with a service level agreement (SLA), which means that applications must be designed and implemented to maximize availability.
 
 |                            Pattern                             |                                                           Summary                                                            |
 |----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -32,14 +33,13 @@ To mitigate against availability risks from malicious Distributed Denial of Serv
 
 Azure infrastructure is composed of geographies, regions, and Availability Zones, which limit the blast radius of a failure and therefore limit potential impact to customer applications and data. The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers. With HA architecture there is a balance between high resilience, low latency, and cost.
 
-|                            Pattern                             |                                                           Summary                                                            |
-|----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-|           [Deployment Stamps](../../patterns/deployment-stamp.md)          |                 Deploy multiple independent copies of application components, including data stores.                         |
+| Pattern | Summary |
+|--|--|
+| [Deployment Stamps](../../patterns/deployment-stamp.md) | Deploy multiple independent copies of application components, including data stores. |
 | [Geodes](../../patterns/geodes.md) | Deploy backend services into a set of geographical nodes, each of which can service any client request in any region. |
 | [Health Endpoint Monitoring](../../patterns/health-endpoint-monitoring.md) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. |
-|                   [Bulkhead](../../patterns/bulkhead.md)                   |                                                     Isolate elements of an application into pools so that if one fails, the others will continue to function.                                                      |
-|            [Circuit Breaker](../../patterns/circuit-breaker.md)            |                                                  Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.               
-
+| [Bulkhead](../../patterns/bulkhead.md) | Isolate elements of an application into pools so that if one fails, the others will continue to function. |
+| [Circuit Breaker](../../patterns/circuit-breaker.md) | Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource. |
 
 ## Resiliency
 

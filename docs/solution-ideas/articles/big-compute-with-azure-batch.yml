@@ -17,7 +17,7 @@ metadata:
     - hpc
     - big compute solutions
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch/'
+    - "https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch/"
     - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/big-compute-with-azure-batch.png
 name: HPC System and Big Compute Solutions

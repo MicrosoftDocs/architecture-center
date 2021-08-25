@@ -56,7 +56,7 @@ The solution was set up in this way to:
 - [Azure Application Insights](https://azure.microsoft.com/services/monitor/) centralizes signals/events from the system (logs, telemetry from logs from microservices, frontend, and devices) for troubleshooting purposes.
 - [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn/) is used for maintenance and updates (delivery of java scripts file) to the web portal and to deliver media files (videos, images) through the portal. All this content is stored in the Azure storage accounts in the background.
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) load balances between geo locations.
-- [Azure SignalR](/azure/azure-signalr/signalr-overview) allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either ## Standard##  or ## Advanced##  mode.
+- [Azure SignalR](/azure/azure-signalr/signalr-overview) allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either _Standard_  or _Advanced_  mode.
 
 ### Standard mode
 

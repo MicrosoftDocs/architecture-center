@@ -21,7 +21,7 @@ metadata:
     - data sovereignty
     - data sovereignty requirements
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/data-sovereignty-and-gravity/'
+    - "https://azure.microsoft.com/solutions/architecture/data-sovereignty-and-gravity/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/data-sovereignty-and-gravity.png
 name: Custom Data Sovereignty & Data Gravity Requirements
 azureCategories:

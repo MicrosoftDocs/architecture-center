@@ -16,7 +16,7 @@ A key benefit of hybrid cloud environments is the ability to scale dynamically a
 
 Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires Azure Defender functionality of Azure Security Center, which has [pricing implications](https://azure.microsoft.com/pricing/details/security-center/).
 
-Other considerations are described in the [Principles of cost optimization](/azure/architecture/framework/cost/design-model) section in the Microsoft Azure Well-Architected Framework.
+Other considerations are described in the [Principles of cost optimization](../cost/design-model.md) section in the Microsoft Azure Well-Architected Framework.
 
 ## Workload definitions
 
@@ -56,15 +56,13 @@ For budget concerns, you get a considerable amount of functionality at no cost t
 
 ## Azure Architecture Center (AAC) resources related to hybrid cost
 
-Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc: https://docs.microsoft.com/azure/architecture/hybrid/azure-arc-sql-server
-
-- [Manage configurations for Azure Arc enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
-- [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
-- [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
-- [Disaster Recovery for Azure Stack Hub virtual machines](/azure/architecture/hybrid/azure-stack-vm-dr)
-- [Build high availability into your BCDR strategy](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
-- [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](/azure/architecture/hybrid/azure-stack-robo)
-- [Archive on-premises data to cloud](/azure/architecture/solution-ideas/articles/backup-archive-on-premises)
+- [Manage configurations for Azure Arc enabled servers](../../hybrid/azure-arc-hybrid-config.yml)
+- [Azure Arc hybrid management and deployment for Kubernetes clusters](../../hybrid/arc-hybrid-kubernetes.yml)
+- [Optimize administration of SQL Server instances in on-premises and multi-cloud environments by leveraging Azure Arc](../../hybrid/azure-arc-sql-server.yml)
+- [Disaster Recovery for Azure Stack Hub virtual machines](../../hybrid/azure-stack-vm-dr.yml)
+- [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
+- [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](../../hybrid/azure-stack-robo.yml)
+- [Archive on-premises data to cloud](../../solution-ideas/articles/backup-archive-on-premises.yml)
  
 ## Infrastructure Decisions
 
@@ -78,7 +76,7 @@ Lastly, you can slowly begin migrating out of your datacenter and use Azure Arc 
 
 ### Capacity planning
 
-Check out our checklist under the [Cost Optimization pillar](/azure/architecture/framework/cost/design-checklist) in the Well-Framework to learn more about capacity planning, and build a checklist to design cost-effective workloads. 
+Check out our checklist under the [Cost Optimization pillar](../cost/design-checklist.md) in the Well-Framework to learn more about capacity planning, and build a checklist to design cost-effective workloads. 
 
 - Define SLAs
 - Determine regulatory needs
@@ -91,7 +89,7 @@ Click the following links for guidance in provisioning:
 
 - [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc/)
 - [Azure Arc Jumpstart for templates](https://github.com/microsoft/azure_arc) (in GitHub)
-- [Azure Stack HCI pricing](https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/)
+- [Azure Stack HCI pricing](https://azure.microsoft.com/pricing/details/azure-stack/hci/)
    - Azure Stack HCI can reduce costs by saving in server, storage, and network infrastructure.
 - [Azure VMware Solution pricing - Run your VMware workloads natively on Azure](https://azure.microsoft.com/pricing/details/azure-vmware/)
    - Run your VMware workloads natively on Azure.
@@ -101,15 +99,15 @@ Click the following links for guidance in provisioning:
 
 Treat cost monitoring and optimization as a process, rather than a point-in-time activity. You can conduct regular cost reviews and forecast the capacity needs so that you can provision resources dynamically and sale with demand.
 
-- [Managing the Azure Arc enabled servers agent](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent/)
+- [Managing the Azure Arc enabled servers agent](/azure/azure-arc/servers/manage-agent/)
    - Bring all your resources into a single system so you can organize and inventory through a variety of Azure scopes, such as Management groups, Subscriptions, and Resource Groups.
    - Create, apply, and enforce standardized and custom tags to keep track of resources.
    - Build powerful queries and search your global portfolio with Azure Resource Graph.
-- With [Azure Stack HCI](https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/)
+- With [Azure Stack HCI](https://azure.microsoft.com/pricing/details/azure-stack/hci/)
    - Costs for datacenter real estate, electricity, personnel, and servers can be reduced or eliminated.
    - Costs are now part of OPEX, which can be scaled as needed.
 
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Operational excellence](/azure/architecture/framework/hybrid/hybrid-opex)
+>[Operational excellence](./hybrid-opex.md)

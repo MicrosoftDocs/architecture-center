@@ -1,6 +1,3 @@
-
-
-
 This article describes how Azure Pipelines *variable group* variables flow into Terraform modules, which deploy them to Azure Key Vault and finally to the Gridwich Functions App settings as Key Vault secret references.
 
 The example is a deep dive into how the **amsDrmFairPlayAskHex** variable, located in the Azure Pipelines **gridwich-cicd-variables.global** variable group, flows throughout the continuous integration and continuous delivery (CI/CD) process.
@@ -21,10 +18,10 @@ The example is a deep dive into how the **amsDrmFairPlayAskHex** variable, locat
 
 The Azure Pipelines **amsDrmFairPlayAskHex** variable interacts with Azure Media Services FairPlay DRM. The pipeline passes the variable value to Terraform to set in the shared Azure Key Vault and ultimately reference as a Key Vault secret in the Azure Function App settings.
 
-Gridwich automatically stores the variable as a CI/CD server environment variable because it's referenced in [variables.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/variables.yml), which is used as a template in each *ci_cd_<environment>_release.yml* pipeline.
+Gridwich automatically stores the variable as a CI/CD server environment variable because it's referenced in [variables.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/variables.yml), which is used as a template in each *ci_cd_\[environment]_release.yml* pipeline.
 
 1. The [deploy-to-env-stages-template.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/templates/stages/deploy-to-env-stages-template.yml) template passes the CI/CD server environment variable to Terraform as a variable, by using the `TerraformArguments` property. This action happens for both the first and second Terraform sandwich jobs.
-   
+
    ```yaml
    stages:
    - template: terraform-stages-template.yml
@@ -41,16 +38,16 @@ Gridwich automatically stores the variable as a CI/CD server environment variabl
            -var amsDrm_FairPlay_Ask_Hex="$(amsDrmFairPlayAskHex)"
             . . .
    ```
-   
+
    The **amsDrm_FairPlay_Ask_Hex** variable in the main module [variables.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/variables.tf) file contains the value of the `amsDrmFairPlayAskHex` CI/CD environment variable:
-   
+
    ```yaml
    variable "amsDrm_FairPlay_Ask_Hex" {
    type        = string
    description = "The FairPlay Ask key in Hex format."
    }
    ```
-   
+
 1. Terraform passes the value to the `shared` Terraform module:
    
    ```terraform

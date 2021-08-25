@@ -7,7 +7,7 @@ This line-of-business application solution consolidates data from multiple busin
 ![Architecture Diagram](../media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png)
 *Download an [SVG](../media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
 1. Customer's mobile app authenticates via Azure Active Directory B2C
 1. Customer's mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection

@@ -1,17 +1,12 @@
-
-
-
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
 
 ## Architecture
 
-![Architecture diagram](../media/anomaly-detector.png)
+![Architecture diagram](/azure/architecture/solution-ideas/media/anomaly-detector.png)
 
-*Download an [SVG](../media/anomaly-detector.svg) of this architecture.*
+*Download an [SVG](/azure/architecture/solution-ideas/media/anomaly-detector.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
 1. Ingests data from the various stores that contain raw data to be monitored by Anomaly Detector.
 2. Aggregates, samples, and computes the raw data to generate the time series or calls the Anomaly Detector API directly if the time series is already prepared and responds with the detection results.
@@ -84,7 +79,7 @@ We have provided three sample cost profiles based on the amount of traffic (we a
 [example-pricing]: https://azure.com/e/48cc24e76c914ecf8fafec1fed0e0e14
 [serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: ../../framework/resiliency/overview.md
+[resiliency]: ../../framework/resiliency/principles.md
 [security]: /azure/security
 [scalability]: ../../framework/scalability/performance-efficiency.md
 [functions-best-practices]: /azure/azure-functions/functions-best-practices

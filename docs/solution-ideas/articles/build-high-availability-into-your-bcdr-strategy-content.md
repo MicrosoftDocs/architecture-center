@@ -10,7 +10,7 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 ![Architecture Diagram](../media/build-high-availability-into-your-bcdr-strategy.png)
 *Download an [SVG](../media/build-high-availability-into-your-bcdr-strategy.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
 1. Create zone-redundant Load Balancer.
 1. Create front-end subnet.

@@ -18,7 +18,7 @@ metadata:
     - solution architectures
     - Azure
     - ai gallery
-    - 'https://azure.microsoft.com/solutions/architecture/energy-supply-optimization/'
+    - "https://azure.microsoft.com/solutions/architecture/energy-supply-optimization/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/energy-supply-optimization.png
 name: Energy Supply Optimization

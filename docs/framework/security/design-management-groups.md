@@ -14,6 +14,12 @@ subject:
   - security
 ms.custom:
   - article
+products:
+  - azure-devops
+categories:
+  - security
+subject: 
+  - security
 ---
 
 # Security management groups
@@ -53,7 +59,7 @@ For the preceding example, an approach is to use these management groups:
 
 ## Azure role assignment 
 
-Grant roles the appropriate permissions that start with least privilege and add more based your operational needs. Provide clear guidance to your technical teams that implement permissions. This clarity makes it easier to detect and correct that reduces human errors such as overpermissioning.
+Grant roles the appropriate permissions that start with least privilege and add more based on your operational needs. Provide clear guidance to your technical teams that implement permissions. This clarity makes it easier to detect and correct that reduces human errors such as overpermissioning.
 
 -  Assign permissions at management group for the segment rather than the individual subscriptions. This will drive consistency and ensure application to future subscriptions.
 
@@ -117,7 +123,7 @@ Use the **Service Administrator** role only for emergencies and initial setup. D
 
 
 ## Use root management group with caution
-Use the root management group to drive consistency across the enterprise by applying policies, permissions, tags, across all subscriptions. This group can affect every all resources on Azure and potentially cause downtime or other negative impacts. 
+Use the root management group to drive consistency across the enterprise by applying policies, permissions, tags, across all subscriptions. Care must be taken when planning and implementing assignments to the root management group. This group can affect all resources on Azure and potentially cause downtime or other negative impacts on productivity in the event of errors or unanticipated effects. 
 
 Select enterprise-wide identities that have a clear requirement to be applied across all resources. These requirements could be for regulatory reasons. Also, select identities that have near-zero negative impact on operations. For example, policy with audit effect, tag assignment, Azure RBAC permissions assignments that have been carefully reviewed.
 
@@ -130,4 +136,6 @@ Limit the number of Azure Policy assignments made at the root management group s
 Don't create any subscriptions under the root management group. This hierarchy ensures that subscriptions don't only inherit the small set of Azure policies assigned at the root-level management group, which don't represent a full set necessary for a workload.
     
 > [!IMPORTANT] 
-> Test all enterprise-wide changes on the root management group before applying (policy, tags, Azure RBAC model, and so on). You can use a test lab. This can be representative lab tenant or lab segment in production tenant. Another option is to use a production pilot. This can be a segment management group or designated subset in subscription(s) management group. Validate changes to make sure the requirements have the desired effect.
+> Plan, test, and validate all enterprise-wide changes on the root management group before applying (policy, tags, Azure RBAC model, and so on). You can use a test lab. This can be representative lab tenant or lab segment in production tenant. Another option is to use a production pilot. This can be a segment management group or designated subset in subscription(s) management group. Validate changes to make sure the requirements have the desired effect.
+
+For more information, reference [Use root management group carefully](./governance.md#use-root-management-group-carefully).

@@ -28,7 +28,7 @@ Gridwich architecture features two *sandwiches* that address the requirements of
   
   ![Diagram showing the Event Grid handler sandwich.](media/request-response.png)
   
-- The *Terraform Sandwich* is a multi-stage [Terraform](https://www.terraform.io/) pattern updated to support [infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code). Separating infrastructure and software releases means the Azure Functions app must be released and running before Terraform can deploy the Event Grid subscription. To address this requirement, there are two Terraform jobs in the CI/CD pipeline:
+- The *Terraform Sandwich* is a multi-stage [Terraform](https://www.terraform.io/) pattern updated to support [infrastructure as code](/devops/deliver/what-is-infrastructure-as-code). Separating infrastructure and software releases means the Azure Functions app must be released and running before Terraform can deploy the Event Grid subscription. To address this requirement, there are two Terraform jobs in the CI/CD pipeline:
   
   ![Diagram showing the Terraform sandwich jobs.](media/terraform-sandwich.png)
   

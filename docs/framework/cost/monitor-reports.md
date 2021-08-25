@@ -1,6 +1,6 @@
 ---
 title: Generate cost reports
-description: Describes ways to gather cost data for reporting purposes
+description: Explore ways to gather cost data for reporting purposes. Use Azure cost tools, consumption APIs, and custom scripts. Analyze and visualize the data.
 author: PageWriter-MSFT
 ms.date: 05/12/2020
 ms.topic: conceptual
@@ -22,6 +22,7 @@ To monitor the cost of the workload, use Azure cost tools or custom reports. The
 Azure provides cost tools that can help track cloud spend and make recommendations.
 
 - [Azure Advisor](/azure/advisor/advisor-cost-recommendations)
+- [Advisor Score](/azure/advisor/azure-advisor-score)
 - [Azure Cost Management](/azure/cost-management-billing/costs/)
 
 ### Cost analysis

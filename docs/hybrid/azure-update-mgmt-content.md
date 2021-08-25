@@ -1,6 +1,3 @@
-
-
-
 This reference architecture illustrates how to design a hybrid update management solution to manage updates on both Microsoft Azure and on-premises Windows and Linux computers.
 
 ![Azure Update management is configuration component of Azure Automation. Windows and Linux computers, both in Azure and on-premises, send assessment information about missing updates to the Log Analytics workspace. Azure Automation then uses that information to create a schedule for automatic deployment of the missing updates.][architectural-diagram]
@@ -289,6 +286,19 @@ Azure Automation can process up to 1,000 computers per update deployment. If you
 - Azure Automation costs are priced for job execution per minute or for configuration management per node. Every month, the first 500 minutes of process automation and configuration management on five nodes are free.
 - An Azure Log Analytics workspace might generate more costs related to the amount of log data that's stored in Azure Log Analytics. The pricing is based on consumption, and the costs are associated with data ingestion and data retention. For ingesting data into Azure Log Analytics, use the capacity reservation or pay-as-you-go model that includes 5 gigabytes (GB) free a month for each billing account. Data retention for the first 31 days is free of charge.
 - Use the Azure pricing calculator to estimate costs. For more information about Log Analytics pricing models, refer to [Azure Monitor pricing][40].
+
+## Next steps
+
+More about Azure Automation:
+
+- [Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker)
+- [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account)
+- [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
+- [Azure Automation Update Management](./azure-update-mgmt.yml)
+- [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
+- [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview)
+- [Azure Arc Overview](/azure/azure-arc/overview)
+- [What is Azure Arc enabled servers?](/azure/azure-arc/servers/overview)
 
 [architectural-diagram]: ./images/azure-update-mgmt.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-update-mgmt.vsdx

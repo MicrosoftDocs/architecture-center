@@ -1,7 +1,7 @@
 ---
 title: Gatekeeper pattern
 titleSuffix: Cloud Design Patterns
-description: Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them.
+description: Learn how to use the Gatekeeper pattern to protect applications and services by using a dedicated host instance as a broker to validate requests and data.
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
@@ -9,7 +9,8 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Gatekeeper pattern
@@ -60,6 +61,6 @@ In a cloud-hosted scenario, this pattern can be implemented by decoupling the ga
 
 ![An example of the pattern using Cloud Services web and worker roles](./_images/gatekeeper-endpoint.png)
 
-## Related patterns
+## Related guidance
 
-The [Valet Key pattern](./valet-key.md) might also be relevant when implementing the Gatekeeper pattern. When communicating between the Gatekeeper and trusted roles it's good practice to enhance security by using keys or tokens that limit permissions for accessing resources. Describes how to use a token or key that provides clients with restricted direct access to a specific resource or service.
+The [Valet Key pattern](./valet-key.md) might also be relevant when implementing the Gatekeeper pattern. When communicating between the Gatekeeper and trusted roles, it's a good practice to enhance security by using keys or tokens that limit permissions for accessing resources. The pattern describes how to use a token or key that provides clients with restricted, direct access to a specific resource or service.

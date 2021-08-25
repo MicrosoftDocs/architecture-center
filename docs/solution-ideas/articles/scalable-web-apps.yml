@@ -15,7 +15,7 @@ metadata:
     - acom-architecture
     - web-app
     - scalability
-    - 'https://azure.microsoft.com/solutions/architecture/scalable-web-apps/'
+    - "https://azure.microsoft.com/solutions/architecture/scalable-web-apps/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/scalable-web-apps.svg
 name: Scalable Web Apps
 azureCategories:

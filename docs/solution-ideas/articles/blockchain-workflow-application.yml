@@ -18,7 +18,7 @@ metadata:
     - Azure Blockchain
     - Azure Blockchain Service
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/blockchain-workflow-application/'
+    - "https://azure.microsoft.com/solutions/architecture/blockchain-workflow-application/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/blockchain-workflow-application.png
 name: Blockchain Workflow Application
 azureCategories:

@@ -1,6 +1,6 @@
 ---
 title: Key and secret management in Azure
-description: Protect keys by storing in them in managed key store.
+description: Examine key and secret management considerations in Azure. Protect keys by storing them in the managed key vault service.
 author: PageWriter-MSFT
 ms.date: 12/03/2020
 ms.topic: conceptual
@@ -15,6 +15,8 @@ subject:
   - security
 ms.custom:
   - article
+categories:
+  - security
 ---
 
 # Key and secret management considerations in Azure
@@ -47,7 +49,7 @@ Suppose you need to store sensitive data in Azure Blob Storage. You can use Azur
 >
 > ![GitHub logo](../../_images/github.svg) [GitHub: Azure Cognitive Services Reference Implementation](https://github.com/mspnp/cognitive-services-reference-implementation).
 >
-> The design considerations are described in [Speech transcription with Azure Cognitive Services](../../reference-architectures/ai/speech-ai-ingestion.yml).
+> The design considerations are described in [Speech transcription with Azure Cognitive Services](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml).
 
 
 

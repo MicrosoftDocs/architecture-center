@@ -9,12 +9,13 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Performance Efficiency patterns
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. You need to anticipate these increases to meet business requirements. An important consideration in achieving performance efficiency is to consider how your application scales and to implement PaaS offerings that have built-in scaling operations. Scalability is ability of a system either to handle increases in load without impact on performance or for the available resources to be readily increased. It concerns not just compute instances, but other elements such as data storage, messaging infrastructure, and more. 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. You need to anticipate these increases to meet business requirements. An important consideration in achieving performance efficiency is to consider how your application scales and to implement PaaS offerings that have built-in scaling operations. Scalability is ability of a system either to handle increases in load without impact on performance or for the available resources to be readily increased. It concerns not just compute instances, but other elements such as data storage, messaging infrastructure, and more.
 
 |                           Pattern                            |                                                                        Summary                                                                         |
 |--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -6,9 +6,10 @@ metadata:
   author: ShantnuS
   ms.date: 02/12/2021
   ms.topic: conceptual
-  ms.custom: fcp
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom:
+    - fcp
 azureCategories:
   - integration
   - developer-tools

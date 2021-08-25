@@ -1,7 +1,7 @@
 ---
 title: Extraneous Fetching antipattern
-titleSuffix: Performance antipatterns for cloud apps
-description: Retrieving more data than needed for a business operation can result in unnecessary I/O overhead, cause unnecessary I/O overhead, and reduce responsiveness in entity frameworks.
+titleSuffix: Azure Architecture Center
+description: Learn about ways to mitigate the Extraneous Fetching antipattern, the common design flaw of fetching more data than needed for a business operation.
 author: dragon119
 ms.date: 06/05/2017
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.custom:
   - article
   - seo-aac-fy21q3
 keywords:
-  - "anti-pattern"
-  - "antipattern"
-  - "performance antipattern"
-  - "entity framework"
-  - "extraneous fetching"
-  - "horizontal partitioning"
+  - anti-pattern
+  - antipattern
+  - performance antipattern
+  - entity framework
+  - extraneous fetching
+  - horizontal partitioning
 ---
 
 <!-- cSpell:ignore IQueryable LINQ -->

@@ -160,7 +160,7 @@ You may also find the following resources useful:
 [horovod]: https://github.com/uber/horovod
 [imagenet]: http://www.image-net.org
 [tensorflow]: https://github.com/tensorflow/tensorflow
-[real-time-scoring]: ../../reference-architectures/ai/realtime-scoring-python.yml
+[real-time-scoring]: ../../reference-architectures/ai/real-time-scoring-machine-learning-models.yml
 [resnet]: https://arxiv.org/abs/1512.03385
 [security-guide]: /azure/storage/common/storage-security-guide
 [azureml-logging]: /azure/machine-learning/how-to-track-experiments
@@ -170,7 +170,7 @@ You may also find the following resources useful:
 [premium-storage]: /azure/storage/blobs/storage-blob-performance-tiers
 [premium-storage-comparison]: https://azure.microsoft.com/blog/premium-block-blob-storage-a-new-level-of-performance/
 [costs]: /azure/machine-learning/concept-plan-manage-cost
-[aml-arm]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json
+[aml-arm]: https://azure.microsoft.com/resources/templates/machine-learning-advanced/
 [data-encryption]: /azure/machine-learning/concept-data-encryption
-[distr-training]: https://azure.github.io/azureml-examples/docs/cheatsheet/distributed-training/
+[distr-training]: https://azure.github.io/azureml-cheatsheets/docs/cheatsheets/python/v1/distributed-training
 [distr-training-examples]: https://github.com/Azure/azureml-examples

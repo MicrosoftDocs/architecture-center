@@ -7,7 +7,7 @@ A retail outlet is monitoring the fridges for their frozen food section.
 -   The data science team is building an anomaly detection model to identify issues with the fridges before any of them breaks down. A message routing rule can send all the raw telemetry data to a storage account specifically for the data science team to use for training and modeling. 
 
 ## Architecture
-![Architecture diagram illustrating use of rules to route events to different Azure services](media/event-routing.png)
+![Architecture diagram illustrating use of rules to route events to different Azure services](media/event-routing.svg)
 
 In an IoT platform, rules can be created for fine-grained routing of events. One or more rules can be configured in the IoT platform. The rules will be applied to the ingress events and are routed to the specific endpoint(s). 
 

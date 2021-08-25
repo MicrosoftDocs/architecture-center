@@ -11,7 +11,8 @@ products:
   - azure-cache-redis
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Cache-Aside pattern

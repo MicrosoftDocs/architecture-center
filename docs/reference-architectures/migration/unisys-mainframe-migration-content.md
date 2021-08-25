@@ -1,6 +1,6 @@
 Unisys ClearPath mainframe systems are full-featured operating environments that can scale up vertically to handle mission critical workloads. ClearPath mainframe models include Dorado, running Legacy Sperry 1100/2200, and Libra, running Legacy Burroughs A Series/MCP. Emulating, converting, or modernizing these systems into Azure can provide similar or better performance and SLA guarantees, while taking advantage of Azure flexibility, reliability, and future capabilities.
 
-This article describes the conversion technologies that Microsoft partner [Asysco](https://asysco.com/products/) uses to migrate Unisys mainframe workflows to Azure. The Automated Migration Technology (AMT) Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end user retraining.
+This article describes the conversion technologies that Microsoft partner [Asysco](https://asysco.com) uses to migrate Unisys mainframe workflows to Azure. The Automated Migration Technology (AMT) Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end user retraining.
 
 Asysco AMT Transform automates the migration of the complete mainframe ecosystem to Azure, by converting:
 - Transaction application code to AMT COBOL or directly to C#/.NET. AMT maintains the original code structure to use as a baseline or for future edits.
@@ -12,7 +12,7 @@ Asysco AMT Transform automates the migration of the complete mainframe ecosystem
 
 The AMT Framework supports several options to move client workloads to Azure:
 
-- One method is to convert and move the entire mainframe system to Azure at once, saving interim mainframe maintenance and facility support costs. This approach carries some risk because all processes, like application conversion, data migration, and testing, must align to allow a smooth transition.
+- One method is to convert and move the entire mainframe system to Azure at once, saving interim mainframe maintenance and facility support costs. This approach carries some risk: All processes, like application conversion, data migration, and testing, must align to allow a smooth transition.
 
 - A second methodology is to move applications from the mainframe to Azure gradually, with complete transition as the ultimate goal. This tactic provides savings per application, and lessons learned to convert each application can help with subsequent conversions. Modernizing each application on its own schedule can be more relaxed than converting everything at once.
   
@@ -50,9 +50,9 @@ The second diagram shows how the Unisys mainframe components can map and migrate
    
 3. The AMT Framework converts mainframe presentation, batch, and transaction loads (**C**) to sufficient server farms to handle the work. The solution uses two sets of two VMs running the web and application layers, fronted by Azure Load Balancers in *active-active* arrangements to spread query and transaction traffic.
    
-   Batch-only workflows may have additional transaction server sets behind load balancers, rather than presentation servers.
+   Batch-only workflows may have other transaction server sets behind load balancers, rather than presentation servers.
 
-4. The AMT Framework converts legacy application code (**D**) to C#/.NET. If code needs changing or editing, AMT can maintain and reprocess the original code, or you can edit the converted C# code directly to advance the code base to new standards.
+4. The AMT Framework converts legacy application code (**D**) to C#/.NET. If code needs changing or editing, AMT can maintain and reprocess the original code. Or you can edit the converted C# code directly to advance the code base to new standards.
    
 5. Legacy database structures (**E**) can migrate to Azure SQL Database, with the high availability (HA) and disaster recovery (DR) capabilities that Azure provides. Asysco data migration tools can convert DMS and RDMS schemas to SQL. Azure Private Link provides a private, direct connection from the Azure VMs to Azure SQL Database.
    
@@ -60,17 +60,17 @@ The second diagram shows how the Unisys mainframe components can map and migrate
    
 7. Workload automation, scheduling, reporting, and system monitoring systems (**G**) that are Azure-capable can keep their current platforms. These platforms include Unisys Operations Sentinel and SMA OpCon. Asysco AMT Control Center can also serve these functions.
    
-8. Azure Site Recovery HA/DR capabilities mirror the Azure VMs to a secondary Azure region for quick failover in case of Azure datacenter failure.
+8. Azure Site Recovery HA/DR capabilities mirror the Azure VMs to a secondary Azure region for quick failover if there's Azure datacenter failure.
    
 9. The system can support printers (**H**) and other legacy system output devices if they have IP addresses connected to the Azure network.
 
 ## Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) are on-demand, scalable computing resources that give you the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) are on-demand, scalable computing resources. Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain physical hardware.
   
-- [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. An Azure Virtual Network is similar to a traditional network on premises, but with the additional benefits of Azure's infrastructure such as scalability, availability, and isolation.
+- [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. Although an Azure Virtual Network is similar to a traditional network on premises, it offers the extra benefits of Azure's infrastructure, such as scalability, availability, and isolation.
   
-- [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) let Azure VMs communicate with internet, Azure, and on-premises resources. As in this architecture, you can add several network interface cards to one Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
+- [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) let Azure VMs communicate with internet, Azure, and on-premises resources. As in this architecture, you can add several network interface cards to one Azure VM. Then child VMs can have their own dedicated network interface devices and IP addresses.
   
 - [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are ultra disks, premium solid-state drives (SSDs), standard SSDs, and standard hard disk drives (HDDs). This architecture works best with Premium SSDs or Ultra Disk SSDs.
   
@@ -82,14 +82,14 @@ The second diagram shows how the Unisys mainframe components can map and migrate
 
 - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed PaaS database engine that is always running on the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles most database management functions like upgrading, patching, backups, and monitoring without user involvement. These PaaS capabilities let you focus on business critical, domain-specific database administration and optimization.
 
-- [Azure Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection, isolated to the Azure networking backbone, from the Azure VMs to Azure SQL Database.
+- [Azure Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection that's isolated to the Azure networking backbone from the Azure VMs to Azure SQL Database.
 
 ## Considerations
 
 The following considerations apply to this architecture:
 
 ### Availability
-- This architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror the Azure VMs to a secondary Azure region for quick failover and DR in case of Azure datacenter failure.
+- This architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror the Azure VMs to a secondary Azure region for quick failover and DR if there's Azure datacenter failure.
 
 - [Azure autofailover group replication](/azure/azure-sql/database/auto-failover-group-overview) provides data protection by managing database replication and failover to another region.
 
@@ -113,5 +113,15 @@ You can scale out the server sets to provide more throughput. For more informati
 - This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Next steps
+
+Explore related architectures:
+
+- [Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](../../example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)
+- [High-volume batch transaction processing](../../example-scenario/mainframe/process-batch-transactions.yml)
+- [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
+- [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
+- [Replicate and sync mainframe data in Azure](./sync-mainframe-data-with-azure.yml)
+- [Unlock legacy data with Azure Stack](../../solution-ideas/articles/unlock-legacy-data.yml)
+- [Modernize mainframe & midrange data](./modernize-mainframe-data-to-azure.yml)
 
 For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).

@@ -24,6 +24,8 @@ Mainframe and midrange customers can benefit from this solution, especially when
    The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains boxes that represent the file system, the relational and non-relational databases, and the object conversion components. Arrows point from the on-premises components to the Azure components. One of those arrows goes through the object conversion box, and one is labeled on-premises data gateway. The Azure part contains boxes that represent data ingestion and transformation, data storage, Azure services, and client apps. Some arrows point from the on-premises components to the tools and services in the data integration and transformation box. Another arrow points from that box to the data storage box, which contains databases and data stores. Additional arrows point from data storage to Azure services and to client apps.
 :::image-end:::
 
+*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
 Data modernization involves the following steps. Throughout the process, an on-premises data gateway transfers data quickly and securely between on-premises systems and Azure services (1).
 
 ### Object conversion
@@ -216,13 +218,13 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Email address for information on Azure Data Engineering Mainframe and Midrange Modernization]: mailto:datasqlninja@microsoft.com
 [ELT]: https://www.ibm.com/cloud/learn/etl#toc-etl-vs-elt-goFgkQcP
 [ETL]: https://www.ibm.com/cloud/learn/etl
-[Five reasons a data-first strategy works]: https://resources.syniti.com/featured-articles/5-reasons-a-data-first-strategy-works
+[Five reasons a data-first strategy works]: https://resources.syniti.com/data-quality/5-reasons-a-data-first-strategy-works
 [Flat files]: https://www.pcmag.com/encyclopedia/term/flat-file
 [Gateway considerations]: /data-integration/gateway/service-gateway-onprem#considerations
 [GDG]: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm
 [Hyperscale service tier]: /azure/azure-sql/database/service-tier-hyperscale
 [IBM Db2 10.5 for Linux, Unix and Windows documentation]: https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.kc.doc/welcome.html
-[IBM Db2 for i]: https://www.ibm.com/support/pages/ibm-db2-i
+[IBM Db2 for i]: https://www.ibm.com/support/pages/db2-ibm-i
 [IBM Db2 for z/OS]: https://www.ibm.com/analytics/db2/zos
 [IDMS]: https://www.broadcom.com/products/mainframe/databases-database-mgmt/idms
 [IMS]: https://www.ibm.com/it-infrastructure/z/ims
@@ -236,6 +238,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [The rise of the multimodel database]: https://www.infoworld.com/article/2861579/the-rise-of-the-multimodel-database.html
 [SQL Server Integration Services]: /sql/integration-services/sql-server-integration-services
 [SQL Server Migration Assistant for Db2]: /sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1785470-PR-1990-modernize-mainframe-data-with-azure.vsdx
 [VSAM]: https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_169.htm
 [Welcome to Azure Cosmos DB]: /azure/cosmos-db/introduction
 [What is an on-premises data gateway?]: /data-integration/gateway/service-gateway-onprem

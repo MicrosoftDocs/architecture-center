@@ -1,12 +1,11 @@
 ---
 title: Testing for reliability
-description: Describes considerations for reliability in application testing.
+description: Use a reliability checklist for app testing. Validate existing thresholds, targets, assumptions, the health and capacity models, and operational procedures.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
 ---
 
 # Testing for reliability
@@ -39,32 +38,32 @@ Follow these questions to assess the workload at a deeper level.
 
 | Assessment | Description |
 | ------------- | ------------- |
-| [How do you test the application to ensure it is fault tolerant?](/azure/architecture/framework/resiliency/testing) | Test regularly to validate existing thresholds, targets and assumptions. Automate testing as much as possible.
-| [How are you handling disaster recovery for your application?](/azure/architecture/framework/resiliency/backup-and-recovery) | A disaster recovery plan is considered complete after it has been fully tested. Include the people, processes, and applications needed to restore functionality within the service-level agreement (SLA).
-| [How are you managing errors & failures?](/azure/architecture/framework/resiliency/app-design-error-handling) | Testing doesn't always catch everything. Ensure that your application can recover from errors in a critical when working in a distributed system.
-| [How do you chaos-engineer your applications to ensure that they're fault tolerant?](/azure/architecture/framework/resiliency/chaos-engineering) | Deliberately inject faults that cause system components to fail. This can be done in a production or non-production environment.
+| [How do you test the application to ensure it is fault tolerant?](./testing.md) | Test regularly to validate existing thresholds, targets and assumptions. Automate testing as much as possible.
+| [How are you handling disaster recovery for your application?](./backup-and-recovery.md) | A disaster recovery plan is considered complete after it has been fully tested. Include the people, processes, and applications needed to restore functionality within the service-level agreement (SLA).
+| [How are you managing errors & failures?](./app-design-error-handling.md) | Testing doesn't always catch everything. Ensure that your application can recover from errors in a critical when working in a distributed system.
+| [How do you chaos-engineer your applications to ensure that they're fault tolerant?](./chaos-engineering.md) | Deliberately inject faults that cause system components to fail. This can be done in a production or non-production environment.
 
 ## Azure services
 
-- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
-- [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
-- [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)
-- [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview)
+- [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+- [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview)
 
 ## Reference architecture
 
-- [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis)
-- [High availability and disaster recovery scenarios for IaaS apps](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery)
-- [Back up files and applications on Azure Stack Hub](https://docs.microsoft.com/azure/architecture/hybrid/azure-stack-backup)
+- [Failure Mode Analysis for Azure applications](../../resiliency/failure-mode-analysis.md)
+- [High availability and disaster recovery scenarios for IaaS apps](../../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)
+- [Back up files and applications on Azure Stack Hub](../../hybrid/azure-stack-backup.yml)
 
 ## Next step
 
 >[!div class="nextstepaction"]
->[Resiliency testing](/azure/architecture/framework/resiliency/testing)
+>[Resiliency testing](./testing.md)
 
 ## Related links
 
-- For information on performance testing, see [Performance testing](/azure/architecture/framework/scalability/performance-test).
-- For information on chaos engineering, see [Chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering).
-- For information on failure and disaster recovery, see [Failure and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery).
-- For information on testing applications, see [Testing your application and Azure environment](/azure/architecture/framework/devops/release-engineering-testing). 
+- For information on performance testing, see [Performance testing](../scalability/performance-test.md).
+- For information on chaos engineering, see [Chaos engineering](./chaos-engineering.md).
+- For information on failure and disaster recovery, see [Failure and disaster recovery for Azure applications](./backup-and-recovery.md).
+- For information on testing applications, see [Testing your application and Azure environment](../devops/release-engineering-testing.md).

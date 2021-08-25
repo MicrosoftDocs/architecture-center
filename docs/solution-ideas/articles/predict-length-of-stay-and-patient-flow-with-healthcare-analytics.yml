@@ -20,7 +20,7 @@ metadata:
     - length of stay
     - healthcare analytics
     - healthcare machine learning
-    - 'https://azure.microsoft.com/solutions/architecture/predict-length-of-stay-and-patient-flow-with-healthcare-analytics/'
+    - "https://azure.microsoft.com/solutions/architecture/predict-length-of-stay-and-patient-flow-with-healthcare-analytics/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.png
 name: Predict Length of Stay and Patient Flow

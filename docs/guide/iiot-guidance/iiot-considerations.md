@@ -89,7 +89,7 @@ For additional security, industrial firewalls can be configured to only allow tr
 
 ## Next Steps
 
-- For a more detailed discussion of the recommended architecture and implementation choices, download and read the [Microsoft Azure IoT Reference Architecture pdf](https://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf).
+- For a more detailed discussion of the recommended architecture and implementation choices, download and read the [Microsoft Azure IoT Reference Architecture pdf](https://aka.ms/iotrefarchitecture).
 
 - [Azure Industrial IoT components, tutorials, and source code](https://azure.github.io/Industrial-IoT/).
 

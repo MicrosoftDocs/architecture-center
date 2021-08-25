@@ -9,7 +9,8 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Priority Queue pattern
@@ -156,18 +157,22 @@ for (int i = 0; i < 10; i++)
 this.queueManager.SendBatchAsync(highMessages).Wait();
 ```
 
-## Related patterns and guidance
+## Next steps
 
-The following patterns and guidance might also be relevant when implementing this pattern:
+The following guidance might also be relevant when implementing this pattern:
 
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue).
 
 - [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). A consumer service that processes a request might need to send a reply to the instance of the application that posted the request. Provides information on the strategies that you can use to implement request/response messaging.
 
+- [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). It might be possible to scale the size of the pool of consumer processes handling a queue depending on the length of the queue. This strategy can help to improve performance, especially for pools handling high priority messages.
+
+## Related patterns and guidance
+
+The following patterns might also be relevant when implementing this pattern:
+
 - [Competing Consumers pattern](./competing-consumers.md). To increase the throughput of the queues, it’s possible to have multiple consumers that listen on the same queue, and process the tasks in parallel. These consumers will compete for messages, but only one should be able to process each message. Provides more information on the benefits and tradeoffs of implementing this approach.
 
 - [Throttling pattern](./throttling.md). You can implement throttling by using queues. Priority messaging can be used to ensure that requests from critical applications, or applications being run by high-value customers, are given priority over requests from less important applications.
 
-- [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). It might be possible to scale the size of the pool of consumer processes handling a queue depending on the length of the queue. This strategy can help to improve performance, especially for pools handling high priority messages.
-
-- [Enterprise Integration Patterns with Service Bus](https://abhishekrlal.com/2013/01/11/enterprise-integration-patterns-with-service-bus-part-2/) on Abhishek Lal’s blog.
+- [Enterprise Integration patterns with Service Bus](https://abhishekrlal.com/2013/01/11/enterprise-integration-patterns-with-service-bus-part-2/) on Abhishek Lal’s blog.

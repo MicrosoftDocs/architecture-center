@@ -1,6 +1,6 @@
 ---
 title: Tradeoffs for performance efficiency
-description: Discover the pros and cons of performance optimization. Learn about tradeoffs between performance efficiency, operational excellence, reliability, scalability, and more.  
+description: Discover the pros and cons of performance optimization. Learn about tradeoffs between performance efficiency, operational excellence, reliability, scalability, and more.
 author: v-aangie
 ms.date: 01/07/2021
 ms.topic: conceptual
@@ -20,10 +20,10 @@ ms.custom:
   - article
   - seo-aac-fy21q3
 keywords:
-  - "Performance efficiency"
-  - "cost efficiency"
-  - "performance optimization"
-  - "operational excellence"
+  - Performance efficiency
+  - cost efficiency
+  - performance optimization
+  - operational excellence
 ---
 
 # Tradeoffs for performance efficiency
@@ -40,7 +40,7 @@ Cost can increase as a result of boosting performance. Here are a few factors to
 
 - Every render cycle of a payload consumes both compute and memory. You can use caching to reduce load on servers and save with pre-canned storage and bandwidth costs. The savings can be dramatic, especially for static content services.
 
-     - While caching can reduce cost, there are some performance tradeoffs. For example, Azure Traffic Manager pricing is based on the number of DNS (Domain Name Service) queries that reach the service. You can reduce that number through caching and configure how often the cache is refreshed. Relying on the cache that isn't frequently updated will cause longer user failover times if an endpoint is unavailable.
+  - While caching can reduce cost, there are some performance tradeoffs. For example, Azure Traffic Manager pricing is based on the number of DNS (Domain Name Service) queries that reach the service. You can reduce that number through caching and configure how often the cache is refreshed. Relying on the cache that isn't frequently updated will cause longer user failover times if an endpoint is unavailable.
 
 - Using dedicated resources for batch processing long running jobs will increase the cost. You can lower cost by provisioning Spot VMs but be prepared for the job to be interrupted every time Azure evicts the VM.
 
@@ -81,7 +81,7 @@ Reliable applications are *resilient* and *highly available* (HA). Resiliency al
 
 Some reliability considerations are:
 
-- Use the [Circuit Breaker](../../patterns/circuit-breaker.md#related-patterns-and-guidance) pattern to provide stability while the system recovers from a failure and minimizes the impact on performance.
+- Use the [Circuit Breaker](../../patterns/circuit-breaker.md) pattern to provide stability while the system recovers from a failure and minimizes the impact on performance.
 
 - Achieve levels of scale and performance needed for your solution by segregating read and write interfaces by implementing the [CQRS pattern](../../patterns/cqrs.md).
 
@@ -95,7 +95,7 @@ Some reliability considerations are:
 
 - Monitor performance. Use a performance monitoring service such as [New Relic](https://newrelic.com/) or [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
 
-For resiliency, availability, and reliability considerations, see the [Reliability](../resiliency/overview.md) pillar.
+For resiliency, availability, and reliability considerations, see the [Reliability](../resiliency/principles.md) pillar.
 
 ## Performance efficiency vs. security
 

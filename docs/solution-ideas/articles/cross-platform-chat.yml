@@ -18,7 +18,7 @@ metadata:
     - signalr service
     - interactive-diagram
     - e2e-hybrid
-    - 'https://azure.microsoft.com/solutions/architecture/cross-platform-chat/'
+    - "https://azure.microsoft.com/solutions/architecture/cross-platform-chat/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/cross-platform-chat.png
 name: Cross-platform Chat
 azureCategories:

@@ -1,12 +1,11 @@
 ---
 title: Design for reliability
-description: Describes considerations for reliability in application design.
+description: Review a checklist for reliability in application design. Considerations include uptime (availability), high resiliency, low latency, and cost.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
 ---
 
 # Design for reliability
@@ -19,7 +18,7 @@ Reliable applications should maintain a pre-defined percentage of uptime (*avail
 ***
 
 > [!div class="checklist"]
-> - Define availability and revovery targets to meet business requirements.
+> - Define availability and recovery targets to meet business requirements.
 > - Build resiliency and availability into your apps by gathering requirements.
 > - Ensure that application and data platforms meet your reliability requirements.
 > - Configure connection paths to promote availability.
@@ -35,34 +34,34 @@ Follow these questions to assess the workload at a deeper level.
 
 | Assessment | Description |
 | ------------- | ------------- |
-| [How will you design Azure applications to ensure reliability?](/azure/architecture/framework/resiliency/app-design) | Consider how systems use Availability Zones, perform scalability, respond to failure, and other strategies that optimize reliability in application design.
-| [What decisions have been taken to ensure that reliability requirements are met?](/azure/architecture/framework/resiliency/design-requirements) | Target and non-functional requirements such as availability and recovery targets allow you to measure the uptime and downtime of your workloads.
-| [Have you identified all possible failure points and dependencies for applications?](/azure/architecture/framework/resiliency/design-resiliency) | Validate that the application can operate effectively in the absence of its dependencies, and minimize downtime.
+| [How will you design Azure applications to ensure reliability?](./app-design.md) | Consider how systems use Availability Zones, perform scalability, respond to failure, and other strategies that optimize reliability in application design.
+| [What decisions have been taken to ensure that reliability requirements are met?](./design-requirements.md) | Target and non-functional requirements such as availability and recovery targets allow you to measure the uptime and downtime of your workloads.
+| [Have you identified all possible failure points and dependencies for applications?](./design-resiliency.md) | Validate that the application can operate effectively in the absence of its dependencies, and minimize downtime.
 
 ## Azure services
 
-- [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview)
-- [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)
-- [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
-- [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
-- [Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
+- [Azure Front Door](/azure/frontdoor/front-door-overview)
+- [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview)
+- [Service Fabric](/azure/service-fabric/service-fabric-overview)
+- [Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
+- [Azure Site Recovery](/azure/site-recovery/site-recovery-overview)
 
 ## Reference architecture
 
-- [Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha)
-- [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis)
-- [Minimize coordination](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination)
+- [Deploy highly available network virtual appliances](../../reference-architectures/dmz/nva-ha.yml)
+- [Failure Mode Analysis for Azure applications](../../resiliency/failure-mode-analysis.md)
+- [Minimize coordination](../../guide/design-principles/minimize-coordination.md)
 
 ## Next step
 
 >[!div class="nextstepaction"]
->[Target & non-functional requirements](/azure/architecture/framework/resiliency/design-requirements)
+>[Target & non-functional requirements](./design-requirements.md)
 
 ## Related links
 
-- [Use platform as a service (PaaS) options](https://docs.microsoft.com/azure/architecture/guide/design-principles/managed-services)  
-- [Design to scale out](/azure/architecture/guide/design-principles/scale-out)
-- [Workload availability targets](/azure/architecture/framework/resiliency/business-metrics).
-- [Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability)
-- [Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy) 
+- [Use platform as a service (PaaS) options](../../guide/design-principles/managed-services.md)  
+- [Design to scale out](../../guide/design-principles/scale-out.md)
+- [Workload availability targets](./business-metrics.md).
+- [Building solutions for high availability using Availability Zones](../../high-availability/building-solutions-for-high-availability.md)
+- [Make all things redundant](../../guide/design-principles/redundancy.md)

@@ -1,7 +1,7 @@
 ---
 title: Competing Consumers pattern
 titleSuffix: Cloud Design Patterns
-description: Enable multiple concurrent consumers to process messages received on the same messaging channel.
+description: Explore the Competing Consumers pattern, which enables many concurrent consumers to process messages that are received on the same messaging channel.
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
@@ -9,7 +9,8 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Competing Consumers pattern
@@ -126,7 +127,7 @@ private string serviceBusConnectionString = ...;
   }
 ```
 
-The following code example shows a consumer, written as a C# Azure Function, that reads message metadata and logs a Service Bus Queue message. Note how the `ServiceBusTrigger` attribute is used to bind it to a Service Bus Queue. 
+The following code example shows a consumer, written as a C# Azure Function, that reads message metadata and logs a Service Bus Queue message. Note how the `ServiceBusTrigger` attribute is used to bind it to a Service Bus Queue.
 
 ```csharp
 [FunctionName("ProcessQueueMessage")]
@@ -145,7 +146,7 @@ public static void Run(
 }
 ```
 
-## Related patterns and guidance
+## Related guidance
 
 The following patterns and guidance might be relevant when implementing this pattern:
 

@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.
@@ -32,9 +29,9 @@ The retail assistant or vacation planner can help your customers have interactio
 
 ## Related resources
 
-* [Commerce Chatbot](/azure/architecture/reference-architectures/ai/commerce-chatbot)
-* [Product recommendations for retail using Azure](/azure/architecture/reference-architectures/ai/product-recommendations)
-* [Visual Assistant](/azure/architecture/reference-architectures/ai/visual-assistant)
+* [Commerce Chatbot](./commerce-chatbot.yml)
+* [Product recommendations for retail using Azure](./product-recommendations.yml)
+* [Visual Assistant](./visual-assistant.yml)
 * [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 * [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
 * [What is the Azure Bing Search API?](/azure/cognitive-services/bing-web-search)

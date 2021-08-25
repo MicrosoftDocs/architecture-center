@@ -1,11 +1,10 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-
-
-This reference architecture shows how an emulator called Charon-SSP from the Microsoft partner, Stromasys, can run SPARC processor-based Solaris virtual machines (VMs) in Azure. Charon-SSP is a member of the Charon cross-platform hardware virtualization product family. The emulator can create virtual replicas of Sun-4m, Sun-4u, or Sun-4v SPARC family members on standard x86-64 Linux physical computers or hypervisors.
+This article shows how an emulator called Charon-SSP from the Microsoft partner, Stromasys, can run SPARC processor-based Solaris virtual machines (VMs) in Azure. Charon-SSP is a member of the Charon cross-platform hardware virtualization product family. The emulator can create virtual replicas of Sun-4m, Sun-4u, or Sun-4v SPARC family members on standard x86-64 Linux physical computers or hypervisors.
 
 Running applications in an emulator on Azure has several benefits, such as reduced operational costs and energy consumption. You can also run multiple application instances on a single x86-64 standard host or existing virtualization infrastructure, giving you the advantages of consolidation while easing legacy system management and maintenance.
 
-## Use cases
+## Potential use cases
 
 - Enable low-friction "lift-and-shift" from on-premises workloads running on SPARC Solaris machines into Azure.
 - Continue to use applications that run on end-of-life SPARCstation or SPARCserver, without changes.

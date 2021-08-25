@@ -1,6 +1,6 @@
 ---
 title: Azure security test practices
-description: Test and validate the workload frequently to detect attacks.
+description: Explore Azure security test practices, such as testing and validating the workload frequently to detect attacks.
 author: PageWriter-MSFT
 ms.date: 02/01/2021
 ms.topic: conceptual
@@ -42,10 +42,18 @@ Simulated tests can also give you data to plan risk mitigation. Applications tha
 
 It's recommended that you simulate a one-time attack to detect vulnerabilities. Pentesting is a popular methodology to validate the security defense of a system. The practitioners are security experts who are not part of the organization's IT or application teams. So, they look at the system in a way that malicious actors scope an attack surface. The goal is to find security gaps by gathering information, analyzing vulnerabilities, and reporting. 
 
+Penetration tests provide a point-in-time validation of security defenses. Red teams can help provide ongoing visibility and assurance that your defenses work as designed, potentially testing across different levels within your workload(s). Red team programs can be used to simulate either one time, or persistent threats against an organization to validate defenses that have been put in place to protect organizational resources.
+
+Microsoft recommends penetration testing and red team exercises to validate security defenses for your workload.
+
 [Penetration Testing Execution Standard (PTES)](http://www.pentest-standard.org/index.php/Main_Page) provides guidelines about common scenarios and the activities required to establish a baseline.  
 
 Azure uses shared infrastructure to host your assets and assets belonging to other customers. In a pentesting exercise, the practitioners may need access to sensitive data of the entire organization. Follow the rules of engagement to make sure that access and the intent is not misused. For guidance about planning and executing simulated attacks, see [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
 
+### Learn more
+
+- [Azure Penetration Testing](/azure/security/fundamentals/pen-testing)
+- [Penetration Testing](./governance.md#penetration-testing)
 
 ## Simulate attacks
 The way users interact with a system is critical in planning your defense. The risks are even higher for critical impact accounts because they have elevated permissions and can cause more damage. 

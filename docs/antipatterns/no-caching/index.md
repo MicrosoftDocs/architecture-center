@@ -1,7 +1,7 @@
 ---
 title: No Caching antipattern
 titleSuffix: Performance antipatterns for cloud apps
-description: Repeatedly fetching the same data, in a cloud application that handles many concurrent requests, can reduce performance and scalability. Reduce latency by detecting and mitigating this no caching antipattern in your application.
+description: Learn about ways to mitigate the No Caching antipattern, the common design flaw of repeatedly fetching the same data.
 author: dragon119
 ms.date: 06/05/2017
 ms.topic: conceptual
@@ -13,12 +13,12 @@ ms.custom:
   - article
   - seo-aac-fy21q3
 keywords:
-  - "antipattern"
-  - "anti-pattern"
-  - "performance antipattern"
-  - "no caching antipattern"
-  - "caching strategy"
-  - "reduce latency"
+  - antipattern
+  - anti-pattern
+  - performance antipattern
+  - no caching antipattern
+  - caching strategy
+  - reduce latency
 ---
 
 <!-- cSpell:ignore linq -->

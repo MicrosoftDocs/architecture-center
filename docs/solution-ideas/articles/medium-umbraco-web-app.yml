@@ -17,7 +17,7 @@ metadata:
     - web-apps
     - app-dev
     - is-deployable
-    - 'https://azure.microsoft.com/solutions/architecture/medium-umbraco-web-app/'
+    - "https://azure.microsoft.com/solutions/architecture/medium-umbraco-web-app/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/medium-umbraco-web-app.png
 name: Scalable Umbraco CMS web app
 azureCategories:

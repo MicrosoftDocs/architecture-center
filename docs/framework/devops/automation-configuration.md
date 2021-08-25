@@ -1,6 +1,6 @@
 ---
 title: Configure infrastructure
-description: Configure infrastructure
+description: Get information about configuring Azure infrastructure programmatically using bootstrap automation or configuration management tools.
 author: neilpeterson
 ms.date: 10/15/2020
 ms.topic: conceptual
@@ -157,7 +157,7 @@ Once imported into Azure State Configuration and assigned to nodes, the state co
 Use the included code sample to deploy Azure Automation State Configuration and several Azure virtual machines. The virtual machines are also onboarded to state configuration, and a configuration applied.
 
 - [Documentation: Get started with Azure Automation State Configuration](/azure/automation/automation-dsc-overview)
-- [Code Sample: Deploy DSC and VMs with an ARM template](/samples/mspnp/samples/azure-well-architected-framework-sample-state-configuration/)
+- [Example Scenario: Azure Automation State Configuration](../../example-scenario/state-configuration/state-configuration.yml)
 
 ### Chef
 

@@ -23,7 +23,7 @@ metadata:
     - lift and shift strategy
     - interactive-diagram
     - e2e-hybrid
-    - 'https://azure.microsoft.com/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process/'
+    - "https://azure.microsoft.com/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/modern-customer-support-portal-powered-by-an-agile-business-process.png
 name: Modern Customer Support Portal
 azureCategories:

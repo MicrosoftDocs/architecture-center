@@ -3,13 +3,11 @@
 
 This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 
-![Diagram of the architecture](./_images/iot-refarch.svg)
+[ ![Diagram of the architecture](./iot/images/iot-refarch.svg) ](./iot/images/iot-refarch.svg#lightbox)
 
 IoT applications can be described as **things** (devices) sending data that generates **insights**. These insights generate **actions** to improve a business or process. An example is an engine (the thing) sending temperature data. This data is used to evaluate whether the engine is performing as expected (the insight). The insight is used to proactively prioritize the maintenance schedule for the engine (the action).
 
-This reference architecture uses Azure PaaS (platform-as-a-service) components. Another recommended option for building IoT solutions on Azure is:
-
-- [Azure IoT Central](/azure/iot-central/). IoT Central is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.
+This reference architecture uses Azure PaaS (platform-as-a-service) components.  Microsoft recommends using [Azure IoT Central](/azure/iot-central/), which is a fully managed SaaS (software-as-a-service) solution. It abstracts the technical choices and lets you focus on your solution exclusively. This simplicity comes with a tradeoff in being less customizable than a PaaS-based solution.
 
 At a high level, there are two ways to process telemetry data, hot path and cold path. The difference has to do with requirements for latency and data access.
 
@@ -42,11 +40,15 @@ This architecture consists of the following components. Some applications may no
 
 **Security monitoring** [Azure Security Center for IoT](/azure/asc-for-iot/overview) provides an end-to-end security solution for IoT workloads and simplifies their protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads from leaf devices through Edge as well as up through the clouds.
 
+### Alternatives
+
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
+
 ## Scalability considerations
 
 An IoT application should be built as discrete services that can scale independently. Consider the following scalability points:
 
-**IoTHub**. For IoT Hub, consider the following scale factors:
+**IoT Hub**. For IoT Hub, consider the following scale factors:
 
 - The maximum [daily quota](/azure/iot-hub/iot-hub-devguide-quotas-throttling) of messages into IoT Hub.
 - The quota of connected devices in an IoT Hub instance.
@@ -65,6 +67,8 @@ IoT Hub automatically partitions device messages based on the device ID. All of 
 
 - If you store and update a single document per device, the device ID is a good partition key. Writes are evenly distributed across the keys. The size of each partition is strictly bounded, because there is a single document for each key value.
 - If you store a separate document for every device message, using the device ID as a partition key would quickly exceed the 10-GB limit per partition. Message ID is a better partition key in that case. Typically you would still include device ID in the document for indexing and querying.
+
+[Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
 
 **Azure Time Series Insights (TSI)** is an analytics, storage and visualization service for time-series data, providing capabilities including SQL-like filtering and aggregation, alleviating the need for user-defined functions. [Time Series Insights](/azure/time-series-insights/overview-what-is-tsi) provides a data explorer to visualize and query data as well as REST Query APIs. In addition to time series data, TSI is also well-suited for solutions that need to query aggregates over large sets of data. With support for multi layered storage, rich APIs, model and it’s integration with Azure IoT ecosystem, explorer for visualizations, and extensibility through Power BI, etc. TSI is our recommendation for time series data storage and analytics.
 
@@ -190,10 +194,9 @@ For cold path storage, Azure Blob Storage is the most cost-effective option.
 
 For warm path storage, consider using Azure Cosmos DB. For more information, see [Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-
 ## Next steps
 
-- For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf) (PDF).
+- For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture).
 
 - For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](/azure/iot-fundamentals/).
 

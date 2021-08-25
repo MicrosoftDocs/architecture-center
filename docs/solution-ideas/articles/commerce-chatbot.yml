@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Commerce Chatbot
+  title: Commerce chatbot for customer service
   titleSuffix: Azure Solution Ideas
-  description: Learn how to use the Azure Bot Service and Language Understanding service to process commerce customer requests using text and voice and create conversational interfaces for various commerce scenarios.
+  description: Learn how to use Azure Bot and Azure Cognitive Services to create conversational interfaces for common customer service scenarios.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/16/2019
@@ -18,19 +18,22 @@ metadata:
     - bot service
     - luis
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/commerce-chatbot/'
+    - "https://azure.microsoft.com/solutions/architecture/commerce-chatbot/"
     - ai-machine-learning
+    - aml-project-improvement
   social_image_url: /azure/architecture/solution-ideas/articles/media/commerce-chatbot.png
-name: Commerce Chatbot
+name: Commerce chatbot for customer service
 azureCategories:
   - ai-machine-learning
   - web
-summary: Learn how to use the Azure Bot Service and Language Understanding service to process commerce customer requests using text and voice and create conversational interfaces for various commerce scenarios.
+summary: Use Azure Bot and Azure Cognitive Services to process natural language text and voice requests to create conversational interfaces for common customer service scenarios.
 products:
   - azure-active-directory-b2c
   - azure-app-service
   - azure-bot-service
   - azure-language-understanding
+  - azure-sql-database
+  - azure-cognitive-services
 thumbnailUrl: /azure/architecture/browse/thumbs/commerce-chatbot.png
 content: |
   [!include[](commerce-chatbot-content.md)]

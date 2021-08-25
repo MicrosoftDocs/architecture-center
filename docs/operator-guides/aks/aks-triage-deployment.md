@@ -1,7 +1,7 @@
 ---
 title: AKS triage - workload deployments
 titleSuffix: Azure Architecture Center
-description: Triage step to check workload deployments.
+description: Check whether workload deployments and daemonSets are running as part of triage practices in an Azure Kubernetes Service (AKS) cluster.
 author: kevingbb
 ms.date: 10/12/2020
 ms.topic: conceptual
@@ -9,6 +9,8 @@ ms.service: architecture-center
 ms.subservice: guide
 products:
   - azure-kubernetes-service
+ms.custom:
+  - e2e-aks
 ---
 
 # Check the workload deployments

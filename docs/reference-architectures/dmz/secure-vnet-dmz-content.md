@@ -49,7 +49,7 @@ The IIS instance found in the spoke network can be accessed from the virtual mac
 For detailed information and additional deployment options, see the ARM Templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Secure Hybrid Network](https://github.com/mspnp/samples/tree/master/solutions/secure-hybrid-network)
+> [Secure Hybrid Network](/samples/mspnp/samples/secure-hybrid-network/)
 
 ## Use cases
 
@@ -142,9 +142,7 @@ Each tier's subnet in the reference architecture is protected by NSG rules. You 
 
 If you're using ExpressRoute to provide the connectivity between your on-premises datacenter and Azure, use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor and troubleshoot connection issues.
 
-You can find additional information about monitoring and managing VPN and ExpressRoute connections in the articles:
-- [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-devops]
-- [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-devops]
+You can find additional information about monitoring and managing VPN and ExpressRoute connections in the article [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-devops].
 
 ## Security considerations
 
@@ -212,7 +210,6 @@ In this architecture, internal load balancers are used to load balance traffic i
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.yml#availability-considerations
-[guidance-expressroute-devops]: ../hybrid-networking/expressroute.yml#devops-considerations
 [guidance-expressroute-scalability]: ../hybrid-networking/expressroute.yml#scalability-considerations
 [guidance-expressroute-security]: ../hybrid-networking/expressroute.yml#security-considerations
 [guidance-vpn-gateway-availability]: ../hybrid-networking/vpn.yml#availability-considerations

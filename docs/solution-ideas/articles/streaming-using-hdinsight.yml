@@ -17,7 +17,7 @@ metadata:
     - data
     - HDInsight
     - Data Lake Storage
-    - 'https://azure.microsoft.com/solutions/architecture/streaming-using-hdinsight/'
+    - "https://azure.microsoft.com/solutions/architecture/streaming-using-hdinsight/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/streaming-using-hdinsight.png
 name: Streaming using HDInsight
 azureCategories:

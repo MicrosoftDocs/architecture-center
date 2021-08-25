@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Today, most facilities operate reactively to problems in tank levels. This often leads to spills, emergency shutdowns, expensive remediation costs, regulatory issues, costly repairs and fines. Tank level forecasting helps manage and abate these and other problems.
@@ -43,3 +40,21 @@ After deployment, see the post deployment instructions.
   4. Azure Synapse Analytics is used to store the prediction results received from Azure Machine Learning. These results are then consumed in the Power BI dashboard.
   5. Azure Data Factory handles orchestration, and scheduling of the hourly model retraining.
   6. Finally, Power BI is used for results visualization, so that users can monitor the tank level from a facility in real time and use the forecast level to prevent spillage.
+
+## Components
+
+* [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
+* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
+* [Power BI](https://powerbi.microsoft.com/en-us/)
+
+## Next steps
+
+* [Choosing a data analytics technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
+* [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
+* [Anomaly Detector Process](./anomaly-detector-process.yml)
+* [Demand Forecasting](./demand-forecasting.yml)
+* [Predicting Length of Stay in Hospitals](./predicting-length-of-stay-in-hospitals.yml)
+* [Predictive Aircraft Engine Monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)

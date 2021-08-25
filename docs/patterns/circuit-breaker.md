@@ -7,9 +7,12 @@ ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Circuit Breaker pattern
@@ -278,7 +281,7 @@ catch (Exception ex)
 }
 ```
 
-## Related patterns and guidance
+## Related guidance
 
 The following patterns might also be useful when implementing this pattern:
 

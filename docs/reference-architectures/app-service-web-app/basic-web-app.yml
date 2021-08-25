@@ -13,6 +13,8 @@ metadata:
   ms.custom:
     - reference-architecture
     - internal-intro
+    - deployable
+    - 2021-refresh
 name: Basic web application
 azureCategories:
   - web

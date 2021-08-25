@@ -55,7 +55,7 @@ The following development platforms and tools are available for machine learning
 
 ## Azure Machine Learning
 
-[Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml) is a fully managed cloud service used to train, deploy, and manage machine learning models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Compute instances](/azure/machine-learning/concept-compute-instance), [Jupyter notebooks](/azure/machine-learning/tutorial-1st-experiment-sdk-setup), or the [Azure Machine Learning for Visual Studio Code extension](/azure/machine-learning/tutorial-setup-vscode-extension), a free extension that allows you to manage your resources, model training workflows and deployments in Visual Studio Code. Azure Machine Learning includes features that automate model generation and tuning with ease, efficiency, and accuracy.
+[Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is a fully managed cloud service used to train, deploy, and manage machine learning models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Compute instances](/azure/machine-learning/concept-compute-instance), [Jupyter notebooks](/azure/machine-learning/tutorial-1st-experiment-sdk-setup), or the [Azure Machine Learning for Visual Studio Code extension](/azure/machine-learning/tutorial-setup-vscode-extension), a free extension that allows you to manage your resources, model training workflows and deployments in Visual Studio Code. Azure Machine Learning includes features that automate model generation and tuning with ease, efficiency, and accuracy.
 
 Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud scale. For a low-code or no-code option, use Azure Machine Learning's interactive [designer](/azure/machine-learning/service/concept-designer) in the studio to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
 
@@ -96,7 +96,7 @@ Use Cognitive Services to develop apps across devices and platforms. The APIs ke
 - [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services)
 - [Machine Learning Services on SQL Server Big Data Clusters](/sql/big-data-cluster/machine-learning-services)
 - [Azure SQL Managed Instance Machine Learning Services](/azure/azure-sql/managed-instance/machine-learning-services-overview)
-- [Machine learning in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-mllib-notebook)
+- [Machine learning in Azure Synapse Analytics](/azure/synapse-analytics/machine-learning/what-is-machine-learning)
 - [Machine learning and AI with ONNX in Azure SQL Edge](/azure/azure-sql-edge/onnx-overview)
 - [Machine Learning extension for Azure Data Studio](/sql/azure-data-studio/machine-learning-extension)
 

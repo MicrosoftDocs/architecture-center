@@ -11,7 +11,8 @@ products:
   - azure-app-service
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Compute Resource Consolidation pattern
@@ -232,7 +233,7 @@ private void Stop(TimeSpan timeout)
 }
 ```
 
-## Related patterns and guidance
+## Related guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 

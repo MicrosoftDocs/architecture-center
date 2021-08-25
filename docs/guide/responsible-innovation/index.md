@@ -13,10 +13,10 @@ ms.custom:
   - guide
   - seo-aac-fy21q3
 keywords:
-  - "Innovation toolkit"
-  - "responsible innovation"
-  - "innovation best practices"
-  - "threat modeling"
+  - Innovation toolkit
+  - responsible innovation
+  - innovation best practices
+  - threat modeling
 ---
 
 # Responsible Innovation: A Best Practices Toolkit

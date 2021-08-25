@@ -1,6 +1,6 @@
 ---
 title: R developer's guide to Azure - R programming
-description: This article provides an overview of the various ways that data scientists can use their existing skills with the R programming language in Azure. Azure offers many services that R developers can use to extend their data science workloads into the cloud.
+description: Learn about the Azure services that support the R programming language and how R developers can use them to extend their data science workloads into the cloud.
 services: machine-learning
 author: AnalyticJeremy
 ms.author: jepeach
@@ -105,11 +105,9 @@ Customers currently using or evaluating Azure Machine Learning Studio (classic) 
 
 For large-scale R jobs, you can use [Azure Batch](https://azure.microsoft.com/services/batch/).  This service provides cloud-scale job scheduling and compute management so you can scale your R workload across tens, hundreds, or thousands of virtual machines.  Since it is a generalized computing platform, there a few options for running R jobs on Azure Batch.
 
-One option is to use Microsoft's [`doAzureParallel`](https://github.com/Azure/doAzureParallel) package.  This R package is a parallel backend for the `foreach` package.  It allows each iteration of the `foreach` loop to run in parallel on a node within the Azure Batch cluster.  For an introduction to the package, see the blog post [doAzureParallel: Take advantage of Azure’s flexible compute directly from your R session](https://azure.microsoft.com/blog/doazureparallel/).
+One option for running an R script in Azure Batch is to bundle your code with "RScript.exe" as a Batch App in the Azure portal. For a detailed walkthrough, see [R Workloads on Azure Batch](https://azure.microsoft.com/blog/r-workloads-on-azure-batch/).
 
-Another option for running an R script in Azure Batch is to bundle your code with "RScript.exe" as a Batch App in the Azure portal. For a detailed walkthrough, see [R Workloads on Azure Batch](https://azure.microsoft.com/blog/r-workloads-on-azure-batch/).
-
-A third option is to use the [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK), which allows you to provision on-demand Spark clusters using Docker containers in Azure Batch.  This provides an economical way to run Spark jobs in Azure.  By using [SparklyR with AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), your R scripts can be scaled out in the cloud easily and economically.
+Another option is to use the [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK), which allows you to provision on-demand Spark clusters using Docker containers in Azure Batch.  This provides an economical way to run Spark jobs in Azure.  By using [SparklyR with AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), your R scripts can be scaled out in the cloud easily and economically.
 
 ## Azure SQL Managed Instance
 

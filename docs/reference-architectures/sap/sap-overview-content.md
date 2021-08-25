@@ -22,7 +22,7 @@ Another way to reduce costs is to deallocate or “snooze” virtual machines. I
 
 Combining virtual machine [pricing options](https://azure.microsoft.com/pricing/details/virtual-machines/sles-sap/)  can also lower costs. For budget predictability, you can use an Azure Reserved Virtual Machine Instance, an advanced purchase for one or three years in a specified region. For low cost and flexibility, you can pay as you go for compute capacity, which requires no long term-commitment.
 
-As a final note, it’s a good practice to review your Azure operations regularly and look for ways to optimize costs. For example, check to see whether a more cost-effective storage option is available or a newer VM series with a better price-to-performance ratio. For more details, see cost management discipline in the [govern methodology for cloud](/azure/cloud-adoption-framework/govern/methodology) as part of the Cloud Adoption Framework.
+As a final note, it's a good practice to review your Azure operations regularly and look for ways to optimize costs. For example, check to see whether a more cost-effective storage option is available or a newer VM series with a better price-to-performance ratio. For more details, see cost management discipline in the [govern methodology for cloud](/azure/cloud-adoption-framework/govern/methodology) as part of the Cloud Adoption Framework.
 
 ### Cost guidance
 
@@ -77,7 +77,7 @@ The monitoring and diagnostics process has several distinct phases:
 
 The resiliency pillar of the SAP on Azure Architecture Guide refers to the operational stability and business continuity you need to run mission-critical, tier-1 SAP applications. Designing for availability ensures SAP application uptime in the event of localized software or hardware failures.
 
-In production environments, it’s important to guard against a single point of failure for each application and infrastructure component. This can be achieved by the principles of isolation and redundancy.
+In production environments, it's important to guard against a single point of failure for each application and infrastructure component. This can be achieved by the principles of isolation and redundancy.
 
 - **Isolation.** Ensure that all components involved are isolated on an application and infrastructure layer.
 
@@ -87,7 +87,7 @@ Keeping these basic principles in mind, the recommendation would be to implement
 
 We recommend deploying the virtual machines that run SAP Central Services and databases in Availability Sets or Availability Zones, which help protect applications against planned maintenance events and unplanned outages.  
 
-When applying resiliency to the SAP application servers, we recommend using fewer, smaller servers instead of one larger application server. The practice is to configure the guest operating system’s cluster technologies, such as Windows Failover Cluster or Linux Pacemaker, to help ensure short failover times of the SAP Central Services and database management system (DBMS). To ensure there is no (or minimal) data loss, the best practice is to configure DBMS synchronous or asynchronous replication depending on the scenario.
+When applying resiliency to the SAP application servers, we recommend using fewer, smaller servers instead of one larger application server. The practice is to configure the guest operating system's cluster technologies, such as Windows Failover Cluster or Linux Pacemaker, to help ensure short failover times of the SAP Central Services and database management system (DBMS). To ensure there is no (or minimal) data loss, the best practice is to configure DBMS synchronous or asynchronous replication depending on the scenario.
 
 ### Application server resiliency
 
@@ -113,7 +113,7 @@ For more information, see [High-availability architecture for an SAP ASCS/SCS in
 
 ### Database resiliency
 
-On the database layer, production data can be replicated within the region or between primary and disaster recovery region (Synchronous in case of high availability or Asynchronous in case of DR replication).  Depending on the choice of DBMS and required business SLA’s, different database methods can be utilized.
+On the database layer, production data can be replicated within the region or between primary and disaster recovery region (Synchronous in case of high availability or Asynchronous in case of DR replication).  Depending on the choice of DBMS and required business SLA's, different database methods can be utilized.
 
 When designing a resilient architecture for the database layer, consider the following aspects:
 
@@ -136,7 +136,7 @@ Several certified third-party backup solutions exist in the [Azure Marketplace](
 
 Storage solutions such as Azure NetApp Files can backup critical data through the capabilities of snapshots.
 
-Azure Backup is Azure’s native backup solution: 
+Azure Backup is Azure's native backup solution: 
 
 - Native SAP HANA backups through the Backint connector.
 - Ability to create an application consistent backup using disks snapshots of Azure Premium storage.
@@ -162,7 +162,7 @@ For more information on Azure Backup, see [Azure Backup service documentation](/
 
 ## Scalability
 
-The scalability pillar of the SAP on Azure Architecture Guide describes performance efficiency and meeting the demands placed on a workload. Users also need high-performing SAP applications so they can work efficiently without frustration. It’s important to undertake a quality sizing exercise for your SAP deployment and to right-size your Azure components—compute, storage, and network.
+The scalability pillar of the SAP on Azure Architecture Guide describes performance efficiency and meeting the demands placed on a workload. Users also need high-performing SAP applications so they can work efficiently without frustration. It's important to undertake a quality sizing exercise for your SAP deployment and to right-size your Azure components—compute, storage, and network.
 
 [SAP Note \#1928533](https://launchpad.support.sap.com/#/notes/1928533) details the [SAPS](https://www.sap.com/about/benchmark/measuring.html) value for the virtual machines that are supported to run SAP applications. (To access this SAP note, an SAP Service Marketplace account is required.) For more information about the network and storage throughput per Azure virtual machine type, see these resources:
 
@@ -189,7 +189,7 @@ Be mindful of latency-sensitive interfaces between SAP and non-SAP applications.
 
 Scale-up / Scale-out:
 
-[Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
+[Run SAP HANA for Linux virtual machines in a scale-up architecture on Azure](./run-sap-hana-for-linux-virtual-machines.yml)
 
 [Configuring Azure infrastructure for SAP HANA scale-out](/azure/virtual-machines/workloads/sap/hana-vm-operations#configuring-azure-infrastructure-for-sap-hana-scale-out)
 
@@ -323,7 +323,7 @@ The following scenarios outline a few of the common ways SAP solutions are built
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
         <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/reference-architectures/sap/run-sap-hana-for-Linux-virtual-machines">
+            href="/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
                         <img role="presentation" alt="Diagram shows infrastructure needed to run S A P HANA on Linux virtual machines in a scale-up architecture on Azure." src="./images/sap-hana-scale-up.png">

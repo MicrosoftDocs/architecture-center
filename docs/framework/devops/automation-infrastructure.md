@@ -1,6 +1,6 @@
 ---
 title: Repeatable Infrastructure
-description: Repeatable Infrastructure
+description: Review the concept of repeatable infrastructure. Use Azure Landing Zones. Deploy infrastructure with code. Automate deployments with ARM templates and Terraform.
 author: neilpeterson
 ms.date: 10/15/2020
 ms.topic: conceptual
@@ -18,7 +18,27 @@ Historically, deploying a new service or application involves manual work such a
 
 Cloud computing changes the way we procure infrastructure. No longer are we unboxing, racking, and cabling physical infrastructure. We have internet accessible management portals and REST interfaces to help us. We can now provision virtual machines, databases, and other cloud services on demand and globally. When we no longer need cloud services, they can be easily deleted. However, cloud computing alone does not remove the effort and risk in provisioning infrastructure. When using a cloud portal to build systems, many of the same manual configuration tasks remain. Application servers require configuration, databases need networking, and firewalls need firewalling. 
 
-## Why deploy infrastructure with code
+## Azure Landing Zones (Repeatable environment configuration)
+
+Organizations which centrally manage, govern, or support multiple workloads in the cloud will require repeatable **and consistent** environments. Azure Landing Zones provide central operations teams with a repeatable approach to environmental configuration. To deliver consistent environments, all Azure Landing Zones provide a set of common design areas, reference architecture, reference implementation, and a process to modify that deployment to fit the organization design requirements.
+
+> [!WARNING]
+> Some organizations are following a growing industry trend towards decentralized operations (or workload operations). When operations is decentralized, the organization chooses to accept duplication of resources and potential inconsistencies in environmental configuration, in favor of reduced dependencies and full control of the environment through Azure Pipelines. Organizations who are following a decentralized operating model are less likely to leverage Azure Landing Zones to create repeatable environment configurations, but will still find value in the subsequent sections of this article.
+
+The following is a series of links from the Cloud Adoption Framework to help deploy Azure Landing Zones:
+
+- All Azure Landing Zones adhere to a [common set of design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas) to guide configuration of required environment considerations including: Identity, Network topology and connectivity, Resource organization, Governance disciplines, Operations baseline, and Business continuity and disaster recovery (BCDR)
+- All Azure Landing Zones can be deployed through the Azure portal, but are designed to leverage infrastructure as code to create, [test](/azure/cloud-adoption-framework/ready/considerations/test-driven-development), and [refactor](/azure/cloud-adoption-framework/ready/landing-zone/refactor) repeatable deployments of the environmental configuration.
+- The Cloud Adoption Framework provides a number of [Azure Landing Zone implementation options](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options), including:
+  - Start small & expand implementation using Azure Blueprints and ARM Templates
+  - Enterprise-Scale implementation using Azure Policy and ARM Templates
+  - CAF Terraform modules and a variety of landing zone options 
+
+To get started with Azure Landing Zones to create consistent, repeatable environment configuration see the article series on [Azure Landing Zones](/azure/cloud-adoption-framework/ready/landing-zone/).
+
+If Azure Landing Zones are not a fit for your organization, you should consider the following sections of this article to manual integrate environment configuration into your Azure Pipelines.
+
+## Deploy infrastructure with code
 
 To fully realize deployment optimization, reduce configuration effort, and automate full environments' deployment, something more is required. One option is referred to as infrastructure as code.
 

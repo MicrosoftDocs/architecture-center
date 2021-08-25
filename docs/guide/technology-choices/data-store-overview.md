@@ -1,8 +1,9 @@
 ---
 title: Understand data store models
 titleSuffix: Azure Application Architecture Guide
-description: Describes different data storage models found in Azure data services.
+description: Learn about the high-level differences between the various data storage models found in Azure data services.
 author: dsk-2015
+ms.author: pnp
 ms.date: 08/08/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -21,13 +22,16 @@ Not all data stores in a given category provide the same feature-set. Most data 
 
 Generally, you should start by considering which storage model is best suited for your requirements. Then consider a particular data store within that category, based on factors such as feature set, cost, and ease of management.
 
+> [!NOTE]
+> Learn more about identifying and reviewing your data service requirements for cloud adoption, in the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/ready/considerations/data-options). Likewise, you can also learn about [selecting storage tools and services](/azure/cloud-adoption-framework/ready/considerations/storage-options).
+
 ## Relational database management systems
 
 Relational databases organize data as a series of two-dimensional tables with rows and columns. Most vendors provide a dialect of the Structured Query Language (SQL) for retrieving and managing data. An RDBMS typically implements a transactionally consistent mechanism that conforms to the ACID (Atomic, Consistent, Isolated, Durable) model for updating information.
 
 An RDBMS typically supports a schema-on-write model, where the data structure is defined ahead of time, and all read or write operations must use the schema. 
 
-This model is very useful when strong consistency guarantees are important &mdash; where all changes are atomic, and transactions always leave the data in a consistent state. However, an RDBMS generally can't scale out horizontally without sharding the data in some way. Also, the data in an RDBMS must normalized, which isn't appropriate for every data set. 
+This model is very useful when strong consistency guarantees are important &mdash; where all changes are atomic, and transactions always leave the data in a consistent state. However, an RDBMS generally can't scale out horizontally without sharding the data in some way. Also, the data in an RDBMS must be normalized, which isn't appropriate for every data set. 
 
 ### Azure services
 

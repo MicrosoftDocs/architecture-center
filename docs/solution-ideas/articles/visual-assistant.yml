@@ -19,7 +19,7 @@ metadata:
     - visual capabilities
     - visual assistant scenarios
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/visual-assistant/'
+    - "https://azure.microsoft.com/solutions/architecture/visual-assistant/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/visual-assistant.png
 name: Visual Assistant

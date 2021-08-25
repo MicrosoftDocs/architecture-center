@@ -19,7 +19,7 @@ metadata:
     - azure
     - solutions
     - analytics
-    - 'https://azure.microsoft.com/solutions/architecture/finance-management-apps-using-azure-database-for-postgresql/'
+    - "https://azure.microsoft.com/solutions/architecture/finance-management-apps-using-azure-database-for-postgresql/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/finance-management-apps-using-azure-database-for-postgresql.svg
 name: Finance management apps using Azure Database for PostgreSQL
 azureCategories:

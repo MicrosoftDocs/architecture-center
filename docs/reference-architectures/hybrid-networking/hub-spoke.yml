@@ -16,9 +16,10 @@ metadata:
     - networking
     - fcp
     - reference-architecture
-    - 2021-deployment
     - e2e-hybrid
     - internal-intro
+    - deployable
+    - 2021-refresh
 name: Hub-spoke network topology in Azure
 azureCategories:
   - networking

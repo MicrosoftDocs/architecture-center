@@ -18,7 +18,7 @@ metadata:
     - Cloud Scale Analytics
     - data warehouse analytics
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/cloud-scale-analytics-with-discovery-hub/'
+    - "https://azure.microsoft.com/solutions/architecture/cloud-scale-analytics-with-discovery-hub/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/cloud-scale-analytics-with-discovery-hub.png
 name: Discovery Hub with Cloud Scale Analytics
 azureCategories:

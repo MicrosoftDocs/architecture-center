@@ -1,12 +1,11 @@
 ---
 title: Testing best practices for reliability in Azure applications
-description: Best practices for reliability testing in Azure applications
+description: Use best practices for reliability testing in Azure apps. Implement practices to meet your business requirements, so apps run in a healthy state with little downtime.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
 ---
 
 # Testing best practices for reliability in Azure applications
@@ -61,6 +60,6 @@ Achieve levels of scale and performance needed for your solution by segregating 
 ## Next step
 
 >[!div class="nextstepaction"]
->[Monitoring](/azure/architecture/framework/resiliency/monitor-checklist)
+>[Monitoring](./monitor-checklist.md)
 
 > Go back to the main article: [Testing](test-checklist.md)

@@ -22,7 +22,7 @@ metadata:
     - Image Share App
     - Companion Web App
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/social-mobile-and-web-app-with-authentication/'
+    - "https://azure.microsoft.com/solutions/architecture/social-mobile-and-web-app-with-authentication/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/social-mobile-and-web-app-with-authentication.png
 name: Social App for Mobile and Web with Authentication
 azureCategories:

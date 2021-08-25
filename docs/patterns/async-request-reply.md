@@ -3,15 +3,32 @@ title: Asynchronous Request-Reply Pattern
 description: Allow decoupling of backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
 author: WillEastbury
 ms.author: wieastbu
-ms.date: 10/22/2019
+ms.date: 07/23/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - fasttrack-new
+  - fasttrack-edit
   - architecture
   - design-pattern
-keywords: async, http, https, request, reply, synchronous, asynchronous, queue, cqrs, valet, extreme load, transactional, retry-after, location, 202, accepted
+keywords:
+  - async
+  - http
+  - https
+  - request
+  - reply
+  - synchronous
+  - asynchronous
+  - queue
+  - cqrs
+  - valet
+  - extreme load
+  - transactional
+  - retry-after
+  - location
+  - 202
+  - accepted
 ---
 
 <!-- cSpell:ignore cqrs WillEastbury wieastbu -->
@@ -299,10 +316,14 @@ public enum OnPendingEnum {
 }
 ```
 
-## Related guidance and next steps
+## Next steps
 
 The following information may be relevant when implementing this pattern:
 
-- [Asynchronous operations in REST](https://www.adayinthelifeof.nl/2011/06/02/asynchronous-operations-in-rest/)
 - [Azure Logic Apps - Perform long-running tasks with the polling action pattern](/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
 - For general best practices when designing a web API, see [Web API design](../best-practices/api-design.md).
+
+
+## Related guidance
+
+- [Backends for Frontends pattern](./backends-for-frontends.md)

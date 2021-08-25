@@ -2,7 +2,7 @@
 metadata:
   title: Cross Cloud Scaling Architecture
   titleSuffix: Azure Solution Ideas
-  description: Learn how to improve cross cloud scalability with solution architecture that includes Azure Stack.
+  description: Understand how to improve cross-cloud scalability with solution architecture that includes Azure Stack.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/16/2019
@@ -21,7 +21,7 @@ metadata:
     - cross cloud
     - interactive-diagram
     - e2e-hybrid
-    - 'https://azure.microsoft.com/solutions/architecture/cross-cloud-scaling/'
+    - "https://azure.microsoft.com/solutions/architecture/cross-cloud-scaling/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/cross-cloud-scaling.png
 name: Cross Cloud Scaling Architecture
 azureCategories:

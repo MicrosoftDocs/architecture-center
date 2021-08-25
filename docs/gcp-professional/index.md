@@ -1,31 +1,38 @@
 ---
-title: Azure for GCP professionals
-description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the GCP and Azure platforms. Take advantage of your GCP experience in Azure.
-author: doodlemania2
-ms.date: 03/15/2020
+title: Azure for Google Cloud professionals
+description: Learn the basics of Microsoft Azure accounts, platform, and services, and key similarities and differences between the Google Cloud and Azure platforms.
+author: cjnova
+ms.author: petuton
+ms.date: 08/10/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
-keywords: GCP experts, Azure comparison, GCP comparison, difference between Azure and GCP, Azure and GCP
+keywords:
+  - Google Cloud experts
+  - Azure comparison
+  - Google Cloud comparison
+  - difference between Azure and Google Cloud
+  - Azure and GCP
+  - Azure and Google Cloud
 ---
 
-# Azure for GCP Professionals
+# Azure for Google Cloud Professionals
 
-This article helps Google Cloud Platform (GCP) experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the GCP and Azure platforms.
+This article helps Google Cloud experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the Google Cloud and Azure platforms. (Note that Google Cloud was previously called Google Cloud Platform (GCP).)
 
 You'll learn:
 
 - How accounts and resources are organized in Azure.
 - How available solutions are structured in Azure.
-- How the major Azure services differ from GCP services.
+- How the major Azure services differ from Google Cloud services.
 
-Azure and GCP built their capabilities independently over time so that each has important implementation and design differences.
+Azure and Google Cloud built their capabilities independently over time so that each has important implementation and design differences.
 
 ## Overview
 
-Like GCP, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both GCP and Azure allow you to build highly available solutions based on Linux or Windows hosts. So, if you're used to development using Linux and OSS technology, both platforms can do the job.
+Like Google Cloud, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both Google Cloud and Azure allow you to build highly available solutions based on Linux or Windows hosts. So, if you're used to development using Linux and OSS technology, both platforms can do the job.
 
 While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Exact one-to-one relationships between the services required to build a solution are not always clear. In other cases, a particular service might be offered on one platform, but not the other.
 
@@ -46,13 +53,19 @@ Azure services can be purchased using several pricing options, depending on your
 
 [Azure subscriptions](/azure/virtual-machines/linux/infrastructure-example) are a grouping of resources with an assigned owner responsible for billing and permissions management.
 
+A GCP *project* is conceptually similar to the Azure subscription, in terms of billing, quotas, and limits. However, from a functional perspective, a GCP project is more like a resource group in Azure. It's a logical unit that cloud resources are deployed to.
+
+Note that unlike in GCP, there is no maximum number of Azure subscriptions. Each Azure subscription is linked to a single Azure Active Directory (Azure AD) tenant (an *account*, in GCP terms). An Azure AD tenant can contain an unlimited number of subscriptions, whereas GCP has a default limit of 30 projects per account.
+
 Subscriptions are assigned three types of administrator accounts:
 
 - **Account Administrator**. The subscription owner and the account billed for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription.
 - **Service Administrator**. This account has rights to create and manage resources in the subscription but is not responsible for billing. By default, the account administrator and service administrator are assigned to the same account. The account administrator can assign a separate user to the service administrator account for managing the technical and operational aspects of a subscription. Only one service administrator is assigned per subscription.
 - **Co-administrator**. There can be multiple co-administrator accounts assigned to a subscription. Co-administrators cannot change the service administrator, but otherwise have full control over subscription resources and users.
 
-Below the subscription level user roles and individual permissions can also be assigned to specific resources. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through an Azure Active Directory).
+For fine-grained access management to Azure resources, you can use Azure role-based access control ([Azure RBAC](/azure/role-based-access-control/rbac-and-directory-admin-roles)), which includes over 70 built-in roles. You can also create your own custom roles.
+
+Below the subscription level user roles and individual permissions can also be assigned to specific resources. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through Azure AD).
 
 Subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](/archive/blogs/girishp/increasing-core-quota-limits-in-azure).
 
@@ -79,8 +92,8 @@ Azure offers several ways to manage your resources:
 
 - [Web interface](/azure/azure-resource-manager/resource-group-portal). The Azure portal provides a full web-based management interface for Azure resources.
 - [REST API](/rest/api). The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
-- [Command Line](/azure/azure-resource-manager/cli-azure-resource-manager). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and Mac OS](/cli/azure).
-- [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and Mac OS](https://github.com/PowerShell/PowerShell).
+- [Command Line](/azure/azure-resource-manager/cli-azure-resource-manager). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
+- [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and macOS](https://github.com/PowerShell/PowerShell).
 - [Templates](/azure/azure-resource-manager/resource-group-authoring-templates). Azure Resource Manager templates provide JSON template-based resource management capabilities.
 
 In each of these interfaces, the resource group is central to how Azure resources get created, deployed, or modified.
@@ -93,11 +106,11 @@ In addition, many third-party management tools like [Hashicorp's Terraform](http
 
 ## Regions and zones (high availability)
 
-Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. Rarely, an entire region could become unavailable.
+Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. In rare situations, an entire region could become unavailable.
 
-One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements. Not every application needs redundancy across regions to guard against a regional outage. In general, a tradeoff exists between greater redundancy and reliability versus higher cost and complexity.
+One of the main ways to make an application resilient is through redundancy. However, you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements. Not every application needs redundancy across regions to guard against a regional outage. In general, a tradeoff exists between greater redundancy and reliability versus higher cost and complexity.
 
-In GCP, a region has two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets** , **availability zones** , and **paired regions**.
+In Google Cloud, a region has two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets** , **availability zones** , and **paired regions**.
 
 The following table summarizes each option.
 
@@ -122,7 +135,7 @@ Availability sets
 
 ### Availability zones
 
-Like GCP, Azure regions can have Availability zones. An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
+Like Google Cloud, Azure regions can have Availability zones. An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
 
 ![Diagram showing a zone redundant virtual machine deployment with a Region that contains three zones with a subnet that crosses all three zones.](./images/availability_zones.png)
 
@@ -150,7 +163,7 @@ Region Pairs in Azure
 
 ## Services
 
-For a listing of how services map between platforms, see [GCP to Azure services](./services.md) comparison.
+For a listing of how services map between platforms, see [Google Cloud to Azure services](./services.md) comparison.
 
 Not all Azure products and services are available in all regions. Consult the [Products by Region](https://azure.microsoft.com/global-infrastructure/services) page for details. You can find the uptime guarantees and downtime credit policies for each Azure product or service on the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla) page.
 

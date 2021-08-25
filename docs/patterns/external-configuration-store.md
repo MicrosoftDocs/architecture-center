@@ -1,7 +1,7 @@
 ---
 title: External Configuration Store pattern
 titleSuffix: Cloud Design Patterns
-description: Move configuration information out of the application deployment package to a centralized location.
+description: Examine the External Configuration Store pattern, which moves configuration information out of the application deployment package to a centralized location.
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
@@ -11,7 +11,8 @@ products:
   - azure-blob-storage
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # External Configuration Store pattern
@@ -347,6 +348,6 @@ public override bool OnStart()
 }
 ```
 
-## Related patterns and guidance
+## Next steps
 
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/external-configuration-store).

@@ -42,15 +42,15 @@ You have the flexibility to extend the capacity of the underlying Kubernetes or 
 > [!NOTE]
 > When provisioning a pod, you need to decide which storage class to use for its volumes. Your decision is important from a performance standpoint because an incorrect choice could result in suboptimal performance. 
 
-When planning for deployment of Azure Arc enabled SQL Managed Instance, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors](https://docs.microsoft.com/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) for both [data controller](https://docs.microsoft.com/azure/azure-arc/data/storage-configuration#data-controller-storage-configuration) and [database instances](https://docs.microsoft.com/azure/azure-arc/data/storage-configuration#database-instance-storage-configuration).
+When planning for deployment of Azure Arc enabled SQL Managed Instance, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors](/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) for both [data controller](/azure/azure-arc/data/storage-configuration#data-controller-storage-configuration) and [database instances](/azure/azure-arc/data/storage-configuration#database-instance-storage-configuration).
 
 ## Azure Stack HCI
 
-With the scope of Azure Arc extended to Azure Stack HCI VMs, you'll be able to [automate their configuration by using Azure VM extensions](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions) and evaluate their [compliance with industry regulations and corporate standards by using Azure Policy](https://docs.microsoft.com/azure/azure-arc/servers/security-controls-policy).
+With the scope of Azure Arc extended to Azure Stack HCI VMs, you'll be able to [automate their configuration by using Azure VM extensions](/azure/azure-arc/servers/manage-vm-extensions) and evaluate their [compliance with industry regulations and corporate standards by using Azure Policy](/azure/azure-arc/servers/security-controls-policy).
 
 In remote office/branch office scenarios, you must consider storage resiliency versus usage efficiency, versus performance. Planning for Azure Stack HCI volumes involves identifying the optimal balance between resiliency, usage efficiency, and performance. The challenge results from the fact that maximizing one of these characteristics typically has a negative impact on at least one of the other two.
 
-To learn more, see [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](/azure/architecture/hybrid/azure-stack-robo#performance-efficiency).
+To learn more, see [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](../../hybrid/azure-stack-robo.yml#performance-efficiency).
 
 ## Monitoring in a hybrid environment
 
@@ -63,7 +63,7 @@ Monitoring in a hybrid environment can be a challenge. However, with tools like 
 
 ## Monitoring containers
 
-[Monitoring your containers is critical](/azure/architecture/hybrid/arc-hybrid-kubernetes). Azure Monitor for containers provides a rich monitoring experience for the AKS and AKS engine clusters.
+[Monitoring your containers is critical](../../hybrid/arc-hybrid-kubernetes.yml). Azure Monitor for containers provides a rich monitoring experience for the AKS and AKS engine clusters.
 
 Configure Azure Monitor for containers to monitor Azure Arc enabled Kubernetes clusters hosted outside of Azure. This helps achieve comprehensive monitoring of your Kubernetes clusters across Azure, on-premises, and third-party cloud environments.
 
@@ -84,4 +84,4 @@ Deploy and manage containerized applications with GitHub and Azure Policy. Ensur
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Reliability](/azure/architecture/framework/hybrid/hybrid-reliability)
+>[Reliability](./hybrid-reliability.md)

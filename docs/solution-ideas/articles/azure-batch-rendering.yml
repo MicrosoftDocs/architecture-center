@@ -20,7 +20,7 @@ metadata:
     - cluster orchestration
     - media render
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/azure-batch-rendering/'
+    - "https://azure.microsoft.com/solutions/architecture/azure-batch-rendering/"
     - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/azure-batch-rendering.png
 name: HPC Media Rendering

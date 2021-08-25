@@ -1,5 +1,3 @@
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 In today's highly competitive and connected environment, modern businesses can no longer survive with generic, static online content. Furthermore, marketing strategies using traditional tools are often expensive, hard to implement, and do not produce the desired return on investment. These systems often fail to take full advantage of the data collected to create a more personalized experience for the user.
@@ -49,10 +47,9 @@ This solution combines several Azure services to provide powerful advantages:
 
 ## Next steps
 
-* [Step-by-step instructions to implement the above model](https://github.com/Azure/azure-ai-personalized-offers/tree/master/Manual%20Deployment%20Guide#startup)
 * [Deep-dive into the classifiers used in this model](https://github.com/Azure/cortana-intelligence-personalization-data-science-playbook/blob/master/Personalized_Offers_from_Classifiers_Use_Case.md#types)
 * [Learn how to implement MLOps](/azure/machine-learning/concept-model-management-and-deployment)
-* [Build a Real-time Recommendation API on Azure](/azure/architecture/reference-architectures/ai/real-time-recommendation)
+* [Build a Real-time Recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)
 * Grow your skillsets in Azure Machine Learning and Data Science through our [Microsoft Certified: Data Scientist Associate certification](/learn/certifications/azure-data-scientist/)
 * [Implement a classification model in Azure Machine Learning Studio](/learn/modules/create-classification-model-azure-machine-learning-designer/). No coding required!
 * [Learn how to create a drag-and-drop ML model](/learn/modules/use-automated-machine-learning/)
@@ -61,6 +58,6 @@ This solution combines several Azure services to provide powerful advantages:
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Azure Machine Learning documentation](/azure/machine-learning/)
-* [Movie recommendations on Azure](/azure/architecture/reference-architectures/ai/movie-recommendations)
-* [Personalized marketing solutions](/azure/architecture/solution-ideas/articles/personalized-marketing)
-* [Product recommendations for retail using Azure](/azure/architecture/solution-ideas/articles/product-recommendations)
+* [Movie recommendations on Azure](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
+* [Personalized marketing solutions](./personalized-marketing.yml)
+* [Product recommendations for retail using Azure](./product-recommendations.yml)

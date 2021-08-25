@@ -18,7 +18,7 @@ metadata:
     - solution architectures
     - Azure
     - ai gallery
-    - 'https://azure.microsoft.com/solutions/architecture/demand-forecasting/'
+    - "https://azure.microsoft.com/solutions/architecture/demand-forecasting/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting.png
 name: Demand Forecasting

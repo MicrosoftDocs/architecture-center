@@ -1,12 +1,11 @@
 ---
 title: Resiliency and dependencies
-description: Describes failure mode analysis and the impact of dependencies on failure.
+description: Examine failure mode analysis (FMA) to build resiliency. Understand the impact of dependencies on failure.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
 ---
 
 # Resiliency and dependencies
@@ -25,9 +24,9 @@ Building failure recovery into the system should be part of the architecture and
 
 Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points in the system. The FMA should be part of the architecture and design phases, so that you can build failure recovery into the system from the beginning.
 
-Identify all fault-points and fault-modes. Fault-points describe the elements within an application architecture which are capable of failing, while fault-modes capture the various ways by which a fault-point may fail. To ensure an application is resilient to end-to-end failures, it is essential that all fault-points and fault-modes are understood and operationalized. To learn more, see [Failure mode analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis).
+Identify all fault-points and fault-modes. Fault-points describe the elements within an application architecture which are capable of failing, while fault-modes capture the various ways by which a fault-point may fail. To ensure an application is resilient to end-to-end failures, it is essential that all fault-points and fault-modes are understood and operationalized. To learn more, see [Failure mode analysis for Azure applications](../../resiliency/failure-mode-analysis.md).
 
-Eliminate all single point of failure. A single point of failure describes a specific fault-point which if it where to fail, would bring down the entire application. Single points of failure introduce significant risk since any failure of this component will cause an application outage. To learn more, see [Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy).
+Eliminate all single point of failure. A single point of failure describes a specific fault-point which if it where to fail, would bring down the entire application. Single points of failure introduce significant risk since any failure of this component will cause an application outage. To learn more, see [Make all things redundant](../../guide/design-principles/redundancy.md).
 
 >[!NOTE]
 >Eliminate all *singletons*. A singleton describes a logical component within an application for which there can only be a single instance. It can apply to stateful architectural components or application code constructs. Ultimately, singletons introduce a significant risk by creating single points of failure within the application design.
@@ -36,7 +35,7 @@ Eliminate all single point of failure. A single point of failure describes a spe
 
 *Internal* dependencies describe components within the application scope which are required for the application to fully operate. *External* dependencies capture required components outside the scope of the application, such as another application or third-party service. Dependencies may be categorized as either strong or weak based on whether or not the application is able to continue operating in a degraded fashion in their absence. To learn more, see [Twelve-Factor App: Dependencies](https://12factor.net/dependencies).
 
-You should maintain a complete list of application dependencies. Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs. For cost purposes, it’s important to understand the price for these services and how they are being charged. For more details see [Cost models](https://docs.microsoft.com/azure/architecture/framework/cost/design-model).
+You should maintain a complete list of application dependencies. Examples of typical dependencies include platform dependencies outside the remit of the application, such as Azure Active Directory, Express Route, or a central NVA (Network Virtual Appliance), as well as application dependencies such as APIs. For cost purposes, it’s important to understand the price for these services and how they are being charged. For more details see [Cost models](../cost/design-model.md).
 
 You can map application dependencies either as a simple list or a document. Usually this is part of a design document or reference architecture.
 
@@ -46,20 +45,20 @@ You can map application dependencies either as a simple list or a document. Usua
 
 The usage of platform level dependencies such as Azure Active Directory must also be understood to ensure that their availability and recovery targets align with that of the application
 
-**Ensure that applications can operate in the absence of their dependencies.** If the application has strong dependencies which it cannot operate in the absence of, then the availability and recovery targets of these dependencies should align with that of the application itself. Make an effort to minimize dependencies to achieve control over application reliability. To learn more, see [Minimize dependencies](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination).
+**Ensure that applications can operate in the absence of their dependencies.** If the application has strong dependencies which it cannot operate in the absence of, then the availability and recovery targets of these dependencies should align with that of the application itself. Make an effort to minimize dependencies to achieve control over application reliability. To learn more, see [Minimize dependencies](../../guide/design-principles/minimize-coordination.md).
 
 **Ensure that the lifecycle of the application decoupled from its dependencies.** If the application lifecycle is closely coupled with that of its dependencies, it can limit the operational agility of the application. This is true particularly where new releases are concerned.
 
 ## Next step
 
 >[!div class="nextstepaction"]
->[Best practices](/azure/architecture/framework/resiliency/design-best-practices)
+>[Best practices](./design-best-practices.md)
 
 ## Related links
 
-- For information on failure mode analysis, see [Failure mode analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis).
-- For information on single point of failure, see [Make all things redundant](https://docs.microsoft.com/azure/architecture/guide/design-principles/redundancy).
-- For information on fault-points and fault-modes, see [Failure Mode Analysis for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis).
-- For information on minimizing dependencies, see [Minimize coordination](https://docs.microsoft.com/azure/architecture/guide/design-principles/minimize-coordination). 
+- For information on failure mode analysis, see [Failure mode analysis for Azure applications](../../resiliency/failure-mode-analysis.md).
+- For information on single point of failure, see [Make all things redundant](../../guide/design-principles/redundancy.md).
+- For information on fault-points and fault-modes, see [Failure Mode Analysis for Azure applications](../../resiliency/failure-mode-analysis.md).
+- For information on minimizing dependencies, see [Minimize coordination](../../guide/design-principles/minimize-coordination.md). 
 
 Go back to the main article: [Design](design-checklist.md)

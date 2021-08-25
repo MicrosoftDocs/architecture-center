@@ -1,9 +1,9 @@
 
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
+This solution idea demonstrates interactive analytics with Azure Data Explorer to explore data with ad hoc, interactive, and lightning fast queries over small to extremely large volumes of data. This data exploration can be done using native Azure Data Explorer tools or alternative tools of your choice. This solution focuses on the integration of Azure Data Explorer with rest of the data platform ecosystem.
 
-This architecture pattern demonstrates interactive analytics with Azure Data Explorer to explore data with ad hoc, interactive, and lightning fast queries over small to extremely large volumes of data. This data exploration can be done using native Azure Data Explorer tools or alternative tools of your choice. This architecture focuses on the integration of Azure Data Explorer with rest of the data platform ecosystem.
-
-This pattern is already being used by Microsoft customers to track user activity, manage user profiles and user segmentation scenarios. For example, [global software company Episerver uses Azure Data Explorer to gain enhanced consumer insight](https://customers.microsoft.com/story/817285-episerver-professional-services-azure-sweden).
+This solution is already being used by Microsoft customers to track user activity, manage user profiles and user segmentation scenarios. For example, [global software company Episerver uses Azure Data Explorer to gain enhanced consumer insight](https://customers.microsoft.com/story/817285-episerver-professional-services-azure-sweden).
 
 :::image type="content" source="../media/interactive-azure-data-explorer.png" alt-text="Interactive analytics with Azure Data Explorer" lightbox="../media/interactive-azure-data-explorer.png":::
 

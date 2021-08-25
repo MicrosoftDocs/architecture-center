@@ -1,5 +1,5 @@
 ---
-title: Resiliency checklist for Azure services
+title: Resiliency checklist for services
 titleSuffix: Azure Design Review Framework
 description: Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.
 author: PeterTaylor9999
@@ -53,7 +53,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Provision at least two instances** Deploy Azure LB with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you might want to pair LB with Virtual Machine Scale Sets.
 
-**Use outbound rules** Outbound rules ensure that you are not faced with connection failures as a result of SNAT port exhaustion. [Learn more about outbound connectivity.](https://docs.microsoft.com/azure/load-balancer/outbound-rules) While outbound rules will help improve the solution for small to mid size deployments, for production workloads, we recommend coupling Standard Load Balancer or any subnet deployment with [VNet NAT](https://docs.microsoft.com/azure/virtual-network/nat-overview).
+**Use outbound rules** Outbound rules ensure that you are not faced with connection failures as a result of SNAT port exhaustion. [Learn more about outbound connectivity.](/azure/load-balancer/outbound-rules) While outbound rules will help improve the solution for small to mid size deployments, for production workloads, we recommend coupling Standard Load Balancer or any subnet deployment with [VNet NAT](/azure/virtual-network/nat-overview).
 
 ## Application Gateway
 

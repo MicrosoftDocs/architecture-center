@@ -1,6 +1,6 @@
 ---
 title: Azure services for securing network connectivity
-description: Best practices for securing access to internet, PaaS services, and on-premises networks.
+description: Learn about best practices for securing access to the internet, Azure platform as a service (PaaS) services, and on-premises networks.
 author: PageWriter-MSFT
 ms.date: 02/03/2021
 ms.topic: conceptual
@@ -9,6 +9,7 @@ ms.subservice: well-architected
 azureCategories:
   - hybrid
   - networking
+  - security
 products:
   - azure-firewall
   - azure-virtual-network
@@ -34,15 +35,17 @@ It's often the case that the workload and the supporting components of a cloud a
 
 When designing a workload, you'll typically start by provisioning an Azure Virtual Network (VNet) in a private address space which has the  workload. No traffic is allowed by default between any two virtual networks. If there's a need, define the communication paths explicitly. One way of connecting VNets is through [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
-A key aspect is protecting the VMs in the VNet. The network interfaces on the VMs allow them to communicate with other VMs, the internet, and on-premises networks. To control traffic on VMs within a VNet (and subnet), use [Application Security Groups (ASGs)](/azure/virtual-network/application-security-groups). You can group a set of VMs under an application tag and define traffic rules. Those rules are  then applied to each of the underlying VMs.
-
-You can also provision VMs with private IP addresses for protection. Take advantage of Azure IP address to determine incoming traffic, how and where it's translated on to the virtual network.
+A key aspect is protecting the VMs in the VNet. The network interfaces on the VMs allow them to communicate with other VMs, the internet, and on-premises networks. To control traffic on VMs within a VNet (and subnet), use [Application Security Groups (ASGs)](/azure/virtual-network/application-security-groups). You can group a set of VMs under an application tag and define traffic rules. Those rules are then applied to each of the underlying VMs.
 
 A VNet is segmented into subnets based on business requirements. Provide proper network security controls that allow or deny inbound network traffic to, or outbound network traffic from, within larger network space.
 
+You can also provision VMs with private IP addresses for protection. Take advantage of the Azure IP address to determine incoming traffic, how and where it's translated on to the virtual network.
+
+A good Azure IP addressing schema provides flexibility, room for growth, and integration with on-premises networks. The schema ensures that communication works for deployed resources, minimizes public exposure of systems, and gives the organization flexibility in its network. If not properly designed, systems might not be able to communicate, and additional work will be required to remediate.
+
 **How do you isolate and protect traffic within the workload VNet?**
 ***
-To secure communication within a VNet, set rules that inspect traffic. Then, allows or denies traffic to, or from specific sources and routes them to the specified destinations.
+To secure communication within a VNet, set rules that inspect traffic. Then, *allow* or *deny* traffic to, or from specific sources, and route them to the specified destinations.
 >![Task](../../_images/i-best-practices.svg) Review the rule set and confirm that the required services are not unintentionally blocked.
 
 For traffic between subnets, the recommended way is through [Network Security Groups (NSG)](/azure/virtual-network/security-overview). Define rules on each NSG that checks traffic to and from single IP address, multiple IP addresses, or entire subnets.
@@ -76,13 +79,20 @@ For information about defining network perimeters, see [Network segmentation](de
 **Can the VNet and subnet handle growth?**
 ***
 
-Typically, you'll add more network resources as the design matures. You will need to refactor IP addressing and subnetting schemes to accommodate the extra resources. Avoid creating many small subnets and then trying to map network access controls (such as security groups) to each of them.
+Typically, you'll add more network resources as the design matures. Most organizations end up adding more resources to networks than initially planned. Refactoring to accommodate the extra resources is a labor-intensive process. There is limited security value in creating a very large number of small subnets and then trying to map network access controls (such as security groups) to each of them.
 
-Plan your subnets based on roles and functions that use same protocols. That way, you can add resources to the subnet without making changes to security groups that enforce network level access controls.
+Plan your subnets based on roles and functions that use the same protocols. That way, you can add resources to the subnet without making changes to security groups that enforce network level access controls.
 
-Don't use all open rules that allow inbound and outbound traffic to and from 0.0.0.0-255.255.255.255. Use a least privilege approach and only allow relevant protocols. It will reduce your overall network attack surface on the subnet. All open rules provide a false sense of security because such a rule enforces no security.
+Don't use all open rules that allow inbound and outbound traffic to and from 0.0.0.0-255.255.255.255. Use a least-privilege approach and only allow relevant protocols. It will reduce your overall network attack surface on the subnet. All open rules provide a false sense of security because such a rule enforces no security.
 
 The exception is when you want to use security groups only for network logging purposes.
+
+Design virtual networks and subnets for growth. We recommend planning subnets based on common roles and functions that use common protocols for those roles and functions. This allows you to add resources to the subnet without making changes to security groups that enforce network level access controls.
+
+### Learn more
+
+- [Design virtual network subnet security](./network-security-containment.md#design-virtual-network-subnet-security)
+- [Design an IP addressing schema for your Azure deployment](/learn/modules/design-ip-addressing-for-azure/)
 
 ## Internet edge traffic
 

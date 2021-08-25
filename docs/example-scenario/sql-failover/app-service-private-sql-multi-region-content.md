@@ -252,40 +252,40 @@ At this point:
 
 - [Multi-region N-tier application][Multi-region N-tier application]: An architecture that's similar to this one but doesn't provide private connectivity to the SQL instances.
 
-[Alternatives to the single-region version]: /azure/architecture/example-scenario/private-web-app/private-web-app#alternatives
+[Alternatives to the single-region version]: ../private-web-app/private-web-app.yml#alternatives
 [App Service networking features]: /azure/app-service/networking-features
 [Azure App Service]: /azure/app-service/
 [Azure DNS Private Zones]: /azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones
 [Azure Web Apps]: /azure/app-service/overview
 [Bandwidth Pricing Details]: https://azure.microsoft.com/pricing/details/bandwidth/
-[Basic web application]: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
+[Basic web application]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
 [Can I connect my service to multiple Private Endpoints?]: /azure/private-link/private-link-faq#can-i-connect-my-service-to-multiple-private-endpoints
 [Can I create multiple Private Endpoints in same VNet? Can they connect to different Services?]: /azure/private-link/private-link-faq#can-i-create-multiple-private-endpoints-in-same-vnet-can-they-connect-to-different-services
 [Can private endpoint connect to Azure PaaS resources across Azure regions?]: /azure/private-link/private-link-faq#can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions
 [Complete region failover]: #alternatives
 [Configuring secondary database]: /azure/azure-sql/database/active-geo-replication-overview#configuring-secondary-database
-[Considerations that apply to the single-region version]: /azure/architecture/example-scenario/private-web-app/private-web-app#considerations
-[Cost of the single-region version]: /azure/architecture/example-scenario/private-web-app/private-web-app#cost
+[Considerations that apply to the single-region version]: ../private-web-app/private-web-app.yml#considerations
+[Cost of the single-region version]: ../private-web-app/private-web-app.yml#cost
 [Create a Private Endpoint]: /azure/private-link/create-private-endpoint-portal#create-a-private-endpoint
 [Create the SQL failover group]: /azure/azure-sql/database/failover-group-add-single-database-tutorial#2---create-the-failover-group
-[Deploy this scenario single-region version]: /azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario
-[Deployment stamps]: /azure/architecture/patterns/deployment-stamp
+[Deploy this scenario single-region version]: ../private-web-app/private-web-app.yml#deploy-this-scenario
+[Deployment stamps]: ../../patterns/deployment-stamp.md
 [Do I require a dedicated subnet for private endpoints?]: /azure/private-link/private-link-faq#do-i-require-a-dedicated-subnet-for-private-endpoints
 [Fail over to a geo-replicated secondary database]: /azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview#fail-over-to-a-geo-replicated-secondary-database
-[Global peering limitation]: /azure/architecture/example-scenario/private-web-app/private-web-app#global-peering
+[Global peering limitation]: ../private-web-app/private-web-app.yml#global-peering
 [High availability]: https://wikipedia.org/wiki/High_availability
-[Highly available multi-region web application]: /azure/architecture/reference-architectures/app-service-web-app/multi-region
+[Highly available multi-region web application]: ../../reference-architectures/app-service-web-app/multi-region.yml
 [How to set up Private Link for Azure SQL Database]: /azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database
 [Integrate your app with an Azure virtual network]: /azure/app-service/web-sites-integrate-with-vnet
-[Multi-region N-tier application]: /azure/architecture/reference-architectures/n-tier/multi-region-sql-server
+[Multi-region N-tier application]: ../../reference-architectures/n-tier/multi-region-sql-server.yml
 [Overview of business continuity with Azure SQL Database]: /azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview
 [Private link resource]: /azure/private-link/private-endpoint-overview#private-link-resource
 [Regional VNet Integration]: /azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration
 [Regional VNet Integration]: /azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration
-[Scalable web application]: /azure/architecture/reference-architectures/app-service-web-app/scalable-web-app
+[Scalable web application]: ../../reference-architectures/app-service-web-app/scalable-web-app.yml
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtual network peering]: /azure/virtual-network/virtual-network-peering-overview
-[Web app private connectivity to Azure SQL database]: /azure/architecture/example-scenario/private-web-app/private-web-app
+[Web app private connectivity to Azure SQL database]: ../private-web-app/private-web-app.yml
 [What is a private Azure DNS zone]: /azure/dns/private-dns-privatednszone
 [What is Azure Front Door?]: /azure/frontdoor/front-door-overview
 [What is Azure Private Endpoint?]: /azure/private-link/private-endpoint-overview

@@ -66,7 +66,7 @@ Here are some best practices:
 - Upload the threat modeling report to a tracking tool. Create work items that can be validated and addressed by the developers. Cyber security teams can also use the report to determine attack vectors during a penetration test. 
 - As new features are added to the application, update the threat model report and integrate it into the code management process. Triage security issues into the next release cycle or a faster release, depending on the severity. 
 
-For information about mitigation strategies, see [RapidAttack](https://aka.ms/rapidattack).
+For information about mitigation strategies, see [RapidAttack](/security/compass/human-operated-ransomware).
 
 **How long does it typically take to deploy a security fix into production?**
 ***

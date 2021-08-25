@@ -1,6 +1,6 @@
 ---
 title: Design Azure applications for efficiency
-description: Describes the design options for application efficiency
+description: Review design options for application efficiency in Azure, such as asynchronous programming, queued and batched requests, data compression, and session affinity.
 author: v-aangie
 ms.date: 12/01/2020
 ms.topic: conceptual
@@ -21,7 +21,7 @@ The time for the caller to receive a response could range from milliseconds to m
 
 Asynchronous programming is an alternative approach. It enables a remote service to be executed without waiting and blocking resources on the client. This is a critical pattern for enabling cloud scalable software and is available in most modern programming languages and platforms.
 
-There are many ways to inject asynchronous programming into an application design. In a simplest form, remote calls can be asynchronously executed using built-in language constructs like "async/await" in .NET C#. Review a [language construct example](/dotnet/csharp/async). .NET has other built-in platform support for asynchronous programming with [task](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) and [event](/dotnet/standard/asynchronous-programming-patterns/event-based-asynchronous-pattern-eap) based asynchronous patterns.
+There are many ways to inject asynchronous programming into an application design. For APIs and services that work across the internet, consider using the [Asynchronous Request-Reply pattern](../../patterns/async-request-reply.md). When writing code, remote calls can be asynchronously executed using built-in language constructs like `async`/`await` in .NET C#. Review a [language construct example](/dotnet/csharp/async). .NET has other built-in platform support for asynchronous programming with [task](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) and [event](/dotnet/standard/asynchronous-programming-patterns/event-based-asynchronous-pattern-eap) based asynchronous patterns.
 
 ## Process faster by queuing and batching requests
 
@@ -35,11 +35,11 @@ To learn more about queue-based Load Leveling, see [Queue-based Load Leveling pa
 
 ## Optimize with data compression
 
-A well-known optimization best practice for scaling is to use a compression strategy to compress and bundle web pages or API responses. The idea is to shrink the data returned from a page or API back to the browser or client app. Compressing the data returned to clients optimizes network traffic and accelerates the application. .NET has built-in framework support for this technique with GZip compression. For more information, see [Response compression in ASP.NET Core](/aspnet/core/performance/response-compression?preserve-view=true&view=aspnetcore-3.1).
+A well-known optimization best practice for scaling is to use a compression strategy to compress and bundle web pages or API responses. The idea is to shrink the data returned from a page or API back to the browser or client app. Compressing the data returned to clients optimizes network traffic and accelerates the application. [Azure Front Door](/azure/frontdoor/front-door-caching#file-compression) can perform file compression, and .NET has built-in framework support for this technique with GZip compression. For more information, see [Response compression in ASP.NET Core](/aspnet/core/performance/response-compression?preserve-view=true&view=aspnetcore-3.1).
 
 ## Improve scalability with session affinity
 
-If an application is stateful, meaning that data or state will be stored locally in the instance of the application, it may increase performance by enabling session affinity. When session affinity is enabled, subsequent requests to the application will be directed to the same server that processed the first request. If session affinity is not enabled, subsequent requests would be directed to the next available server depending on the load balancing rules. Session affinity allows the instance to have some persistent or cached data/context, which can speed subsequent requests.
+If an application is stateful, meaning that data or state will be stored locally in the instance of the application, it may increase the performance of your application, if you enable session affinity. When session affinity is enabled, subsequent requests to the application will be directed to the same server that processed the first request. If session affinity is not enabled, subsequent requests would be directed to the next available server depending on the load balancing rules. Session affinity allows the instance to have some persistent or cached data/context, which can speed subsequent requests. However, if your application does not store large amounts of state or cached data in memory, session affinity might decrease your throughput because one host could get overloaded with requests, while others are dormant.
 
 > [!TIP]
 > [Migrate an Azure Cloud Services application to Azure Service Fabric](../../service-fabric/migrate-from-cloud-services.md) describes **best practices** about stateless services for an application that is migrated from old Azure Cloud Services to Azure Service Fabric.

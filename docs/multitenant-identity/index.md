@@ -1,6 +1,6 @@
 ---
-title: Identity management for multitenant applications
-description: Best practices for authentication, authorization, and identity management in multitenant apps.
+title: Multitenancy and identity management
+description: Learn the best practices for multitenant applications, in terms of authentication, authorization, and identity management.
 author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: conceptual
@@ -10,9 +10,17 @@ ms.category:
   - identity
 ms.custom:
   - guide
+  - seo-aac-fy21q3
+keywords:
+  - "Multitenancy database"
+  - "multitenancy"
+  - "Azure multi tenant architecture"
+  - "multitenant database"
+  - "multitenant authentication"
+  - "multitenant identity management"
 ---
 
-# Manage identity in multitenant applications
+# Identity management in multitenant applications
 
 This series of articles describes best practices for multitenancy, when using Azure AD for authentication and identity management.
 

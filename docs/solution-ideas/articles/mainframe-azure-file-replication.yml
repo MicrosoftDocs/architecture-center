@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Mainframe file replication and sync on Azure
+  titleSuffix: Azure Solution Ideas
+  description: Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.
+  author: ashish-khandelwal-ms
+  ms.author: askhande
+  ms.date: 04/01/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - migration
+  - storage
+products:
+  - azure-data-factory
+  - azure-data-lake
+  - azure-sql-database
+  - azure-storage
+  - azure-virtual-machines
+name: Mainframe file replication and sync on Azure
+summary: Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/mainframe-azure-file-replication.png
+content: |
+  [!include[](mainframe-azure-file-replication-content.md)]

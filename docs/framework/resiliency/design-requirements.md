@@ -1,12 +1,11 @@
 ---
 title: Target and non-functional requirements
-description: Describes reliability targets for availability, recovery, and non-functional requirements.
+description: Meet reliability targets for availability, recovery, and non-functional requirements, which involve application and data platforms, networking, and connectivity.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
 ---
 
 # Target and non-functional requirements
@@ -32,7 +31,7 @@ Understanding your availability expectations is vital to reviewing overall opera
 Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets. Make sure you measure and monitor key targets such as:
 
 - Mean Time Between Failures (MTBF) &mdash; The average time between failures of a particular component.
-- Mean Time Between Failures (MTBF) &mdash; The average time between failures of a particular component.
+- Mean Time To Recover (MTTR) &mdash; The average time it takes to restore a component after a failure.
 
 ### Considerations for availability targets
 
@@ -44,7 +43,7 @@ Availability targets for any dependencies leveraged by the application should be
 **Has a composite SLA been calculated for the application and/or key scenarios using Azure SLAs?**
 ***
 
-A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets. Make sure the composite SLA of all components and dependencies on the critical paths are understood. To learn more, see [Composite SLAs](https://docs.microsoft.com/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements).
+A composite SLA captures the end-to-end SLA across all application components and dependencies. It is calculated using the individual SLAs of Azure services housing application components and provides an important indicator of designed availability in relation to customer expectations and targets. Make sure the composite SLA of all components and dependencies on the critical paths are understood. To learn more, see [Composite SLAs](./business-metrics.md#understand-service-level-agreements).
 
 > [!NOTE]
 > if you have contractual commitments to an SLA for your Azure solution, additional allowances on top of the Azure composite SLA must be made to accommodate outages caused by code-level issues and deployments. This is often overlooked and customers directly put the composite SLA forward to their customers.
@@ -70,7 +69,7 @@ Recovery targets are nonfunctional requirements of a system and should be dictat
 
 Azure application platform services offer resiliency features to support application reliability, though they may only be applicable at a certain SKU and configuration/deployment. For example, an SLA is dependent on the number of instances deployed or a certain feature enabled. It is recommended that you review the SLA for services used. For example, Service Bus Premium SKU provides predictable latency and throughput to mitigate noisy neighbor scenarios. It also provides the ability to automatically scale and replicate metadata to another Service Bus instance for failover purposes.
 
-To learn more, see [Azure Service Bus Premium SKU](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging).
+To learn more, see [Azure Service Bus Premium SKU](/azure/service-bus-messaging/service-bus-premium-messaging).
 
 ### Multiple and paired regions
 
@@ -78,11 +77,11 @@ An application platform should be deployed across multiple regions if the requir
 
 The ability to respond to disaster scenarios for overall compute platform availability and application resiliency depends on the use of multiple regions or other deployment locations.
 
-Use paired regions that exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only. To learn more, see [Business continuity with Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Use paired regions that exist within the same geography and provide native replication features for recovery purposes, such as Geo-Redundant Storage (GRS) asynchronous replication. In the event of planned maintenance, updates to a region will be performed sequentially only. To learn more, see [Business continuity with Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
 ### Availability Zones and sets
 
-Platform services that can leverage Availability Zones are deployed in either a zonal manner within a particular zone, or in a zone-redundant configuration across multiple zones. To learn more, see [Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability).
+Platform services that can leverage Availability Zones are deployed in either a zonal manner within a particular zone, or in a zone-redundant configuration across multiple zones. To learn more, see [Building solutions for high availability using Availability Zones](../../high-availability/building-solutions-for-high-availability.md).
 
 An Availability Set (AS) is a logical construct to inform Azure that it should distribute contained virtual machine instances across multiple fault and update domains within an Azure region. Availability Zones (AZ) elevate the fault level for virtual machines to a physical datacenter by allowing replica instances to be deployed across multiple datacenters within an Azure region. While zones provide greater resiliency than sets, there are performance and cost considerations where applications are extremely 'chatty' across zones given the implied physical separation and inter-zone bandwidth charges. Ultimately, Azure Virtual Machines and Azure PaaS services, such as Service Fabric and Azure Kubernetes Service (AKS) which use virtual machines underneath, can leverage either AZs or an AS to provide application resiliency within a region. To learn more, see [Business continuity with data resiliency](https://azurecomcdn.azureedge.net/cvt-27012b3bd03d67c9fa81a9e2f53f7d081c94f3a68c13cdeb7958edf43b7771e8/mediahandler/files/resourcefiles/azure-resiliency-infographic/Azure_resiliency_infographic.pdf).
 
@@ -99,7 +98,7 @@ To ensure application platform reliability, it is vital that the application be 
 **How is the client traffic routed to the application in the case of region, zone or network outage?**
 ***
 
-In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes. To learn more, see [Traffic Manager endpoint monitoring](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring).
+In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes. To learn more, see [Traffic Manager endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring).
 
 ## Meet data platform requirements
 
@@ -112,7 +111,7 @@ Data types should be categorized by data consistency requirements. Data consiste
 CAP theorem proves that it is impossible for a distributed data store to simultaneously provide more than two guarantees across:
 
 - **Consistency -** Every read receives the most recent write or an error.
-- **Availability -** Very request receives a non-error response, without the guarantee that it contains the most recent write.
+- **Availability -** Every request receives a non-error response, without the guarantee that it contains the most recent write.
 - **Partition tolerance -** A system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes.
 
 Determining which of these guarantees are most important in the context of application requirements is critical.
@@ -134,36 +133,36 @@ Consider these guidelines to ensure connection availability and improve reliabil
 
 ### Connectivity
 
-- **Use a global load balancer used to distribute traffic and/or failover across regions.** Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS-based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used. To learn more, see [Disaster Recovery using Azure Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager) and [Azure Front Door routing architecture](https://docs.microsoft.com/azure/frontdoor/front-door-routing-architecture).
+- **Use a global load balancer used to distribute traffic and/or failover across regions.** Azure Front Door, Azure Traffic Manager, or third-party CDN services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. It is important to note that Traffic Manager is a DNS-based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low TTL (Time To Live) value should be used for DNS records, though not all ISPs may honor this. For application scenarios requiring transparent failover, Azure Front Door should be used. To learn more, see [Disaster Recovery using Azure Traffic Manager](/azure/networking/disaster-recovery-dns-traffic-manager) and [Azure Front Door routing architecture](/azure/frontdoor/front-door-routing-architecture).
 
-- **For cross-premises connectivity (ExpressRoute or VPN) ensure there redundant connections from different locations.** At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths. To learn more, see [Cross-network connectivity](https://docs.microsoft.com/azure/expressroute/cross-network-connectivity).
+- **For cross-premises connectivity (ExpressRoute or VPN) ensure there redundant connections from different locations.** At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths. To learn more, see [Cross-network connectivity](/azure/expressroute/cross-network-connectivity).
 
-- **Simulate a failure path to ensure connectivity is available over alternative paths.** The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using Site-to-Site VPN connectivity as a backup path for ExpressRoute provides an additional layer of network resiliency for cross-premises connectivity. To learn more, see [Using site-to-site VPN as a backup for ExpressRoute private peering](https://docs.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering).
+- **Simulate a failure path to ensure connectivity is available over alternative paths.** The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using Site-to-Site VPN connectivity as a backup path for ExpressRoute provides an additional layer of network resiliency for cross-premises connectivity. To learn more, see [Using site-to-site VPN as a backup for ExpressRoute private peering](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering).
 
-- **Eliminate all single points of failure from the data path (on-premises and Azure.** Single-instance Network Virtual Appliances (NVAs), whether deployed in Azure or within an on-premises datacenter, introduce significant connectivity risk. To learn more, see [Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
+- **Eliminate all single points of failure from the data path (on-premises and Azure.** Single-instance Network Virtual Appliances (NVAs), whether deployed in Azure or within an on-premises datacenter, introduce significant connectivity risk. To learn more, see [Deploy highly available network virtual appliances](../../reference-architectures/dmz/nva-ha.yml).
 
 ### Zone-aware services
 
-- **Use ExpressRoute/VPN zone-redundant Virtual Network Gateways.** Zone-redundant virtual network gateways distribute gateway instances across Availability Zones to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region. To learn more, see [Zone-redundant Virtual Network Gateways](https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways).
+- **Use ExpressRoute/VPN zone-redundant Virtual Network Gateways.** Zone-redundant virtual network gateways distribute gateway instances across Availability Zones to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region. To learn more, see [Zone-redundant Virtual Network Gateways](/azure/vpn-gateway/about-zone-redundant-vnet-gateways).
 
-- **If used, deploy Azure Application Gateway v2 deployed in a zone-redundant configuration.** Azure Application Gateway v2 can be deployed in a zone-redundant configuration to deploy gateway instances across zones for improved reliability and availability during failure scenarios impacting a datacenter within a region. To learn more, see [Zone-redundant Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+- **If used, deploy Azure Application Gateway v2 deployed in a zone-redundant configuration.** Azure Application Gateway v2 can be deployed in a zone-redundant configuration to deploy gateway instances across zones for improved reliability and availability during failure scenarios impacting a datacenter within a region. To learn more, see [Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
-- **Use Azure Load Balancer Standard to load-balance traffic across Availability Zones.** Azure Load Balancer Standard is zone-aware to distribute traffic across Availability Zones. It can also be configured in a zone-redundant configuration to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region. To learn more, see [Standard Load Balancer and Availability Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+- **Use Azure Load Balancer Standard to load-balance traffic across Availability Zones.** Azure Load Balancer Standard is zone-aware to distribute traffic across Availability Zones. It can also be configured in a zone-redundant configuration to improve reliability and ensure availability during failure scenarios impacting a datacenter within a region. To learn more, see [Standard Load Balancer and Availability Zones](/azure/load-balancer/load-balancer-standard-availability-zones).
 
-- **Configure health probes for Azure Load Balancer(s)/Azure Application Gateways.** Health probes allow Azure Load Balancers to assess the health of backend endpoints to prevent traffic from being sent to unhealthy instances. To learn more, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+- **Configure health probes for Azure Load Balancer(s)/Azure Application Gateways.** Health probes allow Azure Load Balancers to assess the health of backend endpoints to prevent traffic from being sent to unhealthy instances. To learn more, see [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview).
 
-- **Assess critical application dependencies with health probes.** Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores, so that traffic is not sent to backend instances that cannot successfully process requests due to dependency failures. To learn more, see [Health Endpoint Monitoring Pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring).
+- **Assess critical application dependencies with health probes.** Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores, so that traffic is not sent to backend instances that cannot successfully process requests due to dependency failures. To learn more, see [Health Endpoint Monitoring Pattern](../../patterns/health-endpoint-monitoring.md).
 
 ## Next step
 
 >[!div class="nextstepaction"]
->[Application design](/azure/architecture/framework/resiliency/app-design)
+>[Application design](./app-design.md)
 
 ## Related links
 
-- To understand business metrics to design resilient Azure applications, see [Workload availability targets](/azure/architecture/framework/resiliency/business-metrics).
-- For information on Availability Zones, see [Building solutions for high availability using Availability Zones](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability).
-- For information on health probes, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) and [Health Endpoint Monitoring Pattern](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring).
-- To learn about connectivity risk, see [Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha). 
+- To understand business metrics to design resilient Azure applications, see [Workload availability targets](./business-metrics.md).
+- For information on Availability Zones, see [Building solutions for high availability using Availability Zones](../../high-availability/building-solutions-for-high-availability.md).
+- For information on health probes, see [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview) and [Health Endpoint Monitoring Pattern](../../patterns/health-endpoint-monitoring.md).
+- To learn about connectivity risk, see [Deploy highly available network virtual appliances](../../reference-architectures/dmz/nva-ha.yml). 
 
 > Go back to the main article: [Design](design-checklist.md)

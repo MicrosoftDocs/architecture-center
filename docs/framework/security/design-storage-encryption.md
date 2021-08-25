@@ -1,6 +1,6 @@
 ---
 title: Data encryption in Azure
-description: Protect data in transit and at rest through encryption in Azure.
+description: Protect data in transit and at rest through encryption in Azure. Learn about Azure encryption features and standard encryption algorithms.
 author: PageWriter-MSFT
 ms.date: 12/03/2020
 ms.topic: conceptual
@@ -11,6 +11,10 @@ products:
   - azure-active-directory
 ms.custom:
   - article
+categories:
+  - security
+subject: 
+  - security
 ---
 
 # Data encryption in Azure
@@ -36,7 +40,11 @@ In a cloud solution, a single business transaction can lead to multiple data ope
 
 Azure provides built-in features for data encryption in many layers that participate in data processing. We recommend that for each service, enable the encryption capability. The encryption is handled automatically using Azure-managed keys. This almost requires no user interaction.
 
-For example, consider some built-in features of Azure Storage. 
+We recommend implementing identity-based storage access controls. Authentication with a shared key (like a Shared Access Signature) doesn't permit the same flexibility and control as identity-based access control. The leak of a shared key might allow indefinite access to a resource, whereas a role-based access control can be identified and authenticated more strongly.
+
+Storage in a cloud service like Azure is architected and implemented quite differently than on-premises solutions to enable massive scaling, modern access through REST APIs, and isolation between tenants.  Cloud service providers make multiple methods of access control over storage resources available. Examples include shared keys, shared signatures, anonymous access, and identity provider-based methods.
+
+Consider some built-in features of Azure Storage:
 
 - **Identity-based access**. Supports access through Azure Active Directory (Azure AD) and key-based authentication mechanisms, such as Symmetric Shared Key Authentication, or Shared Access Signature (SAS).  
 - **Built-in encryption**. All stored data is encrypted by Azure storage. Data cannot be read by a tenant if it has not been written by that tenant. This feature provides control over cross tenant data leakage. 
@@ -45,14 +53,28 @@ For example, consider some built-in features of Azure Storage.
 
 For the complete set of features, see [Azure Storage Service encryption](/azure/storage/common/storage-service-encryption).
 
+### Suggested action
+
+Identify provider methods of authentication and authorization which are the least likely to be compromised, and enable more fine-grained role-based access controls over storage resources.
+
+**Learn more**
+
+For more information, reference [Authorize access to blobs using Azure Active Directory](/azure/storage/blobs/authorize-access-azure-active-directory).
+
 ## Standard encryption algorithms
 
 **Does the organization use industry standard encryption algorithms instead of creating their own?**
 ***
 
-Avoid using custom encryption algorithms or direct cryptography in your workload. These methods rarely stand up to real world attacks. If custom implementation is required, developers should use well-established cryptographic algorithms and secure standards. Use Advanced Encryption Standard (AES) as a symmetric block cipher, AES-128, AES-192, and AES-256 are acceptable. 
+Organizations should not develop and maintain their own encryption algorithms. Avoid using custom encryption algorithms or direct cryptography in your workload. These methods rarely stand up to real world attacks. 
+
+Secure standards already exist on the market and should be preferred. If custom implementation is required, developers should use well-established cryptographic algorithms and secure standards. Use Advanced Encryption Standard (AES) as a symmetric block cipher, AES-128, AES-192, and AES-256 are acceptable. 
 
 Developers should use cryptography APIs built into operating systems instead of non-platform cryptography libraries. For .NET, follow the [.NET Cryptography Model](/dotnet/standard/security/cryptography-model).
+
+We advise using standard and recommended encryption algorithms.
+
+For more information, refer to [Choose an algorithm](/dotnet/standard/security/cryptography-model#choose-an-algorithm).
 
 **Are modern hashing functions used?**
 ***

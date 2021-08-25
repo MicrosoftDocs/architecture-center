@@ -47,9 +47,9 @@ The architecture uses the following Azure services:
 
 For more information, see the following articles:
 
-- [What is Azure IoT Edge?](https://docs.microsoft.com/azure/iot-edge/about-iot-edge)
-- [What is Azure SQL Edge?](https://docs.microsoft.com/azure/azure-sql-edge/overview)
-- [Create a solution by using Azure SQL Edge - part one](https://docs.microsoft.com/azure/azure-sql-edge/tutorial-deploy-azure-resources)
+- [What is Azure IoT Edge?](/azure/iot-edge/about-iot-edge)
+- [What is Azure SQL Edge?](/azure/azure-sql-edge/overview)
+- [Create a solution by using Azure SQL Edge - part one](/azure/azure-sql-edge/tutorial-deploy-azure-resources)
 
 ## Related resources
 
@@ -67,4 +67,3 @@ The related resources provide further information on edge solutions, including i
 - [IoT using Cosmos DB](iot-using-cosmos-db.yml)
 - [Retail - Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)
 - [Predictive maintenance with the intelligent IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
-

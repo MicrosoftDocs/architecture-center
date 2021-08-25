@@ -1,16 +1,11 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution idea shows how you can deploy WVD rapidly in a *minimum viable product* (MVP) or a *proof of concept* (PoC) environment with the use of Azure Active Directory Domain Services ([Azure AD DS](/azure/active-directory-domain-services/overview)). Use this idea to extend on-premises multi-forest AD DS identities to Azure without private connectivity and also support [legacy authentication](/azure/active-directory-domain-services/concepts-resource-forest).
 
 This solution idea also applies to mergers and acquisitions, organization rebranding, and multiple on-premises identities requirements.
 
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 ## Architecture
-
-![WVD Multiple AD Forests architecture diagram](images/two-forest-to-azure-no-private-connectivity.png)
-*Download a [Visio file][visio-download] of this architecture*
+:::image type="content" source="images/wvd-multi-forest-aadds.png" alt-text="Azure Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds.png":::
 
 ## Data flow
 
@@ -39,11 +34,9 @@ The following steps show how the data flows in this architecture in the form of 
 
 For more information, see these articles:
 
-- [Multiple AD forests architecture with Windows Virtual Desktop](./multi-forest.yml).
-- [Windows Virtual Desktop for enterprises](./windows-virtual-desktop.yml)
+- [Multiple AD forests architecture with Azure Virtual Desktop](./multi-forest.yml).
+- [Azure Virtual Desktop for enterprises](./windows-virtual-desktop.yml)
 - [Azure AD Connect Topology](/azure/active-directory/hybrid/plan-connect-topologies).
 - [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/compare-identity-solutions).
-- [Windows Virtual Desktop Documentation](/azure/virtual-desktop/).
+- [Azure Virtual Desktop Documentation](/azure/virtual-desktop/).
 
-<!-- links -->
-[visio-download]: https://arch-center.azureedge.net/WVD-two-forest-to-Azure-AADDS-No-Private-Connectivity.vsdx

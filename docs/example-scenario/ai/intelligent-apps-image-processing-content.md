@@ -1,6 +1,3 @@
-
-
-
 This scenario is relevant for businesses that need to process images.
 
 Potential applications include classifying images for a fashion website, analyzing text and images for insurance claims, or understanding telemetry data from game screenshots. Traditionally, companies would need to develop expertise in machine learning models, train the models, and finally run the images through their custom process to get the data out of the images.
@@ -92,9 +89,9 @@ Before deploying this example scenario in a production environment, review recom
 [small-pricing]: https://azure.com/e/ee2cac4c69e84a328b578fcd3a398653
 [medium-pricing]: https://azure.com/e/7c7fc474db344b87aae93bc29ae27108
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
-[serverless]: https://docs.microsoft.com/en-us/learn/paths/create-serverless-applications/
+[serverless]: /learn/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: ../../framework/resiliency/overview.md
+[resiliency]: ../../framework/resiliency/principles.md
 [security]: /azure/security
 [scalability]: ../../framework/scalability/performance-efficiency.md
 [functions-best-practices]: /azure/azure-functions/functions-best-practices

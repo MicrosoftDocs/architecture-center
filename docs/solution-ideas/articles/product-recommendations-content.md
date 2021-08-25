@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a complete profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
@@ -46,7 +43,7 @@ This solution addresses the above problems by:
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Azure Machine Learning documentation](/azure/machine-learning/)
-* [Movie recommendations on Azure](/azure/architecture/reference-architectures/ai/movie-recommendations)
-* [Personalized marketing solutions](/azure/architecture/solution-ideas/articles/personalized-marketing)
-* [Personalized Offers](/azure/architecture/solution-ideas/articles/personalized-offers)
-* [Build a Real-time Recommendation API on Azure](/azure/architecture/reference-architectures/ai/real-time-recommendation)
+* [Movie recommendations on Azure](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
+* [Personalized marketing solutions](./personalized-marketing.yml)
+* [Personalized Offers](./personalized-offers.yml)
+* [Build a Real-time Recommendation API on Azure](../../reference-architectures/ai/real-time-recommendation.yml)

@@ -3,9 +3,9 @@ metadata:
   title: Population Health Management for Healthcare
   titleSuffix: Azure Solution Ideas
   description: Use Population Health Management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.
-  author: doodlemania2
+  author: krisbock
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 05/07/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -19,7 +19,7 @@ metadata:
     - solution architectures
     - Azure
     - ai gallery
-    - 'https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/'
+    - "https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/population-health-management-for-healthcare.png
 name: Population Health Management for Healthcare
@@ -28,7 +28,8 @@ azureCategories:
 summary: Use Population Health Management to improve clinical and health outcomes and reduce costs. Track, monitor, and benchmark data with this tool.
 products:
   - azure-data-factory
-  - azure-data-lake-analytics
+  - azure-databricks
+  - azure-api-fhir
   - azure-event-hubs
   - azure-stream-analytics
   - power-bi

@@ -23,7 +23,7 @@ Being able to measure availability and resiliency can answer questions like, How
 - Automate testing as much as possible.
 - Perform testing on both key test environments with the production environment.
 - Verify how the end-to-end workload performs under intermittent failure conditions.
-- Test the application against critical [non-functional requirements](/azure/architecture/framework/resiliency/design-requirements) for performance.
+- Test the application against critical [non-functional requirements](./design-requirements.md) for performance.
 - Conduct load testing with expected peak volumes to test scalability and performance under load.
 - Perform chaos testing by injecting faults.
 
@@ -42,11 +42,11 @@ Run tests in production using both synthetic and real user data. Test and produc
 
 As part of your test plan, include:
 
-- [Chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering)
-- [Automated pre-deployment testing](/azure/architecture/checklist/dev-ops#testing)
+- [Chaos engineering](./chaos-engineering.md)
+- [Automated pre-deployment testing](../../checklist/dev-ops.md#testing)
 - [Fault injection testing](#fault-injection-testing)
-- [Peak load testing](/azure/architecture/framework/scalability/performance-test#load-testing)
-- [Disaster recovery testing](/azure/architecture/framework/resiliency/backup-and-recovery#failover)
+- [Peak load testing](../scalability/performance-test.md#load-testing)
+- [Disaster recovery testing](./backup-and-recovery.md#failover-and-failback-testing)
 
 ## Performance testing
 
@@ -91,12 +91,12 @@ Load testing is crucial for identifying failures that only happen under load, su
 ## Next step
 
 >[!div class="nextstepaction"]
->[Backup and recovery](/azure/architecture/framework/resiliency/backup-and-recovery)
+>[Backup and recovery](./backup-and-recovery.md)
 
 ## Related links
 
-- For more test types, see [Test types](https://docs.microsoft.com/azure/architecture/checklist/dev-ops#testing).
-- To learn about load and stress tests, see [Performance testing](/azure/architecture/framework/scalability/performance-test).
-- To learn about chaos testing, see [Chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering). 
+- For more test types, see [Test types](../../checklist/dev-ops.md#testing).
+- To learn about load and stress tests, see [Performance testing](../scalability/performance-test.md).
+- To learn about chaos testing, see [Chaos engineering](./chaos-engineering.md). 
 
  Go back to the main article: [Testing](test-checklist.md)

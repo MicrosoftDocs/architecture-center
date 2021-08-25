@@ -1,8 +1,9 @@
 ---
 title: Overview of Azure load-balancing options
 titleSuffix: Azure Application Architecture Guide
-description: An overview of Azure load-balancing options.
+description: Learn about Azure load-balancing services and how you can use them to distribute your workloads across multiple computing resources.
 author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -48,7 +49,7 @@ The following table summarizes the Azure load balancing services by these catego
 | Azure Front Door | Global | HTTP(S) |
 | Traffic Manager | Global | non-HTTP(S) |
 | Application Gateway | Regional | HTTP(S) |
-| Azure Load Balancer | Global | non-HTTP(S) |
+| Azure Load Balancer | Regional | non-HTTP(S) |
 
 ## Azure load balancing services
 
@@ -89,12 +90,13 @@ The following table lists various architecture reference articles based on the l
 
 |Service(s) |Article |Description |
 |---------|---------|---------|
-|Load Balancer    |  [Load balance virtual machines (VMs) across availability zones](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)    |   Load balance VMs across availability zones helps to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.     |
-|Front Door    |  [Sharing location in real time using low-cost serverless Azure services](https://docs.microsoft.com/azure/architecture/example-scenario/signalr/#azure-front-door)       |   Use Azure Front Door to provide higher availability for your applications than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region.      |
-|Application Gateway     |[IaaS: Web application with relational database](https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |   Learn how to use resources spread across multiple zones to provide a high availability (HA) architecture for hosting an Infrastructure as a Service (IaaS) web application and SQL Server database.     |
-|Traffic Manager   | [Multi-tier web application built for high availability and disaster recovery ](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)        |      Deploy resilient multi-tier applications built for high availability and disaster recovery. If the primary region becomes unavailable, Traffic Manager fails over to the secondary region.  |
-|Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas)       |   Use a multi-tenant solution that includes a combination of Front Door and Application Gateway.  Front Door helps load balance traffic across regions and Application Gateway routes and load-balances traffic internally in the application to the various services that satisfy client business needs.  |
-|Traffic Manager + Load Balancer    | [Multi-region N-tier application](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)          |   A multi-region N-tier application that uses Traffic Manager to route incoming requests to a primary region and if that region becomes unavailable, Traffic Manager fails over to the secondary region.      |
+|Load Balancer    |  [Load balance virtual machines (VMs) across availability zones](/azure/load-balancer/quickstart-load-balancer-standard-public-portal)    |   Load balance VMs across availability zones helps to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.     |
+|Front Door    |  [Sharing location in real time using low-cost serverless Azure services](../../example-scenario/signalr/index.yml#azure-front-door)       |   Use Azure Front Door to provide higher availability for your applications than deploying to a single region. If a regional outage affects the primary region, you can use Front Door to fail over to the secondary region.      |
+|Application Gateway     |[IaaS: Web application with relational database](../../high-availability/ref-arch-iaas-web-and-db.yml)    |   Learn how to use resources spread across multiple zones to provide a high availability (HA) architecture for hosting an Infrastructure as a Service (IaaS) web application and SQL Server database.     |
+|Traffic Manager   | [Multi-tier web application built for high availability and disaster recovery ](../../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)        |      Deploy resilient multi-tier applications built for high availability and disaster recovery. If the primary region becomes unavailable, Traffic Manager fails over to the secondary region.  |
+|Azure Front Door + Application Gateway     | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml)       |   Use a multi-tenant solution that includes a combination of Front Door and Application Gateway.  Front Door helps load balance traffic across regions and Application Gateway routes and load-balances traffic internally in the application to the various services that satisfy client business needs.  |
+|Traffic Manager + Load Balancer    | [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)          |   A multi-region N-tier application that uses Traffic Manager to route incoming requests to a primary region and if that region becomes unavailable, Traffic Manager fails over to the secondary region.      |
+|Traffic Manager + Application Gateway    | [Multi-region load balancing with Traffic Manager and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)          |   Learn how to serve web workloads and deploy resilient multi-tier applications in multiple Azure regions, in order to achieve high availability and a robust disaster recovery infrastructure.      |
 
 ## Decision tree for load balancing in Azure
 

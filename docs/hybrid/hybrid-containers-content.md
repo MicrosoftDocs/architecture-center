@@ -87,6 +87,13 @@ In this reference, Azure Container Instances container groups are utilized as *v
 - If you require a specific uptime service-level agreement (SLA), you can enable the [uptime SLA optional feature][azure-kubernetes-service-uptime-sla] of AKS.
 - Azure Container Instances resources are billed per second, based on an allocation of virtual CPU and memory resources, to the container group. Allocating unnecessary compute resources can exponentially increase the costs required to run this architecture solution. Cost monitoring and optimization is a continuous process that should be conducted at regular intervals throughout the lifetime of your deployment. For further guidance on minimizing Azure Container Instances operational costs, refer to the [cost optimization section][azure-well-architected-framework-performance] of the [Azure Well-Architected Framework][azure-well-architected-framework].
 
+## Next steps
+
+* [Learn more about Azure Container Registry][azure-container-registry]
+* [Learn more about Azure Kubernetes Service][azure-kubernetes-service]
+* [Learn more about Azure Policy][azure-policy]
+* [Learn more about Azure Monitor][azure-monitor]
+
 [architectural-diagram]: ./images/hybrid-containers.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-containers.vsdx
 [azure-app-service]: /azure/app-service/

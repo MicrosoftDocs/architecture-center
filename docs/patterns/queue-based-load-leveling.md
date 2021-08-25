@@ -9,7 +9,8 @@ ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
   - design-pattern
-keywords: design pattern
+keywords:
+  - design pattern
 ---
 
 # Queue-Based Load Leveling pattern
@@ -64,16 +65,20 @@ To resolve this, you can use a queue to level the load between the application i
 
 ![Figure 3 - Using a queue and a function app to level the load](./_images/queue-based-load-leveling-function.png)
 
-## Related patterns and guidance
+## Next steps
 
-The following patterns and guidance might also be relevant when implementing this pattern:
+The following guidance might also be relevant when implementing this pattern:
 
 - [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). Message queues are inherently asynchronous. It might be necessary to redesign the application logic in a task if it's adapted from communicating directly with a service to using a message queue. Similarly, it might be necessary to refactor a service to accept requests from a message queue. Alternatively, it might be possible to implement a proxy service, as described in the example.
-
-- [Competing Consumers pattern](./competing-consumers.md). It might be possible to run multiple instances of a service, each acting as a message consumer from the load-leveling queue. You can use this approach to adjust the rate at which messages are received and passed to a service.
-
-- [Throttling pattern](./throttling.md). A simple way to implement throttling with a service is to use queue-based load leveling and route all requests to a service through a message queue. The service can process requests at a rate that ensures that resources required by the service aren't exhausted, and to reduce the amount of contention that could occur.
 
 - [Choose between Azure messaging services](/azure/event-grid/compare-messaging-services). Information about choosing a messaging and queuing mechanism in Azure applications.
 
 - [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.yml). This reference architecture includes queue-based load leveling as part of the architecture.
+
+## Related guidance
+
+The following patterns might also be relevant when implementing this pattern:
+
+- [Competing Consumers pattern](./competing-consumers.md). It might be possible to run multiple instances of a service, each acting as a message consumer from the load-leveling queue. You can use this approach to adjust the rate at which messages are received and passed to a service.
+
+- [Throttling pattern](./throttling.md). A simple way to implement throttling with a service is to use queue-based load leveling and route all requests to a service through a message queue. The service can process requests at a rate that ensures that resources required by the service aren't exhausted, and to reduce the amount of contention that could occur.

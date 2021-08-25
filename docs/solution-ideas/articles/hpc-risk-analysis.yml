@@ -24,7 +24,7 @@ metadata:
     - hpc
     - finance
     - e2e-hybrid
-    - 'https://azure.microsoft.com/solutions/architecture/hpc-risk-analysis/'
+    - "https://azure.microsoft.com/solutions/architecture/hpc-risk-analysis/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/hpc-risk-analysis.png
 name: HPC Risk Analysis Template - Solution Architecture
 azureCategories:

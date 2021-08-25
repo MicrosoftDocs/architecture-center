@@ -1,6 +1,6 @@
 ---
 title: Administrative account security
-description: Best practices for security of administrator accounts in Azure.
+description: Review administrator account security in Azure. Administration is monitoring, maintaining, and operating IT systems to meet service levels the business requires.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: conceptual
@@ -196,7 +196,7 @@ security dependencies for critical impact accounts
 
     -  Native Cloud Management and Security (Recommended): Join workstations
         to Azure AD & Manage/Patch them with Intune or other cloud services.
-        Protect and Monitor with Windows Microsoft Defender ATP or another cloud
+        Protect and Monitor with Windows Microsoft Defender for Endpoints or another cloud
         service not managed by on premises based accounts.
 
     -   Manage with Existing Systems: Join existing AD domain and use existing management/security.
@@ -244,7 +244,7 @@ that meets your organization's risk appetite and operational needs.
 - Require Multifactor Authentication and/or connection from designated work
     network
 
-- Require Device **integrity with Microsoft Defender ATP** (Strong Assurance)
+- Require Device **integrity with Microsoft Defender for Endpoints** (Strong Assurance)
 
 ## Avoid granular and custom permissions
 

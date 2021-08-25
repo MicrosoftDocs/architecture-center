@@ -1,6 +1,6 @@
 ---
 title: Release Engineering Application Development
-description: Release Engineering Application Development
+description: Understand application development in release engineering. Build systems so your teams can turn ideas into production-delivered software with minimal friction.
 author: neilpeterson
 ms.date: 09/28/2020
 ms.topic: conceptual
@@ -61,7 +61,7 @@ Some features of Bridge:
 
 **Learn more**
 
-- [Documentation: Use Bridge to Kubernetes with Visual Studio Code](/azure/dev-spaces/how-vs-code-works-with-dev-spaces)
+- [Documentation: Use Bridge to Kubernetes with Visual Studio Code](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes)
 - [Documentation: Use Bridge to Kubernetes with Visual Studio](/visualstudio/containers/bridge-to-kubernetes?preserve-view=true&view=vs-2019)
 
 ### Other tools
@@ -94,7 +94,7 @@ Using source control systems, you can create your own copies of the software sou
 
 As updates are made to software and infrastructure configurations, version control software allows us to propose these changes before merging them into the source. During the proposal, peers can review the changes, recommend updates, and approve the changes. Source control solutions provide an excellent platform for collaboration on changes to the software.
 
-To learn more about using Git, visit the [DevOps Resource Center](/azure/devops/learn/git/what-is-git).
+To learn more about using Git, visit the [DevOps Resource Center](/devops/develop/git/what-is-git).
 
 ### GitHub
 
