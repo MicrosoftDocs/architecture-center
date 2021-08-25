@@ -48,6 +48,8 @@ Key Azure services that can help in creating a landing zone:
 - [Azure Resource Manager template specs](/azure/azure-resource-manager/templates/template-specs)  stores an Azure Resource Manager template (ARM template) in Azure for later deployment.
 - [Azure Policy](/azure/governance/policy/overview) enforces organizational standards and to assess compliance at-scale.
 - [Azure AD](/services/active-directory/) and [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) work in conjunction to provide identity and access controls.
+- [Azure Security Center](/azure/security-center/security-center-intro)
+- [Azure Defender](/azure/security-center/azure-defender)
 
 ## Next
 Use management groups to manage resources across multiple subscriptions consistently and efficiently. 
