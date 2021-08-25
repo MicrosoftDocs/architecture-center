@@ -171,7 +171,7 @@ For more information, see [Protect data in transit](/azure/security/fundamentals
 
 All data should be encrypted in transit using a common encryption standard. Determine if all components in the solution are using a consistent standard. There are times when encryption is not possible because of technical limitations, make sure the reason is clear and valid.
 
-## Suggested actions
+### Suggested actions
 
 Identify workloads using unencrypted sessions and configure the service to require encryption.
 
