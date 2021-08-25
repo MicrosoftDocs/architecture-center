@@ -20,7 +20,9 @@ ms.custom:
 
 # Security audits 
 
-The security principle of _baseline and benchmark_ ensures you evaluate your workload and configuration against external references including compliance requirements. This step will minimize risk of inadvertent oversight, and the risk of punitive fines from noncompliance.
+
+To make sure that the security posture doesn't degrade over time, have regular auditing that checks compliance with organizational standards. Enable, acquire, and store audit logs for Azure services.
+
 
 ## Key points
 > [!div class="checklist"]
@@ -35,11 +37,20 @@ The security principle of _baseline and benchmark_ ensures you evaluate your wor
 **Do you evaluate the security posture of this workload using standard benchmarks?**
 ***
 
-Benchmarking allows you to improve your security program by learning from external organizations. Benchmarking lets you know how your current security state compares to that of other organizations, providing both external validation for successful elements of your current system as well as identifying gaps that serve as opportunities to enrich your team’s overall security strategy. Even if your security program isn’t tied to a specific benchmark or regulatory standard, you will benefit from understanding the documented ideal states by those outside and inside of your industry. 
 
-For example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK™ framework that defines the various adversary tactics and techniques based on real-world observations.
+Compliance is important for several reasons. Aside from signifying levels of standards, like `ISO 27001` and others, noncompliance with regulatory guidelines may bring sanctions and penalties. Regularly review roles that have high privileges. Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change. Consider auditing at least twice a year.
 
-Establish security benchmarking using [Azure Security Benchmark](/azure/security/benchmarks/) to align with industry standards. Monitor the state of Azure Security Benchmark in Azure Security Center, after it's been added as a policy to the subscription. 
+As people in the organization and on the project change, make sure that only the right people have access to the application infrastructure. Auditing and reviewing the access control reduces the attack vector to the application.
+
+Azure control plane depends on Azure AD. You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review). These reviews are often centrally performed often as part of internal or external audit activities.
+
+### Suggested action
+
+Use Azure Defender (Azure Security Center) to continuously assess and monitor your compliance score.
+
+### Learn more
+
+[Assess your regulatory compliance](/azure/security-center/security-center-compliance-dashboard#assess-your-regulatory-compliance)
 
 
 ## Audit regulatory compliance
