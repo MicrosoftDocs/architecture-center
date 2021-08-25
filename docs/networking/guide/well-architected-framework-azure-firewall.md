@@ -121,7 +121,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
 ## Reliability
 
-- Azure Firewall provides a 99.95% SLA, when deployed in a single Availability Zone. Azure Firewall provides a 99.99% SLA, when deployed in multi-zones.
+- Azure Firewall provides a 99.95% SLA, when deployed in a single Availability Zone. Azure Firewall provides a 99.99% SLA, when deployed in multi-zones. For more information, see [SLA for Azure Firewall](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_1).
 
 - For workloads designed to be resistant to failures and to be fault-tolerant, remember to take into consideration that Azure Firewalls and Virtual Networks are regional resources. 
 
