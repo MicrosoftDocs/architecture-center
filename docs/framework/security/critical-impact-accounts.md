@@ -299,4 +299,10 @@ have the knowledge and skills to avoid and resist attacks will reduce your
 overall organizational risk.
 
 You can use [Office 365 Attack Simulation](/microsoft-365/security/office-365-security/attack-simulator)
-capabilities or any number of third party offerings.
+capabilities or any number of third-party offerings.
+
+If the organization has Microsoft Defender for Office 365 Plan 2, which includes Threat Investigation and Response capabilities, you can use Attack Simulator in the Security & Compliance Center to run realistic attack scenarios in your organization. These simulated attacks can help you find and educate vulnerable users before a real attack impacts your bottom line.
+
+### Suggested actions
+
+Evaluate the current tools available such as Office 365 ATP attack simulator and regularly simulate attacks against critical accounts to prepare them for real-world events.
