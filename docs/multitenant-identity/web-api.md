@@ -18,6 +18,8 @@ pnp.series.prev: authorize
 pnp.series.next: token-cache
 ---
 
+[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
+
 # Secure a backend web API for multitenant applications
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]

@@ -15,6 +15,8 @@ pnp.series.prev: tailspin
 pnp.series.next: claims
 ---
 
+[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
+
 <!-- cSpell:ignore OIDC multitenanted openid -->
 
 # Authenticate using Azure AD and OpenID Connect

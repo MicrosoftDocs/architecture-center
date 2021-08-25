@@ -15,6 +15,8 @@ pnp.series.prev: authenticate
 pnp.series.next: signup
 ---
 
+[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
+
 # Work with claims-based identities
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]

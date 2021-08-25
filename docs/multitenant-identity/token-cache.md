@@ -16,6 +16,8 @@ pnp.series.prev: web-api
 pnp.series.next: adfs
 ---
 
+[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
+
 # Cache access tokens
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]

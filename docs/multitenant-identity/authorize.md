@@ -15,6 +15,8 @@ pnp.series.prev: app-roles
 pnp.series.next: web-api
 ---
 
+[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
+
 # Role-based and resource-based authorization
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
