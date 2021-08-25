@@ -81,12 +81,27 @@ For more information, refer to [Choose an algorithm](/dotnet/standard/security/c
 Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, SHA-512).
 
 ## Data at rest
-Classify and protect all information storage objects. Use encryption to make sure the contents of file cannot be accessed by unauthorized users.
+
+All important data should be classified and encrypted with an encryption standard. Classify and protect all information storage objects. Use encryption to make sure the contents of files cannot be accessed by unauthorized users.
+
+Data at rest is encrypted by default in Azure, but is your critical data classified and tagged, or labeled so that it can be audited?
+
+Your most sensitive data might include business, financial, healthcare, or personal information. Discovering and classifying this data can play a pivotal role in your organization's information protection approach. It can serve as infrastructure for:
+
+- Helping to meet standards for data privacy and requirements for regulatory compliance.
+- Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
+- Controlling access to and hardening the security of databases that contain highly sensitive data.
+
+**Suggested action**
+
+Classify your data. Consider using [Data Discovery & Classification](/azure/azure-sql/database/data-discovery-and-classification-overview) in Azure SQL Database.
 
 ### Data classification
-A crucial and an initial exercise for protecting data is to organize it into categories based on certain criteria. The classification criteria can be your business needs, compliance requirements, and the type of data. 
+
+A crucial initial exercise for protecting data is to organize it into categories based on certain criteria. The classification criteria can be your business needs, compliance requirements, and the type of data.
 
 Depending on the category, you can protect it through:
+
 - Standard encryption mechanisms.
 - Enforce security governance through policies.
 - Conduct audits to make sure the security measures are compliant.
@@ -116,21 +131,25 @@ Use more than one encryption key in an encryption at rest implementation. Storin
 
 Use an additional key encryption key (KEK) to protect your data encryption key (DEK).
 
-
 ## Data in transit
 
-Data in transit should be encrypted at all points to ensure data integrity. 
+Data in transit should be encrypted at all points to ensure data integrity.
+
+Protecting data in transit should be an essential part of your data protection strategy. Because data is moving back and forth from many locations, we generally recommend that you always use SSL/TLS protocols to exchange data across different locations.
+
+For data moving between your on-premises infrastructure and Azure, consider appropriate safeguards such as HTTPS or VPN. When sending encrypted traffic between an Azure virtual network and an on-premises location over the public internet, use Azure VPN Gateway.
 
 **Does the workload communicate over encrypted network traffic only?**
 ***
 
-Any network communication between client and server where man-in-the-middle attack can occur, must be encrypted. All website communication should use HTTPS, no matter the perceived sensitivity of transferred data. Man-in-the-middle attacks can occur anywhere on the site, not just login forms.
+Any network communication between client and server where man-in-the-middle attacks can occur, must be encrypted. All website communication should use HTTPS, no matter the perceived sensitivity of transferred data. Man-in-the-middle attacks can occur anywhere on the site, not just login forms.
 
 This mechanism can be applied to use cases such as:
-- Web applications and APIs for all communication with clients. 
+
+- Web applications and APIs for all communication with clients.
 - Data moving across a service bus from on-premises to the cloud and other way around, or during an input/output process.
 
-In certain architecture styles such as microservices, data must be encrypted during communication between the services. 
+In certain architecture styles such as microservices, data must be encrypted during communication between the services.
 
 **What TLS version is used across workloads?**
 ***
@@ -140,7 +159,7 @@ Using the latest version of TLS is preferred. All Azure services support TLS 1.2
 When traffic from clients using older versions of TLS is minimal, or it's acceptable to fail requests made with an older version of TLS, consider enforcing a minimum TLS version. For information about TLS support in Azure Storage, see [Remediate security risks with a minimum version of TLS](/azure/storage/common/transport-layer-security-configure-minimum-version?tabs=portal#remediate-security-risks-with-a-minimum-version-of-tls).
 
 Sometimes you need to isolate your entire communication channel between your on-premises and the cloud
-infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute/). For more information, see  these articles: 
+infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute/). For more information, see  these articles:
 
 - [Extending on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md)
 - [Configure a Point-to-Site VPN connection to a VNet using native Azure certificate authentication: Azure portal](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#architecture)
@@ -152,14 +171,24 @@ For more information, see [Protect data in transit](/azure/security/fundamentals
 
 All data should be encrypted in transit using a common encryption standard. Determine if all components in the solution are using a consistent standard. There are times when encryption is not possible because of technical limitations, make sure the reason is clear and valid.
 
+### Suggested actions
+
+Identify workloads using unencrypted sessions and configure the service to require encryption.
+
+## Learn more
+
+- [Encrypt data in transit](/azure/architecture/framework/Security/storage-data-encryption#encrypt-data-in-transit)
+- [Azure encryption overview](/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
 ## Next steps
-While it's important to protect data through encryption, it's equally important to protect they keys that provide access to the data. 
+
+While it's important to protect data through encryption, it's equally important to protect they keys that provide access to the data.
 
 > [!div class="nextstepaction"]
 > [Key and secret management](design-storage-keys.md)
 
 ## Related links
+
 Identity and access management services authenticate and grant permission to users, partners, customers, applications, services, and other entities. For security considerations, see [Azure identity and access management considerations](design-identity.md).
 
 > [Back to the main article: Data protection](design-storage.md)

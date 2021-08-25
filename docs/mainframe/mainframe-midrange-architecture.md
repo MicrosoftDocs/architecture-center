@@ -116,7 +116,6 @@ Often referred to as a lift-and-shift migration, this option doesn't require cod
 <ul class="grid">
 
 [!INCLUDE [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../includes/cards/migrate-mainframe-apps-with-tmaxsoft-openframe.md)]
-[!INCLUDE [Modernize mainframe and midrange data](../../includes/cards/modernize-mainframe-data-to-azure.md)]
 
 </ul>
 
@@ -131,7 +130,7 @@ Refactoring requires minimal changes to applications. This often enables the app
 
 #### Refactor architectures
 
-| | |
+|Example | |
 |-|-|
 |IBM z/OS mainframe migration with Asysco AMT [![IBM z/OS mainframe migration with Asysco AMT](images/refactor-asysco-zos.png)](../example-scenario/mainframe/asysco-zos-migration.yml)|Micro Focus Enterprise Server on Azure VMs [![Micro Focus Enterprise Server on Azure VMs](images/refactor-microfocus-zos.png)](../example-scenario/mainframe/micro-focus-server.yml)|
 |Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure [![Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](images/refactor-zos-cf.png)](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)|Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus [![Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](images/refactor-astadia-unisys.png)](../example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)|
@@ -164,6 +163,12 @@ A key part of legacy migrations and transformations to Azure is consideration fo
 
 ### Data movement and migration architectures
 
+<ul class="grid">
+
+[!INCLUDE [Modernize mainframe and midrange data](../../includes/cards/modernize-mainframe-data-to-azure.md)]
+
+</ul>
+
 | | |
 |-|-|
 |Modernize mainframe & midrange data [![Modernize mainframe & midrange data](images/data-modernize-mainframe-data.png)](../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)|Replicate and sync mainframe data in Azure [![Replicate and sync mainframe data in Azure](images/data-sync-mainframe-data.png)](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)|
@@ -195,7 +200,7 @@ The white papers, blogs, webinars, and other resources are available to help you
 
 - [Angelbeat - Retail Industry Legacy Webinar](https://youtu.be/UXgcz94d_1s)
 - [Mainframe Transformation to Azure](https://www.youtube.com/watch?v=30um4RI1c_M&list=PLW5Fjy7MTRY74fcCN5Z4S9VvgFuQZunf5&index=2)
-- [Mainframe Transformation: Azure is the New Mainframe](https://www.astadia.com/video/mainframe-transformation-azure-is-the-new-mainframe)
+- [Mainframe Transformation: Azure is the New Mainframe](https://www.astadia.com/videos/mainframe-modernization-to-microsoft-azure-with-bob-ellsworth-live-stream)
 - [ClearPath MCP Software Series For Azure](https://www.youtube.com/watch?v=TPe8fBCgQ7k&feature=youtu.be)
 - [Leverage the Power of Azure with Steve Read](https://www.astadia.com/podcast/leverage-the-power-of-azure-with-steve-read)
 - [Carahsoft - Monolithic Mainframe to Azure Gov Cloud The USAF Journey](https://www.carahsoft.com/learn/event/27813-Monolithic-Mainframe-to-Azure-Gov-Cloud--The-USAF-Journey)
@@ -222,6 +227,5 @@ Different industries are migrating from legacy mainframe and midrange systems in
 - [Mainframe to Azure: A Real World Modernization Case Study (GEICO and AIS)](https://www.ais.com/mainframe-to-azure-a-real-world-modernization-case-study)
 - [Jefferson County, Alabama](https://www.jccal.org/Default.asp?ID=2096&pg=Mainframe%20Migration)
 - [Customer Technical Story: Actuarial Services Company - DEC Alpha to Azure using Stromasys](https://customers.microsoft.com/story/786886-legacy-alpha-application-gets-a-new-life-as-saas-on-microsoft-azure)
-- [TRASMEDITERRANEA ACCIONA: FULL STEAM AHEAD - Freight company moves to the cloud with Visual COBOL](https://www.microfocus.com/media/success-story/trasmediterranea-acciona_tcm6-210848.pdf)
 - [Astadia & USAF Complete Mission-Critical Mainframe-to-Cloud Migration | Business Wire](https://www.businesswire.com/news/home/20210504005086/en/Astadia-USAF-Complete-Mission-Critical-Mainframe-to-Cloud-Migration)
 - [United States Air Force | Case Study (astadia.com)](https://www.astadia.com/case-studies/united-states-air-force)

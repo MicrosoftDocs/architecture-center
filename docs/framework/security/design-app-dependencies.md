@@ -37,6 +37,7 @@ During the design phase, consider the way you store secrets and handle exception
 <a id="secrets">**How is application configuration stored and how does the application access it?**</a>
 ***
 
+
 Application configuration information can be stored with the application. However, that's not a recommended practice. Consider using a dedicated configuration management system such as Azure App Configuration. That way, it can be updated independently of the application code.
 
 Applications can include secrets like database connection strings, certificate keys, and so on. Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. Identify secrets in code with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.
@@ -56,9 +57,16 @@ Application code and configuration should not share the same lifecycle to enable
 **Is platform-specific information removed from server-client communication?**
 ***
 
-Do not reveal information about the application platform. Such information (for example, "X-Powered-By", "X-ASPNET-VERSION") can get exposed through HTTP banners HTTP headers, error messages, website footers. Malicious actors can use this information when mapping attack vectors of the application.
+Do not reveal information about the application platform. Such information (for example, "X-Powered-By", "X-ASPNET-VERSION") can get exposed through HTTP banners, HTTP headers, error messages, and website footers. Malicious actors can use this information when mapping attack vectors of the application.
 
-Consider using Azure CDN to separate the hosting platform from end users. Azure API Management offers transformation policies that allow you to modify HTTP headers and remove sensitive information.
+**Suggested actions**
+
+Consider using Azure Front Door or API Management to remove platform-specific HTTP headers. Alternatively, use Azure CDN to separate the hosting platform from end users. Azure API Management offers transformation policies that allow you to modify HTTP headers and remove sensitive information.
+
+**Learn more**
+
+- [Azure Front Door Rules Engine Actions](/azure/frontdoor/front-door-rules-engine-actions)
+- [API Management documentation](/azure/api-management/)
 
 **Are Azure policies used to control the configuration of the solution resources?**
 ***
