@@ -15,8 +15,6 @@ pnp.series.prev: app-roles
 pnp.series.next: web-api
 ---
 
-[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
-
 # Role-based and resource-based authorization
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
@@ -29,6 +27,8 @@ Our [reference implementation] is an ASP.NET Core application. In this article w
 A typical app will employ a mix of both. For example, to delete a resource, the user must be the resource owner *or* an admin.
 
 ## Role-based authorization
+
+[!INCLUDE [Obselete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 The [Tailspin Surveys][Tailspin] application defines the following roles:
 

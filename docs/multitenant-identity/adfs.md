@@ -15,8 +15,6 @@ pnp.series.prev: token-cache
 pnp.series.next: client-assertion
 ---
 
-[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
-
 # Federate with a customer's AD FS
 
 This article describes how a multitenant SaaS application can support authentication via Active Directory Federation Services (AD FS), in order to federate with a customer's AD FS.

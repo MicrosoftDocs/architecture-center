@@ -15,8 +15,6 @@ pnp.series.prev: tailspin
 pnp.series.next: claims
 ---
 
-[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
-
 <!-- cSpell:ignore OIDC multitenanted openid -->
 
 # Authenticate using Azure AD and OpenID Connect
@@ -48,6 +46,8 @@ To enable this functionality in the sample Surveys application, see the [GitHub 
 - The reply URL is the URL where Azure AD will send OAuth 2.0 responses. When using the ASP.NET Core, this needs to match the path that you configure in the authentication middleware (see next section).
 
 ## Configure the auth middleware
+
+[!INCLUDE [Obselete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 This section describes how to configure the authentication middleware in ASP.NET Core for multitenant authentication with OpenID Connect.
 

@@ -15,8 +15,6 @@ pnp.series.prev: signup
 pnp.series.next: authorize
 ---
 
-[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
-
 # Application roles
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
