@@ -12,6 +12,8 @@ ms.custom:
   - guide
 ---
 
+[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
+
 # The Tailspin scenario
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]

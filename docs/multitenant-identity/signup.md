@@ -15,6 +15,8 @@ pnp.series.prev: claims
 pnp.series.next: app-roles
 ---
 
+[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
+
 <!-- cSpell:ignore signup nameof -->
 
 # Tenant sign-up and onboarding

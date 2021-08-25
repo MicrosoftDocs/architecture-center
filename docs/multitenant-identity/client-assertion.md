@@ -13,6 +13,8 @@ ms.custom:
   - guide
 ---
 
+[!INCLUDE [Obselete technology disclaimer](disclaimer.md)]
+
 # Use client assertion to get access tokens from Azure AD
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
