@@ -1793,11 +1793,11 @@ items:
             items:
               - name: AKS Baseline for Multi-Region Clusters
                 href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
-              - name: Highly available multi-region web application
+              - name: Highly available multi-region web app
                 href: reference-architectures/app-service-web-app/multi-region.yml
-              - name: "IaaS: Web application with relational database"
+              - name: "IaaS: Web app with relational database"
                 href: high-availability/ref-arch-iaas-web-and-db.yml
-              - name: Multi-region app with private database connectivity
+              - name: Multi-region app with private database
                 href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: Multi-region load balancing
                 href: high-availability/reference-architecture-traffic-manager-application-gateway.yml
@@ -1811,6 +1811,8 @@ items:
         items:
           - name: Guides
             items:
+              - name: Hybrid workload in Azure WAF
+                href: https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-overview
               - name: Hybrid deployments
                 items:
                 - name: Configure hybrid cloud connectivity in Azure and Azure Stack Hub
@@ -1831,8 +1833,6 @@ items:
                   href: hybrid/deployments/solution-deployment-guide-sql-ha.md
                 - name: Direct traffic with a geo-distributed app using Azure and Azure Stack Hub
                   href: hybrid/deployments/solution-deployment-guide-geo-distributed.md
-              - name: FSLogix for the enterprise
-                href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
               - name: Administer SQL Server anywhere with Azure Arc
                 href: hybrid/azure-arc-sql-server.yml
               - name: Azure Stack stretched clusters for DR
@@ -1841,6 +1841,8 @@ items:
                 href: hybrid/azure-stack-robo.yml
               - name: Connect an on-premises network to Azure
                 href: reference-architectures/hybrid-networking/index.yml
+              - name: FSLogix for the enterprise
+                href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
               - name: Troubleshoot a hybrid VPN connection
                 href: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
           - name: Architectures
@@ -1936,6 +1938,20 @@ items:
                     href: multitenant-identity/adfs.md
               - name: Integrate on-premises AD with Azure
                 href: reference-architectures/identity/index.yml
+              - name: Migrate applications to Azure AD
+                items:
+                  - name: Migrate an AD FS app to Azure
+                    href: /azure/active-directory/manage-apps/migrate-adfs-apps-to-azure
+                    maintainContext: true
+                  - name: Migrate app authentication to Azure AD
+                    href: /azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory
+                    maintainContext: true
+                  - name: Use the AD FS application activity report
+                    href: /azure/active-directory/manage-apps/migrate-adfs-application-activity
+                    maintainContext: true
+                  - name: Resources for migrating to Azure AD
+                    href: /azure/active-directory/manage-apps/migration-resources
+                    maintainContext: true
               - name: Secure development with single-page applications (SPAs)
                 href: guide/resilience/azure-ad-secure-single-page-application.md
           - name: Architectures
@@ -2130,7 +2146,7 @@ items:
                     href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
               - name: Solution ideas
                 items:      
-                  - name: Migrate IBM apps with TmaxSoft OpenFrame
+                  - name: Migrate IBM apps with TmaxSoft
                     href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
                   - name: Solaris emulator on Azure VMs
                     href: solution-ideas/articles/solaris-azure.yml
@@ -2140,7 +2156,7 @@ items:
                 items:  
                   - name: Modernize mainframe and midrange data
                     href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
-                  - name: Re-engineer mainframe batch applications on Azure
+                  - name: Re-engineer mainframe batch apps
                     href: example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml
                   - name: Replicate and sync mainframe data
                     href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
@@ -2355,7 +2371,7 @@ items:
                 href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
               - name: Hub-spoke network topology in Azure
                 href: reference-architectures/hybrid-networking/hub-spoke.yml
-              - name: Hub-spoke network topology with Azure Virtual WAN
+              - name: Hub-spoke topology with Azure Virtual WAN
                 href: networking/hub-spoke-vwan-architecture.yml   
               - name: Hybrid networking
                 items:
@@ -2507,6 +2523,8 @@ items:
             items: 
               - name: Design principles
                 href: guide/design-principles/index.md
+              - name: Design and implementation patterns
+                href: patterns/category/design-implementation.md
           - name: Architectures
             items:
               - name: Basic web application
