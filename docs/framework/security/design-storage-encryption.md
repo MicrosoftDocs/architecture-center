@@ -96,7 +96,7 @@ Your most sensitive data might include business, financial, healthcare, or perso
 
 Classify your data. Consider using [Data Discovery & Classification](/azure/azure-sql/database/data-discovery-and-classification-overview) in Azure SQL Database.
 
-### Data classification
+## Data classification
 
 A crucial initial exercise for protecting data is to organize it into categories based on certain criteria. The classification criteria can be your business needs, compliance requirements, and the type of data.
 
@@ -117,7 +117,13 @@ Consider a hybrid solution. Files can  move from on-premises to the cloud, from 
 
 We recommend that you enable virtual disk encryption. For information about how to encrypt Windows VM disks, see [Quickstart: Create and encrypt a Windows VM with the Azure CLI](/azure/virtual-machines/windows/disk-encryption-cli-quickstart).
 
+Azure-based virtual disks are stored as files in a Storage account. If no encryption is applied to a virtual disk, and an attacker manages to download a virtual disk image file, it can be mounted and inspected at the attacker's leisure as if they had physical access to the source computer. Encrypting virtual disk files helps prevent attackers from gaining access to the contents of those disk files in the event they are able to download them. Depending on the sensitivity of the information stored on the disk, unencrypted access could represent a critical risk to confidential business data (such as a SQL database) or identity (such as an AD Domain Controller).
+
 An example of virtual disk encryption is [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss).
+
+Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments. It uses the Bitlocker feature of Windows (or DM-Crypt on Linux) to provide volume encryption for the OS and data disks of Azure virtual machines (VMs). It is integrated with Azure Key Vault to help you control and manage the disk encryption keys, and secrets.
+
+Virtual machines use virtual disk files as storage volumes and exist in a cloud service provider's blob storage system. These files can be moved from on-premises to cloud systems, from cloud systems to on-premises, or between cloud systems. Due to the mobility of these files, it's recommended that the files and the contents are not accessible to unauthorized users.
 
 **Does the organization use identity-based storage access controls for this workload?**
 ***
@@ -130,6 +136,14 @@ There are many ways to control access to data: shared keys, shared signatures, a
 Use more than one encryption key in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys.
 
 Use an additional key encryption key (KEK) to protect your data encryption key (DEK).
+
+**Suggested actions**
+
+Identify unencrypted virtual machines via Azure Security Center or script, and encrypt via Azure Disk Encryption.  Ensure all new virtual machines are encrypted by default and regularly monitor for unprotected disks.
+
+**Learn more**
+
+[Azure Disk Encryption for virtual machines and virtual machine scale sets](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)
 
 ## Data in transit
 
