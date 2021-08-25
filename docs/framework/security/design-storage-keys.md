@@ -70,6 +70,7 @@ To secure access to your key vaults, control permissions to keys and secrets an 
 
 
 **Who is responsible for managing keys and secrets in the application context?**
+***
 
 Key and certificate rotation is often the cause of application outages. Even Azure has experienced expired certificates. It is critical that the rotation of keys and certificates be scheduled and fully operationalized. The rotation process should be automated and tested to ensure effectiveness. Azure Key Vault supports key rotation and auditing.
 
@@ -77,6 +78,7 @@ Central SecOps team provides guidance on how keys and secrets are managed (gover
 
 **What types of keys and secrets are used and how are those generated?**
 ***
+
 There are various approaches. Options include Microsoft-managed Keys, Customer-managed Keys, Bring Your Own Key. The decision is often driven by security, compliance and specific data classification requirements. Have a clear understanding these requirements to determine the most suitable type of keys. 
 
 **Are keys and secrets rotated frequently?**

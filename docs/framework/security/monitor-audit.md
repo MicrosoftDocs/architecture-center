@@ -67,7 +67,7 @@ For more information, see [Tutorial: Create and manage policies to enforce compl
 
 Here's an example management group that is tracking compliance to the Payment Card Industry (PCI) standard.
 
-![PCI regulatory compliance](images/regulatory-compliance-pci.png)
+:::image type="content" source="./images/regulatory-compliance-pci.png" alt-text="Example compliance monitoring" border ="true":::
 
 **Do you have internal and external audits for this workload?**
 ***

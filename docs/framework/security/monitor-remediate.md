@@ -36,7 +36,7 @@ Start by remediating common security risks. These risks are usually from well-es
 
 Monitor the security posture of VMs, networks, storage, data services, and various other contributing factors. [Secure Score](/azure/security-center/secure-score-security-controls) in Azure Security Center shows a composite score that represents the security posture at the subscription level.  
 
-![Azure secure score overview](images/secure-score-tile.png)
+:::image type="content" source="./images/secure-score-tile.png" alt-text="Azure Secure Score" border ="true":::
 
 **Do you have a process for formally reviewing Secure Score on Azure Security Center?**
 ***
@@ -75,7 +75,7 @@ Azure Security Center monitors the security status of machines, networks, storag
 
 View the recommendations to see the potential security issues and apply the [Azure security center recommendations](/azure/security-center/security-center-recommendations) to execute technical remediations.
 
-![Azure secure score](images/secure-score.png)
+:::image type="content" source="./images/secure-score.png" alt-text="Azure Secure Score" border ="true":::
 
 The recommendations are grouped by controls. Each recommendation has detailed information such as severity, affected resources, and quick fixes where applicable. Start with high severity items. 
 

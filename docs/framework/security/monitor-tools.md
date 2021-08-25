@@ -72,7 +72,7 @@ The *data classification* process categorizes data by sensitivity and business i
 
 With proper *file protection*, you can analyze data flows to gain insight into your business, detect risky behaviors and take corrective measures, track access to documents, and more. The protection technology in AIP uses encryption, identity, and authorization policies. Protection stays with the documents and emails, independently of the location, regardless of whether they are inside or outside your organization, networks, file servers, and applications
 
-[Azure Information Protection (AIP)](/azure/information-protection/what-is-information-protection) is part of Microsoft Information Protection (MIP) solution, and extends the labeling and classification functionality provided by Microsoft 365. For more information, see this article about  
+[Azure Information Protection (AIP)](/azure/information-protection/what-is-information-protection) is part of Microsoft Information Protection (MIP) solution, and extends the labeling and classification functionality provided by Microsoft 365. For more information, see   
 [this article about classification](/microsoft-365/compliance/data-classification-overview).
 
 
