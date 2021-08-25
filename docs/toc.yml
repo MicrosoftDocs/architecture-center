@@ -518,7 +518,7 @@ items:
       - name: Reliability
         items:
               - name: Principles
-                href: framework/resiliency/overview.md
+                href: framework/resiliency/principles.md
               - name: Design
                 items: 
                   - name: Checklist

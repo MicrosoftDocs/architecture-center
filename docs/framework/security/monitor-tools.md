@@ -56,7 +56,7 @@ Every property in Azure is protected by Azure's infrastructure DDoS (Basic) Prot
 
 Azure DDoS Protection Standard provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. It has several advantages over the basic service, including logging, alerting, telemetry, SLA guarantee and cost protection.
 
-Azure DDoS Protection Standard is designed for [services that are deployed in a virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services). For other services, the default DDoS Protection Basic service applies. To learn more about supported architectures, see [DDoS Protection reference architectures](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures).
+Azure DDoS Protection Standard is designed for [services that are deployed in a virtual network](/azure/virtual-network/virtual-network-for-azure-services). For other services, the default DDoS Protection Basic service applies. To learn more about supported architectures, see [DDoS Protection reference architectures](/azure/ddos-protection/ddos-protection-reference-architectures).
 
 ## Azure Rights Management (RMS)
 
