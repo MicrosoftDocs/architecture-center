@@ -219,10 +219,10 @@ lowest cost/difficult to attack:
     <https://aka.ms/HelloForBusiness>
 
 - **Passwordless (Authenticator App)**  
-    <https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in>
+    </azure/active-directory/authentication/howto-authentication-phone-sign-in>
 
 - **Multifactor Authentication**  
-    <https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-userstates>
+    </azure/active-directory/authentication/howto-mfa-userstates>
 
 Note that SMS Text Message based MFA has become very inexpensive for attackers
 to bypass, so we recommend you avoid relying on it. This option is still
