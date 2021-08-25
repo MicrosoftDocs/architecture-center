@@ -14,12 +14,6 @@ subject:
   - security
 ms.custom:
   - article
-products:
-  - azure-devops
-categories:
-  - security
-subject: 
-  - security
 ---
 
 # Security management groups

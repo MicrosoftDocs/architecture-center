@@ -15,10 +15,6 @@ subject:
   - identity
 ms.custom:
   - article
-categories:
-  - security
-subject: 
-  - security
 ---
 
 # Azure control plane security

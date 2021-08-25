@@ -15,8 +15,6 @@ subject:
   - security
 ms.custom:
   - article
-categories:
-  - security
 ---
 
 # Key and secret management considerations in Azure
