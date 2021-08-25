@@ -69,7 +69,7 @@ Configure Azure Monitor for containers to monitor Azure Arc enabled Kubernetes c
 
 Azure Monitor for containers can provide you with performance visibility by collecting memory and processor metrics from controllers, nodes, and containers available in Kubernetes through the Metrics application programming interface (API). Container logs are also collected. After you enable monitoring from Kubernetes clusters, metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent. Metrics are written to the metrics store and log data is written to the logs store associated with your Log Analytics workspace. For more information about Azure Monitor for containers, refer to Azure Monitor for containers overview.
 
-Enable Azure Monitor for containers for one or more existing deployments of Kubernetes by using either a PowerShell or a Bash script. To enable monitoring for Arc enabled Kubernetes clusters, refer to [Enable monitoring of Azure Arc enabled Kubernetes cluster](https://docs.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters).
+Enable Azure Monitor for containers for one or more existing deployments of Kubernetes by using either a PowerShell or a Bash script. To enable monitoring for Arc enabled Kubernetes clusters, refer to [Enable monitoring of Azure Arc enabled Kubernetes cluster](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters).
 
 Automatically enroll in additional Azure Arc enabled resources and services. Simply turn them on when needed:
 
