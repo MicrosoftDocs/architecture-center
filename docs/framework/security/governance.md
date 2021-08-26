@@ -266,6 +266,12 @@ potentially exploitable vulnerabilities), you should consider them critical
 impact accounts and apply the same protections as administrators. The [Administration](./critical-impact-accounts.md)
 section details these controls for Azure.
 
+Without this visibility, security will have to rely on information provided from groups operating the environment who have a potential conflict of interest and differing priorities.
+
+### Suggested action
+
+Following the principle of least privilege, establish access control to all cloud environment resources for security teams with sufficient access to gain required visibility into the technical environment and to perform their duties of assessing, and reporting on organizational risk.
+
 ## Assign privileges for managing the environment
 
 Grant roles with operational responsibilities in Azure the appropriate
