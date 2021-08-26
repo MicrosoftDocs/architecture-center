@@ -76,7 +76,13 @@ For example, improve the security of Linux virtual machines (VMs) in Azure with 
 
 ## Centralize all identity systems
 
-Keep your cloud identity synchronized with the existing identity systems to ensure consistency and reduce human errors. 
+Keep your cloud identity synchronized with the existing identity systems to ensure consistency and reduce human errors.
+
+Consistency of identities across cloud and on-premises will reduce human error and resulting security risk. Teams managing resources in both environments need a consistent authoritative source to achieve security assurances. For monitoring, if identity can be determined without an intermediate mapping process, security efficiency is improved.
+
+Synchronization is all about providing users an identity in the cloud based on their on-premises identity. Whether or not they will use synchronized account for authentication or federated authentication, the users will still need to have an identity in the cloud. This identity will need to be maintained and updated periodically. The updates can take many forms, from title changes to password changes.
+
+Start by evaluating the organization's on-premises identity solution and user requirements. This evaluation is important, as it defines the technical requirements for how user identities will be created and maintained in the cloud. For the majority of organizations, Active Directory is established on-premises and will be the on-premises directory from which users will be synchronized, but this is not always the case.
 
 Consider using [Azure AD Connect](/azure/active-directory/connect/active-directory-aadconnect) for synchronizing Azure AD with your existing on-premises directory. For migration projects, have a requirement to complete this task before an Azure migration and development projects begin.
 
@@ -92,6 +98,10 @@ For more information, see [hybrid identity providers](/azure/active-directory/hy
 > Here are the resources for the preceding example::
 >
 > The design considerations are described in [Integrate on-premises Active Directory domains with Azure AD](../../reference-architectures/identity/azure-ad.yml).
+
+**Learn more**
+
+[Synchronize the hybrid identity systems](/azure/architecture/framework/security/design-identity#synchronize-the-hybrid-identity-systems)
 
 ## Use passwordless authentication
 

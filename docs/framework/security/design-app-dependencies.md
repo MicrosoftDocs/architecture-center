@@ -37,7 +37,6 @@ During the design phase, consider the way you store secrets and handle exception
 <a id="secrets">**How is application configuration stored and how does the application access it?**</a>
 ***
 
-
 Application configuration information can be stored with the application. However, that's not a recommended practice. Consider using a dedicated configuration management system such as Azure App Configuration. That way, it can be updated independently of the application code.
 
 Applications can include secrets like database connection strings, certificate keys, and so on. Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. Identify secrets in code with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.
@@ -73,17 +72,18 @@ Consider using Azure Front Door or API Management to remove platform-specific HT
 
 Use Azure Policy to deploy desired settings where applicable. Block resources that do not meet the proper security requirements defined during service enablement.
 
-
 ## Dependencies, frameworks, and libraries
 
 **What are the frameworks and libraries used by the application?**
 ***
 
-It's important to be aware of the implications of using third-party frameworks and libraries in your application code. These components can result in vulnerabilities. Here are some best practices:
+Tracking the frameworks and libraries (custom, OSS, third party, and others) used by the application and any resulting vulnerabilities they introduce is vital. Automated solutions can help with this assessment.
 
-- Validate the security of any open-source code added to your application. Tools that can help this assessment are OWASP Dependency-Check and NPM audit.
+Here are some best practices:
 
-- Maintain a list of frameworks and libraries as part of the application inventory. Also, keep track of versions in use.
+- Validate the security of any open-source code added to your application. Tools that can help this assessment are OWASP Dependency-Check, NPM audit, and WhiteSource Bolt.
+
+- Maintain a list of frameworks and libraries as part of the application inventory. Also, keep track of versions in use. If vulnerabilities are published, this helps to identify affected workloads.
 
 - Update frameworks and libraries as part of the application lifecycle. Prioritize critical security patches.
 
@@ -91,6 +91,13 @@ It's important to be aware of the implications of using third-party frameworks a
 ***
 
 Tracking expiry dates of SSL/TLS certificates and renewing them in due time is highly critical. Ideally, the process should be automated, although this often depends on the CA used for the certificate. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.
+
+**Learn more**
+
+- [WhiteSource Bolt](https://bolt.whitesourcesoftware.com/)
+- [npm-audit](https://docs.npmjs.com/cli/audit)
+- [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
+
 
 ## Referenced Azure services
 

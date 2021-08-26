@@ -37,7 +37,6 @@ To make sure that the security posture doesn't degrade over time, have regular a
 **Do you evaluate the security posture of this workload using standard benchmarks?**
 ***
 
-
 Compliance is important for several reasons. Aside from signifying levels of standards, like `ISO 27001` and others, noncompliance with regulatory guidelines may bring sanctions and penalties. Regularly review roles that have high privileges. Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change. Consider auditing at least twice a year.
 
 As people in the organization and on the project change, make sure that only the right people have access to the application infrastructure. Auditing and reviewing the access control reduces the attack vector to the application.
@@ -68,7 +67,7 @@ For more information, see [Tutorial: Create and manage policies to enforce compl
 
 Here's an example management group that is tracking compliance to the Payment Card Industry (PCI) standard.
 
-![PCI regulatory compliance](images/regulatory-compliance-pci.png)
+:::image type="content" source="./images/regulatory-compliance-pci.png" alt-text="Example compliance monitoring" border ="true":::
 
 **Do you have internal and external audits for this workload?**
 ***

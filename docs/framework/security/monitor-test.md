@@ -67,18 +67,11 @@ Simulate a persistent threat actor targeting your environment through a red team
 
 A popular choice to simulate realistic attack scenarios is [Office 365 Attack Simulator](/office365/securitycompliance/attack-simulator). 
 
-## Simulate alerts
-You can simulate alerts by downloading one of the following playbooks:
-
-- [For Windows: Azure Security Center Playbook: Security Alerts]()
-
-- [For Linux: Azure Security Center Playbook: Linux Detections]()
-
 
 **Is personal information detected and removed/obfuscated automatically?**
 ***
 
-Be cautious when logging sensitive application information. Don't store  personal information such as contact information, payment information, and so on, in any application logs. Apply protective measures, such as obfuscation. Machine learning tools can help with this measure. For more information, see [PII Detection cognitive skill](/azure/search/cognitive-search-skill-pii-detection).
+Be cautious about using sensitive application information. Don't store personal information such as contact information, payment information, and so on, in any application logs. Apply protective measures, such as obfuscation. Machine learning tools can help with this measure. For more information, see [PII Detection cognitive skill](/azure/search/cognitive-search-skill-pii-detection).
 
 ## Related links
 

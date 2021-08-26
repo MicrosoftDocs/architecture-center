@@ -68,7 +68,9 @@ To secure access to your key vaults, control permissions to keys and secrets an 
 
 ## Operational considerations
 
+
 **Who is responsible for managing keys and secrets in the application context?**
+***
 
 Key and certificate rotation is often the cause of application outages. Even Azure has experienced expired certificates. It is critical that the rotation of keys and certificates be scheduled and fully operationalized. The rotation process should be automated and tested to ensure effectiveness. Azure Key Vault supports key rotation and auditing.
 
@@ -76,6 +78,7 @@ Central SecOps team provides guidance on how keys and secrets are managed (gover
 
 **What types of keys and secrets are used and how are those generated?**
 ***
+
 There are various approaches. Options include Microsoft-managed Keys, Customer-managed Keys, Bring Your Own Key. The decision is often driven by security, compliance and specific data classification requirements. Have a clear understanding these requirements to determine the most suitable type of keys. 
 
 **Are keys and secrets rotated frequently?**
@@ -92,7 +95,10 @@ By using managed identities, you remove the operational overhead for storing the
 **Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?**
 ***
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 A common cause of application outage are expired SSL/TLS certificates.
 
 Avoid outages by tracking the expiry dates of SSL/TLS certificates and renewing them in due time. Ideally, the process should be automated, although this often depends on used certificate authority (CA). If not automated, use alerts to make sure expiry dates do not go unnoticed.
