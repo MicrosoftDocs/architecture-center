@@ -27,7 +27,10 @@ A workload can have regulatory requirements. These requirements might need stric
 > - Use Microsoft Trust Center. 
 
 ## Review the requirements
+
 Regulatory organizations frequently publish standards and updates to help define good security practices so that organizations can avoid negligence. The purpose and scope of these standards and regulations vary, but the security requirements can influence the design for data protection and retention, network access, and system security.
+
+Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world.
 
 For example, a workload that handles credit card transactions is subject to the Payment Card Industry (PCI) standard. One of the requirements prohibits access between the internet and any system component in the cardholder data environment. To provide a restrictive environment, you can choose to host the workload in different Azure compute options that supports bring your own VNet, remove any internet facing endpoints by using Private Endpoints as well as network security groups (NSGs) rules that define authorized inbound and outbound access, among other choices.
 
@@ -38,6 +41,14 @@ Noncompliance can lead to fines or other business impact. Work with your regulat
 - Are there processes for obtaining attestations?
 - What are the documentation requirements?
 
+### Suggested action
+
+Use Azure Defender (Azure Security Center) to assess your current compliance score and to identify the gaps.
+
+**Learn more**
+
+[Tutorial: Improve your regulatory compliance](/azure/security-center/security-center-compliance-dashboard)
+
 ## Use the Microsoft Trust Center
 
 Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-center) for the latest information, news, and best practices in security, privacy, and compliance. 
@@ -45,7 +56,7 @@ Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-cente
 - **Data governance**. Focus on protecting information in cloud services, mobile devices, workstations, or collaboration platforms. Build the security strategy by classifying and labeling information. Use strong access control and encryption technology. 
 - **Compliance offerings**. Microsoft offers a comprehensive set of compliance offerings to help your organization follow national, regional, and industry-specific requirements governing the collection and use of data. For information, see [Compliance offerings](/microsoft-365/compliance/offering-home).
 - **Compliance score**. Use [Microsoft Compliance Score](/microsoft-365/compliance/compliance-manager) to assess your data protection controls on an ongoing basis. Act on the recommendations to make progress toward compliance. 
-- **Audit reports**. Use audit reports to stay current on the latest privacy, security, and compliance-related information for Microsoft’s cloud services. See [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
+- **Audit reports**. Use audit reports to stay current on the latest privacy, security, and compliance-related information for Microsoft's cloud services. See [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 - **Shared responsibility**. The workload can be hosted on Software as a Service (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS), or in an on-premises datacenter. Have a clear understanding about the portions of the architecture for which you are responsible versus Azure. Whatever the hosting model, the following responsibilities are always retained by you:
     - Data
     - Endpoints
