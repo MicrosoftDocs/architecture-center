@@ -36,7 +36,7 @@ Protection of cryptographic keys can often get overlooked or implemented poorly.
 
 Use of identity-based option for storage access control is recommended. This option uses role-based access controls (RBAC) over storage resources. Use RBAC to assign permissions to users, groups, and applications at a certain scope. Identity systems such as Azure Active Directory(Azure AD) offer secure and usable experience for access control with built-in mechanisms for handling key rotation, monitoring for anomalies, and others.
 
-> ![Task](../../_images/i-best-practices.svg) 
+> [!NOTE] 
 > Grant access based on the principle of least privilege. Risk of giving more privileges than necessary can lead to data compromise.
 
 Suppose you need to store sensitive data in Azure Blob Storage. You can use Azure AD and RBAC to authenticate a service principal that has the required permissions to access the storage. For more information about the feature, see [Authorize access to blobs and queues using Azure Active Directory](/azure/storage/common/storage-auth-aad).
@@ -95,10 +95,6 @@ By using managed identities, you remove the operational overhead for storing the
 **Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?**
 ***
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 A common cause of application outage are expired SSL/TLS certificates.
 
 Avoid outages by tracking the expiry dates of SSL/TLS certificates and renewing them in due time. Ideally, the process should be automated, although this often depends on used certificate authority (CA). If not automated, use alerts to make sure expiry dates do not go unnoticed.
