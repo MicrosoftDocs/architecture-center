@@ -6,6 +6,15 @@ ms.date: 01/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-cost-management
+  - azure-security-center
+  - azure-monitor
+categories: 
+  - management-and-governance 
+subject:
+  - security
+  - monitoring
 ms.custom:
   - What scalability tradeoffs are you making?
   - article
@@ -98,7 +107,7 @@ Consider these security measures, which impact performance:
 
 - To optimize performance and maximize availability, application code should first try to get OAuth access tokens silently from a cache before attempting to acquire a token from the identity provider. OAuth is a technological standard that allows you to securely share information between services without exposing your password.
 
-- Ensure that you are integrating critical security alerts and logs into SIEMs (security information and event management) without introducing a high volume of low value data. Doing so can increase SIEM cost, false positives, and lower performance. For more information, see [Prioritize alert and log integration](../security/monitor-audit.md#prioritize-alert-and-log-integration).
+- Ensure that you are integrating critical security alerts and logs into SIEMs (security information and event management) without introducing a high volume of low value data. Doing so can increase SIEM cost, false positives, and lower performance. For more information, see [Prioritize alert and log integration](../security/monitor-logs-alerts.md).
 
 - Use Azure AD Connect to synchronize your on-premises directory with your cloud directory. There are factors that affect the performance of Azure AD Connect. Ensure Azure AD Connect has enough capacity to keep underperforming systems from impeding security and productivity. Large or complex organizations (organizations provisioning more than 100,000 objects) should follow the [recommendations](/azure/active-directory/hybrid/whatis-hybrid-identity) to optimize their Azure AD Connect implementation.
 

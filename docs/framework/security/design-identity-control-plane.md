@@ -8,12 +8,13 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-rbac
-ms.custom:
-  - article
 categories:
   - security
-subject: 
-  - security
+  - identity
+subject:
+  - identity
+ms.custom:
+  - article
 ---
 
 # Azure control plane security
@@ -23,12 +24,12 @@ The term _control plane_ refers to the management of resources in your subscript
 Azure Resource Manager handles all control plane requests and applies restrictions that you specify through Azure role-based access control (Azure RBAC), Azure Policy, locks. Apply those restrictions are based on the requirement of the organization.
 
 ## Key points
-
-- Restrict access based on a need-to-know basis and least privilege security principles.
-- Assign permissions to users, groups, and applications at a certain scope through Azure RBAC. 
-- Use built-in roles when possible.
-- Prevent deletion or modification of a resource, resource group, or subscription through management locks.
-- Use less critical control in your CI/CD pipeline for development and test environments.
+> [!div class="checklist"]
+> - Restrict access based on a need-to-know basis and least privilege security principles.
+> - Assign permissions to users, groups, and applications at a certain scope through Azure RBAC. 
+> - Use built-in roles when possible.
+> - Prevent deletion or modification of a resource, resource group, or subscription through management locks.
+> - Use less critical control in your CI/CD pipeline for development and test environments.
 
 ## Roles and permission assignment 
 
@@ -75,19 +76,8 @@ Identify critical infrastructure and evaluate resource lock suitability.
 
 Set locks in the DevOps process carefully because modification locks can sometimes block automation. For examples of those blocks and considerations, see [Considerations before applying locks](/azure/azure-resource-manager/management/lock-resources#considerations-before-applying-locks).
 
-For more information about implementing resource locks to protect critical infrastructure, reference [Lock resources to prevent unexpected changes](/azure/azure-resource-manager/management/lock-resources?tabs=json).
 
-## Application deployment
-**Is there a direct access to the application infrastructure through Azure portal, Command-line Interface (CLI), or REST API?**
-***
-It's recommended that you deploy application infrastructure through automation and CI/CD. To maximize application autonomy and agility, balance restrictive access control on less critical development and test environments.
-
-**Are CI/CD pipeline roles clearly defined and permissions set?**
-***
-Azure DevOps offers built-in roles that can be assigned to individual users of groups. For example, using them properly can make sure that only users responsible for production releases are able to initiate the process and that only developers can access the source code. Variable groups often contain sensitive configuration information and can be protected as well.
-
-
-## Next
+## Next steps
 Grant or deny access to a system by verifying whether the accessor has the permissions to perform the requested action. 
 
 > [!div class="nextstepaction"]

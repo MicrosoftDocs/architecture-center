@@ -282,8 +282,12 @@ items:
             items:
               - name: Governance
                 items:
-                  - name: Overview
+                  - name: Checklist
                     href: framework/security/design-governance.md
+                  - name: Compliance requirements
+                    href: framework/security/design-regulatory-compliance.md                    
+                  - name: Landing zone 
+                    href: framework/security/design-governance-landing-zone.md
                   - name: Segmentation strategy
                     href: framework/security/design-segmentation.md
                   - name: Management groups
@@ -353,19 +357,23 @@ items:
               - name: Code deployments
                 href: framework/security/deploy-code.md
           - name: Monitor
-            items:
+            items: 
               - name: Checklist
                 href: framework/security/monitor.md
               - name: Tools
                 href: framework/security/monitor-tools.md
+              - name: Azure resources
+                href: framework/security/monitor-resources.md
+              - name: Logs and alerts
+                href: framework/security/monitor-logs-alerts.md    
+              - name: Review and remediate 
+                href: framework/security/monitor-remediate.md                               
+              - name: Compliance review
+                href: framework/security/monitor-audit.md
+              - name: Validate and test
+                href: framework/security/monitor-test.md                                                         
               - name: Security operations
                 href: framework/security/monitor-security-operations.md
-              - name: Validate and test
-                href: framework/security/monitor-test.md
-              - name: Review and audit
-                href: framework/security/monitor-audit.md
-              - name: Identity and network risks
-                href: framework/security/monitor-identity-network.md
           - name: Optimize
             items:
               - name: Automate
@@ -517,30 +525,12 @@ items:
                 href: framework/scalability/performance-test.md
               - name: Testing tools
                 href: framework/scalability/test-tools.md
-          - name: Monitor
-            items: 
-              - name: Checklist
-                href: framework/scalability/monitor.md
-              - name: Application profiling
-                href: framework/scalability/monitor-application.md
-              - name: Infrastructure metrics and logs
-                href: framework/scalability/monitor-infrastructure.md
-              - name: Data analysis and retention 
-                href: framework/scalability/monitor-analyze.md                                                
-              - name: Scalability and reliability
-                href: framework/scalability/monitor-scalability-reliability.md
-          - name: Optimize
-            items: 
-              - name: Checklist
-                href: framework/scalability/optimize.md
-              - name: Caching
-                href: framework/scalability/optimize-cache.md
-              - name: Partition
-                href: framework/scalability/optimize-partition.md
-              - name: Sustainability
-                href: framework/scalability/optimize-sustain.md                            
-          - name: Design patterns
+          - name: Monitoring
+            href: framework/scalability/monitor.md
+          - name: Performance Efficiency patterns
             href: framework/scalability/performance-efficiency-patterns.md
+          - name: Checklist
+            href: framework/scalability/performance-efficiency.md
           - name: Tradeoffs 
             href: framework/scalability/tradeoffs.md
       - name: Workloads

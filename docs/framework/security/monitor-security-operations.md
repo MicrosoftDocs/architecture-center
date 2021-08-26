@@ -6,6 +6,15 @@ ms.date: 11/03/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+  - azure-sentinel
+  - azure-monitor
+categories: 
+  - security
+subject:
+  - security
+  - monitoring
 ms.custom:
   - article
 ---
@@ -97,4 +106,5 @@ Integrate network device log information in advanced SIEM solutions or other ana
 - [Security health modeling](monitor.md)
 - [Security tools](monitor-tools.md)
 - [Security logs and audits](monitor-audit.md)
-- [Check for identity, network, data risks](monitor-identity-network.md)
+- [Check for identity, network, data risks](monitor-resources.md)
+
