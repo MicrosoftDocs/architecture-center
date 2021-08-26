@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Hybrid solution journey
+  description: Learn how to use hybrid solutions in Microsoft Azure.
+  author: EdPrice-MSFT
+  ms.author: pnp
+  ms.date: 08/31/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - hybrid
+    - management-and-governance
+  ms.custom:
+    - fcp
+    - reference-architecture
+    - e2e-hybrid
+name: Hybrid solution journey
+azureCategories:
+  - hybrid
+  - management-and-governance
+summary: Learn how to use hybrid solutions in Microsoft Azure.
+products:
+  - azure-active-directory
+  - azure-key-vault
+  - azure-portal
+  - azure-virtual-machines
+thumbnailUrl: /azure/architecture/browse/thumbs/.png #todo
+content: |
+   [!include[](hybrid-start-here-content.md)]
+
