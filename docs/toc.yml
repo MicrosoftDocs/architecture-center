@@ -1677,6 +1677,8 @@ items:
                 href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
       - name: Hybrid + Multicloud
         items:
+          - name: Get started
+            href: hybrid/hybrid-start-here.yml
           - name: Guides
             items:
               - name: Hybrid deployments
