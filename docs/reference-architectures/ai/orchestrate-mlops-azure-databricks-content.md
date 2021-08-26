@@ -120,7 +120,7 @@ adds potential benefits:
         using integration tests with the help of a test framework, like
         [Nutter](https://github.com/microsoft/nutter).
 
-###  Components
+### Components
 
 This scenario uses the following components:
 
@@ -139,12 +139,7 @@ This scenario uses the following components:
 -   [Azure Monitor](/azure/azure-monitor/overview), a comprehensive solution for collecting, analyzing, and
     acting on telemetry from your cloud and on-premises environments.
 
-## Considerations
-
-This architecture does not provide in-build support for executing in remote
-environments.
-
-## Alternatives
+### Alternatives
 
 If you are able to create new Databricks clusters and can interact with external
 systems like MLflow CLI, you can also consider running these types of workloads
@@ -156,19 +151,10 @@ and a containerized deployment solution like Azure Kubernetes Service (AKS),
 MLflow may also be a better fit for your needs. See [MLflow and Azure Machine
 Learning](/azure/machine-learning/concept-mlflow#train-mlflow-projects).
 
-## Pricing
+## Considerations
 
-Costs related to this use case will depend on the standard pricing for the
-following services, based on your usage:
-
--   [Azure Databricks
-    pricing](https://azure.microsoft.com/en-in/pricing/details/databricks/)
-
--   [Azure Blob Storage
-    pricing](https://azure.microsoft.com/en-in/pricing/details/storage/blobs/)
-
--   [Azure Monitor
-    pricing](https://azure.microsoft.com/en-in/pricing/details/monitor/)
+This architecture does not provide in-build support for executing in remote
+environments.
 
 ## Deploy this scenario
 
@@ -184,6 +170,20 @@ A sample implementation of this concept is available on the [Azure Databricks ML
 -   A sample of MLOps code structure along with Unit Test cases.
 
 -   A demo setup configuration to try on your subscription.
+
+## Pricing
+
+Costs related to this use case will depend on the standard pricing for the
+following services, based on your usage:
+
+-   [Azure Databricks
+    pricing](https://azure.microsoft.com/pricing/details/databricks/)
+
+-   [Azure Blob Storage
+    pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+
+-   [Azure Monitor
+    pricing](https://azure.microsoft.com/pricing/details/monitor/)
 
 ## Next steps
 
