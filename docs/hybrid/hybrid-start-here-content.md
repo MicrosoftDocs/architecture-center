@@ -1,4 +1,4 @@
-Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often [extend on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md). To connect environments, organizations must [choose a hybrid network architecture](../../reference-architectures/hybrid-networking/index.yml).
+Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often [extend on-premises data solutions to the cloud](../data-guide/scenarios/hybrid-on-premises-and-cloud.md). To connect environments, organizations must [choose a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
 
 ## Learn about hybrid solutions
 
@@ -9,11 +9,11 @@ If you're new to Azure, the best place to start is with Microsoft Learn. Microso
 
 ## Path to production
 
-Explore your options for [connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/).
+Explore your options for [connecting an on-premises network to Azure](../reference-architectures/hybrid-networking/index.yml).
 
-- [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.md)
-- [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.md)
-- [Connect an on-premises network to Azure using ExpressRoute](../reference-architectures/hybrid-networking/expressroute-vpn-failover.md)
+- [Extend an on-premises network using VPN](../reference-architectures/hybrid-networking/vpn.yml)
+- [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
+- [Connect an on-premises network to Azure using ExpressRoute](../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)
 
 ## Best practices
 
