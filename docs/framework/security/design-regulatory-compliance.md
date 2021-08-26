@@ -30,7 +30,7 @@ A workload can have regulatory requirements. These requirements might need stric
 
 Regulatory organizations frequently publish standards and updates to help define good security practices so that organizations can avoid negligence. The purpose and scope of these standards and regulations vary, but the security requirements can influence the design for data protection and retention, network access, and system security.
 
-Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world (such as GDPR).
+Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world.
 
 For example, a workload that handles credit card transactions is subject to the Payment Card Industry (PCI) standard. One of the requirements prohibits access between the internet and any system component in the cardholder data environment. To provide a restrictive environment, you can choose to host the workload in different Azure compute options that supports bring your own VNet, remove any internet facing endpoints by using Private Endpoints as well as network security groups (NSGs) rules that define authorized inbound and outbound access, among other choices.
 
