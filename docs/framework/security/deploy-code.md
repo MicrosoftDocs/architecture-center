@@ -30,7 +30,7 @@ Using resources and lessons learned by external organizations that are early ado
 
 ## Rollback and roll-forward
 
-If something goes wrong, the pipeline should roll back to a previous working version. N-1 and N+1 refer to roll back and roll-forward versions. Automated deployment pipelines should allow for quick roll-forward and rollback deployments to address critical bugs and code updates outside of the normal deployment lifecycle.
+If something goes wrong, the pipeline should roll back to a previous working version. N-1 and N+1 refer to rollback and roll-forward versions. Automated deployment pipelines should allow for quick roll-forward and rollback deployments to address critical bugs and code updates outside of the normal deployment lifecycle.
 
 **Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?**
 ***
