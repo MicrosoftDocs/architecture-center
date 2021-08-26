@@ -59,9 +59,12 @@ For more information about monitoring tools, see [Security monitoring tools in A
 
 ## Incident response
 
+Is the organization effectively monitoring security posture across workloads, with a central SecOps team monitoring security-related telemetry data and investigating possible security breaches? Communication, investigation, and hunting activities need to be aligned with the application team(s).
+
 Make sure that a security contact receives Azure incident notifications from Microsoft.
 
-In most cases, such notifications indicate that your resource is compromised and,or attacking another customer. This enables your security operations team to rapidly respond to potential security risks and remediate them. 
+In most cases, such notifications indicate that your resource is compromised or attacking another customer. This enables your security operations team to rapidly respond to potential security risks and remediate them. 
+
 Ensure administrator contact information in the Azure enrollment portal includes contact information that will notify security operations directly or rapidly through an internal process.
 
 **Are operational processes for incident response defined and tested?**
@@ -71,6 +74,14 @@ Actions executed during an incident and response investigation could impact appl
 **Are there tools to help incident responders quickly understand the application and components to do an investigation?**
 ***
 Incident responders are part of a central SecOps team and need to understand security insights of an application. Security playbook in Azure Sentinel can help to understand the security concepts and cover the typical investigation activities.
+
+### Suggested action
+
+Consider using Azure Defender (Azure Security Center) to monitor security-related events and get alerted automatically.
+
+**Learn more**
+
+[Security alerts and incidents in Azure Security Center](/azure/security-center/security-center-alerts-overview)
 
 ## Hybrid enterprise view
 
