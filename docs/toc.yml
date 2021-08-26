@@ -981,7 +981,7 @@ items:
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-              - name: Orchestrate MLOps on Azure Databricks using Databricks Notebook
+              - name: Orchestrate MLOps on Azure Databricks
                 href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
               - name: Real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
