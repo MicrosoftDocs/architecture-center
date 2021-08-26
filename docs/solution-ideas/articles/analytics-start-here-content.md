@@ -169,7 +169,7 @@ Here are a few sample implementations of analytics on Azure to consider:
 -   [Browse more analytics examples in the Azure Architecture
     Center](../../browse/index.yml?azure_categories=analytics)
 
-## AWS or GCP professionals
+## AWS or Google Cloud professionals
 
 These articles can help you ramp up quickly by comparing Azure analytics options
 to other cloud services:
@@ -181,5 +181,5 @@ to other cloud services:
 
 -   [Big data and
     analytics](../../gcp-professional/services.md#big-data-and-analytics)
-    in [GCP to Azure services
+    in [Google Cloud to Azure services
     comparison](../../gcp-professional/services.md)

@@ -30,7 +30,7 @@ Key technologies used to implement this architecture:
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
 * [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights is a feature of Azure Monitor.
 
-## Next Steps
+## Next steps
 
 Azure Architecture Center overview articles:
 
