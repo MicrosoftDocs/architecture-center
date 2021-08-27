@@ -269,7 +269,7 @@ section details these controls for Azure.
 
 **Suggested actions**
 
-- Define a process for aligning communication, investigation and hunting activities with the application team.
+- Define a process for aligning communication, investigation, and hunting activities with the application team.
 - Following the principle of least privilege, establish access control to all cloud environment resources for security teams with sufficient access to gain required visibility into the technical environment and to perform their duties of assessing, and reporting on organizational risk.
 
 **Learn more**
