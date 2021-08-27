@@ -234,8 +234,9 @@ A good enterprise segmentation strategy meets these criteria:
 
 ## Security team visibility
 
-Provide security teams read-only access to the security aspects of all technical
-resources in their purview.
+An application team needs to be aware of security initiatives to align their security
+improvement plans with the outcome of those activities. Provide security teams read-only
+access to the security aspects of all technical resources in their purview.
 
 Security organizations require visibility into the technical environment to
 perform their duties of assessing and reporting on organizational risk. Without
@@ -266,9 +267,14 @@ potentially exploitable vulnerabilities), you should consider them critical
 impact accounts and apply the same protections as administrators. The [Administration](./critical-impact-accounts.md)
 section details these controls for Azure.
 
-### Suggested action
+**Suggested actions**
 
-Following the principle of least privilege, establish access control to all cloud environment resources for security teams with sufficient access to gain required visibility into the technical environment and to perform their duties of assessing, and reporting on organizational risk.
+- Define a process for aligning communication, investigation, and hunting activities with the application team.
+- Following the principle of least privilege, establish access control to all cloud environment resources for security teams with sufficient access to gain required visibility into the technical environment and to perform their duties of assessing, and reporting on organizational risk.
+
+**Learn more**
+
+[Engage your organization's security team](/azure/security/develop/secure-dev-overview#engage-your-organizations-security-team)
 
 ## Assign privileges for managing the environment
 
