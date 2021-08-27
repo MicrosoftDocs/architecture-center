@@ -1,9 +1,4 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
-## Overview
 
 Almost every business needs to predict the future to make better decisions and allocate resources more effectively. As an example, accurately forecasting spikes in demand for products and services can give a company a competitive advantage. The better the forecasting, the more they can scale as demand increases, and the less they risk holding onto unneeded inventory. Use cases include predicting demand for a product in a retail/online store, forecasting hospital visits, and anticipating power consumption.
 
@@ -14,7 +9,7 @@ This article focuses on presenting useful links to the forecasting best practice
 ![Architecture diagram](../media/demand-forecasting.png)
 *Download an [SVG](../media/demand-forecasting.svg) of this architecture.*
 
-## Details
+### Workflow
 
 The Microsoft AI Platform provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components - all of the essential elements for building a demand forecasting for energy solution.
 
@@ -27,7 +22,7 @@ This solution combines several Azure services to provide actionable predictions:
   5. Power BI visualizes the real-time energy consumption and the forecast results.
   6. Finally, Data Factory orchestrates and schedules the entire data flow.
 
-## Components
+### Components
 
 Key technologies used to implement this architecture:
 

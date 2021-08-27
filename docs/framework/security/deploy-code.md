@@ -30,21 +30,29 @@ Using resources and lessons learned by external organizations that are early ado
 
 ## Rollback and roll-forward
 
-If something goes wrong, the pipeline should roll back to a previous working version. N-1 and N+1 refer to roll back and roll-forward versions.
+If something goes wrong, the pipeline should roll back to a previous working version. N-1 and N+1 refer to rollback and roll-forward versions. Automated deployment pipelines should allow for quick roll-forward and rollback deployments to address critical bugs and code updates outside of the normal deployment lifecycle.
 
 **Can N-1 or N+1 versions be deployed via automated pipelines where N is current deployment version in production?**
 ***
 
-Because security updates are a high priority, design a pipeline that supports regular updates and critical security fixes. 
+Because security updates are a high priority, design a pipeline that supports regular updates and critical security fixes.
 
-A release is typically associated with approval processes with multiple sign-offs, quality gates, and so on. If the workload deployment is small with minimal approvals, you can usually use the same process and pipeline to release a security fix.   
-    
-An approval process that is complex and takes a significant amount of time can delay a fix. Consider building an emergency process to accelerate high priority fixes. The process might be business and, or communication process between teams. Another way is to build a pipeline that might not include all the gated approvals but should be able to push out the fix quickly. The pipeline should allow for quick roll-forward and rollback deployments that address security fixes, critical bugs, and code updates outside of the regular deployment life cycle.
+A release is typically associated with approval processes with multiple sign-offs, quality gates, and so on. If the workload deployment is small with minimal approvals, you can usually use the same process and pipeline to release a security fix.  
+
+An approval process that is complex and takes a significant amount of time can delay a fix. Consider building an emergency process to accelerate high priority fixes. The process might be business and, or communication process between teams. Another way is to build a pipeline that might not include all the gated approvals, but should be able to push out the fix quickly. The pipeline should allow for quick roll-forward and rollback deployments that address security fixes, critical bugs, and code updates outside of the regular deployment life cycle.
 
 > [!IMPORTANT]
 > Deploying a security fix is a priority, but it shouldn't be at the cost of introducing a regression or bug. When designing an emergency pipeline, carefully consider which automated tests can be bypassed. Evaluate the value of each test against the execution time. For example, unit tests usually complete quickly. Integration or end-to-end tests can run for a long time.
 
 Involve the security team in the planning and design of the DevOps process. Your automated pipeline design should have the flexibility to support both regular and emergency deployments. This is important to support the rapid and responsible application of both security fixes and other urgent, important fixes.
+
+### Suggested action
+
+Implement an automated deployment process with support for rollback scenarios via Azure App Services deployment slots.
+
+**Learn more**
+
+[Set up staging environments in Azure App Service](/azure/app-service/deploy-staging-slots)
 
 ## Credential scanning
 
