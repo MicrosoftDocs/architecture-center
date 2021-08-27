@@ -82,7 +82,7 @@ Application frameworks are frequently updated and released by the vendor or comm
 
 Consider the following best practices:
 
-- Validate the security of any open-source code added to your application. Free tools that can help with this assessment are OWASP Dependency-Check, NPM audit, WhiteSource Bolt, and others which find outdated components and updates them to the latest versions.
+- Validate the security of any open-source code added to your application. Free tools that can help with this assessment are OWASP Dependency-Check, NPM audit, WhiteSource Bolt, and others, which find outdated components and updates them to the latest versions.
 
 - Maintain a list of frameworks and libraries as part of the application inventory. Also, keep track of versions in use. If vulnerabilities are published, this helps to identify affected workloads.
 
