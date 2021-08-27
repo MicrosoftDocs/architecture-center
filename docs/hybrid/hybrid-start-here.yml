@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Hybrid solution journey
-  description: Learn how to use hybrid solutions in Microsoft Azure.
+  description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
   author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 08/31/2021
@@ -21,11 +21,12 @@ azureCategories:
   - management-and-governance
 summary: Learn how to use hybrid solutions in Microsoft Azure.
 products:
-  - azure-active-directory
-  - azure-key-vault
-  - azure-portal
+  - azure
+  - azure-expressroute
+  - azure-stack-hub
   - azure-virtual-machines
-thumbnailUrl: /azure/architecture/browse/thumbs/.png #todo
+  - azure-vpn-gateway
+thumbnailUrl: /azure/architecture/browse/thumbs/default.png #todo
 content: |
    [!include[](hybrid-start-here-content.md)]
 
