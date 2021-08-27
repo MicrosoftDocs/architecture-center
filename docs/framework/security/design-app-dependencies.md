@@ -23,12 +23,13 @@ Security of an application that is hosted in Azure is a shared responsibility be
 
 ## Key points
 > [!div class="checklist"]
->- Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault.
+>- Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. 
 >- Do not expose detailed error information when handling application exceptions.
 >- Do not expose platform-specific information.
+>- Store application configuration outside of the application code to update it separately and to have tighter access control.
 >- Restrict access to Azure resources that do not meet the security requirements.
 >- Validate the security of any open-source code added to your application.
->- Update frameworks and libraries as part of the application lifecycle. 
+>- Update frameworks and libraries as part of the application lifecycle.
 
 ## Configuration security
 
