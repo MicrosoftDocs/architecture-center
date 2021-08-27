@@ -21,7 +21,9 @@ ms.custom:
 
 The term _control plane_ refers to the management of resources in your subscription. These activities include creating, updating, and deleting Azure resources as required by the technical team.  
 
-Azure Resource Manager handles all control plane requests and applies restrictions that you specify through Azure role-based access control (Azure RBAC), Azure Policy, locks. Apply those restrictions are based on the requirement of the organization.
+Azure Resource Manager handles all control plane requests and applies restrictions that you specify through Azure role-based access control (Azure RBAC), Azure Policy, locks. Apply those restrictions based on the requirement of the organization.
+
+It is recommended to implement Infrastructure as Code, and to deploy application infrastructure via automation and CI/CD for consistency and auditing purposes.
 
 ## Key points
 > [!div class="checklist"]
@@ -80,9 +82,18 @@ Identify critical infrastructure and evaluate resource lock suitability.
 
 Set locks in the DevOps process carefully because modification locks can sometimes block automation. For examples of those blocks and considerations, see [Considerations before applying locks](/azure/azure-resource-manager/management/lock-resources#considerations-before-applying-locks).
 
+## Suggested actions
+
+- Restrict application infrastructure access to CI/CD only.
+- Use conditional access policies to restrict access to Microsoft Azure Management.
+
+## Learn more
+
+[Manage access to Azure management with Conditional Access](/azure/role-based-access-control/conditional-access-azure-management)
 
 ## Next steps
-Grant or deny access to a system by verifying whether the accessor has the permissions to perform the requested action. 
+
+Grant or deny access to a system by verifying whether the accessor has the permissions to perform the requested action.
 
 > [!div class="nextstepaction"]
 > [Authentication](design-identity-authentication.md)
