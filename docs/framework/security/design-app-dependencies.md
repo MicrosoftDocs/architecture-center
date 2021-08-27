@@ -78,11 +78,11 @@ Use Azure Policy to deploy desired settings where applicable. Block resources th
 **What are the frameworks and libraries used by the application?**
 ***
 
-Tracking the frameworks and libraries (custom, OSS, third party, and others) used by the application and any resulting vulnerabilities they introduce is vital. Automated solutions can help with this assessment.
+Application frameworks are frequently updated and released by the vendor or communities. Tracking the frameworks and libraries (custom, OSS, third party, and others) used by the application and any resulting vulnerabilities they introduce is vital. Automated solutions can help with this assessment.
 
-Here are some best practices:
+Consider the following best practices:
 
-- Validate the security of any open-source code added to your application. Tools that can help this assessment are OWASP Dependency-Check, NPM audit, and WhiteSource Bolt.
+- Validate the security of any open-source code added to your application. Free tools that can help this assessment are OWASP Dependency-Check, NPM audit, and WhiteSource Bolt which finds outdated components and updates them to the latest versions.
 
 - Maintain a list of frameworks and libraries as part of the application inventory. Also, keep track of versions in use. If vulnerabilities are published, this helps to identify affected workloads.
 
