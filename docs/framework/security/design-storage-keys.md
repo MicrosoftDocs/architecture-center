@@ -19,16 +19,19 @@ ms.custom:
 
 # Key and secret management considerations in Azure
 
-Encryption is an essential tool for security because it restricts access. However, it's equally important to protect the secrets (keys, certificates) key that provide access to the data. 
+Encryption is an essential tool for security because it restricts access. However, it's equally important to protect the secrets (keys, certificates) key that provide access to the data.
 
 ## Key points
 - Use identity-based access control instead of cryptographic keys.
+- Use standard and recommended encryption algorithms.
 - Store keys and secrets in managed key vault service. Control permissions with an access model.
 - Rotate keys and other secrets frequently. Replace secrets at the end their lifetime or if they've been compromised.
 
 ## Identity-based access control
 
-There are many ways to provide access control over storage resources available, such as shared keys, shared signatures, anonymous access, and identity provider-based methods. 
+Organizations should not develop and maintain their own encryption algorithms. There are many ways to provide access control over storage resources available, such as shared keys, shared signatures, anonymous access, and identity provider-based methods.
+
+Secure standards already exist on the market and should be preferred. AES should be used as symmetric block cipher, AES-128, AES-192 and AES-256 are acceptable. Crypto APIs built into operating systems should be used where possible, instead of non-platform crypto libraries. For .NET make sure you follow the [.NET Cryptography Model](/dotnet/standard/security/cryptography-model#choosing-an-algorithm).
 
 **Do you prioritize authentication through identity services for a workload over cryptographic keys?**
 ***
