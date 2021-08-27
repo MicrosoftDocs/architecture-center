@@ -107,9 +107,24 @@ For more information, see [hybrid identity providers](/azure/active-directory/hy
 
 Attackers constantly scan public cloud IP ranges for open management ports. They attempt to exploit weak credentials (*password spray*) and unpatched vulnerabilities in management protocols like SSH, and RDP. Preventing direct internet access to virtual machines stops a misconfiguration or oversight becoming more serious.
 
+Attack methods have evolved to the point where passwords alone cannot reliably protect an account. Modern authentication solutions including passwordless and multifactor authentication increase security posture through strong authentication.
+
 Remove the use of passwords, when possible. Also, require the same set of credentials to sign in and access the resources on-premises or in the cloud. This requirement is crucial for accounts that require passwords, such as admin accounts.
 
-Here are some methods of authentication. The list is ordered by highest cost/difficulty to attack (strongest/preferred options) to lowest cost/difficult to attack:
+With modern authentication and security features in Azure AD, that basic password should be supplemented or replaced with more secure authentication methods. Each organization has different needs when it comes to authentication. Microsoft offers the following three passwordless authentication options that integrate with Azure Active Directory (Azure AD):
+
+- Windows Hello for Business
+- Microsoft Authenticator app
+- FIDO2 security keys
+
+It's recommended to follow a four-stage plan to become passwordless:
+
+- Develop password replacement offering
+- Reduce user-visible password surface area
+- Transition into password-less deployment
+- Eliminate passwords from the identity directory
+
+The following methods of authentication are ordered by highest cost/difficulty to attack (strongest/preferred options) to lowest cost/difficult to attack:
 
 - Passwordless authentication. Some examples of this method include [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) or [Authenticator App](/azure/active-directory/authentication/howto-authentication-phone-sign-in).
 - MFA. Although this method is more effective than passwords, we recommend that you avoid relying on SMS text message-based MFA. For more information, see [Enable per-user Azure Active Directory MFA to secure sign-in events](/azure/active-directory/authentication/howto-mfa-userstates).
@@ -121,11 +136,13 @@ An implementation of this strategy is enabling single sign-on (SSO) to devices, 
 
 **Suggested actions**
 
-Organizations should attempt to ensure policy and processes require restricting, and monitoring direct internet connectivity by virtual machines.
+- Develop a passwordless strategy that requires MFA for all users without significantly impacting operations.
+- Ensure policy and processes require restricting, and monitoring direct internet connectivity by virtual machines.
 
 **Learn more**
 
-[Remove Virtual Machine (VM) direct internet connectivity](/azure/architecture/framework/Security/governance#remove-virtual-machine-vm-direct-internet-connectivity)
+- [Passwordless Strategy](/windows/security/identity-protection/hello-for-business/passwordless-strategy)
+- [Remove Virtual Machine (VM) direct internet connectivity](/azure/architecture/framework/Security/governance#remove-virtual-machine-vm-direct-internet-connectivity)
 
 ## Use modern password protection
 
@@ -145,8 +162,8 @@ For Azure, enable protections in Azure AD:
 
 1.    Configure Azure AD Connect to synchronize password hashes. For information, see [Implement password hash synchronization with Azure AD Connect sync](/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
 
-2.	Choose whether to automatically or manually remediate issues found in a report. For more information, see [Monitor identity risks](monitor-remediate.md). 
-	
+2.    Choose whether to automatically or manually remediate issues found in a report. For more information, see [Monitor identity risks](monitor-remediate.md). 
+    
 
 For more information about supporting modern passwords in Azure AD, see the following articles:
 
