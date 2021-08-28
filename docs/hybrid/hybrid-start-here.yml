@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Hybrid solution journey
+  title: Hybrid architecture design
   description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
   author: EdPrice-MSFT
   ms.author: pnp
@@ -29,4 +29,3 @@ products:
 thumbnailUrl: /azure/architecture/browse/thumbs/default.png #todo
 content: |
    [!include[](hybrid-start-here-content.md)]
-
