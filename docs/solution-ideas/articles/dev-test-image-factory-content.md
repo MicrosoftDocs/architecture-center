@@ -26,4 +26,4 @@ The image factory provides a great way for organizations to create, maintain, an
 
 * [Azure Lab Services documentation](/azure/lab-services)
 * [Virtual Machines documentation](/azure/virtual-machines)
-* [Azure Devops documentation](/azure/devops)
+* [Azure DevOps documentation](/azure/devops)
