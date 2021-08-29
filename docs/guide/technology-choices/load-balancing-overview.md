@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure load-balancing options
+title: Load-balancing options
 titleSuffix: Azure Application Architecture Guide
 description: Learn about Azure load-balancing services and how you can use them to distribute your workloads across multiple computing resources.
 author: EdPrice-MSFT
