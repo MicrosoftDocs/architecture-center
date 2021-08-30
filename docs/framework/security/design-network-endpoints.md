@@ -76,7 +76,7 @@ Protect all public endpoints with appropriate solutions such as Azure Front Door
 - [What is Azure Firewall?](/azure/firewall/overview)
 - [Azure DDoS Protection Standard overview](/azure/ddos-protection/ddos-protection-overview)
 - [Azure Front Door documentation](/azure/frontdoor/)
-- [What is Azure Application Gateway?](/application-gateway/overview)
+- [What is Azure Application Gateway?](https://azure.microsoft.com/services/application-gateway/#overview)
 
 ### Azure Firewall
 
