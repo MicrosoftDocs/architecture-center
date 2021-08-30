@@ -1,3 +1,17 @@
+---
+title: Hybrid solution journey
+description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
+author: EdPrice-MSFT
+ms.service: architecture-center
+ms.topic: article
+ms.date: 08/31/2021
+ms.author: pnp
+
+# Intent: As an Azure Stack Hub operator, I want to configure hybrid cloud connectivity using Azure and Azure Stack Hub so I can access global resources with security.
+# Keyword: hybrid cloud connectivity azure stack hub
+
+---
+
 Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often [extend on-premises data solutions to the cloud](../data-guide/scenarios/hybrid-on-premises-and-cloud.md). To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
 
 ## Learn about hybrid solutions
