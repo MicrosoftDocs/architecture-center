@@ -1,5 +1,5 @@
 ---
-title: Hybrid solution journey
+title: Hybrid architecture design
 description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
 author: EdPrice-MSFT
 ms.service: architecture-center
