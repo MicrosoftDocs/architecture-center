@@ -32,7 +32,7 @@ Key technologies used to implement this architecture:
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Build, deploy, and manage predictive analytics solutions
 * [Power BI](https://azure.microsoft.com/services/developer-tools/power-bi/): Realize the value of your data and bring the insights discovered in Azure data and analytics tools to the organization.
 
-## Related resources
+## Next steps
 
-  1. [Forecasting Best Practices (on GitHub)](https://github.com/microsoft/forecasting)
-  2. [AutoML For Forecasting (on GitHub)](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
+  * [Forecasting Best Practices (on GitHub)](https://github.com/microsoft/forecasting)
+  * [AutoML For Forecasting (on GitHub)](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)

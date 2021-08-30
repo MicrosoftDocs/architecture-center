@@ -104,7 +104,7 @@ Use NSG or consider using Azure Firewall to protect and control traffic within t
 
 ## Internet edge traffic
 
-As you design the workload, consider security for internet traffic. Does the workload or parts of it need to be accessible from public IP addresses. What level of access should be given to prevent unauthorized access.
+As you design the workload, consider security for internet traffic. Does the workload or parts of it need to be accessible from public IP addresses? What level of access should be given to prevent unauthorized access?
 
 Internet edge traffic (also called _North-South traffic_) represents network connectivity between resources used by the workload and the internet. An internet edge strategy should be designed to mitigate as many attacks from the internet to detect or block threats. There are two primary choices that provide security controls and monitoring:
 
@@ -115,6 +115,18 @@ Azure provides networking solutions to restrict access to individual services. U
 - Network virtual appliances (NVAs). You can use Azure Firewall or third-party solutions available in Azure Marketplace.  
 
 Azure security features are sufficient for common attacks, easy to configure, and scale. Third-party solutions often have advanced features but they can be hard to configure if they don't integrate well with fabric controllers. From a cost perspective, Azure options tend to be cheaper than partner solutions.
+
+Information revealing the application platform, such as HTTP banners containing framework information (`X-Powered-By`, `X-ASPNET-VERSION`), are commonly used by malicious actors when mapping attack vectors of the application.
+
+HTTP headers, error messages, and website footers should not contain information about the application platform. Azure CDN can be used to separate the hosting platform from end users. Azure API Management offers transformation policies that allow you to modify HTTP headers and remove sensitive information.
+
+**Suggested action**
+
+Consider using CDN for the workload to limit platform detail exposure to attackers.
+
+**Learn more**
+
+[Azure CDN documentation](/en-us/azure/cdn/)
 
 ## Communication with backend services
 
@@ -135,9 +147,9 @@ Restrict access to backend services to a minimal set of public IP addresses with
 
 Web applications typically have one public entry point and don't expose subsequent APIs and database servers over the internet. Expose only a minimal set of public IP addresses based on need _and_ only those who really need it. For example, when using gateway services, such as Azure Front Door, it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely.
 
-**Suggested actions**
+**Suggested action**
 
-Restrict and protect application publishing methods.
+- Restrict and protect application publishing methods.
 
 **Learn more**
 
