@@ -42,7 +42,7 @@ It's important to consider [Azure's resource and request quotas](/azure/azure-re
 
 ### Data isolation
 
-When designing a solution that contains multitenant data services, there are usually different options and levels, each with their own benefits and tradeoffs. For example:
+When designing a solution that contains multitenant data services, there are usually different options and levels of data isolation, each with their own benefits and tradeoffs. For example:
 
 - When using Azure Cosmos DB, you can deploy separate containers for each tenant and share databases and accounts between multiple tenants. Alternatively, you might consider deploying different databases or even accounts for each tenant depending on the level of isolation required.
 - When using Azure Storage for blob data, you can deploy separate blob containers for each tenant, or you can deploy separate storage accounts.
@@ -80,7 +80,7 @@ Several design patterns from the Azure Architecture Center are of relevance to m
 
 ### Deployment Stamps pattern
 
-The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) involves deploying dedicated infrastructure for a tenant or group of tenants. A single stamp may contain multiple tenants or dedicated to a single tenant.
+The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) involves deploying dedicated infrastructure for a tenant or group of tenants. A single stamp may contain multiple tenants or be dedicated to a single tenant.
 
 ![Diagram showing the Deployment Stamps pattern. Each tenant has their own stamp containing a database.](media/storage-data/deployment-stamps.png)
 
@@ -110,11 +110,11 @@ However, when you work with shared infrastructure, there are several caveats:
 - Tenants may have different requirements for security, backup, availability, or storage location. If these don't match your single resource's configuration, you may not be able to accommodate them.
 - When working with a relational database, or another situation where the schema of the data is important, then tenant-level schema customization is difficult.
 
-### Sharding
+### Sharding pattern
 
 ![Diagram showing a sharded database. One database contains the data for tenants A and B, and the other contains the data for tenant C.](media/storage-data/sharding.png)
 
-The [Sharding pattern](../../../patterns/sharding.md) involves deploying multiple separate databases, called *shards*, that contain one or more tenants' data. Unlike deployment stamps, shards don't imply the entire infrastructure is shared. You might shard databases without also duplicating or sharding other infrastructure in your solution.
+The [Sharding pattern](../../../patterns/sharding.md) involves deploying multiple separate databases, called *shards*, that contain one or more tenants' data. Unlike deployment stamps, shards don't imply the entire infrastructure is duplicated. You might shard databases without also duplicating or sharding other infrastructure in your solution.
 
 Sharding is closely related to *partitioning*, and the terms are often used interchangeably. Consider the [Horizontal, vertical, and functional data partitioning guidance](../../../best-practices/data-partitioning.md).
 
@@ -134,7 +134,7 @@ Because you provision dedicated data resources for each tenant, the cost for thi
 
 It's important to use automated deployment approaches when provisioning databases for each tenant.
 
-### Geodes
+### Geodes pattern
 
 The [Geodes pattern](../../../patterns/geodes.md) is designed specifically for geographically distributed solutions, including multitenant solutions. It supports high load and high levels of resiliency. When working with the Geodes pattern, the data tier must be able to replicate the data across geographic regions, and should support multi-geography writes.
 
