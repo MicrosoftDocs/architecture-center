@@ -3,13 +3,17 @@ title: Hybrid architecture design
 description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
 author: EdPrice-MSFT
 ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.topic: conceptual
 ms.date: 08/30/2021
 ms.author: pnp
-
-# Intent: As an Azure Stack Hub operator, I want to configure hybrid cloud connectivity using Azure and Azure Stack Hub so I can access global resources with security.
-# Keyword: hybrid cloud connectivity azure stack hub
-
+ms.category: |
+    - hybrid
+    - management-and-governance
+ms.custom: |
+    - fcp
+    - reference-architecture
+    - e2e-hybrid
 ---
 
 # Hybrid solution journey
