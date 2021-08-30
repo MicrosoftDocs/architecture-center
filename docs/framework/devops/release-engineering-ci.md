@@ -1,7 +1,7 @@
 ---
 title: Release Engineering Continuous integration
 description: Release Engineering Continuous integration
-author: neilpeterson
+author: david-stanford
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.service: architecture-center
