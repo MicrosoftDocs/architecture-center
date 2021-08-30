@@ -1678,7 +1678,7 @@ items:
       - name: Hybrid + Multicloud
         items:
           - name: Get started
-            href: hybrid/deployment/hybrid-start-here-content.md
+            href: hybrid/deployments/hybrid-start-here-content.md
           - name: Guides
             items:
               - name: Hybrid deployments
