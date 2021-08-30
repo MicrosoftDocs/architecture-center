@@ -31,7 +31,7 @@ As part of overall design, prioritize where to invest the available resources; f
 > - Understand regulatory requirements and operational data that may be used for audits. 
 > - Continuously monitor and assess the compliance of your workload. Perform regular attestations to avoid fines.
 > - Review and apply recommendations from Azure. 
-> - Remediate basic vulnerabilites to keep the attacker costs high.
+> - Remediate basic vulnerabilities to keep the attacker costs high.
 
 ## In this section
 
@@ -44,6 +44,7 @@ Follow these questions to assess the workload at a deeper level.
 |[Reference model: Segmentation](design-segmentation.md)|Reference model and strategies of how the functions and teams can be segmented.|
 |[Management groups and permissions](design-management-groups.md)|Strategies using management groups to manage resources across multiple subscriptions consistently and efficiently.|
 |[Regulatory compliance](design-regulatory-compliance.md)|Guidance on standards published by law, authorities, and regulators.|
+|[Azure Governance Visualizer](https://github.com/microsoft/CloudAdoptionFramework/tree/master/govern/AzureGovernanceVisualizer)|Gain granular insight into policies, Azure role-based access control (Azure RBAC), Azure Blueprints, subscriptions, and more.|
 
 ## Azure security benchmark
 
