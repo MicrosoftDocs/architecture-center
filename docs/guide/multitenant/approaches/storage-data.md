@@ -8,10 +8,16 @@ ms.date: 08/30/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+ - azure
+categories:
+ - management-and-governance
+ - security
 ms.category:
   - fcp
 ms.custom:
   - guide
+  - fcp
 ---
 
 # Architectural approaches for storage and data
@@ -100,7 +106,7 @@ However, when you work with shared infrastructure, there are several caveats:
 
 - When you rely on a single resource, consider the supported scale and limits of that resource. For example, the maximum size of one database or file store, or the maximum throughput limits, will eventually become a hard blocker if your architecture relies on a single database. Carefully consider the maximum scale you need to achieve, and compare it to current and future limits before selecting this pattern.
 - The [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md) might become a factor, especially if you have tenants that are particularly busy or generate higher workloads than others. Considering applying the [Throttling pattern](../../../patterns/throttling.md) or the [Rate Limiting pattern](../../../patterns/rate-limiting-pattern.md) to mitigate these effects.
-- Monitoring the activity and [measuring the consumption](../considerations/measure-consumption.md) for a single tenant might be difficult. Some services, such as Azure Cosmos DB, provide reporting on resource usage for each request, so this information can be tracked to measure the consumption for each tenant. Other services don't provide the same level of detail. For example, the Azure Files metrics for file capacity are available per file share dimension only when you use premium shares, while the standard tier provide the metrics only at the storage account level.
+- Monitoring the activity and [measuring the consumption](../considerations/measure-consumption.md) for a single tenant might be difficult. Some services, such as Azure Cosmos DB, provide reporting on resource usage for each request, so this information can be tracked to measure the consumption for each tenant. Other services don't provide the same level of detail. For example, the Azure Files metrics for file capacity are available per file share dimension only when you use premium shares, while the standard tier provides the metrics only at the storage account level.
 - Tenants may have different requirements for security, backup, availability, or storage location. If these don't match your single resource's configuration, you may not be able to accommodate them.
 - When working with a relational database, or another situation where the schema of the data is important, then tenant-level schema customization is difficult.
 
@@ -162,7 +168,7 @@ Additionally, when working with relational databases or other schema-based datab
 
 Consider the approach you use to isolate data within a storage account. For example, you might deploy separate storage accounts for each tenant, or you might share storage accounts and deploy individual containers. Alternatively, you might create shared blob containers, and then use the blob path to separate data for each tenant. Consider [Azure subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits), and carefully plan your growth to ensure your Azure resources scale to support your future needs.
 
-If you use shared containers, plan your authentication and authorization strategy carefully to ensure that tenants can't access each other's data. Consider the [Valet Key pattern](../../patterns/valet-key.md) when providing clients with access to Azure Storage resources.
+If you use shared containers, plan your authentication and authorization strategy carefully to ensure that tenants can't access each other's data. Consider the [Valet Key pattern](../../../patterns/valet-key.md) when providing clients with access to Azure Storage resources.
 
 ## Cost allocation
 
