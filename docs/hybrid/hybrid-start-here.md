@@ -1,23 +1,19 @@
 ---
-title: Best practices in hybrid architecture
-titleSuffix: Azure Architecture Center
-description: Learn best practices for building reliable, scalable, and secure applications in the cloud. See resources on caching, partitioning, monitoring, and other areas. Test
+title: Hybrid architecture design
+description: Get an introductory overview of hybrid cloud technologies and how you can connect an on-premises environment to Azure in a way that works best for your organization.
 author: EdPrice-MSFT
-ms.date: 04/09/2021
-ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: design-pattern
-ms.custom:
-  - design-pattern
-keywords:
-  - Azure
-categories:
-  - devops
-  - management-and-governance
-  - security
-  - storage
-products:
-  - azure
+ms.subservice: reference-architecture
+ms.topic: conceptual
+ms.date: 08/30/2021
+ms.author: pnp
+ms.category: |
+    - hybrid
+    - management-and-governance
+ms.custom: |
+    - fcp
+    - reference-architecture
+    - e2e-hybrid
 ---
 
 # Hybrid solution journey
