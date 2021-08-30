@@ -32,13 +32,22 @@ Authentication is a process that grants or denies access to a system by verifyin
 **How is the application authenticated when communicating with Azure platform services?**
 ***
 
+Managed identities enable Azure Services to authenticate to each other without presenting explicit credentials via code and increase security.
+
+Managed identities for Azure resources is a feature of Azure Active Directory. Each of the Azure services that support managed identities for Azure resources are subject to their own timeline. Make sure you review the availability status of managed identities for your resource and known issues before you begin. The feature provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code. The managed identities for Azure resources feature is free with Azure AD for Azure subscriptions, there's no additional cost.
+
+There are two types of managed identities:
+
+- A system-assigned managed identity is enabled directly on an Azure service instance. When the identity is enabled, Azure creates an identity for the instance in the Azure AD tenant that's trusted by the subscription of the instance. After the identity is created, the credentials are provisioned onto the instance. The life cycle of a system-assigned identity is directly tied to the Azure service instance that it's enabled on. If the instance is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
+- A user-assigned managed identity is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances. The life cycle of a user-assigned identity is managed separately from the life cycle of the Azure service instances to which it's assigned.
+
 Authenticate with identity services instead of cryptographic keys. On Azure, Managed Identities eliminate the need to store credentials that might be leaked inadvertently. When Managed Identity is enabled for an Azure resource, it's assigned an identity that you can use to obtain Azure AD tokens. For more information, see [Azure AD-managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources).
 
-For example, an Azure Kubernetes Service (AKS) cluster needs to pull images from  Azure Container Registry (ACR). To access the image, the cluster needs to know the ACR credentials. The recommended way is to enable Managed Identities during cluster configuration. That configuration assigns an identity to the cluster and allows it to obtain Azure AD tokens. 
+For example, an Azure Kubernetes Service (AKS) cluster needs to pull images from  Azure Container Registry (ACR). To access the image, the cluster needs to know the ACR credentials. The recommended way is to enable Managed Identities during cluster configuration. That configuration assigns an identity to the cluster and allows it to obtain Azure AD tokens.
 
-This approach is secure because Azure handles the management of the underlying credentials for you. 
+This approach is secure because Azure handles the management of the underlying credentials for you.
 
-- The identity is tied to the lifecycle of the resource, in the example the AKS cluster. When the resource is deleted, Azure automatically deletes the identity.
+- The identity is tied to the lifecycle of the resource, in the AKS cluster example. When the resource is deleted, Azure automatically deletes the identity.
 - Azure AD manages the timely rotation of secrets for you.
 
 > [!TIP]
@@ -48,6 +57,14 @@ This approach is secure because Azure handles the management of the underlying c
 >
 > The design considerations are described in [Azure Kubernetes Service (AKS) production baseline](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
 
+**Suggested actions**
+
+- Review workload authentication and identify opportunities to convert explicit credentials (for example, connection string and API key) to use managed identities.
+- For all new Azure workloads, standardize on using managed identities where applicable.
+
+**Learn more**
+
+[What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
 
 **What kind of authentication is required by application APIs?**
 ***
