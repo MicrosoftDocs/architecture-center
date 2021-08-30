@@ -46,7 +46,7 @@ When you adopt a hybrid model, you can choose from multiple solutions to confide
 
 ## Additional resources
 
-The typical hybrid solution journey ranges from learning how to get started with a hybrid architecture to how to use Azure services in hybrid environments. However, you might also just be looking for additional reference and supporting material to help along the way for your specific situation. See these resources for general information on hybrid architecturs:
+The typical hybrid solution journey ranges from learning how to get started with a hybrid architecture to how to use Azure services in hybrid environments. However, you might also just be looking for additional reference and supporting material to help along the way for your specific situation. See these resources for general information on hybrid architectures:
 
 - [Browse hybrid and multicloud architectures](../browse/index.yml?&azure_categories=hybrid)
 - [Troubleshoot a hybrid VPN connection](../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
