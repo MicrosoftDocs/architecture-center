@@ -47,7 +47,7 @@ For example, an Azure Kubernetes Service (AKS) cluster needs to pull images from
 
 This approach is secure because Azure handles the management of the underlying credentials for you.
 
-- The identity is tied to the lifecycle of the resource, in the example the AKS cluster. When the resource is deleted, Azure automatically deletes the identity.
+- The identity is tied to the lifecycle of the resource, in the AKS cluster example. When the resource is deleted, Azure automatically deletes the identity.
 - Azure AD manages the timely rotation of secrets for you.
 
 > [!TIP]
