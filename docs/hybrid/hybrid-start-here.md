@@ -7,13 +7,14 @@ ms.subservice: reference-architecture
 ms.topic: conceptual
 ms.date: 08/30/2021
 ms.author: pnp
-ms.category: |
+categories:
     - hybrid
     - management-and-governance
-ms.custom: |
+ms.custom:
     - fcp
     - reference-architecture
     - e2e-hybrid
+products: azure
 ---
 
 # Hybrid solution journey
