@@ -1,5 +1,5 @@
 ---
-title: Build for the needs of the business
+title: Build for the business needs
 titleSuffix: Azure Application Architecture Guide
 description: Use these recommendations to guide design, such as defining business objectives and documenting service level agreements and service level objectives.
 author: doodlemania2

@@ -1,5 +1,5 @@
 ---
-title: Performance tuning - Distributed business transactions
+title: Distributed transaction performance tuning
 titleSuffix: Azure Architecture Center
 description: Use load testing to tune the performance of a distributed business transaction. Tests include increasing the cache size, parallelism, and lock duration.
 author: doodlemania2
