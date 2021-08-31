@@ -2307,7 +2307,7 @@ items:
                 href: example-scenario/file-storage/oracle-azure-netapp-files.yml
               - name: SQL Server on Azure Virtual Machines with Azure NetApp Files
                 href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
-              - name: Using Azure file shares in a hybrid environment
+              - name: Use Azure file shares in a hybrid environment
                 href: hybrid/azure-file-share.yml
           - name: Solution ideas
             items:
