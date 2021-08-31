@@ -82,7 +82,7 @@ Azure resources are deployed and managed using one of two models: [Azure Resourc
 
 ### Resource groups
 
-Azure additionally has an entity called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. An Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group but can only be in one resource group at a time. Resource groups are the fundamental grouping used by Azure Resource Manager.
+Azure additionally has an entity called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. An Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group but can only be in one resource group at a time.For more information see (/azure/azure-resource-manager/management/move-resources-overview). Resource groups are the fundamental grouping used by Azure Resource Manager.
 
 Resources can also be organized using [tags](/azure/azure-resource-manager/resource-group-using-tags). Tags are key-value pairs that allow you to group resources across your subscription irrespective of resource group membership.
 
@@ -95,6 +95,7 @@ Azure offers several ways to manage your resources:
 - [Command Line](/azure/azure-resource-manager/cli-azure-resource-manager). The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and macOS](/cli/azure).
 - [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager). The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and macOS](https://github.com/PowerShell/PowerShell).
 - [Templates](/azure/azure-resource-manager/resource-group-authoring-templates). Azure Resource Manager templates provide JSON template-based resource management capabilities.
+- [SDK](/downloads/). The SDKs are collection of libraries that allows users to programmatically manage and interact with Azure services.
 
 In each of these interfaces, the resource group is central to how Azure resources get created, deployed, or modified.
 
@@ -104,7 +105,7 @@ In addition, many third-party management tools like [Hashicorp's Terraform](http
 
 - [Azure resource group guidelines](/azure/azure-resource-manager/resource-group-overview#resource-groups)
 
-## Regions and zones (high availability)
+## Regions and Availability Zones
 
 Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. In rare situations, an entire region could become unavailable.
 
