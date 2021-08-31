@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Integrate on-premises AD domains with Azure AD
+  title: On-premises AD domains with Azure AD
   titleSuffix: Azure Reference Architectures
-  description: Understand how to implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
+  description: Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Azure Active Directory (Azure AD).
   author: doodlemania2
   ms.author: pnp
   ms.date: 08/28/2019

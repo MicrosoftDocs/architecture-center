@@ -1,7 +1,7 @@
 ---
 title: Deployment Stamps pattern
 titleSuffix: Cloud Design Patterns
-description: Deploy multiple independent copies of application components.
+description: Learn about the Deployment Stamps pattern, which deploys many independent copies (known as stamps, service units, or scale units) of application components.
 author: johndowns
 ms.date: 08/04/2021
 ms.topic: conceptual

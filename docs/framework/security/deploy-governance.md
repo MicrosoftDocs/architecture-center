@@ -57,7 +57,7 @@ Minimize the number of people who have access to secure information or resources
 
 **Learn more**
 
-For more information about pipeline permission and security roles, reference [Set different levels of pipeline permissions](/azure/devops/pipelines/policies/permissions?view=azure-devops).
+For more information about pipeline permission and security roles, reference [Set different levels of pipeline permissions](/azure/devops/pipelines/policies/permissions?view=azure-devops&preserve-view=true).
 
 ## Execution scope
 
@@ -69,16 +69,28 @@ Consider creating a multi-stage pipeline. Divide the work into discrete units an
 
 **Do you have release gate approvals configured in the DevOps release process?**
 ***
-Pull Requests and code reviews serve as the first line of approvals during development cycle. Before releasing an update to production, have a process that mandates security review and approval.
+Pull Requests and code reviews serve as the first line of approvals during development cycle. Before releasing an update to production, require a process that mandates security review and approval.
 
-Make sure that you involve the security team in the planning, design, and DevOps process. This collaboration will help them implement security controls, auditing, and response processes. 
+Make sure that you involve the security team in the planning, design, and DevOps process. This collaboration will help them implement security controls, auditing, and response processes.
 
 **Are branch policies used in source control management of this workload? How are they configured?**
 ***
-
-Establish branch policies that provide an extra level of control over the code that is committed to the repository. It's a common practice to deny pushes to the main branch if the change isn't approved. For example, you can require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author. 
+Establish branch policies that provide an extra level of control over the code that is committed to the repository. Lack of secure branch policy might allow poor, rogue or broken code to be checked-in and deployed. It's a common practice to deny pushes to the main branch if the change isn't approved. For example, you can require pull-request (PR) with code review before merging the changes by at least one reviewer, other than the change author.
 
 Having multiple branches is recommended where each branch has a purpose and access level. For example, feature branches are created by developers and are open to push. Integration branch requires PR and code-review. Production branch requires another approval from the team lead before merging.
+
+### Suggested actions
+
+- Configure quality gate approvals in DevOps release process.
+- Follow the guidance in the linked articles to deploy and adopt branch strategy.
+
+## Learn more
+
+- [About branches and branch policies](/azure/devops/repos/git/branch-policies-overview?view=azure-devops&preserve-view=true)
+- [Adopt a Git branching strategy](/azure/devops/repos/git/git-branching-guidance?view=azure-devops&preserve-view=true)
+- [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops&preserve-view=true)
+
+## Next
 
 > [!div class="nextstepaction"]
 > [Secure infrastructure deployments](./deploy-infrastructure.md)

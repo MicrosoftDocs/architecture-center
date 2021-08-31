@@ -25,7 +25,7 @@ Examples
 
 3. Data sources such as Electronic Medical Record systems, patient administration systems, or lab systems may generate other message formats such as HL7 messages that are [converted](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion) via an HL7 ingest and conversion workflow.  The HL7 ingest platform consumes HL7 Messages via MLLP and securely transfers them to Azure via HL7overHTTPS. The data lands in blob storage, which produces an event on Azure Service Bus for processing. The HL7 convert is an Azure Logic App based workflow that performs orderly conversion from HL7 to FHIR via the FHIR Converter, persists the message into an Azure API for FHIR Server Instance
 
-4. Data is exported from the Azure FHIR Service to Azure Data Lake Gen2 using the [Bulk Export](/azure/healthcare-apis/export-data) feature.  Sensitive data can be [anonymized](https://github.com/microsoft/FHIR-Tools-for-Anonymization) as part of the export function.
+4. Data is exported from the Azure FHIR Service to Azure Data Lake Gen2 using the [Bulk Export](/azure/healthcare-apis/data-transformation/export-data) feature.  Sensitive data can be [anonymized](https://github.com/microsoft/FHIR-Tools-for-Anonymization) as part of the export function.
 
 5. Azure Data Factory jobs are scheduled to copy other data sources from on-premises or alternate sources to Azure Data Lake Gen 2.
 
@@ -37,7 +37,7 @@ Examples
 
 ## Components
 
-* [Azure IoT Connector for FHIR](/azure/healthcare-apis/iot-data-flow) is an optional feature of Azure API for FHIR that provides the capability to ingest data from Internet of Medical Things (IoMT) devices.  Alternatively, anyone wishing to have more control and flexibility with the IoT Connector, the [IoMT FHIR Connector for Azure](https://github.com/Microsoft/iomt-fhir) is an open-source project for ingesting data from IoMT devices and persisting the data in a FHIR® server.  A simplified deployment template is available [here](https://github.com/microsoft/iomt-fhir/blob/master/docs/ARMInstallation.md).
+* [Azure IoT Connector for FHIR](/azure/healthcare-apis/iot/iot-data-flow) is an optional feature of Azure API for FHIR that provides the capability to ingest data from Internet of Medical Things (IoMT) devices.  Alternatively, anyone wishing to have more control and flexibility with the IoT Connector, the [IoMT FHIR Connector for Azure](https://github.com/Microsoft/iomt-fhir) is an open-source project for ingesting data from IoMT devices and persisting the data in a FHIR® server.  A simplified deployment template is available [here](https://github.com/microsoft/iomt-fhir/blob/master/docs/ARMInstallation.md).
 
 * [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service that allows you to create, schedule, and orchestrate your ETL/ELT workflows.
 
@@ -47,7 +47,7 @@ Examples
 
 * [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is a fast, easy, and collaborative Apache Spark-based data analytics platform.  
 
-* [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml) is a cloud service for training, scoring, deploying, and managing machine learning models at scale. This architecture uses the Azure Machine Learning service's native support for MLflow to log experiments, store models, and deploy models.
+* [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is a cloud service for training, scoring, deploying, and managing machine learning models at scale. This architecture uses the Azure Machine Learning service's native support for MLflow to log experiments, store models, and deploy models.
 
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive interactive analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
@@ -62,7 +62,7 @@ Two sample projects are detailed here that can be imported into Azure Databricks
 ## Next steps
 
 * [Azure Health Architectures](https://github.com/microsoft/health-architectures) from the Microsoft Health Cloud & Data Architectural Engineering team, includes many reference architectures obtained by working closely customers, partners, and coworkers in the Health domain.
-* [Continuous patient monitoring](/azure/iot-central/healthcare/concept-continuous-patient-monitoring-architecture) provides an app template that can build a continuous patient monitoring solution.
+* [Continuous patient monitoring](/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring) provides an app template that can build a continuous patient monitoring solution.
 * [Medical Imaging Server for DICOM](https://github.com/microsoft/dicom-server) is a .NET Core implementation of DICOMweb™ that can be run in Azure.
 * [OpenHack for FHIR](https://github.com/microsoft/OpenHack-FHIR) is a collection of OpenHack based tutorials that can be used to learn about the FHIR-related services in Azure.
 

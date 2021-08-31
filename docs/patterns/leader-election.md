@@ -1,7 +1,7 @@
 ---
 title: Leader Election pattern
 titleSuffix: Cloud Design Patterns
-description: Coordinate the actions performed by a collection of collaborating task instances in a distributed application by electing one instance as the leader that assumes responsibility for managing the other instances.
+description: Learn how use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual

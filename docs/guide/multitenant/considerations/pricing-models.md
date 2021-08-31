@@ -1,5 +1,5 @@
 ---
-title: Pricing models
+title: Pricing models for a multitenant solution
 titleSuffix: Azure Architecture Center
 description: This article describes the considerations for planning pricing models for a multitenant solution.
 author: PlagueHO
@@ -18,7 +18,7 @@ ms.custom:
   - guide
 ---
 
-# Pricing models
+# Pricing models for a multitenant solution
 
 A good pricing model ensures that you remain profitable as the number of tenants grows and as you add new features. An important consideration when developing a commercial multitenant solution is how to design pricing models for your product.
 

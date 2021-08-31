@@ -1,6 +1,6 @@
 ---
 title: Monitoring for DevOps
-description: Describes how to monitor your workload to ensure your DevOps infrastructure is working as intended.
+description: Understand how to monitor your workload to make sure your DevOps infrastructure is working as intended.
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: conceptual

@@ -1,11 +1,15 @@
 ---
 title: Overview of the security pillar
-description: Read an overview of the security pillar of the Microsoft Azure Well-Architected Framework. View links to different security articles.
+description: Learn about the key architectural considerations and principles for security and how they apply to the Microsoft Azure Well-Architected Framework.
 author: david-stanford
 ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products: 
+  - azure
+categories:
+  - security
 ms.custom:
   - overview
 ---
@@ -44,7 +48,7 @@ These are the topics we cover in the security pillar of the Microsoft Azure Well
 [network]: ./network-security-containment.md
 [design]: ./security-principles.md
 [attacks]: ./architecture-type.md
-[regulatory]: ./law-authority.md
+[regulatory]: ./design-regulatory-compliance.md
 [org-risk]: ./resilience.md
 [admin]: ./critical-impact-accounts.md
 [info]: ./storage-data-encryption.md
