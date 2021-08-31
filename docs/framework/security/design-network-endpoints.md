@@ -37,7 +37,7 @@ This article describes way in which you can protect web applications with Azure 
 
 A public endpoint receives traffic over the internet. The endpoints make the service easily accessible to attackers.
 
-Service Endpoints and Private Link can be leveraged to restrict access to PaaS endpoints only from authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks (e.g. malicious admin scenarios).
+Service Endpoints and Private Link can be leveraged to restrict access to PaaS endpoints only from authorized virtual networks, effectively mitigating data intrusion risks and associated impact to application availability. Service Endpoints provide service level access to a PaaS service, while Private Link provides direct access to a specific PaaS resource to mitigate data exfiltration risks such as malicious admin scenarios.
 
 Configure service endpoints and private links where appropriate.
 
@@ -47,13 +47,15 @@ Configure service endpoints and private links where appropriate.
 
 An initial design decision is to assess whether you need a public endpoint at all. If you do, protect it by using these mechanisms.
 
-For more information, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) and [What is Azure Private Endpoint?](/azure/private-link/private-endpoint-overview).
+For more information, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) and [What is Azure Private Endpoint?](/azure/private-link/private-endpoint-overview)
 
 ### Web application firewalls (WAFs)
 
 WAFs provide a basic level of security for web applications. WAFs are appropriate if the organizations that have invested in application security as WAFs provide additional defense-in-depth mitigation.
 
 WAFs mitigate the risk of an attacker to exploit commonly seen security vulnerabilities for applications. WAFs provide a basic level of security for web applications. This mechanism is an important mitigation because attackers target web applications for an ingress point into an organization (similar to a client endpoint).
+
+External application endpoints should be protected against common attack vectors, from Denial of Service (DoS) attacks like Slowloris to app-level exploits, to prevent potential application downtime due to malicious intent. Azure-native technologies such as Azure Firewall, Application Gateway/Azure Front Door, WAF, and DDoS Protection Standard Plan can be used to achieve requisite protection (Azure DDoS Protection).
 
 Azure Application Gateway has WAF capabilities to inspect web traffic and detect attacks at the HTTP layer. It's a load balancer and HTTP(S) full reverse proxy that can do secure socket layer (SSL) encryption and decryption.
 
@@ -64,6 +66,17 @@ For example, your workload is hosted in Application Service Environments(ILB ASE
 > The design considerations for the preceding example are described in [Publishing internal APIs to external users](../../example-scenario/apps/publish-internal-apis-externally.yml).
 
 Azure Front Door and Azure Content Delivery Network (CDN) also have WAF capabilities.
+
+#### Suggestion actions
+
+Protect all public endpoints with appropriate solutions such as Azure Front Door, Application Gateway, Azure Firewall, Azure DDOS Protection, or any third-party solution.
+
+**Learn more**
+
+- [What is Azure Firewall?](/azure/firewall/overview)
+- [Azure DDoS Protection Standard overview](/azure/ddos-protection/ddos-protection-overview)
+- [Azure Front Door documentation](/azure/frontdoor/)
+- [What is Azure Application Gateway?](https://azure.microsoft.com/services/application-gateway/#overview)
 
 ### Azure Firewall
 

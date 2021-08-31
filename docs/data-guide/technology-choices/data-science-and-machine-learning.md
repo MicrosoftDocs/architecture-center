@@ -1,7 +1,8 @@
 ---
-title: Compare machine learning products from Microsoft
+title: Microsoft machine learning products
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 09/01/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -175,5 +176,5 @@ MMLSpark also brings new networking capabilities to the Spark ecosystem. With th
 
 ## Next steps
 
-- To learn about all the Artificial Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai)
-- For training in developing AI and Machine Learning solutions with Microsoft, see [Microsoft Learn](/learn/browse/?resource_type=learning+path&roles=ai-engineer%2cdata-scientist)
+- To learn about all the Artificial Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai).
+- For training in developing AI and Machine Learning solutions with Microsoft, see [Microsoft Learn](/learn/browse/?resource_type=learning+path&roles=ai-engineer%2cdata-scientist).

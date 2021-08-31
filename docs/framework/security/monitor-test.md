@@ -6,6 +6,13 @@ ms.date: 02/01/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure
+categories: 
+  - security  
+subject: 
+  - security
+  - testing
 ms.custom:
   - article
 ---
@@ -58,8 +65,13 @@ Simulate a persistent threat actor targeting your environment through a red team
 - Periodic checks. The workload will get checked through a realistic attack to make sure the defense is up to date and effective.
 - Educational purposes. Based on the learnings, upgrade the knowledge and skill level. This will help the users understand the various means that an attacker may use to compromise accounts.
 
-A popular choice for ro simulate realistic attack scenarios is [Office 365 Attack Simulator](/office365/securitycompliance/attack-simulator). 
+A popular choice to simulate realistic attack scenarios is [Office 365 Attack Simulator](/office365/securitycompliance/attack-simulator). 
 
+
+**Is personal information detected and removed/obfuscated automatically?**
+***
+
+Be cautious about using sensitive application information. Don't store personal information such as contact information, payment information, and so on, in any application logs. Apply protective measures, such as obfuscation. Machine learning tools can help with this measure. For more information, see [PII Detection cognitive skill](/azure/search/cognitive-search-skill-pii-detection).
 
 ## Related links
 

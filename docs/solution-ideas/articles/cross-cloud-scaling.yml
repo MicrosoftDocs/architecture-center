@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Cross Cloud Scaling Architecture
+  title: Cross-cloud scaling architecture
   titleSuffix: Azure Solution Ideas
   description: Understand how to improve cross-cloud scalability with solution architecture that includes Azure Stack.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -23,7 +23,7 @@ metadata:
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/cross-cloud-scaling/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/cross-cloud-scaling.png
-name: Cross Cloud Scaling Architecture
+name: Cross-cloud scaling architecture
 azureCategories:
   - hybrid
   - web

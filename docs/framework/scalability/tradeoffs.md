@@ -6,6 +6,15 @@ ms.date: 01/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-cost-management
+  - azure-security-center
+  - azure-monitor
+categories: 
+  - management-and-governance 
+subject:
+  - security
+  - monitoring
 ms.custom:
   - What scalability tradeoffs are you making?
   - article
@@ -25,9 +34,9 @@ As you design the workload, consider tradeoffs between performance optimization 
 
 Cost can increase as a result of boosting performance. Here are a few factors to consider when optimizing for performance and how they impact cost:
 
-- Avoid cost estimation of a workload at consistently high utilization. Consumption-based pricing will be more expensive that the equivalent provisioned pricing. Smooth out the peaks to get a consistent flow of compute and data. Ideally, use manual and autoscaling to find the right balance. Scaling up is generally more expensive than scaling out.
+- Avoid cost estimation of a workload at consistently high utilization. Consumption-based pricing will be more expensive than the equivalent provisioned pricing. Smooth out the peaks to get a consistent flow of compute and data. Ideally, use manual and autoscaling to find the right balance. Scaling up is generally more expensive than scaling out.
 
-- Cost scales directly with number of regions. Locating resources in cheaper regions shouldn't negate the cost of network ingress and egress or by degraded application performance because of increased latency.
+- Cost scales directly with number of regions. Locating resources in cheaper regions shouldn't negate the cost of network ingress and egress or degraded application performance because of increased latency.
 
 - Every render cycle of a payload consumes both compute and memory. You can use caching to reduce load on servers and save with pre-canned storage and bandwidth costs. The savings can be dramatic, especially for static content services.
 
@@ -84,7 +93,7 @@ Some reliability considerations are:
 
 - Create a separate storage account for logs. Don't use the same storage account for logs and application data. This helps to prevent logging from reducing application performance.
 
-- Monitor performance. Use a performance monitoring service such as [New Relic](https://newrelic.com/) or [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
+- Monitor performance. Use a performance monitoring service such as [Application Insights](/azure/azure-monitor/app/app-insights-overview) or [New Relic](https://newrelic.com/) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
 
 For resiliency, availability, and reliability considerations, see the [Reliability](../resiliency/principles.md) pillar.
 
@@ -98,7 +107,7 @@ Consider these security measures, which impact performance:
 
 - To optimize performance and maximize availability, application code should first try to get OAuth access tokens silently from a cache before attempting to acquire a token from the identity provider. OAuth is a technological standard that allows you to securely share information between services without exposing your password.
 
-- Ensure that you are integrating critical security alerts and logs into SIEMs (security information and event management) without introducing a high volume of low value data. Doing so can increase SIEM cost, false positives, and lower performance. For more information, see [Prioritize alert and log integration](../security/monitor-audit.md#prioritize-alert-and-log-integration).
+- Ensure that you are integrating critical security alerts and logs into SIEMs (security information and event management) without introducing a high volume of low value data. Doing so can increase SIEM cost, false positives, and lower performance. For more information, see [Prioritize alert and log integration](../security/monitor-logs-alerts.md).
 
 - Use Azure AD Connect to synchronize your on-premises directory with your cloud directory. There are factors that affect the performance of Azure AD Connect. Ensure Azure AD Connect has enough capacity to keep underperforming systems from impeding security and productivity. Large or complex organizations (organizations provisioning more than 100,000 objects) should follow the [recommendations](/azure/active-directory/hybrid/whatis-hybrid-identity) to optimize their Azure AD Connect implementation.
 

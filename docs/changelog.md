@@ -1,8 +1,8 @@
 ---
 title: What's New in Azure Architecture Center
-description: New and updated articles in Azure Architecture Center
+description: See links to new and updated articles in Azure Architecture Center. The list of links is updated every month.
 author: doodlemania2
-ms.date: 08/16/2021
+ms.date: 08/23/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -12,7 +12,7 @@ ms.service: architecture-center
 
 The Azure Architecture Center (AAC) helps you design, build, and operate solutions on Azure. Learn about the cloud architectural styles and design patterns. Use the technology choices and guides to decide the services that are right for your solution. The guidance is based on all aspects of building for the cloud, such as operations, security, reliability, performance, and cost optimization.
   
-  
+<br/>  
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
@@ -21,17 +21,34 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
   title="New and updated articles in Azure Architecture Center"
   href="/azure/architecture/feed.atom" />
 
-New and updated articles in Azure Architecture Center
+New and updated articles in Azure Architecture Center.
 
 ## August 2021
 
 ### New Articles
 
+- [Noisy Neighbor antipattern](./antipatterns/noisy-neighbor/index.md)
+- [Getting started with Azure IoT solutions](./reference-architectures/iot/iot-architecture-overview.md)
 - [General mainframe refactor to Azure](./example-scenario/mainframe/general-mainframe-refactor.yml)
 
 ### Updated Articles
 
-- [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#53026fe45](https://github.com/MicrosoftDocs/architecture-center/commit/53026fe45))
+- [Performance testing and antipatterns](./antipatterns/index.md)  ([#96c15437c](https://github.com/MicrosoftDocs/architecture-center/commit/96c15437c))
+- [Team roles and responsibilities](./framework/security/design-identity-role-definitions.md)  ([#732955401](https://github.com/MicrosoftDocs/architecture-center/commit/732955401))
+- [Code deployment security considerations in Azure](./framework/security/deploy-code.md)  ([#2ea53b123](https://github.com/MicrosoftDocs/architecture-center/commit/2ea53b123))
+- [Extend an on-premises network using VPN](./reference-architectures/hybrid-networking/vpn.yml)  ([#2bad97abf](https://github.com/MicrosoftDocs/architecture-center/commit/2bad97abf))
+- [Security logs and audits](./framework/security/monitor-audit.md)  ([#aee8a8ea0](https://github.com/MicrosoftDocs/architecture-center/commit/aee8a8ea0))
+- [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#7d2ca66d0](https://github.com/MicrosoftDocs/architecture-center/commit/7d2ca66d0))
+- [Application threat analysis](./framework/security/design-threat-model.md)  ([#982aeaa4c](https://github.com/MicrosoftDocs/architecture-center/commit/982aeaa4c))
+- [Secure application&#x27;s configuration and dependencies](./framework/security/design-app-dependencies.md)  ([#f7b51eeaf](https://github.com/MicrosoftDocs/architecture-center/commit/f7b51eeaf))
+- [Governance, risk, and compliance in Azure | Microsoft Docs](./framework/security/governance.md)  ([#d68145c20](https://github.com/MicrosoftDocs/architecture-center/commit/d68145c20))
+- [Authentication with Azure AD](./framework/security/design-identity-authentication.md)  ([#88ade05e0](https://github.com/MicrosoftDocs/architecture-center/commit/88ade05e0))
+- [Data encryption in Azure](./framework/security/design-storage-encryption.md)  ([#ca0934f89](https://github.com/MicrosoftDocs/architecture-center/commit/ca0934f89))
+- [Best practices for endpoint security on Azure](./framework/security/design-network-endpoints.md)  ([#fc2626dff](https://github.com/MicrosoftDocs/architecture-center/commit/fc2626dff))
+- [Azure services for securing network connectivity](./framework/security/design-network-connectivity.md)  ([#962183d70](https://github.com/MicrosoftDocs/architecture-center/commit/962183d70))
+- [Governance considerations for secure deployment in Azure](./framework/security/deploy-governance.md)  ([#d5a4f981b](https://github.com/MicrosoftDocs/architecture-center/commit/d5a4f981b))
+- [Multi-tier web application built for HA/DR](./example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)  ([#250a84acc](https://github.com/MicrosoftDocs/architecture-center/commit/250a84acc))
+- [Azure Kubernetes Service (AKS) architecture design](./reference-architectures/containers/aks-start-here.md)  ([#784eca7ef](https://github.com/MicrosoftDocs/architecture-center/commit/784eca7ef))
 - [High Performance Computing (HPC) on Azure](./topics/high-performance-computing.md)  ([#fec1f53c4](https://github.com/MicrosoftDocs/architecture-center/commit/fec1f53c4))
 - [Azure mainframe and midrange architecture concepts and patterns](./mainframe/mainframe-midrange-architecture.md)  ([#264a94102](https://github.com/MicrosoftDocs/architecture-center/commit/264a94102))
 - [AWS to Azure services comparison](./aws-professional/services.md)  ([#bac7c5914](https://github.com/MicrosoftDocs/architecture-center/commit/bac7c5914))
