@@ -1675,6 +1675,8 @@ items:
                 href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
       - name: Hybrid + Multicloud
         items:
+          - name: Get started
+            href: hybrid/hybrid-start-here.md
           - name: Guides
             items:
               - name: Hybrid workload in Azure WAF
