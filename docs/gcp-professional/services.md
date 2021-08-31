@@ -1,6 +1,6 @@
 ---
 title: Google Cloud to Azure services comparison
-description: Understand the differences between specific Google Cloud and Azure services.
+description: Compare Google Cloud and Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.
 author: EdPrice-MSFT
 ms.author: petuton
 ms.date: 08/19/2021

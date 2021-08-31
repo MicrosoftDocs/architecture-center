@@ -39,7 +39,7 @@ Protection of cryptographic keys can often get overlooked or implemented poorly.
 
 Use of identity-based option for storage access control is recommended. This option uses role-based access controls (RBAC) over storage resources. Use RBAC to assign permissions to users, groups, and applications at a certain scope. Identity systems such as Azure Active Directory(Azure AD) offer secure and usable experience for access control with built-in mechanisms for handling key rotation, monitoring for anomalies, and others.
 
-> ![Task](../../_images/i-best-practices.svg) 
+> [!NOTE] 
 > Grant access based on the principle of least privilege. Risk of giving more privileges than necessary can lead to data compromise.
 
 Suppose you need to store sensitive data in Azure Blob Storage. You can use Azure AD and RBAC to authenticate a service principal that has the required permissions to access the storage. For more information about the feature, see [Authorize access to blobs and queues using Azure Active Directory](/azure/storage/common/storage-auth-aad).
@@ -51,14 +51,12 @@ Suppose you need to store sensitive data in Azure Blob Storage. You can use Azur
 > ![GitHub logo](../../_images/github.svg) [GitHub: Azure Cognitive Services Reference Implementation](https://github.com/mspnp/cognitive-services-reference-implementation).
 >
 > The design considerations are described in [Speech transcription with Azure Cognitive Services](../../reference-architectures/ai/speech-to-text-transcription-pipeline.yml).
-
-
-
+  
 ## Key storage
 
-API keys, database connection strings, and passwords can get leaked. Also, data encryption keys are considered to be sensitive information. 
+To prevent security leaks, API keys, database connection strings, data encryption keys, and passwords should be stored in a secure store. Sensitive information should not be stored within the application code or configuration. An attacker gaining read access to source code should not gain knowledge of application and environment-specific secrets.
 
-Store all application keys and secrets in managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview) and not within the application code or configuration. Storing encryption keys a managed store further limits access. The workload can access the secrets by authenticating itself against Key Vault by using managed identities. That access can be restricted with Azure RBAC.
+Store all application keys and secrets in a managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview). Storing encryption keys in a managed store further limits access. The workload can access the secrets by authenticating against Key Vault by using managed identities. That access can be restricted with Azure RBAC.
 
 Make sure that no keys and secrets for any environment types (Dev/Test, or production) are stored in application configuration files or CI/CD pipelines. Developers can use [Visual Studio Connected Services](/azure/key-vault/general/vs-key-vault-add-connected-service) or local-only files to access credentials.
 
@@ -68,6 +66,9 @@ Have processes that periodically detect exposed keys in your application code. A
 ***
 To secure access to your key vaults, control permissions to keys and secrets an access model. For more information, see [Access model overview](/azure/key-vault/general/secure-your-key-vault#access-model-overview).
 
+**Suggested actions**
+
+Consider using [Azure Key Vault](/azure/key-vault/general/overview) for secrets and keys.
 
 ## Operational considerations
 

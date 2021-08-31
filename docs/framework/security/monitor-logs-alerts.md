@@ -106,7 +106,7 @@ For more information, see these articles:
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 - [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
-- [Export alerts](/azure/security-ce.nter/security-center-alerts-overview#export-alerts)
+- [Export alerts](/azure/security-center/security-center-alerts-overview#export-alerts)
 - [Understand Azure Security Center data collection](/azure/security-center/security-center-enable-data-collection)
 
 > Go back to the main article: [Monitor](monitor.md)

@@ -44,7 +44,6 @@ Applications can include secrets like database connection strings, certificate k
 
 For more information about secret management, see [Key and secret management](design-storage-keys.md).
 
-
 **Are errors and exceptions handled properly without exposing that information to users?**
 ***
 

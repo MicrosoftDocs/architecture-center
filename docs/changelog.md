@@ -1,6 +1,6 @@
 ---
 title: What's New in Azure Architecture Center
-description: New and updated articles in Azure Architecture Center
+description: See links to new and updated articles in Azure Architecture Center. The list of links is updated every month.
 author: doodlemania2
 ms.date: 08/23/2021
 ms.topic: article
