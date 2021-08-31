@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Implement a high-bandwidth, low-latency solution for SQL Server workloads. Use Azure NetApp Files for enterprise-scale performance and reduced costs.
   author: EdPrice-MSFT
-  ms.date: 08/18/2021
+  ms.date: 08/31/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
