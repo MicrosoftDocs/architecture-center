@@ -54,7 +54,7 @@ Suppose you need to store sensitive data in Azure Blob Storage. You can use Azur
   
 ## Key storage
 
-API keys, database connection strings, data encryption keys, and passwords should be stored in a secure store and not within the application code or configuration. An attacker gaining read access to source code should not gain knowledge of application and environment-specific secrets.
+To prevent security leaks, API keys, database connection strings, data encryption keys, and passwords should be stored in a secure store. Sensitive information should not be stored within the application code or configuration. An attacker gaining read access to source code should not gain knowledge of application and environment-specific secrets.
 
 Store all application keys and secrets in a managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview). Storing encryption keys in a managed store further limits access. The workload can access the secrets by authenticating against Key Vault by using managed identities. That access can be restricted with Azure RBAC.
 
