@@ -1,6 +1,6 @@
 ---
 title: Implement network segmentation patterns on Azure
-description: Use network level segmentation to secure virtual networks.
+description: Use network-level segmentation to secure virtual networks. Understand Azure features for segmentation. Review three different segmentation patterns.
 author: tremansdoerfer
 ms.author: rimansdo
 ms.date: 07/28/2021

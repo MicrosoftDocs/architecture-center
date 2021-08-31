@@ -1,5 +1,5 @@
 ---
-title: Monitoring a microservices application in AKS
+title: Monitor a microservices app in AKS
 description: Learn about best practices for monitoring a microservices application that runs on Azure Kubernetes Service, by collecting telemetry from the application.
 author: doodlemania2
 ms.date: 04/06/2020

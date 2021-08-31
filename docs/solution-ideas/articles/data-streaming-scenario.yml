@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Data Streaming scenario
+  title: Data streaming with AKS
   titleSuffix: Azure Solution Ideas
-  description: Use AKS to easily ingest and process a real-time data stream with millions of data points collected via sensors.
-  author: doodlemania2
+  description: Use AKS to easily ingest and process a real-time data stream, with millions of data points collected via sensors.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -18,10 +18,10 @@ metadata:
     - data
     - "https://azure.microsoft.com/solutions/architecture/data-streaming-scenario/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/data-streaming-scenario.png
-name: Data Streaming scenario
+name: Data streaming with AKS
 azureCategories:
   - databases
-summary: Use AKS to easily ingest and process a real-time data stream with millions of data points collected via sensors.
+summary: Use AKS to easily ingest and process a real-time data stream, with millions of data points collected via sensors.
 products:
   - azure-app-service
   - azure-api-management

@@ -1,6 +1,6 @@
 ---
 title: Design for reliability
-description: Describes considerations for reliability in application design.
+description: Review a checklist for reliability in application design. Considerations include uptime (availability), high resiliency, low latency, and cost.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual

@@ -41,7 +41,7 @@ Compliance must be systematically monitored and maintained. Regular compliance a
 
 Take advantage the regulatory compliance dashboard in Azure Security Center. By continuously monitoring the dashboard, you can keep track of the compliance status of your workload.
 
-![Screenshot that shows the compliance dashboard.](.\images\regulatory-compliance-pci.png)
+:::image type="content" source="./images/regulatory-compliance-pci.png" alt-text="Example compliance monitoring" border ="true":::
 
 ### Network security
 
