@@ -184,6 +184,7 @@ Here are some architectures that use AKS as the orchestrator.
 | [Cloud Billing](https://cloud.google.com/billing/docs) | [Azure Billing API](/azure/billing/billing-usage-rate-card-overview) | Services to help generate, monitor, forecast, and share billing data for resource usage by time, organization, or product resources. |
 | [Cloud Console](https://cloud.google.com/cloud-console) | [Azure portal](https://azure.microsoft.com/features/azure-portal) | A unified management console that simplifies building, deploying, and operating your cloud resources. |
 | [Operations (formerly Stackdriver)](https://cloud.google.com/products/operations) | [Azure Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
+| [Cost management](https://cloud.google.com/cost-management) | [Azure Cost Management](/services/cost-management/) | Azure Cost Management helps you understand your Azure invoice,manage your billing account and subscriptions and control Azure spending and optimize resource use. |
 
 ## Messaging and eventing
 
