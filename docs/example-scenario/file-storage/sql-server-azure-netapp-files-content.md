@@ -91,7 +91,7 @@ The following considerations apply to this solution:
 
 For Azure NetApp Files:
 
-- The [SLA for this service][SLA for Azure NetApp Files] guarantees 99.99 percent availability.
+- See [SLA for Azure NetApp Files][SLA for Azure NetApp Files] for this service's availability guarantee.
 - You can [convert existing SMB volumes to use Continuous Availability][Convert existing SMB volumes to use Continuous Availability].
 
 For SQL Server on Azure Virtual Machines, implement a solution for HA and DR to avoid downtime:
@@ -175,7 +175,7 @@ Fully deployable architectures that use Azure NetApp Files:
 [Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network
 [Benefits of using Azure NetApp Files for SQL Server deployment - Detailed cost analysis]: /azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server#detailed-cost-analysis
 [Cluster architecture diagram in .svg format]: ./media/sql-server-azure-netapp-files-availability.svg
-[Convert existing SMB volumes to use Continuous Availability]: /azure/azure-netapp-files/convert-smb-continuous-availability
+[Convert existing SMB volumes to use Continuous Availability]: /azure/azure-netapp-files/enable-continuous-availability-existing-smb
 [Create volume replication for Azure NetApp Files]: /azure/azure-netapp-files/cross-region-replication-create-peering
 [Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction
 [FAQs About Azure NetApp Files - Security FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs
