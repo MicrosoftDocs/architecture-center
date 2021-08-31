@@ -102,6 +102,10 @@ The article [Azure Business Continuity Technical Guidance](/azure/architecture
 
 You can also find service-specific performance information in the documentation for each Azure IoT service.
 
+## Cost considerations
+
+In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
+
 ## For more information
 
 For more information about the individual pieces of a solution architecture, see the following topics:

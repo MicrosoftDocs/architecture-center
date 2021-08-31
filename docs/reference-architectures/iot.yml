@@ -18,8 +18,6 @@ name: Azure IoT reference architecture
 azureCategories:
   - iot
   - featured
-categories:
-  - iot
 summary: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 products:
   - azure-blob-storage
