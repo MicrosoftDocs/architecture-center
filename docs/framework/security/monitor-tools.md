@@ -1,6 +1,6 @@
 ---
 title: Azure security monitoring tools
-description: Tools that provide observability into threats and vulnerable resources used by the workload.
+description: Use security monitoring tools in Azure. Also get general security advice, such as detecting threats early and protecting resources against DDoS attacks.
 author: v-aangie
 ms.date: 09/20/2020
 ms.topic: conceptual
