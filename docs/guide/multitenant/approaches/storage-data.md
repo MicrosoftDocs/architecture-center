@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the storage and data components of your solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/30/2021
+ms.date: 08/31/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -22,7 +22,7 @@ ms.custom:
 
 # Architectural approaches for storage and data
 
-When planning multitenant storage or data components, you need to decide on an approach for sharing or isolating your tenants' data. Data is often considered the most valuable part of a solution since it represents your or your customers' valuable business information. So, it's important to carefully plan the approach you use to manage data in a multitenant environment. On this page, we provide guidance about the key considerations and requirements to consider when deciding on an approach to store data in a multitenant system. We then suggest some common patterns for applying multitenancy to storage and data services, and some antipatterns to avoid. Finally, we provide targeted guidance for some specific situations.
+When planning multitenant storage or data components, you need to decide on an approach for sharing or isolating your tenants' data. Data is often considered the most valuable part of a solution, since it represents your or your customers' valuable business information. So, it's important to carefully plan the approach you use to manage data in a multitenant environment. On this page, we provide guidance about the key considerations and requirements to consider when deciding on an approach to store data in a multitenant system. We then suggest some common patterns for applying multitenancy to storage and data services, and some antipatterns to avoid. Finally, we provide targeted guidance for some specific situations.
 
 ## Key considerations and requirements
 
@@ -30,13 +30,13 @@ It's important to consider the approaches you use for storage and data services 
 
 ### Scale
 
-When working with services that store your data, you should consider the number of tenants you have, and the volume of data you store. If you have a small number of tenants (say, five or fewer), and you're storing small amounts of data for each tenant, then it's likely to be wasted effort to plan a highly scalable data storage approach, or to build a fully automated approach to manage your data resources. As you grow, you will increasingly benefit from having a clear strategy to scale your data and storage resources, and to apply automation to their management. When you have 50 tenants or more, or if you plan to reach that level of scale, then it's especially important to design your data and storage approach with scale as a key consideration.
+When working with services that store your data, you should consider the number of tenants you have, and the volume of data you store. If you have a small number of tenants (such as five or less), and you're storing small amounts of data for each tenant, then it's likely to be a wasted effort to plan a highly scalable data storage approach, or to build a fully automated approach to manage your data resources. As you grow, you will increasingly benefit from having a clear strategy to scale your data and storage resources, and to apply automation to their management. When you have 50 tenants or more, or if you plan to reach that level of scale, then it's especially important to design your data and storage approach, with scale as a key consideration.
 
 Consider the extent to which you plan to scale, and clearly plan your data storage architectural approach to meet that level of scale.
 
 ### Performance predictability
 
-Multitenant data and storage services are particularly susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). It's important to consider whether your tenants could affect each other's performance. For example, do tenants have overlapping peaks in their usage patterns over time? Do all of your customers use your solution at the same time each day, or are requests distributed evenly? The level of isolation you need to design for, the amount of resources you need to provision, and the degree to which resources can be shared between tenants will all be impacted by these factors.
+Multitenant data and storage services are particularly susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). It's important to consider whether your tenants could affect each other's performance. For example, do your tenants have overlapping peaks in their usage patterns over time? Do all of your customers use your solution at the same time each day, or are requests distributed evenly? Those factors will impact the level of isolation you need to design for, the amount of resources you need to provision, and the degree to which resources can be shared between tenants.
 
 It's important to consider [Azure's resource and request quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) as part of this decision. For example, suppose you deploy a single storage account to contain all of your tenants' data. If you exceed a specific number of storage operations per second, Azure Storage will reject your application's requests, and all of your tenants will be impacted. This is called _throttling_ behavior. It's important that you monitor for throttled requests. See [Retry guidance for Azure services](../../../best-practices/retry-service-specific.md) for further information.
 
@@ -44,16 +44,16 @@ It's important to consider [Azure's resource and request quotas](/azure/azure-re
 
 When designing a solution that contains multitenant data services, there are usually different options and levels of data isolation, each with their own benefits and tradeoffs. For example:
 
-- When using Azure Cosmos DB, you can deploy separate containers for each tenant and share databases and accounts between multiple tenants. Alternatively, you might consider deploying different databases or even accounts for each tenant depending on the level of isolation required.
+- When using Azure Cosmos DB, you can deploy separate containers for each tenant, and you can share databases and accounts between multiple tenants. Alternatively, you might consider deploying different databases or even accounts for each tenant, depending on the level of isolation required.
 - When using Azure Storage for blob data, you can deploy separate blob containers for each tenant, or you can deploy separate storage accounts.
 - When using Azure SQL, you can use separate tables in shared databases, or you can deploy separate databases or servers for each tenant.
-- In all Azure services, you can consider deploying resources within a single shared Azure subscription, or you can use multiple Azure subscriptions - perhaps even one per tenant.
+- In all Azure services, you can consider deploying resources within a single shared Azure subscription, or you can use multiple Azure subscriptions--perhaps even one per tenant.
 
-There is no single solution that works for every situation. The option you choose depends on a number of factors and the requirements of your tenants. For example, if your tenants need to meet specific compliance or regulatory standards, you may need to apply a higher level of isolation. Similarly, you may have commercial requirements to physically isolate your customers' data, or you might need to enforce isolation to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). Additionally, if tenants need to use their own encryption keys, have individual backup and restore policies, or need to have their data stored in different geographical locations, you might need to isolate them from other tenants, or group them with tenants that have similar policies.
+There is no single solution that works for every situation. The option you choose depends on a number of factors and the requirements of your tenants. For example, if your tenants need to meet specific compliance or regulatory standards, you might need to apply a higher level of isolation. Similarly, you might have commercial requirements to physically isolate your customers' data, or you might need to enforce isolation to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). Additionally, if tenants need to use their own encryption keys, they have individual backup and restore policies, or they need to have their data stored in different geographical locations, you might need to isolate them from other tenants, or group them with tenants that have similar policies.
 
 ### Complexity of implementation
 
-It's important to consider the complexity of your implementation. It's good practice to keep architecture as simple as possible while still meeting your requirements. Avoid committing to an architecture that will become increasingly complex as you scale, or that you don't have the resources or expertise to develop and maintain.
+It's important to consider the complexity of your implementation. It's good practice to keep your architecture as simple as possible, while still meeting your requirements. Avoid committing to an architecture that will become increasingly complex as you scale, or an architecture that you don't have the resources or expertise to develop and maintain.
 
 Similarly, if your solution doesn't need to scale to a large number of tenants, or if you don't have concerns around performance or data isolation, then it's better to keep your solution simple and avoid adding unnecessary complexity.
 
