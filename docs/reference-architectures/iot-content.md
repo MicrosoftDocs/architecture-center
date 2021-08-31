@@ -1,4 +1,3 @@
-# Azure IoT Reference Architecture
 
 This article discusses a recommended architecture for IoT applications using Azure PaaS (platform-as-a-service) components. The following diagram reflects different Aure components that can be used to architect a connected environment IoT solution.
 
