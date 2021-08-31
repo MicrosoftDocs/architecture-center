@@ -5,7 +5,7 @@ author: EdPrice-MSFT
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/01/2021
 ms.author: pnp
 categories:
     - hybrid
