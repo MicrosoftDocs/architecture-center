@@ -10,14 +10,14 @@ Add filler sentence since stacked headings aren't allowed.
 
 Hub and spoke is a network topology that you can use on Azure. It works well for efficiently managing communication services and meeting security requirements at scale. See [Hub-and-spoke network topology][Hub-and-spoke network topology] for more information on hub-and-spoke networking models.
 
-By using a hub-and-spoke architecture you can take advantage of these benefits:
+By using a hub-and-spoke architecture, you can take advantage of these benefits:
 
-- Deploy individual workloads between central IT teams and workload teams
-- Save costs by minimizing redundant resources
-- Manage networks efficiently by centralizing services that multiple workloads share
-- Overcome limits associated with single Azure subscriptions
+- Deploying individual workloads between central IT teams and workload teams
+- Saving costs by minimizing redundant resources
+- Managing networks efficiently by centralizing services that multiple workloads share
+- Overcoming limits associated with single Azure subscriptions
 
-This diagram shows a typical hub-and-spoke topology that customers deploy in Azure.
+This diagram shows a typical hub-and-spoke topology that customers deploy in Azure:
 
 :::image type="complex" source="./images/private-link-hub-spoke-network-basic-hub-spoke-diagram.png" alt-text="Architecture diagram showing how Azure Databricks works with data storage services to refine and analyze data and make it available for other services." border="false":::
    The diagram contains three gray rectangles: one labeled Process, one labeled Serve, and one labeled Store. The Process and Serve rectangles are next to each other in the upper part of the diagram. The Serve rectangle contains a white box with icons for Machine Learning and Azure Kubernetes Service. Another white box straddles the Process and Serve rectangles. It contains icons for Azure Databricks and MLflow. An arrow points from that box to the white box in the Serve rectangle. Below the Process rectangle is the Store rectangle. It contains a white box with icons for Data Lake Storage, Delta Lake, and three database tables labeled Bronze, Silver, and Gold. Three lines connect the Process and Store rectangles, with arrows at each end of each line.
@@ -49,7 +49,7 @@ Traffic between your virtual network and the service that you're accessing trave
 
 The following recommendations apply both to Azure PaaS Services and Azure hosted customer-owned/partner services. There is no difference from the user point of view.
 
-## Decision tree for Private Link deployment in hub and spoke
+## Decision tree for Private Link deployment
 
 Consider these questions when you're deciding where to deploy Private Endpoint inside your network architecture:
 
@@ -126,17 +126,22 @@ To restrict access from your hub or on-premises system to Private Endpoint, use 
 
 ### Name resolution
 
-Private endpoints require a specific DNS setup to resolve the private IP address that your virtual network associates with them. If you use a corporate custom DNS solution, it's best to use DNSZoneGroups. With this configuration, you can integrate Private Endpoint with a centralized instance of Azure Private DNS Zone. It doesn't matter whether you've deployed resources in a hub or a spoke. You only need to link Private DNS Zone with all virtual networks that need to resolve your Private Endpoint DNS name.
+Components in your virtual network associate a private IP address with each private endpoint. Those components can only resolve that private IP address if you use a specific DNS setup. If you use a custom DNS solution, it's best to use DNS zone groups. With this setup, you can integrate Private Endpoint with a centralized instance of Azure Private DNS Zone. It doesn't matter whether you've deployed resources in a hub or a spoke. You only need to link Private DNS Zone with all virtual networks that need to resolve your Private Endpoint DNS name.
 
+With this approach, on-premises and Azure DNS infrastructure clients can resolve the name and access the private IP address. For a reference implementation, see [Private Link and DNS integration at scale][Private Link and DNS integration at scale].
 
+### Cost
 
+When you use Private Endpoint across a regional virtual network peering, you don't incur peering charges for traffic to and from Private Endpoint. For any other traffic between your infrastructure resources that flows across a virtual network peering, peering costs still apply.
 
+However, if you deploy Private Endpoint across different regions, Private Link and global peering inbound and outbound rates apply. For more information, see [Bandwidth pricing][Bandwidth pricing].
 
-
+[Bandwidth pricing]: https://azure.microsoft.com/en-us/pricing/details/bandwidth/
 [Diagnose a virtual machine routing problem - Diagnose using Azure portal]: https://docs.microsoft.com/en-us/azure/virtual-network/diagnose-network-routing-problem#diagnose-using-azure-portal
 [How to configure virtual hub routing]: https://docs.microsoft.com/en-us/azure/virtual-wan/how-to-virtual-hub-routing
 [Hub-and-spoke network topology]: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology
 [Integrate Azure services with virtual networks for network isolation]: https://docs.microsoft.com/en-us/azure/virtual-network/vnet-integration-for-azure-services
+[Private Link and DNS integration at scale]: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale
 [SVG version of architecture diagram]: ./images/private-link-hub-spoke-network-basic-hub-spoke-diagram.svg
 [SVG version of decision tree]: ./images/private-link-hub-spoke-network-decision-tree.svg
 [SVG version of Private Link diagram]: ./images/private-link-hub-spoke-private-link-diagram.svg
