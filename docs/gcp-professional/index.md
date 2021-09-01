@@ -82,7 +82,7 @@ Azure resources are deployed and managed using one of two models: [Azure Resourc
 
 ### Resource groups
 
-Azure additionally has an entity called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. An Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group but can only be in one resource group at a time. For more information, see (/azure/azure-resource-manager/management/move-resources-overview). Resource groups are the fundamental grouping used by Azure Resource Manager.
+Azure additionally has an entity called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. An Azure resource is always associated with one resource group. A resource created in one resource group can be moved to another group but can only be in one resource group at a time. For more information, see [Move Azure resources across resource groups, subscriptions, or regions](/azure/azure-resource-manager/management/move-resources-overview). Resource groups are the fundamental grouping used by Azure Resource Manager.
 
 Resources can also be organized using [tags](/azure/azure-resource-manager/resource-group-using-tags). Tags are key-value pairs that allow you to group resources across your subscription irrespective of resource group membership.
 
