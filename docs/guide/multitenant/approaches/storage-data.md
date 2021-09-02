@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the storage and data components of your solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/31/2021
+ms.date: 09/02/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
