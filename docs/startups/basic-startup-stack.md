@@ -79,7 +79,7 @@ These choices allow Jane to limit the time spent managing infrastructure while s
 
 ### Sample Code
 
-TODO: Link to project with bicep/ARM template
+You can see a sample implementation of the Core Startup Stack [on GitHub](https://github.com/Azure-Samples/core-startup-stack-rails). This sample uses a Ruby on Rails app but the concepts and techniques are the same for most projects built using a Dockerfile.
 
 ## Next Steps
 
