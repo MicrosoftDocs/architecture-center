@@ -1,5 +1,5 @@
 ---
-title: The Basic Startup Stack
+title: The Core Startup Stack
 description: Understand how to approach architecture when you're building a first MVP or prototype for a startup.
 author: mootpointer
 ms.date: 05/15/2021
@@ -10,7 +10,7 @@ ms.custom:
   - fcp
 ---
 
-# The Basic Startup Stack
+# The Core Startup Stack
 
 ## Approach
 
@@ -20,9 +20,9 @@ Our recommendation for a first startup stack is simple. Many technologists might
 
 An _"interesting"_ stack can be problematic in two ways: as the cause of bugs and requiring constant attention, or so sophisticated it sucks energy from building your actual product. Bugs aren't always because of complexity but having a complex stack makes it easier to ship bugs. Similarly, a sophisticated architecture isn't always a waste of energy but if you haven't found product market fit, it probably is.
 
-Below is a simple diagram of the Basic Startup Stack – a recommended set of components that provide _just enough_ to get your product off the ground and into the hands of your customers. For 80% of startups, this stack will be all you need to test the basic hypotheses built into your product. For some (e.g those doing machine learning, working with IoT, or working in highly regulated environments), other components may be required.
+Below is a simple diagram of the Core Startup Stack – a recommended set of components that provide _just enough_ to get your product off the ground and into the hands of your customers. For 80% of startups, this stack will be all you need to test the basic hypotheses built into your product. For some (e.g those doing machine learning, working with IoT, or working in highly regulated environments), other components may be required.
 
-![A block diagram of the Basic Startup Stack](images/startup-stack-blocks.png)
+![A block diagram of the Core Startup Stack](images/startup-stack-blocks.png)
 
 ## Components
 
@@ -60,9 +60,9 @@ An exciting startup, Contoso, is building a product that will revolutionize the 
 
 Jane has built an early prototype using a Python backend, with a React frontend written in Typescript. They've been running demos on their laptop but with the first customer sales meetings looming, it's time to deploy the app.
 
-Based on the Basic Startup Stack, and the technologies used by Contoso, Jane has decided on the following architecture:
+Based on the Core Startup Stack, and the technologies used by Contoso, Jane has decided on the following architecture:
 
-![The startup stack architecture used by Contoso to deploy their application to Azure](images/startup-stack-architecture.png)
+![The Core Startup Stack architecture used by Contoso to deploy their application to Azure](images/startup-stack-architecture.png)
 
 ### Technology Choices
 
