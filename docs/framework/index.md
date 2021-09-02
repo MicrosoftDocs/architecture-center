@@ -21,17 +21,25 @@ keywords:
 
 # Microsoft Azure Well-Architected Framework
 
-The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency. Incorporating these pillars helps produce a high quality, stable, and efficient cloud architecture:
+The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architectural excellence:
+
+- Reliability
+- Security
+- Cost Optimization
+- Operational Excellence
+- Performance Efficiency
+
+Incorporating these pillars helps produce a high quality, stable, and efficient cloud architecture:
 
 | Pillar | Description |
 |--------|-------------|
+| [Reliability][resiliency-pillar] | The ability of a system to recover from failures and continue to function. |
+| [Security][security-pillar] | Protecting applications and data from threats. |
 | [Cost Optimization][cost-pillar] | Managing costs to maximize the value delivered. |
 | [Operational Excellence][devops-pillar] | Operations processes that keep a system running in production. |
 | [Performance Efficiency][scalability-pillar] | The ability of a system to adapt to changes in load. |
-| [Reliability][resiliency-pillar] | The ability of a system to recover from failures and continue to function. |
-| [Security][security-pillar] | Protecting applications and data from threats. |
 
-For an overview of these tenets, reference the following video on how to architect successful workloads on Azure with the Well-Architected Framework:
+Reference the following video about how to architect successful workloads on Azure with the Well-Architected Framework:
 
 >[!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Architect-successful-workloads-on-Azure--Introduction-Ep-1-Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Architect successful workloads on Azure - Microsoft Channel 9 Video"></iframe>]
 
@@ -39,89 +47,32 @@ For an overview of these tenets, reference the following video on how to archite
 
 The following diagram gives a high-level overview of the Azure Well-Architected Framework:
 
-![Well-Architected Framework diagram](./_images/WAF-diagram.png)
+:::image type="content" source="./_images/WAF-diagram.png" alt-text="Well-Architected Framework diagram":::
 
-To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).  
+In the center is the Well-Architected Framework which includes the five pillars of architectural excellence. Surrounding the Well-Architected Framework are six supporting elements:
 
-We also recommend you use Azure Advisor and Advisor Score to identify and prioritize opportunities to improve the posture of your workloads.  Both services are free to all Azure users and align to the five pillars of the Well-Architected Framework:
+- [Azure Well-Architected Review](/assessments/?mode=pre-assessment&session=local)
+- [Azure Advisor](/azure/advisor/)
+- [Documentation](/azure/architecture/framework/)
+- [Partners](https://azure.microsoft.com/en-us/partners/), [Support](https://azure.microsoft.com/en-us/support/options/#support-plans), and Services Offers
+- [Reference Architectures](/azure/architecture/guide/)
+- [Design Principles](/azure/architecture/guide/design-principles/)
 
-- __[Azure Advisor](/azure/advisor/)__ is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, reliability, operational excellence, and security of your Azure resources. Learn more about Azure Advisor [here](/azure/advisor/).
+### Assessing your workoad
 
-- __[Advisor Score](/azure/advisor/azure-advisor-score)__ is a core feature of Azure Advisor that aggregates Advisor recommendations into a simple, actionable score.  This enables you to tell at a glance if you're taking the necessary steps to build reliable, secure, and cost-efficient solutions, and to prioritize the actions that will yield the biggest improvement to the posture of your workloads. The Advisor score consists of an overall score, which can be further broken down into five category scores corresponding to each of the Well-Architected pillars. Learn more about Advisor Score [here](/azure/advisor/azure-advisor-score).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
-| Pillar | Description |
-|--------|-------------|
-| [Cost Optimization][cost-pillar] | Managing costs to maximize the value delivered. |
-| [Operational Excellence][devops-pillar] | Operations processes that keep a system running in production. |
-| [Performance Efficiency][scalability-pillar] | The ability of a system to adapt to changes in load. |
-| [Reliability][resiliency-pillar] | The ability of a system to recover from failures and continue to function. |
-| [Security][security-pillar] | Protecting applications and data from threats. |
+:::image type="content" source="./_images/WAR-graphic.png" alt-text="Microsoft Azure Well-Architected Review":::
 
-## Cost Optimization
+We also recommend you use Azure Advisor and Advisor Score to identify and prioritize opportunities to improve the posture of your workloads. Both services are free to all Azure users and align to the five pillars of the Well-Architected Framework:
 
-When you are designing a cloud solution, focus on generating incremental value early. Apply the principles of **[Build-Measure-Learn](/azure/cloud-adoption-framework/innovate/considerations/)**, to accelerate your time to market while avoiding capital-intensive solutions. Use the pay-as-you-go strategy for your architecture, and invest in scaling out, rather than delivering a large investment first version. Consider opportunity costs in your architecture, and the balance between first mover advantage versus "fast follow". Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
+- __[Azure Advisor](/azure/advisor/)__ is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It recommends solutions that can help you improve the reliability, security, cost effectiveness, performance, and operational excellence of your Azure resources. Learn more about [Azure Advisor](/azure/advisor/).
 
-### Cost guidance
-
-- Review [cost principles](./cost/overview.md)
-- [Develop a cost model](./cost/design-model.md)
-- Create [budgets and alerts](./cost/monitor-alert.md)
-- Review the [cost optimization checklist](./cost/optimize-checklist.md)
-
-## Operational Excellence
-
-This pillar covers the operations and processes that keep an application running in production. Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
-
-Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you do not have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into VMs to troubleshoot an issue or sift through log files. With PaaS services, there may not even be a dedicated VM to log into. Monitoring and diagnostics give insight into the system, so that you know when and where failures occur. All systems must be observable. Use a common and consistent logging schema that lets you correlate events across systems.
-
-The monitoring and diagnostics process has several distinct phases:
-
-- Instrumentation. Generating the raw data, from application logs, web server logs, diagnostics built into the Azure platform, and other sources.
-- Collection and storage. Consolidating the data into one place.
-- Analysis and diagnosis. To troubleshoot issues and see the overall health.
-- Visualization and alerts. Using telemetry data to spot trends or alert the operations team.
-
-Enforcing resource-level rules via [Azure Policy](/azure/governance/policy/overview) helps ensure adoption of operational excellence best practices for all the assets which support your workload. For example, Azure Policy can help ensure that all of the VMs supporting your workload adhere to a pre-approved list of VM Skus. Azure Advisor provides [a set of Azure Policy recommendations](/azure/advisor/advisor-operational-excellence-recommendations#use-azure-policy-recommendations) to help you quickly identify opportunities to implement Azure Policy best practices for your workload.
-
-Use the [DevOps checklist][devops-checklist] to review your design from a management and DevOps standpoint.
-
-### Operational excellence guidance
-
-- [Design patterns for operational excellence](./devops/devops-patterns.md)
-- Best practices: [Monitoring and diagnostics][monitoring]
-
-## Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. The main ways to achieve this are by using scaling appropriately and implementing PaaS offerings that have scaling built in.
-
-There are two main ways that an application can scale. Vertical scaling (scaling *up*) means increasing the capacity of a resource, for example by using a larger VM size. Horizontal scaling (scaling *out*) is adding new instances of a resource, such as VMs or database replicas.
-
-Horizontal scaling has significant advantages over vertical scaling:
-
-- True cloud scale. Applications can be designed to run on hundreds or even thousands of nodes, reaching scales that are not possible on a single node.
-- Horizontal scale is elastic. You can add more instances if load increases, or remove them during quieter periods.
-- Scaling out can be triggered automatically, either on a schedule or in response to changes in load.
-- Scaling out may be cheaper than scaling up. Running several small VMs can cost less than a single large VM.
-- Horizontal scaling can also improve resiliency, by adding redundancy. If an instance goes down, the application keeps running.
-
-An advantage of vertical scaling is that you can do it without making any changes to the application. But at some point you'll hit a limit, where you can't scale any up any more. At that point, any further scaling must be horizontal.
-
-Horizontal scale must be designed into the system. For example, you can scale out VMs by placing them behind a load balancer. But each VM in the pool must be able to handle any client request, so the application must be stateless or store state externally (say, in a distributed cache). Managed PaaS services often have horizontal scaling and autoscaling built in. The ease of scaling these services is a major advantage of using PaaS services.
-
-Just adding more instances doesn't mean an application will scale, however. It might simply push the bottleneck somewhere else. For example, if you scale a web front end to handle more client requests, that might trigger lock contentions in the database. You would then need to consider additional measures, such as optimistic concurrency or data partitioning, to enable more throughput to the database.
-
-Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
-
-Use the [Performance efficiency checklist](scalability/performance-efficiency.md) to review your design from a scalability standpoint.
-
-### Performance efficiency guidance
-
-- [Design patterns for performance efficiency](./scalability/performance-efficiency-patterns.md)
-- Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs], [Caching][caching], [CDN][cdn], [Data partitioning][data-partitioning]
+- __[Advisor Score](/azure/advisor/azure-advisor-score)__ is a core feature of Azure Advisor that aggregates Advisor recommendations into a simple, actionable score. This enables you to tell at a glance if you're taking the necessary steps to build reliable, secure, and cost-efficient solutions, and to prioritize the actions that will yield the biggest improvement to the posture of your workloads. The Advisor score consists of an overall score, which can be further broken down into five category scores corresponding to each of the Well-Architected pillars. Learn more about [Advisor Score](/azure/advisor/azure-advisor-score).
 
 ## Reliability
 
-A reliable workload is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your workload when they need to.
+A reliable workload is one that is both resilient and available. [Resiliency](./resiliency/index.yml) is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your workload when they need to.
 
 In traditional application development, there has been a focus on increasing the mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, due to several factors:
 
@@ -134,11 +85,15 @@ All of these factors mean that cloud applications must be designed to expect occ
 
 - Azure Storage, SQL Database, and Cosmos DB all provide built-in data replication, both within a region and across regions.
 - Azure managed disks are automatically placed in different storage scale units to limit the effects of hardware failures.
-- VMs in an availability set are spread across several fault domains. A fault domain is a group of VMs that share a common power source and network switch. Spreading VMs across fault domains limits the impact of physical hardware failures, network outages, or power interruptions.
+- Virtual machines (VMs) in an availability set are spread across several fault domains. A fault domain is a group of VMs that share a common power source and network switch. Spreading VMs across fault domains limits the impact of physical hardware failures, network outages, or power interruptions.
 
 That said, you still need to build resiliency into your application. Resiliency strategies can be applied at all levels of the architecture. Some mitigations are more tactical in nature &mdash; for example, retrying a remote call after a transient network failure. Other mitigations are more strategic, such as failing over the entire application to a secondary region. Tactical mitigations can make a big difference. While it's rare for an entire region to experience a disruption, transient problems such as network congestion are more common &mdash; so target these first. Having the right monitoring and diagnostics is also important, both to detect failures when they happen, and to find the root causes.
 
 When designing an application to be resilient, you must understand your availability requirements. How much downtime is acceptable? This is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available?
+
+For more information, reference the following video that will show you how to start improving the reliability of your Azure workloads:
+
+>[!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-improving-the-reliability-of-your-Azure-workloads--Reliability-Ep-1--Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Start improving the reliability of your Azure workloads - Microsoft Channel 9 Video"></iframe>]
 
 ### Reliability guidance
 
@@ -148,9 +103,13 @@ When designing an application to be resilient, you must understand your availabi
 
 ## Security
 
-Think about security throughout the entire lifecycle of an application, from design and implementation to deployment and operations. The Azure platform provides protections against a variety of threats, such as network intrusion and DDoS attacks. But you still need to build security into your application and into your DevOps processes.
+Think about [security](./security/index.yml) throughout the entire lifecycle of an application, from design and implementation to deployment and operations. The Azure platform provides protections against a variety of threats, such as network intrusion and DDoS attacks. But you still need to build security into your application and into your DevOps processes.
 
-Here are some broad security areas to consider.
+Ask the right questions about secure application development on Azure by referencing the following video:
+
+>[!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Ask the right questions about secure application development on Azure - Microsoft Channel 9 Video"></iframe>]
+
+The following sections include broad security areas to consider.
 
 ### Identity management
 
@@ -167,7 +126,7 @@ Use [Azure role-based access control (Azure RBAC)][rbac] to grant users within y
 
 In general, the security best practices for application development still apply in the cloud. These include things like using SSL everywhere, protecting against CSRF and XSS attacks, preventing SQL injection attacks, and so on.
 
-Cloud applications often use managed services that have access keys. Never check these into source control. Consider storing application secrets in Azure Key Vault.
+Cloud applications often use managed services that have access keys. Never check these into source control. Consider storing application secrets in [Azure Key Vault](/azure/key-vault/general/overview).
 
 ### Data sovereignty and encryption
 
@@ -180,6 +139,87 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 - [Azure Security Center][security-center] provides integrated security monitoring and policy management for your workload.
 - [Azure Security Documentation][security-documentation]
 - [Microsoft Trust Center][trust-center]
+
+## Cost optimization
+
+When you are designing a cloud solution, focus on generating incremental value early. Apply the principles of **[Build-Measure-Learn](/azure/cloud-adoption-framework/innovate/considerations/)**, to accelerate your time to market while avoiding capital-intensive solutions. Use the pay-as-you-go strategy for your architecture, and invest in scaling out, rather than delivering a large investment first version. Consider opportunity costs in your architecture, and the balance between first mover advantage versus *fast follow*. Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution. 
+
+For more information, reference [Cost optimization](./cost/index.yml) and the following video on how to start optimizing your Azure costs:
+
+>[!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-optimizing-your-Azure-costs--Cost-Optimization-Ep-1--Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Start optimizing your Azure costs - Microsoft Channel 9 Video"></iframe>]
+
+### Cost guidance
+
+- Review [cost principles](./cost/overview.md)
+- [Develop a cost model](./cost/design-model.md)
+- Create [budgets and alerts](./cost/monitor-alert.md)
+- Review the [cost optimization checklist](./cost/optimize-checklist.md)
+
+## Operational excellence
+
+[Operational excellence](./devops/index.yml) covers the operations and processes that keep an application running in production. Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
+
+Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you do not have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into VMs to troubleshoot an issue or sift through log files. With PaaS services, there may not even be a dedicated VM to log into. Monitoring and diagnostics give insight into the system, so that you know when and where failures occur. All systems must be observable. Use a common and consistent logging schema that lets you correlate events across systems.
+
+The monitoring and diagnostics process has several distinct phases:
+
+- *Instrumentation*: Generating the raw data, from application logs, web server logs, diagnostics built into the Azure platform, and other sources.
+- *Collection and storage*: Consolidating the data into one place.
+- *Analysis and diagnosis*: To troubleshoot issues and see the overall health.
+- *Visualization and alerts*: Using telemetry data to spot trends or alert the operations team.
+
+Enforcing resource-level rules via [Azure Policy](/azure/governance/policy/overview) helps ensure adoption of operational excellence best practices for all the assets which support your workload. For example, Azure Policy can help ensure that all of the VMs supporting your workload adhere to a pre-approved list of VM SKUs. Azure Advisor provides [a set of Azure Policy recommendations](/azure/advisor/advisor-operational-excellence-recommendations#use-azure-policy-recommendations) to help you quickly identify opportunities to implement Azure Policy best practices for your workload.
+
+Use the [DevOps checklist][devops-checklist] to review your design from a management and DevOps standpoint.
+
+For more information, reference the following video about bringing security into your DevOps practice on Azure:
+
+> [!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/DevSecOps-bringing-security-into-your-DevOps-practice-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="DevSecOps: bringing security into your DevOps practice on Azure - Microsoft Channel 9 Video"></iframe>]
+
+### Operational excellence guidance
+
+- [Design patterns for operational excellence](./devops/devops-patterns.md)
+- Best practices: [Monitoring and diagnostics][monitoring]
+
+## Performance efficiency
+
+[Performance efficiency](./scalability/index.yml) is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. The main ways to achieve this are by using scaling appropriately and implementing PaaS offerings that have scaling built in.
+
+There are two main ways that an application can scale. Vertical scaling (scaling *up*) means increasing the capacity of a resource, for example by using a larger VM size. Horizontal scaling (scaling *out*) is adding new instances of a resource, such as VMs or database replicas.
+
+Horizontal scaling has significant advantages over vertical scaling:
+
+- *True cloud scale*: Applications can be designed to run on hundreds or even thousands of nodes, reaching scales that are not possible on a single node.
+- *Horizontal scale is elastic*: You can add more instances if load increases, or remove them during quieter periods.
+- Scaling out can be triggered automatically, either on a schedule or in response to changes in load.
+- Scaling out may be cheaper than scaling up. Running several small VMs can cost less than a single large VM.
+- Horizontal scaling can also improve resiliency, by adding redundancy. If an instance goes down, the application keeps running.
+
+An advantage of vertical scaling is that you can do it without making any changes to the application. But at some point, you'll hit a limit, where you can't scale up any more. At that point, any further scaling must be horizontal.
+
+Horizontal scale must be designed into the system. For example, you can scale out VMs by placing them behind a load balancer. But each VM in the pool must be able to handle any client request, so the application must be stateless or store state externally (say, in a distributed cache). Managed PaaS services often have horizontal scaling and autoscaling built in. The ease of scaling these services is a major advantage of using PaaS services.
+
+Just adding more instances doesn't mean an application will scale, however. It might simply push the bottleneck somewhere else. For example, if you scale a web front end to handle more client requests, that might trigger lock contentions in the database. You would then need to consider additional measures, such as optimistic concurrency or data partitioning, to enable more throughput to the database.
+
+Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
+
+Use the [Performance efficiency checklist](scalability/performance-efficiency.md) to review your design from a scalability standpoint.
+
+### Performance efficiency guidance
+
+- [Design patterns for performance efficiency](./scalability/performance-efficiency-patterns.md)
+- Best practices:
+  - [Autoscaling][autoscale]
+  - [Background jobs][background-jobs]
+  - [Caching][caching]
+  - [CDN][cdn]
+  - [Data partitioning][data-partitioning]
+
+## Next steps
+
+Learn more about:
+
+
 
 <!-- links -->
 
