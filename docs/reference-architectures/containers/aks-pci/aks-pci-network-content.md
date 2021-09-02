@@ -327,7 +327,7 @@ Do not disclose private IP addresses and routing information to unauthorized par
 
 ##### Your responsibilities
 
-To meet this requirement, choosing a public AKS cluster is not an option. A private cluster keeps DNS records off the public internet by using a private DNS zone. However, it is still possible to [Create a private AKS cluster with a Public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). Therefore, it's recommended to _explicitly_ disable this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider adding Azure Policy to enforce the usage of private clusters without public DNS records.
+To meet this requirement, a public AKS cluster is not an option. A private cluster keeps DNS records off the public internet by using a private DNS zone. However, it's still possible to [Create a private AKS cluster with a Public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). So, it's recommended to _explicitly_ disable this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider adding Azure Policy to enforce the use of private clusters without public DNS records.
 
 Also, use a private DNS zone for routing between the subnet that has Azure Application Gateway integrated with WAF, and the subnet that has the internal load balancer. Ensure that no HTTP responses include any private IP information in the headers or body. Ensure that logs that might contain IP and DNS records are not exposed outside of operational needs.
 
