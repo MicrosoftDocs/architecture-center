@@ -5,7 +5,7 @@ This solution idea shows how you can deploy Azure Virtual Desktop (AVD) rapidly 
 This solution idea also applies to mergers and acquisitions, organization rebranding, and multiple on-premises identities requirements.
 
 ## Architecture
-:::image type="content" source="images/wvd-multi-forest-aadds.png" alt-text="Azure Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds.png":::
+:::image type="content" source="images/wvd-multi-forest-aadds-edited.png" alt-text="Azure Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds-edited.png":::
 
 ## Data flow
 
