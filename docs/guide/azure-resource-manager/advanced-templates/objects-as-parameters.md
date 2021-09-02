@@ -39,28 +39,27 @@ Next, let's provide values for the `VNetSettings` object:
 
 ```json
 "parameters":{
-    "VNetSettings":{
-        "value":{
-            "name":"VNet1",
-            "addressPrefixes": [
-                {
-                    "name": "firstPrefix",
-                    "addressPrefix": "10.0.0.0/22"
-                }
-            ],
-            "subnets":[
-                {
-                    "name": "firstSubnet",
-                    "addressPrefix": "10.0.0.0/24"
-                },
-                {
-                    "name":"secondSubnet",
-                    "addressPrefix":"10.0.1.0/24"
-                }
-            ]
-        }
-    }
-}
+        "VNetSettings": {
+            "value": {
+                "name": "VNet1",
+                "addressPrefixes": [
+                    {
+                        "name": "firstPrefix",
+                        "addressPrefix": "10.0.0.0/22"
+                    }
+                ],
+                "subnets": [
+                    {
+                        "name": "firstSubnet",
+                        "addressPrefix": "10.0.0.0/24"
+                    },
+                    {
+                        "name": "secondSubnet",
+                        "addressPrefix": "10.0.1.0/24"
+                    }
+                ]
+            }
+        },
 ```
 
 As you can see, our single parameter actually specifies three subproperties: `name`, `addressPrefixes`, and `subnets`. Each of these subproperties either specifies a value or other subproperties. The result is that our single parameter specifies all the values necessary to deploy our virtual network.
@@ -71,33 +70,32 @@ Now let's have a look at the rest of our template to see how the `VNetSettings` 
 ...
 "resources": [
     {
-        "apiVersion": "2015-06-15",
+        "apiVersion": "2020-05-01",
         "type": "Microsoft.Network/virtualNetworks",
         "name": "[parameters('VNetSettings').name]",
-        "location":"[resourceGroup().location]",
+        "location": "[resourceGroup().location]",
         "properties": {
-          "addressSpace":{
-              "addressPrefixes": [
-                "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
-              ]
-          },
-          "subnets":[
-              {
-                  "name":"[parameters('VNetSettings').subnets[0].name]",
-                  "properties": {
-                      "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
-                  }
-              },
-              {
-                  "name":"[parameters('VNetSettings').subnets[1].name]",
-                  "properties": {
-                      "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
-                  }
-              }
-          ]
+            "addressSpace": {
+                "addressPrefixes": [
+                    "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
+                ]
+            },
+            "subnets": [
+                {
+                    "name": "[parameters('VNetSettings').subnets[0].name]",
+                    "properties": {
+                        "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
+                    }
+                },
+                {
+                    "name": "[parameters('VNetSettings').subnets[1].name]",
+                    "properties": {
+                        "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
+                    }
+                }
+            ]
         }
-    }
-  ]
+    },
 ```
 
 The values of our `VNetSettings` object are applied to the properties required by our virtual network resource using the `parameters()` function with both the `[]` array indexer and the dot operator. This approach works if you just want to statically apply the values of the parameter object to the resource. However, if you want to dynamically assign an array of property values during deployment you can use a [copy loop][azure-resource-manager-create-multiple-instances]. To use a copy loop, you provide a JSON array of resource property values and the copy loop dynamically applies the values to the resource's properties.
@@ -130,7 +128,7 @@ Now let's take a look at the way we access the properties in the variable using 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     ...
     "copy": {
@@ -224,85 +222,115 @@ Now let's take a look at our template. Our first resource named `NSG1` deploys t
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "networkSecurityGroupsSettings": {"type":"object"}
-  },
-  "variables": {},
-  "resources": [
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "NSG1",
-      "location":"[resourceGroup().location]",
-      "properties": {
-          "securityRules":[]
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "VNetSettings": {
+            "type": "object"
+        },
+        "networkSecurityGroupsSettings": {
+            "type": "object"
+        }
     },
-    {
-        "apiVersion": "2015-01-01",
-        "type": "Microsoft.Resources/deployments",
-        "name": "loop-0",
-        "dependsOn": [
-            "NSG1"
-        ],
-        "properties": {
-            "mode":"Incremental",
-            "parameters":{},
-            "template": {
-                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "apiVersion": "2020-05-01",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('VNetSettings').name]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[parameters('VNetSettings').subnets[0].name]",
+                        "properties": {
+                            "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
+                        }
+                    },
+                    {
+                        "name": "[parameters('VNetSettings').subnets[1].name]",
+                        "properties": {
+                            "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2020-05-01",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "NSG1",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "securityRules": []
+            }
+        },
+        {
+            "apiVersion": "2020-06-01",
+            "type": "Microsoft.Resources/deployments",
+            "name": "loop-0",
+            "dependsOn": [
+                "NSG1"
+            ],
+            "properties": {
+                "mode": "Incremental",
                 "parameters": {},
-                "variables": {},
-                "resources": [],
-                "outputs": {}
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [],
+                    "outputs": {}
+                }
+            }
+        },
+        {
+            "apiVersion": "2020-06-01",
+            "type": "Microsoft.Resources/deployments",
+            "name": "[concat('loop-', copyIndex(1))]",
+            "dependsOn": [
+                "[concat('loop-', copyIndex())]"
+            ],
+            "copy": {
+                "name": "iterator",
+                "count": "[length(parameters('networkSecurityGroupsSettings').securityRules)]"
+            },
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "name": "[concat('NSG1/' , parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].name)]",
+                            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+                            "apiVersion": "2016-09-01",
+                            "location": "[resourceGroup().location]",
+                            "properties": {
+                                "description": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].description]",
+                                "priority": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].priority]",
+                                "protocol": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].protocol]",
+                                "sourcePortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourcePortRange]",
+                                "destinationPortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationPortRange]",
+                                "sourceAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourceAddressPrefix]",
+                                "destinationAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationAddressPrefix]",
+                                "access": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].access]",
+                                "direction": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].direction]"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
             }
         }
-    },
-    {
-        "apiVersion": "2015-01-01",
-        "type": "Microsoft.Resources/deployments",
-        "name": "[concat('loop-', copyIndex(1))]",
-        "dependsOn": [
-          "[concat('loop-', copyIndex())]"
-        ],
-        "copy": {
-          "name": "iterator",
-          "count": "[length(parameters('networkSecurityGroupsSettings').securityRules)]"
-        },
-        "properties": {
-          "mode": "Incremental",
-          "template": {
-            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-           "parameters": {},
-            "variables": {},
-            "resources": [
-                {
-                    "name": "[concat('NSG1/' , parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].name)]",
-                    "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-                    "apiVersion": "2016-09-01",
-                    "location":"[resourceGroup().location]",
-                    "properties":{
-                        "description": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].description]",
-                        "priority":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].priority]",
-                        "protocol":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].protocol]",
-                        "sourcePortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourcePortRange]",
-                        "destinationPortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationPortRange]",
-                        "sourceAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourceAddressPrefix]",
-                        "destinationAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationAddressPrefix]",
-                        "access":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].access]",
-                        "direction":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].direction]"
-                        }
-                  }
-            ],
-            "outputs": {}
-          }
-        }
-    }
-  ],
-  "outputs": {}
+    ]
 }
 ```
 
@@ -314,10 +342,10 @@ An example template is available on [GitHub][github]. To deploy the template, cl
 
 ```bash
 git clone https://github.com/mspnp/template-examples.git
-cd template-examples/example3-object-param
+cd template-examples/example2-object-param
 az group create --location <location> --name <resource-group-name>
 az deployment group create -g <resource-group-name> \
-    --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example3-object-param/deploy.json \
+    --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example2-object-param/deploy.json \
     --parameters deploy.parameters.json
 ```
 
