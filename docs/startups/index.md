@@ -62,4 +62,4 @@ There is always a temptation to prematurely optimize. These growth and maturatio
 
 ## Next Steps
 
-Put the principles of architecture for startups into practice with the [Core Startup Stack](core-startup-stack.md).
+- Put the principles of architecture for startups into practice with the [Core Startup Stack](core-startup-stack.md).
