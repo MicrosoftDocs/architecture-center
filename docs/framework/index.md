@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about the five pillars of the Azure Well-Architected Framework and how they can produce a high quality, stable, and efficient cloud architecture.
 author: david-stanford 
 ms.author: pnp
-ms.date: 11/20/2019
+ms.date: 09/02/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -21,7 +21,25 @@ keywords:
 
 # Microsoft Azure Well-Architected Framework
 
-The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security. Incorporating these pillars helps produce a high quality, stable, and efficient cloud architectures.
+The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency. Incorporating these pillars helps produce a high quality, stable, and efficient cloud architecture:
+
+| Pillar | Description |
+|--------|-------------|
+| [Cost Optimization][cost-pillar] | Managing costs to maximize the value delivered. |
+| [Operational Excellence][devops-pillar] | Operations processes that keep a system running in production. |
+| [Performance Efficiency][scalability-pillar] | The ability of a system to adapt to changes in load. |
+| [Reliability][resiliency-pillar] | The ability of a system to recover from failures and continue to function. |
+| [Security][security-pillar] | Protecting applications and data from threats. |
+
+For an overview of these tenets, reference the following video on how to architect successful workloads on Azure with the Well-Architected Framework:
+
+>[!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Architect-successful-workloads-on-Azure--Introduction-Ep-1-Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Architect successful workloads on Azure - Microsoft Channel 9 Video"></iframe>]
+
+## Overview
+
+The following diagram gives a high-level overview of the Azure Well-Architected Framework:
+
+![Well-Architected Framework diagram](./_images/WAF-diagram.png)
 
 To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).  
 
