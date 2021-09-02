@@ -83,4 +83,4 @@ TODO: Link to project with bicep/ARM template
 
 ## Next Steps
 
-- Learn about [extending the basic startup stack](extending-startup-stack.md)
+- See more [Azure Architectures](/azure/architecture/browse/)
