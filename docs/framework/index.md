@@ -23,11 +23,11 @@ keywords:
 
 The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architectural excellence:
 
-- Reliability
-- Security
-- Cost Optimization
-- Operational Excellence
-- Performance Efficiency
+- [Reliability](#reliability)
+- [Security](#security)
+- [Cost Optimization](#cost-optimization)
+- [Operational Excellence](#operational-excellence)
+- [Performance Efficiency](#performance-efficiency)
 
 Incorporating these pillars helps produce a high quality, stable, and efficient cloud architecture:
 
@@ -99,7 +99,9 @@ For more information, reference the following video that will show you how to st
 
 - [Designing reliable Azure applications][resiliency]
 - [Design patterns for resiliency](./resiliency/reliability-patterns.md)
-- Best practices: [Transient fault handling][transient-fault-handling], [Retry guidance for specific services][retry-service-specific]
+- Best practices:
+  - [Transient fault handling][transient-fault-handling]
+  - [Retry guidance for specific services][retry-service-specific]
 
 ## Security
 
@@ -109,7 +111,13 @@ Ask the right questions about secure application development on Azure by referen
 
 >[!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Ask the right questions about secure application development on Azure - Microsoft Channel 9 Video"></iframe>]
 
-The following sections include broad security areas to consider.
+The following sections include broad security areas to consider:
+
+- [Identity management](#identity-management)
+- [Protecting your infrastructure](#protecting-your-infrastructure)
+- [Application security](#application-security)
+- [Data sovereignty and encryption](#data-sovereignty-and-encryption)
+- [Security resources](#security-resources)
 
 ### Identity management
 
@@ -205,6 +213,10 @@ Always conduct performance and load testing to find these potential bottlenecks.
 
 Use the [Performance efficiency checklist](scalability/performance-efficiency.md) to review your design from a scalability standpoint.
 
+For more information, tune in to [Performance Efficiency: Fast & Furious: Optimizing for Quick & Reliable VM Deployments](https://channel9.msdn.com/events/All-Around-Azure/Well-Architected-The-Backstage-Tour/Performance-Efficiency?term=Performance&pubDate=3years&lang-en=true)
+
+:::image type="content" source="./_images/performance-channel-9.png" alt-text="Performance Efficiency":::
+
 ### Performance efficiency guidance
 
 - [Design patterns for performance efficiency](./scalability/performance-efficiency-patterns.md)
@@ -219,7 +231,11 @@ Use the [Performance efficiency checklist](scalability/performance-efficiency.md
 
 Learn more about:
 
-
+- [Azure Well-Architected Review](/assessments/?mode=pre-assessment&session=local)
+- [Well-Architected Series](https://channel9.msdn.com/Tags/well-architected-series)
+- [Introduction to the Microsoft Azure Well-Architected Framework](/learn/modules/azure-well-architected-introduction/)
+- [Azure Security Center](/azure/security-center/)
+- [Cloud Adoption Framework](/azure/cloud-adoption-framework/)
 
 <!-- links -->
 
@@ -258,8 +274,8 @@ Learn more about:
 [scalability-checklist]: ../checklist/performance-efficiency.md
 
 <!-- pillars -->
-[cost-pillar]: ./cost/overview.md
-[security-pillar]: ./security/overview.md
-[resiliency-pillar]: ./resiliency/principles.md
-[scalability-pillar]: ./scalability/overview.md
-[devops-pillar]: ./devops/overview.md
+[cost-pillar]: ./cost/index.yml
+[security-pillar]: ./security/index.yml
+[resiliency-pillar]: ./resiliency/index.yml
+[scalability-pillar]: ./scalability/index.yml
+[devops-pillar]: ./devops/index.yml
