@@ -54,11 +54,11 @@ In the center is the Well-Architected Framework which includes the five pillars 
 - [Azure Well-Architected Review](/assessments/?mode=pre-assessment&session=local)
 - [Azure Advisor](/azure/advisor/)
 - [Documentation](/azure/architecture/framework/)
-- [Partners](https://azure.microsoft.com/en-us/partners/), [Support](https://azure.microsoft.com/en-us/support/options/#support-plans), and Services Offers
+- [Partners](https://azure.microsoft.com/partners/), [Support](https://azure.microsoft.com/support/options/#support-plans), and Services Offers
 - [Reference Architectures](/azure/architecture/guide/)
 - [Design Principles](/azure/architecture/guide/design-principles/)
 
-### Assessing your workoad
+### Assessing your workload
 
 To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
