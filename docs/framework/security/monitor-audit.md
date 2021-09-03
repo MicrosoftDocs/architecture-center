@@ -63,6 +63,7 @@ Consider using [Azure Access Reviews](/azure/active-directory/governance/access-
 For Azure, use Azure Policy to create and manage policies that enforce compliance.  Azure Policies are built on the Azure Resource Manager capabilities.  Azure Policy can also be assigned through Azure Blueprints. 
 
 For more information, see [Tutorial: Create and manage policies to enforce compliance](/azure/governance/policy/tutorials/create-and-manage).
+
 ![Azure regulatory compliance](images/regulatory-compliance.png)
 
 Here's an example management group that is tracking compliance to the Payment Card Industry (PCI) standard.

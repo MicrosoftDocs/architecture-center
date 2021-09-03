@@ -146,11 +146,28 @@ Azure AD uses adaptive machine learning algorithms, heuristics, and known compro
 Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events. 
 
 ### Connected tenants
+
+**Does your security team have visibility into all existing subscriptions and cloud environments? How do they discover new ones?**
+***
+
 Make sure the security team is aware of all enrollments and associated subscriptions connected to your existing environment through ExpressRoute or Site-Site VPN. Monitor them as part of the overall enterprise.
 
 Assess if organizational policies and applicable regulatory requirements are followed for the connected tenants. This applies to all Azure environments that connect to your production environment network.
 
+The organizations' cloud infrastructure should be well documented, with security team access to all resources required for monitoring and insight. Conduct frequent scans of the cloud-connected assets to ensure no additional subscriptions or tenants have been added outside of organizational controls. Regularly review Microsoft guidance to ensure security team access best practices are consulted and followed.
+
 For information about permissions for this access, see [Assign privileges for managing the environment section](/azure/architecture/framework/security/governance?branch=master#assign-privileges-for-managing-the-environment).
+
+#### Suggested actions
+
+Ensure all Azure environments that connect to your production
+environment and network apply your organization's policy, and IT governance controls
+for security.
+
+You can discover existing connected tenants using a
+[tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions
+you may assign to security is in the [Assign privileges for managing the environment](#assign-privileges-for-managing-the-environment) section.
+
 
 
 ## CI/CD pipelines

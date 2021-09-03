@@ -1,5 +1,5 @@
 ---
-title: Security management groups
+title: Establish segmentation with management groups
 description: Strategies using management groups to manage resources across multiple subscriptions consistently and efficiently.
 author: PageWriter-MSFT
 ms.date: 09/07/2020
@@ -16,7 +16,7 @@ ms.custom:
   - article
 ---
 
-# Security management groups
+# Establish segmentation with management groups
 
 Management groups can manage resources across multiple subscriptions consistently and efficiently. However, due to its flexibility, your design can become complex and compromise security and operations.
 
@@ -28,92 +28,21 @@ It's recommended that you align the top level of management groups into a simple
 
 In the example reference, there are enterprise-wide resources used by all segments, a set of core services that share services, additional segments for each workload. 
 
-![Core services](images/ref-perms.png)
-
-
-![Segment services](images/ref-segment.png)
-
-For the preceding example, an approach is to use these management groups:
+An approach is to use these management groups:
 
 - Root management group for enterprise-wide resources.
 
     Use the root management group to include identities that have the requirement to apply policies across every resource. For example, regulatory requirements, such as restrictions related to data sovereignty. This group is effective in by applying policies, permissions, tags, across all subscriptions. 
+    > [!CAUTION]
+    > Be careful when using the root management group because the policies can affect all resources on Azure and potentially cause downtime or other negative impacts. For considerations, see [Use root management group with caution](#use-root-management-group-with-caution) later in this article.
+    >
+    > For complete guidance about using management groups for an enterprise, see [CAF: Management group and subscription organization](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization).
 
 - Management group for each workload segment.
 
     Use a separate management group for teams with limited scope of responsibility. This group is typically required because of organizational boundaries or regulatory requirements.
 
 - Root or segment management group for the core set of services.  
-
-> [!CAUTION]
-> Be careful when using the root management group because the policies can affect all resources on Azure and potentially cause downtime or other negative impacts. For considerations, see [Use root management group with caution](#use-root-management-group-with-caution) later in this article.
->
-> For complete guidance about using management groups for an enterprise, see [CAF: Management group and subscription organization](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization).
-
-
-## Azure role assignment 
-
-Grant roles the appropriate permissions that start with least privilege and add more based on your operational needs. Provide clear guidance to your technical teams that implement permissions. This clarity makes it easier to detect and correct that reduces human errors such as overpermissioning.
-
--  Assign permissions at management group for the segment rather than the individual subscriptions. This will drive consistency and ensure application to future subscriptions.
-
-- Consider the built-in roles before creating custom roles to grant the appropriate permissions to VMs and other objects. 
-- **Security managers** group membership may be appropriate for smaller teams/organizations where security teams have extensive operational responsibilities. 
-
-When assigning permissions for a segment, consider consistency while allowing flexibility to accommodate several organizational models. These models can range from a single centralized IT group to mostly independent IT and DevOps teams.  
-
-The reference model has several groups assigned for core services and workload segments.  Here are some other considerations when assigning permissions for the common teams across those segments.
-
-### Security team's visibility
-
-Grant read-only access to security attributes for all technical environments. Assign security teams with the **Security Readers** permission that provides access needed to assess risk factors, identify potential mitigations, without providing access to the data.
-
-You can assign this permission by using:
-- Root management group – for teams responsible for assessing and reporting risk on all resources.
-- Segment management group(s) – for teams with limited scope of responsibility. This group is typically required because of organizational boundaries or regulatory requirements.
-
-> [!IMPORTANT] 
-> Treat security teams as critical impact accounts and apply the same protections as administrators.
-
-### Policy management 
-
-Before defining the policies, consider:
-- How is the organization’s security audited and reported? Is there mandatory reporting? 
-- Are the existing security practices working? 
-- Are there any requirements specific to industry, government, or regulatory requirements?
-
-Designate group(s) (or individual roles) for central functions that affect shared services and applications. 
-
-After the policies are set, continuously improve those standards incrementally. Make sure that the security posture doesn’t degrade over time by having auditing and monitoring compliance. For information about managing security standards of an organization, see [governance, risk, and compliance (GRC)](/azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance).
-
-Assign appropriate permission to roles that monitor and enforce compliance with external (or internal) regulations, standards, and security policy. The roles and permissions you choose will depend on the organizational culture and expectations of the policy program. 
-
-The reference model assigns **Read Contributor** permissions to roles related to policy management.
-
-### Central IT operations across all resources
-
-Grant permissions to the central IT department (often the infrastructure team) to create, modify, and delete resources like virtual machines and storage. **Contributor** or **Owner** roles are appropriate for this function.
-
-### Central networking group across network resources
-
-Assign network resource responsibilities to a single central networking organization. 
-The **Network Contributor** role is appropriate for this group.
-
-### IT Operations across all resources
-
-Grant permission to create, modify, and delete resources that belong to a segment. The purpose of the segment (and resulting permissions) will depend on your organization structure. 
-- Segments with resources managed by a centralized IT organization can grant the central IT department (often the infrastructure team) permission to modify these resources. 
-- Segments managed by independent business units or functions (such as a Human Resources IT Team) can grant those teams permission to all resources in the segment. 
-- Segments with autonomous DevOps teams don’t need to grant permissions across all resources because the resource role (below) grants permissions to application teams. For emergencies, use the service admin account (break-glass account). 
-
-### Resource role permissions
-
-For most core services, administrative privileges required to manage them are granted through the application (Active Directory, DNS/DHCP, System Management Tools), so no additional Azure resource permissions are required. If your organizational model requires these teams to manage their own VMs, storage, or other Azure resources, you can assign these permissions to those roles. 
-
-Workload segments with autonomous DevOps teams will manage the resources associated with each application. The actual roles and their permissions depend on the application size and complexity, the application team size and complexity, and the culture of the organization and application team. 
-
-### Break-glass account
-Use the **Service Administrator** role only for emergencies and initial setup. Do not use this role for daily tasks.  
 
 
 ## Use root management group with caution
