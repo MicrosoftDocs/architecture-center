@@ -8,6 +8,8 @@ ms.date: 09/02/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products: azure
+categories: management-and-governance
 ms.custom:
   - seojan19
   - guide
