@@ -38,7 +38,7 @@ functions.
 | **Network Management**               | *Typically existing network operations team.* Enterprise-wide virtual network and subnet allocation. |
 | **Server Endpoint Security**         | *Typically IT operations, security, or jointly.* Monitor and remediate server security (patching, configuration, endpoint security). |
 | **Incident Monitoring and Response** | *Typically security operations team.* Incident monitoring and response to investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console such as Azure Security Center Azure AD Identity Protection.|
-| **Policy Management**                | *Typically GRC team + Architecture.* pply governance based on risk analysis and compliance requirements. Set direction for use of Azure role-based access control (Azure RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources. |
+| **Policy Management**                | *Typically GRC team + Architecture.* Apply governance based on risk analysis and compliance requirements. Set direction for use of Azure role-based access control (Azure RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources. |
 | **Identity Security and Standards**  | *Typically Security Team + Identity Team jointly.* Set direction for Azure AD directories, PIM/PAM usage, MFA, password/synchronization configuration, Application Identity Standards. |
 
 >[!NOTE]
@@ -58,7 +58,7 @@ When assigning permissions for a segment, consider consistency while allowing fl
 
 ### Reference model example 
 
-This sections uses this [Reference model](design-segmentation.md#reference-model) to demonstrate the considerations for assigning permissions for different segments. Microsoft recommends starting from these models and adapting to your organization.
+This section uses this [Reference model](design-segmentation.md#reference-model) to demonstrate the considerations for assigning permissions for different segments. Microsoft recommends starting from these models and adapting to your organization.
 
 #### Core services reference permissions
 This segment hosts shared services
@@ -166,7 +166,7 @@ access to the security aspects of all technical resources in their purview.
 Security organizations require visibility into the technical environment to
 perform their duties of assessing and reporting on organizational risk. Without
 this visibility, security will have to rely on information provided from groups,
-operating the environment, who have a potential conflict of interest (and other
+operating the environment, which have potential conflict of interest (and other
 priorities).
 
 Note that security teams may separately be granted additional privileges if
