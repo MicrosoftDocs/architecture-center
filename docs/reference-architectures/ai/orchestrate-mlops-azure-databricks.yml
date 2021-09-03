@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Orchestrate MLOps on Azure Databricks using Databricks Notebook
+  titleSuffix: Azure Reference Architectures
+  description: This scenario describes an approach to machine learning operations (MLOps) that involves running model training and batch scoring on Azure Databricks using Databricks Notebook as an orchestrator.
+  author: Prabal
+  ms.author: edprice
+  ms.date: 08/26/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - reference-architecture
+    - ai-machine-learning
+name: Orchestrate MLOps on Azure Databricks using Databricks Notebook
+azureCategories:
+  - ai-machine-learning
+summary: This scenario describes an approach to machine learning operations (MLOps) that involves running model training and batch scoring on Azure Databricks using Databricks Notebook as an orchestrator.
+products:
+  - azure-databricks
+  - azure-blob-storage
+  - azure-monitor
+thumbnailUrl: /azure/architecture/browse/thumbs/orchestrate-mlops-azure-databricks-01.jpg
+content: |
+  [!include[](orchestrate-mlops-azure-databricks-content.md)]

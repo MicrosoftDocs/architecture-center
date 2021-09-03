@@ -1,6 +1,6 @@
 ---
 title: Comparing AWS and Azure networking options
-description: A comparison of the different networking options between Azure and AWS
+description: Compare networking options between Azure and AWS. The comparisons cover cloud virtual networking, cross-premises connectivity, DNS management, and more.
 author: Kaspanitz 
 ms.author: johanv
 ms.date: 08/09/2021
@@ -17,9 +17,9 @@ products:
 
 The Azure equivalent of the Elastic Load Balancing services are:
 
-- [Load Balancer](/azure/load-balancer/load-balancer-overview): provides similar capabilities to the AWS Classic Load Balancer, AWS Network Load Balancer, and AWS Gateway Load Balancer, allowing you to distribute traffic to multiple VMs at the network level. Azure Load Balancer supports inbound and outbound scenarios with low latency, high throughput, and scalability up to millions of flows for all TCP and UDP applications.
+- [Load Balancer](/azure/load-balancer/load-balancer-overview): Provides the same network layer 4 capabilities as the AWS Network Load Balancer and Classic Load Balancer, allowing you to distribute traffic for multiple VMs at the network level. It also provides a failover capability.
 
-- [Application Gateway](/azure/application-gateway/overview): offers application-level rule-based routing comparable to the AWS Application Load Balancer.
+- [Application Gateway](/azure/application-gateway/overview): Offers application-level rule-based routing comparable to the AWS Application Load Balancer.
 
 ## Route 53, Azure DNS, and Azure Traffic Manager
 
@@ -36,7 +36,7 @@ Azure provides similar site-to-site dedicated connections through its
 
 ## Private Link
 
-Simlar to AWS PrivateLink, [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
+Similar to AWS PrivateLink, [Azure Private Link](https://azure.microsoft.com/services/private-link) provides private connectivity from a virtual network to an Azure platform as a service (PaaS) solution, a customer-owned service, or a Microsoft partner service.
 
 ## VPC Peering, Azure VNet Peering
 
@@ -48,7 +48,7 @@ In AWS, a VPC peering connection is a networking connection between two VPCs, wh
 
 In AWS, CloudFront provides CDN services, to globally deliver data, videos, applications, and APIs. This is similar to Azure Content Delivery Network (CDN). 
 
-[Azure CDN](https://azure.microsoft.com/services/cdn) is a feature-inclusive content delivery network bundle that is capable of handling most CDN workloads. Customers can choose to use Azure Content Delivery Network Standard from Verizon or Akamai. For a full list of Azure CDN product offerings, see [What are the comparisons between Azure CDN product features?](/azure/cdn/cdn-features).
+[Azure CDN](https://azure.microsoft.com/services/cdn) is a feature-inclusive content delivery network bundle that is capable of handling most CDN workloads. Customers can choose to use Azure Content Delivery Network Standard from Verizon or Akamai. For a full list of Azure CDN product offerings, see [What are the comparisons between Azure CDN product features?](/azure/cdn/cdn-features)
 
 ## Network service comparison
 

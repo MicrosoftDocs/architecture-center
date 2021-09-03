@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Demand Forecasting
+  title: Demand forecasting
   titleSuffix: Azure Solution Ideas
   description: This solution focuses on-demand forecasting within the energy sector, which can give a company a competitive advantage.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 02/17/2021
   ms.topic: conceptual
@@ -21,7 +21,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/demand-forecasting/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting.png
-name: Demand Forecasting
+name: Demand forecasting
 azureCategories:
   - analytics
   - ai-machine-learning

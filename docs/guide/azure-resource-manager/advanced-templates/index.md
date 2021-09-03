@@ -1,5 +1,5 @@
 ---
-title: Advanced Azure Resource Manager template functionality
+title: Advanced Azure Resource Manager templates
 description: Learn tips for getting the most out of Azure Resource Manager template functionality by following advanced examples.
 author: hallihan
 ms.date: 12/21/2020

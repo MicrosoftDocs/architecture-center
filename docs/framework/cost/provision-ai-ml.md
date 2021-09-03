@@ -20,7 +20,7 @@ The main cost driver for machine learning workloads is the compute cost. Those r
 
 The compute cost depends on the cluster size, node type, and number of nodes. Billing starts while the cluster nodes are starting, running, or shutting down.
 
-With services such as [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml), you have the option of creating fix-sized clusters or use autoscaling. 
+With services such as [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), you have the option of creating fix-sized clusters or use autoscaling. 
 >![Task](../../_images/i-best-practices.svg) If the amount of compute is not known, start with a zero-node cluster. The cluster will scale up when it detects jobs in the queue. A zero-node cluster is not charged.
 
 Fix-sized clusters are appropriate for jobs that run at a constant rate and the amount of compute is known and measured beforehand. The time taken to spin up or down a cluster incurs additional cost.

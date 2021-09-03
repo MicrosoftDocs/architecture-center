@@ -1,6 +1,6 @@
 ---
 title: Application classification for security
-description: Security considerations for your applications and services in Azure.
+description: Understanding the Azure hosting models of legacy and modern apps through IaaS and PaaS, and the security responsibilities of those models.
 author: v-aangie
 ms.date: 09/17/2020
 ms.topic: conceptual

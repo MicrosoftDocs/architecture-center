@@ -13,6 +13,8 @@ metadata:
     - fcp
     - example-scenario
 name: 'Multiple forests with AD DS, Azure AD, and Azure AD DS'
+azureCategories:
+  - windows-virtual-desktop
 summary: This is a solution idea that builds on the multiple forests using Azure Virtual Desktop, using Azure Active Directory Domain Services.
 products:
   - azure-active-directory

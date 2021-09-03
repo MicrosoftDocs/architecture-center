@@ -152,6 +152,7 @@ Have detailed documentation that describes the services, protocols, and ports us
 For information about the required ports, see the official documentation for the Azure service.
 
 #### Requirement 1.1.7
+
 Requirement to review firewall and router rule sets at least every six months.
 
 ##### Your responsibilities
@@ -182,9 +183,11 @@ For information about private clusters, see [Create a private Azure Kubernetes S
 
 
 #### Requirement 1.2.1
+
 Restrict inbound and outbound traffic to that which is necessary for the cardholder data environment, and specifically deny all other traffic.
 
 ##### Your responsibilities
+
 By design, Azure Virtual Network cannot be directly reached by the public internet. All inbound (or _ingress_) traffic must go through an intermediate traffic router. However, all components in the network can reach public endpoints. That outbound (or _egress_) traffic must be explicitly secured allowing only secure ciphers and TLS 1.2 or later.
 
 -  Azure Application Gateway integrated WAF intercepts all HTTP(S) ingress traffic and routes inspected traffic to the cluster. 
@@ -210,9 +213,11 @@ In addition to firewall rules and private networks, NSG flows are also secured t
 - The NSGs, on subnets that have the private endpoints to Azure Key Vault and Azure Container Registry, deny all traffic except from the internal load balancer and the traffic over Azure Private Link.
 
 #### Requirement 1.2.2
+
 Secure and synchronize router configuration files.
 
 ##### Your responsibilities
+
 Have a mechanism to detect the delta between the actual deployed state and the desired state. Infrastructure as Code (IaC) is a great choice for that purpose. For example, Azure Resource Manager templates have a record of the desired state. 
 
 The deployment assets, such as ARM templates, must be source-controlled so that you have the history of all changes. Collect information from Azure activity logs, deployment pipeline logs, and Azure deployment logs. Those sources will help you keep a trail of deployed assets.
@@ -241,10 +246,7 @@ The AKS cluster has system node pools that host critical system pods. Even on th
 
 Another critical system component is the API server that is used to do native Kubernetes tasks, such as maintain the state of the cluster and configuration. An advantage of using a private cluster is that API server endpoint isn't exposed by default. For information about private clusters, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
 
-
 Interactions with other endpoints must also be secured. One way is by restricting communications over a private network. For instance, have the cluster pull images from Azure Container Registry over a private link.
-
-
 
 #### Requirement 1.3.1
 
@@ -269,7 +271,6 @@ Limit inbound Internet traffic to IP addresses within the DMZ.
 ##### Your responsibilities
 
 In the cluster network, have an NSG on the subnet with the internal load balancer. Configure rules to only accept traffic from subnet that has Azure Application Gateway integrated with WAF. Within the AKS cluster, use Kubernetes `NetworkPolicies` to restrict ingress traffic to the pods.
-
 
 #### Requirement 1.3.3
 
@@ -326,7 +327,7 @@ Do not disclose private IP addresses and routing information to unauthorized par
 
 ##### Your responsibilities
 
-To meet this requirement, choosing a public AKS cluster is not an option. A private cluster keeps DNS records off the public internet by using a private DNS zone. The virtual network that's linked to the private zone resolves the record. In this architecture, all zones are linked to the hub network. 
+To meet this requirement, a public AKS cluster is not an option. A private cluster keeps DNS records off the public internet by using a private DNS zone. However, it's still possible to [Create a private AKS cluster with a Public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). So, it's recommended to _explicitly_ disable this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider adding Azure Policy to enforce the use of private clusters without public DNS records.
 
 Also, use a private DNS zone for routing between the subnet that has Azure Application Gateway integrated with WAF, and the subnet that has the internal load balancer. Ensure that no HTTP responses include any private IP information in the headers or body. Ensure that logs that might contain IP and DNS records are not exposed outside of operational needs.
 
@@ -351,7 +352,6 @@ Ensure that security policies and operational procedures for managing firewalls 
 
 It's critical that you maintain thorough documentation about the process and policies. This is especially true when you're managing Azure Firewall rules that segment the AKS cluster. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts that are granted broad administrative privileges.
 
-
 ## Requirement 2
 Do not use vendor-supplied defaults for system passwords and other security parameters
 
@@ -369,7 +369,6 @@ Default settings provided by vendors must be changed. Default settings are commo
 #### Azure responsibilities
 
 Azure Active Directory has password policies that are enforced on the new passwords supplied by users. If you change a password, validation of older password is required. Administrator reset passwords are required to be changed upon subsequent login.
-
 
 #### Requirement 2.1.1
 
@@ -394,7 +393,6 @@ For more information, see [Azure security benchmark](/security/benchmark/azure/i
 #### Azure responsibility
 Azure provides security configuration standards that are consistent with industry-accepted hardening standards. The standards are reviewed at least annually.
 
-
 #### Requirement 2.2.1
 
 Implement only one primary function per server to prevent functions that require different security levels from co-existing on the same server. (For example, web servers, database servers, and DNS should be implemented on separate servers.) 
@@ -410,7 +408,6 @@ For container technologies, that segmentation is provided by default because onl
 The workload should use pod-managed identity. It must not inherit any cluster-level or node-level identity. 
 
 Use external storage instead of on-node (in-cluster) storage where possible. Keep cluster pods reserved exclusively for work that must be performed as part of the operation of card holder data processing. Move the out-of-scope operations outside the cluster. This guidance applies to build agents, unrelated workloads, or activities such as having a jump box inside the cluster. 
-
 
 #### Requirement 2.2.2
 
@@ -438,7 +435,6 @@ Also, Application Gateway must not respond to requests on port 80. Do not perfor
 
 If a workload in your cluster cannot adhere to organizational policy around security compliance profiles or other controls (for example, limits and quotas), then make sure the exception is documented. You must monitor to ensure that only expected functionality is performed.
 
-
 #### Requirement 2.2.4
 
 Configure system security parameters to prevent misuse.
@@ -453,12 +449,9 @@ At the infrastructure level, you can apply restrictions on the type and configur
 
 Make sure all exceptions are documented. 
 
-
-
 ##### Azure responsibilities
 
 Azure ensures that only authorized personnel are able to configure Azure platform security controls, by using multi-factor access controls and a documented business need.
-
 
 #### Requirement 2.2.5
 
@@ -492,8 +485,8 @@ For information about tagging considerations, see [Resource naming and tagging d
 
 Tag in-cluster objects by applying Kubernetes labels. This way you can organize objects, select a collection of objects, and report inventory.
 
-
 ### Requirement 2.5
+
 Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.
 
 #### Your responsibilities
@@ -507,7 +500,6 @@ Shared hosting providers must protect each entity's hosted environment and cardh
 #### Your responsibilities
 
 Azure provides security assurances for the hosted environment that are shared. It's highly recommended that you use dedicated hosts for AKS nodes. That is, the compute should be in a single tenant model.
-
 
 ## Next steps
 

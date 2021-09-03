@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/26/2021
+ms.date: 08/16/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -45,6 +45,10 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 | [Sharding](../../patterns/sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
 | [Throttling](../../patterns/throttling.md) | Control the consumption of resources that are used by an instance of an application, an individual tenant, or an entire service. |
 
+## Antipatterns
+
+Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/index.md), in which the activity of one tenant can have a negative impact on another tenant's use of the system.
+
 ## Microsoft Azure Well-Architected Framework
 
 While the entirety of the [Azure Well-Architected Framework](../../framework/index.md) is important for all solutions, pay special attention to the [Resiliency pillar](../../framework/resiliency/reliability-patterns.md#resiliency). The nature of cloud hosting leads to  applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
@@ -65,6 +69,7 @@ While the entirety of the [Azure Well-Architected Framework](../../framework/ind
 ### Storage and data
 
 * [Azure Cosmos DB and multitenant systems](https://azure.microsoft.com/blog/azure-cosmos-db-and-multi-tenant-systems/): A blog post discussing how to build a multitenant system that uses Azure Cosmos DB.
+* [Azure Cosmos DB hierarchical partition keys (private preview)](https://devblogs.microsoft.com/cosmosdb/hierarchical-partition-keys-private-preview/): A blog post announcing the private preview of hierarchical partition keys for the Azure Cosmos DB Core (SQL) API. With hierarchical partition keys, also known as sub-partitioning, you can now natively partition your container with up to three levels of partition keys. This enables more optimal partitioning strategies for multitenant scenarios or workloads that would otherwise use synthetic partition keys.
 * [Azure SQL Database multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns): A set of articles describing various tenancy models that are available for a multitenant SaaS application, using Azure SQL Database.
 * [Running 1 million databases on Azure SQL for a large SaaS provider: Microsoft Dynamics 365 and Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/): A blog post describing how Dynamics 365 team manages databases at scale.
 * [Design a multitenant database by using Azure Database for PostgreSQL Hyperscale](/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant)

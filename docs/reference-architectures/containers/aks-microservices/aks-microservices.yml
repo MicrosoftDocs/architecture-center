@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Microservices architecture on Azure Kubernetes Service (AKS)
-  description: Learn about the infrastructure and DevOps considerations of deploying and running a microservices architecture on  Azure Kubernetes Service (AKS).
+  title: Microservices architecture on AKS
+  description: Learn about the infrastructure and DevOps considerations of deploying and running a microservices architecture on Azure Kubernetes Service (AKS).
   author: doodlemania2
   ms.author: pnp
   ms.date: 05/04/2020

@@ -22,7 +22,7 @@ There is almost no limit to how much an application can be performance tuned. Ho
 
 ## Types of partitioning
 
-You can partition to hold a specific subset of the data (e.g., all the orders for a set of customers), hold a subset of field which are divided according to their pattern of use (e.g., frequently accessed fields versus less frequently accessed fields), or aggregate data according to how it is used by each bounded context in the system (e.g., an e-commerce system might store invoice data in one partition and product inventory data in another).
+You can partition to hold a specific subset of the data (e.g., all the orders for a set of customers), hold a subset of fields which are divided according to their pattern of use (e.g., frequently accessed fields versus less frequently accessed fields), or aggregate data according to how it is used by each bounded context in the system (e.g., an e-commerce system might store invoice data in one partition and product inventory data in another).
 
 To learn more about the main types of partitioning, see [Horizontal, vertical, and functional data partitioning](../../best-practices/data-partitioning.md).
 
