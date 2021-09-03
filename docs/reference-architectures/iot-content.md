@@ -1,5 +1,5 @@
 
-This article discusses a recommended architecture for IoT applications using Azure PaaS (platform-as-a-service) components. The following diagram reflects different Aure components that can be used to architect a connected environment IoT solution.
+This article discusses a recommended architecture for IoT applications using Azure PaaS (platform-as-a-service) components. The following diagram reflects different Aure components that can be used to architect an IoT solution.
 
 [ ![Diagram of the architecture](./iot/images/iot-refarch.svg) ](./iot/images/iot-refarch.svg#lightbox)
 
@@ -9,9 +9,9 @@ Azure IoT solutions involve **devices** that generate data, **insights** that yo
 
 ## Devices
 
-Azure IoT supports a large range of devices, from microcontrollers running Azure RTOS and Azure Sphere to developer boards like MX Chip and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices collect environmental data and are capable of sending signals to the cloud. Devices might perform some local processing through a service such as **Azure IoT Edge**, or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
+Azure IoT supports a large range of devices, from microcontrollers running Azure RTOS and Azure Sphere to developer boards like [MX Chip](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-get-started/sample/) and Raspberry Pi. Azure IoT also supports smart server gateways capable of running custom code. Devices collect environmental data and are capable of sending signals to the cloud. Devices might perform some local processing through a service such as **Azure IoT Edge**, or just connect directly to Azure so that they can send data to and receive data from the IoT solution.
 
-When devices are connected to the cloud, there are several services that assist with ingesting data. **Azure IoT Hub** is a cloud gateway service that can securely connect and manage devices. **IoT Hub Device Provisioning Service (DPS)** enables zero-touch, just-in-time provisioning help to register a large number of devices in a secure and scalable manner. **Azure Digital Twins** enables virtual models of real world systems.
+When devices are connected to the cloud, there are several services that assist with ingesting data. **Azure IoT Hub** is a cloud gateway service that can securely connect and manage devices. **IoT Hub Device Provisioning Service (DPS)** enables zero-touch, just-in-time provisioning that helps to register a large number of devices in a secure and scalable manner. **Azure Digital Twins** enables virtual models of real world systems.
 
 ## Insights
 
@@ -19,11 +19,11 @@ Once devices have been connected in the cloud, their data can be processed and e
 
 - The **hot path** analyzes data in near-real-time as it arrives. In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine. Consider using services such as **Azure Stream Analytics** or **HDInsight**. The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.
 - The **warm path** analyzes data that can accommodate longer delays for more detailed processing. Consider **Azure Data Explorer** or **Azure Time Series Insights** for storing and analyzing large volumes of data.
-- The **cold path** performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot or warm paths. Consider using **Azure Machine Learning** or **Azure Databricks** to analyze cold data.
+- The **cold path** performs batch processing at longer intervals (hourly or daily). The cold path typically operates over large volumes of data which can be stored in **Azure Data Lake**, and the results don't need to be as timely as the hot or warm paths. Consider using **Azure Machine Learning** or **Azure Databricks** to analyze cold data.
 
 ## Actions
 
-You can use the insights gathered about your data to manage and control your environment. Business integration actions might include storing informational messages, raising alarms, sending email or SMS messages, or integrating with CRM. The following services are available for management and business integration:
+You can use the insights gathered about your data to manage and control your environment. Business integration actions might include storing informational messages, raising alarms, sending email or SMS messages, or integrating with business applications such as CRM and ERP. The following services are available for management and business integration:
 
 - **Power BI** connects to, models, and visualizes your data. Power BI enables you to collaborate on data and use artificial intelligence to make data-driven decisions.
 - **Azure Maps** allows you to create location aware web and mobile applications using geospatial services (search, maps, routing, tracking, and traffic), APIs, and SDKs.
@@ -63,6 +63,18 @@ IoT Hub automatically partitions device messages based on the device ID. All of 
 ## Security
 
 This section contains considerations for building secure solutions.
+
+### Zero Trust security model
+
+Zero Trust is a security model that assumes breaches will happen and treats every access attempt as if it originates from an open network. Zero Trust assumes that you have implemented the basics such as securing identities and limiting access. This includes explicitly verifying users, having visibility into their devices, and being able to make dynamic access decisions using real-time risk detection. After the basics are met, you can shift your focus to the following Zero Trust requirements for IoT solutions:
+
+- Use strong identity to authenticate devices.
+- Use least privileged access to mitigate blast radius.
+- Monitor device health to gate access or flag devices for remediation.
+- Perform updates to keep devices healthy.
+- Monitor to detect and respond to emerging threats.
+
+Read the [Zero Trust Cybersecurity for the Internet of Things](https://azure.microsoft.com/en-us/resources/zero-trust-cybersecurity-for-the-internet-of-things/) whitepaper for full details.
 
 ### Trustworthy and secure communication
 
