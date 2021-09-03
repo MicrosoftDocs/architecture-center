@@ -187,6 +187,10 @@ items:
                 href: guide/multitenant/considerations/map-requests.md
               - name: Domain names
                 href: guide/multitenant/considerations/domain-names.md
+          - name: Approaches
+            items:
+              - name: Storage and data
+                href: guide/multitenant/approaches/storage-data.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
       - name: Azure for AWS Professionals
