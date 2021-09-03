@@ -5,7 +5,7 @@ author: EdPrice-MSFT
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 09/03/2021
 ms.author: pnp
 categories:
     - hybrid
@@ -17,7 +17,7 @@ ms.custom:
 products: azure
 ---
 
-# Hybrid solution journey
+# Hybrid architecture design
 
 Many organizations need a hybrid approach to analytics, automation, and services because their data is hosted both on-premises and in the cloud. Organizations often [extend on-premises data solutions to the cloud](../data-guide/scenarios/hybrid-on-premises-and-cloud.md). To connect environments, organizations start by [choosing a hybrid network architecture](../reference-architectures/hybrid-networking/index.yml).
 
