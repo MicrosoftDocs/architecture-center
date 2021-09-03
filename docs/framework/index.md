@@ -41,7 +41,7 @@ Incorporating these pillars helps produce a high quality, stable, and efficient 
 
 Reference the following video about how to architect successful workloads on Azure with the Well-Architected Framework:
 
->[!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Architect-successful-workloads-on-Azure--Introduction-Ep-1-Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Architect successful workloads on Azure - Microsoft Channel 9 Video"></iframe>]
+<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Architect-successful-workloads-on-Azure--Introduction-Ep-1-Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Architect successful workloads on Azure - Microsoft Channel 9 Video"></iframe>
 
 ## Overview
 
@@ -49,7 +49,7 @@ The following diagram gives a high-level overview of the Azure Well-Architected 
 
 :::image type="content" source="./_images/WAF-diagram.png" alt-text="Well-Architected Framework diagram":::
 
-In the center is the Well-Architected Framework which includes the five pillars of architectural excellence. Surrounding the Well-Architected Framework are six supporting elements:
+In the center, is the Well-Architected Framework, which includes the five pillars of architectural excellence. Surrounding the Well-Architected Framework are six supporting elements:
 
 - [Azure Well-Architected Review](/assessments/?mode=pre-assessment&session=local)
 - [Azure Advisor](/azure/advisor/)
@@ -93,7 +93,7 @@ When designing an application to be resilient, you must understand your availabi
 
 For more information, reference the following video that will show you how to start improving the reliability of your Azure workloads:
 
->[!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-improving-the-reliability-of-your-Azure-workloads--Reliability-Ep-1--Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Start improving the reliability of your Azure workloads - Microsoft Channel 9 Video"></iframe>]
+<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-improving-the-reliability-of-your-Azure-workloads--Reliability-Ep-1--Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Start improving the reliability of your Azure workloads - Microsoft Channel 9 Video"></iframe>
 
 ### Reliability guidance
 
@@ -109,7 +109,7 @@ Think about [security](./security/index.yml) throughout the entire lifecycle of 
 
 Ask the right questions about secure application development on Azure by referencing the following video:
 
->[!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Ask the right questions about secure application development on Azure - Microsoft Channel 9 Video"></iframe>]
+<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Ask the right questions about secure application development on Azure - Microsoft Channel 9 Video"></iframe>
 
 The following sections include broad security areas to consider:
 
@@ -154,7 +154,7 @@ When you are designing a cloud solution, focus on generating incremental value e
 
 For more information, reference [Cost optimization](./cost/index.yml) and the following video on how to start optimizing your Azure costs:
 
->[!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-optimizing-your-Azure-costs--Cost-Optimization-Ep-1--Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Start optimizing your Azure costs - Microsoft Channel 9 Video"></iframe>]
+<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-optimizing-your-Azure-costs--Cost-Optimization-Ep-1--Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Start optimizing your Azure costs - Microsoft Channel 9 Video"></iframe>
 
 ### Cost guidance
 
@@ -182,7 +182,7 @@ Use the [DevOps checklist][devops-checklist] to review your design from a manage
 
 For more information, reference the following video about bringing security into your DevOps practice on Azure:
 
-> [!VIDEO <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/DevSecOps-bringing-security-into-your-DevOps-practice-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="DevSecOps: bringing security into your DevOps practice on Azure - Microsoft Channel 9 Video"></iframe>]
+<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/DevSecOps-bringing-security-into-your-DevOps-practice-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="DevSecOps: bringing security into your DevOps practice on Azure - Microsoft Channel 9 Video"></iframe>
 
 ### Operational excellence guidance
 
@@ -231,7 +231,7 @@ For more information, tune in to [Performance Efficiency: Fast & Furious: Optimi
 
 Learn more about:
 
-- [Azure Well-Architected Review](/assessments/?mode=pre-assessment&session=local)
+- [Azure Well-Architected Review](/assessments/?mode=pre-assessment&session=a501c898-ceb7-4025-aa92-7fade22a412d)
 - [Well-Architected Series](https://channel9.msdn.com/Tags/well-architected-series)
 - [Introduction to the Microsoft Azure Well-Architected Framework](/learn/modules/azure-well-architected-introduction/)
 - [Azure Security Center](/azure/security-center/)
