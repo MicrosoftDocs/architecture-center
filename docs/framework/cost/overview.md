@@ -22,13 +22,13 @@ The Microsoft Azure Well-Architected Framework includes the following topics in 
 
 | Cost Topic | Description |
 |------------|-------------|
-|[Capture cost requirements](./cost/design-capture-requirements.md)| Start your planning with a careful enumeration of requirements. Make sure the needs of the stakeholders are addressed. For strong alignment with business goals, those areas must be defined by the stakeholders and shouldn't be collected from a vendor.|
-|[Cost of resources in Azure regions](./cost/design-regions.md)|Cost of an Azure service can vary between locations based on demand and local infrastructure costs.|
-|[Governance](./cost/design-resources.md)| Understand how governance can assist with cost management. This work will benefit your ongoing cost review process and will offer a level of protection for new resources.|
-|[Estimate the initial cost](./cost/design-initial-estimate.md)|It's difficult to attribute costs before deploying a workload to the cloud. If you use methods for on-premises estimation or directly map on-premises assets to cloud resources, estimate will be inaccurate.|
-|[PaaS](./cost/design-paas.md)| Look for areas in the architecture where it may be natural to incorporate platform-as-a-service (PaaS) options. These include caching, queues, and data storage. PaaS reduces time and cost of managing servers, storage, networking, and other application infrastructure.|
-|[Consumption](./cost/design-price.md)|A common way to estimate cost is by considering workloads on a peak throughput. Under consistently high utilization, consumption-based pricing can be less efficient for estimating baseline costs when compared to the equivalent provisioned pricing.|
-|[Provision cloud resources](./cost/provision-checklist.md)|Deployment of workload cloud resources can optimize cost.|
-|[Monitor cost](./cost/monitor-alert.md)|Azure Cost Management has an alert feature. Alerts are generated when consumption reaches a threshold.|
+|[Capture cost requirements](./design-capture-requirements.md)| Start your planning with a careful enumeration of requirements. Make sure the needs of the stakeholders are addressed. For strong alignment with business goals, those areas must be defined by the stakeholders and shouldn't be collected from a vendor.|
+|[Cost of resources in Azure regions](./design-regions.md)|Cost of an Azure service can vary between locations based on demand and local infrastructure costs.|
+|[Governance](./design-resources.md)| Understand how governance can assist with cost management. This work will benefit your ongoing cost review process and will offer a level of protection for new resources.|
+|[Estimate the initial cost](./design-initial-estimate.md)|It's difficult to attribute costs before deploying a workload to the cloud. If you use methods for on-premises estimation or directly map on-premises assets to cloud resources, estimate will be inaccurate.|
+|[PaaS](./design-paas.md)| Look for areas in the architecture where it may be natural to incorporate platform-as-a-service (PaaS) options. These include caching, queues, and data storage. PaaS reduces time and cost of managing servers, storage, networking, and other application infrastructure.|
+|[Consumption](./design-price.md)|A common way to estimate cost is by considering workloads on a peak throughput. Under consistently high utilization, consumption-based pricing can be less efficient for estimating baseline costs when compared to the equivalent provisioned pricing.|
+|[Provision cloud resources](./provision-checklist.md)|Deployment of workload cloud resources can optimize cost.|
+|[Monitor cost](./monitor-alert.md)|Azure Cost Management has an alert feature. Alerts are generated when consumption reaches a threshold.|
 |[Optimize cost](./optimize-checklist.md)|Monitor and optimize the workload by using the right resources and sizes.
-|[Tradeoffs for costs](./cost/tradeoffs.md)|As you design the workload, consider tradeoffs between cost optimization and other aspects of the design, such as security, scalability, resilience, and operability.
+|[Tradeoffs for costs](./tradeoffs.md)|As you design the workload, consider tradeoffs between cost optimization and other aspects of the design, such as security, scalability, resilience, and operability.
