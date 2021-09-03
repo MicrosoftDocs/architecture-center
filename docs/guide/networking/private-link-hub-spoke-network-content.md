@@ -41,7 +41,7 @@ Private Link provides access to services over the Private Endpoint network inter
 
 Traffic between your virtual network and the service that you're accessing travels across the Azure network backbone. As a result, you no longer access the service over a public endpoint. For more information, see [What is Azure Private Link?][What is Azure Private Link?].
 
-:::image type="complex" source="./images/private-link-hub-spoke-private-link-diagram.png" alt-text="Architecture diagram showing how Azure Databricks works with data storage services to refine and analyze data and make it available for other services." border="false":::
+:::image type="complex" source="./images/private-link-hub-spoke-network-private-link.png" alt-text="Architecture diagram showing how Azure Databricks works with data storage services to refine and analyze data and make it available for other services." border="false":::
    The diagram contains three gray rectangles: one labeled Process, one labeled Serve, and one labeled Store. The Process and Serve rectangles are next to each other in the upper part of the diagram. The Serve rectangle contains a white box with icons for Machine Learning and Azure Kubernetes Service. Another white box straddles the Process and Serve rectangles. It contains icons for Azure Databricks and MLflow. An arrow points from that box to the white box in the Serve rectangle. Below the Process rectangle is the Store rectangle. It contains a white box with icons for Data Lake Storage, Delta Lake, and three database tables labeled Bronze, Silver, and Gold. Three lines connect the Process and Store rectangles, with arrows at each end of each line.
 :::image-end:::
 
@@ -177,7 +177,7 @@ For more information, see [Bandwidth pricing][Bandwidth pricing].
 [Serverless event stream processing in a VNet with private endpoints]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/serverless-event-processing-private-link
 [SVG version of architecture diagram]: ./images/private-link-hub-spoke-network-basic-hub-spoke-diagram.svg
 [SVG version of decision tree]: ./images/private-link-hub-spoke-network-decision-tree.svg
-[SVG version of Private Link diagram]: ./images/private-link-hub-spoke-private-link-diagram.svg
+[SVG version of Private Link diagram]: ./images/private-link-hub-spoke-network-private-link.svg
 [Use Azure Firewall to inspect traffic destined to a private endpoint]: https://docs.microsoft.com/en-us/azure/private-link/inspect-traffic-with-azure-firewall
 [Use Private Link in Virtual WAN]: https://docs.microsoft.com/en-us/azure/virtual-wan/howto-private-link
 [View virtual hub effective routes]: https://docs.microsoft.com/en-us/azure/virtual-wan/effective-routes-virtual-hub
