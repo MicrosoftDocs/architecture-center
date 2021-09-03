@@ -37,11 +37,33 @@ To make sure that the security posture doesn't degrade over time, have regular a
 **Do you evaluate the security posture of this workload using standard benchmarks?**
 ***
 
+Use an industry standard benchmark to evaluate your organizations current
+security posture. 
+
+Benchmarking allows you to improve your security program by learning from
+external organizations. It lets you know how your current security
+state compares to that of other organizations, providing both external
+validation for successful elements of your current system and identifying
+gaps that serve as opportunities to enrich your team's overall security
+strategy. Even if your security program isn't tied to a specific benchmark or
+regulatory standard, you will benefit from understanding the documented ideal
+states by those outside and inside of your industry.
+
+As an example, the Center for Internet Security (CIS) has created security
+benchmarks for Azure that map to the CIS Control Framework. Another
+reference example is the MITRE ATT&CK&trade; framework that defines the various
+adversary tactics and techniques based on real-world observations. These
+external references control mappings and help you to understand any gaps between
+your current strategy, what you have, and what other experts have in the industry.
+
+### Suggested action
+  
+Develop an Azure security benchmarking strategy aligned to industry standards.
+
+
+
+## Audit regulatory compliance
 Compliance is important for several reasons. Aside from signifying levels of standards, like `ISO 27001` and others, noncompliance with regulatory guidelines may bring sanctions and penalties. Regularly review roles that have high privileges. Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change. Consider auditing at least twice a year.
-
-As people in the organization and on the project change, make sure that only the right people have access to the application infrastructure. Auditing and reviewing the access control reduces the attack vector to the application.
-
-Azure control plane depends on Azure AD. You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review). These reviews are often centrally performed often as part of internal or external audit activities.
 
 ### Suggested action
 
@@ -51,8 +73,6 @@ Use Azure Defender (Azure Security Center) to continuously assess and monitor yo
 
 [Assess your regulatory compliance](/azure/security-center/security-center-compliance-dashboard#assess-your-regulatory-compliance)
 
-
-## Audit regulatory compliance
 
 **Have you established a monitoring and assessment solution for compliance?**
 ***
@@ -89,6 +109,8 @@ Regularly review roles that have high privileges. Set up a recurring review patt
 As people in the organization and on the project change, make sure that only the right people, have access to the application infrastructure and just enough privileges to complete the task. Auditing and reviewing the access control reduces the attack vector to the application. 
 
 Azure control plane depends on Azure AD. You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review). These reviews are often centrally performed often as part of internal or external audit activities. 
+
+
 
 ## Check policy compliance
 

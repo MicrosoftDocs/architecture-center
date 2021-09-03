@@ -70,12 +70,13 @@ Here are some reference architectures related to identity and access management:
 
 [Integrate on-premises AD with Azure](../../reference-architectures/identity/index.yml)
 
-## Next
+## Next step
 
-We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program.
+Monitor the communication between segments. Use data to identify anomalies, set alerts, or block traffic to mitigate the risk of attackers crossing segmentation boundaries. 
+
 
 > [!div class="nextstepaction"]
-> [Monitor identity, network, data risks](./monitor-resources.md)
+> [Network-related risks](./design-network.md)
 
 ## Related links
 

@@ -50,6 +50,13 @@ Here are some reference architectures related to secure storage:
 
 - [DevSecOps in Azure](../../solution-ideas/articles/devsecops-in-azure.yml)
 
+## Next steps
+
+We recommend that you review the practices and tools implemented as part of the development cycle.
+
+> [!div class="nextstepaction"]
+> [Data protection](./design-storage.md)
+
 ## Related links
 
 > Back to the main article: [Security](./overview.md)

@@ -132,31 +132,7 @@ are available to use as a starting template.
 
 [What is the Microsoft Cloud Adoption Framework for Azure?](/azure/cloud-adoption-framework/overview)
 
-## Evaluate security using benchmarks
 
-Use an industry standard benchmark to evaluate your organizations current
-security posture. Azure Security Benchmark v2 is Microsoft's current Azure
-security benchmark.
-
-Benchmarking allows you to improve your security program by learning from
-external organizations. It lets you know how your current security
-state compares to that of other organizations, providing both external
-validation for successful elements of your current system and identifying
-gaps that serve as opportunities to enrich your team's overall security
-strategy. Even if your security program isn't tied to a specific benchmark or
-regulatory standard, you will benefit from understanding the documented ideal
-states by those outside and inside of your industry.
-
-As an example, the Center for Internet Security (CIS) has created security
-benchmarks for Azure that map to the CIS Control Framework. Another
-reference example is the MITRE ATT&CK&trade; framework that defines the various
-adversary tactics and techniques based on real-world observations. These
-external references control mappings and help you to understand any gaps between
-your current strategy, what you have, and what other experts have in the industry.
-
-### Suggested action
-  
-Develop an Azure security benchmarking strategy aligned to industry standards.
 
 ## Audit and enforce policy compliance
 
@@ -175,56 +151,6 @@ underlying Azure Resource Manager capabilities in the Azure platform (and
 Azure Policy can also be assigned via Azure Blueprints).
 
 For more information on how to do this in Azure, please review **Tutorial: Create and manage policies to enforce compliance**.
-
-## Monitor identity Risk
-
-Monitor identity-related risk events for warning on potentially compromised
-identities and remediate those risks.
-
-Most security incidents take place after an attacker initially gains access
-using a stolen identity. These identities can often start with low privileges,
-but the attackers then use that identity to traverse laterally and gain access
-to more privileged identities. This repeats as needed until the attacker
-controls access to the ultimate target data or systems.
-
-Azure Active Directory uses adaptive machine learning algorithms, heuristics,
-and known compromised credentials (username/password pairs) to detect suspicious
-actions that are related to your user accounts. These username/password pairs
-come from monitoring public and dark web sites (where attackers often dump
-compromised passwords) and by working with security researchers, law
-enforcement, Security teams at Microsoft, and others.
-
-There are two places where you review reported risk events:
-
-- **Azure AD reporting** - Risk events are part of Azure AD's security
-    reports. For more information, see the [users at risk security
-    report](/azure/active-directory/reports-monitoring/concept-user-at-risk) and
-    the [risky sign-ins security
-    report](/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
-
-- **Azure AD Identity Protection** - Risk events are also part of the
-    reporting capabilities of [Azure Active Directory Identity
-    Protection](/azure/active-directory/active-directory-identityprotection).
-
-In addition, you can use the [Identity Protection risk events API](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) to
-gain programmatic access to security detections using Microsoft Graph.
-
-Remediate these risks by manually addressing each reported account or by setting
-up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy)
-to require a password change for these high risk events.
-
-## Penetration testing
-
-Use Penetration Testing to validate security defenses.
-
-Real world validation of security defenses is critical to validate your defense
-strategy and implementation. This can be accomplished by a penetration test
-(simulates a one time attack) or a red team program (simulates a persistent
-threat actor targeting your environment).
-
-Follow the [guidance published by Microsoft](https://technet.microsoft.com/mt784683) for planning and executing simulated
-attacks.
-
 
 ## Discover & replace insecure protocols
 

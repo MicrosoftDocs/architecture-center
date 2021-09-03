@@ -83,9 +83,9 @@ Follow these questions to assess the workload at a deeper level.
 |---|---|
 |[**Are there any regulatory requirements for this workload?**](design-regulatory-compliance.md)|Understand all regulatory requirements. Check the Microsoft Trust Center for the latest information, news, and best practices in security, privacy, and compliance.|
 |[**Is the organization using a landing zone for this workload?**](design-governance-landing-zone.md)|Consider the security controls placed on the infrastructure into which the workload will get deployed.|
-|[Reference model: Segmentation](design-segmentation.md)|Reference model and strategies of how the functions and teams can be segmented.|
-|[Management groups and permissions](design-management-groups.md)|Strategies using management groups to manage resources across multiple subscriptions consistently and efficiently.|
-|[Regulatory compliance](design-regulatory-compliance.md)|Guidance on standards published by law, authorities, and regulators.|
+|[**Do you have a segmentation strategy**](design-segmentation.md)|Reference model and strategies of how the functions and teams can be segmented.|
+|[**Are you using management groups as part of your segmentation strategy?**](design-management-groups.md)|Strategies using management groups to manage resources across multiple subscriptions consistently and efficiently.|
+|[**What security controls do you have in place for access to Azure infrastructure?**](design-admin.md)|Guidance on reducing risk exposure in scope and time when configuring critical impact accounts such as Administrators. |
 
 ## Azure security benchmark
 
@@ -104,10 +104,10 @@ Here are some reference architectures related to governance:
 
 ## Next steps
 
-We recommend that you review the practices and tools implemented as part of the development cycle.
+Provide security assurance through identity management to authenticate and grant permission to users, partners, customers, applications, services, and other entities.  
 
 > [!div class="nextstepaction"]
-> [Application development](./design-apps-services.md)
+> [Identity and access management](./design-identity.md)
 
 ## Related links
 > Go back to the main article: [Security](overview.md)
