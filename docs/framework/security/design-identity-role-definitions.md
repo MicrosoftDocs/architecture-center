@@ -6,6 +6,11 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+categories: 
+  - management-and-governance
+  - security
 ms.custom:
   - article
 ---

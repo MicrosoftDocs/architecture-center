@@ -2191,6 +2191,27 @@
       "source_path": "docs/framework/security/law-authority.md",
       "redirect_url": "/azure/architecture/framework/security/design-regulatory-compliance",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "docs/framework/security/monitor-identity-network.md",
+      "redirect_url": "/azure/architecture/framework/security/monitor-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/framework/security/governance.md",
+      "redirect_url": "/azure/architecture/framework/security/design-governance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/framework/security/network-security-containment.md",
+      "redirect_url": "/azure/architecture/framework/security/design-network-segmentation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/framework/security/critical-impact-accounts.md",
+      "redirect_url": "/azure/architecture/framework/security/design-admins",
+      "redirect_document_id": true
+    }    
+
   ]
 }

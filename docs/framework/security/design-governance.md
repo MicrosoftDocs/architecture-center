@@ -85,7 +85,7 @@ Follow these questions to assess the workload at a deeper level.
 |[**Is the organization using a landing zone for this workload?**](design-governance-landing-zone.md)|Consider the security controls placed on the infrastructure into which the workload will get deployed.|
 |[**Do you have a segmentation strategy**](design-segmentation.md)|Reference model and strategies of how the functions and teams can be segmented.|
 |[**Are you using management groups as part of your segmentation strategy?**](design-management-groups.md)|Strategies using management groups to manage resources across multiple subscriptions consistently and efficiently.|
-|[**What security controls do you have in place for access to Azure infrastructure?**](design-admin.md)|Guidance on reducing risk exposure in scope and time when configuring critical impact accounts such as Administrators. |
+|[**What security controls do you have in place for access to Azure infrastructure?**](design-admins.md)|Guidance on reducing risk exposure in scope and time when configuring critical impact accounts such as Administrators. |
 
 ## Azure security benchmark
 

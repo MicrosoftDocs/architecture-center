@@ -147,23 +147,6 @@ landingContent:
           - text: Improving app security with Application Security Groups
             url: https://channel9.msdn.com/Shows/Azure-Enablement/Improving-app-security-with-Application-Security-Groups?term=Validate%20and%20test%20security&pubDate=3years&lang-en=true
  # Card
-  - title: Optimize security
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Prioritize security best practices investments
-            url: governance.md#prioritize-security-best-practices-investments
-          - text: Use Azure Secure Score
-            url: governance.md#operationalize-azure-secure-score
-          - text: Manage connected tenants
-            url: governance.md#manage-connected-tenants
-          - text: Designate clear lines of responsibility
-            url: governance.md#clear-lines-of-responsibility
-      - linkListType: video
-        links:
-          - text: Enabling secure remote work with using Windows Virtual Desktop
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Enabling-secure-remote-work-using-Windows-Virtual-Desktop?term=Azure%20Secure%20Score&pubDate=3years&lang-en=true
- # Card
   - title: Security tools and services
     linkLists:
       - linkListType: reference

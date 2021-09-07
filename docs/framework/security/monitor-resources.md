@@ -231,7 +231,7 @@ for security.
 
 You can discover existing connected tenants using a
 [tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions
-you may assign to security is in the [Assign privileges for managing the environment](#assign-privileges-for-managing-the-environment) section.
+you may assign to security is in the [Assign privileges for managing the environment](/azure/architecture/framework/security/design-identity-role-definitions#clear-lines-of-responsibility) section.
 
 
 
