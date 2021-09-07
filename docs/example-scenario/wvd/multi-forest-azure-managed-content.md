@@ -5,7 +5,7 @@ This solution idea shows how you can deploy Azure Virtual Desktop (AVD) rapidly 
 This solution idea also applies to mergers and acquisitions, organization rebranding, and multiple on-premises identities requirements.
 
 ## Architecture
-:::image type="content" source="images/wvd-multi-forest-aadds.png" alt-text="Azure Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds.png":::
+:::image type="content" source="images/wvd-multi-forest-aadds-edited.png" alt-text="Azure Virtual Desktop with Azure AD Domain Services" lightbox="images/wvd-multi-forest-aadds-edited.png":::
 
 ## Data flow
 
@@ -34,9 +34,9 @@ The following steps show how the data flows in this architecture in the form of 
 
 For more information, see these articles:
 
-- [Multiple AD forests architecture with Azure Virtual Desktop](./multi-forest.yml).
+- [Multiple AD forests architecture with Azure Virtual Desktop](./multi-forest.yml)
 - [Azure Virtual Desktop for enterprises](./windows-virtual-desktop.yml)
-- [Azure AD Connect Topology](/azure/active-directory/hybrid/plan-connect-topologies).
-- [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/compare-identity-solutions).
-- [Azure Virtual Desktop Documentation](/azure/virtual-desktop/).
+- [Azure AD Connect Topology](/azure/active-directory/hybrid/plan-connect-topologies)
+- [Compare different Identity options: Self-managed Active Directory Domain Services (AD DS), Azure Active Directory (Azure AD), and Azure Active Directory Domain Services (Azure AD DS)](/azure/active-directory-domain-services/compare-identity-solutions)
+- [Azure Virtual Desktop Documentation](/azure/virtual-desktop/)
 

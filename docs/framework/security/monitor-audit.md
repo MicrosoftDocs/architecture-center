@@ -30,7 +30,7 @@ To make sure that the security posture doesn't degrade over time, have regular a
 > - Use an industry standard benchmark to evaluate your organizations current security posture.
 > - Perform regular internal and external compliance audits, including regulatory compliance attestations.
 > - Review the policy requirements.
-
+> - Use [Azure Governance Visualizer](https://github.com/microsoft/CloudAdoptionFramework/tree/master/govern/AzureGovernanceVisualizer) for a holistic overview of your technical Azure Governance implementation.
 
 ## Evaluate using standard benchmarks
 
@@ -121,6 +121,9 @@ Enforce and audit industry, government, and internal corporate security policies
 For Azure, use Azure Policy to create and manage policies that enforce compliance. Azure Policies are built on the Azure Resource Manager capabilities. Azure Policy can also be assigned through Azure Blueprints. 
 For more information, see [Tutorial: Create and manage policies to enforce compliance](/azure/governance/policy/tutorials/create-and-manage).
 
+## Capture critical data
+
+[Azure Governance Visualizer](https://github.com/microsoft/CloudAdoptionFramework/tree/master/govern/AzureGovernanceVisualizer) captures data from the most relevant Azure governance capabilities such as Azure Policy, Azure role-based access control (Azure RBAC), and Azure Blueprints. The visualizer PowerShell script iterates through an Azure tenant's management group hierarchy down to the subscription level. From the collected data, the visualizer shows your hierarchy map, creates a tenant summary, and builds granular scope insights about your management groups and subscriptions.
 
 
 ## Next steps

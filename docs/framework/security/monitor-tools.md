@@ -1,6 +1,6 @@
 ---
 title: Azure security monitoring tools
-description: Tools that provide observability into threats and vulnerable resources used by the workload.
+description: Use security monitoring tools in Azure. Also get general security advice, such as detecting threats early and protecting resources against DDoS attacks.
 author: v-aangie
 ms.date: 09/20/2020
 ms.topic: conceptual
@@ -34,6 +34,7 @@ Azure provides several monitoring tools that observe the operations and detect a
 |[**Azure DDoS Protection**](/azure/virtual-network/ddos-protection-overview)| Defend against distributed denial of service (DDoS) attacks.|
 |[**Azure Rights Management (RMS)**](/azure/information-protection/what-is-azure-rms)| Protect files and emails across multiple devices.|
 |[**Microsoft Information Protection (MIP)**](/information-protection/develop/overview)| Secure email, documents, and sensitive data that you share outside your company.|
+|[**Azure Governance Visualizer**](https://github.com/microsoft/CloudAdoptionFramework/tree/master/govern/AzureGovernanceVisualizer)|Gain granular insight into policies, Azure role-based access control (Azure RBAC), Azure Blueprints, subscriptions, and more.|
 
 ## Azure Security Center
 
@@ -75,6 +76,11 @@ With proper *file protection*, you can analyze data flows to gain insight into y
 [Azure Information Protection (AIP)](/azure/information-protection/what-is-information-protection) is part of Microsoft Information Protection (MIP) solution, and extends the labeling and classification functionality provided by Microsoft 365. For more information, see   
 [this article about classification](/microsoft-365/compliance/data-classification-overview).
 
+## Azure Governance Visualizer
+
+Azure Governance Visualizer is a PowerShell script that iterates through an Azure tenant's management group hierarchy down to the subscription level. You can run the script either for your Tenant Root Group or any other Management Group. It captures data from the most relevant Azure governance capabilities such as Azure Policy, Azure role-based access control (Azure RBAC), and Azure Blueprints. From the collected data, the visualizer shows your hierarchy map, creates a tenant summary, and builds granular scope insights about your management groups and subscriptions.
+
+The visualizer provides a holistic overview of your technical Azure Governance implementation by connecting the dots.
 
 ## Next
 > [!div class="nextstepaction"]

@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Campaign optimization with Azure HDInsight Spark clusters
+  title: Campaign optimization with HDInsight Spark
   titleSuffix: Azure Solution Ideas
   description: Build and deploy a machine learning model to maximize the purchase rate of leads targeted by a marketing campaign using Microsoft Machine Learning Server.
   author: doodlemania2
