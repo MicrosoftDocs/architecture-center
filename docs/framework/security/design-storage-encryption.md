@@ -191,7 +191,7 @@ Identify workloads using unencrypted sessions and configure the service to requi
 
 ## Learn more
 
-- [Encrypt data in transit](/azure/architecture/framework/Security/storage-data-encryption#encrypt-data-in-transit)
+- [Encrypt data in transit](./storage-data-encryption.md#encrypt-data-in-transit)
 - [Azure encryption overview](/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
 ## Next steps

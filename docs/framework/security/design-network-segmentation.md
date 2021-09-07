@@ -79,7 +79,7 @@ Create a risk containment strategy that blends proven approaches including:
 - Native security controls available in Azure
 - Zero trust approaches
 
-For more information, reference [Build a security containment strategy](/azure/architecture/framework/Security/network-security-containment#build-a-security-containment-strategy).
+For more information, reference [Build a security containment strategy](./network-security-containment.md#build-a-security-containment-strategy).
 
 ## Learn more
 

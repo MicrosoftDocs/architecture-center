@@ -1684,7 +1684,7 @@ items:
           - name: Guides
             items:
               - name: Hybrid workload in Azure WAF
-                href: https://docs.microsoft.com/azure/architecture/framework/hybrid/hybrid-overview
+                href: ./framework/hybrid/hybrid-overview.md
               - name: Hybrid deployments
                 items:
                 - name: Configure hybrid cloud connectivity in Azure and Azure Stack Hub

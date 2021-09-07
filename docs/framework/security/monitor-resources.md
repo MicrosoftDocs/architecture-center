@@ -150,7 +150,7 @@ Make sure the security team is aware of all enrollments and associated subscript
 
 Assess if organizational policies and applicable regulatory requirements are followed for the connected tenants. This applies to all Azure environments that connect to your production environment network.
 
-For information about permissions for this access, see [Assign privileges for managing the environment section](/azure/architecture/framework/security/governance?branch=master#assign-privileges-for-managing-the-environment).
+For information about permissions for this access, see [Assign privileges for managing the environment section](./governance.md#assign-privileges-for-managing-the-environment).
 
 
 ## CI/CD pipelines

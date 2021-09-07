@@ -110,7 +110,7 @@ Integrate network device log information in advanced SIEM solutions or other ana
 
 ### Learn more
 
-[Enable enhanced network visibility](/azure/architecture/framework/Security/network-security-containment#enable-enhanced-network-visibility)
+[Enable enhanced network visibility](./network-security-containment.md#enable-enhanced-network-visibility)
 
 ## Next steps
 
@@ -118,4 +118,3 @@ Integrate network device log information in advanced SIEM solutions or other ana
 - [Security tools](monitor-tools.md)
 - [Security logs and audits](monitor-audit.md)
 - [Check for identity, network, data risks](monitor-resources.md)
-

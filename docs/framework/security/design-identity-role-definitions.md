@@ -45,7 +45,7 @@ Designate groups (or individual roles) that will be responsible for central func
 
 ## Learn more
 
-[Clear lines of responsibility](/azure/architecture/framework/Security/governance#clear-lines-of-responsibility)
+[Clear lines of responsibility](./governance.md#clear-lines-of-responsibility)
 
 ## Next
 

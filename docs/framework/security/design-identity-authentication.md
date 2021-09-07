@@ -118,7 +118,7 @@ For more information, see [hybrid identity providers](/azure/active-directory/hy
 
 **Learn more**
 
-[Synchronize the hybrid identity systems](/azure/architecture/framework/security/design-identity#synchronize-the-hybrid-identity-systems)
+[Synchronize the hybrid identity systems](./design-identity.md#synchronize-the-hybrid-identity-systems)
 
 ## Use passwordless authentication
 
@@ -159,7 +159,7 @@ An implementation of this strategy is enabling single sign-on (SSO) to devices, 
 **Learn more**
 
 - [Passwordless Strategy](/windows/security/identity-protection/hello-for-business/passwordless-strategy)
-- [Remove Virtual Machine (VM) direct internet connectivity](/azure/architecture/framework/Security/governance#remove-virtual-machine-vm-direct-internet-connectivity)
+- [Remove Virtual Machine (VM) direct internet connectivity](./governance.md#remove-virtual-machine-vm-direct-internet-connectivity)
 
 ## Use modern password protection
 

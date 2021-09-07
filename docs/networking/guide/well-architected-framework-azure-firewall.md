@@ -60,7 +60,7 @@ Review the differences between the two Azure Firewall SKUs. The Standard option 
 - Become familiar with the limits and limitations, especially SNAT ports. Do not exceed limits, and be aware of the limitations. See the Azure Firewall limits at [Azure subscription limits and quotas -  Azure Resource  Manager](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits). Also, learn more about any existing usability limitations at [Azure Firewall FAQ](/azure/firewall/firewall-faq).
 - For concurrent deployments, make sure to use IP Groups, policies, and firewalls that do not have concurrent Put operations on them. Ensure all updates to the IP Groups and policies have an implicit firewall update that is run afterwards.
 - Ensure a developer and test environment to validate firewall changes.
-- A well-architected solution also involves considering the placement of your resources, to align with all functional and non-functional requirements. Azure Firewall, Application Gateway, and Load Balancers can be combined in multiple ways to achieve different goals. You can find scenarios with detailed recommendations, at [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
+- A well-architected solution also involves considering the placement of your resources, to align with all functional and non-functional requirements. Azure Firewall, Application Gateway, and Load Balancers can be combined in multiple ways to achieve different goals. You can find scenarios with detailed recommendations, at [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml).
 
 ### Networking
 
@@ -167,9 +167,9 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
  ## Related resources
  
- - [Azure Firewall architecture overview](/azure/architecture/example-scenario/firewalls)
- - [Azure Well-Architected Framework review of Azure Application Gateway](/azure/architecture/networking/guide/waf-application-gateway)
- - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
- - [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
- - [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
- - [Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+ - [Azure Firewall architecture overview](../../example-scenario/firewalls/index.yml)
+ - [Azure Well-Architected Framework review of Azure Application Gateway](./waf-application-gateway.md)
+ - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
+ - [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
+ - [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+ - [Security considerations for highly sensitive IaaS apps in Azure](../../reference-architectures/n-tier/high-security-iaas.yml)

@@ -215,7 +215,7 @@ following methods of authentication. These capabilities are listed in preference
 order by highest cost/difficulty to attack (strongest/preferred options) to
 lowest cost/difficult to attack:
 
-- [**Passwordless (such as Windows Hello)**](https://aka.ms/HelloForBusiness)  
+- [**Passwordless (such as Windows Hello)**](/windows/security/identity-protection/hello-for-business/hello-identity-verification)  
 
 - [**Passwordless (Authenticator App)**](/azure/active-directory/authentication/howto-authentication-phone-sign-in)
 
