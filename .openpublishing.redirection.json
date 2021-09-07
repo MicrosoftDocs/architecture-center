@@ -413,7 +413,7 @@
     },
     {
       "source_path": "docs/security/law-authority.md",
-      "redirect_url": "/azure/architecture/framework/security/design-regulatory-compliance.md",
+      "redirect_url": "/azure/architecture/framework/security/design-regulatory-compliance",
       "redirect_document_id": true
     },
     {

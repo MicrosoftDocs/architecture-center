@@ -6,6 +6,15 @@ ms.date: 10/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+  - azure-sentinel
+  - azure-monitor
+categories: 
+  - security
+subject:
+  - security
+  - monitoring
 ms.custom:
   - article
 ---
