@@ -68,14 +68,14 @@ Several design patterns from the Azure Architecture Center and the wider communi
 
 ### Deployment Stamps pattern
 
-The [Deployment Stamps pattern](../../patterns/deployment-stamp.md) involves deploying dedicated infrastructure for a tenant or group of tenants. A single stamp might contain multiple tenants or might be dedicated to a single tenant. You can choose to deploy a single stamp, or you can coordinate a deployment across multiple stamps. If you deploy dedicated stamps for each tenant, you can also consider deploying entire stamps programmatically.
+The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) involves deploying dedicated infrastructure for a tenant or group of tenants. A single stamp might contain multiple tenants or might be dedicated to a single tenant. You can choose to deploy a single stamp, or you can coordinate a deployment across multiple stamps. If you deploy dedicated stamps for each tenant, you can also consider deploying entire stamps programmatically.
 
 > [!NOTE]
 > When you programmatically deploy tenant resources onto shared stamps, consider how you handle *spillover*. For example, suppose each stamp includes an Azure SQL logical server, and your solution provisions a dedicated database in that server for each tenant. A [single logical server has limits](/azure/azure-sql/database/resource-limits-logical-server#logical-server-limits), including a maximum number of databases that a logical server supports. As you approach these limits, you might need to provision new servers or even a new deployment stamp so that you can continue to onboard tenants. Consider whether you automate this process or manually monitor the growth.
 
 ### Deployment rings
 
-[Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to roll out updates to different groups of infrastructure at different times. This approach is commonly used with the [Deployment Stamps pattern](../../patterns/deployment-stamp.md), and groups of stamps are deployed into distinct rings based on tenant preferences, workload types, and other considerations.
+[Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to roll out updates to different groups of infrastructure at different times. This approach is commonly used with the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md), and groups of stamps are deployed into distinct rings based on tenant preferences, workload types, and other considerations.
 
 ### Feature flags
 
