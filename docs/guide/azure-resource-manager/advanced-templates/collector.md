@@ -303,7 +303,7 @@ As you would expect, this is the URI for the **collector template** that will be
             }
         }
     }
-},
+}
 ```
 
 We pass two parameters to the **collector template**:

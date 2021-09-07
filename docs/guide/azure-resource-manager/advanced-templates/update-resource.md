@@ -71,7 +71,7 @@ Let's look at an example template that demonstrates this. Our template deploys a
                         "properties": {
                             "privateIPAllocationMethod": "Dynamic",
                             "subnet": {
-                                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks','firstVNet'),'/subnets/firstSubnet')]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'firstVNet', 'firstSubnet')]"
                             }
                         }
                     }
@@ -89,8 +89,8 @@ Let's look at an example template that demonstrates this. Our template deploys a
                 "mode": "Incremental",
                 "parameters": {},
                 "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.1",
                     "parameters": {},
                     "variables": {},
                     "resources": [

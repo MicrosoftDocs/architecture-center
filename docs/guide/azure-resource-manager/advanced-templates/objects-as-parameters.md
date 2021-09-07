@@ -59,7 +59,8 @@ Next, let's provide values for the `VNetSettings` object:
                     }
                 ]
             }
-        },
+        }
+}
 ```
 
 As you can see, our single parameter actually specifies three subproperties: `name`, `addressPrefixes`, and `subnets`. Each of these subproperties either specifies a value or other subproperties. The result is that our single parameter specifies all the values necessary to deploy our virtual network.
@@ -272,33 +273,14 @@ Now let's take a look at our template. Our first resource named `NSG1` deploys t
         {
             "apiVersion": "2020-06-01",
             "type": "Microsoft.Resources/deployments",
-            "name": "loop-0",
+            "name": "[concat('loop-', copyIndex(1))]",
             "dependsOn": [
                 "NSG1"
             ],
-            "properties": {
-                "mode": "Incremental",
-                "parameters": {},
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [],
-                    "outputs": {}
-                }
-            }
-        },
-        {
-            "apiVersion": "2020-06-01",
-            "type": "Microsoft.Resources/deployments",
-            "name": "[concat('loop-', copyIndex(1))]",
-            "dependsOn": [
-                "[concat('loop-', copyIndex())]"
-            ],
             "copy": {
                 "name": "iterator",
-                "count": "[length(parameters('networkSecurityGroupsSettings').securityRules)]"
+                "count": "[length(parameters('networkSecurityGroupsSettings').securityRules)]",
+                "mode": "serial"
             },
             "properties": {
                 "mode": "Incremental",
