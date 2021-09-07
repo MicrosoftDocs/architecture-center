@@ -73,7 +73,7 @@ of the [Microsoft CISO Workshop](/security/ciso-workshop/ciso-workshop).
 > - Understand regulatory requirements and operational data that may be used for audits. 
 > - Continuously monitor and assess the compliance of your workload. Perform regular attestations to avoid fines.
 > - Review and apply recommendations from Azure. 
-> - Remediate basic vulnerabilites to keep the attacker costs high.
+> - Remediate basic vulnerabilities to keep the attacker costs high.
 
 ## In this section
 

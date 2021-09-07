@@ -187,6 +187,10 @@ items:
                 href: guide/multitenant/considerations/map-requests.md
               - name: Domain names
                 href: guide/multitenant/considerations/domain-names.md
+          - name: Approaches
+            items:
+              - name: Storage and data
+                href: guide/multitenant/approaches/storage-data.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
       - name: Azure for AWS Professionals
@@ -1665,6 +1669,8 @@ items:
                 href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml
       - name: Hybrid + Multicloud
         items:
+          - name: Get started
+            href: hybrid/hybrid-start-here.md
           - name: Guides
             items:
               - name: Hybrid workload in Azure WAF
@@ -2347,10 +2353,14 @@ items:
         items:
           - name: Architectures
             items:
-              - name: Using Azure file shares in a hybrid environment
-                href: hybrid/azure-file-share.yml
               - name: Hybrid file services
                 href: hybrid/hybrid-file-services.yml
+              - name: Oracle Database with Azure NetApp Files
+                href: example-scenario/file-storage/oracle-azure-netapp-files.yml
+              - name: SQL Server on Azure Virtual Machines with Azure NetApp Files
+                href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
+              - name: Use Azure file shares in a hybrid environment
+                href: hybrid/azure-file-share.yml
           - name: Solution ideas
             items:
               - name: Media rendering
