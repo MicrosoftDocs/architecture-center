@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Security documentation
-summary: Security is one of the most important aspects of any architecture. Security provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems. Losing these assurances can negatively impact your business operations and revenue, as well as your organization's reputation in the marketplace. These security assurances also serve as a foundation for privacy assurances, which are not in scope of this document. In this article, we'll discuss key architectural considerations and principles for security and how they apply to Azure.
+summary: Apply security principles to your architecture to protect against attacks on your data and systems.
 
 metadata: 
   title: Security documentation
@@ -52,40 +52,44 @@ landingContent:
           - text: "Cloud Security Posture Management (CSPM) with Azure Security Center"
             url: https://channel9.msdn.com/Shows/Azure-Friday/Cloud-Security-Posture-Management-CSPM-with-Azure-Security-Center?term=Security%20overview&pubDate=3years&lang-en=true
   # Card 
-  - title: Identity and access management
+  - title: Design for security
     linkLists:
       - linkListType: get-started
         links:
-          - text: Checklist of considerations
-            url: design-identity.md             
+          - text: Plan segmentation
+            url: design-segmentation.md
+          - text: Consider team roles and responsibilities
+            url: design-identity-role-definitions.md 
+          - text: Implement network segmentation
+            url: design-network-segmentation.md
+          - text: Encrypt data
+            url: design-storage-encryption.md  
+          - text: Understand application security
+            url: design-apps-services.md                 
       - linkListType: concept
         links:
-          - text: Roles, responsibilities, and permissions
-            url: design-identity-role-definitions.md
-          - text: Authentication
-            url: design-identity-authentication.md
-          - text: Authorization
-            url: design-identity-authorization
+          - text: Support segmentation with management groups
+            url: design-management-groups.md#support-your-segmentation-strategy-with-management-groups
           - text: Identity management and access control best practices
             url: /azure/security/fundamentals/identity-management-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
-      - linkListType: reference
-        links:
-          - text: Azure AD Conditional Access
-            url: /azure/active-directory/conditional-access/overview
-          - text: Azure AD Connect 
-            url: /azure/active-directory/hybrid/whatis-hybrid-identity
-          - text: "Azure AD Privileged Identity Management (PIM)"
-            url: /azure/active-directory/privileged-identity-management/pim-configure
-          - text: Azure role-based access control (RBAC)
-            url: /azure/role-based-access-control/overview
-          - text: Multifactor Authentication
-            url: /azure/active-directory/authentication/howto-mfa-userstates
-          - text: Passwordless
-            url: /windows/security/identity-protection/hello-for-business/hello-identity-verification                
+          - text: Network best practices
+            url: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          - text: Encryption best practices
+            url: /azure/security/fundamentals/encryption-overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
+          - text: Analyze application threats
+            url: design-threat-model.md
+          - text: Gather compliance requirements
+            url: design-regulatory-compliance.md
+          - text: Secure application configuration and dependencies
+            url: design-app-dependencies.md
       - linkListType: learn
         links:
-          - text: Manage identity and access in Azure Active Directory
-            url: /learn/paths/manage-identity-and-access/
+          - text: Design and implement network security
+            url: /learn/modules/design-implement-network-security-monitoring/
+      - linkListType: whats-new
+        links:
+          - text: What's new in Azure Network Security?
+            url: https://channel9.msdn.com/Shows/The-Launch-Space/Whats-new-in-Azure-Network-Security?term=Security&pubDate=3years&lang-en=true
  # Card
   - title: Secure build and deploy
     linkLists:
@@ -97,16 +101,6 @@ landingContent:
             url: deploy-infrastructure.md          
           - text: Deploy code
             url: deploy-code.md
-          - text: Network best practices
-            url: /azure/security/fundamentals/network-best-practices?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
-          - text: Encryption best practices
-            url: /azure/security/fundamentals/encryption-overview?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
-          - text: Analyze application threats
-            url: design-threat-model.md
-          - text: Gather compliance requirements
-            url: design-regulatory-compliance.md
-          - text: Secure application configuration and dependencies
-            url: design-app-dependencies.md            
       - linkListType: concept
         links:
           - text: Minimize access
@@ -152,6 +146,23 @@ landingContent:
         links:
           - text: Improving app security with Application Security Groups
             url: https://channel9.msdn.com/Shows/Azure-Enablement/Improving-app-security-with-Application-Security-Groups?term=Validate%20and%20test%20security&pubDate=3years&lang-en=true
+ # Card
+  - title: Optimize security
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Prioritize security best practices investments
+            url: governance.md#prioritize-security-best-practices-investments
+          - text: Use Azure Secure Score
+            url: governance.md#operationalize-azure-secure-score
+          - text: Manage connected tenants
+            url: governance.md#manage-connected-tenants
+          - text: Designate clear lines of responsibility
+            url: governance.md#clear-lines-of-responsibility
+      - linkListType: video
+        links:
+          - text: Enabling secure remote work with using Windows Virtual Desktop
+            url: https://channel9.msdn.com/Shows/Azure-Friday/Enabling-secure-remote-work-using-Windows-Virtual-Desktop?term=Azure%20Secure%20Score&pubDate=3years&lang-en=true
  # Card
   - title: Security tools and services
     linkLists:
