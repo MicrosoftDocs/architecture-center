@@ -28,6 +28,9 @@ Many traditional IT operating models aren't compatible with the cloud, and organ
 
 ![Security design areas](./images/devops-model.png)
 
+:::image type="content" source="./images/devops-model.png" alt-text="DevOps model.":::
+
+
 ## Checklist
 
 **Have you adopted a secure DevOps approach to ensure security and feature enhancements can be quickly deployed?**

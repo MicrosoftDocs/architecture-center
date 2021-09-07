@@ -20,7 +20,7 @@ Security is one of the most important aspects of any architecture. It provides c
 
 The security of complex systems depends on understanding the business context, social context, and technical context. As you design your system, cover these areas:
 
-![Security design areas](./images/security-areas.png)
+:::image type="content" source="./images/security-areas.png" alt-text="Security design areas.":::
 
 Understanding an IT solution as it interacts with its surrounding environment
 holds the key to preventing unauthorized activity and to identifying anomalous
@@ -105,7 +105,8 @@ This results in three key strategies
 
 To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
-![Security design areas](./images/devops-security.png)
+
+:::image type="content" source="./images/devops-security.png" alt-text="Security cycle.":::
 
 These are the topics we cover in the security pillar of the Microsoft Azure Well-Architected Framework
 
