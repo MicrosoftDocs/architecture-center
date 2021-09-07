@@ -1607,8 +1607,6 @@ items:
                     href: guide/azure-resource-manager/advanced-templates/index.md
                   - name: Update a resource
                     href: guide/azure-resource-manager/advanced-templates/update-resource.md
-                  - name: Conditionally deploy a resource
-                    href: guide/azure-resource-manager/advanced-templates/conditional-deploy.md
                   - name: Use an object as a parameter
                     href: guide/azure-resource-manager/advanced-templates/objects-as-parameters.md
                   - name: Property transformer and collector
