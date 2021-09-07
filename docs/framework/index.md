@@ -44,7 +44,7 @@ Incorporating these pillars helps produce a high quality, stable, and efficient 
 Reference the following video about how to architect successful workloads on Azure with the Well-Architected Framework:
 
 
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Architect-successful-workloads-on-Azure--Introduction-Ep-1-Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Architect successful workloads on Azure - Microsoft Channel 9 Video"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Architect-successful-workloads-on-Azure--Introduction-Ep-1-Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Architect successful workloads on Azure - Microsoft Channel 9 Video"></iframe>
 
 ## Overview
 
@@ -77,35 +77,9 @@ We also recommend you use Azure Advisor and Advisor Score to identify and priori
 
 A reliable workload is one that is both resilient and available. [Resiliency](./resiliency/index.yml) is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your workload when they need to.
 
-<!---Move extra content paragraphs to pillar overview pages--->
-
-<!---Add Video--->
-
-<!---Add Summary--->
-
-<!---Add link to Overview or Principles page--->
-
-In traditional application development, there has been a focus on increasing the mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, because of several factors:
-
-- Distributed systems are complex, and a failure at one point can potentially cascade throughout the system.
-- Costs for cloud environments are kept low through commodity hardware, so occasional hardware failures must be expected.
-- Applications often depend on external services, which may become temporarily unavailable or throttle high-volume users.
-- Today's users expect an application to be available 24/7 without ever going offline.
-
-All of these factors mean that cloud applications must be designed to expect occasional failures and recover from them. Azure has many resiliency features already built into the platform. For example:
-
-- Azure Storage, SQL Database, and Cosmos DB all provide built-in data replication, both within a region and across regions.
-- Azure managed disks are automatically placed in different storage scale units to limit the effects of hardware failures.
-- Virtual machines (VMs) in an availability set are spread across several fault domains. A fault domain is a group of VMs that share a common power source and network switch. Spreading VMs across fault domains limits the impact of physical hardware failures, network outages, or power interruptions.
-
-That said, you still need to build resiliency into your application. Resiliency strategies can be applied at all levels of the architecture. Some mitigations are more tactical in nature&mdash;for example, retrying a remote call after a transient network failure. Other mitigations are more strategic, such as failing over the entire application to a secondary region. Tactical mitigations can make a large difference. While it's rare for an entire region to experience a disruption, transient problems such as network congestion are more common&mdash;so target these issues first. Having the right monitoring and diagnostics is also important, both to detect failures when they happen, and to find the root causes.
-
-When designing an application to be resilient, you must understand your availability requirements. How much downtime is acceptable? The amount of downtime is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available?
-
 For more information, reference the following video that will show you how to start improving the reliability of your Azure workloads:
 
-
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-improving-the-reliability-of-your-Azure-workloads--Reliability-Ep-1--Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Start improving the reliability of your Azure workloads - Microsoft Channel 9 Video"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-improving-the-reliability-of-your-Azure-workloads--Reliability-Ep-1--Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Start improving the reliability of your Azure workloads - Microsoft Channel 9 Video"></iframe>
 
 ### Reliability guidance
 
@@ -115,65 +89,36 @@ For more information, reference the following video that will show you how to st
   - [Transient fault handling][transient-fault-handling]
   - [Retry guidance for specific services][retry-service-specific]
 
+For an overview of reliability principles, reference [Principles of the reliability pillar](./resiliency/principles.md).
+
 ## Security
 
 Think about [security](./security/index.yml) throughout the entire lifecycle of an application, from design and implementation to deployment and operations. The Azure platform provides protections against various threats, such as network intrusion and DDoS attacks. But you still need to build security into your application and into your DevOps processes.
 
 Ask the right questions about secure application development on Azure by referencing the following video:
 
+<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure/player" width="760" height="340" allowFullScreen frameBorder="0" title="Ask the right questions about secure application development on Azure - Microsoft Channel 9 Video"></iframe>
 
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Ask the right questions about secure application development on Azure - Microsoft Channel 9 Video"></iframe>
+### Security guidance
 
-The following sections include broad security areas to consider:
+Consider the following broad security areas:
 
-- [Identity management](#identity-management)
-- [Protecting your infrastructure](#protecting-your-infrastructure)
-- [Application security](#application-security)
-- [Data sovereignty and encryption](#data-sovereignty-and-encryption)
-- [Security resources](#security-resources)
+- [Identity management](./security/overview.md#identity-management)
+- [Protecting your infrastructure](./security/overview.md#protecting-your-infrastructure)
+- [Application security](./security/overview.md#application-security)
+- [Data sovereignty and encryption](./security/overview.md#data-sovereignty-and-encryption)
+- [Security resources](./security/overview.md#security-resources)
 
-### Identity management
-
-Consider using Azure Active Directory (Azure AD) to authenticate and authorize users. Azure AD is a fully managed identity and access management service. You can use it to create domains that exist purely on Azure, or integrate with your on-premises Active Directory identities. Azure AD also integrates with Office365, Dynamics CRM Online, and many third-party SaaS applications. For consumer-facing applications, Azure Active Directory B2C lets users authenticate with their existing social accounts such as Facebook, Google, or LinkedIn, or create a new user account that is managed by Azure AD.
-
-If you want to integrate an on-premises Active Directory environment with an Azure network, several approaches are possible, depending on your requirements. For more information, see our [Identity Management][identity-ref-arch] reference architectures.
-
-### Protecting your infrastructure
-
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship][ad-subscriptions] with an Azure AD tenant.
-Use [Azure role-based access control (Azure RBAC)][rbac] to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. [Audit][resource-manager-auditing] all changes to infrastructure.
-
-### Application security
-
-In general, the security best practices for application development still apply in the cloud. These include things like using SSL everywhere, protecting against CSRF and XSS attacks, preventing SQL injection attacks, and so on.
-
-Cloud applications often use managed services that have access keys. Never check these keys into source control. Consider storing application secrets in [Azure Key Vault](/azure/key-vault/general/overview).
-
-### Data sovereignty and encryption
-
-Make sure that your data remains in the correct geopolitical zone when using Azure data services. Azure's geo-replicated storage uses the concept of a [paired region][paired-region] in the same geopolitical region.
-
-Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, you can encrypt keys and secrets by using keys that are protected by hardware security modules (HSMs). Many Azure storage and DB services support data encryption at rest, including:
-
-- [Azure Storage][storage-encryption]
-- [Azure SQL Database][sql-db-encryption]
-- [Azure Synapse Analytics][data-warehouse-encryption]
-- [Cosmos DB][cosmos-db-encryption]
-
-### Security resources
-
-- [Azure Security Center][security-center] provides integrated security monitoring and policy management for your workload.
-- [Azure Security Documentation][security-documentation]
-- [Microsoft Trust Center][trust-center]
+For more information, reference [Overview of the security pillar](./security/overview.md).
 
 ## Cost optimization
 
-When you're designing a cloud solution, focus on generating incremental value early. Apply the principles of **[Build-Measure-Learn](/azure/cloud-adoption-framework/innovate/considerations/)**, to accelerate your time to market while avoiding capital-intensive solutions. Use the pay-as-you-go strategy for your architecture, and invest in scaling out, rather than delivering a large investment first version. Consider opportunity costs in your architecture, and the balance between first mover advantage versus *fast follow*. Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution. 
+When you're designing a cloud solution, focus on generating incremental value early. Apply the principles of **[Build-Measure-Learn](/azure/cloud-adoption-framework/innovate/considerations/)**, to accelerate your time to market while avoiding capital-intensive solutions.
 
 For more information, reference [Cost optimization](./cost/index.yml) and the following video on how to start optimizing your Azure costs:
 
 
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-optimizing-your-Azure-costs--Cost-Optimization-Ep-1--Well-Architected-series/player" width="960" height="540" allowFullScreen frameBorder="0" title="Start optimizing your Azure costs - Microsoft Channel 9 Video"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-optimizing-your-Azure-costs--Cost-Optimization-Ep-1--Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Start optimizing your Azure costs - Microsoft Channel 9 Video"></iframe>
 
 ### Cost guidance
 
@@ -181,6 +126,8 @@ For more information, reference [Cost optimization](./cost/index.yml) and the fo
 - [Develop a cost model](./cost/design-model.md)
 - Create [budgets and alerts](./cost/monitor-alert.md)
 - Review the [cost optimization checklist](./cost/optimize-checklist.md)
+
+For a high-level overview, reference [Overview of the cost optimization pillar](./cost/overview.md).
 
 ## Operational excellence
 
