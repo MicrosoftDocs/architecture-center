@@ -189,6 +189,8 @@ items:
                 href: guide/multitenant/considerations/domain-names.md
           - name: Approaches
             items:
+              - name: Deployment and configuration
+                href: guide/multitenant/approaches/deployment-configuration.md
               - name: Storage and data
                 href: guide/multitenant/approaches/storage-data.md
           - name: Related resources
