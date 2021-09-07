@@ -3,7 +3,7 @@ title: Microsoft Azure Well-Architected Framework
 titleSuffix: Azure Architecture Center
 description: Learn about the five pillars of the Azure Well-Architected Framework and how they can produce a high quality, stable, and efficient cloud architecture.
 author: david-stanford 
-ms.author: pnp
+ms.author: v-stacywray
 ms.date: 09/02/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -76,6 +76,14 @@ We also recommend you use Azure Advisor and Advisor Score to identify and priori
 ## Reliability
 
 A reliable workload is one that is both resilient and available. [Resiliency](./resiliency/index.yml) is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your workload when they need to.
+
+<!---Move extra content paragraphs to pillar overview pages--->
+
+<!---Add Video--->
+
+<!---Add Summary--->
+
+<!---Add link to Overview or Principles page--->
 
 In traditional application development, there has been a focus on increasing the mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, because of several factors:
 
