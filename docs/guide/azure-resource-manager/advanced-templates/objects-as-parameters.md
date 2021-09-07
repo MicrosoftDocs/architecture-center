@@ -219,7 +219,7 @@ First, let's take a look at our parameters. When we look at our template we'll s
   }
 ```
 
-Now let's take a look at our template. Our first resource named `NSG1` deploys the NSG. Our second resource named `loop-0` performs two functions: first, it `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, and it is the first iteration of the sequential loop. Our third resource is a nested template that deploys our security rules using an object for its parameter values as in the last example.
+Now let's take a look at our template. Our first resource named `NSG1` deploys the NSG. Our second resource `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, it also leverages ARM's built-in dependency feature for serial; that means you can make copies in serial mode, the copies are created after each other instead of in parallel. Our third resource is a nested template that deploys our security rules using an object for its parameter values as in the last example.
 
 ```json
 {

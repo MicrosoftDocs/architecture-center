@@ -185,7 +185,6 @@ As you might suspect, we use it for the number of iterations in our copy loop.
 
 Now let's take a look at our resources. We define two resources:
 
-- `loop-0` is the zero-based resource for our copy loop.
 - `loop-` is concatenated with the result of the `copyIndex(1)` function to generate a unique iteration-based name for our resource, starting with `1`.
 
 Our resources look like this:
