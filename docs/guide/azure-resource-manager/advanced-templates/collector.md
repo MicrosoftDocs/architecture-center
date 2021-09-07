@@ -195,37 +195,12 @@ Our resources look like this:
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2020-06-01",
-            "name": "loop-0",
-            "properties": {
-                "mode": "Incremental",
-                "parameters": {},
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [],
-                    "outputs": {
-                        "collection": {
-                            "type": "array",
-                            "value": "[parameters('state')]"
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
             "name": "[concat('loop-', copyindex(1))]",
             "copy": {
                 "name": "iterator",
                 "count": "[variables('count')]",
-                "mode": "serial"
+                "mode": "Serial"
             },
-            "dependsOn": [
-              "loop-0"
-            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
