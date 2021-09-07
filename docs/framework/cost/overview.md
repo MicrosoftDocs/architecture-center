@@ -15,7 +15,7 @@ categories: management-and-governance
 
 # Overview of the cost optimization pillar
 
-The cost optimization pillar provides principles for balancing business objectives with budget justification to create a cost-effective workload while avoiding capital-intensive solutions. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies.
+The cost optimization pillar provides principles for balancing business goals with budget justification to create a cost-effective workload while avoiding capital-intensive solutions. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies.
 
 To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
@@ -28,7 +28,7 @@ The Microsoft Azure Well-Architected Framework includes the following topics in 
 |[Governance](./design-resources.md)| Understand how governance can assist with cost management. This work will benefit your ongoing cost review process and will offer a level of protection for new resources.|
 |[Estimate the initial cost](./design-initial-estimate.md)|It's difficult to attribute costs before deploying a workload to the cloud. If you use methods for on-premises estimation or directly map on-premises assets to cloud resources, estimate will be inaccurate.|
 |[PaaS](./design-paas.md)| Look for areas in the architecture where it may be natural to incorporate platform-as-a-service (PaaS) options. These options include caching, queues, and data storage. PaaS reduces time and cost of managing servers, storage, networking, and other application infrastructure.|
-|[Consumption](./design-price.md)|A common way to estimate cost is by considering workloads on a peak throughput. Under consistently high utilization, consumption-based pricing can be less efficient for estimating baseline costs when compared to the equivalent provisioned pricing.|
+|[Consumption](./design-price.md)|A common way to estimate cost is by considering workloads on a peak throughput. Under consistently high usage, consumption-based pricing can be less efficient for estimating baseline costs when compared to the equivalent provisioned pricing.|
 |[Provision cloud resources](./provision-checklist.md)|Deployment of workload cloud resources can optimize cost.|
 |[Monitor cost](./monitor-alert.md)|Azure Cost Management has an alert feature. Alerts are generated when consumption reaches a threshold.|
 |[Optimize cost](./optimize-checklist.md)|Monitor and optimize the workload by using the right resources and sizes.
