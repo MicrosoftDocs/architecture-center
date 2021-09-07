@@ -58,9 +58,11 @@ When you treat your tenant list as configuration, you deploy resources by using 
 When you treat your tenant list as data, you deploy your shared components by using a pipeline. However, for resources and configuration settings that need to be deployed for each tenant, you programmatically deploy or configure your resources, such as by using the [Azure SDKs](https://azure.microsoft.com/downloads). By doing this, you can provision resources for new tenants without redeploying your entire solution. However, this approach is often much more time-consuming to build, and the effort you spend needs to be justified by the number of tenants or the provisioning timeframes you need to meet.
 
 > [!NOTE]
-> Azure deployment and configuration operations often take time to complete. Ensure you use an appropriate technology to initiate these long-running operations.
+> Azure deployment and configuration operations often take time to complete. Ensure you use an appropriate technology to initiate and monitor these long-running operations.
 >
 > For example, you might create an API that adds tenants. When a tenant is added using the API, you could initiate a long-running process that follows the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.md). Use technologies that are designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview).
+
+TODO: Would it be worth discussing an example here? This might be a simple multitenant solution that uses a shared App Service and a dedicated SQL DB per tenant. We'd then compare the two deployment approaches described above, maybe with a diagram showing each approach.
 
 ## Patterns to consider
 
@@ -88,6 +90,7 @@ When you deploy and configure multitenant solutions, it's important to avoid sit
 - **Manual deployment and testing.** As described above, manual deployment processes add risk and slow your ability to deploy. Consider using automated deployments using pipelines, programmatic creation of resources from your solution's code, or a combination of both.
 - **Per-tenant customization.** Avoid creating features or configuration that only applies to a single tenant. This approach adds complexity to your deployments and testing processes. Aim to have use the same resource types and codebase for each tenant, and use strategies like [feature flags](#feature-flags) or [different pricing tiers](../considerations/pricing-models.md) to selectively enable features for tenants that require them.
 
-### Related resources
+## Next steps
 
-* [Considerations for updating a multitenant solution](../considerations/updates.md)
+- Review the [considerations for updating a multitenant solution](../considerations/updates.md).
+- Consider [architectural approaches for storage and data](storage-data.md).
