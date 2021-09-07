@@ -280,7 +280,7 @@ Now let's take a look at our template. Our first resource named `NSG1` deploys t
             "copy": {
                 "name": "iterator",
                 "count": "[length(parameters('networkSecurityGroupsSettings').securityRules)]",
-                "mode": "serial"
+                "mode": "Serial"
             },
             "properties": {
                 "mode": "Incremental",
