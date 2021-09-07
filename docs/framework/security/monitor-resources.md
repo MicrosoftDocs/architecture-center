@@ -65,6 +65,34 @@ Azure Defender for servers also watches the network to and from virtual machines
 
 For a full list of features, see [Feature coverage for machines](/azure/security-center/security-center-services?tabs=features-windows). 
 
+### Remove direct internet connectivity
+
+Make sure policies and processes require restricting and monitoring direct
+internet connectivity by virtual machines.
+
+For Azure, you can enforce policies by,
+
+-   **Enterprise-wide prevention** - Prevent inadvertent exposure by following
+    the permissions and roles described in the reference model.
+
+    -   Ensures that network traffic is routed through approved egress points by
+        default.
+
+    -   Exceptions (such as adding a public IP address to a resource) must go
+        through a centralized group that evaluates exception requests and makes
+        sure appropriate controls are applied.
+
+-   **Identify and remediate** exposed virtual machines by using the [Azure Security Center](/azure/security-center/)
+    network visualization to quickly identify internet exposed resources.
+
+-   **Restrict management ports** (RDP, SSH) using [Just in Time
+    access](/azure/security-center/security-center-just-in-time)
+    in Azure Security Center.
+
+
+One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.yml).
+
+
 ## Containers
 
 Containerized workloads have an extra layer of abstraction and orchestration. That complexity requires specific security measures that protect against common container attacks such as supply chain attacks.
@@ -144,6 +172,43 @@ Review the reported risk events in these ways:
 Azure AD uses adaptive machine learning algorithms, heuristics, and known compromised credentials (username/password pairs) to detect suspicious actions that are related to your user accounts. These username/password pairs come from monitoring public and dark web and by working with security researchers, law enforcement, security teams at Microsoft, and others. 
 
 Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events. 
+
+### Regularly review critical access
+
+Regularly review roles that are assigned privileges with a business-critical impact. 
+
+Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change.
+You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review).
+
+### Discover & replace insecure protocols
+
+Discover and disable the use of legacy insecure protocols SMBv1, LM/NTLMv1,
+wDigest, Unsigned LDAP Binds, and Weak ciphers in Kerberos.
+  
+Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, SHA-512). Use of weaker algorithms, like SHA-1 
+and MD5, should be avoided.
+
+Authentication protocols are a critical foundation of nearly all security
+assurances. These older versions can be exploited by attackers with access to
+your network and are often used extensively on legacy systems on Infrastructure
+as a Service (IaaS).
+
+Here are ways to reduce your risk:
+
+- Discover protocol usage by reviewing logs with Azure Sentinel's Insecure Protocol Dashboard or third-party tools.
+
+- Restrict or Disable use of these protocols by following guidance for
+    [SMB](https://support.microsoft.com/help/2696547/detect-enable-disable-smbv1-smbv2-smbv3-in-windows-and-windows-server),
+    [NTLM](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain),
+    [WDigest](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a).
+  
+- Use only secure hash algorithms (SHA-2 family). 
+  
+We recommend implementing changes using pilot or other testing methods to mitigate risk of operational interruption.
+  
+#### Learn more
+  
+For more information about hash algorithms, see [Hash and Signature Algorithms](/windows/win32/seccrypto/hash-and-signature-algorithms).
 
 ### Connected tenants
 
