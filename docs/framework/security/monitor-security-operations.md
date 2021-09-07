@@ -25,6 +25,8 @@ The responsibility of the security operation team (also known as Security Operat
 
 ## Security operations principles
 
+![Security design areas](./images/incident-response.png)
+
 Here are some general best practices for conducting security operations:
 
 - Follow the NIST Cybersecurity Framework functions as part of operations. 

@@ -276,9 +276,9 @@ items:
                 href: framework/resiliency/reliability-patterns.md
       - name: Security
         items:
-          - name: About
+          - name: Quick links
             href: framework/security/index.yml
-          - name: Overview
+          - name: About
             href: framework/security/overview.md
           - name: Principles
             href: framework/security/security-principles.md
