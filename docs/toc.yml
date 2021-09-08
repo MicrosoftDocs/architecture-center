@@ -276,9 +276,9 @@ items:
                 href: framework/resiliency/reliability-patterns.md
       - name: Security
         items:
-          - name: About
+          - name: Quick links
             href: framework/security/index.yml
-          - name: Overview
+          - name: About
             href: framework/security/overview.md
           - name: Principles
             href: framework/security/security-principles.md
@@ -346,8 +346,6 @@ items:
                     href: framework/security/design-threat-model.md
                   - name: Securing PaaS deployments
                     href: /azure/security/fundamentals/paas-deployments?bc=%2fazure%2farchitecture%2fbread%2ftoc.json&toc=%2fazure%2farchitecture%2ftoc.json
-                  - name: Compliance requirements
-                    href: framework/security/design-regulatory-compliance.md
                   - name: Configuration and dependencies
                     href: framework/security/design-app-dependencies.md
           - name: Build-deploy
@@ -360,7 +358,7 @@ items:
                 href: framework/security/deploy-infrastructure.md                
               - name: Code deployments
                 href: framework/security/deploy-code.md
-          - name: Monitor
+          - name: Monitor-remediate
             items: 
               - name: Checklist
                 href: framework/security/monitor.md
@@ -378,14 +376,6 @@ items:
                 href: framework/security/monitor-test.md                                                         
               - name: Security operations
                 href: framework/security/monitor-security-operations.md
-          - name: Optimize
-            items:
-              - name: Automate
-                href: framework/security/governance.md
-              - name: Replace insecure protocols
-                href: framework/security/governance.md
-              - name: Elevate security capabilities
-                href: framework/security/governance.md
           - name: Tradeoffs
             href: framework/security/security-tradeoffs.md
       - name: Cost Optimization
