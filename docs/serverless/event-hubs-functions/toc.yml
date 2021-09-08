@@ -1,0 +1,11 @@
+items:
+  - name: Event Hubs with Azure Functions Guide
+    href: event-hubs-functions.md
+  - name: Performance and scale
+    href: performance-scale.md
+  - name: Resilient Event Hubs and Functions design
+    href: resilient-design.md
+  - name: Security
+    href: security.md
+  - name: Observability
+    href: observability.md  
