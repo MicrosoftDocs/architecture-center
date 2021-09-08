@@ -354,7 +354,7 @@
     {
       "source_path": "docs/security/overview.md",
       "redirect_url": "/azure/architecture/framework/security/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/security/applications-services.md",
