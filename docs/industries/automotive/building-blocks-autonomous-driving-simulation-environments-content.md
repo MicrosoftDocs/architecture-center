@@ -310,7 +310,7 @@ Product documentation:
 -   [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
     / [GitHub](https://docs.github.com/en/get-started)
 
--   [Azure Monitor](https://azure.microsoft.com/services/monitor/#overview)
+-   [Azure Monitor](/azure/azure-monitor/overview)
 
 Microsoft Learn learning paths:
 
