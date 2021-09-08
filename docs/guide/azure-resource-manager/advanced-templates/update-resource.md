@@ -9,6 +9,9 @@ ms.subservice: azure-guide
 ms.category:
   - developer-tools
   - devops
+categories:
+  - developer-tools
+  - devops
 products:
   - azure-resource-manager
 ms.custom:

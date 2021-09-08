@@ -9,6 +9,9 @@ ms.subservice: azure-guide
 ms.category:
   - developer-tools
   - devops
+categories:
+  - developer-tools
+  - devops
 products:
   - azure-resource-manager
 ms.custom:
@@ -36,28 +39,28 @@ First, let's take a look at our parameters. When we look at our template we'll s
             "value": {
                 "securityRules": [
                     {
-                    "name": "RDPAllow",
-                    "description": "allow RDP connections",
-                    "direction": "Inbound",
-                    "priority": 100,
-                    "sourceAddressPrefix": "*",
-                    "destinationAddressPrefix": "10.0.0.0/24",
-                    "sourcePortRange": "*",
-                    "destinationPortRange": "3389",
-                    "access": "Allow",
-                    "protocol": "Tcp"
+                        "name": "RDPAllow",
+                        "description": "allow RDP connections",
+                        "direction": "Inbound",
+                        "priority": 100,
+                        "sourceAddressPrefix": "*",
+                        "destinationAddressPrefix": "10.0.0.0/24",
+                        "sourcePortRange": "*",
+                        "destinationPortRange": "3389",
+                        "access": "Allow",
+                        "protocol": "Tcp"
                     },
                     {
-                    "name": "HTTPAllow",
-                    "description": "allow HTTP connections",
-                    "direction": "Inbound",
-                    "priority": 200,
-                    "sourceAddressPrefix": "*",
-                    "destinationAddressPrefix": "10.0.1.0/24",
-                    "sourcePortRange": "*",
-                    "destinationPortRange": "80",
-                    "access": "Allow",
-                    "protocol": "Tcp"
+                        "name": "HTTPAllow",
+                        "description": "allow HTTP connections",
+                        "direction": "Inbound",
+                        "priority": 200,
+                        "sourceAddressPrefix": "*",
+                        "destinationAddressPrefix": "10.0.1.0/24",
+                        "sourcePortRange": "*",
+                        "destinationPortRange": "80",
+                        "access": "Allow",
+                        "protocol": "Tcp"
                     }
                 ]
             }
@@ -163,5 +166,5 @@ az deployment group create -g <resource-group-name> \
 [azure-resource-manager-create-multiple-instances]: /azure/azure-resource-manager/
 [azure-resource-manager-functions]: /azure/azure-resource-manager/templates/template-functions-deployment#parameters
 [nsg]: /azure/virtual-network/virtual-networks-nsg
-[cli]: /cli/azure/?view=azure-cli-latest
+[cli]: /cli/azure/
 [github]: https://github.com/mspnp/template-examples
