@@ -413,7 +413,7 @@
     },
     {
       "source_path": "docs/security/law-authority.md",
-      "redirect_url": "/azure/architecture/framework/security/design-regulatory-compliance.md",
+      "redirect_url": "/azure/architecture/framework/security/design-regulatory-compliance",
       "redirect_document_id": true
     },
     {
@@ -2130,6 +2130,11 @@
      {
       "source_path": "docs/framework/scalability/monitoring.md",
       "redirect_url": "/azure/architecture/framework/scalability/monitor",
+      "redirect_document_id": false
+     },
+     {
+      "source_path": "docs/guide/azure-resource-manager/advanced-templates/conditional-deploy.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-conditions",
       "redirect_document_id": false
      },
      {
