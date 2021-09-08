@@ -70,7 +70,7 @@ Here are some reference architectures related to identity and access management:
 
 [Integrate on-premises AD with Azure](../../reference-architectures/identity/index.yml)
 
-## Next step
+## Next steps
 
 Monitor the communication between segments. Use data to identify anomalies, set alerts, or block traffic to mitigate the risk of attackers crossing segmentation boundaries. 
 

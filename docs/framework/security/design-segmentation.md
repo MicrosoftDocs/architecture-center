@@ -54,7 +54,7 @@ This segment hosts shared services utilized across the organization. These share
 Other segments can contain grouped resources based on certain criteria. For instance, resources that are used by one specific workload or application might be contained in a separate segment. You may also segment or sub-segment by lifecycle stage, like _development_, _test_, and _production_. Some resources might intersect, such as applications, and can use virtual networks for lifecycle stages. 
 
 #### Clear lines of responsibility
-These are the main functions for this reference model. Permissions for these functions are in  described in [Team roles and responsibilities](design-identity-role-definitions.md). 
+These are the main functions for this reference model. Permissions for these functions are described in [Team roles and responsibilities](design-identity-role-definitions.md). 
 
 |Function|Scope|Responsibility|
 |---|---|---|

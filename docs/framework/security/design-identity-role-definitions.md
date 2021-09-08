@@ -71,7 +71,7 @@ utilized across the organization. These shared services typically include
 Active Directory Domain Services, DNS/DHCP, System Management Tools hosted
 on Azure Infrastructure as a Service (IaaS) virtual machines.
 
-![Reference permissions](images/ref-perms.png)
+![Conceptual art showing reference permissions](images/ref-perms.png)
 
 **Security Visibility across all resources** – For security teams, grant
 read-only access to security attributes for all technical environments. This
@@ -206,7 +206,7 @@ section details these controls for Azure.
 
 [Engage your organization's security team](/azure/security/develop/secure-dev-overview#engage-your-organizations-security-team)
 
-## Next
+## Next steps
 
 Restrict access to Azure resources based on a need-to-know basis starting with the principle of least privilege security and add more based on your operational needs.
 

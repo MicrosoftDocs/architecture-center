@@ -23,7 +23,7 @@ ms.custom:
 
 The responsibility of the security operation team (also known as Security Operations Center (SOC), or SecOps) is to rapidly detect, prioritize, and triage potential attacks. These operations help eliminate false positives and focus on real attacks, reducing the mean time to remediate real incidents. Central SecOps team monitors security-related telemetry data and investigates security breaches. It's important that any communication, investigation, and hunting activities are aligned with the application team.
 
-:::image type="content" source="./images/incident-response.png" alt-text="Security operations principles.":::
+:::image type="content" source="./images/incident-response.png" alt-text="Conceptual art that shows collaborative approach to mitigate potential and realized risk.":::
 
 Here are some general best practices for conducting security operations:
 

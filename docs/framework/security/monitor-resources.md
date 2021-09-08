@@ -239,6 +239,6 @@ you may assign to security is in the [Assign privileges for managing the environ
 
 DevOps practices are for change management of the workload through continuous integration, continuous delivery (CI/CD). Make sure you add security validation in the pipelines. Follow the guidance described in [Learn how to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&preserve-view=true).
 
-## Next
+## Next steps
 > [!div class="nextstepaction"]
 > [View logs and alerts](monitor-logs-alerts.md)

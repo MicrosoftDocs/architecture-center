@@ -65,7 +65,7 @@ or unanticipated effects.
 
     Select enterprise-wide identities that have a clear requirement to be applied across all resources. Good candidates include:
 
-    -   **Regulatory requirements** with clear business risk/impact. For example, restrictions related to data sovereignty).
+    -   **Regulatory requirements** with clear business risk/impact. For example, restrictions related to data sovereignty.
 
     -   **Near-zero potential negative impact**  For example, policy with audit effect, tag assignment, Azure RBAC permissions assignments that have been carefully reviewed.
 
@@ -85,7 +85,7 @@ or unanticipated effects.
 - **Validate Changes** – to ensure they have the desired effect.
   
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Administrative accounts](design-admins.md)

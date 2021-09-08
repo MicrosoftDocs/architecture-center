@@ -26,7 +26,7 @@ Building a DevOps process which includes a security discipline helps incorporate
 
 Many traditional IT operating models aren't compatible with the cloud, and organizations must undergo operational and organizational transformation to deliver against enterprise migration targets. We recommend using a DevOps approach for both application and central teams.
 
-:::image type="content" source="./images/devops-model.png" alt-text="DevOps model.":::
+:::image type="content" source="./images/devops-model.png" alt-text="Conceptual art comparing traditional and DevOps models.":::
 
 
 ## Checklist
