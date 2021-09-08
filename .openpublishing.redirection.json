@@ -2211,7 +2211,13 @@
       "source_path": "docs/framework/security/critical-impact-accounts.md",
       "redirect_url": "/azure/architecture/framework/security/design-admins",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/framework/security/role-of-security.md",
+      "redirect_url": "/azure/architecture/framework/security/overview",
+      "redirect_document_id": true
     }    
+
 
   ]
 }
