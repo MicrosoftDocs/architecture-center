@@ -76,11 +76,13 @@ We also recommend you use Azure Advisor and Advisor Score to identify and priori
 
 A reliable workload is one that is both resilient and available. [Resiliency](./resiliency/index.yml) is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your workload when they need to.
 
-For more information, reference the following video that will show you how to start improving the reliability of your Azure workloads:
+For more information about resiliency, reference the following video that will show you how to start improving the reliability of your Azure workloads:
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-improving-the-reliability-of-your-Azure-workloads--Reliability-Ep-1--Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Start improving the reliability of your Azure workloads - Microsoft Channel 9 Video"></iframe>
 
 ### Reliability guidance
+
+The following topics offer guidance on designing and improving reliable Azure applications:
 
 - [Designing reliable Azure applications][resiliency]
 - [Design patterns for resiliency](./resiliency/reliability-patterns.md)
@@ -120,6 +122,8 @@ For more information, reference [Cost optimization](./cost/index.yml) and the fo
 
 ### Cost guidance
 
+The following topics offer cost optimization guidance as you develop the Well-Architected Framework for your workload:
+
 - Review [cost principles](./cost/overview.md)
 - [Develop a cost model](./cost/design-model.md)
 - Create [budgets and alerts](./cost/monitor-alert.md)
@@ -137,6 +141,8 @@ For more information, reference the following video about bringing security into
 
 ### Operational excellence guidance
 
+The following topics provide guidance on designing and implementing DevOps practices for your Azure workload:
+
 - [Design patterns for operational excellence](./devops/devops-patterns.md)
 - Best practices: [Monitoring and diagnostics][monitoring]
 
@@ -146,11 +152,13 @@ For a high-level summary, reference [Overview of the operational excellence pill
 
 [Performance efficiency](./scalability/index.yml) is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. The main ways to achieve performance efficiency include using scaling appropriately and implementing PaaS offerings that have scaling built in.
 
-For more information, tune in to [Performance Efficiency: Fast & Furious: Optimizing for Quick & Reliable VM Deployments](https://channel9.msdn.com/events/All-Around-Azure/Well-Architected-The-Backstage-Tour/Performance-Efficiency?term=Performance&pubDate=3years&lang-en=true)
+For more information, tune in to [Performance Efficiency: Fast & Furious: Optimizing for Quick & Reliable VM Deployments](https://channel9.msdn.com/events/All-Around-Azure/Well-Architected-The-Backstage-Tour/Performance-Efficiency?term=Performance&pubDate=3years&lang-en=true):
 
 :::image type="content" source="./_images/performance-channel-9.png" alt-text="Performance Efficiency":::
 
 ### Performance efficiency guidance
+
+The following topics offer guidance on how to design and improve the performance efficiency posture of your Azure workload:
 
 - [Design patterns for performance efficiency](./scalability/performance-efficiency-patterns.md)
 - Best practices:
