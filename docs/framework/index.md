@@ -117,7 +117,6 @@ When you're designing a cloud solution, focus on generating incremental value ea
 
 For more information, reference [Cost optimization](./cost/index.yml) and the following video on how to start optimizing your Azure costs:
 
-
 <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-optimizing-your-Azure-costs--Cost-Optimization-Ep-1--Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Start optimizing your Azure costs - Microsoft Channel 9 Video"></iframe>
 
 ### Cost guidance
@@ -133,31 +132,16 @@ For a high-level overview, reference [Overview of the cost optimization pillar](
 
 [Operational excellence](./devops/index.yml) covers the operations and processes that keep an application running in production. Deployments must be reliable and predictable. Automate deployments to reduce the chance of human error. Fast and routine deployment processes won't slow down the release of new features or bug fixes. Equally important, you must quickly roll back or roll forward if an update has problems.
 
-Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you don't have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into VMs to troubleshoot an issue or sift through log files. With PaaS services, there may not even be a dedicated VM to log into. Monitoring and diagnostics give insight into the system, so that you know when and where failures occur. All systems must be observable. Use a common and consistent logging schema that lets you correlate events across systems.
-
-The monitoring and diagnostics process has several distinct phases:
-
-- *Instrumentation*: Generating the raw data from:
-  - application logs
-  - web server logs
-  - diagnostics built into the Azure platform, and other sources
-- *Collection and storage*: Consolidating the data into one place.
-- *Analysis and diagnosis*: To troubleshoot issues and see the overall health.
-- *Visualization and alerts*: Using telemetry data to spot trends or alert the operations team.
-
-Enforcing resource-level rules via [Azure Policy](/azure/governance/policy/overview) helps ensure adoption of operational excellence best practices for all the assets, which support your workload. For example, Azure Policy can help ensure all of the VMs supporting your workload adhere to a pre-approved list of VM SKUs. Azure Advisor provides [a set of Azure Policy recommendations](/azure/advisor/advisor-operational-excellence-recommendations#use-azure-policy-recommendations) to help you quickly identify opportunities to implement Azure Policy best practices for your workload.
-
-Use the [DevOps checklist][devops-checklist] to review your design from a management and DevOps standpoint.
-
 For more information, reference the following video about bringing security into your DevOps practice on Azure:
 
-
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/DevSecOps-bringing-security-into-your-DevOps-practice-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="DevSecOps: bringing security into your DevOps practice on Azure - Microsoft Channel 9 Video"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/DevSecOps-bringing-security-into-your-DevOps-practice-on-Azure/player" width="760" height="340" allowFullScreen frameBorder="0" title="DevSecOps: bringing security into your DevOps practice on Azure - Microsoft Channel 9 Video"></iframe>
 
 ### Operational excellence guidance
 
 - [Design patterns for operational excellence](./devops/devops-patterns.md)
 - Best practices: [Monitoring and diagnostics][monitoring]
+
+For a high-level summary, reference [Overview of the operational excellence pillar](./devops/overview.md).
 
 ## Performance efficiency
 
