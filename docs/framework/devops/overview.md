@@ -9,6 +9,8 @@ ms.subservice: well-architected
 ms.custom:
   - fasttrack-edit
   - overview
+products: azure
+categories: management-and-governance
 ---
 
 # Overview of the operational excellence pillar
@@ -53,4 +55,4 @@ Use the [DevOps checklist][devops-checklist] to review your design from a manage
 [app-design]: ./app-design.md
 
 <!-- checklist -->
-[devops-checklist]: ../checklist/dev-ops.md
+[devops-checklist]: /azure/architecture/checklist/dev-ops
