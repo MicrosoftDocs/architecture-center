@@ -1,6 +1,6 @@
 ## Overview
 
-This reference architecture shows how to implement continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml). The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins or Travis.
+This reference architecture shows how to implement continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins or Travis.
 
 A reference implementation for this architecture is available on [GitHub][repo].
 
@@ -12,7 +12,7 @@ This architecture consists of the following components:
 
 **[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)**. This build and test system is based on Azure DevOps and used for the build and release pipelines. Azure Pipelines breaks these pipelines into logical steps called tasks. For example, the [Azure CLI](/cli/azure/) task makes it easier to work with Azure resources.
 
-**[Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml)** is a cloud service for training, scoring, deploying, and managing machine learning models at scale. This architecture uses the Azure Machine Learning [Python SDK](/azure/machine-learning/service/quickstart-create-workspace-with-python) to create a workspace, compute resources, the machine learning pipeline, and the scoring image. An Azure Machine Learning [workspace](/azure/machine-learning/service/concept-workspace) provides the space in which to experiment, train, and deploy machine learning models.
+**[Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)** is a cloud service for training, scoring, deploying, and managing machine learning models at scale. This architecture uses the Azure Machine Learning [Python SDK](/azure/machine-learning/service/quickstart-create-workspace-with-python) to create a workspace, compute resources, the machine learning pipeline, and the scoring image. An Azure Machine Learning [workspace](/azure/machine-learning/service/concept-workspace) provides the space in which to experiment, train, and deploy machine learning models.
 
 **[Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets)** is a cluster of virtual machines on-demand with automatic scaling and GPU and CPU node options. The training job is executed on this cluster.
 

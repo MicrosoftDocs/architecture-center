@@ -1,6 +1,6 @@
 ---
 title: Resiliency and dependencies
-description: Describes failure mode analysis and the impact of dependencies on failure.
+description: Examine failure mode analysis (FMA) to build resiliency. Understand the impact of dependencies on failure.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual

@@ -8,6 +8,9 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-active-directory
+categories:
+  - identity
+  - security
 ms.custom:
   - article
 ---
@@ -67,12 +70,12 @@ Here are some reference architectures related to identity and access management:
 
 [Integrate on-premises AD with Azure](../../reference-architectures/identity/index.yml)
 
-## Next steps
+## Next
 
 We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program.
 
 > [!div class="nextstepaction"]
-> [Monitor identity, network, data risks](./monitor-identity-network.md)
+> [Monitor identity, network, data risks](./monitor-resources.md)
 
 ## Related links
 

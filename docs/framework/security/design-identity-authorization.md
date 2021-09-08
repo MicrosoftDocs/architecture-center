@@ -1,6 +1,6 @@
 ---
 title: Authorization with Azure AD
-description: Use Azure AD roles to define clear lines of responsibility, access, and separation of duties.
+description: Use Azure Active Directory (Azure AD) roles to define clear lines of responsibility, access, and separation of duties.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: conceptual

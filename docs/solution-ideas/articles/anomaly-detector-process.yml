@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Anomaly Detector Process
+  title: Anomaly detector process
   titleSuffix: Azure Example Scenarios
   description: Learn about Anomaly Detector and see how anomaly detection models are selected with time-series data.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 05/07/2021
   ms.topic: conceptual
@@ -21,7 +21,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/anomaly-detector-process.png
-name: Anomaly Detector Process
+name: Anomaly detector process
 azureCategories:
   - analytics
   - ai-machine-learning

@@ -1,7 +1,7 @@
 ---
 title: Camera selection for IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: This article describes the camera considerations for Azure IoT Edge Vision solution.
+description: Get information about camera selection in an Azure IoT Edge Vision solution. Explore camera features, camera placement, and the communication interface.
 author: MSKeith
 ms.author: keith
 ms.date: 10/22/2020
