@@ -30,7 +30,7 @@ Alerts are notifications of system health issues that are found during monitorin
 
 Use Azure Service Health to respond to *service level* events. Azure Service Health provides a view into the health of Azure services and regions, as well as issuing service impacting communications about outages, planned maintenance activities, and other health advisories.
 
-Azure Service Health alerts should be configured to operationalize Service Health events. However, Service Health alerts should not be used to detect issues due to associated latencies. There is a 5 minute service level objective (SLO) for automated issues, but many issues require manual interpretation to define a root cause analysis (RCA}. Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how to respond operationally.
+Azure Service Health alerts should be configured to operationalize Service Health events. However, Service Health alerts should not be used to detect issues due to associated latencies. There is a 5 minute service level objective (SLO) for automated issues, but many issues require manual interpretation to define a root cause analysis (RCA). Instead, they should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how to respond operationally.
 
 To learn more, see [Azure Service Health](/azure/service-health/service-health-overview).
 
