@@ -147,26 +147,6 @@ For a high-level summary, reference [Overview of the operational excellence pill
 
 [Performance efficiency](./scalability/index.yml) is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. The main ways to achieve performance efficiency include using scaling appropriately and implementing PaaS offerings that have scaling built in.
 
-There are two main ways that an application can scale. Vertical scaling (scaling *up*) means increasing the capacity of a resource, for example by using a larger VM size. Horizontal scaling (scaling *out*) is adding new instances of a resource, such as VMs or database replicas.
-
-Horizontal scaling has significant advantages over vertical scaling:
-
-- *True cloud scale*: Applications can be designed to run on hundreds or even thousands of nodes, reaching scales that aren't possible on a single node.
-- *Horizontal scale is elastic*: You can add more instances if load increases, or remove them during quieter periods.
-- Scaling out can be triggered automatically, either on a schedule or in response to changes in load.
-- Scaling out may be cheaper than scaling up. Running several small VMs can cost less than a single large VM.
-- Horizontal scaling can also improve resiliency, by adding redundancy. If an instance goes down, the application keeps running.
-
-An advantage of vertical scaling is that you can do it without making any changes to the application. But at some point, you'll hit a limit, where you can't scale up anymore. At that point, any further scaling must be horizontal.
-
-Horizontal scale must be designed into the system. For example, you can scale out VMs by placing them behind a load balancer. But each VM in the pool must handle any client request, so the application must be stateless or store state externally (say, in a distributed cache). Managed PaaS services often have horizontal scaling and autoscaling built in. The ease of scaling these services is a major advantage of using PaaS services.
-
-Just adding more instances doesn't mean an application will scale, however. It might push the bottleneck somewhere else. For example, if you scale a web front end to handle more client requests, that might trigger lock contentions in the database. Then, you would need to consider other measures, such as optimistic concurrency or data partitioning, to enable more throughput to the database.
-
-Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
-
-Use the [Performance efficiency checklist](scalability/performance-efficiency.md) to review your design from a scalability standpoint.
-
 For more information, tune in to [Performance Efficiency: Fast & Furious: Optimizing for Quick & Reliable VM Deployments](https://channel9.msdn.com/events/All-Around-Azure/Well-Architected-The-Backstage-Tour/Performance-Efficiency?term=Performance&pubDate=3years&lang-en=true)
 
 :::image type="content" source="./_images/performance-channel-9.png" alt-text="Performance Efficiency":::
@@ -181,6 +161,8 @@ For more information, tune in to [Performance Efficiency: Fast & Furious: Optimi
   - [CDN][cdn]
   - [Data partitioning][data-partitioning]
 
+For a high-level synopsis, reference [Overview of the performance efficiency pillar](./scalability/overview.md).
+
 ## Next steps
 
 Learn more about:
@@ -193,24 +175,7 @@ Learn more about:
 
 <!-- links -->
 
-[identity-ref-arch]: ../reference-architectures/identity/index.yml
 [resiliency]: ../framework/resiliency/principles.md
-[ad-subscriptions]: /azure/active-directory/active-directory-how-subscriptions-associated-directory
-[data-warehouse-encryption]: /azure/data-lake-store/data-lake-store-security-overview#data-protection
-[cosmos-db-encryption]: /azure/cosmos-db/database-security
-[rbac]: /azure/role-based-access-control/overview
-[paired-region]: /azure/best-practices-availability-paired-regions
-[resource-manager-auditing]: /azure/azure-resource-manager/resource-group-audit
-[security-center]: https://azure.microsoft.com/services/security-center
-[security-documentation]: /azure/security
-[sql-db-encryption]: /azure/sql-database/sql-database-always-encrypted-azure-key-vault
-[storage-encryption]: /azure/storage/storage-service-encryption
-[trust-center]: https://azure.microsoft.com/support/trust-center
-
-<!-- patterns -->
-[operational-excellence-patterns]: ./devops/devops-patterns.md
-[resiliency-patterns]:/azure/architecture//framework/resiliency/reliability-patterns.md
-[performance-efficiency-patterns]: ./scalability/performance-efficiency-patterns.md
 
 <!-- practices -->
 [autoscale]: ../best-practices/auto-scaling.md
@@ -219,13 +184,8 @@ Learn more about:
 [cdn]: ../best-practices/cdn.md
 [data-partitioning]: ../best-practices/data-partitioning.md
 [monitoring]: ../best-practices/monitoring.md
-[cost]: /azure/cost-management/cost-mgt-best-practices
 [retry-service-specific]: ../best-practices/retry-service-specific.md
 [transient-fault-handling]: ../best-practices/transient-faults.md
-
-<!-- checklist -->
-[devops-checklist]: ../checklist/dev-ops.md
-[scalability-checklist]: ../checklist/performance-efficiency.md
 
 <!-- pillars -->
 [cost-pillar]: ./cost/index.yml
