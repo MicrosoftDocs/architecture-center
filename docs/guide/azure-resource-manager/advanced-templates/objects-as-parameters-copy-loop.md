@@ -66,7 +66,7 @@ First, let's take a look at our parameters. When we look at our template we'll s
   }
 ```
 
-Now let's take a look at our template. We have a resource named `NSG1` deploys the NSG, it also leverages [ARM's built-in  property iteration feature](/azure/azure-resource-manager/templates/copy-properties); by adding copy loop to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
+Now let's take a look at our template. We have a resource named `NSG1` deploys the NSG, it also leverages [ARM's built-in property iteration feature](/azure/azure-resource-manager/templates/copy-properties); by adding copy loop to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
 
 ```json
 {
