@@ -151,7 +151,7 @@ The original `firstVNet` has been updated instead of re-created. If `firstVNet` 
 
 ## Next steps
 
-- Learn how to [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters-copy-loop.md).
+- Learn how to [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters.md).
 
 [cli]: /cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples
