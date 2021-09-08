@@ -169,38 +169,27 @@ team.
 
 ## Components
 
-[Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
-provides on-demand, scalable computing resources that give you the flexibility
+[Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) provides on-demand, scalable computing resources that give you the flexibility
 of virtualization, without having to buy and maintain the physical hardware.
 
-[Azure Virtual
-Network](https://azure.microsoft.com/services/virtual-network/#overview)
-is the fundamental building block for your private network in Azure. Azure
+[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/#overview) is the fundamental building block for your private network in Azure. Azure
 Virtual Network enables many types of Azure resources, such as Azure Virtual
 Machines, to securely communicate with each other, the internet, and on-premises
 networks.
 
-[Azure Container
-Instances](https://azure.microsoft.com/services/container-instances/#overview)
-offers the fastest and simplest way to run a container in Azure, without having
+[Azure Container Instances](https://azure.microsoft.com/services/container-instances/#overview) offers the fastest and simplest way to run a container in Azure, without having
 to manage any VMs and without having to adopt a higher-level service.
 
-[Azure Container
-Registry](https://azure.microsoft.com/services/container-registry/#overview)
-is a managed, private Docker registry service based on the open-source Docker
+[Azure Container Registry](https://azure.microsoft.com/services/container-registry/#overview) is a managed, private Docker registry service based on the open-source Docker
 Registry 2.0. You can use Azure container registries with your existing
 container development and deployment pipelines, or use Azure Container Registry
 Tasks to build container images in Azure. Build on demand, or fully automate
 builds with triggers, such as source code commits and base image updates.
 
-[Azure
-Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
-are part of the Azure DevOps Services and run automated builds, tests, and
+[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) are part of the Azure DevOps Services and run automated builds, tests, and
 deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
-[Azure Active
-Directory](https://azure.microsoft.com/services/active-directory/#overview)
-is the cloud-based identity and access management service that authenticates
+[Azure Active Directory](https://azure.microsoft.com/services/active-directory/#overview) is the cloud-based identity and access management service that authenticates
 users, services, and applications.
 
 [Azure Storage](https://azure.microsoft.com/services/storage/) offers a durable,
@@ -216,21 +205,16 @@ optimized for cost and performance.
 ## Alternatives
 
 This architecture uses VMs and containers for deploying the different tools and
-services. As an alternative, you can also use [Azure Kubernetes Services
-(AKS)](/azure/aks/intro-kubernetes). AKS offers
+services. As an alternative, you can also use [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes). AKS offers
 serverless Kubernetes, an integrated CI/CD experience, and enterprise-grade
 security and governance.
 
 The storage mechanism used for saving simulation results in this architecture is
 based on Azure Blob Storage or Azure Disk Storage. As an alternative for bigger
-workloads, you can also look at Azure’s large-scale [data and
-analytics](https://azure.microsoft.com/solutions/big-data/#overview)
-solutions for storing and analyzing data.
+workloads, you can also look at Azure’s large-scale [data and analytics](https://azure.microsoft.com/solutions/big-data/#overview)  solutions for storing and analyzing data.
 
-Also consider using [Azure
-Monitor](https://azure.microsoft.com/services/monitor/) to analyze and optimize
-the performance of your infrastructure, and to monitor and diagnose networking
-issues without logging into your VMs.
+Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor/) to analyze and optimize
+the performance of your infrastructure, and to monitor and diagnose networking issues without logging into your VMs.
 
   
 ## Considerations
@@ -285,13 +269,10 @@ documentation.
 
 ## Pricing
 
-In general, use the [Azure pricing
-calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 You can also optimize your costs by following the process to right-size the
 capacity of your VMs from the beginning, along with simplified resizing as
-needed. Other considerations are described in the Cost section in [Microsoft
-Azure Well-Architected
-Framework](/azure/architecture/framework/cost/overview).
+needed. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
 ## Next steps
 
@@ -326,11 +307,10 @@ Product documentation:
 -   [Azure Virtual
     Machines](/azure/virtual-machines/linux/overview)
 
--   [Azure
-    DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
+-   [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
     / [GitHub](https://docs.github.com/en/get-started)
 
--   Azure Monitor
+-   [Azure Monitor](https://azure.microsoft.com/services/monitor/#overview)
 
 Microsoft Learn learning paths:
 
