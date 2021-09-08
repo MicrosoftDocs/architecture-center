@@ -185,6 +185,7 @@ As you might suspect, we use it for the number of iterations in our copy loop.
 
 Now let's take a look at our resources. We define two resources:
 
+- `loop-0` is the zero-based resource for our copy loop.
 - `loop-` is concatenated with the result of the `copyIndex(1)` function to generate a unique iteration-based name for our resource, starting with `1`.
 
 Our resources look like this:
@@ -193,25 +194,44 @@ Our resources look like this:
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2015-01-01",
+            "name": "loop-0",
+            "properties": {
+                "mode": "Incremental",
+                "parameters": { },
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": { },
+                    "variables": { },
+                    "resources": [ ],
+                    "outputs": {
+                        "collection": {
+                            "type": "array",
+                            "value": "[parameters('state')]"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2015-01-01",
             "name": "[concat('loop-', copyindex(1))]",
             "copy": {
                 "name": "iterator",
                 "count": "[variables('count')]",
-                "mode": "Serial"
+                "mode": "serial"
             },
+            "dependsOn": [
+                "loop-0"
+            ],
             "properties": {
                 "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[parameters('transformTemplateUri')]"
-                },
+                "templateLink": { "uri": "[parameters('transformTemplateUri')]" },
                 "parameters": {
-                    "source": {
-                        "value": "[parameters('source')[copyindex()]]"
-                    },
-                    "state": {
-                        "value": "[reference(concat('loop-', copyindex())).outputs.collection.value]"
-                    }
+                    "source": { "value": "[parameters('source')[copyindex()]]" },
+                    "state": { "value": "[reference(concat('loop-', copyindex())).outputs.collection.value]" }
                 }
             }
         }
@@ -312,10 +332,10 @@ An example template is available on [GitHub][github]. To deploy the template, cl
 
 ```bash
 git clone https://github.com/mspnp/template-examples.git
-cd template-examples/example3-collector
+cd template-examples/example4-collector
 az group create --location <location> --name <resource-group-name>
 az deployment group create -g <resource-group-name> \
-    --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example3-collector/deploy.json \
+    --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example4-collector/deploy.json \
     --parameters deploy.parameters.json
 ```
 
