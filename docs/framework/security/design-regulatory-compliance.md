@@ -65,6 +65,30 @@ Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-cente
 
     For more information, see [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
+## Elevated security capabilities
+
+Consider whether to utilize specialized security capabilities in your enterprise
+architecture.
+
+Dedicated HSMs and Confidential Computing have the potential to enhance security and meet regulatory requirements, but can introduce complexity that may negatively impact your
+operations and efficiency.
+
+### Suggested actions
+
+We recommend careful consideration and judicious use of these security measures
+as required:
+
+- **Dedicated Hardware Security Modules (HSMs)**  
+    [Dedicated Hardware Security Modules (HSMs) may help meet regulatory or
+    security requirements](/azure/dedicated-hsm/).
+
+- **Confidential Computing**  
+    [Confidential Computing may help meet regulatory or security requirements](https://azure.microsoft.com/blog/azure-confidential-computing/).
+
+Learn more about [elevated security capabilities for Azure workloads](https://azure.microsoft.com/solutions/confidential-compute/).
+
+
+
 ## Operational considerations
 
 Regulatory requirements may influence the workload operations. For example, there might be a requirement that operational data, such as application logs and metrics, remain within a certain geo-political region.
