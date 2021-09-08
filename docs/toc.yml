@@ -386,6 +386,8 @@ items:
                 href: framework/security/governance.md
               - name: Elevate security capabilities
                 href: framework/security/governance.md
+          - name: Tradeoffs
+            href: framework/security/security-tradeoffs.md
       - name: Cost Optimization
         items:
           - name: About
