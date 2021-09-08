@@ -29,41 +29,41 @@ First, let's take a look at our parameters. When we look at our template we'll s
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters":{
-      "networkSecurityGroupsSettings": {
-      "value": {
-          "securityRules": [
-            {
-              "name": "RDPAllow",
-              "description": "allow RDP connections",
-              "direction": "Inbound",
-              "priority": 100,
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "10.0.0.0/24",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "access": "Allow",
-              "protocol": "Tcp"
-            },
-            {
-              "name": "HTTPAllow",
-              "description": "allow HTTP connections",
-              "direction": "Inbound",
-              "priority": 200,
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "10.0.1.0/24",
-              "sourcePortRange": "*",
-              "destinationPortRange": "80",
-              "access": "Allow",
-              "protocol": "Tcp"
+        "networkSecurityGroupsSettings": {
+            "value": {
+                "securityRules": [
+                    {
+                    "name": "RDPAllow",
+                    "description": "allow RDP connections",
+                    "direction": "Inbound",
+                    "priority": 100,
+                    "sourceAddressPrefix": "*",
+                    "destinationAddressPrefix": "10.0.0.0/24",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "3389",
+                    "access": "Allow",
+                    "protocol": "Tcp"
+                    },
+                    {
+                    "name": "HTTPAllow",
+                    "description": "allow HTTP connections",
+                    "direction": "Inbound",
+                    "priority": 200,
+                    "sourceAddressPrefix": "*",
+                    "destinationAddressPrefix": "10.0.1.0/24",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "80",
+                    "access": "Allow",
+                    "protocol": "Tcp"
+                    }
+                ]
             }
-          ]
         }
-      }
     }
-  }
+}
 ```
 
 Now let's take a look at our template. We have a resource named `NSG1` deploys the NSG, it also leverages [ARM's built-in property iteration feature](/azure/azure-resource-manager/templates/copy-properties); by adding copy loop to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
@@ -119,21 +119,15 @@ Now let's take a look at our template. We have a resource named `NSG1` deploys t
                         "name": "securityRules",
                         "count": "[length(parameters('networkSecurityGroupsSettings').securityRules)]",
                         "input": {
-                            "name": "[concat('NSG1/' , parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].name)]",
-                            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-                            "apiVersion": "2016-09-01",
-                            "location": "[resourceGroup().location]",
-                            "properties": {
-                                "description": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].description]",
-                                "priority": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].priority]",
-                                "protocol": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].protocol]",
-                                "sourcePortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourcePortRange]",
-                                "destinationPortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationPortRange]",
-                                "sourceAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourceAddressPrefix]",
-                                "destinationAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationAddressPrefix]",
-                                "access": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].access]",
-                                "direction": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].direction]"
-                            }
+                            "description": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].description]",
+                            "priority": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].priority]",
+                            "protocol": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].protocol]",
+                            "sourcePortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourcePortRange]",
+                            "destinationPortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationPortRange]",
+                            "sourceAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourceAddressPrefix]",
+                            "destinationAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationAddressPrefix]",
+                            "access": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].access]",
+                            "direction": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].direction]"
                         }
                     }
                 ]
@@ -151,10 +145,10 @@ An example template is available on [GitHub][github]. To deploy the template, cl
 
 ```bash
 git clone https://github.com/mspnp/template-examples.git
-cd template-examples/example2-object-param
+cd template-examples/example3-object-param
 az group create --location <location> --name <resource-group-name>
 az deployment group create -g <resource-group-name> \
-    --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example2-object-param/deploy.json \
+    --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example3-object-param/deploy.json \
     --parameters deploy.parameters.json
 ```
 
