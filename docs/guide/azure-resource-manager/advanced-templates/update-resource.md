@@ -2,7 +2,7 @@
 title: Update a resource in an Azure Resource Manager template
 description: Learn about how to extend the functionality of Azure Resource Manager templates to update a resource.
 author: PeterTaylor9999
-ms.date: 10/31/2018
+ms.date: 09/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -151,7 +151,7 @@ The original `firstVNet` has been updated instead of re-created. If `firstVNet` 
 
 ## Next steps
 
-- Learn how deploy a resource based on a condition, such as whether a parameter value is present. See [Conditionally deploy a resource in an Azure Resource Manager template](./conditional-deploy.md).
+- Learn how to [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters-copy-loop.md).
 
 [cli]: /cli/azure/?view=azure-cli-latest
 [github]: https://github.com/mspnp/template-examples
