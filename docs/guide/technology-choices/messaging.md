@@ -1,5 +1,5 @@
 ---
-title: Asynchronous messaging options in Azure
+title: Asynchronous messaging options
 titleSuffix: Azure Application Architecture Guide
 description: Learn about asynchronous messaging options in Azure, including the different types of messages and the entities that participate in a messaging infrastructure.
 author: PageWriter-MSFT

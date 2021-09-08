@@ -83,12 +83,14 @@ You can use the insights gathered from your device data to monitor, manage, and 
 ## Related resources
 
 See the related IoT architecture guides:
-* [IoT solutions conceptual overview](/architecture/example-scenario/iot/introduction-to-solutions)
+
+* [IoT solutions conceptual overview](/azure/architecture/example-scenario/iot/introduction-to-solutions)
 * [Choose an Internet of Things (IoT) solution in Azure](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet)
 * [Vision with Azure IoT Edge](/azure/architecture/guide/iot-edge-vision)
 * [Azure Industrial IoT Analytics Guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
 
 See the related IoT reference architectures and example scenarios:
+
 * [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
 * [End-to-end manufacturing using computer vision on the edge](/azure/architecture/reference-architectures/ai/end-to-end-smart-factory)
 * [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
@@ -97,6 +99,7 @@ See the related IoT reference architectures and example scenarios:
 * [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
 
 See the related IoT solution ideas:
+
 * [Condition Monitoring for Industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
 * [Contactless IoT interfaces with Azure intelligent edge](/azure/architecture/solution-ideas/articles/contactless-interfaces)
 * [COVID-19 safe environments with IoT Edge monitoring and alerting](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)
