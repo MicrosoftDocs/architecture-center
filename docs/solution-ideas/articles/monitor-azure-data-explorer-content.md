@@ -1,11 +1,11 @@
 
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-
-This architecture pattern demonstrates a hybrid end-to-end monitoring solution integrated with Azure Sentinel and Azure Monitor for ingesting streamed and batched logs from diverse sources, on-premises or any cloud, within an enterprise ecosystem. 
+This solution idea demonstrates a hybrid end-to-end monitoring solution integrated with Azure Sentinel and Azure Monitor for ingesting streamed and batched logs from diverse sources, on-premises, or any cloud, within an enterprise ecosystem. 
 
 :::image type="content" source="../media/monitor-azure-data-explorer.png" alt-text="Monitoring solution with Azure Data Explorer" lightbox="../media/monitor-azure-data-explorer.png":::
 
-## Key features of this architecture pattern
+## Workflow
 
 1. Combine features provided by Azure Sentinel and Azure Monitor with Azure Data Explorer to build a flexible and cost-optimized end-to-end monitoring solution. 
 Below are some examples:

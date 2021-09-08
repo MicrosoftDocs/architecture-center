@@ -5,14 +5,14 @@ author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - identity
-ms.subservice: azure-guide
+ms.custom:
+  - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authenticate
 pnp.series.next: signup
-ms.custom:
-  - guide
 ---
 
 # Work with claims-based identities

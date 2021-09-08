@@ -6,6 +6,11 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+categories: 
+  - management-and-governance
+  - security
 ms.custom:
   - article
 ---
@@ -16,19 +21,52 @@ ms.custom:
 
 As part of overall design, prioritize where to invest the available resources; financial, people, and time. Constraints on those resources also affect the security implementation across the organization. Set organizational policies for operations, technologies, and configurations based on internal factors (business requirements, risks, asset evaluation) and external factors (benchmarks, regulatory standards, threat environment). 
 
-Before defining the policies, consider:
-- How is the organization’s security monitored, audited, and reported? Is there mandatory reporting? 
-- Are the existing security practices are working? 
-- Are there new requirements? 
-- Are there any requirements specific to industry, government, or regulatory requirements?
-
-Designate group(s) (or individual roles) for central functions that affect shared services and applications. 
-
-After the policies are set, continuously improve those standards incrementally. Make sure that the security posture doesn’t degrade over time by having auditing and monitoring compliance. For information about managing security standards of an organization, see [governance, risk, and compliance (GRC)](/azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance).
+## Checklist
+**What considerations for compliance and governance did you make?**
+***
+> [!div class="checklist"]
+> - Create a landing zone for the workload. The infrastructure must have appropriate controls and be repeatable with every deployment.
+> - Enforce creation and deletion of services and their configuration through Azure Policies. 
+> - Ensure consistency across the enterprise by applying policies, permissions, and tags across all subscriptions through careful implementation of root management group.
+> - Understand regulatory requirements and operational data that may be used for audits. 
+> - Continuously monitor and assess the compliance of your workload. Perform regular attestations to avoid fines.
+> - Review and apply recommendations from Azure. 
+> - Remediate basic vulnerabilities to keep the attacker costs high.
 
 ## In this section
-|Article|Description|
+
+Follow these questions to assess the workload at a deeper level.
+
+|Assessment|Description|
 |---|---|
+|[**Are there any regulatory requirements for this workload?**](design-regulatory-compliance.md)|Understand all regulatory requirements. Check the Microsoft Trust Center for the latest information, news, and best practices in security, privacy, and compliance.|
+|[**Is the organization using a landing zone for this workload?**](design-governance-landing-zone.md)|Consider the security controls placed on the infrastructure into which the workload will get deployed.|
 |[Reference model: Segmentation](design-segmentation.md)|Reference model and strategies of how the functions and teams can be segmented.|
 |[Management groups and permissions](design-management-groups.md)|Strategies using management groups to manage resources across multiple subscriptions consistently and efficiently.|
 |[Regulatory compliance](design-regulatory-compliance.md)|Guidance on standards published by law, authorities, and regulators.|
+|[Azure Governance Visualizer](https://github.com/microsoft/CloudAdoptionFramework/tree/master/govern/AzureGovernanceVisualizer)|Gain granular insight into policies, Azure role-based access control (Azure RBAC), Azure Blueprints, subscriptions, and more.|
+
+## Azure security benchmark
+
+The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
+
+> ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to these controls:
+>
+> - [Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy)
+> - [Posture and vulnerability management](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management) 
+
+## Reference architecture
+
+Here are some reference architectures related to governance:
+
+[Cloud Adoption Framework enterprise-scale landing zone architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+
+## Next steps
+
+We recommend that you review the practices and tools implemented as part of the development cycle.
+
+> [!div class="nextstepaction"]
+> [Application development](./design-apps-services.md)
+
+## Related links
+> Go back to the main article: [Security](overview.md)

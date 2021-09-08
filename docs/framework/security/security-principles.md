@@ -66,7 +66,7 @@ recommended, which maps to one of more of these principles:
     should also ensure entities have been granted the least privilege required
     (to a manageable level of granularity).
 
-- **Embrace Automation -** Automation of tasks decreases the chance of human
+- <a id="embrace-automation"></a>**Embrace Automation -** Automation of tasks decreases the chance of human
     error that can create risk, so both IT operations and security best
     practices should be automated as much as possible to reduce human errors
     (while ensuring skilled humans govern and audit the automation).

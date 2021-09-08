@@ -1,11 +1,13 @@
 ---
 title: Capacity
-description:
+description: Make sure your Azure architecture provides sufficient capacity. Use content delivery networks (CDNs), and choose the right resources and metrics.
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-blob-storage
 ms.custom:
   - How are you ensuring you have sufficient Capacity?
   - article
@@ -35,7 +37,7 @@ Preemptively scaling based on historical data can ensure your application has co
 
 ## Automated scale operations
 
-Fluctuation in application traffic is expected. To ensure optimal operation conditions are maintained, such variations should be met by automated scalability operations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured range of resources, provisioning or de-provisioning capacity is more advanced and complex, for example, adding additional scale units like additional clusters, compute instances, or deployments. The process should be codified, automated, and the effects of adding/removing capacity should be well understood. To learn more [review repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
+Fluctuation in application traffic is expected. To ensure optimal operation conditions are maintained, such variations should be met by automated scalability operations. While Auto-scaling enables a PaaS or IaaS service to scale within a pre-configured range of resources, provisioning or de-provisioning capacity is more advanced and complex, for example, adding additional scale units like additional clusters, compute instances, or deployments. The process should be codified, automated, and the effects of adding/removing capacity should be well understood. To learn more [review repeatable infrastructure](../devops/automation-infrastructure.md).
 
 ## Application health and capacity
 

@@ -1,15 +1,17 @@
 ---
 title: Considerations in Azure Industrial IoT solution
 titleSuffix: Azure Application Architecture Guide
-description: Architectural considerations in an IIoT Analytics Solution.
+description: Read about architectural considerations in an IIoT analytics solution. View discussions about performance, availability, and networking.
 author: khilscher
+ms.author: kehilsch
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.author: kehilsch
+ms.subservice: azure-guide
 ms.category:
   - fcp
-ms.subservice: azure-guide
+products:
+  - azure-iot-edge
 ms.custom:
   - guide
 ---
@@ -87,7 +89,7 @@ For additional security, industrial firewalls can be configured to only allow tr
 
 ## Next Steps
 
-- For a more detailed discussion of the recommended architecture and implementation choices, download and read the [Microsoft Azure IoT Reference Architecture pdf](https://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf).
+- For a more detailed discussion of the recommended architecture and implementation choices, download and read the [Microsoft Azure IoT Reference Architecture pdf](https://aka.ms/iotrefarchitecture).
 
 - [Azure Industrial IoT components, tutorials, and source code](https://azure.github.io/Industrial-IoT/).
 

@@ -19,7 +19,7 @@ metadata:
     - solution architectures
     - Azure
     - ai gallery
-    - 'https://azure.microsoft.com/solutions/architecture/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters/'
+    - "https://azure.microsoft.com/solutions/architecture/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.png
 name: Loan ChargeOff Prediction with Azure HDInsight Spark Clusters
 azureCategories:

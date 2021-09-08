@@ -1,11 +1,15 @@
 ---
-title: Choosing a real-time message ingestion technology
+title: Choose a real-time message ingestion technology
 description: Choose an Azure message ingestion store to support message buffering, scale-out processing, reliable delivery, and queuing semantics.
 author: zoinerTejada
+ms.author: pnp
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-event-hubs
+  - azure-iot-hub
 ms.custom:
   - guide
 ---

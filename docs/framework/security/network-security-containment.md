@@ -25,7 +25,7 @@ cloud-based assets, it is still a top priority for the large portfolio of legacy
 assets (which were built with the assumption that a network firewall-based
 perimeter was in place). Many attackers still employ scanning and exploit
 methods across public cloud provider IP ranges, successfully penetrating
-defenses for those who don’t follow basic network security hygiene. Network
+defenses for those who don't follow basic network security hygiene. Network
 security controls also provide a defense-in-depth element to your strategy that
 help protect, detect, contain, and eject attackers who make their way into your
 cloud deployments.
@@ -54,7 +54,7 @@ When you centralize network management and security you reduce the potential for
 inconsistent strategies that can create potential attacker exploitable security
 risks. Because all divisions of the IT and development organizations do not have
 the same level of network management and security knowledge and sophistication,
-organizations benefit from leveraging a centralized network team’s expertise and
+organizations benefit from leveraging a centralized network team's expertise and
 tooling.
 
 [Azure Security Center](/azure/security-center/security-center-network-recommendations)
@@ -67,7 +67,7 @@ your organization (defined in Governance, Risk, and Compliance section).
 
 This will reduce confusion and resulting challenges with different technical
 teams (networking, identity, applications, etc.) each developing their own
-segmentation and delegation models that don’t align with each other. This leads
+segmentation and delegation models that don't align with each other. This leads
 to a straightforward and unified security strategy, which helps reduce the
 number of errors due to human error and inability to increase reliability
 through automation.
@@ -84,23 +84,26 @@ threats outside the networks you control.
 As organizations shift to modern architectures, many services and components
 required for applications will be accessed over the internet or on cloud
 provider networks, often by mobile and other devices off the network.
-Traditional network controls based on a *“trusted intranet”* approach will not
+Traditional network controls based on a *trusted intranet* approach will not
 be able to effectively provide security assurances for these applications. This
 shifting landscape is captured well by principles documented by the [Jericho
-Forum](https://en.wikipedia.org/wiki/Jericho_Forum) and ‘Zero Trust’ approaches.
+Forum](https://en.wikipedia.org/wiki/Jericho_Forum) and *Zero Trust* approaches.
 
-Build a risk containment strategy based on a combination of network controls and
-application, identity, and other control types.
+Build a risk containment strategy based on a combination of network controls,
+application, identity, and other control types:
 
 - Ensure that resource grouping and administrative privileges align to the
-    segmentation model (see figure XXXX)
+    segmentation model.
 
 - Ensure you are designing security controls that identify and allow expected
     traffic, access requests, and other application communications between
-    segments. Monitor communications between segments to identify on any
+    segments. Monitor communications between segments to identify any
     unexpected communications so you can investigate whether to set alerts or
     block traffic to mitigate risk of adversaries crossing segmentation
     boundaries.
+    
+- Implement technical controls that can effectively prevent, detect, and respond 
+  to threats outside the network controls.
 
 ## Build a security containment strategy
 
@@ -135,13 +138,13 @@ inadequate and security organizations need to evolve their methods.
     helping you protect and discover threats in the past, you might consider
     using them for your cloud-based assets. If you discover that they have not
     added significant value, discontinue their use and explore native solutions
-    on your cloud service provider’s platform that deliver similar value.
+    on your cloud service provider's platform that deliver similar value.
 
 An evolving emerging best practice recommendation is to adopt a Zero Trust
 strategy based on user, device, and application identities. In contrast to
 network access controls that are based on elements such as source and
 destination IP address, protocols, and port numbers, Zero Trust enforces and
-validates access control at “access time”. This avoids the need to play a
+validates access control at "access time". This avoids the need to play a
 prediction game for an entire deployment, network, or subnet – only the
 destination resource needs to provide the necessary access controls.
 
@@ -164,7 +167,7 @@ with legacy assets on them.
 Choose whether to use native cloud service provider controls or virtual network
 appliances for internet edge security.
 
-Internet edge traffic (sometimes referred to as “North-South” traffic)
+Internet edge traffic (sometimes referred to as *North-South* traffic)
 represents network connectivity between your assets in the cloud and the
 Internet. Legacy workloads require protection from Internet endpoints because
 they were built with the assumption that an internet firewall protected them
@@ -191,31 +194,36 @@ and monitoring:
     uncommon) attacks. Partner solutions consistently cost more than native
     controls. In addition, configuration of partner solutions can be very
     complex and more fragile than native controls because they do not integrate
-    with cloud’s fabric controllers.
+    with cloud's fabric controllers.
 
 The decision to use native versus partner controls should be based on your
-organization’s experience and requirements. If the features of the advanced
-firewall solutions don’t provide sufficient return on investment, you may
+organization's experience and requirements. If the features of the advanced
+firewall solutions don't provide sufficient return on investment, you may
 consider using the native capabilities that are designed to be easy to configure
 and scale.
 
 ## Use of legacy network security technology
 
-Carefully plan your use of signature-based Network Intrusion Detection/Network Intrusion Prevention (NIDS/NIPS) Systems and Network Data Leakage/Loss Prevention (DLP) as you adopt cloud applications services. 
+Carefully plan your use of signature-based Network Intrusion Detection/Network Intrusion Prevention (NIDS/NIPS) Systems and Network Data Leakage/Loss Prevention (DLP) as you adopt cloud applications services.
 
-IDS/IPS often generate an overwhelming number of false positive alerts that can contribute to SOC Analyst alert fatigue. While a well-tuned IDS/IPS system can be effective for classic application architectures, these systems do not work well for modern SaaS and PaaS application delivery models. 
+IDS/IPS often generate an overwhelming number of false positive alerts that can contribute to SOC Analyst alert fatigue. While a well-tuned IDS/IPS system can be effective for classic application architectures, these systems do not work well for modern SaaS and PaaS application delivery models.
 
-Network-based DLP is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While your organization can use “SSL-bridging” to provide an “authorized man-in-the-middle” that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges. 
+Network-based DLP is decreasingly effective at identifying both inadvertent and deliberate data loss. The reason for this is that most modern protocols and attackers use network-level encryption for inbound and outbound communications. While your organization can use *SSL-bridging* to provide an *authorized man-in-the-middle* that terminates and then reestablishes encrypted network connections, this can also introduce privacy, security and reliability challenges.
 
 Because of how much is changing with network security, we recommend reviewing and updating your network security strategy focused on these considerations as you migrate existing workloads to Azure:
+
 - The major cloud service providers filter malformed packets and common network layer attacks.
-- Many traditional NIDS/NIPS solutions use signature-based approaches on a per packet basis and easily evaded by attackers and typically produce a high rate of false positives. 
-- Ensure your IDS/IPS system(s) are providing meaningful positive value from alerts they generate. 
-  - Measure alert quality by the percentage of true positives (real attacks detections) vs false positive alerts (false alarms) in the alerts raised by the system. 
-  - Avoid analyst fatigue by providing only high-quality alerts to security analysts who investigate them. Ideally, alerts should have a 90% true positive rate for creating incidents in the primary queue that triage (Tier 1) investigation teams must respond to, while lower quality alerts would go to proactive hunting exercises to reduce analyst fatigue and burnout. 
+- Many traditional NIDS/NIPS solutions use signature-based approaches on a per-packet basis and easily evaded by attackers and typically produce a high rate of false positives.
+- Ensure your IDS/IPS system(s) are providing meaningful positive value from alerts they generate.
+  - Measure alert quality by the percentage of true positives (real attacks detections) versus false positive alerts (false alarms) in the alerts raised by the system.
+  - Avoid analyst fatigue by providing only high-quality alerts to security analysts who investigate them. Ideally, alerts should have a 90% true positive rate for creating incidents in the primary queue that triage (Tier 1) investigation teams must respond to, while lower quality alerts would go to proactive hunting exercises to reduce analyst fatigue and burnout.
 - Adopt modern Zero Trust identity approaches for protecting modern SaaS and PaaS applications. See https://aka.ms/zero-trust for more information
 - For IaaS workloads, focus on network security solutions that provide per network context rather than per packet/session context. While the technology to achieve this is still evolving, software defined networks in the cloud are naturally instrumented and can achieve this much more easily than on-premises equipment.
-- Favor solutions that effectively apply machine learning techniques across these large volumes of traffic. ML technology is far superior to static/manual human analysis at rapidly identifying anomalies that could be attacker activity out of normal traffic patterns.
+- Favor solutions that effectively apply machine learning techniques across these large volumes of traffic. ML technology is far superior to static or manual human analysis at rapidly identifying anomalies that could be attacker activity out of normal traffic patterns.
+
+### Suggested actions
+
+Review existing network security controls and minimize the use of signature-based Network Intrusion Detection/Network Intrusion Prevention (NIDS/NIPS) Systems and Network Data Leakage/Loss Prevention (DLP) as you adopt cloud applications services.
 
 ## Design virtual network subnet security
 
@@ -233,8 +241,8 @@ use common protocols for those roles and functions. This allows you to add
 resources to the subnet without needing to make changes to security groups that
 enforce network level access controls.
 
-Do not use *“all open*” rules for inbound and outbound traffic to and from
-subnets. Use a *network “least privilege*” approach and only allow relevant
+Do not use *all open* rules for inbound and outbound traffic to and from
+subnets. Use a network *least privilege* approach and only allow relevant
 protocols. This will decrease your overall network attack surface on the subnet.
 
 All open rules (allowing inbound/outbound to and from 0.0.0.0-255.255.255.255)
@@ -252,7 +260,7 @@ Enable Distributed Denial of Service (DDoS) mitigations for all
 business-critical web application and services.
 
 DDoS attacks are prevalent and are easily carried out by unsophisticated
-attackers. There are even “DDoS as a service” options on the dark net. DDoS
+attackers. There are even "DDoS as a service" options on the dark net. DDoS
 attacks can be very debilitating and completely block access to your services
 and even take down the services, depending on the type of DDoS attack.
 
@@ -275,13 +283,9 @@ An example of advanced DDoS protection is the [Azure DDoS Protection
 Service](/azure/virtual-network/ddos-protection-overview).
 
 The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:
-- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
-- Guarantees 100% SLA. 
-- Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
 
-The [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml) reference architecture uses DDoS Protection Standard because this option:
-- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats. 
-- Guarantees 100% SLA. 
+- Uses adaptive tuning, based on the application's network traffic patterns, to detect threats.
+- Guarantees 100% SLA.
 - Can be cost effective. For example, during a DDoS attack, the first set of attacks cause  the provisioned resources to scale out. For a resource such as a virtual machine scale set, 10 machines can grow to 100, increasing overall costs. With Standard protection, you don't have to worry about the cost of the scaled resources because Azure will provide the cost credit. 
 
 ## Decide upon an internet ingress/egress policy
@@ -291,14 +295,14 @@ devices or allow Internet connectivity through cloud-based network security
 devices.
 
 Routing Internet traffic through on-premises network security devices is also
-known as “forced tunneling”. In a forced tunneling scenario, all connectivity to
+known as "forced tunneling". In a forced tunneling scenario, all connectivity to
 the Internet is forced back to on-premises network security devices through a
 cross-premises WAN link. The goal is to provide network security teams greater
 security and visibility for Internet traffic. Even when your resources in the
 cloud try to respond to incoming requests from the Internet, the responses will
 be forced through on-premises network security devices.
 
-Alternately, forced tunneling fits a *“datacenter expansion”* paradigm and can
+Alternately, forced tunneling fits a *datacenter expansion* paradigm and can
 work well for a quick proof of concept, but scales poorly because of the
 increased traffic load, latency, and cost.
 
@@ -341,4 +345,3 @@ Examples of network logs that provide visibility include:
 - [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)
 
 :::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Sentinel and WAF connector Sample](https://github.com/mspnp/samples/tree/master/Security/AzureSentinelSample) sample creates an Azure Log Analytics workspace to collect, analyze, and taking action on data, with Azure Sentinel.
-

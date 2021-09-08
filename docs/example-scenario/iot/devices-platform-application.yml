@@ -8,11 +8,11 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - iot
   ms.custom:
     - fcp
     - example-scenario
-  ms.category:
-    - iot
 name: IoT solution architecture
 azureCategories:
   - iot
@@ -21,6 +21,6 @@ products:
   - azure-iot
   - azure-event-hubs
   - azure-iot-hub
-thumbnailUrl: /azure/architecture/browse/thumbs/devices-platform-application.png
+thumbnailUrl: /azure/architecture/browse/thumbs/devices-platform-application.svg
 content: |
    [!include[](devices-platform-application-content.md)]

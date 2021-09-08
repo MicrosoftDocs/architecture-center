@@ -1,11 +1,13 @@
 ---
 title: Storage, data, and encryption in Azure | Microsoft Docs
-description: How to secure data storage in Azure.
+description: Secure data storage in Azure. Use identity-based storage access controls. Encrypt virtual disk files and data in transit. Enable platform encryption services.
 author: dsk-2015
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-active-directory
 ms.custom:
   - article
 ---

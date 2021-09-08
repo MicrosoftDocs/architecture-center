@@ -1,13 +1,14 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
+This solution idea demonstrates near real-time analytics over fast flowing, high volume streaming data from IoT devices, sensors, connected buildings and vehicles, and so on. It focuses on integration of Azure Data Explorer with other IoT services to cater to both operational and analytical workloads using Cosmos DB and Azure Data Explorer. 
 
+This solution is already being used by Microsoft customers for IoT device telemetry analytics. For example, [Bosch uses this to combine real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany).
 
-This architecture pattern demonstrates near real-time analytics over fast flowing, high volume streaming data from IoT devices, sensors, connected buildings and vehicles, and so on. It focuses on integration of Azure Data Explorer with other IoT services to cater to both operational and analytical workloads using Cosmos DB and Azure Data Explorer. 
-
-This architecture is already being used by Microsoft customers for IoT device telemetry analytics. For example, [Bosch uses this to combine real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany).
+## Architecture
 
 :::image type="content" source="../media/iot-azure-data-explorer.png" alt-text="IoT telemetry analytics with Azure Data Explorer" lightbox="../media/iot-azure-data-explorer.png":::
 
-## Data flow
+### Data flow
  
 1. Ingest a wide variety of fast-flowing streaming data such as logs, business events, and user activities from various sources such as Azure Event Hub, Azure IoT Hub, or Kafka.
 1. Process data in real-time using Azure Functions or Azure Stream Analytics.
@@ -24,15 +25,20 @@ As this pattern serves both operational and analytical use cases, data can eithe
    * Analyze data using [Azure Data Explorer Web UI](/azure/data-explorer/web-query-data), [Kusto.Explorer](/azure/data-explorer/kusto/tools/kusto-explorer), or [Jupyter notebooks](/azure/data-explorer/kqlmagic).
 1. Azure Data Explorer provides native advanced analytics capabilities for [time series analysis](/azure/data-explorer/time-series-analysis), pattern recognition, [anomaly detection and forecasting](/azure/data-explorer/anomaly-detection), and [machine learning](/azure/data-explorer/machine-learning-clustering). Azure Data Explorer is also well integrated with ML services such as Databricks and Azure Machine Learning. This integration allows you to build models using other tools and services and export ML models to Azure Data Explorer for scoring data.  
 
-## Components
+### Components
 
-- [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/): Fully managed, real-time data ingestion service that’s simple, trusted, and scalable.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/): Managed service to enable bi-directional communication between IoT devices and Azure.
+- [Azure Event Hub](https://azure.microsoft.com/services/event-hubs): Fully managed, real-time data ingestion service that’s simple, trusted, and scalable.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub): Managed service to enable bi-directional communication between IoT devices and Azure.
 - [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction): Easy, cost-effective, enterprise-grade service for open source analytics with Apache Kafka. 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Fully managed fast NoSQL database service for modern app development with open APIs for any scale.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Fully managed fast NoSQL database service for modern app development with open APIs for any scale.
+- [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
 - [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/): Fast, fully managed and highly scalable data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
 - [Azure Data Explorer Dashboards](/azure/data-explorer/azure-data-explorer-dashboards): Natively export Kusto queries that were explored in the Web UI to optimized dashboards. 
-- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/): Create next-generation IoT solutions that model the real world.
+- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins): Create next-generation IoT solutions that model the real world.
+
+### Alternatives
+
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
 
 ## Next steps
 

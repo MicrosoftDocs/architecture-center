@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: 'Builders, developers, and operators'
+  title: Builders, developers, and operators
   titleSuffix: Azure Example Scenarios
   description: Learn about the device builder, application developer, and solution operator roles and how they interact in an IoT solution.
   author: wamachine

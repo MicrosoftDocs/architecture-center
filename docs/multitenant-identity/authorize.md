@@ -1,18 +1,22 @@
 ---
 title: Authorization in multitenant applications
-description: 'Learn about two general approaches to authorization using APIs provided by ASP.NET Core: role-based authorization and resource-based authorization.'
+description: "Learn about two general approaches to authorization using APIs provided by ASP.NET Core: role-based authorization and resource-based authorization."
 author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.category:
-  - identity
 ms.subservice: azure-guide
+categories:
+  - identity
+  - web
+ms.custom:
+  - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: app-roles
 pnp.series.next: web-api
-ms.custom:
-  - guide
+products:
+  - azure-active-directory
+  - azure-app-service-web
 ---
 
 # Role-based and resource-based authorization
@@ -37,6 +41,8 @@ The [Tailspin Surveys][Tailspin] application defines the following roles:
 Roles apply to *users* of the application. In the Surveys application, a user is either an administrator, creator, or reader.
 
 For a discussion of how to define and manage roles, see [Application roles].
+
+[!INCLUDE [Obsolete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 Regardless of how you manage the roles, your authorization code will look similar. ASP.NET Core has an abstraction called [authorization policies][policies]. With this feature, you define authorization policies in code, and then apply those policies to controller actions. The policy is decoupled from the controller.
 

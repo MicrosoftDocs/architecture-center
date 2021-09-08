@@ -1,11 +1,14 @@
 ---
 title: Big data cost estimates
-description: Describes tier, SKU choices for analytics services
+description: Know how to make cost estimates for big data analytics services, including Azure Synapse analytics, Azure Databricks, Azure Stream Analytics, and more.
 author: PageWriter-MSFT
 ms.date: 08/24/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-synapse-analytics
+  - azure-databricks
 ms.custom:
   - article
 ---

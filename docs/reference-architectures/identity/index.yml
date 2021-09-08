@@ -12,10 +12,10 @@ metadata:
     - identity
     - hybrid
   ms.custom:
-    - seodec18
     - identity
     - reference-architecture
     - e2e-hybrid
+    - internal-intro
 name: Integrate on-premises AD with Azure
 azureCategories:
   - identity

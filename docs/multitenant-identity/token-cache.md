@@ -5,18 +5,24 @@ author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.category:
+ms.subservice: azure-guide
+categories:
   - identity
+  - web
 ms.custom:
   - has-adal-ref
   - guide
-ms.subservice: azure-guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: web-api
 pnp.series.next: adfs
+products:
+  - azure-active-directory
+  - azure-app-service-web
 ---
 
 # Cache access tokens
+
+[!INCLUDE [Obsolete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 

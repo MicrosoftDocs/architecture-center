@@ -1,16 +1,16 @@
 ---
 title: Cloud design patterns
 titleSuffix: Azure Architecture Center
-description: Design patterns for building reliable, scalable, secure applications in the cloud.
-keywords: Azure
+description: Learn about design patterns for building reliable, scalable, secure applications in the cloud by walking through examples based on Microsoft Azure.
 author: dragon119
 ms.date: 03/01/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - Azure
 ---
 
 # Cloud Design Patterns
@@ -80,7 +80,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 | [Pipes and Filters](./pipes-and-filters.md) | Break down a task that performs complex processing into a series of separate elements that can be reused. | [Design and Implementation](./category/design-implementation.md), <hr> [Messaging](./category/messaging.md) |
 | [Priority Queue](./priority-queue.md) | Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. | [Messaging](./category/messaging.md), <hr> [Performance Efficiency](../framework/scalability/performance-efficiency-patterns.md) |
 | [Publisher/Subscriber](./publisher-subscriber.md) | Enable an application to announce events to multiple interested consumers asynchronously, without coupling the senders to the receivers. | [Messaging](./category/messaging.md) |
-| [Queue-Based Load Leveling](./queue-based-load-leveling.md) | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. | [Reliability](../framework/resiliency/reliability-patterns.md), <hr> [Messaging](./category/messaging.md), <hr> [Resiliency](/azure/architecture/framework/resiliency/reliability-patterns), <hr> [Performance Efficiency](../framework/scalability/performance-efficiency-patterns.md) |
+| [Queue-Based Load Leveling](./queue-based-load-leveling.md) | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. | [Reliability](../framework/resiliency/reliability-patterns.md), <hr> [Messaging](./category/messaging.md), <hr> [Resiliency](../framework/resiliency/reliability-patterns.md), <hr> [Performance Efficiency](../framework/scalability/performance-efficiency-patterns.md) |
 | [Retry](./retry.md) | Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that's previously failed. | [Reliability](../framework/resiliency/reliability-patterns.md) |
 | [Scheduler Agent Supervisor](./scheduler-agent-supervisor.md) | Coordinate a set of actions across a distributed set of services and other remote resources. | [Messaging](./category/messaging.md), <hr> [Reliability](../framework/resiliency/reliability-patterns.md) |
 | [Sequential Convoy](./sequential-convoy.md) | Process a set of related messages in a defined order, without blocking processing of other groups of messages. | [Messaging](./category/messaging.md) |

@@ -1,15 +1,18 @@
 ---
 title: User interface in IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: This article describes the user interface considerations in an Azure IoT Edge Vision solution.
+description: Examine user interface (UI) requirements in an Azure IoT Edge Vision solution. The four UIs normally used are administrator, consumer, operator, and analytics.
 author: MSKeith
+ms.author: keith
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.author: keith
+ms.subservice: azure-guide
 ms.category:
   - fcp
-ms.subservice: azure-guide
+products:
+  - power-bi
+  - azure-app-service
 ms.custom:
   - guide
 ---

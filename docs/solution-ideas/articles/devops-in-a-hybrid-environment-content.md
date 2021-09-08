@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 In many scenarios, the adoption of the Azure cloud as a business solution involves the migration of an on-premises environment. It is usually not practical to deprecate the on-premises environment quickly, and in many cases the on-premises environment will need to persist alongside the cloud environment for a significant amount of time. The tools provided in Azure allow for the implementation of a DevOps strategy that capably manages both cloud and on-premises environments in tandem.
 
@@ -28,3 +27,9 @@ In many scenarios, the adoption of the Azure cloud as a business solution involv
 * [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) provides identity and access management services for your application, both on-premises and on the cloud. Azure AD can synchronize with an on-premises Active Directory to seamlessly allow your users to authenticate everywhere.
 * [Azure Web Apps](/azure/app-service/overview) is a managed platform for hosting web-based applications in the cloud.
 * [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) is a managed database service for transactional applications.
+
+## Next steps
+
+* [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
+* [CI/CD for Azure Web Apps](./azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml)
+* [DevTest and DevOps for microservice solutions](./dev-test-microservice.yml)

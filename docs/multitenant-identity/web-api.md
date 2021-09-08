@@ -5,17 +5,21 @@ author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
-ms.category:
+ms.subservice: azure-guide
+categories:
   - security
   - developer-tools
   - identity
+  - web
 ms.custom:
   - has-adal-ref
   - guide
-ms.subservice: azure-guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authorize
 pnp.series.next: token-cache
+products:
+  - azure-active-directory
+  - azure-app-service-web
 ---
 
 # Secure a backend web API for multitenant applications
@@ -92,6 +96,8 @@ In order for Azure AD to issue a bearer token for the web API, you need to confi
     <p id="description-2" class="visually-hidden">A screenshot of the Azure portal that shows the application permissions and delegated permissions.</p>
 
 ## Getting an access token
+
+[!INCLUDE [Obsolete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 Before calling the web API, the web application gets an access token from Azure AD. In a .NET application, use the [Azure AD Authentication Library (ADAL) for .NET][ADAL].
 

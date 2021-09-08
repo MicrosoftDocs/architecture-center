@@ -5,13 +5,17 @@ author: doodlemania2
 ms.date: 10/23/2018
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - web
   - developer-tools
-ms.subservice: azure-guide
+products:
+  - azure-application-gateway
+  - azure-api-management
 ms.custom:
   - microservices
   - guide
+  - internal-intro
 ---
 
 # Using API gateways in microservices

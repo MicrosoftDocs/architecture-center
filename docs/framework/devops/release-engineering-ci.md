@@ -1,11 +1,13 @@
 ---
 title: Release Engineering Continuous integration
-description: Release Engineering Continuous integration
-author: neilpeterson
+description: Examine continuous integration (CI) in release engineering. Explore using Azure CI pipelines, including source control integration, test integration, and more.
+author: david-stanford
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-devops
 ---
 
 # Release Engineering: Continuous integration
@@ -33,14 +35,14 @@ To achieve continuous integration, use software solutions to manage, integrate, 
 
 A continuous integration pipeline involves a piece of software, in many cases, cloud-hosted, that provides a platform for running automated tests, compliance scans, reporting, and all additional components that make up the continuous integration process. In most cases, the pipeline software is attached to source control such that when pull requests are created or software is merged into a specific branch, and the continuous integration pipeline is run. Source control integration also provides the opportunity for providing CI feedback directly on the pull request.
 
-Many solutions provide continuous integration pipeline capabilities. This article touches on both Azure DevOps Pipelines and GitHub actions and provides links to find more information.
+Many solutions provide continuous integration pipeline capabilities. This article touches on both Azure Pipelines and GitHub actions and provides links to find more information.
 
 **Learn more**
 
 To learn how to create a continuous integration pipeline, see these articles:
 
 - [Azure DevOps: Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops)
-- [GitHub Actions: Setting up continuous integration using workflow tempaltes](https://docs.github.com/en/free-pro-team@latest/actions/guides/setting-up-continuous-integration-using-workflow-templates)
+- [GitHub Actions: Setting up continuous integration using workflow templates](https://docs.github.com/en/free-pro-team@latest/actions/guides/setting-up-continuous-integration-using-workflow-templates)
 
 ### Source Control Integration
 
@@ -81,6 +83,10 @@ The following code snippet shows a test step from an Azure DevOps pipeline. Ther
 The following image shows the test results as seen in the Azure DevOps portal.
 
 ![Image of Azure DevOps pipeline tests in the Azure DevOps portal.](../_images/devops/ado-tests.png)
+
+#### Failed tests
+
+Failed tests should temporarily block a deployment and lead to a deeper analysis of what has happened and to either a refinement of the test or an improvement of the change that caused the test to fail.
 
 #### CI Result Badges
 

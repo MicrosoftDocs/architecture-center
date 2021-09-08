@@ -1,5 +1,5 @@
 ---
-title: Monitoring and diagnostics guidance
+title: Monitoring and diagnostics guide
 titleSuffix: Best practices for cloud applications
 description: Learn how to track how users use your distributed applications and services, trace resource utilization, and monitor the health and performance.
 author: dragon119
@@ -7,9 +7,11 @@ ms.date: 07/13/2016
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-monitor
 ms.custom:
-  - seodec18
   - best-practice
+  - internal-intro
 ---
 
 <!-- cSpell:ignore SIEM HDFS SSDT -->

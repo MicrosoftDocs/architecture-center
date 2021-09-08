@@ -18,7 +18,8 @@ metadata:
     - easy deploy
     - content delivery
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/simple-branded-website/'
+    - "https://azure.microsoft.com/solutions/architecture/simple-branded-website/"
+    - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/simple-branded-website.png
 name: Simple branded website
 azureCategories:

@@ -6,6 +6,8 @@ ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-app-service
 ms.custom:
   - article
 ---
@@ -14,7 +16,7 @@ ms.custom:
 
 All web applications (apps) have no up-front cost or termination fees. Some charge only for what you use and others charge per-second or per-hour. In addition, all web apps run in App Service plans. Together these costs can help determine the total cost of a web app.
 
-Use the [Azure Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to help create various cost scenarios.
+Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help create various cost scenarios.
 
 ## App Service plans
 

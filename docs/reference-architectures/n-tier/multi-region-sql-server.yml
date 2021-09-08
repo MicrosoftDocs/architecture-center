@@ -13,7 +13,6 @@ metadata:
     - databases
     - management-and-governance
   ms.custom:
-    - seodec18
     - reference-architecture
 name: Multi-region N-tier application
 azureCategories:

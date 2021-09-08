@@ -1,7 +1,4 @@
-
 <!-- cSpell:ignore lbrader HANA Fiori -->
-
-
 
 This reference architecture shows a set of proven practices for running S/4HANA and Suite on HANA in a high availability environment that supports disaster recovery on Azure. The Fiori information applies only to S/4HANA applications.
 
@@ -77,12 +74,13 @@ For details about SAP support for Azure virtual machine types and throughput met
 ### SAP Web Dispatcher
 
 The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve [high availability of the SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/9a9a6b48c673e8e10000000a42189b/frameset.htm), Azure Load Balancer implements either the failover cluster or the parallel Web Dispatcher setup.
+For internet facing communications a stand-alone solution in DMZ would be the recommended architecture to satisfy security concerns. [Embedded Web Dispatcher on ASCS](https://help.sap.com/viewer/00b4e4853ef3494da20ebcaceb181d5e/LATEST/en-US/2e708e2d42134b4baabdfeae953b24c5.html) is a special option, proper sizing due to additional workload on ASCS should be taken into account.
 
 ### Fiori Front-end Server (FES)
 
 This architecture addresses broad base requirements and assumes that the Embedded Fiori FES model is used. All the technology components are installed on the S/4 system itself, meaning that each S/4 system has its own Fiori Launchpad. The high availability setup for this deployment model is that of the S/4 system-no additional clustering or virtual machines are required. That's why the architecture diagram does not show the FES component.
 
-The [SAP Fiori Deployment Options and System Landscape Recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html) document describes the primary deployment options-either embedded or hub, depending on the scenarios. In achieving simplification and performance, the software releases between the Fiori technology components and the S/4 applications are tightly coupled, making a hub deployment fitting for only a few, narrow use cases.
+[SAP Fiori Deployment Options and System Landscape Recommendations](https://www.sap.com/documents/2018/02/f0148939-f27c-0010-82c7-eda71af511fa.html) document describes the primary deployment options-either embedded or hub, depending on the scenarios. In achieving simplification and performance, the software releases between the Fiori technology components and the S/4 applications are tightly coupled, making a hub deployment fitting for only a few, narrow use cases.
 
 If you use the FES hub deployment, the FES is an add-on component to the classic
 SAP NetWeaver ABAP stack. Set up high availability in the same way you protect a
@@ -90,6 +88,9 @@ three-tier ABAP application stack with clustered or multi-host capability-with a
 standby server database layer, clustered ASCS layer with high availability NFS
 for shared storage, and at least two application servers. Traffic is
 load-balanced via a pair of either clustered or parallel Web Dispatchers.
+For internet facing Fiori apps a [FES hub deployment](https://blogs.sap.com/2017/12/15/considerations-and-recommendations-for-internet-facing-fiori-apps/) in DMZ would be recommended. Use [Azure Application Gateway/WAF](/azure/application-gateway/) as a critical component to defense traffic with [AAD with SAML](/azure/active-directory/saas-apps/sap-netweaver-tutorial) for user authentication and SSO for [SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial).
+![Reference architecture for SAP Fiori](./images/fiori.png)
+
 
 ### Application servers pool
 
@@ -220,6 +221,11 @@ smaller P4 and P6 Premium disks to help minimize cost and benefit from the
 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/)
 in case of a central SAP stack installation.
 
+For High-Availability scenarios [Azure Shared Disks](/azure/virtual-machines/disks-shared) are available on Premium SSD and Ultra SSD [Azure Managed
+Disks](/azure/storage/storage-managed-disks-overview). Azure Shared Disks can be used with Windows Server, SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP. 
+
+For NFS Share scenarios, [Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) provides native NFS shares that can be used for /hana/shared, /hana/data, and /hana/log volumes. Using ANF-based NFS shares for the /hana/data and /hana/log volumes requires the usage of the v4.1 NFS protocol. For the /hana/shared volume the NFS protocol v3 is supported. 
+
 Azure Storage is also used by [Cloud
 Witness](/windows-server/failover-clustering/deploy-cloud-witness)
 to maintain quorum with a device in a remote Azure region, away from the primary
@@ -249,10 +255,7 @@ Networking](https://azure.microsoft.com/blog/linux-and-windows-networking-perfor
 This option is available only for supported virtual machines, including D/DSv2,
 D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms.
 
-For details about SAP HANA performance requirements, see [SAP note 1943937 -
-Hardware Configuration Check
-Tool](https://launchpad.support.sap.com/#/notes/1943937) (SAP Service
-Marketplace account required for access).
+For details about SAP HANA performance requirements, see [SAP note 1943937 - Hardware Configuration Check Tool](https://launchpad.support.sap.com/#/notes/1943937) (SAP Service Marketplace account required for access).
 
 To achieve high IOPS and disk bandwidth throughput, the common practices in
 storage volume [performance
@@ -360,6 +363,8 @@ and [Red
 Hat](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)
 and provides significantly faster service failover compared to the previous
 version of the agent.
+
+Other option is to use [Azure Shared Disks](/azure/virtual-machines/disks-shared) to achieve high availability. On SUSE Enterprise Linux 15 SP 1 and above, or SUSE Enterprise Linux For SAP, Pacemaker cluster can be set up using [Azure Shared Disk](/azure/virtual-machines/disks-shared#linux) to achieve high availability.
 
 With the introduction of the Standard Azure Load Balancer SKU, you can now
 simply enable the [high availability
@@ -527,7 +532,7 @@ your custom scripts to attach the existing (pre-built) load balancer, which
 already has the backend pool defined, to the NIC of the failover virtual
 machines. An example of the custom Site Recovery Automation Runbooks script is
 available on
-[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery).
+[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/asr-automation-recovery).
 
 > [!NOTE]
 > In case of a regional disaster that affects many customers in one
@@ -635,7 +640,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 - [Running SAP Applications on the Microsoft Platform Blog](/archive/blogs/saponsqlserver/sap-on-azure-general-update-for-customers-partners-april-2017)
 
-- [Azure Forum](https://azure.microsoft.com/support/forums/)
+- [Azure Community Support](https://azure.microsoft.com/support/forums/)
 
 - [SAP Community](https://www.sap.com/community.html)
 

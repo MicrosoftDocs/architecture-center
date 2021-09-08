@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 The world is cautiously reopening in a physical business environment where COVID-19 remains a factor. To help keep people healthy, [Cognizant](https://www.cognizant.com/) adapted their [OneFacility](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/cognizant.one_facility) solution to make workspaces safer for everyone who enters them. The **Cognizant Safe Buildings** solution provides a strategic approach to create safe buildings with sustainably healthy working environments.
 
@@ -65,7 +64,6 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) - Fully managed, open source–compatible in-memory data store to power fast, scalable applications.
 
-
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) empowers developers and data scientists to build, train, and deploy machine learning models faster. Continuous retraining, updating, and improving data collection and analysis makes the models better over time.
 
 * [Azure Monitor](https://azure.microsoft.com/services/monitor/) collects, analyzes, and acts on telemetry data from your Azure and on-premises environments.
@@ -74,7 +72,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
 * [Azure Functions](https://azure.microsoft.com/services/functions/) lets you build and debug locally without additional setup, deploy and operate at scale in the cloud, and integrate services using triggers and bindings.
 
-* In addition, **Safe Buildings** has access to these other Azure services: [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), [Azure API Management](https://azure.microsoft.com/services/api-management/), [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), [Azure Data Factory](https://azure.microsoft.com/services/data-factory/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), [Azure Logic App](https://azure.microsoft.com/services/logic-apps/), [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/), [Azure VMs](https://azure.microsoft.com/services/virtual-machines/), [Azure Webapp Service](https://azure.microsoft.com/services/app-service/web/).
+* In addition, **Safe Buildings** has access to these other Azure services: [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), [Azure API Management](https://azure.microsoft.com/services/api-management/), [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/), [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), [Azure Data Factory](https://azure.microsoft.com/services/data-factory/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), [Azure Logic App](https://azure.microsoft.com/services/logic-apps/), [Azure Notification Hubs](https://azure.microsoft.com/services/notification-hubs/), [Azure VMs](https://azure.microsoft.com/services/virtual-machines/), and [Azure Webapp Service](https://azure.microsoft.com/services/app-service/web/).
 
 ## Next steps
 

@@ -1,16 +1,18 @@
 ---
 title: Index Table pattern
 titleSuffix: Cloud Design Patterns
-description: Create indexes over the fields in data stores that are frequently referenced by queries.
-keywords: design pattern
+description: Learn about the Index Table pattern. Create indexes over the fields in data stores that are frequently referenced by queries.
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure-storage
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Index Table pattern
@@ -100,7 +102,7 @@ You can duplicate the movie data in the values held by each partition by adoptin
 
 ![Figure 8 - Actor partitions acting as index tables for movie data](./_images/index-table-figure-8.png)
 
-## Related patterns and guidance
+## Related guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 

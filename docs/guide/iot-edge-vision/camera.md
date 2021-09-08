@@ -1,15 +1,18 @@
 ---
 title: Camera selection for IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: This article describes the camera considerations for Azure IoT Edge Vision solution.
+description: Get information about camera selection in an Azure IoT Edge Vision solution. Explore camera features, camera placement, and the communication interface.
 author: MSKeith
+ms.author: keith
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.author: keith
+ms.subservice: azure-guide
 ms.category:
   - fcp
-ms.subservice: azure-guide
+products:
+  - azure-iot-edge
+  - azure-machine-learning
 ms.custom:
   - guide
 ---
@@ -29,7 +32,7 @@ This camera type generates the traditional camera image, where a 2D image is cap
 
 As the name suggests, area scan cameras look at a large area and are great at detecting change in an area. Examples of workloads that could use an area scan camera would be workplace safety, or detecting or counting objects (people, animals, cars, and so on) in an environment.
 
-Examples of manufacturers of area scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Axis](https://www.axis.com), [Sony](https://www.sony-semicon.co.jp/e/products/IS/industry/product.html), [Bosch](https://commerce.boschsecurity.com/us/en/IP-Cameras/c/10164917899), [FLIR](https://www.flir.com/), [Allied Vision](https://www.alliedvision.com/digital-industrial-camera-solutions.html).
+Examples of manufacturers of area scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Axis](https://www.axis.com), [Sony](https://www.sony-semicon.co.jp/e/products/IS/industry/product.html), [Bosch](https://commerce.boschsecurity.com/us/en/IP-Cameras/c/10164917899), [FLIR](https://www.flir.com/), [Allied Vision](https://www.alliedvision.com/en/products/customization/).
 
 ### Line scan cameras
 

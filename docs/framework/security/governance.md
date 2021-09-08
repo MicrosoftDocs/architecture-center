@@ -8,6 +8,12 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - article
+products:
+  - azure-devops
+categories:
+  - security
+subject: 
+  - security
 ---
 
 <!-- cSpell:ignore NIST -->
@@ -17,14 +23,14 @@ ms.custom:
 Organizations of all sizes are constrained by their available resources;
 financial, people, and time. To achieve an effective return on investment (ROI) organizations must prioritize where they will invest. Implementation of security across the organization is also constrained by this, so to achieve an appropriate ROI on security the organization needs to first understand and define its security priorities.
 
-**Governance:** How is the organization’s security going to be monitored, audited, and reported? Design and implementation of security controls within an organization is only the beginning of the story. How does the organization know that things are actually working? Are they improving? Are there new requirements? Is there mandatory reporting? Similar to compliance there may be external industry, government or regulatory standards that need to be considered.
+**Governance:** How is the organization's security going to be monitored, audited, and reported? Design and implementation of security controls within an organization is only the beginning of the story. How does the organization know that things are actually working? Are they improving? Are there new requirements? Is there mandatory reporting? Similar to compliance there may be external industry, government or regulatory standards that need to be considered.
 
 **Risk:** What types of risks does the organization face while trying to
 protect identifiable information, Intellectual Property (IP), financial information? Who may be interested or could use this information if stolen, including external and internal threats as well as unintentional or malicious? A commonly forgotten but extremely important
 consideration within risk is addressing Disaster Recovery and Business
 Continuity.
 
-**Compliance:** Is there a specific industry, government, or regulatory requirements that dictate or provide recommendation on criteria that your organization’s security controls must meet? Examples of such standards, organizations, controls, and legislation are [ISO27001]( https://www.iso.org/isoiec-27001-information-security.html), [NIST]( https://www.nist.gov), [PCI-DSS]( https://www.pcicomplianceguide.org/faq).
+**Compliance:** Is there a specific industry, government, or regulatory requirements that dictate or provide recommendation on criteria that your organization's security controls must meet? Examples of such standards, organizations, controls, and legislation are [ISO27001]( https://www.iso.org/isoiec-27001-information-security.html), [NIST]( https://www.nist.gov), [PCI-DSS]( https://www.pcicomplianceguide.org/faq).
 
 The collective role of organization(s) is to manage the security standards of
 the organization through their lifecycle:
@@ -38,22 +44,23 @@ the organization through their lifecycle:
 - **Improve** – Continually push these standards incrementally forward towards
     the ideal state to ensure continual risk reduction.
 
-- **Sustain** – Ensure the security posture doesn’t degrade naturally over
+- **Sustain** – Ensure the security posture doesn't degrade naturally over
     time by instituting auditing and monitoring compliance with organizational
     standards.
 
 ## Prioritize security best practices investments
 
 Security best practices are ideally applied proactively and completely to all
-systems as you build your cloud program, but this isn’t reality for most
+systems as you build your cloud program, but this isn't reality for most
 enterprise organizations. Business goals, project constraints, and other factors
 often cause organizations to balance security risk against other risks and apply
 a subset of best practices at any given point.
 
-We recommend applying as many as of the best practices as early as possible, and
-then working to retrofit any gaps over time as you mature your security program.
-We recommend evaluating the following considerations when prioritizing which to
-follow first:
+We recommend applying as many of the best practices as early as possible, and
+then working to retrofit any gaps over time as you mature your security program
+to include review, prioritization, and proactive application of best practices 
+to cloud resources. We recommend evaluating the following considerations when 
+prioritizing which to follow first:
 
 - **High business impact and highly exposed systems:** These include systems with direct intrinsic value as well as the systems that provide attackers a path to them. For more information, see [Identify and classify business critical applications](./design-apps-services.md).
 
@@ -91,7 +98,7 @@ Set up a regular cadence (typically monthly) to review Azure secure score and pl
 
 | Data & Storage Resources| Responsible Technical Team |
 | ------------- |-------------| 
-|SQL/Redis/Data Lake Analytics/Data Lake Store|	Database Team|
+|SQL/Redis/Data Lake Analytics/Data Lake Store|    Database Team|
 |Storage Accounts|Storage/Infrastructure Team|
 
 | Identity and Access Resources | Responsible Technical Team |
@@ -114,6 +121,8 @@ Set up a regular cadence (typically monthly) to review Azure secure score and pl
 
 ## Manage connected tenants
 
+Does your security team have visibility into all existing subscriptions and cloud environments? How do they discover new ones?
+
 Ensure your security organization is aware of all enrollments and associated
 subscriptions connected to your existing environment (via ExpressRoute or
 Site-Site VPN) and monitoring as part of the overall enterprise.
@@ -123,16 +132,22 @@ organizations require visibility into them. Security organizations need this
 access to assess risk and to identify whether organizational policies and
 applicable regulatory requirements are being followed.
 
+The organizations' cloud infrastructure should be well documented, with security team access to all resources required for monitoring and insight. Frequent scans of the cloud-connected assets should be performed to ensure no additional subscriptions or tenants have been added outside of organizational controls. Regularly review Microsoft guidance to ensure security team access best practices are consulted and followed.
+
+### Suggested actions
+
 Ensure all Azure environments that connect to your production
-environment/network apply your organization’s policy and IT governance controls
-for security. You can discover existing connected tenants using a
+environment and network apply your organization's policy, and IT governance controls
+for security.
+
+You can discover existing connected tenants using a
 [tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions
 you may assign to security is in the [Assign privileges for managing the
 environment](#assign-privileges-for-managing-the-environment) section.
 
 ## Clear lines of responsibility
 
-Designate the parties responsible for specific functions in Azure
+Designate the parties responsible for specific functions in Azure.
 
 Clearly documenting and sharing the contacts responsible for each of these
 functions will create consistency and facilitate communication. Based on our
@@ -164,30 +179,30 @@ A clear and simple segmentation strategy helps contain risk while enabling
 productivity and business operations.
 
 An enterprise segmentation strategy is defined higher than a traditional
-*“network segmentation”* security strategy. Traditional segmentation approaches for on premises environments frequently failed to achieve
-their goals because they were developed “bottom-up” by different technical teams
+*"network segmentation"* security strategy. Traditional segmentation approaches for on premises environments frequently failed to achieve
+their goals because they were developed "bottom-up" by different technical teams
 and were not aligned well with business use cases and application workloads.
 This resulted in overwhelming complexity that generates support issues and often
 undermines the original purpose with broad network firewall exceptions.
 
-Creating a unified enterprise segmentation strategy enables to guide all
-technical teams stakeholders (IT, Security, Applications, etc.) Business Units
-that is built around the business risks and needs will increase alignment to and
-understand and support sustainability of the security containment promises.
-This clarity and alignment will also reduce s the risk of human errors and
+Creating a unified enterprise segmentation strategy provides guidance to all
+technical team stakeholders (IT, Security, Applications, etc.) Business Units
+that are built around the business risks and needs will increase alignment, 
+understanding, and support for the sustainability of the security containment promises.
+This clarity and alignment will also reduce the risk of human errors and
 automation failures that can lead to security vulnerabilities, operational
 downtime, or both.
 
 While network micro-segmentation also offers promise to reduce risk (discussed
-more in [Network Security and Containment](./network-security-containment.md) section), it doesn’t eliminate the
-need to align technical teams. Micro segmentation should be considered after to
-and plans to ensure the ensuring technical teams are aligned so you can avoid a
-recurrence of the internal conflicts that plagued and confusion of the
+more in [Network Security and Containment](./network-security-containment.md) section), it doesn't eliminate the
+need to align technical teams. Micro segmentation should be considered after 
+ensuring technical teams are aligned so you can avoid a
+recurrence of the internal conflicts and confusion of the
 on-premises network generation segmentation strategies.
 
 Here are Microsoft's recommendations for prioritizing initiatives on containment and
 segmentation (based on Zero Trust principles). These recommendations are listed in priority
-order by highest importance.
+order by highest importance:
 
 - Ensure alignment of technical teams to a single enterprise segmentation
     strategy.
@@ -219,8 +234,9 @@ A good enterprise segmentation strategy meets these criteria:
 
 ## Security team visibility
 
-Provide security teams read-only access to the security aspects of all technical
-resources in their purview
+An application team needs to be aware of security initiatives to align their security
+improvement plans with the outcome of those activities. Provide security teams read-only
+access to the security aspects of all technical resources in their purview.
 
 Security organizations require visibility into the technical environment to
 perform their duties of assessing and reporting on organizational risk. Without
@@ -234,7 +250,7 @@ compliance on Azure resources.
 
 For example in Azure, assign security teams to the **Security Readers**
 permission that provides access to measure security risk (without providing
-access to the data itself)
+access to the data itself).
 
 For enterprise security groups with broad responsibility for security of Azure,
 you can assign this permission using:
@@ -251,6 +267,15 @@ potentially exploitable vulnerabilities), you should consider them critical
 impact accounts and apply the same protections as administrators. The [Administration](./critical-impact-accounts.md)
 section details these controls for Azure.
 
+**Suggested actions**
+
+- Define a process for aligning communication, investigation, and hunting activities with the application team.
+- Following the principle of least privilege, establish access control to all cloud environment resources for security teams with sufficient access to gain required visibility into the technical environment and to perform their duties of assessing, and reporting on organizational risk.
+
+**Learn more**
+
+[Engage your organization's security team](/azure/security/develop/secure-dev-overview#engage-your-organizations-security-team)
+
 ## Assign privileges for managing the environment
 
 Grant roles with operational responsibilities in Azure the appropriate
@@ -258,7 +283,7 @@ permissions based on a clearly documented strategy built from the principle of
 least privilege and your operational needs.
 
 Providing clear guidance that follows a reference model will reduce risk because
-by increasing it provides clarity for your technical teams implementing these
+it provides clarity for your technical teams implementing these
 permissions. This clarity makes it easier to detect and correct human errors
 like overpermissioning, reducing your overall risk.
 
@@ -303,7 +328,7 @@ resources, you can assign these permissions to those roles.
 
 **Service admin (Break Glass Account)** – Use the service admin role only for
 emergencies (and initial setup if required). Do not use this role for daily
-tasks. See [Emergency Access (‘Break Glass’ Accounts)](./critical-impact-accounts.md#emergency-access-or-break-glass-accounts) for more details.
+tasks. See [Emergency Access ('Break Glass' Accounts)](./critical-impact-accounts.md#emergency-access-or-break-glass-accounts) for more details.
 
 ![Diagram showing Core Services Reference Permissions.](images/ref-segment.png)
 
@@ -338,7 +363,7 @@ will depend on your organization structure.
     Resources IT Team) can grant those teams permission to all resources in the
     segment.
 
-- Segments with autonomous DevOps teams don’t need to grant permissions across
+- Segments with autonomous DevOps teams don't need to grant permissions across
     all resources because the resource role (below) grants permissions to
     application teams. For emergencies, use the service admin account
     (break-glass account).
@@ -355,7 +380,7 @@ their permissions depend on the application size and complexity, the
 application team size and complexity, and the culture of the organization
 and application team.
 
-**Service Admin (Break Glass Account)** – Use the service admin role only for emergencies (and initial setup if required). Do not use this role for daily tasks. See [Emergency Access (‘Break Glass’ Accounts)](./critical-impact-accounts.md#emergency-access-or-break-glass-accounts) for more details.
+**Service Admin (Break Glass Account)** – Use the service admin role only for emergencies (and initial setup if required). Do not use this role for daily tasks. See [Emergency Access ('Break Glass' Accounts)](./critical-impact-accounts.md#emergency-access-or-break-glass-accounts) for more details.
 
 ### Permission Guidance and Tips
 
@@ -426,7 +451,7 @@ Ensure policy and processes enable (and require) rapid application of security
 updates to virtual machines.
 
 Attackers constantly scan public cloud IP ranges for open management ports and
-attempt “easy” attacks like common passwords and unpatched vulnerabilities.
+attempt "easy" attacks like common passwords and unpatched vulnerabilities.
 
 Enable [Azure Security Center](/azure/security-center/security-center-apply-system-updates)
 to identify missing security updates & apply them.
@@ -463,8 +488,9 @@ One way of managing VMs in the virtual network is by using [Azure Bastion](/azur
 
 ## Assign incident notification contact
 
-Ensure a security contact receives Azure incident notifications from Microsoft
-typically a notification that your resource is compromised and/or attacking
+Security alerts need to reach the right people in your organization. Establish a 
+designated point of contact to receive Azure incident notifications from Microsoft/Azure 
+Security Center, typically a notification that your resource is compromised and/or attacking 
 another customer.
 
 This enables your security operations team to rapidly respond to potential
@@ -472,7 +498,15 @@ security risks and remediate them.
 
 Ensure administrator contact information in the Azure enrollment portal includes
 contact information that will notify security operations (directly or rapidly
-via an internal process)
+via an internal process).
+
+**Learn more**
+
+To learn more about establishing a designated point of contact to receive Azure incident 
+notifications from Microsoft, reference the following articles:
+  
+- [Update notification settings](/azure/cost-management-billing/manage/ea-portal-administration#update-notification-settings)
+- [Configure email notifications for security alerts](/azure/security-center/security-center-provide-security-contact-details)
 
 ## Regularly review critical access
 
@@ -483,8 +517,8 @@ You can conduct the review manually or through an automated process by using too
 
 ## Discover and remediate common risks
 
-Identity well-known risks for your Azure tenants, remediate those risks, and
-track your progress using Secure Score.
+Identify well-known risks for your Azure tenants, remediate those risks, and
+track your progress using Secure Score. Secure Score is a snapshot of your security posture relative to Microsoft recommendations.
 
 Identifying and remediating common security hygiene risks significantly reduces
 overall risk to your organization by increasing cost to attackers. When you
@@ -507,7 +541,7 @@ governance and risk reduction programs.
 
 ## Increase automation with Azure Blueprints
 
-Use Azure’s native automation capabilities to increase consistency, compliance,
+Use Azure's native automation capabilities to increase consistency, compliance,
 and deployment speed for workloads.
 
 Automation of deployment and maintenance tasks reduces security and compliance
@@ -517,38 +551,51 @@ from repeated manual tasks to higher value tasks like enabling developers and
 business initiatives, protecting information, and so on.
 
 Utilize the Azure Blueprint service to rapidly and consistently deploy
-application environments that are compliant with your organization’s policies
+application environments that are compliant with your organization's policies
 and external regulations. [Azure Blueprint Service](/azure/governance/blueprints/)
 automates deployment of environments including Azure roles, policies, resources
-(VM/Net/Storage/etc.), and more. Azure Blueprints builds on Microsoft’s
+(VM/Net/Storage/etc.), and more. Azure Blueprints builds on Microsoft's
 significant investment into the Azure Resource Manager to standardize
 resource deployment in Azure and enable resource deployment and governance based
 on a desired-state approach. You can use built in configurations in Azure
 Blueprint, make your own, or just use Resource Manager scripts for smaller scope.
 
-Several [Security and Compliance Blueprints](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) [samples](/azure/governance/blueprints/samples/)
+Implement a *landing zone* concept with Azure Blueprints and Azure Policies. The purpose of a landing zone is to ensure that when a workload lands on Azure, the required *plumbing* is already in place, providing greater agility and compliance with enterprise security, and governance requirements. It is crucial that a landing zone is handed over to the workload owner with security guardrails deployed.
+
+For more information about landing zones, reference [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/)
+
+Several [Security and Compliance Blueprints](https://servicetrust.microsoft.com/ViewPage/SCCIntroPage) [samples](/azure/governance/blueprints/samples/)
 are available to use as a starting template.
+  
+**Learn more**
+
+[What is the Microsoft Cloud Adoption Framework for Azure?](/azure/cloud-adoption-framework/overview)
 
 ## Evaluate security using benchmarks
 
 Use an industry standard benchmark to evaluate your organizations current
-security posture.
+security posture. Azure Security Benchmark v2 is Microsoft's current Azure
+security benchmark.
 
 Benchmarking allows you to improve your security program by learning from
-external organizations. Benchmarking lets you know how your current security
+external organizations. It lets you know how your current security
 state compares to that of other organizations, providing both external
-validation for successful elements of your current system as well as identifying
-gaps that serve as opportunities to enrich your team’s overall security
-strategy. Even if your security program isn’t tied to a specific benchmark or
+validation for successful elements of your current system and identifying
+gaps that serve as opportunities to enrich your team's overall security
+strategy. Even if your security program isn't tied to a specific benchmark or
 regulatory standard, you will benefit from understanding the documented ideal
 states by those outside and inside of your industry.
 
-- As an example, the Center for Internet Security (CIS) has created security
-    benchmarks for Azure that map to the CIS Control Framework. Another
-    reference example is the MITRE ATT&CK™ framework that defines the various
-    adversary tactics and techniques based on real-world observations. These
-    external references control mappings help you to understand any gaps between
-    your current strategy what you have and what other experts in the industry.
+As an example, the Center for Internet Security (CIS) has created security
+benchmarks for Azure that map to the CIS Control Framework. Another
+reference example is the MITRE ATT&CK&trade; framework that defines the various
+adversary tactics and techniques based on real-world observations. These
+external references control mappings and help you to understand any gaps between
+your current strategy, what you have, and what other experts have in the industry.
+
+### Suggested action
+  
+Develop an Azure security benchmarking strategy aligned to industry standards.
 
 ## Audit and enforce policy compliance
 
@@ -622,6 +669,9 @@ attacks.
 
 Discover and disable the use of legacy insecure protocols SMBv1, LM/NTLMv1,
 wDigest, Unsigned LDAP Binds, and Weak ciphers in Kerberos.
+  
+Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, SHA-512). Use of weaker algorithms, like SHA-1 
+and MD5, should be avoided.
 
 Authentication protocols are a critical foundation of nearly all security
 assurances. These older versions can be exploited by attackers with access to
@@ -630,25 +680,31 @@ as a Service (IaaS).
 
 Here are ways to reduce your risk:
 
-- **Discover** protocol usage by reviewing logs with Azure Sentinel’s Insecure
-    Protocol Dashboard or third-party tools.
+- Discover protocol usage by reviewing logs with Azure Sentinel's Insecure Protocol Dashboard or third-party tools.
 
 - Restrict or Disable use of these protocols by following guidance for
     [SMB](https://support.microsoft.com/help/2696547/detect-enable-disable-smbv1-smbv2-smbv3-in-windows-and-windows-server),
     [NTLM](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain),
-    [WDigest](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a)
-
-We recommend implementing changes using pilot or other testing method to
-mitigate risk of operational interruption.
+    [WDigest](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a).
+  
+- Use only secure hash algorithms (SHA-2 family). 
+  
+We recommend implementing changes using pilot or other testing methods to mitigate risk of operational interruption.
+  
+### Learn more
+  
+For more information about hash algorithms, see [Hash and Signature Algorithms](/windows/win32/seccrypto/hash-and-signature-algorithms).
 
 ## Elevated security capabilities
 
 Consider whether to utilize specialized security capabilities in your enterprise
 architecture.
 
-These measures have the potential to enhance security and meet regulatory
+Dedicated HSMs and Confidential Computing have the potential to enhance security and meet regulatory
 requirements, but can introduce complexity that may negatively impact your
 operations and efficiency.
+
+### Suggested actions
 
 We recommend careful consideration and judicious use of these security measures
 as required:
@@ -659,3 +715,5 @@ as required:
 
 - **Confidential Computing**  
     [Confidential Computing may help meet regulatory or security requirements](https://azure.microsoft.com/blog/azure-confidential-computing/).
+
+Learn more about [elevated security capabilities for Azure workloads](https://azure.microsoft.com/solutions/confidential-compute/).

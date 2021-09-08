@@ -1,6 +1,3 @@
-
-
-
 This example scenario walks you through an implementation of an e-commerce front end using Azure platform as a service (PaaS) tools. Many e-commerce websites face seasonality and traffic variability over time. When demand for your products or services takes off, whether predictably or unpredictably, using PaaS tools will allow you to handle more customers and more transactions automatically. Additionally, this scenario takes advantage of cloud economics by paying only for the capacity you use.
 
 This document will help you will learn about various Azure PaaS components and considerations used to bring together to deploy a sample e-commerce application, *Relecloud Concerts*, an online concert ticketing platform.
@@ -64,19 +61,19 @@ Other options for the data tier include:
 
 ### Availability
 
-- Consider leveraging the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application. azure/architecture/framework/scalability/performance-efficiency
+- Consider leveraging the [typical design patterns for availability](../../framework/resiliency/reliability-patterns.md) when building your cloud application. azure/architecture/framework/scalability/performance-efficiency
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
 - For additional considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
-- When building a cloud application be aware of the [typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns).
+- When building a cloud application be aware of the [typical design patterns for scalability](../../framework/scalability/performance-efficiency-patterns.md).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-- For other scalability topics, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) available in the Azure Architecture Center.
+- For other scalability topics, see the [performance efficiency checklist](../../framework/scalability/performance-efficiency.md) available in the Azure Architecture Center.
 
 ### Security
 
-- Consider leveraging the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) where appropriate.
+- Consider leveraging the [typical design patterns for security](../../framework/security/security-patterns.md) where appropriate.
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
@@ -84,7 +81,7 @@ Other options for the data tier include:
 ### Resiliency
 
 - Consider leveraging the [circuit breaker pattern][circuit-breaker] to provide graceful error handling should one part of the application not be available.
-- Review the [typical design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns) and consider implementing these where appropriate.
+- Review the [typical design patterns for resiliency](../../framework/resiliency/reliability-patterns.md) and consider implementing these where appropriate.
 - You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redundancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
@@ -141,7 +138,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [multi-region-web-app]: ../../reference-architectures/app-service-web-app/multi-region.yml
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
-[resiliency]: ../../framework/resiliency/overview.md
+[resiliency]: ../../framework/resiliency/principles.md
 [scalability]: ../../framework/scalability/performance-efficiency.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [service-bus]: /azure/service-bus-messaging

@@ -6,8 +6,15 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-active-directory
+  - azure-machine-learning
 ms.custom:
   - article
+categories:
+  - security
+subject: 
+  - security
 ---
 
 # Check for identity, network, data risks
@@ -26,9 +33,9 @@ This article describes some considerations that can help monitor the workload fo
 
 ## Review identity risks
 
-Most security incidents take place after an attacker initially gains access using a stolen identity. 
+Ensure that your organization is prepared to respond to an identity theft event. Most security incidents take place after an attacker initially gains access using a stolen identity.
 
-Suppose an attacker gains access using a stolen identity. Even though the identity has low privileges, the attacker can use it to traverse laterally and gain access to more privileged identities. This way the attacker can control access to the target data or systems.
+Suppose an attacker gains access using a stolen identity. Even though the identity has low privileges, the attacker can use it to traverse laterally and gain access to more privileged identities. This repeats as needed until the attacker controls access to the ultimate target data or systems.
 
 **Does the organization actively monitor identity-related risk events related to potentially compromised identities?**
 ***
@@ -40,9 +47,13 @@ Review the reported risk events in these ways:
 - Use the reporting capabilities of [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection).
 - Use the Identity Protection risk events API to get programmatic access to security detections by using Microsoft Graph. See [riskDetection](/graph/api/resources/riskdetection?view=graph-rest-1.0&preserve-view=true) and [riskyUser](/graph/api/resources/riskyuser?view=graph-rest-1.0&preserve-view=true) APIs.
 
-Azure AD uses adaptive machine learning algorithms, heuristics, and known compromised credentials (username/password pairs) to detect suspicious actions that are related to your user accounts. These username/password pairs come from monitoring public and dark web and by working with security researchers, law enforcement, security teams at Microsoft, and others. 
+Azure AD uses adaptive machine learning algorithms, heuristics, and known compromised credentials (username/password pairs) to detect suspicious actions that are related to your user accounts. These username/password pairs come from monitoring public and dark web, and by working with security researchers, law enforcement, security teams at Microsoft, and others.
 
-Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events. 
+Build a strategy to monitor for identity risks and establish processes for responding to identity risk alerts. Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events.
+
+**Learn more**
+
+For more information, reference [Monitor identity risk](governance.md#monitor-identity-risk)
 
 ## Mask personal information
 
@@ -56,10 +67,12 @@ Be cautious when logging sensitive application information. Don't store  persona
 
 One way to enable network visibility is by integrating network logs and analyzing the data to identify anomalies. Based on those insights, you can choose to set alerts or block traffic crossing segmentation boundaries.
 
+NSG flow logs should be captured and analyzed to monitor security. NSG flow logging enables traffic analytics to gain insights into internal and external traffic flows of an application.
+
 **How do you monitor and diagnose conditions of the network?** 
 ***
 
-Enable logs (including raw traffic) from your network devices. 
+Enable, configure, and collect network traffic logs (including raw traffic) from your network devices either with NSG flow logs or with Azure Firewall logs.
 
 Integrate network logs into a security information and event management (SIEM) service, such as Azure Sentinel. Other popular choices include Splunk, QRadar, or ArcSight ESM.
 
@@ -71,6 +84,11 @@ Here are some ways to integrate network logs:
 - [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics)
 - [Virtual network taps](/azure/virtual-network/virtual-network-tap-overview)
 - [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)
+
+For more information about network logs, reference the following articles: 
+
+- [Introduction to flow logging for network security groups](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)
+- [Azure Firewall logs and metrics](/azure/firewall/logs-and-metrics)
 
 ## Proactive monitoring
 **How do you gain access to real-time performance information at the packet level?** 

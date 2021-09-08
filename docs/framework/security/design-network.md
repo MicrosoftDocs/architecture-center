@@ -6,6 +6,13 @@ ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+categories: 
+  - security
+subject:
+  - security
+  - networking
 ms.custom:
   - article
 ---
@@ -52,10 +59,10 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 ## Reference architecture
 Here are some reference architectures related to network security:
 
-- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
-- [Deploy highly available NVAs](/azure/architecture/reference-architectures/dmz/nva-ha)
+- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml)
 - [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml)
-- [Azure Kubernetes Service (AKS) production baseline](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+- [Azure Kubernetes Service (AKS) production baseline](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
 
 ## Next steps
@@ -63,7 +70,7 @@ Here are some reference architectures related to network security:
 Monitor the communication between segments. Use data to identify anomalies, set alerts, or block traffic to mitigate the risk of attackers crossing segmentation boundaries. 
 
 > [!div class="nextstepaction"]
-> [Monitor identity, network, data risks](/azure/architecture/framework/security/monitor-identity-network)
+> [Monitor identity, network, data risks](./monitor-resources.md)
 
 ## Related links
 

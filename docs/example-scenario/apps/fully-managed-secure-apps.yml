@@ -4,14 +4,14 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn about deploying secure applications using the Azure App Service Environment, the Azure Application Gateway service, and Web Application Firewall.
   author: fmustaf
-  ms.date: 05/09/2019
   ms.author: faisalm
-  ms.category:
-    - security
-    - web
+  ms.date: 05/09/2019
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - security
+    - web
   ms.custom:
     - fasttrack
     - security

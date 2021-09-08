@@ -6,6 +6,8 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-active-directory
 ms.custom:
   - article
 ---
@@ -186,7 +188,7 @@ security dependencies for critical impact accounts
         not synchronized with on-premises active directory
 
     -   Synchronize from On Premises Active Directory 
-    - Use existing accounts hosted in the on premises active
+    - Use existing accounts hosted in the on-premises active
         directory.
 
 - **Workstations** – Choose how you will manage and secure the workstations
@@ -200,10 +202,10 @@ security dependencies for critical impact accounts
     -   Manage with Existing Systems: Join existing AD domain and use existing management/security.
 
 
-## Passwordless or multi-factor authentication for admins
+## Passwordless or multifactor authentication for admins
 
 Require all critical impact admins to use passwordless authentication or
-multi-factor authentication (MFA).
+multifactor authentication (MFA).
 
 Attack methods have evolved to the point where passwords alone cannot reliably
 protect an account. This is well documented in a [Microsoft Ignite Session](https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016).
@@ -213,14 +215,12 @@ following methods of authentication. These capabilities are listed in preference
 order by highest cost/difficulty to attack (strongest/preferred options) to
 lowest cost/difficult to attack:
 
-- **Passwordless (such as Windows Hello)**  
-    <https://aka.ms/HelloForBusiness>
+- [**Passwordless (such as Windows Hello)**](https://aka.ms/HelloForBusiness)  
 
-- **Passwordless (Authenticator App)**  
-    <https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in>
+- [**Passwordless (Authenticator App)**](/azure/active-directory/authentication/howto-authentication-phone-sign-in)
 
-- **Multifactor Authentication**  
-    <https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-userstates>
+- [**Multifactor Authentication**](/azure/active-directory/authentication/howto-mfa-userstates)  
+
 
 Note that SMS Text Message based MFA has become very inexpensive for attackers
 to bypass, so we recommend you avoid relying on it. This option is still
@@ -297,4 +297,10 @@ have the knowledge and skills to avoid and resist attacks will reduce your
 overall organizational risk.
 
 You can use [Office 365 Attack Simulation](/microsoft-365/security/office-365-security/attack-simulator)
-capabilities or any number of third party offerings.
+capabilities or any number of third-party offerings.
+
+If the organization has Microsoft Defender for Office 365 Plan 2, which includes Threat Investigation and Response capabilities, you can use Attack Simulator in the Security & Compliance Center to run realistic attack scenarios in your organization. These simulated attacks can help you find and educate vulnerable users before a real attack impacts your bottom line.
+
+### Suggested actions
+
+Evaluate the current tools available such as Office 365 ATP attack simulator and regularly simulate attacks against critical accounts to prepare them for real-world events.

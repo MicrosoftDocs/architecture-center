@@ -1,15 +1,15 @@
 
 
 
-This reference architecture shows how to build a scalable solution for batch scoring many models on a schedule in parallel using [Azure Machine Learning][amls]. The solution can be used as a template and can generalize to different problems.
+This reference architecture shows how to build a scalable solution for batch scoring many models in parallel using [Azure Machine Learning][amls]. The solution can be used as a template and can generalize to different problems.
 
 A reference implementation for this architecture is available on [GitHub][github].
 
 ![Batch scoring of Python models on Azure](./_images/batch-scoring-python.png)
 
-**Scenario**: This solution monitors the operation of a large number of devices in an IoT setting where each device sends sensor readings continuously. Each device is assumed to be associated with pretrained anomaly detection models that need to be used to predict whether a series of measurements, that are aggregated over a predefined time interval, correspond to an anomaly or not. In real-world scenarios, this could be a stream of sensor readings that need to be filtered and aggregated before being used in training or real-time scoring. For simplicity, this solution uses the same data file when executing scoring jobs.
+**Scenario**: This solution monitors the operation of a large number of devices in an IoT setting where each device sends sensor readings continuously. Each device is assumed to be associated with pretrained anomaly detection models (one per sensor) that need to be used to predict whether a series of measurements, that are aggregated over a predefined time interval, correspond to an anomaly or not. In real-world scenarios, this could be a stream of sensor readings that need to be filtered and aggregated before being used in training or real-time scoring. For simplicity, this solution uses the same data file when executing scoring jobs.
 
-This reference architecture is designed for workloads that are triggered on a schedule. Processing involves the following steps:
+This reference architecture is designed for scoring scenarios that are triggered on a schedule. Processing involves the following steps:
 
 1. Send sensor readings for ingestion to Azure Event Hubs.
 2. Perform stream processing and store the raw data.
@@ -27,7 +27,7 @@ This architecture consists of the following components:
 
 [Azure SQL Database][sql-database]. Data from the sensor readings is loaded into SQL Database. SQL is a familiar way to store the processed, streamed data (which is tabular and structured), but other data stores can be used.
 
-[Azure Machine Learning][amls]. Azure Machine Learning is a cloud service for training, scoring, deploying, and managing machine learning models at scale. In the context of batch scoring, Azure Machine Learning creates a cluster of virtual machines on demand with an automatic scaling option, where each node in the cluster runs a scoring job for a specific sensor. The scoring jobs are executed in parallel as Python-script steps that are queued and managed by the service. These steps are part of a Machine Learning pipeline that is created, published, and scheduled to run on a predefined interval of time.
+[Azure Machine Learning][amls]. Azure Machine Learning is a cloud service for training, deploying, and managing machine learning models at scale. In the context of batch scoring, Azure Machine Learning creates a cluster of virtual machines on demand with an automatic scaling option, where each node in the cluster runs a scoring job for a specific sensor. The scoring jobs are executed in parallel as Python-script steps that are queued and managed by the service. These steps are part of a Machine Learning pipeline that is created, published, and scheduled to run on a predefined interval of time.
 
 [Azure Blob Storage][storage]. Blob containers are used to store the pretrained models, the data, and the output predictions. The models are uploaded to Blob storage in the [01_create_resources.ipynb][create-resources] notebook. These [one-class SVM][one-class-svm] models are trained on data that represents values of different sensors for different devices. This solution assumes that the data values are aggregated over a fixed interval of time.
 
@@ -66,7 +66,7 @@ Automatic scaling may not be appropriate for batch jobs that happen too close to
 To deploy this reference architecture, follow the steps described in the [GitHub repo][github].
 
 [acr]: /azure/container-registry/container-registry-intro
-[amls]: /azure/machine-learning/service/overview-what-is-azure-ml
+[amls]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [batch-scoring]: /azure/machine-learning/service/how-to-run-batch-predictions
 [cli]: /cli/azure
 [create-resources]: https://github.com/microsoft/az-ml-batch-score/blob/master/01_DataPrep.ipynb

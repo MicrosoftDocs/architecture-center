@@ -1,6 +1,3 @@
-
-
-
 *Logging* uses discrete event messages to track and report application data in a centralized way. Log events provide an overview of application execution state, track code errors or application failures, and deliver informational messages. Automation can read event logs and notify relevant parties if events meet a criterion or threshold.
 
 *Tracing* focuses on the continuous flow of an application. Tracing follows program execution through various methods and services from beginning to end, while understanding data state and transitions.
@@ -159,3 +156,9 @@ The following code shows examples of the structured logging objects:
 ```
 
 Incorporating the preceding changes into a distributed application allows team members to retrieve logs from the complete lifecycle of the request by using the correlation ID. Structured logging makes it easier to search through logs when issues occur, as well as allowing automated alerting.
+
+## Next steps
+
+* [Building microservices on Azure](../../microservices/index.md)
+* [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)
+* [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture)

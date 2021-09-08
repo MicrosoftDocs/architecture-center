@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
 ms.custom:
-  - seodec18
   - best-practice
 ---
 

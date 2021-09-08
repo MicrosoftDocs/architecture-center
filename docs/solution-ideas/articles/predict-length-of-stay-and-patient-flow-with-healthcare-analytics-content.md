@@ -16,12 +16,12 @@ Being able to predict length of stay at the time of admission helps hospitals pr
 
 ## Components
 
-* [SQL Server R Services](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
-* [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
+* [Power BI](/power-bi/) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
+* [Azure Machine Learning](/azure/machine-learning/): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud.
 
 ## Next steps
 
-* [Learn more about SQL Server](/sql/machine-learning/r/sql-server-r-services?view=sql-server-2016)
-* [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page)
-* [Learn more about Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)
+* Learn more about [SQL Server Machine Learning Services](/sql/machine-learning/sql-server-machine-learning-services)
+* Learn how to [Consume Azure Machine Learning models in Power BI](/power-bi/connect-data/service-aml-integrate)
+* Learn more about [Machine Learning](/azure/machine-learning/overview-what-is-azure-ml)

@@ -1,11 +1,11 @@
 
 
 
-Gridwich uses the Azure Media Services Platform as a Service (PaaS). Depending on the type of operation, the Gridwich application uses one of two methods to access Azure Media Services.
+Gridwich uses the Azure Media Services Platform as a Service (PaaS) for media processing. Depending on the type of operation, the Gridwich application uses one of two methods to access Azure Media Services.
 
 ## Azure Media Services V2
 
-To perform the encoding of sprite sheets, or to create thumbnails, Gridwich uses the Azure Media Services V2 API via REST.
+To perform the encoding of sprite sheets, or to create thumbnails during media processing, Gridwich uses the Azure Media Services V2 API via REST.
 
 The [MediaServicesV2EncodeCreateHandler](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/EventGridHandlers/MediaServicesV2EncodeCreateHandler.cs) initiates work by calling the [MediaServicesV2RestEncodeService](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestEncodeService.cs), which in turn uses the [MediaServicesV2RestWrapper](https://github.com/mspnp/gridwich/blob/main/src/Gridwich.SagaParticipants.Encode.MediaServicesV2/src/Services/MediaServicesV2RestWrapper.cs).
 
@@ -100,7 +100,7 @@ The Function App settings use a reference to the Azure Key Vault. The script cre
 
 ## Scale Media Services resources
 
-The Azure Media Services account owner can scale resources to perform the expected work by calling the Azure command-line interface (Azure CLI) within a YAML pipeline step.
+The Azure Media Services account owner can scale media processing resources to perform the expected work by calling the Azure command-line interface (Azure CLI) within a YAML pipeline step.
 
 The script is in [azcli-last-steps-template.yml](https://github.com/mspnp/gridwich/blob/main/infrastructure/azure-pipelines/templates/steps/azcli-last-steps-template.yml).
 

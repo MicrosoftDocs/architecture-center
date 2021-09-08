@@ -22,7 +22,7 @@ metadata:
     - lift and shift solution
     - lift and shift strategy
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/onboarding-customers-with-a-cloud-native-serverless-architecture/'
+    - "https://azure.microsoft.com/solutions/architecture/onboarding-customers-with-a-cloud-native-serverless-architecture/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/onboarding-customers-with-a-cloud-native-serverless-architecture.png
 name: Serverless Computing Solution for LOB Apps
 azureCategories:

@@ -12,9 +12,11 @@ metadata:
     - developer-tools
     - analytics
   ms.custom:
-    - seodec18
     - serverless
     - reference-architecture
+    - internal-intro
+    - fcp
+    - cse
 name: Serverless event processing
 azureCategories:
   - developer-tools

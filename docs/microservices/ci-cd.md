@@ -5,9 +5,9 @@ author: doodlemania2
 ms.date: 03/27/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - devops
-ms.subservice: azure-guide
 ms.custom:
   - microservices
   - guide

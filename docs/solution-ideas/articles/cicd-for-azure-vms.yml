@@ -21,7 +21,8 @@ metadata:
     - CI/CD
     - continuous deployment
     - interactive-diagram
-    - 'https://azure.microsoft.com/solutions/architecture/cicd-for-azure-vms/'
+    - "https://azure.microsoft.com/solutions/architecture/cicd-for-azure-vms/"
+    - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/cicd-for-azure-vms.png
 name: CI/CD for Azure VMs
 azureCategories:

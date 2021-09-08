@@ -1,6 +1,6 @@
 ---
 title: Business Metrics
-description: Use business metrics to design resilient Azure applications
+description: Learn to use business metrics to design resilient Azure applications. Review workload availability targets. Understand recovery and availability metrics.
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: conceptual
@@ -15,7 +15,7 @@ ms.custom:
 
 ## Workload availability targets
 
-Define your own target SLAs for each workload in your solution so you can determine whether the architecture meets the business requirements.
+Define your own target SLAs for each workload in your solution so you can determine whether the architecture meets the business requirements. 
 
 ### Consider cost and complexity
 

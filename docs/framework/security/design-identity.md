@@ -6,21 +6,27 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-active-directory
+categories:
+  - identity
+  - security
 ms.custom:
   - article
 ---
 
 # Azure identity and access management considerations
 
-Most architectures have shared services that are hosted and accessed across networks. Those services share common infrastructure and users need to access resources and data from anywhere. For such architectures, a common way to secure resources is to use network controls. However, that isn't enough. 
+Most architectures have shared services that are hosted and accessed across networks. Those services share common infrastructure and users need to access resources and data from anywhere. For such architectures, a common way to secure resources is to use network controls. However, that isn't enough.
 
-Provide security assurance through _identity management_: the process of authenticating and authorizing security principals. Use identity management services to authenticate and grant permission to users, partners, customers, applications, services, and other entities. 
+Provide security assurance through _identity management_: the process of authenticating and authorizing security principals. Use identity management services to authenticate and grant permission to users, partners, customers, applications, services, and other entities.
 
 ## Checklist
 
 **How are you managing the identity for your workload?**
-*** 
+***
 > [!div class="checklist"]
+>
 > - Define clear lines of responsibility and separation of duties for each function. Restrict access based on a need-to-know basis and least privilege security principles.
 > - Assign permissions to users, groups, and applications at a certain scope through Azure RBAC. Use built-in roles when possible.
 > - Prevent deletion or modification of a resource, resource group, or subscription through management locks.
@@ -31,9 +37,9 @@ Provide security assurance through _identity management_: the process of authent
 > - Preferably use passwordless methods or opt for modern password methods.
 > - Block legacy protocols and authentication methods.
 
-
 ## In this section
-Follow these questions to assess the workload at a deeper level. The recommendations in this section are based on using Azure AD. 
+
+Follow these questions to assess the workload at a deeper level. The recommendations in this section are based on using Azure AD.
 
 |Assessment|Description|
 |---|---|
@@ -43,11 +49,13 @@ Follow these questions to assess the workload at a deeper level. The recommendat
 |[**How is the workload authenticated when communicating with Azure platform services?**](design-identity-authentication.md)|Authenticate using Managed Identities, use passwordless protections, and keep all (except critical accounts) identities at a central location.|
 
 ## Azure security benchmark
+
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
 > ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to the [Azure Security Benchmarks Identity and Access Control](/azure/security/benchmarks/security-controls-v2-identity-management).
 
 ## Azure services for identity
+
 The considerations and best practices in this section are based on these Azure services:
 
 - [Azure AD](/azure/active-directory/)
@@ -55,20 +63,22 @@ The considerations and best practices in this section are based on these Azure s
 - [Azure AD B2C](/azure/active-directory-b2c/)
 
 ## Reference architecture
+
 Here are some reference architectures related to identity and access management:
 
 [Integrate on-premises AD domains with Azure AD](../../reference-architectures/identity/azure-ad.yml)
 
 [Integrate on-premises AD with Azure](../../reference-architectures/identity/index.yml)
 
+## Next
 
-## Next steps
-We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program. 
+We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program.
 
 > [!div class="nextstepaction"]
-> [Monitor identity, network, data risks](./monitor-identity-network.md)
+> [Monitor identity, network, data risks](./monitor-resources.md)
 
 ## Related links
+
 [Five steps to securing your identity infrastructure](/azure/security/fundamentals/steps-secure-identity)
 
 > Go back to the main article: [Security](overview.md)

@@ -10,7 +10,7 @@ Businesses use blockchain to digitize workflows they share with other organizati
 ![Architecture diagram](../media/blockchain-workflow-application.png)
 *Download an [SVG](../media/blockchain-workflow-application.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
 1. Relevant apps, devices, and data sources send events or data to a message broker (Azure Service Bus).
 1. The distributed ledger technology (DLT) consumer Logic App fetches the data from the Service Bus and sends to transaction builder which builds and signs the transaction.

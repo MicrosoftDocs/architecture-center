@@ -1,17 +1,17 @@
 ---
 title: Traffic flow security in Azure
-description: Best practices for protecting a workload from data exfiltration.
+description: Examine traffic flow security in Azure. Learn about best practices for protecting a workload from data exfiltration.
 author: PageWriter-MSFT
 ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom:
-  - article
 azureCategories:
   - networking
 products:
   - azure-virtual-network
+ms.custom:
+  - article
 ---
 
 # Traffic flow security in Azure
@@ -52,15 +52,20 @@ When analyzing the network flow of a workload, distinguish between east-west tra
 >
 > ![GitHub logo](../../_images/github.svg) [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline).
 >
-> The design considerations are described in [Azure Kubernetes Service (AKS) production baseline](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks).
+> The design considerations are described in [Azure Kubernetes Service (AKS) production baseline](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
 
 ## Data exfiltration
 
-Data exfiltration is a common attack where an internal or external malicious actor does an unauthorized data transfer. Most often access is gained because of lack of network controls.
+Data exfiltration is a common attack where an internal or external malicious actor does an unauthorized data transfer. Most often access is gained because of lack of network controls. 
+
+Network virtual appliance (NVA) solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported (Azure Firewall).
+
+Configure Azure Firewall or a third-party next generation firewall to protect against data exfiltration concerns.
 
 **Are there controls in the workload design to detect and protect from data exfiltration?**
 ***
-Choose a defense-in-depth design that can protect network communications at various layers, such as a hub-spoke topology. Azure provides several controls to support the layered design. 
+Choose a defense-in-depth design that can protect network communications at various layers, such as a hub-spoke topology. Azure provides several controls to support the layered design:
+
 - Use Azure Firewall to allow or deny traffic using layer 3 to layer 7 controls. 
 - Use Azure Virtual Network User Defined Routes (UDR) to control next hop for traffic. 
 - Control traffic with Network Security Groups (NSGs) between resources within a virtual network, internet, and other virtual networks.
@@ -79,7 +84,13 @@ Choose a defense-in-depth design that can protect network communications at vari
 
 CASBs provide a central point of control for enforcing policies. They  provide rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all Microsoft and third-party cloud services.
 
+## Learn more
+
+- [Azure firewall documentation](/azure/firewall/)
+- [Azure Marketplace networking apps](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking)
+
 ## Related links
+
 - [Azure Firewall](/azure/firewall/overview)
 - [Network Security Groups (NSG)](/azure/virtual-network/security-overview)
 - [What is Azure Web Application Firewall on Azure Application Gateway?](/azure/web-application-firewall/ag/ag-overview)

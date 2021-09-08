@@ -13,6 +13,7 @@ metadata:
     - fcp
     - fasttrack-new
     - example-scenario
+    - internal-intro
 name: Web app private connectivity to Azure SQL database
 summary: Lock down access to an Azure SQL Database with Azure Private Link connectivity from a multi-tenant Azure App Service through regional VNet Integration.
 products:

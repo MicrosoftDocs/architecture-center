@@ -1,6 +1,3 @@
-
-
-
 This reference architecture illustrates how to extend automation to on-premises or other cloud providers. It describes the services that must be deployed in Azure to provide automated management and configuration across on-premises or other cloud providers. The same architecture can be applied on Azure virtual machines (VMs) that reside behind a firewall, with outbound connectivity over the 443 TCP port.
 
 ![Azure Automation in a hybrid environment][architectural-diagram]
@@ -271,7 +268,7 @@ To test and deploy the runbook on a Hybrid Runbook Worker Group, use the followi
 
 ## DevOps considerations
 
-- Azure Automation allows integration with popular source control systems, Azure DevOps, and Github. With Source Control, you can integrate the existing development environment that contains your scripts and custom code that have been previously tested in an isolated environment.
+- Azure Automation allows integration with popular source control systems, Azure DevOps, and GitHub. With Source Control, you can integrate the existing development environment that contains your scripts and custom code that have been previously tested in an isolated environment.
 - For information on how to integrate Azure Automation with your Source Control environment, refer to: [Use source control integration][27].
 
 ## Cost considerations
@@ -280,6 +277,20 @@ To test and deploy the runbook on a Hybrid Runbook Worker Group, use the followi
 - Azure Automation costs are priced for job execution per minute or for configuration management per node. Every month, the first 500 minutes of process automation and configuration management on five nodes are free.
 - Azure Log Analytics Workspace might generate additional costs related to the amount of log data stored in the Azure Log Analytics. The pricing model is based on consumption. The costs are associated for data ingestion and data retention. For ingesting data into Azure Log Analytics, use Capacity Reservation or Pay-As-You-Go model that include 5 gigabytes (GB) free per billing account per month. Data retention for the first 31 days are free of charge.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Pricing models for Log Analytics are explained [here][30].
+
+## Next steps
+
+More about Azure Automation:
+
+- [Azure Automation in a hybrid environment](./azure-automation-hybrid.yml)
+- [Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker)
+- [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account)
+- [Pre-requisites: Azure Automation network configuration details](/azure/automation/automation-network-configuration)
+- [Azure Automation Update Management](./azure-update-mgmt.yml)
+- [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
+- [Overview of VM insights](/azure/azure-monitor/vm/vminsights-overview)
+- [Azure Arc Overview](/azure/azure-arc/overview)
+- [What is Azure Arc enabled servers?](/azure/azure-arc/servers/overview)
 
 [architectural-diagram]: ./images/azure-automation-hybrid.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx

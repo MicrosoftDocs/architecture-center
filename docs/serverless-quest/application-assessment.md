@@ -7,6 +7,8 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-active-directory
 ms.custom:
   - fcp
   - guide

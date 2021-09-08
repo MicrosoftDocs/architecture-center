@@ -4,12 +4,12 @@ metadata:
   description: This example demonstrates a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure.
   author: alexbuckgit
   ms.date: 11/20/2019
-  ms.category:
-    - analytics
-    - databases
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - analytics
+    - databases
   ms.custom:
     - data-analytics
     - data-warehouse

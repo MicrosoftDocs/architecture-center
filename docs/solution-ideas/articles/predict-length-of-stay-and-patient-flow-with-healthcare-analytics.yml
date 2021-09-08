@@ -5,7 +5,7 @@ metadata:
   description: Predict capacity and patient flow for your hospital or healthcare facility so that you can enhance the quality of care and improve operational efficiency.
   author: doodlemania2
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 03/05/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -20,7 +20,8 @@ metadata:
     - length of stay
     - healthcare analytics
     - healthcare machine learning
-    - 'https://azure.microsoft.com/solutions/architecture/predict-length-of-stay-and-patient-flow-with-healthcare-analytics/'
+    - "https://azure.microsoft.com/solutions/architecture/predict-length-of-stay-and-patient-flow-with-healthcare-analytics/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.png
 name: Predict Length of Stay and Patient Flow
 azureCategories:
@@ -33,4 +34,4 @@ products:
   - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.png
 content: |
-   [!include[](predict-length-of-stay-and-patient-flow-with-healthcare-analytics-content.md)]
+  [!include[](predict-length-of-stay-and-patient-flow-with-healthcare-analytics-content.md)]

@@ -1,15 +1,13 @@
 
 
 
-Follow the procedures in this article to set up an Azure DevOps project, repo, and pipelines for Gridwich.
+Follow the procedures in this article to set up an Azure DevOps project, repo, and pipelines for Gridwich. These DevOps procedures and settings use a placeholder Azure DevOps organization called `myorganization`, a new Azure DevOps project called `gridwich-clone`, service connection name `gridwich-connection`, and application name `cl1grw`. Replace these placeholders with your own values as appropriate.
 
-The following procedures and settings use a placeholder Azure DevOps organization called `myorganization`, a new Azure DevOps project called `gridwich-clone`, service connection name `gridwich-connection`, and application name `cl1grw`. Replace these placeholders with your own values as appropriate.
-
-## Set up the Azure DevOps project and repo
+## How to set up the Azure DevOps project and repo
 
 Perform the following procedures in your [Azure DevOps](https://azure.microsoft.com/services/devops/) organization.
 
-### Create a project and clone the repo
+### Create an Azure DevOps project and clone the repo
 
 This process clones the Gridwich Git repo into a new Azure DevOps project and repo.
 

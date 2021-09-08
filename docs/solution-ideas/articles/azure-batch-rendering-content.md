@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution allows studios to leverage on-premises capacity to its fullest with the Azure FXT Edge Filer for NAS acceleration. When demand grows beyond on-premises capacity, burst render provides access to tens of thousands of cores using Azure Virtual Machine Scale Sets. An Express Route connection and HPC Cache minimize latency while studios securely manage storage in a single place without replication.
@@ -10,7 +7,7 @@ This solution allows studios to leverage on-premises capacity to its fullest wit
 ![Architecture Diagram](../media/azure-batch-rendering.png)
 *Download an [SVG](../media/azure-batch-rendering.svg) of this architecture.*
 
-## Data Flow
+## Data flow
 
 1. Optimize access to NAS files and support remote artists with the Azure FXT Edge Filer connecting artists to low-latency storage.
 1. Connecting on-premises storage resources to Azure via Azure Express Route providing a secure, private link to additional render cores.

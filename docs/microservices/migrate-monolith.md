@@ -3,14 +3,16 @@ title: Monoliths to microservices using domain-driven design
 titleSuffix: Azure Architecture Center
 description: Use a DDD approach to migrate a monolithic application to microservices
 author: lavann
-ms.date: 11/04/2019
 ms.author: pnp
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - migration
   - developer-tools
-ms.subservice: azure-guide
+products:
+  - aspnet
 ms.custom:
   - microservices
   - guide

@@ -1,12 +1,11 @@
 ---
 title: Testing your application and Azure environment
-description: Describes DevOps testing considerations to make when designing your workload.
-author: jose-moreno
-ms.date: 10/21/2019
+description: Learn about DevOps testing considerations to make when designing your workload. Get information about automated testing and application manual testing in Azure.
+author: erjosito
+ms.date: 07/15/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.custom: 
 ---
 
 # Testing your application and Azure environment
@@ -15,7 +14,7 @@ Testing is one of the fundamental components and DevOps and agile development in
 
 A main tenet of a DevOps practice to achieve system reliability is the "Shift Left" principle. If developing and deploying an application is a process depicted as a series of steps going from left to right, testing should not be limited to being performed at the very end of the process (at the right). It should be shifted as much to the beginning (to the left) as possible. Errors are cheaper to repair when caught early. They can be expensive or impossible to fix later in the application life cycle.
 
-Another aspect to consider is that testing should occur on both application code as well as infrastructure code and they should be subject to the same quality controls. As described in  [Infrastructure as Code][iac], the environment where applications are running should be version-controlled and deployed through the same mechanisms as application code, and hence can be tested and validated using DevOps testing paradigms too.
+Another aspect to consider is that testing should occur on both application code as well as infrastructure code and they should be subject to the same quality controls. As described in [Infrastructure as Code][iac], the environment where applications are running should be version-controlled and deployed through the same mechanisms as application code, and hence can be tested and validated using DevOps testing paradigms too.
 
 You can use your favorite testing tool to run your tests, including [Azure Pipelines][pipelines] for automated testing and [Azure Testing Plans][devopstests] for manual testing.
 
@@ -77,7 +76,7 @@ Experts explore the application in its entirety trying to find faults or subopti
 
 ### Fault injection
 
-The same concept can be applied to the infrastructure. If the application should be resilient to infrastructure failures, introducing faults in the underlying infrastructure and observing how the application behaves is fundamental for increasing the trust in your redundancy mechanisms. Shutting down infrastructure components, pourposley degrading performance, or introducing faults are ways of verifying that the application is going to react as expected when these situations occur.
+The same concept can be applied to the infrastructure. If the application should be resilient to infrastructure failures, introducing faults in the underlying infrastructure and observing how the application behaves is fundamental for increasing the trust in your redundancy mechanisms. Shutting down infrastructure components, purposely degrading performance, or introducing faults are ways of verifying that the application is going to react as expected when these situations occur.
 
 Most companies use a controlled way of injecting faults in the system, although if confident with the application resiliency, automated frameworks could be used. A new science has been developed around fault injection, called Chaos Engineering.
 
@@ -91,6 +90,7 @@ In order to deploy software quickly and reliably, testing is a fundamental compo
 > [Release Engineering: Performance ](./release-engineering-performance.md)
 
 <!-- testing -->
+[iac]: automation-infrastructure.md
 [pipelines]: /azure/devops/pipelines
 [devopstests]: /azure/devops/test
 [telemetry]: /azure/azure-monitor/app/usage-overview

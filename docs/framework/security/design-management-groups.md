@@ -6,6 +6,12 @@ ms.date: 09/07/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure
+categories: 
+  - management-and-governance
+subject:
+  - security
 ms.custom:
   - article
 ---
@@ -40,14 +46,14 @@ For the preceding example, an approach is to use these management groups:
 - Root or segment management group for the core set of services.  
 
 > [!CAUTION]
-> Be careful when using the root management group because the policies can affect all resources on Azure and potentially cause downtime or other negative impacts. For considerations, see [Use root management group with caution](/azure/architecture/framework/security/design-management-groups#use-root-management-group-with-caution) later in this article.
+> Be careful when using the root management group because the policies can affect all resources on Azure and potentially cause downtime or other negative impacts. For considerations, see [Use root management group with caution](#use-root-management-group-with-caution) later in this article.
 >
 > For complete guidance about using management groups for an enterprise, see [CAF: Management group and subscription organization](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization).
 
 
 ## Azure role assignment 
 
-Grant roles the appropriate permissions that start with least privilege and add more based your operational needs. Provide clear guidance to your technical teams that implement permissions. This clarity makes it easier to detect and correct that reduces human errors such as overpermissioning.
+Grant roles the appropriate permissions that start with least privilege and add more based on your operational needs. Provide clear guidance to your technical teams that implement permissions. This clarity makes it easier to detect and correct that reduces human errors such as overpermissioning.
 
 -  Assign permissions at management group for the segment rather than the individual subscriptions. This will drive consistency and ensure application to future subscriptions.
 
@@ -69,7 +75,16 @@ You can assign this permission by using:
 > [!IMPORTANT] 
 > Treat security teams as critical impact accounts and apply the same protections as administrators.
 
-### Policy management across some or all resources 
+### Policy management 
+
+Before defining the policies, consider:
+- How is the organization’s security audited and reported? Is there mandatory reporting? 
+- Are the existing security practices working? 
+- Are there any requirements specific to industry, government, or regulatory requirements?
+
+Designate group(s) (or individual roles) for central functions that affect shared services and applications. 
+
+After the policies are set, continuously improve those standards incrementally. Make sure that the security posture doesn’t degrade over time by having auditing and monitoring compliance. For information about managing security standards of an organization, see [governance, risk, and compliance (GRC)](/azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance).
 
 Assign appropriate permission to roles that monitor and enforce compliance with external (or internal) regulations, standards, and security policy. The roles and permissions you choose will depend on the organizational culture and expectations of the policy program. 
 
@@ -102,7 +117,7 @@ Use the **Service Administrator** role only for emergencies and initial setup. D
 
 
 ## Use root management group with caution
-Use the root management group to drive consistency across the enterprise by applying policies, permissions, tags, across all subscriptions. This group can affect every all resources on Azure and potentially cause downtime or other negative impacts. 
+Use the root management group to drive consistency across the enterprise by applying policies, permissions, tags, across all subscriptions. Care must be taken when planning and implementing assignments to the root management group. This group can affect all resources on Azure and potentially cause downtime or other negative impacts on productivity in the event of errors or unanticipated effects. 
 
 Select enterprise-wide identities that have a clear requirement to be applied across all resources. These requirements could be for regulatory reasons. Also, select identities that have near-zero negative impact on operations. For example, policy with audit effect, tag assignment, Azure RBAC permissions assignments that have been carefully reviewed.
 
@@ -115,6 +130,6 @@ Limit the number of Azure Policy assignments made at the root management group s
 Don't create any subscriptions under the root management group. This hierarchy ensures that subscriptions don't only inherit the small set of Azure policies assigned at the root-level management group, which don't represent a full set necessary for a workload.
     
 > [!IMPORTANT] 
-> Test all enterprise-wide changes on the root management group before applying (policy, tags, Azure RBAC model, and so on). You can use a test lab. This can be representative lab tenant or lab segment in production tenant. Another option is to use a production pilot. This can be a segment management group or designated subset in subscription(s) management group. Validate changes to make sure the requirements have the desired effect.
+> Plan, test, and validate all enterprise-wide changes on the root management group before applying (policy, tags, Azure RBAC model, and so on). You can use a test lab. This can be representative lab tenant or lab segment in production tenant. Another option is to use a production pilot. This can be a segment management group or designated subset in subscription(s) management group. Validate changes to make sure the requirements have the desired effect.
 
-
+For more information, reference [Use root management group carefully](./governance.md#use-root-management-group-carefully).

@@ -5,16 +5,16 @@ metadata:
   description: Analyze data in real time to detect fraudulent transactions or other anomalous activity, using Azure Event Hubs and Stream Analytics.
   author: alexbuckgit
   ms.date: 07/05/2018
-  ms.category:
-    - security
-    - analytics
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  social_image_url: /azure/architecture/example-scenario/data/media/architecture-fraud-detection.png
+  ms.category:
+    - security
+    - analytics
   ms.custom:
     - ai-ml
     - example-scenario
+  social_image_url: /azure/architecture/example-scenario/data/media/architecture-fraud-detection.png
 name: Real-time fraud detection
 azureCategories:
   - security

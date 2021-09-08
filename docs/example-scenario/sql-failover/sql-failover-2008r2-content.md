@@ -21,6 +21,8 @@ This architecture benefits organizations that rely on SQL Server 2008 R2 failove
 A dotted line surrounds most components, including an Azure Load Balancer, two virtual machines, and a file share witness. The line indicates that these components are part of a virtual network. Inside that network, a horizontal, blue rectangle represents an availability set. It contains the two virtual machines and their disks. Lines run between each virtual machine and an S M B file share witness. A black, vertical rectangle contains the file share witness and runs through the availability set. On the top border of that rectangle is the Load Balancer. A line extends from the Load Balancer to the outside of the virtual network rectangle. Outside the virtual network rectangle on the bottom is an Azure shared disk. A line connects that disk to the components in the network.
 :::image-end:::
 
+*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
 - As part of a virtual network, an [Azure Load Balancer][Azure Load Balancer] redirects clients by associating a routable, private IP address with the cluster.
 
 - Two [Azure virtual machines (VMs)][Azure virtual machines] run SQL Server 2008 R2 on Windows Server 2008 R2.
@@ -337,6 +339,7 @@ To transfer data from your on-premises database to the newly created cluster, co
 [Upgrade SQL Server]: /sql/sql-server/end-of-support/sql-server-end-of-life-overview#upgrade-sql-server
 [Upgrading from Windows Server 2008 R2 or Windows Server 2008]: /windows-server/get-started/installation-and-upgrade#upgrading-from-windows-server-2008-r2-or-windows-server-2008
 [Upload a generalized VHD and use it to create new VMs in Azure]: /azure/virtual-machines/windows/upload-generalized-managed
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1778662-PR-1852-windows-server-2008-r2-failover-cluster-with-azure-shared-disk.vsdx
 [What is Azure SQL?]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
 [What is Azure Virtual Network?]: /azure/virtual-network/virtual-networks-overview
 [Windows Server 2008 R2 lifecycle]: https://docs.microsoft.com/lifecycle/products/windows-server-2008-r2

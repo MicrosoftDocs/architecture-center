@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: SAP S/4HANA in Linux on Azure
-  description: Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.
+  description: Review proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.
   author: lbrader
   ms.author: pnp
   ms.date: 02/19/2020
@@ -17,6 +17,7 @@ metadata:
     - Linux
     - fcp
     - reference-architecture
+    - e2e-sap
 name: SAP S/4HANA in Linux on Azure
 azureCategories:
   - databases

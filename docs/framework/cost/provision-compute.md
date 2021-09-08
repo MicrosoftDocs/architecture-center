@@ -1,18 +1,20 @@
 ---
 title: Compute
-description: Describes cost tradeoffs for compute services
+description: Get cost estimates for compute hosting models such as IaaS, PaaS, or FaaS. Predict cost estimates using the Pricing Calculator in Azure.
 author: v-aangie
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-functions
 ms.custom:
   - article
 ---
 
 # Compute cost estimates
 
-*Compute* refers to the hosting model for the computing resources that your application runs on. Whether you’re hosting model is Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Function as a service (FaaS), each resource requires your evaluation to understand the tradeoffs that can be made that impact your cost. To learn more about hosting models, read [Understand the hosting models](../../guide/technology-choices/compute-decision-tree.md#understand-the-hosting-models).
+*Compute* refers to the hosting model for the computing resources that your application runs on. Whether you're hosting model is Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Function as a service (FaaS), each resource requires your evaluation to understand the tradeoffs that can be made that impact your cost. To learn more about hosting models, read [Understand the hosting models](../../guide/technology-choices/compute-decision-tree.md#understand-the-hosting-models).
 
 - **Infrastructure-as-a-Service** (IaaS) lets you provision individual virtual machines (VMs) along with the associated networking and storage components. Then you deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment, except that Microsoft manages the infrastructure. You still manage the individual VMs.
 
@@ -23,7 +25,7 @@ ms.custom:
 **What are the cost implications to consider for choosing a hosting model?**
 ***
 
-If your application can be broken down into short pieces of code, a FaaS hosting model might be the best choice. You’re charged only for the time it takes to execute your code. For example, [Azure Functions](/azure/azure-functions/functions-overview) is a FaaS service that processes events with serverless code. Azure Functions allows you to run short pieces of code (called functions) without worrying about application infrastructure. Use one of the three Azure Functions pricing plans to fit your need. To learn more about the pricing plans, see [How much does Functions cost?](/azure/azure-functions/functions-overview#pricing)
+If your application can be broken down into short pieces of code, a FaaS hosting model might be the best choice. You're charged only for the time it takes to execute your code. For example, [Azure Functions](/azure/azure-functions/functions-overview) is a FaaS service that processes events with serverless code. Azure Functions allows you to run short pieces of code (called functions) without worrying about application infrastructure. Use one of the three Azure Functions pricing plans to fit your need. To learn more about the pricing plans, see [How much does Functions cost?](/azure/azure-functions/functions-overview#pricing)
 
 If you want to deploy a larger or more complex application, PaaS may be the better choice. With PaaS, your application is always running, as opposed to FaaS, where your code is executed only when needed. Since more resources are used with PaaS, the price increases.
 
@@ -61,14 +63,14 @@ When you use the IaaS model, you do have final control over the VMs. It may appe
 **How can I cut costs with hosting my web apps in PaaS?**
 ***
 
-If you host you web apps in PaaS, you’ll need to choose an App Service plan to run your apps. The plan will define the set of compute resources on which your app will run. If you have more than one app, they will run using the same resources. This is where you will see the most significant cost savings, as you don’t incur cost for VMs.
+If you host you web apps in PaaS, you'll need to choose an App Service plan to run your apps. The plan will define the set of compute resources on which your app will run. If you have more than one app, they will run using the same resources. This is where you will see the most significant cost savings, as you don't incur cost for VMs.
 
 If your apps are event-driven with a short-lived process using a microservices architecture style, we recommend using Azure Functions. Your cost is determined by execution time and memory for a single function execution. For pricing details, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 **Is it more cost-effective to deploy development testing (dev-test) on a PaaS or IaaS hosting model?**
 ***
 
-If your dev-test is built on Azure managed services such as Azure DevOps, Azure SQL Database, Azure Cache for Redis, and Application Insights, the cheapest solution might be using the PaaS hosting model. You won’t incur the cost and maintenance of hardware. If your dev-test is built on Azure managed services such as Azure DevOps, Azure DevTest Labs, VMs, and Application Insights, you need to add the cost of the VMs, which can greatly increase your cost. For details on evaluating, see [Azure Dev/Test Pricing](https://azure.microsoft.com/pricing/dev-test/).
+If your dev-test is built on Azure managed services such as Azure DevOps, Azure SQL Database, Azure Cache for Redis, and Application Insights, the cheapest solution might be using the PaaS hosting model. You won't incur the cost and maintenance of hardware. If your dev-test is built on Azure managed services such as Azure DevOps, Azure DevTest Labs, VMs, and Application Insights, you need to add the cost of the VMs, which can greatly increase your cost. For details on evaluating, see [Azure Dev/Test Pricing](https://azure.microsoft.com/pricing/dev-test/).
 
 ## A special case of PaaS - Containers
 
@@ -84,7 +86,7 @@ Your business requirements may not necessitate full orchestration. If this is th
 
 There is no charge to use SNI-based SSL. Standard and Premium service plans include the right to use one IP SSL at no additional charge. Free and shared service plans do not support SSL. You can purchase the right to use additional SSL connections for a fee. In all cases the SSL certificate itself must be purchased separately. To learn more about each plan, see [App services plans](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
-**Where’s the savings if my workload is event driven with a short-lived process?**
+**Where's the savings if my workload is event driven with a short-lived process?**
 ***
 
 In this example, Service Fabric may be a better choice than AKS. The biggest difference between the two is that AKS works only with Docker applications using Kubernetes. Service Fabric works with microservices and supports many different runtime strategies. Service Fabric can deploy Docker and Windows Server containers. Like AKS, Service Fabric is built for the microservice and event-driven architectures. AKS is strictly a service orchestrator and handles deployments, whereas Service Fabric also offers a development framework that allows building stateful/stateless applications.

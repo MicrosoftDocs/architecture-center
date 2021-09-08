@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: 'Retail - Buy online, pickup in store (BOPIS)'
+  title: Retail - Buy online, pickup in store (BOPIS)
   titleSuffix: Azure Example Scenarios
   description: Learn how to use Azure IoT to enhance a retail solution for stores implementing buy online, pickup in store scenarios.
   author: falloutxAY

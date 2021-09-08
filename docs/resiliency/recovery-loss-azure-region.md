@@ -13,9 +13,9 @@ ms.custom:
 
 # Recover from a region-wide service disruption
 
-Azure is divided physically and logically into units called regions. A region consists of one or more datacenters in close proximity.
+Azure is divided physically and logically into units called regions. A region consists of one or more data centers in close proximity. Many regions and services also support [availability zones](/azure/availability-zones/az-overview), which can be used to provide more resiliency against outages in a single data center. Consider using regions with availability zones to improve the availability of your solution.
 
-Under rare circumstances, it is possible that facilities in an entire region can become inaccessible, for example due to network failures. Or facilities can be lost entirely, for example due to a natural disaster. This section explains the capabilities of Azure for creating applications that are distributed across regions. Such distribution helps to minimize the possibility that a failure in one region could affect other regions.
+Under rare circumstances, it is possible that facilities in an entire availability zone or region can become inaccessible, for example, due to network failures. Or, facilities can be lost entirely, for example, due to a natural disaster. Azure has capabilities for creating applications that are distributed across zones and regions. Such distribution helps to minimize the possibility that a failure in one zone or region could affect other zones or regions.
 
 ## Cloud services
 
@@ -36,9 +36,9 @@ To load balance traffic across regions requires a traffic management solution. A
 
 Many alternative strategies are available for implementing distributed compute across regions. These must be tailored to the specific business requirements and circumstances of the application. At a high level, the approaches can be divided into the following categories:
 
-- **Redeploy on disaster**: In this approach, the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don’t require a guaranteed recovery time.
+- **Redeploy on disaster**: In this approach, the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don't require a guaranteed recovery time.
 
-- **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don’t receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions.
+- **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don't receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions.
 
 - **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and fail over. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity.
 
@@ -102,7 +102,7 @@ Azure SQL Database provides two types of recovery: geo-restore and active geo-re
 
 #### Active geo-replication
 
-[Active geo-replication](/azure/sql-database/sql-database-geo-replication-overview) is available for all database tiers. It’s designed for applications that have more aggressive recovery requirements than geo-restore can offer. Using active geo-replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries. In addition, active geo-replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. For details, see [Configure active geo-replication for Azure SQL Database and initiate failover](/azure/sql-database/sql-database-geo-replication-portal). Refer to [Designing globally available services using Azure SQL Database](/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) and [Managing rolling upgrades of cloud applications by using SQL Database active geo-replication](/azure/sql-database/sql-database-manage-application-rolling-upgrade) for details on how to design and implement applications and applications upgrade without downtime.
+[Active geo-replication](/azure/sql-database/sql-database-geo-replication-overview) is available for all database tiers. It's designed for applications that have more aggressive recovery requirements than geo-restore can offer. Using active geo-replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries. In addition, active geo-replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. For details, see [Configure active geo-replication for Azure SQL Database and initiate failover](/azure/sql-database/sql-database-geo-replication-portal). Refer to [Designing globally available services using Azure SQL Database](/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) and [Managing rolling upgrades of cloud applications by using SQL Database active geo-replication](/azure/sql-database/sql-database-manage-application-rolling-upgrade) for details on how to design and implement applications and applications upgrade without downtime.
 
 ### SQL Server on Azure Virtual Machines
 
@@ -121,7 +121,7 @@ Azure Service Bus uses a unique namespace that does not span Azure regions. So t
 
 ### App Service
 
-To migrate an Azure App Service application, such as Web Apps or Mobile Apps, to a secondary Azure region, you must have a backup of the website available for publishing. If the outage does not involve the entire Azure datacenter, it might be possible to use FTP to download a recent backup of the site content. Then create a new app in the alternate region, unless you have previously done this to reserve capacity. Publish the site to the new region, and make any necessary configuration changes. These changes could include database connection strings or other region-specific settings. If necessary, add the site’s SSL certificate and change the DNS CNAME record so that the custom domain name points to the redeployed Azure Web App URL.
+To migrate an Azure App Service application, such as Web Apps or Mobile Apps, to a secondary Azure region, you must have a backup of the website available for publishing. If the outage does not involve the entire Azure datacenter, it might be possible to use FTP to download a recent backup of the site content. Then create a new app in the alternate region, unless you have previously done this to reserve capacity. Publish the site to the new region, and make any necessary configuration changes. These changes could include database connection strings or other region-specific settings. If necessary, add the site's SSL certificate and change the DNS CNAME record so that the custom domain name points to the redeployed Azure Web App URL.
 
 ### HDInsight
 

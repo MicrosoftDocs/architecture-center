@@ -1,14 +1,16 @@
 ---
 title: Autoscaling guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on how to autoscale to dynamically allocate resources required by an application.
+description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
 author: dragon119
 ms.date: 05/17/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-vm-scalesets
+  - azure-monitor
 ms.custom:
-  - seodec18
   - best-practice
 ---
 

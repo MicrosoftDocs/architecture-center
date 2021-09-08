@@ -1,8 +1,9 @@
 ---
 title: Microsoft Azure Well-Architected Framework
-titleSuffix: Microsoft Azure Well-Architected Framework introduction
-description: Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.
-author: doodlemania2
+titleSuffix: Azure Architecture Center
+description: Learn about the five pillars of the Azure Well-Architected Framework and how they can produce a high quality, stable, and efficient cloud architecture.
+author: david-stanford 
+ms.author: pnp
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -10,13 +11,25 @@ ms.subservice: well-architected
 ms.custom:
   - seojan19
   - guide
+  - seo-aac-fy21q3
+keywords:
+  - "Well-architected framework"
+  - "Azure Well Architected Framework"
+  - "Azure architecture"
+  - "architecture framework"
 ---
 
 # Microsoft Azure Well-Architected Framework
 
-The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+The Azure Well-Architected Framework is a set of guiding tenets that can be used to improve the quality of a workload. The framework consists of five pillars of architecture excellence: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security. Incorporating these pillars helps produce a high quality, stable, and efficient cloud architectures.
 
-To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
+To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).  
+
+We also recommend you use Azure Advisor and Advisor Score to identify and prioritize opportunities to improve the posture of your workloads.  Both services are free to all Azure users and align to the five pillars of the Well-Architected Framework:
+
+- __[Azure Advisor](/azure/advisor/)__ is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, reliability, operational excellence, and security of your Azure resources. Learn more about Azure Advisor [here](/azure/advisor/).
+
+- __[Advisor Score](/azure/advisor/azure-advisor-score)__ is a core feature of Azure Advisor that aggregates Advisor recommendations into a simple, actionable score.  This enables you to tell at a glance if you're taking the necessary steps to build reliable, secure, and cost-efficient solutions, and to prioritize the actions that will yield the biggest improvement to the posture of your workloads. The Advisor score consists of an overall score, which can be further broken down into five category scores corresponding to each of the Well-Architected pillars. Learn more about Advisor Score [here](/azure/advisor/azure-advisor-score).
 
 | Pillar | Description |
 |--------|-------------|
@@ -39,7 +52,7 @@ When you are designing a cloud solution, focus on generating incremental value e
 
 ## Operational Excellence
 
-This pillar covers the operations processes that keep an application running in production. Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
+This pillar covers the operations and processes that keep an application running in production. Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
 
 Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you do not have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into VMs to troubleshoot an issue or sift through log files. With PaaS services, there may not even be a dedicated VM to log into. Monitoring and diagnostics give insight into the system, so that you know when and where failures occur. All systems must be observable. Use a common and consistent logging schema that lets you correlate events across systems.
 
@@ -50,11 +63,13 @@ The monitoring and diagnostics process has several distinct phases:
 - Analysis and diagnosis. To troubleshoot issues and see the overall health.
 - Visualization and alerts. Using telemetry data to spot trends or alert the operations team.
 
+Enforcing resource-level rules via [Azure Policy](/azure/governance/policy/overview) helps ensure adoption of operational excellence best practices for all the assets which support your workload. For example, Azure Policy can help ensure that all of the VMs supporting your workload adhere to a pre-approved list of VM Skus. Azure Advisor provides [a set of Azure Policy recommendations](/azure/advisor/advisor-operational-excellence-recommendations#use-azure-policy-recommendations) to help you quickly identify opportunities to implement Azure Policy best practices for your workload.
+
 Use the [DevOps checklist][devops-checklist] to review your design from a management and DevOps standpoint.
 
 ### Operational excellence guidance
 
-- [Design patterns for operational excellence](/azure/architecture/framework/devops/devops-patterns)
+- [Design patterns for operational excellence](./devops/devops-patterns.md)
 - Best practices: [Monitoring and diagnostics][monitoring]
 
 ## Performance efficiency
@@ -83,7 +98,7 @@ Use the [Performance efficiency checklist](scalability/performance-efficiency.md
 
 ### Performance efficiency guidance
 
-- [Design patterns for performance efficiency](/azure/architecture/framework/scalability/performance-efficiency-patterns)
+- [Design patterns for performance efficiency](./scalability/performance-efficiency-patterns.md)
 - Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs], [Caching][caching], [CDN][cdn], [Data partitioning][data-partitioning]
 
 ## Reliability
@@ -110,7 +125,7 @@ When designing an application to be resilient, you must understand your availabi
 ### Reliability guidance
 
 - [Designing reliable Azure applications][resiliency]
-- [Design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns)
+- [Design patterns for resiliency](./resiliency/reliability-patterns.md)
 - Best practices: [Transient fault handling][transient-fault-handling], [Retry guidance for specific services][retry-service-specific]
 
 ## Security
@@ -144,14 +159,14 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 
 ### Security resources
 
-- [Azure Security Center][security-center] provides integrated security monitoring and policy management across your Azure subscriptions.
+- [Azure Security Center][security-center] provides integrated security monitoring and policy management for your workload.
 - [Azure Security Documentation][security-documentation]
 - [Microsoft Trust Center][trust-center]
 
 <!-- links -->
 
 [identity-ref-arch]: ../reference-architectures/identity/index.yml
-[resiliency]: ../framework/resiliency/overview.md
+[resiliency]: ../framework/resiliency/principles.md
 [ad-subscriptions]: /azure/active-directory/active-directory-how-subscriptions-associated-directory
 [data-warehouse-encryption]: /azure/data-lake-store/data-lake-store-security-overview#data-protection
 [cosmos-db-encryption]: /azure/cosmos-db/database-security
@@ -165,9 +180,9 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [trust-center]: https://azure.microsoft.com/support/trust-center
 
 <!-- patterns -->
-[operational-excellence-patterns]: /azure/architecture/framework/devops/devops-patterns.md
+[operational-excellence-patterns]: ./devops/devops-patterns.md
 [resiliency-patterns]:/azure/architecture//framework/resiliency/reliability-patterns.md
-[performance-efficiency-patterns]: /azure/architecture/framework/scalability/performance-efficiency-patterns.md
+[performance-efficiency-patterns]: ./scalability/performance-efficiency-patterns.md
 
 <!-- practices -->
 [autoscale]: ../best-practices/auto-scaling.md
@@ -187,6 +202,6 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 <!-- pillars -->
 [cost-pillar]: ./cost/overview.md
 [security-pillar]: ./security/overview.md
-[resiliency-pillar]: ./resiliency/overview.md
+[resiliency-pillar]: ./resiliency/principles.md
 [scalability-pillar]: ./scalability/overview.md
 [devops-pillar]: ./devops/overview.md

@@ -43,7 +43,7 @@ In the Azure portal, add a Key Vault access policy to allow the Azure Functions 
 
 ### Azure CLI
 
-You can also set Azure Key Vault policy by using the [Azure CLI](/cli/azure/ext/keyvault-preview/keyvault?view=azure-cli-latest):
+You can also set Azure Key Vault policy by using the [Azure CLI](/cli/azure/keyvault?view=azure-cli-latest):
 
 ```azurecli
 az keyvault set-policy --name $<Key Vault Name> --spn $<Service Connection Principal> --secret-permissions set
@@ -135,4 +135,4 @@ To remove access for a group of users, such as all users in a target tenant, you
 - [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
 - [How to use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity)
 - [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
-- [Securing Azure Functions](/azure/azure-functions/security-concepts)
+- [Securing Azure Functions](/azure/azure-functions/security-concepts)  

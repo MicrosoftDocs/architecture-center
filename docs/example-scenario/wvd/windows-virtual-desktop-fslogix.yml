@@ -13,7 +13,10 @@ metadata:
     - fcp
     - guide
     - e2e-hybrid
+    - internal-intro
 name: FSLogix for the enterprise
+azureCategories:
+  - windows-virtual-desktop
 summary: Learn to build virtual desktop infrastructure solutions at enterprise scale using Microsoft FSLogix.
 products:
   - azure-backup

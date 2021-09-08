@@ -1,15 +1,19 @@
 ---
-title: Send Azure Databricks application logs to Azure Monitor
+title: Send Databricks app logs to Azure Monitor
 description: Learn how to send application logs and metrics from Azure Databricks to a Log Analytics workspace using the Azure Databricks Monitoring Library.
 author: PeterTaylor9999
 ms.date: 03/26/2019
+ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - databases
   - developer-tools
   - management-and-governance
   - featured
-ms.subservice: azure-guide
+products:
+  - azure-databricks
+  - azure-monitor
 ---
 
 <!-- cSpell:ignore Dropwizard loganalytics samplejob appender jconfiguration kusto rowcounter -->
@@ -112,7 +116,7 @@ The monitoring library includes a [sample application][sample-app] that demonstr
 
 1. Build the **spark-jobs** project in the monitoring library, as described in the [GitHub readme][config-cluster].
 
-1. Navigate to your Databricks workspace and create a new job, as described [here](https://docs.azuredatabricks.net/jobs.html#create-a-job).
+1. Navigate to your Databricks workspace and create a new job, as described [here](/azure/databricks/jobs#create-a-job).
 
 1. In the job detail page, select **Set JAR**.
 

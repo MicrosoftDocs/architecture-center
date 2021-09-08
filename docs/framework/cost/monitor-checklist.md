@@ -1,11 +1,13 @@
 ---
 title: Checklist - Monitor cost
-description: Describes Azure tools that you can use to monitor your cloud costs.
+description: Review a checklist to monitor your Azure workload cost. Checklist items include getting cost data from diverse sources, using resource tag policies, and more.
 author: david-stanford
 ms.date: 05/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-cost-management
 ms.custom:
   - article
 ---
@@ -13,7 +15,7 @@ ms.custom:
 # Checklist - Monitor cost
 Use this checklist to monitor the cost of the workload.
 
-- **Gather cost data from diverse sources to create reports**. Start with tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations) and [Azure Cost Management](/azure/cost-management-billing/costs/). Build custom reports relevant for the business by using [Consumption APIs](/rest/api/consumption/). 
+- **Gather cost data from diverse sources to create reports**. Start with tools like [Azure Advisor](/azure/advisor/advisor-cost-recommendations), [Advisor Score](/azure/advisor/azure-advisor-score), and [Azure Cost Management](/azure/cost-management-billing/costs/). Build custom reports relevant for the business by using [Consumption APIs](/rest/api/consumption/). 
     - [Cost reports](./monitor-reports.md)
     - [Review costs in cost analysis](/azure/cost-management-billing/costs/quick-acm-cost-analysis#review-costs-in-cost-analysis)
 

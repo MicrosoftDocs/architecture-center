@@ -3,13 +3,15 @@ title: Machine learning in IoT Edge Vision
 titleSuffix: Azure Architecture Center
 description: This article describes the machine learning and data science considerations in an Azure IoT Edge Vision solution.
 author: MSKeith
+ms.author: keith
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.author: keith
+ms.subservice: azure-guide
 ms.category:
   - fcp
-ms.subservice: azure-guide
+products:
+  - azure-machine-learning
 ms.custom:
   - guide
 ---

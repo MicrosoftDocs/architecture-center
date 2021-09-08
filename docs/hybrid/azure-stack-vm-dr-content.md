@@ -135,7 +135,7 @@ Implementing the recommended solution is contingent on satisfying the following 
 
 - Azure Stack Hub VMs to be protected, running any of the [supported operating systems](/azure/site-recovery/azure-stack-site-recovery) To protect Azure Stack Hub VMs that are running Windows Server operating systems, you must:
   - Create a Windows account with administrative rights. You can specify this account when you enable Azure Site Recovery on these VMs. The process server uses this account to install the Azure Site Recovery Mobility service. In a workgroup environment, make sure to disable Remote User Access control on target Windows Server operating systems by setting the value of the **LocalAccountTokenFilterPolicy** **DWORD** registry entry in the **HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System** key to 1.
-  - Enable File and Printer Sharing and Windows Management Instrumentation rules in Windows Defender firewall.
+  - Enable File and Printer Sharing and Windows Management Instrumentation rules in Microsoft Defender firewall.
 - To protect Azure Stack Hub VMs that are running Linux operating systems, you must:
   - Create a root user account. You can specify this account when you enable Azure Site Recovery on these VMs. The process server uses this account to install the Azure Site Recovery Mobility service.
   - Install the latest openssh, openssh-server, and openssl packages.

@@ -2,15 +2,15 @@
 metadata:
   title: Multi-tier web application built for HA/DR
   titleSuffix: Azure Example Scenarios
-  description: 'Create a multitier web application built for high availability and disaster recovery on Azure using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager.'
+  description: Learn how to create a resilient multitier web application built for high availability and disaster recovery on Azure.
   author: sujayt
   ms.date: 11/16/2018
-  ms.category:
-    - web
-    - featured
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.category:
+    - web
+    - featured
   ms.custom:
     - product-team
     - bcdr

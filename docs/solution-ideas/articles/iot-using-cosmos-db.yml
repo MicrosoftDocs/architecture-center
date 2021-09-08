@@ -16,7 +16,7 @@ metadata:
     - acom-architecture
     - iot
     - Cosmos DB
-    - 'https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db/'
+    - "https://azure.microsoft.com/solutions/architecture/iot-using-cosmos-db/"
 name: IoT using Cosmos DB
 azureCategories:
   - iot

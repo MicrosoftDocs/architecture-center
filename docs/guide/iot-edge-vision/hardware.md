@@ -1,15 +1,17 @@
 ---
 title: Hardware for IoT Edge Vision
 titleSuffix: Azure Architecture Center
-description: This article describes the hardware considerations for Azure IoT Edge Vision solution.
+description: Explore hardware acceleration for an Azure IoT Edge Vision solution. Learn about hardware acceleration components in CPUs, GPUs, FPGAs, and ASICs.
 author: MSKeith
+ms.author: keith
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.author: keith
+ms.subservice: azure-guide
 ms.category:
   - fcp
-ms.subservice: azure-guide
+products:
+  - azure-iot-edge
 ms.custom:
   - guide
 ---

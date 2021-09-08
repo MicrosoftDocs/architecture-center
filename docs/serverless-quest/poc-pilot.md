@@ -7,6 +7,8 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-functions
 ms.custom:
   - fcp
   - guide
@@ -99,4 +101,3 @@ The pilot includes a detailed follow up through surveys or focus groups. The fee
 
 ## Related resources
 [Prosci® change management training](https://www.prosci.com/solutions/training-programs/virtual-change-management-certification-program)
-

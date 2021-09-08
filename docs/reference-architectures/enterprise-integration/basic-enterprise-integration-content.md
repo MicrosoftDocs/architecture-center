@@ -80,7 +80,7 @@ If you deploy API Management across two or more regions with Premium tier, it is
 
 ### Backups
 
-Regularly [back up][apim-backup] your API Management configuration. Store your backup files in a location or Azure region that differs from the region where the service is deployed. Based on your [RTO][rto], choose a disaster recovery strategy:
+Regularly [back up][apim-backup] your API Management configuration. Store your backup files in a location or Azure region that differs from the region where the service is deployed. Based on your RTO, choose a disaster recovery strategy:
 
 - In a disaster recovery event, provision a new API Management instance, restore the backup to the new instance, and repoint the DNS records.
 
@@ -223,4 +223,3 @@ For greater reliability and scalability, use message queues and events to decoup
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
 [monitor]: /azure/azure-monitor/overview
 [rbac]: /azure/role-based-access-control/overview
-[rto]: ../../framework/resiliency/business-metrics.md

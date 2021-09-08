@@ -1,16 +1,16 @@
 ---
 title: Gateway Aggregation pattern
 titleSuffix: Cloud Design Patterns
-description: Use a gateway to aggregate multiple individual requests into a single request.
-keywords: design pattern
+description: Learn about the Gateway Aggregation pattern, which uses a gateway to aggregate many individual requests into a single request.
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Gateway Aggregation pattern

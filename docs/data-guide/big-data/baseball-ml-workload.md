@@ -6,6 +6,9 @@ ms.date: 06/10/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-machine-learning
+  - mlnet
 ms.custom:
   - fcp
   - guide
@@ -51,7 +54,7 @@ The processing sequence in this solution flows as follows:
 
 5. Historical data is analyzed using the designated set of rules or ML models in ML.NET, operating in-memory for very quick inference.
 
-6. Blazor Server surfaces the results to the end user’s browser, updating only the portions of the interface that have changed, and transmits back to the user via SignalR.
+6. Blazor Server surfaces the results to the end user's browser, updating only the portions of the interface that have changed, and transmits back to the user via SignalR.
 
 7. Azure Application Insights is optionally used to monitor performance and instrumentation resources as needed.
 
@@ -87,7 +90,7 @@ In Blazor Server, the state of many components might be maintained concurrently 
 Server](/aspnet/core/security/blazor/server/threat-mitigation). Applying these best practices allows a server-side Blazor application to scale
 to thousands of concurrent users—even on relatively small server hosts.
 
-General guidance on designing scalable solutions is provided in the Azure Architecture Center’s [Performance efficiency checklist](../../framework/scalability/performance-efficiency.md).
+General guidance on designing scalable solutions is provided in the Azure Architecture Center's [Performance efficiency checklist](../../framework/scalability/performance-efficiency.md).
 
 ### Resiliency and support
 
@@ -105,7 +108,7 @@ For online deployments, you must have an existing Azure account. If you need one
 For deployment as an Azure application instance, you need the [Visual Studio 2019 IDE](https://visualstudio.microsoft.com/vs/) and you must have [Git installed
 locally](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-The historical baseball data used for the analysis and machine learning models comes from [Sean Lahman’s Baseball Database](http://www.seanlahman.com/baseball-archive/statistics), which is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-sa/3.0/). The Major League
+The historical baseball data used for the analysis and machine learning models comes from [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics), which is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-sa/3.0/). The Major League
 Baseball data itself is public domain.
 
 ### Deployment to Azure
@@ -125,7 +128,7 @@ Baseball data itself is public domain.
 
 This application is also available as a complete, ready-to-run [Docker container downloadable from Docker Hub](https://hub.docker.com/r/bartczernicki/baseballmachinelearningworkbench).
 
-The container can be run locally (offline) in your own environment. It can also be deployed online in an [Azure Container Instance](/azure/container-instances/container-instances-overview). Instructions for getting started with either use case are provided in the main GitHub repo’s Get Started documentation:
+The container can be run locally (offline) in your own environment. It can also be deployed online in an [Azure Container Instance](/azure/container-instances/container-instances-overview). Instructions for getting started with either use case are provided in the main GitHub repo's Get Started documentation:
 
 - [Run the Docker Container locally in your own environment](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp/blob/master/GETSTARTED.md#2-run-the-docker-container-locally-in-your-own-environment)
 

@@ -155,7 +155,7 @@ For a complete list of server management capabilities, refer to [Manage Servers 
 ## Security considerations
 
 - Deploying Windows Admin Center provides your organization with a centralized management interface for your server environment. By controlling access to Windows Admin Center, you can improve the security of your management landscape.
-- Windows Admin Center provides multiple features to help secure your management platform. For starters, Windows Admin Center gateway authentication can use local groups,  Active Directory Domain Services (AD DS), and cloud-based Azure AD. You can also enforce smart card authentication by specifying an additional required group for smart card-based security groups. And, by requiring Azure AD authentication for the gateway, you can use other Azure AD security features such as conditional access and Azure Multi-Factor Authentication.
+- Windows Admin Center provides multiple features to help secure your management platform. For starters, Windows Admin Center gateway authentication can use local groups,  Active Directory Domain Services (AD DS), and cloud-based Azure AD. You can also enforce smart card authentication by specifying an additional required group for smart card-based security groups. And, by requiring Azure AD authentication for the gateway, you can use other Azure AD security features such as conditional access and Azure Active Directory Multi-Factor Authentication.
 - Access to the Windows Admin Center gateway doesn't imply access to the target servers that are made visible by the gateway. To manage a target server, users must connect with credentials that grant administrator privileges on the servers they want to manage. However, some users might not need administrative access to perform their responsibilities. In this scenario, you can use role-based access control (RBAC) in Windows Admin Center to provide these users with limited access to servers rather than granting them full administrative access.
   > [!NOTE]
   > If you deployed Local Administrator Password Solution (LAPS) in your environment, use LAPS credentials through Windows Admin Center to authenticate with a target server.
@@ -173,6 +173,15 @@ For a complete list of server management capabilities, refer to [Manage Servers 
 
 - For on-premises deployments, Windows Admin Center costs nothing beyond the cost of the Windows operating system, which requires valid Windows Server or Windows 10 licenses.
 - For Azure deployments, plan for costs associated with deploying Windows Admin Center to an Azure VM. Some of these costs might include the VM, storage, static or public IP addresses (if enabled), and any networking components required for integration with on-premises environments. In addition, you might need to plan for the cost of purchasing non-Microsoft CA certificates.
+
+## Next steps
+
+More about Azure Automation:
+
+- [Install Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install)
+- [Preview: Use Windows Admin Center in the Azure portal to manage a Windows Server VM](/windows-server/manage/windows-admin-center/azure/manage-vm)
+- [Manually deploy Windows Admin Center in Azure for managing multiple servers](/windows-server/manage/windows-admin-center/azure/deploy-wac-in-azure)
+- [Connect hybrid machines to Azure from Windows Admin Center](/azure/azure-arc/servers/onboard-windows-admin-center)
 
 [architectural-diagram-azure]: ./images/hybrid-server-os-mgmt-wac-azure.png
 [architectural-diagram-onprem]: ./images/hybrid-server-os-mgmt-wac-onprem.png

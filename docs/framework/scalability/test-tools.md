@@ -1,6 +1,6 @@
 ---
 title: Testing tools
-description: Describes testing tools for performance efficiency
+description: Review testing tools for performance efficiency. Identify baselines and goals for performance. Cache data, run benchmark tests, and use metrics.
 author: v-aangie
 ms.date: 12/02/2020
 ms.topic: conceptual
@@ -19,7 +19,7 @@ Testing can be automated or manual. Automating tests is the best way to make sur
 
 ## Identify baselines and goals for performance
 
-Knowing where you are (baseline) and where you want to be (goal) make it easier to plan how to get there. Established baselines and goals will help you to stay on track and measure progress. Testing may also uncover a need to perform additional testing on areas that you may not have planned.
+Knowing where you are (baseline) and where you want to be (goal) makes it easier to plan how to get there. Established baselines and goals will help you to stay on track and measure progress. Testing may also uncover a need to perform additional testing on areas that you may not have planned.
 
 Baselines can vary based on connections or platforms that a user may leverage for accessing the application. It may be important to establish baselines that address the different connections, platforms, and elements such as time of day, or weekday versus weekend.
 
@@ -74,4 +74,4 @@ For a list of Azure metrics, see [Supported metrics with Azure Monitor](/azure/a
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Performance monitoring](./monitoring.md)
+>[Performance monitoring](./monitor.md)

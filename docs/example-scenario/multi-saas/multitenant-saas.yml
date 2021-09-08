@@ -7,12 +7,12 @@ metadata:
   ms.date: 07/16/2020
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: example-scenario
   ms.category:
     - identity
   ms.custom:
     - fcp
     - example-scenario
-  ms.subservice: example-scenario
 name: Multitenant SaaS on Azure
 azureCategories:
   - identity

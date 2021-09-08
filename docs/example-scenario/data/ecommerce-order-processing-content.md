@@ -1,6 +1,3 @@
-
-
-
 This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking.
 
 This scenario takes an event sourcing approach, using a functional programming model implemented via [microservices](https://azure.com/microservices). Each microservice is treated as a stream processor, and all business logic is implemented via microservices. This approach enables high availability and resiliency, geo-replication, and fast performance.
@@ -58,11 +55,11 @@ For other scalability considerations, see the [performance efficiency checklist]
 
 The [Cosmos DB security model](/azure/cosmos-db/secure-access-to-data) authenticates users and provides access to its data and resources. For more information, see [Cosmos DB database security](/azure/cosmos-db/database-security).
 
-For general guidance on designing secure solutions, see the [Azure Security Documentation](https://docs.microsoft.com/azure/security/).
+For general guidance on designing secure solutions, see the [Azure Security Documentation](/azure/security/).
 
 ### Resiliency
 
-The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](/azure/architecture/framework/resiliency/reliability-patterns).
+The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](../../framework/resiliency/reliability-patterns.md).
 
 ## Pricing
 
@@ -101,7 +98,7 @@ Other related resources include:
 [docs-cosmos-db-guarantees]: /azure/cosmos-db/high-availability#slas-for-availability
 [docs-cosmos-db-use-cases]: /azure/cosmos-db/use-cases
 [docs-kafka-high-availability]: /azure/hdinsight/kafka/apache-kafka-high-availability
-[availability]: /azure/architecture/framework/resiliency/overview
-[scalability]: /azure/architecture/framework/scalability/performance-efficiency
-[resiliency]: /azure/architecture/framework/resiliency/reliability-patterns.md
+[availability]: ../../framework/resiliency/principles.md
+[scalability]: ../../framework/scalability/performance-efficiency.md
+[resiliency]: ../../framework/resiliency/reliability-patterns.md
 [security]: /azure/security

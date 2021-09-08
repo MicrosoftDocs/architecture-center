@@ -12,8 +12,8 @@ metadata:
     - analytics
     - databases
   ms.custom:
-    - seodec18
     - reference-architecture
+    - internal-intro
 name: Stream processing with Azure Stream Analytics
 azureCategories:
   - analytics

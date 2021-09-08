@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Big data analytics with enterprise-grade security using Azure Synapse
+  titleSuffix: Azure Solution Ideas
+  description: Azure Synapse Analytics brings together data integration, enterprise data warehousing, and big data analytics.
+  author: EdPrice-MSFT
+  ms.author: kikalyan
+  ms.date: 06/03/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - analytics
+    - databases
+name: Big data analytics with enterprise-grade security using Azure Synapse
+azureCategories:
+  - analytics
+summary: Azure Synapse Analytics brings together data integration, enterprise data warehousing, and big data analytics.
+products:
+  - azure-analysis-services
+  - azure-data-lake-storage
+  - azure-synapse-analytics
+thumbnailUrl: /azure/architecture/browse/thumbs/big-data-analytics-enterprise-grade-security.png
+content: |
+   [!include[](big-data-analytics-enterprise-grade-security-content.md)]

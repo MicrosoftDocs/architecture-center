@@ -2,15 +2,15 @@
 title: Gateway Routing pattern
 titleSuffix: Cloud Design Patterns
 description: Use the Gateway Routing design pattern to route requests to multiple services using a single endpoint.
-keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
-  - seodec18
   - design-pattern
+keywords:
+  - design pattern
 ---
 
 # Gateway Routing pattern

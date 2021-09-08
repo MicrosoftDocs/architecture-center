@@ -1,15 +1,15 @@
 ---
-title: Asynchronous messaging options in Azure
+title: Asynchronous messaging options
 titleSuffix: Azure Application Architecture Guide
-description: Overview of choosing asynchronous messaging for Azure apps.
+description: Learn about asynchronous messaging options in Azure, including the different types of messages and the entities that participate in a messaging infrastructure.
 author: PageWriter-MSFT
 ms.date: 10/30/2019
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: guide
 ms.category:
   - integration
   - developer-tools
-ms.subservice: guide
 ms.custom:
   - seonov19
   - guide
@@ -239,3 +239,4 @@ Consider these patterns when implementing asynchronous messaging:
 [Jonathon Oliver's blog post: Idempotency](https://blog.jonathanoliver.com/idempotency-patterns/)
 
 [Martin Fowler's blog post: What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
+

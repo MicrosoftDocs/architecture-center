@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Web application monitoring on Azure
-  description: Learn about the monitoring services and a dataflow model for use with multiple data sources.
+  description: Learn about the monitoring services you can use on Azure by following a reference architecture that uses a dataflow model for use with multiple data sources.
   author: doodlemania2
   ms.author: pnp
   ms.date: 12/12/2018
@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - azcat
     - reference-architecture
+    - internal-intro
 name: Web application monitoring on Azure
 azureCategories:
   - web

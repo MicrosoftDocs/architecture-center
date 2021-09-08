@@ -1,5 +1,4 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Globally, over 1 billion people lack access to electricity, and over 3 billion people have no internet access. Veriown is an energy provider working with Azure Internet-of-Things (IoT) cloud services to provide life-changing, low-cost electricity and connectivity to remote and rural customers. Veriown's IoT devices combine solar power with internet communications to deliver monumental improvements to users' quality of life.
 

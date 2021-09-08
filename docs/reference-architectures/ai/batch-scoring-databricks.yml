@@ -15,6 +15,8 @@ metadata:
   ms.custom:
     - azcat-ai
     - reference-architecture
+    - ai-machine-learning
+    - aml-project-improvement
 name: Batch scoring of Spark models on Azure Databricks
 azureCategories:
   - ai-machine-learning
@@ -26,6 +28,6 @@ products:
   - azure-databricks
   - azure-data-factory
   - azure-blob-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-spark.png
+thumbnailUrl: /azure/architecture/browse/thumbs/batch-scoring-spark-models-databricks.png
 content: |
-   [!include[](batch-scoring-databricks-content.md)]
+  [!include[](batch-scoring-databricks-content.md)]

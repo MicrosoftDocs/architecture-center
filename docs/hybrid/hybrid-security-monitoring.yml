@@ -16,6 +16,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-hybrid
+    - internal-intro
 name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
 azureCategories:
   - hybrid

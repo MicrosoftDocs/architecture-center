@@ -22,7 +22,8 @@ metadata:
     - interactive-diagram
     - networking
     - e2e-hybrid
-    - 'https://azure.microsoft.com/solutions/architecture/hybrid-connectivity/'
+    - "https://azure.microsoft.com/solutions/architecture/hybrid-connectivity/"
+    - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-connectivity.png
 name: Hybrid Connection
 azureCategories:

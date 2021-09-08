@@ -6,6 +6,9 @@ ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-databricks
+  - azure-app-service
 ms.custom:
   - guide
 ---

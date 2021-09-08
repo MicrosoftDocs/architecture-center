@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore eventhubs shapefile Appender malformedrides malformedfares Dropwizard dropoff taxijob durationms timechart startofday endofday DBUs DBCU -->
 
 
@@ -23,7 +22,13 @@ The architecture consists of the following components.
 
 **Cosmos DB**. The output from Azure Databricks job is a series of records, which are written to [Cosmos DB](/azure/cosmos-db) using the Cassandra API. The Cassandra API is used because it supports time series data modeling.
 
+* [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
+
 **Azure Log Analytics**. Application log data collected by [Azure Monitor](/azure/monitoring-and-diagnostics) is stored in a [Log Analytics workspace](/azure/log-analytics). Log Analytics queries can be used to analyze and visualize metrics and inspect log messages to identify issues within the application.
+
+### Alternatives
+
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
 
 ## Data ingestion
 
@@ -205,7 +210,7 @@ Access to the Azure Databricks workspace is controlled using the [administrator 
 
 ### Managing secrets
 
-Azure Databricks includes a [secret store](https://docs.azuredatabricks.net/security/secrets/index.html#secrets) that is used to store secrets, including connection strings, access keys, user names, and passwords. Secrets within the Azure Databricks secret store are partitioned by **scopes**:
+Azure Databricks includes a [secret store](/azure/databricks/security/secrets/) that is used to store secrets, including connection strings, access keys, user names, and passwords. Secrets within the Azure Databricks secret store are partitioned by **scopes**:
 
 ```bash
 databricks secrets create-scope --scope "azure-databricks-job"
@@ -218,7 +223,7 @@ databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
 ```
 
 > [!NOTE]
-> An Azure Key Vault-backed scope can be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](https://docs.azuredatabricks.net/security/secrets/secret-scopes.html#azure-key-vault-backed-scopes).
+> An Azure Key Vault-backed scope can be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](/azure/databricks/security/secrets/secret-scopes).
 
 In code, secrets are accessed via the Azure Databricks [secrets utilities](https://docs.databricks.com/user-guide/dev-tools/dbutils.html#secrets-utilities).
 
@@ -389,6 +394,13 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 ## Deploy the solution
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
+
+
+## Next steps
+
+* [Stream processing with Azure Stream Analytics](./stream-processing-stream-analytics.yml)
+* [Demand Forecasting](../../solution-ideas/articles/demand-forecasting.yml)
+* [Real Time Analytics on Big Data Architecture](../../solution-ideas/articles/real-time-analytics.yml)
 
 <!-- links -->
 

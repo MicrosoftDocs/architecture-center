@@ -1,15 +1,18 @@
 ---
 title: Azure Industrial IoT - data analysis
 titleSuffix: Azure Application Architecture Guide
-description: Guidance on data analysis in an Azure Industrial IoT analytics solution.
+description: Understand data analysis in an Azure Industrial IoT (IIoT) analytics solution. Use visualization, data trends, dashboards, schematic views, and notebooks.
 author: khilscher
+ms.author: kehilsch
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.author: kehilsch
+ms.subservice: azure-guide
 ms.category:
   - fcp
-ms.subservice: azure-guide
+products:
+  - power-bi
+  - azure-time-series-insights
 ms.custom:
   - guide
 ---

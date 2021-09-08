@@ -15,7 +15,8 @@ metadata:
   ms.custom:
     - acom-architecture
     - speech
-    - 'https://azure.microsoft.com/solutions/architecture/digital-media-speech-text/'
+    - "https://azure.microsoft.com/solutions/architecture/digital-media-speech-text/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media-speech-text.png
 name: Keyword search/speech-to-text/OCR digital media
 azureCategories:
@@ -30,4 +31,4 @@ products:
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/digital-media-speech-text.png
 content: |
-   [!include[](digital-media-speech-text-content.md)]
+  [!include[](digital-media-speech-text-content.md)]

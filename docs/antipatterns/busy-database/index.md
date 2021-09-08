@@ -1,14 +1,16 @@
 ---
 title: Busy Database antipattern
 titleSuffix: Performance antipatterns for cloud apps
-description: Offloading processing to a database server can cause performance and scalability problems.
+description: Understand the Busy Database antipattern, which can cause performance and scalability problems by offloading processing to a database server.
 author: dragon119
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
+products:
+  - azure-sql-database
+  - azure-app-service
 ms.custom:
-  - seodec18
   - article
 ---
 

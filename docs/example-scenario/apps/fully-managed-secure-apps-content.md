@@ -1,6 +1,3 @@
-
-
-
 This scenario provides an overview of deploying secure applications using the [Azure App Service Environment (ASE)][intro-to-app-svc-env]. To restrict application access from the Internet, the Azure Application Gateway service and Web Application Firewall are used. This article also provides guidance about continuous integration and continuous deployment (CI/CD) for App Service Environments using Azure DevOps.
 
 This scenario is commonly deployed in industries such as banking and insurance where customers are conscious of platform-level security in addition to application level security. To demonstrate these concepts, we'll use an application that allows users to submit expense reports.
@@ -81,21 +78,21 @@ Another point to consider is regarding DNS. In order to allow applications withi
 
 ### Availability
 
-- Consider leveraging the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application.
+- Consider leveraging the [typical design patterns for availability](../../framework/resiliency/reliability-patterns.md) when building your cloud application.
 - Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
-- For additional considerations concerning availability, see the [availability checklist](/azure/architecture/checklist/resiliency-per-service) in the Azure Architecture Center.
+- For additional considerations concerning availability, see the [availability checklist](../../checklist/resiliency-per-service.md) in the Azure Architecture Center.
 
 ### Scalability
 
 - Understand how [scale works][docs-azure-scale-ase] in ASE.
 - Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
-- When building a cloud application, be aware of the [typical design patterns for scalability](/azure/architecture/framework/resiliency/reliability-patterns).
+- When building a cloud application, be aware of the [typical design patterns for scalability](../../framework/resiliency/reliability-patterns.md).
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For other scalability topics, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
-- Consider leveraging the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) where appropriate.
+- Consider leveraging the [typical design patterns for security](../../framework/security/security-patterns.md) where appropriate.
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 - Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
@@ -103,7 +100,7 @@ Another point to consider is regarding DNS. In order to allow applications withi
 ### Resiliency
 
 - Consider using [Geo Distributed Scale with ASE][design-geo-distributed-ase] for greater resiliency and scalability.
-- Review the [typical design patterns for resiliency](/azure/architecture/framework/resiliency/reliability-patterns) and consider implementing these where appropriate.
+- Review the [typical design patterns for resiliency](../../framework/resiliency/reliability-patterns.md) and consider implementing these where appropriate.
 - You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 - Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
@@ -144,7 +141,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
 [large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml
-[availability]: /azure/architecture/checklist/resiliency-per-service
+[availability]: ../../checklist/resiliency-per-service.md
 
 [design-patterns-availability]: ../../framework/resiliency/reliability-patterns.md
 [design-patterns-resiliency]: ../../framework/resiliency/resiliency-patterns.md
@@ -170,7 +167,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [integrate-ilb-ase-with-appgw]: /azure/app-service/environment/integrate-with-application-gateway
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: ../../checklist/resiliency-per-service.md#app-service
-[resiliency]: ../../framework/resiliency/overview.md
+[resiliency]: ../../framework/resiliency/principles.md
 [scalability]: ../../framework/scalability/performance-efficiency.md
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview

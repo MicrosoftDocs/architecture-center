@@ -1,6 +1,3 @@
-
-
-
 This example scenario is relevant to organizations building solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making. Potential applications include construction, mining, manufacturing, or other industry solutions involving large volumes of data from many IoT-based data inputs.
 
 In this scenario, a construction equipment manufacturer builds vehicles, meters, and drones that use IoT and GPS technologies to emit telemetry data. The company wants to modernize their data architecture to better monitor operating conditions and equipment health. Replacing the company's legacy solution using on-premises infrastructure would be both time intensive and labor intensive, and would not be able to scale sufficiently to handle the anticipated data volume.
@@ -75,12 +72,24 @@ The following considerations will drive a substantial portion of the costs for t
 
 ## Related resources
 
-To see an implementation of a similar architecture, read the [Komatsu customer story][customer-story].
-
 Guidance for big data architectures is available in the [Azure Data Architecture Guide](../../data-guide/index.md).
+
+Additional IoT architectures:
+
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
+- [IoT using Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
+- [Retail - Buy online, pickup in store (BOPIS)](../iot/vertical-buy-online-pickup-in-store.yml)
+- [Predictive maintenance with the intelligent IoT Edge](../predictive-maintenance/iot-predictive-maintenance.yml)
+- [Secure your IoT SaaS app with the Microsoft identity platform](../../reference-architectures/iot.yml)
+
+IoT architecture guides:
+
+- [IoT concepts](../iot/introduction-to-solutions.yml)
+- [Azure IoT Edge Vision](../../guide/iot-edge-vision/index.md)
+- [Azure industrial IoT analytics guidance](../../guide/iiot-guidance/iiot-architecture.md)
+- [IoT patterns](../iot/measure-control-loop.yml)
 
 <!-- links -->
 
 [product-category]: https://azure.microsoft.com/product-categories/analytics
-[customer-story]: https://customers.microsoft.com/story/komatsu-manufacturing-azure-iot-hub-japan
-[architecture]: ./media/architecture-big-data-with-iot.png
+[architecture]: ./media/architecture-big-data-with-iot.svg

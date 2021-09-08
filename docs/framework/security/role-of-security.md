@@ -1,6 +1,6 @@
 ---
 title: Role of security
-description: Describes the role that security plays in the cloud
+description: Understand the role that security plays in the cloud. Learn about specialization, the shared responsibility model, and key strategies.
 author: david-stanford
 ms.date: 10/20/2019
 ms.topic: conceptual
@@ -16,9 +16,9 @@ Security is one of the most important aspects of any architecture. Security
 provides confidentiality, integrity, and availability assurances against
 deliberate attacks and abuse of your valuable data and systems. Losing these
 assurances can negatively impact your business operations and revenue, as well
-as your organization’s reputation in the marketplace. These security assurances
+as your organization's reputation in the marketplace. These security assurances
 also serve as a foundation for privacy assurances, which are not in scope of
-this document. In this article, we’ll discuss key architectural considerations
+this document. In this article, we'll discuss key architectural considerations
 and principles for security and how they apply to Azure.
 
 Information Security has always been a complex subject that evolves quickly with
@@ -27,7 +27,7 @@ Historically, security vulnerabilities started with identifying and exploiting
 common programming errors and unexpected edge cases, but the attack surface that
 an attacker may explore and exploit has now expanded well beyond that. Attackers
 are now freely exploiting vulnerabilities in system configurations, operational
-practices, and the social habits of the systems’ users. As systems’ complexity,
+practices, and the social habits of the systems' users. As systems' complexity,
 connectedness, and the variety of users increase, attackers have more
 opportunities to identify unprotected edge cases and to “hack” systems into
 doing things they were not designed to do.
@@ -75,7 +75,7 @@ concern shared by both cloud providers and customers. By shifting these
 responsibilities to a cloud service like Azure, organizations can reduce
 focus on activities that aren't core business competencies. Depending on the
 specific technology choices, some security protections will be built into
-the particular service, while addressing others will remain the customer’s
+the particular service, while addressing others will remain the customer's
 responsibility. To ensure that the proper security controls are provided, a
 careful evaluation of the services and technology choices becomes necessary.
 
@@ -89,7 +89,7 @@ improve the security posture of your architecture.
 As part of your architecture design, you should consider all relevant areas that
 affect the success of your application. While this article is concerned
 primarily with security principles, you should also prioritize other
-requirements of a well-designed system including your applications’
+requirements of a well-designed system including your applications'
 availability, scalability, costs, and operational characteristics (trading off
 one over the other as necessary). It is important to note that consistently
 sacrificing security for gains in the other areas is not advisable as security
@@ -102,7 +102,7 @@ This results in three key strategies
     between those assets and the threats to them. This should be designed based
     on intercepting authentication requests for the resources (identity
     controls) vs. the traditional approach of intercepting network traffic on
-    enterprise networks, which isn’t feasible for enterprise assets outside the
+    enterprise networks, which isn't feasible for enterprise assets outside the
     network.  
     More on this and how it relates to Zero Trust and Enterprise Segmentation
     are in the [Governance, Risk, and Compliance](./governance.md#enterprise-segmentation-strategy) and [Network Security & Containment](./network-security-containment.md#align-network-segmentation-with-enterprise-segmentation-strategy) sections.

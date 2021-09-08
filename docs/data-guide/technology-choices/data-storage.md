@@ -6,8 +6,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-storage
+  - azure-blob-storage
 ms.custom:
   - guide
+  - internal-intro
 ---
 
 <!-- cSpell:ignore VHDs HDFS WASB HMAC POSIX ACLs JDBC -->
@@ -36,7 +40,7 @@ There are several options for ingesting data into Azure, depending on your needs
 
 **Analytical databases:**
 
-[Azure Data Explorer](/azure/data-explorer/) 
+[Azure Data Explorer](/azure/data-explorer/)
 
 ## Azure Storage blobs
 
@@ -87,9 +91,9 @@ The [HDInsight implementation](/azure/hdinsight/hbase/apache-hbase-overview) lev
 
 ## Azure Data Explorer
 
-[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to do complex ad hoc queries on the data in seconds. 
+[Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software so you can collect, store, and analyze data. Azure Data Explorer is ideal for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities. Azure Data Explorer makes it simple to ingest this data and enables you to do complex ad hoc queries on the data in seconds.
 
-Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-cluster-horizontal-scaling) for increasing ingestion and query processing throughput. An Azure Data Explorer cluster can be [deployed to a Virtual Network](/azure/data-explorer/vnet-deployment) for enabling private networks. 
+Azure Data Explorer can be linearly [scaled out](/azure/data-explorer/manage-cluster-horizontal-scaling) for increasing ingestion and query processing throughput. An Azure Data Explorer cluster can be [deployed to a Virtual Network](/azure/data-explorer/vnet-deployment) for enabling private networks.
 
 ## Key selection criteria
 
@@ -146,4 +150,4 @@ The following tables summarize the key differences in capabilities.
 | Authentication                 | Based on [Azure Active Directory identities](https://github.com/uglide/azure-content/blob/master/articles/active-directory/active-directory-authentication-scenarios.md) |
 | Encryption at rest             | Supported, customer managed keys                                                                                                                                                |                                                                                                                                            |
 | Analytics workload performance | Optimized performance for parallel analytics workloads                                                                                                                         |
-| Size limits                    | Linearly scalable               
+| Size limits                    | Linearly scalable               |

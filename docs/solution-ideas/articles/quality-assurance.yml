@@ -5,7 +5,7 @@ metadata:
   description: Build a quality assurance system that collects data and improves productivity by identifying potential problems in a manufacturing pipeline before they occur.
   author: doodlemania2
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 2/9/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -19,7 +19,8 @@ metadata:
     - Azure
     - ai gallery
     - anomaly-detection
-    - 'https://azure.microsoft.com/solutions/architecture/quality-assurance/'
+    - "https://azure.microsoft.com/solutions/architecture/quality-assurance/"
+    - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/quality-assurance.png
 name: Quality Assurance
 azureCategories:
@@ -33,4 +34,4 @@ products:
   - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/quality-assurance.png
 content: |
-   [!include[](quality-assurance-content.md)]
+  [!include[](quality-assurance-content.md)]

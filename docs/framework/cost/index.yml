@@ -1,19 +1,20 @@
 ### YamlMime:Landing
 
-title: Cost Optimization
+title: Cost optimization documentation
 summary: Apply the cost principles in your architecture to accelerate your time to market while avoiding capital-intensive solutions. Consider opportunity costs. Use the cost calculators to estimate the initial and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
 
 metadata: 
+  title: Cost optimization documentation
+  description: Learn how to apply the cost principles in your architecture to accelerate your time to market while avoiding capital-intensive solutions.
+  services: na
   author: PageWriter-MSFT
-  description: "Apply the cost principles in your architecture to accelerate your time to market while avoiding capital-intensive solutions. Consider opportunity costs. Use the cost calculators to estimate the initial and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution."
-  manager: scottboc
   ms.author: prwilk
-  ms.collection: na
+  manager: scottboc
   ms.date: 08/07/2020
+  ms.topic: landing-page
   ms.service: architecture-center
   ms.subservice: well-architected
-  ms.topic: landing-page
-  services: na
+  ms.collection: na
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
@@ -137,6 +138,8 @@ landingContent:
             url: https://azure.microsoft.com/pricing/tco/calculator/
           - text: Azure Advisor
             url: /azure/advisor/advisor-cost-recommendations
+          - text: Advisor Score
+            url: /azure/advisor/azure-advisor-score
           - text: Azure Cost Management
             url: /azure/cost-management-billing/costs/
           - text: Visualize cost reports

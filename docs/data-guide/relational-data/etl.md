@@ -6,6 +6,9 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+products:
+  - azure-synapse-analytics
+  - azure-data-factory
 ms.custom:
   - guide
 ---

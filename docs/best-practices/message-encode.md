@@ -1,11 +1,13 @@
 ---
 title: Message encoding considerations
-description: How to choose an encoding format for asynchronous messaging.
+description: Review how to choose an encoding format for asynchronous messaging. Explore encoding format considerations and choices for encoding formats.
 author: PageWriter-MSFT
 ms.date: 03/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+products:
+  - azure-encoding
 ms.custom:
   - guide
 ---
@@ -140,7 +142,7 @@ The biggest advantage is that its universally available. It's most interoperable
 
 Being a text-based format, it isn't efficient over the wire and not an ideal choice in cases where storage is a concern. If you're returning cached items directly to a client via HTTP, storing JSON could save the cost of deserializing from another format and then serializing to JSON.
 
-Use for messages single record messages or a sequence of messages where each message has a different schema. Avoid using JSON for a sequence of records, such as time-series data.  
+Use JSON for single-record messages or for a sequence of messages in which each message has a different schema. Avoid using JSON for a sequence of records, such as for time-series data.  
 
 There are other variations of JSON such as [BSON](http://bsonspec.org), which is a binary encoding aligned to work with MongoDB.
 

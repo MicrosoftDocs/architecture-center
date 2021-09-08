@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 Vehicle data ingestion, processing, and visualization are key capabilities needed
 to create connected car solutions. By capturing and analyzing this data, we can
 decipher valuable insights and create new solutions.
@@ -28,7 +30,7 @@ Imagine a car manufacturing company that wants to create a solution to:
     [OBD-II](https://wikipedia.org/wiki/On-board_diagnostics) port, view
     repair procedures, or to view an exploded 3D parts diagram).
 
-## Reference architecture
+## Architecture
 
 ![Reference architecture](media/architecture-realtime-analytics-vehicle-data1.png)
 
@@ -132,6 +134,8 @@ The data flows through the solution as follows:
     large datasets. Its use of massive parallel processing (MPP) makes it
     suitable for running high-performance analytics.
 
+- [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) enables you to run near real-time analytics over operational data in Azure Cosmos DB, **without any performance or cost impact on your transactional workload**, by using the two analytics engines available from your Azure Synapse workspace: [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview).
+
 -   [Microsoft Power BI](https://powerbi.microsoft.com/) is a suite of business
     analytics tools to analyze data and share insights. Power BI can query a
     semantic model stored in Analysis Services, or it can query Azure Synapse
@@ -146,6 +150,10 @@ The data flows through the solution as follows:
 -   [Microsoft HoloLens](https://www.microsoft.com/hololens) can be used by
     service technicians to view vehicle data (for example, service history, OBD-II data,
     part diagrams, etc.) holographically to aid in troubleshooting and repair.
+
+### Alternatives
+
+- [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Cosmos DB data.
 
 ## Next steps
 

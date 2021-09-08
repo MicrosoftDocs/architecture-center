@@ -1,11 +1,13 @@
 ---
 title: Release Engineering Application Development
-description: Release Engineering Application Development
-author: neilpeterson
+description: Understand application development in release engineering. Build systems so your teams can turn ideas into production-delivered software with minimal friction.
+author: david-stanford
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-kubernetes-service
 ---
 
 # Release Engineering: Application Development
@@ -59,8 +61,14 @@ Some features of Bridge:
 
 **Learn more**
 
-- [Documentation: Use Bridge to Kubernetes with Visual Studio Code](/azure/dev-spaces/how-vs-code-works-with-dev-spaces)
+- [Documentation: Use Bridge to Kubernetes with Visual Studio Code](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes)
 - [Documentation: Use Bridge to Kubernetes with Visual Studio](/visualstudio/containers/bridge-to-kubernetes?preserve-view=true&view=vs-2019)
+
+### Other tools
+
+The tooling ecosystem for container management is rich with options. Here are a few additional tools to consider while developing container-based applications.
+
+[Podman](https://developers.redhat.com/articles/podman-next-generation-linux-container-tools) - an open-source tool for working with containers.
 
 ## Source control
 
@@ -86,7 +94,7 @@ Using source control systems, you can create your own copies of the software sou
 
 As updates are made to software and infrastructure configurations, version control software allows us to propose these changes before merging them into the source. During the proposal, peers can review the changes, recommend updates, and approve the changes. Source control solutions provide an excellent platform for collaboration on changes to the software.
 
-To learn more about using Git, visit the [DevOps Resource Center](/azure/devops/learn/git/what-is-git).
+To learn more about using Git, visit the [DevOps Resource Center](/devops/develop/git/what-is-git).
 
 ### GitHub
 
@@ -98,7 +106,7 @@ GitHub is a popular source control system that uses Git. In addition to core Git
 
 ### Azure Repos
 
-Azure DevOps is a collection of services for building, collaborating on, testing, and delivering software to any environment. Azure DevOps services include Azure Repos, which is a source control system. Using Azure Repos includes unlimited free private Git repositories. Standard Git powers Azure Repos, and you can use clients and tools of your choice for working with them.
+Azure DevOps is a collection of services for building, collaborating on, testing, and delivering software to any environment. Azure DevOps Services include Azure Repos, which is a source control system. Using Azure Repos includes unlimited free private Git repositories. Standard Git powers Azure Repos, and you can use clients and tools of your choice for working with them.
 
 **Learn more**
 

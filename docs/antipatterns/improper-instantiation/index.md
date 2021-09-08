@@ -1,20 +1,28 @@
 ---
 title: Improper Instantiation antipattern
-titleSuffix: Performance antipatterns for cloud apps
+titleSuffix: Azure Architecture Center
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
 author: dragon119
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
+products:
+  - azure-cache-redis
 ms.custom:
-  - seodec18
   - article
+  - seo-aac-fy21q3
+keywords:
+  - "Antipattern singleton"
+  - "what is instantiation" 
+  - "instantiation"
+  - "improper instantiation"
+  - "antipattern"
 ---
 
 # Improper Instantiation antipattern
 
-It can hurt performance to continually create new instances of an object that is meant to be created once and then shared.
+Sometimes new instances of a class are continually created, when it is meant to be created once and then shared. This behavior can hurt performance, and is called an *improper instantiation antipattern*. An antipattern is a common response to a recurring problem that is usually ineffective and may even be counter-productive.
 
 ## Problem description
 
@@ -69,7 +77,7 @@ public class ExpensiveToCreateService
 }
 ```
 
-## How to fix the problem
+## How to fix improper instantiation antipattern
 
 If the class that wraps the external resource is shareable and thread-safe, create a shared singleton instance or a pool of reusable instances of the class.
 
@@ -109,7 +117,7 @@ public class SingleHttpClientInstanceController : ApiController
 
 - In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. These objects are intended to be saved and reused, rather than disposed and re-created. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. For more information, see [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging].
 
-## How to detect the problem
+## How to detect improper instantiation antipattern
 
 Symptoms of this problem include a drop in throughput or an increased error rate, along with one or more of the following:
 

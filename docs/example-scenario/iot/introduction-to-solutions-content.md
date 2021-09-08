@@ -5,11 +5,11 @@ Connected sensors, devices, and intelligent operations can transform businesses 
 
 Azure *IoT solutions* involve *events* that generate *insights* to inform *actions* that improve a business or process. IoT solutions use events, insights, and actions to connect devices, or things, to cloud applications and achieve end-to-end scenarios. The terms *thing* and *device* both mean a connected physical device in an IoT solution.
 
-![A diagram showing devices generating events, which inform insights and actions.](media/devices-events-insights.png) 
+![A diagram showing devices generating events, which inform insights and actions.](media/devices-events-insights.svg) 
 
 Events, insights, and actions are functional concepts that exist across the [devices, platform, and applications](devices-platform-application.yml) of an IoT solution. To illustrate, consider an application that monitors cooling system temperatures for food storage, and calls emergency maintenance services if a temperature becomes dangerously low or high:
 
-![A diagram illustrating the relationship between events, insights, and actions in an IoT solution used to monitor a food storage system.](media/events-insights-actions.png)
+![A diagram illustrating the relationship between events, insights, and actions in an IoT solution used to monitor a cooling system.](media/events-insights-actions.svg)
 
 The cooling system sends operating temperatures as telemetry to a connected application through [Azure IoT Hub](/azure/iot-hub/about-iot-hub). Backup systems exist in case a primary cooling system malfunctions or goes offline. Devices can receive commands to adjust temperature or start and stop operation.
 
@@ -21,7 +21,7 @@ The following process occurs in this example:
 
 Considering events, insights, and actions allows expansion of the cooling system monitoring scenario. The system can add more complex insights and actions by using the events from the cooling system devices:
 
-![A diagram illustrating the events, insights, and actions associated with the cooling system monitoring scenario.](media/events-downstream.png)
+![A diagram illustrating the events, insights, and actions associated with the cooling system monitoring scenario.](media/events-downstream.svg)
 
 While the series of events doesn't change, gathering events and applying different types of insights to the events enables taking additional actions with the data. This strategy becomes more powerful when applied to large numbers of devices operating at multiple locations.
 

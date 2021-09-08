@@ -1,15 +1,15 @@
 ---
-title: Building solutions for high availability using Availability Zones
+title: Build solutions for high availability using Availability Zones
 titleSuffix: High Availability
-description: The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers.
-author: maggsl
+description: Learn about the Azure Availability Zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.
+author: EdPrice-MSFT
 ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.category:
   - management-and-governance
   - solutions
-ms.subservice: azure-guide
 ms.custom:
   - high-availability
   - fasttrack-edit
@@ -18,7 +18,7 @@ ms.custom:
 
 <!-- cSpell:ignore lbrader -->
 
-# Building solutions for high availability using Availability Zones
+# Build solutions for high availability using Availability Zones
 
 Microsoft Azure global infrastructure is designed and constructed at every layer
 to deliver the highest levels of redundancy and resiliency to its customers.
@@ -53,6 +53,16 @@ For additional information on Availability Zones, including service support by
 region and pricing, refer to [What are Availability Zones in
 Azure?](/azure/availability-zones/az-overview)
 in Microsoft Azure Documentation.
+
+## Availability Zones reference architectures
+
+The following architectures feature high-availability scenarios:
+
+- [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
+- [IaaS: Web application with relational database](./ref-arch-iaas-web-and-db.yml)
+- [Multi-region load balancing with Traffic Manager and Application Gateway](./reference-architecture-traffic-manager-application-gateway.yml)
+- [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
+- [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)
 
 ## Delivering reliability in Azure
 
@@ -132,7 +142,7 @@ as a service (IaaS) resource, like a VM or managed disk, as illustrated.
 
 ![Zonal architecture](./images/high-availability-002.png)
 
-*For example, zonal load balancer, VM, managed disks, VM scale sets.*
+*For example, zonal load balancer, VM, managed disks, virtual machine scale sets.*
 
 In the illustration, each VM and load balancer (LB) are deployed to a specific
 zone.
@@ -303,8 +313,7 @@ requirements. Some things to consider include:
 
 - Does your application have specific latency requirements?
 
-For additional guidance, refer to [Microsoft Azure Well-Architected Framework define
-requirements](../framework/resiliency/overview.md#define-requirements).
+For additional guidance, refer to [Principles of the reliability pillar](../framework/resiliency/principles.md).
 
 Depending on the availability needs of an application, the cost and design
 complexity will vary. When building for a VM workload, there will be a cost
@@ -312,3 +321,12 @@ associated with each VM. For example, two VMs per zone across three active zones
 will have a cost for six VMs. For pricing of VM workloads, refer to the [Azure
 pricing
 calculator](https://azure.microsoft.com/pricing/calculator/?service=virtual-machines).
+
+## Next steps
+
+- [Azure Services that support Availability Zones](/azure/availability-zones/az-region)
+- [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview)
+- [Create a virtual machine in an availability zone using Azure CLI](/azure/virtual-machines/linux/create-cli-availability-zone)
+- [Create a virtual machine in an availability zone using Azure PowerShell](/azure/virtual-machines/windows/create-powershell-availability-zone)
+- [Create a virtual machine in an availability zone using the Azure portal](/azure/virtual-machines/windows/create-portal-availability-zone)
+- [About Azure Edge Zone](/azure/networking/edge-zones-overview)

@@ -15,6 +15,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-hybrid
+    - internal-intro
 name: Run containers in a hybrid environment
 azureCategories:
   - hybrid

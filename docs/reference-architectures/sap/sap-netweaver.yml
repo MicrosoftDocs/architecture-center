@@ -12,11 +12,11 @@ metadata:
     - databases
     - management-and-governance
   ms.custom:
-    - seodec18
     - SAP
     - Windows
     - fcp
     - reference-architecture
+    - e2e-sap
 name: Run SAP NetWeaver in Windows on Azure
 azureCategories:
   - databases

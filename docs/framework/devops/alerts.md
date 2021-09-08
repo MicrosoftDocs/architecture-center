@@ -1,7 +1,7 @@
 ---
 title: Alerting for DevOps
-description: Describes how to use alerts in a well-architected application.
-author: neilpeterson
+description: Explore alerting, which is the process of analyzing the monitoring and instrumentation data and generating a notification if a significant event is detected.
+author: david-stanford
 ms.date: 01/20/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -31,9 +31,9 @@ When configuring alerts in Azure, monitor the following items are configured.
 - Alert Rule - this includes the alert scope or set of resources on which to alert. The alert rule also includes an alert condition. The condition is a query of Azure monitor data and the data threshold on which to raise an alert.
 - Action group - this defines the action to take once an alert has been triggered.
 
-An alert rule can be defined using many different data streams such as [metric values](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview), [log search queries](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log), and [activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts).
+An alert rule can be defined using many different data streams such as [metric values](/azure/azure-monitor/platform/alerts-metric-overview), [log search queries](/azure/azure-monitor/platform/alerts-unified-log), and [activity log events](/azure/azure-monitor/platform/activity-log-alerts).
 
-For more information on alerts, see [Overview of alerts in Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)
+For more information on alerts, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/platform/alerts-overview)
 
 ## Alert prioritization
 
@@ -57,7 +57,7 @@ Each Azure Monitor alert can be configured with one or more associated action gr
 
 Using an Azure Monitor action group, you can raise a notification when an alert is created and respond with automated action.
 
-For more information on using Azure Monitor action groups, see [Create and manage action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+For more information on using Azure Monitor action groups, see [Create and manage action groups](/azure/azure-monitor/platform/action-groups).
 
 ## Alert dashboarding
 
@@ -67,13 +67,13 @@ The default Alerts page provides a summary of alerts that are created within a p
 
 In addition to the default Azure Monitor alert dashboard, custom dashboards can be created using log analytics data. This dashboard can be tailored to reflect the current and past start of all alerts.
 
-For more information on creating dashboards, see [Create and share dashboards of Log Analytics data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards).
+For more information on creating dashboards, see [Create and share dashboards of Log Analytics data](/azure/azure-monitor/learn/tutorial-logs-dashboards).
 
 ## Alert integrations
 
 Because of the flexibility provided with Azure Monitor, alerts, and action groups, integration possibilities are essentially limitless. For example, if you have a custom solution that ingests data through an incoming API, this can be engaged with an Azure Monitor action group each time an alert is raised. This flexibility allows for integration with a custom system, ITSM solutions, and other work tracking solutions. Additionally, many partner integrations are ready to use out of the box.
 
-For information on Azure Monitor and ITSM integration, see [IT Service Management Connector Overview](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview).
+For information on Azure Monitor and ITSM integration, see [IT Service Management Connector Overview](/azure/azure-monitor/platform/itsmc-overview).
 
 ## Next steps
 

@@ -82,7 +82,7 @@ This example scenario though talks more about configuration, the APIs hosted on 
 
 ### Deployment and putting the pieces together
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://deploy.azure.com/?repository=https://github.com/ssarwa/API-Management-ASE-AppGateway)
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://github.com/ssarwa/API-Management-ASE-AppGateway)
 
 The components deployed using the above Resource Manager template needs to be further configured as below
 
@@ -166,7 +166,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 [ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
 [appgtwy-pricing]: https://azure.microsoft.com/pricing/details/application-gateway
 [security]: /azure/security
-[resiliency]: ../../framework/resiliency/overview.md
+[resiliency]: ../../framework/resiliency/principles.md
 [azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
 [azure-hybrid]: ../../reference-architectures/hybrid-networking/index.yml
 [azure-vm-lift-shift]: https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide

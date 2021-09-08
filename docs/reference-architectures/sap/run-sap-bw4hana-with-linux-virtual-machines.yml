@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Run SAP BW/4HANA with Linux virtual machines on Azure
-  description: Learn about the SAP BW/4HANA application tier and how it's suitable for a small-scale production environment of SAP BW/4HANA on Azure where high availability is a priority.
+  title: Run SAP BW/4HANA with Linux VMs
+  description: Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.
   author: maggsl
   ms.author: pnp
   ms.date: 06/10/2020
@@ -14,6 +14,7 @@ metadata:
   ms.custom:
     - fcp
     - reference-architecture
+    - e2e-sap
 name: Run SAP BW/4HANA with Linux virtual machines on Azure
 azureCategories:
   - databases

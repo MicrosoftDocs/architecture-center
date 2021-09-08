@@ -14,6 +14,7 @@ metadata:
     - management-and-governance
   ms.custom:
     - reference-architecture
+    - internal-intro
 name: Windows N-tier application on Azure
 azureCategories:
   - databases

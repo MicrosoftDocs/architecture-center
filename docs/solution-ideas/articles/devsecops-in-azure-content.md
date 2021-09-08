@@ -1,12 +1,13 @@
-
-
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Security is a prime concern for businesses that store any sort of custom or client data. The solution that is covering the management and interface of this data should be developed with security in mind. DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning using a shift-left strategy.
+
+## Architecture
 
 ![Architecture Diagram](../media/devsecops-in-azure.png)
 *Download an [SVG](../media/devsecops-in-azure.svg) of this architecture.*
 
-## Data flow
+### Data flow
 
 1. Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factor authentication can be enabled for extra security.
 2. Developers commit to GitHub Enterprise, driven by work items and bugs tracked with Azure Boards.
@@ -22,7 +23,7 @@ Security is a prime concern for businesses that store any sort of custom or clie
 12. Continuous monitoring with Azure Monitor extends to release pipelines to gate or rollback releases based on monitoring data. Azure Monitor also ingests security logs and can alert on suspicious activity.
 13. As addition and final part of a DevSecOps flow, Azure Security Center will be able to do active threat monitoring on the Azure Kubernetes Service, on both Node level (VM threats) and internals.
 
-## Components
+### Components
 
 * [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) provides identity and access management services for your organization, allowing control over access to the resources inside Azure, GitHub Enterprise, and Azure DevOps.
 * Source code is hosted on [GitHub Enterprise](https://help.github.com/en/github), where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
@@ -44,4 +45,4 @@ Security is a prime concern for businesses that store any sort of custom or clie
 
 ## Related resources
 
-* Using [Azure Security Center](/azure/security-center/container-security) you can supply threat and vulnerability management for your deployed container-based solution.
+* Using [Azure Security Center](/azure/security-center/container-security), you can supply threat and vulnerability management for your deployed container-based solution.
