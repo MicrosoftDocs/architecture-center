@@ -87,3 +87,19 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [admin]: ./critical-impact-accounts.md
 [info]: ./storage-data-encryption.md
 [sec-ops]: ./security-operations.md
+
+<!-- links -->
+
+[identity-ref-arch]: ../reference-architectures/identity/index.yml
+[resiliency]: ../framework/resiliency/principles.md
+[ad-subscriptions]: /azure/active-directory/active-directory-how-subscriptions-associated-directory
+[data-warehouse-encryption]: /azure/data-lake-store/data-lake-store-security-overview#data-protection
+[cosmos-db-encryption]: /azure/cosmos-db/database-security
+[rbac]: /azure/role-based-access-control/overview
+[paired-region]: /azure/best-practices-availability-paired-regions
+[resource-manager-auditing]: /azure/azure-resource-manager/resource-group-audit
+[security-center]: https://azure.microsoft.com/services/security-center
+[security-documentation]: /azure/security
+[sql-db-encryption]: /azure/sql-database/sql-database-always-encrypted-azure-key-vault
+[storage-encryption]: /azure/storage/storage-service-encryption
+[trust-center]: https://azure.microsoft.com/support/trust-center
