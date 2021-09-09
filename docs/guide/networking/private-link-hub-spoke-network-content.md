@@ -8,7 +8,7 @@ The following sections provide general information on Private Link and its envir
 
 ### Azure hub-and-spoke topologies
 
-Hub and spoke is a network topology that you can use on Azure. This topology works well for efficiently managing communication services and meeting security requirements at scale. For more information about hub-and-spoke networking models, see [Hub-and-spoke network topology][Hub-and-spoke network topology].
+Hub and spoke is a network topology that you can use in Azure. This topology works well for efficiently managing communication services and meeting security requirements at scale. For more information about hub-and-spoke networking models, see [Hub-and-spoke network topology][Hub-and-spoke network topology].
 
 By using a hub-and-spoke architecture, you can take advantage of these benefits:
 
@@ -81,7 +81,7 @@ The following questions and flowchart present those factors in decision-tree for
 
    When all your workloads need access to each PaaS resource that you're protecting with Private Link, this configuration is appropriate. But if your workloads access different PaaS resources, don't deploy private endpoints in a dedicated subnet. Instead, improve security by following the principle of least privilege (PoLP):
 
-   - Place each private link in a separate subnet.
+   - Place each private endpoint in a separate subnet.
    - Only give workloads that use a protected resource access to that resource.
 
 1. Do you use Private Endpoint from an on-premises system?
