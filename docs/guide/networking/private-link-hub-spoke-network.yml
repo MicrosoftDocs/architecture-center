@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: Private link in a hub-and-spoke network
+  title: Azure Private Link in hub-and-spoke network
   titleSuffix: Azure Architecture Center
-  description: Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid that use Azure.
-  author: ranieuwe
-  ms.author: ronieuwe
-  ms.date: 06/11/2021
+  description: Use Azure Private Link to access PaaS services from a hub-and-spoke network. Connect to these services by using a private IP address from your virtual network.
+  author: jangelfdez
+  ms.author: josefern
+  ms.date: 09/15/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -13,14 +13,14 @@ metadata:
     - fcp
     - guide
 azureCategories:
-  - compute
-  - storage
-  - analytics
+  - networking
+  - security
 products:
-  - azure-virtual-machines
+  - azure-expressroute
+  - azure-private-link
   - azure-virtual-network
-name: Private link in a hub-and-spoke network
-summary: Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid that use Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/sas-azure-guide-architecture-diagram-thumbnail.png
+name: Azure Private link in hub-and-spoke network
+summary: Use Azure Private Link to access PaaS services from a hub-and-spoke network. Connect to these services by using a private IP address from your virtual network.
+thumbnailUrl: /azure/architecture/browse/thumbs/private-link-hub-spoke-network-private-link-thumbnail.png
 content: |
-  [!include[](sas-overview-content.md)]
+  [!include[](private-link-hub-spoke-network-content.md)]

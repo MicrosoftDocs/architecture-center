@@ -2199,6 +2199,8 @@ items:
                 href: example-scenario/firewalls/index.yml
               - name: Azure Firewall WAF review
                 href: networking/guide/well-architected-framework-azure-firewall.md
+              - name: Azure Private Link in hub-and-spoke network
+                href: guide/networking/private-link-hub-spoke-network.yml
               - name: Segment Virtual Networks
                 href: reference-architectures/hybrid-networking/network-level-segmentation.yml
               - name: Use Azure ExpressRoute with Power Platform
