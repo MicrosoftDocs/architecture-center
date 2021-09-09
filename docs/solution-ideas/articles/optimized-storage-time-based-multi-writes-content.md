@@ -20,7 +20,7 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Architecture
 
-:::image type="content" source="../media/optimized-storage-time-based-multi-writes.svg" lightbox="../media/optimized-storage-time-based-multi-writes.svg" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
+:::image type="content" source="../media/optimized-storage-time-based-multi-writes.svg" lightbox="../media/optimized-storage-time-based-multi-writes.png" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-optimized-storage-time-based-multi-writes.vsdx) of this architecture.*
 
@@ -28,7 +28,7 @@ The architecture may be appropriate for any application that uses massive amount
 1. Azure Front Door, a firewall and layer 7 load balancer, switches user traffic to a different Azure region in case of a regional outage.
 1. Azure App Service hosts websites and RESTful web APIs. Browser clients run AJAX applications that use the APIs.
 1. Web APIs delegate function apps to handle background tasks. The tasks are queued in Azure Queue Storage queues.
-1. The function apps hosted by Azure Functions perform the background tasks, triggered by the queued messages. **The function apps update both Azure Cosmos DB and Table Storage.** 
+1. The function apps hosted by Azure Functions perform the background tasks, triggered by the queued messages. **The function apps update both Azure Cosmos DB and Table Storage.**
 1. Azure Cache for Redis caches database data for the function apps. This offloads database activity and speeds up the function apps and web apps.
 1. Azure Cosmos DB holds 3 to 4 months of the most recent data used by the web applications.
 1. Table Storage holds historical data used by the web applications.

@@ -20,7 +20,8 @@ Since replication is a custom implementation, the consistency level can be whate
 
 The possible difficulty of implementing custom replication and the time required to do it are important considerations with this architecture.
 
-Your application may require multiple storage accounts under some circumstances. See [Considerations](#considerations) for more information.
+>[!Note]
+> Your application may require multiple storage accounts under some circumstances. See [Considerations](#considerations) for more information.
 
 ## Potential use cases
 
@@ -34,7 +35,7 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Architecture
 
-:::image type="content" source="../media/multi-region-web-app-multi-writes-azure-table.svg" lightbox="../media/multi-region-web-app-multi-writes-azure-table.svg" alt-text="Architecture of a resilient system that uses Azure Table Storage. It can have multiple active regions and and can fail over to a standby region.":::
+:::image type="content" source="../media/multi-region-web-app-multi-writes-azure-table.svg" lightbox="../media/multi-region-web-app-multi-writes-azure-table.png" alt-text="Architecture of a resilient system that uses Azure Table Storage. It can have multiple active regions and can fail over to a standby region.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-multi-region-web-app-multi-writes-azure-table.vsdx) of this architecture.*
 

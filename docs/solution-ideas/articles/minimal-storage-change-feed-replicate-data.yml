@@ -2,20 +2,25 @@
 metadata:
   title: Minimal storage – change feed to replicate data
   titleSuffix: Azure Solution Ideas
-  description: tbd
+  description: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
   author: nabilshams
   ms.author: nasiddi
-  ms.date: 08/13/2021
+  ms.date: 09/09/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
 azureCategories:
   - databases
   - web
+  - migration
 products:
+  - azure-front-door
+  - azure-app-service
+  - azure-functions
   - azure-cosmos-db
+  - azure-table-storage
 name: Minimal storage – change feed to replicate data
-summary: tbd
+summary: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
 thumbnailUrl: /azure/architecture/browse/thumbs/minimal-storage-change-feed-replicate-data.png
 content: |
   [!include[](minimal-storage-change-feed-replicate-data-content.md)]

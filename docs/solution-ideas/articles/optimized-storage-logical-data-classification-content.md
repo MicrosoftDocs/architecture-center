@@ -2,10 +2,10 @@
 
 Understanding the data usage patterns is critical for designing an optimized tiering strategy. The right data-tiering strategy can help you save money and scale your application without adding costs. In the following diagram, the application data is segregated by customer and further divided into different categories based on usage patterns.
 
-:::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="The solution diagram shows.":::
+:::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="Data segregated by customer and category.":::
 
 1. The hot tier has data that needs to remain highly available and accessible, to make sure that application can perform its necessary tasks in a given context. Azure Cosmos DB is a great fit to provide these capabilities. For an application, it could be the configuration data. For a customer, it could be the customer’s profile, or customer transactions in the last 3 months. For a student, it could be the current courses. For a marketing application, it could be the current campaigns.
-1. Cool data is relevant but rarely-accessed data. For example, you can keep cool data in the form of snapshot backups or any other data storage that provides less availability but lower  costs. For example, Azure Table storage can be considered cool storage when compared with Azure Cosmos DB with >10ms of latency.
+1. Cool data is relevant but rarely-accessed data. For example, you can keep cool data in the form of snapshot backups or any other data storage that lowers costs but is less available. Azure Table storage, with latency above 10 ms, is cool storage compared to Azure Cosmos DB.
 1. Archive data is classified as historical data, which is kept for a specific period for legal and compliance requirements. You can keep archive data in Azure Data Lake Storage, for long retention periods at a very low cost.
 
 ## Potential use cases
@@ -20,9 +20,9 @@ The following architecture can be appropriate for any application that uses mass
 
 ## Architecture
 
-The application data is stored in Azure Cosmos DB, which replicates data to different Azure regions, with the chosen consistency level. The data replication can be achieved with a one-click operation that simplifies the overall implementation of the solution. Azure Data Factory is used to move historical data from Azure Cosmos DB to Azure Table Storage to reduce cost. You can also move data to any other storage, like Azure Data Lake for reporting. Later, you can archive data using backup or the Azure Storage archive tier, to further reduce cost.
+The application data is stored in Azure Cosmos DB, which replicates data to different Azure regions, with the chosen consistency level. The data replication can be achieved with a one-click operation that simplifies the overall implementation of the solution. Azure Data Factory is used to move historical data from Azure Cosmos DB to Azure Table Storage to reduce cost. You can also move data to any other storage, like Azure Data Lake, for reporting. Later, you can archive data using backup or the Azure Storage archive tier, to further reduce cost.
 
-:::image type="content" source="../media/optimized-storage-logical-data-classification.svg" lightbox="../media/optimized-storage-logical-data-classification.svg" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
+:::image type="content" source="../media/optimized-storage-logical-data-classification.svg" lightbox="../media/optimized-storage-logical-data-classification.png" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-optimized-storage-logical-data-classification.vsdx) of this architecture.*
 

@@ -21,7 +21,7 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Architecture
 
-:::image type="content" source="../media/multi-region-web-app-azure-table-failover.svg" lightbox="../media/multi-region-web-app-azure-table-failover.svg" alt-text="Architecture of a resilient system that can fail over to a standby region.":::
+:::image type="content" source="../media/multi-region-web-app-azure-table-failover.svg" lightbox="../media/multi-region-web-app-azure-table-failover.png" alt-text="Architecture of a resilient system that can fail over to a standby region.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-multi-region-web-app-azure-table-failover.vsdx) of this architecture.*
 

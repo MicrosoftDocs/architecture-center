@@ -15,7 +15,7 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Architecture
 
-:::image type="content" source="../media/optimized-storage-time-based-data-lake.svg" lightbox="../media/optimized-storage-time-based-data-lake.svg" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
+:::image type="content" source="../media/optimized-storage-time-based-data-lake.svg" lightbox="../media/optimized-storage-time-based-data-lake.png" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-optimized-storage-time-based-data-lake.vsdx) of this architecture.*
 

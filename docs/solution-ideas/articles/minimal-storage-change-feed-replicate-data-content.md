@@ -14,7 +14,7 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Architecture
 
-:::image type="content" source="../media/minimal-storage-change-feed-replicate-data.svg" lightbox="../media/minimal-storage-change-feed-replicate-data.svg" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
+:::image type="content" source="../media/minimal-storage-change-feed-replicate-data.svg" lightbox="../media/minimal-storage-change-feed-replicate-data.png" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1857597-PR-3334-minimal-storage-change-feed-replicate-data.vsdx) of this architecture.*
 
