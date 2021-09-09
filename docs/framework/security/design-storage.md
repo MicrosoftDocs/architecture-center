@@ -6,6 +6,11 @@ ms.date: 09/17/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-storage
+categories: 
+  - management-and-governance
+  - security
 ms.custom:
   - article
 ---
@@ -49,6 +54,13 @@ Here are some reference architectures related to secure storage:
 - [Using Azure file shares in a hybrid environment](../../hybrid/azure-file-share.yml)
 
 - [DevSecOps in Azure](../../solution-ideas/articles/devsecops-in-azure.yml)
+
+## Next steps
+
+We recommend that you review the practices and tools implemented as part of the development cycle.
+
+> [!div class="nextstepaction"]
+> [Data protection](./design-storage.md)
 
 ## Related links
 
