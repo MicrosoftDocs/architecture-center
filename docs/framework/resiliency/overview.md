@@ -15,10 +15,14 @@ categories: management-and-governance
 
 # Overview of the reliability pillar
 
+Reliability ensures your application can meet the commitments you make to your customers. Architecting resiliency into your application framework ensures your workloads are available and can recover from failures at any scale.
 
+Building for reliability includes:
 
+- Ensuring a highly-available architecture
+- Recovering from failures such as data loss, major downtime, or ransomware incidents
 
-To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
+To assess the reliability of your workload using the tenets found in the Microsoft Azure Well-Architected Framework, reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 In traditional application development, there has been a focus on increasing the mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, because of several factors:
 
@@ -37,6 +41,7 @@ That said, you still need to build resiliency into your application. Resiliency 
 
 When designing an application to be resilient, you must understand your availability requirements. How much downtime is acceptable? The amount of downtime is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available?
 
+The reliability pillar covers the following topics and best practices to help you build a resilient workload:
 <!--Topic table--->
 
 
