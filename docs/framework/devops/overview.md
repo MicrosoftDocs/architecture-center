@@ -34,4 +34,4 @@ These are the disciplines we group in the operational excellence pillar:
 [deployment]: ./release-engineering-cd.md
 [iac]: ./automation-infrastructure.md
 [testing]: ./release-engineering-testing.md
-[app-design]: ./app-design.md
+[app-design]: ./release-engineering-app-dev.md

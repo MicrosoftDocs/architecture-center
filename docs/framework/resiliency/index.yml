@@ -73,7 +73,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Design a geographically distributed application
-            url: /learn/modules/design-a-geographically-distributed-application/?branch=pr-en-us-168785
+            url: /learn/modules/design-a-geographically-distributed-application/
       - linkListType: video
         links:
           - text: Zone to zone disaster recovery with Azure Site Recovery
@@ -138,19 +138,19 @@ landingContent:
           - text: Advisor Score
             url: /azure/advisor/azure-advisor-score
           - text: Azure Kubernetes Service (AKS)
-            url: /azure/aks/availability-zones?branch=pr-en-us-168785
+            url: /azure/aks/availability-zones
           - text: Azure SQL Database
-            url: /azure/azure-sql/database/high-availability-sla?branch=pr-en-us-168785
+            url: /azure/azure-sql/database/high-availability-sla
           - text: Azure API Management
-            url: /azure/api-management/zone-redundancy?branch=pr-en-us-168785
+            url: /azure/api-management/zone-redundancy
           - text: Application Gateway (V2)
-            url: /azure/architecture/networking/guide/waf-application-gateway?branch=pr-en-us-168785#reliability
+            url: ../../networking/guide/waf-application-gateway.md#reliability
           - text: Key Vault
-            url: /azure/key-vault/general/disaster-recovery-guidance?branch=pr-en-us-168785
+            url: /azure/key-vault/general/disaster-recovery-guidance
           - text: Azure Backup
-            url: /azure/backup/backup-create-rs-vault?branch=pr-en-us-168785#set-storage-redundancy
+            url: /azure/backup/backup-create-rs-vault#set-storage-redundancy
           - text: Azure Site Recovery
-            url: /azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery?branch=pr-en-us-168785             
+            url: /azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery
  # Card
   - title: Reliability APIs
     linkLists:
