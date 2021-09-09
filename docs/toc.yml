@@ -234,6 +234,8 @@ items:
         items:
               - name: About
                 href: framework/resiliency/index.yml
+              - name: Overview
+                href: framework/resiliency/overview.md
               - name: Principles
                 href: framework/resiliency/principles.md
               - name: Design
