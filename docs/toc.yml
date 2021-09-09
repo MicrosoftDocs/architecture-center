@@ -376,6 +376,8 @@ items:
                 href: framework/security/monitor-test.md                                                         
               - name: Security operations
                 href: framework/security/monitor-security-operations.md
+          - name: Tradeoffs
+            href: framework/security/security-tradeoffs.md
       - name: Cost Optimization
         items:
           - name: About
