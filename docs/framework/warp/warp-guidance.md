@@ -1,7 +1,7 @@
 ---
 title: Well-Architected Recommendation Process (WARP) Guidance
 description: A guide for using Well-Architected Review and Advisor Recommendations for continuous workload improvement.
-author: joeybarnes
+author: JoeyBarnes
 ms.date: 09/02/2021
 ms.topic: conceptual
 ms.service: architecture-center

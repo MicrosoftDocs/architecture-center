@@ -1,7 +1,7 @@
 ---
 title: DevOps Tooling for Well-Architected Recommendation Process
 description: Instructions for using theDevOps Tooling for Well-Architected Recommendation Process
-author: jobarn
+author: JoeyBarnes
 ms.date: 09/09/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -20,6 +20,6 @@ categories:
   - devops
 ---
 
-# Well-Architected Recommendation Process (WARP) Guidance
+# DevOps Tooling for Well-Architected Recommendation Process
 
 ## Overview
