@@ -118,7 +118,7 @@ For more information, see [hybrid identity providers](/azure/active-directory/hy
 
 **Learn more**
 
-[Synchronize the hybrid identity systems](./design-identity.md#synchronize-the-hybrid-identity-systems)
+[Synchronize the hybrid identity systems](./design-identity.md)
 
 ## Use passwordless authentication
 

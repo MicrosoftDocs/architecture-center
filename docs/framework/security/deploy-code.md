@@ -74,7 +74,7 @@ Incorporate Secure DevOps on Azure toolkit and the guidance published by the Org
 
 ## Learn more
 
-- [Follow DevOps security guidance](./design-apps-services.md#follow-devops-security-guidance)
+- [Follow DevOps security guidance](./design-apps-services.md)
 - [Getting started with Credential Scanner (CredScan)](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 ## Community links
