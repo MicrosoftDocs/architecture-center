@@ -23,7 +23,7 @@ Security provides confidentiality, integrity, and availability assurances of an 
 
 Reliable applications are resilient and highly available. Every architectural component factors in achieving your requirements for reliability. Workload security is often woven into many layers of the workload’s architecture, operations, and runtime requirements; and may come with their own implications on resiliency or availability.
 
-For example, identity providers and authorization services are a critical dependencies to consider. This includes the identity service (Microsoft Identity Platform) and any libraries that help facilitate the use of those services. At some points in the architecture, a failure at an identity layer is terminal. At other points, reliability can be still achieved through strategies such as caching, taking advantage of TTLs on access tokens, and others. OAuth2 claims validation can happen mostly disconnected from the claims provider. However, not all authorization can be achieved that way. In those situations reliability may be traded in favor of complete security.
+For example, identity providers and authorization services are critical dependencies to consider. This includes the identity service (Microsoft Identity Platform) and any libraries that help facilitate the use of those services. At some points in the architecture, a failure at an identity layer is terminal. At other points, reliability can be still achieved through strategies such as caching, taking advantage of TTLs on access tokens, and others. OAuth2 claims validation can happen mostly disconnected from the claims provider. However, not all authorization can be achieved that way. In those situations reliability may be traded in favor of complete security.
 
 Many workloads may quickly degrade in functionality with the loss of critical security controls. Consider evaluating at each component of your architecture to detect that condition.
 
@@ -59,7 +59,7 @@ Operational Excellence involves understanding business and workload behavior, an
 
 - Supportability considerations
 
-    The most “serviceable” architectures are the ones that are the most transparent to everyone involved, and those often have the least amount of security controls. Adding security controls to your architecture like filtered telemetry feeds, redacted logs, runtime system access restrictions, and so on can all impact the supportability of a solution. Adding security controls often require adding compensating or compromised solutions for observability into the platform.
+    The most “serviceable” architectures are the ones that are the most transparent to everyone involved, and those often have the least number of security controls. Adding security controls to your architecture like filtered telemetry feeds, redacted logs, runtime system access restrictions, and so on can all impact the supportability of a solution. Adding security controls often require adding compensating or compromised solutions for observability into the platform.
 
 ## Related link
 > Go back to the main article: [Security](overview.md)
