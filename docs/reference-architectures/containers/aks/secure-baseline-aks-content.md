@@ -3,7 +3,7 @@ In this reference architecture, we'll build a baseline infrastructure that deplo
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a starting point and configure it as per your needs.
 
 > [!NOTE]
-> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the **Related articles** section for resources.
+> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [**Related articles**](#related-articles) section for resources.
 
 :::row:::
     :::column:::

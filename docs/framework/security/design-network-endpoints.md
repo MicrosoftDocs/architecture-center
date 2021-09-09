@@ -85,10 +85,6 @@ Protect the entire virtual network against potentially malicious traffic from th
 A common design is to implement a DMZ or a perimeter network in front of the application. The DMZ is a separate subnet with the firewall.
 
 > [!TIP]
-> Here are the resources for the preceding example:
->
-> ![GitHub logo](../../_images/github.svg) [GitHub: DMZ between Azure and your on-premises datacenter](https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid).
->
 > The design considerations are described in [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml).
 
 ### Combination approach
