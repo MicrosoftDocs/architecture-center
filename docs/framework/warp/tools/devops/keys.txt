@@ -1,0 +1,12 @@
+# Your Azure Dev-Ops key should be noted here
+## Acquire a personal access token with read-write access to create DevOps Work Items
+## https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page
+
+AzureDevOpsPAT=CHANGE_ME
+
+# Your GitHub User token should be below
+## Acquire a personal access token with write access to create issues (Full control of private repositories)
+## https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
+
+owner=CHANGE_ME
+GitHubUserToken=CHANGE_ME
