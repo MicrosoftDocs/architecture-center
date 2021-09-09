@@ -49,7 +49,7 @@ Reference the following video about how to architect successful workloads on Azu
 
 The following diagram gives a high-level overview of the Azure Well-Architected Framework:
 
-:::image type="content" source="./_images/waf-diagram.png" alt-text="Well-Architected Framework diagram":::
+:::image type="content" source="./_images/waf-diagram.png" alt-text="Diagram of the Well-Architected Framework and supporting elements.":::
 
 In the center, is the Well-Architected Framework, which includes the five pillars of architectural excellence. Surrounding the Well-Architected Framework are six supporting elements:
 
@@ -60,11 +60,11 @@ In the center, is the Well-Architected Framework, which includes the five pillar
 - [Reference Architectures](/azure/architecture/guide/)
 - [Design Principles](/azure/architecture/guide/design-principles/)
 
-### Assessing your workload
+### Assess your workload
 
 To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
-:::image type="content" source="./_images/war-graphic.png" alt-text="Microsoft Azure Well-Architected Review":::
+:::image type="content" source="./_images/war-graphic.png" alt-text="Screenshot of the Microsoft Azure Well-Architected Review.":::
 
 We also recommend you use Azure Advisor and Advisor Score to identify and prioritize opportunities to improve the posture of your workloads. Both services are free to all Azure users and align to the five pillars of the Well-Architected Framework:
 
@@ -155,7 +155,7 @@ For a high-level summary, reference [Overview of the operational excellence pill
 
 For more information, tune in to [Performance Efficiency: Fast & Furious: Optimizing for Quick & Reliable VM Deployments](https://channel9.msdn.com/events/All-Around-Azure/Well-Architected-The-Backstage-Tour/Performance-Efficiency?term=Performance&pubDate=3years&lang-en=true):
 
-:::image type="content" source="./_images/performance-channel-9.png" alt-text="Performance Efficiency":::
+:::image type="content" source="./_images/performance-channel-9.png" alt-text="Screenshot of Performance Efficiency thumbnail for upcoming video.":::
 
 ### Performance efficiency guidance
 
