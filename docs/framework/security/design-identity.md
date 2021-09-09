@@ -37,7 +37,7 @@ Provide security assurance through _identity management_: the process of authent
 > - Preferably use passwordless methods or opt for modern password methods.
 > - Block legacy protocols and authentication methods.
 
-## In this section
+## Management assessments
 
 Follow these questions to assess the workload at a deeper level. The recommendations in this section are based on using Azure AD.
 

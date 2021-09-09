@@ -35,7 +35,7 @@ Protect assets by placing controls on network traffic originating in Azure, betw
 > - Protect from data exfiltration attacks through a defense-in-depth approach with controls at each layer.
 
 
-## In this section
+## Network security assessments
 Follow these questions to assess the workload at a deeper level. The recommendations in this section are based on using Azure Virtual Networking. 
 
 |Assessment|Description|

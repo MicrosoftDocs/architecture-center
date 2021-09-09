@@ -30,7 +30,7 @@ You'll learn:
 
 Azure and Google Cloud built their capabilities independently over time so that each has important implementation and design differences.
 
-## Overview
+## Azure for Google Cloud overview
 
 Like Google Cloud, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both Google Cloud and Azure allow you to build highly available solutions based on Linux or Windows hosts. So, if you're used to development using Linux and OSS technology, both platforms can do the job.
 

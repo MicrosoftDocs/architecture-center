@@ -32,7 +32,7 @@ Regular testing should be performed as part of each major change and if possible
 > - Apply chaos principles continuously.
 > - Create and organize a central chaos engineering team.
 
-## In this section
+## Testing assessments
 
 Follow these questions to assess the workload at a deeper level.
 

@@ -27,7 +27,7 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 > - Azure Resource Health events are used to alert on resource health events.
 > - Monitor long-running workflows for failures.
 
-## In this section
+## Monitoring assessments
 
 | Assessment  | Description |
 | ------------- | ------------- |

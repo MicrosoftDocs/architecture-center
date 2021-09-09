@@ -37,7 +37,7 @@ Regularly monitor resources to maintain the security posture and detect vulnerab
 > - Perform regular internal and external compliance audits, including regulatory compliance attestations.
 > - Regularly test your security design and implementation using test cases based on real-world attacks.
 
-## In this section
+## Security monitoring assessments
 Follow these questions to assess the workload at a deeper level.
 
 |Assessment|Description|

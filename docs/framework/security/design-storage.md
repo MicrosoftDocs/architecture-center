@@ -30,7 +30,7 @@ Classify, protect, and monitor sensitive data assets using access control, encry
 > - Store keys in managed key vault service with identity-based access control and audit policies.
 > - Rotate keys and other secrets frequently.
  
-## In this section
+## Data protection assessments
 
 Follow these questions to assess the workload at a deeper level.
 

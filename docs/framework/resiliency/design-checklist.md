@@ -28,7 +28,7 @@ Reliable applications should maintain a pre-defined percentage of uptime (*avail
 > - Identify possible failure points in the system to build resiliency.
 > - Ensure that applications can operate in the absence of their dependencies.
   
-## In this section
+## Design assessments
 
 Follow these questions to assess the workload at a deeper level.
 

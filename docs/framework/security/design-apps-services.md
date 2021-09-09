@@ -17,7 +17,7 @@ Applications and the data associated with them act as the primary store of busin
 - **Business processes** are encapsulated and executed by applications and services need to be available and provided with high integrity.
 - **Business data** is stored and processed by application workloads and requires high assurances of confidentiality, integrity, and availability.
 
-## In this section
+## Security assessments
 
 |Assessment|Description|
 |---|---|

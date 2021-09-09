@@ -20,7 +20,7 @@ Many cloud applications use asynchronous messages to exchange information betwee
 
  This article describes some of the considerations.
 
-## Overview
+## Message exchange needs
 
 A message exchange between a producer and a consumer needs:
 
