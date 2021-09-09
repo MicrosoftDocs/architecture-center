@@ -1,19 +1,16 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Understanding data usage patterns is critical for designing an optimized tiering strategy. The right strategy can help you save money and scale the application without adding to costs. In this architecture the application data is segregated by customer, and further divided into different categories based on usage patterns.
+Understanding the data usage patterns is critical for designing an optimized tiering strategy. The right data-tiering strategy can help you save money and scale your application without adding costs. In the following diagram, the application data is segregated by customer and further divided into different categories based on usage patterns.
 
-The application data is stored in Azure Cosmos DB which replicates data to different Azure regions with the chosen consistency level. The data replication can be achieved with a one-click operation which simplifies the overall implementation of the solution. Azure Data Factory is used to move historical data from Azure Cosmos DB to Azure Table Storage to reduce cost. You can also move data to any other storage like Azure Data Lake for reporting. Later you can archive data using backup or the Azure Storage archive tier to further reduce cost.
+:::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="The solution diagram shows.":::
 
-Here are examples of scenarios where you may want to logically classify data:
-
-1. Running multiple campaigns or promotions
-1. Performing global surveys
-1. Running research experiments
-1. Running multiple projects along with workforce management
+1. The hot tier has data that needs to remain highly available and accessible, to make sure that application can perform its necessary tasks in a given context. Azure Cosmos DB is a great fit to provide these capabilities. For an application, it could be the configuration data. For a customer, it could be the customer’s profile, or customer transactions in the last 3 months. For a student, it could be the current courses. For a marketing application, it could be the current campaigns.
+1. Cool data is relevant but rarely-accessed data. For example, you can keep cool data in the form of snapshot backups or any other data storage that provides less availability but lower  costs. For example, Azure Table storage can be considered cool storage when compared with Azure Cosmos DB with >10ms of latency.
+1. Archive data is classified as historical data, which is kept for a specific period for legal and compliance requirements. You can keep archive data in Azure Data Lake Storage, for long retention periods at a very low cost.
 
 ## Potential use cases
 
-The architecture may be appropriate for any application that uses massive amounts of data that must always be available. Examples include apps used for:
+The following architecture can be appropriate for any application that uses massive amounts of data that must always be available. Examples include apps used for:
 
 1. Running multiple campaigns or promotions
 1. Performing global surveys
@@ -22,6 +19,8 @@ The architecture may be appropriate for any application that uses massive amount
 1. Managing university enrollment and scheduling
 
 ## Architecture
+
+The application data is stored in Azure Cosmos DB, which replicates data to different Azure regions, with the chosen consistency level. The data replication can be achieved with a one-click operation that simplifies the overall implementation of the solution. Azure Data Factory is used to move historical data from Azure Cosmos DB to Azure Table Storage to reduce cost. You can also move data to any other storage, like Azure Data Lake for reporting. Later, you can archive data using backup or the Azure Storage archive tier, to further reduce cost.
 
 :::image type="content" source="../media/optimized-storage-logical-data-classification.svg" lightbox="../media/optimized-storage-logical-data-classification.svg" alt-text="Architecture of a resilient system that uses two types of storage to reduce costs.":::
 
@@ -58,16 +57,6 @@ The architecture may be appropriate for any application that uses massive amount
 - [Azure Container Instances](https://azure.microsoft.com/services/container-instances) provides a quick and simple way to run tasks without having to manage infrastructure. It's useful during development or for running unscheduled tasks.
 - [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) is a platform for scaling and orchestrating containers and microservices.
 - [Azure Service Bus](https://azure.microsoft.com/services/service-bus) is a reliable cloud messaging service for simple hybrid integration. It can be used instead of Queue Storage in this architecture. For more information, see [Storage queues and Service Bus queues - compared and contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
-
-## Usage patterns
-
-In the following diagram, the application data is segregated by customer and further divided into different categories based on usage patterns.
-
-:::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="The solution diagram shows.":::
-
-1. The hot tier has data which needs to remain highly available and accessible to make sure that application can perform its necessary tasks in a given context. Azure Cosmos DB is a great fit to provide these capabilities. For an application, it could be the configuration data. For a customer, it could be the customer’s profile, or customer transactions in the last 3 months. For a student, it could be the current courses. For a marketing application, it could be the current campaigns.
-1. Cool data is relevant but rarely-accessed data. For example, you can keep cool data in the form of snapshot backups or any other data storage that provides less availability but lower  costs. For example, Azure Table storage can be considered cool storage when compared with Azure Cosmos DB with >10ms of latency.
-1. Archive data is classified as historical data which is kept for a specific period for legal and compliance requirements. You can keep archive data in Azure Data Lake Storage for long retention periods at a very low cost.
 
 ## Considerations
 
