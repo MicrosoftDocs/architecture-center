@@ -41,7 +41,7 @@ Incorporating these pillars helps produce a high quality, stable, and efficient 
 | [Operational Excellence][devops-pillar] | Operations processes that keep a system running in production. |
 | [Performance Efficiency][scalability-pillar] | The ability of a system to adapt to changes in load. |
 
-Reference the following video about how to architect successful workloads on Azure with the Well-Architected Framework:
+Reference the following video about how to architect successful workloads on Azure with the Well-Architected Framework: </br>
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Architect-successful-workloads-on-Azure--Introduction-Ep-1-Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Architect successful workloads on Azure - Microsoft Channel 9 Video"></iframe>
 
@@ -76,7 +76,7 @@ We also recommend you use Azure Advisor and Advisor Score to identify and priori
 
 A reliable workload is one that is both resilient and available. [Resiliency](./resiliency/index.yml) is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your workload when they need to.
 
-For more information about resiliency, reference the following video that will show you how to start improving the reliability of your Azure workloads:
+For more information about resiliency, reference the following video that will show you how to start improving the reliability of your Azure workloads: </br>
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-improving-the-reliability-of-your-Azure-workloads--Reliability-Ep-1--Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Start improving the reliability of your Azure workloads - Microsoft Channel 9 Video"></iframe>
 
@@ -96,7 +96,7 @@ For an overview of reliability principles, reference [Principles of the reliabil
 
 Think about [security](./security/index.yml) throughout the entire lifecycle of an application, from design and implementation to deployment and operations. The Azure platform provides protections against various threats, such as network intrusion and DDoS attacks. But you still need to build security into your application and into your DevOps processes.
 
-Ask the right questions about secure application development on Azure by referencing the following video:
+Ask the right questions about secure application development on Azure by referencing the following video: </br>
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Ask-the-right-questions-about-secure-application-development-on-Azure/player" width="760" height="340" allowFullScreen frameBorder="0" title="Ask the right questions about secure application development on Azure - Microsoft Channel 9 Video"></iframe>
 
@@ -116,7 +116,7 @@ For more information, reference [Overview of the security pillar](./security/ove
 
 When you're designing a cloud solution, focus on generating incremental value early. Apply the principles of **[Build-Measure-Learn](/azure/cloud-adoption-framework/innovate/considerations/)**, to accelerate your time to market while avoiding capital-intensive solutions.
 
-For more information, reference [Cost optimization](./cost/index.yml) and the following video on how to start optimizing your Azure costs:
+For more information, reference [Cost optimization](./cost/index.yml) and the following video on how to start optimizing your Azure costs: </br>
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Start-optimizing-your-Azure-costs--Cost-Optimization-Ep-1--Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Start optimizing your Azure costs - Microsoft Channel 9 Video"></iframe>
 
@@ -135,7 +135,7 @@ For a high-level overview, reference [Overview of the cost optimization pillar](
 
 [Operational excellence](./devops/index.yml) covers the operations and processes that keep an application running in production. Deployments must be reliable and predictable. Automate deployments to reduce the chance of human error. Fast and routine deployment processes won't slow down the release of new features or bug fixes. Equally important, you must quickly roll back or roll forward if an update has problems.
 
-For more information, reference the following video about bringing security into your DevOps practice on Azure:
+For more information, reference the following video about bringing security into your DevOps practice on Azure: </br>
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/DevSecOps-bringing-security-into-your-DevOps-practice-on-Azure/player" width="760" height="340" allowFullScreen frameBorder="0" title="DevSecOps: bringing security into your DevOps practice on Azure - Microsoft Channel 9 Video"></iframe>
 
