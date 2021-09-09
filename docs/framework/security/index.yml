@@ -135,7 +135,7 @@ landingContent:
           - text: Prevent, detect, and respond to threats
             url: monitor-remediate.md
           - text: Security operations best practices
-            url: monitor-security-operations.md#security-operations-principles
+            url: monitor-security-operations.md
           - text: "Penetration testing (pentesting)"
             url: monitor-test.md#penetration-testing-pentesting
           - text: Review critical access
