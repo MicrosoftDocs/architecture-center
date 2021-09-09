@@ -75,3 +75,7 @@ More information:
 * **Case study:** [Running 1M databases on Azure SQL for a large SaaS provider: Microsoft Dynamics 365 and Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/)
 * **Sample:** The [Wingtip Tickets SaaS application](/azure/azure-sql/database/saas-tenancy-welcome-wingtip-tickets-app) provides three multi-tenant examples of the the same app; each explores a different database tenancy pattern on Azure SQL Database. The first uses a standalone application per tenant with its own database. The second uses a multi-tenant app with a database per tenant. The third sample uses a multi-tenant app with sharded multi-tenant databases.
 * [Multitenant design patterns for SaaS applications on Azure SQL Database](https://www.youtube.com/watch?v=jjNmcKBVjrc)
+
+## Next steps
+
+See [Resources for architects and developers of multitenant solutions](/azure/architecture/guide/multitenant/related-resources).
