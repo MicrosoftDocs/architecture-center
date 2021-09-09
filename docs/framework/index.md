@@ -106,7 +106,7 @@ Ask the right questions about secure application development on Azure by referen
 Consider the following broad security areas:
 
 - [Identity management](./security/overview.md#identity-management)
-- [Protecting your infrastructure](./security/overview.md#protecting-your-infrastructure)
+- [Protecting your infrastructure](./security/overview.md#protect-your-infrastructure)
 - [Application security](./security/overview.md#application-security)
 - [Data sovereignty and encryption](./security/overview.md#data-sovereignty-and-encryption)
 - [Security resources](./security/overview.md#security-resources)
