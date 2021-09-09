@@ -230,7 +230,7 @@ items:
     items:
       - name: Overview
         href: framework/index.md
-      - name: Well-Architected Recommendation Process (WARP)
+      - name: Well-Architected Recommendation Process
         href: framework/warp/warp-guidance.md        
       - name: Reliability
         items:

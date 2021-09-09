@@ -1,5 +1,5 @@
 ---
-title: Well-Architected Recommendation Process (WARP) Guidance
+title: Well-Architected Recommendation Process Guidance
 description: A guide for using Well-Architected Review and Advisor Recommendations for continuous workload improvement.
 author: JoeyBarnes
 ms.date: 09/02/2021
@@ -19,7 +19,7 @@ categories:
   - devops
 ---
 
-# Well-Architected Recommendation Process (WARP) Guidance
+# Well-Architected Recommendation Process Guidance
 
 ## Overview
 
@@ -47,7 +47,7 @@ If you are using a [DevOps](/azure/cloud-adoption-framework/ready/enterprise-sca
 
 Now that the recommendations have been added to the backlog, the workload owners and key stakeholders should prioritize then triage the recommendations in a weekly standup meeting with the workload team. Then, they assign to a specific owner, postpone, or dismiss.  When assigned to a specific owner, the recommendation should be tracked until resolved and weekly/monthly reminders are sent to the assignee.
 
-When going thru this process, it is recommended to align responsibilities across teams by developing a cross-team matrix that identifies [_responsible, accountable, consulted, and informed (RACI)_]((/azure/cloud-adoption-framework/organize/raci-alignment)) parties.  Some of the key benefits of this exercise are:
+When going thru this process, it is recommended to align responsibilities across teams by developing a cross-team matrix that identifies [_responsible, accountable, consulted, and informed (RACI)_](/azure/cloud-adoption-framework/organize/raci-alignment) parties.  Some of the key benefits of this exercise are:
 
 - Assist teams in charting roles and responsibilities in a consistent manner
 - Assist teams with development of implementation tool kits
@@ -59,7 +59,7 @@ When going thru this process, it is recommended to align responsibilities across
 
 ## Implement Work Items
 
-This stage of the process is focused on working thru the backlog of recommendations.  How you organize this work will depend on your [cloud operating model](/azure/cloud-adoption-framework/operating-model/).  For example, an [Agile-based](/azure/devops/boards/get-started/plan-track-work?view=azure-devops&tabs=agile-process) process would have an emphasis on sprint planning paired with frequent stand ups so that progress can be tracked and reported on.
+This stage of the process is focused on working thru the backlog of recommendations.  How you organize this work will depend on your [cloud operating model](/azure/cloud-adoption-framework/operating-model).  For example, an [Agile-based](/azure/devops/boards/get-started/plan-track-work?view=azure-devops&tabs=agile-process) process would have an emphasis on sprint planning paired with frequent stand ups so that progress can be tracked and reported on.
 
 ## Monitor Progress
 
