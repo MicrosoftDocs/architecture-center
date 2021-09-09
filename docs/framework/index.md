@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn about the five pillars of the Azure Well-Architected Framework and how they can produce a high quality, stable, and efficient cloud architecture.
 author: david-stanford 
 ms.author: v-stacywray
-ms.date: 09/08/2021
+ms.date: 09/09/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -49,7 +49,7 @@ Reference the following video about how to architect successful workloads on Azu
 
 The following diagram gives a high-level overview of the Azure Well-Architected Framework:
 
-:::image type="content" source="./_images/WAF-diagram.png" alt-text="Well-Architected Framework diagram":::
+:::image type="content" source="./_images/waf-diagram.png" alt-text="Well-Architected Framework diagram":::
 
 In the center, is the Well-Architected Framework, which includes the five pillars of architectural excellence. Surrounding the Well-Architected Framework are six supporting elements:
 
@@ -64,7 +64,7 @@ In the center, is the Well-Architected Framework, which includes the five pillar
 
 To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
-:::image type="content" source="./_images/WAR-graphic.png" alt-text="Microsoft Azure Well-Architected Review":::
+:::image type="content" source="./_images/war-graphic.png" alt-text="Microsoft Azure Well-Architected Review":::
 
 We also recommend you use Azure Advisor and Advisor Score to identify and prioritize opportunities to improve the posture of your workloads. Both services are free to all Azure users and align to the five pillars of the Well-Architected Framework:
 

@@ -22,16 +22,16 @@ Security is one of the most important aspects of any architecture. It provides c
 
 The security of complex systems depends on understanding the business context, social context, and technical context. As you design your system, cover these areas:
 
-:::image type="content" source="./images/security-areas.png" alt-text="Security design areas.":::
+:::image type="content" source="./images/security-areas.png" alt-text="Screenshot showing security design areas.":::
 
 Understanding an IT solution as it interacts with its surrounding environment
 holds the key to preventing unauthorized activity and to identifying anomalous
 behavior that may represent a security risk. Another key success factor is
 adopting a mindset of assuming failure of security controls so that you design
 compensating controls that limit risk and damage in the event a primary control
-fails. Assuming failures is sometimes referred to as “assume breach” or “assume
-compromise” and is closely related to the “Zero Trust” approach of continuously
-validating security assurances. The “Zero Trust” approach is described in the [Security Design Principles](../../framework/security/security-principles.md) section in more detail.
+fails. Assuming failures is sometimes referred to as "assume breach" or "assume
+compromise" and is closely related to the "Zero Trust" approach of continuously
+validating security assurances. The "Zero Trust" approach is described in the [Security Design Principles](../../framework/security/security-principles.md) section in more detail.
 
 Cloud architectures can help simplify the complex task of securing an enterprise
 estate through specialization and shared responsibilities:
@@ -62,7 +62,7 @@ the particular service, while addressing others will remain the customer's
 responsibility. To ensure that the proper security controls are provided, a
 careful evaluation of the services and technology choices becomes necessary.
 
-![Shared Responsibility and Key Strategies](./images/shared-resp.png)
+:::image type="content" source="./images/shared-resp-color.png" alt-text="A diagram of shared responsibility and key strategies.":::
 
 **Shared Responsibility and Key Strategies**
 
@@ -99,7 +99,7 @@ This results in three key strategies
     resources, enabling technology like Azure Security Center to quickly and
     accurately measure the patch state of all servers and remediate them.
 
-- **“Trust but Verify” each cloud provider** – for the elements, which are
+- **"Trust but Verify" each cloud provider** – for the elements, which are
     under the control of the cloud provider. You should ensure the security
     practices and regulatory compliance of each cloud provider (large and small)
     meet your requirements.
@@ -107,7 +107,7 @@ This results in three key strategies
 To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 
-:::image type="content" source="./images/devops-security.png" alt-text="Security cycle.":::
+:::image type="content" source="./images/devops-security.png" alt-text="A diagram of the security cycle.":::
 
 These are the topics we cover in the security pillar of the Microsoft Azure Well-Architected Framework
 
