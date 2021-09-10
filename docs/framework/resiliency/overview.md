@@ -19,7 +19,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Building for reliability includes:
 
-- Ensuring a highly-available architecture
+- Ensuring a highly available architecture
 - Recovering from failures such as data loss, major downtime, or ransomware incidents
 
 To assess the reliability of your workload using the tenets found in the Microsoft Azure Well-Architected Framework, reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
@@ -51,10 +51,10 @@ The reliability pillar covers the following topics and best practices to help yo
 |-----------------|-----------|
 |[Reliability principles](principles.md)|These critical principles are used as lenses to assess the reliability of an application deployed on Azure.|
 |[Design for reliability](design-checklist.md)|Consider how systems use Availability Zones, perform scalability, respond to failure, and other strategies that optimize reliability in application design.|
-|[Target and non-functional requirements](design-requirements.md)|Target and non-functional requirements such as availability targets and recovery targets allow you to measure the uptime and downtime of your workloads. Having clearly defined targets is crucial in order to have a goal to work and measure against.|
+|[Target and non-functional requirements](design-requirements.md)|Target and non-functional requirements such as availability targets and recovery targets allow you to measure the uptime and downtime of your workloads. Having clearly defined targets is crucial to have a goal to work and measure against.|
 |[Resiliency and dependencies](design-resiliency.md)|Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure. Dependencies are required for the application to fully operate.|
 |[Best practices](design-best-practices.md)|During the architectural phase, focus on implementing practices that meet your business requirements, identify failure points, and minimize the scope of failures.|
-|[Testing for reliability](test-checklist.md)|Regular testing should be performed as part of each major change and on a regular basis to validate existing thresholds, targets, and assumptions.|
+|[Testing for reliability](test-checklist.md)|Regular testing should be performed as part of each major change to validate existing thresholds, targets, and assumptions.|
 |[Monitoring for reliability](monitor-checklist.md)|Get an overall picture of application health. If something fails, you need to know *that* it failed, *when* it failed, and *why*.|
 |[Reliability patterns](reliability-patterns.md)|Applications must be designed and implemented to maximize availability.|
 
