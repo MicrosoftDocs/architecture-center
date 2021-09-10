@@ -53,9 +53,11 @@ The following diagram shows how on-premises users connect to a virtual network a
 
 You can deploy private endpoints in either a hub or a spoke. A few factors determine which location works best in each situation. The factors are relevant for Azure PaaS services and for customer-owned and partner services that Azure hosts.
 
-The following questions and flowchart present those factors in decision-tree format. Use these questions to determine the best configuration for your environment:
+### Questions to consider
 
-### Is Virtual WAN your network connectivity solution?
+Use the following questions to determine the best configuration for your environment:
+
+#### Is Virtual WAN your network connectivity solution?
 
 If you use Virtual WAN, you can only deploy private endpoints on spoke virtual networks that you connect to your virtual hub. You can't deploy resources into your virtual hub or secure hub.
 
@@ -64,7 +66,7 @@ For more information on integrating Private Endpoint into your network, see thes
 - [Use Private Link in Virtual WAN][Use Private Link in Virtual WAN]
 - [How to configure virtual hub routing][How to configure virtual hub routing]
 
-### Do you use a network virtual appliance (NVA) such as Azure Firewall?
+#### Do you use a network virtual appliance (NVA) such as Azure Firewall?
 
 Traffic to Private Endpoint uses the Azure network backbone and is encrypted. You might need to log or filter that traffic. You might also want to use a firewall to analyze traffic flowing to Private Endpoint if you use a firewall in any of these areas:
 
@@ -84,7 +86,7 @@ When all your workloads need access to each PaaS resource that you're protecting
 - Place each private endpoint in a separate subnet.
 - Only give workloads that use a protected resource access to that resource.
 
-### Do you use Private Endpoint from an on-premises system?
+#### Do you use Private Endpoint from an on-premises system?
 
 If you plan on using private endpoints to access resources from an on-premises system, deploy the endpoints in your hub. With this arrangement, you can take advantage of some of the benefits that the previous section describes:
 
@@ -95,6 +97,8 @@ If you're planning on accessing resources from applications that you've deployed
 
 - If only one application needs access to your resources, deploy Private Endpoint in that application's spoke.
 - If more than one application needs access to your resources, deploy Private Endpoint in your hub.
+
+### Flowchart
 
 The following flowchart summarizes the various options and recommendations. Since every customer has a unique environment, consider your system's requirements when deciding where to place private endpoints.
 
