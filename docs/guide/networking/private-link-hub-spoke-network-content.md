@@ -51,50 +51,50 @@ The following diagram shows how on-premises users connect to a virtual network a
 
 ## Decision tree for Private Link deployment
 
-You can deploy private endpoints in either a hub or a spoke. A few factors determine which location works best in each situation. The factors are relevant for Azure PaaS services and also for customer-owned and partner services that Azure hosts.
+You can deploy private endpoints in either a hub or a spoke. A few factors determine which location works best in each situation. The factors are relevant for Azure PaaS services and for customer-owned and partner services that Azure hosts.
 
 The following questions and flowchart present those factors in decision-tree format. Use these questions to determine the best configuration for your environment:
 
-1. Is Virtual WAN your network connectivity solution?
+### Is Virtual WAN your network connectivity solution?
 
-   If you use Virtual WAN, you can only deploy private endpoints on spoke virtual networks that you connect to your virtual hub. You can't deploy resources into your virtual hub or secure hub.
+If you use Virtual WAN, you can only deploy private endpoints on spoke virtual networks that you connect to your virtual hub. You can't deploy resources into your virtual hub or secure hub.
 
-   For more information on integrating Private Endpoint into your network, see these articles:
+For more information on integrating Private Endpoint into your network, see these articles:
 
-   - [Use Private Link in Virtual WAN][Use Private Link in Virtual WAN]
-   - [How to configure virtual hub routing][How to configure virtual hub routing]
+- [Use Private Link in Virtual WAN][Use Private Link in Virtual WAN]
+- [How to configure virtual hub routing][How to configure virtual hub routing]
 
-1. Do you use a network virtual appliance (NVA) such as Azure Firewall?
+### Do you use a network virtual appliance (NVA) such as Azure Firewall?
 
-   Traffic to Private Endpoint uses the Azure network backbone and is encrypted. But you might need to log or filter that traffic. You also might want to use a firewall to analyze traffic flowing to Private Endpoint if you use a firewall in any of these areas:
+Traffic to Private Endpoint uses the Azure network backbone and is encrypted. You might need to log or filter that traffic. You might also want to use a firewall to analyze traffic flowing to Private Endpoint if you use a firewall in any of these areas:
 
-   - Across spokes
-   - Between your hub and spokes
-   - Between on-premises components and your Azure networks
+- Across spokes
+- Between your hub and spokes
+- Between on-premises components and your Azure networks
 
-   In this case, deploy private endpoints in your hub in a dedicated subnet. This arrangement helps you to:
+In this case, deploy private endpoints in your hub in a dedicated subnet. This arrangement:
 
-   - Simplify your secure network address translation (SNAT) rule configuration. You can create a single SNAT rule in your NVA for traffic to the dedicated subnet that contains your private endpoints. You can route traffic to other applications without applying SNAT.
-   - Simplify your route table configuration. For traffic that's flowing to private endpoints, you can add a rule to route that traffic through your NVA. You can reuse that rule across all your spokes, virtual private network (VPN) gateways, and Azure ExpressRoute gateways.  
-   - Apply network security group rules for inbound traffic in the subnet that you dedicate to Private Endpoint. These rules work on top of your firewall by filtering traffic to your resources. They provide a single place for controlling access to resources.
-   - Centralize management of private endpoints. If you deploy all private endpoints in one place, you can more efficiently manage them in all your virtual networks and subscriptions.
+- Simplifies your secure network address translation (SNAT) rule configuration. You can create a single SNAT rule in your NVA for traffic to the dedicated subnet that contains your private endpoints. You can route traffic to other applications without applying SNAT.
+- Simplifies your route table configuration. For traffic that's flowing to private endpoints, you can add a rule to route that traffic through your NVA. You can reuse that rule across all your spokes, virtual private network (VPN) gateways, and Azure ExpressRoute gateways.  
+- Makes it possible to apply network security group rules for inbound traffic in the subnet that you dedicate to Private Endpoint. These rules filter traffic to your resources. They provide a single place for controlling access to your resources.
+- Centralizes management of private endpoints. If you deploy all private endpoints in one place, you can more efficiently manage them in all your virtual networks and subscriptions.
 
-   When all your workloads need access to each PaaS resource that you're protecting with Private Link, this configuration is appropriate. But if your workloads access different PaaS resources, don't deploy private endpoints in a dedicated subnet. Instead, improve security by following the principle of least privilege (PoLP):
+When all your workloads need access to each PaaS resource that you're protecting with Private Link, this configuration is appropriate. But if your workloads access different PaaS resources, don't deploy private endpoints in a dedicated subnet. Instead, improve security by following the principle of least privilege:
 
-   - Place each private endpoint in a separate subnet.
-   - Only give workloads that use a protected resource access to that resource.
+- Place each private endpoint in a separate subnet.
+- Only give workloads that use a protected resource access to that resource.
 
-1. Do you use Private Endpoint from an on-premises system?
+### Do you use Private Endpoint from an on-premises system?
 
-   If you plan on using private endpoints to access resources from an on-premises system, deploy the endpoints in your hub. With this arrangement, you can take advantage of some of the benefits that the previous section describes:
+If you plan on using private endpoints to access resources from an on-premises system, deploy the endpoints in your hub. With this arrangement, you can take advantage of some of the benefits that the previous section describes:
 
-   - Using network security groups to control access to your resources
-   - Managing your private endpoints in a centralized location
+- Using network security groups to control access to your resources
+- Managing your private endpoints in a centralized location
 
-   If you're planning on accessing resources from applications that you've deployed in Azure, the situation's different:
+If you're planning on accessing resources from applications that you've deployed in Azure, the situation's different:
 
-   - If only one application needs access to your resources, deploy Private Endpoint in that application's spoke.
-   - If more than one application needs access to your resources, deploy Private Endpoint in your hub.
+- If only one application needs access to your resources, deploy Private Endpoint in that application's spoke.
+- If more than one application needs access to your resources, deploy Private Endpoint in your hub.
 
 The following flowchart summarizes the various options and recommendations. Since every customer has a unique environment, consider your system's requirements when deciding where to place private endpoints.
 
@@ -137,7 +137,7 @@ With this approach, on-premises and Azure DNS clients can resolve the name and a
 
 ### Costs
 
-- When you use Private Endpoint across a regional virtual network peering, you don't incur peering charges for traffic to and from Private Endpoint.
+- When you use Private Endpoint across a regional virtual network peering, you're not charged peering fees for traffic to and from Private Endpoint.
 - Peering costs still apply with other infrastructure resource traffic that flows across a virtual network peering.
 - If you deploy private endpoints across different regions, Private Link rates and global peering inbound and outbound rates apply.
 
