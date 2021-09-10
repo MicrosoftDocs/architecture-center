@@ -230,14 +230,12 @@ for security.
 You can discover existing connected tenants using a
 [tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions
 
-
 ## Next steps
 
 Restrict access to Azure resources based on a need-to-know basis starting with the principle of least privilege security and add more based on your operational needs.
 
 > [!div class="nextstepaction"]
 > [Azure control plane security](design-identity-control-plane.md)
-
 
 ## Related links
 

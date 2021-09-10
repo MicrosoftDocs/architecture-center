@@ -60,11 +60,11 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 
 ## Reference architecture
 
-- [Hybrid Security Monitoring using Azure Security Center and Azure Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)
+- [Hybrid Security Monitoring using Azure Security Center and Azure Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 
   This reference architecture illustrates how to use Azure Security Center and Azure Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads.
 
-- [Azure security solutions for AWS](/azure/architecture/reference-architectures/aws/aws-azure-security-solutions)
+- [Azure security solutions for AWS](../../reference-architectures/aws/aws-azure-security-solutions.yml)
 
   This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying several Microsoft security solutions.
 

@@ -30,7 +30,7 @@ Use the following pre-built template to deploy this architecture to Azure
 * [Create a Web App](https://azure.microsoft.com/get-started/web-app)
 * [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart)
 * [Quickstart: Azure Blob Storage client library v12 for .NET](/azure/storage/blobs/storage-quickstart-blobs-dotnet)
-* [Azure Blob Storage Samples for .NET](https://docs.microsoft.com/samples/azure-samples/storage-blob-dotnet-getting-started/storage-blob-dotnet-getting-started)
+* [Azure Blob Storage Samples for .NET](/samples/azure-samples/storage-blob-dotnet-getting-started/storage-blob-dotnet-getting-started)
 * [Diagnose exceptions in web apps with Application Insights](/azure/azure-monitor/app/asp-net-exceptions)
 * [Explore .NET/.NET Core and Python trace logs in Application Insights](/azure/azure-monitor/app/asp-net-trace-logs)
 * Azure Cache for Redis:
