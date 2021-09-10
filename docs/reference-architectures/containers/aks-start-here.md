@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes Service (AKS) architecture design
+title: Azure Kubernetes Service (AKS) design
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.
 author: ckittel
