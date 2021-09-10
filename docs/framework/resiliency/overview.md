@@ -51,6 +51,7 @@ The reliability pillar covers the following topics and best practices to help yo
 |-----------------|-----------|
 |[Reliability principles](principles.md)|These critical principles are used as lenses to assess the reliability of an application deployed on Azure.|
 |[Design for reliability](design-checklist.md)|Consider how systems use Availability Zones, perform scalability, respond to failure, and other strategies that optimize reliability in application design.|
+|[Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service)|Every technology has its own particular failure modes, which you must consider when designing and implementing your application. Use this checklist to review the resiliency considerations for specific Azure services.|
 |[Target and non-functional requirements](design-requirements.md)|Target and non-functional requirements such as availability targets and recovery targets allow you to measure the uptime and downtime of your workloads. Having clearly defined targets is crucial to have a goal to work and measure against.|
 |[Resiliency and dependencies](design-resiliency.md)|Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure. Dependencies are required for the application to fully operate.|
 |[Best practices](design-best-practices.md)|During the architectural phase, focus on implementing practices that meet your business requirements, identify failure points, and minimize the scope of failures.|
