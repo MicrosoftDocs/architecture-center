@@ -670,7 +670,7 @@ items:
               - name: Build a Real-time Recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Movie recommendations on Azure
-                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
               - name: Scalable personalization on Azure
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: E-commerce front end
