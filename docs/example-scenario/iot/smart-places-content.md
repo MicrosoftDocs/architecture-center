@@ -1,64 +1,111 @@
-Smart Places are physical environments, which bring together connected
-devices and data sources to provide visibility into, and control of
-products and systems, interior and exterior spaces, and personal
-experiences with one's surroundings. These connected environments could
-be a building, college or corporate campus, stadium, or even a city.
-Smart Places solutions provide value to customers by helping property
-owners, facility managers, and occupants operate and maintain their
-space, making the space more efficient, cost effective, comfortable, and
-productive. The catalyst to achieving value in these types of solutions
-is to digitally model the space, bring the relevant data together, and
-relate that data accurately to derive insights from the connections
-between people, places, and devices.
+*Smart places* are physical environments that bring together connected devices and data sources. By using these environments, you can see and control:
+
+- Products and systems
+- Interior and exterior spaces
+- Personal experiences with surroundings
+
+Smart places can include buildings, college or corporate campuses, stadiums, and cities. They provide value by:
+
+- Helping property owners, facility managers, and occupants operate and maintain spaces
+- Making spaces more efficient, cost effective, comfortable, and productive
+
+These environments work by digitally modeling the spaces and compiling relevant data. From that data, you can derive insights on how people, places, and devices are connected.
+
+Add info as specified in template:
+
+- A paragraph that describes what the solution does
+- A paragraph that contains a brief description of the main Azure services that make up the solution.
 
 ## Business outcomes
 
 In this example solution, a large commercial real estate owner wants to
-digitally transform its commercial office property.  This improvement would bring together
-legacy facilities management data with new features and technologies,
-such as occupancy sensing, café queue optimization, parking,
-shuttles, etc. This effort requires integrating with brownfield devices
-communicating through common building transports such as BACnet
-or Modbus, and modern IoT devices that monitor the physical
-space. The company's goals include:
+digitally transform its office property. This improvement combines
+legacy facilities-management data with new features and technologies including:
 
--   Optimize energy usage by diagnosing faults and streamlining field
-    service management.  This optimization would integrate the existing building management system with devices.
+- Occupancy sensing
+- Café queue optimization
+- Parking
+- Shuttle services
 
--   Derive new spatial insights and offer innovative occupant
-    experiences by connecting modern devices.
+This effort requires integrating *brownfield*, or legacy, devices and modern IoT devices that monitor the physical space. The brownfield devices communicate through common building transports such as BACnet and Modbus.
 
--   Bring together multiple sources of data into a cohesive
-    digital model of the environment, expanding data analysis
-    opportunities.
+The company's goals include:
 
--   Create a scalable solution that will handle the demands of
-    collecting and archiving millions of data points.
+- Optimizing energy usage by diagnosing faults and streamlining field service management. This optimization integrates the existing building management system with devices.
 
--   Build a solution that can easily add partner solutions in the future
-    and bring that data into the same digital twin of the environment.
+- Deriving new spatial insights and offering innovative occupant experiences by connecting modern devices.
+
+- Developing a cohesive digital model of the environment by bringing together multiple sources of data. The model should expand data analysis opportunities.
+
+- Creating a scalable solution that can collect and archive millions of data points.
+
+- Building a solution that can easily add partner solutions. The solution should also incorporate partner data into the environment's digital twin.
 
 ## Potential use cases
 
-The reference architecture in this article is intended to show a viable
-approach and best practices in a Smart Places solution that uses
-current Azure services and design patterns. This solution could be applied to the following use cases:
+This solution applies to many areas:
 
-- Smart campus
+- Smart campuses
 - Facilities management
-- Smart office
+- Smart offices
 - Energy optimization
-- Many other use cases
 
 ## Architecture
 
-The rectangular boxes containing multiple icons represent categories of
-services that could either independently or together provide that
-portion of the solution's functionality. When the rectangular boxes are
-connected with an arrow, that solution area will communicate
-with the solution area that is connected to. 
+Add sentence introducing diagram:
+
+- The boxes that contain multiple icons represent categories of
+services. Those services work independently or together to provide functionality.
+- Arrows between boxes represent communication between the corresponding areas.
 
 [ ![A diagram illustrating the recommended architecture for a Smart Places solution](media/smart-places.svg) ](media/smart-places.svg#lightbox)
+
+1. The environment uses any of these communication protocols:
+
+   - Building Automation Controls network (BACnet)
+   - Modbus
+   - KNX
+   - LonWorks
+
+1. On-premises devices and systems send data and telemetry to the cloud. Data sources include:
+
+   - Brownfield devices
+   - Direct-connect sensors
+   - Sensors that independent software vendors (ISVs) provide
+   - Existing business systems
+
+1. Devices, sensors, and actuators generate telemetry.
+
+   - Some devices interact directly with Azure IoT Hub. Many of them use the [Azure IoT SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks). Some devices use Azure RTOS or Azure Sphere devices.
+   - Some devices send data to IoT Edge. This component serves in two ways:
+
+     - As a [gateway](https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway?view=iotedge-2018-06) to IoT Hub for:
+
+       - Devices with low-power requirements
+       - Legacy devices
+       - Constrained devices
+
+     - As a central message hub that can run [real-time analytics](https://docs.microsoft.com/azure/iot-edge/about-iot-edge?view=iotedge-2018-06) through Machine Learning and Azure Stream Analytics.
+
+1. External, batch, or legacy systems send data to [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction). This static data typically originates in files and databases.
+
+1. Business-to-business connectors translate and stream data bidirectionally between vendor components and Azure Digital Twins.
+
+1. Azure IoT Hub ingests device telemetry. IoT Hub also provides these services:
+
+   - Device-level security
+   - Device provisioning services
+   - Device twins
+   - Command and control services
+   - Scale out capabilities
+
+1. Azure Data Factory transforms semi-static data and transfers it to Azure Data Explorer.
+
+1. A service transfers data from IoT Hub to Digital Twins. Azure Digital Twins holds the spatial graph of the buildings and environment. Azure Functions processes the data, performing fault detection and graph updates.
+
+1. Digital Twins sends the data through Azure Event Grid to Azure Data Explorer. This analytics service functions as a historian by storing the solution's time series data.
+
+
 
 The data flows through the solution as follows:
 
@@ -273,19 +320,23 @@ The data flows through the solution as follows:
     are more appropriate when the solution has a high volume of
     messages from a low number of input devices.
 
+## Considerations
+
+The following considerations apply to this solution:
+
+### Scalability considerations
+Smart Places solutions range from relatively simple, low volume to sophisticated solutions with very high data volume (such as a solution that aggregates HVAC telemetry across a large campus.)   The core Azure services in this architecture are built to scale, but when they are integrated with one another to form a solution, the development team needs to ensure that they do not create unintentional choke points.  Avoiding these choke points is best addressed by having performance tests run at scheduled intervals to identify potential problems early in the development cycle.
+
+### Flexibility considerations
+Integration is mentioned in the article, but Smart Places solutions need to pay additional attention to building a solution that remains flexible.   Smart Places use cases are rapidly evolving, so new sensors, new data types, new Artificial Intelligence opportunities, and new visualization techniques will inevitably be required after initial deployment. The proposed architecture is loosely coupled which is a requirement for flexibility, the use of [industry standards for data ontology](https://docs.microsoft.com/azure/digital-twins/concepts-ontologies-adopt), will reduce the time to add new functionality and integrate new software, and the use of [Azure API Management](https://azure.microsoft.com/services/api-management/#overview) increases flexibility by providing a way to create multiple API styles and signatures to a single underlying API.
+
+### Security considerations
+Legacy building solutions often relied on a lack of external connectivity as the primary source of security.  In today’s world, even data that doesn’t identify people can still be used to draw conclusions about the business or the people in the building.   It is also common to use cameras to achieve use cases such as people counting, asset tracking, and security.  In these cases, be clear with specifics about where the images are processed, what gets saved and where, and ensure that the customer requirements for both privacy and use case are addressed. The bottom line on security for Smart Places solutions is that for all data, security must be top of mind throughout the data lifecycle.  Think about what is being collected, where it is being processed, where it will be stored, and what conclusions can be drawn from the collective set of data.
+
 ## Pricing
 The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) can be used to estimate costs for an IoT solution. Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/cost/overview).
 
 The [Azure IoT Reference Architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/) also has a discussion about how to optimize cost for several services commonly used in IoT solutions.
-
-## Scalability considerations
-Smart Places solutions range from relatively simple, low volume to sophisticated solutions with very high data volume (such as a solution that aggregates HVAC telemetry across a large campus.)   The core Azure services in this architecture are built to scale, but when they are integrated with one another to form a solution, the development team needs to ensure that they do not create unintentional choke points.  Avoiding these choke points is best addressed by having performance tests run at scheduled intervals to identify potential problems early in the development cycle.
-
-## Flexibility considerations
-Integration is mentioned in the article, but Smart Places solutions need to pay additional attention to building a solution that remains flexible.   Smart Places use cases are rapidly evolving, so new sensors, new data types, new Artificial Intelligence opportunities, and new visualization techniques will inevitably be required after initial deployment. The proposed architecture is loosely coupled which is a requirement for flexibility, the use of [industry standards for data ontology](https://docs.microsoft.com/azure/digital-twins/concepts-ontologies-adopt), will reduce the time to add new functionality and integrate new software, and the use of [Azure API Management](https://azure.microsoft.com/services/api-management/#overview) increases flexibility by providing a way to create multiple API styles and signatures to a single underlying API.
-
-## Security considerations
-Legacy building solutions often relied on a lack of external connectivity as the primary source of security.  In today’s world, even data that doesn’t identify people can still be used to draw conclusions about the business or the people in the building.   It is also common to use cameras to achieve use cases such as people counting, asset tracking, and security.  In these cases, be clear with specifics about where the images are processed, what gets saved and where, and ensure that the customer requirements for both privacy and use case are addressed. The bottom line on security for Smart Places solutions is that for all data, security must be top of mind throughout the data lifecycle.  Think about what is being collected, where it is being processed, where it will be stored, and what conclusions can be drawn from the collective set of data.
 
 ## Next steps
 -	Learn [how Microsoft is powering their buildings with Azure Digital Twins](https://www.microsoft.com/itshowcase/blog/powering-microsoft-smart-buildings-with-microsoft-azure-digital-twins/)
@@ -293,3 +344,25 @@ Legacy building solutions often relied on a lack of external connectivity as the
 -	[Learn how EDGE Next leverages Azure Digital Twins in their Smart Buildings platform](https://www.youtube.com/watch?v=sll7tJG1CcI)
 -	[Brookfield Properties: real estate innovation with WillowTwin built on Azure Digital Twins](https://customers.microsoft.com/story/1373881459232543118-vasakronan-smartspaces-azure-iot)
 -	[Vasakronan: sustainability and carbon neutrality with Idun ProptechOS built on Azure Digital Twins](https://customers.microsoft.com/story/1373881459232543118-vasakronan-smartspaces-azure-iot)
+
+## Related resources
+
+- [Get started with Azure IoT solutions][Getting started with Azure IoT solutions]
+- [IoT solutions conceptual overview][IoT solutions conceptual overview]
+- [Vision with Azure IoT Edge][Vision with Azure IoT Edge]
+- [Azure Industrial IoT analytics guidance][Azure Industrial IoT Analytics Guidance]
+- [Choose an Internet of Things (IoT) solution in Azure][Choose an Internet of Things (IoT) solution in Azure]
+- [End-to-end manufacturing using computer vision on the edge][End-to-end manufacturing using computer vision on the edge]
+- [COVID-19 safe environments with IoT Edge monitoring and alerting][COVID-19 safe environments with IoT Edge monitoring and alerting]
+- [IoT analytics with Azure Data Explorer][IoT analytics with Azure Data Explorer]
+- [Cognizant Safe Buildings with IoT and Azure][Cognizant Safe Buildings with IoT and Azure]
+
+[Azure Industrial IoT Analytics Guidance]: https://docs.microsoft.com/en-us/azure/architecture/guide/iiot-guidance/iiot-architecture
+[Choose an Internet of Things (IoT) solution in Azure]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet
+[Cognizant Safe Buildings with IoT and Azure]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/safe-buildings
+[COVID-19 safe environments with IoT Edge monitoring and alerting]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection
+[End-to-end manufacturing using computer vision on the edge]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/end-to-end-smart-factory
+[Getting started with Azure IoT solutions]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot/iot-architecture-overview
+[IoT analytics with Azure Data Explorer]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/iot-azure-data-explorer
+[IoT solutions conceptual overview]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/iot/introduction-to-solutions
+[Vision with Azure IoT Edge]: https://docs.microsoft.com/en-us/azure/architecture/guide/iot-edge-vision
