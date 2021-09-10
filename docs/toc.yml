@@ -57,6 +57,8 @@ items:
         items:
           - name: Choose a compute service
             href: guide/technology-choices/compute-decision-tree.md
+          - name: Choose a microservices compute option
+            href: /azure/architecture/microservices/design/compute-options
           - name: Choose a Kubernetes edge option
             items:
               - name: Kubernetes at the edge
@@ -646,22 +648,41 @@ items:
         items:
           - name: Overview
             href: industries/retail.md
-          - name: Build a Real-time Recommendation API on Azure
-            href: reference-architectures/ai/real-time-recommendation.yml
-          - name: Movie recommendations on Azure
-            href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-          - name: Scalable personalization on Azure
-            href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
-          - name: E-commerce front end
-            href: example-scenario/apps/ecommerce-scenario.yml
-          - name: Intelligent product search engine for e-commerce
-            href: example-scenario/apps/ecommerce-search.yml
-          - name: Magento e-commerce platform in Azure Kubernetes Service
-            href: example-scenario/magento/magento-azure.yml
-          - name: Scalable order processing
-            href: example-scenario/data/ecommerce-order-processing.yml
-          - name: Retail - Buy online, pickup in store (BOPIS)
-            href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
+          - name: Guides
+            items: 
+              - name: Data Management in Retail
+                href: /previous-versions/azure/industry-marketing/retail/retail-data-management-overview
+                maintainContext: true
+              - name: Migrate your e-commerce solution to Azure
+                href: /previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure
+                maintainContext: true
+              - name: Optimize and reuse a recommendation system
+                href: /previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization
+                maintainContext: true
+              - name: Visual search in retail with CosmosDB
+                href: /previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview
+                maintainContext: true
+              - name: SKU optimization for consumer brands
+                href: /previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: Build a Real-time Recommendation API
+                href: reference-architectures/ai/real-time-recommendation.yml
+              - name: Movie recommendations on Azure
+                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Scalable personalization on Azure
+                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+              - name: E-commerce front end
+                href: example-scenario/apps/ecommerce-scenario.yml
+              - name: Intelligent search engine for e-commerce
+                href: example-scenario/apps/ecommerce-search.yml
+              - name: Magento e-commerce platform in AKS
+                href: example-scenario/magento/magento-azure.yml
+              - name: Scalable order processing
+                href: example-scenario/data/ecommerce-order-processing.yml
+              - name: Retail - Buy online, pickup in store (BOPIS)
+                href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
       - name: Finance
         items:
           - name: Overview
