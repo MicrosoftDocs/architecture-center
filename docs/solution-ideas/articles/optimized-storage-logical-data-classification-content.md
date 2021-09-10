@@ -4,9 +4,9 @@ Understanding the data usage patterns is critical for designing an optimized tie
 
 :::image type="content" source="../media/optimized-storage-logical-data-classification-usage.svg" alt-text="Data segregated by customer and category.":::
 
-1. The hot tier has data that needs to remain highly available and accessible, to make sure that application can perform its necessary tasks in a given context. Azure Cosmos DB is a great fit to provide these capabilities. For an application, it could be the configuration data. For a customer, it could be the customer’s profile, or customer transactions in the last 3 months. For a student, it could be the current courses. For a marketing application, it could be the current campaigns.
-1. Cool data is relevant but rarely-accessed data. For example, you can keep cool data in the form of snapshot backups or any other data storage that lowers costs but is less available. Azure Table storage, with latency above 10 ms, is cool storage compared to Azure Cosmos DB.
-1. Archive data is classified as historical data, which is kept for a specific period for legal and compliance requirements. You can keep archive data in Azure Data Lake Storage, for long retention periods at a very low cost.
+1. The hot tier has data that needs to remain highly available and accessible. Configuration data, customer profiles, current student courses, and current marketing campaigns are examples of hot tier data.
+1. The cool tier has data with lower availability requirements—data that can be stored at lower cost than hot tier data. For example, Azure Table storage, with latency above 10 ms, is cool tier storage compared to Azure Cosmos DB.
+1. Archive data is classified as historical data that is kept for a specific period for legal and compliance requirements. You can keep archive data in Azure Data Lake Storage for long retention periods at very low cost.
 
 ## Potential use cases
 

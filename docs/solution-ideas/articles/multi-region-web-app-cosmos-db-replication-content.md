@@ -1,10 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The architecture described in this article provides a high-availability solution for a web application, with a means of disaster recovery. There are two active regions and a standby region. Each region has its own Azure Cosmos DB database. Azure Cosmos DB assures that any changes to a database in one region are also made to the corresponding databases in other regions. It offers five consistency levels. For more information, see [Consistency levels in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels).
+The architecture described in this article increases availability compared to single region deployment. It provides two active regions, and a standby region that can become active if one of the two active regions fails. Each region has its own Azure Cosmos DB database. The replication capabilities of Azure Cosmos DB assure that any changes to a database in one region are also made to the corresponding databases in other regions.  Because Azure Cosmos DB does the replication, application developers don’t have to do it in their code, greatly simplifying implementation.
 
-As with any Azure Storage service, the database in each region is replicated synchronously three times in the same region. There is a cache for each database to reduce access load and improve application response.
 
-Azure Cosmos DB supports limitless throughput and latency below 10 ms to help your applications provide predictable response and avoid failures due to latency issues.
+In addition to replicating databases to other regions configured in an Azure Storage account, Azure Cosmos DB further increases availability by maintaining four replicas of databases within each region.
+
+Azure Cosmos DB supports limitless throughput and latency below 10 ms to help your applications provide predictable response and avoid failures due to latency issues. There is a cache for each database to reduce access load and improve application response.
+
+> [!Note] 
+> Replication provides five consistency levels. For more information, see [Consistency levels in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels).
 
 ## Potential use cases
 
