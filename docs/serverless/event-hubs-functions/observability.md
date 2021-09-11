@@ -31,8 +31,7 @@ the Azure portal, and on the sidebar, click on Application Map. Here’s a map
 with 3 Azure Functions, 3 event hubs, and failures when writing to a downstream
 database:
 
-![Diagram Description automatically
-generated](media/bf14e671416cf3a711dea62f62890f1d.png)
+![Application Map](images/observability_application_map.png)
 
 ## End-to-End Transaction Details
 
@@ -42,8 +41,7 @@ spending in the Event Hub queue. You can also drill into the telemetry of each
 component from this view, which makes it easy to troubleshoot across components
 within the same request when an issue occurred.
 
-![Graphical user interface, text, application, email Description automatically
-generated](media/57fbea4d7acd77041f8b8b2e72509328.png)
+![End-to-End Transaction](images/observability_end_to_end_transaction.png)
 
 ## Platform Metrics and Telemetry
 
@@ -119,14 +117,12 @@ Finally, when sending to Event Hubs using output bindings there are also entries
 sent into the [Application Insights Dependencies
 table](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#dependencies).
 
-![Graphical user interface, text, application Description automatically
-generated](media/bb51f826045a4d8684df1229b75c607e.png)
+![Dependencies table](images/observability_dependencies_table.png)
 
 For Event Hubs, the correlation is injected into the event payload. You will see
 a **Diagnostic-Id** property in events:
 
-![Graphical user interface, text, application, email Description automatically
-generated](media/4e2b9a63198f42bbceef75ca43b8978c.png)
+![Diagnostic Id property](images/observability_diagnostic_id.png)
 
 This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/)
 format that are also used as **Operation Id** and **Operation Links** in
@@ -134,8 +130,7 @@ telemetry created by Azure Functions, allowing Application Insights to construct
 the correlation between Event Hub events and Azure Functions executions, even if
 they are distributed.
 
-![Graphical user interface Description automatically generated with medium
-confidence](media/b31d01cca0a3ff0dac2900f8404437ef.png)
+![Batch Events correlation](images/observability_batch_events.png)
 
 ## Example Application Insights Queries
 
@@ -177,7 +172,7 @@ above in the Performance section. Note that:
 ```kusto
 traces
 | where message startswith "Trigger Details: Parti"
-| parse message with \* "tionId: " partitionId:string ", Offset: "
+| parse message with * "tionId: " partitionId:string ", Offset: "
 offsetStart:string "-" offsetEnd:string", EnqueueTimeUtc: "
 enqueueTimeStart:datetime "Z-" enqueueTimeEnd:datetime ", SequenceNumber: "
 sequenceNumberStart:string "-" sequenceNumberEnd:string ", Count: "
@@ -188,8 +183,7 @@ customDimensions.ProcessId, partitionId, messageCount, sequenceNumberStart,
 sequenceNumberEnd, enqueueTimeStart, enqueueTimeEnd, dispatchTimeMilliseconds
 ```
 
-![Table Description automatically
-generated](media/d9c78ec8fe0bad6f35ffce48ce3c8e42.png)
+![Detailed Event Processing](images/observability_detailed_event_processing.png)
 
 ### Dispatch latency visualization
 
@@ -199,9 +193,9 @@ notes.
 
 ```kusto
 traces
-| where operation_Name == "\<\<ENTER THE NAME OF YOUR FUNCTION HERE\>\>"
+| where operation_Name == "<ENTER THE NAME OF YOUR FUNCTION HERE>"
 | where message startswith "Trigger Details: Parti"
-| parse message with \* "tionId: " partitionId:string ", Offset: "
+| parse message with * "tionId: " partitionId:string ", Offset: "
 offsetStart:string "-" offsetEnd:string", EnqueueTimeUtc: "
 enqueueTimeStart:datetime "Z-" enqueueTimeEnd:datetime ", SequenceNumber: "
 sequenceNumberStart:string "-" sequenceNumberEnd:string ", Count: "
@@ -211,8 +205,7 @@ messageCount:int
 | render timechart
 ```
 
-![Chart, line chart Description automatically
-generated](media/f7403ff5fb2d768b64bd146cdbf24b12.png)
+![Dispatch latency Visualization](images/observability_dispatch_latency_visualization.png)
 
 ### Dispatch latency summary
 
@@ -221,7 +214,7 @@ This query is similar to above but shows a summary view.
 ```kusto
 traces
 | where message startswith "Trigger Details: Parti"
-| parse message with \* "tionId: " partitionId:string ", Offset: "
+| parse message with * "tionId: " partitionId:string ", Offset: "
 offsetStart:string "-" offsetEnd:string", EnqueueTimeUtc: "
 enqueueTimeStart:datetime "Z-" enqueueTimeEnd:datetime ", SequenceNumber: "
 sequenceNumberStart:string "-" sequenceNumberEnd:string ", Count: "
@@ -231,7 +224,7 @@ messageCount:int
 percentiles(dispatchTimeMilliseconds, 50, 90, 99, 99.9, 99.99) by operation_Name
 ```
 
-![](media/a7be9e80e760f755d81fb9d14319fdc4.png)
+![Dispatch latency Summary](images/observability_dispatch_latency_summary.png)
 
 ### Message distribution across partitions
 
@@ -240,7 +233,7 @@ This query shows how to visualize message distribution across partitions.
 ```kusto
 traces
 | where message startswith "Trigger Details: Parti"
-| parse message with \* "tionId: " partitionId:string ", Offset: "
+| parse message with * "tionId: " partitionId:string ", Offset: "
 offsetStart:string "-" offsetEnd:string", EnqueueTimeUtc: "
 enqueueTimeStart:datetime "Z-" enqueueTimeEnd:datetime ", SequenceNumber: "
 sequenceNumberStart:string "-" sequenceNumberEnd:string ", Count: "
@@ -249,8 +242,7 @@ messageCount:int
 | render areachart kind=stacked
 ```
 
-![Chart, histogram Description automatically
-generated](media/bc5a3b516e2c013492f8785f262aad06.png)
+![Message distribution across partitions](images/observability_message_distribution_across_partitions.png)
 
 ### Message distribution across instances
 
@@ -259,7 +251,7 @@ This query shows how to visualize message distribution across instances.
 ```kusto
 traces
 | where message startswith "Trigger Details: Parti"
-| parse message with \* "tionId: " partitionId:string ", Offset: "
+| parse message with * "tionId: " partitionId:string ", Offset: "
 offsetStart:string "-" offsetEnd:string", EnqueueTimeUtc: "
 enqueueTimeStart:datetime "Z-" enqueueTimeEnd:datetime ", SequenceNumber: "
 sequenceNumberStart:string "-" sequenceNumberEnd:string ", Count: "
@@ -269,8 +261,7 @@ bin(timestamp, 5m)
 | render areachart kind=stacked
 ```
 
-![Chart Description automatically
-generated](media/f2bd830fecc57ea19bf70d40739116dc.png)
+![Message distribution across instances](images/observability_message_distribution_across_instances.png)
 
 ### Executing Instances and Allocated Instances
 
@@ -292,8 +283,7 @@ bin(timestamp, 60s)
 | render timechart
 ```
 
-![Chart, line chart Description automatically
-generated](media/162dc3c5645a1b41e64b351cc8abb250.png)
+![Executing Instances and Allocated Instances](images/observability_executing_instances_and_allocated_instances.png)
 
 ### All Telemetry for a specific Function Execution
 
@@ -304,12 +294,11 @@ inside the Function code, and dependencies and exceptions:
 
 ```kusto
 union isfuzzy=true requests, exceptions, traces, dependencies
-| where \* has "\<\<ENTER THE OPERATION_ID OF YOUR FUNCTION EXECUTION HERE\>\>"
+| where * has "<ENTER THE OPERATION_ID OF YOUR FUNCTION EXECUTION HERE>"
 | order by timestamp asc
 ```
 
-![Graphical user interface, application, table Description automatically
-generated](media/5b4c062d5985c72dba3fa231c4076e92.png)
+![All Telemetry for a specific Function Execution](images/observability_all_telemetry_for_a_specific_function_execution.png)
 
 ### End-to-End Latency for an Event
 
@@ -329,8 +318,8 @@ requests
 let link = view(){
 requests
 | where operation_Name == "SecondFunction"
-| mv-expand ex = parse_json(tostring(customDimensions["\_MS.links"]))
-| extend parent = case(isnotempty(ex.operation\_Id), ex.operation_Id, operation_Id )
+| mv-expand ex = parse_json(tostring(customDimensions["_MS.links"]))
+| extend parent = case(isnotempty(ex.operation_Id), ex.operation_Id, operation_Id )
 | project first_operation_Id = parent, second_operation_Id = operation_Id
 };
 let finish = view(){
@@ -348,8 +337,7 @@ link
 | summarize avg(datetime_diff('second', end_t, start_t))
 ```
 
-![Graphical user interface, text, application, email Description automatically
-generated](media/6c011d62bbdba730cf62e690afdd634e.png)
+![End-to-End Latency for an Event](images/observability_end_to_end_latency_for_an_event.png)
 
 ## References
 
