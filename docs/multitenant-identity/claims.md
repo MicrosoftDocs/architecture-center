@@ -1,5 +1,5 @@
 ---
-title: Work with claim-based identities in multitenant applications
+title: Claim-based identities in multitenant apps
 description: Learn about claims in Azure AD. As issuer, Azure AD sends a set of claims about the user which can be trusted because the issuer can be trusted.
 author: doodlemania2
 ms.date: 07/21/2017
