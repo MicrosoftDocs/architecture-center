@@ -1,6 +1,6 @@
 ---
 title: Security operations in Azure | Microsoft Docs
-description: "Get information about security operations in Azure. Detect, respond, and recover the system when it's attacked."
+description: "Get information about security operations in Azure. Detect, respond, and recover the system when it&apos;s attacked."
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: conceptual
@@ -40,7 +40,7 @@ anti-malware (though there are notable exceptions like Wannacrypt and NotPetya, 
 
 While human attack operators are challenging to face because of their
 adaptability (vs. automated/repeated logic), they are operating at the same
-“human speed” as defenders, which help level the playing field.
+&quot;human speed&quot; as defenders, which help level the playing field.
 
 Security Operations (sometimes referred to as a Security Operations Center
 (SOC)) has a critical role to play in limiting the time and access an attacker
@@ -73,7 +73,7 @@ the objectives should focus on
     reducing the time that a higher skilled adversary can operate in the
     environment (for example, skilled enough to evade reactive alerts).
 
-For more information on how Microsoft’s SOC uses these metrics, see
+For more information on how Microsoft&apos;s SOC uses these metrics, see
 https://aka.ms/ITSOC.
 
 ## Hybrid enterprise view
@@ -81,7 +81,7 @@ https://aka.ms/ITSOC.
 Security operations should ensure their tooling, processes, and analyst
 skillsets enable visibility across the full span of their hybrid estate.
 
-Attackers don’t restrict their actions to a particular environment when
+Attackers don&apos;t restrict their actions to a particular environment when
 targeting an organization, they will attack resources on any platform using any
 method available. Enterprise organizations adopting cloud services like Azure
 and AWS are effectively operating a hybrid of cloud and on-premises assets.
@@ -104,7 +104,7 @@ are typically high quality (low false positive rate).
 
 Because many organizations may use multiple cloud platforms and need a unified
 view across the enterprise, you should ensure these native detections and
-controls feed a centralize SIEM or other tool. We don’t recommend trying to
+controls feed a centralize SIEM or other tool. We don&apos;t recommend trying to
 substitute generalized log analysis tools and queries instead of native
 detections and controls. These tools can offer numerous values for proactive
 hunting activities, but getting to a high-quality alert with these tools
@@ -147,6 +147,6 @@ operations activities:
 
 Integrating more data can allow you to enrich alerts with additional context
 that enable rapid response and remediation (filter false positives, and elevate
-true positives, etc.), but collection is not detection. If you don’t have a
+true positives, etc.), but collection is not detection. If you don&apos;t have a
 reasonable expectation that the data will provide value (for example, high volume of firewall denies events), you may deprioritize integration of these events.
 

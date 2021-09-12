@@ -1,5 +1,5 @@
 ---
-title: What's New in Azure Architecture Center
+title: What&apos;s New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
 ms.date: 09/07/2021
@@ -55,7 +55,7 @@ New and updated articles in Azure Architecture Center.
 ### Updated Articles
 
 - [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Secure application&#x27;s configuration and dependencies](./framework/security/design-app-dependencies.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
+- [Secure application&apos;s configuration and dependencies](./framework/security/design-app-dependencies.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
 - [Enforce governance to reduce risks](./framework/security/design-governance.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
 - [Security management groups](./framework/security/design-management-groups.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
 - [Network security strategies on Azure](./framework/security/design-network.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
