@@ -3,7 +3,7 @@ title: Solutions for the retail industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable retail solutions.
 author: dsk-2015
-ms.date: 04/19/2021
+ms.date: 09/13/2021
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: 
@@ -40,6 +40,18 @@ Using Azure services, retailers can easily achieve these goals. For use cases an
 
 > [!NOTE]
 > Learn more about a retail company's journey to cloud adoption, in [Cloud adoption for the retail industry](/azure/cloud-adoption-framework/industry/retail).
+
+## Architecture guides for retail
+
+The following articles provide more details about retail architectural topics. Although they are mostly conceptual, they can also include implementation details.
+
+| Guide | Summary | Technology focus |
+| ------- | ------- | ------- |
+| [Data Management in Retail](https://docs.microsoft.com/previous-versions/azure/industry-marketing/retail/retail-data-management-overview?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) | Primer for how to ingest, prepare, store, analyze, and take action on data, for the retail industry. | Databases |
+| [Migrating your e-commerce solution to Azure](https://docs.microsoft.com/previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) | Learn how to move an existing e-commerce solution to the cloud. The three stages are to rehost, refactor, and rebuild your solution. | Migration |
+| [Optimize and reuse an existing recommendation system](https://docs.microsoft.com/previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) | The process of successfully reusing and improving an existing recommendation system that is written in R. | AI/ML |
+| [Visual search in Retail with CosmosDB](https://docs.microsoft.com/previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) | This document focuses on the AI concept of visual search and offers a few key considerations on its implementation. It provides a workflow example and maps its stages to the relevant Azure technologies. | Databases |
+| [SKU optimization for consumer brands](.https://docs.microsoft.com/previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) | Topics include automating decision making, SKU assortment optimization, descriptive analytics, predictive analytics, parametric models, non-parametric models, implementation details, data output and reporting, and security considerations. | Analytics |
 
 ## Architectures for retail
 
