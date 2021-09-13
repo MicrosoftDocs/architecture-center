@@ -1,0 +1,10 @@
+Azure_Well_Architected_Review_Feb_01_2010_8_00_00_AM.csv
+GenerateWAFReport.ps1
+PnP-DevOps.ps1
+PnP-Github.ps1
+PnP_PowerPointReport_Template.pptx
+WAF Category Descriptions.csv
+WASA.json
+index.md
+install-WARP-tools.ps1
+keys.txt
