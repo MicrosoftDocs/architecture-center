@@ -3,7 +3,7 @@ title: Overview of the reliability pillar
 description: High-level summary of the reliability pillar associated with the Azure Well-Architected Framework.
 author: v-stacywray
 manager: david-stanford
-ms.date: 09/10/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -22,7 +22,7 @@ Building for reliability includes:
 - Ensuring a highly available architecture
 - Recovering from failures such as data loss, major downtime, or ransomware incidents
 
-To assess the reliability of your workload using the tenets found in the Microsoft Azure Well-Architected Framework, reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
+To assess the reliability of your workload using the tenets found in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/), reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 For more information, explore the following video on diving deeper into Azure workload reliability:
 <p>
