@@ -103,8 +103,6 @@ The following online communities can answer questions and help you configure a s
 - [Azure Forum](https://azure.microsoft.com/support/forums/)
 - [Stack Overflow Jenkins](https://stackoverflow.com/tags/jenkins/info)
 
-For more best practices from the Jenkins community, visit [Jenkins best practices][jenkins-best].
-
 ## Install and configure Jenkins
 
 To create a VM and install Jenkins, follow the instructions in the article, [Quickstart: Configure Jenkins using Azure CLI](/azure/developer/jenkins/configure-on-linux-vm).
@@ -132,7 +130,6 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 [functions]: https://aka.ms/azjenkinsfunctions
 [index]: https://plugins.jenkins.io
 [install-jenkins-section]: #install-and-configure-jenkins
-[jenkins-best]: https://wiki.jenkins.io/display/JENKINS/Jenkins+Best+Practices
 [jenkins-on-azure]: /azure/jenkins
 [key-vault]: /azure/key-vault
 [managed-disk]: /azure/virtual-machines/linux/managed-disks-overview
@@ -157,6 +154,6 @@ To create a VM and install Jenkins, follow the instructions in the article, [Qui
 [solution]: https://azure.microsoft.com/blog/announcing-the-solution-template-for-jenkins-on-azure
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [subnet]: /azure/virtual-network/virtual-network-manage-subnet
-[vm-agent]: https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin
+[vm-agent]: https://plugins.jenkins.io/azure-vm-agents/
 [vnet]: /azure/virtual-network/virtual-networks-overview
 [0]: ./media/architecture-jenkins.png
