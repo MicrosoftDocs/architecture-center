@@ -1,15 +1,17 @@
 #This script will download a list of files from the proper location to the directory it is running from
 
-#This is the base URL for downloads.
-$baseURL = "https://github.com/JoeyBarnes/architecture-center-pr/blob/warp-guidance-rework/docs/framework/warp/tools/devops"
+#This is the base URL for downloads. Base URL cannot end with a /
+$baseURL = "https://rspott.com/WARP"
 
 $workingDirectory = $PSScriptRoot
 Write-Host $workingDirectory
-wget $baseURL/files-list.txt -OutFile $workingDirectory/files-list.txt
+#wget $baseURL/files-list.txt -O $workingDirectory/files-list.txt
+invoke-WebRequest $baseURL/files-list.txt -OutFile $workingDirectory/files-list.txt
 
-$files = Get-Content -Path $workingDirectory/files-list.txt
 
-ForEach ($file in $files) {
-    Write-Host "downloading $file"
-    wget $baseURL/$file -OutFile $workingDirectory/$file
-    }
+Write-Host "Downloading from: $baseURL"
+Write-Host "We will get these files:"
+Get-Content $workingDirectory/files-list.txt | ForEach-Object {Write-Host "   $_"}
+
+
+Get-Content $workingDirectory/files-list.txt | ForEach-Object {Invoke-WebRequest $baseURL/$_ -OutFile $workingDirectory/$(Split-Path $_ -Leaf)}
