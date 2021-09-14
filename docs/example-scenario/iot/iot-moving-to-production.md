@@ -1,32 +1,26 @@
 ---
-  title: Moving from test to production (antipatterns)
-  titleSuffix: Azure Reference Architectures
+  title: Moving from test to production
+  titleSuffix: Azure Architecture Center
   description: Learn what to avoid doing when moving from a test environment to a production environment.
   author: mcosner
   manager: lizross
   ms.service: architecture-center
-  ms.subservice: reference-architecture
+  ms.subservice: example-scenario
   ms.topic: conceptual
   ms.date: 9/10/2021
   ms.author: mcosner
-  ms.category:
-    - iot
-  ms.custom:
-    - internal-intro
-  categories:
-    - iot
   products:
     - azure-iot-hub
 
 ---
 
-# Introduction
+# Moving from test to production
 
-This article discusses patterns to avoid when moving from a test to a production environment.
+This article discusses patterns to avoid when moving from a test environment to a production environment.
 
 ## Not scaling your IoT solution using deployment stamps
 
-In IoT, stamps are discrete units of core solution components that support a defined number of devices. Each copy is called a *stamp*. or *scale unit*. For example, a stamp might consist of a set device population, an IoT Hub, an Event Hub or other routing endpoint, and a processing component. Each stamp supports a defined device population of, say, from one thousand to one million devices. You choose the maximum number of devices the stamp can hold. As the device population grows, you add stamp instances rather than indpendently scaling up different parts of the solution.
+Stamps are discrete units of core solution components that support a defined number of devices. Each copy is called a *stamp*. or *scale unit*. For example, a stamp might consist of a set device population, an IoT Hub, an Event Hub or other routing endpoint, and a processing component. Each stamp supports a defined device population. You choose the maximum number of devices the stamp can hold. As the device population grows, you add stamp instances rather than indpendently scaling up different parts of the solution.
 
 If instead of adding stamps, you move a single instance of your IoT solution to production, you might encounter the following limitations:
 
@@ -51,21 +45,21 @@ To avoid the preceding issues, consider grouping your service into multiple stam
 
 ## Not using backoff when a transient fault occurs
 
-All applications that communicate with remote services and resources must be sensitive to transient faults. This is especially the case for applications that run in the cloud, where the nature of the environment and connectivity over the Internet means these types of faults are likely to be encountered more often. Transient faults include:
+All applications that communicate with remote services and resources must be sensitive to transient faults. This is especially the case for applications that run in the cloud, where the nature of the environment and connectivity over the internet means these types of faults are likely to be encountered more often. Transient faults include:
 
 - Momentary loss of network connectivity to components and services
 - Temporary unavailability of a service
 - Timeouts that arise when a service is busy
 - Collisions caused when devices transmit simultaneuously
 
-These faults are often self-correcting, and if the action is repeated after a suitable delay it is likely to succeed. Determining the appropriate intervals between retries is difficult. Typical strategies use the following types of retry interval:
+These faults are often self-correcting, and if the action is repeated after a suitable delay it is likely to succeed. Determining the appropriate intervals between retries is, however, difficult. Typical strategies use the following types of retry intervals:
 
 - **Exponential back-off**. The application waits a short time before the first retry, and then exponentially increasing times between each subsequent retry. For example, it may retry the operation after 3 seconds, 12 seconds, 30 seconds, and so on.
 - **Regular intervals**. The application waits for the same period of time between each attempt. For example, it may retry the operation every 3 seconds.
 - **Immediate retry**. Sometimes a transient fault is brief, perhaps due to an event such as a network packet collision or a spike in a hardware component. In this case, retrying the operation immediately is appropriate because it may succeed if the fault has cleared in the time it takes the application to assemble and send the next request. However, there should never be more than one immediate retry attempt, and you should switch to alternative strategies, such as exponential back-off or fallback actions, if the immediate retry fails.
 - **Randomization**. Any of the preceding retry strategies may include a randomization element to prevent multiple instances of the client sending subsequent retry attempts at the same time.
 
-You should avoid the following anti-patterns:
+Avoid also the following anti-patterns:
 
 - Implementations should not include duplicated layers of retry code.
 - Never implement an endless retry mechanism.
@@ -78,7 +72,7 @@ You should avoid the following anti-patterns:
 
 ## Not using zero-touch provisioning
 
-Provisioning is the act of enrolling a device into Azure IoT Hub. Provisioning makes IoT Hub aware of the device and the attestation mechanism the device uses. You can use the [Azure IoT Hub Device Provisioning Service (DPS)](azure/iot-dps/) or provision directly via IoT Hub Registry Manager APIs. Using DPS confers the benefit of late binding, which allows removing and reprovisioning field devices to IoT Hub without changing the device software.
+Provisioning is the act of enrolling a device into Azure IoT Hub. Provisioning makes IoT Hub aware of the device and the attestation mechanism the device uses. You can use the [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/) or provision directly via IoT Hub Registry Manager APIs. Using DPS confers the benefit of late binding, which allows removing and reprovisioning field devices to IoT Hub without changing the device software.
 
 The following example shows how to implement a test-to-production environment transition workflow by using DPS.
 
