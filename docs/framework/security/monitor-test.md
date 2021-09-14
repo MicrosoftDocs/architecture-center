@@ -6,6 +6,13 @@ ms.date: 02/01/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure
+categories: 
+  - security  
+subject: 
+  - security
+  - testing
 ms.custom:
   - article
 ---
@@ -46,7 +53,7 @@ Azure uses shared infrastructure to host your assets and assets belonging to oth
 ### Learn more
 
 - [Azure Penetration Testing](/azure/security/fundamentals/pen-testing)
-- [Penetration Testing](./governance.md#penetration-testing)
+- [Penetration Testing](/azure/architecture/framework/security/monitor-test#penetration-testing-pentesting)
 
 ## Simulate attacks
 The way users interact with a system is critical in planning your defense. The risks are even higher for critical impact accounts because they have elevated permissions and can cause more damage. 
@@ -60,6 +67,11 @@ Simulate a persistent threat actor targeting your environment through a red team
 
 A popular choice to simulate realistic attack scenarios is [Office 365 Attack Simulator](/office365/securitycompliance/attack-simulator). 
 
+
+**Is personal information detected and removed/obfuscated automatically?**
+***
+
+Be cautious about using sensitive application information. Don't store personal information such as contact information, payment information, and so on, in any application logs. Apply protective measures, such as obfuscation. Machine learning tools can help with this measure. For more information, see [PII Detection cognitive skill](/azure/search/cognitive-search-skill-pii-detection).
 
 ## Related links
 

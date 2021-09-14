@@ -17,7 +17,7 @@ ms.custom:
 ---
 
 # Monitoring for performance efficiency
-Troubleshooting an application's performance requires monitoring and reliable investigation. Issues in performance can arise from database queries, connectivity between services, under-provision resources, or memory leaks in code.
+Troubleshooting an application's performance requires monitoring and reliable investigation. Issues in performance can arise from database queries, connectivity between services, under-provisioned resources, or memory leaks in code.
 
 Continuously monitoring services​ and checking the health state of current workloads is key in maintaining the overall performance of the workload. An overall monitoring strategy consider these factors:
 - Scalability
@@ -29,7 +29,7 @@ Continuously monitoring services​ and checking the health state of current wor
 ***
 > [!div class="checklist"]
 > - Enable and capture telemetry throughout your application to build and visualize end-to-end transaction flows for the application.
-> - See metrics from Azure services such as CPU and memory utilization,bandwidth information, current storage utilization, and more. 
+> - See metrics from Azure services such as CPU and memory utilization, bandwidth information, current storage utilization, and more. 
 > - Use resource and platform logs to get information about what events occur and under which conditions. 
 > - For scalability, look at the metrics to determine how to provision resources dynamically and scale with demand.
 > - In the collected logs and metrics look for signs that might make a system or its components suddenly become unavailable. 
@@ -50,7 +50,7 @@ Follow these questions to assess the workload at a deeper level.
 
 ## Azure services
 
-The monitoring operations should utilize [Azure Monitor](https://azure.microsoft.com/services/monitor/). You can analyze data, set up alerts, get end-to-end views of your applications, and use machine learning–driven insights to identify and resolve problems quickly. Export logs and metrics to services such as Azure Log Analytics and external service like Splunk. Furthermore, application technologies such as [Application Insights](/azure/azure-monitor/app/app-insights-overview) can enhance the telemetry coming out of applications.
+The monitoring operations should utilize [Azure Monitor](https://azure.microsoft.com/services/monitor/). You can analyze data, set up alerts, get end-to-end views of your applications, and use machine learning–driven insights to identify and resolve problems quickly. Export logs and metrics to services such as Azure Log Analytics or an external service like Splunk. Furthermore, application technologies such as [Application Insights](/azure/azure-monitor/app/app-insights-overview) can enhance the telemetry coming out of applications.
 
 ## Next section
 

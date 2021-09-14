@@ -16,7 +16,7 @@ ms.custom:
 
 # Analyze infrastructure metrics and logs
 
-Performance issues can occur because of interaction between the application and other services in the architecture. For example, issues in database queries, connectivity between services, under-provisioned resources are all common causes for inefficiencies. 
+Performance issues can occur because of interaction between the application and other services in the architecture. For example, issues in database queries, connectivity between services, and under-provisioned resources are all common causes for inefficiencies. 
 
 The practice of continuous monitoring must include analysis of platform metrics and logs to get visibility into the health and performance of services that are part of the architecture.
 
@@ -42,7 +42,7 @@ Also, use technology-specific tools for the services used in the architecture. F
 One of the challenges to metric data is that it often has limited information to provide context for collected values. Azure Monitor addresses this challenge with multi-dimensional metrics. These metrics are name-value pairs that carry more data to describe the metric value. To learn about multi-dimensional metrics and an example for network throughput, see [multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
 ## Platform logs
-Azure provides various operational logs from the platform and the resources. These logs provide insight what events occurred, what changes were made to the resource, and more. These logs are useful in tracking operations. For example, you can track  scaling events to check if autoscaling is working as expected.
+Azure provides various operational logs from the platform and the resources. These logs provide insight into what events occurred, what changes were made to the resource, and more. These logs are useful in tracking operations. For example, you can track  scaling events to check if autoscaling is working as expected.
 
 [Azure Monitor Logs](/azure/azure-monitor/platform/data-platform-logs) can store various different data types each with their own structure. You can also perform complex analysis on logs data using log queries, which cannot be used for analysis of metrics data. Azure Monitor Logs is capable of supporting near real-time scenarios, making them useful for alerting and fast detection of issues. To learn more about Azure Monitor Logs, see [What can you do with Azure Monitor Logs?](/azure/azure-monitor/platform/data-platform-logs#what-can-you-do-with-azure-monitor-logs)
 

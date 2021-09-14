@@ -33,7 +33,8 @@ For more information about the services that make up a machine learning workload
 This article provides cost considerations for some technology choices. This is not meant to be an exhaustive list, but a subset of options.
 
 ## Azure Machine Learning
-There are two editions, **Enterprise** and **Basic**. Training models don't incur the machine learning service surcharge. You're charged for these factors.  
+Training models don't incur the machine learning service surcharge. You're charged for these factors.
+
 - The cost is driven by compute choices, such as, the virtual machine sizes and the region in which they are available. If you can commit to one or three years, choosing reserved instances can lower cost. For more information, see [Reserved instances](./optimize-vm.md#reserved-vms).
 
 - As part of provisioning Machine Learning resources,  additional resource are deployed such as [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), [Azure Block Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/), and [Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). You're charged for as per the pricing of those individual services.
