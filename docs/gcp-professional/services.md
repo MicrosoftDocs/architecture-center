@@ -39,13 +39,13 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Type | Google Cloud service | Azure service | Azure service description |
 | --- | --- | --- | --- |
-| Relational database | [Cloud SQL](https://cloud.google.com/sql#documentation) - SQL Server | [Azure SQL Server Family](https://docs.microsoft.com/en-gb/azure/azure-sql/)</br></br> Azure SQL Database</br>Azure SQL Managed Instance</br>SQL Server on Azure VM</br> [Azure SQL Edge](https://docs.microsoft.com/en-gb/azure/azure-sql-edge/) | Azure SQL family of SQL Server database engine products in the cloud</br></br>Azure SQL Database is a fully managed platform as a service (PaaS) database engine</br></br> Azure SQL Managed Instance is the intelligent, scalable cloud database service</br> that combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service</br></br> SQL Server IaaS deployed on Azure Windows or Linux VM </br></br>Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments
-|| [Cloud SQL](https://cloud.google.com/sql#documentation) MySQL & PostgreSQL| [Azure Database for MySQL (Single & Flexible Server)](https://docs.microsoft.com/en-us/azure/mysql/)<br/><br/> [Azure Database for PostgreSQL (Single & Flexible Server)](https://docs.microsoft.com/en-gb/azure/postgresql/)<br/><br/> | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform |
-|Horizontally scalable relational database|[Cloud Spanner](https://cloud.google.com/spanner) | [Azure Cosmos DB - SQL API](https://azure.microsoft.com/services/cosmos-db)<br/><br/> | A globally-distributed database system that limitlessly scales horizontally. Is multi-modal -- key-value, graph, and document data). Supports multiple APIs: SQL, JavaScript, Gremlin, MongoDB, and Azure Table Storage. Compute and storage can be scaled independently
-|||[Azure PostgreSQL Hyperscale (Citus)](https://docs.microsoft.com/en-us/azure/postgresql/hyperscale/) | Azure Database for PostgreSQL is a fully managed database-as-a-service based on the open-source Postgres relational database engine. The Hyperscale (Citus) deployment option scales queries across multiple machines using sharding, to serve applications that require greater scale and performance
-|NoSQL| [Cloud Bigtable](https://cloud.google.com/bigtable/docs)<br/><br/> | [Azure Table Storage](https://docs.microsoft.com/en-us/azure/storage/tables/)|A highly scalable NoSQL key-value store for rapid development using massive semi-structured datasets. Store semi-structured data that’s highly available​. Supporting flexible data schema and OData-based queries |
+| Relational database | [Cloud SQL](https://cloud.google.com/sql#documentation) - SQL Server | [Azure SQL Server Family](/azure/azure-sql)</br></br> Azure SQL Database</br>Azure SQL Managed Instance</br>SQL Server on Azure VM</br> [Azure SQL Edge](/azure/azure-sql-edge) | Azure SQL family of SQL Server database engine products in the cloud</br></br>Azure SQL Database is a fully managed platform as a service (PaaS) database engine</br></br> Azure SQL Managed Instance is the intelligent, scalable cloud database service</br> that combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service</br></br> SQL Server IaaS deployed on Azure Windows or Linux VM </br></br>Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments
+|| [Cloud SQL](https://cloud.google.com/sql#documentation) MySQL & PostgreSQL| [Azure Database for MySQL (Single & Flexible Server)](/azure/mysql/)<br/><br/> [Azure Database for PostgreSQL (Single & Flexible Server)](/azure/postgresql)<br/><br/> | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform |
+|Horizontally scalable relational database|[Cloud Spanner](https://cloud.google.com/spanner) | [Azure Cosmos DB - SQL API](https://azure.microsoft.com/services/cosmos-db)<br/><br/> | A globally-distributed database system that limitlessly scales horizontally. Is multi-modal -- key-value, graph, and document data). Supports multiple APIs: SQL, JavaScript, Gremlin, MongoDB, and Azure Table storage. Compute and storage can be scaled independently
+|||[Azure PostgreSQL Hyperscale (Citus)](/azure/postgresql/hyperscale) | Azure Database for PostgreSQL is a fully managed database-as-a-service based on the open-source Postgres relational database engine. The Hyperscale (Citus) deployment option scales queries across multiple machines using sharding, to serve applications that require greater scale and performance
+|NoSQL| [Cloud Bigtable](https://cloud.google.com/bigtable/docs)<br/><br/> | [Azure Table storage](/azure/storage/tables)|A highly scalable NoSQL key-value store for rapid development using massive semi-structured datasets. Store semi-structured data that’s highly available​. Supporting flexible data schema and OData-based queries |
 || [Cloud Firestore](https://cloud.google.com/firestore/docs) |[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | Globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar
-||[Firebase Realtime Database](https://firebase.google.com/products/realtime-database) | [Azure Cosmos DB - Change Feed](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) | Change feed in Azure Cosmos DB is a persistent record of changes to a container in the order they occur. Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The persisted changes can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing
+||[Firebase Realtime Database](https://firebase.google.com/products/realtime-database) | [Azure Cosmos DB - Change Feed](/azure/cosmos-db/change-feed) | Change feed in Azure Cosmos DB is a persistent record of changes to a container in the order they occur. Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The persisted changes can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing
 | In-memory | [Cloud Memorystore](https://cloud.google.com/memorystore/docs) | [Azure Cache for Redis](https://azure.microsoft.com/services/cache) | A secure data cache and messaging broker that provides high throughput and low-latency access to data for applications |
 ||||
 
@@ -130,7 +130,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 
 | Google Cloud service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights)<br/><br/> [Cosmos DB](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-solution-patterns) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights)<br/><br/> [Cosmos DB](/azure/stream-analytics/stream-analytics-solution-patterns) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
 
 #### Time series architectures
 
@@ -184,7 +184,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 ## Data catalog & governance
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [Cloud Data Catalog](https://cloud.google.com/data-catalog) | [Azure Purview](https://docs.microsoft.com/en-gb/azure/purview/) | Azure Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. |
+| [Cloud Data Catalog](https://cloud.google.com/data-catalog) | [Azure Purview](/azure/purview) | Azure Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. |
 
 ## Compute
 
@@ -257,7 +257,7 @@ Here are some architectures that use AKS as the orchestrator.
 | [Cloud Deployment Manager](https://cloud.google.com/deployment-manager) | [Azure Automation](https://azure.microsoft.com/services/automation/) | Delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. It comprises process automation, configuration management, update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources. |
 | [Cloud Deployment Manager](https://cloud.google.com/deployment-manager) | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks. |
 
-### DevOps Architectures
+### DevOps architectures
 
 <ul class="grid">
 
@@ -274,7 +274,7 @@ Here are some architectures that use AKS as the orchestrator.
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud IoT Core](https://cloud.google.com/iot/docs) | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/),[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
-| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#documentation),[HDInsight Kafka](/azure/hdinsight/) | Process and route streaming data to subsequent processing engine or storage or database platform. |
+| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#documentation),[HDInsight Kafka](/azure/hdinsight/) | Process and route streaming data to a subsequent processing engine or tp a storage or database platform. |
 | [Edge Tpu](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
 
 ### IOT architectures
@@ -403,7 +403,7 @@ Here are some architectures that use AKS as the orchestrator.
 | --- | --- | --- |
 | [Cloud Storage](https://cloud.google.com/storage#documentation)<br/><br/> [Cloud Storage for Firebase](https://firebase.google.com/products/storage) | [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) | Object storage service, for use cases including cloud applications, content distribution, backup, archiving, disaster recovery, and big data analytics. |
 
-### Block Storage
+### Block storage
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
