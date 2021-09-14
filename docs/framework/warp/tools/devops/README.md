@@ -37,7 +37,7 @@ There are 4 sections to this document:
 
 1. Create a directory for the import scripts to be used.
 
-1. Download the install script from [here](/azure/architecture/framework/warp/tools/devops/install-WARP-tools.ps1), place it in the directory you created and run the script.
+1. Download the install script from [here](https://github.com/JoeyBarnes/architecture-center-pr/tree/warp-guidance-rework/docs/framework/warp/tools/devops/install-WARP-tools.ps1), place it in the directory you created and run the script.
 
 1. The script will download all the needed files.
 
@@ -94,7 +94,7 @@ There are 4 sections to this document:
 
     Example: `https://dev.azure.com/contoso/WARP-work`
 
-1. Create or acquire a personal access token with read-write access to create DevOps Work Items using this [link](s/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)
+1. Create or acquire a personal access token with read-write access to create DevOps Work Items using this [link](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)
 
 1. Place this token into the keys.txt file in the proper location.
 
