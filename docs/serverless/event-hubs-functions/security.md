@@ -129,3 +129,7 @@ References:
     Docs](https://docs.microsoft.com/azure/event-hubs/private-link-service)
 - [Azure Functions networking options \| Microsoft
     Docs](https://docs.microsoft.com/azure/azure-functions/functions-networking-options#virtual-network-triggers-non-http)
+
+## Next steps
+
+Learn about [observability](./observability.md).

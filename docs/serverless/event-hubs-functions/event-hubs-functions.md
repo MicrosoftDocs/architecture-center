@@ -139,4 +139,4 @@ References:
 
 ## Next steps
 
-Now that you understand several key Event Hubs concepts, along with how Azure Functions consumes events, learn about [performance and scale](./performance-scale.md).
+learn about [performance and scale](./performance-scale.md).

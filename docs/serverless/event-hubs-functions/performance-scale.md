@@ -491,4 +491,4 @@ addressed there for the proper resolution.
 
 ## Next steps
 
-[Resilient Event Hubs and Functions design](./resilient-design.md)
+Review considerations for [resilient Event Hubs and Functions design](./resilient-design.md).
