@@ -37,7 +37,7 @@ There are 4 sections to this document:
 
 1. Create a directory for the import scripts to be used.
 
-1. Right-click on this [link](https://github.com/JoeyBarnes/architecture-center-pr/tree/warp-guidance-rework/docs/framework/warp/tools/devops/install-WARP-tools.ps1) and save the installation script in the directory you created.
+1. Right-click on this [link](https://rspott.com/WARP/install-WARP-tools.ps1) and save the installation script in the directory you created.
 
 1. Right-click on the downloaded file, select Properties, then check ‘Unblock’
 
