@@ -3,7 +3,7 @@ title: Build a scalable system for massive data
 description: Learn how to use Azure services to build scalable, resilient, and affordable high-available systems that handle massive amounts of data.
 author: nabilshams
 ms.author: nasiddi
-ms.date: 09/09/2021
+ms.date: 09/14/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -11,6 +11,7 @@ azureCategories:
   - databases
   - web
   - migration
+  - storage
 products:
   - azure-front-door
   - azure-app-service
@@ -52,7 +53,7 @@ This capability matrix provides links to the articles and summarizes the benefit
 | [Optimized Storage – time based with Data Lake](../../solution-ideas/articles/optimized-storage-time-based-data-lake.yml)|Resiliency, performance, scalability|Implementation time, need to design time-based data retention|
 |[Minimal storage – change feed to replicate data](../../solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml)|Resiliency, performance, time-based data retention|Limited scalability, implementation time|
 
-## Related resources
+## Next steps
 
 Here are resources to help you design your storage solution and investigate its business aspects, including costs and service-level agreements.
 
