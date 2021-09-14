@@ -238,6 +238,8 @@ items:
                 href: framework/resiliency/overview.md
               - name: Principles
                 href: framework/resiliency/principles.md
+              - name: Resiliency checklist for specific Azure services
+                href: /azure/architecture/checklist/resiliency-per-service
               - name: Design
                 items: 
                   - name: Checklist
