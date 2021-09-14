@@ -110,7 +110,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud Dataflow](https://cloud.google.com/dataflow) | [Azure Databricks](https://azure.microsoft.com/services/databricks/#documentation) | Managed platform for streaming batch data based on Open Source Apache products. |
-| [Datastudio](https://datastudio.google.com/overview) <br/><br/> [Looker](https://cloud.google.com/looker) | [Power BI](https://powerbi.microsoft.com) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. |
+| [Data Studio](https://datastudio.google.com/overview) <br/><br/> [Looker](https://cloud.google.com/looker) | [Power BI](https://powerbi.microsoft.com) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. |
 | [Cloud Search](https://cloud.google.com/products/search) | [Azure Search](https://azure.microsoft.com/services/search) | Delivers full-text search and related search analytics and capabilities. |
 | [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Analysis Services](/analysis-services/analysis-services-overview) | Provides a serverless non-cloud interactive query service that uses standard SQL for analyzing databases. |
 
@@ -274,7 +274,7 @@ Here are some architectures that use AKS as the orchestrator.
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud IoT Core](https://cloud.google.com/iot/docs) | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/),[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
-| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#documentation),[HDInsight Kafka](/azure/hdinsight/) | Process and route streaming data to a subsequent processing engine or tp a storage or database platform. |
+| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#documentation),[HDInsight Kafka](/azure/hdinsight/) | Process and route streaming data to a subsequent processing engine or to a storage or database platform. |
 | [Edge Tpu](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
 
 ### IOT architectures
