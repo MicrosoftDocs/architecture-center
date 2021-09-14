@@ -178,4 +178,4 @@ In general, cloud-native services, like Azure Cosmos DB and Azure Blob Storage, 
 
 ## Next steps
 
-See [Resources for architects and developers of multitenant solutions](/azure/architecture/guide/multitenant/related-resources).
+See [Resources for architects and developers of multitenant solutions](../related-resources.md).
