@@ -44,25 +44,7 @@ When deploying to a multitenant environment, it's important to use infrastructur
 
 ### Resource management responsibility
 
-In many multitenant solutions, you deploy dedicated Azure resources for each tenant, such as a database for each tenant. In other solutions, you deploy shared resources but reconfigure them when new tenants are onboarded, or you decide on a set number of tenants to house on a specific resource and then *spill over* to a new resource. In these situations, the number of tenants you have dictates the resources you deploy to Azure.
-
-You can consider two approaches when deploying resources in a multitenant solution:
-
-- Use an automated deployment pipeline to deploy every resource. As new tenants are added, reconfigure your pipeline to provision the resources for each tenant.
-- Use an automated deployment pipeline to deploy shared resources that don't depend on the number of tenants. For resources that are deployed for each tenant, create them programmatically within your application.
-
-When considering the two approaches, it's useful to distinguish between treating your tenant list as *configuration* or as *data*.
-
-When you treat your tenant list as configuration, you deploy resources by using a deployment pipeline and reconfigure the pipeline as you add tenants. This approach tends to work well for small numbers of tenants, and for architectures where all resources are shared. However, when you have large numbers of tenants, it can become cumbersome to reconfigure the pipeline as you add tenants, and time it takes to run the deployment pipeline often increases significantly too. This approach also doesn't easily support self-service tenant creation, and it typically takes more time to onboard a tenant since you need to trigger your pipeline to run.
-
-When you treat your tenant list as data, you deploy your shared components by using a pipeline. However, for resources and configuration settings that need to be deployed for each tenant, you programmatically deploy or configure your resources, such as by using the [Azure SDKs](https://azure.microsoft.com/downloads). By doing this, you can provision resources for new tenants without redeploying your entire solution. However, this approach is often much more time-consuming to build, and the effort you spend needs to be justified by the number of tenants or the provisioning timeframes you need to meet.
-
-> [!NOTE]
-> Azure deployment and configuration operations often take time to complete. Ensure you use an appropriate technology to initiate and monitor these long-running operations.
->
-> For example, you might create an API that adds tenants. When a tenant is added using the API, you could initiate a long-running process that follows the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.md). Use technologies that are designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview).
-
-TODO: Would it be worth discussing an example here? This might be a simple multitenant solution that uses a shared App Service and a dedicated SQL DB per tenant. We'd then compare the two deployment approaches described above, maybe with a diagram showing each approach.
+TODO
 
 ## Patterns to consider
 
@@ -89,6 +71,49 @@ When you deploy and configure multitenant solutions, it's important to avoid sit
 
 - **Manual deployment and testing.** As described above, manual deployment processes add risk and slow your ability to deploy. Consider using automated deployments using pipelines, programmatic creation of resources from your solution's code, or a combination of both.
 - **Per-tenant customization.** Avoid creating features or configuration that only applies to a single tenant. This approach adds complexity to your deployments and testing processes. Aim to have use the same resource types and codebase for each tenant, and use strategies like [feature flags](#feature-flags) or [different pricing tiers](../considerations/pricing-models.md) to selectively enable features for tenants that require them.
+
+## Tenant creation approaches
+
+In many multitenant solutions, you deploy dedicated Azure resources for each tenant, such as a database for each tenant. In other solutions, you deploy shared resources but reconfigure them when new tenants are onboarded, or you decide on a set number of tenants to house on a specific resource and then *spill over* to a new resource. In these situations, the number of tenants you have dictates the resources you deploy to Azure.
+
+You can consider two approaches when deploying resources in a multitenant solution:
+
+- Use an automated deployment pipeline to deploy every resource. As new tenants are added, reconfigure your pipeline to provision the resources for each tenant.
+- Use an automated deployment pipeline to deploy shared resources that don't depend on the number of tenants. For resources that are deployed for each tenant, create them programmatically within your application.
+
+When considering the two approaches, it's useful to distinguish between treating your tenant list as *configuration* or as *data*.
+
+### Tenants as configuration
+
+When you treat your tenant list as configuration, you deploy resources by using a deployment pipeline and reconfigure the pipeline as you add tenants. This approach tends to work well for small numbers of tenants, and for architectures where all resources are shared. However, when you have large numbers of tenants, it can become cumbersome to reconfigure the pipeline as you add tenants, and time it takes to run the deployment pipeline often increases significantly too. This approach also doesn't easily support self-service tenant creation, and it typically takes more time to onboard a tenant since you need to trigger your pipeline to run.
+
+### Tenants as data
+
+When you treat your tenant list as data, you deploy your shared components by using a pipeline. However, for resources and configuration settings that need to be deployed for each tenant, you programmatically deploy or configure your resources, such as by using the [Azure SDKs](https://azure.microsoft.com/downloads). By doing this, you can provision resources for new tenants without redeploying your entire solution. However, this approach is often much more time-consuming to build, and the effort you spend needs to be justified by the number of tenants or the provisioning timeframes you need to meet.
+
+> [!NOTE]
+> Azure deployment and configuration operations often take time to complete. Ensure you use an appropriate technology to initiate and monitor these long-running operations.
+>
+> For example, you might create an API that adds tenants. When a tenant is added using the API, you could initiate a long-running process that follows the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.md). Use technologies that are designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview).
+
+### Example 1: TODO
+
+Onboarding a tenant by creating an entry in a database table
+No deployment required, so tenant-as-data approach makes sense
+
+### Example 2: TODO
+
+Onboarding a tenant by creating a database in an elastic pool and adding a DNS entry
+Tenant-as-configuration approach: update pipeline config (e.g. IaC parameters file) and redeploy
+Tenant-as-data approach: use SDKs to create db and DNS entry
+
+### Example 3: TODO
+
+Onboarding a tenant by deploying a new stamp
+Likely to be minutes to hours
+Tenant-as-configuration approach: create new deployment environment and redeploy
+ - Consider scalability of this approach if you have lots of stamps/environments to manage
+Tenant-as-data approach: use SDK to initiate a deployment of a template
 
 ## Next steps
 
