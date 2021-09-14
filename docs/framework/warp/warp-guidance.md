@@ -41,7 +41,7 @@ The goal of this stage is to establish a backlog of work items either thru a man
 > [!NOTE]
 >The [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/overview) is proven guidance that's designed to help you create and implement the business and technology strategies necessary for your organization to succeed in the cloud.  This guidance can help you define the [cloud operating model](/azure/cloud-adoption-framework/operating-model/) that governs the operational process for your workload.
 
-If you are using a [DevOps](/azure/cloud-adoption-framework/ready/enterprise-scale/platform-automation-and-devops#planning-for-a-devops-approach) approach for your operational process, Microsoft has provided tools that will import the recommendations exported CSV into an existing [Azure DevOps](/azure/devops) or GitHub project: [DevOps Tooling for Well-Architected Recommendation Process](/azure/architecture/framework/warp/tools/devops/README.md).
+If you are using a [DevOps](/azure/cloud-adoption-framework/ready/enterprise-scale/platform-automation-and-devops#planning-for-a-devops-approach) approach for your operational process, Microsoft has provided tools that will import the recommendations exported CSV into an existing [Azure DevOps](/azure/devops) or GitHub project: [DevOps Tooling for Well-Architected Recommendation Process](/azure/architecture/framework/warp/tools/devops/README).
 
 ## Triage Backlog
 
