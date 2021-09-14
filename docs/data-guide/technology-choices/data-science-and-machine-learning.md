@@ -1,5 +1,5 @@
 ---
-title: Compare machine learning products from Microsoft
+title: Microsoft machine learning products
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 author: EdPrice-MSFT
 ms.author: pnp
