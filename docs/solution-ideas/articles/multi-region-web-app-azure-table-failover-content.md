@@ -57,17 +57,17 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Considerations
 
-1. There are performance limits on Table Storage that can be overcome by adding Storage accounts. The following circumstances may require additional accounts:
-   1. To implement multi-tenancy to support multiple customers
-   1. To support customers with higher transaction rates
-   1. To support customers with large datasets
-   1. To speed up data access by distributing data across multiple storage accounts
-   1. To segregate data into hot, cold, and archive tiers
-   1. To make copies of data for backup and reporting purposes
+- There are performance limits on Table Storage that can be overcome by adding Storage accounts. The following circumstances may require additional accounts:
+   - To implement multi-tenancy to support multiple customers
+   - To support customers with higher transaction rates
+   - To support customers with large datasets
+   - To speed up data access by distributing data across multiple storage accounts
+   - To segregate data into hot, cold, and archive tiers
+   - To make copies of data for backup and reporting purposes
 
    For more information, see [Scalability and performance targets for Table Storage](/azure/storage/tables/scalability-targets).
-1. Table Storage replication isn't available in some Azure regions.
-1. The data in a secondary region has eventual consistency, which means that there's a lag between the time an update occurs in a primary region and when it's seen in the secondary region. Because replication from the primary region to the secondary region is asynchronous, data can be lost if the primary region fails and does not recover. There is currently no service level agreement (SLA) on how long it takes to replicate data to the secondary region. For more information, see [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+- Table Storage replication isn't available in some Azure regions.
+- The data in a secondary region has eventual consistency, which means that there's a lag between the time an update occurs in a primary region and when it's seen in the secondary region. Because replication from the primary region to the secondary region is asynchronous, data can be lost if the primary region fails and does not recover. There is currently no service level agreement (SLA) on how long it takes to replicate data to the secondary region. For more information, see [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
 ## Next steps
 

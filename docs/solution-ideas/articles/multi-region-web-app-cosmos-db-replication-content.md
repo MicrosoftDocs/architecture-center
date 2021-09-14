@@ -57,9 +57,9 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Considerations
 
-1. With Azure Cosmos DB, you have one-click data replication to any number of Azure regions.
-1. As the data grows, Cosmos DB becomes more expensive. You may need to implement data tiering strategies to control cost.
-1. If you're migrating data from another storage system, you need to write routines to copy the data to Azure Cosmos DB. Make sure that you have timestamp and copy flags to track the progress of data migration.
+- With Azure Cosmos DB, you have one-click data replication to any number of Azure regions.
+- As the data grows, Cosmos DB becomes more expensive. You may need to implement data tiering strategies to control cost.
+- If you're migrating data from another storage system, you need to write routines to copy the data to Azure Cosmos DB. Make sure that you have timestamp and copy flags to track the progress of data migration.
 
 ## Next steps
 

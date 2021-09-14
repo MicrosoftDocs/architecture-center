@@ -59,9 +59,9 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Considerations
 
-1. Application developers must implement multi-writes to both data stores. This may complicate the implementation and management of the overall application.
-1. You need to configure Azure Data Factory to delete data based on timestamps from Azure Cosmos DB. Make sure that you have a timestamp column defined in every entity.
-1. You can use native replication capabilities of Table Storage to simplify the architecture, but it will limit you to specific Azure regions that support Table replication.
+- Application developers must implement multi-writes to both data stores. This may complicate the implementation and management of the overall application.
+- You need to configure Azure Data Factory to delete data based on timestamps from Azure Cosmos DB. Make sure that you have a timestamp column defined in every entity.
+- You can use native replication capabilities of Table Storage to simplify the architecture, but it will limit you to specific Azure regions that support Table replication.
 
 ## Next steps
 

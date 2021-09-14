@@ -6,13 +6,13 @@ The architecture requires custom replication software. This can be challenging t
 
 Here are some possible configurations:
 
-1. **Active/Passive:** There is a primary region that normally provides service to all users. There is also a standby region that becomes active when the primary region cannot function. When the primary system is active, a replication service replicates database changes to the standby region.
-1. **Active/Active:** There is a primary region that normally is active, providing read service to nearby users and write service to all users. One or more other regions are active and provide read-only service to nearby users. Writes are always directed to the primary region, and reads are always directed to the nearest active region.
+- **Active/Passive:** There is a primary region that normally provides service to all users. There is also a standby region that becomes active when the primary region cannot function. When the primary system is active, a replication service replicates database changes to the standby region.
+- **Active/Active:** There is a primary region that normally is active, providing read service to nearby users and write service to all users. One or more other regions are active and provide read-only service to nearby users. Writes are always directed to the primary region, and reads are always directed to the nearest active region.
 
    As with the Active/Passive configuration, there is a standby region that becomes active when the primary region cannot function. When the primary system is active, a replication service replicates database changes to the read-only regions and the standby region. When the standby region is active, the replication service replicates database changes to the read-only regions.
 
    One drawback to this approach is the high latency of write operations.
-1. **Multi-active:** There are multiple active regions, each capable of providing full service to users. User activity is always directed to the nearest active region.
+- **Multi-active:** There are multiple active regions, each capable of providing full service to users. User activity is always directed to the nearest active region.
 
    Implementation of multi-active is quite challenging, and can require expert design and implementation.
 
@@ -71,18 +71,18 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Considerations
 
-1. The architecture requires custom replication software. This can be challenging to create, depending on the applications and the configuration. The possible difficulty of implementing custom replication and the time required to do it are important considerations with this architecture.
-1. Because replication is custom-designed, developers have great flexibility in implementing a data consistency strategy.
-1. There are performance limits on Table Storage that can be overcome by adding Storage accounts. The following circumstances may require additional accounts:
-   1. To implement multi-tenancy to support multiple customers
-   1. To support customers with higher transaction rates
-   1. To support customers with large datasets
-   1. To speed up data access by distributing data across multiple storage accounts
-   1. To segregate data into hot, cold, and archive tiers
-   1. To make copies of data for backup and reporting purposes
+- The architecture requires custom replication software. This can be challenging to create, depending on the applications and the configuration. The possible difficulty of implementing custom replication and the time required to do it are important considerations with this architecture.
+- Because replication is custom-designed, developers have great flexibility in implementing a data consistency strategy.
+- There are performance limits on Table Storage that can be overcome by adding Storage accounts. The following circumstances may require additional accounts:
+   - To implement multi-tenancy to support multiple customers
+   - To support customers with higher transaction rates
+   - To support customers with large datasets
+   - To speed up data access by distributing data across multiple storage accounts
+   - To segregate data into hot, cold, and archive tiers
+   - To make copies of data for backup and reporting purposes
 
    For more information, see [Scalability and performance targets for Table Storage](/azure/storage/tables/scalability-targets).
-1. If your application already contains data, then you need to write routines to copy old data to storage accounts. Make sure that you have timestamp and copy flags to track the progress of migration of data.
+- If your application already contains data, then you need to write routines to copy old data to storage accounts. Make sure that you have timestamp and copy flags to track the progress of migration of data.
 
 ## Next steps
 

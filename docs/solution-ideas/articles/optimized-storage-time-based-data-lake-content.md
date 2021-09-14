@@ -57,10 +57,10 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Considerations
 
-1. Historical data needs to be migrated to Azure Data Lake as a one-time activity to ensure cost effectiveness of the solution.
-1. Application developers must implement data migration routines that use Azure Data Factory to move data from Azure Cosmos DB to Azure Data Lake.
-1. If you're migrating data from old storage system, you may need to write routines to copy a portion of old data to Cosmos DB. Make sure that you have timestamp and copy flags to track the progress of migration of data.
-1. You can further optimize the overall architecture by replacing Azure Redis cache with Azure Cosmos DB integrated cache.
+- Historical data needs to be migrated to Azure Data Lake as a one-time activity to ensure cost effectiveness of the solution.
+- Application developers must implement data migration routines that use Azure Data Factory to move data from Azure Cosmos DB to Azure Data Lake.
+- If you're migrating data from old storage system, you may need to write routines to copy a portion of old data to Cosmos DB. Make sure that you have timestamp and copy flags to track the progress of migration of data.
+- You can further optimize the overall architecture by replacing Azure Redis cache with Azure Cosmos DB integrated cache.
 
 ## Next steps
 

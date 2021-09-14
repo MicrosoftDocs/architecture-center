@@ -53,10 +53,10 @@ The architecture may be appropriate for any application that uses massive amount
 
 ## Considerations
 
-1. Implementation and maintenance of this solution will incur extra cost.
-1. Using the change feed for replication requires less code maintenance than doing the replication in the core application.
-1. Existing data needs to migrate which would require ad-hoc scripts/routines to copy old data to storage accounts. Make sure that you have timestamp and copy flags to track the progress of migration of data.
-1. Make sure that you ignore delete feeds generated because of Azure Function deleting entries from Cosmos DB to avoid deleting entries from the secondary storage (Azure Table).
+- Implementation and maintenance of this solution will incur extra cost.
+- Using the change feed for replication requires less code maintenance than doing the replication in the core application.
+- Existing data needs to migrate which would require ad-hoc scripts/routines to copy old data to storage accounts. Make sure that you have timestamp and copy flags to track the progress of migration of data.
+- Make sure that you ignore delete feeds generated because of Azure Function deleting entries from Cosmos DB to avoid deleting entries from the secondary storage (Azure Table).
 
 ## Next steps
 
