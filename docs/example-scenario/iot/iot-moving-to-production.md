@@ -9,6 +9,8 @@
   ms.topic: conceptual
   ms.date: 9/10/2021
   ms.author: mcosner
+  categories:
+    - iot
   products:
     - azure-iot-hub
 
@@ -76,7 +78,7 @@ Provisioning is the act of enrolling a device into Azure IoT Hub. Provisioning m
 
 The following example shows how to implement a test-to-production environment transition workflow by using DPS.
 
-![A diagram showing how to implement a test-to-production environment transition workflow by using DPS.](./docs/example-scenario/iot/media/late-binding-with-dps.png)
+![A diagram showing how to implement a test-to-production environment transition workflow by using DPS.](/media/late-binding-with-dps.png)
 
 1. The solution developer links the Test and Production IoT clouds to the provisioning service.
 1. The device implements the DPS protocol to find the IoT Hub if it's no longer provisioned. The device is initially provisioned to the Test environment.
