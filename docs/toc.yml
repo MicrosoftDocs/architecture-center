@@ -2193,11 +2193,11 @@ items:
             items:
               - name: Add IP spaces to peered virtual networks
                 href: networking/prefixes/add-ip-space-peered-vnet.md
-              - name: Azure Application Gateway WAF review
+              - name: Azure Application Gateway framework review
                 href: networking/guide/waf-application-gateway.md
               - name: Azure Firewall architecture overview
                 href: example-scenario/firewalls/index.yml
-              - name: Azure Firewall WAF review
+              - name: Azure Firewall framework review
                 href: networking/guide/well-architected-framework-azure-firewall.md
               - name: Azure Private Link in hub-and-spoke network
                 href: guide/networking/private-link-hub-spoke-network.yml
