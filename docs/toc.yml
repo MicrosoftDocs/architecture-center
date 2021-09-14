@@ -1289,7 +1289,7 @@ items:
                     href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
               - name: Advanced microservices architecture on AKS
                 href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
-              - name: AKS Baseline for Multi-Region Clusters
+              - name: AKS baseline for multi-region clusters
                 href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
               - name: CI/CD pipeline for container-based workloads
                 href: example-scenario/apps/devops-with-aks.yml
