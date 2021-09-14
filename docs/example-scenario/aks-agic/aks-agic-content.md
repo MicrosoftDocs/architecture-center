@@ -268,7 +268,7 @@ Although the service mesh considerations are not fully pertaining to multitenanc
   - [Install and use Istio in Azure Kubernetes Service (AKS)](/azure/aks/servicemesh-istio-install?pivots=client-operating-system-linux)
   - [Install Linkerd in Azure Kubernetes Service (AKS)](/azure/aks/servicemesh-linkerd-install?pivots=client-operating-system-linux)
   - [Install and use Consul in Azure Kubernetes Service (AKS)](/azure/aks/servicemesh-consul-install?pivots=client-operating-system-linux)
-  - [Open Service Mesh AKS add-on](/azure/aks/servicemesh-osm-about?pivots=client-operating-system-linux)
+  - [Open Service Mesh AKS add-on](/azure/aks/open-service-mesh-about)
 
 - Consider adopting [Dapr](https://dapr.io) to build resilient, microservice stateless and stateful applications. You can use any programming language and developer framework.
 
