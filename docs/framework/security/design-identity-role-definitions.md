@@ -206,13 +206,36 @@ section details these controls for Azure.
 
 [Engage your organization's security team](/azure/security/develop/secure-dev-overview#engage-your-organizations-security-team)
 
+## Manage connected tenants
+
+Does your security team have visibility into all existing subscriptions and cloud environments? How do they discover new ones?
+
+Ensure your security organization is aware of all enrollments and associated
+subscriptions connected to your existing environment (via ExpressRoute or
+Site-Site VPN) and monitoring as part of the overall enterprise.
+
+These Azure resources are part of your enterprise environment and security
+organizations require visibility into them. Security organizations need this
+access to assess risk and to identify whether organizational policies and
+applicable regulatory requirements are being followed.
+
+The organizations' cloud infrastructure should be well documented, with security team access to all resources required for monitoring and insight. Frequent scans of the cloud-connected assets should be performed to ensure no additional subscriptions or tenants have been added outside of organizational controls. Regularly review Microsoft guidance to ensure security team access best practices are consulted and followed.
+
+### Suggested actions
+
+Ensure all Azure environments that connect to your production
+environment and network apply your organization's policy, and IT governance controls
+for security.
+
+You can discover existing connected tenants using a
+[tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions
+
 ## Next steps
 
 Restrict access to Azure resources based on a need-to-know basis starting with the principle of least privilege security and add more based on your operational needs.
 
 > [!div class="nextstepaction"]
 > [Azure control plane security](design-identity-control-plane.md)
-
 
 ## Related links
 
