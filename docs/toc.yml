@@ -193,6 +193,12 @@ items:
             items:
               - name: Storage and data
                 href: guide/multitenant/approaches/storage-data.md
+          - name: Service-specific guidance
+            items:
+              - name: Storage and data
+                items:
+                  - name: Azure Storage
+                    href: guide/multitenant/service/storage.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
       - name: Azure for AWS Professionals
