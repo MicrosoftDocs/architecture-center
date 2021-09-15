@@ -105,7 +105,7 @@ define and query hierarchical views of production assets within factories and
 other physical locations. This includes the validation of corresponding business
 rules to enforce consistency and data integrity of the hierarchy.
 
-![A Hierarchy Service architecture infographic](../media/connected-factory-hierarchy-dervice-01.png)
+![A Hierarchy Service architecture infographic](../media/connected-factory-hierarchy-service-01.png)
 
 ### Key capabilities
 
@@ -135,7 +135,7 @@ These capabilities consist of the following components:
 
 The components listed above support the following operations.
 
-![A screenshot support operations](../media/connected-factory-hierarchy-dervice-02.png)
+![A screenshot support operations](../media/connected-factory-hierarchy-service-02.png)
 
 Query operations allow you to additionally filter by node types and node
 attributes.
@@ -150,7 +150,7 @@ in long response times when issued directly against Azure Digital Twins. The
 in-memory cache improves the speed of a 3,000-node graph traversal from \~10
 seconds to under a second.
 
-![Infographic of an example Hierarchy Service](../media/connected-factory-hierarchy-dervice-03.png)
+![Infographic of an example Hierarchy Service](../media/connected-factory-hierarchy-service-03.png)
 
 ### Extensibility
 
