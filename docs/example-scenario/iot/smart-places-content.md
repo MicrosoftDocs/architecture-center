@@ -160,20 +160,20 @@ services. Those services work independently or together to provide functionality
   - [Azure Sphere][Azure Sphere] devices
   - [Devices that run Azure RTOS][Overview of Azure IoT Device SDKs - Device capabilities]
 
+- [Azure IoT Edge][Azure IoT Edge] runs cloud workloads on IoT Edge devices. Specifically, this central message hub can run [real-time analytics][What is Azure IoT Edge] through Machine Learning and Azure Stream Analytics. IoT Edge also functions as a [gateway][How an IoT Edge device can be used as a gateway] to IoT Hub for:
+
+  - Devices with low-power requirements
+  - Legacy devices
+  - Constrained devices
+
+- [Data Factory][Azure Data Factory] is an integration service that works with potentially large blocks of data from disparate data stores. You can use this platform to orchestrate and automate data transformation workflows. For instance, Data Factory can bridge the gap between semi-static stores and historian components like Azure Data Explorer.
 
 
 
-- Azure IoT Edge: general description. This component serves in two ways:
 
-  - As a [gateway](https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway?view=iotedge-2018-06) to IoT Hub for:
 
-    - Devices with low-power requirements
-    - Legacy devices
-    - Constrained devices
 
-  - As a central message hub that can run [real-time analytics](https://docs.microsoft.com/azure/iot-edge/about-iot-edge?view=iotedge-2018-06) through Machine Learning and Azure Stream Analytics.
 
-- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) Azure Data Factory transforms semi-static data and transfers it to Azure Data Explorer. Azure Data Factory is the service to move and transform potentially large blocks of data from one store/format to another. This service is recommended when bridging semi-static stores to the historian component
 
 - B2B connector translate & stream data bidirectionally between vendor devices/solutions and Azure Digital Twins. With a growing ecosystem of vendors using industry standard ontologies with Digital Twins Definition Language [(DTDL)](https://docs.microsoft.com/azure/digital-twins/concepts-models) such as [RealEstateCore](https://techcommunity.microsoft.com/t5/internet-of-things/realestatecore-a-smart-building-ontology-for-digital-twins-is/ba-p/1914794), these integrations will become simpler over time.
 
@@ -282,7 +282,11 @@ The [Azure IoT Reference Architecture](https://docs.microsoft.com/azure/architec
 
 
 
+
+
+[Azure Data Factory]: https://docs.microsoft.com/azure/data-factory/introduction
 [Azure Industrial IoT Analytics Guidance]: https://docs.microsoft.com/en-us/azure/architecture/guide/iiot-guidance/iiot-architecture
+[Azure IoT Edge]: https://azure.microsoft.com/services/iot-edge
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub
 [Azure IoT SDKs]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks
 [Azure Sphere]: https://azure.microsoft.com/en-us/services/azure-sphere/
@@ -291,7 +295,9 @@ The [Azure IoT Reference Architecture](https://docs.microsoft.com/azure/architec
 [COVID-19 safe environments with IoT Edge monitoring and alerting]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection
 [End-to-end manufacturing using computer vision on the edge]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/end-to-end-smart-factory
 [Getting started with Azure IoT solutions]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot/iot-architecture-overview
+[How an IoT Edge device can be used as a gateway]: https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway?view=iotedge-2018-06
 [IoT analytics with Azure Data Explorer]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/iot-azure-data-explorer
 [IoT solutions conceptual overview]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/iot/introduction-to-solutions
 [Overview of Azure IoT Device SDKs - Device capabilities]: https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks#device-capabilities
 [Vision with Azure IoT Edge]: https://docs.microsoft.com/en-us/azure/architecture/guide/iot-edge-vision
+[What is Azure IoT Edge]: https://docs.microsoft.com/azure/iot-edge/about-iot-edge?view=iotedge-2018-06)
