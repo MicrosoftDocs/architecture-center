@@ -720,7 +720,7 @@ items:
                 href: example-scenario/data/fraud-detection.yml
           - name: Compliance Blueprints
             items:
-              - name: Blueprint: Analytics for PCI DSS
+              - name: Blueprint - Analytics for PCI DSS
                 href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
                 maintainContext: true
               - name: Blueprint: Data warehouse for PCI DSS
