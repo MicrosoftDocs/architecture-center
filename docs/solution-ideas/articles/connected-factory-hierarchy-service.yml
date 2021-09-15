@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Connected Factory – Hierarchy Service
+  titleSuffix: Azure Solution Ideas
+  description:  A Hierarchy Service allows your business stakeholders to centrally define how production assets like machines are organized within factories.
+  author: EdPrice-MSFT
+  ms.author: Maxzeier
+  ms.date: 09/14/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - compute
+    - storage
+name: Connected Factory – Hierarchy Service
+azureCategories:
+  - compute
+  - storage
+summary: A Hierarchy Service allows your business stakeholders to centrally define how production assets like machines are organized within factories.
+products:
+  - azure-kubernetes-service
+  - azure-active-directory
+  - azure-devops
+  - azure-monitor
+thumbnailUrl: /azure/architecture/browse/thumbs/connected-factory-hierarchy-service-01.png
+content: |
+   [!include[](connected-factory-hierarchy-service-content.md)] 
