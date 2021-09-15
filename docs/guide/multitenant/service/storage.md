@@ -67,7 +67,7 @@ You can also [log all of the requests made to Azure Storage](/azure/storage/blob
 
 When working with a multitenant system using Azure Storage, you need to make a decision about the level of isolation you want to use. Azure Storage supports several isolation models.
 
-## Storage accounts per tenant
+### Storage accounts per tenant
 
 The strongest level of isolation is to deploy a dedicated storage account for a tenant. This ensures that all storage keys are isolated and can be rotated independently. This approach enables you to scale your solution to avoid limits and quotas that are applicable to each storage account, but you also need to consider the maximum number of storage accounts that can be deployed into a single Azure subscription.
 
