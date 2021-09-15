@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Secure research environment for regulated data 
+  description: Architecture on Azure that shows a regulated enviroment for researchers to access sensitive data while providing a higher level of control and data protection.
+  author: PageWriter-MSFT
+  ms.author: pnp
+  ms.date: 09/20/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.category:
+    - developer-tools
+    - hybrid
+  ms.custom:
+    - fcp
+name: Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning
+azureCategories:
+  - ai-machine-learning
+  - compute
+  - security
+summary: Architecture on Azure that shows a regulated enviroment for researchers to access sensitive data while providing a higher level of control and data protection.
+products:
+  - azure-data-science-vm
+  - azure-machine-learning
+  - azure-data-factory
+thumbnailUrl: /azure/architecture/browse/thumbs/data-sciene-lifecycle-model-flow.png
+content: |
+   [!include[](secure-compute-for-research-content.md)]
