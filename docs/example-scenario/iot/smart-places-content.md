@@ -16,6 +16,8 @@ Add info as specified in template:
 - A paragraph that describes what the solution does
 - A paragraph that contains a brief description of the main Azure services that make up the solution.
 
+At the core of the solution is Azure Digital Twins.
+
 ## Business outcomes
 
 In this example solution, a large commercial real estate owner is
@@ -78,7 +80,7 @@ services. Those services work independently or together to provide functionality
 
 1. External, batch, or legacy systems send data to [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction). This static data typically originates in files and databases.
 
-1. Business-to-business connectors translate and stream data bidirectionally between vendor components and Azure Digital Twins.
+1. Business-to-business connectors translate vendor data and stream it to Azure Digital Twins.
 
 1. Azure IoT Hub ingests device telemetry. IoT Hub also provides these services:
 
@@ -90,7 +92,7 @@ services. Those services work independently or together to provide functionality
 
 1. Azure Data Factory transforms semi-static data and transfers it to Azure Data Explorer.
 
-1. Data travels from IoT Hub to Digital Twins. Azure Digital Twins holds the spatial graph of the buildings and environment. Azure Functions processes the data, performing fault detection and graph updates.
+1. Azure Functions receives the IoT Hub data and uses the [Digital Twins APIs to update Digital Twins][Ingest IoT Hub telemetry into Azure Digital Twins]. Azure Digital Twins holds the spatial graph of the buildings and environment. Azure Functions processes the data, performing fault detection and graph updates.
 
 1. Various components maintain the DTDL model:
 
@@ -106,9 +108,9 @@ services. Those services work independently or together to provide functionality
      - GitHub stores [RealEstateCore](https://github.com/Azure/opendigitaltwins-building), the Smart Cities ontology, and the [Energy Grid ontology](https://github.com/Azure/opendigitaltwins-energygrid/).
      - For custom ontologies, customized repositories and solution-specific repos in GitHub are available.
 
-   - For loading models into Azure Digital Twins, these options are available:
+   - For loading models into Azure Digital Twins, these options exist:
 
-     - Model Uploader
+     - [UploadModels][UploadModels], a tool for uploading DTDL ontologies
      - Samples in the [Digital Twins tools repository](https://github.com/Azure/opendigitaltwins-tools)
 
 1. Digital Twins sends the data through Azure Event Grid to Azure Data Explorer. This analytics service functions as a historian by storing the solution's time series data.
@@ -119,7 +121,7 @@ services. Those services work independently or together to provide functionality
 
 1. For visualization tools and enterprise apps, the solution access layer components provide secure access to core system services:
 
-   - Azure API Management offers functionality for normalizing, securing, and customizing APIs. [maybe put nexgt sentence in Components] This platform also enforces usage quotas and rate limits.
+   - Azure API Management offers functionality for normalizing, securing, and customizing APIs. This platform also enforces usage quotas and rate limits.
    - SignalR sends notifications to UIs when telemetry and data changes.
    - For applications that exchange data asynchronously or at volume, various components provide publishing and subscribing mechanisms:
 
@@ -147,6 +149,10 @@ services. Those services work independently or together to provide functionality
 
 ### Components
 
+The solution uses these components:
+
+#### Core components
+
 - [Azure IoT Hub][Azure IoT Hub] connects devices to Azure cloud resources. This managed service provides:
 
   - Device-level security
@@ -168,6 +174,41 @@ services. Those services work independently or together to provide functionality
 
 - [Data Factory][Azure Data Factory] is an integration service that works with potentially large blocks of data from disparate data stores. You can use this platform to orchestrate and automate data transformation workflows. For instance, Data Factory can bridge the gap between semi-static stores and historian components like Azure Data Explorer.
 
+- Business-to-business connectors translate and stream data bidirectionally between vendor components and Azure Digital Twins. A growing number of vendors are using [Digital Twins Definition Language (DTDL)][Digital Twins Definition Language (DTDL)] to create industry-standard ontologies. [RealEstateCore][RealEstateCore] provides an example. As a result, these integrations should become simpler over time.
+
+- [Azure Digital Twins][Azure Digital Twins] stores digital representations of IoT devices and environments. This platform as a service (PaaS) models environments with [DTDL][Digital Twins Definition Language]. Azure Digital Twins offers a [REST API][Digital Twins REST API] for entering data. [SDKs support control and data plane operations in various languages][Azure Digital Twins APIs and SDKs]. You can build [ontologies][Digital Twins ontologies] by using DTDL. You can also start with an industry-supported model:
+
+  - [RealEstateCore ontology][RealEstateCore]
+  - [Smart Cities Ontology][Smart Cities Ontology]
+  - [Energy Grid Ontology][Energy Grid Ontology]
+
+- [Azure Digital Twins Explorer][Azure Digital Twins Explorer (preview)] is a developer tool that you can use to visualize and interacting with Digital Twins data, models, and graphs. This tool is currently in public preview.
+
+
+- [Azure Functions][Azure Functions] is an event-driven serverless compute platform. With Functions, you can use triggers and bindings to integrate services at scale.
+
+- [Azure Data Explorer][Azure Data Explorer] is a fast, fully managed data analytics service. You can use this service for real-time analysis on large volumes of data. Azure Data Explorer can handle diverse data streams from applications, websites, IoT devices, and other sources.
+
+- [Azure Cognitive Services][Azure Cognitive Services] provides AI functionality. These services offer a set of pre-trained, neural network models for the cloud. The REST APIs and client library SDKs can help you build cognitive intelligence into apps. You can use Cognitive Services functionality:
+
+  - In near real-time
+  - At certain data thresholds
+  - On demand
+  - For complex jobs with long processing times
+
+- [Machine Learning][Azure Machine Learning] is a cloud-based environment that helps you build, deploy, and manage predictive analytics solutions. With these models, you can forecast behavior, outcomes, and trends.
+
+- [Azure API Management][Azure API Management] creates consistent, modern API gateways for back-end services. Besides accepting API calls and routing them to back ends, this platform also verifies keys, tokens, certificates, and other credentials. API Management also logs call metadata and enforces usage quotas and rate limits.
+
+- [Service Bus][Service Bus] is a fully managed enterprise message broker. Service Bus supports message queues and publish-subscribe topics.
+
+- [Event Hubs][Event Hubs] is a fully managed streaming platform for big data.
+
+- [Azure SignalR Service][Azure SignalR Service] is an open-source software library that provides a way to [send notifications to web apps in real time][Integrate Azure Digital Twins with Azure SignalR Service].
+
+- [Power Apps][Microsoft Power Apps on Azure] is a suite of apps, services, connectors, and a data platform. You can use Power Apps to transform manual business operations into digital, automated processes.
+
+- [Power BI][Power BI] is a collection of software services and apps that display analytics information.
 
 
 
@@ -175,33 +216,26 @@ services. Those services work independently or together to provide functionality
 
 
 
-- B2B connector translate & stream data bidirectionally between vendor devices/solutions and Azure Digital Twins. With a growing ecosystem of vendors using industry standard ontologies with Digital Twins Definition Language [(DTDL)](https://docs.microsoft.com/azure/digital-twins/concepts-models) such as [RealEstateCore](https://techcommunity.microsoft.com/t5/internet-of-things/realestatecore-a-smart-building-ontology-for-digital-twins-is/ba-p/1914794), these integrations will become simpler over time.
 
-- [Azure Digital Twins](https://docs.microsoft.com/azure/digital-twins/overview) holds the spatial graph of the buildings and environment (rephrase). The environment is modeled with [Digital Twins Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) (DTDL). Azure Digital Twins has a [REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin), currently the only way to ingest data. This documentation also includes SDK references for supported languages for control and data plane operations.  When using IoT Hub or Event Hub, there must be a service that pulls the data from the source and calls the [API to submit to Azure Digital Twins](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data). The [ontology](https://docs.microsoft.com/azure/digital-twins/concepts-ontologies) can be built from the ground up with DTDL, or start with industry supported models such as [RealEstateCore](https://github.com/azure/opendigitaltwins-building), [Smart Cities Ontology](https://github.com/Azure/opendigitaltwins-smartcities), or the [Energy Grid Ontology](https://github.com/Azure/opendigitaltwins-energygrid/).
 
-- [Azure Functions](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function?tabs=cli) processes the data, such as comparing it to other sensor data for fault detection, roll up information to related instances in the graph, etc. (eliminate redundancy with diagram step).
 
-- [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-explorer-overview).
 
-- Azure Cognitive Services. functionality that happens either in near real-time, at certain data thresholds, by user demand, or that requires more sophisticated or longer running processing.
 
-- AI models (check diagram for exact name) functionality that happens either in near real-time, at certain data thresholds, by user demand, or that requires more sophisticated or longer running processing.
 
-- [Azure API Management](https://azure.microsoft.com/services/api-management/) offers services to normalize, secure, rate limit, and customize APIs (maybe remove some of that info from diagram steps).
 
-- Service Bus queues provide a publish/subscribe mechanism for service applications that need to exchange data asynchronously and/or at volume.
 
-- Event Hubs provide a publish/subscribe mechanism for service applications that need to exchange data asynchronously and/or at volume.
 
-- [SignalR](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-azure-signalr) updates UIs as telemetry and data changes (rephrase).
 
-- Azure Digital Twins Explorer creates the DTDL model. Currently in public preview.
 
-- Model Uploader is responsible for loading the model into Azure Digital Twins.
 
-- Power Apps
 
-- Power BI
+
+
+
+
+
+
+
 
 - Azure Maps
 
@@ -210,6 +244,10 @@ services. Those services work independently or together to provide functionality
 - Dynamics 365
 
 - Teams apps
+
+#### Support components
+
+Or maybe call them shared services.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor/) can collect, analyze, visualize, and send notifications from the operational telemetry across the services.
 
@@ -283,21 +321,63 @@ The [Azure IoT Reference Architecture](https://docs.microsoft.com/azure/architec
 
 
 
-
+[Azure API Management]: https://azure.microsoft.com/services/api-management
+[Azure Cognitive Services]: https://azure.microsoft.com/en-us/services/cognitive-services/?azure-portal=true
+[Azure Data Explorer]: https://docs.microsoft.com/azure/data-explorer/data-explorer-overview
 [Azure Data Factory]: https://docs.microsoft.com/azure/data-factory/introduction
+[Azure Digital Twins]: https://docs.microsoft.com/azure/digital-twins/overview
+[Azure Digital Twins APIs and SDKs]: https://docs.microsoft.com/en-us/azure/digital-twins/concepts-apis-sdks
+[Azure Digital Twins Explorer (preview)]: https://docs.microsoft.com/en-US/azure/digital-twins/concepts-azure-digital-twins-explorer
+[Azure Functions]: https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function?tabs=cli
 [Azure Industrial IoT Analytics Guidance]: https://docs.microsoft.com/en-us/azure/architecture/guide/iiot-guidance/iiot-architecture
 [Azure IoT Edge]: https://azure.microsoft.com/services/iot-edge
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub
 [Azure IoT SDKs]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks
+[Azure Machine Learning]: https://azure.microsoft.com/en-us/services/machine-learning/
+[Azure SignalR Service]: https://azure.microsoft.com/en-us/services/signalr-service/
 [Azure Sphere]: https://azure.microsoft.com/en-us/services/azure-sphere/
 [Choose an Internet of Things (IoT) solution in Azure]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet
 [Cognizant Safe Buildings with IoT and Azure]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/safe-buildings
 [COVID-19 safe environments with IoT Edge monitoring and alerting]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection
+[Digital Twins Definition Language]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+[Digital Twins Definition Language (DTDL)]: https://docs.microsoft.com/azure/digital-twins/concepts-models
+[Digital Twins ontologies]: https://docs.microsoft.com/azure/digital-twins/concepts-ontologies
+[Digital Twins REST API]: https://docs.microsoft.com/rest/api/iothub/service/digitaltwin
 [End-to-end manufacturing using computer vision on the edge]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/end-to-end-smart-factory
+[Energy Grid Ontology]: https://github.com/Azure/opendigitaltwins-energygrid/
+[Event Hubs]: https://azure.microsoft.com/en-us/services/event-hubs
 [Getting started with Azure IoT solutions]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot/iot-architecture-overview
 [How an IoT Edge device can be used as a gateway]: https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway?view=iotedge-2018-06
+[Ingest IoT Hub telemetry into Azure Digital Twins]: https://docs.microsoft.com/en-us/azure/digital-twins/how-to-ingest-iot-hub-data?tabs=cli
+[Integrate Azure Digital Twins with Azure SignalR Service]: https://docs.microsoft.com/en-us/azure/digital-twins/how-to-integrate-azure-signalr
 [IoT analytics with Azure Data Explorer]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/iot-azure-data-explorer
 [IoT solutions conceptual overview]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/iot/introduction-to-solutions
+[Microsoft Power Apps on Azure]: https://azure.microsoft.com/en-us/products/powerapps/
 [Overview of Azure IoT Device SDKs - Device capabilities]: https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks#device-capabilities
+[Power BI]: https://powerbi.microsoft.com/en-us/
+[RealEstateCore]: https://techcommunity.microsoft.com/t5/internet-of-things/realestatecore-a-smart-building-ontology-for-digital-twins-is/ba-p/1914794
+[RealEstateCore ontology]: https://github.com/azure/opendigitaltwins-building
+[Service Bus]: https://azure.microsoft.com/en-us/services/service-bus
+[Smart Cities Ontology]: https://github.com/Azure/opendigitaltwins-smartcities
+[UploadModels]: https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools
 [Vision with Azure IoT Edge]: https://docs.microsoft.com/en-us/azure/architecture/guide/iot-edge-vision
 [What is Azure IoT Edge]: https://docs.microsoft.com/azure/iot-edge/about-iot-edge?view=iotedge-2018-06)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
