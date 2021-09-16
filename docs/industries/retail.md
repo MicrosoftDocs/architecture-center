@@ -3,7 +3,7 @@ title: Solutions for the retail industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable retail solutions.
 author: dsk-2015
-ms.date: 09/13/2021
+ms.date: 09/14/2021
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: 
@@ -59,12 +59,14 @@ The following articles provide detailed analysis of architectures developed and 
 
 | Architecture | Summary | Technology focus |
 | ------- | ------- | ------- |
+| [Batch scoring with R models to forecast sales](../reference-architectures/ai/batch-scoring-r-models.yml) | Perform batch scoring with R models using Azure Batch. Azure Batch works well with intrinsically parallel workloads and includes job scheduling and compute management. | AI/ML |
 | [Build a Real-time Recommendation API on Azure](../reference-architectures/ai/real-time-recommendation.yml) | Build a recommendation engine that can be generalized for products, movies, news, and other consumer services, using Azure Databricks, Azure Machine Learning, Azure Cosmos DB, and Azure Kubernetes Service. | AI/ML |
 | [Movie recommendations on Azure](../example-scenario/ai/movie-recommendations-with-machine-learning.yml) | Automate movie and product recommendations by using an Azure Data Science Virtual Machine to train an Azure Machine Learning model. | AI/ML |
 | [Scalable personalization on Azure](../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml) | Build a *content-based* personalized recommendation system for customers by learning their preferences from past purchases and interactions. | AI/ML |
 | [Data warehousing and analytics](../example-scenario/data/data-warehouse.yml) | Build an insightful sales and marketing solution with a data pipeline that integrates large amounts of data from multiple sources into a unified analytics platform in Azure. | Analytics |
 | [Stream processing with Azure Databricks](../reference-architectures/data/stream-processing-databricks.yml) | Use Azure Databricks to build an end-to-end stream processing pipeline for a taxi company, to collect, and analyze trip and fare data from multiple devices. | Analytics |
 | [Stream processing with Azure Stream Analytics](../reference-architectures/data/stream-processing-stream-analytics.yml) | Use Azure Stream Analytics to build an end-to-end stream processing pipeline for a taxi company, to collect, and analyze trip and fare data from multiple devices. | Analytics |
+| [IBM z/OS online transaction processing on Azure](../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml) | With a dynamically adaptable infrastructure, businesses can realize and launch their products quickly to delight their users. Learn how to migrate a z/OS mainframe OLTP application to a secure, scalable, and highly available system in the cloud. | Mainframe |
 | [E-commerce front end](../example-scenario/apps/ecommerce-scenario.yml) | Implement a scalable and cost-effective e-commerce front end using Azure platform as a service (PaaS) tools. | Web |
 | [Intelligent product search engine for e-commerce](../example-scenario/apps/ecommerce-search.yml) | Use Azure Cognitive Search, a dedicated search service, to dramatically increase the relevance of search results for your e-commerce customers. | Web |
 | [Magento e-commerce platform in Azure Kubernetes Service](../example-scenario/magento/magento-azure.yml) | Learn how to deploy and host Magento, an open-source e-commerce platform, on Azure. | Web |
@@ -85,8 +87,8 @@ The following are other ideas that you can use as a starting point for your reta
 - [Personalized Offers](../solution-ideas/articles/personalized-offers.yml)
 - [Personalized marketing solutions](../solution-ideas/articles/personalized-marketing.yml)
 - [Predictive Marketing with Machine Learning](../solution-ideas/articles/predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
-- [Retail Assistant with Visual Capabilities](../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 - [Product recommendations for retail](../solution-ideas/articles/product-recommendations.yml)
+- [Retail Assistant with Visual Capabilities](../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 
 **Analytics**.
 
@@ -101,6 +103,14 @@ The following are other ideas that you can use as a starting point for your reta
 - [Retail and e-commerce using Azure MySQL](../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)
 - [Retail and e-commerce using Azure PostgreSQL](../solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)
 - [Retail and e-commerce using Cosmos DB](../solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml)
+
+**Mixed Reality**.
+
+- [Facilities management powered by mixed reality and IoT](../solution-ideas/articles/facilities-management-powered-by-mixed-reality-and-iot.yml)
+
+**Networking**.
+
+- [Video capture and analytics for retail](../solution-ideas/articles/video-analytics.yml)
 
 **Web**.
 
