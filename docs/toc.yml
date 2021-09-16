@@ -650,13 +650,13 @@ items:
             href: industries/retail.md
           - name: Guides
             items: 
-              - name: Data Management in Retail
+              - name: Data management in the retail industry
                 href: /previous-versions/azure/industry-marketing/retail/retail-data-management-overview
                 maintainContext: true
               - name: Migrate your e-commerce solution to Azure
                 href: /previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure
                 maintainContext: true
-              - name: Optimize and reuse a recommendation system
+              - name: Optimize and reuse recommendations
                 href: /previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization
                 maintainContext: true
               - name: Visual search in retail with CosmosDB
@@ -687,18 +687,51 @@ items:
         items:
           - name: Overview
             href: industries/finance.md
-          - name:  Decentralized trust between banks
-            href: example-scenario/apps/decentralized-trust.yml
-          - name: Replicate and sync mainframe data in Azure
-            href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
-          - name: Modernize mainframe & midrange data
-            href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
-          - name: Banking system cloud transformation on Azure
-            href: example-scenario/banking/banking-system-cloud-transformation.yml
-          - name: Patterns and implementations in banking cloud transformation
-            href: example-scenario/banking/patterns-and-implementations.yml
-          - name: Real-time fraud detection
-            href: example-scenario/data/fraud-detection.yml
+          - name: Guides
+            items: 
+              - name: Risk grid computing in banking
+                href: /previous-versions/azure/industry-marketing/financial/risk-grid-banking-overview
+                maintainContext: true
+              - name: Risk grid computing solution
+                href: /previous-versions/azure/industry-marketing/financial/risk-grid-banking-solution-guide
+                maintainContext: true
+              - name: Data management in banking
+                href: /previous-versions/azure/industry-marketing/financial/data-mgmt-in-banking-overview
+                maintainContext: true
+              - name: Actuarial risk analysis and finance modeling
+                href: /previous-versions/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide
+                maintainContext: true
+              - name: Enable the financial services risk lifecycle
+                href: /previous-versions/azure/industry-marketing/financial/fsi-risk-modeling
+                maintainContext: true
+          - name: Architectures
+            items:
+              - name: Decentralized trust between banks
+                href: example-scenario/apps/decentralized-trust.yml
+              - name: Replicate and sync mainframe data in Azure
+                href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
+              - name: Modernize mainframe & midrange data
+                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+              - name: Banking system cloud transformation on Azure
+                href: example-scenario/banking/banking-system-cloud-transformation.yml
+              - name: Patterns and implementations in banking cloud transformation
+                href: example-scenario/banking/patterns-and-implementations.yml
+              - name: Real-time fraud detection
+                href: example-scenario/data/fraud-detection.yml
+          - name: Compliance Blueprints
+            items:
+              - name: Blueprint - Analytics for PCI DSS
+                href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
+                maintainContext: true
+              - name: Blueprint - Data warehouse for PCI DSS
+                href: /previous-versions/azure/security/blueprints/pcidss-dw-overview
+                maintainContext: true
+              - name: Blueprint - IaaS web application for PCI DSS
+                href: /previous-versions/azure/security/blueprints/pcidss-iaaswa-overview
+                maintainContext: true
+              - name: Blueprint - PaaS web application for PCI DSS
+                href: /previous-versions/azure/security/blueprints/pcidss-paaswa-overview
+                maintainContext: true
       - name: Healthcare
         items:
           - name: Overview
@@ -713,6 +746,14 @@ items:
             href: example-scenario/apps/telehealth-system.yml
           - name: Confidential computing for healthcare
             href: example-scenario/confidential/healthcare-inference.yml
+          - name: Compliance Blueprints
+            items:
+              - name: Blueprint - HIPAA/HITRUST health data and AI
+                href: /previous-versions/azure/security/blueprints/azure-health
+                maintainContext: true
+              - name: Implement the healthcare blueprint for AI
+                href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
+                maintainContext: true
       - name: Government
         items:
           - name: Overview
@@ -729,6 +770,20 @@ items:
             href: example-scenario/private-web-app/private-web-app.yml
           - name: Azure Virtual Desktop for the enterprise
             href: example-scenario/wvd/windows-virtual-desktop.yml
+          - name: Compliance Blueprints
+            items:
+              - name: Blueprint - Analytics for FedRAMP
+                href: /previous-versions/azure/security/blueprints/fedramp-analytics-overview
+                maintainContext: true
+              - name: Blueprint - Data warehouse for FedRAMP
+                href: /previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview
+                maintainContext: true
+              - name: Blueprint - IaaS web application for FedRAMP
+                href: /previous-versions/azure/security/blueprints/fedramp-iaaswa-overview
+                maintainContext: true
+              - name: Blueprint - PaaS web application for FedRAMP
+                href: /previous-versions/azure/security/blueprints/fedramp-paaswa-overview
+                maintainContext: true
       - name: Manufacturing
         items:
           - name: Overview
@@ -972,6 +1027,14 @@ items:
                 href: reference-architectures/ai/batch-scoring-R-models.yml
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
+              - name: Blueprint architectures
+                items:                
+                  - name: Blueprint - HIPAA/HITRUST health data and AI
+                    href: /previous-versions/azure/security/blueprints/azure-health
+                    maintainContext: true
+                  - name: Implement the healthcare blueprint for AI
+                    href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
+                    maintainContext: true
               - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
               - name: Computer vision on the edge
@@ -1102,6 +1165,14 @@ items:
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Azure analytics end to end
                 href: example-scenario/dataplate2e/data-platform-end-to-end.yml
+              - name: Blueprint architectures
+                items:
+                  - name: Blueprint - Analytics for FedRAMP
+                    href: /previous-versions/azure/security/blueprints/fedramp-analytics-overview
+                    maintainContext: true
+                  - name: Blueprint - Analytics for PCI DSS
+                    href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
+                    maintainContext: true
               - name: Data warehouse for small and medium business
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Data warehousing and analytics
@@ -1194,6 +1265,14 @@ items:
             items:
               - name: 3D video rendering
                 href: example-scenario/infrastructure/video-rendering.yml
+              - name: Blueprint architectures
+                items:
+                  - name: Blueprint - IaaS web application for FedRAMP
+                    href: /previous-versions/azure/security/blueprints/fedramp-iaaswa-overview
+                    maintainContext: true
+                  - name: Blueprint - IaaS web application for PCI DSS
+                    href: /previous-versions/azure/security/blueprints/pcidss-iaaswa-overview
+                    maintainContext: true
               - name: Computer-aided engineering
                 href: example-scenario/apps/hpc-saas.yml
               - name: Digital image modeling
@@ -1411,6 +1490,17 @@ items:
             items:
               - name: Azure health data consortium
                 href: example-scenario/data/azure-health-data-consortium.yml
+              - name: Blueprint architectures
+                items:
+                  - name: Blueprint - Data warehouse for FedRAMP
+                    href: /previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview
+                    maintainContext: true
+                  - name: Blueprint - Data warehouse for PCI DSS
+                    href: /previous-versions/azure/security/blueprints/pcidss-dw-overview
+                    maintainContext: true
+                  - name: Blueprint - HIPAA/HITRUST health data and AI
+                    href: /previous-versions/azure/security/blueprints/azure-health
+                    maintainContext: true
               - name: Data governance with Profisee and Azure Purview
                 href: reference-architectures/data/profisee-master-data-management-purview.yml
               - name: DataOps for modern data warehouse
@@ -1684,7 +1774,7 @@ items:
                 href: high-availability/building-solutions-for-high-availability.md
           - name: Architectures
             items:
-              - name: AKS Baseline for Multi-Region Clusters
+              - name: AKS baseline for multi-region clusters
                 href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
               - name: Highly available multi-region web app
                 href: reference-architectures/app-service-web-app/multi-region.yml
@@ -2222,17 +2312,17 @@ items:
             items:
               - name: Add IP spaces to peered virtual networks
                 href: networking/prefixes/add-ip-space-peered-vnet.md
-              - name: Azure Application Gateway framework review
+              - name: Application Gateway framework review
                 href: networking/guide/waf-application-gateway.md
               - name: Azure Firewall architecture overview
                 href: example-scenario/firewalls/index.yml
               - name: Azure Firewall framework review
                 href: networking/guide/well-architected-framework-azure-firewall.md
-              - name: Azure Private Link in hub-and-spoke network
+              - name: Private Link in hub-and-spoke network
                 href: guide/networking/private-link-hub-spoke-network.yml
               - name: Segment Virtual Networks
                 href: reference-architectures/hybrid-networking/network-level-segmentation.yml
-              - name: Use Azure ExpressRoute with Power Platform
+              - name: Use ExpressRoute with Power Platform
                 items:
                   - name: Overview
                     href: /power-platform/guidance/expressroute/overview
@@ -2268,17 +2358,17 @@ items:
                 href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
               - name: Hub-spoke network topology in Azure
                 href: reference-architectures/hybrid-networking/hub-spoke.yml
-              - name: Hub-spoke topology with Azure Virtual WAN
+              - name: Hub-spoke topology with Virtual WAN
                 href: networking/hub-spoke-vwan-architecture.yml
               - name: Hybrid networking
                 items:
                   - name: Azure Automation Update Management
                     href: hybrid/azure-update-mgmt.yml
-                  - name: Connect standalone servers by using Azure Network Adapter
+                  - name: Connect servers with Network Adapter
                     href: hybrid/azure-network-adapter.yml
-                  - name: Design a hybrid Domain Name System solution with Azure
+                  - name: Design a hybrid DNS solution
                     href: hybrid/hybrid-dns-infra.yml
-                  - name: Hybrid availability and performance monitoring
+                  - name: Hybrid availability and monitoring
                     href: hybrid/hybrid-perf-monitoring.yml
               - name: Implement a secure hybrid network
                 href: reference-architectures/dmz/secure-vnet-dmz.yml
@@ -2434,6 +2524,14 @@ items:
             items:
               - name: Basic web application
                 href: reference-architectures/app-service-web-app/basic-web-app.yml
+              - name: Blueprint architectures
+                items:
+                 - name: Blueprint - PaaS web application for FedRAMP
+                   href: /previous-versions/azure/security/blueprints/fedramp-paaswa-overview
+                   maintainContext: true
+                 - name: Blueprint - PaaS web application for PCI DSS
+                   href: /previous-versions/azure/security/blueprints/pcidss-paaswa-overview
+                   maintainContext: true
               - name: Clinical insights with Microsoft Cloud for Healthcare
                 href: example-scenario/mch-health/medical-data-insights.yml
               - name: Consumer health portal
@@ -2446,11 +2544,11 @@ items:
                     href: reference-architectures/enterprise-integration/ase-high-availability-deployment.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
-              - name: Intelligent product search engine for e-commerce
+              - name: Intelligent search engine for e-commerce
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Migrate a web app using Azure APIM
                 href: example-scenario/apps/apim-api-scenario.yml
-              - name: Protect APIs with Application Gateway and API Management
+              - name: Protect APIs with Application Gateway
                 href: reference-architectures/apis/protect-apis.yml
               - name: Scalable and secure WordPress on Azure
                 href: example-scenario/infrastructure/wordpress.yml
