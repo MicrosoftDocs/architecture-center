@@ -2,7 +2,7 @@
 title: Azure IoT client SDK support for third-party token servers
 titleSuffix: Azure Architecture Center
 description: Learn about what needs to be done in each SDK for devices to achieve third-party token-server authentication.
-author: brimille
+author: EdPrice-MSFT
 ms.date: 09/16/2021
 ms.topic: conceptual
 ms.service: architecture-center
