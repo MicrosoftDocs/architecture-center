@@ -14,9 +14,9 @@ We've deployed this architecture for Higher Education research institutions with
 
 ## Data flow
 
-1. Data owners upload datasets to a public storage account. 
+1. Data owners upload datasets into an Azure Blob storage account. The data is encyrpted by using Microsoft-managed keys.
 
-2. Data Factory utilizes “on upload” trigger to initiate a copy of uploaded data to secure storage account within locked down environment, only available via private endpoint with the use of a limited-permissions service principal.  Data Factory also deletes the original copy making it an immutable data set. 
+2. Data Factory uses a trigger that starts copying of the uploaded dataset to another storage account with security controls. Network communication is only possible via a private endpoint. Also, it's accessed by a service principal with limited permissions.  Data Factory deletes the original copy making the dataset immutable. 
 
 3. Researchers access secure environment (DSVM) via Azure Virtual Desktop through a streaming app essentially using AVD as a privileged workstation/jump box.  
 
