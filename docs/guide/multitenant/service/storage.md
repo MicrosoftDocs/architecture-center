@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Storage that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure Storage in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/15/2021
+ms.date: 09/16/2021
 ms.topic: conceptual
 ms.service: architecture-center
 products:
@@ -25,13 +25,15 @@ Azure Storage is a foundational service used in almost every solution. Multitena
 
 ## Features of Azure Storage that support multitenancy
 
+Azure Storage includes a number of features that support multitenancy.
+
 ### Shared access signatures
 
-It's often a good practice for client endpoints to connect directly to Azure Storage instead of sending traffic through a proxy web application. This helps to improve the performance of your solution, especially when you work with large blobs or large numbers of files. It also reduces the load on your backend applications and reduces the number of network hops. A [shared access signature](/azure/storage/common/storage-sas-overview) (SAS) enables you to securely provide access your client applications with access to objects in Azure Storage.
+When you work with Azure Storage from a client application, it's important to consider whether client requests should be sent through another component that you control, like a content delivery network or API, or if the client should connect directly to your storage account. There might be good reasons to send requests through another component, including caching data at the edge of your network. However, in some situation, it's advantageous for client endpoints to connect directly to Azure Storage to download or upload data. This helps to improve the performance of your solution, especially when you work with large blobs or large numbers of files. It also reduces the load on your backend applications and servers, and it reduces the number of network hops. A [shared access signature](/azure/storage/common/storage-sas-overview) (SAS) enables you to securely provide your client applications with access to objects in Azure Storage.
 
 Shared access signatures can be used to restrict the scope of operations that a client can perform, and the objects that they can perform operations against. For example, if you have a shared storage account for all of your tenants, and store all of tenant A's data in a blob container named `tenanta`, you can create a SAS that only permits tenant A's users to access that container. See [Isolation models](#isolation-models) for further information about the approaches you can use isolate your tenants' data in a storage account.
 
-The [Valet Key pattern](../../../patterns/valet-key.md) is useful as a way to issue constrained and scoped shared access signatures from your application tier. For example, suppose you have a multitenant application that allows users to upload videos. Your API or application tier can provide a SAS to the client that allows them to upload a video file to a specified blob into a container and blob path that you specify. They then upload the file directly to the storage account. If they try to read data from the blob container, or if they try to write data to a different part of the container or another container in the storage account, Azure Storage blocks the request. The signature expires after a configurable time period.
+The [Valet Key pattern](../../../patterns/valet-key.md) is useful as a way to issue constrained and scoped shared access signatures from your application tier. For example, suppose you have a multitenant application that allows users to upload videos. Your API or application tier can authenticate the client using your own authentication system, and then provide a SAS to the client that allows them to upload a video file to a specified blob into a container and blob path that you specify. The client then uploads the file directly to the storage account, avoiding the additional bandwidth and load on your API. If they try to read data from the blob container, or if they try to write data to a different part of the container or another container in the storage account, Azure Storage blocks the request. The signature expires after a configurable time period.
 
 [Stored access policies](/rest/api/storageservices/define-stored-access-policy) extend the SAS functionality, enabling you to define a single policy that can be used when issuing multiple shared access signatures.
 
@@ -39,7 +41,13 @@ The [Valet Key pattern](../../../patterns/valet-key.md) is useful as a way to is
 
 When you use blob storage in a multitenant solution, your tenants may require different policies for data retention. When you store large volumes of data, you may also want to configure the data for a specific tenant to automatically be moved to the [cool or archive storage tiers](/azure/storage/blobs/storage-blob-storage-tiers) for cost optimization purposes.
 
-Consider using [lifecycle management policies](/azure/storage/blobs/lifecycle-management-overview) to set the blob lifecycle for all tenants for for a subset of tenants. A lifecycle management policy can be applied to blob containers, or to a subset of blobs within a container. However, note there are limits on the number of rules you can specify in a lifecycle management policy, so ensure you plan and test your use of this feature in a multitenant environment, and consider deploying multiple storage accounts if you will exceed the limits.
+Consider using [lifecycle management policies](/azure/storage/blobs/lifecycle-management-overview) to set the blob lifecycle for all tenants, or for a subset of tenants. A lifecycle management policy can be applied to blob containers, or to a subset of blobs within a container. However, note there are limits on the number of rules you can specify in a lifecycle management policy, so ensure you plan and test your use of this feature in a multitenant environment, and consider deploying multiple storage accounts if you will exceed the limits.
+
+### Immutable storage
+
+When you configure [immutable blob storage](/azure/storage/blobs/immutable-storage-overview) on storage containers with [time-based retention policies](/azure/storage/blobs/immutable-time-based-retention-policy-overview), Azure Storage prevents deletion or modification of the data before a specified time. This is enforced at the storage account layer and applies to all users - even your organization's administrators can't delete immutable data.
+
+Immutable storage can be useful when you work with tenants that have legal or compliance requirements to maintain data or records. However, you should consider how this feature is used within the context of your [tenant lifecycle](../considerations/tenant-lifecycle.md). For example, if a tenant is offboarded and requests the deletion of their data, you might not be able to fulfil their request. If you use immutable storage for your tenants' data, consider how you address this issue in your terms of service.
 
 ### Server-side copy
 
@@ -51,7 +59,7 @@ If you need to use the server-side copy APIs directly from your code, consider u
 
 ### Object replication
 
-The [Object replication](/azure/storage/blobs/object-replication-overview) feature asynchronously copies data between a source and destination storage account. In a multitenant solution, this feature can be useful when you need to continuously replicate data between deployment stamps, or in an implementation of the [Geodes pattern](../../../patterns/geodes.md).
+The [Object replication](/azure/storage/blobs/object-replication-overview) feature automatically replicates data between a source and destination storage account. Object replication is asynchronous. In a multitenant solution, this feature can be useful when you need to continuously replicate data between deployment stamps, or in an implementation of the [Geode pattern](../../../patterns/geodes.md).
 
 ### Monitoring
 
@@ -76,7 +84,7 @@ The strongest level of isolation is to deploy a dedicated storage account for a 
 
 Additionally, each component of Azure Storage provides further options for tenant isolation.
 
-### Blob storage
+### Blob storage isolation models
 
 #### Shared blob containers
 
@@ -101,7 +109,7 @@ You can create individual blob containers for each tenant within a single storag
 
 By creating containers for each tenant, you can use Azure Storage access control, including SAS, to manage access for each tenant's data. You can also easily monitor the capacity each container uses.
 
-### File storage
+### File storage isolation models
 
 #### Shared file shares
 
@@ -124,7 +132,7 @@ You can create individual file shares for each tenant within a single storage ac
 
 By creating file shares for each tenant, you can use Azure Storage access control, including SAS, to manage access for each tenant's data. You can also easily monitor the capacity each file share uses.
 
-### Table storage
+### Table storage isolation models
 
 #### Shared tables with partition keys per tenant
 
@@ -140,7 +148,7 @@ You can create individual tables for each tenant within a single storage account
 
 By creating tables for each tenant, you can use Azure Storage access control, including SAS, to manage access for each tenant's data.
 
-### Queue storage
+### Queue storage isolation models
 
 #### Shared queues
 
