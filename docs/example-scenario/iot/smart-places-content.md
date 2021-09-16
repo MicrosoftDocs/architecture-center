@@ -4,27 +4,22 @@
 - Interior and exterior spaces
 - Personal experiences with surroundings
 
-Smart places can include buildings, college or corporate campuses, stadiums, and cities. They provide value by:
+Smart places can include buildings, college or corporate campuses, stadiums, and cities. These environments provide value by helping property owners, facility managers, and occupants operate and maintain sites. Smart places also make spaces more efficient, cost effective, comfortable, and productive.
 
-- Helping property owners, facility managers, and occupants operate and maintain spaces
-- Making spaces more efficient, cost effective, comfortable, and productive
-
-These environments work by digitally modeling the spaces and compiling relevant data. From that data, you can derive insights on how people, places, and devices are connected.
+Smart spaces digitally model spaces and compile relevant data. From that data, you can derive insights on how people, places, and devices are connected.
 
 This article outlines a solution for smart spaces. Azure Digital Twins forms the core of the architecture by modeling the environment. The managed IoT service Azure IoT Hub and the analytics service Azure Data Explorer also play significant roles.
 
 ## Business outcomes
 
-In this example solution, a large commercial real estate owner is
-digitally transforming its office property. This improvement combines
-legacy facilities-management data with new features and technologies including:
+In this example solution, a large commercial real estate owner is digitally transforming its office property. This improvement combines legacy facilities-management data with new features and technologies including:
 
 - Occupancy sensing
 - Café queue optimization
 - Parking
 - Shuttle services
 
-This effort requires integrating *brownfield*, or legacy, devices and modern IoT devices that monitor the physical space. The brownfield devices communicate through common building transports such as BACnet and Modbus.
+This effort requires integrating *brownfield*, or legacy, devices and modern Internet of Things (IoT) devices that monitor the physical space. The brownfield devices communicate through common building transports such as BACnet and Modbus.
 
 The company's goals include:
 
@@ -49,15 +44,17 @@ This solution applies to many areas:
 
 ## Architecture
 
-Add sentence introducing diagram:
+The following diagram shows the flow of data in this solution:
 
 - The boxes that contain multiple icons represent categories of
-services. Those services work independently or together to provide functionality.
+services. Within each category, services work independently or together to provide functionality.
 - Arrows between boxes represent communication between the corresponding areas.
 
-[ ![A diagram illustrating the recommended architecture for Smart Places solutions](media/smart-places-diagram.svg) ](media/smart-places-diagram.svg#lightbox)
+:::image type="content" source="./media/smart-places-diagram.svg" alt-text="Diagram that illustrates the recommended architecture for a smart space solution." border="false" lightbox="./media/smart-places-diagram.svg":::
 
-1. The environment can use these communication protocols and others:
+Download an [SVG][SVG version of architecture diagram] of this architecture.
+
+1. The environment can use these and other communication protocols:
 
    - Building Automation Controls network (BACnet)
    - Modbus
@@ -71,13 +68,13 @@ services. Those services work independently or together to provide functionality
    - Sensors that independent software vendors (ISVs) provide
    - Existing business systems
 
-1. Devices, sensors, and actuators generate telemetry. Some devices interact directly with Azure IoT Hub. Other devices send data to IoT Hub through IoT Edge.
+1. Devices, sensors, and actuators generate telemetry. Some devices interact directly with IoT Hub. Other devices send data to IoT Hub through Azure IoT Edge.
 
-1. External, batch, or legacy systems send data to [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction). This static data typically originates in files and databases.
+1. External, batch, or legacy systems send data to Azure Data Factory. This static data typically originates in files and databases.
 
 1. Business-to-business connectors translate vendor data and stream it to Azure Digital Twins.
 
-1. Azure IoT Hub ingests device telemetry. IoT Hub also provides these services:
+1. IoT Hub ingests device telemetry. IoT Hub also provides these services:
 
    - Device-level security
    - Device provisioning services
@@ -85,44 +82,27 @@ services. Those services work independently or together to provide functionality
    - Command and control services
    - Scale out capabilities
 
-1. Azure Data Factory transforms semi-static data and transfers it to Azure Data Explorer or to long-term storage.
+1. Data Factory transforms semi-static data and transfers it to Azure Data Explorer or to long-term storage.
 
-1. Azure Functions receives the IoT Hub data and uses the [Digital Twins APIs to update Digital Twins][Ingest IoT Hub telemetry into Azure Digital Twins]. Azure Digital Twins holds the spatial graph of the buildings and environment. Azure Functions processes the data, performing fault detection and graph updates.
+1. Azure Functions receives the IoT Hub data and uses [Azure Digital Twins APIs][Ingest IoT Hub telemetry into Azure Digital Twins] to update Azure Digital Twins. Azure Digital Twins holds the spatial graph of the buildings and environment. Azure Digital Twins models the environment with [Digital Twins Definition Language (DTDL)][Digital Twins Definition Language]. Azure Functions processes the data, performing fault detection and graph updates.
 
-1. Various components maintain the DTDL model:
+1. Various components create, store, and load DTDL models.
 
-   - For model creation, these options are available:
-
-     - Azure Digital Twins Explorer
-     - ISV solutions
-     - Custom-built tools
-     - Text or code editors
-
-   - Repositories store *ontologies*, or pre-existing model sets:
-
-     - GitHub stores [RealEstateCore](https://github.com/Azure/opendigitaltwins-building), the Smart Cities ontology, and the [Energy Grid ontology](https://github.com/Azure/opendigitaltwins-energygrid/).
-     - For custom ontologies, customized repositories and solution-specific repos in GitHub are available.
-
-   - For loading models into Azure Digital Twins, these options exist:
-
-     - [UploadModels][UploadModels], a tool for uploading DTDL ontologies
-     - Samples in the [Digital Twins tools repository](https://github.com/Azure/opendigitaltwins-tools)
-
-1. Digital Twins sends the data through Azure Event Grid to Azure Data Explorer. This analytics service functions as a historian by storing the solution's time series data.
+1. Azure Digital Twins sends the data through Azure Event Grid to Azure Data Explorer. This analytics service functions as a historian by storing the solution's time series data.
 
 1. Simulation engines and AI tools process the data. Examples include Azure Cognitive Services, AI models, and partner simulation services.
 
 1. Azure Data Lake provides long-term storage for the data. Azure Synapse Analytics offers reporting and high-level analysis functionality.
 
-1. For visualization tools and enterprise apps, the solution access layer components provide secure access to core system services:
+1. For visualization tools and enterprise apps, the solution access layer provides secure access to core system services:
 
    - Azure API Management offers functionality for normalizing, securing, and customizing APIs. This platform also enforces usage quotas and rate limits.
-   - SignalR sends notifications to UIs when telemetry and data changes.
+   - Azure SignalR Service sends notifications to UIs when telemetry and data changes.
    - For applications that exchange data asynchronously or at volume, various components provide publishing and subscribing mechanisms:
 
      - IoT Hub
-     - Service Bus queues
-     - Event Hubs
+     - Azure Service Bus queues
+     - Azure Event Hubs
      - Web hooks
 
 1. Service applications collect data from the access control API layer. These applications then analyze and prepare the data for end-user applications. Microsoft tools like Power Apps, Power BI, and Azure Maps create reports and insights on data in the Azure data stores.
@@ -131,11 +111,11 @@ services. Those services work independently or together to provide functionality
 
    - Dynamics 365 modules
    - ISV solutions
-   - Teams apps
+   - Microsoft Teams apps
    - Field-optimized solutions such as mobile apps and wearables:
 
-     - [HoloLens](https://docs.microsoft.com/dynamics365/mixed-reality/remote-assist/overview-hololens)
-     - [RealWear HMT](https://docs.microsoft.com/MicrosoftTeams/flw-realwear)
+     - [HoloLens][HoloLens]
+     - [RealWear HMT][RealWear HMT]
 
 ### Components
 
@@ -143,7 +123,7 @@ The solution uses these components:
 
 #### Core components
 
-- [Azure IoT Hub][Azure IoT Hub] connects devices to Azure cloud resources. This managed service provides:
+- [IoT Hub][Azure IoT Hub] connects devices to Azure cloud resources. This managed service provides:
 
   - Device-level security
   - Device provisioning services
@@ -153,10 +133,10 @@ The solution uses these components:
 
 - [Azure IoT SDKs][Azure IoT SDKs] provide a way for devices to connect to IoT Hub. Devices that can use these kits include:
 
-  - [Azure Sphere][Azure Sphere] devices
-  - [Devices that run Azure RTOS][Overview of Azure IoT Device SDKs - Device capabilities]
+  - Azure Sphere devices
+  - Devices that run Azure RTOS
 
-- [Azure IoT Edge][Azure IoT Edge] runs cloud workloads on IoT Edge devices. Specifically, this central message hub can run [real-time analytics][What is Azure IoT Edge] through Machine Learning and Azure Stream Analytics. IoT Edge also functions as a [gateway][How an IoT Edge device can be used as a gateway] to IoT Hub for:
+- [IoT Edge][Azure IoT Edge] runs cloud workloads on IoT Edge devices. Specifically, this central message hub can run [real-time analytics][What is Azure IoT Edge] through Azure Machine Learning and Azure Stream Analytics. IoT Edge also functions as a [gateway][How an IoT Edge device can be used as a gateway] to IoT Hub for:
 
   - Devices with low-power requirements
   - Legacy devices
@@ -164,40 +144,59 @@ The solution uses these components:
 
 - [Data Factory][Azure Data Factory] is an integration service that works with potentially large blocks of data from disparate data stores. You can use this platform to orchestrate and automate data transformation workflows. For instance, Data Factory can bridge the gap between semi-static stores and historian components like Azure Data Explorer.
 
-- Business-to-business connectors translate and stream data bidirectionally between vendor components and Azure Digital Twins. A growing number of vendors are using [Digital Twins Definition Language (DTDL)][Digital Twins Definition Language (DTDL)] to create industry-standard ontologies. [RealEstateCore][RealEstateCore] provides an example. As a result, these integrations should become simpler over time.
+- Business-to-business connectors translate and stream data bidirectionally between vendor components and Azure Digital Twins. A growing number of vendors use [DTDL][Digital Twins Definition Language (DTDL)] to create industry-standard models. [RealEstateCore][RealEstateCore] provides an example. As a result, these integrations are expected to become simpler over time.
 
-- [Azure Digital Twins][Azure Digital Twins] stores digital representations of IoT devices and environments. You can use this data for data propagation or real-time analysis. Internally, Digital Twins:
+- [Azure Digital Twins][Azure Digital Twins] stores digital representations of IoT devices and environments. You can use this data for data propagation or real-time analysis. Internally, Azure Digital Twins:
 
   - Models environments with [DTDL][Digital Twins Definition Language].
   - Offers a [REST API][Digital Twins REST API] for entering data.
-  - Provides [SDKs that support control and data plane operations in various languages][Azure Digital Twins APIs and SDKs].
+  - Provides [SDKs that support control and data plane operations for various languages][Azure Digital Twins APIs and SDKs].
 
-  You can build [ontologies][Digital Twins ontologies] by using DTDL. You can also start with an industry-supported model:
+  You can build [ontologies][Digital Twins ontologies], or pre-existing model sets, by using DTDL. You can also start with an industry-supported model:
 
   - [RealEstateCore ontology][RealEstateCore]
-  - [Smart Cities Ontology][Smart Cities Ontology]
-  - [Energy Grid Ontology][Energy Grid Ontology]
+  - [Smart Cities ontology][Smart Cities Ontology]
+  - [Energy Grid ontology][Energy Grid Ontology]
 
-- [Azure Digital Twins Explorer][Azure Digital Twins Explorer (preview)] is a developer tool that you can use to visualize and interacting with Digital Twins data, models, and graphs. This tool is currently in public preview.
+- [Azure Digital Twins Explorer][Azure Digital Twins Explorer (preview)] is a developer tool that you can use to visualize and interact with Azure Digital Twins data, models, and graphs. This tool is currently in public preview.
 
-- [Azure Functions][Azure Functions] is an event-driven serverless compute platform. With Functions, you can use triggers and bindings to integrate services at scale.
+- Model management components maintain the DTDL model:
+
+  - For model creation, these options are available:
+
+    - Azure Digital Twins Explorer
+    - ISV solutions
+    - Custom-built tools
+    - Text or code editors
+
+  - Repositories store ontologies:
+
+    - GitHub stores [RealEstateCore][RealEstateCore ontology], the Smart Cities ontology, and the [Energy Grid ontology][Energy Grid ontology].
+    - For custom ontologies, customized repositories and solution-specific repos in GitHub are available.
+
+  - For loading models into Azure Digital Twins, these options exist:
+
+    - [UploadModels][UploadModels], a tool for uploading DTDL ontologies
+    - Samples in the [Azure Digital Twins tools repository][Azure Digital Twins tools repository]
+
+- [Functions][Azure Functions] is an event-driven serverless compute platform. With Functions, you can use triggers and bindings to integrate services at scale.
 
 - [Azure Data Explorer][Azure Data Explorer] is a fast, fully managed data analytics service. You can use this service for real-time analysis on large volumes of data. Azure Data Explorer can handle diverse data streams from applications, websites, IoT devices, and other sources.
 
-- [Azure Cognitive Services][Azure Cognitive Services] provides AI functionality. These services offer a set of pre-trained, neural network models for the cloud. The REST APIs and client library SDKs can help you build cognitive intelligence into apps. You can use Cognitive Services functionality:
+- [Cognitive Services][Azure Cognitive Services] provides AI functionality. These services offer a set of pre-trained, neural network models for the cloud. The REST APIs and client library SDKs can help you build cognitive intelligence into apps. You can use Cognitive Services functionality:
 
-  - In near real-time
-  - At certain data thresholds
-  - On demand
-  - For complex jobs with long processing times
+  - In near real time.
+  - At certain data thresholds.
+  - On demand.
+  - For complex jobs with long processing times.
 
 - [Machine Learning][Azure Machine Learning] is a cloud-based environment that helps you build, deploy, and manage predictive analytics solutions. With these models, you can forecast behavior, outcomes, and trends.
 
 - [Azure Data Lake][Data Lake] stores a large amount of data in its native, raw format. The data typically comes from multiple, heterogeneous sources and may be structured, semi-structured, or unstructured.
 
-- [Azure Synapse][Azure Synapse Analytics] is an analytics service for data warehouses and big data systems. This service integrates with Power BI, Machine Learning, and other Azure services.
+- [Azure Synapse Analytics][Azure Synapse Analytics] is an analytics service for data warehouses and big data systems. This service integrates with Power BI, Machine Learning, and other Azure services.
 
-- [Azure API Management][Azure API Management] creates consistent, modern API gateways for back-end services. Besides accepting API calls and routing them to back ends, this platform also verifies keys, tokens, certificates, and other credentials. API Management also logs call metadata and enforces usage quotas and rate limits.
+- [API Management][Azure API Management] creates consistent, modern API gateways for back-end services. Besides accepting API calls and routing them to back ends, this platform also verifies keys, tokens, certificates, and other credentials. API Management also logs call metadata and enforces usage quotas and rate limits.
 
 - [Service Bus][Service Bus] is a fully managed enterprise message broker. Service Bus supports message queues and publish-subscribe topics.
 
@@ -222,7 +221,7 @@ The solution uses these components:
 
 #### Enterprise applications
 
-- [Dynamics 365][Dynamics 365] is a portfolio of applications for managing financials, commerce, customer relations, and other business operation areas.
+- [Dynamics 365][Dynamics 365] is a portfolio of applications for managing business operations.
 
 - [Microsoft Teams][Microsoft Teams] provides services for meeting, messaging, calling, and collaborating.
 
@@ -236,24 +235,24 @@ These services provide support for components in all areas of the solution:
 
 - [Azure Defender for IoT][Azure Defender for IoT] is a unified security service that protects IoT systems by identifying vulnerabilities and threats.
 
-- [Azure DevOps][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
+- [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 
-- [Azure Active Directory][Azure Active Directory] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
+- [Azure Active Directory][Azure Active Directory] is a cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
 
 - [Azure Key Vault][Azure Key Vault] securely stores and controls access to a system's secrets, such as API keys, passwords, certificates, and cryptographic keys.
 
 ### Alternatives
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is another option for data storage. This fully managed NoSQL database service scales easily. It offers different ways to access data, including:
+- [Azure Cosmos DB][Azure Cosmos DB] is another option for data storage. This fully managed NoSQL database service scales easily. Azure Cosmos DB offers various ways to access data, including:
 
   - Document databases
   - Graph databases
   - SQL-style queries
   - A Cassandra API
 
-  [Azure Synapse Link for Azure Cosmos DB][What is Azure Synapse Link for Azure Cosmos DB?] provides a way to run analytics on Azure Cosmos DB data by using Azure Synapse Analytics. As a result, you can use various data services in conjunction.
+  [Azure Synapse Link for Azure Cosmos DB][What is Azure Synapse Link for Azure Cosmos DB?] provides a way to run analytics on Azure Cosmos DB data by using Azure Synapse Analytics. As a result, you can combine various data services in solutions that use Azure Cosmos DB.
 
-- [Azure Event Hubs][Azure Event Hubs] can also provide a viable ingestion service that's scalable and secure. Unlike IoT Hub, which supports bidirectional communication with devices, Event Hubs supports one-way traffic. As a result, you can't use Event Hubs to send commands and policies back to devices. Event Hubs also doesn't offer device-level security. But Event Hubs is appropriate for environments with a high volume of messages from a low number of input devices.
+- [Event Hubs][Event Hubs] can also provide an ingestion service that's scalable and secure. Unlike IoT Hub, which supports bidirectional communication with devices, Event Hubs supports one-way traffic. As a result, you can't use Event Hubs to send commands and policies back to devices. Event Hubs also doesn't offer device-level security. But Event Hubs is appropriate for environments with a high volume of messages from a low number of input devices.
 
 ## Considerations
 
@@ -261,26 +260,30 @@ The following considerations apply to this solution:
 
 ### Scalability considerations
 
-Solutions for smart places solutions can be relatively simple, low-volume implementations. They can also be sophisticated implementations that handle a high volume of data. A solution that aggregates heating, ventilation, and air conditioning (HVAC) telemetry across a large campus is an example of a high-volume implementation. The core Azure services in this architecture are scalable by design and well suited for complex solutions. But when you combine these services, ensure that they don't create choke points. Early in the development cycle, run performance tests at scheduled intervals to identify potential problems.
+Solutions for smart places solutions can be relatively simple, low-volume implementations. They can also be sophisticated implementations that handle a high volume of data. A solution that aggregates heating, ventilation, and air conditioning (HVAC) telemetry across a large campus is an example of a high-volume implementation.
+
+The core Azure services in this solution are scalable by design and well suited for complex solutions. But when you combine these services, ensure that they don't create choke points. Early in the development cycle, run performance tests at scheduled intervals to identify potential problems.
 
 ### Flexibility considerations
 
-Ensure the solution for your smart space is not only well integrated but also flexible. Smart places use cases are rapidly evolving. At some point after you deploy your solution, you'll need to add new sensors, data types, AI functionality, and visualization techniques. To increase flexibility:
+Design your smart space to be well integrated but also flexible. Smart places use cases are rapidly evolving. At some point after you deploy your solution, you'll need to add new sensors, data types, AI functionality, and visualization techniques. To increase flexibility:
 
 - Choose a loosely coupled solution like the proposed architecture.
-- Use [industry standards for data ontology][Adopting an industry ontology]. This approach helps reduce the time that you need to add new functionality and integrate new software.
-- Use [Azure API Management][API Management - overview]. This platform provides a way to create multiple API styles and signatures for a single underlying API.
+- Use [industry standards for data ontology][Adopting an industry ontology]. This approach helps reduce the time needed to add new functionality and integrate new software.
+- Use [API Management][API Management - overview]. This platform provides a way to create multiple API styles and signatures for a single underlying API.
 
 ### Security considerations
 
-Legacy building solutions often rely on a lack of external connectivity as their primary source of security. But even data that doesn't identify people can provide information about a business or the people in a building. For instance, organizations use cameras to count people, track assets, and provide security data. Be careful where you process and save images. Ensure that you address all customer requirements, including privacy issues. Make security a priority throughout the data lifecycle of your smart space solution. Specifically, be aware of what data you collect, where you process and store it, and what conclusions you draw from it.
+Legacy building solutions often rely on a lack of external connectivity as their primary source of security. But even data that doesn't identify people can provide information about a business or the people in a building. For instance, organizations use cameras to count people, track assets, and provide security data.
+
+Be careful where you process and save images. Ensure that you address all customer requirements, including privacy issues. Make security a priority throughout the data lifecycle of your smart space solution. Specifically, be aware of what data you collect, where you process and store it, and what conclusions you draw from it.
 
 ## Pricing
 
 Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cost of an IoT solution.
 
 - For other cost considerations, see [Principles of cost optimization][Principles of cost optimization] in the Microsoft Azure Well-Architected Framework documentation.
-- For a discussion about optimizing the cost of several services that IoT solutions commonly use, see [Azure IoT Reference Architecture][Azure IoT reference architecture].
+- For a discussion about optimizing the cost of services that IoT solutions commonly use, see [Azure IoT Reference Architecture][Azure IoT reference architecture].
 
 ## Next steps
 
@@ -302,89 +305,75 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 - [Cognizant Safe Buildings with IoT and Azure][Cognizant Safe Buildings with IoT and Azure]
 
 
-[Adopting an industry ontology]: https://docs.microsoft.com/en-us/azure/digital-twins/concepts-ontologies-adopt
-[API Management - overview]: https://azure.microsoft.com/en-us/services/api-management/#overview
-[App Service overview]: https://docs.microsoft.com/en-us/azure/app-service/overview
-[Azure Active Directory]: https://azure.microsoft.com/services/active-directory/
+[Adopting an industry ontology]: /azure/digital-twins/concepts-ontologies-adopt
+[API Management - overview]: https://azure.microsoft.com/services/api-management/#overview
+[App Service overview]: /azure/app-service/overview
+[Azure Active Directory]: https://azure.microsoft.com/services/active-directory
 [Azure API Management]: https://azure.microsoft.com/services/api-management
-[Azure Cognitive Services]: https://azure.microsoft.com/en-us/services/cognitive-services/?azure-portal=true
+[Azure Cognitive Services]: https://azure.microsoft.com/services/cognitive-services/?azure-portal=true
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
-[Azure Data Explorer]: https://docs.microsoft.com/azure/data-explorer/data-explorer-overview
-[Azure Data Factory]: https://docs.microsoft.com/azure/data-factory/introduction
-[Azure Defender for IoT]: https://docs.microsoft.com/azure/defender-for-iot/overview
+[Azure Data Explorer]: /azure/data-explorer/data-explorer-overview
+[Azure Data Factory]: /azure/data-factory/introduction
+[Azure Defender for IoT]: /azure/defender-for-iot/overview
 [Azure DevOps]: https://azure.microsoft.com/services/devops
-[Azure Digital Twins]: https://docs.microsoft.com/azure/digital-twins/overview
-[Azure Digital Twins APIs and SDKs]: https://docs.microsoft.com/en-us/azure/digital-twins/concepts-apis-sdks
-[Azure Digital Twins Explorer (preview)]: https://docs.microsoft.com/en-US/azure/digital-twins/concepts-azure-digital-twins-explorer
-[Azure Functions]: https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function?tabs=cli
-[Azure Industrial IoT Analytics Guidance]: https://docs.microsoft.com/en-us/azure/architecture/guide/iiot-guidance/iiot-architecture
+[Azure Digital Twins]: /azure/digital-twins/overview
+[Azure Digital Twins APIs and SDKs]: /azure/digital-twins/concepts-apis-sdks
+[Azure Digital Twins Explorer (preview)]: /azure/digital-twins/concepts-azure-digital-twins-explorer
+[Azure Digital Twins tools repository]: https://github.com/Azure/opendigitaltwins-tools
+[Azure Functions]: /azure/digital-twins/how-to-create-azure-function?tabs=cli
+[Azure Industrial IoT Analytics Guidance]: ../../guide/iiot-guidance/iiot-architecture.md
 [Azure IoT Edge]: https://azure.microsoft.com/services/iot-edge
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub
-[Azure IoT reference architecture]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot
-[Azure IoT SDKs]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks
+[Azure IoT reference architecture]: ../../reference-architectures/iot
+[Azure IoT SDKs]: /azure/iot-hub/iot-hub-devguide-sdks
 [Azure Key Vault]: https://azure.microsoft.com/services/key-vault
-[Azure Logic Apps]: https://azure.microsoft.com/en-us/services/logic-apps/
-[Azure Machine Learning]: https://azure.microsoft.com/en-us/services/machine-learning/
-[Azure Maps]: https://azure.microsoft.com/en-us/services/azure-maps
+[Azure Logic Apps]: https://azure.microsoft.com/services/logic-apps
+[Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning
+[Azure Maps]: https://azure.microsoft.com/services/azure-maps
 [Azure Monitor]: https://azure.microsoft.com/services/monitor
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
-[Azure SignalR Service]: https://azure.microsoft.com/en-us/services/signalr-service/
-[Azure Sphere]: https://azure.microsoft.com/en-us/services/azure-sphere/
-[Azure Synapse Analytics]: https://azure.microsoft.com/en-us/services/synapse-analytics
-[Brookfield sets a new standard for innovation in real estate with WillowTwin and Azure Digital Twins]: https://customers.microsoft.com/en-us/story/855907-brookfield-properties-professional-services-azure
-[Choose an Internet of Things (IoT) solution in Azure]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet
-[Cognizant Safe Buildings with IoT and Azure]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/safe-buildings
-[COVID-19 safe environments with IoT Edge monitoring and alerting]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection
-[Data Lake]: https://azure.microsoft.com/en-us/solutions/data-lake/
-[Develop with Azure Digital Twins]: https://docs.microsoft.com/en-us/learn/paths/develop-azure-digital-twins/
+[Azure SignalR Service]: https://azure.microsoft.com/services/signalr-service
+[Azure Sphere]: https://azure.microsoft.com/services/azure-sphere/
+[Azure Synapse Analytics]: https://azure.microsoft.com/services/synapse-analytics
+[Brookfield sets a new standard for innovation in real estate with WillowTwin and Azure Digital Twins]: https://customers.microsoft.com/story/855907-brookfield-properties-professional-services-azure
+[Choose an Internet of Things (IoT) solution in Azure]: ./iot-central-iot-hub-cheat-sheet.md
+[Cognizant Safe Buildings with IoT and Azure]: ../../solution-ideas/articles/safe-buildings.yml
+[COVID-19 safe environments with IoT Edge monitoring and alerting]: ../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
+[Data Lake]: https://azure.microsoft.com/solutions/data-lake
+[Develop with Azure Digital Twins]: /learn/paths/develop-azure-digital-twins
 [Digital Twins Definition Language]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
-[Digital Twins Definition Language (DTDL)]: https://docs.microsoft.com/azure/digital-twins/concepts-models
-[Digital Twins ontologies]: https://docs.microsoft.com/azure/digital-twins/concepts-ontologies
-[Digital Twins REST API]: https://docs.microsoft.com/rest/api/iothub/service/digitaltwin
+[Digital Twins Definition Language (DTDL)]: /azure/digital-twins/concepts-models
+[Digital Twins ontologies]: /azure/digital-twins/concepts-ontologies
+[Digital Twins REST API]: /rest/api/iothub/service/digitaltwin
 [Dynamics 365]: https://dynamics.microsoft.com
-[End-to-end manufacturing using computer vision on the edge]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/ai/end-to-end-smart-factory
-[Energy Grid Ontology]: https://github.com/Azure/opendigitaltwins-energygrid/
-[Event Hubs]: https://azure.microsoft.com/en-us/services/event-hubs
-[Getting started with Azure IoT solutions]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot/iot-architecture-overview
-[Global sustainability leader targets new heights of carbon neutrality with Azure Digital Twins]: https://customers.microsoft.com/en-us/story/1373881459232543118-vasakronan-smartspaces-azure-iot
-[How an IoT Edge device can be used as a gateway]: https://docs.microsoft.com/azure/iot-edge/iot-edge-as-gateway?view=iotedge-2018-06
-[Ingest IoT Hub telemetry into Azure Digital Twins]: https://docs.microsoft.com/en-us/azure/digital-twins/how-to-ingest-iot-hub-data?tabs=cli
-[Integrate Azure Digital Twins with Azure SignalR Service]: https://docs.microsoft.com/en-us/azure/digital-twins/how-to-integrate-azure-signalr
-[IoT analytics with Azure Data Explorer]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/iot-azure-data-explorer
-[IoT solutions conceptual overview]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/iot/introduction-to-solutions
+[End-to-end manufacturing using computer vision on the edge]: ../../reference-architectures/ai/end-to-end-smart-factory.yml
+[Energy Grid Ontology]: https://github.com/Azure/opendigitaltwins-energygrid
+[Event Hubs]: https://azure.microsoft.com/services/event-hubs
+[Getting started with Azure IoT solutions]: ../../reference-architectures/iot/iot-architecture-overview.md
+[Global sustainability leader targets new heights of carbon neutrality with Azure Digital Twins]: https://customers.microsoft.com/story/1373881459232543118-vasakronan-smartspaces-azure-iot
+[HoloLens]: /dynamics365/mixed-reality/remote-assist/overview-hololens
+[How an IoT Edge device can be used as a gateway]: /azure/iot-edge/iot-edge-as-gateway?view=iotedge-2018-06
+[Ingest IoT Hub telemetry into Azure Digital Twins]: /azure/digital-twins/how-to-ingest-iot-hub-data?tabs=cli
+[Integrate Azure Digital Twins with Azure SignalR Service]: /azure/digital-twins/how-to-integrate-azure-signalr
+[IoT analytics with Azure Data Explorer]: ../../solution-ideas/articles/iot-azure-data-explorer.yml
+[IoT solutions conceptual overview]: ../../example-scenario/iot/introduction-to-solutions.yml
 [Microsoft Graph]: graph.microsoft.com
-[Microsoft Power Apps on Azure]: https://azure.microsoft.com/en-us/products/powerapps/
-[Microsoft Teams]: https://www.microsoft.com/en-us/microsoft-teams/group-chat-software
-[Overview of Azure IoT Device SDKs - Device capabilities]: https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks#device-capabilities
-[Power Automate]: https://flow.microsoft.com/en-us/
-[Power BI]: https://powerbi.microsoft.com/en-us/
-[Power Platform]: https://powerplatform.microsoft.com/en-us/
-[Power Virtual Agents]: https://powervirtualagents.microsoft.com/en-us/
-[Powering Microsoft smart buildings with Microsoft Azure Digital Twins]: https://www.microsoft.com/insidetrack/blog/powering-microsoft-smart-buildings-with-microsoft-azure-digital-twins/
-[Principles of cost optimization]: https://docs.microsoft.com/azure/architecture/framework/cost/overview
+[Microsoft Power Apps on Azure]: https://azure.microsoft.com/products/powerapps
+[Microsoft Teams]: https://www.microsoft.com/microsoft-teams/group-chat-software
+[Overview of Azure IoT Device SDKs - Device capabilities]: /azure/iot-develop/about-iot-sdks#device-capabilities
+[Power Automate]: https://flow.microsoft.com
+[Power BI]: https://powerbi.microsoft.com
+[Power Platform]: https://powerplatform.microsoft.com
+[Power Virtual Agents]: https://powervirtualagents.microsoft.com
+[Powering Microsoft smart buildings with Microsoft Azure Digital Twins]: https://www.microsoft.com/insidetrack/blog/powering-microsoft-smart-buildings-with-microsoft-azure-digital-twins
+[Principles of cost optimization]: /azure/architecture/framework/cost/overview
 [RealEstateCore]: https://techcommunity.microsoft.com/t5/internet-of-things/realestatecore-a-smart-building-ontology-for-digital-twins-is/ba-p/1914794
 [RealEstateCore ontology]: https://github.com/azure/opendigitaltwins-building
-[Service Bus]: https://azure.microsoft.com/en-us/services/service-bus
+[RealWear HMT]: /MicrosoftTeams/flw-realwear
+[Service Bus]: https://azure.microsoft.com/services/service-bus
 [Smart Cities Ontology]: https://github.com/Azure/opendigitaltwins-smartcities
+[SVG version of architecture diagram]: ./media/smart-places-diagram.svg
 [UploadModels]: https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools
-[Vision with Azure IoT Edge]: https://docs.microsoft.com/en-us/azure/architecture/guide/iot-edge-vision
-[What is Azure IoT Edge]: https://docs.microsoft.com/azure/iot-edge/about-iot-edge?view=iotedge-2018-06
-[What is Azure Synapse Link for Azure Cosmos DB?]: https://docs.microsoft.com/en-us/azure/cosmos-db/synapse-link
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[Vision with Azure IoT Edge]: ../../guide/iot-edge-vision
+[What is Azure IoT Edge]: /azure/iot-edge/about-iot-edge?view=iotedge-2018-06
+[What is Azure Synapse Link for Azure Cosmos DB?]: /azure/cosmos-db/synapse-link
