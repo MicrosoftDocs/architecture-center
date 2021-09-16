@@ -111,7 +111,7 @@ rules to enforce consistency and data integrity of the hierarchy.
 
 -   Business-specific query capabilities and fast query response times when materializing large graphs
 
--   Consistent modelling of core ownership structure of plant assets
+-   Consistent modeling of core ownership structure of plant assets
 
 -   Tailored, domain-specific model, (including validation of business rules)
 
