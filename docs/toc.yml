@@ -195,8 +195,8 @@ items:
             items:
               - name: Storage and data
                 items:
-                  - name: Azure SQL
-                    href: guide/multitenant/service/sql.md
+                  - name: Azure SQL Database
+                    href: guide/multitenant/service/sql-database.md
           - name: Related resources
             href: guide/multitenant/related-resources.md
       - name: Azure for AWS Professionals
