@@ -58,7 +58,7 @@ in Microsoft Azure Documentation.
 
 The following architectures feature high-availability scenarios:
 
-- [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
+- [High availability enterprise deployment using App Services Environment](../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
 - [IaaS: Web application with relational database](./ref-arch-iaas-web-and-db.yml)
 - [Multi-region load balancing with Traffic Manager and Application Gateway](./reference-architecture-traffic-manager-application-gateway.yml)
 - [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)

@@ -2,7 +2,7 @@
 title: Data protection in Azure
 description: Explore data protection considerations in Azure. Classify, protect, and monitor sensitive data assets using access control, encryption, and logging.
 author: v-aangie
-ms.date: 09/17/2020
+ms.date: 09/10/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -46,7 +46,7 @@ Follow these questions to assess the workload at a deeper level.
 
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
-> ![GitHub logo](../../_images/benchmark-security.svg) The questions in this section are aligned to the Azure Security Benchmarks [Data Protection](/azure/security/benchmarks/security-control-data-protection).
+> ![GitHub logo](../../_images/benchmark-security.svg) The questions in this section are aligned to the Azure Security Benchmarks [Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).
 
 ## Reference architecture
 Here are some reference architectures related to secure storage:

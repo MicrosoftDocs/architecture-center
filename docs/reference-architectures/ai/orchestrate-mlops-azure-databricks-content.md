@@ -191,16 +191,16 @@ Want to learn more about developing a machine learning solution on Azure?
 Consider the following articles:
 
 -  [Azure Machine Learning decision guide for optimal tool
-    selection](/azure/architecture/example-scenario/mlops/aml-decision-tree)
+    selection](../../example-scenario/mlops/aml-decision-tree.yml)
 
 -  [MLOps framework to upscale machine learning life cycle with Azure Machine
-    Learning](/azure/architecture/example-scenario/mlops/mlops-technical-paper)
+    Learning](../../example-scenario/mlops/mlops-technical-paper.yml)
 
 -  [Batch scoring for deep learning models using Azure Machine Learning
-    pipelines](/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning).
+    pipelines](./batch-scoring-deep-learning.yml).
 
 -  [Send Azure Databricks application logs to Azure
-    Monitor](/azure/architecture/databricks-monitoring/application-logs)
+    Monitor](../../databricks-monitoring/application-logs.md)
 
 -  [Tutorial: Train a first Python machine learning
     model](/azure/machine-learning/tutorial-1st-experiment-sdk-train)
@@ -210,16 +210,16 @@ Consider the following articles:
 You may also find these Architecture Center articles useful:
 
 -  [Batch scoring of Spark models on Azure
-    Databricks](/azure/architecture/reference-architectures/ai/batch-scoring-databricks)
+    Databricks](./batch-scoring-databricks.yml)
 
 -  [MLOps for Python models using Azure Machine
-    Learning](/azure/architecture/reference-architectures/ai/mlops-python)
+    Learning](./mlops-python.yml)
 
 -  [Modern analytics architecture with Azure
-    Databricks](/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture)
+    Databricks](../../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
 
 -  [Machine Learning Operations maturity
-    model](/azure/architecture/example-scenario/mlops/mlops-maturity-model)
+    model](../../example-scenario/mlops/mlops-maturity-model.yml)
 
 -  [Team Data Science Process for data
-    scientists](/azure/architecture/data-science-process/team-data-science-process-for-data-scientists)
+    scientists](../../data-science-process/team-data-science-process-for-data-scientists.md)
