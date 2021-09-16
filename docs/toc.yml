@@ -2041,6 +2041,8 @@ items:
                     href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
                   - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
+              - name: Azure IoT client SDK support 
+                href: guide/iot/azure-iot-client-sdk-support.md
               - name: Choose an IoT solution
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md
           - name: Architectures
