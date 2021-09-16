@@ -43,7 +43,7 @@ Just adding more instances doesn't mean an application will scale, however. It m
 
 Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
 
-Use the [Performance efficiency checklist](performance-efficiency.md) to review your design from a scalability standpoint.
+Use the [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) to review your design from a scalability standpoint.
 
 In the cloud, the ability to take advantage of scalability depends on your infrastructure and services. Some platforms, such as Kubernetes, were built with scaling in mind. Virtual machines, on the other hand, may not scale as easily although scale operations are possible. With virtual machines, you may want to plan ahead to avoid scaling infrastructure in the future to meet demand. Another option is to select a different platform such as Azure virtual machines scale sets.
 
