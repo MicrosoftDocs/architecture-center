@@ -2,7 +2,7 @@
 metadata:
   title: Master data management with Profisee and Azure Data Factory
   titleSuffix: Azure Architectures
-  description: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
+  description: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse, and all analytic applications.
   author: EdPrice-MSFT
   ms.author: Sunil.Sabat
   ms.date: 01/25/2021
@@ -27,7 +27,7 @@ products:
   - azure-data-lake
   - azure-active-directory
 name: Master data management with Profisee and Azure Data Factory
-summary: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.
+summary: Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse, and all analytic applications.
 thumbnailUrl: /azure/architecture/browse/thumbs/profisee-master-data-management-data-factory.png
 content: |
   [!include[](profisee-master-data-management-data-factory-content.md)]
