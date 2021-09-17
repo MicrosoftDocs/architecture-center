@@ -1,25 +1,25 @@
 *Smart places* are physical environments that bring together connected devices and data sources. By using these environments, you can see and control:
 
-- Products and systems
-- Interior and exterior spaces
-- Personal experiences with surroundings
+- Products and systems.
+- Interior and exterior spaces.
+- Personal experiences with surroundings.
 
-Smart places can include buildings, college or corporate campuses, stadiums, and cities. These environments provide value by helping property owners, facility managers, and occupants operate and maintain sites. Smart places also make spaces more efficient, cost effective, comfortable, and productive.
+Smart places can include buildings, college campuses, corporate campuses, stadiums, and cities. These environments provide value by helping property owners, facility managers, and occupants operate and maintain sites. Smart places also make spaces more efficient, cost effective, comfortable, and productive.
 
 Smart spaces digitally model spaces and compile relevant data. From that data, you can derive insights on how people, places, and devices are connected.
 
-This article outlines a solution for smart spaces. Azure Digital Twins forms the core of the architecture by modeling the environment. The managed IoT service Azure IoT Hub and the analytics service Azure Data Explorer also play significant roles.
+This article outlines a solution for smart spaces. Azure Digital Twins forms the core of the architecture by modeling the environment. Azure IoT Hub, which is a managed IoT service, also plays a significant role, as does the analytics service Azure Data Explorer.
 
 ## Business outcomes
 
-In this example solution, a large commercial real estate owner is digitally transforming its office property. This improvement combines legacy facilities-management data with new features and technologies including:
+In this example solution, a large commercial real estate owner is digitally transforming an office property. This improvement combines legacy facilities-management data with new features and technologies including:
 
-- Occupancy sensing
-- Café queue optimization
-- Parking
-- Shuttle services
+- Occupancy sensing.
+- Cafe queue optimization.
+- Parking.
+- Shuttle services.
 
-This effort requires integrating *brownfield*, or legacy, devices and modern Internet of Things (IoT) devices that monitor the physical space. The brownfield devices communicate through common building transports such as BACnet and Modbus.
+This effort requires integrating brownfield devices and modern Internet of Things (IoT) devices that monitor the physical space. The brownfield devices communicate through common building transports such as BACnet and Modbus.
 
 The company's goals include:
 
@@ -61,7 +61,7 @@ Download an [SVG][SVG version of architecture diagram] of this architecture.
    - KNX
    - LonWorks
 
-1. On-premises devices and systems send data and telemetry to the cloud. Data sources include:
+1. On-premises devices and systems send telemetry and other data to the cloud. Data sources include:
 
    - Brownfield devices
    - Direct-connect sensors
@@ -80,7 +80,7 @@ Download an [SVG][SVG version of architecture diagram] of this architecture.
    - Device provisioning services
    - Device twins
    - Command and control services
-   - Scale out capabilities
+   - Scale-out capabilities
 
 1. Data Factory transforms semi-static data and transfers it to Azure Data Explorer or to long-term storage.
 
@@ -92,7 +92,7 @@ Download an [SVG][SVG version of architecture diagram] of this architecture.
 
 1. Simulation engines and AI tools process the data. Examples include Azure Cognitive Services, AI models, and partner simulation services.
 
-1. Azure Data Lake provides long-term storage for the data. Azure Synapse Analytics offers reporting and high-level analysis functionality.
+1. Azure Data Lake provides long-term storage for the data. Azure Synapse Analytics analyzes and reports on the data.
 
 1. For visualization tools and enterprise apps, the solution access layer provides secure access to core system services:
 
@@ -109,9 +109,9 @@ Download an [SVG][SVG version of architecture diagram] of this architecture.
 
 1. Enterprise applications use the prepared data. Examples include:
 
-   - Dynamics 365 modules
-   - ISV solutions
-   - Microsoft Teams apps
+   - Dynamics 365 modules.
+   - ISV solutions.
+   - Microsoft Teams apps.
    - Field-optimized solutions such as mobile apps and wearables:
 
      - [HoloLens][HoloLens]
@@ -125,22 +125,22 @@ The solution uses these components:
 
 - [IoT Hub][Azure IoT Hub] connects devices to Azure cloud resources. This managed service provides:
 
-  - Device-level security
-  - Device provisioning services
-  - Device twins
-  - Command and control services
-  - Scale out capabilities
+  - Device-level security.
+  - Device provisioning services.
+  - Device twins.
+  - Command and control services.
+  - Scale-out capabilities.
 
-- [Azure IoT SDKs][Azure IoT SDKs] provide a way for devices to connect to IoT Hub. Devices that can use these kits include:
+- [Azure IoT SDKs][Azure IoT SDKs] provide the recommended way for devices to connect to IoT Hub. Devices that can use these kits include:
 
-  - Azure Sphere devices
-  - Devices that run Azure RTOS
+  - Azure Sphere devices.
+  - Devices that run Azure RTOS.
 
 - [IoT Edge][Azure IoT Edge] runs cloud workloads on IoT Edge devices. Specifically, this central message hub can run [real-time analytics][What is Azure IoT Edge] through Azure Machine Learning and Azure Stream Analytics. IoT Edge also functions as a [gateway][How an IoT Edge device can be used as a gateway] to IoT Hub for:
 
-  - Devices with low-power requirements
-  - Legacy devices
-  - Constrained devices
+  - Devices with low-power requirements.
+  - Legacy devices.
+  - Constrained devices.
 
 - [Data Factory][Azure Data Factory] is an integration service that works with potentially large blocks of data from disparate data stores. You can use this platform to orchestrate and automate data transformation workflows. For instance, Data Factory can bridge the gap between semi-static stores and historian components like Azure Data Explorer.
 
@@ -171,7 +171,7 @@ The solution uses these components:
 
   - Repositories store ontologies:
 
-    - GitHub stores [RealEstateCore][RealEstateCore ontology], the Smart Cities ontology, and the [Energy Grid ontology][Energy Grid ontology].
+    - GitHub stores [RealEstateCore][RealEstateCore ontology], the [Smart Cities ontology][Smart Cities Ontology], and the [Energy Grid ontology][Energy Grid ontology].
     - For custom ontologies, customized repositories and solution-specific repos in GitHub are available.
 
   - For loading models into Azure Digital Twins, these options exist:
@@ -231,13 +231,13 @@ The solution uses these components:
 
 These services provide support for components in all areas of the solution:
 
-- [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. This service alerts apps and personnel to irregular conditions.
+- [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. This service notifies apps and personnel about irregular conditions.
 
 - [Azure Defender for IoT][Azure Defender for IoT] is a unified security service that protects IoT systems by identifying vulnerabilities and threats.
 
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 
-- [Azure Active Directory][Azure Active Directory] is a cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
+- [Azure Active Directory (Azure AD)][Azure Active Directory] is a cloud-based identity service that controls access to Azure and other cloud apps, including ISV solutions and on-premises solutions.
 
 - [Azure Key Vault][Azure Key Vault] securely stores and controls access to a system's secrets, such as API keys, passwords, certificates, and cryptographic keys.
 
@@ -245,10 +245,10 @@ These services provide support for components in all areas of the solution:
 
 - [Azure Cosmos DB][Azure Cosmos DB] is another option for data storage. This fully managed NoSQL database service scales easily. Azure Cosmos DB offers various ways to access data, including:
 
-  - Document databases
-  - Graph databases
-  - SQL-style queries
-  - A Cassandra API
+  - Document databases.
+  - Graph databases.
+  - SQL-style queries.
+  - A Cassandra API.
 
   [Azure Synapse Link for Azure Cosmos DB][What is Azure Synapse Link for Azure Cosmos DB?] provides a way to run analytics on Azure Cosmos DB data by using Azure Synapse Analytics. As a result, you can combine various data services in solutions that use Azure Cosmos DB.
 
@@ -276,7 +276,7 @@ Design your smart space to be well integrated but also flexible. Smart places us
 
 Legacy building solutions often rely on a lack of external connectivity as their primary source of security. But even data that doesn't identify people can provide information about a business or the people in a building. For instance, organizations use cameras to count people, track assets, and provide security data.
 
-Be careful where you process and save images. Ensure that you address all customer requirements, including privacy issues. Make security a priority throughout the data lifecycle of your smart space solution. Specifically, be aware of what data you collect, where you process and store it, and what conclusions you draw from it.
+Be careful where you process and save images. Ensure that you address all customer requirements, including privacy issues. Make security a priority throughout the data life cycle of your smart space solution. Specifically, be aware of what data you collect, where you process and store it, and what conclusions you draw from it.
 
 ## Pricing
 
@@ -324,7 +324,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure Industrial IoT Analytics Guidance]: ../../guide/iiot-guidance/iiot-architecture.md
 [Azure IoT Edge]: https://azure.microsoft.com/services/iot-edge
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub
-[Azure IoT reference architecture]: ../../reference-architectures/iot
+[Azure IoT reference architecture]: ../../reference-architectures/iot.yml
 [Azure IoT SDKs]: /azure/iot-hub/iot-hub-devguide-sdks
 [Azure Key Vault]: https://azure.microsoft.com/services/key-vault
 [Azure Logic Apps]: https://azure.microsoft.com/services/logic-apps
@@ -357,7 +357,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Integrate Azure Digital Twins with Azure SignalR Service]: /azure/digital-twins/how-to-integrate-azure-signalr
 [IoT analytics with Azure Data Explorer]: ../../solution-ideas/articles/iot-azure-data-explorer.yml
 [IoT solutions conceptual overview]: ../../example-scenario/iot/introduction-to-solutions.yml
-[Microsoft Graph]: graph.microsoft.com
+[Microsoft Graph]: https://developer.microsoft.com/graph
 [Microsoft Power Apps on Azure]: https://azure.microsoft.com/products/powerapps
 [Microsoft Teams]: https://www.microsoft.com/microsoft-teams/group-chat-software
 [Overview of Azure IoT Device SDKs - Device capabilities]: /azure/iot-develop/about-iot-sdks#device-capabilities
@@ -374,6 +374,6 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Smart Cities Ontology]: https://github.com/Azure/opendigitaltwins-smartcities
 [SVG version of architecture diagram]: ./media/smart-places-diagram.svg
 [UploadModels]: https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools
-[Vision with Azure IoT Edge]: ../../guide/iot-edge-vision
+[Vision with Azure IoT Edge]: ../../guide/iot-edge-vision/index.md
 [What is Azure IoT Edge]: /azure/iot-edge/about-iot-edge?view=iotedge-2018-06
 [What is Azure Synapse Link for Azure Cosmos DB?]: /azure/cosmos-db/synapse-link
