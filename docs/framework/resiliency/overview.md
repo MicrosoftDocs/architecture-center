@@ -25,8 +25,8 @@ Building for reliability includes:
 To assess the reliability of your workload using the tenets found in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/), reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
 For more information, explore the following video on diving deeper into Azure workload reliability:
-<p>
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-workload-reliability-Part-2--Reliability-Ep-2--Well-Architected/player" width="760" height="340" allowFullScreen frameBorder="0" title="Diving deeper into Azure workload reliability (Part 2) - Microsoft Channel 9 Video"></iframe>
+
+> [!VIDEO <https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-workload-reliability-Part-2--Reliability-Ep-2--Well-Architected/player?format=ny>]
 
 In traditional application development, there has been a focus on increasing the mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, because of several factors:
 
@@ -45,6 +45,8 @@ All of these factors mean that cloud applications must be designed to expect occ
 That said, you still need to build resiliency into your application. Resiliency strategies can be applied at all levels of the architecture. Some mitigations are more tactical in nature&mdash;for example, retrying a remote call after a transient network failure. Other mitigations are more strategic, such as failing over the entire application to a secondary region. Tactical mitigations can make a large difference. While it's rare for an entire region to experience a disruption, transient problems such as network congestion are more common&mdash;so target these issues first. Having the right monitoring and diagnostics is also important, both to detect failures when they happen, and to find the root causes.
 
 When designing an application to be resilient, you must understand your availability requirements. How much downtime is acceptable? The amount of downtime is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available?
+
+## Topics and best practices
 
 The reliability pillar covers the following topics and best practices to help you build a resilient workload:
 
