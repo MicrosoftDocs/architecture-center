@@ -35,24 +35,24 @@ In the context of Azure Arc enabled Kubernetes clusters, a Git repository hosts 
 
 Azure Arc enabled Kubernetes clusters rely on Flux, an open-source GitOps deployment tool to implement the pods responsible for tracking changes to the Git repository you designate and applying them to the local cluster. In addition, the containerized Flux operator also periodically reviews the existing cluster configuration to ensure that it matches the one residing in the Git repository. If there is a configuration drift, the Flux agent remediates it by reapplying the desired configuration.
 
-Each association between an Azure Arc enabled Kubernetes cluster configuration and the corresponding GitOps repository resides in Azure, as part of the Azure Resource Manager resource representing the Azure Arc enabled Kubernetes clusters. You can configure that association via traditional Azure management interfaces, such as the Azure portal or Azure CLI. Alternatively, you can use for this purpose Azure Policy, which automates this process, allowing you to apply it consistently to all resources in entire subscription or individual resource groups you designate.
+Each association between an Azure Arc enabled Kubernetes cluster configuration and the corresponding GitOps repository resides in Azure, as part of the Azure Resource Manager resource representing the Azure Arc enabled Kubernetes clusters. You can configure that association via traditional Azure management interfaces, such as the Azure portal or Azure CLI. Alternatively, you can use Azure Policy to automate this process, allowing you to apply it consistently to all resources in an entire subscription or individual resource groups you designate.
 
 ## Modernize applications anywhere with Azure Kubernetes Service on Azure Stack HCI
 
 If you are looking for a fully managed Kubernetes solution on-premises in your datacenters and/or edge locations, AKS on Azure Stack HCI is a great option. Azure Kubernetes Service on Azure Stack HCI is an on-premises implementation of Azure Kubernetes Service (AKS), which automates running containerized applications at scale. Azure Kubernetes Service is now in preview on Azure Stack HCI and Windows Server 2019 Datacenter, making it quicker to get started hosting Linux and Windows containers in your datacenter.
 
-AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized management. Once connected, you can deploy your  applications and Azure data services to these clusters and extend Azure services such as Azure Monitor, Azure Policy and Azure Defender.
+AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized management. Once connected, you can deploy your applications and Azure data services to these clusters and extend Azure services such as Azure Monitor, Azure Policy and Azure Defender.
 
 ### Azure Stack HCI use cases
 
 - **Modernize your high-performance workloads and containerized applications**
 
   - Use Azure Stack HCI to enable automated deployment, scaling and management of containerized applications by running a Kubernetes cluster on your hyperconverged infrastructure.
-  - Deploy AKS on Azure Stack HCI using Windows Admin Center or PowerShell
+  - Deploy AKS on Azure Stack HCI using Windows Admin Center or PowerShell.
 
 - **Deploy and manage workloads in remote and branch sites**
 
-  - Use Azure Stack HCI to deploy your container-built edge workloads essential and business applications in highly available virtual machines (VMs).
+  - Use Azure Stack HCI to deploy your container-built edge workloads, and essential business applications in highly available virtual machines (VMs).
   - Bring efficient application development and deployment to remote locations at the right price by leveraging switchless deployment and 2 node clusters.
   - Get a global view of your system’s health using Azure Monitor.
 

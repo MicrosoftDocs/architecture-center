@@ -1,6 +1,6 @@
 ---
 title: Data store cost estimates
-description: Describes cost strategies for database design
+description: Get detailed information about making cost estimates for your Azure data stores. Learn cost strategies for database design.
 author: v-aangie
 ms.date: 08/25/2020
 ms.topic: conceptual

@@ -21,6 +21,8 @@ This architecture is for high-volume processing of batches of transactions, espe
 
 :::image type="content" source="media/process-batch-transactions.png" alt-text="Diagram of an architecture implemented by using AKS and Service Bus":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/US-1813862-PR-2603-process-batch-transactions.vsdx) of this architecture.*
+
 ### Architectural annotations
 
 The numbered circles in the diagram correspond to the numbered steps in the following list.

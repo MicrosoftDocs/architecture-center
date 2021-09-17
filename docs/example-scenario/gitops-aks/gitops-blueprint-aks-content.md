@@ -176,6 +176,7 @@ You've now successfully provisioned a running GitOps setup. From here, you can:
 
 - [Guide To GitOps](https://www.weave.works/technologies/gitops)
 - [Open Policy Agent](https://www.openpolicyagent.org)
+- [Get this architecture running with our step-by-step guide](https://securitytower.syncier.com/docs/guide/step-by-step-guide)
 
 ## Related resources
 - [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)

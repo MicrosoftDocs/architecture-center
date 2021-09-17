@@ -1,9 +1,9 @@
 This architecture shows how the Raincode COBOL compiler modernizes mainframe
 legacy applications by seamlessly migrating and integrating them with a modern,
 Azure-based technology stack without changing a single line of code. With
-Raincode’s compiler technology, you can keep current optimized mainframe
+Raincode's compiler technology, you can keep current optimized mainframe
 applications and deploy them on the cloud, allowing you to preserve decades of
-development while greatly enhancing performance and flexibility. Raincode’s
+development while greatly enhancing performance and flexibility. Raincode's
 solution is aimed at transforming the mainframe to an Azure-native
 architecture by preserving the business logic while transforming the entire
 architecture. Raincode supports application flexibility across Linux and Windows
@@ -20,7 +20,7 @@ on Azure supports the following features:
 -   Native support for static or dynamic SQL queries through SQL Server either
     on-premises or on Azure SQL DB.
 
--   Support for Db2 (through Microsoft’s HIS) and SQL Server.
+-   Support for Db2 (through Microsoft's HIS) and SQL Server.
 
 -   Visual Studio integration, featuring a debugger, compiler, configurations,#
     IntelliSense, code colorizer, and project management.
@@ -50,7 +50,7 @@ you to:
 -   Transform your monolithic legacy applications into micro- or
     service-oriented architecture (SOA).
 
--   Control your total cost of ownership (TCO) by using Azure’s scalability and
+-   Control your total cost of ownership (TCO) by using Azure's scalability and
     availability features.
 
 ## Potential use cases
@@ -115,7 +115,7 @@ G. An optional printer subsystem manages on-premises printers.
 
 H. z/OS running on Logical Partitions (LPARs).
 
-I. LPARs represent a subset of a computer’s hardware resources. Each LPAR can
+I. LPARs represent a subset of a computer's hardware resources. Each LPAR can
 host a separate OS. While this example shows only Z/OS instances, other LPARs
 running on the same hardware can host other operating environments, like z/VM,
 or other engines, like zIIP or IFL.
@@ -138,7 +138,7 @@ layer can be updated with modern UX frameworks as requirements necessitate.
 Balancer, allowing for scale-out compute resources to process the input work.
 
 3. Raincode system emulation software can also support deployment in containers.
-With Raincode’s cutting-edge compiler technology, you can keep current optimized
+With Raincode's cutting-edge compiler technology, you can keep current optimized
 mainframe applications and deploy them on .NET Core.
 
 4. Cloud-native applications are a collection of independent and autonomous

@@ -28,7 +28,7 @@ Use *Azure Arc enabled infrastructure* to extend Azure management to any infrast
 - **Unified Operations**
    - Organize resources such as virtual machines, Kubernetes clusters and Azure services deployed across your entire IT environment.
    - Manage and govern resources with a single pane of glass from Azure.
-   - Integrated with Azure Lighthouse for managed service provider support.
+   - Integrate with Azure Lighthouse for managed service provider support.
 
 - **Adopt cloud practices**
    - Easily adopt DevOps techniques such as infrastructure as code.

@@ -1,6 +1,6 @@
 ---
 title: Measure usage to determine cost of Azure resources
-description: Cost strategies for selecting Azure resources
+description: Select Azure resources using cost strategies such as usage meters, allocated usage, subscription and offer types, or Azure Marketplace billing structures.
 author: PageWriter-MSFT
 ms.date: 05/12/2020
 ms.topic: conceptual
