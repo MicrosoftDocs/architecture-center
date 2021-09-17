@@ -26,7 +26,7 @@ To assess the reliability of your workload using the tenets found in the [Micros
 
 For more information, explore the following video on diving deeper into Azure workload reliability:
 
-> [!VIDEO <https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-workload-reliability-Part-2--Reliability-Ep-2--Well-Architected/player?format=ny>]
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-workload-reliability-Part-2--Reliability-Ep-2--Well-Architected/player?format=ny]
 
 In traditional application development, there has been a focus on increasing the mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, because of several factors:
 
