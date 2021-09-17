@@ -5,7 +5,7 @@ metadata:
   description: Learn how to create an Azure CI/CD pipeline to manage your Power Platform application lifecycle.
   author: sarahparkes
   ms.author: meparkes
-  ms.date: 09/16/2021
+  ms.date: 09/17/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -36,4 +36,4 @@ products:
   - azure-repos
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-devops-continuous-integration-and-continuous-deployment-for-power-apps.png
 content: |
-   [!include[](azure-devops-continuous-integration-and-continuous-deployment-for-azure-powerplatform-content.md)]
+   [!include[](azure-devops-continuous-integration-for-power-platform-content.md)]
