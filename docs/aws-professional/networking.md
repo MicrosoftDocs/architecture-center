@@ -1,5 +1,5 @@
 ---
-title: Comparing AWS and Azure networking options
+title: Compare AWS and Azure networking options
 description: A comparison of the different networking options between Azure and AWS
 author: vaboya
 ms.author: vaboya
