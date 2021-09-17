@@ -17,7 +17,7 @@ Azure provides several different relational database services that are the equiv
 - [SQL Database](/azure/sql-database/sql-database-technical-overview)
 - [Azure Database for MySQL](/azure/mysql/overview)
 - [Azure Database for PostgreSQL](/azure/postgresql/overview)
-- [Database for MariaDB](https://azure.microsoft.com/services/mariadb/)
+- [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb/)
 
 Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql/) can be deployed using Azure VM Instances.
 
