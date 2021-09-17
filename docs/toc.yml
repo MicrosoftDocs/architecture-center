@@ -712,9 +712,9 @@ items:
                 href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
               - name: Modernize mainframe & midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
-              - name: Banking system cloud transformation on Azure
+              - name: Banking system cloud transformation
                 href: example-scenario/banking/banking-system-cloud-transformation.yml
-              - name: Patterns and implementations in banking cloud transformation
+              - name: Patterns and implementations in banking
                 href: example-scenario/banking/patterns-and-implementations.yml
               - name: Real-time fraud detection
                 href: example-scenario/data/fraud-detection.yml
@@ -736,9 +736,9 @@ items:
         items:
           - name: Overview
             href: industries/healthcare.md
-          - name: Virtual visits with Microsoft Cloud for Healthcare
+          - name: Virtual visits with Cloud for Healthcare
             href: example-scenario/mch-health/virtual-health-mch.yml
-          - name: Clinical insights with Microsoft Cloud for Healthcare
+          - name: Clinical insights with Cloud for Healthcare
             href: example-scenario/mch-health/medical-data-insights.yml
           - name: Consumer health portal on Azure
             href: example-scenario/digital-health/health-portal.yml
@@ -748,7 +748,7 @@ items:
             href: example-scenario/confidential/healthcare-inference.yml
           - name: Compliance Blueprints
             items:
-              - name: Blueprint - HIPAA/HITRUST health data and AI
+              - name: Blueprint - HIPAA/HITRUST data and AI
                 href: /previous-versions/azure/security/blueprints/azure-health
                 maintainContext: true
               - name: Implement the healthcare blueprint for AI
@@ -778,24 +778,40 @@ items:
               - name: Blueprint - Data warehouse for FedRAMP
                 href: /previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview
                 maintainContext: true
-              - name: Blueprint - IaaS web application for FedRAMP
+              - name: Blueprint - IaaS web app for FedRAMP
                 href: /previous-versions/azure/security/blueprints/fedramp-iaaswa-overview
                 maintainContext: true
-              - name: Blueprint - PaaS web application for FedRAMP
+              - name: Blueprint - PaaS web app for FedRAMP
                 href: /previous-versions/azure/security/blueprints/fedramp-paaswa-overview
                 maintainContext: true
       - name: Manufacturing
         items:
           - name: Overview
             href: industries/manufacturing.md
-          - name: Industrial IoT analytics
-            href: guide/iiot-guidance/iiot-architecture.md
-          - name: Upscale machine learning lifecycle with MLOps framework
-            href: example-scenario/mlops/mlops-technical-paper.yml
-          - name: Build a speech-to-text transcription pipeline
-            href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
-          - name: Computer vision on the edge
-            href: reference-architectures/ai/end-to-end-smart-factory.yml
+          - name: Guides
+            items: 
+              - name: Industrial IoT analytics
+                href: guide/iiot-guidance/iiot-architecture.md
+              - name: Upscale machine learning lifecycle with MLOps framework
+                href: example-scenario/mlops/mlops-technical-paper.yml
+              - name: On-demand, scalable, high-power compute
+                href: /previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview
+                maintainContext: true
+              - name: Predictive maintenance in manufacturing
+                href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview
+                maintainContext: true
+              - name: Predictive Maintenance in manufacturing solution
+                href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-solution
+                maintainContext: true
+              - name: Extract actionable insights from IoT data
+                href: /previous-versions/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data
+                maintainContext: true
+          - name: Architectures
+            items: 
+              - name: Build a speech-to-text transcription pipeline
+                href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
+              - name: Computer vision on the edge
+                href: reference-architectures/ai/end-to-end-smart-factory.yml
       - name: Media and entertainment
         items:
           - name: Overview
