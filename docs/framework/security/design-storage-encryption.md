@@ -2,7 +2,7 @@
 title: Data encryption in Azure
 description: Protect data in transit and at rest through encryption in Azure.
 author: PageWriter-MSFT
-ms.date: 12/03/2020
+ms.date: 9/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -51,7 +51,7 @@ For the complete set of features, see [Azure Storage Service encryption](/azure/
 
 ## Suggested action
 
-Identify provider methods of authentication and authorization which are the least likely to be compromised, and enable more fine-grained role-based access controls over storage resources.
+Identify provider methods of authentication and authorization that are the least likely to be compromised, and enable more fine-grained role-based access controls over storage resources.
 
 **Learn more**
 
