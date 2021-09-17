@@ -12,16 +12,20 @@ metadata:
   ms.category:
     - compute
     - storage
+    - iot
 name: Connected Factory – Hierarchy Service
 azureCategories:
   - compute
   - storage
+  - iot
 summary: A Hierarchy Service allows your business stakeholders to centrally define how production assets like machines are organized within factories.
 products:
   - azure-kubernetes-service
   - azure-active-directory
   - azure-devops
   - azure-monitor
+  - azure-digital-twins
+  - azure-app-service
 thumbnailUrl: /azure/architecture/browse/thumbs/connected-factory-hierarchy-service-01.png
 content: |
    [!include[](connected-factory-hierarchy-service-content.md)] 
