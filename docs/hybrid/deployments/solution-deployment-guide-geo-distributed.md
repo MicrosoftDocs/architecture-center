@@ -626,4 +626,4 @@ Directing data traffic via Azure Traffic Manager and geography-specific endpoint
 
 ## Next steps
 
-- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](/azure/architecture/patterns).
+- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](../../patterns/index.md).

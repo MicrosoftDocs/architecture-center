@@ -1,11 +1,20 @@
 ---
-title: Security operations in Azure
+title: Security Operations Center (SOC or SecOps) monitoring in Azure
 description: Guidance for security operation team (SecOps) is to rapidly detect, prioritize, and triage potential attacks.
 author: PageWriter-MSFT
 ms.date: 11/03/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+  - azure-sentinel
+  - azure-monitor
+categories: 
+  - security
+subject:
+  - security
+  - monitoring
 ms.custom:
   - article
 ---
@@ -14,7 +23,7 @@ ms.custom:
 
 The responsibility of the security operation team (also known as Security Operations Center (SOC), or SecOps) is to rapidly detect, prioritize, and triage potential attacks. These operations help eliminate false positives and focus on real attacks, reducing the mean time to remediate real incidents. Central SecOps team monitors security-related telemetry data and investigates security breaches. It's important that any communication, investigation, and hunting activities are aligned with the application team.
 
-## Security operations principles
+:::image type="content" source="./images/incident-response.png" alt-text="Conceptual art that shows collaborative approach to mitigate potential and realized risk.":::
 
 Here are some general best practices for conducting security operations:
 
@@ -48,12 +57,28 @@ Investigation practices should use native tools with deep knowledge of the asset
 
 For more information about monitoring tools, see [Security monitoring tools in Azure](monitor-tools.md).
 
+## Assign incident notification contact
+
+Security alerts need to reach the right people in your organization. Establish a 
+designated point of contact to receive Azure incident notifications from Microsoft, and, or Azure 
+Security Center. In most cases, such notifications indicate that your resource is compromised or attacking another customer. This enables your security operations team to rapidly respond to potential security risks and remediate them. 
+
+This enables your security operations team to rapidly respond to potential
+security risks and remediate them.
+
+Ensure administrator contact information in the Azure enrollment portal includes contact information that will notify security operations directly or rapidly through an internal process.
+
+**Learn more**
+
+To learn more about establishing a designated point of contact to receive Azure incident 
+notifications from Microsoft, reference the following articles:
+  
+- [Update notification settings](/azure/cost-management-billing/manage/ea-portal-administration#update-notification-settings)
+- [Configure email notifications for security alerts](/azure/security-center/security-center-provide-security-contact-details)
+
 ## Incident response
 
-Make sure that a security contact receives Azure incident notifications from Microsoft.
-
-In most cases, such notifications indicate that your resource is compromised and,or attacking another customer. This enables your security operations team to rapidly respond to potential security risks and remediate them. 
-Ensure administrator contact information in the Azure enrollment portal includes contact information that will notify security operations directly or rapidly through an internal process.
+Is the organization effectively monitoring security posture across workloads, with a central SecOps team monitoring security-related telemetry data and investigating possible security breaches? Communication, investigation, and hunting activities need to be aligned with the application team(s).
 
 **Are operational processes for incident response defined and tested?**
 ***
@@ -63,6 +88,14 @@ Actions executed during an incident and response investigation could impact appl
 ***
 Incident responders are part of a central SecOps team and need to understand security insights of an application. Security playbook in Azure Sentinel can help to understand the security concepts and cover the typical investigation activities.
 
+### Suggested action
+
+Consider using Azure Defender (Azure Security Center) to monitor security-related events and get alerted automatically.
+
+**Learn more**
+
+[Security alerts and incidents in Azure Security Center](/azure/security-center/security-center-alerts-overview)
+
 ## Hybrid enterprise view
 
 Security operations tooling and processes should be designed for attacks on cloud and on-premises assets. Attackers don't restrict their actions to a particular environment when targeting an organization. They attack resources on any platform using any method available. They can pivot between cloud and on-premises resources using identity or other means. This enterprise-wide view will enable SecOps to rapidly detect, respond, and recover from attacks, reducing organizational risk.
@@ -71,11 +104,30 @@ Security operations tooling and processes should be designed for attacks on clou
 
 Use Azure security detections and controls instead of creating custom features for viewing and analyzing event logs. Azure services are updated with new features and have the ability to detect false positive with a higher accuracy rate.
 
-To get a unified view across the enterprise, feed the logs collected through native detections (such as Azure Monitor) into a centralized SIEM like Azure Sentinel. Avoid using  generalized log analysis tools and queries. Within Azure Monitor, create Log Analytics Workspace to store logs. You can also review logs and perform queries on log data. These tools can offer high-quality alerts.
+Integrating logs from the network devices, and even raw network traffic itself, will provide greater visibility into potential security threats flowing over the wire.
+
+To get a unified view across the enterprise, feed the logs collected through native detections (such as Azure Monitor) into a centralized security information and event management (SIEM) solution like Azure Sentinel. Avoid using generalized log analysis tools and queries. Within Azure Monitor, create Log Analytics Workspace to store logs. You can also review logs and perform queries on log data. These tools can offer high-quality alerts.
+
+The modern machine learning-based analytics platforms support ingestion of extremely large amounts of information and can analyze large datasets very quickly. In addition, these solutions can be tuned to significantly reduce false positive alerts.
+
+Examples of network logs that provide visibility include:
+
+- Security group logs - flow logs and diagnostic logs
+- Web application firewall logs
+- Virtual network taps and their equivalents
+- Azure Network Watcher
+
+### Suggested actions
+
+Integrate network device log information in advanced SIEM solutions or other analytics platforms.
+
+### Learn more
+
+[Enable enhanced network visibility](./network-security-containment.md#enable-enhanced-network-visibility)
 
 ## Next steps
+
 - [Security health modeling](monitor.md)
 - [Security tools](monitor-tools.md)
 - [Security logs and audits](monitor-audit.md)
-- [Check for identity, network, data risks](monitor-identity-network.md)
-
+- [Check for identity, network, data risks](monitor-resources.md)

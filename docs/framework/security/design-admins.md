@@ -1,6 +1,6 @@
 ---
 title: Administrative account security
-description: Best practices for security of administrator accounts in Azure.
+description: Review administrator account security in Azure. Administration is monitoring, maintaining, and operating IT systems to meet service levels the business requires.
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: conceptual
@@ -8,6 +8,9 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-active-directory
+categories: 
+  - management-and-governance
+  - security
 ms.custom:
   - article
 ---
@@ -215,14 +218,11 @@ following methods of authentication. These capabilities are listed in preference
 order by highest cost/difficulty to attack (strongest/preferred options) to
 lowest cost/difficult to attack:
 
-- **Passwordless (such as Windows Hello)**  
-    <https://aka.ms/HelloForBusiness>
+- **[Passwordless (such as Windows Hello)](https://aka.ms/HelloForBusiness)**  
 
-- **Passwordless (Authenticator App)**  
-    <https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in>
+- **[Passwordless (Authenticator App)](/azure/active-directory/authentication/howto-authentication-phone-sign-in)**
 
-- **Multifactor Authentication**  
-    <https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-userstates>
+- **[Multifactor Authentication](/azure/active-directory/authentication/howto-mfa-userstates)**
 
 Note that SMS Text Message based MFA has become very inexpensive for attackers
 to bypass, so we recommend you avoid relying on it. This option is still
@@ -286,7 +286,7 @@ cases when built in roles won't work.
 Ensure you have a process for disabling or deleting administrative accounts when
 admin personnel leave the organization (or leave administrative positions)
 
-See [Regularly review critical access](./governance.md#regularly-review-critical-access) for more details.
+See [Regularly review critical access](monitor-resources.md#regularly-review-critical-access) for more details.
 
 ## Attack simulation for critical impact accounts
 

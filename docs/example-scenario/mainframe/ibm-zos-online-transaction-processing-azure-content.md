@@ -6,6 +6,8 @@ The following diagram shows the architecture of the workload to be migrated, an 
 
 :::image type="content" source="media/ibm-zos-online-transaction-processing-on-zos.svg" alt-text="OLTP architecture on z/OS" lightbox="media/ibm-zos-online-transaction-processing-on-zos.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/US-1850083-PR-3227-ibm-zos-online-transaction-processing-on-zos.vsdx) of this architecture.*
+
 1. Users connect to the mainframe over TCP/IP using standard mainframe protocols like TN3270 and HTTPS.
 1. The transaction managers interact with the users and invoke the application to satisfy user requests.
 1. In the front end of the application layer, users interact with the CICS/IMS screens or with web pages.
@@ -26,7 +28,7 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 
 :::image type="content" source="media/ibm-zos-online-transaction-processing-on-azure.svg" alt-text="Azure architecture to migrate z/OS OLTP workload" lightbox="media/ibm-zos-online-transaction-processing-on-azure.png":::
 
-*Download an [SVG](media/ibm-zos-online-transaction-processing-on-azure.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/US-1850083-PR-3227-ibm-zos-online-transaction-processing-on-azure.vsdx) of this architecture.*
 
 1. Mainframe users are familiar with 3270 terminals and on-premises connectivity. In the migrated system, they interact with Azure applications via public internet or via a private connection implemented with Azure ExpressRoute. Azure Active Directory (Azure AD) provides authentication.
 1. Input requests go to a global load balancer service, like Azure Front Door or Azure Traffic Manager. The load balancer can serve a geographically spread user base. It routes the requests according to rules defined for the supported workloads. These load balancers can coordinate with Azure Application Gateway or Azure Load Balancer for load balancing of the application layer. The Azure Content Delivery Network service caches static content in edge servers for quick response, secured using the Web Application Firewall (WAF) service.
@@ -97,19 +99,19 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 ### Scalability
 
 - This architecture uses Azure PaaS services like App Service, which has autoscaling capabilities.
-- For guidance on autoscaling in Azure, see [Autoscaling](/azure/architecture/best-practices/auto-scaling).
+- For guidance on autoscaling in Azure, see [Autoscaling](../../best-practices/auto-scaling.md).
 
 ### Security
 
 - ExpressRoute creates a private connection to Azure from an on-premises environment. You can also use site-to-site VPN.
 - Azure AD can authenticate resources and control access using Azure role-based access control (RBAC).
 - Database services in Azure support various security options like data encryption at rest.
-- For general guidance on designing secure solutions, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+- For general guidance on designing secure solutions, see [Overview of the security pillar](../../framework/security/overview.md).
 
 ### Resiliency
 
 - This scenario uses Azure Monitor and Application Insights to monitor the health of the Azure resources. You can set alerts for proactive management.
-- For guidance on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+- For guidance on resiliency in Azure, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
 
 ## Pricing
 
@@ -139,4 +141,4 @@ This architecture is ideal for OLTP workloads that have these characteristics:
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric)
 - [Create and share dashboards of Log Analytics data](/azure/azure-monitor/visualize/tutorial-logs-dashboards)
-- [Overview of the security pillar](/azure/architecture/framework/security/overview)
+- [Overview of the security pillar](../../framework/security/overview.md)
