@@ -65,15 +65,15 @@ Typical uses for this workload include:
 
 ## Architecture
 
-![A picture containing graphical user interface Description automatically generated](images/building-blocks-autonomous-driving-simulation-environments.png)
+![A picture containing graphical user interface](images/building-blocks-autonomous-driving-simulation-environments.png)
 
-### User Input Layer
+### User input layer
 
 The developer will only interact with this layer. It contains the developer
 workstation (an Azure VM in our scope) and the specification file describing the
 simulation environment.
 
-### Orchestration Layer
+### Orchestration layer
 
 “Orchestration” has a broad meaning: some of the problems described by the word
 are trivially solved; others are much more complex. For example, the
@@ -169,7 +169,7 @@ team.
 
 ## Components
 
-[Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) provides on-demand, scalable computing resources that give you the flexibility
+[Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources that give you the flexibility
 of virtualization, without having to buy and maintain the physical hardware.
 
 [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/#overview) is the fundamental building block for your private network in Azure. Azure
@@ -186,13 +186,13 @@ container development and deployment pipelines, or use Azure Container Registry
 Tasks to build container images in Azure. Build on demand, or fully automate
 builds with triggers, such as source code commits and base image updates.
 
-[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) are part of the Azure DevOps Services and run automated builds, tests, and
+[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) are part of the Azure DevOps Services and run automated builds, tests, and
 deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/#overview) is the cloud-based identity and access management service that authenticates
 users, services, and applications.
 
-[Azure Storage](https://azure.microsoft.com/services/storage/) offers a durable,
+[Azure Storage](https://azure.microsoft.com/services/storage) offers a durable,
 highly available, and massively scalable cloud storage solution. It includes
 object, file, disk, queue, and table storage capabilities.
 
@@ -315,19 +315,19 @@ Product documentation:
 Microsoft Learn learning paths:
 
 -   [Implement and manage storage for Azure
-    administrators](/learn/paths/azure-administrator-manage-storage/)
+    administrators](/learn/paths/azure-administrator-manage-storage)
 
 -   [Deploy and manage compute resources for Azure
-    administrators](/learn/paths/azure-administrator-manage-compute-resources/)
+    administrators](/learn/paths/azure-administrator-manage-compute-resources)
 
 -   [Configure and manage virtual networks for Azure
-    administrators](/learn/paths/azure-administrator-manage-virtual-networks/)
+    administrators](/learn/paths/azure-administrator-manage-virtual-networks)
 
 -   [Manage identities and governance for Azure
-    administrators](/learn/paths/azure-administrator-manage-identities-governance/)
+    administrators](/learn/paths/azure-administrator-manage-identities-governance)
 
 -   [Monitor and back up resources for Azure
-    administrators](/learn/paths/azure-administrator-monitor-backup-resources/)
+    administrators](/learn/paths/azure-administrator-monitor-backup-resources)
 
 ## Related resources
 
