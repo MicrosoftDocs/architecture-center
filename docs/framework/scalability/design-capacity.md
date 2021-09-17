@@ -1,6 +1,6 @@
 ---
 title: Plan for capacity
-description: Describes the capacity design options for performance efficiency
+description: Plan to meet capacity design requirements for performance efficiency. Understand options to reduce cost.
 author: v-aangie
 ms.date: 12/01/2020
 ms.topic: conceptual

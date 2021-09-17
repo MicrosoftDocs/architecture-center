@@ -1,7 +1,7 @@
 ---
 title: Alerting for DevOps
-description: Describes how to use alerts in a well-architected application.
-author: neilpeterson
+description: Explore alerting, which is the process of analyzing the monitoring and instrumentation data and generating a notification if a significant event is detected.
+author: david-stanford
 ms.date: 01/20/2021
 ms.topic: conceptual
 ms.service: architecture-center

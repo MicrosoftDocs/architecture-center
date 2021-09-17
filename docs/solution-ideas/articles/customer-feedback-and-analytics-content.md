@@ -1,4 +1,3 @@
-
 <!-- cSpell:ignore pracjain keyphrase -->
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
@@ -7,11 +6,13 @@ For many companies, customer support is costly and doesn't always operate effici
 
 [Azure Cognitive Search](/azure/search/search-what-is-azure-search) is a key part of knowledge mining solutions. Cognitive Search creates a search index over aggregated and analyzed content. With queries using the search index, companies can discover trends about what customers are saying and use that information to improve products and services.
 
-## Data flow for knowledge mining
+## Architecture
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
 ![Architecture diagram: knowledge mining for customer feedback and analytics with 3 steps: ingest, enrich, explore.](../media/knowledge-mining-customer-feedback-and-analytics.png)
+
+### Data flow for knowledge mining
 
 - **Ingest**
 
@@ -25,7 +26,7 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
   The explore step is explorer data via search, existing business applications, or analytics solutions. For example, you can compile enriched documents in the knowledge store and project them into tabular or object stores. The stores can be used to surface trends in an analytics dashboard identifying frequent issues or popular products. Or, you can integrate the search index into customer service support applications.
 
-## Components
+### Components
 
 Key technologies used to implement tools for technical content review and research
 

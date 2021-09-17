@@ -1,8 +1,9 @@
 ---
 title: Performance testing and antipatterns
 description: Build scalability solutions for common stressors by learning about performance antipatterns. These are common practices that are likely to cause scalability problems when an application is under pressure.
-author: dragon119
-ms.date: 06/05/2017
+author: johndowns
+ms.author: jodowns
+ms.date: 08/23/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
@@ -15,6 +16,11 @@ keywords:
   - scalability solutions
   - anti-pattern
   - performance testing
+products:
+ - azure
+categories:
+ - management-and-governance
+ - security
 ---
 
 # Performance testing and antipatterns for cloud applications
@@ -47,6 +53,7 @@ Here is the list of the antipatterns that we've identified:
 | [Improper Instantiation][ImproperInstantiation] | Repeatedly creating and destroying objects that are designed to be shared and reused. |
 | [Monolithic Persistence][MonolithicPersistence] | Using the same data store for data with very different usage patterns. |
 | [No Caching][NoCaching] | Failing to cache data. |
+| [Noisy Neighbor][NoisyNeighbor] | A single tenant uses a disproportionate amount of the resources. |
 | [Retry Storm][RetryStorm] | Retrying failed requests to a server too often. |
 | [Synchronous I/O][SynchronousIO] | Blocking the calling thread while I/O completes. |
 
@@ -63,5 +70,6 @@ For more about performance tuning, see [Performance tuning a distributed applica
 [ImproperInstantiation]: ./improper-instantiation/index.md
 [MonolithicPersistence]: ./monolithic-persistence/index.md
 [NoCaching]: ./no-caching/index.md
+[NoisyNeighbor]: ./noisy-neighbor/index.md
 [RetryStorm]: ./retry-storm/index.md
 [SynchronousIO]: ./synchronous-io/index.md

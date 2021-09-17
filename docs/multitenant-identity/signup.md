@@ -6,13 +6,17 @@ ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - identity
+  - web
 ms.custom:
   - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: claims
 pnp.series.next: app-roles
+products:
+  - azure-active-directory
+  - azure-app-service-web
 ---
 
 <!-- cSpell:ignore signup nameof -->
@@ -64,6 +68,8 @@ When an anonymous user visits the Surveys application, the user is shown two but
 ![Application sign-up page](./images/sign-up-page.png)
 
 These buttons invoke actions in the `AccountController` class.
+
+[!INCLUDE [Obsolete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 The `SignIn` action returns a **ChallengeResult**, which causes the OpenID Connect middleware to redirect to the authentication endpoint. This is the default way to trigger authentication in ASP.NET Core.
 

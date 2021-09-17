@@ -97,12 +97,12 @@ the edge to the cloud and back. It is divided into three operational areas:
     training.
 
 15. Azure Machine Learning uses the dataset in the Premium data cache to train
-    the model, validate the trained model’s performance, score it against the
+    the model, validate the trained model's performance, score it against the
     newly trained model, and register the model into Azure Machine Learning
     registry.
 
 16. A model orchestrator pipeline reviews the performance of the newly trained
-    ML model and determines if it’s better than previously trained models. If
+    ML model and determines if it's better than previously trained models. If
     the newly trained model is better, the pipeline downloads it from Azure
     Machine Learning and builds a new version of the ML inferencing module to be
     published in Azure Container Registry.
@@ -168,7 +168,7 @@ stores for retraining purposes.
 
 [Azure
 DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
-provides team-based developer services. In this example, it’s used to validate
+provides team-based developer services. In this example, it's used to validate
 ML code, trigger Azure Machine Learning pipelines with serverless tasks, compare
 ML models, and build the inferencing service container on the edge. It features
 Azure Pipelines for creating continuous integration (CI) and continuous
@@ -186,7 +186,7 @@ problems and maximize performance and reliability.
 
 -   Model orchestration can also be done using Azure Data Factory. The benefit
     of this approach is that each Data Factory pipeline can provision the
-    required compute resources. Data Factor doesn’t hold on to the Azure DevOps
+    required compute resources. Data Factor doesn't hold on to the Azure DevOps
     agents to run ML training, which might congest normal CI/CD flow.
 
 -   Instead of using the data pipeline to break down the video stream into image
@@ -201,7 +201,7 @@ problems and maximize performance and reliability.
 
 As part of the human-in-the-loop transactions, workers check and evaluate the
 results of the machine learning predictions. In this way, human expertise is
-captured and helps validate the model. If the model’s results are inaccurate,
+captured and helps validate the model. If the model's results are inaccurate,
 the data is checked again and the algorithms are tuned.
 
 This smart factory is set up with the following roles:
@@ -211,7 +211,7 @@ This smart factory is set up with the following roles:
     data. Azure Machine Learning Labeling allows the data labeler to label data
     sets for retraining to complete the loop of the end-to-end solution. Azure
     Data Factory organizes the video frames into logical groupings (positive and
-    false positive), which makes the data labeler’s work quick and efficient.
+    false positive), which makes the data labeler's work quick and efficient.
 
 -   **Data scientist**. Data scientists use the labeled data sets to train the
     algorithms to make the right real-life predictions. As part of the MLOps
@@ -236,7 +236,7 @@ This smart factory is set up with the following roles:
     predictions of the machine learning model. For example, they might examine a
     valve that the model predicted had failed.
 
--   **Safety auditor**. When questions arise about a model’s predictions, safety
+-   **Safety auditor**. When questions arise about a model's predictions, safety
     auditors can review the archived video streams to detect anomalies, assess
     compliance, and confirm results.
 
@@ -263,7 +263,7 @@ engineer can investigate and troubleshoot.
 
 ### Performance
 
-IoT devices have limited memory and processing power, so it’s important to limit
+IoT devices have limited memory and processing power, so it's important to limit
 the size of the container you send to it. In this example, we selected an IoT
 device capable of performing inference on the model and producing result in an
 acceptable time.
@@ -324,7 +324,7 @@ model](../../example-scenario/mlops/mlops-technical-paper.yml)
 lays out practices that support DevOps and contribute to running a successful ML
 environment. The [Azure Machine Learning decision guide for optimal tool
 selection](../../example-scenario/mlops/aml-decision-tree.yml)
-can also help you determine the best Azure services for your team’s ML projects.
+can also help you determine the best Azure services for your team's ML projects.
 
 ## Deploy this scenario
 

@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Social App for Mobile and Web with Authentication
+  title: Mobile and web social app with authentication
   titleSuffix: Azure Solution Ideas
   description: Build and implement a mobile client app architecture that offers authentication abilities and social image sharing with a companion web app, even while offline.
   author: doodlemania2

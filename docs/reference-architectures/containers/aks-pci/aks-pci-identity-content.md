@@ -31,7 +31,7 @@ For more information, see [Use Azure RBAC for Kubernetes Authorization](/azure/a
 |Requirement|Responsibility|
 |---|---|
 |[Requirement 7.1](#requirement-71)|Limit access to system components and cardholder data to only those individuals whose job requires such access.|
-|[Requirement 7.2](#requirement-72)|Establish an access control system for systems components that restricts access based on a user’s need to know, and is set to “deny all” unless specifically allowed.|
+|[Requirement 7.2](#requirement-72)|Establish an access control system for systems components that restricts access based on a user's need to know, and is set to "deny all" unless specifically allowed.|
 |[Requirement 7.3](#requirement-73)|Ensure that security policies and operational procedures for restricting access to cardholder data are documented, in use, and known to all affected parties.|
 
 ### **Requirement 8**&mdash;Identify and authenticate access to system components
@@ -120,7 +120,7 @@ Based on the job functions, strive to minimize access without causing disruption
 
 #### Requirement 7.1.3
 
-Assign access based on individual personnel’s job classification and function.
+Assign access based on individual personnel's job classification and function.
 
 ##### Your responsibilities
 
@@ -147,7 +147,7 @@ Have a gated process for approving changes in roles and permissions, including t
 
 ### Requirement 7.2
 
-Establish an access control system for systems components that restricts access based on a user’s need to know, and is set to “deny all” unless specifically allowed.
+Establish an access control system for systems components that restricts access based on a user's need to know, and is set to “deny all” unless specifically allowed.
 
 #### Your responsibilities
 

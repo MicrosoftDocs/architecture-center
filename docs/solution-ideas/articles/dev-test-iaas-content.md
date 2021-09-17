@@ -8,7 +8,7 @@
 
 ![Diagram showing the configuration of DevTest and DevOps for an IaaS application.](../media/dev-test-iaas.png)
 
-1. Instead of manually configuring development environments, developers can use [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) images, pre-configured with the libraries, tools, and runtimes they need for their projects. Adding a developer to an [Azure DevTest Subscription](https://azure.microsoft.com/pricing/dev-test) makes the appropriate Windows Virtual Desktop image available to them from the DevTest environment.
+1. Instead of manually configuring development environments, developers can use [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) images, pre-configured with the libraries, tools, and runtimes they need for their projects. Adding a developer to an [Azure DevTest Subscription](https://azure.microsoft.com/pricing/dev-test) makes the appropriate Azure Virtual Desktop image available to them from the DevTest environment.
    
 2. Source code is available in [GitHub](https://azure.microsoft.com/products/github/) repos, which integrate seamlessly with Azure DevOps. The [Visual Studio](https://visualstudio.microsoft.com/) development environment combines GitHub source code editing with features like work item and pull request tracking.
    
