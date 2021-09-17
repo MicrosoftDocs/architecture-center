@@ -1,6 +1,6 @@
 ---
 title: Target and non-functional requirements
-description: Describes reliability targets for availability, recovery, and non-functional requirements.
+description: Meet reliability targets for availability, recovery, and non-functional requirements, which involve application and data platforms, networking, and connectivity.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual

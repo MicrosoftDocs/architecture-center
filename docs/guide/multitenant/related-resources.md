@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/26/2021
+ms.date: 08/16/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -30,7 +30,7 @@ The following articles provide examples of multitenant architectures on Azure.
 | [Multitenant SaaS on Azure](../../example-scenario/multi-saas/multitenant-saas.yml) | Reference architecture for a multitenant SaaS scenario on Azure, which is deployed in multiple regions | Web |
 | [Use Application Gateway Ingress Controller with a multi-tenant Azure Kubernetes Service](../../example-scenario/aks-agic/aks-agic.yml) | Example for implementing multitenancy with AKS and AGIC | Kubernetes |
 | [Serverless batch processing with Durable Functions in Azure Container Instances](../../solution-ideas/articles/durable-functions-containers.yml) | Use cases include multitenant scenarios, where some tenants need large computing power, while other tenants have small computing requirements | Containers |
-| [All multitenant architectures](/azure/architecture/browse/?terms=multitenant) | Lists all the architectures that include multitenancy | Multiple |
+| [All multitenant architectures](../../browse/index.yml?terms=multitenant) | Lists all the architectures that include multitenancy | Multiple |
 
 ## Cloud design patterns
 
@@ -44,6 +44,10 @@ The following [cloud design patterns](../../patterns/index.md) are frequently us
 | [Queue-Based Load Leveling](../../patterns/queue-based-load-leveling.md) | Use a queue that acts as a buffer between a task and a service that it invokes, in order to smooth intermittent heavy loads. |
 | [Sharding](../../patterns/sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
 | [Throttling](../../patterns/throttling.md) | Control the consumption of resources that are used by an instance of an application, an individual tenant, or an entire service. |
+
+## Antipatterns
+
+Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/index.md), in which the activity of one tenant can have a negative impact on another tenant's use of the system.
 
 ## Microsoft Azure Well-Architected Framework
 
@@ -65,13 +69,15 @@ While the entirety of the [Azure Well-Architected Framework](../../framework/ind
 ### Storage and data
 
 * [Azure Cosmos DB and multitenant systems](https://azure.microsoft.com/blog/azure-cosmos-db-and-multi-tenant-systems/): A blog post discussing how to build a multitenant system that uses Azure Cosmos DB.
+* [Azure Cosmos DB hierarchical partition keys (private preview)](https://devblogs.microsoft.com/cosmosdb/hierarchical-partition-keys-private-preview/): A blog post announcing the private preview of hierarchical partition keys for the Azure Cosmos DB Core (SQL) API. With hierarchical partition keys, also known as sub-partitioning, you can now natively partition your container with up to three levels of partition keys. This enables more optimal partitioning strategies for multitenant scenarios or workloads that would otherwise use synthetic partition keys.
 * [Azure SQL Database multitenant SaaS database tenancy patterns](/azure/azure-sql/database/saas-tenancy-app-design-patterns): A set of articles describing various tenancy models that are available for a multitenant SaaS application, using Azure SQL Database.
 * [Running 1 million databases on Azure SQL for a large SaaS provider: Microsoft Dynamics 365 and Power Platform](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform/): A blog post describing how Dynamics 365 team manages databases at scale.
 * [Design a multitenant database by using Azure Database for PostgreSQL Hyperscale](/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant)
-* [Horizontal, vertical, and functional data partitioning](/azure/architecture/best-practices/data-partitioning): In many large-scale and multitenant solutions, data is divided into partitions that can be managed and accessed separately. Partitioning can improve scalability, reduce contention, and optimize performance. It can also provide a mechanism for dividing data, by the usage pattern and by the tenant.
-* [Data partitioning strategies by Azure service](/azure/architecture/best-practices/data-partitioning-strategies): This article describes some strategies for partitioning data in various Azure data stores.
+* [Horizontal, vertical, and functional data partitioning](../../best-practices/data-partitioning.md): In many large-scale and multitenant solutions, data is divided into partitions that can be managed and accessed separately. Partitioning can improve scalability, reduce contention, and optimize performance. It can also provide a mechanism for dividing data, by the usage pattern and by the tenant.
+* [Data partitioning strategies by Azure service](../../best-practices/data-partitioning-strategies.md): This article describes some strategies for partitioning data in various Azure data stores.
 * [Building multitenant applications with Azure Database for PostgreSQL Hyperscale Citus](https://www.youtube.com/watch?v=7gAW08du6kk) (video)
 * [Multitenant applications with Azure Cosmos DB](https://www.youtube.com/watch?v=fOQoQnQqwwU) (video)
+* [Building a multitenant SaaS with Azure Cosmos DB and Azure](https://www.youtube.com/watch?v=Tht_RV5QPJ0) (video): A real-world case study of how Whally, a multitenant SaaS startup, built a modern platform from scratch on Azure Cosmos DB and Azure. Whally shows the design and implementation decisions they made related to partitioning, data modeling, secure multitenancy, performance, real-time streaming from change feed to SignalR and more, all using ASP.NET Core on Azure App Services.
 * [Multitenant design patterns for SaaS applications on Azure SQL Database](https://www.youtube.com/watch?v=jjNmcKBVjrc) (video)
 
 ### Messaging
@@ -82,13 +88,15 @@ While the entirety of the [Azure Well-Architected Framework](../../framework/ind
 
 * [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps): When developing apps, developers can choose to configure their app to be either single-tenant or multitenant, during app registration, in Azure Active Directory.
 * [Custom-branded identity solution with Azure AD B2C](/azure/active-directory-b2c/overview): Azure Active Directory B2C is a customer identity access management solution that is capable of supporting millions of users and billions of authentications per day.
-* [Identity management in multitenant applications](/azure/architecture/multitenant-identity): This series of articles describes best practices for multitenancy, when using Azure AD for authentication and identity management.
+* [Identity management in multitenant applications](../../multitenant-identity/index.md): This series of articles describes best practices for multitenancy, when using Azure AD for authentication and identity management.
 * [Build a multi-tenant daemon with the Microsoft identity platform endpoint](/samples/azure-samples/ms-identity-aspnet-daemon-webapp/build-multi-tenant-daemon-aad): This sample application shows how to use the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
 * [Authenticate and authorize multitenant apps using Azure Active Directory (Azure AD)](/learn/modules/cna-set-up-azure-ad-use-scale): Learn how Azure Active Directory enables you to improve the functionality of cloud-native apps in multitenant scenarios.
+* [Azure Architecture Walkthrough: Building a multi-tenant Azure Architecture for a B2C scenario](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-architecture-walkthrough-building-a-multi-tenant-azure/ba-p/1278357): a walk through the architecture behind a multi-tenant mobile app with Azure Active Directory B2C and API Management.
 
 ### Analytics
 
 * [Multitenancy solutions with Power BI embedded analytics](/power-bi/developer/embedded/embed-multi-tenancy): When designing a multitenant application that contains Power BI Embedded, you must carefully choose the tenancy model that best fits your needs.
+
 
 ### IoT
 
@@ -97,3 +105,12 @@ While the entirety of the [Azure Well-Architected Framework](../../framework/ind
 ### AI/ML
 
 * [Design patterns for multitenant SaaS applications and Azure Cognitive Search](/azure/search/search-modeling-multitenant-saas-applications): This document discusses tenant isolation strategies for multitenant applications that are built with Azure Cognitive Search.
+
+## Community Content
+
+### Kubernetes
+* [Three Tenancy Models For Kubernetes](https://kubernetes.io/blog/2021/04/15/three-tenancy-models-for-kubernetes/): Kubernetes clusters are typically used by several teams in an organization. This article explains three tenancy models for Kubernetes.
+* [Understanding Kubernetes Multi Tenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes is not a multi-tenant system out of the box. While it is possible to configure multi-tenancy, this can be challenging. This article explains Kubernetes multi-tenancy types.
+* [Kubernetes Multi-Tenancy – A Best Practices Guide](https://loft.sh/blog/kubernetes-multi-tenancy-best-practices-guide/): Kubernetes multi-tenancy is a topic that more and more organizations are interested in as their Kubernetes usage spreads out. However, since Kubernetes is not a multi-tenant system per se, getting multi-tenancy right comes with some challenges. This article describes these challenges and how to overcome them as well as some useful tools for Kubernetes multi-tenancy. 
+* [Capsule: Kubernetes multi-tenancy made simple](https://github.com/clastix/capsule): Capsule helps to implement a multi-tenancy and policy-based environment in your Kubernetes cluster. It is not intended to be yet another PaaS, instead, it has been designed as a micro-services-based ecosystem with the minimalist approach, leveraging only on upstream Kubernetes.
+* [Loft: Add Multi-Tenancy To Your Clusters](https://github.com/loft-sh/kiosk): Loft provides lightweight Kubernetes extensions for multi-tenancy.

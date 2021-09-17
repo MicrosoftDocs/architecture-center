@@ -15,6 +15,8 @@ ms.custom:
   - fasttrack-new
   - fasttrack-edit
   - design-pattern
+categories:
+  - databases
 ---
 
 # Geode pattern
@@ -85,15 +87,15 @@ Use this pattern:
 
 This pattern might not be suitable for
 
-- Architectures that have constraints so that all geodes can't be equal for data storage. For example, there may be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using [deployment stamps](./deployment-stamp.md) in combination with a global routing plane that is aware of where a user’s data sits, such as the traffic routing component described within the [deployment stamps pattern](./deployment-stamp.md).
+- Architectures that have constraints so that all geodes can't be equal for data storage. For example, there may be data residency requirements, an application that needs to maintain temporary state for a particular session, or a heavy weighting of requests towards a single region. In this case, consider using [deployment stamps](./deployment-stamp.md) in combination with a global routing plane that is aware of where a user's data sits, such as the traffic routing component described within the [deployment stamps pattern](./deployment-stamp.md).
 - Situations where there's no geographical distribution required. Instead, consider availability zones and paired regions for clustering.
 - Situations where a legacy platform needs to be retrofitted. This pattern works for cloud-native development only, and can be difficult to retrofit.
 - Simple architectures and requirements, where geo-redundancy and geo-distribution aren't required or advantageous.
 
 ## Examples
 
-- Windows Active Directory implements an early variant of this pattern. Multi-primary replication means all updates and requests can in theory be served from all serviceable nodes, but FSMO roles mean that all geodes aren't equal.
-- A [geode-pattern-accelerator](https://github.com/lucashuet93/geode-pattern-accelerator) application on GitHub showcases this design pattern in practice and is designed to help developers implement it with real-world APIs.
+- Windows Active Directory implements an early variant of this pattern. Multi-primary replication means all updates and requests can in theory be served from all serviceable nodes, but Flexible Single Master Operation (FSMO) roles mean that all geodes aren't equal.
+- The [geode pattern accelerator](https://github.com/mspnp/geode-pattern-accelerator) on GitHub showcases this design pattern in practice and is designed to help developers implement it with real-world APIs.
 - The [globally distributed applications using Cosmos DB](../solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml) article examines a geographical based deployment that utilizes Traffic Manager for load balancing and Azure App Service to host the API code.
 - A [QnA sample application](https://github.com/xstof/qnademo) on GitHub showcases this design pattern in practice.
 - Geode [Cache over SAP OData APIs](https://github.com/MartinPankraz/AzCosmosDB-OData-Shim): A sample OData API Geode set backed by Cosmos as a globally accelerated data cache for SAP Retail applications.

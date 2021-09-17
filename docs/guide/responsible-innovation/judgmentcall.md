@@ -1,7 +1,7 @@
 ---
 title: Judgment Call
 titleSuffix: Azure Application Architecture Guide
-description: This is a team-based activity that puts Microsoft AI principles into action.
+description: Learn about Judgment Call, which is a team-based activity that puts Microsoft AI principles into action.
 author: dcass
 ms.date: 05/12/2020
 ms.topic: conceptual
@@ -15,7 +15,7 @@ ms.custom:
 
 # Judgment Call
 
-Judgment Call is an award-winning game and team-based activity that puts Microsoft’s AI principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability into action. The game provides an easy-to-use method for cultivating stakeholder empathy by imagining their scenarios. Game participants write product reviews from the perspective of a particular stakeholder, describing what kind of impact and harms the technology could produce from their point of view.
+Judgment Call is an award-winning game and team-based activity that puts Microsoft's AI principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability into action. The game provides an easy-to-use method for cultivating stakeholder empathy by imagining their scenarios. Game participants write product reviews from the perspective of a particular stakeholder, describing what kind of impact and harms the technology could produce from their point of view.
 
 > [!VIDEO https://www.youtube.com/embed/LXqlAXEMGI0]
 
@@ -45,9 +45,9 @@ The players are expected to go through the following steps in this game:
    
     Once you have decided on the scenario, pass out the cards. Each player receives a stakeholder card, an ethical principle card, a rating card, and a review form. The following is a description of these cards:
 
-      - **Stakeholder** - This represents the group of people impacted by the technology or scenario you’ve chosen. Stakeholders can also include the makers (those proposing and working on the technology) as well as the internal project sponsors (managers and executives who are supportive of the project).
+      - **Stakeholder** - This represents the group of people impacted by the technology or scenario you've chosen. Stakeholders can also include the makers (those proposing and working on the technology) as well as the internal project sponsors (managers and executives who are supportive of the project).
 
-      - **Principle** - This includes Microsoft’s ethical principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability.
+      - **Principle** - This includes Microsoft's ethical principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability.
 
       - **Rating** - Star cards give a rating: 1-star is poor, 3-star is mediocre, 5-star is excellent.
 
@@ -87,11 +87,11 @@ The players are expected to go through the following steps in this game:
       
  1. **Writing reviews**
  
-    Players each write a review of the product or scenario based on the cards they’ve been dealt. Players take turns reading their reviews aloud. Listen carefully for any issues or themes that might come up. Take note of any changes you might make to your product based on insights discussed.
+    Players each write a review of the product or scenario based on the cards they've been dealt. Players take turns reading their reviews aloud. Listen carefully for any issues or themes that might come up. Take note of any changes you might make to your product based on insights discussed.
     
       - The stakeholder card tells them who they are for the round. 
 
-      - The ethical principle card is one of the six Microsoft AI principles; it tells them what area they’re focusing on in their review. 
+      - The ethical principle card is one of the six Microsoft AI principles; it tells them what area they're focusing on in their review. 
 
       - The rating card tells them how much their stakeholder likes the technology (1, 3, or 5 stars). 
 

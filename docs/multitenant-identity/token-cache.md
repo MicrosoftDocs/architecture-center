@@ -1,22 +1,28 @@
 ---
-title: Cache access tokens in a multitenant application
+title: Cache access tokens in a multitenant app
 description: Learn how to implement a custom token cache that derives from the Azure AD Authentication Library TokenCache class suitable for web apps.
 author: doodlemania2
 ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - identity
+  - web
 ms.custom:
   - has-adal-ref
   - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: web-api
 pnp.series.next: adfs
+products:
+  - azure-active-directory
+  - azure-app-service-web
 ---
 
 # Cache access tokens
+
+[!INCLUDE [Obsolete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 

@@ -126,7 +126,7 @@ Learn more about training:
 [0]: ./_images//training-python-models.png
 [1]: ./_images/run-object.png
 [acr]: /azure/container-registry/container-registry-intro
-[aml]: /azure/machine-learning/service/overview-what-is-azure-ml
+[aml]: /azure/machine-learning/overview-what-is-azure-machine-learning
 [aml-compute]: /azure/machine-learning/service/concept-compute-target
 [blob]: /azure/storage/blobs/storage-blobs-introduction
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview

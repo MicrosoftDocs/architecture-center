@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Using Service Fabric to decompose applications
+  title: Use Service Fabric to decompose apps
   titleSuffix: Azure Example Scenarios
   description: Use Azure Service Fabric as a platform for decomposing an unwieldy monolithic application into multiple, manageable microservices.
   author: timomta
