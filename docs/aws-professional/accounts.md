@@ -1,8 +1,9 @@
 ---
 title: Comparing AWS and Azure accounts and subscriptions
 description: A comparison of the differences between accounts and subscriptions between Azure to AWS
-author: doodlemania2
-ms.date: 05/21/2020
+author: bigkangji 
+ms.author: pnp
+ms.date: 09/17/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -30,7 +31,7 @@ Account Administrator, Service Administrator, and Co-Administrator are the three
 
 - **Service Administrator**. This user has rights to create and manage resources in the subscription, but is not responsible for billing. By default, for a new subscription, the Account Administrator is also the Service Administrator. The account administrator can assign a separate user to the service administrator for managing the technical and operational aspects of a subscription. Only one service administrator is assigned per subscription.
 
-- **Co-administrator**. There can be multiple co-administrators assigned to a subscription. Co-administrators have the same access privileges as the Service Administrator, but cannot change the service administrator.
+- **Co-administrator**. There can be multiple co-administrators assigned to a subscription. Co-administrators have the same access privileges as the Service Administrator, but they cannot change the service administrator.
 
 Below the subscription level user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through an Azure Active Directory).
 
