@@ -6,6 +6,11 @@ ms.date: 02/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-stack-hci
+  - azure-arc
+categories:
+  - hybrid
 ms.custom:
   - e2e-hybrid
 ---
@@ -22,7 +27,7 @@ Other considerations are described in the [Principles of cost optimization](../c
 
 Define the following for your workloads:
 
-- **Monitor cloud spend with hybrid workloads**. Track cost trends and forecast future spend in dashboards in Azure of your on-prem data estates with Azure Arc.
+- **Monitor cloud spend with hybrid workloads**. Track cost trends and forecast future spend with dashboards in Azure for your on-prem data estates with Azure Arc.
 - **Keep within cost constraints**.
    - Create, apply, and enforce standardized and custom tags and policies.
    - Enforce run-time conformance and audit resources with Azure Policy.
@@ -89,7 +94,7 @@ Click the following links for guidance in provisioning:
 
 - [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc/)
 - [Azure Arc Jumpstart for templates](https://github.com/microsoft/azure_arc) (in GitHub)
-- [Azure Stack HCI pricing](https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/)
+- [Azure Stack HCI pricing](https://azure.microsoft.com/pricing/details/azure-stack/hci/)
    - Azure Stack HCI can reduce costs by saving in server, storage, and network infrastructure.
 - [Azure VMware Solution pricing - Run your VMware workloads natively on Azure](https://azure.microsoft.com/pricing/details/azure-vmware/)
    - Run your VMware workloads natively on Azure.
@@ -97,13 +102,13 @@ Click the following links for guidance in provisioning:
 
 ## Monitor and optimize
 
-Treat cost monitoring and optimization as a process, rather than a point-in-time activity. You can conduct regular cost reviews and forecast the capacity needs so that you can provision resources dynamically and sale with demand.
+Treat cost monitoring and optimization as a process, rather than a point-in-time activity. You can conduct regular cost reviews and forecast the capacity needs so that you can provision resources dynamically and scale with demand.
 
 - [Managing the Azure Arc enabled servers agent](/azure/azure-arc/servers/manage-agent/)
    - Bring all your resources into a single system so you can organize and inventory through a variety of Azure scopes, such as Management groups, Subscriptions, and Resource Groups.
    - Create, apply, and enforce standardized and custom tags to keep track of resources.
    - Build powerful queries and search your global portfolio with Azure Resource Graph.
-- With [Azure Stack HCI](https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/)
+- With [Azure Stack HCI](https://azure.microsoft.com/pricing/details/azure-stack/hci/)
    - Costs for datacenter real estate, electricity, personnel, and servers can be reduced or eliminated.
    - Costs are now part of OPEX, which can be scaled as needed.
 

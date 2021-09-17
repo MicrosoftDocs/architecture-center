@@ -1,6 +1,6 @@
 ---
 title: Applications and services
-description: Secure your applications and services in Azure
+description: Secure your applications and services in Azure. Applications and the data associated with them act as the primary store of business value on a cloud platform.
 author: v-aangie
 ms.date: 09/17/2020
 ms.topic: conceptual
@@ -18,6 +18,7 @@ Applications and the data associated with them act as the primary store of busin
 - **Business data** is stored and processed by application workloads and requires high assurances of confidentiality, integrity, and availability.
 
 ## In this section
+
 |Assessment|Description|
 |---|---|
 |[**What aspects of the application do you need to protect?**](design-apps-considerations.md)|Understanding the hosting models and the security responsibility.|
@@ -26,8 +27,16 @@ Applications and the data associated with them act as the primary store of busin
 |[**Are you exposing information through exception handling or HTTP headers?**](design-app-dependencies.md)|Consider the way you store secrets and handle exceptions. Here are some considerations.|
 |[**Are the frameworks and libraries used by the application secure?**](design-app-dependencies.md)|Evaluate frameworks and libraries used by the application and the resulting vulnerabilities.|
 
+## Identify and classify business critical applications
+
+Enterprise organizations typically have a large application portfolio, but not all applications have equal importance. Applications containing business-critical data, regulated data, and with high business value, visibility, or criticality should be identified and classified, to direct investment of monitoring, time, and resources appropriately. You should also identify applications or systems with significant access — those which might grant control over other critical systems or data.
+
+### Suggested actions
+
+Identify and classify key organizational applications according to organizational impact.
 
 ## Next steps
+
 See these best practices related to PaaS applications. 
 
 > [!div class="nextstepaction"]

@@ -1,21 +1,26 @@
 ---
-title: Secure a backend web API in a multitenant application
+title: Secure a backend web API in a multitenant app
 description: Learn how to secure a backend web API for multitenant applications by using the Tailspin Surveys app, which has a backend API to manage operations on surveys.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - security
   - developer-tools
   - identity
+  - web
 ms.custom:
   - has-adal-ref
   - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authorize
 pnp.series.next: token-cache
+products:
+  - azure-active-directory
+  - azure-app-service-web
 ---
 
 # Secure a backend web API for multitenant applications
@@ -92,6 +97,8 @@ In order for Azure AD to issue a bearer token for the web API, you need to confi
     <p id="description-2" class="visually-hidden">A screenshot of the Azure portal that shows the application permissions and delegated permissions.</p>
 
 ## Getting an access token
+
+[!INCLUDE [Obsolete technology disclaimer](../../includes/multitenant-disclaimer.md)]
 
 Before calling the web API, the web application gets an access token from Azure AD. In a .NET application, use the [Azure AD Authentication Library (ADAL) for .NET][ADAL].
 

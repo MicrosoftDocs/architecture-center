@@ -29,6 +29,6 @@ products:
   - azure-api-apps
   - azure-container-instances
   - azure-cosmos-db
-thumbnailUrl: /azure/architecture/browse/thumbs/personalization-using-cosmos-db.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/personalization-using-cosmos-db.png
 content: |
   [!include[](personalization-using-cosmos-db-content.md)]

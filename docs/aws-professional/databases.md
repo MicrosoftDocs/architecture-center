@@ -1,7 +1,7 @@
 ---
-title: Compare AWS and Azure database technology
-description: A comparison of the differences between database technologies on Azure and AWS.
-author: EdPrice-MSFT
+title: Compare AWS and Azure database technologies
+description: Compare database technology differences between Azure and AWS. Review the RDS and Azure relational database services. See equivalents for analytics and big data.
+author: splitfinity
 ms.author: pnp
 ms.date: 09/17/2021
 ms.topic: reference
@@ -9,16 +9,16 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
 
-# Database technologies on Azure and AWS
+# Relational database technologies on Azure and AWS
 
 ## RDS and Azure relational database services
 
-Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (RDS).
+Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (RDS). These include: 
 
 - [SQL Database](/azure/sql-database/sql-database-technical-overview)
 - [Azure Database for MySQL](/azure/mysql/overview)
 - [Azure Database for PostgreSQL](/azure/postgresql/overview)
-- [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb)
+- [Azure Database for MariaDB](/azure/mariadb/overview)
 
 Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql) can be deployed using Azure VM Instances.
 
@@ -28,6 +28,8 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 - [Azure SQL Database Tutorials](/azure/azure-sql/database/single-database-create-quickstart)
 
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
+
 - [Configure geo-replication for Azure SQL Database with the Azure portal](/azure/azure-sql/database/active-geo-replication-configure-portal)
 
 - [Introduction to Cosmos DB: A NoSQL JSON Database](/azure/cosmos-db/sql-api-introduction)
@@ -36,23 +38,25 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 ## Analytics and big data
 
-[The Cortana Intelligence Suite](https://azure.microsoft.com/suites/cortana-intelligence-suite) is Azure's package of products and services designed to capture, organize, analyze, and visualize large amounts of data. The Cortana suite consists of the following services:
+Azure provides a package of products and services designed to capture, organize, analyze, and visualize large amounts of data consisting of the following services:
 
-- [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight): managed Apache distribution that includes Hadoop, Spark, Storm, or HBase.
+- [HDInsight](/azure/hdinsight): managed Apache distribution that includes Hadoop, Spark, Storm, or HBase.
 
-- [Data Factory](https://azure.microsoft.com/documentation/services/data-factory): provides data orchestration and data pipeline functionality.
+- [Data Factory](/azure/data-factory): provides data orchestration and data pipeline functionality.
 
-- [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse): large-scale relational data storage.
+- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is): an enterprise analytics service that accelerates time to insight, across data warehouses and big data systems.
 
-- [Data Lake Store](https://azure.microsoft.com/documentation/services/data-lake-store): large-scale storage optimized for big data analytics workloads.
+- [Azure Databricks](/azure/databricks/): a unified analytics platform for data analysts, data engineers, data scientists, and machine learning engineers.
 
-- [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning): used to build and apply predictive analytics on data.
+- [Data Lake Store](/azure/data-lake-store): analytics service that brings together enterprise data warehousing and big data analytics. Query data on your terms, using either serverless or dedicated resources—at scale.
 
-- [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics): real-time data analysis.
+- [Machine Learning](/azure/machine-learning): used to build and apply predictive analytics on data.
+
+- [Stream Analytics](/azure/stream-analytics): real-time data analysis.
 
 - [Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview): large-scale analytics service optimized to work with Data Lake Store
 
-- [Power BI](https://powerbi.microsoft.com): used to power data visualization.
+- [Power BI](https://powerbi.microsoft.com): a business analytics service that provides the capabilities to create rich interactive data visualizations.
 
 ## Service comparison
 
@@ -60,8 +64,10 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 ### See also
 
-- [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com)
+- [Azure AI Gallery](https://gallery.azure.ai/)
 
-- [Understanding Microsoft big data solutions](/previous-versions/msp-n-p/dn749804(v=pandp.10))
+- [Cloud-scale analytics](https://azure.microsoft.com/solutions/big-data/#overview)
 
-- [Azure Data Lake and Azure HDInsight Blog](/archive/blogs/azuredatalake)
+- [Big data architecture style](../guide/architecture-styles/big-data.md)
+
+- [Azure Data Lake and Azure HDInsight blog](/archive/blogs/azuredatalake)

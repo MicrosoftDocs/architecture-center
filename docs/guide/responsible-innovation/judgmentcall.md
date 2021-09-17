@@ -1,7 +1,7 @@
 ---
 title: Judgment Call
 titleSuffix: Azure Application Architecture Guide
-description: This is a team-based activity that puts Microsoft AI principles into action.
+description: Learn about Judgment Call, which is a team-based activity that puts Microsoft AI principles into action.
 author: dcass
 ms.date: 05/12/2020
 ms.topic: conceptual

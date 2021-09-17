@@ -23,7 +23,7 @@ This article describes some considerations and tools you can use to aggregate da
 
 ## Key points
 > [!div class="checklist"]
-> - Analyze performance data holistically to detect fault types, bottlenecks regressions, and health states.
+> - Analyze performance data holistically to detect fault types, bottleneck regressions, and health states.
 > - Use log aggregation technologies to consolidate data into a single workspace and analyze using a sophisticated query language.
 > - Retain data in a time-series database to predict performance issues before they occur.
 > - Balance the retention policy and service pricing plans with the cost expectation of the organization.
@@ -35,7 +35,7 @@ The overall performance can be impacted by both application-level issues and res
 
 Use a holistic approach to quantify what _healthy_ and _unhealthy_ states represent across all application components. It's highly recommended that a *traffic light* model is used to indicate a healthy state. For example, green light to show key non-functional requirements and targets are fully satisfied and resources are optimally used. For example, a healthy state can be 95% of requests are processed in <= 500 ms with AKS node utilization at x%, and so on. Also, An [Application Map](/azure/azure-monitor/app/app-map?tabs=net) can to help spot performance bottlenecks or failure hotspots across components of a distributed application.
 
-Also, analyze long-term operational data to get historical context and detect if there have been any regressions. For example, have the average response times have been slowly increasing over time and getting closer to the maximum target.
+Also, analyze long-term operational data to get historical context and detect if there have been any regressions. For example, check the average response times to see if they have been slowly increasing over time and getting closer to the maximum target.
 
 ## Aggregated view
 Log aggregation technologies should be used to collate logs and metrics across all application components, including infrastructural components for later evaluation. 
@@ -63,7 +63,7 @@ Clear retention times should be defined to allow for suitable historic analysis 
 
 ## Cost considerations
 
-While correlating data is recommended, there are cost implications to storing long-term data. For example, Azure Monitor is capable of collecting, indexing, and storing massive amounts of data in Log Analytics workspace. The cost of a Log Analytics workspace based on amount of storage, retention period, and the plan. For more information about how you can balance cost, see [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitor/logs/manage-cost-storage).
+While correlating data is recommended, there are cost implications to storing long-term data. For example, Azure Monitor is capable of collecting, indexing, and storing massive amounts of data in Log Analytics workspace. The cost of a Log Analytics workspace is based on amount of storage, retention period, and the plan. For more information about how you can balance cost, see [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitor/logs/manage-cost-storage).
 
 If you are using Application Insights to collect instrumentation data, there are cost considerations. For more information, see [Manage usage and costs for Application Insights](/azure/azure-monitor/app/pricing).
 
