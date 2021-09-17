@@ -1587,7 +1587,7 @@ items:
               - name: CI/CD for Containers
                 href: solution-ideas/articles/cicd-for-containers.yml
               - name: CI/CD for Microsoft Power Platform
-                href: solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-powerplatform.yml
+                href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
               - name: CI/CD using Jenkins and AKS
                 href: solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.yml
               - name: DevSecOps in Azure
