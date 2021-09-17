@@ -1,8 +1,9 @@
 ---
-title: Comparing AWS and Azure database technology
-description: A comparison of the differences between database technologies between Azure and AWS
-author: doodlemania2
-ms.date: 05/21/2020
+title: Compare AWS and Azure database technology
+description: A comparison of the differences between database technologies on Azure and AWS.
+author: EdPrice-MSFT
+ms.author: pnp
+ms.date: 09/17/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -17,9 +18,9 @@ Azure provides several different relational database services that are the equiv
 - [SQL Database](/azure/sql-database/sql-database-technical-overview)
 - [Azure Database for MySQL](/azure/mysql/overview)
 - [Azure Database for PostgreSQL](/azure/postgresql/overview)
-- [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb/)
+- [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb)
 
-Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql/) can be deployed using Azure VM Instances.
+Other database engines such as [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server), [Oracle](https://azure.microsoft.com/campaigns/oracle), and [MySQL](/azure/mysql) can be deployed using Azure VM Instances.
 
 Costs for AWS RDS are determined by the amount of hardware resources that your instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services, cost depends on your database size, concurrent connections, and throughput levels.
 
@@ -63,4 +64,4 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 
 - [Understanding Microsoft big data solutions](/previous-versions/msp-n-p/dn749804(v=pandp.10))
 
-- [Azure Data Lake and Azure HDInsight Blog](/archive/blogs/azuredatalake/)
+- [Azure Data Lake and Azure HDInsight Blog](/archive/blogs/azuredatalake)
