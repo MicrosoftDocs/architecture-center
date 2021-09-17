@@ -24,7 +24,7 @@ Building for reliability includes:
 
 To assess the reliability of your workload using the tenets found in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/), reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
-For more information, explore the following video on diving deeper into Azure workload reliability:
+For more information, explore the following video on diving deeper into Azure workload reliability:  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-workload-reliability-Part-2--Reliability-Ep-2--Well-Architected/player?format=ny]
 
