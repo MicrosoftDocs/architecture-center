@@ -2045,10 +2045,10 @@ items:
                 href: reference-architectures/iot.yml
               - name: Buy online, pick up in store
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
-              - name: Connected factory Hierarchy Service
-                href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Computer vision on the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
+              - name: Connected factory Hierarchy Service
+                href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: IoT and data analytics
                 href: example-scenario/data/big-data-with-iot.yml
               - name: IoT using Cosmos DB
