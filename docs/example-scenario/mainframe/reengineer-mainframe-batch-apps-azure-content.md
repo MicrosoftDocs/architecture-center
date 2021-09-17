@@ -1,4 +1,3 @@
-
 Mainframes are primarily used for processing large amounts of data. Batch processing is a way of processing a high volume of transactions that are grouped together, and then making bulk updates against the database. Once triggered, they require minimal to no user interaction. For example, mainframe systems make it possible for banks and other financial institutions to do end-of-quarter processing and produce reports, like quarterly stock or pension statements.
 
 This reference architecture shows how you can use Azure to re-engineer a z/OS mainframe batch application to deliver a secure, scalable, and highly available system in the cloud using Azure. Because of ever evolving business needs, data and applications need to deliver and scale without affecting your infrastructure. Re-engineering to the cloud can help businesses in finance, health, insurance, and retail minimize their product or feature delivery times, and reduce costs.
@@ -137,19 +136,19 @@ Azure storage provides multiple tiers of hot, cool, and archive data. Effective 
     - Azure Functions
     - Logic Apps
 
-- For more information on autoscaling in Azure, see the [autoscaling guide](/azure/architecture/best-practices/auto-scaling).
+- For more information on autoscaling in Azure, see the [autoscaling guide](../../best-practices/auto-scaling.md).
 
 ### Security
 
 - This reference architecture uses ExpressRoute for a private and efficient connection to Azure from the on-premises environment. However, you can also create a [site to site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal).
 - You can authenticate Azure resources by using Azure AD. You can manage permissions with role-based access control (RBAC).
 - Database services in Azure support various security options like Data Encryption at Rest.
-- For more information on designing secure solutions, see [Azure security documentation](https://docs.microsoft.com/azure/security).
+- For more information on designing secure solutions, see [Azure security documentation](/azure/security).
 
 ### Resiliency
 
 - You can use Azure Monitor and Application Insights, in addition to Log Analytics, to monitor the health of an Azure resource. Set alerts to proactively manage your resource health.
-- For more information on resiliency in Azure, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
+- For more information on resiliency in Azure, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
 
 ## Pricing
 
