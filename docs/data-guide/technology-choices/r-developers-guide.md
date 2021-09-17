@@ -1,5 +1,5 @@
 ---
-title: R developer's guide - R programming
+title: R developer&apos;s guide - R programming
 description: Learn about the Azure services that support the R programming language and how R developers can use them to extend their data science workloads into the cloud.
 services: machine-learning
 author: AnalyticJeremy
@@ -46,7 +46,7 @@ This article covers the following Azure services that support the R language:
 
 ## Data Science Virtual Machine
 
-The [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized VM image on Microsoft’s Azure cloud platform built specifically for doing data science. It has many popular data science tools, including:
+The [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized VM image on Microsoft&apos;s Azure cloud platform built specifically for doing data science. It has many popular data science tools, including:
 
 - [Microsoft R Open](https://mran.microsoft.com/open/)
 - [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
