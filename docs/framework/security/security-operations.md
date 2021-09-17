@@ -18,8 +18,8 @@ described well by the NIST Cybersecurity Framework functions of Detect, Respond,
 and Recover.
 
 - **Detect** - Security operations must detect the presence of adversaries in
-    the system, who are incented to stay hidden in most cases as this allows
-    them to achieve their objectives unimpeded. This can take the form of
+    the system, who are incented to stay hidden in most cases, because this allows
+    them to achieve their objectives unimpeded. Examples include
     reacting to an alert of suspicious activity or proactively hunting for
     anomalous events in the enterprise activity logs.
 
@@ -34,7 +34,7 @@ and Recover.
 
 The most significant security risk most organizations face is from human attack
 operators (of varying skill levels). This is because risk from
-automated/repeated attacks have been mitigated significantly for most
+automated/repeated attacks has been mitigated significantly for most
 organizations by signature and machine learning based approaches built into
 anti-malware (though there are notable exceptions like Wannacrypt and NotPetya, which moved faster than these defenses).
 
@@ -69,8 +69,8 @@ the objectives should focus on
     sensitive systems (administrator accounts and sensitive users)
 
 - Increase focus on **proactively hunting** for adversaries as your program
-    matures and reactive incidents get under control. This is focused on
-    reducing the time that a higher skilled adversary can operate in the
+    matures and reactive incidents get under control. Focus on
+    reducing the time that a higher-skilled adversary can operate in the
     environment (for example, skilled enough to evade reactive alerts).
 
 For more information on how Microsoft&apos;s SOC uses these metrics, see
@@ -92,10 +92,10 @@ on-premises resources using identity or other means. This enterprise-wide view
 will enable security operations teams to rapidly detect, respond, and recover
 from attacks, reducing organizational risk.
 
-## Leverage native detections and controls
+## Apply native detections and controls
 
-You should favor the use of security detections and controls built into the
-cloud platform before creating custom detections using event logs from the
+When possible, use security detections and controls that are built into the
+cloud platform before you create custom detections using event logs from the
 cloud.
 
 Cloud platforms evolve rapidly with new features, which can make maintaining
@@ -112,19 +112,19 @@ requires application of deep expertise and time that could be better spent on
 hunting and other activities.
 
 To complement the broad visibility of a centralized SIEM (like Azure Sentinel,
-Splunk, or QRadar), you should leverage native detections and controls such as
+Splunk, or QRadar), you should use native detections and controls, as follows:
 
-- Organizations using Azure should leverage capabilities like Azure Security
+- Organizations using Azure should use Azure Security
     Center for alert generation on the Azure platform.
 
-- Organizations should leverage native logging capabilities like Azure Monitor
-    and AWS CloudTrail for pulling logs into a central view
+- Organizations should use native logging capabilities like Azure Monitor
+    and AWS CloudTrail for pulling logs into a central view.
 
-- Organizations using Azure should leverage Network Security Group (NSG)
+- Organizations using Azure should use Network Security Group (NSG)
     capabilities for visibility into network activities on the Azure platform.
 
-- Investigation practices should leverage native tools with deep knowledge of
-    the asset type such as an Endpoint Detection and Response (EDR) solution,
+- Investigation practices should use native tools with deep knowledge of
+    the asset type, such as an Endpoint Detection and Response (EDR) solution,
     Identity tools, and Azure Sentinel.
 
 ## Prioritize alert and log integration
@@ -145,8 +145,8 @@ operations activities:
 
 - Proactive **hunting** activities
 
-Integrating more data can allow you to enrich alerts with additional context
-that enable rapid response and remediation (filter false positives, and elevate
-true positives, etc.), but collection is not detection. If you don&apos;t have a
+Integrating more data can allow you to enrich alerts with more context
+that enable rapid response and remediation (filter false positives, elevate
+true positives, and so on), but collection is not detection. If you don&apos;t have a
 reasonable expectation that the data will provide value (for example, high volume of firewall denies events), you may deprioritize integration of these events.
 
