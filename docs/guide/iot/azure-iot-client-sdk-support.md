@@ -3,7 +3,8 @@ title: Azure IoT client SDK support for third-party token servers
 titleSuffix: Azure Architecture Center
 description: Learn about what needs to be done in each SDK for devices to achieve third-party token-server authentication.
 author: EdPrice-MSFT
-ms.date: 09/16/2021
+ms.author: pnp
+ms.date: 09/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
@@ -13,8 +14,6 @@ products:
 categories:
   - iot
 ---
-
-
 
 # Azure IoT client SDK support for third-party token servers
 
@@ -544,7 +543,7 @@ Summary of Azure IoT Hub device SDK for Node.JS/JavaScript
 Next steps
 ----------
 
--   [Control access to IoT Hub using Shared Access Signatures and security tokens](/azure/iot-hub/iot-hub-dev-guide-sas?tabs=node)
+-   [Control access to IoT Hub using Shared Access Signatures and security tokens](/azure/iot-hub/iot-hub-dev-guide-sas)
 
 -   [Communicate with your IoT hub using the MQTT protocol](/azure/iot-hub/iot-hub-mqtt-support)
 
