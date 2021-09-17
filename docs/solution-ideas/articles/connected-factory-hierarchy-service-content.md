@@ -1,20 +1,117 @@
-A Hierarchy Service allows your business stakeholders to centrally define how
+A hierarchy service allows your business stakeholders to centrally define how
 production assets like machines are organized within factories, from both an
 operational and maintenance point of view. You can use this information as a
 master data source in multiple scenarios such as plant condition monitoring or
-measuring Overall Equipment Effectiveness (OEE).
+measuring overall equipment effectiveness (OEE).
 
 When building these services, you can leverage [Azure Digital
 Twins](/azure/digital-twins) to create a model
 of nodes (for example, machines, work centers, and locations) and their
 relationships. Each node contains metadata including identifiers from your
-Enterprise Resource Management (ERP) systems. You can use this contextual
+enterprise resource management (ERP) systems. You can use this contextual
 information in downstream applications to gain insights into production states,
 aggregate machine data, or identify machines that can fulfill a given order.
 
+## Potential use cases
+
+Typical uses for this architecture workload:
+
+-   Predictive maintenance
+
+-   Enabling connectivity in a plant or factory
+
+-   Sustaining productivity in a plant or factory
+
+-   Monitoring safety and compliance
+
+-   Empowering workers on the shop floor
+
+## Architecture
+
+The following example hierarchy service is developed as an ASP.NET Core REST API
+hosted on Azure [Kubernetes Services (AKS)](/azure/aks/intro-kubernetes). Data is
+persisted in [Azure Digital Twins](/azure/digital-twins) and retrieved from
+either Azure Digital Twins or an in-memory cache for queries that would result
+in long response times when issued directly against Azure Digital Twins. The
+in-memory cache improves the speed of a 3,000-node graph traversal from \~10
+seconds to under a second.
+
+![Infographic of an example hierarchy service](../media/connected-factory-hierarchy-service-03.png)
+
+### Extensibility
+
+This system design is intentionally simple to avoid the introduction of
+additional services or dependencies. However, you might consider extending
+support for the following functionality, depending on your usage scenarios and
+requirements:
+
+-   Change notifications: Cache synchronization is implemented by periodically
+    polling Azure Digital Twins for changes. You can use [Azure Digital Twins event notifications](/azure/digital-twins/concepts-event-notifications)
+    to initiate a cache refresh and to notify downstream applications.
+
+-   Telemetry data: The example Hierarchy Service does not leverage [the capability of Azure Digital Twins to process telemetry data](/azure/digital-twins/concepts-data-ingress-egress).
+    You can extend the solution to process telemetry data if the resulting data
+    rates are compatible with the [service limits of Azure Digital Twins](/azure/digital-twins/reference-service-limits).
+
+-   Integration with [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview):
+    Manufacturing customers are likely to ingest data directly into a store that
+    can manage manufacturing data rates, and then use Azure Digital Twins for
+    contextualization via Azure Digital Twins/Azure Data Explorer joint queries.
+    You can achieve this using the [Azure Digital Twin query plugin for Azure
+    Data
+    Explorer](/azure/digital-twins/concepts-data-explorer-plugin).
+
+### Components
+
+-   [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/#overview)
+    is an IoT platform that creates digital representations of real-world
+    things, places, processes, and people in the cloud.
+
+-   [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
+    is a developer tool for the [Azure Digital Twins service](/azure/digital-twins/overview). It
+    lets you connect to an Azure Digital Twins instance to understand,
+    visualize, and modify your digital twin data.
+
+-   [Azure Kubernetes Services AKS)](/azure/aks/intro-kubernetes) offers
+    serverless Kubernetes for running microservices, an integrated continuous
+    integration and continuous deployment (CI/CD) experience, and
+    enterprise-grade security and governance.
+
+-   [Azure App Service](https://azure.microsoft.com/services/app-service/#overview)
+    is a PaaS service for building and hosting apps in managed virtual machines.
+    The underlying compute infrastructure on which your apps run is managed for
+    you. App Service provides monitoring of resource usage quotas and app
+    metrics, logging of diagnostic information, and alerts based on metrics.
+
+-   [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview)
+    is a fast, fully managed data analytics service for real-time analysis on
+    large volumes of data streaming from applications, websites, IoT devices,
+    and more.
+
+### Alternatives
+
+This architecture uses
+[AKS](/azure/aks/intro-kubernetes) for running
+the microservices that query master data from the various connected services. As
+an alternative, you can run these microservices in Azure Container Instances.
+Azure Container Instances offers the fastest and simplest way to run a container
+in Azure, without having to adopt a higher-level service, such as AKS.
+
+The web application that is hosted separately from the microservices running in
+AKS can also be deployed inside the AKS cluster. This way, there is no need to
+introduce an additional service such as [Azure App Service.](/azure/app-service/overview)
+
+Consider hosting [SAP on Azure](https://azure.microsoft.com/solutions/sap) to make use of all the
+additional benefits and integrations it offers with the Azure platform and the
+[Microsoft 365 ecosystem](https://news.microsoft.com/2021/01/22/sap-and-microsoft-expand-partnership-and-integrate-microsoft-teams-across-solutions).
+
+Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor/) to analyze and optimize
+the performance of your AKS cluster and other resources, and to monitor and
+diagnose networking issues.
+
 ## Problem
 
-Production assets such as machines are organized within factories in
+Production assets, such as machines, are organized within factories in
 context-specific hierarchies. For example, they can be organized by physical
 location, by maintenance requirements, or by the products that they produce.
 
@@ -80,23 +177,9 @@ or default cavity values that are defined on a machine level. With this
 approach, you can keep the Hierarchy Service lean and efficient, and avoid
 evolving it into a parallel master data management system.
 
-## Potential use cases
-
-Typical uses for this architecture workload:
-
--   Predictive Maintenance
-
--   Enabling connectivity in a plant or factory
-
--   Sustaining productivity in a plant or factory
-
--   Monitoring safety and compliance
-
--   Empowering workers on the shop floor
-
 ## Capabilities
 
-The following scenario explores an example Hierarchy Service implementation.
+This scenario explores an example Hierarchy Service implementation.
 
 ### Data model
 
@@ -139,89 +222,6 @@ The components listed above support the following operations.
 
 Query operations allow you to additionally filter by node types and node
 attributes.
-
-## Architecture
-
-The following example Hierarchy Service is developed as an ASP.NET Core REST API
-hosted on Azure [Kubernetes Services (AKS)](/azure/aks/intro-kubernetes). Data is
-persisted in [Azure Digital Twins](/azure/digital-twins) and retrieved from
-either Azure Digital Twins or an in-memory cache for queries that would result
-in long response times when issued directly against Azure Digital Twins. The
-in-memory cache improves the speed of a 3,000-node graph traversal from \~10
-seconds to under a second.
-
-![Infographic of an example Hierarchy Service](../media/connected-factory-hierarchy-service-03.png)
-
-### Extensibility
-
-This system design is intentionally simple to avoid the introduction of
-additional services or dependencies. However, you might consider extending
-support for the following functionality, depending on your usage scenarios and
-requirements:
-
--   Change notifications: Cache synchronization is implemented by periodically
-    polling Azure Digital Twins for changes. You can use [Azure Digital Twins event notifications](/azure/digital-twins/concepts-event-notifications)
-    to initiate a cache refresh and to notify downstream applications.
-
--   Telemetry data: The example Hierarchy Service does not leverage [the capability of Azure Digital Twins to process telemetry data](/azure/digital-twins/concepts-data-ingress-egress).
-    You can extend the solution to process telemetry data if the resulting data
-    rates are compatible with the [service limits of Azure Digital Twins](/azure/digital-twins/reference-service-limits).
-
--   Integration with [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview):
-    Manufacturing customers are likely to ingest data directly into a store that
-    can manage manufacturing data rates, and then use Azure Digital Twins for
-    contextualization via Azure Digital Twins/Azure Data Explorer joint queries.
-    You can achieve this using the [Azure Digital Twin query plugin for Azure
-    Data
-    Explorer](/azure/digital-twins/concepts-data-explorer-plugin).
-
-### Components
-
--   [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/#overview)
-    is an IoT platform that creates digital representations of real-world
-    things, places, processes, and people in the cloud.
-
--   [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
-    is a developer tool for the [Azure Digital Twins service](/azure/digital-twins/overview). It
-    lets you connect to an Azure Digital Twins instance to understand,
-    visualize, and modify your digital twin data.
-
--   [Azure Kubernetes Services AKS)](/azure/aks/intro-kubernetes) offers
-    serverless Kubernetes for running microservices, an integrated continuous
-    integration and continuous deployment (CI/CD) experience, and
-    enterprise-grade security and governance.
-
--   [Azure App Service](https://azure.microsoft.com/services/app-service/#overview)
-    is a PaaS service for building and hosting apps in managed virtual machines.
-    The underlying compute infrastructure on which your apps run is managed for
-    you. App Service provides monitoring of resource usage quotas and app
-    metrics, logging of diagnostic information, and alerts based on metrics.
-
--   [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview)
-    is a fast, fully managed data analytics service for real-time analysis on
-    large volumes of data streaming from applications, websites, IoT devices,
-    and more.
-
-### Alternatives
-
-This architecture uses
-[AKS](/azure/aks/intro-kubernetes) for running
-the microservices that query master data from the various connected services. As
-an alternative, you can run these microservices in Azure Container Instances.
-Azure Container Instances offers the fastest and simplest way to run a container
-in Azure, without having to adopt a higher-level service, such as AKS.
-
-The web application that is hosted separately from the microservices running in
-AKS can also be deployed inside the AKS cluster. This way, there is no need to
-introduce an additional service such as [Azure App Service.](/azure/app-service/overview)
-
-Consider hosting [SAP on Azure](https://azure.microsoft.com/solutions/sap/) to make use of all the
-additional benefits and integrations it offers with the Azure platform and the
-[Microsoft 365 ecosystem](https://news.microsoft.com/2021/01/22/sap-and-microsoft-expand-partnership-and-integrate-microsoft-teams-across-solutions/).
-
-Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor/) to analyze and optimize
-the performance of your AKS cluster and other resources, and to monitor and
-diagnose networking issues.
 
 ## Considerations
 
@@ -314,13 +314,13 @@ Product documentation:
 
 Microsoft Learn learning paths:
 
--   [Develop with Azure Digital Twins](/learn/paths/develop-azure-digital-twins/)
+-   [Develop with Azure Digital Twins](/learn/paths/develop-azure-digital-twins)
 
--   [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
+-   [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure)
 
--   [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance/)
+-   [Manage identities and governance for Azure administrators](/learn/paths/azure-administrator-manage-identities-governance)
 
--   [Monitor and back up resources for Azure administrators](/learn/paths/azure-administrator-monitor-backup-resources/)
+-   [Monitor and back up resources for Azure administrators](/learn/paths/azure-administrator-monitor-backup-resources)
 
 ## Related resources
 
