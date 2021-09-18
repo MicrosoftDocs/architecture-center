@@ -12,24 +12,91 @@ We've deployed this architecture for Higher Education research institutions with
 ## Architecture
 <insert architecture diagram>
 
+## Components 
+
+This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles are described below. For links to product documenation to help you get started with these services, see [Related links](#related-links). 
+ 
+### Workflow components
+
+Here are the core components that move and process research data. 
+
+- Microsoft Data Science Virtual Machine (DSVM) is a VM image configured with tools used for data analytics and machine learning. 
+
+- Azure Machine Learning is used to manage the allocation and use of the Azure resources described below. 
+
+- Azure Machine Learning Compute is a cluster of nodes that are allocated on demand based on an automatic scaling option. 
+
+- Azure Blob storage receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster. 
+
+- Azure Data Factory is used to programmatically move data between storage accounts of differing security levels to ensure separation of duties.
+
+- Azure Virtual Desktop is used to gain access to the resources in the secure environment via streaming apps as well as a full desktop as needed.  All copy, paste, and screen capture controls should be employed. 
+
+- Azure Logic Apps provides automated low-code workflow to develop both the _trigger_ and _release_ portions of the manual approval process.   
+
+### Posture management components
+
+Azure Security Center is used to evaluate the overall security posture of the implementation as well as providing an attestation mechanism for regulatory compliance. 
+
+Azure Sentinel is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution that uses advanced AI and security analytics to help you detect, hunt, prevent, and respond to threats across your enterprise. 
+
+Azure Monitor collects monitoring telemetry from a variety Azure sources. Management tools, such as those in Azure Security Center, also push log data to Azure Monitor. 
+
+### Governance components
+
+Azure Policy helps to enforce standards and to assess compliance at-scale as well as provide automated remediation to bring resources into compliance for specific policies. This can be applied to a project subscription or at a management group level as a single policy or as part of a regulatory Initiative.  
+
+Azure Policy Guest Configuration can audit operating systems and machine configuration for the Data Science VMs. 
+
+
 ## Data flow
 
 1. Data owners upload datasets into an Azure Blob storage account. The data is encyrpted by using Microsoft-managed keys.
 
-2. Data Factory uses a trigger that starts copying of the uploaded dataset to another storage account with security controls. Network communication is only possible via a private endpoint. Also, it's accessed by a service principal with limited permissions.  Data Factory deletes the original copy making the dataset immutable. 
+2. Data Factory uses a trigger that starts copying of the uploaded dataset to another storage account with security controls. Network communication is only possible via a private endpoint. Also, it's accessed by a service principal with limited permissions. Data Factory deletes the original copy making the dataset immutable.
 
-3. Researchers access secure environment (DSVM) via Azure Virtual Desktop through a streaming app essentially using AVD as a privileged workstation/jump box.  
+3. The dataset is housed in the secure storage account is presented to the Data Science Virtual Machine (DSVM) provisioned in a secure environment for research work. The environment is a virtual network that has limited internet connectivity through the use of network security groups (NSGs) and private endpoints. Much of the data preparation is done on the DSVM.  
 
-    This has advantages over using Azure Bastion for the following reasons: 
+4. Researchers access the secure environment through a streaming application using Azure Virtual Desktop as a privileged jump box.  
 
-    - Ability to stream an app like VSCode to run notebooks against the AML compute resources.  
-    - Ability to limit copy, paste and screen captures. 
-    - Support for Azure Active Directory Authentication to DSVM. 
-
-4. Data housed in the secure storage account is presented to the DSVM in the secure (limited internet connectivity) environment for research work. Much of the data preparation will be done on the DSVM.  This entire area uses NSGs and private endpoints to limit connectivity to the Internet at large. 
-
-5. Azure Machine Learning also has access to the data via private endpoint for users to leverage AML capabilities. 
-
-6. Models or deidentified data are saved to a specific location on the secure storage which triggers a Logic App requesting a review of data that is queued to be exported.  The manual reviewers are the data owners and their job is ensure that no sensitive data is being exported. Once the data is reviewed to ensure no sensitive data is present, it is approved, and the export functionality is sent to Data Factory. The Logic App can be in a standard environment as no data is sent to the Logic App, it is simply a notification and approval function.  
+5. The secure enviroment has Azure Machine Learning compute that can access the the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models . 
+6. Models or deidentified data are saved to a specific location on the secure storage. New data triggers a Logic App requesting a review of data that is queued to be exported.  The manual reviewers are the data owners and their job is ensure that no sensitive data is being exported. Once the data is reviewed to ensure no sensitive data is present, it's approved, and the export functionality is sent to Data Factory. The Logic App can be in a standard environment as no data is sent to the Logic App, it is simply a notification and approval function.  
 
 7. Data Factory moves the data to lower security level storage account, allowing external researchers to have access to their exported data/models. 
+
+## Network configuration
+
+Network security groups. Use security groups to restrict network traffic within the virtual network. The green tier is a more open subnet while the blue tier limits inbound and outbound traffic to very specific hosts and virtual networks.  
+
+
+Private endpoint connections and Azure Storage Firewalls are used to limit the networks from which clients can connect to Azure file shares. 
+
+
+This has advantages over using Azure Bastion for the following reasons: 
+
+- Ability to stream an app like VSCode to run notebooks against the AML compute resources.  
+- Ability to limit copy, paste and screen captures. 
+- Support for Azure Active Directory Authentication to DSVM. 
+
+
+## Security
+
+Private endpoint connections and Azure Storage Firewalls are used to limit the networks from which clients can connect to Azure file shares. 
+
+Network security groups. Use security groups to restrict network traffic within the virtual network. The green tier is a more open subnet while the blue tier limits inbound and outbound traffic to very specific hosts and virtual networks.  
+
+## Related links
+- [Microsoft Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine/overview)
+- [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml)
+- [Azure Machine Learning Compute](/azure/machine-learning/service/concept-compute-target)
+- [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+- [Azure Data Factory](/azure/data-factory/introduction)
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview)
+- [Azure Security Center](/azure/security-center/)
+- [Azure Sentinel](/azure/sentinel/overview) 
+- [Azure Monitor](/azure/azure-monitor/overview)
+- [Azure Policy](/azure/governance/policy/overview)
+- [Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)
+
+
+   
