@@ -13,7 +13,7 @@ metadata:
     - hybrid
   ms.custom:
     - fcp
-name: Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning
+name: Secure research environment for regulated data
 azureCategories:
   - ai-machine-learning
   - compute
