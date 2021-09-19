@@ -667,7 +667,7 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: Build a Real-time Recommendation API
+              - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Movie recommendations on Azure
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
@@ -736,16 +736,20 @@ items:
         items:
           - name: Overview
             href: industries/healthcare.md
-          - name: Virtual visits with Cloud for Healthcare
-            href: example-scenario/mch-health/virtual-health-mch.yml
-          - name: Clinical insights with Cloud for Healthcare
-            href: example-scenario/mch-health/medical-data-insights.yml
-          - name: Consumer health portal on Azure
-            href: example-scenario/digital-health/health-portal.yml
           - name: Building a telehealth system with Azure
             href: example-scenario/apps/telehealth-system.yml
+          - name: Clinical insights with Cloud for Healthcare
+            href: example-scenario/mch-health/medical-data-insights.yml
           - name: Confidential computing for healthcare
             href: example-scenario/confidential/healthcare-inference.yml
+          - name: Consumer health portal on Azure
+            href: example-scenario/digital-health/health-portal.yml
+          - name: Health data consortium
+            href: example-scenario/data/azure-health-data-consortium.yml
+          - name: Precision medicine pipeline
+            href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
+          - name: Virtual visits with Cloud for Healthcare
+            href: example-scenario/mch-health/virtual-health-mch.yml
           - name: Compliance Blueprints
             items:
               - name: Blueprint - HIPAA/HITRUST data and AI
@@ -754,6 +758,8 @@ items:
               - name: Implement the healthcare blueprint for AI
                 href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
                 maintainContext: true
+              - name: HIPAA and HITRUST compliant health data AI
+                href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
       - name: Government
         items:
           - name: Overview
@@ -762,9 +768,9 @@ items:
             href: hybrid/azure-automation-hybrid.yml
           - name: Azure Automation update management
             href: hybrid/azure-update-mgmt.yml
-          - name: Computer forensics Chain of Custody in Azure
+          - name: Computer forensics chain of custody in Azure
             href: example-scenario/forensics/index.yml
-          - name: Hybrid Security Monitoring in Azure
+          - name: Hybrid security monitoring in Azure
             href: hybrid/hybrid-security-monitoring.yml
           - name: Web app private database connectivity
             href: example-scenario/private-web-app/private-web-app.yml
@@ -792,7 +798,7 @@ items:
             items: 
               - name: Industrial IoT analytics
                 href: guide/iiot-guidance/iiot-architecture.md
-              - name: Upscale machine learning lifecycle with MLOps framework
+              - name: Upscale ML lifecycle with MLOps framework
                 href: example-scenario/mlops/mlops-technical-paper.yml
               - name: On-demand, scalable, high-power compute
                 href: /previous-versions/azure/industry-marketing/manufacturing/compute-in-manufacturing-overview
@@ -800,7 +806,7 @@ items:
               - name: Predictive maintenance in manufacturing
                 href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-overview
                 maintainContext: true
-              - name: Predictive Maintenance in manufacturing solution
+              - name: Predictive maintenance solution
                 href: /previous-versions/azure/industry-marketing/manufacturing/predictive-maintenance-solution
                 maintainContext: true
               - name: Extract actionable insights from IoT data
