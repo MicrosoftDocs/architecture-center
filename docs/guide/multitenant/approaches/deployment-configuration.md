@@ -144,11 +144,11 @@ However, this approach is often much more time-consuming to build, and the effor
 
 ### Example
 
-TODO
+Contoso runs a multitenant solution for their customers. Currently they have six tenants, and they expect to grow to 300 tenants within the next 18 months. Contoso follows the [Multitenant app with dedicated databases for each tenant](storage-data.md#multitenant-app-with-dedicated-databases-for-each-tenant) approach. They have deployed a single set of App Service resources and an Azure SQL logical server that are shared between all of their tenants, and they deploy a dedicated Azure SQL database for each tenant:
 
-Expecting to get, at most, several hundred tenants. Don't need multi-region support.
-Single shared App Service app, and single shared logical SQL server
-Dedicated SQL DB per tenant.
+![Architecture diagram showing shared resources and dedicated resources for each tenant.](media/deployment-configuration/example-architecture.png)
+
+TODO
 
 #### Option 1 - Use deployment pipelines for everything
 
