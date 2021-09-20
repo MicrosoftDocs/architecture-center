@@ -140,7 +140,7 @@ However, this approach is often much more time-consuming to build, and the effor
 > Azure deployment and configuration operations often take time to complete. Ensure you use an appropriate process to initiate and monitor these long-running operations. For example, you might consider following the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.md). Use technologies that are designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview).
 
 > [!TIP]
-> When you programmatically deploy resources, it's a good practice to put them into a different resource group from your shared, pipeline-deployed, Azure resources. This helps you to clearly demarcate the ownership and lifetime of each resource.
+> When you deploy tenant-specific resources, it's a good practice to put them into a different Azure resource group to your shared Azure resources. This helps you to clearly demarcate the ownership and lifetime of each resource.
 
 ### Example
 
@@ -152,23 +152,26 @@ Contoso uses Bicep to deploy their Azure resources.
 
 #### Option 1 - Use deployment pipelines for everything
 
-Contoso might consider deploying all of their resources by using Bicep.
+Contoso might consider deploying all of their resources by using a deployment pipeline. Their pipeline deploys a Bicep file that includes all of their Azure resources, including the Azure SQL databases for each tenant. A parameter file defines the list of tenants, and the Bicep file uses a [resource loop](/azure/azure-resource-manager/bicep/loop-resources) to deploy a database for each of the listed tenants:
 
-![TODO.](media/deployment-configuration/example-configuration.png)
-
-Pipeline deploys everything by using Bicep
-Parameter file lists tenants, and template has a loop that deploys a database for each tenant
+![Diagram showing a pipeline deploying both shared and tenant-specific resources.](media/deployment-configuration/example-configuration.png)
 
 #### Option 2 - Use a combination of deployment pipelines and imperative resource creation
 
-Pipeline deploys App Service resources, and SQL server
+Alternatively, Conoto might consider separating the responsibility for the Azure deployments.
 
-![TODO.](media/deployment-configuration/example-data-pipeline.png)
+Contoso defines their shared components in a dedicated resource group. They use a Bicep file that defines the shared resources that should be deployed into this resource group, including a tenant map database:
 
-API to onboard new tenants
-Workflow triggers and creates a SQL DB, then adds to the tenant list (which effectively functions as a shard map)
+![Diagram showing the workflow to deploy the shared resources by using a pipeline.](media/deployment-configuration/example-data-pipeline.png)
 
-![TODO.](media/deployment-configuration/example-data-workflow.png)
+The Contoso team then build a tenant onboarding API and workflow that onboards their new tenants. The workflow initiates the deployment of a new Azure SQL database, which might be done by one of the following approaches:
+
+- Use the Azure SDK to initiate the deployment of a second Bicep file that defines the Azure SQL database.
+- Use the Azure SDK to imperatively create an Azure SQL database by using the [management library](/dotnet/api/overview/azure/sql?view=azure-dotnet#management-library).
+
+After the database is deployed, the workflow adds the tenant to the tenant list database:
+
+![Diagram showing the workflow to deploy a database for a new tenant.](media/deployment-configuration/example-data-workflow.png)
 
 ## Next steps
 
