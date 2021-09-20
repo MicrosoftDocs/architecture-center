@@ -36,7 +36,7 @@ in long response times when issued directly against Azure Digital Twins. The
 in-memory cache improves the speed of a 3,000-node graph traversal from \~10
 seconds to under a second.
 
-![Infographic of an example hierarchy service](../media/connected-factory-hierarchy-service-03.png)
+[![Infographic of an example hierarchy service](../media/connected-factory-hierarchy-service-03.png)](../media/connected-factory-hierarchy-service-03.png#lightbox)
 
 ### Extensibility
 
@@ -214,7 +214,7 @@ These capabilities consist of the following components:
 | **Query API** | Improves Azure Digital Twins query performance when materializing large graphs (by using an in-memory cache) and provides query capabilities for manufacturing-specific data needs. |
 | **IO API**    | Enables bulk import/export for manufacturing-specific scenarios.                                                                                                                    |
 
-### Supported Operations
+### Supported operations
 
 The components listed above support the following operations.
 
