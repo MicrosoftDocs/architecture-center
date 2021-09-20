@@ -139,9 +139,6 @@ However, this approach is often much more time-consuming to build, and the effor
 > [!NOTE]
 > Azure deployment and configuration operations often take time to complete. Ensure you use an appropriate process to initiate and monitor these long-running operations. For example, you might consider following the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.md). Use technologies that are designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview).
 
-> [!TIP]
-> When you deploy tenant-specific resources, it's a good practice to put them into a different Azure resource group to your shared Azure resources. This helps you to clearly demarcate the ownership and lifetime of each resource.
-
 ### Example
 
 Contoso runs a multitenant solution for their customers. Currently they have six tenants, and they expect to grow to 300 tenants within the next 18 months. Contoso follows the [Multitenant app with dedicated databases for each tenant](storage-data.md#multitenant-app-with-dedicated-databases-for-each-tenant) approach. They have deployed a single set of App Service resources and an Azure SQL logical server that are shared between all of their tenants, and they deploy a dedicated Azure SQL database for each tenant:
@@ -160,7 +157,7 @@ Contoso might consider deploying all of their resources by using a deployment pi
 
 Alternatively, Conoto might consider separating the responsibility for the Azure deployments.
 
-Contoso defines their shared components in a dedicated resource group. They use a Bicep file that defines the shared resources that should be deployed into this resource group, including a tenant map database:
+Contoso uses a Bicep file that defines the shared resources that should be deployed. The shared resources support all of their tenants and include a tenant map database:
 
 ![Diagram showing the workflow to deploy the shared resources by using a pipeline.](media/deployment-configuration/example-data-pipeline.png)
 
