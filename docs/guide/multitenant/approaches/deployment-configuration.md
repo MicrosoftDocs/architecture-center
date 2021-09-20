@@ -32,7 +32,7 @@ It's important to have a clear idea of your requirements before planning your de
 - **Automated or supported onboarding:** When a tenant is ready to be onboarded, will they be able to complete the process themselves by following an automated procedure? Or, do new tenants initiate a request, and you manually onboard them after you receive the request? Are there manual approval steps required from your team, such as to prevent abuse of your service?
 - **Provisioning time:** When a tenant is ready to be onboarded, how quickly does the onboarding process need to be completed? If you don't have a clear answer, consider whether this should be measured in seconds, minutes, hours, or days.
 
-You should also consider onboarding and provision steps, automation, and resource management responsibility.
+You should also consider onboarding and provisioning steps, automation, and resource management responsibility.
 
 ### Onboarding and provisioning steps
 
@@ -45,7 +45,7 @@ Consider everything that you need to do when onboarding a tenant, and document t
 
 Clearly document the workflow required to onboard a new tenant.
 
-Additionally, consider the specific Azure resources that need to be provisioned for a tenant. Even if you don't provision dedicated resources for each tenant, consider whether you sometimes need to deploy new resources when a new tenant is onboarded, such as when a tenant requires their data to be stored in a specific region.
+Additionally, consider the specific Azure resources that need to be provisioned for a tenant. Even if you don't provision dedicated resources for each tenant, consider whether you sometimes need to deploy resources when a new tenant is onboarded. This might occur when a tenant requires their data to be stored in a specific region, or when you approach the limits of a stamp or component in your solution and need to create another instance for the next batch of tenants.
 
 ### Automation
 
@@ -92,7 +92,7 @@ The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) involves 
 When you deploy and configure multitenant solutions, it's important to avoid situations that inhibit your ability to scale. These include:
 
 - **Manual deployment and testing.** As described above, manual deployment processes add risk and slow your ability to deploy. Consider using automated deployments using pipelines, programmatic creation of resources from your solution's code, or a combination of both.
-- **Per-tenant customization.** Avoid creating features or configuration that only applies to a single tenant. This approach adds complexity to your deployments and testing processes. Aim to have use the same resource types and codebase for each tenant, and use strategies like [feature flags](#feature-flags) or [different pricing tiers](../considerations/pricing-models.md) to selectively enable features for tenants that require them.
+- **Ad hoc customizations for tenants.** Avoid deploying features or configuration that only applies to a single tenant. This approach adds complexity to your deployments and testing processes. Aim to have use the same resource types and codebase for each tenant, and use strategies like [feature flags](#feature-flags) or [different pricing tiers](../considerations/pricing-models.md) to selectively enable features for tenants that require them. Use a consistent and automated deployment process, even for tenants that have isolated or dedicated resources.
 
 ## Tenant lists as configuration or data
 
@@ -121,7 +121,7 @@ However, when you have large numbers of tenants, it can become cumbersome to rec
 
 ### Tenant list as data
 
-When you treat your tenant list as data, you still deploy your shared components by using a pipeline. However, for resources and configuration settings that need to be deployed for each tenant, you imperatively deploy or configure your resources, such as by using the [Azure SDKs](https://azure.microsoft.com/downloads).
+When you treat your tenant list as data, you still deploy your shared components by using a pipeline. However, for resources and configuration settings that need to be deployed for each tenant, you imperatively deploy or configure your resources. For example, you can use the [Azure SDKs](https://azure.microsoft.com/downloads) to create a specific resource or to initiate the deployment of a parameterized template.
 
 ![Diagram showing the process of onboarding a tenant when the tenant list is maintained as data.](media/deployment-configuration/tenants-data.png)
 
