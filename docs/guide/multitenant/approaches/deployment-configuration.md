@@ -148,9 +148,13 @@ Contoso runs a multitenant solution for their customers. Currently they have six
 
 ![Architecture diagram showing shared resources and dedicated resources for each tenant.](media/deployment-configuration/example-architecture.png)
 
-TODO
+Contoso uses Bicep to deploy their Azure resources.
 
 #### Option 1 - Use deployment pipelines for everything
+
+Contoso might consider deploying all of their resources by using Bicep.
+
+![TODO.](media/deployment-configuration/example-configuration.png)
 
 Pipeline deploys everything by using Bicep
 Parameter file lists tenants, and template has a loop that deploys a database for each tenant
@@ -159,8 +163,12 @@ Parameter file lists tenants, and template has a loop that deploys a database fo
 
 Pipeline deploys App Service resources, and SQL server
 
+![TODO.](media/deployment-configuration/example-data-pipeline.png)
+
 API to onboard new tenants
 Workflow triggers and creates a SQL DB, then adds to the tenant list (which effectively functions as a shard map)
+
+![TODO.](media/deployment-configuration/example-data-workflow.png)
 
 ## Next steps
 
