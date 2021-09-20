@@ -153,6 +153,8 @@ Contoso might consider deploying all of their resources by using a deployment pi
 
 ![Diagram showing a pipeline deploying both shared and tenant-specific resources.](media/deployment-configuration/example-configuration.png)
 
+If Contoso follows this model, then they need to update their parameter file as part of the onboarding of a new tenant. Then they need to re-run their pipeline. Also, they need to manually keep track of whether they are nearly any limits, such as if they grow at an unexpectedly high rate and approach the maximum number of databases supported on a single Azure SQL logical server.
+
 #### Option 2 - Use a combination of deployment pipelines and imperative resource creation
 
 Alternatively, Conoto might consider separating the responsibility for the Azure deployments.
@@ -169,6 +171,8 @@ The Contoso team then build a tenant onboarding API and workflow that onboards t
 After the database is deployed, the workflow adds the tenant to the tenant list database:
 
 ![Diagram showing the workflow to deploy a database for a new tenant.](media/deployment-configuration/example-data-workflow.png)
+
+Ongoing database schema updates are initiated by their application tier.
 
 ## Next steps
 
