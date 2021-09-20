@@ -1,10 +1,10 @@
 ---
 title:  Azure Well-Architected Framework review of an Azure NAT gateway
 titleSuffix: Azure Architecture Center
-description: Best practices for an Azure NAT gateway based on the five pillars of architecture excellence.
+description: Best practices for an Azure NAT gateway, based on the Azure Well-Architected Framework's five pillars of architecture excellence.
 author: jknightly
 ms.author: ethaslet
-ms.date: 08/09/2021
+ms.date: 09/21/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -23,23 +23,23 @@ This article provides best practices for an Azure NAT gateway. The guidance is b
 
 We assume that you have a working knowledge of Azure Virtual Network NAT and Azure NAT gateway and that you are well-versed with the respective features. As a refresher, review the full set of [Azure Virtual Network NAT](/azure/virtual-network/nat-gateway) documentation.
 
-NAT stands for network address translation. See [An introduction to Network Address Translation](/azure/rtos/netx-duo/netx-duo-nat/chapter1).
+NAT stands for _network address translation_. See [An introduction to Network Address Translation](/azure/rtos/netx-duo/netx-duo-nat/chapter1).
 
 ## Cost optimization
 
-Access to PaaS services should be through Azure Private Link or service endpoints (including storage) to avoid using a NAT gateway. Private Link and service endpoints do not require traversal of the NAT gateway to access PaaS services. This approach will reduce the charge per GB of data processed, when comparing costs of a NAT gateway to Private Link or service endpoints. There are extra security benefits for using Private Link or service endpoints.
+Access to PaaS services should be through Azure Private Link or service endpoints (including storage), to avoid using a NAT gateway. Private Link and service endpoints do not require traversal of the NAT gateway to access PaaS services. This approach will reduce the charge per GB of data processed, when comparing the costs of a NAT gateway to Private Link or to service endpoints. There are additional security benefits for using Private Link or service endpoints.
 
 ## Performance efficiency
 
 Each NAT gateway resource provides up to 50 Gbps of throughput. You can split your deployments into multiple subnets, and then you can assign each subnet or groups of subnets a NAT gateway to scale out.
 
-Each NAT gateway supports 64,000 flows for TCP and UDP respectively, per assigned outbound IP address. Up to 16 IP addresses can be assigned to a NAT gateway. The IP addresses can be individual Standard Public IP addresses or Public IP prefix or both. Review the following section on Source Network Address Translation (SNAT) for details.
+Each NAT gateway supports 64,000 flows for TCP and UDP respectively, per assigned outbound IP address. Up to 16 IP addresses can be assigned to a NAT gateway. The IP addresses can be individual Standard Public IP addresses, the Public IP prefix, or both. Review the following section on Source Network Address Translation (SNAT) for details. TCP stands for _Transmission Control Protocol_, and UDP stands for _User Datagram Protocol_.
 
 ## SNAT exhaustion
 
 - NAT gateway resources have a default TCP idle timeout of 4 minutes. If this setting is changed to a higher value, NAT will hold on to flows longer and can cause unnecessary pressure on SNAT port inventory.
-- Atomic requests (one request per connection) are a poor design choice, because it limits scale, reduces performance, and reduces reliability. Instead, reuse HTTP/S connections to reduce the numbers of connections and associated SNAT ports. Connection reuse will better allow the application to scale. Application performance will improve, due to reduced handshakes, overhead, and cryptographic operation cost when using TLS.
-- DNS can introduce many individual flows at volume, when the client isn't caching the DNS resolvers result. Use DNS caching to reduce the volume of flows and reduce the number of SNAT ports.
+- Atomic requests (one request per connection) are a poor design choice, because it limits scale, reduces performance, and reduces reliability. Instead, reuse HTTP/S connections, to reduce the numbers of connections and associated SNAT ports. Connection reuse will better allow the application to scale. Application performance will improve, due to reduced handshakes, overhead, and cryptographic operation costs when using TLS.
+- DNS can introduce many individual flows at volume, when the client isn't caching the DNS resolvers result. Use DNS caching to reduce the volume of flows and reduce the number of SNAT ports. DNS typically stands for _Domain Name System_, the naming system for the resources that are connected to the Internet or to a private network.
 - UDP flows, such as DNS lookups, use SNAT ports during the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. A shorter idle timeout, such as 4 minutes, will reduce the length of time that the SNAT ports will be in use.
 - Use connection pools to shape your connection volume.
 - Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, the TCP connection remains open. Intermediate systems and endpoints will keep this connection in use, which in turn makes the SNAT port unavailable for other connections. This anti-pattern can trigger application failures and SNAT exhaustion.
