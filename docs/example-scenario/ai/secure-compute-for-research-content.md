@@ -10,7 +10,7 @@ We've deployed this architecture for Higher Education research institutions with
 - Banking and finance 
 
 ## Architecture
-<insert architecture diagram>
+:::image type="content" source="./media/secure-research-env.png" alt-text="Diagram of a secure research environment." :::
 
 ## Components 
 
@@ -20,34 +20,33 @@ This architecture consists of several Azure cloud services that scale resources 
 
 Here are the core components that move and process research data. 
 
-- Microsoft Data Science Virtual Machine (DSVM) is a VM image configured with tools used for data analytics and machine learning. 
+- **Microsoft Data Science Virtual Machine (DSVM)** is a VM image configured with tools used for data analytics and machine learning. 
 
-- Azure Machine Learning is used to manage the allocation and use of the Azure resources described below. 
+- **Azure Machine Learning** is used to manage the allocation and use of the Azure resources described below. 
 
-- Azure Machine Learning Compute is a cluster of nodes that are allocated on demand based on an automatic scaling option. 
+- **Azure Machine Learning Compute** is a cluster of nodes that are allocated on demand based on an automatic scaling option. 
 
-- Azure Blob storage receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster. 
+- **Azure Blob storage** receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster. 
 
-- Azure Data Factory is used to programmatically move data between storage accounts of differing security levels to ensure separation of duties.
+- **Azure Data Factory** is used to programmatically move data between storage accounts of differing security levels to ensure separation of duties.
 
-- Azure Virtual Desktop is used to gain access to the resources in the secure environment via streaming apps as well as a full desktop as needed.  All copy, paste, and screen capture controls should be employed. 
+- **Azure Virtual Desktop** is used to gain access to the resources in the secure environment via streaming apps as well as a full desktop as needed.  All copy, paste, and screen capture controls should be employed. 
 
-- Azure Logic Apps provides automated low-code workflow to develop both the _trigger_ and _release_ portions of the manual approval process.   
+- **Azure Logic Apps** provides automated low-code workflow to develop both the _trigger_ and _release_ portions of the manual approval process.   
 
 ### Posture management components
 
-Azure Security Center is used to evaluate the overall security posture of the implementation as well as providing an attestation mechanism for regulatory compliance. 
+**Azure Security Center** is used to evaluate the overall security posture of the implementation as well as providing an attestation mechanism for regulatory compliance. 
 
-Azure Sentinel is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution that uses advanced AI and security analytics to help you detect, hunt, prevent, and respond to threats across your enterprise. 
+**Azure Sentinel** is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution that uses advanced AI and security analytics to help you detect, hunt, prevent, and respond to threats across your enterprise. 
 
-Azure Monitor collects monitoring telemetry from a variety Azure sources. Management tools, such as those in Azure Security Center, also push log data to Azure Monitor. 
+**Azure Monitor** collects monitoring telemetry from a variety Azure sources. Management tools, such as those in Azure Security Center, also push log data to Azure Monitor. 
 
 ### Governance components
 
-Azure Policy helps to enforce standards and to assess compliance at-scale as well as provide automated remediation to bring resources into compliance for specific policies. This can be applied to a project subscription or at a management group level as a single policy or as part of a regulatory Initiative.  
+**Azure Policy** helps to enforce standards and to assess compliance at-scale as well as provide automated remediation to bring resources into compliance for specific policies. This can be applied to a project subscription or at a management group level as a single policy or as part of a regulatory Initiative.  
 
 Azure Policy Guest Configuration can audit operating systems and machine configuration for the Data Science VMs. 
-
 
 ## Data flow
 
@@ -84,6 +83,33 @@ This has advantages over using Azure Bastion for the following reasons:
 Private endpoint connections and Azure Storage Firewalls are used to limit the networks from which clients can connect to Azure file shares. 
 
 Network security groups. Use security groups to restrict network traffic within the virtual network. The green tier is a more open subnet while the blue tier limits inbound and outbound traffic to very specific hosts and virtual networks.  
+
+The main objective of this architecture is to provide a Secure/Trusted research environment that strictly limits the exfiltration of data from the secure area.  Network Security Group rules would be configured to block all ports and ranges except for required Azure Services (such as Azure Monitor) and traffic would be allowed from the AVD Virtual Network on ports limited to approved access methods.  A full list of Service Tags and the corresponding services can be found here. 
+
+<1. Network security>
+
+<2. Data at rest, in transit>
+
+<3. VM image secure>
+
+<4. identity?>
+
+## Availability 
+
+Most research solutions are meant to be more temporary workloads, where the DSVM is highly customized from the base image, a copy of the image should be created and technologies like Azure Image Builder could be employed.  This solution is currently designed as a single-region deployment, if higher availability is required, this architecture would need to change to support additional regions.  
+
+## Performance and scalability
+
+The size and type of the VM should be appropriate to the style of work being performed. 
+
+This architecture is meant to support a single research project and the scalability would be limited to adjusting the size/type of the DSVM and the choices made for compute resources available to AML. 
+
+## Cost considerations 
+
+Use the Azure pricing calculator to estimate costs based on estimated sizing of resources needed. 
+
+This reference assumes that the consumption plan is used to create a global Logic Apps resource. 
+
 
 ## Related links
 - [Microsoft Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine/overview)
