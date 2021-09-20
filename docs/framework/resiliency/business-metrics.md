@@ -2,20 +2,27 @@
 title: Business Metrics
 description: Learn to use business metrics to design resilient Azure applications. Review workload availability targets. Understand recovery and availability metrics.
 author: david-stanford
-ms.date: 10/16/2019
+ms.date: 09/20/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - Which business metrics have you defined for your application?
   - article
+products:
+  - azure
+categories: management-and-governance
 ---
 
 # Using business metrics to design resilient Azure applications
 
 ## Workload availability targets
 
-Define your own target SLAs for each workload in your solution so you can determine whether the architecture meets the business requirements. 
+Are availability targets such as Service Level Agreements (SLAs), Service Level Indicators (SLIs), and Service Level Objectives (SLOs) defined for the application or key scenarios?
+
+Understanding customer availability expectations is vital to reviewing overall operations for the application. For instance, if a customer strives to achieve an application SLO of `99.999%`, the level of inherent operational activity required by the application is going to be far greater than if an SLO of `99.9%` was the goal.
+
+Define your own target SLAs for each workload in your solution so you can determine whether the architecture meets the business requirements.
 
 ### Consider cost and complexity
 
