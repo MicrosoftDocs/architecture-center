@@ -68,7 +68,7 @@ Each of these models requires you to deploy and manage resources in different wa
 
 Further discussion of these approaches is provided below.
 
-## Patterns to consider
+## Approaches and patterns to consider
 
 Several design patterns from the Azure Architecture Center and the wider community are of relevance to deployment and configuration of multitenant solutions.
 
