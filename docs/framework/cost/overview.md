@@ -3,7 +3,7 @@ title: Overview of the cost optimization pillar
 description: Provides an overview of the cost optimization pillar in the Azure Well-Architected Framework.
 author: v-stacywray
 manager: david-stanford
-ms.date: 09/14/2021
+ms.date: 09/20/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -21,11 +21,13 @@ Use the pay-as-you-go strategy for your architecture, and invest in [scaling out
 
 To assess your workload using the tenets found in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/), reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
- We recommend exploring the following videos to dive deeper into Azure cost optimization:
-<p>
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-cost-optimization-Part-1-Cost-Optimization-Ep-2-Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Diving deeper into Azure cost optimization (Part 1) - Microsoft Channel 9 Video"></iframe>
-<p>
-<iframe src="https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-cost-optimization-Part-2-Cost-Optimization-Ep-2-Well-Architected-series/player" width="760" height="340" allowFullScreen frameBorder="0" title="Diving deeper into Azure cost optimization (Part 2) - Microsoft Channel 9 Video"></iframe>
+We recommend exploring the following videos to dive deeper into Azure cost optimization:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-cost-optimization-Part-1-Cost-Optimization-Ep-2-Well-Architected-series/player]
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-cost-optimization-Part-2-Cost-Optimization-Ep-2-Well-Architected-series/player]
+
+## Topics
 
 The Microsoft Azure Well-Architected Framework includes the following topics in the cost optimization pillar:
 
