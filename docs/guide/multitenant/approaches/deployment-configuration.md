@@ -167,7 +167,7 @@ Contoso defines their shared components in a dedicated resource group. They use 
 The Contoso team then build a tenant onboarding API and workflow that onboards their new tenants. The workflow initiates the deployment of a new Azure SQL database, which might be done by one of the following approaches:
 
 - Use the Azure SDK to initiate the deployment of a second Bicep file that defines the Azure SQL database.
-- Use the Azure SDK to imperatively create an Azure SQL database by using the [management library](/dotnet/api/overview/azure/sql?view=azure-dotnet#management-library).
+- Use the Azure SDK to imperatively create an Azure SQL database by using the [management library](/dotnet/api/overview/azure/sql#management-library).
 
 After the database is deployed, the workflow adds the tenant to the tenant list database:
 
