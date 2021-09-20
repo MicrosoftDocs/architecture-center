@@ -873,7 +873,7 @@ items:
               - name: Multiplayer backend architectures
                 href: /gaming/azure/reference-architectures/multiplayer
                 maintainContext: true
-              - name: Realtime multiplayer
+              - name: Real-time multiplayer
                 items:
                   - name: Synchronous multiplayer basics
                     href: /gaming/azure/reference-architectures/multiplayer-synchronous
