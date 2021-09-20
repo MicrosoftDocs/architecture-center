@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Storage that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure Storage in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/16/2021
+ms.date: 09/20/2021
 ms.topic: conceptual
 ms.service: architecture-center
 products:
@@ -37,6 +37,10 @@ The [Valet Key pattern](../../../patterns/valet-key.md) is useful as a way to is
 
 [Stored access policies](/rest/api/storageservices/define-stored-access-policy) extend the SAS functionality, enabling you to define a single policy that can be used when issuing multiple shared access signatures.
 
+### Identity-based access control
+
+Azure Storage also provides [identity-based access control](/azure/storage/blobs/authorize-access-azure-active-directory) by using Azure Active Directory (Azure AD). This capability also provides the ability to use [attribute-based access control](/azure/role-based-access-control/conditions-overview), which gives finer-grained access to blob paths or blobs that have been tagged with a specific tenant ID.
+
 ### Lifecycle management
 
 When you use blob storage in a multitenant solution, your tenants may require different policies for data retention. When you store large volumes of data, you may also want to configure the data for a specific tenant to automatically be moved to the [cool or archive storage tiers](/azure/storage/blobs/storage-blob-storage-tiers) for cost optimization purposes.
@@ -60,6 +64,10 @@ If you need to use the server-side copy APIs directly from your code, consider u
 ### Object replication
 
 The [Object replication](/azure/storage/blobs/object-replication-overview) feature automatically replicates data between a source and destination storage account. Object replication is asynchronous. In a multitenant solution, this feature can be useful when you need to continuously replicate data between deployment stamps, or in an implementation of the [Geode pattern](../../../patterns/geodes.md).
+
+### Encryption
+
+Azure Storage enables you to [provide encryption keys](/azure/storage/blobs/encryption-customer-provided-keys) for your data. In a multitenant solution, consider combining this capability with [encryption scopes](/azure/storage/blobs/encryption-scope-overview), which enable you to define different encryption keys for different tenants, even if their data is stored in the same storage account. By using these features together, you can also provide tenants with control over their own data. If they need to deactivate their account, they can delete the encryption key and their data is no longer accessible.
 
 ### Monitoring
 
