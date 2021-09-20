@@ -870,6 +870,37 @@ items:
                 maintainContext: true
           - name: Scalable gaming servers
             items:
+              - name: Multiplayer backend architectures
+                href: /gaming/azure/reference-architectures/multiplayer
+                maintainContext: true
+              - name: Realtime multiplayer
+                items:
+                  - name: Synchronous multiplayer basics
+                    href: /gaming/azure/reference-architectures/multiplayer-synchronous
+                    maintainContext: true
+                  - name: Synchronous multiplayer with Batch
+                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-batch
+                    maintainContext: true
+                  - name: Synchronous multiplayer with AKS
+                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
+                    maintainContext: true
+                  - name: Synchronous multiplayer with Service Fabric
+                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-sf
+                    maintainContext: true
+                  - name: Synchronous multiplayer with ACI
+                    href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
+                    maintainContext: true
+                  - name: Custom game server scaling
+                    href: /gaming/azure/reference-architectures/multiplayer-custom-server-scaling
+                    maintainContext: true
+              - name: Turn-based multiplayer
+                items:
+                  - name: Asynchronous multiplayer basics
+                    href: /gaming/azure/reference-architectures/multiplayer-asynchronous
+                    maintainContext: true
+                  - name: Serverless asynchronous multiplayer 
+                    href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
+                    maintainContext: true
       - name: Automotive and transportation
         items:
           - name: Building blocks for autonomous driving
