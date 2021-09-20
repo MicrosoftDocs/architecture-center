@@ -19,15 +19,15 @@ ms.custom:
 
 # Secure application configuration and dependencies
 
-Security of an application that is hosted in Azure is a shared responsibility between you as the application owner and Azure. For IaaS, you are responsible for configurations related to VM, operating system, and components installed on it. For PaaS, you are responsible for the security of the application service configurations and making sure that the dependencies used by the application are also secure.
+Security of an application that is hosted in Azure is a shared responsibility between you as the application owner and Azure. For IaaS, you're responsible for configurations related to VM, operating system, and components installed on it. For PaaS, you're responsible for the security of the application service configurations and making sure that the dependencies used by the application are also secure.
 
 ## Key points
 > [!div class="checklist"]
->- Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. 
->- Do not expose detailed error information when handling application exceptions.
->- Do not expose platform-specific information.
+>- Don't store secrets in source code or configuration files. Instead, keep them in a secure store, such as Azure Key Vault. 
+>- Don't expose detailed error information when handling application exceptions.
+>- Don't expose platform-specific information.
 >- Store application configuration outside of the application code to update it separately and to have tighter access control.
->- Restrict access to Azure resources that do not meet the security requirements.
+>- Restrict access to Azure resources that don't meet the security requirements.
 >- Validate the security of any open-source code added to your application.
 >- Update frameworks and libraries as part of the application lifecycle.
 
@@ -40,28 +40,28 @@ During the design phase, consider the way you store secrets and handle exception
 
 Application configuration information can be stored with the application. However, that's not a recommended practice. Consider using a dedicated configuration management system such as Azure App Configuration. That way, it can be updated independently of the application code.
 
-Applications can include secrets like database connection strings, certificate keys, and so on. Do not store secrets in source code or configuration files. Instead keep them in a secure store, such as Azure Key Vault. Identify secrets in code with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.
+Applications can include secrets like database connection strings, certificate keys, and so on. Don't store secrets in source code or configuration files. Instead, keep them in a secure store, such as Azure Key Vault. Identify secrets in code with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.
 
-For more information about secret management, see [Key and secret management](design-storage-keys.md).
+For more information about secret management, reference [Key and secret management](design-storage-keys.md).
 
 **Are errors and exceptions handled properly without exposing that information to users?**
 ***
 
-When handling application exceptions, make the application fail gracefully and log the error. Do not provide detailed information related to the failure, such as call stack, SQL queries, or out of range errors. This information can provide attackers with valuable information about the internals of the application.
+When handling application exceptions, make the application fail gracefully and log the error. Don't provide detailed information related to the failure, such as call stack, SQL queries, or out of range errors. This information can provide attackers with valuable information about the internals of the application.
 
 <a id="config-change">**Can configuration settings be changed or modified without rebuilding or redeploying the application?**</a>
 ***
 
-Application code and configuration should not share the same lifecycle to enable operational activities that change and update specific configurations without developer involvement or redeployment.
+Application code and configuration shouldn't share the same lifecycle to enable operational activities. These activities include those that change and update specific configurations without developer involvement or redeployment.
 
 **Is platform-specific information removed from server-client communication?**
 ***
 
-Do not reveal information about the application platform. Such information (for example, "X-Powered-By", "X-ASPNET-VERSION") can get exposed through HTTP banners, HTTP headers, error messages, and website footers. Malicious actors can use this information when mapping attack vectors of the application.
+Don't reveal information about the application platform. Such information (for example, `X-Powered-By`, `X-ASPNET-VERSION`) can get exposed through HTTP banners, HTTP headers, error messages, and website footers. Malicious actors can use this information when mapping attack vectors of the application.
 
 **Suggested actions**
 
-Consider using Azure Front Door or API Management to remove platform-specific HTTP headers. Alternatively, use Azure CDN to separate the hosting platform from end users. Azure API Management offers transformation policies that allow you to modify HTTP headers and remove sensitive information.
+Consider using Azure Front Door or API Management to remove platform-specific HTTP headers. Instead, use Azure CDN to separate the hosting platform from end users. Azure API Management offers transformation policies that allow you to modify HTTP headers and remove sensitive information.
 
 **Learn more**
 
@@ -71,27 +71,39 @@ Consider using Azure Front Door or API Management to remove platform-specific HT
 **Are Azure policies used to control the configuration of the solution resources?**
 ***
 
-Use Azure Policy to deploy desired settings where applicable. Block resources that do not meet the proper security requirements defined during service enablement.
+Use Azure Policy to deploy settings where applicable. Block resources that don't meet the proper security requirements defined during service enablement.
 
 ## Dependencies, frameworks, and libraries
 
 **What are the frameworks and libraries used by the application?**
 ***
 
-Application frameworks are frequently updated and released by the vendor or communities. Tracking the frameworks and libraries (custom, OSS, third party, and others) used by the application and any resulting vulnerabilities they introduce is vital. It's important to understand what technologies are used by the application that must be managed, such as .NET Core, Spring, or Node.js. Automated solutions can help with this assessment.
+Application frameworks are frequently updated and released by the vendor or communities. It's vital to track the frameworks and libraries used by the application including any resulting vulnerabilities they introduce. These frameworks and libraries include custom, OSS, third party, and others. Understand and manage the technologies the application uses, such as:
+
+- .NET Core
+- Spring
+- Node.js
+
+Automated solutions can help with this assessment.
 
 Consider the following best practices:
 
-- Validate the security of any open-source code added to your application. Free tools that can help with this assessment are OWASP Dependency-Check, NPM audit, WhiteSource Bolt, and others, which find outdated components and updates them to the latest versions.
+- Validate the security of any open-source code added to your application. Free tools to help with this assessment include:
 
-- Maintain a list of frameworks and libraries as part of the application inventory. Also, keep track of versions in use. If vulnerabilities are published, this helps to identify affected workloads.
+   - OWASP Dependency-Check
+   - NPM audit
+   - WhiteSource Bolt
+
+  These tools find outdated components and update them to the latest versions.
+
+- Maintain a list of frameworks and libraries as part of the application inventory. Also, keep track of versions in use. If vulnerabilities are published, this awareness helps to identify affected workloads.
 
 - Update frameworks and libraries as part of the application lifecycle. Prioritize critical security patches.
 
 <a id="SSL">**Are the expiry dates of SSL/TLS certificates monitored and are processes in place to renew them?**</a>
 ***
 
-Tracking expiry dates of SSL/TLS certificates and renewing them in due time is highly critical. Ideally, the process should be automated, although this often depends on the CA used for the certificate. If not automated, sufficient alerting should be applied to ensure expiry dates do not go unnoticed.
+Tracking expiry dates of SSL/TLS certificates and renewing them in due time is highly critical. Ideally, the process should be automated, although this often depends on the CA used for the certificate. If not automated, sufficient alerting should be applied to ensure expiry dates don't go unnoticed.
 
 **Learn more**
 
@@ -99,13 +111,11 @@ Tracking expiry dates of SSL/TLS certificates and renewing them in due time is h
 - [npm-audit](https://docs.npmjs.com/cli/audit)
 - [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
 
-
 ## Referenced Azure services
 
 - [Azure Key Vault](/azure/key-vault/general/overview)
 - [Azure CDN](/azure/cdn/cdn-features)
 - [Azure Policy](/azure/governance/policy/overview)
-
 
 ## Next steps
 
