@@ -2,7 +2,7 @@
 title: Secure application&apos;s configuration and dependencies
 description: Review application security for IaaS and PaaS. Make sure your configuration is secure. Also check the dependencies, frameworks, and libraries.
 author: PageWriter-MSFT
-ms.date: 10/27/2020
+ms.date: 09/20/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -78,7 +78,7 @@ Use Azure Policy to deploy desired settings where applicable. Block resources th
 **What are the frameworks and libraries used by the application?**
 ***
 
-Application frameworks are frequently updated and released by the vendor or communities. Tracking the frameworks and libraries (custom, OSS, third party, and others) used by the application and any resulting vulnerabilities they introduce is vital. Automated solutions can help with this assessment.
+Application frameworks are frequently updated and released by the vendor or communities. Tracking the frameworks and libraries (custom, OSS, third party, and others) used by the application and any resulting vulnerabilities they introduce is vital. It's important to understand what technologies are used by the application that must be managed, such as .NET Core, Spring, or Node.js. Automated solutions can help with this assessment.
 
 Consider the following best practices:
 
