@@ -669,20 +669,20 @@ items:
             items:
               - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
-              - name: Movie recommendations on Azure
-                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-              - name: Scalable personalization on Azure
-                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
               - name: Intelligent search engine for e-commerce
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Magento e-commerce platform in AKS
                 href: example-scenario/magento/magento-azure.yml
-              - name: Scalable order processing
-                href: example-scenario/data/ecommerce-order-processing.yml
+              - name: Movie recommendations on Azure
+                href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
               - name: Retail - Buy online, pickup in store (BOPIS)
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
+              - name: Scalable order processing
+                href: example-scenario/data/ecommerce-order-processing.yml
+              - name: Scalable personalization on Azure
+                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
       - name: Finance
         items:
           - name: Overview
@@ -706,18 +706,18 @@ items:
                 maintainContext: true
           - name: Architectures
             items:
-              - name: Decentralized trust between banks
-                href: example-scenario/apps/decentralized-trust.yml
-              - name: Replicate and sync mainframe data in Azure
-                href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
-              - name: Modernize mainframe & midrange data
-                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Banking system cloud transformation
                 href: example-scenario/banking/banking-system-cloud-transformation.yml
+              - name: Decentralized trust between banks
+                href: example-scenario/apps/decentralized-trust.yml
+              - name: Modernize mainframe & midrange data
+                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Patterns and implementations in banking
                 href: example-scenario/banking/patterns-and-implementations.yml
               - name: Real-time fraud detection
                 href: example-scenario/data/fraud-detection.yml
+              - name: Replicate and sync mainframe data in Azure
+                href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
           - name: Compliance Blueprints
             items:
               - name: Blueprint - Analytics for PCI DSS
@@ -818,6 +818,8 @@ items:
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Computer vision on the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
+              - name: Supply chain track and trace
+                href: solution-ideas/articles/supply-chain-track-and-trace.yml
       - name: Media and entertainment
         items:
           - name: Overview
@@ -832,6 +834,42 @@ items:
             href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
           - name: Scalable personalization on Azure
             href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+      - name: Energy and environment
+        items: 
+          - name: Run reservoir simulations
+            href: example-scenario/infrastructure/reservoir-simulation.yml
+          - name: Geospatial data processing and analytics
+            href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
+          - name: Run CFD simulations
+            href: example-scenario/infrastructure/hpc-cfd.yml
+          - name: Project 15 sustainability
+            href: solution-ideas/articles/project-15-iot-sustainability.yml
+          - name: Environmental monitoring
+            href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
+      - name: Game development
+        items:
+          - name: Rendering
+            items:
+              - name: 3D video rendering
+                href: example-scenario/infrastructure/video-rendering.yml
+              - name: Digital image-based modeling on Azure
+                href: example-scenario/infrastructure/image-modeling.yml 
+          - name: Databases for gaming
+            items: 
+              - name: Gaming using Azure MySQL
+                href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
+              - name: Gaming using Cosmos DB
+                href: solution-ideas/articles/gaming-using-cosmos-db.yml
+          - name: Game server hosting
+            items:
+              - name: Basic game server hosting
+                href: /gaming/azure/reference-architectures/multiplayer-basic-game-server-hosting
+                maintainContext: true
+              - name: LAMP architectures for gaming
+                href: /gaming/azure/reference-architectures/general-purpose-lamp
+                maintainContext: true
+          - name: Scalable gaming servers
+            items:
       - name: Automotive and transportation
         items:
           - name: Building blocks for autonomous driving
