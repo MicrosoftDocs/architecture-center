@@ -29,7 +29,7 @@ Your data storage system is fundamental to the success of your applications, and
 
 A crucial consideration is whether the design scales well as data grows. As an example of data growth, consider an application that generates 6 terabytes (TB) of data its first month, with the amount increasing every month at a 10 percent yearly rate. Here's a graph that shows how data accumulates over time:
 
-:::image type="content" source="../images/build-scalable-database-solutions-azure-services-data-growth.svg" alt-text="A line graph shows terabytes created over time, from six terabytes after one month to 249 terabytes after 3 years. The line is upwardly curved because of the 10 percent growth rate.":::
+:::image type="content" source="../images/build-scalable-database-solutions-azure-services-data-growth.svg" alt-text="A line graph of terabytes created over time, from 6 after one month to 249 after 3 years. The 10 percent growth rate steepens the slope over time.":::
 
 After three years, there's 249 TB of data. If the system is well architected, it handles such data growth gracefully, remaining responsive, resilient, and affordable.
 
