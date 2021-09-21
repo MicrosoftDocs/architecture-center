@@ -1950,7 +1950,7 @@ items:
               - name: Choose an IoT solution
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md
               - name: Moving from test to production
-                href: example-scenario/iot/iot-moving-to-production.md 
+                href: example-scenario/iot/iot-move-to-production.md 
           - name: Architectures
             items:
               - name: Azure IoT reference architecture

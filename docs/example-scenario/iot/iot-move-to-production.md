@@ -1,5 +1,5 @@
 ---
-  title: Moving from test to production
+  title: Move from test to production
   titleSuffix: Azure Architecture Center
   description: Learn what to avoid doing when moving from a test environment to a production environment.
   author: mcosner
@@ -16,13 +16,13 @@
 
 ---
 
-# Moving from test to production
+# Move from test to production
 
 This article discusses patterns to avoid when moving from a test environment to a production environment.
 
 ## Not scaling your IoT solution using deployment stamps
 
-Stamps are discrete units of core solution components that support a defined number of devices. Each copy is called a *stamp*. or *scale unit*. For example, a stamp might consist of a set device population, an IoT Hub, an Event Hub or other routing endpoint, and a processing component. Each stamp supports a defined device population. You choose the maximum number of devices the stamp can hold. As the device population grows, you add stamp instances rather than indpendently scaling up different parts of the solution.
+Stamps are discrete units of core solution components that support a defined number of devices. Each copy is called a *stamp*. or *scale unit*. For example, a stamp might consist of a set device population, an IoT Hub, an Event Hub or other routing endpoint, and a processing component. Each stamp supports a defined device population. You choose the maximum number of devices the stamp can hold. As the device population grows, you add stamp instances rather than independently scaling up different parts of the solution.
 
 If instead of adding stamps, you move a single instance of your IoT solution to production, you might encounter the following limitations:
 
@@ -52,7 +52,7 @@ All applications that communicate with remote services and resources must be sen
 - Momentary loss of network connectivity to components and services
 - Temporary unavailability of a service
 - Timeouts that arise when a service is busy
-- Collisions caused when devices transmit simultaneuously
+- Collisions caused when devices transmit simultaneously
 
 These faults are often self-correcting, and if the action is repeated after a suitable delay it is likely to succeed. Determining the appropriate intervals between retries is, however, difficult. Typical strategies use the following types of retry intervals:
 
@@ -78,7 +78,7 @@ Provisioning is the act of enrolling a device into Azure IoT Hub. Provisioning m
 
 The following example shows how to implement a test-to-production environment transition workflow by using DPS.
 
-![A diagram showing how to implement a test-to-production environment transition workflow by using DPS.](/media/late-binding-with-dps.png)
+![A diagram showing how to implement a test-to-production environment transition workflow by using DPS.](./media/late-binding-with-dps.png)
 
 1. The solution developer links the Test and Production IoT clouds to the provisioning service.
 1. The device implements the DPS protocol to find the IoT Hub if it's no longer provisioned. The device is initially provisioned to the Test environment.
