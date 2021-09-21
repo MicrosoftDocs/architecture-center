@@ -1,7 +1,8 @@
 ---
-title: Secure a backend web API in a multitenant application
+title: Secure a backend web API in a multitenant app
 description: Learn how to secure a backend web API for multitenant applications by using the Tailspin Surveys app, which has a backend API to manage operations on surveys.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
