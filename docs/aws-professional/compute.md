@@ -1,6 +1,6 @@
 ---
 title: Comparing AWS and Azure compute services
-description: A comparison of the differences between compute services between Azure and AWS
+description: Compare the compute services in Azure and AWS. Explore the differences in virtual servers, containers and container orchestrators, and serverless architectures.
 author: kobile70
 ms.author: kobilevi
 ms.date: 08/09/2021
@@ -25,7 +25,7 @@ Similar to AWS' per second billing, Azure on-demand VMs are billed per second.
 
 ## Amazon EBS and Azure Storage for VM disks
 
-Durable data storage for Azure VMs is provided by [data disks](/azure/virtual-machines/linux/managed-disks-overview) residing in blob storage. This is similar to how EC2 instances store disk volumes on Elastic Block Store (EBS). [Azure temporary storage](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines) also provides VMs with the same low-latency temporary read-write storage as EC2 Instance Storage (also called ephemeral storage). [Azure Files](/storage/files/storage-files-introduction) provides the VMs with the same functionality as [Amazon EFS](https://aws.amazon.com/efs).
+Durable data storage for Azure VMs is provided by [data disks](/azure/virtual-machines/linux/managed-disks-overview) residing in blob storage. This is similar to how EC2 instances store disk volumes on Elastic Block Store (EBS). [Azure temporary storage](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines) also provides VMs with the same low-latency temporary read-write storage as EC2 Instance Storage (also called ephemeral storage). [Azure Files](/azure/storage/files/storage-files-introduction) provides the VMs with the same functionality as [Amazon EFS](https://aws.amazon.com/efs).
 
 Higher performance disk I/O is supported using [Azure premium storage](/azure/virtual-machines/windows/premium-storage). This is similar to the Provisioned IOPS storage options provided by AWS.
 

@@ -62,7 +62,7 @@ Two sample projects are detailed here that can be imported into Azure Databricks
 ## Next steps
 
 * [Azure Health Architectures](https://github.com/microsoft/health-architectures) from the Microsoft Health Cloud & Data Architectural Engineering team, includes many reference architectures obtained by working closely customers, partners, and coworkers in the Health domain.
-* [Continuous patient monitoring](/azure/iot-central/healthcare/concept-continuous-patient-monitoring-architecture) provides an app template that can build a continuous patient monitoring solution.
+* [Continuous patient monitoring](/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring) provides an app template that can build a continuous patient monitoring solution.
 * [Medical Imaging Server for DICOM](https://github.com/microsoft/dicom-server) is a .NET Core implementation of DICOMweb™ that can be run in Azure.
 * [OpenHack for FHIR](https://github.com/microsoft/OpenHack-FHIR) is a collection of OpenHack based tutorials that can be used to learn about the FHIR-related services in Azure.
 

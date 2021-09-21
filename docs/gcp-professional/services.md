@@ -1,9 +1,9 @@
 ---
 title: Google Cloud to Azure services comparison
-description: Understand the differences between specific Google Cloud and Azure services.
+description: Compare Google Cloud and Microsoft Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.
 author: EdPrice-MSFT
 ms.author: petuton
-ms.date: 08/16/2021
+ms.date: 09/15/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -34,49 +34,58 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- | --- |
 | [Google Cloud Marketplace](https://cloud.google.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace/) | Easy-to-deploy and automatically configured third-party applications, including single virtual machine or multiple virtual machine solutions. |
 
-## AI and machine learning
+##  Data platform
+###  Database
 
-| Google Cloud service | Azure service | Description |
-| --- | --- | --- |
-| [AI Hub](https://cloud.google.com/ai-hub) | [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services) | A cloud service to train, deploy, automate, and manage machine learning models. |
-| [TensorFlow](https://www.tensorflow.org) | [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) | ML.NET is an open source and cross-platform machine learning framework for both machine learning & AI. |
-| [TensorFlow](https://www.tensorflow.org) | [ONNX (Open Neural Network Exchange)](http://onnx.ai) | ONNX is an open format built to represent machine learning models. It facilitates maximum compatibility and increased inference performance. |
-| [AI Building blocks - Sight](https://cloud.google.com/vision) | [Azure Cognitive Services Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision) | Use visual data processing to label content, from objects to concepts, extract printed and handwritten text, recognize familiar subjects like brands and landmarks, and moderate content. No machine learning expertise is required. |
-| [AI Building blocks - Language](https://cloud.google.com/natural-language) | [Azure Cognitive Services Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics) | Cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, language detection, and named entity recognition. |
-| [AI Building blocks - Language](https://cloud.google.com/natural-language) | [Azure Cognitive Services Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) | A machine learning-based service to build natural language understanding into apps, bots, and IoT devices. Quickly create enterprise-ready, custom models that continuously improve.|
-| [AI Building blocks - Conversation](https://cloud.google.com/speech-to-text) | [Azure Cognitive Services Speech To Text](https://azure.microsoft.com/services/cognitive-services/speech-to-text) | Swiftly convert audio into text from a variety of sources. Customize models to overcome common speech recognition barriers, such as unique vocabularies, speaking styles, or background noise. |
-| [AI Building blocks – Structured Data](https://cloud.google.com/automl-tables) | [Azure ML - Automated Machine Learning](https://azure.microsoft.com/services/machine-learning/automatedml) | Empower professional and non-professional data scientists to build machine learning models rapidly. Automate time-consuming and iterative tasks of model development using breakthrough research-and accelerate time to market. Available in Azure Machine learning, Power BI, ML.NET & Visual Studio. |
-| [AI Building blocks – Structured Data](https://cloud.google.com/automl-tables) | [ML.NET Model Builder](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder) | ML.NET Model Builder provides an easy to understand visual interface to build, train, and deploy custom machine learning models. Prior machine learning expertise is not required. Model Builder supports AutoML, which automatically explores different machine learning algorithms and settings to help you find the one that best suits your scenario. |
-| [AI Building blocks – Cloud AutoML](https://cloud.google.com/automl) | [Azure Cognitive Services Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service) | Customize and embed state-of-the-art computer vision for specific domains. Build frictionless customer experiences, optimize manufacturing processes, accelerate digital marketing campaigns-and more. No machine learning expertise is required. |
-| [AI Building blocks – Cloud AutoML](https://cloud.google.com/automl) | [Video Indexer](https://vi.microsoft.com) | Easily extract insights from your videos and quickly enrich your applications to enhance discovery and engagement. |
-| [AI Building blocks – Cloud AutoML](https://cloud.google.com/automl) | [Azure Cognitive Services QnA Maker](https://www.qnamaker.ai) | Build, train, and publish a sophisticated bot using FAQ pages, support websites, product manuals, SharePoint documents, or editorial content through an easy-to-use UI or via REST APIs. |
-| [AI Platform Notebooks](https://cloud.google.com/ai-platform-notebooks) | [Azure Notebooks](https://notebooks.azure.com) | Develop and run code from anywhere with Jupyter notebooks on Azure. |
-| [Deep Learning VM Image](https://cloud.google.com/deep-learning-vm) | [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines) | Pre-Configured environments in the cloud for Data Science and AI Development. |
-| [Deep Learning Containers](https://cloud.google.com/ai-platform/deep-learning-containers) | [GPU support on Azure Kubernetes Service (AKS)](/azure/aks/gpu-cluster) | Graphical processing units (GPUs) are often used for compute-intensive workloads such as graphics and visualization workloads. AKS supports the creation of GPU-enabled node pools to run these compute-intensive workloads in Kubernetes. |
-| [Data Labeling Service](https://cloud.google.com/ai-platform/data-labeling/docs) | [Azure ML - Data Labeling](/azure/machine-learning/how-to-create-labeling-projects) | A central place to create, manage, and monitor labeling projects (public preview). Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification with bounded boxes. |
-| [AI Platform Training](https://cloud.google.com/ai-platform/training/docs/overview) | [Azure ML – Compute Targets](/azure/machine-learning/concept-compute-target) | Designated compute resource/environment where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Using compute targets make it easy for you to later change your compute environment without having to change your code. |
-| [AI Platform Predictions](https://cloud.google.com/ai-platform/prediction/docs/overview) | [Azure ML - Deployments](/azure/machine-learning/how-to-deploy-and-where) | Deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices. Use serverless Azure Functions for model inference for dynamic scale. |
-| [Continuous Evaluation](https://cloud.google.com/ai-platform/prediction/docs/continuous-evaluation) | [Azure ML – Data Drift](/azure/machine-learning/how-to-monitor-data-drift) | Monitor for data drift between the training dataset and inference data of a deployed model. In the context of machine learning, trained machine learning models may experience degraded prediction performance because of drift. With Azure Machine Learning, you can monitor data drift and the service can send an email alert to you when drift is detected. |
-| [What-If Tool](https://cloud.google.com/blog/products/ai-machine-learning/introducing-the-what-if-tool-for-cloud-ai-platform-models) | [Azure ML – Model Interpretability](/azure/machine-learning/how-to-machine-learning-interpretability) | Ensure machine learning model compliance with company policies, industry standards, and government regulations. |
-| [Cloud TPU](https://cloud.google.com/tpu) | [Azure ML – FPGA (Field Programmable Gate Arrays)](/azure/machine-learning/how-to-deploy-fpga-web-service) | FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways after manufacturing. Compared to other chips, FPGAs provide a combination of programmability and performance. |
-| [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) | [Machine Learning Operations (MLOps)](https://azure.microsoft.com/services/machine-learning/mlops) | MLOps, or DevOps for machine learning, enables data science and IT teams to collaborate and increase the pace of model development and deployment via monitoring, validation, and governance of machine learning models. |
-| [Dialogflow](https://dialogflow.com) | [Microsoft Bot Framework](https://dev.botframework.com) | Build and connect intelligent bots that interact with your users using text/SMS, Skype, Teams, Slack, Microsoft 365 mail, Twitter, and other popular services. |
+| Type | Google Cloud service | Azure service | Azure service description |
+| --- | --- | --- | --- |
+| Relational database | [Cloud SQL](https://cloud.google.com/sql#documentation) - SQL Server | [Azure SQL Server Family](/azure/azure-sql)</br></br> Azure SQL Database</br>Azure SQL Managed Instance</br>SQL Server on Azure VM</br> [Azure SQL Edge](/azure/azure-sql-edge) | Azure SQL family of SQL Server database engine products in the cloud</br></br>Azure SQL Database is a fully managed platform as a service (PaaS) database engine</br></br> Azure SQL Managed Instance is the intelligent, scalable cloud database service</br> that combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service</br></br> SQL Server IaaS deployed on Azure Windows or Linux VM </br></br>Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments
+|| [Cloud SQL](https://cloud.google.com/sql#documentation) MySQL & PostgreSQL| [Azure Database for MySQL (Single & Flexible Server)](/azure/mysql/)<br/><br/> [Azure Database for PostgreSQL (Single & Flexible Server)](/azure/postgresql)<br/><br/> | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform |
+|Horizontally scalable relational database|[Cloud Spanner](https://cloud.google.com/spanner) | [Azure Cosmos DB - SQL API](https://azure.microsoft.com/services/cosmos-db)<br/><br/> | A globally-distributed database system that limitlessly scales horizontally. Is multi-modal -- key-value, graph, and document data). Supports multiple APIs: SQL, JavaScript, Gremlin, MongoDB, and Azure Table storage. Compute and storage can be scaled independently
+|||[Azure PostgreSQL Hyperscale (Citus)](/azure/postgresql/hyperscale) | Azure Database for PostgreSQL is a fully managed database-as-a-service based on the open-source Postgres relational database engine. The Hyperscale (Citus) deployment option scales queries across multiple machines using sharding, to serve applications that require greater scale and performance
+|NoSQL| [Cloud Bigtable](https://cloud.google.com/bigtable/docs)<br/><br/> | [Azure Table storage](/azure/storage/tables)|A highly scalable NoSQL key-value store for rapid development using massive semi-structured datasets. Store semi-structured data that’s highly available​. Supporting flexible data schema and OData-based queries |
+|| [Cloud Firestore](https://cloud.google.com/firestore/docs) |[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | Globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar
+||[Firebase Realtime Database](https://firebase.google.com/products/realtime-database) | [Azure Cosmos DB - Change Feed](/azure/cosmos-db/change-feed) | Change feed in Azure Cosmos DB is a persistent record of changes to a container in the order they occur. Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The persisted changes can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing
+| In-memory | [Cloud Memorystore](https://cloud.google.com/memorystore/docs) | [Azure Cache for Redis](https://azure.microsoft.com/services/cache) | A secure data cache and messaging broker that provides high throughput and low-latency access to data for applications |
+||||
 
-## Big data and analytics
+
+#### Database architectures
+
+<ul class="grid">
+
+[!INCLUDE [Gaming using Cosmos DB](../../includes/cards/gaming-using-cosmos-db.md)]
+[!INCLUDE [Oracle Database Migration to Azure](../../includes/cards/reference-architecture-for-oracle-database-migration-to-azure.md)]
+[!INCLUDE [Retail and e-commerce using Azure MySQL](../../includes/cards/retail-and-ecommerce-using-azure-database-for-mysql.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/#databases)
 
 ### Data warehouse
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
-| [BigQuery](https://cloud.google.com/bigquery) | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
-| [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Big Data Clusters](/sql/big-data-cluster/big-data-cluster-overview?view=sql-server-ver15&preserve-view=true) <br/><br/> [Azure Databricks](https://azure.microsoft.com/services/databricks) | Allow you to deploy scalable clusters of SQL Server, Spark, and HDFS containers running on Kubernetes. These components are running side by side to enable you to read, write, and process big data from Transact-SQL or Spark, allowing you to easily combine and analyze your high-value relational data with high-volume big data. |
+| [BigQuery](https://cloud.google.com/bigquery) | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)<br/><br/> [SQL Server Big Data Clusters](/sql/big-data-cluster/big-data-cluster-overview?view=sql-server-ver15&preserve-view=true) <br/><br/> [Azure Databricks](https://azure.microsoft.com/services/databricks) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data.<br/><br/><br/> Allow you to deploy scalable clusters of SQL Server, Spark, and HDFS containers running on Kubernetes. These components are running side by side to enable you to read, write, and process big data from Transact-SQL or Spark, allowing you to easily combine and analyze your high-value relational data with high-volume big data. |
 
-### Time series
+#### Data warehouse architectures
+
+<ul class="grid">
+
+[!INCLUDE [Modern Data Warehouse Architecture](../../includes/cards/modern-data-warehouse.md)]
+[!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
+
+</ul>
+
+[view all](../browse/index.yml?azure_categories=databases)
+
+### Data orchestration and ETL
 
 | Google Cloud service | Azure service | Description |
-| ----------- | ------------- | ----------- |
-| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+| --- | --- | --- |
+| [Cloud Data Fusion](https://cloud.google.com/data-fusion) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory)<br/><br/>  [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines.
 
+## Big data and analytics
 
 ### Big data processing
 
@@ -84,21 +93,98 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | --- | --- | --- |
 | [Dataproc](https://cloud.google.com/dataproc) | [Azure HDInsight](/azure/hdinsight) <br><br> [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) <br><br> [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) | Managed Apache Spark-based analytics platform. |
 
-### Data orchestration and ETL
+#### Big data architectures
 
-| Google Cloud service | Azure service | Description |
-| --- | --- | --- |
-| [Cloud Data Fusion](https://cloud.google.com/data-fusion) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines. |
-| [Cloud Data Catalog](https://cloud.google.com/data-catalog) | [Azure Data Catalog](https://azure.microsoft.com/services/data-catalog) | A fully managed service that serves as a system of registration and system of discovery for enterprise data sources. |
+<ul class="grid">
+
+[!INCLUDE [Azure data platform end-to-end](../../includes/cards/data-platform-end-to-end.md)]
+[!INCLUDE [Campaign Optimization with Azure HDInsight Spark Clusters](../../includes/cards/campaign-optimization-with-azure-hdinsight-spark-clusters.md)]
+[!INCLUDE [Big data analytics with Azure Data Explorer](../../includes/cards/big-data-azure-data-explorer.md)]
+
+</ul>
+
+[view all](../browse/index.yml?azure_categories=databases)
 
 ### Analytics and visualization
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud Dataflow](https://cloud.google.com/dataflow) | [Azure Databricks](https://azure.microsoft.com/services/databricks/#documentation) | Managed platform for streaming batch data based on Open Source Apache products. |
-| [Datastudio](https://datastudio.google.com/overview) <br/><br/> [Looker](https://cloud.google.com/looker) | [Power BI](https://powerbi.microsoft.com) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. |
+| [Data Studio](https://datastudio.google.com/overview) <br/><br/> [Looker](https://cloud.google.com/looker) | [Power BI](https://powerbi.microsoft.com) | Business intelligence tools that build visualizations, perform ad hoc analysis, and develop business insights from data. |
 | [Cloud Search](https://cloud.google.com/products/search) | [Azure Search](https://azure.microsoft.com/services/search) | Delivers full-text search and related search analytics and capabilities. |
-| [BigQuery](https://cloud.google.com/bigquery) | [SQL Server – ML Services](/sql/machine-learning/sql-server-machine-learning-services)<br/><br/> [Big Data Clusters (Spark)](/sql/big-data-cluster/big-data-cluster-overview) <br/><br/> [SQL Server Analysis Services](/analysis-services/analysis-services-overview) | Provides a serverless non-cloud interactive query service that uses standard SQL for analyzing databases. |
+| [BigQuery](https://cloud.google.com/bigquery) | [SQL Server Analysis Services](/analysis-services/analysis-services-overview) | Provides a serverless non-cloud interactive query service that uses standard SQL for analyzing databases. |
+
+#### Analytics architectures
+
+<ul class="grid">
+
+[!INCLUDE [Advanced Analytics Architecture](../../includes/cards/advanced-analytics-on-big-data.md)]
+[!INCLUDE [Automated enterprise BI](../../includes/cards/enterprise-bi-adf.md)]
+[!INCLUDE [Mass ingestion and analysis of news feeds on Azure](../../includes/cards/news-feed-ingestion-and-near-real-time-analysis.md)]
+
+</ul>
+
+[view all](../browse/index.yml?azure_categories=analytics)
+
+### Time series & IOT data
+
+| Google Cloud service | Azure service | Description |
+| ----------- | ------------- | ----------- |
+| [BigQuery](https://cloud.google.com/bigquery) | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)<br/><br/> [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights)<br/><br/> [Cosmos DB](/azure/stream-analytics/stream-analytics-solution-patterns) | Fully managed, low latency, and distributed big data analytics platform that runs complex queries across petabytes of data. Highly optimized for log and time series data. <br/><br/> Open and scalable end-to-end IoT analytics service. Collect, process, store, query, and visualize data at Internet of Things (IoT) scale--data that's highly contextualized and optimized for time series.
+
+#### Time series architectures
+
+<ul class="grid">
+
+[!INCLUDE [IoT analytics with Azure Data Explorer](../../includes/cards/iot-azure-data-explorer.md)]
+[!INCLUDE [Azure Data Explorer interactive analytics](../../includes/cards/interactive-azure-data-explorer.md)]
+
+</ul>
+
+## AI and machine learning
+
+| Google Cloud service | Azure service | Description |
+| --- | --- | --- |
+| [Vertex AI](https://cloud.google.com/vertex-ai) | [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services) | A cloud service to train, deploy, automate, and manage machine learning models. |
+| [TensorFlow](https://www.tensorflow.org) | [ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) | ML.NET is an open source and cross-platform machine learning framework for both machine learning & AI. |
+| [TensorFlow](https://www.tensorflow.org/) | [ONNX (Open Neural Network Exchange)](http://onnx.ai) | ONNX is an open format built to represent machine learning models that facilitates maximum compatibility and increased inference performance. |
+| [Vision AI](https://cloud.google.com/vision) | [Azure Cognitive Services Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision) | Use visual data processing to label content, from objects to concepts, extract printed and handwritten text, recognize familiar subjects like brands and landmarks, and moderate content. No machine learning expertise is required. |
+| [Natural Language AI](https://cloud.google.com/natural-language) | [Azure Cognitive Services Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics) | Cloud-based services that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, language detection, and named entity recognition. |
+| [Natural Language AI](https://cloud.google.com/natural-language) | [Azure Cognitive Services Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) | A machine learning-based service to build natural language understanding into apps, bots, and IoT devices. Quickly create enterprise-ready, custom models that continuously improve.|
+| [Speech-to-Text](https://cloud.google.com/speech-to-text) | [Azure Cognitive Services Speech To Text](https://azure.microsoft.com/services/cognitive-services/speech-to-text) | Swiftly convert audio into text from a variety of sources. Customize models to overcome common speech recognition barriers, such as unique vocabularies, speaking styles, or background noise. |
+| [AutoML Tables – Structured Data](https://cloud.google.com/automl-tables) | [Azure ML - Automated Machine Learning](https://azure.microsoft.com/services/machine-learning/automatedml) | Empower professional and non-professional data scientists to build machine learning models rapidly. Automate time-consuming and iterative tasks of model development using breakthrough research-and accelerate time to market. Available in Azure Machine learning, Power BI, ML.NET & Visual Studio. |
+| [AutoML Tables – Structured Data](https://cloud.google.com/automl-tables) | [ML.NET Model Builder](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet/model-builder) | ML.NET Model Builder provides an easy to understand visual interface to build, train, and deploy custom machine learning models. Prior machine learning expertise is not required. Model Builder supports AutoML, which automatically explores different machine learning algorithms and settings to help you find the one that best suits your scenario. |
+| [AutoML Vision](https://cloud.google.com/automl) | [Azure Cognitive Services Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) | Customize and embed state-of-the-art computer vision for specific domains. Build frictionless customer experiences, optimize manufacturing processes, accelerate digital marketing campaigns-and more. No machine learning expertise is required. |
+| [AutoML Video Intelligence](https://cloud.google.com/video-intelligence) | [Azure Video Analyzer](https://vi.microsoft.com) | Easily extract insights from your videos and quickly enrich your applications to enhance discovery and engagement. |
+| [Dialogflow](https://cloud.google.com/dialogflow) | [Azure Cognitive Services QnA Maker](https://www.qnamaker.ai) | Build, train and publish a sophisticated bot using FAQ pages, support websites, product manuals, SharePoint documents or editorial content through an easy-to-use UI or via REST APIs. |
+| [AI Platform Notebooks](https://cloud.google.com/ai-platform-notebooks) | [Azure Notebooks](https://notebooks.azure.com) | Develop and run code from anywhere with Jupyter notebooks on Azure. |
+| [Deep Learning VM Image](https://cloud.google.com/deep-learning-vm) | [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines) | Pre-Configured environments in the cloud for Data Science and AI Development. |
+| [Deep Learning Containers](https://cloud.google.com/ai-platform/deep-learning-containers) | [GPU support on Azure Kubernetes Service (AKS)](/azure/aks/gpu-cluster) | Graphical processing units (GPUs) are often used for compute-intensive workloads such as graphics and visualization workloads. AKS supports the creation of GPU-enabled node pools to run these compute-intensive workloads in Kubernetes. |
+| [Data Labeling Service](https://cloud.google.com/ai-platform/data-labeling/docs) | [Azure ML - Data Labeling](/azure/machine-learning/how-to-create-labeling-projects) | A central place to create, manage, and monitor labeling projects (public preview). Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification with bounded boxes. |
+| [AI Platform Training](https://cloud.google.com/ai-platform/training/docs/overview) | [Azure ML – Compute Targets](/azure/machine-learning/concept-compute-target) | Designated compute resource/environment where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Using compute targets make it easy for you to later change your compute environment without having to change your code. |
+| [AI Platform Predictions](https://cloud.google.com/ai-platform/prediction/docs/overview) | [Azure ML - Deployments](/azure/machine-learning/how-to-deploy-and-where) | Deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices. Leverage serverless Azure Functions for model inference for dynamic scale. |
+| [Continuous Evaluation](https://cloud.google.com/ai-platform/prediction/docs/continuous-evaluation) | [Azure ML – Data Drift](/azure/machine-learning/how-to-monitor-datasets) | Monitor for data drift between the training dataset and inference data of a deployed model. In the context of machine learning, trained machine learning models may experience degraded prediction performance because of drift. With Azure Machine Learning, you can monitor data drift and the service can send an email alert to you when drift is detected. |
+| [What-If Tool](https://cloud.google.com/blog/products/ai-machine-learning/introducing-the-what-if-tool-for-cloud-ai-platform-models) | [Azure ML – Model Interpretability](/azure/machine-learning/how-to-machine-learning-interpretability) | Ensure machine learning model compliance with company policies, industry standards, and government regulations. |
+| [Cloud TPU](https://cloud.google.com/tpu) | [Azure ML – FPGA (Field Programmable Gate Arrays)](/azure/machine-learning/how-to-deploy-fpga-web-service) | FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways after manufacturing. Compared to other chips, FPGAs provide a combination of programmability and performance. |
+| [Kubeflow](https://www.kubeflow.org/docs/about/kubeflow) | [Machine Learning Operations (MLOps)](https://azure.microsoft.com/services/machine-learning/mlops) | MLOps, or DevOps for machine learning, enables data science and IT teams to collaborate and increase the pace of model development and deployment via monitoring, validation, and governance of machine learning models. |
+| [Dialogflow](https://dialogflow.com) | [Microsoft Bot Framework](https://dev.botframework.com) | Build and connect intelligent bots that interact with your users using text/SMS, Skype, Teams, Slack, Microsoft 365 mail, Twitter, and other popular services. |
+
+### AI and machine learning architectures
+
+<ul class="grid">
+
+[!INCLUDE [Image classification on Azure](../../includes/cards/intelligent-apps-image-processing.md)]
+[!INCLUDE [Predictive Marketing with Machine Learning](../../includes/cards/predictive-marketing-campaigns-with-machine-learning-and-spark.md)]
+[!INCLUDE [Scalable personalization on Azure](../../includes/cards/scalable-personalization-with-content-based-recommendation-system.md)]
+
+</ul>
+
+[view all](../browse/index.yml?azure_categories=ai-machine-learning)
+
+## Data catalog & governance
+| Google Cloud service | Azure service | Description |
+| --- | --- | --- |
+| [Cloud Data Catalog](https://cloud.google.com/data-catalog) | [Azure Purview](/azure/purview) | Azure Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. |
 
 ## Compute
 
@@ -120,7 +206,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Cloud Run](https://cloud.google.com/run#documentation) | [Azure Container Instances](https://azure.microsoft.com/services/container-instances) | Azure Container Instances is the fastest and simplest way to run a container in Azure, without having to provision any virtual machines or adopt a higher-level orchestration service. |
 | [Artifact Registry (beta)](https://cloud.google.com/artifacts/docs) <br/><br/> [Container Registry](https://cloud.google.com/container-registry/docs) | [Azure Container Registry](https://azure.microsoft.com/services/container-registry) | Allows customers to store Docker formatted images. Used to create all types of container deployments on Azure. |
 | [Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine#documentation) | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) | Deploy orchestrated containerized applications with Kubernetes. Simplify cluster management and monitoring through automatic upgrades and a built-in operations console. See [AKS solution journey](../reference-architectures/containers/aks-start-here.md). |
-| [Kubernetes Engine Monitoring](https://cloud.google.com/monitoring/kubernetes-engine) | [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview) | Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to: Managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS); Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine); Azure Container Instances, Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910&preserve-view=true) or on-premises; or [Azure Red Hat OpenShift](/azure/openshift/intro-openshift). |
+| [Kubernetes Engine Monitoring](https://cloud.google.com/monitoring/kubernetes-engine) | [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview) | Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to: Managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS); Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine); Azure Container Instances, Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises; or [Azure Red Hat OpenShift](/azure/openshift/intro-openshift). |
 | [Anthos Service Mesh](https://cloud.google.com/service-mesh/docs) | [Service Fabric Mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview) | Fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. |
 
 #### Container architectures
@@ -142,14 +228,16 @@ Here are some architectures that use AKS as the orchestrator.
 | --- | --- | --- |
 | [Cloud Functions](https://cloud.google.com/functions/#documentation) | [Azure Functions](https://azure.microsoft.com/services/functions) | Integrate systems and run backend processes in response to events or schedules without provisioning or managing servers. |
 
-##  Database
 
-| Type | Google Cloud service | Azure service | Description |
-| --- | --- | --- | --- |
-| Relational database (PaaS) | [Cloud SQL](https://cloud.google.com/sql#documentation) (SQL Server, MySQL, PostgreSQL) | [SQL Server options](/azure/sql-database/sql-database-paas-vs-sql-server-iaas)<br/><br/> [Azure Database for MySQL](/azure/mysql)<br/><br/> [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/overview)<br/><br/> [Azure Database for PostgreSQL](/azure/postgresql)<br/><br/> [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/overview) | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform. |
-| | [Cloud Spanner](https://cloud.google.com/spanner) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | Managed relational database service where resiliency, security, scale, and maintenance are primarily handled by the platform. |
-| NoSQL (PaaS) | [Cloud Bigtable](https://cloud.google.com/bigtable/docs)<br/><br/> [Cloud Firestore](https://cloud.google.com/firestore/docs)<br/><br/> [Firebase Realtime Database](https://firebase.google.com/products/realtime-database) | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | Globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar. |
-| Caching | [Cloud Memorystore](https://cloud.google.com/memorystore/docs)<br/><br/> [Redis Enterprise Cloud](https://console.cloud.google.com/apis/library/gcp.redisenterprise.com?pli=1) | [Azure Cache for Redis](https://azure.microsoft.com/services/cache) | An in-memory–based, distributed caching service that provides a high-performance store typically used to offload non-transactional work from a database. |
+#### Serverless architectures
+
+<ul class="grid">
+
+[!INCLUDE [Social App for Mobile and Web with Authentication](../../includes/cards/social-mobile-and-web-app-with-authentication.md)]
+[!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
+[!INCLUDE [Cross Cloud Scaling Architecture](../../includes/cards/cross-cloud-scaling.md)]
+
+</ul>
 
 ## DevOps and application monitoring
 
@@ -169,13 +257,37 @@ Here are some architectures that use AKS as the orchestrator.
 | [Cloud Deployment Manager](https://cloud.google.com/deployment-manager) | [Azure Automation](https://azure.microsoft.com/services/automation/) | Delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. It comprises process automation, configuration management, update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources. |
 | [Cloud Deployment Manager](https://cloud.google.com/deployment-manager) | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks. |
 
+### DevOps architectures
+
+<ul class="grid">
+
+[!INCLUDE [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](../../includes/cards/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.md)]
+[!INCLUDE [Run a Jenkins server on Azure](../../includes/cards/jenkins.md)]
+[!INCLUDE [DevOps in a hybrid environment](../../includes/cards/devops-in-a-hybrid-environment.md)]
+
+</ul>
+
+[view all](../browse/index.yml?azure_categories=devops)
+
 ## Internet of things (IoT)
 
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud IoT Core](https://cloud.google.com/iot/docs) | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/),[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
-| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#documentation),[HDInsight Kafka](/azure/hdinsight/) | Process and route streaming data to subsequent processing engine or storage or database platform. |
-| [Edge Tpu](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
+| [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#documentation),[HDInsight Kafka](/azure/hdinsight/) | Process and route streaming data to a subsequent processing engine or to a storage or database platform. |
+| [Edge TPU](https://cloud.google.com/edge-tpu) | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
+
+### IOT architectures
+
+<ul class="grid">
+
+[!INCLUDE [IoT Architecture – Azure IoT Subsystems](../../includes/cards/azure-iot-subsystems.md)]
+[!INCLUDE [Azure IoT reference architecture](../../includes/cards/iot.md)]
+[!INCLUDE [Process real-time vehicle data using IoT](../../includes/cards/realtime-analytics-vehicle-iot.md)]
+
+</ul>
+
+[view all](../browse/index.yml?azure_categories=iot)
 
 ## Management
 
@@ -184,6 +296,7 @@ Here are some architectures that use AKS as the orchestrator.
 | [Cloud Billing](https://cloud.google.com/billing/docs) | [Azure Billing API](/azure/billing/billing-usage-rate-card-overview) | Services to help generate, monitor, forecast, and share billing data for resource usage by time, organization, or product resources. |
 | [Cloud Console](https://cloud.google.com/cloud-console) | [Azure portal](https://azure.microsoft.com/features/azure-portal) | A unified management console that simplifies building, deploying, and operating your cloud resources. |
 | [Operations (formerly Stackdriver)](https://cloud.google.com/products/operations) | [Azure Monitor](https://azure.microsoft.com/services/monitor) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
+| [Cost Management](https://cloud.google.com/cost-management) | [Azure Cost Management](https://azure.microsoft.com/pricing/details/cost-management) | Azure Cost Management helps you understand your Azure invoice, manage your billing account and subscriptions, control Azure spending, and optimize resource use. |
 
 ## Messaging and eventing
 
@@ -192,6 +305,17 @@ Here are some architectures that use AKS as the orchestrator.
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Service Bus](https://azure.microsoft.com/services/service-bus) | Supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. |
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Event Grid](https://azure.microsoft.com/services/event-grid) | A fully managed event routing service that allows for uniform event consumption using a publish/subscribe model. |
 | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs) | [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) | A real-time data ingestion and microbatching service used to build dynamic data pipelines and integrates with other Azure services. |
+
+### Messaging architectures
+
+<ul class="grid">
+
+[!INCLUDE [Anomaly Detector Process](../../includes/cards/anomaly-detector-process.md)]
+[!INCLUDE [Scalable Web App](../../includes/cards/scalable-web-app.md)]
+[!INCLUDE [Enterprise integration](../../includes/cards/queues-events.md)]
+[!INCLUDE [Ops Automation using Event Grid](../../includes/cards/ops-automation-using-event-grid.md)]
+
+</ul>
 
 ## Networking
 
@@ -224,6 +348,18 @@ Here are some architectures that use AKS as the orchestrator.
 | | [Network Intelligence Center](https://cloud.google.com/network-intelligence-center) | [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) | Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. |
 | Other Connectivity Options | [S2S](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal),[P2S](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) | [Direct Interconnect](https://cloud.google.com/network-connectivity/docs/direct-peering),[Partner Interconnect](https://cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-overview),[Carrier Peering](https://cloud.google.com/network-connectivity/docs/carrier-peering) | Point to Site lets you create a secure connection to your virtual network from an individual client computer. Site to Site is a connection between two or more networks, such as a corporate network and a branch office network. |
 
+### Networking architectures
+
+<ul class="grid">
+
+[!INCLUDE [Deploy highly available NVAs](../../includes/cards/nva-ha.md)]
+[!INCLUDE [Hub-spoke network topology in Azure](../../includes/cards/hub-spoke.md)]
+[!INCLUDE [Implement a secure hybrid network](../../includes/cards/secure-vnet-dmz.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/#networking)
+
 ## Security and identity
 
 | Area | Google Cloud service | Azure service | Description |
@@ -247,6 +383,18 @@ Here are some architectures that use AKS as the orchestrator.
 | | [Artifact Registry](https://cloud.google.com/artifact-registry) | [Azure Container Registry](/azure/container-registry/container-registry-intro) | A managed, private Docker registry service that's based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your private Docker container images and related artifacts that allow you to only deploy trusted containers. |
 | | [Container Analysis](https://cloud.google.com/container-analysis/docs/vulnerability-scanning) | [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) | Perform vulnerability scans on all container images when they’re pushed to the registry, imported into the registry, or pulled within the last 30 days. |
 
+### Security architectures
+
+<ul class="grid">
+
+[!INCLUDE [Real-time fraud detection](../../includes/cards/fraud-detection.md)]
+[!INCLUDE [Securely managed web applications](../../includes/cards/fully-managed-secure-apps.md)]
+[!INCLUDE [Threat indicators for cyber threat intelligence in Azure Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
+
+</ul>
+
+[view all](../browse/index.yml?azure_categories=security)
+
 ## Storage
 
 ### Object storage
@@ -268,6 +416,18 @@ Here are some architectures that use AKS as the orchestrator.
 | [Filestore](https://cloud.google.com/filestore/docs) | [Azure Files](https://azure.microsoft.com/services/storage/files/), [Azure NetApp Files](https://azure.microsoft.com/services/netapp/#overview) | File based storage and hosted NetApp Appliance Storage. |
 | [Google Drive](https://workspace.google.com/products/drive) | [OneDrive For business](https://products.office.com/onedrive/onedrive-for-business) | Cloud storage and file sharing solution for businesses to store, access, and share files anytime and anywhere. |
 
+#### Storage architectures
+
+<ul class="grid">
+
+[!INCLUDE [HIPAA and HITRUST compliant health data AI](../../includes/cards/security-compliance-blueprint-hipaa-hitrust-health-data-ai.md)]
+[!INCLUDE [Media Rendering – HPC Solution Architecture](../../includes/cards/azure-batch-rendering.md)]
+[!INCLUDE [Medical Data Storage Solutions](../../includes/cards/medical-data-storage.md)]
+
+</ul>
+
+[view all](/azure/architecture/browse/#storage)
+
 ### Bulk data transfer
 
 | Google Cloud service | Azure service | Description |
@@ -281,6 +441,18 @@ Here are some architectures that use AKS as the orchestrator.
 | --- | --- | --- |
 | [App Engine](https://cloud.google.com/appengine/docs) | [Azure App Service](https://azure.microsoft.com/services/app-service) | Managed hosting platform providing easy to use services for deploying and scaling web applications and services. |
 | [Apigee](https://cloud.google.com/apigee) | [Azure API Management](https://azure.microsoft.com/services/api-management/) | A turnkey solution for publishing APIs to external and internal consumers. |
+
+### Web architectures
+
+<ul class="grid">
+
+[!INCLUDE [Architect scalable e-commerce web app](../../includes/cards/scalable-ecommerce-web-app.md)]
+[!INCLUDE [Multi-region N-tier application](../../includes/cards/multi-region-sql-server.md)]
+[!INCLUDE [Serverless web application](../../includes/cards/web-app.md)]
+
+</ul>
+
+[view all](../browse/index.yml?azure_categories=web)
 
 
 ## Miscellaneous
