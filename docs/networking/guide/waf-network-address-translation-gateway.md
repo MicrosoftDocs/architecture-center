@@ -48,34 +48,34 @@ Each NAT gateway supports 64,000 flows for TCP and UDP respectively, per assigne
 Review the following guidance to improve the scale and reliability of your service:
 
 - Explore the effect of reducing the TCP idle timeout to lower values. A default idle timeout of 4 minutes can free up SNAT port inventory earlier.
-- Consider asynchronous polling patterns for long-running operations, to free up connection resources for other operations.
-- Long-lived flows, such as reused TCP connections, should use TCP keepalives or application-layer keepalives, to avoid intermediate systems timing out. Increasing the idle timeout is a last resort and may not resolve the root cause. A long timeout can cause low rate failures, when the timeout expires, and it can introduce a delay and unnecessary failures.
-- Graceful retry patterns should be used to avoid aggressive retries/bursts during transient failure or failure recovery. Creating a new TCP connection for every HTTP operation (also known as "atomic connections") is an anti-pattern. Atomic connections will prevent your application from scaling well and will waste resources. Always pipeline multiple operations into the same connection. Your application will benefit in transaction speed and resource costs. When your application uses transport layer encryption (for example, TLS), there's a significant cost associated with the processing of new connections. See [Azure Cloud Design Patterns](/azure/architecture/patterns) for more best-practice patterns.
+- Consider asynchronous polling patterns for long-running operations, to free up your connection resources for other operations.
+- Long-lived flows, such as reused TCP connections, should use TCP keepalives or application-layer keepalives, to avoid intermediate systems timing out. You should only increase the idle timeout as a last resort, and it might not resolve the root cause. A long timeout can cause low rate failures, when the timeout expires, and it can introduce a delay and unnecessary failures.
+- Graceful retry patterns should be used to avoid aggressive retries/bursts during transient failure or failure recovery. An antipattern, called _atomic connections_, is when you create a new TCP connection for every HTTP operation. Atomic connections will prevent your application from scaling well and will waste resources. Always pipeline multiple operations into the same connection. Your application will benefit in transaction speed and resource costs. When your application uses transport layer encryption (for example, TLS), there's a significant cost associated with the processing of new connections. See [Azure Cloud Design Patterns](/azure/architecture/patterns) for more best-practice patterns.
 
 ## Operational excellence
 
-Although NAT gateway can be used with Azure Kubernetes Service (AKS), it isn't managed as part of AKS. Assigning a NAT gateway to the CNI subnet will enable AKS pods to egress through the NAT gateway.
+Although NAT gateway can be used with Azure Kubernetes Service (AKS), it isn't managed as part of AKS. If you assign a NAT gateway to the CNI subnet, you will enable AKS pods to egress through the NAT gateway.
 
 When using multiple NAT gateways across zones or across regions, keep the outbound IP estate manageable by using Azure Public IP prefixes or BYOIP prefixes. If the IP prefix is larger than 16 IP addresses, you can create individual IP addresses from the IP Prefix and assign them to the NAT gateway.
 
 Use Azure Monitor alerts to monitor and alert on SNAT port usage.
 
-When a subnet is configured with a NAT gateway, the NAT gateway will replace all other outbound connectivity to the public Internet for all the VMs on that subnet. NAT gateway will take precedence over a load balancer with or without outbound rules, and over public IP addresses assigned directly to VMs. Azure tracks the direction of a flow, and asymmetric routing will not occur. Inbound originated traffic will be translated correctly, such as a load balancer frontend IP, and it will be translated separately from outbound originated traffic through a NAT gateway, which allows inbound and outbound services to coexist seamlessly.
+When a subnet is configured with a NAT gateway, the NAT gateway will replace all other outbound connectivity to the public Internet for all the VMs on that subnet. NAT gateway will take precedence over a load balancer with or without outbound rules, and over public IP addresses assigned directly to VMs. Azure tracks the direction of a flow, and asymmetric routing will not occur. Inbound originated traffic will be translated correctly, such as a load balancer frontend IP, and it will be translated separately from outbound originated traffic through a NAT gateway. This separation allows inbound and outbound services to coexist seamlessly.
 
-NAT gateway is recommended as the default for enabling outbound connectivity for virtual networks. NAT gateway is more efficient and less operationally complex than other outbound connectivity techniques in Azure. NAT gateways allocate SNAT ports on-demand and use a more efficient algorithm to prevent SNAT port reuse conflicts. Don't rely on “default outbound connectivity” (anti-pattern) for your estate. Instead, explicitly define it with NAT gateway resources.
+NAT gateway is recommended as the default for enabling outbound connectivity for virtual networks. NAT gateway is more efficient and less operationally complex than other outbound connectivity techniques in Azure. NAT gateways allocate SNAT ports on-demand and use a more efficient algorithm to prevent SNAT port reuse conflicts. Don't rely on _default outbound connectivity_ (an anti-pattern) for your estate. Instead, explicitly define it with NAT gateway resources.
 
 ## Reliability
 
 NAT gateway resources are highly available and span multiple fault domains. This is true even if a NAT gateway is deployed regionally, without availability zones.
 When using availability zones for zone isolation, NAT gateways can also be deployed zonally.
 
-Availability zone isolation cannot be provided, unless each subnet only only resources within a specific zone. Instead, deploy a subnet for each of the availability zones where VMs are deployed, align the zonal VMs with matching zonal NAT gateways, and build separate zonal stacks.  For example, a virtual machine in availability zone 1 is on a subnet with other resources that are also only in availability zone 1. A NAT gateway is configured in availability zone 1 to serve that subnet. See the following diagram.
+Availability zone isolation cannot be provided, unless each subnet only has resources within a specific zone. Instead, deploy a subnet for each of the availability zones where VMs are deployed, align the zonal VMs with matching zonal NAT gateways, and build separate zonal stacks.  For example, a virtual machine in availability zone 1 is on a subnet with other resources that are also only in availability zone 1. A NAT gateway is configured in availability zone 1 to serve that subnet. See the following diagram.
 
 ![zonal stack](./images/az-directions.png)
 
 ## Security
 
-A common approach is to design an outbound-only network virtual appliance (NVA) scenario with either third-party firewalls or proxy servers. When a NAT gateway is deployed to a subnet with a virtual machine scale set of NVAs, those NVAs will use the NAT gateway address(es) for outbound connectivity, as opposed to the IP of a load balancer or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb).  
+A common approach is to design an outbound-only network virtual appliance (NVA) scenario with third-party firewalls or with proxy servers. When a NAT gateway is deployed to a subnet with a virtual machine scale set of NVAs, those NVAs will use the NAT gateway address(es) for outbound connectivity, as opposed to the IP of a load balancer or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb).  
 
 ![firewalls with load balancer sandwich and NAT gateway](./images/natgw_fw_vmss.svg)
 
@@ -83,7 +83,7 @@ Azure Security Center can monitor for any suspicious outbound connectivity throu
 
 ## Next steps
 
-- [Microsoft Well-Architected Framework](/azure/architecture/framework/)
+- [Microsoft Well-Architected Framework](/azure/architecture/framework)
 - [Tutorial: Create a NAT gateway using the Azure portal](/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal)
 
 ## Related resources
