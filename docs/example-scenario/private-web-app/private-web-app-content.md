@@ -28,25 +28,13 @@ These similar design patterns are variations on the same underlying principle:
    
 1. The database firewall allows only traffic coming from the **PrivateLinkSubnet** to connect, making the database inaccessible from the public internet.
 
-### DNS zone configuration
-
-You can configure DNS hostname resolution for the individual App Service or for the entire Virtual Network. The scope and possible impact of defining DNS for the Virtual Network is larger than setting it for the individual App Service, and affects all workloads that run within that network. Regardless of whether the DNS configuration is set on the app or on the Virtual Network, the app needs the `WEBSITE_VNET_ROUTE_ALL` setting with value `1` to make the DNS resolution work.
-
-#### DNS configured on App Service
+### DNS configuration
 
 The app code can still use the public hostname, for example `contoso.database.windows.net`, for the SQL Database connection string. However, regional VNet Integration routes traffic from the web app only to private addresses in the Virtual Network, and the SQL Database hostname DNS resolution still results in its public IP address. If the web app connects to the public IP address, the traffic won't pass through the Virtual Network, although the traffic remains within Azure.
 
-Using the Private Link-specific hostname like `contoso.privatelink.database.windows.net` doesn't work, because SQL Database won't accept this hostname. The hostname still resolves to the public IP address, due to [how DNS works for private endpoints](/azure/private-link/private-endpoint-dns).
-
-To make DNS resolve the hostname to the SQL Database's private IP address, [configure App Service to use an Azure Private DNS zone](/azure/app-service/configure-common#configure-app-settings). Add a `WEBSITE_VNET_ROUTE_ALL` configuration setting with value `1` and a `WEBSITE_DNS_SERVER` setting with value `168.63.129.16`, the IP address of the Azure DNS service. For more information, see [App Service Virtual Network integration with Private DNS zones](/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones).
+Using the Private Link-specific hostname like `contoso.privatelink.database.windows.net` doesn't work, because SQL Database won't accept this hostname. The hostname still resolves to the public IP address, due to [how DNS works for private endpoints](/azure/private-link/private-endpoint-dns). To make DNS resolve the hostname to the SQL Database's private IP address, [enable the **Route All** setting on the web app's VNet integration](/azure/app-service/web-sites-integrate-with-vnet#application-routing).
 
 Now `contoso.database.windows.net` no longer resolves to the public IP address, but to the private IP address in the **PrivateLinkSubnet**, as defined in the Azure Private DNS zone. Traffic flows privately over the Virtual Network.
-
-#### DNS configured on the Virtual Network
-
-If the Virtual Network already has a custom DNS server that resolves the SQL Database hostname to its private IP address, the delegated **AppSvcSubnet** subnet inherits the Virtual Network DNS setting, and doesn't need the `WEBSITE_DNS_SERVER` configuration setting. For more information, see [Name resolution that uses your own DNS server](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
-
-If you don't have a custom DNS server, you can define DNS for the entire Virtual Network by setting its DNS server IP address to `168.63.129.16`, the IP address of the Azure DNS service. The app then inherits this address.
 
 ## Components
 
@@ -66,9 +54,9 @@ This scenario uses the following Azure services:
   
   If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a Private Endpoint for private connectivity to a SQL Database. If you already have SQL Managed Instance but are using multi-tenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
 
-- As an alternative to the Private Endpoint, you can use a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure the database. With a Service Endpoint, the private endpoint, **PrivateLinkSubnet**, and configuring the `WEBSITE_VNET_ROUTE_ALL` app setting are unnecessary. A Service Endpoint accesses the database via its public endpoint, so the `WEBSITE_DNS_SERVER` app setting is also unnecessary. You still need regional VNet Integration to route incoming traffic through the Virtual Network.
+- As an alternative to the Private Endpoint, you can use a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure the database. With a Service Endpoint, the private endpoint, **PrivateLinkSubnet**, and configuring the **Route All** regional VNet integration setting are unnecessary. You still need regional VNet Integration to route incoming traffic through the Virtual Network.
   
-  Compared to Service Endpoints, a Private Endpoint provides a private, dedicated IP address toward a specific instance, for example a logical SQL Server, rather than an entire service. Private Endpoints can help prevent data exfiltration towards other database servers. For more information, see [Comparison between Service Endpoints and Private Endpoints](/azure/private-link/private-link-faq#what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints).
+  Compared to Service Endpoints, a Private Endpoint provides a private, dedicated IP address toward a specific instance, for example a logical SQL Server, rather than an entire service. Private Endpoints can help prevent data exfiltration towards other database servers. For more information, see [Comparison between Service Endpoints and Private Endpoints](/azure/virtual-network/vnet-integration-for-azure-services#compare-private-endpoints-and-service-endpoints).
 
 ## Considerations
 
@@ -150,27 +138,19 @@ You can use the [Azure portal](#azure-portal) or an [Azure Resource Manager (ARM
    
 1. To [enable VNet Integration](/azure/app-service/web-sites-integrate-with-vnet#enable-vnet-integration), in the web app's App Service left navigation, under **Settings**, select **Networking**.
    
-1. On the **Networking** page, under **VNet Integration**, select **Click here to configure**.
+1. On the **Networking** page, in the **Outbound Traffic** section, click **VNet integration**.
    
 1. On the **VNet Integration** page, select **Add VNet**.
    
-1. On the **Network Feature Status** page, under **Virtual Network**, select your Virtual Network from the dropdown. Under **Subnet**, select **Select existing**, and then select **AppSvcSubnet** from the dropdown. Select **OK**.
+1. On the **Add VNet Integration** page, under **Virtual Network**, select your Virtual Network from the dropdown. Under **Subnet**, select **Select existing**, and then select **AppSvcSubnet** from the dropdown. Select **OK**.
+
+1. Enable the **Route All** setting.
    
    The **VNet Integration** page now shows the Virtual Network configuration details.
    
    ![Screenshot of enabling regional VNet Integration for the web app.](media/appsvc-private-sql-regional-vnet-integration.png)
    
    If you configure regional VNet Integration by using the portal **Networking** page, the required delegation of the subnet to `Microsoft.Web` happens automatically. If you don't use the **Networking** page, make sure to [delegate the subnet](/azure/virtual-network/manage-subnet-delegation#delegate-a-subnet-to-an-azure-service) to `Microsoft.Web` manually by following the instructions at [Delegate a subnet to an Azure service](/azure/virtual-network/manage-subnet-delegation#delegate-a-subnet-to-an-azure-service).
-   
-1. [Configure App Service to use an Azure Private DNS zone](/azure/app-service/configure-common#configure-app-settings). In the web app's left navigation, under **Settings**, select **Configuration**, and select **New application setting**.
-   
-1. On the **Add/Edit application setting** page, under **Name** enter `WEBSITE_VNET_ROUTE_ALL`, and under **Value** enter `1`. Select **OK**.
-   
-1. On the **Application settings** page, select **New application setting** again. On the **Add/Edit application setting** page, under **Name** enter `WEBSITE_DNS_SERVER`, and under **Value** enter `168.63.129.16`. Select **OK**.
-   
-1. At the top of the **Application settings** page, select **Save**, and then select **Continue**.
-   
-   ![Screenshot showing the web app Configuration settings to make regional VNet Integration work.](media/appsvc-private-sql-webapp-settings.png)
    
 Your web application should now be able to connect to the database over the private IP address. To validate, set the database firewall to **Deny public network access**, to test that traffic is allowed only over the private endpoint.
 

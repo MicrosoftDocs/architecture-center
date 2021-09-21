@@ -8,6 +8,9 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-active-directory
+categories:
+  - identity
+  - security
 ms.custom:
   - article
 ---
@@ -69,10 +72,11 @@ Here are some reference architectures related to identity and access management:
 
 ## Next steps
 
-We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program.
+Monitor the communication between segments. Use data to identify anomalies, set alerts, or block traffic to mitigate the risk of attackers crossing segmentation boundaries. 
+
 
 > [!div class="nextstepaction"]
-> [Monitor identity, network, data risks](./monitor-identity-network.md)
+> [Network-related risks](./design-network.md)
 
 ## Related links
 

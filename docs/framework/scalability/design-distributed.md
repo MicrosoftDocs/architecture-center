@@ -33,13 +33,13 @@ Distributed architectures require many areas of expertise. To adequately monitor
 
 For monolithic applications, scale is  two-dimensional. An application usually consist of a group of application servers, some web front ends (WFEs), and database servers. _Uncovering_ bottlenecks is simpler but _resolving_ them can require considerable effort. For distributed applications, complexity increases exponentially in both aspects for performance issues. You must consider each application, its supporting service, and the latency between all the application layers. 
   
-Performance efficiency is a complex mixture of applications and infrastructure (IaaS and PaaS). First, you must ensure that all services can scale to support the expected load and that one service will cause a bottleneck. Second, while performance testing, you may realize that certain services  scale under different load conditions as opposed to scaling all services uniformly. Monitoring all of your services and their infrastructure can help fine-tune your application for optimal performance.
+Performance efficiency is a complex mixture of applications and infrastructure (IaaS and PaaS). First, you must ensure that all services can scale to support the expected load and that one service will not cause a bottleneck. Second, while performance testing, you may realize that certain services scale under different load conditions as opposed to scaling all services uniformly. Monitoring all of your services and their infrastructure can help fine-tune your application for optimal performance.
 
 For more information about monitoring for scalability, see [Monitor performance for scalability and reliability](monitor-scalability-reliability.md).
 
 ## Antipatterns in design
 
-Antipatterns in design and code is a common cause for performance problems when an application is under pressure. For example, an application behaves as expected during performance testing. However, when when it's released to production and starts to handle live workloads, performance decreases. Problems such as rejecting user requests, stalling, or throwing exceptions may arise. To learn how to identify and fix these antipatterns, see [Performance antipatterns for cloud applications](../../antipatterns/index.md).
+Antipatterns in design and code are a common cause for performance problems when an application is under pressure. For example, an application behaves as expected during performance testing. However, when it's released to production and starts to handle live workloads, performance decreases. Problems such as rejecting user requests, stalling, or throwing exceptions may arise. To learn how to identify and fix these antipatterns, see [Performance antipatterns for cloud applications](../../antipatterns/index.md).
 
 ## Fault tracking
 
