@@ -2142,8 +2142,13 @@ items:
                 href: guide/iot/azure-iot-client-sdk-support.md
               - name: Choose an IoT solution
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md
+<<<<<<< HEAD
               - name: Moving from test to production
                 href: example-scenario/iot/iot-move-to-production.md 
+=======
+              - name: Move from test to production
+                href: example-scenario/iot/iot-moving-to-production.md 
+>>>>>>> 6af0015ff6c1fca850093ab255b3e0466cbb8c45
           - name: Architectures
             items:
               - name: Azure IoT reference architecture
