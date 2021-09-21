@@ -1,5 +1,5 @@
 ---
-title: Resource Manager transformer and collector
+title: Transformer and collector ARM template
 description: Describes how to implement a property transformer and collector in an Azure Resource Manager template.
 author: PeterTaylor9999
 ms.date: 10/30/2018

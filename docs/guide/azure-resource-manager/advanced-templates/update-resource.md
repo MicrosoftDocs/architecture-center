@@ -1,5 +1,5 @@
 ---
-title: Update resources using Resource Manager
+title: Update a resource in an ARM template
 description: Learn about how to extend the functionality of Azure Resource Manager templates to update a resource.
 author: PeterTaylor9999
 ms.date: 10/31/2018

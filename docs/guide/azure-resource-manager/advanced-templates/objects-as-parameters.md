@@ -1,5 +1,5 @@
 ---
-title: Objects as parameters in Resource Manager
+title: Use objects as parameters in ARM template
 description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters.
 author: PeterTaylor9999
 ms.date: 10/30/2018
