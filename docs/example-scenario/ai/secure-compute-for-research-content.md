@@ -10,7 +10,7 @@ We've deployed this architecture for Higher Education research institutions with
 - Banking and finance 
 
 ## Architecture
-:::image type="content" source="./media/secure-research-env.png" alt-text="Diagram of a secure research environment." :::
+:::image type="content" source="./media/secure-research-env.svg" alt-text="Diagram of a secure research environment." :::
 
 ## Components 
 
