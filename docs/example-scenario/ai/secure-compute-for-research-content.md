@@ -1,6 +1,6 @@
 This architecture shows a secure research environment intended to allow researchers to access sensitive data under a higher level of control and data protection. This article is applicable for organizations that are bound by regulatory compliance or other strict security requirements. 
 
-We've deployed this architecture for higher education research institutions with HIPAA requirements. However, this design can be used in any industry that requires isolation of data for research perspectives. Some examples include: 
+This architecture was originally created for higher education research institutions with HIPAA requirements. However, this design can be used in any industry that requires isolation of data for research perspectives. Some examples include: 
 - Industries that process regulated data as per NIST requirements 
 - Medical centers collaborating with internal or external researchers 
 - Banking and finance 
