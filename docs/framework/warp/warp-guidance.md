@@ -2,7 +2,7 @@
 title: Well-Architected Recommendation Process Guidance
 description: A guide for using Well-Architected Review and Advisor Recommendations for continuous workload improvement.
 author: JoeyBarnes
-ms.date: 09/14/2021
+ms.date: 09/22/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -17,6 +17,7 @@ products:
   - azure-devops
 categories:
   - devops
+  - management-and-governance
 ---
 
 # Well-Architected Recommendation Process Guidance (Preview)
@@ -29,7 +30,7 @@ The purpose of this document is to provide a guide for incorporating the recomme
 
 ## Assess workload
 
-This first step in the **Well-Architect Recommendation Process** is to conduct an assessment of your workload. The [Microsoft Azure Well-Architected Review](/assessments/?mode=pre-assessment) tool generates a set of recommendations through a guided assessment based on the [Microsoft Well-Architected Framework](/azure/architecture/framework/). This tool also has the ability to pull in [Azure Advisor](/azure/advisor) recommendations based on an Azure subscription or resource group. At the end of the assessment, there is an option to export these recommendations into a CSV file that can then be used to incorporate them into the operational process for the workload.
+This first step in the Well-Architected Recommendation Process is to conduct an assessment of your workload. The [Microsoft Azure Well-Architected Review](/assessments/?mode=pre-assessment) tool generates a set of recommendations through a guided assessment based on the [Microsoft Well-Architected Framework](/azure/architecture/framework/). This tool also has the ability to pull in [Azure Advisor](/azure/advisor) recommendations based on an Azure subscription or resource group. At the end of the assessment, there is an option to export these recommendations into a CSV file that can then be used to incorporate them into the operational process for the workload.
 
 > [!NOTE]
 > When using the [Microsoft Azure Well-Architected Review](/assessments/?mode=pre-assessment) tool, it's important to **Sign in** and select the Azure subscription or resource group that contains your workload. This will ensure that only the relevant [Azure Advisor](/azure/advisor) recommendations are included when exporting the CSV.
@@ -45,7 +46,7 @@ If you're using a [DevOps](/azure/cloud-adoption-framework/ready/enterprise-scal
 
 ## Triage backlog
 
-Now that the recommendations have been added to the backlog, the workload owners and key stakeholders should prioritize then triage the recommendations in a weekly standup meeting with the workload team. Then, they assign recommendations to a specific owner, postpone, or dismiss. When assigned to a specific owner, the recommendation should be tracked until resolved and weekly, or monthly reminders are sent to the assignee.
+Now that the recommendations have been added to the backlog, the workload owners and key stakeholders should prioritize, then triage the recommendations in a weekly standup meeting with the workload team. Next, they assign recommendations to a specific owner, postpone, or dismiss. When assigned to a specific owner, the recommendation should be tracked until resolved and weekly, or monthly reminders are sent to the assignee.
 
 When going through this process, it's recommended to align responsibilities across teams by developing a cross-team matrix that identifies [_responsible, accountable, consulted, and informed (RACI)_](/azure/cloud-adoption-framework/organize/raci-alignment) parties. Some of the key benefits of this exercise include:
 
