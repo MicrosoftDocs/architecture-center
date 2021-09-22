@@ -51,7 +51,7 @@ In this solution, you'll create a sample environment to:
 Docker images for each deployment eliminate dependency issues between different versions of Azure PowerShell.
 
 1. Make sure that Docker for Windows is using Windows containers.
-2. Run the following command in an elevated command prompt to get the Docker container with the deployment scripts.
+2. Run the following command in an elevated command prompt to get the Docker container with the deployment scripts:
 
     ```powershell  
     docker pull intelligentedge/mongodb-hadr:1.0.0
@@ -59,19 +59,19 @@ Docker images for each deployment eliminate dependency issues between different 
 
 ## Deploy the clusters
 
-1. Once the container image has been successfully pulled, start the image.
+1. Once the container image has been successfully pulled, start the image:
 
     ```powershell  
     docker run -it intelligentedge/mongodb-hadr:1.0.0 powershell
     ```
 
-2. Once the container has started, you'll be given an elevated PowerShell terminal in the container. Change directories to get to the deployment script.
+2. Once the container has started, you'll be given an elevated PowerShell terminal in the container. Change directories to get to the deployment script:
 
     ```powershell  
     cd .\MongoHADRDemo\
     ```
 
-3. Run the deployment. Provide credentials and resource names where needed. HA refers to the Azure Stack Hub where the HA cluster will be deployed. DR refers to the Azure Stack Hub where the DR cluster will be deployed.
+3. Run the deployment. Provide credentials and resource names where needed. HA refers to the Azure Stack Hub where the HA cluster will be deployed. DR refers to the Azure Stack Hub where the DR cluster will be deployed:
 
     ```powershell
     .\Deploy-AzureResourceGroup.ps1 `
@@ -88,7 +88,7 @@ Docker images for each deployment eliminate dependency issues between different 
     -AzureStackArmEndpoint_DR "https://management.drazurestack.com" `
     -AzureStackSubscriptionId_DR "drSubscriptionId"
     ```
-
+    
 4. Type `Y` to allow the NuGet provider to be installed, which will kick off the API Profile "2018-03-01-hybrid" modules to be installed.
 
 5. The HA resources will deploy first. Monitor the deployment and wait for it to finish. Once you have the message stating that the HA deployment is finished, you can check the HA Azure Stack Hub's portal to see the resources deployed.
@@ -97,14 +97,14 @@ Docker images for each deployment eliminate dependency issues between different 
 
 7. Wait for DR resource deployment to finish.
 
-8. Once DR resource deployment has finished, exit the container.
+8. Once DR resource deployment has finished, exit the container:
 
-  ```powershell
-  exit
-  ```
+    ```powershell
+    exit
+    ```
 
 ## Next steps
 
-- If you enabled the jump box VM on the DR Azure Stack Hub, you can connect via SSH and interact with the MongoDB cluster by installing the mongo CLI. To learn more about interacting with MongoDB, see [The mongo Shell](https://docs.mongodb.com/manual/mongo/).
-- To learn more about hybrid cloud apps, see [Hybrid Cloud Solutions.](/azure-stack/user/)
+- If you enabled the jump box VM on the DR Azure Stack Hub, you can connect via SSH and interact with the MongoDB cluster by installing the mongo CLI. To learn more about interacting with MongoDB, see [The mongo Shell](https://docs.mongodb.com/manual/mongo).
+- To learn more about hybrid cloud apps, see [Hybrid Cloud Solutions.](/azure-stack/user).
 - Modify the code to this sample on [GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns).
