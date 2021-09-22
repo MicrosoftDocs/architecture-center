@@ -388,8 +388,10 @@ items:
         items:
           - name: About
             href: framework/cost/index.yml
-          - name: Principles
+          - name: Overview
             href: framework/cost/overview.md
+          - name: Principles
+            href: framework/cost/principles.md
           - name: Design
             items:
               - name: Checklist
