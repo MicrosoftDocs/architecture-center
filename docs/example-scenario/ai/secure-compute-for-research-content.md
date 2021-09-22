@@ -14,7 +14,7 @@ We've deployed this architecture for Higher Education research institutions with
 
 ## Components 
 
-This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles are described below. For links to product documenation to help you get started with these services, see [Related links](#related-links). 
+This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles are described below. For links to product documentation to help you get started with these services, see [Related links](#related-links). 
  
 ### Workflow components
 
@@ -30,19 +30,19 @@ Here are the core components that move and process research data.
 
 - **Azure Data Factory** is used to programmatically move data between storage accounts of differing security levels to ensure separation of duties.
 
-- **Azure Virtual Desktop** is used as a jump box to gain access to the resources in the secure environment with streaming apps and a full desktop, as needed. Alternately, you can use Azure Bastion but understanding the security controls differences between Virtual Desktop and Bastion is of the utmost importance. Virtual Desktop has some advantages:
+- **Azure Virtual Desktop** is used as a jump box to gain access to the resources in the secure environment with streaming apps and a full desktop, as needed. Alternately, you can use Azure Bastion but have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
 
-- Ability to stream an app like VSCode to run notebooks against the AML compute resources.  
-- Ability to limit copy, paste and screen captures. 
-- Support for Azure Active Directory Authentication to DSVM. 
+    - Ability to stream an app like VSCode to run notebooks against the AML compute resources.  
+    - Ability to limit copy, paste, and screen captures. 
+    - Support for Azure Active Directory Authentication to DSVM. 
 
 - **Azure Logic Apps** provides automated low-code workflow to develop both the _trigger_ and _release_ portions of the manual approval process.   
 
 ### Posture management components
 
-These components continuously monitor the posture of the workload and the enviroment. The purpose is to discover and mitigate risks as soon as they are discovered. 
+These components continuously monitor the posture of the workload and the environment. The purpose is to discover and mitigate risks as soon as they are discovered. 
 
-- **Azure Security Center** is used to evaluate the overall security posture of the implementation and  provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be dicovered early. Use of features such as secure score and compliance score are recommended. 
+- **Azure Security Center** is used to evaluate the overall security posture of the implementation and  provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be discovered early. Use of features such as secure score and compliance score are recommended. 
 
 - **Azure Sentinel** is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution. You can see logs and alerts from various sources and take advantage of advanced AI and security analytics to help you detect, hunt, prevent, and respond to threats. 
 
@@ -55,7 +55,7 @@ These components continuously monitor the posture of the workload and the enviro
 
 ## Data flow
 
-1. Data owners upload datasets into a public Azure Blob storage account. The data is encyrpted by using Microsoft-managed keys.
+1. Data owners upload datasets into a public blob storage account. The data is encrypted by using Microsoft-managed keys.
 
 2. Data Factory uses a trigger that starts copying of the uploaded dataset to a specific location (import path) on another storage account with security controls. The storage account can only be reached through a private endpoint. Also, it's accessed by a service principal with limited permissions. Data Factory deletes the original copy making the dataset immutable.
 
@@ -63,13 +63,14 @@ These components continuously monitor the posture of the workload and the enviro
 
 4. The dataset in the secure storage account is presented to the Data Science Virtual Machine (DSVM) provisioned in a secure network environment for research work. Much of the data preparation is done on the DSVM.  
 
-5. The secure enviroment has Azure Machine Learning compute that can access the the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models.
+5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models.
 
 6. Models or deidentified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a Logic App is triggered. In this architecture, the Logic App is outside the secure environment because no data is sent to the Logic App, it's only a notification and approval function.  
 
     The app starts an approval process requesting a review of data that is queued to be exported.  The manual reviewers ensure that sensitive data isn't exported. After the review process, the data is either approved or denied. 
 
-    > [!NOTE] If an approval step is not required on exfiltration, the Logic App step could be omitted. 
+    > [!NOTE] 
+    > If an approval step is not required on exfiltration, the Logic App step could be omitted. 
 
 7. If the deidentified data is approved, it's sent to the Data Factory instance. 
 
@@ -81,7 +82,7 @@ The main objective of this architecture is to provide a secure and trusted resea
 
 ### Network security
 
-Azure resources that are used to store, test, and train research data sets are provisioned in a secure environment. That enviornment is an Azure Virtual Network (VNet) that has network security groups (NSGs) rules to restrict access, mainly:
+Azure resources that are used to store, test, and train research data sets are provisioned in a secure environment. That environment is an Azure Virtual Network (VNet) that has network security groups (NSGs) rules to restrict access, mainly:
 
 - Inbound and outbound access to the public internet and within the VNet.
 - Access to and from specific services and ports. For example, this architecture blocks all ports and ranges except for required Azure Services (such as Azure Monitor). Also, access from VNet with Azure Virtual Desktop (AVD) on ports limited to approved access methods is accepted, all other traffic is denied. When compared to this environment, the other VNet (with AVD) is relatively open. 
@@ -106,7 +107,7 @@ To secure data at rest, all Azure Storage is encrypted with Microsoft-managed ke
 
 ### Governance considerations
 
-Enable Azure Policy to enforce standards and  provide automated remediation to bring resources into compliance for specific policies. This can be applied to a project subscription or at a management group level as a single policy or as part of a regulatory Initiative.  
+Enable Azure Policy to enforce standards and  provide automated remediation to bring resources into compliance for specific policies. The policies can be applied to a project subscription or at a management group level as a single policy or as part of a regulatory Initiative.  
 
 For example, in this architecture Azure Policy Guest Configuration was applied to all VMs in scope. The policy can audit operating systems and machine configuration for the Data Science VMs. 
 
@@ -122,13 +123,13 @@ Most research solutions are temporary workloads.  This architecture is currently
 
 To recover from failures, consider capturing and  creating a copy of the customized base image.
 
-If higher availability is required, you can replicate this architecture in multiple regions. You would need additional components, such as global load balancer and distributor to route traffic to all those regions.
+If higher availability is required, you can replicate this architecture in multiple regions. You would need other components, such as global load balancer and distributor to route traffic to all those regions.
 
 ## Performance and scalability
 
 The size and type of the Data Science VMs should be appropriate to the style of work being performed. 
 
-This architecture is intended to support a single research project and the scalability is acheived by adjusting the size and type of the VMs and the choices made for compute resources available to AML. 
+This architecture is intended to support a single research project and the scalability is achieved by adjusting the size and type of the VMs and the choices made for compute resources available to AML. 
 
 ## Cost considerations 
 
