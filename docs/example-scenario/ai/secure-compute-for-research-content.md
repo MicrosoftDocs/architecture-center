@@ -5,7 +5,7 @@ This architecture was originally created for higher education research instituti
 - Medical centers collaborating with internal or external researchers 
 - Banking and finance 
 
-By following the guidance you can maintain full control of your research data, have separation of duties, and meet strict regulatory compliance standards while providing collaboration between the typical roles involved in a research oriented workload; data owners, researchers, and approvers. 
+By following the guidance you can maintain full control of your research data, have separation of duties, and meet strict regulatory compliance standards while providing collaboration between the typical roles involved in a research-oriented workload; data owners, researchers, and approvers. 
 
 ## Architecture
 :::image type="content" source="./media/secure-research-env.png" alt-text="Diagram of a secure research environment.":::
@@ -20,9 +20,9 @@ By following the guidance you can maintain full control of your research data, h
 
 4. The dataset in the secure storage account is presented to the data science VMs provisioned in a secure network environment for research work. Much of the data preparation is done on those VMs.  
 
-5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models. At this point, models are created that meet regulatory guidelines. All model data is deidentified by removing personally identifiable information.
+5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models. At this point, models are created that meet regulatory guidelines. All model data is deidentified by removing personal information.
 
-6. Models or deidentified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a Logic App is triggered. In this architecture, the Logic App is outside the secure environment because no data is sent to the Logic App. Its only function is notification and start the manual approval process.  
+6. Models or deidentified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a Logic App is triggered. In this architecture, the Logic App is outside the secure environment because no data is sent to the Logic App. Its only function is to send notification and start the manual approval process.  
 
     The app starts an approval process requesting a review of data that is queued to be exported.  The manual reviewers ensure that sensitive data isn't exported. After the review process, the data is either approved or denied. 
 
@@ -52,7 +52,7 @@ Here are the core components that move and process research data.
 
 - **Azure Data Factory** - Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
 
-- **Azure Virtual Desktop** is used as a jump box to gain access to the resources in the secure environment with streaming aapplications and a full desktop, as needed. Alternately, you can use Azure Bastion. But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
+- **Azure Virtual Desktop** is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use Azure Bastion. But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
 
     - Ability to stream an app like VSCode to run notebooks against the machine learning compute resources.  
     - Ability to limit copy, paste, and screen captures. 
