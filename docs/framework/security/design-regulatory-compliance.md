@@ -2,7 +2,7 @@
 title: Regulatory compliance
 description: Understand how to meet regulatory compliance for Azure cloud architectures. Gather regulatory requirements. Use the Microsoft Trust Center.
 author: PageWriter-MSFT
-ms.date: 10/29/2020
+ms.date: 09/22/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -17,14 +17,17 @@ ms.custom:
 ---
 
 # Regulatory compliance
-A workload can have regulatory requirements. These requirements might need strict security measures that affect the overall architecture and the selection and configuration of specific PaaS and SaaS services. The requirements also have implications for how the workload should be operationalized.
+
+A workload can have regulatory requirements, which may mandate that operational data, such as application logs and metrics, remain within a certain geo-political region.
+
+These requirements may need strict security measures that affect the overall architecture, the selection, and configuration of specific PaaS, and SaaS services. The requirements also have implications for how the workload should be operationalized.
 
 ## Key points
 > [!div class="checklist"]
-> - Make sure that all regulatory requirements are known and well understood. 
+> - Make sure that all regulatory and governance requirements are known, and well understood. 
 > - Periodically perform external and, or internal workload security audits.
 > - Have compliance checks as part of the workload operations.
-> - Use Microsoft Trust Center. 
+> - Use Microsoft Trust Center.
 
 ## Review the requirements
 
@@ -51,11 +54,11 @@ Use Azure Defender (Azure Security Center) to assess your current compliance sco
 
 ## Use the Microsoft Trust Center
 
-Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-center) for the latest information, news, and best practices in security, privacy, and compliance. 
+Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-center) for the latest information, news, and best practices in security, privacy, and compliance.
 
 - **Data governance**. Focus on protecting information in cloud services, mobile devices, workstations, or collaboration platforms. Build the security strategy by classifying and labeling information. Use strong access control and encryption technology. 
 - **Compliance offerings**. Microsoft offers a comprehensive set of compliance offerings to help your organization follow national, regional, and industry-specific requirements governing the collection and use of data. For information, see [Compliance offerings](/microsoft-365/compliance/offering-home).
-- **Compliance score**. Use [Microsoft Compliance Score](/microsoft-365/compliance/compliance-manager) to assess your data protection controls on an ongoing basis. Act on the recommendations to make progress toward compliance. 
+- **Compliance score**. Use [Microsoft Compliance Score](/microsoft-365/compliance/compliance-manager) to assess your data protection controls on an ongoing basis. Act on the recommendations to make progress toward compliance.
 - **Audit reports**. Use audit reports to stay current on the latest privacy, security, and compliance-related information for Microsoft's cloud services. See [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 - **Shared responsibility**. The workload can be hosted on Software as a Service (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS), or in an on-premises datacenter. Have a clear understanding about the portions of the architecture for which you are responsible versus Azure. Whatever the hosting model, the following responsibilities are always retained by you:
     - Data
@@ -63,7 +66,7 @@ Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-cente
     - Account
     - Access management
 
-    For more information, see [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
+    For more information, reference [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
 ## Elevated security capabilities
 
@@ -87,8 +90,6 @@ as required:
 
 Learn more about [elevated security capabilities for Azure workloads](https://azure.microsoft.com/solutions/confidential-compute/).
 
-
-
 ## Operational considerations
 
 Regulatory requirements may influence the workload operations. For example, there might be a requirement that operational data, such as application logs and metrics, remain within a certain geo-political region.
@@ -101,8 +102,8 @@ Consider automation of deployment and maintenance tasks. This will reduce securi
 
 ## Related links
 
-Azure maintains a compliance portfolio that covers US government, industry specific, and region/country standards. For more information, see [Azure compliance offerings](/azure/compliance/offerings/).
+Azure maintains a compliance portfolio that covers US government, industry specific, and region/country standards. For more information, reference [Azure compliance offerings](/azure/compliance/offerings/).
 
-Monitor the compliance of the workload to check if the security controls are aligned to the regulatory requirements. For more information, see [Security audits](monitor-audit.md). 
+Monitor the compliance of the workload to check if the security controls are aligned to the regulatory requirements. For more information, reference [Security audits](monitor-audit.md).
 
 > Go back to the main article: [Governance](design-governance.md)
