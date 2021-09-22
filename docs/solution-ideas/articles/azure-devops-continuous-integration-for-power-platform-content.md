@@ -24,7 +24,7 @@ Learn how to create a CI/CD pipeline to manage your Power Platform Application l
 * [Power Apps](https://powerapps.microsoft.com): Microsoft Power Apps is a low-code app-building platform.
 * [Azure DevOps](https://azure.microsoft.com/services/devops): Azure DevOps can build, test, and deploy a solution in any language, to any cloud or on-premises.
 * [Azure Repos](https://azure.microsoft.com/services/devops/repos): Azure Repos provides cloud-hosted private Git repos.
-* [Azure Application Insights](/azure-monitor/app/app-insights-overview): Application Insights is a feature of Azure Monitor, which you can use to monitor your live applications. 
+* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview): Application Insights is a feature of Azure Monitor, which you can use to monitor your live applications. 
 
 ## Pricing
 
@@ -49,7 +49,7 @@ Additional CI/CD architectures:
 * [Gridwich CI/CD pipeline](/azure/architecture/reference-architectures/media-services/gridwich-cicd)
 * [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
 * [CI/CD for containers](/azure/architecture/solution-ideas/articles/cicd-for-containers)
-* [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](/architecture/solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service)
+* [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service)
 * [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
 * [CI/CD for Azure Web Apps](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps)
 * [Java CI/CD using Jenkins and Azure Web Apps](/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps)
