@@ -23,4 +23,4 @@ name: Integrate Event Hubs with serverless functions on Azure
 summary: Learn how to architect, develop, and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.
 thumbnailUrl:  /azure/architecture/serverless/event-hubs-functions/images/event_hubs_architecture.svg
 content: |
-  [!include[](event-hubs-functions.md)]
+  [!include[](event-hubs-functions-content.md)]

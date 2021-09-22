@@ -1585,15 +1585,15 @@ items:
                   - name: Event Hubs with Azure Functions 
                     items:
                       - name: Overview
-                        href: event-hubs-functions.md
+                        href: serverless/event-hubs-functions/event-hubs-functions.md
                       - name: Performance and scale
-                        href: performance-scale.md
+                        href: serverless/event-hubs-functions/performance-scale.md
                       - name: Resilient Event Hubs and Functions design
-                        href: resilient-design.md
+                        href: serverless/event-hubs-functions/resilient-design.md
                       - name: Security
-                        href: security.md
+                        href: serverless/event-hubs-functions/security.md
                       - name: Observability
-                        href: observability.md  
+                        href: serverless/event-hubs-functions/observability.md  
               - name: Architectures
                 items:
                   - name: Azure Functions in a hybrid environment
