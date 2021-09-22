@@ -71,13 +71,13 @@ When using availability zones for zone isolation, NAT gateways can also be deplo
 
 Availability zone isolation cannot be provided, unless each subnet only has resources within a specific zone. Instead, deploy a subnet for each of the availability zones where VMs are deployed, align the zonal VMs with matching zonal NAT gateways, and build separate zonal stacks.  For example, a virtual machine in availability zone 1 is on a subnet with other resources that are also only in availability zone 1. A NAT gateway is configured in availability zone 1 to serve that subnet. See the following diagram.
 
-![zonal stack](./images/az-directions.png)
+![Diagram that demonstrates the directional flow of a zonal stack.](./images/az-directions.png)
 
 ## Security
 
 A common approach is to design an outbound-only network virtual appliance (NVA) scenario with third-party firewalls or with proxy servers. When a NAT gateway is deployed to a subnet with a virtual machine scale set of NVAs, those NVAs will use the NAT gateway address(es) for outbound connectivity, as opposed to the IP of a load balancer or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb).  
 
-![firewalls with load balancer sandwich and NAT gateway](./images/natgw_fw_vmss.svg)
+![Diagram that shows firewalls with a load balancer sandwich and NAT gateway.](./images/natgw-fw-vmss.svg)
 
 Azure Security Center can monitor for any suspicious outbound connectivity through a NAT gateway. This is an alert feature in [Azure Security Center](/azure/security-center).
 
