@@ -1,5 +1,5 @@
 ---
-title: Retry guidance for Azure services
+title: Azure service retry guidance
 titleSuffix: Best practices for cloud applications
 description: Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.
 author: dragon119
