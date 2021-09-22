@@ -1,29 +1,3 @@
----
-title: Monitoring Azure Functions with Event Hubs
-description: Learn how to monitor an Azure Functions topology with Event Hubs.
-author: dbarkol
-ms.author: dabarkol
-ms.topic: conceptual
-ms.date: 09/22/2021
-ms.service: architecture-center
-ms.subservice: azure-guide
-ms.category:
-  - analytics
-  - compute
-categories:
-  - analytics
-  - compute
-products:
-  - azure-monitor
-  - azure-application-insights
-  - azure-event-hubs
-  - azure-functions
-ms.custom:
-  - guide
----
-
-# Monitoring Azure Functions with Event Hubs
-
 Monitoring provides insights into the behavior and health of your systems, and helps build a holistic view of the environment, historic trends, correlate diverse factors, and measure changes in performance, consumption, or error rate.
 
 Azure Functions offer built-in integration with [Application Insights](/azure/azure-monitor/app/app-insights-overview). From App Insights, you can get information such as the number of Azure Function instances or request and dependency telemetry of the Azure Function. When working with event-triggered Azure Functions with Event Hub, App Insights is also capable of tracking the outgoing dependency telemetries to Event Hub, calculating the time spent in Event Hub queue, and showing the end-to-end flow of the system connected through Event Hubs.
