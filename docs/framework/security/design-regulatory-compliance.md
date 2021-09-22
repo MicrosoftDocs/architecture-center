@@ -31,7 +31,7 @@ These requirements may need strict security measures that affect the overall arc
 
 ## Review the requirements
 
-Regulatory organizations frequently publish standards and updates to help define good security practices so that organizations can avoid negligence. The purpose and scope of these standards and regulations vary, but the security requirements can influence the design for data protection and retention, network access, and system security.
+Regulatory organizations frequently publish standards and updates to help define good security practices so that organizations can avoid negligence. The purpose and scope of these standards, and regulations vary. The security requirements, however, can influence the design for data protection and retention, network access, and system security.
 
 Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world.
 
@@ -99,7 +99,7 @@ Learn more about [elevated security capabilities for Azure workloads](https://az
 
 Regulatory requirements may influence the workload operations. For example, there might be a requirement that operational data, such as application logs and metrics, remain within a certain geo-political region.
 
-Consider automation of deployment and maintenance tasks. This will reduce security and compliance risk by limiting opportunity to introduce human errors during manual tasks.
+Consider automation of deployment and maintenance tasks. Automation reduces security and compliance risk by limiting opportunity to introduce human errors during manual tasks.
 
 ## Related links
 
