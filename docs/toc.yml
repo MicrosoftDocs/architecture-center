@@ -229,9 +229,7 @@ items:
   - name: Microsoft Azure Well-Architected Framework
     items:
       - name: Overview
-        href: framework/index.md
-      - name: Well-Architected Recommendation Process
-        href: framework/warp/warp-guidance.md        
+        href: framework/index.md  
       - name: Reliability
         items:
               - name: About
