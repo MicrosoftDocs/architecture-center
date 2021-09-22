@@ -137,7 +137,7 @@ For more information about the individual pieces of a solution architecture, see
 - [Azure HDInsight](/azure/hdinsight/)
 - [Azure Time Series Insights](/azure/time-series-insights/)
 - [Azure Data Explorer](/azure/data-explorer/)
-- [Azure Mahine Learning](/azure/machine-learning/)
+- [Azure Machine Learning](/azure/machine-learning/)
 - [Azure Databricks](/azure/databricks/)
 - [Power BI](/power-bi/connect-data/)
 - [Azure Maps](/azure/azure-maps/)
