@@ -1,20 +1,18 @@
-This architecture shows a secure research environment. The architecture allows researchers to access sensitive data under a higher level of control and data protection. This article is intended for organizations that are bound by regulatory compliance or other security requirements. 
+This architecture shows a secure research environment intended to allow researchers to access sensitive data under a higher level of control and data protection. This article is applicable for organizations that are bound by regulatory compliance or other strict security requirements. 
 
-By following the guidance you can maintain full control of your data, have separation of duties, and meet strict regulatory compliance standards while providing a robust platform for collaboration. 
-
-## Potential use cases 
-
-We've deployed this architecture for Higher Education research institutions with HIPAA requirements. This design can be used in any industry that requires isolation of data for research perspectives. Some examples include: 
+We've deployed this architecture for Higher Education research institutions with HIPAA requirements. However, this design can be used in any industry that requires isolation of data for research perspectives. Some examples include: 
 - Industries that process regulated data as per NIST requirements 
 - Medical centers collaborating with internal or external researchers 
 - Banking and finance 
+
+By following the guidance you can maintain full control of your research data, have separation of duties, and meet strict regulatory compliance standards while providing collaboration between roles of data owners, researchers, and approvers. 
 
 ## Architecture
 :::image type="content" source="./media/secure-research-env.svg" alt-text="Diagram of a secure research environment." :::
 
 ## Components 
 
-This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles are described below. For links to product documentation to help you get started with these services, see [Related links](#related-links). 
+This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles are described below. For links to product documentation to get started with these services, see [Related links](#related-links). 
  
 ### Workflow components
 
@@ -63,7 +61,7 @@ These components continuously monitor the posture of the workload and the enviro
 
 4. The dataset in the secure storage account is presented to the Data Science Virtual Machine (DSVM) provisioned in a secure network environment for research work. Much of the data preparation is done on the DSVM.  
 
-5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models.
+5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models. At this point, models are created that meet regulatory guidelines. All model data is deidentified by removing personally identifiable information.
 
 6. Models or deidentified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a Logic App is triggered. In this architecture, the Logic App is outside the secure environment because no data is sent to the Logic App, it's only a notification and approval function.  
 
@@ -74,7 +72,7 @@ These components continuously monitor the posture of the workload and the enviro
 
 7. If the deidentified data is approved, it's sent to the Data Factory instance. 
 
-8. Data Factory moves the data to the storage account in a separate container to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
+8. Data Factory moves the data to the public storage account in a separate container to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
 
 ## Security
 
@@ -113,29 +111,17 @@ For example, in this architecture Azure Policy Guest Configuration was applied t
 
 ### VM image
 
-The Data Science VMs run customized base images. Using technologies like Azure Image Builder to build the base image is highly recommended. 
+The Data Science VMs run customized base images. Using technologies like Azure Image Builder to build the base image is highly recommended. This way you can create a repeatable image that can be deployed when needed. 
 
-The base image might need updates, such as addition of other binaries. Those binaries should be uploaded to the public blob storage and flow through the secure environment, much like the datasets are uploaded by data owners
+The base image might need updates, such as addition of other binaries. Those binaries should be uploaded to the public blob storage and flow through the secure environment, much like the datasets are uploaded by data owners.
 
-## Availability 
+## Other considerations 
 
-Most research solutions are temporary workloads.  This architecture is currently designed as a single-region deployment with availability zones.
+Most research solutions are temporary workloads and don't need to be available for extended periods. This architecture is designed as a single-region deployment with availability zones. If the business requirements demand higher availability, replicate this architecture in multiple regions. You would need other components, such as global load balancer and distributor to route traffic to all those regions. As part of your recovery strategy, capturing and creating a copy of the customized base image with Azure Image Builder is highly recommended.
 
-To recover from failures, consider capturing and  creating a copy of the customized base image.
+The size and type of the Data Science VMs should be appropriate to the style of work being performed. This architecture is intended to support a single research project and the scalability is achieved by adjusting the size and type of the VMs and the choices made for compute resources available to AML. 
 
-If higher availability is required, you can replicate this architecture in multiple regions. You would need other components, such as global load balancer and distributor to route traffic to all those regions.
-
-## Performance and scalability
-
-The size and type of the Data Science VMs should be appropriate to the style of work being performed. 
-
-This architecture is intended to support a single research project and the scalability is achieved by adjusting the size and type of the VMs and the choices made for compute resources available to AML. 
-
-## Cost considerations 
-
-Use the Azure pricing calculator to estimate costs based on estimated sizing of resources needed. 
-
-This reference assumes that the consumption plan is used to create a global Logic Apps resource. 
+The cost of DSVMs depends on the choice of the underlying VM series. Because the workload is temporary,  the consumption plan is recommended for the Logic App resource. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on estimated sizing of resources needed. 
 
 
 ## Related links
