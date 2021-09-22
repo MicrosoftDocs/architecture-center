@@ -5,7 +5,7 @@ We've deployed this architecture for Higher Education research institutions with
 - Medical centers collaborating with internal or external researchers 
 - Banking and finance 
 
-By following the guidance you can maintain full control of your research data, have separation of duties, and meet strict regulatory compliance standards while providing collaboration between roles of data owners, researchers, and approvers. 
+By following the guidance you can maintain full control of your research data, have separation of duties, and meet strict regulatory compliance standards while providing collaboration between the typical roles involved in a research oriented workload; data owners, researchers, and approvers. 
 
 ## Architecture
 :::image type="content" source="./media/secure-research-env.svg" alt-text="Diagram of a secure research environment." :::
@@ -18,19 +18,19 @@ This architecture consists of several Azure cloud services that scale resources 
 
 Here are the core components that move and process research data. 
 
-- **Microsoft Data Science Virtual Machine (DSVM)** is a VM image configured with tools used for data analytics and machine learning. 
+- **Microsoft Data Science Virtual Machine (DSVM)** - VMs that are configured with tools used for data analytics and machine learning. 
 
-- **Azure Machine Learning** is used to manage the allocation and use of the Azure resources described below. 
+- **Azure Machine Learning** - Used to train, deploy, automate, and manage machine learning models and to manage the allocation and use of ML compute resources. 
 
-- **Azure Machine Learning Compute** is a cluster of nodes that are allocated on demand based on an automatic scaling option. 
+- **Azure Machine Learning Compute** - A cluster of nodes tha are used to train and test machine learning and AI models. The compute is allocated on demand based on an automatic scaling option. 
 
-- **Azure Blob storage** receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster. 
+- **Azure Blob storage** - There are two instances. The public instance is used to temporarily store the data uploaded by data owners. Also, it stores deidentified data after modeling. The second instance is private. It receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster. 
 
-- **Azure Data Factory** is used to programmatically move data between storage accounts of differing security levels to ensure separation of duties.
+- **Azure Data Factory** - Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
 
-- **Azure Virtual Desktop** is used as a jump box to gain access to the resources in the secure environment with streaming apps and a full desktop, as needed. Alternately, you can use Azure Bastion but have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
+- **Azure Virtual Desktop** is used as a jump box to gain access to the resources in the secure environment with streaming apps and a full desktop, as needed. Alternately, you can use Azure Bastion. But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
 
-    - Ability to stream an app like VSCode to run notebooks against the AML compute resources.  
+    - Ability to stream an app like VSCode to run notebooks against the machine learning compute resources.  
     - Ability to limit copy, paste, and screen captures. 
     - Support for Azure Active Directory Authentication to DSVM. 
 
@@ -40,9 +40,9 @@ Here are the core components that move and process research data.
 
 These components continuously monitor the posture of the workload and the environment. The purpose is to discover and mitigate risks as soon as they are discovered. 
 
-- **Azure Security Center** is used to evaluate the overall security posture of the implementation and  provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be discovered early. Use of features such as secure score and compliance score are recommended. 
+- **Azure Security Center** is used to evaluate the overall security posture of the implementation and  provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be discovered early. Use of features to track progress such as secure score and compliance score. 
 
-- **Azure Sentinel** is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution. You can see logs and alerts from various sources and take advantage of advanced AI and security analytics to help you detect, hunt, prevent, and respond to threats. 
+- **Azure Sentinel** is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to help you detect, hunt, prevent, and respond to threats. 
 
 - **Azure Monitor** provides observability across your entire environment. View metrics, activity logs, and diagnostics logs from most of your Azure resources without added configuration. Management tools, such as those in Azure Security Center, also push log data to Azure Monitor. 
 
@@ -59,7 +59,7 @@ These components continuously monitor the posture of the workload and the enviro
 
 3. Researchers access the secure environment through a streaming application using Azure Virtual Desktop as a privileged jump box.   
 
-4. The dataset in the secure storage account is presented to the Data Science Virtual Machine (DSVM) provisioned in a secure network environment for research work. Much of the data preparation is done on the DSVM.  
+4. The dataset in the secure storage account is presented to the data science VMs provisioned in a secure network environment for research work. Much of the data preparation is done on those VMs.  
 
 5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models. At this point, models are created that meet regulatory guidelines. All model data is deidentified by removing personally identifiable information.
 
@@ -89,6 +89,8 @@ A full list of Service Tags and the corresponding services can be found [here](/
 
 The main blob storage in the secure environment is off the public internet. It's only accessible within the VNet through [private endpoint connections](/azure/storage/files/storage-files-networking-endpoints) and Azure Storage Firewalls. It's used to limit the networks from which clients can connect to Azure file shares. 
 
+The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint.
+
 For Azure services that cannot be configured effectively with private endpoints or to provide stateful packet inspection, consider using Azure Firewall or a third-party network virtual appliance (NVA). 
 
 ### Identity management
@@ -101,7 +103,7 @@ Data Factory uses managed identity to access data from the blob storage. DSVMs a
 
 ### Data security
 
-To secure data at rest, all Azure Storage is encrypted with Microsoft-managed keys using strong cryptography. Alternately, you can use customer-managed keys. The keys must be stored in a managed key store. In this architecture, Azure Key Vault is deployed in the secure environment to store secrets such as encryption keys and certificates. Key Vault is accessed through a private endpoint by the resources in the VNet. 
+To secure data at rest, all Azure Storage is encrypted with Microsoft-managed keys using strong cryptography. Alternately, you can use customer-managed keys. The keys must be stored in a managed key store. In this architecture, Azure Key Vault is deployed in the secure environment to store secrets such as encryption keys and certificates. Key Vault is accessed through a private endpoint by the resources in the secure VNet. 
 
 ### Governance considerations
 
@@ -111,7 +113,7 @@ For example, in this architecture Azure Policy Guest Configuration was applied t
 
 ### VM image
 
-The Data Science VMs run customized base images. Using technologies like Azure Image Builder to build the base image is highly recommended. This way you can create a repeatable image that can be deployed when needed. 
+The Data Science VMs run customized base images. To build the base image, we highly recommend technologies like Azure Image Builder. This way you can create a repeatable image that can be deployed when needed. 
 
 The base image might need updates, such as addition of other binaries. Those binaries should be uploaded to the public blob storage and flow through the secure environment, much like the datasets are uploaded by data owners.
 
