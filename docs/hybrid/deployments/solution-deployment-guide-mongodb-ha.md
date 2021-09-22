@@ -27,14 +27,14 @@ In this solution, you'll create a sample environment to:
 > - Deploy a basic highly available MongoDB cluster with a disaster recovery site.
 
 > [!Tip]  
-> ![hybrid-pillars.png](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![The hybrid tip icon.](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that lets you build and deploy hybrid apps anywhere.  
 > 
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ## Architecture for MongoDB with Azure Stack Hub
 
-![highly available MongoDB architecture in Azure Stack Hub](media/solution-deployment-guide-mongodb-ha/image1.png)
+![The diagram shows a highly available MongoDB architecture in Azure Stack Hub.](media/solution-deployment-guide-mongodb-ha/image1.png)
 
 ## Prerequisites for MongoDB with Azure Stack Hub
 
