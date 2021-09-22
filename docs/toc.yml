@@ -2425,6 +2425,8 @@ items:
                 href: example-scenario/firewalls/index.yml
               - name: Azure Firewall framework review
                 href: networking/guide/well-architected-framework-azure-firewall.md
+              - name: NAT gateway framework review
+                href: networking/guide/well-architected-network-address-translation-gateway.md
               - name: Private Link in hub-and-spoke network
                 href: guide/networking/private-link-hub-spoke-network.yml
               - name: Segment Virtual Networks
