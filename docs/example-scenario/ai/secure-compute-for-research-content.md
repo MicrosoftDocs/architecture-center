@@ -10,6 +10,30 @@ By following the guidance you can maintain full control of your research data, h
 ## Architecture
 :::image type="content" source="./media/secure-research-env.png" alt-text="Diagram of a secure research environment.":::
 
+## Data flow
+
+1. Data owners upload datasets into a public blob storage account. The data is encrypted by using Microsoft-managed keys.
+
+2. Data Factory uses a trigger that starts copying of the uploaded dataset to a specific location (import path) on another storage account with security controls. The storage account can only be reached through a private endpoint. Also, it's accessed by a service principal with limited permissions. Data Factory deletes the original copy making the dataset immutable.
+
+3. Researchers access the secure environment through a streaming application using Azure Virtual Desktop as a privileged jump box.   
+
+4. The dataset in the secure storage account is presented to the data science VMs provisioned in a secure network environment for research work. Much of the data preparation is done on those VMs.  
+
+5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models. At this point, models are created that meet regulatory guidelines. All model data is deidentified by removing personally identifiable information.
+
+6. Models or deidentified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a Logic App is triggered. In this architecture, the Logic App is outside the secure environment because no data is sent to the Logic App. Its only function is notification and start the manual approval process.  
+
+    The app starts an approval process requesting a review of data that is queued to be exported.  The manual reviewers ensure that sensitive data isn't exported. After the review process, the data is either approved or denied. 
+
+    > [!NOTE] 
+    > If an approval step is not required on exfiltration, the Logic App step could be omitted. 
+
+7. If the deidentified data is approved, it's sent to the Data Factory instance. 
+
+8. Data Factory moves the data to the public storage account in a separate container to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
+
+
 ## Components 
 
 This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles are described below. For links to product documentation to get started with these services, see [Related links](#related-links). 
@@ -51,29 +75,6 @@ These components continuously monitor the posture of the workload and its enviro
 
 - **Azure Policy** helps to enforce organizational standards and to assess compliance at-scale. 
 
-## Data flow
-
-1. Data owners upload datasets into a public blob storage account. The data is encrypted by using Microsoft-managed keys.
-
-2. Data Factory uses a trigger that starts copying of the uploaded dataset to a specific location (import path) on another storage account with security controls. The storage account can only be reached through a private endpoint. Also, it's accessed by a service principal with limited permissions. Data Factory deletes the original copy making the dataset immutable.
-
-3. Researchers access the secure environment through a streaming application using Azure Virtual Desktop as a privileged jump box.   
-
-4. The dataset in the secure storage account is presented to the data science VMs provisioned in a secure network environment for research work. Much of the data preparation is done on those VMs.  
-
-5. The secure environment has Azure Machine Learning compute that can access the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models. At this point, models are created that meet regulatory guidelines. All model data is deidentified by removing personally identifiable information.
-
-6. Models or deidentified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a Logic App is triggered. In this architecture, the Logic App is outside the secure environment because no data is sent to the Logic App. Its only function is notification and start the manual approval process.  
-
-    The app starts an approval process requesting a review of data that is queued to be exported.  The manual reviewers ensure that sensitive data isn't exported. After the review process, the data is either approved or denied. 
-
-    > [!NOTE] 
-    > If an approval step is not required on exfiltration, the Logic App step could be omitted. 
-
-7. If the deidentified data is approved, it's sent to the Data Factory instance. 
-
-8. Data Factory moves the data to the public storage account in a separate container to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
-
 ## Security
 
 The main objective of this architecture is to provide a secure and trusted research environment that strictly limits the exfiltration of data from the secure area. 
@@ -86,7 +87,6 @@ Azure resources that are used to store, test, and train research data sets are p
 - Access to and from specific services and ports. For example, this architecture blocks all ports ranges except the ones required for Azure Services (such as Azure Monitor).     A full list of Service Tags and the corresponding services can be found [here](/azure/virtual-network/service-tags-overview).
 
     Also, access from VNet with Azure Virtual Desktop (AVD) on ports limited to approved access methods is accepted, all other traffic is denied. When compared to this environment, the other VNet (with AVD) is relatively open. 
-
 
 
 The main blob storage in the secure environment is off the public internet. It's only accessible within the VNet through [private endpoint connections](/azure/storage/files/storage-files-networking-endpoints) and Azure Storage Firewalls. It's used to limit the networks from which clients can connect to Azure file shares. 
