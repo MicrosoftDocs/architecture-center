@@ -26,7 +26,7 @@ Define your own target SLAs for each workload in your solution so you can determ
 
 ### Consider cost and complexity
 
-Everything else being equal, higher availability is better. But as you strive for more nines, the cost and complexity grow. An uptime of 99.99% translates to about five minutes of total downtime per month. Is it worth the extra complexity and cost to reach five nines? The answer depends on the business requirements.
+Everything else being equal, higher availability is better. But as you strive for more nines, the cost and complexity grow. An uptime of `99.99%` translates to about five minutes of total downtime per month. Is it worth the extra complexity and cost to reach five nines? The answer depends on the business requirements.
 
 Here are some other considerations when defining an SLA:
 
@@ -46,11 +46,11 @@ The following table shows the potential cumulative downtime for various SLA leve
 
 | **SLA** | **Downtime per week** | **Downtime per month** | **Downtime per year** |
 |---------|-----------------------|------------------------|-----------------------|
-| 99%     | 1.68 hours            | 7.2 hours              | 3.65 days             |
-| 99.9%   | 10.1 minutes          | 43.2 minutes           | 8.76 hours            |
-| 99.95%  | 5 minutes             | 21.6 minutes           | 4.38 hours            |
-| 99.99%  | 1.01 minutes          | 4.32 minutes           | 52.56 minutes         |
-| 99.999% | 6 seconds             | 25.9 seconds           | 5.26 minutes          |
+| `99%`     | `1.68` hours            | `7.2` hours              | `3.65` days             |
+| `99.9%`   | `10.1` minutes          | `43.2` minutes           | `8.76` hours            |
+| `99.95%`  | `5` minutes             | `21.6` minutes           | `4.38` hours            |
+| `99.99%`  | `1.01` minutes          | `4.32` minutes           | `52.56` minutes         |
+| `99.999%` | `6` seconds             | `25.9` seconds           | `5.26` minutes          |
 
 ### Identify critical system flows
 
@@ -80,11 +80,11 @@ Use these measures to plan for redundancy and determine customer SLAs.
 
 ## Understand service-level agreements
 
-In Azure, the [Service Level Agreement](https://azure.microsoft.com/support/legal/sla/) describes Microsoft's commitments for uptime and connectivity. If the SLA for a particular service is 99.9%, you should expect the service to be available 99.9% of the time. Different services have different SLAs.
+In Azure, the [Service Level Agreement](https://azure.microsoft.com/support/legal/sla/) describes Microsoft's commitments for uptime and connectivity. If the SLA for a particular service is `99.9%`, you should expect the service to be available `99.9%` of the time. Different services have different SLAs.
 
 The Azure SLA also includes provisions for obtaining a service credit if the SLA is not met, along with specific definitions of *availability* for each service. That aspect of the SLA acts as an enforcement policy.
 
-:::image type="icon" source="../../_images/github.png" border="false"::: The [Service Level Agreement Estimator](https://github.com/mspnp/samples/tree/master/Reliability/SLAEstimator) sample shows how to calculate the SLA of your architecture. 
+:::image type="icon" source="../../_images/github.png" border="false"::: The [Service Level Agreement Estimator](https://github.com/mspnp/samples/tree/master/Reliability/SLAEstimator) sample shows how to calculate the SLA of your architecture.
 
 ### Composite SLAs
 
