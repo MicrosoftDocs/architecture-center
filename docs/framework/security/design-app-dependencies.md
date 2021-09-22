@@ -1,5 +1,5 @@
 ---
-title: Secure application&apos;s configuration and dependencies
+title: Secure app configuration and dependencies
 description: Review application security for IaaS and PaaS. Make sure your configuration is secure. Also check the dependencies, frameworks, and libraries.
 author: PageWriter-MSFT
 ms.date: 09/20/2021
