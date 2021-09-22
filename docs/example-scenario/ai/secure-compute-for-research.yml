@@ -8,9 +8,6 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.category:
-    - developer-tools
-    - hybrid
   ms.custom:
     - fcp
 name: Secure research environment for regulated data
@@ -23,6 +20,6 @@ products:
   - azure-data-science-vm
   - azure-machine-learning
   - azure-data-factory
-thumbnailUrl: /azure/architecture/browse/thumbs/data-sciene-lifecycle-model-flow.png
+thumbnailUrl: /azure/architecture/browse/thumbs/secure-research-env.png
 content: |
    [!include[](secure-compute-for-research-content.md)]

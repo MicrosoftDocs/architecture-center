@@ -30,79 +30,105 @@ Here are the core components that move and process research data.
 
 - **Azure Data Factory** is used to programmatically move data between storage accounts of differing security levels to ensure separation of duties.
 
-- **Azure Virtual Desktop** is used to gain access to the resources in the secure environment via streaming apps as well as a full desktop as needed.  All copy, paste, and screen capture controls should be employed. 
-
-- **Azure Logic Apps** provides automated low-code workflow to develop both the _trigger_ and _release_ portions of the manual approval process.   
-
-### Posture management components
-
-**Azure Security Center** is used to evaluate the overall security posture of the implementation as well as providing an attestation mechanism for regulatory compliance. 
-
-**Azure Sentinel** is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution that uses advanced AI and security analytics to help you detect, hunt, prevent, and respond to threats across your enterprise. 
-
-**Azure Monitor** collects monitoring telemetry from a variety Azure sources. Management tools, such as those in Azure Security Center, also push log data to Azure Monitor. 
-
-### Governance components
-
-**Azure Policy** helps to enforce standards and to assess compliance at-scale as well as provide automated remediation to bring resources into compliance for specific policies. This can be applied to a project subscription or at a management group level as a single policy or as part of a regulatory Initiative.  
-
-Azure Policy Guest Configuration can audit operating systems and machine configuration for the Data Science VMs. 
-
-## Data flow
-
-1. Data owners upload datasets into an Azure Blob storage account. The data is encyrpted by using Microsoft-managed keys.
-
-2. Data Factory uses a trigger that starts copying of the uploaded dataset to another storage account with security controls. Network communication is only possible via a private endpoint. Also, it's accessed by a service principal with limited permissions. Data Factory deletes the original copy making the dataset immutable.
-
-3. The dataset is housed in the secure storage account is presented to the Data Science Virtual Machine (DSVM) provisioned in a secure environment for research work. The environment is a virtual network that has limited internet connectivity through the use of network security groups (NSGs) and private endpoints. Much of the data preparation is done on the DSVM.  
-
-4. Researchers access the secure environment through a streaming application using Azure Virtual Desktop as a privileged jump box.  
-
-5. The secure enviroment has Azure Machine Learning compute that can access the the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models . 
-6. Models or deidentified data are saved to a specific location on the secure storage. New data triggers a Logic App requesting a review of data that is queued to be exported.  The manual reviewers are the data owners and their job is ensure that no sensitive data is being exported. Once the data is reviewed to ensure no sensitive data is present, it's approved, and the export functionality is sent to Data Factory. The Logic App can be in a standard environment as no data is sent to the Logic App, it is simply a notification and approval function.  
-
-7. Data Factory moves the data to lower security level storage account, allowing external researchers to have access to their exported data/models. 
-
-## Network configuration
-
-Network security groups. Use security groups to restrict network traffic within the virtual network. The green tier is a more open subnet while the blue tier limits inbound and outbound traffic to very specific hosts and virtual networks.  
-
-
-Private endpoint connections and Azure Storage Firewalls are used to limit the networks from which clients can connect to Azure file shares. 
-
-
-This has advantages over using Azure Bastion for the following reasons: 
+- **Azure Virtual Desktop** is used as a jump box to gain access to the resources in the secure environment with streaming apps and a full desktop, as needed. Alternately, you can use Azure Bastion but understanding the security controls differences between Virtual Desktop and Bastion is of the utmost importance. Virtual Desktop has some advantages:
 
 - Ability to stream an app like VSCode to run notebooks against the AML compute resources.  
 - Ability to limit copy, paste and screen captures. 
 - Support for Azure Active Directory Authentication to DSVM. 
 
+- **Azure Logic Apps** provides automated low-code workflow to develop both the _trigger_ and _release_ portions of the manual approval process.   
+
+### Posture management components
+
+These components continuously monitor the posture of the workload and the enviroment. The purpose is to discover and mitigate risks as soon as they are discovered. 
+
+- **Azure Security Center** is used to evaluate the overall security posture of the implementation and  provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be dicovered early. Use of features such as secure score and compliance score are recommended. 
+
+- **Azure Sentinel** is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution. You can see logs and alerts from various sources and take advantage of advanced AI and security analytics to help you detect, hunt, prevent, and respond to threats. 
+
+- **Azure Monitor** provides observability across your entire environment. View metrics, activity logs, and diagnostics logs from most of your Azure resources without added configuration. Management tools, such as those in Azure Security Center, also push log data to Azure Monitor. 
+
+
+### Governance components
+
+- **Azure Policy** helps to enforce organizational standards and to assess compliance at-scale. 
+
+## Data flow
+
+1. Data owners upload datasets into a public Azure Blob storage account. The data is encyrpted by using Microsoft-managed keys.
+
+2. Data Factory uses a trigger that starts copying of the uploaded dataset to a specific location (import path) on another storage account with security controls. The storage account can only be reached through a private endpoint. Also, it's accessed by a service principal with limited permissions. Data Factory deletes the original copy making the dataset immutable.
+
+3. Researchers access the secure environment through a streaming application using Azure Virtual Desktop as a privileged jump box.   
+
+4. The dataset in the secure storage account is presented to the Data Science Virtual Machine (DSVM) provisioned in a secure network environment for research work. Much of the data preparation is done on the DSVM.  
+
+5. The secure enviroment has Azure Machine Learning compute that can access the the dataset through a private endpoint for users for AML capabilities, such as to train, deploy, automate, and manage machine learning models.
+
+6. Models or deidentified data is saved to a separate location on the secure storage (export path). When new data is added to the export path, a Logic App is triggered. In this architecture, the Logic App is outside the secure environment because no data is sent to the Logic App, it's only a notification and approval function.  
+
+    The app starts an approval process requesting a review of data that is queued to be exported.  The manual reviewers ensure that sensitive data isn't exported. After the review process, the data is either approved or denied. 
+
+    > [!NOTE] If an approval step is not required on exfiltration, the Logic App step could be omitted. 
+
+7. If the deidentified data is approved, it's sent to the Data Factory instance. 
+
+8. Data Factory moves the data to the storage account in a separate container to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
 
 ## Security
 
-Private endpoint connections and Azure Storage Firewalls are used to limit the networks from which clients can connect to Azure file shares. 
+The main objective of this architecture is to provide a secure and trusted research environment that strictly limits the exfiltration of data from the secure area. 
 
-Network security groups. Use security groups to restrict network traffic within the virtual network. The green tier is a more open subnet while the blue tier limits inbound and outbound traffic to very specific hosts and virtual networks.  
+### Network security
 
-The main objective of this architecture is to provide a Secure/Trusted research environment that strictly limits the exfiltration of data from the secure area.  Network Security Group rules would be configured to block all ports and ranges except for required Azure Services (such as Azure Monitor) and traffic would be allowed from the AVD Virtual Network on ports limited to approved access methods.  A full list of Service Tags and the corresponding services can be found here. 
+Azure resources that are used to store, test, and train research data sets are provisioned in a secure environment. That enviornment is an Azure Virtual Network (VNet) that has network security groups (NSGs) rules to restrict access, mainly:
 
-<1. Network security>
+- Inbound and outbound access to the public internet and within the VNet.
+- Access to and from specific services and ports. For example, this architecture blocks all ports and ranges except for required Azure Services (such as Azure Monitor). Also, access from VNet with Azure Virtual Desktop (AVD) on ports limited to approved access methods is accepted, all other traffic is denied. When compared to this environment, the other VNet (with AVD) is relatively open. 
 
-<2. Data at rest, in transit>
+A full list of Service Tags and the corresponding services can be found [here](/azure/virtual-network/service-tags-overview).
 
-<3. VM image secure>
+The main blob storage in the secure environment is off the public internet. It's only accessible within the VNet through [private endpoint connections](/azure/storage/files/storage-files-networking-endpoints) and Azure Storage Firewalls. It's used to limit the networks from which clients can connect to Azure file shares. 
 
-<4. identity?>
+For Azure services that cannot be configured effectively with private endpoints or to provide stateful packet inspection, consider using Azure Firewall or a third-party network virtual appliance (NVA). 
+
+### Identity management
+
+The Blob storage access is through Azure Role-based access controls (RBAC). 
+
+Azure Virtual Desktop supports Azure AD authentication to DSVM.
+
+Data Factory uses managed identity to access data from the blob storage. DSVMs also uses managed identity for remediation tasks.
+
+### Data security
+
+To secure data at rest, all Azure Storage is encrypted with Microsoft-managed keys using strong cryptography. Alternately, you can use customer-managed keys. The keys must be stored in a managed key store. In this architecture, Azure Key Vault is deployed in the secure environment to store secrets such as encryption keys and certificates. Key Vault is accessed through a private endpoint by the resources in the VNet. 
+
+### Governance considerations
+
+Enable Azure Policy to enforce standards and  provide automated remediation to bring resources into compliance for specific policies. This can be applied to a project subscription or at a management group level as a single policy or as part of a regulatory Initiative.  
+
+For example, in this architecture Azure Policy Guest Configuration was applied to all VMs in scope. The policy can audit operating systems and machine configuration for the Data Science VMs. 
+
+### VM image
+
+The Data Science VMs run customized base images. Using technologies like Azure Image Builder to build the base image is highly recommended. 
+
+The base image might need updates, such as addition of other binaries. Those binaries should be uploaded to the public blob storage and flow through the secure environment, much like the datasets are uploaded by data owners
 
 ## Availability 
 
-Most research solutions are meant to be more temporary workloads, where the DSVM is highly customized from the base image, a copy of the image should be created and technologies like Azure Image Builder could be employed.  This solution is currently designed as a single-region deployment, if higher availability is required, this architecture would need to change to support additional regions.  
+Most research solutions are temporary workloads.  This architecture is currently designed as a single-region deployment with availability zones.
+
+To recover from failures, consider capturing and  creating a copy of the customized base image.
+
+If higher availability is required, you can replicate this architecture in multiple regions. You would need additional components, such as global load balancer and distributor to route traffic to all those regions.
 
 ## Performance and scalability
 
-The size and type of the VM should be appropriate to the style of work being performed. 
+The size and type of the Data Science VMs should be appropriate to the style of work being performed. 
 
-This architecture is meant to support a single research project and the scalability would be limited to adjusting the size/type of the DSVM and the choices made for compute resources available to AML. 
+This architecture is intended to support a single research project and the scalability is acheived by adjusting the size and type of the VMs and the choices made for compute resources available to AML. 
 
 ## Cost considerations 
 
