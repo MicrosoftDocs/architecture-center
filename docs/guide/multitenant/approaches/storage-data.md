@@ -1,10 +1,10 @@
 ---
-title: Architectural approaches for storage and data
+title: Architectural approaches for storage and data in multitenant solutions
 titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the storage and data components of your solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/02/2021
+ms.date: 09/20/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -20,7 +20,7 @@ ms.custom:
   - fcp
 ---
 
-# Architectural approaches for storage and data
+# Architectural approaches for storage and data in multitenant solutions
 
 When planning multitenant storage or data components, you need to decide on an approach for sharing or isolating your tenants' data. Data is often considered the most valuable part of a solution, since it represents your or your customers' valuable business information. So, it's important to carefully plan the approach you use to manage data in a multitenant environment. On this page, we provide guidance about the key considerations and requirements to consider when deciding on an approach to store data in a multitenant system. We then suggest some common patterns for applying multitenancy to storage and data services, and some antipatterns to avoid. Finally, we provide targeted guidance for some specific situations.
 
@@ -74,7 +74,7 @@ Consider how you plan to operate your solution, and how your multitenancy approa
 
 Generally, the higher the density of tenants to your deployment infrastructure, the lower the cost to provision that infrastructure. However, shared infrastructure increases the likelihood of issues like the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md), so consider the tradeoffs carefully.
 
-## Patterns to consider
+## Approaches and patterns to consider
 
 Several design patterns from the Azure Architecture Center are of relevance to mulitenant storage and data services. You might choose to follow one pattern consistently. Or, you could consider mixing and matching patterns. For example, you might use a multitenant database for most of your tenants, but deploy single-tenant stamps for tenants who pay more or who have unusual requirements. Similarly, it's often a good practice to scale by using deployment stamps, even when you use a multitenant database or sharded databases within a stamp.
 
@@ -178,4 +178,4 @@ In general, cloud-native services, like Azure Cosmos DB and Azure Blob Storage, 
 
 ## Next steps
 
-See [Resources for architects and developers of multitenant solutions](/azure/architecture/guide/multitenant/related-resources).
+See [Resources for architects and developers of multitenant solutions](../related-resources.md).

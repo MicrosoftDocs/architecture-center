@@ -2,7 +2,7 @@
 title: Data encryption in Azure
 description: Protect data in transit and at rest through encryption in Azure. Learn about Azure encryption features and standard encryption algorithms.
 author: PageWriter-MSFT
-ms.date: 12/03/2020
+ms.date: 9/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -53,9 +53,9 @@ Consider some built-in features of Azure Storage:
 
 For the complete set of features, see [Azure Storage Service encryption](/azure/storage/common/storage-service-encryption).
 
-### Suggested action
+## Suggested action
 
-Identify provider methods of authentication and authorization which are the least likely to be compromised, and enable more fine-grained role-based access controls over storage resources.
+Identify provider methods of authentication and authorization that are the least likely to be compromised, and enable more fine-grained role-based access controls over storage resources.
 
 **Learn more**
 
@@ -191,7 +191,7 @@ Identify workloads using unencrypted sessions and configure the service to requi
 
 ## Learn more
 
-- [Encrypt data in transit](/azure/architecture/framework/Security/storage-data-encryption#encrypt-data-in-transit)
+- [Encrypt data in transit](./storage-data-encryption.md#encrypt-data-in-transit)
 - [Azure encryption overview](/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
 ## Next steps

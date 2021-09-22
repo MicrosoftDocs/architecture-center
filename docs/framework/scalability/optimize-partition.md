@@ -1,5 +1,5 @@
 ---
-title: Partitioning data for performance optimization
+title: Partition data to optimize performance
 description: Understand how to partition data for performance optimization. Know what's acceptable, learn about types of partitioning, and use data partitioning strategies.
 author: v-aangie
 ms.date: 01/11/2021

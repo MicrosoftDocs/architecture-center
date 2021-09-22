@@ -17,16 +17,6 @@ Applications and the data associated with them act as the primary store of busin
 - **Business processes** are encapsulated and executed by applications and services need to be available and provided with high integrity.
 - **Business data** is stored and processed by application workloads and requires high assurances of confidentiality, integrity, and availability.
 
-## In this section
-
-|Assessment|Description|
-|---|---|
-|[**What aspects of the application do you need to protect?**](design-apps-considerations.md)|Understanding the hosting models and the security responsibility.|
-|[**Does the organization identify the highest severity threats to this workload through threat modeling?**](design-threat-model.md)|Identify risks to the application and risks it may pose to your enterprise through threat modeling. |
-|[**Do you have any regulatory or governance requirements?**](design-regulatory-compliance.md)|Guidance on standards published by law, authorities, and regulators.|
-|[**Are you exposing information through exception handling or HTTP headers?**](design-app-dependencies.md)|Consider the way you store secrets and handle exceptions. Here are some considerations.|
-|[**Are the frameworks and libraries used by the application secure?**](design-app-dependencies.md)|Evaluate frameworks and libraries used by the application and the resulting vulnerabilities.|
-
 ## Identify and classify business critical applications
 
 Enterprise organizations typically have a large application portfolio, but not all applications have equal importance. Applications containing business-critical data, regulated data, and with high business value, visibility, or criticality should be identified and classified, to direct investment of monitoring, time, and resources appropriately. You should also identify applications or systems with significant access — those which might grant control over other critical systems or data.

@@ -28,7 +28,7 @@ IoT (Internet of Things) is a collection of managed and platform services that c
 Azure IoT supports a large range of devices, including industrial equipment, microcontrollers, sensors, and so on. When connected to the cloud, these devices can send data to your IoT solution. The data can then be processed to gain insights about the device. You can use these insights to monitor, manage, and control your environment.
 
 > [!div class="nextstepaction"]
-> [IoT solution concepts](/azure/architecture/example-scenario/iot/introduction-to-solutions)
+> [IoT solution concepts](../../example-scenario/iot/introduction-to-solutions.yml)
 
 ## Learn about Azure IoT
 
@@ -55,7 +55,6 @@ Compare IoT Central (aPaaS) to an Azure PaaS solution approach based on your sol
 > [!div class="nextstepaction"]
 > [Compare solution approaches](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet)
 
-
 ## Design an IoT architecture
 
 A standard IoT solution architecture consists of five basic elements:
@@ -70,7 +69,7 @@ These fundamentals exist whether you are using a PaaS or aPaaS solution.  Howeve
 
 
 > [!div class="nextstepaction"]
-> [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
+> [Azure IoT reference architecture](../iot.yml)
 > [!div class="nextstepaction"]
 > [Azure IoT Central architecture](/azure/iot-central/core/concepts-architecture)
 
@@ -90,29 +89,29 @@ You can use the insights gathered from your device data to monitor, manage, and 
 
 See the related IoT architecture guides:
 
-* [IoT solutions conceptual overview](/azure/architecture/example-scenario/iot/introduction-to-solutions)
-* [Choose an Internet of Things (IoT) solution in Azure](/azure/architecture/example-scenario/iot/iot-central-iot-hub-cheat-sheet)
-* [Vision with Azure IoT Edge](/azure/architecture/guide/iot-edge-vision)
-* [Azure Industrial IoT Analytics Guidance](/azure/architecture/guide/iiot-guidance/iiot-architecture)
+* [IoT solutions conceptual overview](../../example-scenario/iot/introduction-to-solutions.yml)
+* [Choose an Internet of Things (IoT) solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.md)
+* [Vision with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
+* [Azure Industrial IoT Analytics Guidance](../../guide/iiot-guidance/iiot-architecture.md)
 
 See the related IoT reference architectures and example scenarios:
 
-* [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
-* [End-to-end manufacturing using computer vision on the edge](/azure/architecture/reference-architectures/ai/end-to-end-smart-factory)
-* [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
-* [IoT using Cosmos DB](/azure/architecture/solution-ideas/articles/iot-using-cosmos-db)
-* [Retail - Buy online, pickup in store (BOPIS)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
-* [Predictive maintenance with the intelligent IoT Edge](/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance)
+* [Azure IoT reference architecture](../iot.yml)
+* [End-to-end manufacturing using computer vision on the edge](../ai/end-to-end-smart-factory.yml)
+* [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
+* [IoT using Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
+* [Retail - Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)
+* [Predictive maintenance with the intelligent IoT Edge](../../example-scenario/predictive-maintenance/iot-predictive-maintenance.yml)
 
 See the related IoT solution ideas:
 
-* [Condition Monitoring for Industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
-* [Contactless IoT interfaces with Azure intelligent edge](/azure/architecture/solution-ideas/articles/contactless-interfaces)
-* [COVID-19 safe environments with IoT Edge monitoring and alerting](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)
-* [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
-* [IoT connected light, power, and internet for emerging markets](/azure/architecture/solution-ideas/articles/iot-power-management)
-* [UVEN smart and secure disinfection and lighting](/azure/architecture/solution-ideas/articles/uven-disinfection)
-* [Mining equipment monitoring](/azure/architecture/solution-ideas/articles/monitor-mining-equipment)
-* [Predictive Maintenance for Industrial IoT](/azure/architecture/solution-ideas/articles/iot-predictive-maintenance)
-* [Process real-time vehicle data using IoT](/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)
-* [Cognizant Safe Buildings with IoT and Azure](/azure/architecture/solution-ideas/articles/safe-buildings)
+* [Condition Monitoring for Industrial IoT](../../solution-ideas/articles/condition-monitoring.yml)
+* [Contactless IoT interfaces with Azure intelligent edge](../../solution-ideas/articles/contactless-interfaces.yml)
+* [COVID-19 safe environments with IoT Edge monitoring and alerting](../../solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml)
+* [Environment monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
+* [IoT connected light, power, and internet for emerging markets](../../solution-ideas/articles/iot-power-management.yml)
+* [UVEN smart and secure disinfection and lighting](../../solution-ideas/articles/uven-disinfection.yml)
+* [Mining equipment monitoring](../../solution-ideas/articles/monitor-mining-equipment.yml)
+* [Predictive Maintenance for Industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml)
+* [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml)
+* [Cognizant Safe Buildings with IoT and Azure](../../solution-ideas/articles/safe-buildings.yml)

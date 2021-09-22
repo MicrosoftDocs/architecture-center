@@ -26,7 +26,7 @@ Azure provides various load balancing services that you can use to distribute yo
 
 This article describes how you can use the Azure Load Balancing hub page in the Azure portal to determine an appropriate load-balancing solution for your business needs.
 
-## Overview
+## Service categorizations
 
 Azure load balancing services can be categorized along two dimensions: global versus regional, and HTTP(S) versus non-HTTP(S).
 
@@ -124,7 +124,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 - **PaaS**. Platform as a service (PaaS) services provide a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. In this case, PaaS refers to services that provide integrated load balancing within a region. See [Choosing a compute service &ndash; Scalability](./compute-decision-tree.md#scalability).
 
-- **AKS**. Azure Kubernetes Service enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. For more information about our AKS architectural resources, see [Azure Kubernetes Service (AKS) architecture design](/azure/architecture/reference-architectures/containers/aks-start-here).
+- **AKS**. Azure Kubernetes Service enables you to deploy and manage containerized applications. AKS provides serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. For more information about our AKS architectural resources, see [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md).
 
 - **IaaS**. Infrastructure as a service (IaaS) is a computing option where you provision the VMs that you need, along with associated network and storage components. IaaS applications require internal load balancing within a virtual network, using Azure Load Balancer.
 

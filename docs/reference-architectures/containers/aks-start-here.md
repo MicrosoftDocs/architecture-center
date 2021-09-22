@@ -1,7 +1,7 @@
 ---
-title: Azure Kubernetes Service (AKS) architecture design
+title: Azure Kubernetes Service (AKS) design
 titleSuffix: Azure Architecture Center
-description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.
+description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from &quot;just starting out&quot;, to production, and through sustained operations.
 author: ckittel
 ms.author: pnp
 ms.date: 08/16/2020
@@ -21,7 +21,7 @@ ms.custom:
 
 Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. [Azure Kubernetes Service (AKS)](/azure/aks/) makes it simple to deploy a managed Kubernetes cluster in Azure.
 
-Organizations are at various points in their understanding, rationalizing, and adoption of Kubernetes on Azure. Your organization's journey will likely follow a similar path to many other technologies you've adopted; learning, aligning your organization around roles & responsibilities, and deploying production-ready workloads. From there, you'll iterate; growing your product as your customer and business demands change.
+Organizations are at various points in their understanding, rationalizing, and adoption of Kubernetes on Azure. Your organization's journey will likely follow a similar path to many other technologies you've adopted; learning, aligning your organization around roles &amp; responsibilities, and deploying production-ready workloads. From there, you'll iterate; growing your product as your customer and business demands change.
 
 :::image type="content" source="images/aks-journey.svg" alt-text="Visualizes your journey through learn, align, baseline, workload, and then into a loop of operate, best practices, iterate.":::
 
@@ -52,21 +52,21 @@ We've provided a set of more baseline implementations to illustrate how you can 
 When running microservices in the baseline cluster, you'll need to configure network policies, pod autoscaling, and set up distributed tracing for observability.
 
 > [!div class="nextstepaction"]
-> [Microservices architecture using the baseline implementation](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
+> [Microservices architecture using the baseline implementation](./aks-microservices/aks-microservices-advanced.yml)
 
 ### High security compliance
 
 If you need a regulated environment, make the baseline implementation highly secure and restrict interactions to and from of the cluster. This use case is demonstrated in a cluster that's designed to run a PCI-DSS 3.2.1 workload.
 
 > [!div class="nextstepaction"]
-> [Regulated baseline cluster for PCI-DSS 3.2.1](/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-intro)
+> [Regulated baseline cluster for PCI-DSS 3.2.1](./aks-pci/aks-pci-intro.yml)
 
 ### High availability
 
 A highly available solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
 
 > [!div class="nextstepaction"]
-> [Baseline for multiregion clusters](/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster)
+> [Baseline for multiregion clusters](./aks-multi-region/aks-multi-cluster.yml)
 
 ## Best practices
 
