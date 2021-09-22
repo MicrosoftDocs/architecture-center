@@ -1585,7 +1585,7 @@ items:
                   - name: Event Hubs with Azure Functions 
                     items:
                       - name: Overview
-                        href: serverless/event-hubs-functions/event-hubs-functions.md
+                        href: serverless/event-hubs-functions/event-hubs-functions.yml
                       - name: Performance and scale
                         href: serverless/event-hubs-functions/performance-scale.md
                       - name: Resilient Event Hubs and Functions design
