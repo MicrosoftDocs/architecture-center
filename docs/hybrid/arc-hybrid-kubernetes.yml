@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Arc hybrid management and deployment for Kubernetes clusters
+  title: Manage and deploy Kubernetes in Azure Arc
   description: Learn how Azure Arc extends Kubernetes cluster management and configuration across customer data centers, edge locations, and multiple cloud environments.
   author: doodlemania2
   ms.author: pnp
