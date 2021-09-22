@@ -37,17 +37,6 @@ Provide security assurance through _identity management_: the process of authent
 > - Preferably use passwordless methods or opt for modern password methods.
 > - Block legacy protocols and authentication methods.
 
-## In this section
-
-Follow these questions to assess the workload at a deeper level. The recommendations in this section are based on using Azure AD.
-
-|Assessment|Description|
-|---|---|
-|[**Does the application team have a clear view on responsibilities and individual/group access levels?**](design-identity-role-definitions.md)|Designate groups (or individual roles) that will be responsible for central functions, such as network, policy management and so on.|
-|[**Is the workload infrastructure protected with Azure role-based access control (Azure RBAC)?**](design-identity-control-plane.md)|Azure Resource Manager handles all control plane requests and applies restrictions that you specify through Azure role-based access control (Azure RBAC), Azure Policy, locks.|
-|[**Has role-based and/or resource-based authorization been configured within Azure AD?**](design-identity-authorization.md)|Use a mix of role-based and resource-based authorization. Start with the principle of least privilege and add more actions based your needs.|
-|[**How is the workload authenticated when communicating with Azure platform services?**](design-identity-authentication.md)|Authenticate using Managed Identities, use passwordless protections, and keep all (except critical accounts) identities at a central location.|
-
 ## Azure security benchmark
 
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
