@@ -231,7 +231,7 @@ items:
   - name: Microsoft Azure Well-Architected Framework
     items:
       - name: Overview
-        href: framework/index.md
+        href: framework/index.md  
       - name: Reliability
         items:
               - name: About
@@ -388,8 +388,10 @@ items:
         items:
           - name: About
             href: framework/cost/index.yml
-          - name: Principles
+          - name: Overview
             href: framework/cost/overview.md
+          - name: Principles
+            href: framework/cost/principles.md
           - name: Design
             items:
               - name: Checklist
@@ -2142,6 +2144,8 @@ items:
                 href: guide/iot/azure-iot-client-sdk-support.md
               - name: Choose an IoT solution
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md
+              - name: Moving from test to production
+                href: example-scenario/iot/iot-move-to-production.md 
           - name: Architectures
             items:
               - name: Azure IoT reference architecture
@@ -2423,6 +2427,8 @@ items:
                 href: example-scenario/firewalls/index.yml
               - name: Azure Firewall framework review
                 href: networking/guide/well-architected-framework-azure-firewall.md
+              - name: NAT gateway framework review
+                href: networking/guide/well-architected-network-address-translation-gateway.md
               - name: Private Link in hub-and-spoke network
                 href: guide/networking/private-link-hub-spoke-network.yml
               - name: Segment Virtual Networks
