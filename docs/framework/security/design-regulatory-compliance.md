@@ -35,7 +35,7 @@ Regulatory organizations frequently publish standards and updates to help define
 
 Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world.
 
-For example, a workload that handles credit card transactions is subject to the Payment Card Industry (PCI) standard. One of the requirements prohibits access between the internet and any system component in the cardholder data environment. To provide a restrictive environment, you can choose to host the workload in different Azure compute options that supports bring your own VNet, remove any internet facing endpoints by using Private Endpoints as well as network security groups (NSGs) rules that define authorized inbound and outbound access, among other choices.
+For example, a workload that handles credit card transactions is subject to the Payment Card Industry (PCI) standard. One of the requirements prohibits access between the internet and any system component in the cardholder data environment. To provide a restrictive environment, you can choose to host the workload in different Azure compute options that supports bring your own VNet, remove any internet facing endpoints by using Private Endpoints, and network security groups (NSGs) rules that define authorized inbound and outbound access, among other choices.
 
 Noncompliance can lead to fines or other business impact. Work with your regulators and carefully review the standard to understand both the intent and the literal wording of each requirement. Here are some questions that may help you understand each requirement.
 
@@ -60,7 +60,7 @@ Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-cente
 - **Compliance offerings**. Microsoft offers a comprehensive set of compliance offerings to help your organization follow national, regional, and industry-specific requirements governing the collection and use of data. For information, see [Compliance offerings](/microsoft-365/compliance/offering-home).
 - **Compliance score**. Use [Microsoft Compliance Score](/microsoft-365/compliance/compliance-manager) to assess your data protection controls on an ongoing basis. Act on the recommendations to make progress toward compliance.
 - **Audit reports**. Use audit reports to stay current on the latest privacy, security, and compliance-related information for Microsoft's cloud services. See [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
-- **Shared responsibility**. The workload can be hosted on Software as a Service (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS), or in an on-premises datacenter. Have a clear understanding about the portions of the architecture for which you are responsible versus Azure. Whatever the hosting model, the following responsibilities are always retained by you:
+- **Shared responsibility**. The workload can be hosted on Software as a Service (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS), or in an on-premises datacenter. Have a clear understanding about the portions of the architecture you're responsible for versus Azure. Whatever the hosting model, the following responsibilities are always retained by you:
     - Data
     - Endpoints
     - Account
@@ -70,8 +70,7 @@ Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-cente
 
 ## Elevated security capabilities
 
-Consider whether to utilize specialized security capabilities in your enterprise
-architecture.
+Consider whether to use specialized security capabilities in your enterprise architecture.
 
 Dedicated HSMs and Confidential Computing have the potential to enhance security and meet regulatory requirements, but can introduce complexity that may negatively impact your
 operations and efficiency.
@@ -96,10 +95,6 @@ Regulatory requirements may influence the workload operations. For example, ther
 
 Consider automation of deployment and maintenance tasks. This will reduce security and compliance risk by limiting opportunity to introduce human errors during manual tasks.
 
-## Next 
-> [!div class="nextstepaction"]
-> [Azure landing zone](design-governance-landing-zone.md)
-
 ## Related links
 
 Azure maintains a compliance portfolio that covers US government, industry specific, and region/country standards. For more information, reference [Azure compliance offerings](/azure/compliance/offerings/).
@@ -107,3 +102,7 @@ Azure maintains a compliance portfolio that covers US government, industry speci
 Monitor the compliance of the workload to check if the security controls are aligned to the regulatory requirements. For more information, reference [Security audits](monitor-audit.md).
 
 > Go back to the main article: [Governance](design-governance.md)
+
+## Next 
+> [!div class="nextstepaction"]
+> [Azure landing zone](design-governance-landing-zone.md)
