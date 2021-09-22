@@ -35,7 +35,13 @@ Regulatory organizations frequently publish standards and updates to help define
 
 Knowing whether your cloud resources are in compliance with standards mandated by governments or industry organizations is essential in today's globalized world.
 
-For example, a workload that handles credit card transactions is subject to the Payment Card Industry (PCI) standard. One of the requirements prohibits access between the internet and any system component in the cardholder data environment. To provide a restrictive environment, you can choose to host the workload in different Azure compute options that supports bring your own VNet, remove any internet facing endpoints by using Private Endpoints, and network security groups (NSGs) rules that define authorized inbound and outbound access, among other choices.
+For example, a workload that handles credit card transactions is subject to the Payment Card Industry (PCI) standard. One of the requirements prohibits access between the internet and any system component in the cardholder data environment.
+
+To provide a restrictive environment, you can choose to do the following:
+
+- Host the workload in different Azure compute options that supports bring your own VNet.
+- Remove any internet-facing endpoints by using Private Endpoints.
+- Use network security groups (NSGs) rules that define authorized inbound and outbound access.
 
 Noncompliance can lead to fines or other business impact. Work with your regulators and carefully review the standard to understand both the intent and the literal wording of each requirement. Here are some questions that may help you understand each requirement.
 
