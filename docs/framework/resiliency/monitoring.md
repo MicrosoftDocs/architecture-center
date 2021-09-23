@@ -14,7 +14,7 @@ categories: management-and-governance
 
 Monitoring and diagnostics are crucial for availability and resiliency. If something fails, you need to know *that* it failed, *when* it failed, and *why*.
 
-*Monitoring* is not the same as *failure detection*. For example, your application might detect a transient error and retry, avoiding downtime. But it should also log the retry operation so that you can monitor the error rate to get an overall picture of application health.
+*Monitoring* is then't same as *failure detection*. For example, your application might detect a transient error and retry, avoiding downtime. But it should also log the retry operation so that you can monitor the error rate to get an overall picture of application health.
 
 ## Key points
 
@@ -32,21 +32,21 @@ Alerts are notifications of system health issues that are found during monitorin
 
 Use Azure Service Health to respond to *service level* events. Azure Service Health provides a view into the health of Azure services and regions, and issues service-impacting communications about outages, planned maintenance activities, and other health advisories.
 
-Azure Service Health alerts should be configured to operationalize Service Health events. However, Service Health alerts shouldn't be used to detect issues due to associated latencies. There is a `5` minute service level objective (SLO) for automated issues, but many issues require manual interpretation to define a root cause analysis (RCA). Instead, alerts should be used to provide extremely useful information to help interpret issues that have already been detected and surfaced via the health model, to inform how to respond operationally.
+Azure Service Health alerts should be configured to operationalize Service Health events. However, Service Health alerts shouldn't be used to detect issues because of associated latencies. There is a `5` minute service level objective (SLO) for automated issues, but many issues require manual interpretation to define a root cause analysis (RCA). Instead, alerts should be used to provide useful information to help interpret issues that have been detected and surfaced through the health model, to inform an operational response.
 
 To learn more, reference [Azure Service Health](/azure/service-health/service-health-overview).
-
+d
 ### Resource level alerts
 
 Use Azure Resource Health to respond to *resource level* events. Azure Resource Health provides information about the health of individual resources such as a specific virtual machine, and is highly useful when diagnosing unavailable resources.
 
-Azure Resource Health alerts should be configured for specific resource groups and resource types. These alerts should be adjusted to maximize signal to noise ratios. For example, only distribute a notification when a resource becomes unhealthy according to the application health model or due to an Azure platform initiated event. It is important to consider transient issues when setting an appropriate threshold for resource unavailability. For example, configure an alert for a virtual machine with a threshold of `1` minute for unavailability before an alert is triggered.
+Azure Resource Health alerts should be configured for specific resource groups and resource types. These alerts should be adjusted to maximize signal to noise ratios. For example, only distribute a notification when a resource becomes unhealthy according to the application health model or due to an Azure platform initiated event. It's important to consider transient issues when setting an appropriate threshold for resource unavailability. For example, configure an alert for a virtual machine with a threshold of `1` minute for unavailability before an alert is triggered.
 
 To learn more, reference [Azure Resource Health](/azure/service-health/resource-health-overview).
 
 ### Dashboards
 
-You can also get a full-stack view of application state by using [Azure dashboards](/azure/azure-portal/azure-portal-dashboards) to create a consolidated view of monitoring graphs from Application Insights, Log Analytics, Azure Monitor metrics, and Service Health.
+You can also get a full-stack view of application state by using [Azure dashboards](/azure/azure-portal/azure-portal-dashboards) to create a combined view of monitoring graphs from Application Insights, Log Analytics, Azure Monitor metrics, and Service Health.
 
 ### Samples
 
@@ -57,7 +57,7 @@ You can also get a full-stack view of application state by using [Azure dashboa
 
 ## Azure subscription and service limits
 
-Azure subscriptions have limits on certain resource types, such as number of resource groups, cores, and storage accounts. To ensure that your application doesn't run up against Azure subscription limits, create alerts that poll for services nearing their limits and quotas.
+Azure subscriptions have limits on certain resource types, such as number of resource groups, cores, and storage accounts. To ensure your application doesn't run up against Azure subscription limits, create alerts that poll for services nearing their limits and quotas.
 
 Address the following subscription limits with alerts.
 
@@ -78,11 +78,11 @@ Depending on the specific service and your application requirements, you can oft
 
 ### Azure storage scalability and performance targets
 
-Azure allows a maximum number of storage accounts per subscription. If your application requires more storage accounts than are currently available in your subscription, create a new subscription with additional storage accounts. For more information, reference [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Azure allows a maximum number of storage accounts per subscription. If your application requires more storage accounts than are currently available in your subscription, create a new subscription with extra storage accounts. For more information, reference [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### Scalability targets for virtual machine disks
 
-An Azure infrastructure as a service (IaaS) virtual machine supports attaching a number of data disks, depending on several factors, including the virtual machine size and the type of storage account. If your application exceeds the scalability targets for virtual machine disks, provision additional storage accounts and create the virtual machine disks there. To learn more, reference [Scalability and performance targets for VM disks](/azure/virtual-machines/disks-scalability-targets).
+An Azure infrastructure as a service (IaaS) virtual machine supports attaching many data disks, depending on several factors, including the virtual machine size and the type of storage account. If your application exceeds the scalability targets for virtual machine disks, provision additional storage accounts and create the virtual machine disks there. To learn more, reference [Scalability and performance targets for VM disks](/azure/virtual-machines/disks-scalability-targets).
 
 ### Virtual machine size
 
@@ -122,7 +122,7 @@ Track the progress of long-running processes to minimize the likelihood that the
 
 ## Analysis and diagnosis
 
-Analyze data consolidated in these data stores to troubleshoot issues and gain an overall view of application health. Generally, you can search for and analyze the data in [Application Insights](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) using Kusto queries, or view preconfigured graphs using management solutions. Use [Azure Advisor](/azure/advisor/advisor-overview) to view recommendations with a focus on resiliency and performance.
+Analyze data combined in these data stores to troubleshoot issues and gain an overall view of application health. Generally, you can search for and analyze the data in [Application Insights](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) using Kusto queries, or view preconfigured graphs using management solutions. Use [Azure Advisor](/azure/advisor/advisor-overview) to view recommendations with a focus on resiliency and performance.
 
 ## Related links
 
