@@ -130,7 +130,7 @@ Implement a process for SSL certificate management and the automated renewal pro
 
 ## Related content
 
-Identity and access management services authenticate and grant permission to the following:
+Identity and access management services authenticate and grant permission to the following groups:
 
 - Users
 - Partners
