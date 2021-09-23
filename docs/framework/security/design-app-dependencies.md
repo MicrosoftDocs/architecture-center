@@ -2,7 +2,7 @@
 title: Secure app configuration and dependencies
 description: Review application security for IaaS and PaaS. Make sure your configuration is secure. Also check the dependencies, frameworks, and libraries.
 author: PageWriter-MSFT
-ms.date: 09/20/2021
+ms.date: 09/23/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -23,7 +23,7 @@ Security of an application that is hosted in Azure is a shared responsibility be
 
 ## Key points
 > [!div class="checklist"]
->- Don't store secrets in source code or configuration files. Instead, keep them in a secure store, such as Azure Key Vault. 
+>- Don't store secrets in source code or configuration files. Instead, keep them in a secure store, such as Azure App Configuration or Azure Key Vault. 
 >- Don't expose detailed error information when handling application exceptions.
 >- Don't expose platform-specific information.
 >- Store application configuration outside of the application code to update it separately and to have tighter access control.
@@ -38,7 +38,7 @@ During the design phase, consider the way you store secrets and handle exception
 <a id="secrets">**How is application configuration stored and how does the application access it?**</a>
 ***
 
-Application configuration information can be stored with the application. However, that's not a recommended practice. Consider using a dedicated configuration management system such as Azure App Configuration. That way, it can be updated independently of the application code.
+Application configuration information can be stored with the application. However, that's not a recommended practice. Consider using a dedicated configuration management system such as Azure App Configuration or Azure Key Vault. That way, it can be updated independently of the application code.
 
 Applications can include secrets like database connection strings, certificate keys, and so on. Don't store secrets in source code or configuration files. Instead, keep them in a secure store, such as Azure Key Vault. Identify secrets in code with static code scanning tools. Add the scanning process in your continuous integration (CI) pipeline.
 
