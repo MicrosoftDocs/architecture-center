@@ -31,6 +31,7 @@ It's important to have a clear idea of your requirements before planning your de
 - **Expected scale:** Do you expect to support a small number of tenants (such as five or less), or will you grow to a large number of tenants?
 - **Automated or supported onboarding:** When a tenant is ready to be onboarded, will they be able to complete the process themselves by following an automated procedure? Or, do new tenants initiate a request, and you manually onboard them after you receive the request? Are there manual approval steps required from your team, such as to prevent abuse of your service?
 - **Provisioning time:** When a tenant is ready to be onboarded, how quickly does the onboarding process need to be completed? If you don't have a clear answer, consider whether this should be measured in seconds, minutes, hours, or days.
+- **Azure Marketplace:** Do you plan to use the Azure Marketplace to initiate the deployment? If you do, there are [requirements that you need to meet to add new tenants](/azure/marketplace/plan-azure-application-offer).
 
 You should also consider onboarding and provisioning steps, automation, and resource management responsibility.
 
@@ -38,14 +39,19 @@ You should also consider onboarding and provisioning steps, automation, and reso
 
 Consider everything that you need to do when onboarding a tenant, and document this list and workflow, even if it's performed manually. The onboarding workflow typically includes:
 
-- Execution of commercial agreements.
+- Acceptance of commercial agreements.
+- Collection of the information that you need to configure your system for the new tenant.
 - Manual approval steps, for example to prevent fraud or abuse of your service.
 - The provisioning of resources in Azure.
 - [Creating or configuring domain names](../considerations/domain-names.md).
+- Perform post-deployment configuration tasks, such as creating the first user account for the tenant and securely transmitting its credentials.
+- Manual configuration changes, such as DNS record changes.
 
 Clearly document the workflow required to onboard a new tenant.
 
 Additionally, consider the specific Azure resources that need to be provisioned for a tenant. Even if you don't provision dedicated resources for each tenant, consider whether you sometimes need to deploy resources when a new tenant is onboarded. This might occur when a tenant requires their data to be stored in a specific region, or when you approach the limits of a stamp or component in your solution and need to create another instance for the next batch of tenants.
+
+Consider whether the onboarding process is likely to be disruptive to other tenants, especially those who share the same infrastructure. For example, if you need to modify shared databases, could this process cause a performance impact that other tenants might notice? Consider whether you can avoid these effects, or mitigate them by performing the onboarding process outside of normal operating hours.
 
 ### Automation
 
