@@ -50,7 +50,7 @@ The first service bus effectively serves as an "Outbox" for IoT Hub and the seco
 * [Blockchain Workbench Database](/azure/blockchain/workbench/getdb-details)
 * [Log Analytics Tutorial](/azure/log-analytics/log-analytics-tutorial-viewdata)
 * [Service Bus on Blockchain Workbench](/azure/blockchain/workbench/messages-overview#using-service-bus-topics-for-notifications)
-* [Event Notifications on Blockchain Workbench](azure/blockchain/workbench/messages-overview#event-notifications)
+* [Event Notifications on Blockchain Workbench](/azure/blockchain/workbench/messages-overview#event-notifications)
 
 ## Deploy to Azure
 
