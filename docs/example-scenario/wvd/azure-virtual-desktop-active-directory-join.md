@@ -142,7 +142,7 @@ This also requires that your local PC is either:
 For historical reasons some customers disable the PKU2U protocol and this needs to be enabled on the session host and the local PC in this scenario, 
 or you will not be able to login to the VM. To do this in the registry navigate to:
 
-HKLM\SYSTEM\CurrentControlSet\Control\Lsa\pku2u -> confirm AllowOnlineID is set to 1
+`HKLM\SYSTEM\CurrentControlSet\Control\Lsa\pku2u` -> confirm **AllowOnlineID** is set to `1`
 ![AVD reg](images/AADJ14.png)
 
 If your client computers are using Group Policy then this is the GPO to enable:
