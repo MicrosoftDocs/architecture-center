@@ -29,7 +29,7 @@ Encryption is an essential tool for security because it restricts access. Howeve
 
 ## Identity-based access control
 
-Organizations should not develop and maintain their own encryption algorithms. There are many ways to provide access control over storage resources available, such as:
+Organizations shouldn't develop and maintain their own encryption algorithms. There are many ways to provide access control over storage resources available, such as:
 
 - Shared keys
 - Shared signatures
@@ -66,11 +66,11 @@ To prevent security leaks, store the following keys and secrets in a secure stor
 - Data encryption keys
 - Passwords
 
-Sensitive information should not be stored within the application code or configuration. An attacker gaining read access to source code should not gain knowledge of application and environment-specific secrets.
+Sensitive information shouldn't be stored within the application code or configuration. An attacker gaining read access to source code shouldn't gain knowledge of application and environment-specific secrets.
 
 Store all application keys and secrets in a managed key vault service such as [Azure Key Vault](/azure/key-vault/general/overview) or [HashiCorp Vault](https://www.vaultproject.io/). Storing encryption keys in a managed store further limits access. The workload can access the secrets by authenticating against Key Vault by using managed identities. That access can be restricted with Azure RBAC.
 
-Make sure that no keys and secrets for any environment types (Dev, Test, or Production) are stored in application configuration files or CI/CD pipelines. Developers can use [Visual Studio Connected Services](/azure/key-vault/general/vs-key-vault-add-connected-service) or local-only files to access credentials.
+Make sure no keys and secrets for any environment types (Dev, Test, or Production) are stored in application configuration files or CI/CD pipelines. Developers can use [Visual Studio Connected Services](/azure/key-vault/general/vs-key-vault-add-connected-service) or local-only files to access credentials.
 
 Have processes that periodically detect exposed keys in your application code. An option is Credential Scanner. For information about the configuring task, reference [Credential Scanner task](/azure/security/develop/security-code-analysis-customize#credential-scanner-task).
 
@@ -116,7 +116,7 @@ By using managed identities, you remove the operational overhead for storing the
 **Are the expiration dates of SSL/TLS certificates monitored and are processes in place to renew them?**
 ***
 
-A common cause of application outage are expired SSL/TLS certificates.
+A common cause of application outage is expired SSL/TLS certificates.
 
 Avoid outages by tracking the expiration dates of SSL/TLS certificates and renewing them in due time. Ideally, the process should be automated, although this often depends on used certificate authority (CA). If not automated, use alerts to make sure expiration dates don't go unnoticed.
 
