@@ -20,39 +20,39 @@ Azure Synapse Serverless SQL is specifically called out for consumption of the e
 
 The data flows through the solution as follows:
 
-1. Using Azure Data Factory or Azure Synapse Pipelines, establish [Linked Services](https://docs.microsoft.com/azure/data-factory/concepts-linked-services) to source systems and data stores. Azure Data Factory and Azure Synapse Pipelines support [90+ connectors](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) that include generic protocols for data sources where a native connector is not available.  
+1. Using Azure Data Factory or Azure Synapse Pipelines, establish [Linked Services](/azure/data-factory/concepts-linked-services) to source systems and data stores. Azure Data Factory and Azure Synapse Pipelines support [90+ connectors](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) that include generic protocols for data sources where a native connector is not available.  
   
-2. Load data from source systems into Azure data lake with the [Copy Data tool](https://docs.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory-copy-data-tool#start-the-copy-data-tool). Data landed in a data lake then needs to be transformed to fit a Common Data Model (CDM) schema. Azure Data Factory mapping data flows support sinking data in CDM format ([Common Data Model format in Azure Data Factory and Synapse Analytics](https://docs.microsoft.com/azure/data-factory/format-common-data-model)).
+2. Load data from source systems into Azure data lake with the [Copy Data tool](/azure/data-factory/quickstart-create-data-factory-copy-data-tool#start-the-copy-data-tool). Data landed in a data lake then needs to be transformed to fit a Common Data Model (CDM) schema. Azure Data Factory mapping data flows support sinking data in CDM format ([Common Data Model format in Azure Data Factory and Synapse Analytics](/azure/data-factory/format-common-data-model)).
   
-3. Importing data into CI involves configuring a [Connection to a Common Data Model folder using an Azure Data Lake account](https://docs.microsoft.com/dynamics365/customer-insights/audience-insights/connect-common-data-model). Once data is imported into CI the dispartent customer data can be processed by CI's [Data Unification process (Map, Match, and Merge)](https://docs.microsoft.com/dynamics365/customer-insights/audience-insights/data-unification). Unified data can then be further enhanced in CI through [Data Enrichment](https://docs.microsoft.com/en-us/dynamics365/customer-insights/audience-insights/enrichment-hub), [Data Segments](https://docs.microsoft.com/en-us/dynamics365/customer-insights/audience-insights/segments), and [AI Predictions](https://docs.microsoft.com/en-us/dynamics365/customer-insights/audience-insights/predictions-overview). 
+3. Importing data into CI involves configuring a [Connection to a Common Data Model folder using an Azure Data Lake account](/dynamics365/customer-insights/audience-insights/connect-common-data-model). Once data is imported into CI, the disparate customer data can be processed by CI's [Data Unification process (Map, Match, and Merge)](/dynamics365/customer-insights/audience-insights/data-unification). Unified data can then be further enhanced in CI through [Data Enrichment](/dynamics365/customer-insights/audience-insights/enrichment-hub), [Data Segments](/dynamics365/customer-insights/audience-insights/segments), and [AI Predictions](/dynamics365/customer-insights/audience-insights/predictions-overview). 
   
-4. In Customer Insights, an export of data needs to be configured that will load data back to the data lake. Please see [Set up the connection to Azure Data Lake Storage Gen2](https://docs.microsoft.com/dynamics365/customer-insights/audience-insights/export-azure-data-lake-storage-gen2) for details.
+4. In Customer Insights, an export of data needs to be configured that will load data back to the data lake. Please see [Set up the connection to Azure Data Lake Storage Gen2](/dynamics365/customer-insights/audience-insights/export-azure-data-lake-storage-gen2) for details.
   
-5. [Create a Logical Data Warehouse](https://docs.microsoft.com/azure/synapse-analytics/sql/tutorial-logical-data-warehouse) in the Azure Synapse Analytics workspace. Please review the [Synapse SQL Serverless pool best practices](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-serverless-sql-pool) to determine if additional transformation of the exported CI data is necessary and whether views are better suited then tables.
+5. [Create a Logical Data Warehouse](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse) in the Azure Synapse Analytics workspace. Please review the [Synapse SQL Serverless pool best practices](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool) to determine if additional transformation of the exported CI data is necessary and whether views are better suited then tables.
   
-6. By now CI data residing in the data lake is exposed as SQL Server tables and views that can be easily consumed by Power BI. Please see the [Tutorial for Using serverless SQL pools with Power BI](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/tutorial-connect-power-bi-desktop) for an example.
+6. By now CI data residing in the data lake is exposed as SQL Server tables and views that can be easily consumed by Power BI. Please see the [Tutorial for Using serverless SQL pools with Power BI](/azure/synapse-analytics/sql/tutorial-connect-power-bi-desktop) for an example.
 
 ## Considerations
 
 While the Logical Data Warehouse (LDW) pattern is suggested as a means of consuming the enhanced data from CI, using the data in the form of a gold customer dimension with other data warehouse patterns is also possible.
 
-Data integration pipelines is an overlapping feature between Azure Data Factory and Azure Synapse Analytics. Please review the comparison doc for a [breakdown on feature parity between Azure Data Factory and Azure Synapse Integration Pipelines](https://docs.microsoft.com/en-us/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
+Data integration pipelines is an overlapping feature between Azure Data Factory and Azure Synapse Analytics. Please review the comparison doc for a [breakdown on feature parity between Azure Data Factory and Azure Synapse Integration Pipelines](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
 
 ## Next steps
 
 Learn how to further develop this approach:
 
-- [MS Learn: Unlock customer intent with Dynamics 365 Audience insights](https://docs.microsoft.com/learn/paths/build-customer-insights/)
+- [MS Learn: Unlock customer intent with Dynamics 365 Audience insights](/learn/paths/build-customer-insights/)
 
 - [Tutorial: Explore and Analyze data lakes with serverless SQL pool](/azure/synapse-analytics/sql/tutorial-data-analyst)
 
-- [Tutorial: Create Logical Data Warehouse with serverless SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/tutorial-logical-data-warehouse)
+- [Tutorial: Create Logical Data Warehouse with serverless SQL pool](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse)
 
 ## Related resources
 
 - [Get Started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
 
-- [Customer Insights Overview](https://docs.microsoft.com/dynamics365/customer-insights/overview)
+- [Customer Insights Overview](/dynamics365/customer-insights/overview)
 
 - [Analyze data in a storage account](/azure/synapse-analytics/get-started-analyze-storage)
 
