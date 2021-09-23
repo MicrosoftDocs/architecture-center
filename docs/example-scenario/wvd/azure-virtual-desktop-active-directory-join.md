@@ -74,10 +74,13 @@ Microsoft Endpoint Manager then take a look at this (getting started guide.)[htt
 
 If the VMs are not appearing or you want to confirm enrolment, then log on locally and in a command prompt run:
 
-DSREGCMD /status
+```shell
+dsregcmd /status
+```
 
 This will show the AAD join status of the VM. 
-![AVD DSREGCMD](images/AADJ6.png)
+
+![Shell output from the DSREGCMD command showing AzureAdJoined status of YES](images/AADJ6.png)
 
 You can also confirm AAD registrations within the Azure portal. Go to Azure Active Directory > Devices > Audit Logs and look for Register Device in the Activity column (amongst others):
 ![AVD AAD Registrations](images/AADJ7.png)
