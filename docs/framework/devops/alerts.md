@@ -34,8 +34,8 @@ An alerting system should be customizable, and the appropriate values from the u
 
 When configuring alerts in Azure, ensure the following items are configured:
 
-- *Alert rule*: This includes the alert scope or set of resources on which to alert. The alert rule also includes an alert condition. The condition is a query of Azure monitor data and the data threshold on which to raise an alert.
-- *Action group*: This defines the action to take once an alert has been triggered.
+- *Alert rule*: This rule includes the alert scope or set of resources on which to alert. The alert rule also includes an alert condition. The condition is a query of Azure monitor data and the data threshold on which to raise an alert.
+- *Action group*: This group defines the action to take once an alert has been triggered.
 
 An alert rule can be defined using many different data streams such as [metric values](/azure/azure-monitor/platform/alerts-metric-overview), [log search queries](/azure/azure-monitor/platform/alerts-unified-log), and [activity log events](/azure/azure-monitor/platform/activity-log-alerts).
 
