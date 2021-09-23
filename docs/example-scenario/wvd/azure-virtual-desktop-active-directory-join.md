@@ -148,7 +148,7 @@ If your client computers are using Group Policy then this is the GPO to enable:
 
 GPO path: `Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\Security Options`
 
-Policy: Network security: Allow PKU2U authentication requests to this computer to use online identities
+Policy: Network security: **Allow PKU2U authentication requests to this computer to use online identities**
 
 State: Enabled
 ![AVD AAD GPO](images/AADJ15.png)
