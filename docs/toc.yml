@@ -1240,6 +1240,8 @@ items:
                 href: solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml
               - name: Retail product recommendations
                 href: solution-ideas/articles/product-recommendations.yml
+              - name: Secure research environment for regulated data
+                href: example-scenario/ai/secure-compute-for-research.yml
               - name: Speech services
                 href: solution-ideas/articles/speech-services.yml
               - name: Vehicle telematics

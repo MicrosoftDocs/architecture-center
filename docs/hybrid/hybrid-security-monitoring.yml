@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
+  title: Hybrid security monitoring with Sentinel
   description: Use Azure Security Center and Azure Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads.
   author: doodlemania2
   ms.author: pnp
