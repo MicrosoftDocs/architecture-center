@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Disaster Recovery for Azure Stack Hub virtual machines
+  title: Disaster recovery for Azure Stack Hub VMs
   description: This solution delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.
   author: doodlemania2
   ms.author: pnp

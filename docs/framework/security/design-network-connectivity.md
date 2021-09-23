@@ -1,5 +1,5 @@
 ---
-title: Azure services for securing network connectivity
+title: Services for securing network connectivity
 description: Learn about best practices for securing access to the internet, Azure platform as a service (PaaS) services, and on-premises networks.
 author: PageWriter-MSFT
 ms.date: 02/03/2021

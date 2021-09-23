@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 09/13/2021
+ms.date: 09/20/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -27,6 +27,18 @@ New and updated articles in Azure Architecture Center.
 
 ### New Articles
 
+- [Azure IoT client SDK support for third-party token servers](./guide/iot/azure-iot-client-sdk-support.md)
+- [Building blocks for autonomous-driving simulation environments](./industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
+- [CI/CD for Microsoft Power Platform](./solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml)
+- [Build a scalable system for massive data](./data-guide/scenarios/build-scalable-database-solutions-azure-services.md)
+- [Minimal storage – change feed to replicate data](./solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml)
+- [Two-region web application with Table Storage failover](./solution-ideas/articles/multi-region-web-app-azure-table-failover.yml)
+- [Multi-region web application with Cosmos DB replication](./solution-ideas/articles/multi-region-web-app-cosmos-db-replication.yml)
+- [Multi-region web application with custom Storage Table replication](./solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml)
+- [Optimized storage with logical data classification](./solution-ideas/articles/optimized-storage-logical-data-classification.yml)
+- [Optimized storage – time based with Data Lake](./solution-ideas/articles/optimized-storage-time-based-data-lake.yml)
+- [Optimized storage – time based - multi writes](./solution-ideas/articles/optimized-storage-time-based-multi-writes.yml)
+- [Azure Private Link in hub-and-spoke network](./guide/networking/private-link-hub-spoke-network.yml)
 - [Tradeoffs for security](./framework/security/security-tradeoffs.md)
 - [Architectural approaches for storage and data](./guide/multitenant/approaches/storage-data.md)
 
@@ -42,7 +54,9 @@ New and updated articles in Azure Architecture Center.
 - [Security Operations Center (SOC or SecOps) monitoring in Azure](./framework/security/monitor-security-operations.md)  ([#77cac625f](https://github.com/MicrosoftDocs/architecture-center/commit/77cac625f))
 - [Overview of the security pillar](./framework/security/overview.md)  ([#77cac625f](https://github.com/MicrosoftDocs/architecture-center/commit/77cac625f))
 - [Implement a property transformer and collector in an Azure Resource Manager template](./guide/azure-resource-manager/advanced-templates/collector.md)  ([#44a45d12d](https://github.com/MicrosoftDocs/architecture-center/commit/44a45d12d))
-- [Solutions for the retail industry](./industries/retail.md)  ([#fb8b62e5e](https://github.com/MicrosoftDocs/architecture-center/commit/fb8b62e5e))
+- [Compare AWS and Azure networking options](./aws-professional/networking.md)  ([#1a8385188](https://github.com/MicrosoftDocs/architecture-center/commit/1a8385188))
+- [Google Cloud to Azure services comparison](./gcp-professional/services.md)  ([#917aca9a4](https://github.com/MicrosoftDocs/architecture-center/commit/917aca9a4))
+- [Solutions for the retail industry](./industries/retail.md)  ([#b605ffda8](https://github.com/MicrosoftDocs/architecture-center/commit/b605ffda8))
 - [Overview of the operational excellence pillar](./framework/devops/overview.md)  ([#515eb84c7](https://github.com/MicrosoftDocs/architecture-center/commit/515eb84c7))
 - [Overview of the performance efficiency pillar](./framework/scalability/overview.md)  ([#515eb84c7](https://github.com/MicrosoftDocs/architecture-center/commit/515eb84c7))
 - [Azure security monitoring tools](./framework/security/monitor-tools.md)  ([#9b144df64](https://github.com/MicrosoftDocs/architecture-center/commit/9b144df64))
@@ -70,7 +84,7 @@ New and updated articles in Azure Architecture Center.
 ### Updated Articles
 
 - [Tradeoffs for performance efficiency](./framework/scalability/tradeoffs.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
-- [Secure application&#x27;s configuration and dependencies](./framework/security/design-app-dependencies.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
+- [Secure application&amp;apos;s configuration and dependencies](./framework/security/design-app-dependencies.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
 - [Governance, risk, and compliance](./framework/security/design-governance.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
 - [Establish segmentation with management groups](./framework/security/design-management-groups.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
 - [Network security strategies on Azure](./framework/security/design-network.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
@@ -82,10 +96,10 @@ New and updated articles in Azure Architecture Center.
 - [Security monitoring in Azure](./framework/security/monitor.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
 - [Authentication in multitenant applications](./multitenant-identity/authenticate.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
 - [Authorization in multitenant applications](./multitenant-identity/authorize.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
-- [Use client assertion to get access tokens from Azure AD](./multitenant-identity/client-assertion.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
+- [Client assertion for an Azure AD access token](./multitenant-identity/client-assertion.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
 - [Sign-up and tenant onboarding in multitenant applications](./multitenant-identity/signup.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
-- [Cache access tokens in a multitenant application](./multitenant-identity/token-cache.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
-- [Secure a backend web API in a multitenant application](./multitenant-identity/web-api.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
+- [Cache access tokens in a multitenant app](./multitenant-identity/token-cache.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
+- [Secure a backend web API in a multitenant app](./multitenant-identity/web-api.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
 - [Performance testing and antipatterns](./antipatterns/index.md)  ([#96c15437c](https://github.com/MicrosoftDocs/architecture-center/commit/96c15437c))
 - [Authentication with Azure AD](./framework/security/design-identity-authentication.md)  ([#8bc71d705](https://github.com/MicrosoftDocs/architecture-center/commit/8bc71d705))
 - [Azure mainframe and midrange architecture concepts and patterns](./mainframe/mainframe-midrange-architecture.md)  ([#76e02bca0](https://github.com/MicrosoftDocs/architecture-center/commit/76e02bca0))
@@ -152,7 +166,7 @@ New and updated articles in Azure Architecture Center.
 
 ### Updated Articles
 
-- [Comparing AWS and Azure networking options](./aws-professional/networking.md)  ([#685a94e82](https://github.com/MicrosoftDocs/architecture-center/commit/685a94e82))
+- [Compare AWS and Azure networking options](./aws-professional/networking.md)  ([#685a94e82](https://github.com/MicrosoftDocs/architecture-center/commit/685a94e82))
 - [Best practices for endpoint security on Azure](./framework/security/design-network-endpoints.md)  ([#02fa023ab](https://github.com/MicrosoftDocs/architecture-center/commit/02fa023ab))
 - [Azure for Google Cloud professionals](./gcp-professional/index.md)  ([#ea732fdbe](https://github.com/MicrosoftDocs/architecture-center/commit/ea732fdbe))
 - [Azure control plane security](./framework/security/design-identity-control-plane.md)  ([#640bf5672](https://github.com/MicrosoftDocs/architecture-center/commit/640bf5672))

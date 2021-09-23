@@ -2,12 +2,108 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-09-13T15:37:05.633Z</updated>
+    <updated>2021-09-20T13:35:40.445Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure IoT client SDK support for third-party token servers]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/iot/azure-iot-client-sdk-support</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/iot/azure-iot-client-sdk-support"/>
+        <updated>2021-09-17T09:06:48.000Z</updated>
+        <summary type="html"><![CDATA[Learn about what needs to be done in each SDK for devices to achieve third-party token-server authentication.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Building blocks for autonomous-driving simulation environments]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments</id>
+        <link href="https://docs.microsoft.com/azure/architecture/industries/automotive/building-blocks-autonomous-driving-simulation-environments"/>
+        <updated>2021-09-17T09:06:48.000Z</updated>
+        <summary type="html"><![CDATA[To assess autonomous driving (AD), function engineers need to simulate the behavior of vehicles with AD capabilities.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CI/CD for Microsoft Power Platform]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-for-power-platform</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-for-power-platform"/>
+        <updated>2021-09-17T02:18:56.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to create an Azure CI/CD pipeline to manage your Power Platform application lifecycle.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Build a scalable system for massive data]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/data-guide/scenarios/build-scalable-database-solutions-azure-services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/data-guide/scenarios/build-scalable-database-solutions-azure-services"/>
+        <updated>2021-09-14T10:56:36.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure services to build scalable, resilient, and affordable high-available systems that handle massive amounts of data.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Minimal storage – change feed to replicate data]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/minimal-storage-change-feed-replicate-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/minimal-storage-change-feed-replicate-data"/>
+        <updated>2021-09-14T10:56:36.000Z</updated>
+        <summary type="html"><![CDATA[Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Two-region web application with Table Storage failover]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/multi-region-web-app-azure-table-failover</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/multi-region-web-app-azure-table-failover"/>
+        <updated>2021-09-14T10:56:36.000Z</updated>
+        <summary type="html"><![CDATA[Architecture for a high-availability solution with failover that handles massive amounts of data. It uses Azure Table Storage and has two regions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multi-region web application with Cosmos DB replication]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/multi-region-web-app-cosmos-db-replication</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/multi-region-web-app-cosmos-db-replication"/>
+        <updated>2021-09-14T10:56:36.000Z</updated>
+        <summary type="html"><![CDATA[Architecture for a high-availability solution that handles massive amounts of data. It uses Azure Cosmos DB and serves multiple regions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multi-region web application with custom Storage Table replication]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/multi-region-web-app-multi-writes-azure-table</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/multi-region-web-app-multi-writes-azure-table"/>
+        <updated>2021-09-14T10:56:36.000Z</updated>
+        <summary type="html"><![CDATA[Architecture for a high-availability solution that handles massive amounts of data. It uses Azure Table Storage and serves multiple regions.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Optimized storage with logical data classification]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/optimized-storage-logical-data-classification</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/optimized-storage-logical-data-classification"/>
+        <updated>2021-09-14T10:56:36.000Z</updated>
+        <summary type="html"><![CDATA[Architecture for a high-availability solution that handles massive amounts of data. It uses an optimized tiering strategy to reduce storage costs.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Optimized storage – time based with Data Lake]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/optimized-storage-time-based-data-lake</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/optimized-storage-time-based-data-lake"/>
+        <updated>2021-09-14T10:56:36.000Z</updated>
+        <summary type="html"><![CDATA[Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Optimized storage – time based - multi writes]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/optimized-storage-time-based-multi-writes</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/optimized-storage-time-based-multi-writes"/>
+        <updated>2021-09-14T10:56:36.000Z</updated>
+        <summary type="html"><![CDATA[Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Private Link in hub-and-spoke network]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/networking/private-link-hub-spoke-network</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/networking/private-link-hub-spoke-network"/>
+        <updated>2021-09-14T09:37:26.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Private Link to access PaaS services from a hub-and-spoke network. Connect to these services by using a private IP address from your virtual network.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Tradeoffs for security]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/security/security-tradeoffs</id>
@@ -105,10 +201,26 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Compare AWS and Azure networking options]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/aws-professional/networking</id>
+        <link href="https://docs.microsoft.com/azure/architecture/aws-professional/networking"/>
+        <updated>2021-09-17T08:13:44.000Z</updated>
+        <summary type="html"><![CDATA[Compare networking options between Azure and AWS. The comparisons cover cloud virtual networking, cross-premises connectivity, DNS management, and more.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Google Cloud to Azure services comparison]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/gcp-professional/services</id>
+        <link href="https://docs.microsoft.com/azure/architecture/gcp-professional/services"/>
+        <updated>2021-09-14T21:58:44.000Z</updated>
+        <summary type="html"><![CDATA[Compare Google Cloud and Microsoft Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Solutions for the retail industry]]></title>
         <id>https://docs.microsoft.com/azure/architecture/industries/retail</id>
         <link href="https://docs.microsoft.com/azure/architecture/industries/retail"/>
-        <updated>2021-09-12T00:32:06.000Z</updated>
+        <updated>2021-09-14T16:48:39.000Z</updated>
         <summary type="html"><![CDATA[Architectures and ideas to use Azure services for building efficient, scalable, and reliable retail solutions.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
@@ -265,7 +377,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Secure application's configuration and dependencies]]></title>
+        <title type="html"><![CDATA[Secure application&apos;s configuration and dependencies]]></title>
         <id>https://docs.microsoft.com/azure/architecture/framework/security/design-app-dependencies</id>
         <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-app-dependencies"/>
         <updated>2021-08-26T20:17:11.000Z</updated>
@@ -361,7 +473,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Use client assertion to get access tokens from Azure AD]]></title>
+        <title type="html"><![CDATA[Client assertion for an Azure AD access token]]></title>
         <id>https://docs.microsoft.com/azure/architecture/multitenant-identity/client-assertion</id>
         <link href="https://docs.microsoft.com/azure/architecture/multitenant-identity/client-assertion"/>
         <updated>2021-08-25T22:02:37.000Z</updated>
@@ -377,7 +489,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Cache access tokens in a multitenant application]]></title>
+        <title type="html"><![CDATA[Cache access tokens in a multitenant app]]></title>
         <id>https://docs.microsoft.com/azure/architecture/multitenant-identity/token-cache</id>
         <link href="https://docs.microsoft.com/azure/architecture/multitenant-identity/token-cache"/>
         <updated>2021-08-25T22:02:37.000Z</updated>
@@ -385,7 +497,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Secure a backend web API in a multitenant application]]></title>
+        <title type="html"><![CDATA[Secure a backend web API in a multitenant app]]></title>
         <id>https://docs.microsoft.com/azure/architecture/multitenant-identity/web-api</id>
         <link href="https://docs.microsoft.com/azure/architecture/multitenant-identity/web-api"/>
         <updated>2021-08-25T22:02:37.000Z</updated>
@@ -485,7 +597,7 @@
         <id>https://docs.microsoft.com/azure/architecture/gcp-professional/services</id>
         <link href="https://docs.microsoft.com/azure/architecture/gcp-professional/services"/>
         <updated>2021-08-23T07:30:44.000Z</updated>
-        <summary type="html"><![CDATA[Compare Google Cloud and Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.]]></summary>
+        <summary type="html"><![CDATA[Compare Google Cloud and Microsoft Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -525,7 +637,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-start-here"/>
         <updated>2021-08-16T23:10:20.000Z</updated>
-        <summary type="html"><![CDATA[An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from "just starting out", to production, and through sustained operations.]]></summary>
+        <summary type="html"><![CDATA[An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from &quot;just starting out&quot;, to production, and through sustained operations.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -857,7 +969,7 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Comparing AWS and Azure networking options]]></title>
+        <title type="html"><![CDATA[Compare AWS and Azure networking options]]></title>
         <id>https://docs.microsoft.com/azure/architecture/aws-professional/networking</id>
         <link href="https://docs.microsoft.com/azure/architecture/aws-professional/networking"/>
         <updated>2021-07-30T00:26:09.000Z</updated>
@@ -1941,7 +2053,7 @@
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines"/>
         <updated>2021-06-16T03:03:20.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.]]></summary>
+        <summary type="html"><![CDATA[Learn about the SAP BW/4HANA application tier and how it&apos;s suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
