@@ -1,4 +1,6 @@
-# On Wednesday September the 15th 2021 we announced the general availability of Azure Active Directory domain join for Azure Virtual Desktop.
+## Azure Virtual Desktop with Azure Active Directory Join
+
+On Wednesday September the 15th 2021 we announced the general availability of Azure Active Directory domain join for Azure Virtual Desktop.
 This post discusses how to set this up and troubleshooting tips.
 
 ## Let's start with some background. 
