@@ -8,7 +8,7 @@ This architecture was originally created for higher education research instituti
 By following the guidance you can maintain full control of your research data, have separation of duties, and meet strict regulatory compliance standards while providing collaboration between the typical roles involved in a research-oriented workload; data owners, researchers, and approvers. 
 
 ## Architecture
-:::image type="content" source="./media/secure-research-env.png" alt-text="Diagram of a secure research environment.":::
+:::image type="content" source="./media/secure-research-env.svg" alt-text="Diagram of a secure research environment.":::
 
 ## Data flow
 
