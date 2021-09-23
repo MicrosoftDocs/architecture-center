@@ -26,11 +26,11 @@ Monitoring and diagnostics are crucial for availability and resiliency. If somet
 
 ## Alerting
 
-Alerts are notifications of system health issues that are found during monitoring. Alerts only deliver value if they are actionable and effectively prioritized by on-call engineers through defined operational procedures. Present telemetry data in a format that makes it easy for an operator to notice problems or trends quickly, such as a dashboard or email alert.
+Alerts are notifications of system health issues that are found during monitoring. Alerts only deliver value if they are actionable and effectively prioritized by on-call engineers through defined operational procedures. Present telemetry data in a dashboard or email alert format that makes it easy for an operator to notice problems or trends quickly.
 
 ### Service level alerts
 
-Use Azure Service Health to respond to *service level* events. Azure Service Health provides a view into the health of Azure services and regions. It issues communications that impact services such as the following:
+Use Azure Service Health to respond to *service level* events. Azure Service Health provides a view into the health of Azure services and regions. It issues communications that impact the following services:
 
 - Outages
 - Planned maintenance activities
@@ -50,7 +50,12 @@ To learn more, reference [Azure Resource Health](/azure/service-health/resource-
 
 ### Dashboards
 
-You can also get a full-stack view of application state by using [Azure dashboards](/azure/azure-portal/azure-portal-dashboards) to create a combined view of monitoring graphs from Application Insights, Log Analytics, Azure Monitor metrics, and Service Health.
+You can also get a full-stack view of application state by using [Azure dashboards](/azure/azure-portal/azure-portal-dashboards) to create a combined view of monitoring graphs from the following:
+
+- Application Insights
+- Log Analytics
+- Azure Monitor metrics
+- Service Health
 
 ### Samples
 
