@@ -105,11 +105,11 @@ If your Azure SQL Database tier isn't adequate to handle your application's Data
 
 ## Instrumentation
 
-Applications should be instrumented to measure the customer experience. Effective instrumentation is vital for detecting and resolving performance anomalies that can impact customer experience, and application availability. To build a robust application health model, it's vital that you achieve visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection.
+Instrument applications to measure the customer experience. Effective instrumentation is vital for detecting and resolving performance anomalies that can impact customer experience, and application availability. To build a robust application health model, it's vital that you achieve visibility into the operational state of critical internal dependencies, such as a shared NVA or Express Route connection.
 
 Automated failover and failback systems depend on the correct functioning of monitoring and instrumentation. Dashboards that visualize system health and operator alerts also depend on having accurate monitoring and instrumentation. If these elements fail, miss critical information, or report inaccurate data, an operator might not realize that the system is unhealthy or failing. Make sure you include monitoring systems in your test plan.
 
-Applications should be instrumented to track calls to dependent services. Dependency tracking and measuring the duration or status of dependency calls is also vital to measuring overall application health. It should be used to inform a health model for the application.
+Instrument applications to track calls to dependent services. Dependency tracking and measuring the duration or status of dependency calls is also vital to measuring overall application health. It should be used to inform a health model for the application.
 
 Microsoft recommends collecting and storing logs, and key metrics of critical components.
 
