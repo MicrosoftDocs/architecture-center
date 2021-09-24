@@ -2,7 +2,7 @@
 title: The Core Startup Stack
 description: Understand how to approach architecture when you're building a first MVP or prototype for a startup.
 author: mootpointer
-ms.date: 05/15/2021
+ms.date: 10/01/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
