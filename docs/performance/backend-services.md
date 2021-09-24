@@ -22,13 +22,13 @@ products:
 
 # Performance tuning scenario: Multiple backend services
 
-This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that was did for a sample application. The application is from the [AKS Baseline for microservices](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml), along with a [Visual Studio load test project](/visualstudio/test/quickstart-create-a-load-test-project) used to generate the results.
+This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that was did for a sample application. The application is from the [Azure Kubernetes Service (AKS) Baseline for microservices](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml), along with a [Visual Studio load test project](/visualstudio/test/quickstart-create-a-load-test-project) used to generate the results.
 
 *This article is part of a series. Read the first part [here](./index.md).*
 
 **Scenario**: Call multiple backend services to retrieve information and then aggregate the results.
 
-This scenario involves a drone delivery application. Clients can query a REST API to get their latest invoice information. The invoice includes a summary of the customer's deliveries, packages, and total drone utilization. This application uses a microservices architecture running on Azure Kubernetes Service (AKS), and the information needed for the invoice is spread across several microservices. 
+This scenario involves a drone delivery application. Clients can query a REST API to get their latest invoice information. The invoice includes a summary of the customer's deliveries, packages, and total drone utilization. This application uses a microservices architecture running on AKS, and the information needed for the invoice is spread across several microservices. 
 
 Rather than the client calling each service directly, the application implements the [Gateway Aggregation](../patterns/gateway-aggregation.md) pattern. Using this pattern, the client makes a single request to a gateway service. The gateway in turn calls the backend services in parallel, and then aggregates the results into a single response payload.
 

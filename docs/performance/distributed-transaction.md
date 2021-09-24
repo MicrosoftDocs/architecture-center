@@ -21,13 +21,13 @@ products:
 
 # Performance tuning scenario: Distributed business transactions
 
-This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that we did for a sample application. The application is from the [AKS Baseline for microservices](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml).
+This article describes how a development team used metrics to find bottlenecks and improve the performance of a distributed system. The article is based on actual load testing that we did for a sample application. The application is from the [Azure Kubernetes Service (AKS) Baseline for microservices](../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml).
 
 *This article is part of a series. Read the first part [here](./index.md).*
 
 **Scenario**: A client application initiates a business transaction that involves multiple steps.
 
-This scenario involves a drone delivery application that runs on Azure Kubernetes Service (AKS). Customers use a web app to schedule deliveries by drone. Each transaction requires multiple steps that are performed by separate microservices on the back end:
+This scenario involves a drone delivery application that runs on AKS. Customers use a web app to schedule deliveries by drone. Each transaction requires multiple steps that are performed by separate microservices on the back end:
 
 - The Delivery service manages deliveries.
 - The Drone Scheduler service schedules drones for pickup.
@@ -41,7 +41,7 @@ For more information about this scenario, see [Designing a microservices archite
 
 ## Test 1: Baseline
 
-For the first load test, the team created a 6-node AKS cluster and deployed three replicas of each microservice. The load test was a step-load test, starting at two simulated users and ramping up to 40 simulated users. 
+For the first load test, the team created a six-node AKS cluster and deployed three replicas of each microservice. The load test was a step-load test, starting at two simulated users and ramping up to 40 simulated users. 
 
 | Setting | Value |
 |---------|-------|
