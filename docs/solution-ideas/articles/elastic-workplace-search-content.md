@@ -2,7 +2,7 @@
 
 Elastic Workplace Search helps Azure users optimize productivity by streamlining the search process for all work documents and data. It centralizes content across a team’s diverse platforms into a single, customizable search experience. Workplace Search boasts compatibility with a variety of popular work platforms including OneDrive and SharePoint. Automated keyword detection is user-friendly, and role-based permissions fortify security by restricting access to assigned users. Automated filtering removes the need for box checking and manual search processes. Azure users can deploy Workplace Search on Elastic Cloud or download and manage it independently.
 
-## Potential user cases
+## Potential use cases
 
 - Deploy Workplace Search within employee portals and intranet, help desks, customer support apps, CRMs, and other systems to give your teams a single search experience across all their content sources.
 - Use the same infrastructure for Elastic App Search: Advanced Search Made Simple.
