@@ -1,15 +1,15 @@
 ## Azure Virtual Desktop with Azure Active Directory Join
 
-On Wednesday September the 15th 2021 we announced the general availability of Azure Active Directory domain join for Azure Virtual Desktop.
-This post discusses how to set this up and troubleshooting tips.
+On Wednesday September the 15th 2021, we announced the general availability of Azure Active Directory domain join for Azure Virtual Desktop.
+This post discusses how to configure this and some troubleshooting tips.
 
 ## Let's start with some background. 
 Azure Active Directory Join for the Azure Virtual Desktop session hosts has been the number one feature request from customers from day one of Windows Virtual Desktop
-as it was known at launch, followed very closely by support from Microsoft Endpoint Manager - specifically Intune managing those session host Virtual machines.
-Now we have launched this capability both of these are now a reality.
+as it was known at launch. This was followed closely by support from Microsoft Endpoint Manager - specifically Intune managing those session host Virtual machines.
+Now we have launched this capability both are now a reality.
 
 ## Why are we doing this?
-Currently AVD requires both Azure Active Directory (AAD) as well as traditional Active Directory Domain Services (AD DS). AD DS can come in one of two formats:
+Currently AVD requires both Azure Active Directory (AAD) and traditional Active Directory Domain Services (AD DS). AD DS can come in one of two formats:
 - Traditional AD DS from Windows server. The AD DS domain controllers can either be located on-prem and accessed over a site-to-site VPN or ExpressRoute. 
   Or they can be virtual machines located within Azure itself, or both. All AVD needs is network line of sight to a domain controller, to facilitate the VM domain join
   at deployment time and to perform the user authentication.
@@ -20,13 +20,13 @@ Currently AVD requires both Azure Active Directory (AAD) as well as traditional 
 Firstly, AAD is used to authenticate users to the AVD service and present the user with a list of resources. Secondly as the session hosts are all AD DS joined 
 AD DS will prompt users to sign-in to AD DS, as well as AAD. This is a standard Kerberos authentication.
 
-You can save both the AAD credentials using the standard AAD process for this which will keep those credentials for 90 days, as well as the AD DS credentials in the local 
+You can save both the AAD credentials using the standard AAD process for this which will keep those credentials for 90 days, and the AD DS credentials in the local 
 Credential Manager via the Windows Remote Desktop client. With both of these saved it appears to be Single Sign On (SSO) like, in that users will not be prompted for a 
 password after the first authentications have completed. Caching the AD DS credentials is currently only supported in the Windows clients.
 
 Having the ability to AAD Join (AADJ) the AVD session host VMs only to AAD obviously stops the requirement to have AD DS Domain Controllers available at all (in this scenario).
-This will reduce your costs and complexity. However, AD DS may well still be required for other services that still depend on it such as applications, SMB storage services etc. 
-These may well be being consumed from the AVD session hosts. However, for AVD itself, very specifically AD DS is no longer a requirement.
+This will reduce your costs and complexity. However, AD DS may still be required for other services that still depend on it such as applications, SMB storage services etc. 
+These may well be being consumed from the AVD session hosts. However, for AVD itself, AD DS is no longer a requirement.
 
 But that's not all, it will also introduce new modern authentication protocols such as Windows Hello for Business, Smartcards, FIDO2 etc. and provide a more modern approach for the 
 future. It will also in the future provide a wide range of additional capabilities in this space.
@@ -39,9 +39,7 @@ There are two or three steps, depending on your existing configuration
 ## Step 1: Deploy an AADJ host pool
 Firstly, there are a few limitations, namely:
 - AADJ is only supported on AVD ARM, AVD Classic is not supported.
-- Only personal host pools are supported at this time. This is not a technical limitation in multi-session "pooled" host pools. The limitation is currently in Azure Files which will shortly be updated to 
-  support AAD as a Kerberos realm, rather than AD as it does today. The absence of this prevents FSLogix from working, which is the technology used to manage roaming user profiles 
-  in a pooled host pool scenario
+- Only personal host pools are supported at this time. This is not a technical limitation in multi-session "pooled" host pools. The limitation is currently in Azure Files. Azure Files will shortly be updated to support AAD as a Kerberos realm, rather than AD as it does today. The absence of this prevents FSLogix from working, which is the technology used to manage roaming user profiles in a pooled host pool scenario
 - The session hosts need to be Windows 10 Enterprise 2004 or later.
 
 The process to deploy is the exact same process to create an (existing host pool)[https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-azure-marketplace?tabs=azure-portal] with one exception.
@@ -50,13 +48,14 @@ On the Virtual Machines tab in the deployment flow, within the Domain to Join se
 ![AVD with both directory options](images/AADJ1.png)
 
 Selecting Azure Active Directory will join all the VMs to your AAD. It also enables the option to enroll these VMs with Intune directly:
+
 ![AVD with AAD optionb selected](images/AADJ2.png)
 
-In the deployment you will now notice a new Extension called AADLoginForWindows has been installed that has achieved the AADJ and optionally the Intune enrollment if selected:
+In the deployment, you will now notice a new Extension called AADLoginForWindows has been installed that has achieved the AADJ and optionally the Intune enrollment if selected:
 ![AVD with AAD deployment completed](images/AADJ3.png)
 
 ## Which AAD will these VMs join? 
-What you will see is there is no option to specify a particular AAD. This is because the VMs will be automatically joined to the same AAD that the Azure subscription is also connected to. This is the same as it is today for the AVD objects such as, Host pools, Application Groups and Workspaces - they all get deployed directly into the subscription that is connected to the AAD that contains your user objects and inherits that AAD as an IDP and uses the user identities held within it. However, the session host VM's can be manually deployed in a separate subscription connected to a separate AAD if that is required. In this scenario the VMs have no dependency on the AAD so can go into any Azure subscription. They only require line of sight to an AD DS Domain Controller in a domain that is itself synchronizing user objects up to the AAD that the actual AVD objects are also connected to.
+What you will see is there is no option to specify a particular AAD. This is because the VMs will be automatically joined to the same AAD that the Azure subscription is also connected to. This is the same as it is today for the AVD objects such as, Host pools, Application Groups or Workspaces - they all get deployed directly into the subscription that is connected to the AAD that contains your user objects and inherits that AAD as an IDP and uses the user identities held within it. However, the session host VMs can be manually deployed in a separate subscription connected to a separate AAD if that is required. In this scenario, the VMs have no dependency on the AAD so can go into any Azure subscription. They only require line of sight to an AD DS Domain Controller in a domain that is itself synchronizing user objects up to the AAD that the actual AVD objects are also connected to.
 
 With AADJ this is no longer supported as the AAD that these session hosts are joined to is directly inherited from the subscription where this deployment is running from. So, the VMs need to be in the same subscription as all the other AVD objects.
 
@@ -72,7 +71,7 @@ They will also obviously appear in the (MEM portal)[https://endpoint.microsoft.c
 ![AVD session host VMs listed in MEM devices](images/AADJ5.png)
 
 This now opens up all the capability in Intune to apply policies, distribute software etc. and manage these VMs. If you want to learn more on Intune as part of 
-Microsoft Endpoint Manager then take a look at this (getting started guide.)[https://techcommunity.microsoft.com/t5/intune-customer-success/getting-started-with-microsoft-endpoint-manager/ba-p/2497614]
+Microsoft Endpoint Manager, then take a look at this (getting started guide.)[https://techcommunity.microsoft.com/t5/intune-customer-success/getting-started-with-microsoft-endpoint-manager/ba-p/2497614]
 
 If the VMs are not appearing or you want to confirm enrollment, then log on locally and in a command prompt run:
 
@@ -90,10 +89,10 @@ You can also confirm AAD registrations within the Azure portal. Go to Azure Acti
 Whilst on the local client, the logs are within Event Viewer in: Applications and Services Logs > Microsoft > Windows > User Device Registration > Admin
 
 ## Step 2. Enabling User access
-The next step is a new step, we have to enable access to logon to the VMs. These VM's are Azure objects, the authentication mechanism is Azure AD and hence the permission to 
+The next step is a new step, we have to enable access to logon to the VMs. These VMs are Azure objects, the authentication mechanism is Azure AD and hence the permission to 
 allow the users to login is managed via Azure RBAC.
 
-To enable users to login on to the VMs themselves they need to be (added to the Desktop Application Group,)[https://docs.microsoft.com/en-us/azure/virtual-desktop/manage-app-groups] as per normal. However you also need to add the same AAD group as 
+To enable users to login on to the VMs themselves they need to be (added to the Desktop Application Group)[https://docs.microsoft.com/en-us/azure/virtual-desktop/manage-app-groups] as per normal. However you also need to add the same AAD group as 
 you have added to the AVD Desktop Application group to the "Virtual Machine User Login" RBAC role.
 
 This role has the following Data Action permission:
@@ -117,6 +116,7 @@ Then in Role select Virtual Machine User Login and then in Select find your user
 ![Applying the required VM user login RBAC Role](images/AADJ10.png)
 
 This will result in:
+
 ![AVD VM User login RBAC role is now applied](images/AADJ11.png)
 
 If you do not assign this role the user will receive this error message when trying to login via the Windows client:
@@ -126,7 +126,7 @@ If using the Web client the error will look different:
 ![AVD AAD Oops error if you havent applied the VM user login RBAC Role in the Web Client](images/AADJ13.png)
 
 ## Local Admin access
-If you wanted to give the user local admin access on the VM then add them to the "Virtual Machine Administrator Login" role.
+If you wanted to give the user local admin access on the VM, then add them to the "Virtual Machine Administrator Login" role.
 
 This role has one additional Data permission enabling admin access:
 ![AVD AAD VM User Login RBAC role permissions](images/AADJ14.png)
@@ -147,7 +147,7 @@ or you will not be able to login to the VM. To do this in the registry navigate 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa\pku2u -> confirm AllowOnlineID is set to 1
 ![AVD registry setting to enable the PKU2U protocol](images/AADJ15.jpg)
 
-If your client computers are using Group Policy then this is the GPO to enable:
+If your client computers are using Group Policy, then this is the GPO to enable:
 
 GPO path: Computer Configuration\Policies\Windows Settings\Security Settings\Local Policies\Security Options
 
@@ -158,11 +158,12 @@ State: Enabled
 
 If you are using any of the other AVD clients  i.e., macOS, Android, Web and the Store client or you are using pre 2004 Windows 10 then you need to enable the (RDSTLS protocol)[https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-rdpbcgr/83d1186d-cab6-4ad8-8c5f-203f95e192aa].
 This is done by adding a new (custom RDP Property)[https://docs.microsoft.com/en-us/azure/virtual-desktop/customize-rdp-properties] of: targetisaadjoined:i:1. This will then be used rather than PKU2U.
+
 ![AVD RDP Property to enable other clients besides Windows client](images/AADJ17.png)
 
-Now you will have an AVD host pool where the session host(s) are only joined to Azure Active Directory. This host pool no longer has a requirement for Active Directory. Hence within this specific context Active Directory is no longer a requirement and you are a step closer to moving to modern management for your AVD estate. This also opens up the capability in the future to be able to decommission Active Directory. This also opens up all of the benefits that Azure Active Directory enables for organisations such as modern authentication protocols, single sign and so much more.
+Now you will have an AVD host pool where the session host(s) are only joined to Azure Active Directory. This host pool no longer has a requirement for Active Directory. Hence within this specific context Active Directory is no longer a requirement and you are a step closer to moving to modern management for your AVD estate. This also opens up the capability in the future to be able to decommission Active Directory. This also opens up all of the benefits that Azure Active Directory enables for organizations such as modern authentication protocols, single sign and so much more.
 
-This is the first set of capabilities coming within the AADJ capability - watch this space for a load of additional functionality coming in the future 
+This is the first set of capabilities coming within the AADJ capability - watch this space for additional functionality coming in the future, 
 which will further improve the user experience and enable new and different scenarios with different authentication protocols and support for FSLogix user profiles
 in an AAD only environment.
 
