@@ -20,7 +20,7 @@ The different stages in the life of a startup mean that as a developer, architec
 
 Kent Beck describes a [three-stage process of innovation](https://medium.com/@kentbeck_7670/fast-slow-in-3x-explore-expand-extract-6d4c94a7539) in the software product world. Those stages are Explore, Expand, and Extract.
 
-<!-- Maybe include a picture – will need guidance on if we can... -->
+![A graph showing a sigmoid curve plotted against a y-axis labelled "Certainty/Investment/Risk of Change" and an x-axis labelled "Time". The graph has three areas highlighted: the initial portion before upward inflection is labelled "Explore", the high growth part of the sigmoid curve labelled "Expand" and the plateau labelled "Extract".](images/explore-expand-extract.png)
 
 ### Explore
 
