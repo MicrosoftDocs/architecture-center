@@ -24,7 +24,7 @@ This solution applies to organizations that need low-latency access to large vol
 
 ## Architecture
 
-:::image type="content" source="./media/azure-sql-htap.png" alt-text="Architecture diagram showing how data flows through an H T A P solution with Azure SQL Database at its center." border="false" lightbox="./media/azure-sql-htap.svg":::
+:::image type="content" source="./media/azure-sql-htap.png" alt-text="Architecture diagram showing how data flows through an H T A P solution with Azure SQL Database at its center." border="false":::
 
 *Download an [SVG file][SVG file of architecture diagram] of this architecture.*
 
@@ -32,7 +32,7 @@ This solution applies to organizations that need low-latency access to large vol
 1. Blob Storage captures the Event Hubs data and stores it for future analysis.
 1. Stream Analytics processes the data. In the solution's hot path, Azure Cosmos DB queries data from the previous two months. Azure Cosmos DB guarantees single-digit millisecond response times.
 1. If errors occur during data processing or storage, the system logs them in Azure Table Storage.
-1. Azure Functions uses the SQL Database [elastic database client library][Building scalable cloud databases] to archive the data. This process partitions the data to optimize insert operations. The solution forms shards by horizontally distributing the data over several Azure SQL databases. Each database uses a partitioned clustered columnar index to compress tables. Response times for this cold-path data are usually below one second.
+1. Azure Functions uses the SQL Database [elastic database client library][Building scalable cloud databases] to archive the data. This process partitions the data to optimize insert operations. The solution forms shards by horizontally distributing the data over several Azure SQL databases. Each database uses a partitioned clustered columnar index to compress tables. Response times on this cold path are usually below one second.
 1. An Azure Databricks cluster reprocesses the Blob Storage data. Specifically, Azure Databricks deserializes Avro files and sends the data to Event Hubs for optional analysis.
 
 ## Components
@@ -101,7 +101,7 @@ The following table lists sample cost profiles for varying amounts of 1-kilobyte
 
 |Size | Message volume | Profile |
 |---|---|---|
-| Small | Less than 500 messages per second | [Small profile][Small cost profile] |
+| Small | Fewer than 500 messages per second | [Small profile][Small cost profile] |
 | Medium | 1,500 messages per second | [Medium profile][Medium cost profile] |
 | Large | More than 5,000 messages per second | [Large profile][Large cost profile] |
 
