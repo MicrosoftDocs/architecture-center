@@ -20,6 +20,8 @@ The different stages in the life of a startup mean that as a developer, architec
 
 Kent Beck describes a [three-stage process of innovation](https://medium.com/@kentbeck_7670/fast-slow-in-3x-explore-expand-extract-6d4c94a7539) in the software product world. Those stages are Explore, Expand, and Extract.
 
+You can think about the different parts of this process as a graph that starts with a low slope: the explore stage, where you are trying to find what works. There is low certainty, you should only invest small amounts, and the risk from any changes you make is low. At some point, the graph rises more rapidly. The rapid growth is the expand stage. You have rapidly increasing certainty, are investing much more, and are becoming more aware of risks. Finally as the graph flattens out, you have reached the explore stage. The certainty, investment, and risk from change are all high, but their rate of growth has reached a plateau.
+
 ![A graph showing a sigmoid curve plotted against a y-axis labelled "Certainty/Investment/Risk of Change" and an x-axis labelled "Time". The graph has three areas highlighted: the initial portion before upward inflection is labelled "Explore", the high growth part of the sigmoid curve labelled "Expand" and the plateau labelled "Extract".](images/explore-expand-extract.png)
 
 ### Explore
