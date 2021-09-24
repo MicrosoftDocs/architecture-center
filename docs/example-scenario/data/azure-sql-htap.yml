@@ -2,10 +2,10 @@
 metadata:
   title: HTAP architecture with Azure SQL
   titleSuffix: Azure Example Scenarios
-  description: Use an HTAP architecture with Azure SQL Database to combine transaction processing with analytics. Reduce latencies and costs with in-memory databases.
+  description: Use a scalable HTAP architecture with Azure SQL Database to combine transaction processing with analytics. Reduce latencies and costs with in-memory databases.
   author: paakos
   ms.author: pahumada
-  ms.date: 09/30/2021
+  ms.date: 09/28/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -27,7 +27,7 @@ products:
   - azure-table-storage
   - power-bi
 name: HTAP architecture with Azure SQL
-summary: Use an HTAP architecture with Azure SQL Database to combine transaction processing with analytics. Reduce latencies and costs with in-memory databases.
+summary: Use a scalable HTAP architecture with Azure SQL Database to combine transaction processing with analytics. Reduce latencies and costs with in-memory databases.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-sql-htap-thumbnail.png
 content: |
   [!include[](azure-sql-htap-content.md)]
