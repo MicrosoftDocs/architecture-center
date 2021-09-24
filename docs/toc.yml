@@ -171,7 +171,6 @@ items:
             href: startups/index.md
           - name: Core Startup Stack
             href: startups/core-startup-stack.md
-
       - name: Multitenant applications
         items:
           - name: Considerations
