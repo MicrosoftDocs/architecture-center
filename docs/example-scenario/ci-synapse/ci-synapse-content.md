@@ -2,19 +2,11 @@ Dynamics Customer Insights (CI) can create a 360-degree customer view by unifyin
 
 ## Architecture
 
-![Architecture Diagram](ci-synapse.png?raw=true "Architecture diagram depicting flow data from source system on the left to Power BI on the right, using Azure Data Factory, Azure Data Lake, Customer Insights, and Azure Synapse SQL Serverless to build an enhanced customer dimension.")
-
 This high-level architecture depicts the flow of data from an organizations source systems (ERP, CRM, PoS, etc...) into a data lake on Azure. This same Azure data lake can be configured as the backend for Dynamics Customer Insights (CI). With a data lake backend, CI is able to load clean enhanced customer data into the data lake for consumption as a dimension by downstream data warehouses and apps.
 
 Azure Synapse Serverless SQL is specifically called out for consumption of the enhanced CI customer data. Azure Synapse Serverless SQL introduces a cost-effective  design pattern known as the Logical Data Warehouse (LDW). The LDW pattern introduces an abstraction layer on top of external data stores, like data lakes, to provide familiar relation database constructs like tables and views. These tables and views can then be consumed by tools that support SQL Server endpoints. In the context of this example, Power BI can now source the enhanced CI customer data as a dimension table from Azure Synapse Serverless SQL pools.
 
-### Components
-
-- [Audience Insights](https://docs.microsoft.com/dynamics365/customer-insights/audience-insights/overview)
-- [Azure Synapse Serverless SQL pools](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview)
-- [Common Data Model](https://docs.microsoft.com/common-data-model/data-lake)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
-- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities)
+![Architecture Diagram](ci-synapse.png?raw=true "Architecture diagram depicting flow data from source system on the left to Power BI on the right, using Azure Data Factory, Azure Data Lake, Customer Insights, and Azure Synapse SQL Serverless to build an enhanced customer dimension.")
 
 ### Data Flow
 
@@ -31,6 +23,14 @@ The data flows through the solution as follows:
 5. [Create a Logical Data Warehouse](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse) in the Azure Synapse Analytics workspace. Please review the [Synapse SQL Serverless pool best practices](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool) to determine if additional transformation of the exported CI data is necessary and whether views are better suited then tables.
   
 6. By now CI data residing in the data lake is exposed as SQL Server tables and views that can be easily consumed by Power BI. Please see the [Tutorial for Using serverless SQL pools with Power BI](/azure/synapse-analytics/sql/tutorial-connect-power-bi-desktop) for an example.
+
+### Components
+
+- [Audience Insights](https://docs.microsoft.com/dynamics365/customer-insights/audience-insights/overview) - The module of Customer Insights that provides unification of customer data sources and enrichments like segmentation, customer total lifetime value (CTLV), and customer churn score.
+- [Azure Synapse Serverless SQL pools](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) - Used to query customer data in a data lake using a familiar T-SQL language and SQL Server endpoint.
+- [Common Data Model](https://docs.microsoft.com/common-data-model/data-lake) - The data model used by Customer Insights for the customer entity that it produces.
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) - Scalable and cost-effective cloud storage that is support by Customer Insights as a target for exporting data.
+- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) - Cloud scale data integration service for orchestrating data flow.
 
 ## Considerations
 
