@@ -58,7 +58,7 @@ A CDN will cache static content closer to your customers and provide a façade b
 
 An exciting startup, Contoso, is building a product that will revolutionize the way we think about widgets. Contoso's technical cofounder, Jane, has experience building micro-service driven applications for large enterprises. Contoso's application, while ambitious, doesn't yet need that architecture so they have opted for a more simple monolithic design.
 
-Jane has built an early prototype using a Python backend, with a React frontend written in Typescript. They've been running demos on their laptop but with the first customer sales meetings looming, it's time to deploy the app.
+Jane has built an early prototype using a Rails backend, with a React frontend written in Typescript. They've been running demos on their laptop but with the first customer sales meetings looming, it's time to deploy the app.
 
 Based on the Core Startup Stack, and the technologies used by Contoso, Jane has decided on the following architecture:
 
