@@ -64,7 +64,7 @@ When [sampling is enabled](/azure/azure-functions/configure-monitoring?tabs=v2#c
 
 ### Detailed event processing information
 
-The data is only emitted in the correct format when batched dispatch is used. Batch dispatch means that the function accepts multiple events for each execution, which is [recommended for performance](performance-scale-content.md#batching). Keep in mind the following considerations:
+The data is only emitted in the correct format when batched dispatch is used. Batch dispatch means that the function accepts multiple events for each execution, which is [recommended for performance](performance-scale.yml#batching). Keep in mind the following considerations:
 
 - The `dispatchTimeMilliseconds` value approximates the length of time between when the event was written to the event hub and when it was picked up by the function app for processing.
 - `dispatchTimeMilliseconds` can be negative or otherwise inaccurate because of clockdrift between the event hub server and the function app.
