@@ -1,38 +1,38 @@
 Monitoring provides insights into the behavior and health of your systems, and helps build a holistic view of the environment, historic trends, correlate diverse factors, and measure changes in performance, consumption, or error rate.
 
-Azure Functions offer built-in integration with [Application Insights](/azure/azure-monitor/app/app-insights-overview). From App Insights, you can get information such as the number of Azure Function instances or request and dependency telemetry of the Azure Function. When working with event-triggered Azure Functions with Event Hub, App Insights is also capable of tracking the outgoing dependency telemetries to Event Hub, calculating the time spent in Event Hub queue, and showing the end-to-end flow of the system connected through Event Hubs.
+Azure Functions offers built-in integration with [Application Insights](/azure/azure-monitor/app/app-insights-overview). From Application Insights, you can get information such as the number of function app instances or request and dependency telemetry of a function. When working with Functions and Event Hubs, Application Insights can also track the outgoing dependency telemetries to the event hub, calculating the time spent in the queue and showing the end-to-end flow of the system connected through Event Hubs.
 
-This section introduces useful features and insights that you can get from App Insights for your Event Hub with Function solution.
+This section introduces useful features and insights that you can get from Application Insights for your Event Hubs plus Functions solution.
 
 ## Application Map
 
-[Application Map](/azure/azure-monitor/app/app-map?tabs=net) shows how the components in a system are interacting with each other. Because of the dependency telemetry that Application Insights provides, it will map out the flow of events between Azure Functions and Event Hubs, including the average of each function execution and average duration of an event in Event Hubs, as well as showing transactions that contain failures marked in red.
+[Application Map](/azure/azure-monitor/app/app-map) shows how the components in a system are interacting with each other. Because of the dependency telemetry that Application Insights provides, it maps out the flow of events between Azure Functions and Event Hubs, including the average of each function execution and average duration of an event in Event Hubs, as well as showing transactions that contain failures marked in red.
 
-After sending the expected load to your system, you can go to App Insights in the Azure portal, and on the sidebar, click on Application Map. Here’s a map with 3 Azure Functions, 3 event hubs, and failures when writing to a downstream database:
+After sending the expected load to your system, you can go to Application Insights in the [Azure portal](https://portal.azure.com), and on the sidebar, choose on **Application Map**. Here’s a map that shows three functions, three event hubs, and apparent failures when writing to a downstream database:
 
 ![Application Map](images/observability_application_map.png)
 
-## End-to-End Transaction Details
+## End-to-end transaction details
 
-End-to-end transaction details show how your system components interact with each other in chronological order. This view also shows how long an event is spending in the Event Hub queue. You can also drill into the telemetry of each component from this view, which makes it easy to troubleshoot across components within the same request when an issue occurred.
+End-to-end transaction details show how your system components interact with each other, in chronological order. This view also shows how long an event has spent in the queue. You can also drill into the telemetry of each component from this view, which makes it easier to troubleshoot across components within the same request when an issue occurred.
 
 ![End-to-End Transaction](images/observability_end_to_end_transaction.png)
 
-## Platform Metrics and Telemetry
+## Platform metrics and telemetry
 
-Platform generated metrics in Azure Monitor for Event Hubs and Azure Functions can be used for overall monitoring of the solution behavior and health:
+Platform-generated metrics in Azure Monitor for Event Hubs and Azure Functions can be used for overall monitoring of the solution behavior and health:
 
 - [Azure Event Hubs metrics in Azure Monitor](/azure/event-hubs/event-hubs-metrics-azure-monitor) are of interest to capture useful insights for Event Hubs (like aggregates of Incoming Requests, Outgoing Requests, Throttled Requests, Successful Requests, Incoming Messages, Outgoing Messages, Captured Messages, Incoming Bytes, Outgoing Bytes, Captured Bytes, User Errors).
 
 - Azure Functions metrics share many of the metrics from [Azure App Service](/azure/app-service/web-sites-monitor), with the addition of [Function Execution Count and Function Execution Units](/azure/azure-functions/analyze-telemetry-data#azure-monitor-metrics) that can be used for [understanding utilization and cost of the Consumption plan](/azure/azure-functions/functions-consumption-costs). Other metrics of interest are Connections, Data In, Data Out, Average Memory Working Set, Thread Count, Requests, and Response Time.
 
-For advanced and detailed telemetry and insights into the functions host and function execution [Azure Functions integrates with Application Insights](/azure/azure-functions/analyze-telemetry-data), with a [variety of configurations available](/azure/azure-functions/configure-monitoring?tabs=v2).
+Azure Functions integrates with Application Insights to provide advanced and detailed telemetry and insights into the Functions host and function executions. To learn more, see [Analyze Azure Functions telemetry in Application Insights](/azure/azure-functions/analyze-telemetry-data). When using Application Insights to monitor a topology, there are a variety of configurations available. To learn more, see [How to configure monitoring for Azure Functions](/azure/azure-functions/configure-monitoring).
 
-For Event Hub triggered functions using telemetry emitted by the Event Hubs extension 4.2.0 and greater there is some extra telemetry generated in the **traces** table:
+The following is an example of extra telemetry for Event Hubs triggered functions generated in the **traces** table:
 
 <pre>Trigger Details: PartionId: 6, Offset: 30095894584-30095919248, EnqueueTimeUtc: 2021-05-06T02:02:59.2490000Z-2021-05-06T02:02:59.2490000Z, SequenceNumber: 814940-815019, Count: 80</pre>
 
-This information is very useful as it contains information about the message(s) that triggered this function execution and can be used for querying and insights. It includes the following information for each time the function is triggered:
+This information requires that you use Event Hubs extension 4.2.0 or a later version. This data is very useful as it contains information about the message that triggered the function execution and can be used for querying and insights. It includes the following data for each time the function is triggered:
 
 - The **partition ID** (6) 
 - The **partition offset** range (30095894584-30095919248) 
@@ -40,37 +40,37 @@ This information is very useful as it contains information about the message(s) 
 - The **sequence number range** 814940-815019 
 - And the **count of messages** (80)
 
-Refer to the Example Application Insights Queries section for examples on how to use this telemetry.
+Refer to the [Example Application Insights queries](#example-application-insights-queries) section for examples on how to use this telemetry.
 
-Custom telemetry is also possible for different languages ([C\# class library](/azure/azure-functions/functions-dotnet-class-library?tabs=v2%2Ccmd#logging), [C\# Isolated](/azure/azure-functions/dotnet-isolated-process-guide#logging), [C\# Script](/azure/azure-functions/functions-reference-csharp#logging), [F\#](/azure/azure-functions/functions-reference-fsharp#logging), [JavaScript](/azure/azure-functions/functions-reference-node?tabs=v2#write-trace-output-to-logs), [Java](/azure/azure-functions/functions-reference-java?tabs=bash%2Cconsumption#logger), [PowerShell](/azure/azure-functions/functions-reference-powershell?tabs=portal#logging), and [Python](/azure/azure-functions/functions-reference-python#logging)) and show up in the **traces** table in Application Insights. You can create your own entries into App Insights and add custom dimensions that can be used for querying data and creating custom dashboards.
+Custom telemetry is also possible for different languages ([C\# class library](/azure/azure-functions/functions-dotnet-class-library#logging), [C\# Isolated](/azure/azure-functions/dotnet-isolated-process-guide#logging), [C\# Script](/azure/azure-functions/functions-reference-csharp#logging), [JavaScript](/azure/azure-functions/functions-reference-node#write-trace-output-to-logs), [Java](/azure/azure-functions/functions-reference-java#logger), [PowerShell](/azure/azure-functions/functions-reference-powershell#logging), and [Python](/azure/azure-functions/functions-reference-python#logging)). This logging shows up in the **traces** table in Application Insights. You can create your own entries into Application Insights and add custom dimensions that can be used for querying data and creating custom dashboards.
 
-Finally, when sending to Event Hubs using output bindings there are also entries sent into the [Application Insights Dependencies table](/azure/azure-functions/functions-monitoring#dependencies).
+Finally, when your function app connects to an event hub using an output binding, entries are also written to the [Application Insights Dependencies table](/azure/azure-functions/functions-monitoring#dependencies).
 
 ![Dependencies table](images/observability_dependencies_table.png)
 
-For Event Hubs, the correlation is injected into the event payload. You will see a **Diagnostic-Id** property in events:
+For Event Hubs, the correlation is injected into the event payload, and you see a **Diagnostic-Id** property in events:
 
 ![Diagnostic Id property](images/observability_diagnostic_id.png)
 
-This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format that are also used as **Operation Id** and **Operation Links** in telemetry created by Azure Functions, allowing Application Insights to construct the correlation between Event Hub events and Azure Functions executions, even if they are distributed.
+This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format that are also used as **Operation Id** and **Operation Links** in telemetry created by Functions, which allows Application Insights to construct the correlation between event hub events and function executions, even when they're distributed.
 
 ![Batch Events correlation](images/observability_batch_events.png)
 
-## Example Application Insights Queries
+## Example Application Insights queries
 
-Below is a list of helpful Azure Application Insights queries when monitoring Event Hubs with Azure Functions. This query display detailed information for Event Hub triggered functions using telemetry **emitted by the Event Hubs extension 4.2.0 and greater**.
+Below is a list of helpful Application Insights queries when monitoring Event Hubs with Azure Functions. This query display detailed information for event hub triggered function using telemetry **emitted by the Event Hubs extension 4.2.0 and greater**.
 
-If [sampling is enabled](/azure/azure-functions/configure-monitoring?tabs=v2#configure-sampling) in Application Insights, then there might be gaps in the data.
+When [sampling is enabled](/azure/azure-functions/configure-monitoring?tabs=v2#configure-sampling) in Application Insights, there can be gaps in the data.
 
-### Detailed Event Processing Information
+### Detailed event processing information
 
-The data is only emitted in the correct format if batched dispatch is used, i.e., the function accepts multiple events for each execution, as recommended above in the Performance section. Note that:
+The data is only emitted in the correct format when batched dispatch is used. Batch dispatch means that the function accepts multiple events for each execution, which is [recommended for performance](performance-scale-content.md#batching). Keep in mind the following considerations:
 
-- The dispatchTimeMilliseconds value approximates the length of time between when the event was written to the event hub and when it was picked up by the Function App for processing.
-- dispatchTimeMilliseconds could be negative or otherwise inaccurate due to clockdrift between the EventHub server and the function app.
+- The `dispatchTimeMilliseconds` value approximates the length of time between when the event was written to the event hub and when it was picked up by the function app for processing.
+- `dispatchTimeMilliseconds` can be negative or otherwise inaccurate because of clockdrift between the event hub server and the function app.
 - Event Hubs partitions are processed sequentially. A message won't be dispatched to function code for processing until all previous messages have been processed. Monitor the execution time of your functions as longer execution times will cause dispatch delays.
-- The calculation uses the enqueueTime of the \*first\* message in the batch. Dispatch time might be lower for other messages in the batch.
-- dispatchTimeMilliseconds is based on the point in time.
+- The calculation uses the enqueueTime of the first message in the batch. Dispatch times might be lower for other messages in the batch.
+- `dispatchTimeMilliseconds` is based on the point in time.
 - Sequence numbers are per-partition, and duplicate processing can occur because Event Hubs does not guarantee exactly-once message delivery.
 
 ```kusto

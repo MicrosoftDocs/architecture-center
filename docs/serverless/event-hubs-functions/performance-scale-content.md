@@ -39,7 +39,7 @@ For reference, a *namespace* in Event Hubs may be compared to a *cluster* in Kaf
 
 Each throughput unit is billed on an hourly basis and is shared across all the event hubs in a namespace. This means that all the applications and services, both publishers and consumers, must be accounted for when choosing the number of allotted TUs. Azure Functions impacts the number of bytes and events that are both published to and read from an event hub.
 
-The emphasis for determining the number of TUs is usually centered around the point of ingress. However, the aggregate for the consumer applications, including the rate at which those events are processed, must also be included in the calculation.
+The emphasis for determining the number of TUs is centered around the point of ingress. However, the aggregate for the consumer applications, including the rate at which those events are processed, must also be included in the calculation.
 
 ### Scale up with auto-inflate
 
@@ -74,7 +74,7 @@ It might initially make sense to configure as many partitions as possible to ach
 
 When a partition key or ID isn't specified, the Event Hubs service routes an incoming event to the next available partition. This approach provides high availability and helps increase throughput for consumers.
 
-When ordering is important, a specific partition may be specified to preserve the order of events when they are published. A consumer application that reads from the same partition can then process the events in order. This tradeoff provides consistency but compromises availability and should only be considered when the ordering of events is a requirement.
+When ordering is important, a specific partition may be specified to preserve the order of events when they are published. A consumer application that reads from the same partition can then process the events in order. This tradeoff provides consistency but compromises availability. Only use approach when the ordering of events is a requirement.
 
 For Functions, ordering is achieved when events are published to a particular partition and an Event Hubs triggered function obtains a lease to the same partition. Currently, the ability to configure a partition with the Event Hubs output binding is not supported. Instead, using one of the Event Hubs SDKs is the best approach for publishing to a specific partition.
 
@@ -86,11 +86,11 @@ This section focuses on the settings and considerations involved when optimizing
 
 ### Batching
 
-Functions that are triggered by event hubs can be configured to process a collection of events, or one event at a time. Processing a batch of events is more efficient because of the overhead involved for each function invocation. Unless you need to to process only a single event, your function should be configured to process multiple events when invoked.
+Functions that are triggered by event hubs can be configured to process a collection of events, or one event at a time. Processing a batch of events is more efficient because of the overhead involved for each function invocation. Unless you need to process only a single event, your function should be configured to process multiple events when invoked.
 
 Enabling batching for the Event Hubs trigger binding varies between languages:
 
-- In C#, cardinality is automatically configured when an array is designated for the type in the [EventHubTrigger](https://github.com/Azure/azure-functions-eventhubs-extension/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) attribute.
+- In C#, cardinality is automatically configured when an array is designated for the type in the `EventHubTrigger` attribute.
 
 - JavaScript, Python, and other languages enable batching when the cardinality property is set to *many* in the function.json file for the function.
 
@@ -114,7 +114,7 @@ Understanding the concept of [checkpointing](/azure/event-hubs/event-hubs-featur
 
 The following concepts are important in understanding the relationship between checkpointing and how your function processes events:
 
-- **Exceptions still count towards success:** If the function process doesn't crash while processing events, the completion of the function is considered successful. Catching and handling exceptions should still be a defensive approach in the function code. When successful, the function evaluates the setting for the batch frequency checkpoint and create a checkpoint if it has been reached, regardless of exceptions that may have occurred during processing.
+- **Exceptions still count towards success:** If the function process doesn't crash while processing events, the completion of the function is considered successful. Catching and handling exceptions should still be a defensive approach in the function code. When successful, the Functions host evaluates the setting for the batch frequency checkpoint and create a checkpoint if it has been reached, regardless of exceptions that may have occurred during processing.
 
 - **Batch frequency matters:** In high volume event streaming solutions, it may be beneficial to change the batchCheckpointFrequency setting to a value greater than 1. Increasing this value can help reduce the rate of which a checkpoint is created, which will lessen the number of I/O operations to the storage account and yield higher performance.
 
@@ -154,21 +154,21 @@ If your function only publishes a single event, configuring the binding with a r
 
 Batching is encouraged to improve performance when sending multiple events to a stream. Batching allows the binding to publish events in the most efficient possible way.
 
-Support for sending multiple events with the output binding to Event Hubs is available in C\#, Java, Python and JavaScript.
+Support for sending multiple events with the output binding to Event Hubs is available in C#, Java, Python, and JavaScript.
 
-### Output multiple events in C\#
+### Output multiple events in C#
 
-Use the [ICollector](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) and [IAsyncCollector](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) types when sending multiple events from a function in C\#.
+Use the `ICollector` and `IAsyncCollector` types when sending multiple events from a function in C#.
 
-- ICollector\<T\>.Add(event) can be used in both synchronous and asynchronous functions. It will execute the add operation as soon as it is called.
+- The `ICollector<T>.Add()` method can be used in both synchronous and asynchronous functions. It executes the add operation as soon as it's called.
 
-- IAsyncCollector\<T\>.AddAsync(event) prepares the events to be published to the event stream. If you are writing an asynchronous function, it is recommended that you leverage IAsyncCollector to manage the events that will be published.
+- the `IAsyncCollector<T>.AddAsync()` method prepares the events to be published to the event stream. If you are writing an asynchronous function, you should use `IAsyncCollector` to better manage the published events.
 
-Refer to the [documentation](/azure/azure-functions/functions-bindings-event-hubs-output?tabs=csharp) for examples of publishing both single and multiple events using C\#.
+Refer to the [documentation](/azure/azure-functions/functions-bindings-event-hubs-output?tabs=csharp) for examples of publishing both single and multiple events using C#.
 
 ### Throttling and back pressure
 
-Throttling considerations apply to output binding as well, not only for Event Hubs but also for Azure services such as [Cosmos DB](/azure/cosmos-db/). In general, it’s important to become familiar with the limits and quotas that apply to those services and to plan accordingly.
+Throttling considerations apply to output binding as well, not only for Event Hubs but also for Azure services such as [Azure Cosmos DB](/azure/cosmos-db/). In general, it’s important to become familiar with the limits and quotas that apply to those services and to plan accordingly.
 
 To handle downstream errors, you can catch exceptions from IAsyncCollector by wrapping AddAsync and FlushAsync in an exception handler for .NET Azure Functions, or not use output bindings and use the Event Hubs SDKs directly.
 
@@ -178,27 +178,27 @@ This section covers the key areas that must be considered when writing code to p
 
 ### Asynchronous programming
 
-It's recommended to have your function employ non-blocking, [asynchronous](/azure/azure-functions/functions-best-practices#use-async-code-but-avoid-blocking-calls) code. This is particularly important when I/O calls are involved.
+It's recommended to have your function employ non-blocking, [asynchronous](/azure/azure-functions/functions-best-practices#use-async-code-but-avoid-blocking-calls) code. This is important when I/O calls are involved.
 
-When considering asynchronous programming in an Azure Function, there are some essential guidelines that should be followed:
+When considering asynchronous programming in an Functions, there are some essential guidelines that should be followed:
 
 - **All asynchronous or all synchronous:** If a function is configured to run asynchronously, all the I/O calls should be asynchronous as well. In most cases, being partially asynchronous can be worse than code that is entirely synchronous. Choose either asynchronous or synchronous for the implementation of the function and follow it all the way through.
 
-- **Avoid blocking calls:** Blocking calls return to the caller only after the call completes. This is very different than asynchronous calls that return immediately. An example in C\# would be calling **Task.Result** or **Task.Wait** on an asynchronous operation. 
+- **Avoid blocking calls:** Blocking calls return to the caller only after the call completes. This is different than asynchronous calls that return immediately. An example in C# would be calling **Task.Result** or **Task.Wait** on an asynchronous operation. 
 
 ### More about blocking calls
 
 When blocking calls are made on asynchronous operations, it can lead to thread-pool starvation and cause the function process to crash. This happens because a blocking call requires another thread to be created to compensate for the original call that is now waiting. As a result, it now requires twice as many threads to complete the operation.
 
-Avoiding this *sync over async* approach is especially important when Event Hubs is involved since a crash to the function will not update the checkpoint. The next time the function is invoked it could end up in this cycle and appear to be *stuck* or move along very slowly as function executions will eventually timeout.
+Avoiding this *sync over async* approach is especially important when Event Hubs is involved since a crash to the function will not update the checkpoint. The next time the function is invoked it could end up in this cycle and appear to be *stuck* or move along slowly as function executions will eventually time out.
 
-Troubleshooting this phenomenon usually starts with reviewing the trigger settings and running experiments that may involve increasing the partition count. Investigations can also lead to changing several of the batching options such as the max batch size or prefetch count. The impression is that it is a throughput problem or configuration setting that just needs to be tuned accordingly. However, the core problem is in the code itself and must be addressed there for the proper resolution.
+Troubleshooting this phenomenon usually starts with reviewing the trigger settings and running experiments that may involve increasing the partition count. Investigations can also lead to changing several of the batching options such as the max batch size or prefetch count. The impression is that it's a throughput problem or configuration setting that just needs to be tuned accordingly. However, the core problem is in the code itself and must be addressed there for the proper resolution.
 
 ## Next steps
 
 Before continuing, consider reviewing these related articles:
 
-- [Monitor Azure Functions](/azure/azure-functions/functions-monitoring)
+- [Monitor s](/azure/azure-functions/functions-monitoring)
 - [Azure Functions reliable event processing](/azure/azure-functions/functions-reliable-event-processing)
 - [Designing Azure Functions for identical input](/azure/azure-functions/functions-idempotent)
 - [ASP.NET Core async guidance](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md).
