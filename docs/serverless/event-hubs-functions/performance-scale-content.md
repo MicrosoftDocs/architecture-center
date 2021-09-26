@@ -132,7 +132,7 @@ Azure Functions provides built-in support for [Application Insights](/azure/azur
 
 - **Disable AzureWebJobDashboard**: For apps that target version 1.x of the Azure Functions runtime, this setting stores the connection string to a storage account that's used by the Azure SDK to retain logs for the WebJobs dashboard. If Application Insights is used in favor of the WebJobs dashboard, then this setting should be removed. To learn more, see the [AzureWebJobsDashboard](/azure/azure-functions/functions-app-settings#azurewebjobsdashboard) setting reference.
 
-It is important to mention that when Application Insights is enabled without sampling, **all** telemetry information will be sent. Sending each event may have a detrimental effect on the overall performance of the function, especially under high throughput event streaming circumstances.
+It's important to mention that when Application Insights is enabled without sampling, all telemetry data is sent. Sending data about all events may have a detrimental effect on the overall performance of the function, especially under high-throughput event streaming scenarios.
 
 Taking advantage of sampling and continually assessing the appropriate amount of telemetry needed for monitoring is one of the many, crucial settings available for optimum performance. Telemetry should be used for general platform health evaluation in the aggregate and for occasional troubleshooting, and not to capture core business metrics. To learn more, see [Configure sampling](/azure/azure-functions/configure-monitoring?tabs=v2#configure-sampling).
 
