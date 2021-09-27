@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Cosmos DB that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/15/2021
+ms.date: 09/27/2021
 ms.topic: conceptual
 ms.service: architecture-center
 products:
@@ -21,7 +21,7 @@ ms.custom:
 
 # Multitenancy and Azure Cosmos DB
 
-On this page, we describe some of the features of Azure Cosmos DB that are useful when working with multitenanted systems, and link to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.
+On this page, we describe some of the features of Azure Cosmos DB that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.
 
 ## Features of Azure Cosmos DB that support multitenancy
 
@@ -45,7 +45,7 @@ Cosmos DB also provides a serverless tier, which is suited for workloads with in
 > [!NOTE]
 > When planning your Cosmos DB configuration, ensure you consider the [service quotas and limits](/azure/cosmos-db/concepts-limits).
 
-To monitor and manage the costs associated with each tenant, every operation using the Cosmos DB API includes the request units consumed. You can use this information to aggregate and compare the actual request units consumed by each tenant, and can identify tenants with different performance characteristics.
+To monitor and manage the costs that are associated with each tenant, every operation using the Cosmos DB API includes the request units consumed. You can use this information to aggregate and compare the actual request units consumed by each tenant, and you can then identify tenants with different performance characteristics.
 
 More information:
 
@@ -65,17 +65,17 @@ More information:
 
 ## Isolation models
 
-When working with a multitenant system using Azure Cosmos DB, you need to make a decision about the level of isolation you want to use. Azure Cosmos DB supports several isolation models:
+When working with a multitenant system that uses Azure Cosmos DB, you need to make a decision about the level of isolation you want to use. Azure Cosmos DB supports several isolation models:
 
 |                             | Shared containers with partition keys per tenant                                                                                                                                                                                                                               | Container with shared throughput per tenant                                                                                                                                                                                                                             | Container with dedicated throughput per tenant                                                                                                                                    | Database account per tenant                                                                                                                     |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Isolation options**       | <ul><li>Share throughput across tenants grouped by container (great for lowering cost on 'spiky' tenants).</li> <li>Enables easy queries across tenants (containers act as boundary for queries). Mitigate noisy neighbor blast radius (group tenants by container).</li></ul> | <ul><li>Share throughput across tenants grouped by database (great for lowering cost on 'spiky' tenants).</li> <li>Easy management of tenants (drop container when tenant leaves).</li> <li>Mitigate noisy neighbor blast radius (group tenants by database).</li></ul> | <ul><li>Independent throughput options (dedicated throughput - eliminating noisy neighbors).</li> <li>Group tenants within database account(s) based on regional needs.</li></ul> | <ul><li>Independent geo-replication knobs.</li> <li>Multiple throughput options (dedicated throughput - eliminating noisy neighbors).</li></ul> |
+| **Isolation options**       | <ul><li>Share throughput across tenants grouped by container (great for lowering cost on 'spiky' tenants).</li> <li>Enables easy queries across tenants (containers act as boundary for queries). Mitigate a noisy neighbor blast radius (group tenants by container).</li></ul> | <ul><li>Share throughput across tenants that are grouped by database (which is great for lowering costs on 'spiky' tenants).</li> <li>Easy management of tenants (drop the container when the tenant leaves).</li> <li>Mitigate noisy neighbor blast radius (group tenants by database).</li></ul> | <ul><li>Independent throughput options (the dedicated throughput eliminates noisy neighbors).</li> <li>Group tenants within database account(s), based on regional needs.</li></ul> | <ul><li>Independent geo-replication knobs.</li> <li>Multiple throughput options (the dedicated throughput eliminates noisy neighbors).</li></ul> |
 | **Throughput requirements** | >0 RUs per tenant                                                                                                                                                                                                                                                              | >100 RUs per tenant                                                                                                                                                                                                                                                     | >400 RUs per tenant                                                                                                                                                               | >400 RUs per tenant                                                                                                                             |
 | **Example use case**        | B2C apps                                                                                                                                                                                                                                                                       | Standard offer for B2B apps                                                                                                                                                                                                                                             | Premium offer for B2B apps                                                                                                                                                        | Premium offer for B2B apps                                                                                                                      |
 
 ### Shared container with partition keys per tenant
 
-When you use a single container for multiple tenants, you can make use of Cosmos DB's partitioning support. By using separate partition keys for each tenant, you can easily query the data for a single tenant. You can also query across multiple tenants even if they are in separate partitions, although [cross-partition queries](/azure/cosmos-db/sql/how-to-query-container#cross-partition-query) have a higher RU cost than single-partition queries.
+When you use a single container for multiple tenants, you can make use of Cosmos DB's partitioning support. By using separate partition keys for each tenant, you can easily query the data for a single tenant. You can also query across multiple tenants, even if they are in separate partitions. However, [cross-partition queries](/azure/cosmos-db/sql/how-to-query-container#cross-partition-query) have a higher RU cost than single-partition queries.
 
 This approach tends to work well when the amount of data stored for each tenant is small. It can be a good choice for building a [pricing model](../considerations/pricing-models.md) that includes a free tier, and for business-to-consumer (B2C) solutions. In general, by using shared containers, you achieve the highest density of tenants and therefore the lowest price per tenant.
 
@@ -110,12 +110,12 @@ You can consider a combination of the above approaches to suit different tenants
 - Offer a higher *Silver* tier that provisions dedicated throughput for the tenant's container.
 - Offer the highest *Gold* tier and provide a dedicated database account for the tenant, which also allows tenants to select the geography for their deployment.
 
+## Next steps
+
+Review [Resources for architects and developers of multitenant solutions](../related-resources.md).
+
 ## Related resources
 
 * [Azure Cosmos DB and multitenant systems](https://azure.microsoft.com/blog/azure-cosmos-db-and-multi-tenant-systems/): A blog post discussing how to build a multitenant system that uses Azure Cosmos DB.
 * [Multitenant applications with Azure Cosmos DB](https://www.youtube.com/watch?v=fOQoQnQqwwU) (video)
 * [Building a multitenant SaaS with Azure Cosmos DB and Azure](https://www.youtube.com/watch?v=Tht_RV5QPJ0) (video): A real-world case study of how Whally, a multitenant SaaS startup, built a modern platform from scratch on Azure Cosmos DB and Azure. Whally shows the design and implementation decisions they made related to partitioning, data modeling, secure multitenancy, performance, real-time streaming from change feed to SignalR and more, all using ASP.NET Core on Azure App Services.
-
-## Next steps
-
-Review [Resources for architects and developers of multitenant solutions](../related-resources.md).
