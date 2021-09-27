@@ -1588,7 +1588,7 @@ items:
                         href: serverless/event-hubs-functions/event-hubs-functions.yml
                       - name: Performance and scale
                         href: serverless/event-hubs-functions/performance-scale.yml
-                      - name: Resilient Event Hubs and Functions design
+                      - name: Resilient design
                         href: serverless/event-hubs-functions/resilient-design.md
                       - name: Security
                         href: serverless/event-hubs-functions/security.md
