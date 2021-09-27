@@ -1,26 +1,26 @@
-This article outlines a solution for a hybrid transaction/analytical processing (HTAP) architecture. To process transactions, most systems use low-latency, high-volume operational workloads. For analytics, higher-latency, lower-volume workloads are more typical. HTAP architectures offer a solution for both workload types. Through in-memory databases, HTAP uses consolidated technology to optimize queries on large volumes of data.
+This article outlines a solution for a hybrid transaction/analytical processing (HTAP) architecture. To process transactions, most systems use low-latency, high-volume operational workloads. For analytics, higher-latency, lower-volume workloads are more typical. HTAP architectures offer a solution for both workload types. By using in-memory databases, HTAP consolidates technologies to optimize queries on large volumes of data.
 
-Azure SQL Database forms the core of this HTAP solution, which divides the data into horizontally distributed databases, or shards. Other main components include:
+Azure SQL Database forms the core of this HTAP solution. The approach divides the data into horizontally distributed databases, or shards. Other main components include:
 
 - Azure Event Hubs for data ingestion.
 - Azure Stream Analytics for data processing.
 - Azure Functions for partitioning.
 - Azure Blob Storage for event storage.
 
-Together, these services provide an HTAP solution that helps businesses:
+Together, these services provide an HTAP solution that:
 
-- Reduce costs by providing fast access to insights on archived data. Cool path latencies drop from hours to less than seconds with this solution.
-- Simplify archiving by automatically adding data to long-term storage.
-- Maximize scalability by sharding data and using an elastic database.
+- Reduces costs by providing fast access to insights on archived data. Latencies on the cool path  drop from hours to less than seconds with this solution.
+- Simplifies archiving by automatically adding data to long-term storage.
+- Maximizes scalability by sharding data and using an elastic database.
 
 ## Potential use cases
 
 This solution applies to organizations that need low-latency access to large volumes of historical data. Examples include:
 
-- Online retailers that access customers' history and demographic information to provide personalized experiences.
+- Online retailers that access customer history and demographic information to provide personalized experiences.
 - Energy providers that combine device data with analytics to manage smart power grids.
 - Businesses that engage in fraud prevention by identifying patterns in historical and real-time data.
-- Manufacturers that rely on real-time event processing to identify problems as they unfold.
+- Manufacturers that rely on real-time event processing to identify problems.
 
 ## Architecture
 
@@ -69,7 +69,7 @@ Keep the following considerations in mind when implementing this solution:
 - To optimize performance:
 
   - Combine sharding with table compression.
-  - Partition tables by date. Each shard contains data from a different time period.
+  - Partition tables by date. Each shard contains data from a different period.
   - Align indexes with the date partitioning.
 
 - To scale up to more than 50,000 messages per second, use the [elastic database client library][Building scalable cloud databases] from within Functions to:
@@ -80,13 +80,13 @@ Keep the following considerations in mind when implementing this solution:
   This approach is suitable for systems that use 10 Standard S3 databases of type SQL Database. To host a columnar index, you need at least the Standard tier.
 
 - For best performance during insert operations, use [table-valued parameters with stored procedures][Use Table-Valued Parameters (Database Engine)].
-- When you use the CREATE COLUMNSTORE INDEX statement, use the [COLUMNSTORE_ARCHIVE][CREATE COLUMNSTORE INDEX - DATA_COMPRESSION option] option. This option provides the highest possible level of compression. A high compression level increases the time you need to store and retrieve data. But the resulting I/O performance is sufficient.
+- When you use the CREATE COLUMNSTORE INDEX statement, use the [COLUMNSTORE_ARCHIVE][CREATE COLUMNSTORE INDEX - DATA_COMPRESSION option] option. This option provides the highest possible level of compression. A high compression level increases the time you need to store and retrieve data. But the resulting I/O performance should still be satisfactory.
 
 ### Scalability considerations
 
 - Use shards so that you can expand your system to meet demanding workloads. When you use sharded databases, you can add or remove shards to scale out or in. The split-merge tool helps you [split and merge partitions][Deploy a split-merge service to move data between sharded databases].
 - Take advantage of the scaling functionality in Functions. Create functions that scale based on CPU and memory usage. Configure the functions to start new instances to accommodate unexpected workloads.
-- The solution uses Azure Databricks to reprocess Avro files that Blob Storage captures. Spark clusters in Azure Databricks can process all or part of the Avro file's path. Increase the size of the Azure Databricks cluster to reprocess all the data within a required time frame. Add instances of Event Hubs to the namespace as needed to handle increased volume from Azure Databricks.
+- Increase the size of your Azure Databricks cluster to scale up Avro file reprocessing. The solution uses Azure Databricks to reprocess Avro files that Blob Storage has captured. Spark clusters in Azure Databricks can process all or part of the Avro file's path. By increasing the Azure Databricks cluster size, you can reprocess all the data within a required time frame. To handle increased volume from Azure Databricks, add instances of Event Hubs to the namespace as needed.
 
 ### Resiliency considerations
 
