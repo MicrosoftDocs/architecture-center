@@ -191,6 +191,8 @@ items:
                 href: guide/multitenant/considerations/domain-names.md
           - name: Approaches
             items:
+              - name: Cost management and allocation
+                href: guide/multitenant/approaches/cost-management-allocation.md
               - name: Storage and data
                 href: guide/multitenant/approaches/storage-data.md
           - name: Related resources
