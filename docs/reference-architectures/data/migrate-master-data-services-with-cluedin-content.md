@@ -6,6 +6,8 @@ CluedIn provides a side-by-side feature parity to SQL MDS that provides user-fam
 
 ## Architecture
 
+![Diagram showing CluedIn architectural structure.](images/migrate-mds-to-azure-with-cluedin.png)
+
 The following diagram demonstrates the CluedIn architectural structure and data flow.
 
 [Replace with diagram image]
