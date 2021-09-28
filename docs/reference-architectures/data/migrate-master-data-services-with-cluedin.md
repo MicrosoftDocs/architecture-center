@@ -25,16 +25,18 @@ CluedIn provides functionality for all of the above and much more. In addition, 
 CluedIn also supports migrating data change history, and it can automatically build up data quality history from your MDS instances.
 You can also run an MDS solution and CluedIn in-sync, if you don't want to turn your MDS instances off as soon as the migration process has finished. 
 
-CluedIn natively supports the common data model / DataVerse, meaning that Power Apps, Power Automate, Power BI, Virtual Chatbots and Microsoft Dynamics users can all natively utilize data from CluedIn without the need for any extra setup or integration. 
+CluedIn natively supports the Common Data Model / Dataverse. In other words,  Power Apps, Power Automate, Power BI, virtual chatbots, and Microsoft Dynamics users can all natively utilize data from CluedIn, without the need for any extra setup or integration.
 
 ### CluedIn natively integrates with Azure Purview 
 
-Azure Purview brings Data Governance capabilities to the Microsoft Azure cloud and CluedIn provides native integration to its functionality. 
-For Azure customers that need fine-grained details on the processing of data across their data estate, CluedIn writes its transformation log directly into the Purview Data Map and lineage. If you are needed to show a full end-to-end lineage of how data moves and transforms through your Azure stack, CluedIn can be utilized to write this information to Purview. 
+Azure Purview brings data governance capabilities to the Microsoft Azure cloud, and CluedIn provides native integration to its functionality.
+
+For Azure customers who need fine-grained details on the processing of data across their data estate, CluedIn writes its transformation log directly into the Purview Data Map and lineage. If you need to show a full end-to-end lineage of how data moves and transforms through your Azure stack, CluedIn can be utilized to write this information to Purview. 
 
  - The Azure Purview Glossary is available directly in CluedIn and vice-versa. 
- - CluedIn can ingest assets that have been registered in Purview. 
- - CluedIn scans the PII from Purview and can pinpoint to a record level where the PII is. It also adds supports for PII in unstructured and semi-structed data, not just structured. 
+ - CluedIn can ingest assets that have been registered in Purview.
+ - CluedIn scans the personally identifiable information (PII) from Purview, and it can pinpoint to a record level where the PII is. It also adds supports for PII in unstructured and semi-structed data, not just structured. 
  - CluedIn will use the schema set in Purview to auto-map data sets into CluedIn. 
  - CluedIn extends the Purview Lineage with detailed processing logs. 
 -	CluedIn can initiate Purview Scans before a new data ingestion is scheduled. 
+
