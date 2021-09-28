@@ -2,7 +2,7 @@ Master Data has been given the task to solve data quality, data governance, and 
 
 The architecture encapsulates many pillars of master data management (MDM) into a coherent, consistent, end-to-end MDM solution. CluedIn has introduced a _zero-modeling_ MDM approach that has been proven to accelerate MDM projects and increase success rates of the MDM initiatives.
 
-CluedIn provides a side-by-side feature parity to SQL MDS that provides user-familiarity for data stewards and MDM teams to easily migrate their daily workloads from MDS to CluedIn. In addition to this, CluedIn provides many more valuable data master functionality to provide a foundation of ready-for-insight data to your business.
+CluedIn provides a side-by-side feature parity to SQL MDS that provides user-familiarity for data stewards and MDM teams to easily migrate their daily workloads from MDS to CluedIn. In addition to this, CluedIn provides many more valuable data master functionalities, including a foundation of ready-for-insight data into your business.
 
 ## Architecture
 
