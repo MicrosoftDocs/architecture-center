@@ -1612,6 +1612,8 @@ items:
                   - name: Blueprint - HIPAA/HITRUST health data and AI
                     href: /previous-versions/azure/security/blueprints/azure-health
                     maintainContext: true
+              - name: Cost savings through HTAP with Azure SQL
+                href: example-scenario/data/azure-sql-htap.yml
               - name: Data governance with Profisee and Azure Purview
                 href: reference-architectures/data/profisee-master-data-management-purview.yml
               - name: DataOps for modern data warehouse
