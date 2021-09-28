@@ -35,7 +35,7 @@ This solution applies to organizations that need low-latency access to large vol
 1. Azure Functions uses the SQL Database [elastic database client library][Building scalable cloud databases] to archive the data. This process partitions the data to optimize insert operations. The solution forms shards by horizontally distributing the data over several Azure SQL databases. Each database uses a partitioned clustered columnar index to compress tables. Response times on this cold path are usually below one second.
 1. An Azure Databricks cluster reprocesses the Blob Storage data. Specifically, Azure Databricks deserializes Avro files and sends the data to Event Hubs for optional analysis.
 
-## Components
+### Components
 
 - [Event Hubs][Event Hubs] is a fully managed streaming platform for big data.
 
