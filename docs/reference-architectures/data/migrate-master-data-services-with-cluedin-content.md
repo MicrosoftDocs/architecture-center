@@ -6,11 +6,9 @@ CluedIn provides a side-by-side feature parity to SQL MDS that provides user-fam
 
 ## Architecture
 
-![Diagram showing CluedIn architectural structure.](images/migrate-mds-to-azure-with-cluedin.png)
-
 The following diagram demonstrates the CluedIn architectural structure and data flow.
 
-[Replace with diagram image]
+[![Diagram showing CluedIn architectural structure.](images/migrate-mds-to-azure-with-cluedin.png)](images/migrate-mds-to-azure-with-cluedin.png#lightbox)
 
 CluedIn uses the Azure virtual private network (VPN) to allow you to connect to migrate on-premises MDS instances, or to connect directly to a cloud hosted SQL VM with a hosted MDS instance. All CluedIn needs is to point to the Windows Communication Foundation (WCF) service of MDS, and it will automate the process of moving the data, rules, workflows, and everything else into CluedIn or the respective Microsoft service.
 
@@ -88,7 +86,7 @@ For Azure customers who need fine-grained details on the processing of data acro
 
 The following image demonstrates the Lineage feature set.
 
-[Replace with customer orders image]
+![Screenshot showing the CluedIn Lineage feature set.](images/cluedin-customer-orders.png)
 
 ### Azure Data Factory support
 
@@ -111,7 +109,7 @@ The most important aspect of this modeling is that a relational style will give 
 
 The following image shows the Relations feature set.
 
-[Add the relations image]
+![Screenshot showing the CluedIn Relations feature set.](images/cluedin-relations.png)
 
 ### Availability
 
