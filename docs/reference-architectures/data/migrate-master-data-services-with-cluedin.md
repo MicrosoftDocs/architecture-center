@@ -67,7 +67,7 @@ CluedIn provides functionality for all of the above. In addition, the following 
   - Write back to the MDS instance, if necessary.
 
 CluedIn also supports migrating data change history, and it can automatically build up data quality history from your MDS instances.
-You can also run an MDS solution and CluedIn in-sync, if you don't want to turn your MDS instances off as soon as the migration process has finished. 
+You can also run an MDS solution and CluedIn in-sync, if you don't want to turn off your MDS instances as soon as the migration process has finished. 
 
 CluedIn natively supports the Common Data Model / Dataverse. In other words,  Power Apps, Power Automate, Power BI, virtual chatbots, and Microsoft Dynamics users can all natively utilize data from CluedIn, without the need for any extra setup or integration.
 
@@ -80,7 +80,7 @@ For Azure customers who need fine-grained details on the processing of data acro
  - The Azure Purview Glossary is available directly in CluedIn and vice-versa. 
  - CluedIn can ingest assets that have been registered in Purview.
  - CluedIn scans the personally identifiable information (PII) from Purview, and it can pinpoint to a record level where the PII is. It also adds supports for PII in unstructured and semi-structed data, not just structured. 
- - CluedIn will use the schema set in Purview to auto-map data sets into CluedIn. 
+ - CluedIn will use the schema set in Purview to automatically map data sets into CluedIn. 
  - CluedIn extends the Purview Lineage with detailed processing logs. 
 -	CluedIn can initiate Purview Scans before a new data ingestion is scheduled. 
 
@@ -103,9 +103,9 @@ The following are key ADF support features:
 
 You might need to show how customers move their models from a relational model to a graph model.
 
-CluedIn uses an auto-modeling process, so there is no need to migrate or recreate data models from master data services (MDS) or other data sources, such as Microsoft Dynamics. This feature utilizes a graph database to automatically build a model based off the data that is sent to the system. If you move from a traditional relational based model to a graph, then you bring tremendous value and flexibility in your master data initiatives. The graph approach is not that different to a relational style of modeling. 
+CluedIn uses an automatic modeling process, so there is no need to migrate or recreate data models from master data services (MDS) or other data sources, such as Microsoft Dynamics. This feature utilizes a graph database to automatically build a model based off the data that is sent to the system. If you move from a traditional relational based model to a graph, then you bring tremendous value and flexibility in your master data initiatives. The graph approach is not that different to a relational style of modeling. 
 
-The most important aspect of this modeling is that a relational style will give you and your team a flexible way to represent your master data models, in all different shapes and sizes. This style leads to immense flexibility, when your business requires that your master data model stretches to fit into different use cases and business requirements. CluedIn utilizes an up-front schema-less approach to data ingestion. Your data does not need to fit into a tight and rigid schema on entry into the platform. However, a tight and rigid schema can be applied on the data's way out of CluedIn, when it is used in the different use cases that are leveraging the data from the CluedIn platform.
+The most important aspect of this modeling is that a relational style will give you and your team a flexible way to represent your master data models, in all different shapes and sizes. This style leads to immense flexibility, when your business requires that your master data model stretches to fit into different use cases and business requirements. CluedIn utilizes an up-front schema-less approach to data ingestion. Your data does not need to fit into a tight and rigid schema on entry into the platform. However, a tight and rigid schema can be applied on the data's way out of CluedIn, when it is used in the different use cases that are applying the data from the CluedIn platform.
 
 The following image shows the Relations feature set.
 
@@ -113,7 +113,7 @@ The following image shows the Relations feature set.
 
 ### Availability
 
-This solution is hosted as a managed-application offering and can be leveraged as a solution in your own tenant, where the vendor will manage upgrades, maintenance, backups, and more on your behalf. 
+This solution is hosted as a managed-application offering and can be applied in your own tenant, where the vendor will manage upgrades, maintenance, backups, and more on your behalf. 
 
 CluedIn natively integrates into [Azure Service Health](https://azure.microsoft.com/features/service-health) and Azure scheduled maintenance, so that upgrades and patches feel like native Azure announcements. In combination with the high robustness on the Azure environment, CluedIn can cater for the highest of service-level agreement (SLA) requirements.
 
@@ -127,7 +127,7 @@ CluedIn supports the integration of as many MDS instances as you need. For examp
 
 CluedIn runs in Docker containers and uses Kubernetes to host and orchestrate the different pieces of the application. This architecture means that CluedIn works well in elastic environments and can automatically scale to needed sizes and infrastructure.
 
-With native support for autoscaling, CluedIn leverages the power of Azure to provide a scalable environment for the biggest data workloads. It is not un-common for CluedIn accounts to have tens of millions or hundreds of millions of records in the platform.
+With native support for autoscaling, CluedIn uses the power of Azure to provide a scalable environment for the biggest data workloads. It is not un-common for CluedIn accounts to have tens of millions or hundreds of millions of records in the platform.
 
 ### Security
 
