@@ -31,24 +31,22 @@ CluedIn provides native integration to 27 Azure services, including the followin
 •	[Azure Databricks](https://azure.microsoft.com/services/databricks)
 •	[Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
 •	[Microsoft Dataverse](https://powerplatform.microsoft.com/dataverse)
-•	[Azure Functions]()
-•	[Power Automate]()
-•	[Power Apps]()
-•	[Power BI]()
-•	[Virtual Chat Bots]()
-•	[Azure DevOps]()
-•	[Azure Container Registry]()
-•	[Azure Data Factory]()
-•	[Azure Redis]()
-• [Azure Auto-Scaler]()
+•	[Azure Functions](https://azure.microsoft.com/services/functions)
+•	[Power Automate](https://flow.microsoft.com)
+•	[Power Apps](https://powerapps.microsoft.com)
+•	[Power BI](https://powerbi.microsoft.com)
+•	[Azure Bot Service](https://azure.microsoft.com/services/bot-services)
+•	[Azure DevOps](https://azure.microsoft.com/services/devops)
+•	[Azure Container Registry](https://azure.microsoft.com/services/container-registry)
+•	[Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+•	[Azure Cache for Redis](https://azure.microsoft.com/services/cache)
+• [Azure Autoscale](https://azure.microsoft.com/features/autoscale/)
 
 ### Alternatives
 
 You can also extend the platform to alternative scenarios to the core features of CluedIn.
 
 In this version of CluedIn, extending the platform is all done with native Azure Services. All events are exposed on the Event Hub, for your developers to interact with them in any way that they want. Azure Data Factory can be used to push data to CluedIn, which offers support to bring in data across all of the different Azure Services into CluedIn. Azure Functions can be used to subscribe to the Event Hubs, in which you can create your customizations in any of the supported languages in Azure Functions.
-
-
 
 ## CluedIn features
 
@@ -98,3 +96,75 @@ The following are key ADF support features:
   - You can set it up to listen to events from Event Hub, and then you can feed the data right back into CluedIn.
   - Native support is available directly within CluedIn to set up ADF-specific endpoints. 
   - You can easily utilize existing ADF pipelines with a new target sink. 
+
+## Considerations 
+
+### Modelling
+
+You might need to show how customers move their models from a relational model to a graph model.
+
+CluedIn uses an auto-modelling process, so there is no need to migrate or recreate data models from master data services (MDS) or other data sources, such as Microsoft Dynamics. This utilizes a graph database to automatically build a model based off the data that is sent to the system. If you move from a traditional relational based model to a graph, then you bring tremendous value and flexibility in your master data initiatives. The graph approach is not that different to a relational style of modelling. 
+
+The most important aspect of this modelling is that a relational style will give you and your team a flexible way to represent your master data models, in all different shapes and sizes. This leads to immense flexibility, when your business requires that your master data model stretches to fit into different use cases and business requirements. CluedIn utilizes an up-front schema-less approach to data ingestion. Your data does not need to fit into a tight and rigid schema on entry into the platform. However, a tight and rigid schema can be applied on the data's way out of CluedIn, when it is used in the different use cases that are leveraging the data from the CluedIn platform.
+
+The following image shows the Relations feature set.
+
+[Add the relations image]
+
+### Availability
+
+This solution is hosted as a managed-application offering and can be leveraged as a solution in your own tenant, where the vendor will manage upgrades, maintenance, backups, and more on your behalf. 
+
+CluedIn natively integrates into [Azure Service Health](https://azure.microsoft.com/features/service-health) and Azure scheduled maintenance, so that upgrades and patches feel like native Azure announcements. In combination with the high robustness on the Azure environment, CluedIn can cater for the highest of service-level agreement (SLA) requirements.
+
+### Performance
+
+CluedIn separates storage from compute, so the processing of data is completely _stateless_. Backed by a streaming service bus, this means that CluedIn can scale up and down, as much or as little as you need, dependent upon your workloads. CluedIn supports the Azure autoscale features inside of [Azure Kubernetes Service](https://azure.microsoft.com/overview/kubernetes-on-azure) (AKS), so that scaling can be automated. To increase performance in the processing of data, you will simply allocate more processing pods to your Kubernetes cluster, which can all be automated.
+
+### Scalability
+
+CluedIn supports the integration of as many MDS instances as you need. For example, you can ingest and manage 50 MDS instances in CluedIn. You can either run them multitenant or all blended in the same account. Once your MDS solution has been migrated to CluedIn, there are many ways to onboard new systems and master data, with different choices in how to load the data. 
+
+CluedIn runs in Docker containers and uses Kubernetes to host and orchestrate the different pieces of the application. This architecture means that CluedIn works well in elastic environments and can automatically scale to needed sizes and infrastructure.
+
+With native support for autoscaling, CluedIn leverages the power of Azure to provide a scalable environment for the biggest data workloads. It is not un-common for CluedIn accounts to have tens of millions or hundreds of millions of records in the platform.
+
+### Security
+
+CluedIn security grants permissions and controls access to different services through Azure RBAC, with Azure Key Vault security key control and Azure Monitor access tracking and logging.
+In addition to authenticated user accounts, CluedIn also supports single sign-on (SSO) and identity frameworks. Requests to the CluedIn application use encrypted access tokens that have no correlation with user identity.
+With Native Azure Active Directory support, simply plugin your SAML 2.0 information into CluedIn and it can immediately be used to manage user and role access to your new MDM solution.
+
+### Resiliency
+
+CluedIn runs in a high-availability mode at the data store and application level. Due to the separation of storage and processing, CluedIn has built-in resistance and fault tolerance. Different parts of the CluedIn application can be scaled up and down independently, to cater for a diverse array of workloads. 
+
+### DevOps
+
+CluedIn uses Azure Pipelines' continuous integration and continuous delivery (CI/CD) pipelines to handle deployments and rolling updates to the AKS environment. Customers can also utilize this infrastructure to deploy their own customizations to CluedIn itself.
+
+### Deploy this scenario
+
+To deploy CluedIn for development and evaluation purposes using Docker, see [CluedIn with Docker](https://documentation.cluedin.net/versions/3.2.3/docs/00-gettingStarted/30-docker-local.html).
+
+To install CluedIn in production, CluedIn instances can be directly installed from the Azure Marketplace in your own Azure tenant. 
+
+## Pricing
+
+CluedIn costs start low and, based off your usage, will scale up pricing to match the usage. Budgets can be set directly within the Azure portal so you can keep control of your operational costs. 
+
+### Azure sizing and starting a trial
+
+You can start a trial of CluedIn on their website, which can also help you scope your Azure hosting costs with prebuilt Azure estimates for different sized environments.
+
+## Next steps
+
+- For more information about CluedIn, see the [CluedIn website](https://www.cluedin.com).
+- For instructions on deploying and using CluedIn, see the [CluedIn documentation](https://documentation.cluedin.net/versions/3.2.3).
+- [CluedIn with Docker](https://documentation.cluedin.net/versions/3.2.3/docs/00-gettingStarted/30-docker-local.html)
+
+## Related resources
+
+- [Master data management with Azure and CluedIn](/azure/architecture/reference-architectures/data/cluedin)
+- For an overview of Azure data architecture, see the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+- [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
