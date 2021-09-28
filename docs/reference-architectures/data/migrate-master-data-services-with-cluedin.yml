@@ -25,7 +25,6 @@ products:
   - azure-functions
   - azure-key-vault
   - azure-monitor
-  - azure-purview
   - azure-service-bus
   - azure-sql-managed-instance
   - azure-synapse-analytics
