@@ -1,6 +1,6 @@
 Master Data has been given the task to solve data quality, data governance, and mastering of the most important business data within a company. If you are currently using an on-premises or cloud-hosted SQL master data services (MDS) instance or instances, then the following scenario simplifies the experience of moving to a native Azure master data management solution by CluedIn. 
 
-The architecture encapsulates many pillars of master data management (MDM) into a coherent, consistent, end-to-end MDM solution. CluedIn has introduced a _zero-modelling_ MDM approach that has been proven to accelerate MDM projects and increase success rates of the MDM initiatives.
+The architecture encapsulates many pillars of master data management (MDM) into a coherent, consistent, end-to-end MDM solution. CluedIn has introduced a _zero-modeling_ MDM approach that has been proven to accelerate MDM projects and increase success rates of the MDM initiatives.
 
 CluedIn provides a side-by-side feature parity to SQL MDS that provides user-familiarity for data stewards and MDM teams to easily migrate their daily workloads from MDS to CluedIn. In addition to this, CluedIn provides many more valuable data master functionality to provide a foundation of ready-for-insight data to your business.
 
@@ -99,13 +99,13 @@ The following are key ADF support features:
 
 ## Considerations 
 
-### Modelling
+### Modeling
 
 You might need to show how customers move their models from a relational model to a graph model.
 
-CluedIn uses an auto-modelling process, so there is no need to migrate or recreate data models from master data services (MDS) or other data sources, such as Microsoft Dynamics. This utilizes a graph database to automatically build a model based off the data that is sent to the system. If you move from a traditional relational based model to a graph, then you bring tremendous value and flexibility in your master data initiatives. The graph approach is not that different to a relational style of modelling. 
+CluedIn uses an auto-modeling process, so there is no need to migrate or recreate data models from master data services (MDS) or other data sources, such as Microsoft Dynamics. This utilizes a graph database to automatically build a model based off the data that is sent to the system. If you move from a traditional relational based model to a graph, then you bring tremendous value and flexibility in your master data initiatives. The graph approach is not that different to a relational style of modeling. 
 
-The most important aspect of this modelling is that a relational style will give you and your team a flexible way to represent your master data models, in all different shapes and sizes. This leads to immense flexibility, when your business requires that your master data model stretches to fit into different use cases and business requirements. CluedIn utilizes an up-front schema-less approach to data ingestion. Your data does not need to fit into a tight and rigid schema on entry into the platform. However, a tight and rigid schema can be applied on the data's way out of CluedIn, when it is used in the different use cases that are leveraging the data from the CluedIn platform.
+The most important aspect of this modeling is that a relational style will give you and your team a flexible way to represent your master data models, in all different shapes and sizes. This leads to immense flexibility, when your business requires that your master data model stretches to fit into different use cases and business requirements. CluedIn utilizes an up-front schema-less approach to data ingestion. Your data does not need to fit into a tight and rigid schema on entry into the platform. However, a tight and rigid schema can be applied on the data's way out of CluedIn, when it is used in the different use cases that are leveraging the data from the CluedIn platform.
 
 The following image shows the Relations feature set.
 
