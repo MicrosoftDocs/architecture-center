@@ -30,6 +30,8 @@ When a startup is in the _Explore_ stage, your imperative is to invest small amo
 
 This stage requires discipline. It's easy to over-invest in an idea that you could test in a way that requires a lot less time and energy. As a technologist, you'll find it especially easy to fall into this trap. Making the right architectural choices to make exploration easier requires you to remember that you're exploring. You don't yet know if the current product idea is the one that will scale.
 
+From an architecture perspective, you can choose services that make optimizing for speed, cost, and optionality easier. Using managed services, such as a PaaS like Azure App Service, allows you to get started quickly without worrying about complex infrastructure. You can manage cost by choosing smaller instance sizes while you're still exploring. Containers enable developing with whichever tools make sense for you.
+
 ### Expand
 
 Once your startup finds growth through exploration, you must shift gears to _Expand_. Your effort must be focused on removing any blockages to the continued growth of your product and company. From a technical perspective, your focus is often on solving infrastructure scale challenges, and increasing development velocity. This focus is all so that you can meet the needs of your new customers and progress your product roadmap.
