@@ -2,7 +2,7 @@ Master Data has been given the task to solve data quality, data governance, and 
 
 The architecture encapsulates many pillars of master data management (MDM) into a coherent, consistent, end-to-end MDM solution. CluedIn has introduced a _zero-modeling_ MDM approach that has been proven to accelerate MDM projects and increase success rates of the MDM initiatives.
 
-CluedIn provides a side-by-side feature parity to SQL MDS that provides user-familiarity for data stewards and MDM teams to easily migrate their daily workloads from MDS to CluedIn. In addition to this, CluedIn provides many more valuable data master functionalities, including a foundation of ready-for-insight data into your business.
+CluedIn provides a side-by-side feature parity to SQL MDS that provides user-familiarity for data stewards and MDM teams to easily migrate their daily workloads from MDS to CluedIn. In addition, CluedIn provides many more valuable data master functionalities, including a foundation of ready-for-insight data into your business.
 
 ## Architecture
 
@@ -12,13 +12,13 @@ The following diagram demonstrates the CluedIn architectural structure and data 
 
 CluedIn uses the Azure virtual private network (VPN) to allow you to connect to migrate on-premises MDS instances, or to connect directly to a cloud hosted SQL VM with a hosted MDS instance. All CluedIn needs is to point to the Windows Communication Foundation (WCF) service of MDS, and it will automate the process of moving the data, rules, workflows, and everything else into CluedIn or the respective Microsoft service.
 
-With native integration to Azure Cost Management + Billing, you can easily forecast your CluedIn MDM workloads, as you move from MDS to CluedIn. CluedIn utilizes the Azure Autoscale feature, to be able to scale the environment up and down. CluedIn also integrates natively into budgets in Azure, so that you can easily control your spending in the cloud. This eliminates the need for time-consuming forecasting and budgeting, because the costs will become obvious within the Azure platform.
+With native integration to Azure Cost Management + Billing, you can easily forecast your CluedIn MDM workloads, as you move from MDS to CluedIn. CluedIn utilizes the Azure Autoscale feature, to be able to scale the environment up and down. CluedIn also integrates natively into budgets in Azure, so that you can easily control your spending in the cloud. This integration eliminates the need for time-consuming forecasting and budgeting, because the costs will become obvious within the Azure platform.
 
 SSIS packages can be migrated to Azure Data Factory, to move all your ETL pipelines into a cloud-native solution. 
 
 ### Components
 
-CluedIn provides native integration to 27 Azure services, including the following:
+CluedIn provides native integration to 27 Azure services, including the following components:
 
 -	[Azure Data Lake Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 -	[Azure Purview](https://azure.microsoft.com/services/purview)
@@ -103,9 +103,9 @@ The following are key ADF support features:
 
 You might need to show how customers move their models from a relational model to a graph model.
 
-CluedIn uses an auto-modeling process, so there is no need to migrate or recreate data models from master data services (MDS) or other data sources, such as Microsoft Dynamics. This utilizes a graph database to automatically build a model based off the data that is sent to the system. If you move from a traditional relational based model to a graph, then you bring tremendous value and flexibility in your master data initiatives. The graph approach is not that different to a relational style of modeling. 
+CluedIn uses an auto-modeling process, so there is no need to migrate or recreate data models from master data services (MDS) or other data sources, such as Microsoft Dynamics. This feature utilizes a graph database to automatically build a model based off the data that is sent to the system. If you move from a traditional relational based model to a graph, then you bring tremendous value and flexibility in your master data initiatives. The graph approach is not that different to a relational style of modeling. 
 
-The most important aspect of this modeling is that a relational style will give you and your team a flexible way to represent your master data models, in all different shapes and sizes. This leads to immense flexibility, when your business requires that your master data model stretches to fit into different use cases and business requirements. CluedIn utilizes an up-front schema-less approach to data ingestion. Your data does not need to fit into a tight and rigid schema on entry into the platform. However, a tight and rigid schema can be applied on the data's way out of CluedIn, when it is used in the different use cases that are leveraging the data from the CluedIn platform.
+The most important aspect of this modeling is that a relational style will give you and your team a flexible way to represent your master data models, in all different shapes and sizes. This style leads to immense flexibility, when your business requires that your master data model stretches to fit into different use cases and business requirements. CluedIn utilizes an up-front schema-less approach to data ingestion. Your data does not need to fit into a tight and rigid schema on entry into the platform. However, a tight and rigid schema can be applied on the data's way out of CluedIn, when it is used in the different use cases that are leveraging the data from the CluedIn platform.
 
 The following image shows the Relations feature set.
 
@@ -119,7 +119,7 @@ CluedIn natively integrates into [Azure Service Health](https://azure.microsoft.
 
 ### Performance
 
-CluedIn separates storage from compute, so the processing of data is completely _stateless_. Backed by a streaming service bus, this means that CluedIn can scale up and down, as much or as little as you need, dependent upon your workloads. CluedIn supports the Azure autoscale features inside of [Azure Kubernetes Service](https://azure.microsoft.com/overview/kubernetes-on-azure) (AKS), so that scaling can be automated. To increase performance in the processing of data, you will simply allocate more processing pods to your Kubernetes cluster, which can all be automated.
+CluedIn separates storage from compute, so the processing of data is completely _stateless_. Because it is backed by a streaming service bus, this means that CluedIn can scale up and down, as much or as little as you need, dependent upon your workloads. CluedIn supports the Azure autoscale features inside of [Azure Kubernetes Service](https://azure.microsoft.com/overview/kubernetes-on-azure) (AKS), so that scaling can be automated. To increase performance in the processing of data, you will simply allocate more processing pods to your Kubernetes cluster, which can all be automated.
 
 ### Scalability
 
@@ -155,7 +155,7 @@ CluedIn costs start low and, based off your usage, will scale up pricing to matc
 
 ### Azure sizing and starting a trial
 
-You can start a trial of CluedIn on their website, which can also help you scope your Azure hosting costs with prebuilt Azure estimates for different sized environments.
+You can start a trial of CluedIn on their website, which can also help you scope your Azure hosting costs with prebuilt Azure estimates for different-sized environments.
 
 ## Next steps
 
