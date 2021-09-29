@@ -100,8 +100,6 @@ The following are key ADF support features:
 
 ### Modeling
 
-You might need to show how customers move their models from a relational model to a graph model.
-
 CluedIn uses an automatic modeling process, so there is no need to migrate or recreate data models from master data services (MDS) or other data sources, such as Microsoft Dynamics. This feature utilizes a graph database to automatically build a model based off the data that is sent to the system. If you move from a traditional relational based model to a graph, then you bring tremendous value and flexibility in your master data initiatives. The graph approach is not that different to a relational style of modeling. 
 
 The most important aspect of this modeling is that a relational style will give you and your team a flexible way to represent your master data models, in all different shapes and sizes. This style leads to immense flexibility, when your business requires that your master data model stretches to fit into different use cases and business requirements. CluedIn utilizes an up-front schema-less approach to data ingestion. Your data does not need to fit into a tight and rigid schema on entry into the platform. However, a tight and rigid schema can be applied on the data's way out of CluedIn, when it is used in the different use cases that are applying the data from the CluedIn platform.
