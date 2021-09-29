@@ -70,8 +70,6 @@ Azure subscriptions have limits on certain resource types, such as number of res
 
 Address the following subscription limits with alerts.
 
-:::image type="icon" source="../../_images/github.png" border="false"::: A reference implementation is available on [GitHub](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md).
-
 ### Individual services
 
 Individual Azure services have consumption limits on:
