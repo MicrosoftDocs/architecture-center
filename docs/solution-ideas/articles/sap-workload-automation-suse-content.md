@@ -73,9 +73,9 @@ SUSE provides support with:
 - [What is Azure Load Balancer?](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
 
 
-### Suse
+### SUSE
 
-- [Suse on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=SUSE)
+- [SUSE on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=SUSE)
 - [Highly Available NFS Storage with DRBD and Pacemaker ](https://documentation.suse.com/sle-ha/15-SP1/html/SLE-HA-all/art-sleha-nfs-quick.html)
 - [Run SAP](https://www.suse.com/solutions/run-sap-solutions/)
 - [SUSE Linux Enterprise Server for SAP Applica­tions 15 SP3](https://documentation.suse.com/sles-sap/15-SP3/)
