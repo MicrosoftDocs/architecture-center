@@ -7,6 +7,11 @@ ms.date: 09/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
+products:
+  - azure-traffic-manager
+  - azure-monitor
+categories:
+  - devops
 ms.custom:
   - design-pattern
 keywords:
@@ -102,7 +107,9 @@ This pattern is useful for:
 
 ## Example
 
-[Health Checks for ASP.Net Core](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) is a middleware and a set of libraries for reporting the health of app infrastructure components. [Cick here to view the code samples using this middlewere](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/host-and-deploy/health-checks/samples)
+[Health Checks for ASP.NET](/aspnet/core/host-and-deploy/health-checks) is middleware and a set of libraries for reporting the health of app infrastructure components. It provides a framework for reporting health checks in a consistent method, implementing many of the practices addressed above. This includes external checks like database connectivity and specific concepts like liveness and readiness probes.
+
+![GitHub logo](../_images/github.png) A number of example implementations using ASP.NET Health Checks can be found on [GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/host-and-deploy/health-checks/samples/5.x/HealthChecksSample).
 
 ## Monitoring endpoints in Azure hosted applications
 
@@ -116,13 +123,11 @@ Some options for monitoring endpoints in Azure applications are:
 
    >  Even though Azure provides a reasonably comprehensive set of monitoring options, you can use additional services and tools to provide extra information. Azure Management Services provides a built-in monitoring mechanism for alert rules. The alerts section of the management services page in the Azure portal allows you to configure up to ten alert rules per subscription for your services. These rules specify a condition and a threshold value for a service such as CPU load, or the number of requests or errors per second, and the service can automatically send email notifications to addresses you define in each rule.
 
-The conditions you can monitor vary depending on the hosting mechanism you choose for your application (such as Web Sites, Cloud Services, Virtual Machines, or Mobile Services), but all of these include the ability to create an alert rule that uses a web endpoint you specify in the settings for your service. This endpoint should respond in a timely way so that the alert system can detect that the application is operating correctly.
+The conditions you can monitor vary depending on the hosting mechanism you choose for your application, but all of these include the ability to create an alert rule that uses a web endpoint you specify in the settings for your service. This endpoint should respond in a timely way so that the alert system can detect that the application is operating correctly.
 
 > Read more information about [creating alert notifications][portal-alerts].
 
-In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes.
-
-Azure Traffic Manager is a routing and load-balancing service that can distribute requests to specific instances of your Cloud Services hosted application based on a range of rules and settings.
+In the event of a major outage, client traffic should be routable to application deployment which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a routing and load-balancing service that can distribute requests to specific instances of your application based on a range of rules and settings.
 
 In addition to routing requests, Traffic Manager pings a URL, port, and relative path that you specify on a regular basis to determine which instances of the application defined in its rules are active and are responding to requests. If it detects a status code 200 (OK), it marks the application as available. Any other status code causes Traffic Manager to mark the application as offline. You can view the status in the Traffic Manager console, and configure the rule to reroute requests to other instances of the application that are responding.
 
@@ -133,6 +138,7 @@ However, Traffic Manager will only wait ten seconds to receive a response from t
 The following guidance can be useful when implementing this pattern:
 
 - [Health monitoring Guidance in microservices-based applications](/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health).
+- Well-Architected Framework's [Monitoring application health for reliability](../framework/resiliency/monitoring.md)
 - [Receiving alert notifications][portal-alerts].
 
 [portal-alerts]: /azure/azure-monitor/platform/alerts-metric
