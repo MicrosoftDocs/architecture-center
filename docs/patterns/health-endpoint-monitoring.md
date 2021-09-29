@@ -2,8 +2,8 @@
 title: Health Endpoint Monitoring pattern
 titleSuffix: Cloud Design Patterns
 description: Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.
-author: dragon119
-ms.date: 06/23/2017
+author: magrande
+ms.date: 09/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
@@ -102,80 +102,7 @@ This pattern is useful for:
 
 ## Example
 
-The following code examples, taken from the `HealthCheckController` class (a sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/health-endpoint-monitoring)), demonstrates exposing an endpoint for performing a range of health checks.
-
-The `CoreServices` method, shown below in C#, performs a series of checks on services used in the application. If all of the tests run without error, the method returns a 200 (OK) status code. If any of the tests raises an exception, the method returns a 500 (Internal Error) status code. The method could optionally return additional information when an error occurs, if the monitoring tool or framework is able to use it.
-
-```csharp
-public ActionResult CoreServices()
-{
-  try
-  {
-    // Run a simple check to ensure the database is available.
-    DataStore.Instance.CoreHealthCheck();
-
-    // Run a simple check on our external service.
-    MyExternalService.Instance.CoreHealthCheck();
-  }
-  catch (Exception ex)
-  {
-    Trace.TraceError("Exception in basic health check: {0}", ex.Message);
-
-    // This can optionally return different status codes based on the exception.
-    // Optionally it could return more details about the exception.
-    // The additional information could be used by administrators who access the
-    // endpoint with a browser, or using a ping utility that can display the
-    // additional information.
-    return new HttpStatusCodeResult((int)HttpStatusCode.InternalServerError);
-  }
-  return new HttpStatusCodeResult((int)HttpStatusCode.OK);
-}
-```
-
-The `ObscurePath` method shows how you can read a path from the application configuration and use it as the endpoint for tests. This example, in C#, also shows how you can accept an ID as a parameter and use it to check for valid requests.
-
-```csharp
-public ActionResult ObscurePath(string id)
-{
-  // The id could be used as a simple way to obscure or hide the endpoint.
-  // The id to match could be retrieved from configuration and, if matched,
-  // perform a specific set of tests and return the result. If not matched it
-  // could return a 404 (Not Found) status.
-
-  // The obscure path can be set through configuration to hide the endpoint.
-  var hiddenPathKey = CloudConfigurationManager.GetSetting("Test.ObscurePath");
-
-  // If the value passed does not match that in configuration, return 404 (Not Found).
-  if (!string.Equals(id, hiddenPathKey))
-  {
-    return new HttpStatusCodeResult((int)HttpStatusCode.NotFound);
-  }
-
-  // Else continue and run the tests...
-  // Return results from the core services test.
-  return this.CoreServices();
-}
-```
-
-The `TestResponseFromConfig` method shows how you can expose an endpoint that performs a check for a specified configuration setting value.
-
-```csharp
-public ActionResult TestResponseFromConfig()
-{
-  // Health check that returns a response code set in configuration for testing.
-  var returnStatusCodeSetting = CloudConfigurationManager.GetSetting(
-                                                          "Test.ReturnStatusCode");
-
-  int returnStatusCode;
-
-  if (!int.TryParse(returnStatusCodeSetting, out returnStatusCode))
-  {
-    returnStatusCode = (int)HttpStatusCode.OK;
-  }
-
-  return new HttpStatusCodeResult(returnStatusCode);
-}
-```
+[Health Checks for ASP.Net Core](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) is a middleware and a set of libraries for reporting the health of app infrastructure components. [Cick here to view the code samples using this middlewere](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/host-and-deploy/health-checks/samples)
 
 ## Monitoring endpoints in Azure hosted applications
 
@@ -193,20 +120,19 @@ The conditions you can monitor vary depending on the hosting mechanism you choos
 
 > Read more information about [creating alert notifications][portal-alerts].
 
-If you host your application in Azure Cloud Services web and worker roles or Virtual Machines, you can take advantage of one of the built-in services in Azure called Traffic Manager. Traffic Manager is a routing and load-balancing service that can distribute requests to specific instances of your Cloud Services hosted application based on a range of rules and settings.
+In the event of a major outage, client traffic should be routable to application deployments which remain available across other regions or zones. This is ultimately where cross-premises connectivity and global load balancing should be used, depending on whether the application is internal and/or external facing. Services such as Azure Front Door, Azure Traffic Manager, or third-party CDNs can route traffic across regions based on application health solicited via health probes.
+
+Azure Traffic Manager is a routing and load-balancing service that can distribute requests to specific instances of your Cloud Services hosted application based on a range of rules and settings.
 
 In addition to routing requests, Traffic Manager pings a URL, port, and relative path that you specify on a regular basis to determine which instances of the application defined in its rules are active and are responding to requests. If it detects a status code 200 (OK), it marks the application as available. Any other status code causes Traffic Manager to mark the application as offline. You can view the status in the Traffic Manager console, and configure the rule to reroute requests to other instances of the application that are responding.
 
 However, Traffic Manager will only wait ten seconds to receive a response from the monitoring URL. Therefore, you should ensure that your health verification code executes in this time, allowing for network latency for the round trip from Traffic Manager to your application and back again.
 
-> Read more information about using [Traffic Manager to monitor your applications](/azure/traffic-manager/). Traffic Manager is also discussed in [Multiple Datacenter Deployment Guidance](/previous-versions/msp-n-p/dn589779(v=pandp.10)).
-
 ## Related guidance
 
 The following guidance can be useful when implementing this pattern:
 
-- [Instrumentation and Telemetry Guidance](/previous-versions/msp-n-p/dn589775(v=pandp.10)). Checking the health of services and components is typically done by probing, but it's also useful to have information in place to monitor application performance and detect events that occur at runtime. This data can be transmitted back to monitoring tools as additional information for health monitoring. Instrumentation and Telemetry Guidance explores gathering remote diagnostics information that's collected by instrumentation in applications.
+- [Health monitoring Guidance in microservices-based applications](/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health).
 - [Receiving alert notifications][portal-alerts].
-- This pattern includes a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/health-endpoint-monitoring).
 
 [portal-alerts]: /azure/azure-monitor/platform/alerts-metric
