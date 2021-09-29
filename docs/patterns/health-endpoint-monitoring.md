@@ -102,7 +102,9 @@ This pattern is useful for:
 
 ## Example
 
-[Health Checks for ASP.Net Core](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) is a middleware and a set of libraries for reporting the health of app infrastructure components. [Cick here to view the code samples using this middlewere](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/host-and-deploy/health-checks/samples)
+[Health Checks for ASP.NET](/aspnet/core/host-and-deploy/health-checks) is middleware and a set of libraries for reporting the health of app infrastructure components. It provides a framework for reporting health checks in a consistent method, implementing many of the practices addressed above. This includes external checks like database connectivity and specific concepts like liveness and readiness probes.
+
+![GitHub logo](../_images/github.png) A number of example implementations using ASP.NET Health Checks can be found on [GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/host-and-deploy/health-checks/samples/5.x/HealthChecksSample).
 
 ## Monitoring endpoints in Azure hosted applications
 
