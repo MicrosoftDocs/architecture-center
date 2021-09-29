@@ -187,9 +187,11 @@ val maxAvgFarePerNeighborhood = mergedTaxiTrip.selectExpr("medallion", "hackLice
       .agg(
         count("*").as("rideCount"),
         sum($"fareAmount").as("totalFareAmount"),
-        sum($"tipAmount").as("totalTipAmount")
+        sum($"tipAmount").as("totalTipAmount"),
+        (sum($"fareAmount")/count("*")).as("averageFareAmount"),
+        (sum($"tipAmount")/count("*")).as("averageTipAmount")
       )
-      .select($"window.start", $"window.end", $"pickupNeighborhood", $"rideCount", $"totalFareAmount", $"totalTipAmount")
+      .select($"window.start", $"window.end", $"pickupNeighborhood", $"rideCount", $"totalFareAmount", $"totalTipAmount", $"averageFareAmount", $"averageTipAmount")
 ```
 
 Which is then inserted into Cosmos DB:
@@ -229,27 +231,7 @@ In code, secrets are accessed via the Azure Databricks [secrets utilities](https
 
 ## Monitoring considerations
 
-Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, this reference architecture sends logs and metrics to [Azure Log Analytics](/azure/log-analytics).
-
-The **com.microsoft.pnp.TaxiCabReader** class configures the Apache Spark logging system to send its logs to Azure Log Analytics using the values in the **log4j.properties** file. While the Apache Spark logger messages are strings, Azure Log Analytics requires log messages to be formatted as JSON. The **com.microsoft.pnp.log4j.LogAnalyticsAppender** class transforms these messages to JSON:
-
-```scala
-
-    @Override
-    protected void append(LoggingEvent loggingEvent) {
-        if (this.layout == null) {
-            this.setLayout(new JSONLayout());
-        }
-
-        String json = this.getLayout().format(loggingEvent);
-        try {
-            this.client.send(json, this.logType);
-        } catch(IOException ioe) {
-            LogLog.warn("Error sending LoggingEvent to Log Analytics", ioe);
-        }
-    }
-
-```
+Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x) as the standard library for logging. In addition to the default logging provided by Apache Spark, you can implement logging to Azure Log Analytic following the article [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
 
 As the **com.microsoft.pnp.TaxiCabReader** class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so it can be fixed quickly to prevent data loss. The **com.microsoft.pnp.TaxiCabReader** class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
 
@@ -262,52 +244,40 @@ As the **com.microsoft.pnp.TaxiCabReader** class processes ride and fare message
 
 Apache Spark uses the Dropwizard library to send metrics, and some of the native Dropwizard metrics fields are incompatible with Azure Log Analytics. Therefore, this reference architecture includes a custom Dropwizard sink and reporter. It formats the metrics in the format expected by Azure Log Analytics. When Apache Spark reports metrics, the custom metrics for the malformed ride and fare data are also sent.
 
-The last metric to be logged to the Azure Log Analytics workspace is the cumulative progress of the Spark Structured Streaming job progress. This is done using a custom StreamingQuery listener implemented in the **com.microsoft.pnp.StreamingMetricsListener** class. This class is registered to the Apache Spark Session when the job runs:
-
-```scala
-spark.streams.addListener(new StreamingMetricsListener())
-```
-
-The methods in the StreamingMetricsListener are called by the Apache Spark runtime whenever a structured steaming event occurs, sending log messages and metrics to the Azure Log Analytics workspace. You can use the following queries in your workspace to monitor the application:
-
-### Latency and throughput for streaming queries
-
-```shell
-taxijob_CL
-| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| project mdc_inputRowsPerSecond_d, mdc_durationms_triggerExecution_d
-| render timechart
-```
+The following are example queries that you can use in your Azure Log Analytics workspace to monitor the execution of the streaming job. The argument `ago(1d)` in each query will return all records that were generated in the last day, and can be adjusted to view a different time period.
 
 ### Exceptions logged during stream query execution
 
 ```shell
-taxijob_CL
-| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| where Level contains "Error"
+SparkLoggingEvent_CL
+| where TimeGenerated > ago(1d)
+| where Level == "ERROR"
 ```
 
 ### Accumulation of malformed fare and ride data
 
 ```shell
 SparkMetric_CL
-| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| render timechart
+| where TimeGenerated > ago(1d)
 | where name_s contains "metrics.malformedrides"
+| project value_d, TimeGenerated, applicationId_s
+| render timechart
 
 SparkMetric_CL
-| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| render timechart
+| where TimeGenerated > ago(1d)
 | where name_s contains "metrics.malformedfares"
+| project value_d, TimeGenerated, applicationId_s
+| render timechart
 ```
 
-### Job execution to trace resiliency
+### Job execution over time
 
 ```shell
 SparkMetric_CL
-| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| render timechart
+| where TimeGenerated > ago(1d)
 | where name_s contains "driver.DAGScheduler.job.allJobs"
+| project value_d, TimeGenerated, applicationId_s
+| render timechart
 ```
 
 For more information, see [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
