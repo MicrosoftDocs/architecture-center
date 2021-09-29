@@ -75,11 +75,10 @@ CluedIn natively supports the Common Data Model / Dataverse. In other words,  Po
 
 Azure Purview brings data governance capabilities to the Microsoft Azure cloud, and CluedIn provides native integration to its functionality.
 
-For Azure customers who need fine-grained details on the processing of data across their data estate, CluedIn writes its transformation log directly into the Purview Data Map and lineage. If you need to show a full end-to-end lineage of how data moves and transforms through your Azure stack, CluedIn can be utilized to write this information to Purview. 
 
  - The Azure Purview Glossary is available directly in CluedIn and vice-versa. 
  - CluedIn can ingest assets that have been registered in Purview.
- - CluedIn scans the personally identifiable information (PII) from Purview, and it can pinpoint to a record level where the PII is. It also adds supports for PII in unstructured and semi-structed data, not just structured. 
+ - CluedIn scans the personal information from Azure Purview, and it can pinpoint to a record level where the personal data is. It also adds supports for personal information in unstructured and semi-structed data, not just structured. 
  - CluedIn will use the schema set in Purview to automatically map data sets into CluedIn. 
  - CluedIn extends the Purview Lineage with detailed processing logs. 
 -	CluedIn can initiate Purview Scans before a new data ingestion is scheduled. 
