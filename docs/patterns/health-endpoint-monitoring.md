@@ -10,7 +10,7 @@ ms.subservice: design-pattern
 products:
   - azure
 categories:
-  - monitoring
+  - devops
 ms.custom:
   - design-pattern
 keywords:
