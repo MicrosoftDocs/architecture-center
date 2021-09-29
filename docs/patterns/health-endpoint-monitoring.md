@@ -133,6 +133,7 @@ However, Traffic Manager will only wait ten seconds to receive a response from t
 The following guidance can be useful when implementing this pattern:
 
 - [Health monitoring Guidance in microservices-based applications](/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health).
+- Well-Architected Framework's [Monitoring application health for reliability](../framework/resiliency/monitoring.md)
 - [Receiving alert notifications][portal-alerts].
 
 [portal-alerts]: /azure/azure-monitor/platform/alerts-metric
