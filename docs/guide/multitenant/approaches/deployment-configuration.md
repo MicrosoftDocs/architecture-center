@@ -96,14 +96,16 @@ The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) involves 
 
 ### Feature flags
 
-[Feature flags](/azure/devops/migrate/phase-features-with-feature-flags) enable you to expose different sets of features or versions of your solution to different tenants, while maintaining a single codebase. Consider using [Azure App Configuration](/azure/azure-app-configuration/overview) to manage your feature flags. For more information, see [Feature flags](../considerations/updates.md#feature-flags).
+[Feature flags](/azure/devops/migrate/phase-features-with-feature-flags) enable you to expose new features or versions of your solution to different tenants, while maintaining a single codebase. Consider using [Azure App Configuration](/azure/azure-app-configuration/overview) to manage your feature flags. For more information, see [Feature flags](../considerations/updates.md#feature-flags).
+
+Sometimes you need to selectively enable specific features for certain customers. For example, you might have different [pricing tiers](../considerations/pricing-models.md) that allow access to certain capabilities. Feature flags aren't usually the right choice for these scenarios. Instead, consider building a process to track and enforce the *license entitlements* that each customer has.
 
 ## Antipatterns to avoid
 
 When you deploy and configure multitenant solutions, it's important to avoid situations that inhibit your ability to scale. These include:
 
 - **Manual deployment and testing.** As described above, manual deployment processes add risk and slow your ability to deploy. Consider using automated deployments using pipelines, programmatic creation of resources from your solution's code, or a combination of both.
-- **Ad hoc customizations for tenants.** Avoid deploying features or configuration that only applies to a single tenant. This approach adds complexity to your deployments and testing processes. Aim to have use the same resource types and codebase for each tenant, and use strategies like [feature flags](#feature-flags) or [different pricing tiers](../considerations/pricing-models.md) to selectively enable features for tenants that require them. Use a consistent and automated deployment process, even for tenants that have isolated or dedicated resources.
+- **Ad hoc customizations for tenants.** Avoid deploying features or configuration that only applies to a single tenant. This approach adds complexity to your deployments and testing processes. Aim to have use the same resource types and codebase for each tenant, and use strategies like [feature flags](#feature-flags) for temporary changes or features that are rolled out progressively, or [different pricing tiers](../considerations/pricing-models.md) with license entitlements to selectively enable features for tenants that require them. Use a consistent and automated deployment process, even for tenants that have isolated or dedicated resources.
 
 ## Tenant lists as configuration or data
 
