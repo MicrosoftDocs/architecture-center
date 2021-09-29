@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Cosmos DB that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure Cosmos DB in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/27/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
 products:
@@ -89,7 +89,7 @@ Consider the operational aspects of your solution, and the different phases of t
 
 You can provision dedicated containers for each tenant. This can work well when the data you store for your tenant can be combined into a single container.
 
-When using a container for each tenant, you can consider sharing throughput with other tenants by provisioning throughput at the database level. Consider the restrictions and limits around the [minimum number of request units for your database](/azure/cosmos-db/concepts-limits#minimum-throughput-limits) and the [maximum number of containers in the database](/azure/cosmos-db/concepts-limits#provisioned-throughput-1). Also, consider whether your tenants are susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md), and if necessary, plan to group tenants into different databases that are based on workload patterns.
+When using a container for each tenant, you can consider sharing throughput with other tenants by provisioning throughput at the database level. Consider the restrictions and limits around the [minimum number of request units for your database](/azure/cosmos-db/concepts-limits#minimum-throughput-limits) and the [maximum number of containers in the database](/azure/cosmos-db/concepts-limits#provisioned-throughput-1). Also, consider whether your tenants require a guaranteed level of performance, and whether they're susceptible to the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). If necessary, plan to group tenants into different databases that are based on workload patterns.
 
 Alternatively, you can provision dedicated throughput for each container. This works well for larger tenants, and for tenants that are at risk of the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). However, the baseline throughput for each tenant is higher, so consider the minimum requirements and cost implications of this model.
 
