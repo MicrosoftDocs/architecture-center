@@ -8,7 +8,8 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: design-pattern
 products:
-  - azure
+  - azure-traffic-manager
+  - azure-monitor
 categories:
   - devops
 ms.custom:
