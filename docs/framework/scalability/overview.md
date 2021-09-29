@@ -1,5 +1,5 @@
 ---
-title: Overview of the performance efficiency pillar
+title: Performance efficiency pillar overview
 description: Explore an overview of the performance efficiency pillar in the Azure Well-Architected Framework. Learn about the importance of scalability.
 author: v-aangie
 ms.date: 09/13/2021

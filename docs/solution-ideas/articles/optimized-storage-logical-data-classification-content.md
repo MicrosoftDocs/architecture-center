@@ -72,7 +72,7 @@ The application data is stored in Azure Cosmos DB, which replicates data to diff
 - [Store and Access NoSQL Data with Azure Cosmos DB and the Table API](/learn/modules/store-access-data-cosmos-table-api)
 - [Work with NoSQL data in Azure Cosmos DB](/learn/paths/work-with-nosql-data-in-azure-cosmos-db)
 - [How to model and partition data on Azure Cosmos DB using a real-world example](/azure/cosmos-db/how-to-model-partition-example)
-- [Options to migrate your on-premises or cloud data to Azure Cosmos DB](/azure/cosmos-db/cosmosdb-migrationchoices.md)
+- [Options to migrate your on-premises or cloud data to Azure Cosmos DB](/azure/cosmos-db/cosmosdb-migrationchoices)
 - [Migrate hundreds of terabytes of data into Azure Cosmos DB](/azure/cosmos-db/migrate-cosmosdb-data)
 - [Introduction to Azure Data Factory](/learn/modules/intro-to-azure-data-factory)
 - [Orchestrate data movement and transformation in Azure Data Factory or Azure Synapse Pipeline](/learn/modules/orchestrate-data-movement-transformation-azure-data-factory)

@@ -188,7 +188,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 
 ## Next steps
 
-- Contact [Azure Data Engineering - Mainframe & Midrange Modernization][Email address for information on Azure Data Engineering Mainframe and Midrange Modernization] for more information.
+- Contact [Azure Data Engineering - Mainframe &amp; Midrange Modernization][Email address for information on Azure Data Engineering Mainframe and Midrange Modernization] for more information.
 - Read the [Migration guide][Migration guide].
 
 ## Related resources

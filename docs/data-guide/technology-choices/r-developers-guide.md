@@ -1,5 +1,5 @@
 ---
-title: R developer's guide - R programming
+title: R developer&apos;s guide - R programming
 description: Learn about the Azure services that support the R programming language and how R developers can use them to extend their data science workloads into the cloud.
 services: machine-learning
 author: AnalyticJeremy
@@ -35,7 +35,6 @@ This article covers the following Azure services that support the R language:
 
 |Service                                                          |Description                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
-|[Azure Machine Learning Server](/machine-learning-server/rebranding-microsoft-r-server)|enterprise software for data science, providing R and Python interpreters
 |[Data Science Virtual Machine](#data-science-virtual-machine)    |a customized VM to use as a data science workstation or as a custom compute target|
 |[ML Services on HDInsight](#ml-services-on-hdinsight)            |cluster-based system for running R analyses on large datasets across many nodes   |
 |[Azure Databricks](#azure-databricks)                            |collaborative Spark environment that supports R and other languages               |
@@ -46,10 +45,9 @@ This article covers the following Azure services that support the R language:
 
 ## Data Science Virtual Machine
 
-The [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized VM image on Microsoft’s Azure cloud platform built specifically for doing data science. It has many popular data science tools, including:
+The [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) (DSVM) is a customized VM image on Microsoft&apos;s Azure cloud platform built specifically for doing data science. It has many popular data science tools, including:
 
 - [Microsoft R Open](https://mran.microsoft.com/open/)
-- [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
 - [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop)
 - [RStudio Server](https://www.rstudio.com/products/rstudio/#Server)
 
@@ -120,8 +118,6 @@ While Machine Learning Services has been part of on-premises SQL Server since 20
 ### Next steps
 
 - [Running your R code on Azure with mrsdeploy](https://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
-- [Machine Learning Server in the Cloud](/machine-learning-server/install/machine-learning-server-in-the-cloud)
-- [Additional Resources for Machine Learning Server and Microsoft R](/machine-learning-server/resources-more)
 - [R on Azure](https://github.com/yueguoguo/r-on-azure): an overview of packages, tools, and case studies for using R with Azure
 
 ---
