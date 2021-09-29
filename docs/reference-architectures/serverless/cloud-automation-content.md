@@ -13,7 +13,7 @@ Automating workflows and repetitive tasks on the cloud using [serverless technol
 
 ![GitHub logo](../../_images/github.png) The reference implementation for scenario one is available on [GitHub](https://github.com/mspnp/serverless-automation).
 
-The functions in these severless cloud automation scenarios are often written in PowerShell and Python, two of the most common scripting languages used in system automation. They are deployed using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) in Azure CLI. Alternatively, you use the [Az.Functions PowerShell cmdlet to deploy and manage Azure Functions](https://www.powershellgallery.com/packages/Az.Functions).
+The functions in these serverless cloud automation scenarios are often written in PowerShell and Python, two of the most common scripting languages used in system automation. They are deployed using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) in Azure CLI. Alternatively, you use the [Az.Functions PowerShell cmdlet to deploy and manage Azure Functions](https://www.powershellgallery.com/packages/Az.Functions).
 
 ## Patterns in event-based automation
 
