@@ -14,7 +14,7 @@ metadata:
   ms.custom:
     - reference-architecture
 name: Event-based cloud automation
-categories:
+azureCategories:
   - developer-tools
   - devops
 summary: This article is presents guidance for implementing cloud automation using serverless technologies.

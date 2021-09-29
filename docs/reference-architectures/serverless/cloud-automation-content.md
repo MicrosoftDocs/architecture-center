@@ -2,18 +2,18 @@
 
 Automating workflows and repetitive tasks on the cloud using [serverless technologies](https://azure.microsoft.com/solutions/serverless/), can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios that fit an [event driven approach](../../guide/architecture-styles/event-driven.md). This article illustrates two such cloud automation scenarios:
 
-1. [**Cost center tagging**](https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](/azure/governance/policy/) service [tags all new resources](/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](/powershell/module/azuread/?view=azureadps-2.0) or the [ADAL for Python library](https://pypi.org/project/adal/).
+1. [**Cost center tagging**](https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](/azure/governance/policy/) service [tags all new resources](/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](/powershell/module/azuread/) or the [MSAL for Python library](https://github.com/AzureAD/microsoft-authentication-library-for-python).
 
 1. **Throttling response**: This example monitors a Cosmos DB database for throttling. [Azure Monitor alerts](/azure/azure-monitor/overview#alerts) are triggered when data access requests to CosmosDB exceed the [capacity in Request Units (or RUs)](/azure/cosmos-db/request-units). An [Azure Monitor action group](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/) is configured to call the automation function in response to these alerts. The function scales the RUs to a higher value, increasing the capacity and in turn stopping the alerts.
 
 >[!NOTE]
-> These solutions are not the only away to accomplish these tasks and are shown as illustrative of how serverless technologies can react to environmental signals (events) and influence changes to your environment impartiatively. Where practical, perfer the usage of platform-native solutions over custom solutions. For example, CosmosDB natively supports [autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale),  [CosmosDB autopilot mode (Preview)](/azure/cosmos-db/provision-throughput-autopilot), as a configuration-based alternative to the second scenario.
+> These solutions are not the only away to accomplish these tasks and are shown as illustrative of how serverless technologies can react to environmental signals (events) and influence changes to your environment impartiatively. Where practical, perfer the usage of platform-native solutions over custom solutions. For example, CosmosDB natively supports [autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale) as a native alternative to the Throttling response scenario.
 
 ![Serverless cloud automation](./_images/cloud-automation.png)
 
-![GitHub logo](../../_images/github.png) The reference implementations for scenario one is available on [GitHub](https://github.com/mspnp/serverless-automation).
+![GitHub logo](../../_images/github.png) The reference implementation for scenario one is available on [GitHub](https://github.com/mspnp/serverless-automation).
 
-The functions in these implementations are written in PowerShell and Python, two of the most common scripting languages used in automation. They are deployed using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) in Azure CLI. Alternatively, you use the [Az.Functions PowerShell cmdlet to deploy and manage Azure Functions](https://www.powershellgallery.com/packages/Az.Functions).
+The functions in these severless cloud automation scenarios are often written in PowerShell and Python, two of the most common scripting languages used in system automation. They are deployed using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) in Azure CLI. Alternatively, you use the [Az.Functions PowerShell cmdlet to deploy and manage Azure Functions](https://www.powershellgallery.com/packages/Az.Functions).
 
 ## Patterns in event-based automation
 
@@ -32,7 +32,7 @@ Event-based automation scenarios are best implemented using Azure Functions. The
   - periodically scanning for resources no longer in use, and removing them, and
   - automated backups.
 
-- **Process Azure alerts**. This pattern leverages the ease of integrating Azure Monitor alerts and action groups with Azure Functions. The function typically takes remedial actions in response to metrics, log analytics, and alerts originating in the applications as well as the infrastructure. The throttling response scenario is an example of this pattern. Other common scenarios are:
+- **Process Azure alerts**. This pattern uses the ease of integrating Azure Monitor alerts and action groups with Azure Functions. The function typically takes remedial actions in response to metrics, log analytics, and alerts originating in the applications and the infrastructure. The throttling response scenario is an example of this pattern. Other common scenarios are:
 
   - truncating the table when SQL Database reaches maximum size,
   - restarting a service in a VM when it is erroneously stopped, and
@@ -140,9 +140,9 @@ For production environment, additional strategies might be required to secure th
 Consider adding security layers on top of function authentication, such as,
 
 - authenticating with client certificates, or
-- making sure the caller is part of or has access to the directory that hosts the function, by [enabling App Service Authenitcation](/azure/azure-functions/security-concepts#enable-app-service-authenticationauthorization).
+- making sure the caller is part of or has access to the directory that hosts the function, by [enabling App Service Authentication](/azure/azure-functions/security-concepts#enable-app-service-authenticationauthorization).
 
-Note that function-level authentication is the only option available to Azure Monitor [action groups using Azure Functions](/azure/azure-monitor/alerts/action-groups#function).
+Function-level authentication is the only option available to Azure Monitor [action groups using Azure Functions](/azure/azure-monitor/alerts/action-groups#function).
 
 If the function needs to be called from a third-party application or service, it is recommended to provide access to it with an [API Management](/azure/api-management/api-management-key-concepts) layer. This layer should enforce authentication. API Management has a [consumption tier](/azure/api-management/api-management-features) integrated with Azure Functions, which allows you to pay only if the API gets executed. For more information, read [Create and expose your functions with OpenAPI](/azure/azure-functions/functions-openapi-definition).
 
@@ -217,13 +217,13 @@ If the automation covers multiple applications, keep the resources required by t
 
 If the workflow involves a number of automation functions, group the functions catering to one scenario in a single function app. Read [Manage function app](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) for more information.
 
-As you deploy your application you will need to monitor it. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
+As you deploy your application, you will need to monitor it. Consider using [Application Insights][app-insights] to enable the developers to monitor performance and detect issues.
 
 For more information, see the DevOps section in [Microsoft Azure Well-Architected Framework][AAF-devops].
 
-### Imparative actions on Azure resources
+### Imperative actions on Azure resources
 
-In both scenarios above, the end result was a change in Azure resource state via direct Azure Resource Manager interaction. While this was the intented outcome, consider the impact doing so might have on your environment if the impacted resources were originally deployed declaritively, such as by Bicep or Terraform templates. Unless those changes are replicated back into your source templates, the next usage of those templates might undo the changes made by this automation. Consider the impact of mixing imparative changes to Azure resources that are routinely deployed via templates.
+In both scenarios above, the end result was a change in Azure resource state via direct Azure Resource Manager interaction. While this was the intended outcome, consider the impact doing so might have on your environment if the modified resources were originally deployed declaratively, such as by Bicep or Terraform templates. Unless those changes are replicated back into your source templates, the next usage of those templates might undo the changes made by this automation. Consider the impact of mixing imperative changes to Azure resources that are routinely deployed via templates.
 
 ## Deploy the solution
 
