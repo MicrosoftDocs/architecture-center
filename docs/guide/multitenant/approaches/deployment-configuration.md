@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider when deploying and configuring a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/20/2021
+ms.date: 09/29/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -61,11 +61,19 @@ Automated deployments are always advisable for cloud-hosted solutions. When work
 - **Repeatable:** In a multitenant environment, use a consistent process for deployments across all tenants. Manual processes introduce the chance of error, or of steps being performed for some tenants and not others, leaving your environment in an inconsistent state.
 - **Impact of outages:** Manual deployments are significantly more risky and prone to outages than automated deployments. In a multitenant environment, the impact of a system-wide outage due to a deployment error can be high, since every tenant could be affected.
 
-When deploying to a multitenant environment, it's important to use deployment pipelines, and to use infrastructure as code (IaC) technologies such as Bicep, JSON ARM templates, Terraform, or the Azure SDKs.
+When deploying to a multitenant environment, it's important to use deployment pipelines, and to use infrastructure as code (IaC) technologies such as [Bicep](/azure/azure-resource-manager/bicep/overview), JSON ARM templates, Terraform, or the Azure SDKs.
+
+If you plan to offer your solution through the Azure Marketplace, you should provide a fully automated onboarding process for new tenants. This process is described in the [SaaS fulfillment APIs documentation](/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+
+### Maximum resource capacity
+
+When you programmatically deploy tenant resources onto shared resources, consider the capacity limit for each resource. When you approach that limit, you might need to create another instance of the resource to support further scale. Consider the limits of each resource you deploy, and the conditions that will trigger you to deploy another instance.
+
+For example, suppose your solution includes an Azure SQL logical server, and your solution provisions a dedicated database on that server for each tenant. A [single logical server has limits](/azure/azure-sql/database/resource-limits-logical-server#logical-server-limits), including a maximum number of databases that a logical server supports. As you approach these limits, you might need to provision new servers so that you can continue to onboard tenants. Consider whether you automate this process or manually monitor the growth.
 
 ### Resource management responsibility
 
-In some multitenant solutions, you deploy dedicated Azure resources for each tenant, such as a database for each tenant. Or, you might decide on a set number of tenants to house on a specific resource and then *spill over* to a new resource, so the number of tenants you have dictates the set of resources that you deploy to Azure. In other solutions, you deploy a single set of shared resources and reconfigure them when you onboard new tenants.
+In some multitenant solutions, you deploy dedicated Azure resources for each tenant, such as a database for each tenant. Or, you might decide on a set number of tenants to house on a single instance of a resource, so the number of tenants you have dictates the set of resources that you deploy to Azure. In other solutions, you deploy a single set of shared resources and reconfigure them when you onboard new tenants.
 
 Each of these models requires you to deploy and manage resources in different ways, and it's important to consider how you will deploy and manage the lifecycle of the resources you provision. Two common approaches are:
 
@@ -81,9 +89,6 @@ Several design patterns from the Azure Architecture Center and the wider communi
 ### Deployment Stamps pattern
 
 The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) involves deploying dedicated infrastructure for a tenant or group of tenants. A single stamp might contain multiple tenants or might be dedicated to a single tenant. You can choose to deploy a single stamp, or you can coordinate a deployment across multiple stamps. If you deploy dedicated stamps for each tenant, you can also consider deploying entire stamps programmatically.
-
-> [!NOTE]
-> When you programmatically deploy tenant resources onto shared stamps, consider how you handle *spillover*. For example, suppose each stamp includes an Azure SQL logical server, and your solution provisions a dedicated database in that server for each tenant. A [single logical server has limits](/azure/azure-sql/database/resource-limits-logical-server#logical-server-limits), including a maximum number of databases that a logical server supports. As you approach these limits, you might need to provision new servers or even a new deployment stamp so that you can continue to onboard tenants. Consider whether you automate this process or manually monitor the growth.
 
 ### Deployment rings
 
@@ -123,7 +128,7 @@ The process to onboard a new tenant might be similar to the following:
 
 This approach tends to work well for small numbers of tenants, and for architectures where all resources are shared. It's a simple approach because all of your Azure resources can be deployed and configured by using a single process.
 
-However, when you have large numbers of tenants, it can become cumbersome to reconfigure the pipeline as you add tenants, and time it takes to run the deployment pipeline often increases significantly too. This approach also doesn't easily support self-service tenant creation, and the lead time before a tenant is onboarded can be longer because you need to trigger your pipeline to run.
+However, when you approach a larger number of tenants, say 5 to 10 or more, it becomes cumbersome to reconfigure the pipeline as you add tenants. The time it takes to run the deployment pipeline often increases significantly too. This approach also doesn't easily support self-service tenant creation, and the lead time before a tenant is onboarded can be longer because you need to trigger your pipeline to run.
 
 ### Tenant list as data
 
@@ -131,7 +136,7 @@ When you treat your tenant list as data, you still deploy your shared components
 
 ![Diagram showing the process of onboarding a tenant when the tenant list is maintained as data.](media/deployment-configuration/tenants-data.png)
 
-The process to onboard a new tenant might be similar to the following:
+The process to onboard a new tenant might be similar to the following, and would happen asynchronously:
 
 1. Request a tenant be onboarded, such as by initiating an API request.
 1. A workflow component receives the creation request and orchestrates the remaining steps.
@@ -163,13 +168,15 @@ If Contoso follows this model, then they need to update their parameter file as 
 
 #### Option 2 - Use a combination of deployment pipelines and imperative resource creation
 
-Alternatively, Conoto might consider separating the responsibility for the Azure deployments.
+Alternatively, Contoso might consider separating the responsibility for the Azure deployments.
 
 Contoso uses a Bicep file that defines the shared resources that should be deployed. The shared resources support all of their tenants and include a tenant map database:
 
 ![Diagram showing the workflow to deploy the shared resources by using a pipeline.](media/deployment-configuration/example-data-pipeline.png)
 
-The Contoso team then build a tenant onboarding API and workflow that onboards their new tenants. The workflow initiates the deployment of a new Azure SQL database, which might be done by one of the following approaches:
+The Contoso team then build a tenant onboarding API. When their sales team has completed the sale to a new customer, Microsoft Dynamics triggers the API to begin the onboarding process. Contoso also provides a self-service web interface for customers to use, and that triggers the API too.
+
+The API asynchronously starts a workflow that onboards their new tenants. The workflow initiates the deployment of a new Azure SQL database, which might be done by one of the following approaches:
 
 - Use the Azure SDK to initiate the deployment of a second Bicep file that defines the Azure SQL database.
 - Use the Azure SDK to imperatively create an Azure SQL database by using the [management library](/dotnet/api/overview/azure/sql#management-library).
