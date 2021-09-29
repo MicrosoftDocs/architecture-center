@@ -35,7 +35,7 @@ Each NAT gateway resource provides up to 50 Gbps of throughput. You can split yo
 
 Each NAT gateway supports 64,000 flows for TCP and UDP respectively, per assigned outbound IP address. Up to 16 IP addresses can be assigned to a NAT gateway. The IP addresses can be individual Standard Public IP addresses, the Public IP prefix, or both. Review the following section on Source Network Address Translation (SNAT) for details. TCP stands for _Transmission Control Protocol_, and UDP stands for _User Datagram Protocol_.
 
-## SNAT exhaustion
+### SNAT exhaustion
 
 - NAT gateway resources have a default TCP idle timeout of 4 minutes. If this setting is changed to a higher value, NAT will hold on to flows longer and can cause unnecessary pressure on SNAT port inventory.
 - Atomic requests (one request per connection) are a poor design choice, because it limits scale, reduces performance, and reduces reliability. Instead, reuse HTTP/S connections, to reduce the numbers of connections and associated SNAT ports. Connection reuse will better allow the application to scale. Application performance will improve, due to reduced handshakes, overhead, and cryptographic operation costs when using TLS.
