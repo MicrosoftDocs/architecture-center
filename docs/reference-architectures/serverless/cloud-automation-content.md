@@ -161,7 +161,7 @@ There are two types of managed identities:
 
 - **System-assigned managed identities**: These are created as part of the Azure resource, and cannot be shared among multiple resources. These get deleted when the resource is deleted. Use these for scenarios, which involve single Azure resource or which need independent identities. Both of the scenarios use system-assigned identities since they update only a single resource. Managed identities are only required to update another resource. For example, a function can read the resource tags without a managed identity. See [these instructions](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) to add a system-assigned identity to your function.
 
-- **User-assigned managed identities**: These are created as stand-alone Azure resources. These can be shared across multiple resources, and need to be explicitly deleted when no loner needed. Read [these instructions](/azure/app-service/overview-managed-identity#add-a-user-assigned-identity) on how to add user-assigned identity to your function. Use these for scenarios that:
+- **User-assigned managed identities**: These are created as stand-alone Azure resources. These can be shared across multiple resources, and need to be explicitly deleted when no longer needed. Read [these instructions](/azure/app-service/overview-managed-identity#add-a-user-assigned-identity) on how to add user-assigned identity to your function. Use these for scenarios that:
 
   - Require access to multiple resources that can share a single identity, or
   - Need pre-authorization to secure resources during provisioning, or
