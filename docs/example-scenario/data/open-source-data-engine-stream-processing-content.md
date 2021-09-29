@@ -28,7 +28,15 @@ Download an [SVG][SVG version of architecture diagram] of this architecture.
 
 1. Applications like websites use the cached data to improve responsiveness. When data's not available in the cache, websites retrieve data from Cassandra in Cosmos DB by using the [cache-aside pattern][Cache-Aside pattern] or a similar strategy.
 
+### Components
 
+- [Event Hubs][Azure Event Hubs — A big data streaming platform and event ingestion service] is a fully managed streaming platform that can process millions of events per second. Event Hubs provides an [endpoint][Use Azure Event Hubs from Apache Kafka applications] for [Apache Kafka][Apache Kafka], a widely used open-source stream-processing platform. By using the endoint feature, organizations no longer need to build and maintain Kafka clusters for stream processing. Instead, they can benefit from the fully managed Kafka implementation that Event Hubs offers.
+
+[Apache Kafka]: https://kafka.apache.org/
+[Azure Event Hubs — A big data streaming platform and event ingestion service]: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about
+[Use Azure Event Hubs from Apache Kafka applications]: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview
+
+### Alternatives
 
 
 
@@ -56,9 +64,11 @@ Keep these points in mind when you deploy this solution:
   - How to use query predicates in CQL to query the change feed API
   - Sample code for a Java application
 
-- For information on batch processing events that you've stored in Cassandra, refer to [Tutorial: Query data from a Cassandra API account in Azure Cosmos DB][Tutorial: Query data from a Cassandra API account in Azure Cosmos DB]. This article also contains sample Java code for using CQL commands to retrieve data from tables.
+- For information on processing the events that you've stored in Cassandra, refer to [Tutorial: Query data from a Cassandra API account in Azure Cosmos DB][Tutorial: Query data from a Cassandra API account in Azure Cosmos DB]. This article also contains sample Java code for using CQL commands to retrieve data from tables.
 
 - For information on using a batch-oriented application to write data to Azure Database for PostgreSQL, see [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL][Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]. This article also contains sample Java code for storing data.
+
+- For information on storing and retrieving data from Azure Cache for Redis, see [Quickstart: Use Azure Cache for Redis in Java][Quickstart: Use Azure Cache for Redis in Java]. This article also contains sample Java code for accessing a cache.
 
 
 
@@ -100,6 +110,7 @@ To estimate the cost of this solution, use the [Azure pricing calculator][Azure 
 [Event Hubs pricing]: https://azure.microsoft.com/en-us/pricing/details/event-hubs/
 [Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v4 Driver)]: https://docs.microsoft.com/en-us/azure/cosmos-db/cassandra/manage-data-java-v4-sdk
 [Quickstart: Data streaming with Event Hubs using the Kafka protocol]: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs
+[Quickstart: Use Azure Cache for Redis in Java]: https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-java-get-started
 [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]: https://docs.microsoft.com/en-us/azure/postgresql/connect-java
 [Running Apache Spark jobs on AKS]: https://docs.microsoft.com/en-us/azure/aks/spark-job
 [Tutorial: Query data from a Cassandra API account in Azure Cosmos DB]: https://docs.microsoft.com/en-us/azure/cosmos-db/cassandra/query-data
