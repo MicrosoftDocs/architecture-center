@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Multi-region load balancing with Traffic Manager and Application Gateway
+  title: Multi-region load balancing
   titleSuffix: Azure Reference Architectures
   description: Learn how to build an Azure system that serves web workloads with resilient multitier applications in multiple Azure regions.
   author: EdPrice-MSFT

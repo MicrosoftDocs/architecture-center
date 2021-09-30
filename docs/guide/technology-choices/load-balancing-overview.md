@@ -26,7 +26,7 @@ Azure provides various load balancing services that you can use to distribute yo
 
 This article describes how you can use the Azure Load Balancing hub page in the Azure portal to determine an appropriate load-balancing solution for your business needs.
 
-## Overview
+## Service categorizations
 
 Azure load balancing services can be categorized along two dimensions: global versus regional, and HTTP(S) versus non-HTTP(S).
 

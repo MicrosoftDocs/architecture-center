@@ -1,5 +1,5 @@
 ---
-title: Performance considerations for your deployment infrastructure
+title: Performance of deployment infrastructure
 description: Read about performance considerations to make regarding your deployment infrastructure. Get advice about build times and human intervention.
 author: UmarMohamedUsman
 ms.date: 11/01/2019
