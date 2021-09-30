@@ -37,7 +37,7 @@ You can add other reverse proxy services like an [API Management][apim-overview]
 
 ## Azure Firewall only
 
-If there are no web-based workloads in the virtual network that can benefit from WAF, you can use Azure Firewall only. The design in this case is simple, but reviewing the packet flow will help understand more complex designs. In this design all inbound traffic is sent to the Azure Firewall via UDRs (for connections from on-premises or other Azure VNets), or it is addressed to the Azure Firewall's public IP address (for connections from the public Internet, as the diagram below shows). Outbound traffic from Azure VNets is sent to the Firewall via UDRs, as shown in the dialog below.
+If there are no web-based workloads in the virtual network that can benefit from WAF, you can use Azure Firewall only. The design in this case is simple, but reviewing the packet flow will help understand more complex designs. In this design all inbound traffic is sent to the Azure Firewall via UDRs (for connections from on-premises or other Azure VNets), or it is addressed to the Azure Firewall's public IP address (for connections from the public internet, as the diagram below shows). Outbound traffic from Azure VNets is sent to the Firewall via UDRs, as shown in the dialog below.
 
 The following table summarizes the traffic flows for this scenario:
 
@@ -344,7 +344,6 @@ Explore related architectures:
 - [Enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-standard-deployment.yml)
 - [High availability enterprise deployment using App Services Environment](../../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
-
 [azfw-overview]: /azure/firewall/overview
 [azfw-premium-features]: /azure/firewall/premium-features
 [azfw-docs]: /azure/firewall/
