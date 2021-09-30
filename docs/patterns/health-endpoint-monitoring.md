@@ -121,7 +121,7 @@ Some options for monitoring endpoints in Azure applications are:
 
 - Create a custom utility or a service that runs on your own or on a hosted server.
 
-   >  Even though Azure provides a reasonably comprehensive set of monitoring options, you can use additional services and tools to provide extra information. Azure Management Services provides a built-in monitoring mechanism for alert rules. The alerts section of the management services page in the Azure portal allows you to configure up to ten alert rules per subscription for your services. These rules specify a condition and a threshold value for a service such as CPU load, or the number of requests or errors per second, and the service can automatically send email notifications to addresses you define in each rule.
+   >  Even though Azure provides a reasonably comprehensive set of monitoring options, you can use additional services and tools to provide extra information. Application Insights, a feature of Azure Monitor, is aimed at the development team, to help you understand how your app is performing and how it's being used. It monitors request rates, response times, failure rates, dependency rates and failure rates and it can help you to Find out whether external services are slowing you down.
 
 The conditions you can monitor vary depending on the hosting mechanism you choose for your application, but all of these include the ability to create an alert rule that uses a web endpoint you specify in the settings for your service. This endpoint should respond in a timely way so that the alert system can detect that the application is operating correctly.
 
