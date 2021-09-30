@@ -113,7 +113,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framewor
 > Storage Replica and Azure Stack HCI stretched clusters must operate within an AD DS environment. When planning your Azure Stack HCI stretched clusters deployment, ensure connectivity to AD DS domain controllers in each site hosting cluster nodes.
 
 [architectural-diagram]: images/azure_stack_hci_dr.png
-[architectural-diagram-visio-source]: https://archcenter.blob.core.windows.net/cdn/azure_stack_hci_dr.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_stack_hci_dr.vsdx
 [azure-well-architected-framework]: ../framework/index.md
 [microsoft-component]: https://docs.microsoft.com/
 [azs-hci]: /azure-stack/hci/overview

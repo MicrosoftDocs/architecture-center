@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This mobile workforce app architecture uses Active Directory to secure corporate data from an SAP back end system, delivered to devices via Azure App Service API Management.
@@ -9,26 +6,12 @@ A Xamarin.Forms client app, with support for iOS, Android, and Windows, works of
 
 The app is built with Visual Studio (PC or Mac) and Xamarin, sharing C# code across Android, iOS, and Windows without compromising user experience. Visual Studio App Center is used to automate builds and tests and distribute to beta testers and app stores, while also providing usage monitoring and analytics in conjunction with App Insights.
 
-The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
-
-[Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services)
-
-[Visual Studio](https://www.visualstudio.com/vs)
-
-[Visual Studio Tools for Xamarin](https://www.visualstudio.com/xamarin)
-
-[Application Insights](https://azure.microsoft.com/services/application-insights)
-
-[Visual Studio App Center](https://www.visualstudio.com/app-center)
-
-[App Service Mobile Apps](https://azure.microsoft.com/services/app-service/mobile)
-
 ## Architecture
 
 ![Architecture diagram](../media/custom-mobile-workforce-app.png)
 *Download an [SVG](../media/custom-mobile-workforce-app.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Create the app using Visual Studio and Xamarin.
 1. Add the Azure App Service Mobile Apps back end service to the app solution.
@@ -39,13 +22,13 @@ The links to the right provide documentation on deploying and managing the Azure
 1. Use Application Insights to monitor the App Service.
 1. Deploy the app to devices using App Center.
 
-## Components
+### Components
 
 * Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://azure.microsoft.com/products/visual-studio) 2017 or [Visual Studio](https://azure.microsoft.com/products/visual-studio) for Mac.
 * [Xamarin](https://azure.microsoft.com/features/xamarin): Create mobile apps for iOS and Android using C# and Azure SDKs.
 * [Visual Studio App Center](https://azure.microsoft.com/services/app-center): App Center enables a continuous integration and deployment workflow by pulling code from BitBucket, GitHub, and Visual Studio Team Services.
 * An [App Service](https://azure.microsoft.com/services/app-service) web app can host a customer-facing web app and a service that is used by both the web and mobile client.
-* Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
+* [Application Insights (via Azure Monitor)](https://azure.microsoft.com/services/application-insights): Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
 * [API Management](https://azure.microsoft.com/services/api-management): Publish APIs to external, partner, and employee developers securely and at scale.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) is used for secure, enterprise-grade authentication.
 

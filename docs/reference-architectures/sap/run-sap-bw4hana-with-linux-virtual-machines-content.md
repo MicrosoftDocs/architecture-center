@@ -80,15 +80,15 @@ This architecture is designed for high availability, scalability, and resilience
 
 ### Virtual machines
 
-For details about SAP support for Azure virtual machine types and throughput metrics (SAPS), see [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533), “SAP Applications on Azure: Supported Products and Azure Virtual Machine Types.” (To access this and other SAP notes, an SAP Service Marketplace account is required.)
+For details about SAP support for Azure virtual machine types and throughput metrics (SAPS), see [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533), &quot;SAP Applications on Azure: Supported Products and Azure Virtual Machine Types.&quot; (To access this and other SAP notes, an SAP Service Marketplace account is required.)
 
-For information about whether a virtual machine type has been certified for scale-out deployments of SAP HANA, see the “Scale-out” column in the [SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
+For information about whether a virtual machine type has been certified for scale-out deployments of SAP HANA, see the &quot;Scale-out&quot; column in the [SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
 
 ### Application servers pool
 
 In application servers pool, you can adjust the number of virtual machines based on your requirements. [Azure is certified](/azure/virtual-machines/workloads/sap/sap-certifications) to run SAP BW/4HANA on Red Hat Enterprise Linux and SUSE Linux Enterprise.
 
-To manage logon groups for ABAP application servers, it’s common to use the SMLG transaction to load-balance different groups, such as:
+To manage logon groups for ABAP application servers, it's common to use the SMLG transaction to load-balance different groups, such as:
 
 - Logon users.
 - SM61 for batch server groups.
@@ -98,7 +98,7 @@ These transactions use the load-balancing capability within the message server o
 
 ### SAP Central Services cluster
 
-This example shows a highly available cluster that uses Azure NetApp Files as a shared file storage solution. High availability for the Central Services cluster requires shared storage. NetApp Files provides a simple option so you don’t have to deploy the Linux cluster infrastructure. An alternative is to set up a highly available [NFS service](/azure/virtual-machines/workloads/sap/high-availability-guide-suse#setting-up-a-highly-available-nfs-server).
+This example shows a highly available cluster that uses Azure NetApp Files as a shared file storage solution. High availability for the Central Services cluster requires shared storage. NetApp Files provides a simple option so you don't have to deploy the Linux cluster infrastructure. An alternative is to set up a highly available [NFS service](/azure/virtual-machines/workloads/sap/high-availability-guide-suse#setting-up-a-highly-available-nfs-server).
 
 You can also deploy Central Services to a single virtual machine with Premium-managed disks and get a 99.9-percent availability [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 
@@ -118,7 +118,7 @@ Azure also supports high availability in a [multi-SID installation](/azure/virtu
 #### Proximity placement groups
 
 This example architecture also uses a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios)
-to reduce network latency between virtual machines. This type of group places a location constraint on virtual machine deployments and minimizes the physical distance between them. The group’s placement varies as follows:
+to reduce network latency between virtual machines. This type of group places a location constraint on virtual machine deployments and minimizes the physical distance between them. The group's placement varies as follows:
 
 - In a single SID installation, you should place all Central Services and application servers in the proximity placement group anchored by the SAP HANA database.
 
@@ -215,7 +215,7 @@ Azure supports various [disaster recovery options](/azure/virtual-machines/workl
 
 To maximize the availability and performance of applications and services, use [Azure Monitor](/azure/azure-monitor/overview). Azure Monitor is a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
-To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca) extension. For details, see [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498), “SAP on Linux with Azure: Enhanced Monitoring.”
+To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure SAP Enhanced Monitoring](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca) extension. For details, see [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498), &quot;SAP on Linux with Azure: Enhanced Monitoring.&quot;
 
 [Azure Monitor](/azure/azure-monitor/overview), which now includes Azure Log Analytics and Azure Application Insights, provides sophisticated tools for collecting and analyzing telemetry. It lets you maximize the performance and availability of your cloud and on-premises resources and applications. Azure Monitor can be used to monitor and alert administrators of infrastructure and application anomalies and to automate reactions to predefined conditions.
  

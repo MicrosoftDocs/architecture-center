@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Back up files and applications on Azure Stack Hub
+  title: Back up files and apps on Azure Stack Hub
   description: This solution delivers an optimized approach to backing up and restoring files and applications of VM-based user workloads hosted on Azure Stack Hub.
   author: doodlemania2
   ms.author: pnp

@@ -31,7 +31,7 @@ Use the following flowchart to select a candidate compute service.
 
 Definitions:
 
-- **"Lift and shift"** is a strategy for migrating a workload to the cloud without redesigning the application or making code changes. Also called *rehosting*. For more information, see [Azure migration center](https://azure.microsoft.com/migration/).
+- **"Lift and shift"** is a strategy for migrating a workload to the cloud without redesigning the application or making code changes. Also called *rehosting*. For more information, see [Azure migration and modernization center](https://azure.microsoft.com/migration).
 - **Cloud optimized** is a strategy for migrating to the cloud by refactoring an application to take advantage of cloud-native features and capabilities.
 
 The output from this flowchart is a **starting point** for consideration. Next, perform a more detailed evaluation of the service to see if it meets your needs. 
@@ -45,14 +45,14 @@ This article includes several tables which may help you to make these tradeoff d
 
 If you're not familiar with the Azure service selected in the previous step, read the overview documentation to understand the basics of the service.
 
-- [App Service](/azure/app-service/). A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
-- [Azure Spring Cloud](/azure/spring-cloud/). A managed service designed and optimized for hosting Spring Boot apps.
+- [App Service](/azure/app-service). A managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
+- [Azure Spring Cloud](/azure/spring-cloud). A managed service designed and optimized for hosting Spring Boot apps.
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes) (AKS). A managed Kubernetes service for running containerized applications.
 - [Batch](/azure/batch/batch-technical-overview). A managed service for running large-scale parallel and high-performance computing (HPC) applications
 - [Container Instances](/azure/container-instances/container-instances-overview). The fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
 - [Functions](/azure/azure-functions/functions-overview). A managed FaaS service.
 - [Service Fabric](/azure/service-fabric/service-fabric-overview). A distributed systems platform that can run in many environments, including Azure or on premises.
-- [Virtual machines](/azure/virtual-machines/). Deploy and manage VMs inside an Azure virtual network.
+- [Virtual machines](/azure/virtual-machines). Deploy and manage VMs inside an Azure virtual network.
 
 ## Understand the hosting models
 

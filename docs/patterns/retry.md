@@ -1,7 +1,7 @@
 ---
 title: Retry pattern
 titleSuffix: Cloud Design Patterns
-description: Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that''s previously failed.
+description: Learn how to use the Retry pattern to enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource.
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual
@@ -55,7 +55,7 @@ If a service is frequently unavailable or busy, it's often because the service h
 
 You should consider the following points when deciding how to implement this pattern.
 
-The retry policy should be tuned to match the business requirements of the application and the nature of the failure. For some noncritical operations, it's better to fail fast rather than retry several times and impact the throughput of the application. For example, in an interactive web application accessing a remote service, it's better to fail after a smaller number of retries with only a short delay between retry attempts, and display a suitable message to the user (for example, “please try again later”). For a batch application, it might be more appropriate to increase the number of retry attempts with an exponentially increasing delay between attempts.
+The retry policy should be tuned to match the business requirements of the application and the nature of the failure. For some noncritical operations, it's better to fail fast rather than retry several times and impact the throughput of the application. For example, in an interactive web application accessing a remote service, it's better to fail after a smaller number of retries with only a short delay between retry attempts, and display a suitable message to the user (for example, &quot;please try again later&quot;). For a batch application, it might be more appropriate to increase the number of retry attempts with an exponentially increasing delay between attempts.
 
 An aggressive retry policy with minimal delay between attempts, and a large number of retries, could further degrade a busy service that's running close to or at capacity. This retry policy could also affect the responsiveness of the application if it's continually trying to perform a failing operation.
 

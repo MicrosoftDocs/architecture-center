@@ -1,7 +1,7 @@
 ---
 title: Repeatable Infrastructure
-description: Repeatable Infrastructure
-author: neilpeterson
+description: Review the concept of repeatable infrastructure. Use Azure Landing Zones. Deploy infrastructure with code. Automate deployments with ARM templates and Terraform.
+author: david-stanford
 ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -23,7 +23,7 @@ Cloud computing changes the way we procure infrastructure. No longer are we unbo
 Organizations which centrally manage, govern, or support multiple workloads in the cloud will require repeatable **and consistent** environments. Azure Landing Zones provide central operations teams with a repeatable approach to environmental configuration. To deliver consistent environments, all Azure Landing Zones provide a set of common design areas, reference architecture, reference implementation, and a process to modify that deployment to fit the organization design requirements.
 
 > [!WARNING]
-> Some organizations are following a growing industry trend towards decentralized operations (or workload operations). When operations is decentralized, the organization chooses to accept duplication of resources and potential inconsistencies in environmental configuration, in favor of reduced dependencies and full control of the environment through DevOps pipelines. Organizations who are following a decentralized operating model are less likely to leverage Azure Landing Zones to create repeatable environment configurations, but will still find value in the subsequent sections of this article.
+> Some organizations are following a growing industry trend towards decentralized operations (or workload operations). When operations is decentralized, the organization chooses to accept duplication of resources and potential inconsistencies in environmental configuration, in favor of reduced dependencies and full control of the environment through Azure Pipelines. Organizations who are following a decentralized operating model are less likely to leverage Azure Landing Zones to create repeatable environment configurations, but will still find value in the subsequent sections of this article.
 
 The following is a series of links from the Cloud Adoption Framework to help deploy Azure Landing Zones:
 
@@ -36,7 +36,7 @@ The following is a series of links from the Cloud Adoption Framework to help dep
 
 To get started with Azure Landing Zones to create consistent, repeatable environment configuration see the article series on [Azure Landing Zones](/azure/cloud-adoption-framework/ready/landing-zone/).
 
-If Azure Landing Zones are not a fit for your organization, you should consider the following sections of this article to manual integrate environment configuration into your DevOps pipelines. 
+If Azure Landing Zones are not a fit for your organization, you should consider the following sections of this article to manual integrate environment configuration into your Azure Pipelines.
 
 ## Deploy infrastructure with code
 

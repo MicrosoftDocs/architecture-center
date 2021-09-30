@@ -1,5 +1,5 @@
 ---
-title: Solutions for media and entertainment industry
+title: Solutions for the media and entertainment industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable media and entertainment solutions.
 author: dsk-2015
@@ -21,7 +21,7 @@ categories:
   - web
 ---
 
-# Solutions for media and entertainment industry
+# Solutions for the media and entertainment industry
 
 The media and entertainment industry captures one of the largest market shares. It is comprised of businesses that produce and distribute content, such as motion pictures, television programs and commercials, streaming content, music and audio recordings, radio, book publishing, video games, and so on. With the COVID-19 pandemic greatly impacting and accelerating shifts in consumer behaviors, this industry is seeing trends such as creating more virtual, streamed, and personal content. It is all the more important for media businesses to harness the power of cloud computing and reach their customers in more personalized and innovative ways.
 

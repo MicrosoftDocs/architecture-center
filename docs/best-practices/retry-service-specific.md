@@ -1,5 +1,5 @@
 ---
-title: Retry guidance for Azure services
+title: Azure service retry guidance
 titleSuffix: Best practices for cloud applications
 description: Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.
 author: dragon119
@@ -7,6 +7,8 @@ ms.date: 09/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice
+categories:
+  - azure
 products:
   - azure-active-directory
 ms.custom:
@@ -425,7 +427,7 @@ Consider starting with the following settings for retrying operations. These set
 | Context | Example maximum latency | Retry policy | Settings | How it works |
 |---------|---------|---------|---------|---------|
 | Interactive, UI, or foreground | 2 seconds*  | Exponential | MinimumBackoff = 0 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 300 msec. <br/> TimeBuffer = 300 msec. <br/> MaxRetryCount = 2 | Attempt 1: Delay 0 sec. <br/> Attempt 2: Delay ~300 msec. <br/> Attempt 3: Delay ~900 msec. |
-| Background or batch | 30 seconds | Exponential | MinimumBackoff = 1 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 1.75 sec. <br/> TimeBuffer = 5 sec. <br/> MaxRetryCount = 3 | Attempt 1: Delay ~1 sec. <br/> Attempt 2: Delay ~3 sec. <br/> Attempt 3: Delay ~6 msec. <br/> Attempt 4: Delay ~13 msec. |
+| Background or batch | 30 seconds | Exponential | MinimumBackoff = 1 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 1.75 sec. <br/> TimeBuffer = 5 sec. <br/> MaxRetryCount = 3 | Attempt 1: Delay ~1 sec. <br/> Attempt 2: Delay ~3 sec. <br/> Attempt 3: Delay ~6 sec. <br/> Attempt 4: Delay ~13 sec. |
 
 \* Not including additional delay that is added if a Server Busy response is received.
 
@@ -1186,8 +1188,8 @@ The following are the typical types of retry strategy intervals:
 
 [adal]: /azure/active-directory/develop/active-directory-authentication-libraries
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
-[CosmosClientOptions]: /dotnet/api/microsoft.azure.cosmos.cosmosclientoptions?view=azure-dotnet
+[CosmosClientOptions]: /dotnet/api/microsoft.azure.cosmos.cosmosclientoptions?view=azure-dotnets&preserve-view=true
 [dotnet-foundation]: https://dotnetfoundation.org
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
-[SearchIndexClient]: /dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet
-[SearchServiceClient]: /dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet
+[SearchIndexClient]: /dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet&preserve-view=true
+[SearchServiceClient]: /dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet&preserve-view=true

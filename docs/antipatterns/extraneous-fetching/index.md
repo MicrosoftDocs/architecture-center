@@ -1,7 +1,7 @@
 ---
 title: Extraneous Fetching antipattern
-titleSuffix: Performance antipatterns for cloud apps
-description: Retrieving more data than needed for a business operation can result in unnecessary I/O overhead, cause unnecessary I/O overhead, and reduce responsiveness in entity frameworks.
+titleSuffix: Azure Architecture Center
+description: Learn about ways to mitigate the Extraneous Fetching antipattern, the common design flaw of fetching more data than needed for a business operation.
 author: dragon119
 ms.date: 06/05/2017
 ms.topic: conceptual

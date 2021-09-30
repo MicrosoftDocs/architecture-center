@@ -1,53 +1,69 @@
 ---
-title: Principles of the reliability pillar
-description: Describes the principles of the reliability pillar.
-author: v-aangie
-ms.date: 02/17/2021
+title: Overview of the reliability pillar
+description: High-level summary of the reliability pillar associated with the Azure Well-Architected Framework.
+author: v-stacywray
+manager: david-stanford
+ms.date: 09/16/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
-  - fasttrack-edit
   - overview
+products: azure
+categories: management-and-governance
 ---
 
-# Principles of the reliability pillar
+# Overview of the reliability pillar
 
-Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased levels of redundant higher-end hardware to minimize the chance of an entire application platform failing, in the cloud, we acknowledge up front that failures will happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component.
+Reliability ensures your application can meet the commitments you make to your customers. Architecting resiliency into your application framework ensures your workloads are available and can recover from failures at any scale.
 
-## Application framework
+Building for reliability includes:
 
-These critical principles are used as lenses to assess the reliability of an application deployed on Azure. They provide a framework for the application assessment questions that follow.
+- Ensuring a highly available architecture
+- Recovering from failures such as data loss, major downtime, or ransomware incidents
 
-To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/).
+To assess the reliability of your workload using the tenets found in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/), reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
-- **Define and test availability and recovery targets -** Availability targets, such as Service Level Agreements (SLA) and Service Level Objectives (SLO), and Recovery targets, such as Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO), should be defined and tested to ensure application reliability aligns with business requirements.
+For more information, explore the following video on diving deeper into Azure workload reliability:  
 
-- **Design applications to be resistant to failures -** Resilient application architectures should be designed to recover gracefully from failures in alignment with defined reliability targets.
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-workload-reliability-Part-2--Reliability-Ep-2--Well-Architected/player?format=ny]
 
-- **Ensure required capacity and services are available in targeted regions -** Azure services and capacity can vary by region, so it's important to understand if targeted regions offer required capabilities.
+In traditional application development, there has been a focus on increasing the mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, because of several factors:
 
-- **Plan for disaster recovery -** Disaster recovery is the process of restoring application functionality in the wake of a catastrophic failure. It might be acceptable for some applications to be unavailable or partially available with reduced functionality for a period of time, while other applications may not be able to tolerate reduced functionality.
+- Distributed systems are complex, and a failure at one point can potentially cascade throughout the system.
+- Costs for cloud environments are kept low through commodity hardware, so occasional hardware failures must be expected.
+- Applications often depend on external services, which may become temporarily unavailable or throttle high-volume users.
+- Today's users expect an application to be available 24/7 without ever going offline.
 
-- **Design the application platform to meet reliability requirements -** Designing application platform resiliency and availability is critical to ensuring overall application reliability.
+All of these factors mean that cloud applications must be designed to expect occasional failures and recover from them. Azure has many resiliency features already built into the platform. For example:
 
-- **Design the data platform to meet reliability requirements -** Designing data platform resiliency and availability is critical to ensuring overall application reliability.
+- Azure Storage, SQL Database, and Cosmos DB all provide built-in data replication across availability zones and regions.
+- Azure managed disks are automatically placed in different storage scale units to limit the effects of hardware failures.
+- Virtual machines (VMs) in an availability set are spread across several fault domains. A *fault domain* is a group of VMs that share a common power source and network switch. Spreading VMs across fault domains limits the impact of physical hardware failures, network outages, or power interruptions.
+- *Availability Zones* are physically separate locations within each Azure region. Each zone is composed of one or more datacenters equipped with independent power, cooling, and networking infrastructure. With availability zones, you can design and operate applications, and databases that automatically transition between zones without interruption, which ensures resiliency if one zone is affected. For more information, reference [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview).
 
-- **Recover from errors -** Resilient applications should be able to automatically recover from errors by leveraging modern cloud application code patterns.
+That said, you still need to build resiliency into your application. Resiliency strategies can be applied at all levels of the architecture. Some mitigations are more tactical in nature&mdash;for example, retrying a remote call after a transient network failure. Other mitigations are more strategic, such as failing over the entire application to a secondary region. Tactical mitigations can make a large difference. While it's rare for an entire region to experience a disruption, transient problems such as network congestion are more common&mdash;so target these issues first. Having the right monitoring and diagnostics is also important, both to detect failures when they happen, and to find the root causes.
 
-- **Ensure networking and connectivity meets reliability requirements -** Identifying and mitigating potential network bottle-necks or points-of-failure supports a reliable and scalable foundation over which resilient application components can communicate.
+When designing an application to be resilient, you must understand your availability requirements. How much downtime is acceptable? The amount of downtime is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available?
 
-- **Allow for reliability in scalability and performance -** Resilient applications should be able to automatically scale in response to changing load to maintain application availability and meet performance requirements.
+## Topics and best practices
 
-- **Address security-related risks -** Identifying and addressing security-related risks helps to minimize application downtime and data loss caused by unexpected security exposures.
+The reliability pillar covers the following topics and best practices to help you build a resilient workload:
 
-- **Define, automate, and test operational processes -** Operational processes for application deployment, such as roll-forward and roll-back, should be defined, sufficiently automated, and tested to help ensure alignment with reliability targets.
-
-- **Test for fault tolerance -** Application workloads should be tested to validate reliability against defined reliability targets.
-
-- **Monitor and measure application health -** Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined reliability targets.
+|Reliability topic|Description|
+|-----------------|-----------|
+|[Reliability principles](principles.md)|These critical principles are used as lenses to assess the reliability of an application deployed on Azure.|
+|[Design for reliability](design-checklist.md)|Consider how systems use Availability Zones, perform scalability, respond to failure, and other strategies that optimize reliability in application design.|
+|[Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service)|Every technology has its own particular failure modes, which you must consider when designing and implementing your application. Use this checklist to review the resiliency considerations for specific Azure services.|
+|[Target and non-functional requirements](design-requirements.md)|Target and non-functional requirements such as availability targets and recovery targets allow you to measure the uptime and downtime of your workloads. Having clearly defined targets is crucial to have a goal to work and measure against.|
+|[Resiliency and dependencies](design-resiliency.md)|Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure. Dependencies are required for the application to fully operate.|
+|[Availability Zones](/azure/architecture/high-availability/building-solutions-for-high-availability)|Availability Zones can be used to spread a solution across multiple zones within a region, allowing for an application to continue functioning when one zone fails.
+|[Best practices](design-best-practices.md)|During the architectural phase, focus on implementing practices that meet your business requirements, identify failure points, and minimize the scope of failures.|
+|[Testing for reliability](test-checklist.md)|Regular testing should be performed as part of each major change to validate existing thresholds, targets, and assumptions.|
+|[Monitoring for reliability](monitor-checklist.md)|Get an overall picture of application health. If something fails, you need to know *that* it failed, *when* it failed, and *why*.|
+|[Reliability patterns](reliability-patterns.md)|Applications must be designed and implemented to maximize availability.|
 
 ## Next step
 
 >[!div class="nextstepaction"]
->[Design](./design-checklist.md)
+>[Principles](./principles.md)

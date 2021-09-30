@@ -1,8 +1,9 @@
 ---
 title: Big compute architecture style
 titleSuffix: Azure Application Architecture Guide
-description: Describes benefits, challenges, and best practices for Big Compute architectures on Azure.
-author: doodlemania2
+description: Understand the benefits, challenges, and best practices of the Big Compute architecture style on Azure.
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 08/30/2018
 ms.topic: conceptual
 ms.service: architecture-center
@@ -74,6 +75,12 @@ The head node provides management and job scheduling services to the cluster. Fo
 In this scenario, an organization is running HPC Pack on-premises, and uses Azure VMs for burst capacity. The cluster head node is on-premises. ExpressRoute or VPN Gateway connects the on-premises network to the Azure VNet.
 
 ![Diagram of a hybrid big compute cluster](./images/big-compute-hybrid.png)
+
+## Next steps
+
+- [Choose an Azure compute service for your application](../technology-choices/compute-decision-tree.md)
+- [High Performance Computing (HPC) on Azure](../../topics/high-performance-computing.md)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
 
 <!-- links -->
 

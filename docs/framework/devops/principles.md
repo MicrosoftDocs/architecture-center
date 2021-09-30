@@ -1,7 +1,7 @@
 ---
 title: Operational excellence design principles
-description: Operational Excellence Design Principles
-author: neilpeterson
+description: Understand the design principles for operational excellence within the Azure Well-Architected Framework.
+author: david-stanford
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: architecture-center

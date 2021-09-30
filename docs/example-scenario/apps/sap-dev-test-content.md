@@ -102,7 +102,7 @@ Explore related architectures:
 
 <!-- links -->
 
-[resiliency]: ../../framework/resiliency/overview.md
+[resiliency]: ../../framework/resiliency/principles.md
 [security]: /azure/security
 [scalability]: ../../framework/scalability/performance-efficiency.md
 [sap-netweaver]: ../../reference-architectures/sap/sap-netweaver.yml
