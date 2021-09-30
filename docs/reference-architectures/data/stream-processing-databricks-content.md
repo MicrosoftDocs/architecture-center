@@ -248,7 +248,7 @@ The following are example queries that you can use in your Azure Log Analytics w
 
 ### Exceptions logged during stream query execution
 
-```shell
+```kusto
 SparkLoggingEvent_CL
 | where TimeGenerated > ago(1d)
 | where Level == "ERROR"
@@ -256,7 +256,7 @@ SparkLoggingEvent_CL
 
 ### Accumulation of malformed fare and ride data
 
-```shell
+```kusto
 SparkMetric_CL
 | where TimeGenerated > ago(1d)
 | where name_s contains "metrics.malformedrides"
@@ -272,7 +272,7 @@ SparkMetric_CL
 
 ### Job execution over time
 
-```shell
+```kusto
 SparkMetric_CL
 | where TimeGenerated > ago(1d)
 | where name_s contains "driver.DAGScheduler.job.allJobs"
