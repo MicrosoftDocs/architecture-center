@@ -132,7 +132,7 @@ The cost of DSVMs depends on the choice of the underlying VM series. Because the
 
 ## Related links
 - [Microsoft Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine/overview)
-- [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml)
+- [Azure Machine Learning](/azure/machine-learning/)
 - [Azure Machine Learning Compute](/azure/machine-learning/service/concept-compute-target)
 - [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Data Factory](/azure/data-factory/introduction)
@@ -142,6 +142,4 @@ The cost of DSVMs depends on the choice of the underlying VM series. Because the
 - [Azure Monitor](/azure/azure-monitor/overview)
 - [Azure Policy](/azure/governance/policy/overview)
 - [Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)
-
-
    
