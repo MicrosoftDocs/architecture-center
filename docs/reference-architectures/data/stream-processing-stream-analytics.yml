@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Stream processing with Azure Stream Analytics
+  title: Stream processing with Stream Analytics
   description: This reference architecture shows an end-to-end stream processing pipeline, which ingests data, correlates records, and calculates a rolling average.
   author: doodlemania2
   ms.author: pnp

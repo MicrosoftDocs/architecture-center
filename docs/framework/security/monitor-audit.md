@@ -60,7 +60,9 @@ your current strategy, what you have, and what other experts have in the industr
   
 Develop an Azure security benchmarking strategy aligned to industry standards.
 
+As people in the organization and on the project change, it is crucial to make sure that only the right people have access to the application infrastructure. Auditing and reviewing access control reduces the attack vector to the application. Azure control plane depends on Azure AD and access reviews are often centrally performed as part of internal, or external audit activities.
 
+Make sure that the security team is auditing the environment to report on compliance with the security policy of the organization. Security teams may also enforce compliance with these policies. 
 
 ## Audit regulatory compliance
 Compliance is important for several reasons. Aside from signifying levels of standards, like `ISO 27001` and others, noncompliance with regulatory guidelines may bring sanctions and penalties. Regularly review roles that have high privileges. Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change. Consider auditing at least twice a year.
@@ -77,6 +79,8 @@ Use Azure Defender (Azure Security Center) to continuously assess and monitor yo
 **Have you established a monitoring and assessment solution for compliance?**
 ***
 Continuously assess and monitor the compliance status of your workload. Azure Security Center provides a regulatory compliance dashboard that shows the current security state of workload against controls mandated by the standard governments or industry organizations and Azure Security Benchmark. Keep your resources in compliance with those standards. Security Center tracks many standards. You can set the standards by management groups in a subscription.  
+
+Consider using [Azure Access Reviews](/azure/active-directory/governance/access-reviews-overview) or [Entitlement Management](/azure/active-directory/governance/entitlement-management-overview) to periodically review access to the workload.
 
 Consider using [Azure Access Reviews](/azure/active-directory/governance/access-reviews-overview) or [Entitlement Management](/azure/active-directory/governance/entitlement-management-overview) to periodically review access to the workload.
 

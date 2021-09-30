@@ -1,6 +1,6 @@
 ---
 title: Develop a cost model
-description: Do cost modeling to map logical groups of cloud resources to an organization''s hierarchy, and then estimate costs for those groups.
+description: Do cost modeling to map logical groups of cloud resources to an organization&apos;s hierarchy, and then estimate costs for those groups.
 author: PageWriter-MSFT
 ms.date: 05/12/2020
 ms.topic: conceptual
@@ -45,7 +45,7 @@ At the end of this exercise, you should have identified the lower and upper limi
 
 |Have frequent and clear communication with the stakeholders|
 |---|
-|<p>In the initial stages, communication between stakeholders is vital. The overall team must  align on the requirements so that overall business goals are met. If not, the entire solution might be at risk. </p><p>For instance, the development team indicates that the resilience of a monthly batch-processing job is low. They might request the job to work as a single node without scaling capabilities. This request opposes the architect’s recommendation to automatically scale out, and route requests to worker nodes. </p><p>This type of disagreement can introduce a point of failure into the system, risking the Service Level Agreement, and cause an increase in operational cost.</p>
+|<p>In the initial stages, communication between stakeholders is vital. The overall team must  align on the requirements so that overall business goals are met. If not, the entire solution might be at risk. </p><p>For instance, the development team indicates that the resilience of a monthly batch-processing job is low. They might request the job to work as a single node without scaling capabilities. This request opposes the architect&apos;s recommendation to automatically scale out, and route requests to worker nodes. </p><p>This type of disagreement can introduce a point of failure into the system, risking the Service Level Agreement, and cause an increase in operational cost.</p>
 
 
 ## Organization structure
@@ -63,7 +63,7 @@ As a workload owner, you can have a measurable impact on cost optimization. Ther
 
 3. Reduce costs through shared cloud services and landing zones
 
-If your workload has depedencies on shared assets like Active Directory, Network connectivity, security devices, or other services that are also used by other workloads, encourage your central IT organization to provide those services through a centrally managed landing zone to reduce duplicate costs. See the CAF article: [get started with centralized design & configuration](/azure/cloud-adoption-framework/get-started/design-and-configuration) to get started with the development of landing zones.
+If your workload has dependencies on shared assets like Active Directory, Network connectivity, security devices, or other services that are also used by other workloads, encourage your central IT organization to provide those services through a centrally managed landing zone to reduce duplicate costs. See the CAF article: [get started with centralized design &amp; configuration](/azure/cloud-adoption-framework/get-started/design-and-configuration) to get started with the development of landing zones.
 
 4. Calculate the ROI by understanding what is included in each grouping and what isn't.
 
@@ -96,7 +96,7 @@ Here are some considerations for determining the governance policies that can as
 - What are the budget constraints set by the company for each business unit?
 - What are policies for the budget alert levels and associated actions?
 - Identify acceptable boundaries for scale, redundancy, and performance against cost. 
-- Assess the limits for security. Don't compromise on security. Premium cloud security features can drive the cost up. It’s not necessary to overinvest. Instead use the cost profile to drive a realistic threat profile. 
+- Assess the limits for security. Don't compromise on security. Premium cloud security features can drive the cost up. It&apos;s not necessary to overinvest. Instead use the cost profile to drive a realistic threat profile.
 - Identify unrestricted resources. These resources typically need to scale and consume more cost to meet demand.
 
 #### Next step

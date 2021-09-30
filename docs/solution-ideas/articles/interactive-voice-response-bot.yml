@@ -31,6 +31,6 @@ products:
   - azure-cognitive-search
   - azure-language-understanding
   - azure-web-apps
-thumbnailUrl: /azure/architecture/browse/thumbs/interactive-voice-response-app-bot.png
+thumbnailUrl: /azure/architecture/browse/thumbs/interactive-voice-response-bot.png
 content: |
   [!include[](interactive-voice-response-bot-content.md)]

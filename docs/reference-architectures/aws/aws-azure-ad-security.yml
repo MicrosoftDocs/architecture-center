@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Active Directory security for AWS
+  title: Azure AD security for AWS
   titleSuffix: Azure Reference Architectures
   description: Learn how Azure Active Directory can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.
   author: doodlemania2
