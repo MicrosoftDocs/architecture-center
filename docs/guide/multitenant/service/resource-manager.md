@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Resource Manager that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure Resource Manager in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/16/2021
+ms.date: 09/30/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
