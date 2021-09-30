@@ -21,6 +21,6 @@ products:
   - azure-monitor
 name: Monitoring Azure Functions and Event Hubs 
 summary: Learn how to monitor an Azure Functions topology that uses Event Hubs.
-thumbnailUrl:  /azure/architecture/serverless/event-hubs-functions/images/observability_application_map.png
+thumbnailUrl:  /azure/architecture/browse/thumbs/observability_application_map.png
 content: |
   [!include[](observability-content.md)]
