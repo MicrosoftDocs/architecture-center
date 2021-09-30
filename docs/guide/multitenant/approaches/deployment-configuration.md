@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider when deploying and configuring a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/29/2021
+ms.date: 09/30/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
