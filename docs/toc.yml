@@ -1292,6 +1292,8 @@ items:
                 href: reference-architectures/data/stream-processing-databricks.yml
               - name: Stream processing with Azure Stream Analytics
                 href: reference-architectures/data/stream-processing-stream-analytics.yml
+              - name: Stream processing with fully managed open-source data engines
+                href: reference-architectures/data/open-source-data-engine-stream-processing.yml
           - name: Solution ideas
             items:
               - name: Advanced analytics
