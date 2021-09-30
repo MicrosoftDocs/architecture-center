@@ -60,11 +60,16 @@ In other situations, you might have sets of shared resources. For example, when 
 > [!NOTE]
 > That there is a [limit to the number of tags](/azure/azure-resource-manager/management/tag-resources#limitations) that can be applied to a resource. When you work with shared resources, it's best not to add a tag for every tenant that shares the resource. Instead, consider adding a tag with the shard ID or another way to identify the group of tenants.
 
-Consider an example multitenant solution built using the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md). Each deployment stamp includes a shared web server and a set of tenant-specific databases. Tags can be applied to each of the Azure components:
+Consider an example multitenant solution built using the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md). Each deployment stamp includes a shared web server and sharded databases. Tags can be applied to each of the Azure components:
 
-![Diagram showing the two stamps. The shared web servers are tagged with the stamp I D. The tenant-specific databases are tagged with the stamp I D and the tenant I D.](media/cost-management-allocation/tags.png)
+![Diagram showing two stamps with tags added to each component.](media/cost-management-allocation/tags.png)
 
-With this tagging strategy, it's easy to filter the cost information to a single stamp. It's also easy to find the cost of the tenant-specific resources, such as the total cost of the database for tenant C. Shared components don't have a `tenant-id` tag, but the cost of the shared components for a stamp can be divided between the tenants who are assigned to use that stamp.
+The tagging strategy employed here is:
+- Every resource has a `stamp-id` tag.
+- Every sharded database has a `shard-id` tag.
+- Every resource dedicated to a specific tenant has a `tenant-id` tag.
+
+With this tagging strategy, it's easy to filter the cost information to a single stamp. It's also easy to find the cost of the tenant-specific resources, such as the total cost of the database for tenant C. Shared components don't have a `tenant-id` tag, but the cost of the shared components for a stamp can be divided between the tenants who are assigned to use that stamp or shard.
 
 ### Instrument your application
 
