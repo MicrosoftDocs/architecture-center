@@ -2,6 +2,7 @@
 title: Overview of a hybrid workload
 description: Includes guidance and recommendations that apply to each of the five pillars in a hybrid and multi-cloud workload.
 author: v-aangie
+ms.author: pnp
 ms.date: 02/19/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -35,13 +36,27 @@ Use *Azure Arc enabled infrastructure* to extend Azure management to any infrast
    - Empower developers with self-service and choice of tools.
    - Standardize change control with configuration management systems, such as GitOps and DSC.
 
-## Run Azure data services anywhere
+## Run Azure services anywhere
+
+Azure Arc allows you to run Azure Services anywhere. This allows you to build consistent hybrid and multicloud application archtiectures by using Azure services that can run in Azure, on-premises, at the edge, or at other cloud providers.
+
+### Run Azure data services anywhere
 
 Use *Azure Arc enabled data services* to run Azure data services anywhere to support your hybrid workloads. Key features of Azure Arc enabled data services are:
 
 - Run Azure data services on any Kubernetes cluster deployed on any hardware.
 - Gain cloud automation benefits, always up-to-date innovation in Azure data services, unified management of your on-premises and cloud data assets with a cloud billing model across both environments.
 - Azure SQL Database and Azure PostgreSQL Hyperscale are the first set of Azure data services that are Azure Arc enabled.
+
+### Run Azure Application services anywhere
+
+Use *Azure Arc enabled Application services* to run Azure App Service, Functions, Logic Apps, Event Grid, and API Management anywhere to support your hybrid workloads. Key features of Azure Arc enabled application services are as follows:
+
+- [Web Apps](/azure/app-service/overview-arc-integration?toc=/azure/cloud-adoption-framework/toc.json&bc=/azure/cloud-adoption-framework/_bread/toc.json) - Azure App Service makes building and managing web applications and APIs easy, with a fully managed platform and features like autoscaling, deployment slots, and integrated web authentication.
+- [Functions](/azure/app-service/overview-arc-integration?toc=/azure/cloud-adoption-framework/toc.json&bc=/azure/cloud-adoption-framework/_bread/toc.json) - Azure Functions makes event-driven programming simple, with state-of-the-art autoscaling, and with triggers and bindings to integrate with other Azure services.
+- [Logic Apps](/azure/app-service/overview-arc-integration?toc=/azure/cloud-adoption-framework/toc.json&bc=/azure/cloud-adoption-framework/_bread/toc.json) - Azure Logic Apps produces automated workflows for integrating apps, data, services, and backend systems, with a library of more than 400 connectors.
+- [Event Grid](/azure/event-grid/kubernetes/?toc=/azure/cloud-adoption-framework/toc.json&bc=/azure/cloud-adoption-framework/_bread/toc.json) - Azure Event Grid simplifies event-based applications, with a single service for managing the routing of events from any source to any destination.
+- [Azure API Management gateway](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-arc?toc=/azure/cloud-adoption-framework/toc.json&bc=/azure/cloud-adoption-framework/_bread/toc.json) - Azure API Management provides a unified management experience and full observability across all internal and external APIs.
 
 ## Modernize applications anywhere
 
