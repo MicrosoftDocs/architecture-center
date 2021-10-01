@@ -10,13 +10,13 @@ This section introduces useful features and insights that you can get from Appli
 
 After sending the expected load to your system, you can go to Application Insights in the [Azure portal](https://portal.azure.com), and on the sidebar, choose on **Application Map**. Here’s a map that shows three functions, three event hubs, and apparent failures when writing to a downstream database:
 
-![Application Map](images/observability_application_map.png)
+![Application Map](images/observability-application-map.png)
 
 ## End-to-end transaction details
 
 End-to-end transaction details show how your system components interact with each other, in chronological order. This view also shows how long an event has spent in the queue. You can also drill into the telemetry of each component from this view, which makes it easier to troubleshoot across components within the same request when an issue occurred.
 
-![End-to-End Transaction](images/observability_end_to_end_transaction.png)
+![End-to-End Transaction](images/observability-end-to-end-transaction.png)
 
 ## Platform metrics and telemetry
 
@@ -46,15 +46,15 @@ Custom telemetry is also possible for different languages ([C\# class library](/
 
 Finally, when your function app connects to an event hub using an output binding, entries are also written to the [Application Insights Dependencies table](/azure/azure-functions/functions-monitoring#dependencies).
 
-![Dependencies table](images/observability_dependencies_table.png)
+![Dependencies table](images/observability-dependencies-table.png)
 
 For Event Hubs, the correlation is injected into the event payload, and you see a **Diagnostic-Id** property in events:
 
-![Diagnostic Id property](images/observability_diagnostic_id.png)
+![Diagnostic Id property](images/observability-diagnostic-id.png)
 
 This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format that are also used as **Operation Id** and **Operation Links** in telemetry created by Functions, which allows Application Insights to construct the correlation between event hub events and function executions, even when they're distributed.
 
-![Batch Events correlation](images/observability_batch_events.png)
+![Batch Events correlation](images/observability-batch-events.png)
 
 ## Example Application Insights queries
 
@@ -87,7 +87,7 @@ customDimensions.ProcessId, partitionId, messageCount, sequenceNumberStart,
 sequenceNumberEnd, enqueueTimeStart, enqueueTimeEnd, dispatchTimeMilliseconds
 ```
 
-![Detailed Event Processing](images/observability_detailed_event_processing.png)
+![Detailed Event Processing](images/observability-detailed-event-processing.png)
 
 ### Dispatch latency visualization
 
@@ -107,7 +107,7 @@ messageCount:int
 | render timechart
 ```
 
-![Dispatch latency Visualization](images/observability_dispatch_latency_visualization.png)
+![Dispatch latency Visualization](images/observability-dispatch-latency-visualization.png)
 
 ### Dispatch latency summary
 
@@ -126,7 +126,7 @@ messageCount:int
 percentiles(dispatchTimeMilliseconds, 50, 90, 99, 99.9, 99.99) by operation_Name
 ```
 
-![Dispatch latency Summary](images/observability_dispatch_latency_summary.png)
+![Dispatch latency Summary](images/observability-dispatch-latency-summary.png)
 
 ### Message distribution across partitions
 
@@ -144,7 +144,7 @@ messageCount:int
 | render areachart kind=stacked
 ```
 
-![Message distribution across partitions](images/observability_message_distribution_across_partitions.png)
+![Message distribution across partitions](images/observability-message-distribution-across-partitions.png)
 
 ### Message distribution across instances
 
@@ -163,7 +163,7 @@ bin(timestamp, 5m)
 | render areachart kind=stacked
 ```
 
-![Message distribution across instances](images/observability_message_distribution_across_instances.png)
+![Message distribution across instances](images/observability-message-distribution-across-instances.png)
 
 ### Executing Instances and Allocated Instances
 
@@ -183,7 +183,7 @@ bin(timestamp, 60s)
 | render timechart
 ```
 
-![Executing Instances and Allocated Instances](images/observability_executing_instances_and_allocated_instances.png)
+![Executing Instances and Allocated Instances](images/observability-executing-instances-and-allocated-instances.png)
 
 ### All Telemetry for a specific Function Execution
 
@@ -195,7 +195,7 @@ union isfuzzy=true requests, exceptions, traces, dependencies
 | order by timestamp asc
 ```
 
-![All Telemetry for a specific Function Execution](images/observability_all_telemetry_for_a_specific_function_execution.png)
+![All Telemetry for a specific Function Execution](images/observability-all-telemetry-for-a-specific-function-execution.png)
 
 ### End-to-End Latency for an Event
 
@@ -229,7 +229,7 @@ link
 | summarize avg(datetime_diff('second', end_t, start_t))
 ```
 
-![End-to-End Latency for an Event](images/observability_end_to_end_latency_for_an_event.png)
+![End-to-End Latency for an Event](images/observability-end-to-end-latency-for-an-event.png)
 
 ## Next steps
 
