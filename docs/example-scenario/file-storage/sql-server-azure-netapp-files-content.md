@@ -27,7 +27,7 @@ The components interact in these ways:
 
 - This architecture uses SQL Server on Azure Virtual Machines. With this Azure service, SQL Server runs on Azure VMs within the SQL subnet.
 - In the Azure NetApp Files subnet, Azure NetApp Files provides SMB 3 access to the database and log files.
-- Azure NetApp Files has the [SMB continuous availability shares option][SMB Continuous Availability (CA) shares (Preview)] turned on. This feature makes SMB Transparent Failover possible, so you can do non-disruptive maintenance on Azure NetApp Files.
+- Azure NetApp Files has the [SMB continuous availability shares option][SMB Continuous Availability (CA) shares (Preview)] turned on. This feature makes SMB Transparent Failover possible, so you can observe service maintenance events on Azure NetApp Files non-disruptively for your SQL server deployment.
 
 ### Components
 
