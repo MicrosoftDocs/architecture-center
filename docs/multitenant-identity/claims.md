@@ -6,8 +6,10 @@ ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+azureCategories:
   - identity
+products:
+  - azure-active-directory
 ms.custom:
   - guide
 pnp.series.title: Manage Identity in Multitenant Applications
