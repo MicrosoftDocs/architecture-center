@@ -15,7 +15,7 @@ Other guidance for grouping functions, with storage and consumer group considera
 
 - **Create a dedicated consumer group for each function app**: In a stream processing solution, each consumer application equates to a [consumer group](/azure/event-hubs/event-hubs-features#consumer-groups). A function app is a prime example of a consumer application. Don't share consumer groups between function apps and other consumer applications. The following diagram provides an example of two function apps reading from an event hub, where each app has its own dedicated consumer group:
 
-    ![Dedicated consumer groups for each function app](./images/event_hubs_functions_consumer_groups.svg)
+    ![Dedicated consumer groups for each function app](./images/event-hubs-functions-consumer-groups.svg)
 
 In summary, each function app should be perceived as a distinct application with its own, assigned consumer group. This ensures offset integrity for each consumer and simplifies dependencies in an event streaming architecture. This configuration, along with providing each event hub-triggered function its own function app and storage account, helps set the foundation for optimal performance and scale.
 
@@ -58,7 +58,7 @@ In Consumption and Premium plans, the function app instances scale out dynamical
 
 Optimal parallelism is achieved by having multiple consumers within a consumer group. For Azure Functions, this translates to many instances of a function app within the plan. The result is referred to as *partition-level parallelism* or the *maximum degree of parallelism*.
 
-![Maximum degree of parallelism](./images/event_hubs_parallelism.svg)
+![Maximum degree of parallelism](./images/event-hubs-parallelism.svg)
 
 It might initially make sense to configure as many partitions as possible to achieve maximum throughput and account for the possibility of a higher volume of events. However, there are several important factors that must be considered when many partitions are configured:
 
