@@ -52,7 +52,7 @@ Enforcing resource-level rules through [Azure Policy](/azure/governance/policy/o
 
 Use the [DevOps checklist][devops-checklist] to review your design from a management and DevOps standpoint.
 
-## Next section
+## Next steps
 
 Reference the operational excellence principles to guide you in your overall strategy.
 
