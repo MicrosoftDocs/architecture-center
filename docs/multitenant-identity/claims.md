@@ -6,7 +6,7 @@ ms.date: 07/21/2017
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-azureCategories:
+categories:
   - identity
 products:
   - azure-active-directory
