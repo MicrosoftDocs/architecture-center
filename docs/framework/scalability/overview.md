@@ -21,7 +21,7 @@ Just as you need to anticipate increases in load in on-premises environments, yo
 
 To assess your workload using the tenets found in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/), reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
-We recommend the following video about optimizing for quick and reliable VM deployments:
+To boost performance efficiency, we recommend the following video about optimizing for quick and reliable VM deployments:
 
 > [!VIDEO https://channel9.msdn.com/Events/All-Around-Azure/Well-Architected-The-Backstage-Tour/Performance-Efficiency/player]
 
