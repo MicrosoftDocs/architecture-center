@@ -16,210 +16,21 @@ connections, such as over satellite, from the customer’s IoT edge platform. Th
 CSE team accomplished this by minimizing the size of the deployment to each
 device and by enabling reliable monitoring of these deployments.
 
-## Use case 
-
-A major logistics company wanted to improve tracking of its worldwide product
-shipments, even through geographical areas with intermittent low-bandwidth cloud
-connectivity. Product shipments had a variety of IoT devices installed on them
-for insurance, safety, or tracking purposes, depending upon the type of goods
-being shipped. The capabilities of these devices, such as GPS trackers,
-temperature sensors, and tools to capture other pertinent data points, varied
-from one device to another; and the goods could be shipped using a variety of
-transportation methods (for example, ground, air, and sea) and to a wide variety
-of remote locales.
-
-The solution has dramatically increased reliability and resiliency of the
-provisioning process in limited-connectivity environments. The discussion below
-describes the options evaluation process, the details of the solution the CSE
-team developed for this customer, and other scenarios in which this solution
-might be useful.
-
-## Customer scenario
-
-The customer was having problems updating their devices over their recently
-developed IoT edge platform. CSE teamed up with the customer to address the
-following major pain points:
-
--   High bandwidth consumption when deploying updated software to devices.
-
--   No standardized automated deployment across devices, and no way to know
-    which devices had which updates.
-
--   Limited flexibility on technology selection.
-
-## Solution evaluation
-
-Of the four possible solutions CSE evaluated, more than one was viable and
-available. CSE determined a full Docker image data transfer to be the ideal
-solution.
-
-### Evaluation criteria
-
-CSE considered the following:
-
--   Ability of the solution to meet requirements
-
-    -   Yes, No
-
--   IoT device complexity (how much logic needs to be implemented on the
-    devices)
-
-    -   Low, Medium, High
-
--   Azure complexity (how much logic needs to be implemented in Azure)
-
-    -   Low, Medium, High
-
--   Bandwidth efficiency (ratio of transferred data to total size of image) for
-    transferring an image when:
-
-    -   No images exist on the device.
-
-    -   An image with the same base image exists on the device.
-
-    -   An image representing a previous version of an application is on the
-        device.
-
-    -   An image for the application built on a previous version of the base
-        image is on the device.
-
-For the evaluations of bandwidth efficiency, CSE used images to represent the
-following sets.
-
-| **Scenario**                                          | **Description**                                                                                                                                                                                                                      |
-|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Transfer New Image – Base Layer Already on Device** | Transferring a new image while there is another image already on the device that shares a base image. This represents deploying a new application for the first time, while another application in the same OS and framework exists. |
-| **Update to Application Layer**                       | Changing only the code for an existing application’s image. This represents a typical change when a user commits a new feature.                                                                                                      |
-| **Update to Base Image**                              | Changing the version of the base image the application is built on.                                                                                                                                                                  |
-
-A short description of the four options and their tradeoffs follows.
-
-## Evaluation options considered for the solution
-
-### Transfer Docker layers
-
-An image is a Union File System mount of various file system differences, which
-are read-only, with an additional writable layer for any changes made while the
-container is running. These various file systems are known as *layers*, which
-are essentially just folders and files. Layers are stacked to form the base of a
-container's root file system. Since layers are read-only, various images can
-share the same layer if they have it in common.
-
-In this solution, layers between images are reused, thus only needing to
-transfer the new layers to the device. This would be most common in images that
-share the same base layer (usually the OS, such as Ubuntu or Alpine) or in
-images that are updated versions of existing images.
-
-Tradeoffs of this method include:
-
--   Information about which layers exist on which devices needs to be maintained
-    in the orchestrator.
-
--   Base layer changes cause all subsequent layers’ hashes to change.
-
--   Consistent layer hashes are needed to compare.
-
--   It could introduce dependency on Docker save and Docker load.
-
-### Modified Docker client
-
-This solution focuses on modifying or wrapping the Docker client so that it
-resumes layer download when the internet connection is interrupted. By default,
-a Docker pull will resume a download if the internet connection is restored
-within \~30 minutes of the interruption. Otherwise, the client exits and all
-download progress is lost.
-
-While this was a viable solution, it had complications, including:
-
--   All images on the device needed to be registered with the Docker daemon
-    pulling the images to maximize bandwidth efficiencies.
-
--   The open-source Docker project would need to be modified to support this
-    modified functionality, presenting a risk to the project if the proposal was
-    rejected by open-source maintainers.
-
--   Data would be transferred over HTTP instead of the customer’s favored fast
-    file transfer solution, which would require the development of custom retry
-    logic.
-
--   All layers needed to be retransmitted when a base image changed.
-
-### On edge
-
-This approach moves the image build environment to each device. In this
-scenario, the following data is sent to the device:
-
--   The source code for the application being built
-
--   A copy of all the NuGet packages the code has a dependency on
-
--   The Docker base images for the .NET Core build environment and runtime
-
--   Metadata about what the end image should look like
-
-A Build Agent on the device then builds the image and registers it with the
-Device Docker Manager.
-
-This solution was rejected because:
-
--   There would still be a need for a way to move large Docker images to the
-    device. Images to build the .NET application are larger than the ones to run
-    them.
-
--   This method will only work for .NET Core applications where the team is in
-    possession of the source code, and no benefits would be realized if using
-    third-party images.
-
--   It creates the need to package and track moving NuGet packages to the
-    device.
-
-If an image fails to build on the device, then the team would have to remotely
-debug the build environment and the created image, which is a lot of telemetry
-to pass over a potentially limited internet connection.
-
-### Full image delta transfer
-
-This approach treats a Docker image as a single binary file. This is achieved by
-using the Docker save command to export the image as a .tar file. By exporting
-two Docker images, we can calculate the binary delta that, when applied,
-transforms one image into the other.
-
-In this solution, we track the existing Docker images on our devices and build
-binary deltas to transform an existing image into the new image being deployed.
-This way, we transfer only the delta across the low-bandwidth internet
-connection.
-
-### Evaluation conclusion
-
-The following table shows each of the above solutions measured against the
-evaluation criteria from the first section.
-
-| **Solution**              | **Met Requirements?** | **Device Complexity** | **Azure Complexity** | **Transport** | **First Image** | **Base Exists on Device** | **Update to Application Layer** | **Update to Base Layer** |
-|---------------------------|-----------------------|-----------------------|----------------------|---------------|-----------------|---------------------------|---------------------------------|--------------------------|
-| Transfer Docker Layers    | Yes                   | Low                   | Medium               | FileCatalyst  | 100%            | 10.5%                     | 22.4%                           | 100%                     |
-| Modified Docker Client    | Yes                   | Medium                | Low                  | HTTP          | 100%            | 10.5%                     | 22.4%                           | 100%                     |
-| On Edge                   | No                    | High                  | Medium               | FileCatalyst  | N/A             | N/A                       | N/A                             | N/A                      |
-| Full Image Delta Transfer | Yes                   | Low                   | High                 | FileCatalyst  | 100%            | 3.2%                      | 0.01%                           | 16.1%                    |
-
-Based on the details above, CSE selected the full image delta transfer method.
-This solution required some custom logic to build the binary patches, but it was
-the most efficient option in terms of how much data gets sent to devices.
-
 ## Potential use cases
 
 This solution is suitable for any scenario where software containers are used as
 part of the solution and connectivity is intermittent with low bandwidth.
-Examples include:
+Examples include the following:
 
--   Mobile scenarios.
+-   Mobile scenarios
 
--   Over-the-air automotive updates.
+-   Over-the-air automotive updates
 
--   Oil and gas and mining.
+-   Oil and gas and mining
 
--   Retail.
+-   Retail
 
--   Anywhere a strong connection is not guaranteed.
+-   Anywhere a strong connection is not guaranteed
 
 ## Architecture
 
@@ -267,9 +78,9 @@ of image files:
 
 -   IoT Edge modules will be written in .NET Core 2.2.
 
-## Components
+### Components
 
-### Azure
+#### Azure
 
 -   [Azure DevOps](https://azure.microsoft.com/services/devops/)
 
@@ -287,13 +98,204 @@ of image files:
 
 -   [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)
 
-### Third-party
+#### Third-party
 
 -   [Docker](https://www.docker.com/)
 
-### Open source
+#### Open source
 
 -   [Ubuntu Linux](https://ubuntu.com/)
+
+## Example use case
+
+A major logistics company wanted to improve tracking of its worldwide product
+shipments, even through geographical areas with intermittent low-bandwidth cloud
+connectivity. Product shipments had a variety of IoT devices installed on them
+for insurance, safety, or tracking purposes, depending upon the type of goods
+being shipped. The capabilities of these devices, such as GPS trackers,
+temperature sensors, and tools to capture other pertinent data points, varied
+from one device to another; and the goods could be shipped using a variety of
+transportation methods (for example, ground, air, and sea) and to a wide variety
+of remote locales.
+
+The solution has dramatically increased reliability and resiliency of the
+provisioning process in limited-connectivity environments. The discussion below
+describes the options evaluation process, the details of the solution the CSE
+team developed for this customer, and other scenarios in which this solution
+might be useful.
+
+### Customer scenario
+
+The customer was having problems updating their devices over their recently
+developed IoT edge platform. CSE teamed up with the customer to address the
+following major pain points:
+
+-   High bandwidth consumption when deploying updated software to devices.
+
+-   No standardized automated deployment across devices, and no way to know
+    which devices had which updates.
+
+-   Limited flexibility on technology selection.
+
+### Solution evaluation
+
+Of the four possible solutions CSE evaluated, more than one was viable and
+available. CSE determined a full Docker image data transfer to be the ideal
+solution.
+
+#### Evaluation criteria
+
+CSE considered the following:
+
+-   Ability of the solution to meet requirements
+
+    -   Yes, No
+
+-   IoT device complexity (how much logic needs to be implemented on the
+    devices)
+
+    -   Low, Medium, High
+
+-   Azure complexity (how much logic needs to be implemented in Azure)
+
+    -   Low, Medium, High
+
+-   Bandwidth efficiency (ratio of transferred data to total size of image) for
+    transferring an image when:
+
+    -   No images exist on the device.
+
+    -   An image with the same base image exists on the device.
+
+    -   An image representing a previous version of an application is on the
+        device.
+
+    -   An image for the application built on a previous version of the base
+        image is on the device.
+
+For the evaluations of bandwidth efficiency, CSE used images to represent the
+following sets.
+
+| **Scenario**                                          | **Description**                                                                                                                                                                                                                      |
+|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Transfer New Image – Base Layer Already on Device** | Transferring a new image while there is another image already on the device that shares a base image. This represents deploying a new application for the first time, while another application in the same OS and framework exists. |
+| **Update to Application Layer**                       | Changing only the code for an existing application’s image. This represents a typical change when a user commits a new feature.                                                                                                      |
+| **Update to Base Image**                              | Changing the version of the base image the application is built on.                                                                                                                                                                  |
+
+A short description of the four options and their tradeoffs follows.
+
+### Evaluation options considered for the solution
+
+#### Transfer Docker layers
+
+An image is a Union File System mount of various file system differences, which
+are read-only, with an additional writable layer for any changes made while the
+container is running. These various file systems are known as *layers*, which
+are essentially just folders and files. Layers are stacked to form the base of a
+container's root file system. Since layers are read-only, various images can
+share the same layer if they have it in common.
+
+In this solution, layers between images are reused, thus only needing to
+transfer the new layers to the device. This would be most common in images that
+share the same base layer (usually the OS, such as Ubuntu or Alpine) or in
+images that are updated versions of existing images.
+
+Tradeoffs of this method include:
+
+-   Information about which layers exist on which devices needs to be maintained
+    in the orchestrator.
+
+-   Base layer changes cause all subsequent layers’ hashes to change.
+
+-   Consistent layer hashes are needed to compare.
+
+-   It could introduce dependency on Docker save and Docker load.
+
+#### Modified Docker client
+
+This solution focuses on modifying or wrapping the Docker client so that it
+resumes layer download when the internet connection is interrupted. By default,
+a Docker pull will resume a download if the internet connection is restored
+within \~30 minutes of the interruption. Otherwise, the client exits and all
+download progress is lost.
+
+While this was a viable solution, it had complications, including:
+
+-   All images on the device needed to be registered with the Docker daemon
+    pulling the images to maximize bandwidth efficiencies.
+
+-   The open-source Docker project would need to be modified to support this
+    modified functionality, presenting a risk to the project if the proposal was
+    rejected by open-source maintainers.
+
+-   Data would be transferred over HTTP instead of the customer’s favored fast
+    file transfer solution, which would require the development of custom retry
+    logic.
+
+-   All layers needed to be retransmitted when a base image changed.
+
+#### On edge
+
+This approach moves the image build environment to each device. In this
+scenario, the following data is sent to the device:
+
+-   The source code for the application being built
+
+-   A copy of all the NuGet packages the code has a dependency on
+
+-   The Docker base images for the .NET Core build environment and runtime
+
+-   Metadata about what the end image should look like
+
+A Build Agent on the device then builds the image and registers it with the
+Device Docker Manager.
+
+This solution was rejected because:
+
+-   There would still be a need for a way to move large Docker images to the
+    device. Images to build the .NET application are larger than the ones to run
+    them.
+
+-   This method will only work for .NET Core applications where the team is in
+    possession of the source code, and no benefits would be realized if using
+    third-party images.
+
+-   It creates the need to package and track moving NuGet packages to the
+    device.
+
+If an image fails to build on the device, then the team would have to remotely
+debug the build environment and the created image, which is a lot of telemetry
+to pass over a potentially limited internet connection.
+
+#### Full image delta transfer
+
+This approach treats a Docker image as a single binary file. This is achieved by
+using the Docker save command to export the image as a .tar file. By exporting
+two Docker images, we can calculate the binary delta that, when applied,
+transforms one image into the other.
+
+In this solution, we track the existing Docker images on our devices and build
+binary deltas to transform an existing image into the new image being deployed.
+This way, we transfer only the delta across the low-bandwidth internet
+connection.
+
+#### Evaluation conclusion
+
+The following table shows each of the above solutions measured against the
+evaluation criteria from the first section.
+
+| **Solution**              | **Met Requirements?** | **Device Complexity** | **Azure Complexity** | **Transport** | **First Image** | **Base Exists on Device** | **Update to Application Layer** | **Update to Base Layer** |
+|---------------------------|-----------------------|-----------------------|----------------------|---------------|-----------------|---------------------------|---------------------------------|--------------------------|
+| Transfer Docker Layers    | Yes                   | Low                   | Medium               | FileCatalyst  | 100%            | 10.5%                     | 22.4%                           | 100%                     |
+| Modified Docker Client    | Yes                   | Medium                | Low                  | HTTP          | 100%            | 10.5%                     | 22.4%                           | 100%                     |
+| On Edge                   | No                    | High                  | Medium               | FileCatalyst  | N/A             | N/A                       | N/A                             | N/A                      |
+| Full Image Delta Transfer | Yes                   | Low                   | High                 | FileCatalyst  | 100%            | 3.2%                      | 0.01%                           | 16.1%                    |
+
+Based on the details above, CSE selected the full image delta transfer method.
+This solution required some custom logic to build the binary patches, but it was
+the most efficient option in terms of how much data gets sent to devices.
+
+## Considerations
 
 ### Solution details
 
@@ -361,7 +363,7 @@ is used to create and register modules.
 
 ![Advanced DevOps Build Pipeline code to image workflow](../media/efficient-docker-image-deployment-02.png)
 
-## Azure Container Registry
+### Azure Container Registry
 
 Azure Container Registry (ACR) is used to store each module’s Docker images.
 There are two possible configurations for ACR:
@@ -372,7 +374,7 @@ There are two possible configurations for ACR:
     images; the other contains only images verified by additional testing and
     marked as production-ready.
 
-## Manifest repository
+### Manifest repository
 
 The manifest repository contains the deployment manifests for all workstreams.
 The templates are put in folders based on the workstream they represent, shown
@@ -391,7 +393,7 @@ below. In this engagement, the two workstreams are shared infrastructure and the
 
 …
 
-## Manifest repository image-to-device pipeline
+### Manifest repository image-to-device pipeline
 
 This pipeline is responsible for deploying the images to various targeted devices, as defined by a manifest file. You must trigger the pipeline manually to start a deployment.
 
@@ -451,7 +453,7 @@ This process involves the following steps:
 
 ![Original file to changed file to resulting data workflow](../media/efficient-docker-image-deployment-03.png)
 
-## Manifest repository manifest-to-device pipeline
+### Manifest repository manifest-to-device pipeline
 
 >   This pipeline sends the new deployment manifest to the proper IoT hub for the device being updated. This is a manually triggered pipeline.
 >   The pipeline:
@@ -464,7 +466,7 @@ This process involves the following steps:
 -   Pushes the new deployment manifest to the proper IoT hub.
 
 >   The IoT Hub instance where the deployment gets pushed is an environment variable configured when the pipeline is created.
-## Fast file transfer solution
+### Fast file transfer solution
 
 >   This customer was already using a fast file transfer solution, called
 >   FileCatalyst, that they preferred to continue using. This solution, also
@@ -478,7 +480,8 @@ This process involves the following steps:
 >   Once the patch bundles arrive on the device, they are transferred by
 >   existing processes to a Linux VM. From here the file is moved to the Linux
 >   VM that is running IoT Hub.
-## Image reconstruction module
+
+### Image reconstruction module
 
 >   The Image Reconstruction IoT Edge module is responsible for applying
 >   received patches on the devices. It operates by:
@@ -505,20 +508,21 @@ This process involves the following steps:
 >   The Azure function watching the IoT Hub stream processes these images and
 >   takes action in the cloud once they’re ready.
 >   ![Operation Center and IoT Device patch to image reonstructor workflow](../media/efficient-docker-image-deployment-04.png)
-## Local container registry
+
+### Local container registry
 
 Every device hosts its own local container registry. In this solution, CSE used
 the open-source registry distributed by Docker. This process runs on the host
 VM, which is also used as the existing file transfer VM.
 
-### Azure IoT Hub
+#### Azure IoT Hub
 
 IoT Hub is used by several other deployment processes. The IoT hub receives
 status messages from the image reconstruction modules. It also sets the
 deployment manifests for the various different devices, and these manifests are
 then used by the rest of the DevOps flow.
 
-### Azure Functions
+#### Azure Functions
 
 An Azure function is used to monitor the message stream coming from the IoT hub.
 This is responsible for acting on messages sent by the Image Reconstruction
@@ -547,7 +551,7 @@ In the case of a failure message:
 
 ![Operations Center and IoT Device image reconstructor message workflow](../media/efficient-docker-image-deployment-05.png)
 
-## SQL databases
+### SQL databases
 
 A SQL database is responsible for tracking the state of what’s occurring on the
 target devices and the Azure-based deployment services during and after the
@@ -583,9 +587,9 @@ future dashboards to query IoT Hub to get stats on running IoT Edge devices,
 which will provide visibility into the success of the manifest-to-device
 pipeline.
 
-## Conclusions and lessons learned
+## Implementation summary
 
-As mentioned at the beginning of this paper, implementation of this solution
+The implementation of this solution
 dramatically reduced the bandwidth consumed by updates to IoT devices. A
 breakdown of the differences in transfer efficiency is shown below.
 
@@ -593,7 +597,7 @@ breakdown of the differences in transfer efficiency is shown below.
 
 ## Next steps
 
-For more detail about the processes and technologies used to create this
+For more details about the processes and technologies used to create this
 solution, see:
 
 -   [Azure IoT reference
