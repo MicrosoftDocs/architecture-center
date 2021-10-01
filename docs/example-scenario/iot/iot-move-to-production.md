@@ -18,9 +18,9 @@
 
 # Move an IoT solution from test to production
 
-This article discusses patterns to avoid when moving an IoT solution from a test environment to a production environment.
+This article includes a list of items you should consider when moving an IoT solution to a production environment.
 
-## Not scaling your IoT solution using deployment stamps
+## Use deployment stamps
 
 Stamps are discrete units of core solution components that support a defined number of devices. Each copy is called a *stamp*. or *scale unit*. For example, a stamp might consist of a set device population, an IoT Hub, an Event Hub or other routing endpoint, and a processing component. Each stamp supports a defined device population. You choose the maximum number of devices the stamp can hold. As the device population grows, you add stamp instances rather than independently scaling up different parts of the solution.
 
@@ -45,7 +45,7 @@ To avoid the preceding issues, consider grouping your service into multiple stam
 > [!div class="nextstepaction"]
 > [Scale IoT solutions with stamps](/azure/architecture/example-scenario/iot/application-stamps)
 
-## Not using backoff when a transient fault occurs
+## Use back-off when a transient fault occurs
 
 All applications that communicate with remote services and resources must be sensitive to transient faults. This is especially the case for applications that run in the cloud, where the nature of the environment and connectivity over the internet means these types of faults are likely to be encountered more often. Transient faults include:
 
@@ -72,7 +72,7 @@ Avoid also the following anti-patterns:
 > [!div class="nextstepaction"]
 > [Transient fault handling](/azure/architecture/best-practices/transient-faults)
 
-## Not using zero-touch provisioning
+## Use zero-touch provisioning
 
 Provisioning is the act of enrolling a device into Azure IoT Hub. Provisioning makes IoT Hub aware of the device and the attestation mechanism the device uses. You can use the [Azure IoT Hub Device Provisioning Service (DPS)](/azure/iot-dps/) or provision directly via IoT Hub Registry Manager APIs. Using DPS confers the benefit of late binding, which allows removing and reprovisioning field devices to IoT Hub without changing the device software.
 

@@ -1624,6 +1624,8 @@ items:
                 href: reference-architectures/data/cluedin.yml
               - name: Master data management with Profisee
                 href: reference-architectures/data/profisee-master-data-management-data-factory.yml
+              - name: Migrate master data services with CluedIn
+                href: reference-architectures/data/migrate-master-data-services-with-cluedin.yml
               - name: N-tier app with Cassandra
                 href: reference-architectures/n-tier/n-tier-cassandra.yml
               - name: SQL 2008 R2 failover cluster in Azure
