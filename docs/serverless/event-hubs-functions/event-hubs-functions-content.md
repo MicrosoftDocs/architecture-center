@@ -7,7 +7,7 @@ Solutions that use Azure Event Hubs together with Azure Functions benefit from a
 
 The following diagram shows the Event Hubs stream processing architecture:
 
-![Event Hubs architecture](./images/event_hubs_architecture.svg)
+![Event Hubs architecture](./images/event-hubs-architecture.svg)
 
 ### Events
 
@@ -18,7 +18,7 @@ An event is a notification or state change that is represented as a fact that ha
 
 When a partition isn't specified by the sender, received events are distributed across partitions in the event hub. Each event is written in exactly one partition and isn't multi-cast across partitions. Each partition works as a log where records are written in an append-only pattern. The analogy of a *commit log* is frequently used to describe the nature of how events are added to the end of a sequence in a partition.
 
-![Writing to partitions](./images/event_hubs_partition_writes.svg)
+![Writing to partitions](./images/event-hubs-partition-writes.svg)
 
 When more than one partition is used, it allows for parallel logs to be used from within the same event hub. This behavior provides multiple degrees of parallelism and enhances throughput for consumers.
 
@@ -26,7 +26,7 @@ When more than one partition is used, it allows for parallel logs to be used fro
 
 A partition can be consumed by more than one consumer, each reading from and managing their own offsets.
 
-![Partition consumers](./images/event_hubs_partition_consumers.svg)
+![Partition consumers](./images/event-hubs-partition-consumers.svg)
 
 Event Hubs has the concept of [consumers groups](/azure/event-hubs/event-hubs-features#consumer-groups), which enables multiple consuming applications to each have a separate view of the event stream and read the stream independently at their own pace and with their own offsets.
 
@@ -48,15 +48,15 @@ When your function is first enabled, there's only one instance of the function. 
 
 - **New function instances are not needed**: `Function_1` can process all 1,000 events before the Functions scaling logic take effect. In this case, all 1,000 messages are processed by `Function_1`.
 
-    ![Event Hubs and Functions single instance](./images/event_hubs_functions.svg)
+    ![Event Hubs and Functions single instance](./images/event-hubs-functions.svg)
 
 - **An additional function instance is added**: event-based scaling or other automated or manual logic might determine that `Function_1` has more messages than it can process and then creates a new function app instance (`Function_2`). This new function also has an associated instance of  [EventProcessorHost]. As the underlying event hub detects that a new host instance is trying read messages, it load balances the partitions across the host instances. For example, partitions 1-5 may be assigned to `Function_1` and partitions 6-10 to `Function_2`.
 
-    ![Event Hubs and Functions with two instances](./images/event_hubs_functions_two_instances.svg)
+    ![Event Hubs and Functions with two instances](./images/event-hubs-functions-two-instances.svg)
 
 - **N more function instances are added**: event-based scaling or other automated or manual logic determines that both `Function_1` and `Function_2` have more messages than they can process, new Function\_N function app instances are created. Instances are created to the point where N is equal to or greater than the number of event hub partitions. In our example, Event Hubs again load balances the partitions, in this case across the instances `Function_1`...`Function_10`.
 
-    ![Event Hubs and Functions with multiple instances](./images/event_hubs_functions_n_instances.svg)
+    ![Event Hubs and Functions with multiple instances](./images/event-hubs-functions-n-instances.svg)
 
 As scaling occurs, N instances can be a number greater than the number of event hub partitions. This situation might occur while event-driven scaling stabilizes instance counts, or because other automated or manual logic created more instances than partitions. In this case, [EventProcessorHost] instances will only obtain locks on partitions as they become available from other instances, as at any given time only one function instance from the same consumer group can access/read from the partitions it has locks on.
 
