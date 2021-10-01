@@ -52,7 +52,7 @@ compensates for the limits imposed by intermittent connectivity.
 
 The diagram below shows the high-level architecture of this solution.
 
-![Azure DevOps and Azure high level solution architechture](../media/efficient-docker-image-deployment-01.png)
+![Azure DevOps and Azure high level solution architechture](./media/efficient-docker-image-deployment-01.png)
 
 ### Design requirements
 
@@ -361,7 +361,6 @@ updated.
 As shown below, a generic Docker build utilizing the Azure DevOps Build Pipeline
 is used to create and register modules.
 
-![Advanced DevOps Build Pipeline code to image workflow](../media/efficient-docker-image-deployment-02.png)
 
 ### Azure Container Registry
 
@@ -451,7 +450,7 @@ This process involves the following steps:
 7.  Add the deployment set information to SQL along with the contact email for
     the person deploying the image.
 
-![Original file to changed file to resulting data workflow](../media/efficient-docker-image-deployment-03.png)
+![Original file to changed file to resulting data workflow](./media/efficient-docker-image-deployment-03.png)
 
 ### Manifest repository manifest-to-device pipeline
 
@@ -507,7 +506,7 @@ This process involves the following steps:
 >   be notified.
 >   The Azure function watching the IoT Hub stream processes these images and
 >   takes action in the cloud once they’re ready.
->   ![Operation Center and IoT Device patch to image reonstructor workflow](../media/efficient-docker-image-deployment-04.png)
+>   ![Operation Center and IoT Device patch to image reonstructor workflow](./media/efficient-docker-image-deployment-04.png)
 
 ### Local container registry
 
@@ -549,7 +548,7 @@ In the case of a failure message:
 -   The user is notified (using email notifications configured in the SQL
     server) of the image’s failure to transfer.
 
-![Operations Center and IoT Device image reconstructor message workflow](../media/efficient-docker-image-deployment-05.png)
+![Operations Center and IoT Device image reconstructor message workflow](./media/efficient-docker-image-deployment-05.png)
 
 ### SQL databases
 
@@ -593,7 +592,7 @@ The implementation of this solution
 dramatically reduced the bandwidth consumed by updates to IoT devices. A
 breakdown of the differences in transfer efficiency is shown below.
 
-![Transfer efficiency infographic](../media/efficient-docker-image-deployment-06.png)
+![Transfer efficiency infographic](./media/efficient-docker-image-deployment-06.png)
 
 ## Next steps
 
