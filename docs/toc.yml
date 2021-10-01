@@ -2022,8 +2022,8 @@ items:
                     href: multitenant-identity/web-api.md
                   - name: Cache access tokens
                     href: multitenant-identity/token-cache.md
-                  - name: Client assertion
-                    href: multitenant-identity/client-assertion.md
+                  - name: Client certificate
+                    href: multitenant-identity/client-certificate.md
                   - name: Federate with a customer's AD FS
                     href: multitenant-identity/adfs.md
               - name: Integrate on-premises AD with Azure
