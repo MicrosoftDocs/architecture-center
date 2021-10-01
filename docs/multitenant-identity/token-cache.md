@@ -72,7 +72,7 @@ The Redis-backed cache is protected by a password, but if someone obtains the pa
 ## Acquire the token
 
 The Survey application calls the downstream web API from the page constructor.
-
+```
 public class SurveyService : ISurveyService
 {
     private readonly IDownstreamWebApi _downstreamWebApi;
@@ -96,7 +96,7 @@ public class SurveyService : ISurveyService
         }
     ...
 }
-
+```
 Another way is to inject an `ITokenAcquisition` service in the controller. For more information, see [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
 
 
