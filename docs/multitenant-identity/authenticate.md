@@ -51,8 +51,6 @@ To enable this functionality in the sample Surveys application, see the [GitHub 
 
 ## Configure the auth middleware
 
-[!INCLUDE [Obsolete technology disclaimer](../../includes/multitenant-disclaimer.md)]
-
 This section describes how to configure the authentication middleware in ASP.NET Core for multitenant authentication with OpenID Connect.
 
 In your [startup class](/aspnet/core/fundamentals/startup), add the OpenID Connect middleware:

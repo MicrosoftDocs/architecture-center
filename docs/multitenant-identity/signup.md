@@ -69,8 +69,6 @@ When an anonymous user visits the Surveys application, the user is shown two but
 
 These buttons invoke actions in the `AccountController` class.
 
-[!INCLUDE [Obsolete technology disclaimer](../../includes/multitenant-disclaimer.md)]
-
 The `SignIn` action returns a **ChallengeResult**, which causes the OpenID Connect middleware to redirect to the authentication endpoint. This is the default way to trigger authentication in ASP.NET Core.
 
 ```csharp

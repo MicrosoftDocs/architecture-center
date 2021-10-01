@@ -13,7 +13,6 @@ categories:
   - identity
   - web
 ms.custom:
-  - has-adal-ref
   - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authorize
@@ -98,8 +97,6 @@ In order for Azure AD to issue a bearer token for the web API, you need to confi
 
 ## Getting an access token
 
-[!INCLUDE [Obsolete technology disclaimer](../../includes/multitenant-disclaimer.md)]
-
 Before calling the web API, the web application gets an access token from Azure AD. In a .NET application, use the [Microsoft Authentication Library for .NET (MSAL.NET)][MSAL]. Add `.EnableTokenAcquisitionToCallDownstreamApi()` in Startup.cs of the application. 
 
 After acquiring a token, MSAL caches it. So, you'll also need to choose a token cache implementation, which is included in MSAL. This example uses distributed cache. For details, see See [Token caching][token-cache].
@@ -123,10 +120,27 @@ services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
 
 ## Using the access token to call the web API
 
-
+Once you have the token, 
 
 ## Authenticating in the web API
 
+The web API has to authenticate the bearer token. In ASP.NET Core, you can use the [Microsoft.AspNet.Authentication.JwtBearer][JwtBearer] package. This package provides middleware that enables the application to receive OpenID Connect bearer tokens.
+
+Register the middleware in your web API `Startup` class.
+
+```csharp
+services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(jtwOptions =>
+        {
+            jtwOptions.Events = new SurveysJwtBearerEvents(loggerFactory.CreateLogger<SurveysJwtBearerEvents>()); 
+        },
+        msIdentityOptions => {
+            Configuration.GetSection("AzureAd").Bind(msIdentityOptions);
+        });
+```
+
+
+**Events** is a class that derives from **JwtBearerEvents**.
 
 ### Issuer validation
 
