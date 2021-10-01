@@ -86,7 +86,7 @@ Here's how you can benefit from autoscaling features:
 
 - Use built-in autoscaling features when possible rather than custom or third-party mechanisms.
 - Use scheduled scaling rules where possible to ensure that resources are available.
-- Add reactive autoscaling to the rules where appropriate to cope with unexpected changes in demand.e y
+- Add reactive autoscaling to the rules where appropriate to cope with unexpected changes in demand.
 
 > [!NOTE]
 > If your application is explicitly designed to handle the termination of some of its instances, ensure you use autoscaling to scale down and scale in resources no longer necessary for the given load to reduce operational costs.
