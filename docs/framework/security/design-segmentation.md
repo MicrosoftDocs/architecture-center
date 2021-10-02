@@ -6,6 +6,11 @@ ms.date: 09/07/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure
+categories: 
+  - management-and-governance
+  - security
 ms.custom:
   - article
 ---
@@ -44,11 +49,12 @@ Consider isolating shared and individual resources as shown in the preceding ima
 #### Core Services segment
 This segment hosts shared services utilized across the organization. These shared services typically include Active Directory Domain Services, DNS/DHCP, and system management tools hosted on Azure Infrastructure as a Service (IaaS) virtual machines. 
 
+
 #### Additional segments
 Other segments can contain grouped resources based on certain criteria. For instance, resources that are used by one specific workload or application might be contained in a separate segment. You may also segment or sub-segment by lifecycle stage, like _development_, _test_, and _production_. Some resources might intersect, such as applications, and can use virtual networks for lifecycle stages. 
 
-### Functions and teams
-These are the main functions for this reference model. Mapping between central functions, responsibilities, and teams is described in [Team roles and responsibilities](design-identity-role-definitions.md). 
+#### Clear lines of responsibility
+These are the main functions for this reference model. Permissions for these functions are described in [Team roles and responsibilities](design-identity-role-definitions.md). 
 
 |Function|Scope|Responsibility|
 |---|---|---|
@@ -61,11 +67,8 @@ These are the main functions for this reference model. Mapping between central f
 |Service admin (Core and individual segments)||Use the service admin role only for emergencies (and initial setup if required). Do not use this role for daily tasks.|
 
 
-## See also
-- [Management groups](design-management-groups.md)</br>
-- [Centralize network management and security](network-security-containment.md)
-
 ## Next steps
 Start with this reference model and manage resources across multiple subscriptions consistently and efficiently with management groups. 
+
 > [!div class="nextstepaction"]
 > [Management groups](design-management-groups.md)

@@ -20,7 +20,7 @@ The main cost driver for machine learning workloads is the compute cost. Those r
 
 The compute cost depends on the cluster size, node type, and number of nodes. Billing starts while the cluster nodes are starting, running, or shutting down.
 
-With services such as [Azure Machine Learning](/azure/machine-learning/service/overview-what-is-azure-ml), you have the option of creating fix-sized clusters or use autoscaling. 
+With services such as [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), you have the option of creating fix-sized clusters or use autoscaling. 
 >![Task](../../_images/i-best-practices.svg) If the amount of compute is not known, start with a zero-node cluster. The cluster will scale up when it detects jobs in the queue. A zero-node cluster is not charged.
 
 Fix-sized clusters are appropriate for jobs that run at a constant rate and the amount of compute is known and measured beforehand. The time taken to spin up or down a cluster incurs additional cost.
@@ -33,7 +33,8 @@ For more information about the services that make up a machine learning workload
 This article provides cost considerations for some technology choices. This is not meant to be an exhaustive list, but a subset of options.
 
 ## Azure Machine Learning
-There are two editions, **Enterprise** and **Basic**. Training models don't incur the machine learning service surcharge. You're charged for these factors.  
+Training models don't incur the machine learning service surcharge. You're charged for these factors.
+
 - The cost is driven by compute choices, such as, the virtual machine sizes and the region in which they are available. If you can commit to one or three years, choosing reserved instances can lower cost. For more information, see [Reserved instances](./optimize-vm.md#reserved-vms).
 
 - As part of provisioning Machine Learning resources,  additional resource are deployed such as [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), [Azure Block Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/), and [Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). You're charged for as per the pricing of those individual services.

@@ -1,9 +1,9 @@
 ---
-title: Comparing AWS and Azure database technologies
-description: A comparison of the differences between the database technologies of Azure and AWS.
+title: Compare AWS and Azure database technology
+description: Compare database technology differences between Azure and AWS. Review the RDS and Azure relational database services. See equivalents for analytics and big data.
 author: splitfinity
 ms.author: pnp
-ms.date: 08/10/2021
+ms.date: 09/17/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -68,6 +68,6 @@ Azure provides a package of products and services designed to capture, organize,
 
 - [Cloud-scale analytics](https://azure.microsoft.com/solutions/big-data/#overview)
 
-- [Big data architecture style](/azure/architecture/guide/architecture-styles/big-data)
+- [Big data architecture style](../guide/architecture-styles/big-data.md)
 
-- [Azure Data Lake and Azure HDInsight blog](/archive/blogs/azuredatalake/)
+- [Azure Data Lake and Azure HDInsight blog](/archive/blogs/azuredatalake)

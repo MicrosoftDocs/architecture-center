@@ -1,7 +1,7 @@
 ---
 title: Monolithic Persistence antipattern
-titleSuffix: Performance antipatterns for cloud apps
-description: Understand the Monolithic Persistence antipattern, which can hurt performance by putting all of an application's data into a single data store.
+titleSuffix: Azure Architecture Center
+description: Understand the Monolithic Persistence antipattern, which can hurt performance by putting all of an application&apos;s data into a single data store.
 author: dragon119
 ms.date: 06/05/2017
 ms.topic: conceptual

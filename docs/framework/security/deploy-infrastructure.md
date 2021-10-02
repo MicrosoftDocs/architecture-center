@@ -40,16 +40,20 @@ For detailed information about IaC, see [What is Infrastructure as code (IaC)](/
 
 Store keys and secrets outside of deployment pipeline in a managed key store, such as Azure Key Vault. Or, in a secure store for the pipeline. When deploying application infrastructure with Azure Resource Manager or Terraform, the process might generate credentials and keys. Store them in a managed key store and make sure the deployed resources reference the store. Do not hard-code credentials.
 
-
 ## Build environments
 
 **Does the organization apply security controls (IP firewall restrictions, update management) to self-hosted build agents for this workload?**
 
-Custom build agents add management complexity and can become an attack vector. Build machine credentials must be stored securely and file system needs to be cleaned of any temporary build artifacts regularly. Network isolation can be achieved by only allowing outgoing traffic from the build agent, because it's using pull model of communication with Azure DevOps.
+Custom build agents add management complexity and can become an attack vector. Build machine credentials must be stored securely and the file system needs to be cleaned of any temporary build artifacts regularly. Network isolation can be achieved by only allowing outgoing traffic from the build agent, because it's using the pull model of communication with Azure DevOps.
 
 As part of the operational lifecycle, incorporate security fixes and patching to the operating system and all parts of the codebase, including dependencies (preinstalled tools, frameworks, and libraries).
 
 Apply security controls to self-hosted build agents in the same manner as with other Azure IaaS VMs. These should be minimalistic environments as a way to reduce the attack surface.
+
+## Learn more
+
+- [Azure Pipelines agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser&preserve-view=true)
+- [I'm running a firewall and my code is in Azure Repos. What URLs does the agent need to communicate with?](/azure/devops/pipelines/agents/v2-windows?view=azure-devops#im-running-a-firewall-and-my-code-is-in-azure-repos-what-urls-does-the-agent-need-to-communicate-with&preserve-view=true)
 
 ## Next step
 

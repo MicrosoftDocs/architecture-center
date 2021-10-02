@@ -1,6 +1,6 @@
 ---
 title: Application classification for security
-description: Security considerations for your applications and services in Azure.
+description: Understanding the Azure hosting models of legacy and modern apps through IaaS and PaaS, and the security responsibilities of those models.
 author: v-aangie
 ms.date: 09/17/2020
 ms.topic: conceptual
@@ -63,9 +63,10 @@ We recommend using cloud services from your cloud provider for identity, data pr
 
 - **Data Protection** – Use established capabilities from cloud providers such as native encryption in cloud services to encrypt and protect data. If direct use of cryptography is required, use well-established cryptographic algorithms and not attempt to invent their own.
 
-- **Key management** – Always authenticate with identity services rather than handling cryptographic key. For situations where you need to keys, use a managed key store such as [Azure Key Vault](/azure/key-vault/). This will make sure keys are handled safely in application code. You can use [CredScan](https://secdevtools.azurewebsites.net/helpcredscan.html) to discover potentially exposed keys in your application code.
+- **Key management** – Always authenticate with identity services rather than handling cryptographic key. For situations where you need to keys, use a managed key store such as [Azure Key Vault](/azure/key-vault/). This will make sure keys are handled safely in application code. Tools such as, CredScan can discover potentially exposed keys in your application code.
 
-- **Application Configurations** – Inconsistent configurations for applications can create security risks. [Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags, which helps mitigate this risk.
+- **Application Configurations** – Inconsistent configurations for applications can create security risks. Application configuration information can be stored with the application itself or preferably using a dedicated configuration management system like [Azure App Configuration](/azure/azure-app-configuration/overview) or Azure Key Vault. App Configuration provides a service to centrally manage application settings and feature flags, which helps mitigate this risk. Don't store keys and secrets in application configuration.
+
 
 For more information about using cloud services instead of custom implementations, reference [Applications and services](./design-apps-services.md).
 

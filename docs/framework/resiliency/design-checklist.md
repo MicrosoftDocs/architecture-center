@@ -28,16 +28,6 @@ Reliable applications should maintain a pre-defined percentage of uptime (*avail
 > - Identify possible failure points in the system to build resiliency.
 > - Ensure that applications can operate in the absence of their dependencies.
   
-## In this section
-
-Follow these questions to assess the workload at a deeper level.
-
-| Assessment | Description |
-| ------------- | ------------- |
-| [How will you design Azure applications to ensure reliability?](./app-design.md) | Consider how systems use Availability Zones, perform scalability, respond to failure, and other strategies that optimize reliability in application design.
-| [What decisions have been taken to ensure that reliability requirements are met?](./design-requirements.md) | Target and non-functional requirements such as availability and recovery targets allow you to measure the uptime and downtime of your workloads.
-| [Have you identified all possible failure points and dependencies for applications?](./design-resiliency.md) | Validate that the application can operate effectively in the absence of its dependencies, and minimize downtime.
-
 ## Azure services
 
 - [Azure Front Door](/azure/frontdoor/front-door-overview)

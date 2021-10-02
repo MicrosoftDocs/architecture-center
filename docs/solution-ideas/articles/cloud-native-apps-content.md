@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Web and mobile applications are a key part of a successful digital transformation strategy. Organizations can build cloud-native applications using Azure managed databases, Azure Kubernetes Service, and analytics/ML for applications that are incredibly responsive to customer needs.
@@ -9,7 +6,7 @@ Web and mobile applications are a key part of a successful digital transformatio
 
 ![Architecture Diagram](../media/cloud-native-apps.png)
 
-## Data Flow
+### Data flow
 
 1. Deploy and manage containerized applications easily with a continuous integration and delivery experience (CI/CD), and enterprise grade security and governance.
 2. Focus on your app, not the database, with a fully managed database as a service for PostgreSQL. With built-in high availability and the rich feature set of Postgres, you can build design modern experiences free from legacy constraints.
@@ -22,7 +19,7 @@ Web and mobile applications are a key part of a successful digital transformatio
 9. Provide near real-time analytics and insight into user interaction by leveraging Azure Synapse Link for Azure Cosmos DB HTAP capabilities.
 10.	Finally, surface powerful visualizations of predictive, real-time, and historical transaction data using Power BI.
 
-## Components
+### Components
 
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes) allows you to quickly deploy a production ready Kubernetes cluster in Azure.
 - [Azure Database for PostgreSQL](/azure/postgresql/overview) is a fully managed relational database service based on the community edition of the open-source PostgreSQL database engine.
@@ -35,7 +32,7 @@ Web and mobile applications are a key part of a successful digital transformatio
 - [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it’s used to analyze and visualize data.
 
-## Next Steps
+## Next steps
 
 - Learn more about [building a microservices architecture](../../microservices/index.md) on Azure
 - Learn more about [building serverless applications](../../serverless/code.md) on Azure

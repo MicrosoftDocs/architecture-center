@@ -36,7 +36,7 @@ Using Azure Site Recovery, users can set up and manage replication, failover, an
 
 Azure is committed to providing the best-in-class data protection to keep your applications running. Azure Backup protects backups of on-premises and cloud-resources from ransomware attacks by isolating backup data from source data, combined with multi-factor authentication and the ability to recover maliciously or accidentally deleted backup data. With Azure Site Recovery you can fail over VMs to the cloud or between cloud data centers and secure them with network security groups.
 
-In the case of a disruption, accidental deletion, or corruption of data, customers can be rest assured that they will be able to recover their business services and data in a timely and orchestrated manner. These native capabilities support low recovery-point objective (RPO) and recovery-time objective (RTO) targets for any mission-critical workload in your organization. Azure is here to help customers pivot towards a strengthened BCDR strategy.
+In the case of a disruption, accidental deletion, or corruption of data, customers can rest assured that they will be able to recover their business services and data in a timely and orchestrated manner. These native capabilities support low recovery-point objective (RPO) and recovery-time objective (RTO) targets for any mission-critical workload in your organization. Azure is here to help customers pivot towards a strengthened BCDR strategy.
 
 ## Availability Considerations
 

@@ -1,6 +1,6 @@
 ---
-title: Testing your application and Azure environment
-description: Describes DevOps testing considerations to make when designing your workload.
+title: Testing your app and Azure environment
+description: Learn about DevOps testing considerations to make when designing your workload. Get information about automated testing and application manual testing in Azure.
 author: erjosito
 ms.date: 07/15/2021
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
-title: Release Engineering Application Development
+title: Release engineering app development
 description: Understand application development in release engineering. Build systems so your teams can turn ideas into production-delivered software with minimal friction.
-author: neilpeterson
+author: david-stanford
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.service: architecture-center

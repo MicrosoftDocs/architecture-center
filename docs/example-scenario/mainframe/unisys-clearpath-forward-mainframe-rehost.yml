@@ -21,6 +21,6 @@ products:
   - azure-virtual-network
 name: Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization
 summary: <Write a summary. Can be same as description.>
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/unisys-clearpath-forward-mainframe-rehost.png
 content: |
   [!include[](unisys-clearpath-forward-mainframe-rehost-content.md)]

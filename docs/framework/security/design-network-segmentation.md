@@ -1,5 +1,5 @@
 ---
-title: Implement network segmentation patterns on Azure
+title: Implement network segmentation patterns
 description: Use network-level segmentation to secure virtual networks. Understand Azure features for segmentation. Review three different segmentation patterns.
 author: tremansdoerfer
 ms.author: rimansdo
@@ -79,11 +79,9 @@ Create a risk containment strategy that blends proven approaches including:
 - Native security controls available in Azure
 - Zero trust approaches
 
-For more information, reference [Build a security containment strategy](/azure/architecture/framework/Security/network-security-containment#build-a-security-containment-strategy).
-
 ## Learn more
 
-For information about creating a segmentation strategy, see [Enterprise segmentation strategy](./governance.md#enterprise-segmentation-strategy).
+For information about creating a segmentation strategy, see [Enterprise segmentation strategy](/azure/architecture/framework/security/design-segmentation).
 
 ## Azure features for segmentation
 
