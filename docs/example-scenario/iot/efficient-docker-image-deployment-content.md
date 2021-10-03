@@ -548,7 +548,7 @@ In the case of a failure message:
 -   The user is notified (using email notifications configured in the SQL
     server) of the image’s failure to transfer.
 
-![Operations Center and IoT Device image reconstructor message workflow](./media/efficient-docker-image-deployment-05.png)
+![Operations Center and IoT device image reconstructor message workflow](./media/efficient-docker-image-deployment-05.png)
 
 ### SQL databases
 
@@ -557,7 +557,7 @@ target devices and the Azure-based deployment services during and after the
 deployment processes.
 
 A private NuGet package was created for interacting with the database that is
-used by both Azure Functions and the DevOps Pipelines.
+used by both Azure Functions and Azure Pipelines.
 
 The data currently being stored is:
 
