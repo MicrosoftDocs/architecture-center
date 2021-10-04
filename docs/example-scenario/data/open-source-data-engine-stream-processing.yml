@@ -3,9 +3,9 @@ metadata:
   title: Stream processing with fully managed open-source data engines
   titleSuffix: Azure Example Scenarios
   description: Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.
-  author: EdPrice-MSFT
-  ms.author: edprice
-  ms.date: 10/01/2021
+  author: ajananth
+  ms.author: ajananth
+  ms.date: 10/05/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
