@@ -1809,6 +1809,8 @@ items:
                     href: example-scenario/serverless/serverless-multicloud.yml
                   - name: Serverless event processing
                     href: reference-architectures/serverless/event-processing.yml
+                  - name: Auto IP Rotation with Azure Container Instances
+                    href: example-scenario/serverless/automation-appgw.yml
               - name: Solution ideas
                 items:
                   - name: Azure Kubernetes in event stream processing
