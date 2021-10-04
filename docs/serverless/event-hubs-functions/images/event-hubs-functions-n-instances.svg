@@ -4,40 +4,102 @@
 <svg
    width="640"
    height="370"
-   viewBox="0 0 169.33333 97.89583"
+   viewBox="0 0 169.33333 97.895844"
    version="1.1"
-   id="svg5767"
+   id="svg1101"
    inkscape:version="1.1 (c68e22c387, 2021-05-23)"
-   sodipodi:docname="event_hubs_functions_n_instances.svg"
+   sodipodi:docname="event_hubs_functions_n_instances-v2.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview5769"
+     id="namedview1103"
      pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="true"
      inkscape:document-units="mm"
      showgrid="false"
-     width="166.73497mm"
-     units="mm"
+     units="px"
      inkscape:zoom="0.77771465"
-     inkscape:cx="327.24085"
-     inkscape:cy="400.53251"
-     inkscape:window-width="1284"
+     inkscape:cx="179.3717"
+     inkscape:cy="355.52886"
+     inkscape:window-width="1854"
      inkscape:window-height="1081"
-     inkscape:window-x="4111"
-     inkscape:window-y="212"
+     inkscape:window-x="5089"
+     inkscape:window-y="322"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer4" />
   <defs
-     id="defs5764">
+     id="defs1098">
     <clipPath
        id="clip0">
+      <rect
+         x="56"
+         y="169"
+         width="670"
+         height="286"
+         id="rect7032" />
+    </clipPath>
+    <clipPath
+       id="clip1">
+      <rect
+         x="663"
+         y="208"
+         width="24"
+         height="24"
+         id="rect7035" />
+    </clipPath>
+    <clipPath
+       id="clip2">
+      <rect
+         x="663"
+         y="208"
+         width="24"
+         height="24"
+         id="rect7038" />
+    </clipPath>
+    <clipPath
+       id="clip3">
+      <rect
+         x="663"
+         y="208"
+         width="24"
+         height="24"
+         id="rect7041" />
+    </clipPath>
+    <clipPath
+       id="clip4">
+      <rect
+         x="661"
+         y="397"
+         width="24"
+         height="24"
+         id="rect7044" />
+    </clipPath>
+    <clipPath
+       id="clip5">
+      <rect
+         x="661"
+         y="397"
+         width="24"
+         height="24"
+         id="rect7047" />
+    </clipPath>
+    <clipPath
+       id="clip6">
+      <rect
+         x="661"
+         y="397"
+         width="24"
+         height="24"
+         id="rect7050" />
+    </clipPath>
+    <clipPath
+       id="clip0-4">
       <rect
          x="323"
          y="134"
@@ -46,7 +108,7 @@
          id="rect5771" />
     </clipPath>
     <clipPath
-       id="clip1">
+       id="clip1-3">
       <rect
          x="807"
          y="176"
@@ -55,7 +117,7 @@
          id="rect5774" />
     </clipPath>
     <clipPath
-       id="clip2">
+       id="clip2-2">
       <rect
          x="807"
          y="176"
@@ -64,7 +126,7 @@
          id="rect5777" />
     </clipPath>
     <clipPath
-       id="clip3">
+       id="clip3-0">
       <rect
          x="807"
          y="176"
@@ -74,13 +136,25 @@
     </clipPath>
   </defs>
   <g
-     inkscape:label="Layer 1"
+     inkscape:label="Base"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-18.354167,-42.695826)">
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#ffffff;stroke-width:0.27653"
+       id="rect1149"
+       width="169.33333"
+       height="97.895836"
+       x="0"
+       y="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Image">
     <g
-       clip-path="url(#clip0)"
-       transform="matrix(0.26458333,0,0,0.26458333,-67.635415,6.0022007)"
+       clip-path="url(#clip0-4)"
+       transform="matrix(0.26458333,0,0,0.26458333,-85.363856,-36.901493)"
        id="g6335">
       <path
          d="m 751,198 h 32 v 275 h -32 z"
@@ -1387,13 +1461,13 @@
          transform="translate(823.921,187)"
          id="text6281">Function App</text>
       <g
-         clip-path="url(#clip1)"
+         clip-path="url(#clip1-3)"
          id="g6295">
         <g
-           clip-path="url(#clip2)"
+           clip-path="url(#clip2-2)"
            id="g6293">
           <g
-             clip-path="url(#clip3)"
+             clip-path="url(#clip3-0)"
              id="g6291">
             <path
                d="m 814.577,185.949 h -2.81 c -0.082,0.003 -0.152,-0.06 -0.157,-0.142 0,-0.02 0.006,-0.04 0.015,-0.058 l 3.368,-6.666 c 0.029,-0.053 0.086,-0.085 0.146,-0.083 h 3.323 c 0.082,-0.003 0.152,0.06 0.157,0.142 0,0.028 -0.01,0.056 -0.027,0.078 l -3.956,5.215 h 3.858 c 0.082,-0.003 0.151,0.06 0.156,0.142 10e-4,0.037 -0.013,0.074 -0.04,0.1 l -6.41,6.665 c -0.06,0.036 -0.488,0.391 -0.278,-0.148 v 0 z"

@@ -4,38 +4,37 @@
 <svg
    width="635"
    height="340"
-   viewBox="0 0 168.01042 89.958331"
+   viewBox="0 0 168.01041 89.958336"
    version="1.1"
-   id="svg4754"
+   id="svg4087"
    inkscape:version="1.1 (c68e22c387, 2021-05-23)"
-   sodipodi:docname="event_hubs_functions_two_instances.svg"
+   sodipodi:docname="event_hubs_functions_two_instances-v2.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview4756"
+     id="namedview4089"
      pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="true"
      inkscape:document-units="mm"
      showgrid="false"
      units="px"
-     width="635px"
      inkscape:zoom="0.77771465"
-     inkscape:cx="313.73975"
-     inkscape:cy="164.58479"
-     inkscape:window-width="1523"
-     inkscape:window-height="1130"
-     inkscape:window-x="5008"
-     inkscape:window-y="181"
+     inkscape:cx="383.81687"
+     inkscape:cy="149.79787"
+     inkscape:window-width="1284"
+     inkscape:window-height="1081"
+     inkscape:window-x="5670"
+     inkscape:window-y="146"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer5" />
   <defs
-     id="defs4751">
+     id="defs4084">
     <clipPath
        id="clip0">
       <rect
@@ -77,10 +76,22 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-22.108674,-104.66973)">
+     sodipodi:insensitive="true">
+    <rect
+       style="fill:#ffffff;stroke-width:0.264583"
+       id="rect4139"
+       width="168.01042"
+       height="89.958336"
+       x="0"
+       y="-4.9158482e-09" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Layer 2">
     <g
        clip-path="url(#clip0)"
-       transform="matrix(0.26458333,0,0,0.26458333,-63.351741,69.034439)"
+       transform="matrix(0.26458333,0,0,0.26458333,-86.202129,-36.486051)"
        id="g5254">
       <path
          d="m 814,198 h 77 v 275 h -77 z"
