@@ -21,7 +21,7 @@ This solution uses fully managed [platform as a service (PaaS)][What is PaaS?] s
 This solution applies to various scenarios:
 
 - Using Azure PaaS services to build modern streaming solutions that use open-source technologies
-- Migrating existing stream processing solutions that use open-source technologies to Azure
+- Migrating open-source stream processing solutions to Azure
 
 ## Architecture
 
@@ -48,9 +48,9 @@ Download a [Visio file][Visio version of architecture diagram] of this architect
 
 1. Reporting applications and tools analyze the PostgreSQL database data. For example, [Power BI][What is Power BI?] connects to the database by using the Azure Database for PostgreSQL connector. This reporting service then displays rich visuals of the data.
 
-1. Azure Cache for Redis provides an in-memory cache. In this solution, the cache contains data on critical events. An application stores that data to the cache and retrieves data from it.
+1. Azure Cache for Redis provides an in-memory cache. In this solution, the cache contains data on critical events. An application stores data to the cache and retrieves data from the cache.
 
-1. Applications like websites use the cached data to improve response times. Sometimes data's not available in the cache. In those cases, these applications use the [cache-aside pattern][Cache-Aside pattern] or a similar strategy to retrieve data from Cassandra in Azure Cosmos DB.
+1. Websites and other applications use the cached data to improve response times. Sometimes data isn't available in the cache. In those cases, these applications use the [cache-aside pattern][Cache-Aside pattern] or a similar strategy to retrieve data from Cassandra in Azure Cosmos DB.
 
 ### Components
 
@@ -135,7 +135,7 @@ Keep these points in mind when you deploy this solution:
 
 To estimate the cost of this solution, use the [Azure pricing calculator][Azure pricing calculator]. Also keep these points in mind:
 
-- [Event Hubs][Event Hubs pricing] is available in Basic, Standard, Premium, and Dedicated tiers. The Premium or Dedicated tier is best for large-scale streaming workloads. You can scale up throughput, so consider starting small and then scaling up as demand increases.
+- [Event Hubs][Event Hubs pricing] is available in Basic, Standard, Premium, and Dedicated tiers. The Premium or Dedicated tier is best for large-scale streaming workloads. You can scale throughput, so consider starting small and then scaling up as demand increases.
 - [Azure Cosmos DB][Azure Cosmos DB pricing] offers two models:
 
   - A provisioned throughput model that's ideal for demanding workloads. This model is available in two capacity management options: standard and autoscale.
