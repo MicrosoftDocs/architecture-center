@@ -31,36 +31,27 @@ These other uses cases have similar design patterns:
     - Prevents unintended or unauthorized changes
     - Enforces desired quality checks
 
-1. The GitHub Repository also holds an **Action Workflow** for building the code changes and performing the necessary quality checks. The action workflow also deploys the latest version of the code to Azure Spring Cloud. For this deployment the GitHub Action Workflow: 
+1. The GitHub Repository also holds an **Action Workflow** for building the code changes and performing the necessary quality checks. After compiling the code, the action workflow deploys the latest version of the code to Azure Spring Cloud. For this deployment the GitHub Action Workflow: 
 
-    - Checks what is currently the active production 
-
-_Architecture diagram goes here_
-
-> What does the solution look like at a high level?
-> Why did we build the solution this way?
-> What will the customer need to bring to this?  (Software, skills, etc?)
-
-Under the diagram, include a numbered list that describes the data flow or workflow.
+    - Checks what is currently the active production deployment.
+    - Deploys the code to the non-production deployment. In case this non-production deployment does not exist, it gets created. At this point in time the old application version in the production deployment is still getting all of the production traffic.
+    - Waits for the deployment to be reviewed and approved. During this approval the non-production url of the application can be used to double check the new version of the application.
+    - In case the deployment is approved, the production deployment and non-production deployment are switched. So all production traffic now gets routed to the new version of the application.
+    - Waits for a second review and approval to delete the non-production deployment. Cleaning up the non-production deployment will lead to a more cost effective setup. 
 
 ### Components
 
-A bulleted list of components in the architecture (including all relevant Azure services) with links to the service pages.
+This solution uses the following components: 
 
-> Why is each component there?
-> What does it do and why was it necessary?
-> Link the name of the service (via embedded link) to the service's product service page. Be sure to exclude the localization part of the URL (such as "en-US/").
+- [Azure Spring Cloud Service](https://azure.microsoft.com/services/spring-cloud) is a modern microservices platform for running Java Sping Boot and Steeltoe .NET Core apps. It eliminates boilerplate code for running microservices and helps to quickly develop robust apps in cloud. 
 
-- Examples: 
-  - [Azure App Service](https://azure.microsoft.com/services/app-service)
-  - [Azure Bot Service](https://azure.microsoft.com/services/bot-service)
-  - [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service)
-  - [Azure Cognitive Services Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services)
-  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
-  - [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights is a feature of Azure Monitor.
-  - [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
+- [GitHub](https://github.com) is a code hosting platform for version control and collaboration. GitHub offers Git distributed version control, source code management, and other features.
+
+- [GitHub Actions](https://docs.github.com/actions) help you automate software development workflows as well as deployment workflows right in the repository. They allow for a fully automated CI/CD setup. 
 
 ### Alternatives
+
+
 
 Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives.
 
