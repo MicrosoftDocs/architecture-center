@@ -27,8 +27,8 @@ ms.service: architecture-center
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [S3 Infrequent Access (IA)](https://aws.amazon.com/s3/storage-classes) | [Storage cool tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) | Cool storage is a lower-cost tier for storing data that is infrequently accessed and long-lived. |
-| [S3 Glacier](https://aws.amazon.com/s3/storage-classes), Deep Archive | [Storage archive access tier](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) | Archive storage has the lowest storage cost and higher data retrieval costs compared to hot and cool storage. |
+| [S3 Infrequent Access (IA)](https://aws.amazon.com/s3/storage-classes) | [Storage cool tier](/azure/storage/blobs/access-tiers-overview) | Cool storage is a lower-cost tier for storing data that is infrequently accessed and long-lived. |
+| [S3 Glacier](https://aws.amazon.com/s3/storage-classes), Deep Archive | [Storage archive access tier](/azure/storage/blobs/access-tiers-overview) | Archive storage has the lowest storage cost and higher data retrieval costs compared to hot and cool storage. |
 | [Backup](https://aws.amazon.com/backup/) | [Backup](https://azure.microsoft.com/services/backup/) | Back up and recover files and folders from the cloud, and provide offsite protection against data loss. |
 
 ### Hybrid storage
