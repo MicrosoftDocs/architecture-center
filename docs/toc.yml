@@ -1799,6 +1799,18 @@ items:
                     href: serverless-quest/functions-app-operations.md
                   - name: Serverless Functions app security
                     href: serverless-quest/functions-app-security.md
+                  - name: Event Hubs with Azure Functions 
+                    items:
+                      - name: Overview
+                        href: serverless/event-hubs-functions/event-hubs-functions.yml
+                      - name: Performance and scale
+                        href: serverless/event-hubs-functions/performance-scale.yml
+                      - name: Resilient design
+                        href: serverless/event-hubs-functions/resilient-design.md
+                      - name: Security
+                        href: serverless/event-hubs-functions/security.md
+                      - name: Observability
+                        href: serverless/event-hubs-functions/observability.yml 
               - name: Architectures
                 items:
                   - name: Azure Functions in a hybrid environment
