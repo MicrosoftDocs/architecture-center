@@ -42,8 +42,6 @@ Roles apply to *users* of the application. In the Surveys application, a user is
 
 For a discussion of how to define and manage roles, see [Application roles].
 
-[!INCLUDE [Obsolete technology disclaimer](../../includes/multitenant-disclaimer.md)]
-
 Regardless of how you manage the roles, your authorization code will look similar. ASP.NET Core has an abstraction called [authorization policies][policies]. With this feature, you define authorization policies in code, and then apply those policies to controller actions. The policy is decoupled from the controller.
 
 ### Create policies
