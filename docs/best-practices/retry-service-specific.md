@@ -55,13 +55,13 @@ Azure Active Directory (Azure AD) is a comprehensive identity and access managem
 
 ### Retry mechanism
 
-There is a built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow ADAL to handle retries.
+There is a built-in retry mechanism for Azure Active Directory in the [Microsoft Authentication Library (MSAL) ](/azure/active-directory/develop/msal-overview). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow MSAL to handle retries.
 
 ### Retry usage guidance
 
 Consider the following guidelines when using Azure Active Directory:
 
-- When possible, use the ADAL library and the built-in support for retries.
+- When possible, use the MSAL library and the built-in support for retries.
 - If you are using the REST API for Azure Active Directory, retry the operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Do not retry for any other errors.
 - For 429 errors, only retry after the time indicated in the **Retry-After** header.  
 - For 5xx errors, use exponential back-off, with the first retry at least 5 seconds after the response. 
@@ -69,7 +69,7 @@ Consider the following guidelines when using Azure Active Directory:
 
 ### More information
 
-- [Azure Active Directory Authentication Libraries][adal]
+- [Microsoft Authentication Library (MSAL) ](/azure/active-directory/develop/msal-overview)
 
 ## Cosmos DB
 
@@ -1186,7 +1186,7 @@ The following are the typical types of retry strategy intervals:
 
 <!-- links -->
 
-[adal]: /azure/active-directory/develop/active-directory-authentication-libraries
+[msal]: /azure/active-directory/develop/msal-overview
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
 [CosmosClientOptions]: /dotnet/api/microsoft.azure.cosmos.cosmosclientoptions?view=azure-dotnets&preserve-view=true
 [dotnet-foundation]: https://dotnetfoundation.org
