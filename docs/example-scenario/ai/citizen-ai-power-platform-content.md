@@ -2,17 +2,15 @@ A general technology trend is the growing popularity of citizen AI roles. Such r
 
 With a well-known high failure rate to such initiatives, the ability to rapidly prototype and validate an AI application in a real-world setting becomes a key enabler to a fail fast approach. There are two key tools for developing models that modernize processes and drive transformative outcomes:
 
-1. **An ML toolkit for all skill levels**
-
-   1. Supports no-code to fully-coded ML development
-   1. Has a flexible, low-code GUI
-   1. Enables users to rapidly source and prep data
-   1. Enables users to rapidly build and deploy models
-   1. Has advanced, automated ML capabilities for ML algorithm development
-1. **A low-code application development toolkit**
-
-   1. Enables users to build custom applications and automation workflows
-   1. Creates workflows so that consumers and business processes can interact with an ML model
+- **An ML toolkit for all skill levels**
+  - Supports no-code to fully-coded ML development
+  - Has a flexible, low-code GUI
+  - Enables users to rapidly source and prep data
+  - Enables users to rapidly build and deploy models
+  - Has advanced, automated ML capabilities for ML algorithm development
+- **A low-code application development toolkit**
+  - Enables users to build custom applications and automation workflows
+  - Creates workflows so that consumers and business processes can interact with an ML model
 
 ## Potential use cases
 
