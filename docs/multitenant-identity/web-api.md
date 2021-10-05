@@ -103,7 +103,7 @@ After acquiring a token, MSAL caches it. So, you'll also need to choose a token 
 
 ## Using the access token to call the web API
 
-Once you have the token, call a downstream web API. That process is descibed in [Call a downstream web API with the helper class](/azure/active-directory/develop/scenario-web-app-call-api-call-api?tabs=aspnetcore#option-2-call-a-downstream-web-api-with-the-helper-class).
+Once you have the token, call a downstream web API. That process is described in [Call a downstream web API with the helper class](/azure/active-directory/develop/scenario-web-app-call-api-call-api?tabs=aspnetcore#option-2-call-a-downstream-web-api-with-the-helper-class).
 
 ## Authenticating in the web API
 
