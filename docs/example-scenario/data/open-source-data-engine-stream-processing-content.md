@@ -103,7 +103,7 @@ Design and implement each service with best practices in mind. For guidelines on
 
 Consider using [Availability zones][Availability Zones] to protect business-critical applications from datacenter failures. This solution's services support availability zones for selected SKUs in [availability zone–enabled regions][Azure regions with Availability Zones]. For up-to-date information, review the [list of services that support availability zones][Azure Services that support Availability Zones].
 
-## Deploy the solution
+## Deploy this scenario
 
 Keep these points in mind when you deploy this solution:
 
