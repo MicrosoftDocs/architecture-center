@@ -105,7 +105,7 @@ Another way is to inject an `ITokenAcquisition` service in the controller. For m
 <!-- links -->
 
 [MSAL]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-or-Microsoft.Identity.Web
-[client-assertion]: ./client-certificate.md
+[client-certificate]: ./client-certificate.md
 [data-protection]: /aspnet/core/security/data-protection
 [distributed-cache]: /aspnet/core/performance/caching/distributed
 [key-management]: /aspnet/core/security/data-protection/configuration/default-settings

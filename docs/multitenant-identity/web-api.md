@@ -101,26 +101,9 @@ Before calling the web API, the web application gets an access token from Azure 
 
 After acquiring a token, MSAL caches it. So, you'll also need to choose a token cache implementation, which is included in MSAL. This example uses distributed cache. For details, see See [Token caching][token-cache].
 
-```csharp
-// The OpenID Connect middleware sends this event when it gets the authorization code.
-services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-    .AddMicrosoftIdentityWebApp(
-        options =>
-        {
-            Configuration.Bind("AzureAd", options);
-            options.Events = new SurveyAuthenticationEvents(loggerFactory);
-            options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            options.Events.OnTokenValidated += options.Events.TokenValidated;
-        })
-        .EnableTokenAcquisitionToCallDownstreamApi()
-        .AddDownstreamWebApi(configOptions.SurveyApi.Name, Configuration.GetSection("SurveyApi"))
-        .AddDistributedTokenCaches();
-}
-
-
 ## Using the access token to call the web API
 
-Once you have the token, 
+Once you have the token, call a downstream web API. That process is descibed in [Call a downstream web API with the helper class](/azure/active-directory/develop/scenario-web-app-call-api-call-api?tabs=aspnetcore#option-2-call-a-downstream-web-api-with-the-helper-class).
 
 ## Authenticating in the web API
 
