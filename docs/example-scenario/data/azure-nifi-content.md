@@ -37,8 +37,32 @@ This solution applies to many areas:
 
 *Download a [Visio file][Visio file of architecture diagram] of this architecture.*
 
+- The Apache NiFi application runs on VMs in Apache NiFi cluster nodes. The VMs are in a virtual machine scale set (VMSS) that the configuration deploys across Availability Zones.
+
+- Apache NiFi uses the Apache ZooKeeper cluster for these purposes:
+
+  - To elect a cluster coordinator node
+  - To coordinate the flow of data
+
+- Azure Application Gateway provides layer-7 load balancing for the user interface that runs on the Apache NiFi nodes.
+
+- Azure Monitor and Log Analytics collect, analyze, and act on telemetry from the Apache NiFi system. The telemetry includes the Apache NiFi system logs, system health metrics, and performance metrics. Add reference to Monitoring section (see original document).
+
+- Azure Key Vault securely stores certificates and keys for the Apache NiFi cluster.
+
+- Azure Active Directory (Azure AD) provides single sign-on and multi-factor authentication.
 
 ### Components
+
+Probably omit: The solution uses these components:
+
+- Apache NiFi 
+
+
+
+
+
+
 
 ## Considerations
 
