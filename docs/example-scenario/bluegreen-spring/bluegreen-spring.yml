@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Blue Green Deployments for Spring Cloud Applications
+  titleSuffix: Azure Example Scenarios
+  description: See a blue green deployment solution for an Azure Spring Cloud application. This solution provides zero downtime deployment for applictions in a Spring Cloud cluster.
+  author: vermegi
+  ms.author: givermei
+  ms.date: 10/31/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - microservices
+  - devops
+products:
+  - azure-spring-cloud
+  - github
+  - azure-devops
+name: Zero Downtime Blue Green Deployment 
+summary: See a blue green deployment solution for an Azure Spring Cloud application. This solution provides zero downtime deployment for applictions in a Spring Cloud cluster.
+thumbnailUrl: /azure/architecture/browse/thumbs/blue-green-spring.png
+content: |
+  [!include[](bluegreen-spring-content.md)]
