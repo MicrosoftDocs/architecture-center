@@ -34,9 +34,9 @@ Do you have legacy Oracle code and prefer using a managed service on Azure? If s
 
 ### Microsoft Assessment and Planning (MAP) Toolkit
 
-"Use the [Microsoft Assessment and Planning (MAP) Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to evaluate the existing Oracle database and schemas, please refer to [Oracle to SQL Server: Migration guide - SQL Server | Microsoft Docs](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fsql%2Fsql-server%2Fmigrate%2Fguides%2Foracle-to-sql-server%3Fview%3Dsql-server-ver15&data=04%7C01%7Cv-atmapa%40microsoft.com%7C0e48721bc5b64a4b48d108d9885ccecd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637690754446758620%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=UrDGNbohy9ipol2adlumokcujq5CcxduQ5Kiy1ioZ50%3D&reserved=0) for step by step guide".
+Use the [Microsoft Assessment and Planning (MAP) Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to evaluate the existing Oracle database and schemas. For more information, refer to the [Oracle to SQL Server: Migration guide](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fsql%2Fsql-server%2Fmigrate%2Fguides%2Foracle-to-sql-server%3Fview%3Dsql-server-ver15&data=04%7C01%7Cv-atmapa%40microsoft.com%7C0e48721bc5b64a4b48d108d9885ccecd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637690754446758620%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=UrDGNbohy9ipol2adlumokcujq5CcxduQ5Kiy1ioZ50%3D&reserved=0).
 
-### Assess migration complexity
+### Assess the migration complexity
 
 Download [Ora2Pg](http://ora2pg.darold.net/). Run the following command to get the migration complexity assessment:
 
