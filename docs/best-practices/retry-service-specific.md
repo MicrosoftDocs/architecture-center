@@ -371,7 +371,7 @@ Service Bus implements retries using implementations of the abstract [**RetryPol
 | Package | Description | Namespace |
 |---------|-------------|-------|
 | [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | Azure Service Bus client library for .NET Standard. | `Microsoft.ServiceBus` |
-|  [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) |  This package is the older Service Bus client library. It requires .Net Framework 4.5.2. | `Microsoft.Azure.ServiceBus` |
+|  [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) |  This package is the older Service Bus client library. It requires .NET Framework 4.5.2. | `Microsoft.Azure.ServiceBus` |
 
 Both versions of the client library provide the following built-in implementations of `RetryPolicy`:
 
