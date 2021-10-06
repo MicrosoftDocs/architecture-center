@@ -2,7 +2,7 @@
 title: Multitenancy and identity management
 description: Learn the best practices for multitenant applications, in terms of authentication, authorization, and identity management.
 author: doodlemania2
-ms.date: 07/21/2017
+ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
