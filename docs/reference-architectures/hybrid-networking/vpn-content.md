@@ -187,7 +187,7 @@ On Azure Stack, you can expand VPN gateways to include interfaces to multiple Az
 
 ## DevOps considerations
 
-Use the Infrastructure as Code (IaC) process for deploying the infrastructure. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent. For a given resource, there can be other resources that must exist before the resource is deployed.
+Use the Infrastructure as Code (IaC) process for deploying the infrastructure. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent.
 
 All the main resources (Virtual machine scale set, VPN gateway, Azure Bastion) are in the same virtual network so they are isolated in the same basic workload. It's then  easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
 
