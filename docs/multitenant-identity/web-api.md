@@ -246,7 +246,7 @@ At startup, the application reads settings from every registered configuration p
 <!-- links -->
 
 [Authorization]: ./authorize.md
-[MSAL]: /azure/active-directory/develop/scenario-web-api-call-api-app-configuration?tabs=aspnetcore#startupcs
+[MSAL]: /azure/active-directory/develop/msal-overview
 [claims-transformation]: ./claims.md#claims-transformations
 [IdentityServer4]: https://github.com/IdentityServer/IdentityServer4
 [JwtBearer]: https://www.nuget.org/packages/Microsoft.AspNet.Authentication.JwtBearer
