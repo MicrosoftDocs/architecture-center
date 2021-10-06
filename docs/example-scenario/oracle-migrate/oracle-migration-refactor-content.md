@@ -32,11 +32,9 @@ Do you have legacy Oracle code and prefer using a managed service on Azure? If s
 * Create an [Azure subscription](/azure/cost-management-billing/manage/create-subscription).
 * Create an instance of the [Azure Database Migration Service by using the Azure portal](/azure/dms/quickstart-create-data-migration-service-portal).
 
-### Evaluate your Oracle database
+### Microsoft Assessment and Planning (MAP) Toolkit
 
-To evaluate your Oracle database, run the [Oracle PL\SQL](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_Pre_v12.sql) and [Oracle PL\SQL 2](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Oracle_PreSSMA_v12_Plus.sql) tools in your existing Oracle database. See the [Assessment guide](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/OraclePre-SSMA%20Query%20Guidance.pptx) for instructions on how to run both of the tools.
-
-Download the [Assessment Calculator Template](https://github.com/microsoft/DataMigrationTeam/blob/master/Oracle%20Inventory%20Script%20Artifacts/Oracle%20Inventory%20Script%20Artifacts/Customer%20Assessment%20CalculatorTemplate2.xlsx) spreadsheet so you can record the results.
+"Use the [Microsoft Assessment and Planning (MAP) Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to evaluate the existing Oracle database and schemas, please refer to [Oracle to SQL Server: Migration guide - SQL Server | Microsoft Docs](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fsql%2Fsql-server%2Fmigrate%2Fguides%2Foracle-to-sql-server%3Fview%3Dsql-server-ver15&data=04%7C01%7Cv-atmapa%40microsoft.com%7C0e48721bc5b64a4b48d108d9885ccecd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637690754446758620%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=UrDGNbohy9ipol2adlumokcujq5CcxduQ5Kiy1ioZ50%3D&reserved=0) for step by step guide".
 
 ### Assess migration complexity
 
