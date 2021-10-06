@@ -199,15 +199,17 @@ The data flows through the solution as follows:
 
 -   [Power BI](https://powerbi.microsoft.com)
 
-## Deploy the scenario
+## Deploy this scenario
 
 You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The Azure Resource Manager templates to deploy the components described in this architecture are available in the [GitHub](https://github.com/vsuopys/SecureSynapse/tree/master/SecureSynapseARM) repository. These templates will deploy all services shown in the architecture diagram **except for**: the Power BI Data Gateway, self-hosted integration runtime, and Azure Key Vault for customer managed keys.
+The Azure Resource Manager templates, which you'll need to deploy the components described in this architecture, are available in the [GitHub](https://github.com/vsuopys/SecureSynapse/tree/master/SecureSynapseARM) repository. These templates will deploy all the services shown in the architecture diagram **except for**: the Power BI Data Gateway, self-hosted integration runtime, and Azure Key Vault for customer managed keys.
 
-It is up to the user to create the data lake folder structure and Synapse integration pipelines necessary to connect to data sources.
+It is up to the user to create the data lake folder structure and the Azure Synapse Analytics integration pipelines that are necessary to connect to the data sources.
 
-Deploy the ARM template directly by clicking this button:  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvsuopys%2FSecureSynapse%2Fmaster%2FSecureSynapseARM%2Fazuredeploy.json)
+Deploy the ARM template directly by clicking this button:  
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvsuopys%2FSecureSynapse%2Fmaster%2FSecureSynapseARM%2Fazuredeploy.json)
 
 ## Next steps
 
