@@ -237,7 +237,7 @@ items:
   - name: Microsoft Azure Well-Architected Framework
     items:
       - name: Overview
-        href: framework/index.md  
+        href: framework/index.md
       - name: Reliability
         items:
               - name: About
@@ -371,7 +371,7 @@ items:
               - name: Code deployments
                 href: framework/security/deploy-code.md
           - name: Monitor-remediate
-            items: 
+            items:
               - name: Checklist
                 href: framework/security/monitor.md
               - name: Tools
@@ -661,7 +661,7 @@ items:
           - name: Overview
             href: industries/retail.md
           - name: Guides
-            items: 
+            items:
               - name: Data management in the retail industry
                 href: /previous-versions/azure/industry-marketing/retail/retail-data-management-overview
                 maintainContext: true
@@ -703,7 +703,7 @@ items:
           - name: Overview
             href: industries/finance.md
           - name: Guides
-            items: 
+            items:
               - name: Risk grid computing in banking
                 href: /previous-versions/azure/industry-marketing/financial/risk-grid-banking-overview
                 maintainContext: true
@@ -814,7 +814,7 @@ items:
           - name: Overview
             href: industries/manufacturing.md
           - name: Guides
-            items: 
+            items:
               - name: Industrial IoT analytics
                 href: guide/iiot-guidance/iiot-architecture.md
               - name: Upscale ML lifecycle with MLOps framework
@@ -832,7 +832,7 @@ items:
                 href: /previous-versions/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data
                 maintainContext: true
           - name: Architectures
-            items: 
+            items:
               - name: Build a speech-to-text transcription pipeline
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Computer vision on the edge
@@ -854,7 +854,7 @@ items:
           - name: Scalable personalization on Azure
             href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
       - name: Energy and environment
-        items: 
+        items:
           - name: Run reservoir simulations
             href: example-scenario/infrastructure/reservoir-simulation.yml
           - name: Geospatial data processing and analytics
@@ -872,9 +872,9 @@ items:
               - name: 3D video rendering
                 href: example-scenario/infrastructure/video-rendering.yml
               - name: Digital image-based modeling on Azure
-                href: example-scenario/infrastructure/image-modeling.yml 
+                href: example-scenario/infrastructure/image-modeling.yml
           - name: Databases for gaming
-            items: 
+            items:
               - name: Gaming using Azure MySQL
                 href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
               - name: Gaming using Cosmos DB
@@ -917,7 +917,7 @@ items:
                   - name: Asynchronous multiplayer basics
                     href: /gaming/azure/reference-architectures/multiplayer-asynchronous
                     maintainContext: true
-                  - name: Serverless asynchronous multiplayer 
+                  - name: Serverless asynchronous multiplayer
                     href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
                     maintainContext: true
       - name: Automotive and transportation
@@ -1142,7 +1142,7 @@ items:
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
               - name: Blueprint architectures
-                items:                
+                items:
                   - name: Blueprint - HIPAA/HITRUST health data and AI
                     href: /previous-versions/azure/security/blueprints/azure-health
                     maintainContext: true
@@ -1151,6 +1151,8 @@ items:
                     maintainContext: true
               - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
+              - name: Citizen AI with the Power Platform Platform and Azure
+                href: example-scenario/ai/citizen-ai-power-platform.yml
               - name: Computer vision on the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Deploy AI and ML at the edge
@@ -2177,12 +2179,12 @@ items:
                     href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
                   - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
-              - name: Azure IoT client SDK support 
+              - name: Azure IoT client SDK support
                 href: guide/iot/azure-iot-client-sdk-support.md
               - name: Choose an IoT solution
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md
               - name: Moving from test to production
-                href: example-scenario/iot/iot-move-to-production.md 
+                href: example-scenario/iot/iot-move-to-production.md
           - name: Architectures
             items:
               - name: Azure IoT reference architecture
@@ -2202,7 +2204,7 @@ items:
               - name: Project 15 Open Platform
                 href: solution-ideas/articles/project-15-iot-sustainability.yml
               - name: Smart places with Azure Digital Twins
-                href: example-scenario/iot/smart-places.yml                
+                href: example-scenario/iot/smart-places.yml
           - name: Solution ideas
             items:
               - name: Condition monitoring
@@ -2585,7 +2587,7 @@ items:
               - name: SAP S/4 HANA for Large Instances
                 href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
               - name: SAP workload automation using Suse on Azure
-                href: solution-ideas/articles/sap-workload-automation-suse.yml  
+                href: solution-ideas/articles/sap-workload-automation-suse.yml
       - name: Security
         items:
           - name: Guides
