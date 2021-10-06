@@ -18,7 +18,7 @@ ms.custom:
 
 # Azure Industrial IoT analytics guidance
 
-This article series shows a recommended architecture for an Industrial IoT (IIoT) *analytics solution* on Azure using [PaaS (Platform as a service)](https://azure.microsoft.com/overview/what-is-paas/) components. [Industrial IoT or IIoT](/azure/iot-accelerators/overview-iot-industrial) is the application of *Internet of Things* in the manufacturing industry.
+This article series shows a recommended architecture for an Industrial IoT (IIoT) *analytics solution* on Azure using [PaaS (Platform as a service)](https://azure.microsoft.com/overview/what-is-paas/) components. [Industrial IoT or IIoT](/azure/industrial-iot/overview-what-is-industrial-iot) is the application of *Internet of Things* in the manufacturing industry.
 
 An IIoT analytics solution can be used to build a variety of applications that provide:
 
@@ -118,7 +118,7 @@ Industry and domain-specific *Information Models* can be created based on the OP
 
 Microsoft has developed open source [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) components, based on OPC UA, which implement identity translation pattern:
 
-- [OPC Twin](/azure/iot-accelerators/overview-opc-twin) consists of microservices and an Azure IoT Edge module to connect the cloud and the factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs.
+- [OPC Twin](https://github.com/Azure/azure-iiot-opc-twin-module) consists of microservices and an Azure IoT Edge module to connect the cloud and the factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs.
 - [OPC Publisher](/azure/iot-accelerators/overview-opc-publisher) is an Azure IoT Edge module that connects to existing OPC UA servers and publishes telemetry data from OPC UA servers in OPC UA PubSub format, in both JSON and binary.
 - [OPC Vault](/azure/iot-accelerators/overview-opc-vault) is a microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud.
 - [Discovery Services](https://azure.github.io/Industrial-IoT/modules/discovery.html) is an Azure IoT Edge module that supports network scanning and OPC UA discovery.
