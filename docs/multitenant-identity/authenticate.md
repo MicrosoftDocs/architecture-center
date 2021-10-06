@@ -2,7 +2,7 @@
 title: Authentication in multitenant applications
 description: Learn about how a multitenant application can authenticate users from Azure Active Directory (Azure AD) and the OpenID Connect (OIDC) protocol.
 author: doodlemania2
-ms.date: 07/21/2017
+ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
