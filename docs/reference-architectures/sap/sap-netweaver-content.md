@@ -152,7 +152,7 @@ disks](/azure/storage/storage-managed-disks-overview). You can use Azure shared 
 
 Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
-For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/storage-blob-storage-tiers). These storage tiers provide a cost-effective way to store long-lived data that is infrequently accessed.
+For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers provide a cost-effective way to store long-lived data that is infrequently accessed.
 
 [Ultra disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd)
 greatly reduce disk latency and benefit performance-critical applications like the SAP database servers. [Compare block storage options in Azure.](/azure/virtual-machines/windows/disks-types)
