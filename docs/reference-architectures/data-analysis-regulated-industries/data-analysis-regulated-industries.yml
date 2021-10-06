@@ -3,8 +3,8 @@ metadata:
   title: Data Analysis workloads for regulated industries
   titleSuffix: Azure Reference Architectures
   description: Reference Architecture for Data Analysis workloads for regulated industries. Covers Data Analysis, ETL/ELT + PowerBI (Ingestion/Transformation/Storage/PowerBI).
-  author: jbinko
-  ms.author: jbinko
+  author: jbinko djdean
+  ms.author: jbinko dade
   ms.date: 10/06/2021
   ms.topic: conceptual
   ms.service: architecture-center
