@@ -108,7 +108,7 @@ Here are the steps in more detail.
 ### Add the claims provider trust
 
 1. In Server Manager, click **Tools**, and then select **AD FS Management**.
-2. In the console tree, under **AD FS**, right click **Claims Provider Trusts**. Select **Add Claims Provider Trust**.
+2. In the console tree, under **AD FS**, right-click **Claims Provider Trusts**. Select **Add Claims Provider Trust**.
 3. Click **Start** to start the wizard.
 4. Select the option "Import data about the claims provider published online or on a local network". Enter the URI of the customer's federation metadata endpoint. (Example: `https://contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.) You will need to get this from the customer.
 5. Complete the wizard using the default options.
@@ -149,7 +149,7 @@ The customer must do the following:
 ### Add the RP trust
 
 1. In Server Manager, click **Tools**, and then select **AD FS Management**.
-2. In the console tree, under **AD FS**, right click **Relying Party Trusts**. Select **Add Relying Party Trust**.
+2. In the console tree, under **AD FS**, right-click **Relying Party Trusts**. Select **Add Relying Party Trust**.
 3. Select **Claims Aware** and click **Start**.
 4. On the **Select Data Source** page, select the option "Import data about the claims provider published online or on a local network". Enter the URI of the SaaS provider's federation metadata endpoint.
    ![Add Relying Party Trust Wizard](./images/add-rp-trust.png)
