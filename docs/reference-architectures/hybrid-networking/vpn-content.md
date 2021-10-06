@@ -187,9 +187,7 @@ On Azure Stack, you can expand VPN gateways to include interfaces to multiple Az
 
 ## DevOps considerations
 
-Use the Infrastructure as Code (IaC) process for deploying the infrastructure. In this architecture, we've used a set of [Azure Building Blocks][azbb] custom templates deployed using the Azure portal. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent. 
-
-For a given resource, there can be other resources that must exist before the resource is deployed. Azure Building Blocks templates are also good for dependency tracking because they allow you to define dependencies for resources that are deployed in the same template. 
+Use the Infrastructure as Code (IaC) process for deploying the infrastructure. To automate infrastructure deployment, you can use Azure DevOps Services or other CI/CD solutions. The deployment process is also idempotent. For a given resource, there can be other resources that must exist before the resource is deployed.
 
 All the main resources (Virtual machine scale set, VPN gateway, Azure Bastion) are in the same virtual network so they are isolated in the same basic workload. It's then  easier to associate the workload's specific resources to a team, so that the team can independently manage all aspects of those resources. This isolation enables DevOps to perform continuous integration and continuous delivery (CI/CD).
 
@@ -294,7 +292,7 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 [linux-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [nagios]: https://www.nagios.org
 [policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
-[readme]: https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md
+[readme]: https://github.com/mspnp/samples/blob/master/solutions/secure-hybrid-network/README.md
 [route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
 [sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway
@@ -304,4 +302,3 @@ Although VPNs can be used to connect virtual networks within Azure, it's not alw
 [vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [vpn-gateway-multi-site]: /azure/vpn-gateway/vpn-gateway-multi-site
 [windows-vm-ra]: ../n-tier/n-tier-sql-server.yml
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki
