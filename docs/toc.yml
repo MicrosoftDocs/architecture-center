@@ -671,11 +671,11 @@ items:
               - name: Optimize and reuse recommendations
                 href: /previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization
                 maintainContext: true
-              - name: Visual search in retail with CosmosDB
-                href: /previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview
-                maintainContext: true
               - name: SKU optimization for consumer brands
                 href: /previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide
+                maintainContext: true
+              - name: Visual search in retail with CosmosDB
+                href: /previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview
                 maintainContext: true
           - name: Architectures
             items:
@@ -683,6 +683,9 @@ items:
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
+              - name: Hybrid AI footfall detection for retail
+                href: /hybrid/app-solutions/pattern-retail-footfall-detection
+                maintainContext: true
               - name: Intelligent search engine for e-commerce
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Magento e-commerce platform in AKS
@@ -730,8 +733,10 @@ items:
                 href: example-scenario/data/fraud-detection.yml
               - name: Replicate and sync mainframe data in Azure
                 href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
-          - name: Compliance Blueprints
+          - name: Compliance architecture
             items:
+              - name: AKS regulated cluster for PCI
+                href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets
               - name: Blueprint - Analytics for PCI DSS
                 href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
                 maintainContext: true
@@ -758,11 +763,13 @@ items:
             href: example-scenario/digital-health/health-portal.yml
           - name: Health data consortium
             href: example-scenario/data/azure-health-data-consortium.yml
+          - name: Population health management
+            href: solution-ideas/articles/population-health-management-for-healthcare.yml
           - name: Precision medicine pipeline
             href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
           - name: Virtual visits with Cloud for Healthcare
             href: example-scenario/mch-health/virtual-health-mch.yml
-          - name: Compliance Blueprints
+          - name: Compliance architecture
             items:
               - name: Blueprint - HIPAA/HITRUST data and AI
                 href: /previous-versions/azure/security/blueprints/azure-health
@@ -770,7 +777,7 @@ items:
               - name: Implement the healthcare blueprint for AI
                 href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
                 maintainContext: true
-              - name: HIPAA and HITRUST compliant health data AI
+              - name: HIPAA and HITRUST compliant health data
                 href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
       - name: Government
         items:
@@ -788,7 +795,7 @@ items:
             href: example-scenario/private-web-app/private-web-app.yml
           - name: Azure Virtual Desktop for the enterprise
             href: example-scenario/wvd/windows-virtual-desktop.yml
-          - name: Compliance Blueprints
+          - name: Compliance architecture
             items:
               - name: Blueprint - Analytics for FedRAMP
                 href: /previous-versions/azure/security/blueprints/fedramp-analytics-overview
