@@ -8,6 +8,7 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 categories:
   - identity
+  - web
 products:
   - azure-active-directory
 ms.custom:

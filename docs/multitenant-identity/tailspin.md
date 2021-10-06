@@ -6,10 +6,13 @@ ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
-  - developer-tools
+categories:
+  - identity
+  - web
 ms.custom:
   - guide
+products:
+  - azure-active-directory  
 ---
 
 # The Tailspin scenario

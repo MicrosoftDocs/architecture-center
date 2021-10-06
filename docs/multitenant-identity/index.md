@@ -6,8 +6,9 @@ ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - identity
+  - web
 ms.custom:
   - guide
   - seo-aac-fy21q3
@@ -18,6 +19,8 @@ keywords:
   - "multitenant database"
   - "multitenant authentication"
   - "multitenant identity management"
+products:
+  - azure-active-directory  
 ---
 
 # Identity management in multitenant applications

@@ -6,13 +6,16 @@ ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - identity
+  - web
 ms.custom:
   - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: token-cache
 pnp.series.next: client-assertion
+products:
+  - azure-active-directory
 ---
 
 # Federate with a customer's AD FS
@@ -193,9 +196,9 @@ The customer must do the following:
 [federation trust]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770993(v=ws.11)
 [account partner]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731141(v=ws.11)
 [resource partner]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731141(v=ws.11)
-[Authentication instant]: /dotnet/api/system.security.claims.claimtypes.authenticationinstant?view=netcore-3.1
+[Authentication instant]: /dotnet/api/system.security.claims.claimtypes.authenticationinstant
 [Expiration time]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.
-[Name identifier]: /dotnet/api/system.security.claims.claimtypes.nameidentifier?view=netcore-3.1
+[Name identifier]: /dotnet/api/system.security.claims.claimtypes.nameidentifier
 [active-directory-on-azure]: /windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100
 [blog post]: https://www.cloudidentity.com/blog/?p=3343
 [Customizing the AD FS Sign-in Pages]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)

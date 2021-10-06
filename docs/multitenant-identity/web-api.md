@@ -8,8 +8,6 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 categories:
-  - security
-  - developer-tools
   - identity
   - web
 ms.custom:
