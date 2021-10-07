@@ -30,10 +30,7 @@ In general, determining the true value of a customer over its lifetime, can help
 
 ## Architecture
 
-![Architecture Diagram](architecture-customerlifetime-churn.png)
-=======
-
-
+![Architecture Diagram](./media/architecture-commerce-chatbot.png)
 
 ## Data flow
 
