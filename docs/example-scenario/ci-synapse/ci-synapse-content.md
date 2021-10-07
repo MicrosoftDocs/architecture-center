@@ -1,4 +1,10 @@
-Dynamics Customer Insights (CI) can create a 360-degree customer view by unifying data from transactional, behavioral, and observational sources. This 360-degree customer view can then be made available inside enterprise data lakes and/or data warehouses as a golden customer dimension. This document discuss the dataflow, product integrations, and configurations to build an enhanced customer dimension that can be consumed by analytics platforms external to Dynamics and CI. [Audience Insights](https://dynamics.microsoft.com/ai/customer-insights/audience-insights-capability/) is a feature of CI that offers the capabilities for unifying customer data sources and enhancing customer profiles. Please review these [Audience Insights main benefits](https://docs.microsoft.com/dynamics365/customer-insights/audience-insights/overview#main-benefits) for more information.
+Dynamics Customer Insights (CI) can create a 360-degree customer view by unifying data from transactional, behavioral, and observational sources. This 360-degree customer view can then be made available inside enterprise data lakes and/or data warehouses as a golden customer dimension. Below you can see an example of gold customer records produced by CI's data unification process that takes customer data from multiple source systems, cleans, and merges. In addition to core customer attributes CI can also enrich the customer records with attributes like churn scores and brand affinities, also seen below.
+
+![Architecture Diagram](customerdimensionexample.png?raw=true "Example of customer records")
+
+![Architecture Diagram](customerbrandaffinityexample.png?raw=true "Example of customer records")
+
+This document discuss the dataflow, product integrations, and configurations to build an enhanced customer dimension that can be consumed by analytics platforms external to Dynamics and CI. [Audience Insights](https://dynamics.microsoft.com/ai/customer-insights/audience-insights-capability/) is the feature of CI that offers the capabilities for unifying customer data sources and enhancing customer profiles. Please review these [Audience Insights main benefits](https://docs.microsoft.com/dynamics365/customer-insights/audience-insights/overview#main-benefits) for more information.
 
 ## Architecture
 
@@ -22,7 +28,7 @@ The data flows through the solution as follows:
   
 5. [Create a Logical Data Warehouse](/azure/synapse-analytics/sql/tutorial-logical-data-warehouse) in the Azure Synapse Analytics workspace. Please review the [Synapse SQL Serverless pool best practices](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool) to determine if additional transformation of the exported CI data is necessary and whether views are better suited then tables.
   
-6. By now CI data residing in the data lake is exposed as SQL Server tables and views that can be easily consumed by Power BI. Please see the [Tutorial for Using serverless SQL pools with Power BI](/azure/synapse-analytics/sql/tutorial-connect-power-bi-desktop) for an example.
+6. By now CI data residing in the data lake is exposed as logical SQL Server tables and views that can be easily consumed by Power BI. Please see the [Tutorial for Using serverless SQL pools with Power BI](/azure/synapse-analytics/sql/tutorial-connect-power-bi-desktop) for an example.
 
 ### Components
 
