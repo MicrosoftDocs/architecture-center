@@ -12,36 +12,45 @@
 
 
 
-@DJ: We need to describe more on high level why we built this pattern (that it is ETL/ELT + PowerBI - something what we pitched to the customer, that we are seeing this with other customers, pros/cons), why not Synapse, benefits, etc.
-They are not focused on deployment scripts here, etc.
-I think my text here below is not optimal and not fully fitting to their expectations to describe reusable pattern.
-Maybe some text can be reused from here: <https://github.com/jbinko/ADAW#architecture-overview>
+#@DJ: We need to describe more on high level why we built this pattern (that it is ETL/ELT + PowerBI - something what we pitched to the customer, that we are seeing this with other customers, pros/cons), why not Synapse, benefits, etc.
+#They are not focused on deployment scripts here, etc.
+#I think my text here below is not optimal and not fully fitting to their expectations to describe reusable pattern.
+#Maybe some text can be reused from here: <https://github.com/jbinko/ADAW#architecture-overview>
+
+#Business users have a need to present, consume, slice and dice data in quick way on multiple devices from multiple places. Ideally on data model which is optimized (transformed) for data domain they are aligned to.
+
+In recent years, the demand for business users capability to consume, transform, model, and visualize large amounts of complex data from multiple heterogenous sources has increased dramatically. To meet this demand in a cost effective, scalible way many large companies have benefitted from moving to cloud-based data platforms. This move allows companies to leverage the economy of scale the cloud provides to achieve lower total cost of ownership and faster time to value from data. Regulated industries are no exception to this as these companies need to store and process vast amounts of highly sensitive data (e.g., protected health information) every day. However, due to the sensitive nature of this data, there are many regulations (e.g., HIPAA) in place to constrain the methods for storing, transporting, and processing the data. As a result of this, regulated industries have been hesitant to adopt cloud-based data platforms due to the large financial penalties for a regulatory violation as well as the perceived loss of control that comes from moving to a cloud-based platform. 
+
+The worldwide COVID-19 pandemic changed all of this as many regulated industries on-premises data platforms were largely unable to cope with the increased workload coming as a direct result of the pandemic. While these companies are now embracing cloud-based data platforms, they are doing so with highly complex and detailed security requirements. This makes rapid deployment of many services using automation (e.g., Azure Resource Manger Templates) challenging as many security options can be disabled or simply ignored, leaving these companies open to regulatory action (e.g., financial penalties) if left unchecked. 
+
+The Infrastructure Accelerator pattern is designed to ameliorate this issue by tackling data analysis workloads in regulated industries. This pattern is specifically designed to help ensure the detailed security and privacy requirements of different regualted industries are met by leveraging configurable, Azure Resource Monitor (ARM)-based service deployment automation. Specifically, the pattern focuses on high quality security standards, auditing, monitoring key protection, encryption capabilities, and tight integration with security perimeters (when applicable). Users of this pattern will have the flexibility to choose which data processing services (e.g., Azure Machine Learning, Azure Synapse Analytics) they want to use with the comfort of knowing the services will be deployed using both Microsoft best practices for Landing Zones as well as any company specific policy requirements. In short, we believe that all customers from regulated industries will benefit from this pattern.
+
+#The Infrastructure Accelerator pattern is designed to ameliorate this issue by tackling data analysis workloads in regulated industries. This pattern with a focus on high quality security standards, auditing, monitoring key protection, encryption capabilities, and integration with security perimeters (when applicable). All build on Azure managed services to reduce management overhead.
+
+#You can think about this guidance as Enterprise Ready plug-able infrastructure building block for Data Analytics workloads compatible with Microsoft Best Practices for Landing Zones.
 
 
-This is description of Infrastructure Accelerator pattern for Data Analysis workloads for regulated industries with focus on high quality security standards, auditing, monitoring keys protection and encryptions capabilities and integration with perimeter where applicable. All build on Azure managed services to reduce management overhead.
 
-You can think about this guidance as Enterprise Ready plug-able infrastructure building block for Data Analytics workloads compatible with Microsoft Best Practices for Landing Zones.
+#To achieve this, you typically need to get data in scalable way from multiple data sources in raw format (typically sitting on-prem), store them in scalable way with potentially huge volumes. Store them to cheap storage in multiple versions and with history, clean data, combine data Together, pre-aggregate data and store them again in structured way with indexing capability to provide speed for access. This pattern is supporting such Data Analysis workloads with high Enterprise security standards.
 
-All customers from regulated industries should benefit from this pattern.
+Some of the key benefits of this pattern are:
 
-Business Users needs to present, consume, slice and dice data in quick way on multiple devices from multiple places. Ideally on data model which is optimized (transformed) for data domain they are aligned to.
+- Speed of deployment and consistency between projects an environments (DEV/TEST/STG/PROD).
+- Coverage of major data analysis use cases ETL/ELT + PowerBI (Ingestion/Transformation/Storage/Data Lake/SQL/PowerBI).
+- Focus on automated support of enterprise-grade security standards.
+- Strong support for auditing, monitoring and diagnostics data.
+- Constraint of network communication to security perimeters (when applicable).
+- Easy consumption of data sources from inside perimeter along with cloud-based data analysis.
+- Benefit from cloud managed services with reduced management and operation overhead.
+- Seemless integration with cloud native tools (e.g., Power Platform).
+- Automated protection and encryption of storage containing potentially sensitive data.
+- Secure protection of keys and credentials.
+- Designed to support easy customer-based customization
+- No Azure landing zone needed.
 
-To achieve this, you typically need to get data in scalable way from multiple data sources in raw format (typically sitting on-prem), store them in scalable way with potentially huge volumes. Store them to cheap storage in multiple versions and with history, clean data, combine data Together, pre-aggregate data and store them again in structured way with indexing capability to provide speed for access. This pattern is supporting such Data Analysis workloads with high Enterprise security standards.
+#Does NOT require mature Azure landing zone 
 
-Key benefits of this pattern:
-
-- Speed of deployment and consistency between projects an environments (DEV/TEST/STG/PROD)
-- Should cover major Data Analysis use cases ETL/ELT + PowerBI (Ingestion/Transformation/Storage/Data Lake/SQL/PowerBI)
-- Focus on Enterprise Grade Security standards
-- Strong Support for Auditing, Monitoring and Diagnostics data
-- Integrate and Keep network communication in perimeter where applicable
-- Allow consumption of data sources inside perimeter, analyze data in cloud
-- Benefit from Cloud Managed Services, reduce management and operations overhead
-- Integrations with other cloud native tools - mainly Power Platform
-- Protect and encrypt storage where potentially sensitive data are stored
-- Protect keys and credentials in secure place
-- Designed to support customizations / Every customer is different
-- Does NOT require mature Azure landing zone (Can be from NONE to Enterprise)
+#(Can be from NONE to Enterprise)
 
 ## Potential use cases
 
