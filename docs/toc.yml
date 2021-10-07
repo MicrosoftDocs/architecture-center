@@ -1852,6 +1852,8 @@ items:
             items:
               - name: DevOps Checklist
                 href: checklist/dev-ops.md
+              - name: Release packaging for deploying to disconnected Azure Stack Hub
+                href: framework/devops/release-packaging-deploying-disconnected-azure-stack-hub.md
               - name: Advanced Azure Resource Manager templates
                 items:
                   - name: Overview
