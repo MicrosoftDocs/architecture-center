@@ -1,13 +1,13 @@
 ---
 title: Release packaging for deploying to disconnected Azure Stack Hub with Universal Packages
-titleSuffix: Cloud Design Patterns
-description: Use these management and monitoring patterns to support cloud applications, which offer special challenges because the applications run in a remote datacenter.
-author: brice.miller
-ms.author: EdPriceMSFT
+description: Create a release package using Azure DevOps Pipelines, Azure Artifacts, and Universal Packages to create and configure resources on a disconnected Azure Stack Hub
+author: brimille
+ms.author: EdPrice-MSFT
 ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+ms.categories: devops
 products:
   - azure-stack-hub
   - azure-resource-manager
