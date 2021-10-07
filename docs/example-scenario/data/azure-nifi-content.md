@@ -267,12 +267,207 @@ java.arg.23=-Dzookeeper.ssl.trustStore.password=[TRUSTSTORE PASSWORD]
 
 For general recommendations, see the [Linux security baseline][Azure security baseline for Linux Virtual Machines].
 
+#### Network security
+
+Add intro sentence.
+
+##### Network Security Groups (NSGs)
+
+In Azure, you can use [network security groups][Network security groups] to restrict network traffic.
+
+We recommend a *jumpbox* for connecting to the Apache NiFi cluster for administrative tasks. Use this security-hardened VM with [just-in-time (JIT) access][Secure your management ports with just-in-time access] or [Azure Bastion][What is Azure Bastion?]. Set up network security groups to control how you grant access to the jumpbox or Bastion. You can achieve network isolation and control by using network security groups judiciously on the architecture's various subnets.
+
+The following screenshot shows a typical virtual network. It contains a common subnet for the jumpbox, VMSS, and Apache ZooKeeper VMs. This simplified network topology groups components into one subnet. Follow your organization's guidelines for separation of duties and network design.
 
 
+:::image type="content" source="media/nifi-virtual-network-devices-subnets.png" alt-text="Alt text here.":::
 
+##### Outbound internet access consideration
 
+Apache NiFi in Azure doesn't need access to the public internet to run. If the data flow doesn't need internet access to retrieve data, improve the cluster's security by following these steps to disable outbound internet access:
 
+1. Create an additional network security group rule in the virtual network.
+2. Use these settings:
 
+   - `Source=Any`
+   - `Destination=Internet`
+   - Set the Action to `Deny`.
+
+:::image type="content" source="media/nifi-outbound-security-rules.png" alt-text="Alt text here.":::
+
+With this rule in place, you can still access some Azure services from the data flow if you configure a private endpoint in the virtual network. Use [Azure Private Link][What is Azure Private Link?] for this purpose. This service provides a way for your traffic to travel on the Microsoft backbone network while not requiring any other external network access. Apache NiFi currently supports Private Link for the Azure Blob Storage and Azure Data Lake Storage processors. If a network time protocol (NTP) server isn't available in your private network, allow outbound access to NTP. For detailed information, see [Time sync for Linux VMs in Azure][Time sync for Linux VMs in Azure].
+
+#### Data protection
+
+It's possible to operate Apache NiFi unsecured, without wire encryption, IAM, or data encryption. But it's best to secure production and public-cloud deployments in these ways:
+
+- Encrypting communication with Transport Layer Security (TLS)
+- Using a supported authentication and authorization mechanism
+- Encrypting data at rest
+
+Azure Storage provides server-side transparent data encryption. But as of the 1.13.2 release, Apache NiFi doesn't configure wire encryption or IAM by default. This behavior may change in future releases.
+
+The following sections show how to secure deployments in these ways:
+
+- Enable wire encryption with TLS
+- Configure authentication that's based on certificates or Azure AD
+- Manage encrypted storage on Azure
+
+##### Disk encryption
+
+To improve security, use Azure Disk Encryption to encrypt your data disks. For a detailed procedure, see [Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI][Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI]. That document also contains instructions on providing your own encryption key. The following steps outline a basic example for Apache NiFi that should work for most deployments.
+
+1. To turn on disk encryption in an existing Key Vault instance, use the following Azure CLI command:
+
+   ```azurecli
+   az keyvault create --resource-group myResourceGroup --name myKeyVaultName --enabled-for-disk-encryption
+   ```
+
+1. Turn on encryption of the VMSS data disks with the following command:
+
+   ```azurecli
+   az vmss encryption enable --resource-group myResourceGroup --name myScaleSet --disk-encryption-keyvault myKeyVaultID --volume-type DATA
+   ```
+
+1. You can optionally use a key encryption key (KEK). Use the following Azure CLI command to encrypt with a KEK:
+
+   ```azurecli
+   az vmss encryption enable --resource-group myResourceGroup --name  myScaleSet  \
+   --disk-encryption-keyvault myKeyVaultID \
+   --key-encryption-keyvault myKeyVaultID \
+   --key-encryption-key https://<mykeyvaultname>.vault.azure.net/keys/myKey/<version> \
+   --volume-type DATA
+
+   ```
+
+> [!NOTE]
+> If you've configured your VMSS for manual update mode, run the `update-instances` command. Include the version of the encryption key that you stored in Key Vault.
+
+##### Encryption in transit
+
+Apache NiFi supports TLS 1.2 for encryption in transit. This protocol offers protection for user access to the UI. With clusters, the protocol protects communication between Apache NiFi nodes. It can also protect communication with Apache ZooKeeper. When you enable TLS, Apache NiFi uses mutual TLS (mTLS) for mutual authentication for:
+
+- Certificate-based client authentication if you've configured this type of authentication.
+- All intracluster communication.
+
+To enable TLS, take the following steps:
+
+1. Create a keystore and a truststore for client–server and intracluster communication and authentication.
+1. Configure `$NIFI_HOME/conf/nifi.properties`. Set the following values:
+
+   - Hostnames
+   - Ports
+   - Keystore properties
+   - Truststore properties
+   - Cluster and ZooKeeper security properties, if applicable
+
+1. Configure authentication in `$NIFI_HOME/conf/authorizers.xml`, typically with an initial user with certificate-based authentication or another option.
+1. Optionally configure mTLS and a proxy read policy between Apache NiFi and any proxies, load balancers, or external endpoints.
+
+For a complete walkthrough, see [Securing NiFi with TLS][Apache NiFi Walkthroughs - Securing NiFi with TLS] in the Apache project documentation.
+
+> [!NOTE]
+> As of version 1.13.2:
+>
+> - Apache NiFi doesn't enable TLS by default.
+> - There's no out-of-the-box support for anonymous and single user access for TLS-enabled Apache NiFi instances.
+>
+> To enable TLS for encryption in transit, configure a user group and policy provider for authentication and authorization in $NIFI_HOME/conf/authorizers.xml. For more information, see add link to Identity and access control section.
+
+##### Certificates, keys, and keystores
+
+To support TLS, generate certificates, store them in Java KeyStore and TrustStore, and distribute them across an Apache NiFi cluster. There are two general options for certificates:
+
+- Self-signed certificates
+- Certificates that Certified Authorities (CAs) sign
+
+With CA-signed certificates, it's best to use an intermediate CA to generate certificates for nodes in the cluster.
+
+KeyStore and TrustStore are the key and certificate containers in the Java platform. KeyStore stores the private key and certificate of a node in the cluster. TrustStore stores one of the following types of certificates:
+
+- All trusted certificates, for self-signed certificates in KeyStore
+- A certificate from a CA, for CA-signed certificates in KeyStore
+
+Keep the scalability of your Apache NiFi cluster in mind when you choose a container. For instance, you might want to increase or decrease the number of nodes in a cluster at a later time. In this case, choose CA-signed certificates in KeyStore and one or more certificates from a CA in TrustStore. With this option, there's no need to update the existing TrustStore in the existing nodes of the cluster. An existing TrustStore trusts and accepts certificates:
+
+- From nodes that you add to the cluster.
+- From nodes that replace other nodes in the cluster.
+
+##### Apache NiFi Configuration
+
+To enable TLS for Apache NiFi, set the following properties in `$NIFI_HOME/conf/nifi.properties`. Ensure that `nifi.web.https.host` or `nifi.web.proxy.host` and the host certificate's designated name or subject alternative names include the hostname that you use to access Apache NiFi. Otherwise, a hostname verification failure or a HTTP HOST header verification failure may result, denying you access.
+
+| Property name | Description | Example values |
+| --- | --- | --- |
+| `nifi.web.https.host` | Hostname or IP address to use for the UI and REST API. This value should be internally resolvable. We recommend not using a publicly accessible name. | nifi.internal.cloudapp.net |
+| `nifi.web.https.port` | HTTPS port to use for the UI and REST API. | 9443 (default) |
+| `nifi.web.proxy.host` | Comma-separated list of alternate hostnames that clients use to access the UI and REST API. This list typically includes any hostname specified as a subject alternative name (SAN) in the server certificate. The list can also include any hostname and port that a load balancer, proxy, or Kubernetes ingress controller uses. | 40.67.218.235, 40.67.218.235:443, nifi.westus2.cloudapp.com, nifi.westus2.cloudapp.com:443
+| `nifi.security.keystore` | The path to a JKS or PKCS12 keystore that contains the certificate's private key. | ./conf/keystore.jks |
+| `nifi.security.keystoreType` | The keystore type. | JKS or PKCS12 |
+| `nifi.security.keystorePasswd` | The keystore password. | O8SitLBYpCz7g/RpsqH+zM |
+| `nifi.security.keyPasswd` | (Optional) The password for the private key. | |	
+| `nifi.security.truststore` | The path to a JKS or PKCS12 truststore that contains certificates or CA certificates that authenticate trusted users and cluster nodes. | ./conf/truststore.jks |
+| `nifi.security.truststoreType` | The truststore type. | JKS or PKCS12 |
+| `nifi.security.truststorePasswd` | The truststore password. | RJlpGe6/TuN5fG+VnaEPi8 |
+| `nifi.cluster.protocol.is.secure` | A value that indicates whether to enable TLS for intra-cluster communication. If `nifi.cluster.is.node` is true, set this value to true to enable cluster TLS. | true |
+| `nifi.remote.input.secure` | A value that indicates whether to enable TLS for site-to-site. | true |
+
+The following example shows how these properties should appear in `$NIFI_HOME/conf/nifi.properties`. Note that the `nifi.web.http.host` and `nifi.web.http.port` values should be blank.
+
+```console
+nifi.remote.input.secure=true
+nifi.web.http.host=
+nifi.web.http.port=
+nifi.web.https.host=nifi.internal.cloudapp.net
+nifi.web.https.port=9443
+nifi.web.proxy.host=40.67.218.235, 40.67.218.235:443, nifi.westus2.cloudapp.com, nifi.westus2.cloudapp.com:443
+nifi.security.keystore=./conf/keystore.jks 
+nifi.security.keystoreType=JKS          
+nifi.security.keystorePasswd=O8SitLBYpCz7g/RpsqH+zM                  
+nifi.security.keyPasswd=
+nifi.security.truststore=./conf/truststore.jks                                   
+nifi.security.truststoreType=JKS
+nifi.security.truststorePasswd=RJlpGe6/TuN5fG+VnaEPi8
+nifi.cluster.protocol.is.secure=true
+```
+
+##### Apache ZooKeeper Configuration
+
+For Instructions on [enabling TLS in Apache ZooKeeper][Communication using the Netty framework] for quorum communications and client access, see the [ZooKeeper Administrator's Guide][ZooKeeper Administrator's Guide]. Only versions 3.5.5 or later support this functionality.
+
+Apache NiFi uses Apache ZooKeeper for its zero-leader clustering and cluster coordination. As of version 1.13.0, Apache NiFi supports secure client access to TLS-enabled instances of ZooKeeper. ZooKeeper stores cluster membership and cluster-scoped processor state in plain text. So it's important to use secure client access to ZooKeeper to authenticate ZooKeeper client requests. Also encrypt sensitive values in transit.
+
+To enable TLS for Apache NiFi client access to ZooKeeper, set the following properties in `$NIFI_HOME/conf/nifi.properties`. If you set `nifi.zookeeper.client.secure` true without configuring `nifi.zookeeper.security` properties, Apache NiFi falls back to the keystore and truststore that you specify in `nifi.securityproperties`.
+
+| Property name | Description | Example values |
+| --- | --- | --- |
+| `nifi.zookeeper.client.secure` | A value that indicates whether to connect to ZooKeeper with client TLS enabled. | true | 
+| `nifi.zookeeper.security.keystore` | The path to a JKS, PKCS12, or PEM keystore that contains the private key of the certificate that's presented to ZooKeeper for authentication. | ./conf/zookeeper.keystore.jks | 
+| `nifi.zookeeper.security.keystoreType` | The keystore type. | JKS, PKCS12, PEM, or autodetect by extension | 
+| `nifi.zookeeper.security.keystorePasswd` | The keystore password. | caB6ECKi03R/co+N+64lrz | 
+| `nifi.zookeeper.security.keyPasswd` | (Optional) The password for the private key. | 	
+| `nifi.zookeeper.security.truststore` | The path to a JKS, PKCS12, or PEM truststore that contains certificates or CA certificates that are used to authenticate ZooKeeper. | ./conf/zookeeper.truststore.jks | 
+| `nifi.zookeeper.security.truststoreType` | The truststore type. | JKS, PKCS12, PEM, or autodetect by extension | 
+| `nifi.zookeeper.security.truststorePasswd` | The truststore password. | qBdnLhsp+mKvV7wab/L4sv | 
+| `nifi.zookeeper.connect.string` | The connection string to the ZooKeeper host or quorum. This string is a comma-separated list of `host:port` values. Typically the `secureClientPort` value isn't the same as the `clientPort` value. See your ZooKeeper configuration for the correct value. | zookeeper1.internal.cloudapp.net:2281, zookeeper2.internal.cloudapp.net:2281, zookeeper3.internal.cloudapp.net:2281 |
+
+The following example shows how these properties should appear in `$NIFI_HOME/conf/nifi.properties`:
+
+```console
+nifi.zookeeper.client.secure=true
+nifi.zookeeper.security.keystore=./conf/keystore.jks
+nifi.zookeeper.security.keystoreType=JKS
+nifi.zookeeper.security.keystorePasswd=caB6ECKi03R/co+N+64lrz
+nifi.zookeeper.security.keyPasswd=
+nifi.zookeeper.security.truststore=./conf/truststore.jks
+nifi.zookeeper.security.truststoreType=JKS
+nifi.zookeeper.security.truststorePasswd=qBdnLhsp+mKvV7wab/L4sv
+nifi.zookeeper.connect.string=zookeeper1.internal.cloudapp.net:2281,zookeeper2.internal.cloudapp.net:2281,zookeeper3.internal.cloudapp.net:2281
+```
+
+For more information about securing ZooKeeper with TLS, see the [Apache NiFi Administration Guide][NiFi System Administrators Guide - Securing ZooKeeper with TLS].
+
+#### Identity and access control
 
 ## Pricing
 
@@ -283,6 +478,7 @@ For general recommendations, see the [Linux security baseline][Azure security ba
 
 [Apache NiFi]: https://nifi.apache.org/
 [Apache nifi Downloads]: https://nifi.apache.org/download.html
+[Apache NiFi Walkthroughs - Securing NiFi with TLS]: https://nifi.apache.org/docs/nifi-docs/html/walkthroughs.html#securing-nifi-with-tls
 [Apache ZooKeeper Releases]: https://zookeeper.apache.org/releases.html
 [Availability Zones]: https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones
 [Azure Active Directory (Azure AD)]: https://azure.microsoft.com/en-us/services/active-directory/
@@ -291,20 +487,29 @@ For general recommendations, see the [Linux security baseline][Azure security ba
 [Azure Monitor overview]: https://docs.microsoft.com/en-us/azure/azure-monitor/overview
 [Azure premium storage: design for high performance]: https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance
 [Azure security baseline for Linux Virtual Machines]: https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-machines-linux-security-baseline
+[Communication using the Netty framework]: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#Communication+using+the+Netty+framework
 [Data Factory]: https://azure.microsoft.com/en-us/services/data-factory/
+[Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/disk-encryption-cli
 [Introduction to Azure managed disks]: https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
 [Log Analytics agent overview]: https://docs.microsoft.com/en-us/azure/azure-monitor/agents/log-analytics-agent
 [Log Analytics tutorial]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial
 [Log queries in Azure Monitor]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview
+[Network security groups]: https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
 [Networking for Azure virtual machine scale sets - Accelerated Networking]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#accelerated-networking
 [NiFi on GitHub]: https://github.com/apache/nifi
 [NiFi System Administrators Guide]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html
 [NiFi System Administrators Guide - Configuration Best Practices]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#configuration-best-practices
 [NiFi System Administrators Guide - Multi-Tenant Authorization]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#multi-tenant-authorization
 [NiFi System Administrators Guide - Provenance Repository]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#provenance-repository
+[NiFi System Administrators Guide - Securing ZooKeeper with TLS]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#zk_tls_client
 [NiFi System Administrators Guide - State Management]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#state_management
 [NiFi System Administrators Guide - User Authentication]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#user_authentication
+[Secure your management ports with just-in-time access]: https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc
 [Sizes for virtual machines in Azure]: https://docs.microsoft.com/en-us/azure/virtual-machines/sizes
+[Time sync for Linux VMs in Azure]: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/time-sync
 [Visio file of architecture diagram]: https://arch-center.azureedge.net/US-1875891-azure-nifi-architecture.vsdx
 [What is Azure Application Gateway?]: https://docs.microsoft.com/en-us/azure/application-gateway/overview
+[What is Azure Bastion?]: https://docs.microsoft.com/en-us/azure/bastion/bastion-overview
+[What is Azure Private Link?]: https://docs.microsoft.com/en-us/azure/private-link/private-link-overview
 [What are virtual machine scale sets?]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
+[ZooKeeper Administrator's Guide]: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html
