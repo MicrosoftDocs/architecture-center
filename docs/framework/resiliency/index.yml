@@ -59,8 +59,7 @@ landingContent:
           - text: Build resiliency with failure mode analysis
             url: design-resiliency.md#build-resiliency-with-failure-mode-analysis
           - text: Understand the impact of dependencies
-            url: design-resiliency.md#understand-the-impact-of-dependencies 
-                    
+            url: design-resiliency.md#understand-the-impact-of-dependencies                      
       - linkListType: concept
         links:
           - text: Understand design best practices
@@ -71,8 +70,6 @@ landingContent:
             url: design-best-practices.md#use-zone-aware-services
           - text: Design for scalability
             url: design-best-practices.md#design-for-scalability
-          - text: Understand region and availability zone terminology
-            url: /azure/availability-zones/glossary 
       - linkListType: learn
         links:
           - text: Design a geographically distributed application
@@ -152,10 +149,21 @@ landingContent:
             url: /azure/key-vault/general/disaster-recovery-guidance
           - text: Azure Backup
             url: /azure/backup/backup-create-rs-vault#set-storage-redundancy
-          - text: Azure services that support availability zones
-            url: /azure/availability-zones/az-region
           - text: Azure Site Recovery
             url: /azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery
+# Card
+  - title: Region and availability zone fundamentals
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Achieve reliability through regions and availability zones
+            url: /azure/availability-zones/az-overview
+          - text: Understand service offerings across region types
+            url: /azure/availability-zones/region-types-service-categories-azure
+          - text: Consider Azure services that support availability zones
+            url: /azure/availability-zones/az-region 
+          - text: Understand region and availability zone terminology
+            url: /azure/availability-zones/glossary 
  # Card
   - title: Reliability APIs
     linkLists:
