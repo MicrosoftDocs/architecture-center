@@ -10,7 +10,7 @@ metadata:
   author: v-stacywray
   ms.author: v-stacywray
   manager: david-stanford
-  ms.date: 08/12/2021
+  ms.date: 10/07/2021
   ms.topic: landing-page
   ms.service: architecture-center
   ms.subservice: well-architected
@@ -59,7 +59,8 @@ landingContent:
           - text: Build resiliency with failure mode analysis
             url: design-resiliency.md#build-resiliency-with-failure-mode-analysis
           - text: Understand the impact of dependencies
-            url: design-resiliency.md#understand-the-impact-of-dependencies                      
+            url: design-resiliency.md#understand-the-impact-of-dependencies 
+                    
       - linkListType: concept
         links:
           - text: Understand design best practices
@@ -70,6 +71,8 @@ landingContent:
             url: design-best-practices.md#use-zone-aware-services
           - text: Design for scalability
             url: design-best-practices.md#design-for-scalability
+          - text: Understand region and availability zone terminology
+            url: /azure/availability-zones/glossary 
       - linkListType: learn
         links:
           - text: Design a geographically distributed application
@@ -149,6 +152,8 @@ landingContent:
             url: /azure/key-vault/general/disaster-recovery-guidance
           - text: Azure Backup
             url: /azure/backup/backup-create-rs-vault#set-storage-redundancy
+          - text: Azure services that support availability zones
+            url: /azure/availability-zones/az-region
           - text: Azure Site Recovery
             url: /azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery
  # Card
