@@ -5,22 +5,29 @@ metadata:
   description: An approach for predicting customer lifetime value in Azure.
   author: gallogiulia, nicoleserafino, arashaga
   ms.author: giuliagallo, nicoleserafino, arashmosharraf
-  ms.date: 09/04/2021 
+  ms.date: 10/07/2021 
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
+  ms.category:
+  - ai-machine-learning
+  ms.custom:
+  - example-scenario
+  - ai-machine-learning
+  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-customerlifetime-churn.png
+name: Determine customer lifetime and churn with Azure AI services
 azureCategories:
 - ai-machine-learning
 - compute
 - databases
 - storage
+summary: Learn how to create an Azure solution for predicting customer lifetime value and churn in Azure.
 products:
--azure-blob-storage
--azure-data-lake-gen2
--azure-databricks
--azure-machine-learning
-name: "Determine customer lifetime and churn with Azure AI services"
-summary: An approach for predicting customer lifetime value and churn in Azure.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+- azure-blob-storage
+- azure-data-lake-gen2
+- azure-databricks
+- azure-machine-learning
+
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-customerlifetime-churn.png
 content: |
   [!include[](determine-customer-lifetime-and-churn-with-azure-ai-services-content.md)]
