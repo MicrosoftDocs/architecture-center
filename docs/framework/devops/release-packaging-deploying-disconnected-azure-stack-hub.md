@@ -2,12 +2,15 @@
 title: Release packaging for deploying to disconnected Azure Stack Hub with Universal Packages
 description: Create a release package using Azure Pipelines, Azure Artifacts, and Universal Packages to create and configure resources on a disconnected Azure Stack Hub
 author: EdPrice-MSFT
-ms.author: Brice.Miller
+ms.author: brimille
 ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.category: devops
+azureCategories: 
+  - devops
+ms.category: 
+  - devops
 products:
   - azure-stack-hub
   - azure-resource-manager
