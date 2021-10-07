@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Determine customer lifetime and churn with Azure AI services
+  titleSuffix: Azure Solution Ideas
+  description: An approach for predicting customer lifetime value in Azure.
+  author: gallogiulia, nicoleserafino, arashaga
+  ms.author: giuliagallo, nicoleserafino, arashmosharraf
+  ms.date: 09/04/2021 
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+- ai-machine-learning
+- compute
+- databases
+- storage
+products:
+-azure-blob-storage
+-azure-data-lake-gen2
+-azure-databricks
+-azure-machine-learning
+name: "Determine customer lifetime and churn with Azure AI services"
+summary: An approach for predicting customer lifetime value and churn in Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+content: |
+  [!include[](determine-customer-lifetime-and-churn-with-azure-ai-services-content.md)]
