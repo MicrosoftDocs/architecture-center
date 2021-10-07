@@ -1,13 +1,13 @@
 ---
 title: Release packaging for deploying to disconnected Azure Stack Hub with Universal Packages
-description: Create a release package using Azure DevOps Pipelines, Azure Artifacts, and Universal Packages to create and configure resources on a disconnected Azure Stack Hub
-author: brimille
-ms.author: EdPrice-MSFT
+description: Create a release package using Azure Pipelines, Azure Artifacts, and Universal Packages to create and configure resources on a disconnected Azure Stack Hub
+author: EdPrice-MSFT
+ms.author: Brice.Miller
 ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-ms.categories: devops
+ms.category: devops
 products:
   - azure-stack-hub
   - azure-resource-manager
@@ -17,7 +17,7 @@ products:
 
 # Release packaging for deploying to disconnected Azure Stack Hub with Universal Packages
 
-This article discusses creating a release package using Azure DevOps Pipelines,
+This article discusses creating a release package using Azure Pipelines,
 Azure Artifacts, and [Universal
 Packages](/azure/devops/pipelines/artifacts/universal-packages?view=azure-devops&tabs=yaml)
 to create and configure resources on a disconnected Azure Stack Hub. Key
@@ -67,7 +67,7 @@ consider in addition to those required to deploy your application:
 
 ### IaC and configuring Azure services
 
-You can build An Azure pipeline that will deploy and configure the necessary
+You can build an Azure pipeline that will deploy and configure the necessary
 Azure services prior to deploying an application. Azure Pipelines can run on a
 disconnected Azure Stack Hub when you install Azure DevOps and make it
 accessible to your Azure Stack Hub (for instance, when you want to use Azure
