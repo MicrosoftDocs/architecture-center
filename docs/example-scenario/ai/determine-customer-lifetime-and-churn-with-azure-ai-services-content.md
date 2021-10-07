@@ -3,25 +3,25 @@ This scenario demonstrates a solution for creating predictive models of the Cust
 
 #### Customer Lifetime Value (CLV) & Churn Rate
 
-In marketing, Customer Lifetime Value (CLV) is a determination of the net profit contributed to the whole future relationship with a customer. The prediction model can have varying levels of sophistication and accuracy, ranging from a crude heuristic to the use of complex predictive analytics techniques. [From Wikipedia](https://en.wikipedia.org/wiki/Customer_lifetime_value). This metric can help businesses concentrate their activities around their most “profitable” clients. The better a business understands CLV, thus further informing their retention strategies for their best customers. Other metrics that are important for understanding how customers behave is Churn or [Churn Rate](https://en.wikipedia.org/wiki/Churn_rate). Churn is a measure of the number of individuals or items moving out of a collective group over a specific period. Thus, one of two primary factors that determine the steady-state level of customers a business will support.
+In marketing, Customer Lifetime Value (CLV) is a determination of the net profit contributed to the whole future relationship with a customer. The prediction model can have varying levels of sophistication and accuracy, ranging from a crude heuristic to the use of complex predictive analytics techniques. [From Wikipedia](https://en.wikipedia.org/wiki/Customer_lifetime_value). This metric can help businesses concentrate their activities around their most “profitable” clients. Other metrics that are important for understanding how customers behave is Churn or [Churn Rate](https://en.wikipedia.org/wiki/Churn_rate). Churn is a measure of the number of individuals or items moving out of a collective group over a specific period. Thus, one of two primary factors that determine the steady-state level of customers a business will support.
 
-Customer lifetime and customer churn are key metrics in marketing analytics. They are used by commercial customers to determine their ability to retain a certain customer and the total worth to a business of a customer over the whole period of their relationship. 
+Customer lifetime and customer churn are key metrics in marketing analytics. These metrics are used by commercial customers to determine their ability to retain a certain customer. Additionally, these metrics can provide an overview of the total worth to a business of a customer over the whole period of their relationship.
 
 This solution demonstrates how to interconnect the following Azure AI technologies:
 
 - use Azure Data Lake and Azure Databricks to orchestrate DataOps best practices
 - use Azure Databricks to do Exploratory Data Analysis (EDA)
-- batch experiment training of a sklearn machine learning model on Azure Databricks 
+- batch experiment training of a sklearn machine learning model on Azure Databricks
 - machine learning experiments tracking using MLFlow
 - batch scoring of machine learning models on Azure Databricks
 - machine learning model registration and deployment using AzureML
-- MLOps pipeline orchestration using Azure Data Factory and Azure Databricks notebooks 
+- MLOps pipeline orchestration using Azure Data Factory and Azure Databricks notebooks
 
-We use a retail customer scenario, in which we classify customers based on marketing and economic measures, and we calculate their customer lifetime value. We then create a customer segmentation based on several metrics, and we train a multi-class classifier on new data.   The resulting supervised multi-class classifier model scores batches of new customer orders through a regularly scheduled Azure Databricks notebook job.
+We use a retail customer scenario, in which we classify customers based on marketing and economic measures. With these data, we then calculate their customer lifetime value. Next, we create a customer segmentation based on several metrics, and we train a multi-class classifier on new data. The resulting supervised multi-class classifier model scores batches of new customer orders through a regularly scheduled Azure Databricks notebook job.
 
 ## Potential use cases
 
-In general, determining the true value of a customer over its lifetime, can help answering a few questions. 
+In general, determining the true value of a customer over its lifetime, can help answering a few questions.
 
 - In marketing: How much should I spend to acquire a customer?
 - For a product team: How can I offer products and services tailored for my best customers?
@@ -36,24 +36,24 @@ In general, determining the true value of a customer over its lifetime, can help
 
 ####  Ingestion and Orchestration Phase
 
-The customer's historical, transactional and third-party data are ingested from on-premises data sources using Azure Data Factory and it is stored in Azure Data Lake Storage.
+The customer's historical, transactional, and third-party data are ingested from on-premises data sources using Azure Data Factory and it is stored in Azure Data Lake Storage.
 
-####  Data Processing 
+####  Data Processing
 
-In the data processing phase, the raw data are picked up from the Azure Data Lake and and cleansed using Azure Databricks. They are then stored in the silver layer in ADLS Gen2.
+In the data processing phase, the raw data are picked up from the Azure Data Lake and cleansed using Azure Databricks. They are then stored in the silver layer in ADLS Gen2.
 
 ####  Feature Engineering
 
-With Databricks, dataa are loaded from the silver layer and further enriched using pyspark. After data wrangling and preparation, feature engineering is done to provide better representation of data. Feature engineering can also improve the performance of the machine learning algorithm.
+With Databricks, data are loaded from the silver layer and further enriched using pyspark. After data wrangling and preparation, feature engineering is done to provide better representation of data. Feature engineering can also improve the performance of the machine learning algorithm.
 
 ####  Model Training
 
 In the Model Training phase, the silver tier data will be serving as the model training dataset. You can use MLflow to manage machine learning experiments and keep track of all metrics needed to evaluate your machine learning experiment. MLflow Parameters and MLflow Metrics are used for storing model-related parameters, such as training hyperparameters, and for storing model performance metrics.
-Additionally, the machine learning model is itenratively retrained using Azure Data Factory pipelines according to the conditions mentioned below. The model retraining pipeline retrieves the updated training data from the Azure Data Lake Gen2 (silver tier) and retrains the ML model. The model retraining pipeline kicks off in two different ways:
+Additionally, the machine learning model is iteratively retrained using Azure Data Factory pipelines according to the conditions mentioned below. The model retraining pipeline retrieves the updated training data from the Azure Data Lake Gen2 (silver tier) and retrains the ML model. The model retraining pipeline kicks off in two different ways:
 
 -- when the accuracy of the current model in production drops below a certain threshold tracked by MLflow.
  
--- calendar trigger based on the customer defined rules.
+-- calendar triggers based on the customer defined rules.
 
 -- when data drift is detected.
 
@@ -64,13 +64,13 @@ In this phase, an Azure Data Factory pipeline registers the best machine learnin
 
 ####  Serving Phase
 
-In this phase, the model predictions can be  pulled into different reporting tools, such as Power BI, Microstrategy, Analyses Services or any other tool you currently use.
+In this phase, the model predictions can be  pulled into different reporting tools, such as Power BI, Microstrategy, Analyses Services, or any other tool you currently use.
 
 ## Components
 
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage/) and [Azure Files](https://azure.microsoft.com/services/storage/files/) offer fully managed file shares in the cloud that are accessible via the industry- standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions without user involvement, including upgrading, patching, backups, and monitoring. Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99-percent availability. PaaS capabilities that are built into Azure SQL Database enabless you to focus on the domain-specific database administration and optimization activities that are critical for your business.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions without user involvement, including upgrading, patching, backups, and monitoring. Azure SQL Database is always running on the latest stable version of the SQL Server database engine and patched OS with 99.99-percent availability. PaaS capabilities that are built into Azure SQL Database enables you to focus on the domain-specific database administration and optimization activities that are critical for your business.
 
 - [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) is a cloud service for storing large amounts of unstructured data such as text, binary data, audio, and documents more-easily and cost-effectively. Azure Blob Storage allows data scientists quick access to data for experimentation and AI model building.
 
@@ -108,7 +108,7 @@ Additionally this scenario uses Azure Databricks clusters, which enable autoscal
 
 ### Security considerations
 
-Assets are protected by placing controls on network traffic originating in Azure, between on-premises and Azure hosted resources, and traffic to and from Azure. For instance, Azure Self-Hosted Integration runtime is used to securely move the data between on-premises data storage to Azure. Azure Keyvault and Databricks Scoped Secrete is used to access the data in Azure ADLS Gen2. All of the Azure services are deployed in a secure VNet or the access is provisioned using Azure Private Link feature. If necessary, Row Level Security (RLS) is implemented in Azure Analysis Services or SQL DB to provide granular access to individuall users.
+Assets are protected by placing controls on network traffic originating in Azure, between on-premises and Azure hosted resources, and traffic to and from Azure. For instance, Azure Self-Hosted Integration runtime is used to securely move the data between on-premises data storage to Azure. Azure Keyvault and Databricks Scoped Secrete is used to access the data in Azure ADLS Gen2. All of the Azure services are deployed in a secure VNet or the access is provisioned using Azure Private Link feature. If necessary, Row Level Security (RLS) is implemented in Azure Analysis Services or SQL DB to provide granular access to individual users.
 
 ### Cost considerations
 
