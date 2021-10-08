@@ -303,7 +303,7 @@ Developers will interact with the source code for their modules in a source code
 repository. The basic structure of the repository consists of folders that
 contain the code for each module, as follows:
 
-\- repository root
+\ - repository root
 
     - modulea
 
@@ -315,7 +315,7 @@ contain the code for each module, as follows:
 
     - Dockerfile
 
-\- moduleb
+\ - moduleb
 
     - moduleb.csproj
 
@@ -380,8 +380,7 @@ The templates are put in folders based on the workstream they represent, shown
 below. In this engagement, the two workstreams are shared infrastructure and the
 (software) container application.
 
-\
-- repository root
+\ - repository root
 
      - Workstream1
 
@@ -390,7 +389,6 @@ below. In this engagement, the two workstreams are shared infrastructure and the
      - Workstream2
 
          - deployment.template.json
-
 
 ### Manifest repository image-to-device pipeline
 
