@@ -3,7 +3,7 @@ metadata:
   title: Build a Gold Customer Dimension
   titleSuffix: Dynamics Customer Insights + Azure Synapse Analytics
   description: Leverage Dynamics Customer Insights to create a gold customer dataset. Make the gold customer dataset available in Azure Data Lake for consumption with Azure Synapse Analytics. 
-  author: jodobrze
+  author: jondobrzeniecki 
   ms.author: jodobrze
   ms.date: 09/30/2021
   ms.topic: conceptual
