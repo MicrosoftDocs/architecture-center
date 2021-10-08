@@ -1,19 +1,21 @@
-This example scenario shows how to run [Apache NiFi][Apache NiFi] on Azure. Apache NiFi provides a system for processing and distributing data. NiFi works well for moving data and managing the flow of data:
+This example scenario shows how to run [Apache NiFi][Apache NiFi] on Azure. Apache NiFi provides a system for processing and distributing data.
+
+In this scenario, NiFi runs in a clustered configuration across virtual machines (VMs) in a scale set. But most of this article's recommendations also apply to scenarios that run NiFi in single-instance mode on a single VM. The best practices in this article demonstrate a scalable, high-availability, and secure deployment.
+
+Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+
+- A paragraph that describes what the solution does (the domain): automate the flow of data between systems
+- A paragraph that contains a brief description of the main Azure services that make up the solution.
+
+## Potential use cases
+
+NiFi works well for moving data and managing the flow of data:
 
 - Connecting decoupled systems in the cloud
 - Moving data in and out of Azure Storage and other data stores
 - Integrating edge-to-cloud and hybrid-cloud applications with Azure IoT, Azure Stack, and Azure Kubernetes Service
 
-In this scenario, NiFi runs in a clustered configuration across virtual machines in a scale set. But most recommendations also apply to scenarios that run NiFi in single-instance mode on a single virtual machine (VM). The best practices in this article demonstrate a scalable, high-availability, and secure deployment.
-
-Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
-
-- A paragraph that describes what the solution does (the domain)
-- A paragraph that contains a brief description of the main Azure services that make up the solution.
-
-## Potential use cases
-
-This solution applies to many areas:
+As a result, this solution applies to many areas:
 
 - Modern data warehouses (MDWs) bring structured and unstructured data together at scale. They collect and store data from a variety of sources, sinks, and formats. Apache NiFi excels at ingesting data into Azure-based MDWs for the following reasons:
 
@@ -469,6 +471,166 @@ For more information about securing ZooKeeper with TLS, see the [Apache NiFi Adm
 
 #### Identity and access control
 
+In Apache NiFi, identity and access control is done through user authentication and authorization. For user authentication, Apache NiFi has multiple options to choose from: Single User, LDAP, Kerberos, SAML, and OpenID Connect (OIDC). If you don't configure an option, NiFi uses client certificates to authenticate users over HTTPS.
+
+If you're considering multi-factor authentication, we recommend the combination of Azure Active Directory (Azure AD) and [OIDC][NiFi System Administrators Guide - OpenId Connect]. Azure AD supports cloud-native single sign-on (SSO) with OIDC. With this combination, users can take advantage of many enterprise security features:
+
+- Logging and alerting on suspicious activities from user accounts
+- Monitoring attempts to access deactivated credentials
+- Alerting on unusual account sign-in behavior
+
+For authorization, Apache NiFi provides enforcement that's based on user, group, and access policies. NiFi provides this enforcement through UserGroupProviders and AccessPolicyProviders. By default, providers include File, LDAP, Shell, and Azure Graph–based UserGroupProviders. With the [AzureGraphUserGroupProvider][NiFi System Administrators Guide - AzureGraphUserGroupProvider], you can source user groups from Azure AD. You can then assign policies to these groups. For configuration instructions, see the [Apache NiFi Administration Guide][NiFi System Administrators Guide].
+
+AccessPolicyProviders that are based on files and Apache Ranger are currently available for managing and storing user and group policies. For detailed information, see the [Apache NiFi documentation][NiFi System Administrators Guide - FileAccessPolicyProvider] and [Apache Ranger documentation][Apache Ranger documentation].
+
+### Application gateway
+
+An application gateway provides a managed layer-7 load balancer for the Apache NiFi interface. Configure the application gateway to use the VMSS of the Apache NiFi nodes as its back-end pool.
+
+For most Apache NiFi installations, we recommend the following [Azure Application Gateway][Azure Application Gateway documentation] configuration:
+
+- Tier: Standard
+- SKU size: medium
+- Instance count: two or more
+
+Use a [health probe][Application Gateway health monitoring overview] to monitor the health of the web server on each node. Remove unhealthy nodes from the load balancer rotation. This approach makes it easier to view the user interface when the overall cluster is unhealthy. The browse will only direct you to nodes that are currently healthy and responding to requests.
+
+There are two key health probes to consider. Together they provide a regular heartbeat on the overall health of every node in the cluster. Configure the first health probe to point to the path `/NiFi`. This probe determines the health of the Apache NiFi user interface on each node. Configure a second health probe for the path `/nifi-api/controller/cluster`. This probe indicates whether each node is currently healthy and joined to the overall cluster.
+
+You have two options for configuring the application gateway's front-end IP address:
+
+- With a public IP address
+- With a private subnet IP address
+
+Only include a public IP address if it's necessary for users to access the UI over the public internet. If public internet access for users isn't required, access the load balancer front end from a jumpbox in the virtual network or through a peering to your private network. If you configure the application gateway with a public IP address, we recommend enabling client certificate authentication for Apache NiFi and enabling TLS for the Apache NiFi UI. You can also use NSG on the delegated Application Gateway subnet to limit source IP addresses.
+
+#### Diagnostics and health monitoring
+
+Within the diagnostics settings of Application Gateway, there's a configuration option for sending metrics and access logs from the load balancer to a storage account, to Event Hub, or to a Log Analytics workspace. Turning on this setting is useful for debugging load balancing issues and for gaining insight into the health of nodes in the cluster.
+
+The following [Azure Log Analytics][Querying Azure Log Analytics section in this article] query shows the health over time of all nodes in a cluster from an App Gateway perspective. You can use a similar query to generate alerts or automated repair actions for unhealthy nodes.
+
+```console
+AzureDiagnostics
+| summarize UnHealthyNodes = max(unHealthyHostCount_d), HealthyNodes = max(healthyHostCount_d) by bin(TimeGenerated, 5m)
+| render timechart
+```
+
+The following chart of the query results shows a time view of the health of the cluster:
+
+:::image type="content" source="media/nifi-health-query-chart.png" alt-text="Alt text here.":::
+
+### Availability considerations
+
+Add intro sentence.
+
+#### Availability zones
+
+Deploy both the Apache NiFi VMSS and the Apache ZooKeeper cluster in a cross-zone configuration to maximize availability. When communication between the nodes in the cluster crosses availability zones, it introduces a small amount of latency. But this latency typically has a minimal overall impact on the throughput of the cluster.
+
+#### Virtual machine scale sets (VMSS)
+
+We recommend deploying the Apache NiFi nodes into a single VMSS that spans availability zones where available. For detailed information on using scale sets in this way, see [Create a virtual machine scale set that uses Availability Zones][Create a virtual machine scale set that uses Availability Zones].
+
+### Monitoring considerations
+
+Multiple options are available for monitoring the health and performance of an Apache NiFi cluster:
+
+- Reporting Task.
+- MonitoFi, a separate Microsoft-developed application. MonitoFi runs externally and monitors the cluster by using the Apache NiFi API.
+
+#### Reporting task–based monitoring
+
+For monitoring, you can use a reporting task that you configure and run in Apache NiFi. As [Diagnostics and health monitoring][Diagnostics and health monitoring section of this article] discusses, Azure Log Analytics provides a reporting task in the Apache NiFi Azure bundle. You can use that reporting task to integrate the monitoring with Log Analytics and existing monitoring or logging systems.
+
+#### Querying Azure Log Analytics
+
+Sample queries in the following sections can help you get started. For an overview of how to query Azure Log Analytics data, see [Azure Monitor log queries][Kusto query overview].
+
+Log queries in Azure Monitor and Log Analytics use a version of the [Kusto query language][Kusto query overview]. But be aware of [important differences][Azure Monitor and Azure Data Explorer query differences].
+
+For more structured learning, see these tutorials:
+
+- [Get started with log queries in Azure Monitor][Get started with log queries in Azure Monitor]
+- [Get started with Log Analytics in Azure Monitor][Log Analytics tutorial]
+
+[Get started with log queries in Azure Monitor]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/get-started-queries
+[Log Analytics tutorial]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial
+
+#### Azure Log Analytics reporting task
+
+By default, NiFi sends metrics data to the `nifimetrics` table. But you can configure this setting in the reporting task properties. The reporting task captures the following Apache NiFi metrics:
+
+| Metric Type | Metric Name |
+| --- | --- |
+| NiFi Metrics | FlowFilesReceived |
+| NiFi Metrics | FlowFilesSent |
+| NiFi Metrics | FlowFilesQueued |
+| NiFi Metrics | BytesReceived |
+| NiFi Metrics | BytesWritten |
+| NiFi Metrics | BytesRead |
+| NiFi Metrics | BytesSent |
+| NiFi Metrics | BytesQueued |
+| Port status metrics | InputCount |
+| Port status metrics | InputBytes |
+| Connection status metrics | QueuedCount |
+| Connection status metrics | QueuedBytes |
+| Port status metrics | OutputCount |
+| Port status metrics | OutputBytes |
+| JVM Metrics | jvm.uptime |
+| JVM Metrics | jvm.heap_used |
+| JVM Metrics | jvm.heap_usage |
+| JVM Metrics | jvm.non_heap_usage |
+| JVM Metrics | jvm.thread_states.runnable |
+| JVM Metrics | jvm.thread_states.blocked |
+| JVM Metrics | jvm.thread_states.timed_waiting |
+| JVM Metrics | jvm.thread_states.terminated |
+| JVM Metrics | jvm.thread_count |
+| JVM Metrics | jvm.daemon_thread_count |
+| JVM Metrics | jvm.file_descriptor_usage |
+| JVM Metrics | jvm.gc.runs jvm.gc.runs.g1_old_generation jvm.gc.runs.g1_young_generation |
+| JVM Metrics | jvm.gc.time jvm.gc.time.g1_young_generation jvm.gc.time.g1_old_generation  |
+| JVM Metrics | jvm.buff_pool_direct_capacity |
+| JVM Metrics | jvm.buff_pool_direct_count |
+| JVM Metrics | jvm.buff_pool_direct_mem_used |
+| JVM Metrics | jvm.buff_pool_mapped_capacity |
+| JVM Metrics | jvm.buff_pool_mapped_count |
+| JVM Metrics | jvm.buff_pool_mapped_mem_used |
+| JVM Metrics | jvm.mem_pool_code_cache |
+| JVM Metrics | jvm.mem_pool_compressed_class_space |
+| JVM Metrics | jvm.mem_pool_g1_eden_space |
+| JVM Metrics | jvm.mem_pool_g1_old_gen |
+| JVM Metrics | jvm.mem_pool_g1_survivor_space |
+| JVM Metrics | jvm.mem_pool_metaspace |
+| JVM Metrics | jvm.thread_states.new |
+| JVM Metrics | jvm.thread_states.waiting |
+| Processor Level metrics | BytesRead |
+| Processor Level metrics | BytesWritten |
+| Processor Level metrics | FlowFilesReceived |
+| Processor Level metrics | FlowFilesSent |
+
+Here's a sample query for the BytesQueued metric of a cluster:
+
+```console
+let table_name = nifimetrics_CL;
+let metric = "BytesQueued";
+table_name
+| where Name_s == metric
+| where Computer contains {ComputerName}
+| project TimeGenerated, Computer, ProcessGroupName_s,  Count_d, Name_s 
+| summarize sum(Count_d) by bin(TimeGenerated, 1m),  Computer, Name_s 
+| render timechart 
+```
+
+That query produces a chart like the one in this screenshot:
+
+:::image type="content" source="media/nifi-bytes-queued-query-chart.png" alt-text="Alt text here.":::
+
+> [!NOTE]
+> When you run NiFi on Azure, you don't need to use the Log Analytics reporting task. NiFi supports reporting tasks for many third-party monitoring technologies. For a list of supported reporting tasks, see the **Reporting Tasks** section of the [Apache NiFi Documentation index][Apache NiFi Overview].
+
+
+
 ## Pricing
 
 
@@ -479,18 +641,26 @@ For more information about securing ZooKeeper with TLS, see the [Apache NiFi Adm
 [Apache NiFi]: https://nifi.apache.org/
 [Apache nifi Downloads]: https://nifi.apache.org/download.html
 [Apache NiFi Walkthroughs - Securing NiFi with TLS]: https://nifi.apache.org/docs/nifi-docs/html/walkthroughs.html#securing-nifi-with-tls
+[Apache Ranger documentation]: https://cwiki.apache.org/confluence/display/RANGER/NiFi+Plugin
 [Apache ZooKeeper Releases]: https://zookeeper.apache.org/releases.html
+[Application Gateway health monitoring overview]: https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-probe-overview
 [Availability Zones]: https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones
 [Azure Active Directory (Azure AD)]: https://azure.microsoft.com/en-us/services/active-directory/
+[Azure Application Gateway documentation]: https://docs.microsoft.com/en-us/azure/application-gateway/
 [Azure DevOps]: https://azure.microsoft.com/en-us/services/devops/
 [Azure Key Vault]: https://docs.microsoft.com/en-us/azure/key-vault/
+[Azure Monitor and Azure Data Explorer query differences]: https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/data-explorer-difference
 [Azure Monitor overview]: https://docs.microsoft.com/en-us/azure/azure-monitor/overview
+[Apache NiFi Overview]: https://nifi.apache.org/docs.html
 [Azure premium storage: design for high performance]: https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance
 [Azure security baseline for Linux Virtual Machines]: https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-machines-linux-security-baseline
 [Communication using the Netty framework]: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#Communication+using+the+Netty+framework
+[Create a virtual machine scale set that uses Availability Zones]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones
 [Data Factory]: https://azure.microsoft.com/en-us/services/data-factory/
+[Diagnostics and health monitoring section of this article]: #diagnostics-and-health-monitoring
 [Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/disk-encryption-cli
 [Introduction to Azure managed disks]: https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
+[Kusto query overview]: https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/
 [Log Analytics agent overview]: https://docs.microsoft.com/en-us/azure/azure-monitor/agents/log-analytics-agent
 [Log Analytics tutorial]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial
 [Log queries in Azure Monitor]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview
@@ -498,12 +668,16 @@ For more information about securing ZooKeeper with TLS, see the [Apache NiFi Adm
 [Networking for Azure virtual machine scale sets - Accelerated Networking]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#accelerated-networking
 [NiFi on GitHub]: https://github.com/apache/nifi
 [NiFi System Administrators Guide]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html
+[NiFi System Administrators Guide - AzureGraphUserGroupProvider]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#azuregraphusergroupprovider
 [NiFi System Administrators Guide - Configuration Best Practices]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#configuration-best-practices
+[NiFi System Administrators Guide - FileAccessPolicyProvider]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#fileaccesspolicyprovider
 [NiFi System Administrators Guide - Multi-Tenant Authorization]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#multi-tenant-authorization
+[NiFi System Administrators Guide - OpenId Connect]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#openid_connect
 [NiFi System Administrators Guide - Provenance Repository]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#provenance-repository
 [NiFi System Administrators Guide - Securing ZooKeeper with TLS]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#zk_tls_client
 [NiFi System Administrators Guide - State Management]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#state_management
 [NiFi System Administrators Guide - User Authentication]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#user_authentication
+[Querying Azure Log Analytics section in this article]: #querying-azure-log-analytics
 [Secure your management ports with just-in-time access]: https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc
 [Sizes for virtual machines in Azure]: https://docs.microsoft.com/en-us/azure/virtual-machines/sizes
 [Time sync for Linux VMs in Azure]: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/time-sync
