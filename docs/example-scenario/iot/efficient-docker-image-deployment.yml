@@ -5,7 +5,7 @@ metadata:
   description: An example of a reliable and resilient deployment capability for situations when you have limited, intermittent, or low bandwidth.
   author: EdPrice-MSFT
   ms.author: kadimitr
-  ms.date: 10/01/2021
+  ms.date: 10/08/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -26,4 +26,4 @@ products:
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/efficient-docker-image-deployment-01.png
 content: |
-   [!include[](efficient-docker-image-deployment-content.md)] 
+   [!include[](efficient-docker-image-deployment-content.md)]
