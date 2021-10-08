@@ -8,7 +8,7 @@ This document discuss the dataflow, product integrations, and configurations ava
 
 ## Architecture
 
-This high-level architecture depicts the flow of data from an organizations source systems (ERP, CRM, PoS, etc...) into a data lake on Azure. This same Azure data lake can be configured as the backend for Dynamics Customer Insights (CI). With a data lake backend, CI is able to load clean enhanced customer data into the data lake for consumption as a dimension by downstream data warehouses and apps.
+This high-level architecture depicts the flow of data from an organizations source systems (ERP, CRM, PoS, etc.) into a data lake on Azure. This same Azure data lake can be configured as the backend for Dynamics Customer Insights (CI). With a data lake backend, CI is able to load clean enhanced customer data into the data lake for consumption as a dimension by downstream data warehouses and apps.
 
 Azure Synapse SQL Serverless is specifically called out for consumption of the enhanced CI customer data. Azure Synapse SQL Serverless introduces a cost-effective  design pattern known as the Logical Data Warehouse (LDW). The LDW pattern introduces an abstraction layer on top of external data stores, like data lakes, to provide familiar relation database constructs like tables and views. These tables and views can then be consumed by tools that support SQL Server endpoints. In the context of this example, Power BI can now source the enhanced CI customer data as a dimension table from a database using Azure Synapse SQL Serverless pools.
 
