@@ -629,7 +629,85 @@ That query produces a chart like the one in this screenshot:
 > [!NOTE]
 > When you run NiFi on Azure, you don't need to use the Log Analytics reporting task. NiFi supports reporting tasks for many third-party monitoring technologies. For a list of supported reporting tasks, see the **Reporting Tasks** section of the [Apache NiFi Documentation index][Apache NiFi Overview].
 
+#### Apache NiFi infrastructure monitoring
 
+Besides the reporting task, install the [Log Analytics VM extension][Log Analytics virtual machine extension for Linux] on the Apache NiFi and Apache ZooKeeper nodes. This extension gathers logs, additional VM-level metrics, and metrics from ZooKeeper.
+
+#### Custom logs for the Apache NiFi app, user, bootstrap, and Apache ZooKeeper
+
+To capture additional logs, follow these steps:
+
+1. In the Azure portal, select **Log Analytics workspaces**, and then select your workspace.
+1. Under **Settings**, select **Custom logs**.
+
+   :::image type="content" source="media/nifi-set-up-custom-log1.png" alt-text="Alt text here.":::
+
+1. Select **Add custom log**.
+
+   :::image type="content" source="media/nifi-set-up-custom-log2.png" alt-text="Alt text here.":::
+
+1. Set up a custom log with these values:
+
+   - Name: NiFiAppLogs
+   - Path type: Linux
+   - Path name: /opt/nifi/logs/nifi-app.log
+
+   :::image type="content" source="media/nifi-custom-log1.png" alt-text="Alt text here.":::
+
+1. Set up a custom log with these values:
+
+   - Name: NiFiBootstrapAndUser
+   - First path type: Linux
+   - First path name: /opt/nifi/logs/nifi-user.log
+   - Second path type: Linux
+   - Second path name: /opt/nifi/logs/nifi-bootstrap.log
+
+   :::image type="content" source="media/nifi-custom-log2.png" alt-text="Alt text here.":::
+
+1. Set up a custom log with these values:
+
+   - Name: NiFiZK
+   - Path type: Linux
+   - Path name: /opt/zookeeper/logs/*.out
+
+   :::image type="content" source="media/nifi-custom-log3.png" alt-text="Alt text here.":::
+
+Here's a sample query of the NiFiAppLogs custom table that the first example configured:
+
+```console
+NiFiAppLogs_CL 
+| where TimeGenerated > ago(24h) 
+| where Computer contains {ComputerName} and RawData contains "error" 
+| limit 10
+```
+
+That query produces results similar to the following results:
+
+:::image type="content" source="media/nini-app-logs-query-results.png" alt-text="Alt text here.":::
+
+#### Infrastructure log configuration
+
+You can use Azure Monitor to monitor and manage VMs or physical computers. These resources can be in your local datacenter or other cloud environment. To set up this monitoring, deploy the Log Analytics agent. Configure it to report to a Log Analytics workspace. For more information, see [Log Analytics agent overview][Log Analytics agent overview].
+
+The following screenshot shows a sample agent configuration for Apache NiFi VMs. The  `Perf` table stores the collected data.
+
+:::image type="content" source="media/nifi-linux-performance-counters-data.png" alt-text="Alt text here.":::
+
+Here's a sample query for the Apache NiFi app `Perf` logs:
+
+```console
+let cluster_name = {ComputerName};
+// The hourly average of CPU usage across all computers.
+Perf 
+| where Computer contains {ComputerName}
+| where CounterName == "% Processor Time" and InstanceName == "_Total"
+| where ObjectName == "Processor" 
+| summarize CPU_Time_Avg = avg(CounterValue) by bin(TimeGenerated, 30m), Computer
+```
+
+That query produces a report like the one in this screenshot:
+
+:::image type="content" source="media/nifi-app-perf-log-query-report.png" alt-text="Alt text here.":::
 
 ## Pricing
 
@@ -663,6 +741,7 @@ That query produces a chart like the one in this screenshot:
 [Kusto query overview]: https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/
 [Log Analytics agent overview]: https://docs.microsoft.com/en-us/azure/azure-monitor/agents/log-analytics-agent
 [Log Analytics tutorial]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial
+[Log Analytics virtual machine extension for Linux]: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/oms-linux
 [Log queries in Azure Monitor]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview
 [Network security groups]: https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
 [Networking for Azure virtual machine scale sets - Accelerated Networking]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#accelerated-networking
