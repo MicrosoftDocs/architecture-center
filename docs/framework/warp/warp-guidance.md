@@ -2,7 +2,7 @@
 title: Well-Architected Recommendation Process Guidance
 description: A guide for using Well-Architected Review and Advisor Recommendations for continuous workload improvement.
 author: JoeyBarnes
-ms.date: 10/05/2021
+ms.date: 10/08/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -42,7 +42,10 @@ The goal of this stage is to establish a backlog of work items either through a 
 > [!NOTE]
 >The [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/overview) is proven guidance that's designed to help you create and implement the business and technology strategies necessary for your organization to succeed in the cloud. This guidance can help you define the [cloud operating model](/azure/cloud-adoption-framework/operating-model/) that governs the operational process for your workload.
 
-If you're using a [DevOps](/azure/cloud-adoption-framework/ready/enterprise-scale/platform-automation-and-devops#planning-for-a-devops-approach) approach for your operational process, Microsoft has provided tools that will import the recommendations exported from the CSV into an existing [Azure DevOps](/azure/devops) or GitHub project: [DevOps Tooling for Well-Architected Recommendation Process](https://github.com/Azure/WellArchitected-Tools/tree/main/WARP/devops#readme).
+If you're using a [DevOps](/azure/cloud-adoption-framework/ready/enterprise-scale/platform-automation-and-devops#planning-for-a-devops-approach) approach for your operational process, Microsoft has provided tools that will automate the import of the recommendations from the Well-Architected Review exported CSV into a new
+[Azure DevOps](/azure/devops) or [GitHub](https://azure.microsoft.com/products/github/#overview) project within your existing organization.
+
+The automated import tool can be downloaded from the following location: [DevOps Tooling for Well-Architected Recommendation Process](https://github.com/Azure/WellArchitected-Tools/tree/main/WARP/devops#readme).
 
 ## Triage backlog
 
