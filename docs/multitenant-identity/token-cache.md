@@ -55,7 +55,7 @@ services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
 
 The configuration for SurveyApi is specified in appsettings.json.
 
-```
+```json
   "SurveyApi": {
     "BaseUrl": "https://localhost:44301",
     "Scopes": "https://test.onmicrosoft.com/surveys.webapi/surveys.access",
@@ -72,29 +72,28 @@ The Redis-backed cache is protected by a password, but if someone obtains the pa
 ## Acquire the token
 
 The Survey application calls the downstream web API from the page constructor.
-```
+
+```csharp
 public class SurveyService : ISurveyService
 {
+    private string _serviceName;
     private readonly IDownstreamWebApi _downstreamWebApi;
-    ...
 
     public SurveyService(HttpClientService factory, IDownstreamWebApi downstreamWebApi, IOptions<ConfigurationOptions> configOptions)
-        {
-            _httpClient = factory.GetHttpClient();
-            _serviceName = configOptions.Value.SurveyApi.Name;
-            _downstreamWebApi = downstreamWebApi;
-        }
+    {
+        _serviceName = configOptions.Value.SurveyApi.Name;
+        _downstreamWebApi = downstreamWebApi;
+    }
 
-        public async Task<SurveyDTO> GetSurveyAsync(int id)
-        {
-            return await _downstreamWebApi.CallWebApiForUserAsync<SurveyDTO>(_serviceName,
-                    options =>
-                    {
-                        options.HttpMethod = HttpMethod.Get;
-                        options.RelativePath = $"surveys/{id}";
-                    });
-        }
-    ...
+    public async Task<SurveyDTO> GetSurveyAsync(int id)
+    {
+        return await _downstreamWebApi.CallWebApiForUserAsync<SurveyDTO>(_serviceName,
+            options =>
+            {
+                options.HttpMethod = HttpMethod.Get;
+                options.RelativePath = $"surveys/{id}";
+            });
+    }
 }
 ```
 Another way is to inject an `ITokenAcquisition` service in the controller. For more information, see [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
