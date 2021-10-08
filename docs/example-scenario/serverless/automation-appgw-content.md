@@ -9,7 +9,7 @@ This article explores additional enhancement to address these common issues, by 
 
 ## Potential use cases
 
-Use this architecture for public facing web application. The architecture works best for:
+The architecture works best for:
 
 - Simple container workload that doesn't require advanced container orchestration capability
 - High redundant external facing workload, with auto reconfiguration
