@@ -3,7 +3,7 @@ title: Overview of the reliability pillar
 description: High-level summary of the reliability pillar associated with the Azure Well-Architected Framework.
 author: v-stacywray
 manager: david-stanford
-ms.date: 09/16/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -57,7 +57,9 @@ The reliability pillar covers the following topics and best practices to help yo
 |[Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service)|Every technology has its own particular failure modes, which you must consider when designing and implementing your application. Use this checklist to review the resiliency considerations for specific Azure services.|
 |[Target and non-functional requirements](design-requirements.md)|Target and non-functional requirements such as availability targets and recovery targets allow you to measure the uptime and downtime of your workloads. Having clearly defined targets is crucial to have a goal to work and measure against.|
 |[Resiliency and dependencies](design-resiliency.md)|Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure. Dependencies are required for the application to fully operate.|
-|[Availability Zones](/azure/architecture/high-availability/building-solutions-for-high-availability)|Availability Zones can be used to spread a solution across multiple zones within a region, allowing for an application to continue functioning when one zone fails.
+|[Availability Zones](/azure/architecture/high-availability/building-solutions-for-high-availability)|Availability Zones can be used to spread a solution across multiple zones within a region, allowing for an application to continue functioning when one zone fails.|
+|[Availability of services](/azure/availability-zones/region-types-service-categories-azure)|Availability of services across Azure regions depends on a region's type. Azure's general policy on deploying services into any given region is primarily driven by region type, service categories, and customer demand.|
+|[Availability zone terminology](/azure/availability-zones/glossary)|To better understand regions and availability zones in Azure, it helps to understand key terms or concepts.|
 |[Best practices](design-best-practices.md)|During the architectural phase, focus on implementing practices that meet your business requirements, identify failure points, and minimize the scope of failures.|
 |[Testing for reliability](test-checklist.md)|Regular testing should be performed as part of each major change to validate existing thresholds, targets, and assumptions.|
 |[Monitoring for reliability](monitor-checklist.md)|Get an overall picture of application health. If something fails, you need to know *that* it failed, *when* it failed, and *why*.|

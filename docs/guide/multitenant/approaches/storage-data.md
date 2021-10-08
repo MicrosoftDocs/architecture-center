@@ -182,4 +182,5 @@ In general, cloud-native services, like Azure Cosmos DB and Azure Blob Storage, 
 
 For more information about multitenancy and specific Azure services, see:
 
+* [Multitenancy and Azure SQL Database](../service/sql-database.md)
 * [Multitenancy and Azure Cosmos DB](../service/cosmos-db.md)
