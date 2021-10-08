@@ -197,6 +197,8 @@ items:
             items:
               - name: Storage and data
                 items:
+                  - name: Azure SQL Database
+                    href: guide/multitenant/service/sql-database.md
                   - name: Azure Cosmos DB
                     href: guide/multitenant/service/cosmos-db.md
           - name: Related resources
