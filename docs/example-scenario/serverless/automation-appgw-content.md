@@ -13,7 +13,7 @@ Use this architecture for public facing web application. The architecture works 
 
 - Simple container workload that doesn't require advanced container orchestration capability
 - High redundant external facing workload, with auto reconfiguration
-- Container workload that requires to access private resources, including Azure Private Link
+- Container workload that requires to access private resources, such as those exposed by Azure Private Link
 
 ## Architecture
 
