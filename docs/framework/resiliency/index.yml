@@ -10,7 +10,7 @@ metadata:
   author: v-stacywray
   ms.author: v-stacywray
   manager: david-stanford
-  ms.date: 08/12/2021
+  ms.date: 10/07/2021
   ms.topic: landing-page
   ms.service: architecture-center
   ms.subservice: well-architected
@@ -151,6 +151,19 @@ landingContent:
             url: /azure/backup/backup-create-rs-vault#set-storage-redundancy
           - text: Azure Site Recovery
             url: /azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery
+# Card
+  - title: Region and availability zone fundamentals
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Achieve reliability through regions and availability zones
+            url: /azure/availability-zones/az-overview
+          - text: Understand service offerings across region types
+            url: /azure/availability-zones/region-types-service-categories-azure
+          - text: Consider Azure services that support availability zones
+            url: /azure/availability-zones/az-region 
+          - text: Understand region and availability zone terminology
+            url: /azure/availability-zones/glossary 
  # Card
   - title: Reliability APIs
     linkLists:
