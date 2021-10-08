@@ -380,7 +380,8 @@ The templates are put in folders based on the workstream they represent, shown
 below. In this engagement, the two workstreams are shared infrastructure and the
 (software) container application.
 
-\- repository root
+\
+- repository root
 
      - Workstream1
 
@@ -390,7 +391,6 @@ below. In this engagement, the two workstreams are shared infrastructure and the
 
          - deployment.template.json
 
-…
 
 ### Manifest repository image-to-device pipeline
 
