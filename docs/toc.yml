@@ -197,6 +197,8 @@ items:
             items:
               - name: Storage and data
                 items:
+                  - name: Azure SQL Database
+                    href: guide/multitenant/service/sql-database.md
                   - name: Azure Cosmos DB
                     href: guide/multitenant/service/cosmos-db.md
           - name: Related resources
@@ -2197,6 +2199,8 @@ items:
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory Hierarchy Service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
+              - name: Efficient Docker image deployment
+                href: example-scenario/iot/efficient-docker-image-deployment.yml
               - name: IoT and data analytics
                 href: example-scenario/data/big-data-with-iot.yml
               - name: IoT using Cosmos DB
