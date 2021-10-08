@@ -44,7 +44,7 @@ The goal of this stage is to establish a backlog of work items either through a 
 
 If you're using a [DevOps](/azure/cloud-adoption-framework/ready/enterprise-scale/platform-automation-and-devops#planning-for-a-devops-approach) approach for your operational process, Microsoft has provided tools that will automate the import of the recommendations from the Well-Architected Review exported CSV into a new [Azure DevOps](/azure/devops) or [GitHub](https://azure.microsoft.com/products/github/#overview) project within your existing organization.
 
-The automated import tool can be downloaded from the following location: [DevOps Tooling for Well-Architected Recommendation Process](https://github.com/Azure/WellArchitected-Tools/tree/main/WARP/devops#readme).
+Download the automated import tool at [DevOps Tooling for Well-Architected Recommendation Process](https://github.com/Azure/WellArchitected-Tools/tree/main/WARP/devops#readme).
 
 ## Triage backlog
 
