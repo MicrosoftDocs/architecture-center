@@ -1,89 +1,70 @@
 <!---
+Comment: DONE
 #Introductory section - no heading
 
-> This should be an introduction of the business problem and why this scenario was built to solve it.
+#> This should be an introduction of the business problem and why this scenario was built to solve it.
 #>> What industry is the customer in?
->> What prompted them to solve the problem?
+#>> What prompted them to solve the problem?
 #>> What services were used in building out this solution?
 #>> What does this example scenario show? What are the customer's goals?
 
 #> What were the benefits of implementing the solution described below?
 -->
 
+In recent years, the demand for business users capability to consume, transform, model, and visualize large amounts of complex data from multiple heterogenous sources has increased dramatically. To meet this demand in a cost effective, scalable way many large companies have benefitted from moving to cloud-based data platforms. This move allows companies to leverage the economy of scale the cloud provides to achieve lower total cost of ownership and faster time to value from data. Regulated industries are no exception to this as these companies need to store and process vast amounts of highly sensitive data (e.g., protected health information) every day. However, due to the sensitive nature of this data, there are many regulations (e.g., HIPAA) in place to constrain the methods for storing, transporting, and processing the data. As a result of this, regulated industries have been hesitant to adopt cloud-based data platforms due to the large financial penalties for a regulatory violation as well as the perceived loss of control that comes from moving to a cloud-based platform. 
 
+The worldwide COVID-19 pandemic changed all of this as many regulated industries on-premises data platforms were largely unable to cope with the increased workload coming as a direct result of the pandemic. While these companies are now embracing cloud-based data platforms, they are typically doing so in two extreme ways. Either with highly complex and detailed security requirements or with limited knowledge of security capabilities and practices in cloud. This makes rapid deployment of services and solutions challenging as many security options can be disabled, overlooked or simply ignored, leaving these companies open to regulatory action (e.g., financial penalties) if left unchecked.
 
-#@DJ: We need to describe more on high level why we built this pattern (that it is ETL/ELT + PowerBI - something what we pitched to the customer, that we are seeing this with other customers, pros/cons), why not Synapse, benefits, etc.
-#They are not focused on deployment scripts here, etc.
-#I think my text here below is not optimal and not fully fitting to their expectations to describe reusable pattern.
-#Maybe some text can be reused from here: <https://github.com/jbinko/ADAW#architecture-overview>
-
-#Business users have a need to present, consume, slice and dice data in quick way on multiple devices from multiple places. Ideally on data model which is optimized (transformed) for data domain they are aligned to.
-
-In recent years, the demand for business users capability to consume, transform, model, and visualize large amounts of complex data from multiple heterogenous sources has increased dramatically. To meet this demand in a cost effective, scalible way many large companies have benefitted from moving to cloud-based data platforms. This move allows companies to leverage the economy of scale the cloud provides to achieve lower total cost of ownership and faster time to value from data. Regulated industries are no exception to this as these companies need to store and process vast amounts of highly sensitive data (e.g., protected health information) every day. However, due to the sensitive nature of this data, there are many regulations (e.g., HIPAA) in place to constrain the methods for storing, transporting, and processing the data. As a result of this, regulated industries have been hesitant to adopt cloud-based data platforms due to the large financial penalties for a regulatory violation as well as the perceived loss of control that comes from moving to a cloud-based platform. 
-
-The worldwide COVID-19 pandemic changed all of this as many regulated industries on-premises data platforms were largely unable to cope with the increased workload coming as a direct result of the pandemic. While these companies are now embracing cloud-based data platforms, they are doing so with highly complex and detailed security requirements. This makes rapid deployment of many services using automation (e.g., Azure Resource Manger Templates) challenging as many security options can be disabled or simply ignored, leaving these companies open to regulatory action (e.g., financial penalties) if left unchecked. 
-
-The Infrastructure Accelerator pattern is designed to ameliorate this issue by tackling data analysis workloads in regulated industries. This pattern is specifically designed to help ensure the detailed security and privacy requirements of different regualted industries are met by leveraging configurable, Azure Resource Monitor (ARM)-based service deployment automation. Specifically, the pattern focuses on high quality security standards, auditing, monitoring key protection, encryption capabilities, and tight integration with security perimeters (when applicable). Users of this pattern will have the flexibility to choose which data processing services (e.g., Azure Machine Learning, Azure Synapse Analytics) they want to use with the comfort of knowing the services will be deployed using both Microsoft best practices for Landing Zones as well as any company specific policy requirements. In short, we believe that all customers from regulated industries will benefit from this pattern.
-
-#The Infrastructure Accelerator pattern is designed to ameliorate this issue by tackling data analysis workloads in regulated industries. This pattern with a focus on high quality security standards, auditing, monitoring key protection, encryption capabilities, and integration with security perimeters (when applicable). All build on Azure managed services to reduce management overhead.
-
-#You can think about this guidance as Enterprise Ready plug-able infrastructure building block for Data Analytics workloads compatible with Microsoft Best Practices for Landing Zones.
-
-
-
-#To achieve this, you typically need to get data in scalable way from multiple data sources in raw format (typically sitting on-prem), store them in scalable way with potentially huge volumes. Store them to cheap storage in multiple versions and with history, clean data, combine data Together, pre-aggregate data and store them again in structured way with indexing capability to provide speed for access. This pattern is supporting such Data Analysis workloads with high Enterprise security standards.
+The Infrastructure Accelerator pattern is designed to ameliorate this issue by tackling data analysis workloads in regulated industries. This pattern is specifically designed to help ensure the detailed security and privacy requirements of different regulated industries are met by leveraging configurable, template based service deployment automation. All build on Azure managed services to reduce management overhead. Specifically, the pattern focuses on high quality security standards, auditing, monitoring key protection, encryption capabilities, and tight integration with security perimeters (when applicable). You can think about this guidance as Enterprise Ready plug-able infrastructure building block for Data Analytics workloads utilizing Microsoft Best Practices for Landing Zones.
+Users of this pattern will have the flexibility to choose which data processing services (e.g., Azure Data Factory, Azure Databricks, Azure Synapse Analytics) they want to use with the comfort of knowing the services will be deployed using both Microsoft best practices for Landing Zones as well as any company specific policy requirements. In short, we believe that all customers from regulated industries will benefit from this pattern and infrastructure deployment accelerator tools.
 
 Some of the key benefits of this pattern are:
 
-- Speed of deployment and consistency between projects an environments (DEV/TEST/STG/PROD).
+- Speed of deployment and consistency between projects and environments (DEV/TEST/STG/PROD).
 - Coverage of major data analysis use cases ETL/ELT + PowerBI (Ingestion/Transformation/Storage/Data Lake/SQL/PowerBI).
 - Focus on automated support of enterprise-grade security standards.
 - Strong support for auditing, monitoring and diagnostics data.
-- Constraint of network communication to security perimeters (when applicable).
+- Constraint of network communication to network/security perimeters (when applicable).
 - Easy consumption of data sources from inside perimeter along with cloud-based data analysis.
 - Benefit from cloud managed services with reduced management and operation overhead.
-- Seemless integration with cloud native tools (e.g., Power Platform).
+- Seamless integration with cloud native tools (e.g., Power Platform).
 - Automated protection and encryption of storage containing potentially sensitive data.
 - Secure protection of keys and credentials.
 - Designed to support easy customer-based customization
-- No Azure landing zone needed.
-
-#Does NOT require mature Azure landing zone 
-
-#(Can be from NONE to Enterprise)
+- No Azure landing zone needed but can integrate seamlessly, including hub-and-spoke network topology.
 
 ## Potential use cases
 
 <!---
-> Are there any other use cases or industries where this would be a fit?
-> How similar or different are they to what's in this article?
+Comment: DONE
+#> Are there any other use cases or industries where this would be a fit?
+#> How similar or different are they to what's in this article?
 -->
 
-
-
-@DJ: Please provide your additional thoughts
-
-
-
-Any customer looking for PaaS solution for Data and AI workloads (ETL/ELT + PowerBI)
+Any customer looking for PaaS solution for Data and AI workloads plus visualization (ETL/ELT + PowerBI)
 integrated with network perimeter and with focus on high security standards,
 protecting data, Auditing, Monitoring should benefit from this pattern.
 
 <!---
-These other uses cases have similar design patterns:
+Comment: DONE
+#These other uses cases have similar design patterns:
 
-- List of example use cases
+#- List of example use cases
 -->
 
-@DJ: Please provide your additional thoughts
-
-
-- Health Care Clinical Trails
-- Health Care Financial reporting
-- Supply chain management
+- Regulated industries generally
 - Financial sector
+- Health Care Clinical Trials
+- Financial reporting and financial departments
+- Supply chain management
+- Manufacturing
 
 ## Architecture
+
+
+
+
+
 
 <!---
 _Architecture diagram goes here_
