@@ -109,3 +109,15 @@ This guide presents an overview of Azure Communication Services architecture pri
 - TODO: Brief developer-friendly description
 
 [ ![TODO](./media/virtual-visits.png) ](./media/virtual-visits.png#lightbox)
+
+
+## Next steps
+
+- [What is Azure Communication Services?](https://docs.microsoft.com/en-us/azure/communication-services/overview)
+- [Create a Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource)
+- [Azure Communication Services Client and Server Architecture](https://docs.microsoft.com/en-us/azure/communication-services/concepts/client-and-server-architecture)
+
+
+## Related resources
+
+- [Azure Communication Services Reference docs](https://docs.microsoft.com/en-us/azure/communication-services/concepts/reference)
