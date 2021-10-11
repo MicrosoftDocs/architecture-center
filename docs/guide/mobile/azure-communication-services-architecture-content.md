@@ -6,9 +6,10 @@ Mick->Ed: Should the image files (for example: page-6-1.png) be updated with des
 
 
 ## Section Header 1
-Mick->Ed: Should this be reformatted for readability?
+Chris: If this one is meant to be published, we'll want to improve readability (pinching horizontally for readability on mobile, straight lines, more neutral colors for the colored backgrounds (Ed recommended light gray on the three colored blocks))
 
-![Graph Flowchart](./media/acs-graph-flowchart.png)
+[ ![Image alt text.](./media/acs-graph-flowchart.png) ](./media/acs-graph-flowchart.png#lightbox)
+
 
 ## Section Header 2
 
@@ -23,7 +24,7 @@ Mick->Ed: Should this be reformatted for readability?
 ![TODO](./media/acs-router-worker-registration.png)
 
 ## Section Header 5
-Mick->Ed: Should this be reformatted for readability?
+Chris: same here - this is tough to read on mobile
 
 ![TODO](./media/event-cycle.png)
 
@@ -52,7 +53,6 @@ Mick->Ed: Should this be reformatted for readability?
 ![TODO](./media/page-12-1.png)
 
 ## Section Header 12
-Mick->Ed: Should this be reformatted for readability?
 
 ![TODO](./media/page-12-2.png)
 
