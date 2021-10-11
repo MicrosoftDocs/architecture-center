@@ -93,7 +93,7 @@ General best practices related to Performance Efficiency are described in [Perfo
 #### Estimate the Application Gateway instance count
 Application Gateway v2 scales out based on many aspects, such as CPU, memory, network utilization, and more. To determine the approximate instance count, factor in these metrics:
 - **Current compute units**&mdash;Indicates CPU utilization. 1 Application Gateway instance is approximately 10 compute units.
-- **Throughput**&mdash;Application Gateway instance can serve 60-75 MBps of throughput. This data depends on the type of payload.
+- **Throughput**&mdash;Application Gateway instance can serve 60-75 Mbps of throughput. This data depends on the type of payload.
 
 Consider this equation when calculating instance counts.
 
