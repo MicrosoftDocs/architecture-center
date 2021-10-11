@@ -16,6 +16,6 @@ name: Azure Communication Services
 summary: Learn about Azure Communication Services architecture.
 products:
   - azure-communication-services
-thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
+thumbnailUrl: /azure/architecture/browse/thumbs/virtual-visits.png
 content: |
    [!include[](azure-communication-services-architecture-content.md)]
