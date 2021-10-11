@@ -5,7 +5,7 @@ This guide presents an overview of Azure Communication Services architecture pri
  - TODO: Descriptive section headers
  - TODO: Remove images that we don't want to publish
 
-
+ 
 ## Section Header 1
  - TODO: If this one is meant to be published, we'll want to improve readability by: 
    - pinching horizontally for readability on mobile
