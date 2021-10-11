@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Communication Services
+  titleSuffix: Azure Reference Architectures
+  description: Learn about Azure Communication Services architecture.
+  author: mikben
+  ms.author: mikben
+  ms.date: 10/01/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+  ms.custom:
+    - fcp
+    - cse
+name: Azure Communication Services
+summary: Learn about Azure Communication Services architecture.
+products:
+  - azure-communication-services
+thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
+content: |
+   [!include[](azure-communication-services-architecture-content.md)]

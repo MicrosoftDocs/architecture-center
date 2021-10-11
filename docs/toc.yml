@@ -2446,6 +2446,12 @@ items:
                 href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
       - name: Mobile
         items:
+          - name: Guides
+            items:
+              - name: Azure Communication Services
+                items:
+                  - name: Azure Communication Services architecture guide
+                    href: guide/mobile/azure-communication-services-architecture.yml
           - name: Solution ideas
             items:
               - name: Adding mobile front-ends to legacy apps
