@@ -1,14 +1,14 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Communication Services
-  titleSuffix: Azure Reference Architectures
+  titleSuffix: Azure Application Architecture Guide
   description: Learn about Azure Communication Services architecture.
   author: mikben
   ms.author: mikben
   ms.date: 10/01/2021
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: reference-architecture
+  ms.subservice: guide
   ms.custom:
     - fcp
     - cse
