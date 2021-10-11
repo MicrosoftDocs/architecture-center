@@ -2,7 +2,7 @@
 metadata:
   title: Azure Communication Services
   titleSuffix: Azure Application Architecture Guide
-  description: Learn about Azure Communication Services architecture.
+  description: Learn how to add communication features to your applications using Azure Communication Services.
   author: mikben
   ms.author: mikben
   ms.date: 10/01/2021
@@ -13,7 +13,7 @@ metadata:
     - fcp
     - cse
 name: Azure Communication Services
-summary: Learn about Azure Communication Services architecture.
+summary: Learn how to add communication features to your applications using Azure Communication Services.
 products:
   - azure-communication-services
 thumbnailUrl: /azure/architecture/browse/thumbs/virtual-visits.png
