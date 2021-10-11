@@ -2448,7 +2448,7 @@ items:
         items:
           - name: Guides
             items:
-              - name: Azure Communication Services Architecture guide
+              - name: Azure Communication Services Architecture
                 href: guide/mobile/azure-communication-services-architecture.yml
           - name: Solution ideas
             items:
