@@ -7,7 +7,10 @@ This guide presents an overview of Azure Communication Services architecture pri
 
 
 ## Section Header 1
- - TODO: If this one is meant to be published, we'll want to improve readability (pinching horizontally for readability on mobile, straight lines, more neutral colors for the colored backgrounds (Ed recommended light gray on the three colored blocks))
+ - TODO: If this one is meant to be published, we'll want to improve readability by: 
+   - pinching horizontally for readability on mobile
+   - using straight lines
+   - using more neutral colors for the colored backgrounds (Ed recommended light gray on the three colored blocks)
  - TODO: Brief developer-friendly description
 
 [ ![TODO](./media/graph-flowchart.png) ](./media/graph-flowchart.png#lightbox)
