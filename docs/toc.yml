@@ -2448,10 +2448,8 @@ items:
         items:
           - name: Guides
             items:
-              - name: Azure Communication Services
-                items:
-                  - name: Architecture guide
-                    href: guide/mobile/azure-communication-services-architecture.yml
+              - name: Azure Communication Services Architecture guide
+                href: guide/mobile/azure-communication-services-architecture.yml
           - name: Solution ideas
             items:
               - name: Adding mobile front-ends to legacy apps
