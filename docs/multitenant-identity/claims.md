@@ -2,12 +2,15 @@
 title: Claim-based identities in multitenant apps
 description: Learn about claims in Azure AD. As issuer, Azure AD sends a set of claims about the user which can be trusted because the issuer can be trusted.
 author: doodlemania2
-ms.date: 07/21/2017
+ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - identity
+  - web
+products:
+  - azure-active-directory
 ms.custom:
   - guide
 pnp.series.title: Manage Identity in Multitenant Applications
@@ -84,7 +87,6 @@ In Azure AD, the issuer value is unique per AD tenant (`https://sts.windows.net/
 
 For a single-tenant application, you can just check that the issuer is your own tenant. In fact, the OIDC middleware does this automatically by default. In a multitenant app, you need to allow for multiple issuers, corresponding to the different tenants. Here is a general approach to use:
 
-* In the OIDC middleware options, set **ValidateIssuer** to false. This turns off the automatic check.
 * When a tenant signs up, store the tenant and the issuer in your user DB.
 * Whenever a user signs in, look up the issuer in the database. If the issuer isn't found, it means that tenant hasn't signed up. You can redirect them to a sign up page.
 * You could also block certain tenants; for example, for customers that didn't pay their subscription.

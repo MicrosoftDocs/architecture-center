@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the storage and data components of your solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/20/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -130,9 +130,11 @@ Another common approach is to deploy a single multitenant application, with dedi
 
 In this model, each tenant's data is isolated from the others, and you might be able to support some degree of customization for each tenant.
 
-Because you provision dedicated data resources for each tenant, the cost for this approach can be higher than shared hosting models. However, Azure provides several options you can consider, in order to share the cost of hosting individual data resources across multiple tenants. These options include [Azure SQL elastic pools](/azure/azure-sql/database/elastic-pool-overview) and [Azure Cosmos DB database throughput](/azure/cosmos-db/set-throughput#set-throughput-on-a-database). Additionally, because only the data components are deployed individually for each tenant, you likely can achieve high density for the other components in your solution and reduce the cost of those components.
+Because you provision dedicated data resources for each tenant, the cost for this approach can be higher than shared hosting models. However, Azure provides several options you can consider, in order to share the cost of hosting individual data resources across multiple tenants. For example, when you work with Azure SQL, you can consider [elastic pools](/azure/azure-sql/database/elastic-pool-overview). For Azure Cosmos DB, you can [provision throughput for a database](/azure/cosmos-db/set-throughput#set-throughput-on-a-database) and the throughput is shared between the containers in that database, although this approach is not appropriate when you need guaranteed performance for each container.
 
-It's important to use automated deployment approaches, when you provision databases for each tenant.
+In this approach, because only the data components are deployed individually for each tenant, you likely can achieve high density for the other components in your solution and reduce the cost of those components.
+
+It's important to use automated deployment approaches when you provision databases for each tenant.
 
 ### Geodes pattern
 
@@ -159,7 +161,7 @@ There are some features that can be useful for multitenancy. However, these aren
 
 - **Row-level security** can provide security isolation for specific tenants' data in a shared multitenant database. This feature is available in Azure SQL and Postgres Flex, but it's not available in other databases, like MySQL or Azure Cosmos DB.
 - **Tenant-level encryption** might be required to support tenants that provide their own encryption keys for their data. This feature is available in Azure SQL as part of [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Cosmos DB provides [customer-managed keys at the account level](/azure/cosmos-db/how-to-setup-cmk) and also [supports Always Encrypted](/azure/cosmos-db/how-to-always-encrypted).
-- **Resource pooling** provides the ability to share resources and cost, between multiple databases or containers. This feature is available in Azure SQL's [elastic pools](/azure/azure-sql/database/elastic-pool-overview) and [managed instances](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) and in Azure Cosmos DB's [database throughput](/azure/cosmos-db/set-throughput#set-throughput-on-a-database).
+- **Resource pooling** provides the ability to share resources and cost, between multiple databases or containers. This feature is available in Azure SQL's [elastic pools](/azure/azure-sql/database/elastic-pool-overview) and [managed instances](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) and in Azure Cosmos DB's [database throughput](/azure/cosmos-db/set-throughput#set-throughput-on-a-database), although each option has limitations you should be aware of.
 - **Sharding and partitioning** has stronger native support in some services than others. This feature is available in Azure Cosmos DB, by using its [logical and physical partitioning](/azure/cosmos-db/partitioning-overview), and in [Postgres Hyperscale](/azure/postgresql/concepts-hyperscale-distributed-data). While Azure SQL doesn't natively support sharding, it provides [sharding tools](/azure/azure-sql/database/elastic-scale-introduction) to support this type of architecture.
 
 Additionally, when working with relational databases or other schema-based databases, consider where the schema upgrade process should be triggered, when you maintain a fleet of databases. In a small estate of databases, you might consider using a deployment pipeline to deploy schema changes. As you grow, it might be better for your application tier to detect the schema version for a specific database and to initiate the upgrade process.
@@ -178,4 +180,7 @@ In general, cloud-native services, like Azure Cosmos DB and Azure Blob Storage, 
 
 ## Next steps
 
-See [Resources for architects and developers of multitenant solutions](../related-resources.md).
+For more information about multitenancy and specific Azure services, see:
+
+* [Multitenancy and Azure SQL Database](../service/sql-database.md)
+* [Multitenancy and Azure Cosmos DB](../service/cosmos-db.md)

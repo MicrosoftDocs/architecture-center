@@ -20,4 +20,4 @@ This solution is built on the Azure managed services: [StorSimple](https://azure
 ## Next steps
 
 * [Learning path for StorSimple](/azure/storsimple)
-* [Azure Blob Storage: Hot, cool, and Archive storage tiers](/azure/storage/blobs/storage-blob-storage-tiers)
+* [Azure Blob Storage: Hot, cool, and Archive storage tiers](/azure/storage/blobs/access-tiers-overview)
