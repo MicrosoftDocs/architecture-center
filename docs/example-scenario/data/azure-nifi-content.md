@@ -878,21 +878,46 @@ java.arg.21=-XX:InitiatingHeapOccupancyPercent=35
 
 For improved fault tolerance, run Apache ZooKeeper as a cluster. Take this approach even though most Apache NiFi deployments put a relatively modest load on ZooKeeper. Turn on clustering for Apache ZooKeeper explicitly. By default, Apache ZooKeeper runs in single-server mode. For detailed information, see the [Clustered (Multi-Server) Setup section of the ZooKeeper Administrator's Guide][Clustered (Multi-Server) Setup section of the ZooKeeper Administrator Guide].
 
+Except for the clustering settings, use default values for your Apache ZooKeeper configuration.
 
-
-
+If you have a large Apache NiFi cluster, you may need to use a greater number of ZooKeeper servers. For smaller cluster sizes, smaller VM sizes and Standard SSD managed disks are sufficient.
 
 
 
 ## Pricing
 
+- Use the [Azure Pricing Calculator][Pricing calculator] to estimate the cost of the resources in this architecture.
+- For an estimate that include all the services in this architecture except the custom alerting solution, see this sample cost profile.
 
 ## Next steps
 
+The material and recommendations in this document came from several sources:
+
+- Experimentation
+- Azure best practices
+- Apache NiFi community knowledge, best practices, and documentation
+
+For more information, see the following resources:
+
+- [Apache NiFi System Administrator's Guide][NiFi System Administrators Guide]
+- [Apache NiFi mailing lists][Apache nifi Mailing Lists]
+- [Cloudera best practices for setting up a high performance NiFi installation][Cloudera HDF/CFM NIFI Best practices for setting up a high performance NiFi installation]
+- [Azure premium storage: design for high performance][Azure premium storage: design for high performance]
+- [Troubleshoot Azure virtual machine performance on Linux or Windows][Troubleshoot Azure virtual machine performance on Linux or Windows]
+
 ## Related resources
+
+- [Azure Data Explorer monitoring][Azure Data Explorer monitoring]
+- [Hybrid ETL with Azure Data Factory][Hybrid ETL with Azure Data Factory]
+- [DataOps for the modern data warehouse][DataOps for the modern data warehouse]
+- [Data warehousing and analytics][Data warehousing and analytics]
+
+
+
 
 [Apache NiFi]: https://nifi.apache.org/
 [Apache nifi Downloads]: https://nifi.apache.org/download.html
+[Apache nifi Mailing Lists]: https://nifi.apache.org/mailing_lists.html
 [Apache NiFi Walkthroughs - Securing NiFi with TLS]: https://nifi.apache.org/docs/nifi-docs/html/walkthroughs.html#securing-nifi-with-tls
 [Apache Ranger documentation]: https://cwiki.apache.org/confluence/display/RANGER/NiFi+Plugin
 [Apache ZooKeeper Releases]: https://zookeeper.apache.org/releases.html
@@ -900,6 +925,7 @@ For improved fault tolerance, run Apache ZooKeeper as a cluster. Take this appro
 [Availability Zones]: https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones
 [Azure Active Directory (Azure AD)]: https://azure.microsoft.com/en-us/services/active-directory/
 [Azure Application Gateway documentation]: https://docs.microsoft.com/en-us/azure/application-gateway/
+[Azure Data Explorer monitoring]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/monitor-azure-data-explorer
 [Azure DevOps]: https://azure.microsoft.com/en-us/services/devops/
 [Azure Key Vault]: https://docs.microsoft.com/en-us/azure/key-vault/
 [Azure Monitor and Azure Data Explorer query differences]: https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/data-explorer-difference
@@ -908,12 +934,16 @@ For improved fault tolerance, run Apache ZooKeeper as a cluster. Take this appro
 [Apache NiFi Overview]: https://nifi.apache.org/docs.html
 [Azure premium storage: design for high performance]: https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance
 [Azure security baseline for Linux Virtual Machines]: https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-machines-linux-security-baseline
+[Cloudera HDF/CFM NIFI Best practices for setting up a high performance NiFi installation]: https://community.cloudera.com/t5/Community-Articles/HDF-CFM-NIFI-Best-practices-for-setting-up-a-high/ta-p/244999
 [Clustered (Multi-Server) Setup section of the ZooKeeper Administrator Guide]: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_zkMulitServerSetup
 [Communication using the Netty framework]: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#Communication+using+the+Netty+framework
 [Create a virtual machine scale set that uses Availability Zones]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones
 [Data Factory]: https://azure.microsoft.com/en-us/services/data-factory/
+[Data warehousing and analytics]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/data-warehouse
+[DataOps for the modern data warehouse]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data-warehouse/dataops-mdw
 [Diagnostics and health monitoring section of this article]: #diagnostics-and-health-monitoring
 [Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/disk-encryption-cli
+[Hybrid ETL with Azure Data Factory]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/hybrid-etl-with-adf
 [Introduction to Azure managed disks]: https://docs.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview
 [Kusto query overview]: https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/
 [Log Analytics agent overview]: https://docs.microsoft.com/en-us/azure/azure-monitor/agents/log-analytics-agent
@@ -935,10 +965,13 @@ For improved fault tolerance, run Apache ZooKeeper as a cluster. Take this appro
 [NiFi System Administrators Guide - User Authentication]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#user_authentication
 [Oracle Java SE Support Roadmap]: https://www.oracle.com/java/technologies/java-se-support-roadmap.html
 [Overview of alerts in Microsoft Azure]: https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview
+[Pricing calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
 [Querying Azure Log Analytics section in this article]: #querying-azure-log-analytics
+[Sample cost profile]: https://azure.com/e/97e2900e86eb4ce081f01ceedd85acbc
 [Secure your management ports with just-in-time access]: https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc
 [Sizes for virtual machines in Azure]: https://docs.microsoft.com/en-us/azure/virtual-machines/sizes
 [Time sync for Linux VMs in Azure]: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/time-sync
+[Troubleshoot Azure virtual machine performance on Linux or Windows]: https://docs.microsoft.com/en-us/troubleshoot/azure/virtual-machines/troubleshoot-performance-virtual-machine-linux-windows
 [Visio file of architecture diagram]: https://arch-center.azureedge.net/US-1875891-azure-nifi-architecture.vsdx
 [What is Azure Application Gateway?]: https://docs.microsoft.com/en-us/azure/application-gateway/overview
 [What is Azure Bastion?]: https://docs.microsoft.com/en-us/azure/bastion/bastion-overview
