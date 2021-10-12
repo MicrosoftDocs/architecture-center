@@ -23,6 +23,6 @@ products:
   - azure-iot
   - azure-iot-hub
   - azure-pipelines
-thumbnailUrl: /azure/architecture/browse/thumbs/solution-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/iot-predictive-maintenance.svg
 content: |
    [!include[](iot-predictive-maintenance-content.md)]
