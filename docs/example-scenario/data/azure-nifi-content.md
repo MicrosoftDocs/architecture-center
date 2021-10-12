@@ -709,6 +709,181 @@ That query produces a report like the one in this screenshot:
 
 :::image type="content" source="media/nifi-app-perf-log-query-report.png" alt-text="Alt text here.":::
 
+#### Alerting
+
+Use Azure Monitor to create alerts on the health and performance of the Apache NiFi cluster. Example alerts include:
+
+- The total queue count has exceeded a threshold.
+- The `BytesWritten` value is under an expected threshold.
+- The `Flowfiles received` value is under a threshold.
+- The cluster is unhealthy.
+
+For more information on setting up alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure][Overview of alerts in Microsoft Azure].
+
+### Configuration parameters
+
+The following sections discuss recommended, non-default configurations for Apache NiFi and its dependencies, including Apache ZooKeeper and Java. These settings are suited for cluster sizes that are possible in the cloud. Set the properties in the following configuration files:
+
+- `$NIFI_HOME/conf/nifi.properties`
+- `$NIFI_HOME/conf/bootstrap.conf`
+- `$ZOOKEEPER_HOME/conf/zoo.cfg`
+- `$ZOOKEEPER_HOME/bin/zkEnv.sh`
+
+For detailed information about available configuration properties and files, see the [Apache NiFi System Adminstrator's Guide][NiFi System Administrators Guide] and ZooKeeper Administrator’s Guide.
+
+#### Apache NiFi
+
+For an Azure deployment, consider adjusting properties in `$NIFI_HOME/conf/nifi.properties`. The following table lists the most important ones:
+
+| Parameter | Description | Default | Recommendation |
+| --- | --- | --- | --- |
+| `nifi.cluster.node.connection.timeout` | How long to wait when opening a connection to other cluster nodes. | 5 seconds | 60 seconds |
+| `nifi.cluster.node.read.timeout` | How long to wait for a response when making a request to other cluster nodes. | 5 seconds | 60 seconds |
+| `nifi.cluster.protocol.heartbeat.interval` | How often to send heartbeats back to the cluster coordinator. | 5 seconds | 60 seconds |
+| `nifi.cluster.node.max.concurrent.requests` | What level of parallelism to use when replicating HTTP calls like REST API calls to other cluster nodes. | 100 | 500 |
+| `nifi.cluster.node.protocol.threads` | Initial thread pool size for inter-cluster/replicated communications. | 10 | 50 |
+| `nifi.cluster.node.protocol.max.threads` | Maximum number of threads to use for inter-cluster/replicated communications. | 50 | 75 |
+| `nifi.cluster.flow.election.max.candidates` | Number of nodes to use when deciding what the current flow is. This value short circuits the vote at the specified number. | empty | 75 |
+| `nifi.cluster.flow.election.max.wait.time` | How long to wait on nodes before deciding what the current flow is. | 5 minutes | 5 minutes |
+
+#### Cluster behavior
+
+Add intro sentence.
+
+##### Timeout
+
+To ensure the overall health of a cluster and its nodes, it can be beneficial to increase timeouts. This practice helps guarantee that failures don't result from transient network problems or high loads.
+
+In a distributed system, the performance of individual systems can vary. This variation includes network communications and latency, which usually affects inter-node, inter-cluster communication. The network infrastructure or the system itself can cause this variation. As a result, the probability of variation is very likely in large clusters of systems. In Java applications under load, pauses in garbage collection (GC) in the Java virtual machine (JVM) can also impact request response times.
+
+Use properties in the following sections to configure timeouts to suit your system's needs:
+
+###### nifi.cluster.node.connection.timeout and nifi.cluster.node.read.timeout
+
+The `nifi.cluster.node.connection.timeout` property specifies how long to wait when opening a connection. The `nifi.cluster.node.read.timeout` property specifies how long to wait when receiving data between requests. The default value for each property is five seconds. These properties apply to node-to-node requests. Increasing these values helps alleviate several related problems:
+
+- Being disconnected by the cluster coordinator because of heartbeat interruptions
+- Failure to get the flow from the coordinator when joining the cluster
+- Establishing site-to-site (S2S) and load balancing communications
+
+Unless your cluster has a very small scale set, such as three nodes or fewer, use values that are greater than the defaults.
+
+###### nifi.cluster.protocol.heartbeat.interval
+
+As part of the Apache NiFi clustering strategy, each node emits a heartbeat to communicate its healthy status. By default, nodes send heartbeats every five seconds. If the cluster coordinator detects that eight heartbeats in a row from a node have failed, it disconnects the node. Increase the interval that's set in the `nifi.cluster.protocol.heartbeat.interval` property to help accommodate slow heartbeats and prevent the cluster from disconnecting nodes unnecessarily.
+
+##### Concurrency
+
+Add intro sentence.
+
+###### nifi.cluster.node.protocol.threads and nifi.cluster.node.protocol.max.threads
+
+The `nifi.cluster.node.protocol.max.threads` property specifies the maximum number of threads to use for all-cluster communications such as S2S load balancing and UI aggregation. The default for this property is 50 threads. For large clusters, increase this value to account for the greater number of requests that these operations require.
+
+The `nifi.cluster.node.protocol.threads` property determines the initial thread pool size. The default value is 10 threads. This value is a minimum. It grows as needed up to the maximum set in `nifi.cluster.node.protocol.max.threads`. Increase the `nifi.cluster.node.protocol.threads` value for clusters that use a large scale set at launch.
+
+###### nifi.cluster.node.max.concurrent.requests
+
+Many HTTP requests like REST API calls and UI calls need to be replicated to other nodes in the cluster. As the size of the cluster grows, more and more requests get replicated. The `nifi.cluster.node.max.concurrent.requests` property limits the number of outstanding requests. Its value should exceed the expected cluster size. The default value is 100 concurrent requests. Unless you're running a small cluster of three or fewer nodes, prevent failed requests by increasing this value.
+
+##### Flow Election
+
+Add intro sentence.
+
+###### nifi.cluster.flow.election.max.candidates
+
+NiFi uses zero-leader clustering, which means there isn't one specific authoritative node. As a result, nodes vote on which flow definition counts as the correct one. They also vote to decide which nodes join the cluster.
+
+By default, the `nifi.cluster.flow.election.max.candidates` property is the maximum wait time that the `nifi.cluster.flow.election.max.wait.time` property specifies. When this value is too high, startup can be slow. The default value for `nifi.cluster.flow.election.max.wait.time` is five minutes. Set the maximum number of candidates to a non-empty value like **1** or greater to ensure that the wait is no longer than needed. If you set this property, assign it a value that corresponds to the cluster size or some majority fraction of the expected cluster size. For small, static clusters of 10 or fewer nodes, set this value to the number of nodes in the cluster.
+
+###### nifi.cluster.flow.election.max.wait.time
+
+In an elastic, cloud environment, the time to provision hosts also affects the application startup time. The `nifi.cluster.flow.election.max.wait.time` property determines how long Apache NiFi waits before deciding on a flow. Make this value commensurate with the overall launch time of the cluster at its starting size. In initial testing, five minutes is more than adequate in all Azure regions with the recommended instance types. But you can increase this value if the time to provision regularly exceeds the default.
+
+#### Java
+
+We recommend using an [LTS release of Java][Oracle Java SE Support Roadmap]. Of these releases, Java 11 is slightly preferable to Java 8 because it supports a faster garbage collection implementation. However, it's possible to have a high-performance Apache NiFi deployment by using either release.
+
+The following sections discuss common JVM configurations to use when running Apache NiFi. Set JVM parameters through the bootstrap configuration file at `$NIFI_HOME/conf/bootstrap.conf`.
+
+##### Garbage collector
+
+If you're running Java 11, we recommend using the G1 garbage collector (G1GC) in most situations. G1GC has improved performance over ParallelGC because G1GC reduces the length of GC pauses. G1GC is the default in Java 11, but you can configure it explicitly by setting the following value in `bootstrap.conf`:
+
+`java.arg.13=-XX:+UseG1GC`
+
+If you're running Java 8, don't use G1GC. Use ParallelGC instead. There are deficiencies in the Java 8 implementation of G1GC that prevent you from using it with the recommended repository implementations. ParallelGC is slower than G1GC. But with ParallelGC, you can still have a high-performance Apache NiFi deployment with Java 8.
+
+#### Heap
+
+A set of properties in the `bootstrap.conf` file determine the configuration of the Apache NiFi JVM heap. For a standard flow, configure a 32-GB heap with these settings:
+
+```config
+java.arg.3=-Xmx32g
+java.arg.2=-Xms32g
+```
+
+To choose the optimal heap size to apply to the JVM process, consider two factors:
+
+- The characteristics of the data flow
+- The way that Apache NiFi uses memory in its processing
+
+For detailed documentation, see [Apache NiFi in Depth][Apache NiFi In Depth].
+
+Make the heap only as large as needed to fulfill the processing requirements. This approach minimizes the length of GC pauses. For general considerations for Java garbage collection, see the garbage collection tuning guide for your version of Java.
+
+When adjusting JVM memory settings, consider these important points:
+
+- The number of FlowFiles that are active in a given period including back-pressured or queued FlowFiles
+- The number of attributes that are defined in the the FlowFiles
+- The amount of memory that a processor requires to process a particular piece of content
+- The way a processor processes data:
+
+  - Streaming data
+  - Using record-oriented processors
+  - Holding all data in memory at once
+
+These details are important. During processing, Apache NiFi holds both references and attributes for each FlowFile in memory. At peak performance, the amount of memory that the system uses is proportional to the number of live FlowFiles and all the attributes that they contain. This number includes queued FlowFiles. Apache NiFi can swap to disk. But avoid this option because it hurts performance.
+
+Also keep in mind basic object memory usage. Specifically, make your heap large enough to hold objects in memory. Consider these tips for configuring the memory settings:
+
+- Run your flow with representative data and minimal backpressure by start with the setting -Xmx4G and then increasing memory conservatively as needed.
+- Run your flow with representative data and peak backpressure by starting with the setting -Xmx4G and then increasing cluster size conservatively as needed.
+- Profile the application while the flow is running by using tools such as VisualVM and YourKit.
+- If conservative increases in heap don't improve performance significantly, consider redesigning flows, processors, and other aspects of your system.
+
+#### Additional JVM parameters
+
+The following table lists additional JVM options. It also provides the values that performed best in initial testing. Tests observed GC activity and memory utilization and used careful profiling.
+
+| Parameter | Description | JVM default | Recommendation |
+| --- | --- | --- | --- |
+| InitiatingHeapOccupancyPercent | The amount of heap that's in use before a marking cycle is triggered. | 45 | 35 |
+| ParallelGCThreads | The number of threads that GC uses. This value is capped to limit the overall impact on the system. | 5/8 of the number of vCPUs | 8 |
+| ConcGCThreads | The number of GC threads to run in parallel. This value is increased to account for capped ParallelGCThreads. | 1/4 of ParallelGCThreads | 4 |
+| G1ReservePercent | The percentage of reserve memory to keep free. This value is increased to avoid to-space exhaustion, which helps avoid full GC | 10 | 20 |
+| UseStringDeduplication | Whether to try to identify and de-duplicate references to identical strings. Turning this feature on can result in memory savings | - | present |
+
+Configure these settings by adding the following entries to the Apache NiFi bootstrap.conf:
+
+```config
+java.arg.17=-XX:+UseStringDeduplication
+java.arg.18=-XX:G1ReservePercent=20
+java.arg.19=-XX:ParallelGCThreads=8
+java.arg.20=-XX:ConcGCThreads=4
+java.arg.21=-XX:InitiatingHeapOccupancyPercent=35
+```
+
+#### Apache ZooKeeper
+
+For improved fault tolerance, run Apache ZooKeeper as a cluster. Take this approach even though most Apache NiFi deployments put a relatively modest load on ZooKeeper. Turn on clustering for Apache ZooKeeper explicitly. By default, Apache ZooKeeper runs in single-server mode. For detailed information, see the [Clustered (Multi-Server) Setup section of the ZooKeeper Administrator's Guide][Clustered (Multi-Server) Setup section of the ZooKeeper Administrator Guide].
+
+
+
+
+
+
+
 ## Pricing
 
 
@@ -729,9 +904,11 @@ That query produces a report like the one in this screenshot:
 [Azure Key Vault]: https://docs.microsoft.com/en-us/azure/key-vault/
 [Azure Monitor and Azure Data Explorer query differences]: https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/data-explorer-difference
 [Azure Monitor overview]: https://docs.microsoft.com/en-us/azure/azure-monitor/overview
+[Apache NiFi In Depth]: https://nifi.apache.org/docs/nifi-docs/html/nifi-in-depth.html
 [Apache NiFi Overview]: https://nifi.apache.org/docs.html
 [Azure premium storage: design for high performance]: https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance
 [Azure security baseline for Linux Virtual Machines]: https://docs.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-machines-linux-security-baseline
+[Clustered (Multi-Server) Setup section of the ZooKeeper Administrator Guide]: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_zkMulitServerSetup
 [Communication using the Netty framework]: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#Communication+using+the+Netty+framework
 [Create a virtual machine scale set that uses Availability Zones]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones
 [Data Factory]: https://azure.microsoft.com/en-us/services/data-factory/
@@ -756,6 +933,8 @@ That query produces a report like the one in this screenshot:
 [NiFi System Administrators Guide - Securing ZooKeeper with TLS]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#zk_tls_client
 [NiFi System Administrators Guide - State Management]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#state_management
 [NiFi System Administrators Guide - User Authentication]: https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#user_authentication
+[Oracle Java SE Support Roadmap]: https://www.oracle.com/java/technologies/java-se-support-roadmap.html
+[Overview of alerts in Microsoft Azure]: https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview
 [Querying Azure Log Analytics section in this article]: #querying-azure-log-analytics
 [Secure your management ports with just-in-time access]: https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc
 [Sizes for virtual machines in Azure]: https://docs.microsoft.com/en-us/azure/virtual-machines/sizes
