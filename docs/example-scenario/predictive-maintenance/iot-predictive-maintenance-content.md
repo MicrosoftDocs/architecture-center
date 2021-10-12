@@ -24,7 +24,8 @@ IoT Edge implementations are most relevant when large amounts of data captured i
 4. The alert handler uploads all images into Azure Blob Storage, starting with images that have potential defects, and returns the image blob URIs.
 5. IoT Edge Hub associates the image URIs with image metadata, and uploads the metadata and alerts to Azure IoT Hub.
 6. IoT Hub sends the metadata via Event Hub and Azure Functions to an Azure Cosmos DB database.
-7. The Cosmos DB database holds the image metadata and points to the location of images in Azure Blob Storage.
+7. The Cosmos DB database holds the image metadata (Equipment/Car #, Axle, Timestamp, Detector Location, etc.) and points to the location of images in Azure Blob Storage.
+
 
 ### Components
 
