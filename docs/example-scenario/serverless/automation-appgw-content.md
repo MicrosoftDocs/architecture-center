@@ -1,6 +1,6 @@
-Containerization is a common app modernization approach that customers are taking. Depending on the complexity of application, customers can consider using Azure Kubernetes Services for advanced workload, or adopting Azure Container Instances for simple container workload such as simple web application. This article focuses on Azure Container Instances which includes network and security consideration when adopting Azure Container Instances.
+Containerization is a common app modernization approach that customers are taking. Depending on the complexity of application, customers can consider using Azure Kubernetes Services for advanced workload, or adopting Azure Container Instances for simple container workload such as simple web application. This article focuses on performing infrastructure level serverless automation for Azure Container Instances, together with Application Gateway.
 
-To secure Azure Container Instances, customer can leverage Container Groups in Azure Container Instances, which allows customers to deploy Azure Container Instances inside Virtual Network, so that the containers can access other private resources. For customers hosting web application, it's a common practice to have a web application firewall, such as Azure Application Gateway to front incoming traffic, while using Azure Container Instances as backend pool. This is a great starting point: [Expose a static IP address for a container group
+Starting from a common customer scnerio, to secure Azure Container Instances, customer can leverage Container Groups in Azure Container Instances, which allows customers to deploy Azure Container Instances inside Virtual Network, so that the containers can access other private resources or other Azure services via Azure Private Endpoint. For customers hosting web application, it's a common practice to have a web application firewall, such as Azure Application Gateway to front incoming traffic, while using Azure Container Instances as backend pool. This is a great starting point: [Expose a static IP address for a container group
 ](/azure/container-instances/container-instances-application-gateway).
 
 One potential challenge with this approach is the non-static private IP address as backend pool, as the private IP might be rotated during maintainance, hence cloud admin has to manually reconfigure the backend pool. Likewise, if new containers for scaling purposes, cloud admin has to perform the same exercise to ensure traffic is routed to right backend pool. Furthermore, liveness probe and readiness probe is not supported in container group, which makes it harder for customer to identify downtime of this workload.
@@ -10,21 +10,24 @@ This article explores additional enhancement to address these common issues, by 
 ## Potential use cases
 
 The architecture works best for:
-
+- Serverless deployment is preferred
+- Minimal operation for cloud native workload with automation
 - Simple container workload that doesn't require advanced container orchestration capability
 - High redundant external facing workload, with auto reconfiguration
-- Container workload that requires to access private resources, such as those exposed by Azure Private Link
+- Container workload that requires to access private resources, such as those exposed by Azure Private Endpoint
 
 ## Architecture
 
 ![This is a flow diagram that shows CosmosDB being accessed by a private endpoint for Azure Container Instances and is fronted by Azure Application Gateway.](./media/automation-appgw.png)
 
+#### Part 1 - Typical Web Application Traffic Flow
 1a. Application Gateway has web application firewall capability, which is ideal to front public facing traffic before hitting backend workload. The Application Gateway will expose public IP address, hence having Azure DDoS Protection provides additional layer of protection.
 
 1b. Backend pool of Application Gateway is configured using private IP address of Azure Container Instance in container group. Note that Azure Container Instance in container group doesn't come with fully qualified domain name (FQDN), hence IP address is the only way.
 
 1c. Containers in Azure Container Instances can consume private resources, such as Azure Cosmos DB via private link.
 
+#### Part 2 - Enhancement with Automation
 2a. Metrics of Application Gateway contains **Healthy Host Count**, which can be used as liveness probe for Azure Container Instance, given that container group in Azure Container Instances doesn't support liveness and readiness probe.
 
 2b. Azure Application Insight can be used within containers to collect additional metrics, including a custom thread to send heartbeat to Azure Application Insight for monitoring purproses.
@@ -34,6 +37,16 @@ The architecture works best for:
 2d. Azure SDK is used in Azure Functions, to get the configuration of existing container instances, and recreate the same instances using the SDK. This function will be triggered whenever there's an alert defined in 2c. This function may take long running time, depending on the complexity of setup. Azure Functions may timeout, so Azure Durable Functions can be used to handle long running process and provide status update.
 
 ### Components
+
+#### Automation
+
+- [Azure Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp): Unlike Azure Functions, Durable Functions is stateful, and it can support several stateful workflow patterns. In this example, [monitoring pattern](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#monitoring) is being used.
+- [Azure SDK](https://azure.microsoft.com/en-us/downloads/): Azure SDKs are collections of libraries that allows developers to interact with Azure Services using preferred programming language. This gives more flexibility for users to integrate logic to perform automation.
+
+#### Monitoring
+
+- [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics): This is a feature within Azure Monitor, which has predefined numeric data that Azure Monitor collects from respective Azure services.
+- [Action Group](/azure/azure-monitor/alerts/action-groups): This is a collection of notification preference defined by resource owner. Notification channel and actions can be defined based on triggered alerts.
 
 #### Networking
 
@@ -48,22 +61,17 @@ The architecture works best for:
 - [Azure Cosmos DB](/azure/cosmos-db/introduction): It's a fully managed NoSQL database which supports multiple API such as SQL, Cassandra or MongoDB.
 - [Azure Key Vault](/azure/key-vault/general/overview): As security best practice, developers don't store connection string as clear text in application source code. Azure Key Vault serves as the cnetral location to store secrets securely and application can retrieve necessary key securely.
 
-#### Monitoring
-
-- [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics): This is a feature within Azure Monitor, which has predefined numeric data that Azure Monitor collects from respective Azure services.
-- [Action Group](/azure/azure-monitor/alerts/action-groups): This is a collection of notification preference defined by resource owner. Notification channel and actions can be defined based on triggered alerts.
-
-#### Automation
-
-- [Azure Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp): Unlike Azure Functions, Durable Functions is stateful, and it can support several stateful workflow patterns. In this example, [monitoring pattern](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#monitoring) is being used.
 
 ### Alternatives
+
+The scenario above updates backend pool for Azure Application Gateway. As an alternative, Azure Private DNS Zone can be used as target backend for Azure Application Gateway, and use Azure Functions to update A record, instead of making changes on Azure Application Gateway. The deployment time will be shorter. On the flip side, metrics of Azure Application Gateway will not be able to identify host count, as it's abstracted by DNS, hence this automation need to be triggered from application monitoring perspective, such as Application Insights or Azure Monitor directly. 
 
 Azure provides multiple options to host container-based workload such as [Azure Kubernetes Service](/azure/aks/intro-kubernetes) and [Azure App Services](/azure/app-service/quickstart-custom-container?tabs=dotnet&pivots=container-linux).
 
 Azure Kubernetes Service provide advanced container orchestration and network capability, such as the concept of [service](https://kubernetes.io/docs/concepts/services-networking/service/) which is not present in Azure Container Instances, hence this reference architecture to address this requirement.
 
 App Services can host container workload as well, and [App Service Environment](/azure/app-service/environment/intro) allows developers to deploy App Services inside Azure Virtual Network. Pricing structure of Azure Container Instances make it compelling for small workload compare to App Services.
+
 
 ## Considerations
 
@@ -111,3 +119,5 @@ See [here](https://azure.com/e/437a828a735f44c6b942c72ef67ade58) as an example o
 ## Related resources
 
 - [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook/)
+- [Azure Architecture Center - Automation](https://docs.microsoft.com/en-us/azure/architecture/browse/?terms=automation)
+- [Azure Architecture Center - Serverless](https://docs.microsoft.com/en-us/azure/architecture/browse/?terms=serverless)
