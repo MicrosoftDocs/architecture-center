@@ -12,7 +12,7 @@ The following diagram shows the Event Hubs stream processing architecture:
 ### Events
 
 An event is a notification or state change that is represented as a fact that happened in the past. Events are immutable and persisted in an **event hub**, also referred to as a *topic* in [Kafka](https://kafka.apache.org/). An event hub is comprised of one or more
-[partitions](//azure/event-hubs/event-hubs-features#partitions).
+[partitions](/azure/event-hubs/event-hubs-features#partitions).
 
 ### Partitions
 
