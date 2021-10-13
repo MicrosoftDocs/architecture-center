@@ -21,7 +21,7 @@
     },
     {
       "source_path": "docs/reference-architectures/managed-web-app/index.md",
-      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app",
+      "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
       "redirect_document_id": false
     },
     {
