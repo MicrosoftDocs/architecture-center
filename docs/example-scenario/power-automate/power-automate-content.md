@@ -16,7 +16,7 @@ This architecture applies to workflows where IT teams fully control the workflow
 
 ## Architecture
 
-![Diagram showing the hub-and-spoke inspired Power Automate deployment topology.](media/image1.png)
+![Diagram showing the hub-and-spoke inspired Power Automate deployment topology.](media/power-automate.png)
 
 Azure hub-spoke network topology inspires this architecture. Flows in Power Automate Solutions can invoke child flows from Solutions. By using parent and child flows, you can ease flow management by avoiding flows with hundreds of steps.
 
