@@ -18,19 +18,19 @@ This architecture applies to workflows where IT teams fully control the workflow
 
 ![Diagram showing the hub-and-spoke inspired Power Automate deployment topology.](media/power-automate.png)
 
-Azure hub-spoke network topology inspires this architecture. Flows in Power Automate Solutions can invoke child flows from Solutions. By using parent and child flows, you can ease flow management by avoiding flows with hundreds of steps.
+Azure hub-spoke network topology inspires this architecture. Power Platform [Solutions](/powerapps/maker/data-platform/solutions-overview) flows can invoke child flows from Solutions. Parent and child flows ease flow management by avoiding flows with hundreds of steps.
 
-This solution provisions a Power Automate *init flow* workflow for each SharePoint site. The Init Flow calls a *central flow* workflow, which runs all the actions that meet a business need.
+This solution provisions a Power Automate *init flow* workflow for each SharePoint site. The init flow calls a *central flow* workflow, which runs all the actions that meet a business need.
 
-SharePoint Online and Power Platform support many geographic regions. Each region has a set of SharePoint Online sites. This *multi-geo* concept is extended to the central flows.
+SharePoint Online and Power Platform support many geographic regions. Each region has a set of SharePoint Online sites. This *multi-geo* concept extends to the central flows.
 
-1. The IT Team provisions an init flow on each SharePoint Online site. Besides the trigger, the flow contains a single action that uses `Call Child Flow` to call the central flow workflow.
+1. The IT team provisions an init flow on each SharePoint Online site. Besides the trigger, the flow contains a single action that uses `Call Child Flow` to call a central flow workflow.
 
 1. The team provisions the central flows in each geographical region, corresponding to the SharePoint Online regions.
 
-1. A user initiates, or an event triggers, an init flow workflow. Depending on the trigger type, the init flow can execute in the user's context or in the maker context.
+1. A user initiates, or an event triggers, an init flow workflow. Depending on the trigger type, the init flow can execute in the user's context or in the [maker](/power-platform/admin/environments-overview#environment-permissions) context.
 
-1. The init flow calls a central flow in the appropriate region. For a user context, the init flow can authoritatively pass along the user information to the central flow to assert the user.
+1. The init flow calls a central flow in the appropriate region. For a user context, the init flow can authoritatively pass along the user information to assert the user to the central flow.
 
 1. The central flow can invoke more child flows if needed to keep the flow lightweight.
 
@@ -72,7 +72,7 @@ Here are some advantages of adopting this hub-and-spoke model for your Power Aut
 
 - It's best to have a pre-production tenant to validate updates before you push updates and components to your production tenant. Since updating the central flows immediately impacts many init flows, it's important to have good-quality analysis and validation. When promoting to the production tenant, make sure to use environment variables for connections, so you can choose the endpoint corresponding to the target tenant.
 
-- Power Platform supports application life-cycle management (ALM) of its components with Azure Pipelines or GitHub Actions.
+- Power Platform supports [application lifecycle management (ALM)](https://wikipedia.org/wiki/Application_lifecycle_management) of its components with Azure Pipelines or GitHub Actions.
 
 ### Operations
 
