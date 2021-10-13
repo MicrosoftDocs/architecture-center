@@ -1,0 +1,108 @@
+Power Automate is part of the no-code or low-code Power Platform. Microsoft 365 customers use Power Automate for workflow automation and business process flows. This architecture is for Power Automate workflows that replace SharePoint 2010 workflows, and for new SharePoint Online sites. With this solution, you can:
+
+- Carefully plan your Power Automate deployment, governance, and operation strategy.
+- Meet organizational needs like data residency requirements, data loss prevention (DLP), and flexible and minimal licensing requirements.
+- Stay within the scalable thresholds of Power Platform.
+
+## Potential use cases
+
+Customer-designed Power Automate workflows fall into two categories:
+
+- SharePoint site owners usually create ad-hoc workflows. Site owners take full responsibility for workflow design, deployment, and maintenance.
+
+- IT teams create workflows that they fully own, manage, and support over the workflow lifetime.
+
+This architecture applies to workflows where IT teams fully control the workflow and component lifecycles.
+
+## Architecture
+
+![Diagram showing the hub-and-spoke inspired Power Automate deployment topology.](media/image1.png)
+
+Azure hub-spoke network topology inspires this architecture. Flows in Power Automate Solutions can invoke child flows from Solutions. By using parent and child flows, you can ease flow management by avoiding flows with hundreds of steps.
+
+This solution provisions a Power Automate *init flow* workflow for each SharePoint site. The Init Flow calls a *central flow* workflow, which runs all the actions that meet a business need.
+
+SharePoint Online and Power Platform support many geographic regions. Each region has a set of SharePoint Online sites. This *multi-geo* concept is extended to the central flows.
+
+1. An init flow is provisioned on each SharePoint Online site. Besides the trigger, the flow contains a single action that uses `Call Child Flow` to call the central flow workflow.
+
+1. The central flows are provisioned in each geographical region, corresponding to the SharePoint Online regions.
+
+1. A user initiates, or an event triggers, an init flow workflow. Depending on the trigger type, the init flow can execute in the user's context or in the maker context.
+
+1. The init flow calls a central flow in the appropriate region. For a user context, the init flow can authoritatively pass along the user information to the central flow to assert the user.
+
+1. The central flow can invoke more child flows if needed to keep the flow lightweight.
+
+### Components
+
+This scenario loads data from the following sources:
+
+- [Power Automate](https://flow.microsoft.com/)
+- [SharePoint Online sites](/sharepoint/introduction)
+- [Power Platform environments](/power-platform/admin/environments-overview)
+- [Power Platform Solutions](/power-platform/alm/solution-concepts-alm)
+- [Azure Active Directory (Azure AD)](/azure/active-directory)
+
+### Alternatives
+
+- You can use this architecture with [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) by replacing the central flows with logic apps. Logic Apps doesn't have some triggers, like *SharePoint - For a Selected File*. In that case, the Power Automate init flow can use the trigger, and then call a logic app.
+
+  Logic Apps supports the consumption model, where you pay for what you use. A hybrid model using both Power Automate and Logic Apps is also feasible. If you don't want to worry about thresholds, Logic Apps is the recommended solution.
+
+- You can improve the hub-and-spoke model by using a single init flow per region instead of creating one flow per SharePoint Online site. This strategy is possible only if you trigger the flow manually. You can orchestrate the flow to be invoked from any SharePoint Online site in a tenant.
+
+## Considerations
+
+Here are some advantages of adopting this hub-and-spoke model for your Power Automate deployments:
+
+- Centralized logic is easy to update in one place, and all the flows automatically get the latest updates.
+- You can avoid assigning premium licenses to all the init flows for the SharePoint Online sites. Instead, you can assign premium licenses to the limited number of central flows.
+- Segregating SharePoint Online sites and flows into their own regions meets data residency requirements.
+- Depending on the init flow trigger, the flow can retain the user's context from initiation to central flow completion.
+- To meet seasonal or periodic requirements, this model offers flexible central flow license upgrades and downgrades.
+
+### DevOps
+
+- Power Platform supports continuous integration and continuous delivery (CI/CD) for its components in Solutions. You can export and import Solutions as packages across Power Platform environments and across tenants.
+
+- It's best to have a pre-production tenant to validate updates before you push updates and components to your production tenant. Since updating the central flows immediately impacts many init flows, it's important to have good-quality analysis and validation. When promoting to the production tenant, make sure to use environment variables for connections, so you can choose the endpoint corresponding to the target tenant.
+
+- Power Platform supports application life cycle management (ALM) of its components with Azure Pipelines or GitHub Actions.
+
+### Operations
+
+Use the Center of Excellence (CoE) toolkit for Power Platform to centrally manage flows and monitor them for failures. The CoE toolkit also shows the Power Platform components and dependencies between components. You can design each flow to catch and log failures or notify someone for better supportability.
+
+### Security
+
+- Entitlement management for flows you create under Solutions is different from flows outside Solutions. With flows outside Solutions, you can give permissions to a SharePoint site List or Library to initiate the flow. Flows in Solutions tie permissions to a Dataverse Environment-based group called *Group Team*, which you can map to an Azure AD group. You can then manage users in the Azure AD group.
+
+- All users except the environment administrator must be given read/execute-only permissions in Production environments, so end users can't create any components.
+
+- You can apply DLP policies at the environment level, which allows more flexibility to meet business requirements.
+
+## Pricing
+
+You pay no additional costs for this scenario if you meet the following conditions:
+
+- There's no dependency on Power Platform premium connectors.
+
+- The flows can conform to the action executions thresholds of the Microsoft 365 seed license, such as E3 or E5.
+
+Otherwise, you need to purchase premium licenses, per user or per flow plan, for the central flows only. Pricing may vary depending on how many central flows you need in each geographic region. You don't have to assign premium licenses to the init flows, which are usually high in number.
+
+## Next steps
+
+- [Use Child Flows in Power Automate](/power-automate/create-child-flows)
+- [Define a Power Platform Environment Strategy](/microsoft-365/community/defining-a-power-platform-environment-strategy)
+- [Microsoft Dataverse Group Teams](/power-platform/admin/manage-group-teams)
+- [Use Environment Variables in Power Platform Solutions](/powerapps/maker/data-platform/environmentvariables)
+- [ALM with Power Platform](/power-platform/alm/)
+- [Power Automate Pricing](https://flow.microsoft.com/pricing)
+- [Power Automate Licensing FAQ](/power-platform/admin/powerapps-flow-licensing-faq)
+
+## Related resources
+- [CI/CD for Azure Power Platform](../../solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml)
+- [Citizen AI with the Power Platform](../ai/citizen-ai-power-platform.yml)
+- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
