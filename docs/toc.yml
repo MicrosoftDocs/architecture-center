@@ -2107,8 +2107,10 @@ items:
                 href: reference-architectures/data/enterprise-bi-synapse.yml
               - name: Enterprise integration using queues and events
                 href: reference-architectures/enterprise-integration/queues-events.yml
-              - name: Publish internal APIs to external users
-                href: example-scenario/apps/publish-internal-apis-externally.yml
+              - name: Enterprise integration using queues and events
+                href: reference-architectures/enterprise-integration/queues-events.yml
+              - name: Power Automate deployment at scale
+                href: example-scenario/power-automate/power-automate.yml
               - name: On-premises data gateway for Azure Logic Apps
                 href: hybrid/gateway-logic-apps.yml
           - name: Solution ideas

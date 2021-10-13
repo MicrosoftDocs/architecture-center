@@ -12,7 +12,7 @@ Customer-designed Power Automate workflows fall into two categories:
 
 - IT teams create workflows that they fully own, manage, and support over the workflow lifetime.
 
-This architecture applies to workflows where IT teams fully control the workflow and component lifecycles.
+This architecture applies to workflows where IT teams fully control the workflow and component life cycles.
 
 ## Architecture
 
@@ -24,13 +24,13 @@ This solution provisions a Power Automate *init flow* workflow for each SharePoi
 
 SharePoint Online and Power Platform support many geographic regions. Each region has a set of SharePoint Online sites. This *multi-geo* concept is extended to the central flows.
 
-1. An init flow is provisioned on each SharePoint Online site. Besides the trigger, the flow contains a single action that uses `Call Child Flow` to call the central flow workflow.
+1. The IT Team provisions an init flow on each SharePoint Online site. Besides the trigger, the flow contains a single action that uses `Call Child Flow` to call the central flow workflow.
 
-1. The central flows are provisioned in each geographical region, corresponding to the SharePoint Online regions.
+1. The team provisions the central flows in each geographical region, corresponding to the SharePoint Online regions.
 
 1. A user initiates, or an event triggers, an init flow workflow. Depending on the trigger type, the init flow can execute in the user's context or in the maker context.
 
-1. The init flow calls a central flow in the appropriate region. For a user context, the init flow can authoritatively pass along the user information to the central flow to assert the user.
+1. The init flow calls a central flow in the appropriate region. For a user context, the init flow authoritatively can pass along the user information to the central flow to assert the user.
 
 1. The central flow can invoke more child flows if needed to keep the flow lightweight.
 
@@ -57,9 +57,13 @@ This scenario loads data from the following sources:
 Here are some advantages of adopting this hub-and-spoke model for your Power Automate deployments:
 
 - Centralized logic is easy to update in one place, and all the flows automatically get the latest updates.
+
 - You can avoid assigning premium licenses to all the init flows for the SharePoint Online sites. Instead, you can assign premium licenses to the limited number of central flows.
+
 - Segregating SharePoint Online sites and flows into their own regions meets data residency requirements.
+
 - Depending on the init flow trigger, the flow can retain the user's context from initiation to central flow completion.
+
 - To meet seasonal or periodic requirements, this model offers flexible central flow license upgrades and downgrades.
 
 ### DevOps
@@ -68,11 +72,11 @@ Here are some advantages of adopting this hub-and-spoke model for your Power Aut
 
 - It's best to have a pre-production tenant to validate updates before you push updates and components to your production tenant. Since updating the central flows immediately impacts many init flows, it's important to have good-quality analysis and validation. When promoting to the production tenant, make sure to use environment variables for connections, so you can choose the endpoint corresponding to the target tenant.
 
-- Power Platform supports application life cycle management (ALM) of its components with Azure Pipelines or GitHub Actions.
+- Power Platform supports application life-cycle management (ALM) of its components with Azure Pipelines or GitHub Actions.
 
 ### Operations
 
-Use the Center of Excellence (CoE) toolkit for Power Platform to centrally manage flows and monitor them for failures. The CoE toolkit also shows the Power Platform components and dependencies between components. You can design each flow to catch and log failures or notify someone for better supportability.
+Use the [Center of Excellence (CoE) toolkit for Power Platform](/power-platform/guidance/coe/starter-kit) to centrally manage flows and monitor them for failures. The CoE toolkit also shows the Power Platform components and dependencies between components. You can design each flow to catch and log failures or notify someone for better supportability.
 
 ### Security
 
@@ -84,13 +88,13 @@ Use the Center of Excellence (CoE) toolkit for Power Platform to centrally manag
 
 ## Pricing
 
-You pay no additional costs for this scenario if you meet the following conditions:
+You pay no extra costs for this scenario if you meet the following conditions:
 
 - There's no dependency on Power Platform premium connectors.
 
 - The flows can conform to the action executions thresholds of the Microsoft 365 seed license, such as E3 or E5.
 
-Otherwise, you need to purchase premium licenses, per user or per flow plan, for the central flows only. Pricing may vary depending on how many central flows you need in each geographic region. You don't have to assign premium licenses to the init flows, which are usually high in number.
+Otherwise, you need to purchase premium licenses, per user or per flow plan, for the central flows only. Pricing may vary depending on how many central flows you need in each geographic region. You don't have to assign premium licenses to the init flows, which are higher in number.
 
 ## Next steps
 
