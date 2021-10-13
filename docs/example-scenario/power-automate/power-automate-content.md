@@ -30,7 +30,7 @@ SharePoint Online and Power Platform support many geographic regions. Each regio
 
 1. A user initiates, or an event triggers, an init flow workflow. Depending on the trigger type, the init flow can execute in the user's context or in the maker context.
 
-1. The init flow calls a central flow in the appropriate region. For a user context, the init flow authoritatively can pass along the user information to the central flow to assert the user.
+1. The init flow calls a central flow in the appropriate region. For a user context, the init flow can authoritatively pass along the user information to the central flow to assert the user.
 
 1. The central flow can invoke more child flows if needed to keep the flow lightweight.
 
