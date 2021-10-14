@@ -64,7 +64,7 @@ Before getting started with this deployment guide, make sure you:
 
 First you use the Porter CLI to generate a credential set, then deploy the cloud app.  
 
-1. Clone or download the solution sample code from https://github.com/azure-samples/azure-intelligent-edge-patterns. 
+1. Clone or download the solution sample code from https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis. 
 
 1. Porter will generate a set of credentials that will automate deployment of the app. Before running the credential generation command, be sure to have the following available:
 
