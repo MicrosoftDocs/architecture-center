@@ -38,10 +38,10 @@ SharePoint Online and Power Platform support many geographic regions. Each regio
 
 ### Components
 
-This scenario loads data from the following sources:
+This scenario uses the following components:
 
 - [Power Automate](https://flow.microsoft.com) uses flows to build automated processes.
-- [SharePoint](https://www.microsoft.com/microsoft-365/sharepoint) Online sites helps organizations share and manage content, knowledge, and applications.
+- [SharePoint](https://www.microsoft.com/microsoft-365/sharepoint) Online sites help organizations share and manage content, knowledge, and applications.
 - [Power Platform](https://powerplatform.microsoft.com) analyzes data, builds solutions, automates processes, and creates virtual agents.
   - [Power Platform environments](/power-platform/admin/environments-overview) store, manage, and share an organization's business data, apps, chatbots, and flows.
   - [Power Platform Solutions](/power-platform/alm/solution-concepts-alm) are the mechanism for implementing [application lifecycle management (ALM)](https://wikipedia.org/wiki/Application_lifecycle_management) in Power Apps and Power Automate.
