@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Modernize mainframe &amp; midrange data
+  title: Modernize mainframe and midrange data
   titleSuffix: Azure Reference Architectures
   description: Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure.
   author: doodlemania2
@@ -13,7 +13,7 @@ metadata:
     - migration
   ms.custom:
     - fcp
-name: Modernize mainframe &amp; midrange data
+name: Modernize mainframe and midrange data
 azureCategories:
   - migration
 summary: Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure.
