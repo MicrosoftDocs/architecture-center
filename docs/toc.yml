@@ -1270,6 +1270,8 @@ items:
             items:
               - name: Anomaly detector process
                 href: solution-ideas/articles/anomaly-detector-process.yml
+              - name: Apache NiFi on Azure
+                href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Azure analytics end to end
