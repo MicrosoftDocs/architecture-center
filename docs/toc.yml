@@ -2706,6 +2706,8 @@ items:
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Migrate a web app using Azure APIM
                 href: example-scenario/apps/apim-api-scenario.yml
+              - name: Multi-tier app service with service endpoint
+                href: reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml
               - name: Protect APIs with Application Gateway
                 href: reference-architectures/apis/protect-apis.yml
               - name: Scalable and secure WordPress on Azure
