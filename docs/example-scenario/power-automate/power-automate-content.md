@@ -45,7 +45,7 @@ This scenario uses the following components:
 - [Power Platform](https://powerplatform.microsoft.com) analyzes data, builds solutions, automates processes, and creates virtual agents.
   - [Power Platform environments](/power-platform/admin/environments-overview) store, manage, and share an organization's business data, apps, chatbots, and flows.
   - [Power Platform Solutions](/power-platform/alm/solution-concepts-alm) are the mechanism for implementing [application lifecycle management (ALM)](https://wikipedia.org/wiki/Application_lifecycle_management) in Power Apps and Power Automate.
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is a universal platform to manage and secure identities.
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is a universal platform to manage and secure identities.
 
 ### Alternatives
 
@@ -105,7 +105,7 @@ Otherwise, you need to purchase premium licenses, per user or per flow plan, for
 - [Define a Power Platform Environment Strategy](/microsoft-365/community/defining-a-power-platform-environment-strategy)
 - [Microsoft Dataverse Group Teams](/power-platform/admin/manage-group-teams)
 - [Use Environment Variables in Power Platform Solutions](/powerapps/maker/data-platform/environmentvariables)
-- [ALM with Power Platform](/power-platform/alm/)
+- [ALM with Power Platform](/power-platform/alm)
 - [Power Automate Pricing](https://flow.microsoft.com/pricing)
 - [Power Automate Licensing FAQ](/power-platform/admin/powerapps-flow-licensing-faq)
 
