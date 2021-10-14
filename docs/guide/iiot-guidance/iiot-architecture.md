@@ -119,8 +119,8 @@ Industry and domain-specific *Information Models* can be created based on the OP
 Microsoft has developed open source [Azure Industrial IoT](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/readme.md) components, based on OPC UA, which implement identity translation pattern:
 
 - [OPC Twin](https://github.com/Azure/azure-iiot-opc-twin-module) consists of microservices and an Azure IoT Edge module to connect the cloud and the factory network. OPC Twin provides discovery, registration, and synchronous remote control of industrial devices through REST APIs.
-- [OPC Publisher](/azure/iot-accelerators/overview-opc-publisher) is an Azure IoT Edge module that connects to existing OPC UA servers and publishes telemetry data from OPC UA servers in OPC UA PubSub format, in both JSON and binary.
-- [OPC Vault](/azure/iot-accelerators/overview-opc-vault) is a microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud.
+- [OPC Publisher](/azure/industrial-iot/overview-what-is-opc-publisher) is an Azure IoT Edge module that connects to existing OPC UA servers and publishes telemetry data from OPC UA servers in OPC UA PubSub format, in both JSON and binary.
+- [OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service/blob/main/docs/opcvault-services-overview.md) is a microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud.
 - [Discovery Services](https://azure.github.io/Industrial-IoT/modules/discovery.html) is an Azure IoT Edge module that supports network scanning and OPC UA discovery.
 
 The Microsoft Azure IIoT solution also contains a number of services, REST APIs, deployment scripts, and configuration tools that you can integrate into your IIoT analytics solution. These are open source and available on [GitHub](https://azure.github.io/Industrial-IoT/).
