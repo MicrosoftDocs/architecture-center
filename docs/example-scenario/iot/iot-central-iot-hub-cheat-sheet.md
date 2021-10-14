@@ -21,6 +21,8 @@ Using an application platform as a service (aPaaS) streamlines many of the compl
 
 An out-of-the box web UX and API surface area make it simple to monitor device conditions, create rules, and manage millions of devices and their data remotely throughout their life cycles. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. Azure IoT Central also offers built-in disaster recovery, multitenancy, global availability, and a predictable cost structure.
 
+[ ![Diagram detailing the IoT Central architecture and services which compose this aPaaS, such as IoT Hub, Device Provisioning Service, Azure Stream Analytics, and others](./media/iotc-arch.svg) ] (./media/iotc-arch.svg#lightbox)
+
 ## Building with Azure PaaS services
 In certain scenarios you may need a higher degree of control and customization than Azure IoT Central provides. In these cases, Azure also offers individual platform as a service (PaaS) cloud services that you can use to build a custom IoT solution. For example, you might build a solution using a combination of these PaaS services:
 
@@ -34,6 +36,8 @@ In certain scenarios you may need a higher degree of control and customization t
 -   Azure IoT Edge for running AI, third-party services, or your own business
     logic on IoT Edge devices
 
+[ ![Diagram detailing a possible example reference architecture composed of Azure PaaS services described in the article.](./media/azure-iot-arch.svg) ] (./media/azure-iot-arch.svg#lightbox)
+
 ## Comparing approaches
 
 Choosing to build with Azure IoT Central gives you the opportunity to focus time and money on transforming your business and designing innovative offerings, rather than maintaining and updating a complex and continually evolving IoT infrastructure. However, if your solution requires features or services that Azure IoT Central does not currently support, you may need to develop a PaaS solution using Azure IoT Hub as a core element.
@@ -41,6 +45,8 @@ Choosing to build with Azure IoT Central gives you the opportunity to focus time
 You can use the table and links below to help decide if you can use a managed
 solution based on Azure IoT Central, or if you should consider building a PaaS
 solution using Azure IoT Hub.
+
+[ ![Diagram detailing various capabilities that might be required by an IoT solution.  Each row describes a set of capabilities that are available out of the box for customers using IoT Central and how an equivalent set of functionality could be achieved by composition using PaaS services.](./media/comparison-table-light.svg) ] (./media/comparison-table-light.svg#lightbox)
 
 
 |                                         | **Azure IoT Central**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | **Azure IoT Hub**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
