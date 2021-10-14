@@ -8,6 +8,15 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
+products:
+  - azure-stack-hub
+  - azure-app-service
+  - azure-cognitive-services
+  - azure-event-hubs
+  - azure-iot-edge
+  - azure-iot-hub
+categories:
+  - hybrid
 
 # Intent: As an Azure Stack Hub operator, I want to deploy a footfall detection solution using Azure and Azure Stack Hub so I can analyze visitor traffic in retail stores.
 # Keyword: AI footfall detection azure stack hub
