@@ -2109,10 +2109,10 @@ items:
                 href: reference-architectures/enterprise-integration/queues-events.yml
               - name: Enterprise integration using queues and events
                 href: reference-architectures/enterprise-integration/queues-events.yml
-              - name: Power Automate deployment at scale
-                href: example-scenario/power-automate/power-automate.yml
               - name: On-premises data gateway for Azure Logic Apps
                 href: hybrid/gateway-logic-apps.yml
+              - name: Power Automate deployment at scale
+                href: example-scenario/power-automate/power-automate.yml
           - name: Solution ideas
             items:
               - name: Custom Business Processes

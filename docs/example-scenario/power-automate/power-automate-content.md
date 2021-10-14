@@ -1,4 +1,4 @@
-Power Automate is part of the no-code or low-code Power Platform. Microsoft 365 customers use Power Automate for workflow automation and business process flows. This architecture is for Power Automate workflows that replace SharePoint 2010 workflows, and for new SharePoint Online sites. With this solution, you can:
+Microsoft Power Automate is part of the no-code or low-code Microsoft Power Platform. Microsoft 365 customers use Power Automate for workflow automation and business process flows. This architecture is for Power Automate workflows that replace SharePoint 2010 workflows, and for new SharePoint Online sites. With this solution, you can:
 
 - Carefully plan your Power Automate deployment, governance, and operation strategy.
 - Meet organizational needs like data residency requirements, data loss prevention (DLP), and flexible and minimal licensing requirements.
@@ -18,9 +18,11 @@ This architecture applies to workflows where IT teams fully control the workflow
 
 ![Diagram showing the hub-and-spoke inspired Power Automate deployment topology.](media/power-automate.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/Power%20Automate%20Hub%20and%20Spoke.vsdx) of this architecture.*
+
 Azure hub-spoke network topology inspires this architecture. Power Platform [Solutions](/powerapps/maker/data-platform/solutions-overview) flows can invoke child flows from Solutions. Parent and child flows ease flow management by avoiding flows with hundreds of steps.
 
-This solution provisions a Power Automate *init flow* workflow for each SharePoint site. The init flow calls a *central flow* workflow, which runs all the actions that meet a business need.
+This solution provisions a Power Automate *init flow* workflow for each SharePoint site. In the init flow, either a user or an event *initiates* a workflow. The init flow calls a *central flow* workflow, which runs all the actions that meet a business need.
 
 SharePoint Online and Power Platform support many geographic regions. Each region has a set of SharePoint Online sites. This *multi-geo* concept extends to the central flows.
 
@@ -38,15 +40,16 @@ SharePoint Online and Power Platform support many geographic regions. Each regio
 
 This scenario loads data from the following sources:
 
-- [Power Automate](https://flow.microsoft.com/)
-- [SharePoint Online sites](/sharepoint/introduction)
-- [Power Platform environments](/power-platform/admin/environments-overview)
-- [Power Platform Solutions](/power-platform/alm/solution-concepts-alm)
-- [Azure Active Directory (Azure AD)](/azure/active-directory)
+- [Power Automate](https://flow.microsoft.com) uses flows to build automated processes.
+- [SharePoint](https://www.microsoft.com/microsoft-365/sharepoint) Online sites helps organizations share and manage content, knowledge, and applications.
+- [Power Platform](https://powerplatform.microsoft.com) analyzes data, builds solutions, automates processes, and creates virtual agents.
+  - [Power Platform environments](/power-platform/admin/environments-overview) store, manage, and share an organization's business data, apps, chatbots, and flows.
+  - [Power Platform Solutions](/power-platform/alm/solution-concepts-alm) are the mechanism for implementing [application lifecycle management (ALM)](https://wikipedia.org/wiki/Application_lifecycle_management) in Power Apps and Power Automate.
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is a universal platform to manage and secure identities.
 
 ### Alternatives
 
-- You can use this architecture with [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) by replacing the central flows with logic apps. Logic Apps doesn't have some triggers, like *SharePoint - For a Selected File*. In that case, the Power Automate init flow can use the trigger, and then call a logic app.
+- You can use this architecture with [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) by replacing the central flows with logic apps. There are some triggers that Logic Apps doesn't have, like *SharePoint - For a Selected File*. In that case, the Power Automate init flow can use the trigger, and then call a logic app.
 
   Logic Apps supports the consumption model, where you pay for what you use. A hybrid model using both Power Automate and Logic Apps is also feasible. If you don't want to worry about thresholds, Logic Apps is the recommended solution.
 
@@ -70,9 +73,9 @@ Here are some advantages of adopting this hub-and-spoke model for your Power Aut
 
 - Power Platform supports continuous integration and continuous delivery (CI/CD) for its components in Solutions. You can export and import Solutions as packages across Power Platform environments and across tenants.
 
-- It's best to have a pre-production tenant to validate updates before you push updates and components to your production tenant. Since updating the central flows immediately impacts many init flows, it's important to have good-quality analysis and validation. When promoting to the production tenant, make sure to use environment variables for connections, so you can choose the endpoint corresponding to the target tenant.
+- It's best to have a pre-production tenant to validate updates before you push updates and components to your production tenant. Since updating the central flows immediately impacts many init flows, it's important to have high-quality analysis and validation. When promoting to the production tenant, make sure to use environment variables for connections, so you can choose the endpoint corresponding to the target tenant.
 
-- Power Platform supports [application lifecycle management (ALM)](https://wikipedia.org/wiki/Application_lifecycle_management) of its components with Azure Pipelines or GitHub Actions.
+- Power Platform supports component and workflow ALM with Azure Pipelines or GitHub Actions.
 
 ### Operations
 
@@ -80,7 +83,7 @@ Use the [Center of Excellence (CoE) toolkit for Power Platform](/power-platform/
 
 ### Security
 
-- Entitlement management for flows you create under Solutions is different from flows outside Solutions. With flows outside Solutions, you can give permissions to a SharePoint site List or Library to initiate the flow. Flows in Solutions tie permissions to a Dataverse Environment-based group called *Group Team*, which you can map to an Azure AD group. You can then manage users in the Azure AD group.
+- Entitlement management for flows you create under Solutions is different from flows outside Solutions. With flows outside Solutions, you can give permissions to a SharePoint site list or library to initiate the flow. Flows in Solutions tie permissions to a Dataverse Environment-based group called *Group Team*, which you can map to an Azure AD group. You can then manage users in the Azure AD group.
 
 - All users except the environment administrator must be given read/execute-only permissions in Production environments, so end users can't create any components.
 
