@@ -6,11 +6,11 @@ Another difference between the systems is their high availability (HA) and disas
 
 ## Potential use cases
 
-Other key drivers for moving from IBM AIX on premises to RHEL in Azure include the following factors:
+Key drivers for moving from on-premises IBM AIX to RHEL in Azure might include the following factors:
 
 - **Updated hardware and reduced costs.** On-premises, legacy hardware components continually go out of date and out of support. Cloud components are always up to date. Month-to-month costs can be less in the cloud.
 
-- **Agile DevOps environment.** Compliance changes in an on-premises AIX environment can take weeks. You frequently need to set up similar performance engineering environments to test the changes. In an Azure cloud environment, you can set up user acceptance testing (UAT) and development environments in hours. You can implement changes through a modern, well-defined DevOps continuous integration and continuous delivery (CI/CD) pipeline.
+- **Agile DevOps environment.** Deploying compliance changes in an on-premises AIX environment can take weeks. You need to set up similar performance engineering environments many times to test changes. In an Azure cloud environment, you can set up user acceptance testing (UAT) and development environments in hours. You can implement changes through a modern, well-defined DevOps continuous integration and continuous delivery (CI/CD) pipeline.
 
 - **Improved Business Continuity and Disaster Recovery (BCDR).** In on-premises environments, recovery time objectives (RTOs) can be long. In the example on-premises AIX environment, the RTO via traditional backups and restores was two days. Migrating to Azure reduced the RTO to two hours.
 
@@ -18,7 +18,8 @@ Other key drivers for moving from IBM AIX on premises to RHEL in Azure include t
 
 The following diagram shows the pre-migration, on-premises AIX legacy system architecture:
 
-![Diagram showing the pre-migration AIX system architecture.](media/aix-on-premises-system.png)
+:::image type="content" source="media/aix-on-premises-system.png" alt-text="Diagram that shows the pre-migration AIX system architecture." border="false" lightbox="media/aix-on-premises-system.png":::
+*Download a [Visio file](https://arch-center.azureedge.net/UNIX-AIX-Azure-RHEL-migration.vsdx) of this architecture.*
 
 - Network appliances provide an extensive network routing and load-balancing layer (**A**).
 
@@ -40,20 +41,22 @@ The following diagram shows the pre-migration, on-premises AIX legacy system arc
 
 The following diagram shows the Azure RHEL post-migration system architecture:
 
-![Diagram showing the post-migration Azure system architecture.](media/rhel-azure-system.png)
+:::image type="content" source="media/rhel-azure-system.png" alt-text="Diagram that shows the post-migration Azure architecture." border="false" lightbox="media/rhel-azure-system.png":::
 
-1. Traffic into the Azure system routes through Azure Traffic Manager and Azure ExpressRoute:
+*Download a [Visio file](https://arch-center.azureedge.net/UNIX-AIX-Azure-RHEL-migration.vsdx) of this architecture.*
 
-   - ExpressRoute connects to Azure with low latency, high reliability and speed, and bandwidths up to 100 Gbps. ExpressRoute provides a secure, reliable private connection to Azure virtual networks.
-   - Traffic Manager distributes traffic to the public-facing applications across Azure regions.
+1. Traffic into the Azure system routes through Azure ExpressRoute and Azure Traffic Manager:
 
-1. A network management layer provides endpoint security, routing, and load-balancing services with Azure Load Balancer and Azure Web Application Firewall.
+   - ExpressRoute provides a secure, reliable private connection to Azure virtual networks. ExpressRoute connects to Azure with low latency, high reliability and speed, and bandwidths up to 100 Gbps.
+   - Traffic Manager distributes the public-facing application traffic across Azure regions.
+
+1. A network management layer provides endpoint security, routing, and load-balancing services. This layer uses Azure Load Balancer and Azure Web Application Firewall.
 
 1. Azure App Service serves as the presentation tier. App Service is a platform-as-a-service (PaaS) layer for .NET or Java applications. You can configure App Service for availability and scalability within and across Azure regions.
 
 1. The solution encapsulates each application tier in its own virtual network, segmented with network security groups.
 
-1. [Availability sets](/azure/virtual-machines/availability-set-overview) and shared Azure Storage provide HA and scalability for virtual machines (VMs) at the application tier level. Application cluster servers share transaction state and scale up VMs as necessary, increasing availability within an Azure region.
+1. [Availability sets](/azure/virtual-machines/availability-set-overview) and shared Azure Storage provide HA and scalability for virtual machines (VMs) at the application tier level. Application cluster servers share transaction state and scale up VMs as necessary.
 
 1. The application uses a [private endpoint](/azure/private-link/tutorial-private-endpoint-sql-portal) connection to store and access data in Azure SQL Database. SQL Database runs in a business continuity configuration, which provides geo-replication and autofailover groups for automatic and cross-geographic BCDR.
 
@@ -119,7 +122,9 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 ### Availability
 
-NetApp Files can keep the file store in the secondary region updated with [Cross-region replication of Azure NetApp Files Volumes](/azure/azure-netapp-files/cross-region-replication-introduction). This Azure feature provides data protection through cross-region volume replication. You can fail over critical applications in case of a region-wide outage. Cross-region volume replication is currently in preview.
+- NetApp Files can keep the file store in the secondary region updated with [Cross-region replication of Azure NetApp Files Volumes](/azure/azure-netapp-files/cross-region-replication-introduction). This Azure feature provides data protection through cross-region volume replication. You can fail over critical applications in case of a region-wide outage. Cross-region volume replication is currently in preview.
+
+- Application cluster servers scale up VMs as necessary, which increases availability within Azure regions.
 
 ### Operations
 
@@ -133,11 +138,11 @@ For proactive monitoring and management, consider using [Azure Monitor](https://
 
 - To estimate sizing for VMs coming from an AIX system, keep in mind that the AIX CPUs are about 1.4 times faster than most x86 vCPUs. This guideline can vary by workload.
 
-- Place multiple VMs that need to communicate with each other in a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios). Locating the VMs close to each other promotes low communication latency.
+- Place multiple VMs that need to communicate with each other in a [proximity placement group](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios). Locating the VMs close to each other provides the lowest communication latency.
 
 ### Scalability
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) provides high scale for implementations that use significant bandwidth, either for initial replication or ongoing changed data replication.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) supports high scale for implementations that use significant bandwidth, either for initial replication or ongoing changed data replication.
 
 - Infrastructure management, including scalability, is automated in Azure databases.
 
