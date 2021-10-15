@@ -1,7 +1,7 @@
 ---
 title: Azure Storage considerations for multitenancy
 titleSuffix: Azure Architecture Center
-description: This article describes the features of Azure Storage that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure Storage in a multitenant solution.
+description: This article describes the features of Azure Storage that are useful when working with multitenanted systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.
 author: johndowns
 ms.author: jodowns
 ms.date: 10/18/2021
@@ -25,31 +25,31 @@ Azure Storage is a foundational service used in almost every solution. Multitena
 
 ## Features of Azure Storage that support multitenancy
 
-Azure Storage includes a number of features that support multitenancy.
+Azure Storage includes many features that support multitenancy.
 
 ### Shared access signatures
 
-When you work with Azure Storage from a client application, it's important to consider whether client requests should be sent through another component that you control, like a content delivery network or API, or if the client should connect directly to your storage account. There might be good reasons to send requests through another component, including caching data at the edge of your network. However, in some situations, it's advantageous for client endpoints to connect directly to Azure Storage to download or upload data. This helps you improve the performance of your solution, especially when you work with large blobs or large numbers of files. It also reduces the load on your backend applications and servers, and it reduces the number of network hops. A [shared access signature](/azure/storage/common/storage-sas-overview) (SAS) enables you to securely provide your client applications with access to objects in Azure Storage.
+When you work with Azure Storage from a client application, it's important to consider whether client requests should be sent through another component that you control, like a content delivery network or API, or if the client should connect directly to your storage account. There might be good reasons to send requests through another component, including caching data at the edge of your network. However, in some situations, it's advantageous for client endpoints to connect directly to Azure Storage to download or upload data. This connection helps you improve the performance of your solution, especially when you work with large blobs or large numbers of files. It also reduces the load on your backend applications and servers, and it reduces the number of network hops. A [shared access signature](/azure/storage/common/storage-sas-overview) (SAS) enables you to securely provide your client applications with access to objects in Azure Storage.
 
-Shared access signatures can be used to restrict the scope of operations that a client can perform, and the objects that they can perform operations against. For example, if you have a shared storage account for all of your tenants, and you store all of tenant A's data in a blob container named `tenanta`, you can create an SAS that only permits tenant A's users to access that container. See [Isolation models](#isolation-models) for further information about the approaches you can use to isolate your tenants' data in a storage account.
+Shared access signatures can be used to restrict the scope of operations that a client can perform, and the objects that they can perform operations against. For example, if you have a shared storage account for all of your tenants, and you store all of tenant A's data in a blob container named `tenanta`, you can create an SAS that only permits tenant A's users to access that container. For more information, see [Isolation models](#isolation-models) to explore the approaches you can use to isolate your tenants' data in a storage account.
 
-The [Valet Key pattern](../../../patterns/valet-key.md) is useful as a way to issue constrained and scoped shared access signatures from your application tier. For example, suppose you have a multitenant application that allows users to upload videos. Your API or application tier can authenticate the client using your own authentication system, and then provide a SAS to the client that allows them to upload a video file to a specified blob into a container and blob path that you specify. The client then uploads the file directly to the storage account, avoiding the additional bandwidth and load on your API. If they try to read data from the blob container, or if they try to write data to a different part of the container to another container in the storage account, Azure Storage blocks the request. The signature expires after a configurable time period.
+The [Valet Key pattern](../../../patterns/valet-key.md) is useful as a way to issue constrained and scoped shared access signatures from your application tier. For example, suppose you have a multitenant application that allows users to upload videos. Your API or application tier can authenticate the client using your own authentication system. You can then provide a SAS to the client that allows them to upload a video file to a specified blob, into a container and blob path that you specify. The client then uploads the file directly to the storage account, avoiding the extra bandwidth and load on your API. If they try to read data from the blob container, or if they try to write data to a different part of the container to another container in the storage account, Azure Storage blocks the request. The signature expires after a configurable time period.
 
 [Stored access policies](/rest/api/storageservices/define-stored-access-policy) extend the SAS functionality, which enables you to define a single policy that can be used when issuing multiple shared access signatures.
 
 ### Identity-based access control
 
-Azure Storage also provides [identity-based access control](/azure/storage/blobs/authorize-access-azure-active-directory) by using Azure Active Directory (Azure AD). This capability also provides the ability to use [attribute-based access control](/azure/role-based-access-control/conditions-overview), which gives you finer-grained access to blob paths, or to blobs that have been tagged with a specific tenant ID.
+Azure Storage also provides [identity-based access control](/azure/storage/blobs/authorize-access-azure-active-directory) by using Azure Active Directory (Azure AD). This capability also enables you to use [attribute-based access control](/azure/role-based-access-control/conditions-overview), which gives you finer-grained access to blob paths, or to blobs that have been tagged with a specific tenant ID.
 
 ### Lifecycle management
 
 When you use blob storage in a multitenant solution, your tenants might require different policies for data retention. When you store large volumes of data, you might also want to configure the data for a specific tenant to automatically be moved to the [cool or archive storage tiers](/azure/storage/blobs/storage-blob-storage-tiers), for cost-optimization purposes.
 
-Consider using [lifecycle management policies](/azure/storage/blobs/lifecycle-management-overview) to set the blob lifecycle for all tenants, or for a subset of tenants. A lifecycle management policy can be applied to blob containers, or to a subset of blobs within a container. However, note that there are limits on the number of rules you can specify in a lifecycle management policy. Make sure you plan and test your use of this feature in a multitenant environment, and consider deploying multiple storage accounts, if you will exceed the limits.
+Consider using [lifecycle management policies](/azure/storage/blobs/lifecycle-management-overview) to set the blob lifecycle for all tenants, or for a subset of tenants. A lifecycle management policy can be applied to blob containers, or to a subset of blobs within a container. However, there are limits on the number of rules you can specify in a lifecycle management policy. Make sure you plan and test your use of this feature in a multitenant environment, and consider deploying multiple storage accounts, if you will exceed the limits.
 
 ### Immutable storage
 
-When you configure [immutable blob storage](/azure/storage/blobs/immutable-storage-overview) on storage containers with [time-based retention policies](/azure/storage/blobs/immutable-time-based-retention-policy-overview), Azure Storage prevents deletion or modification of the data before a specified time. This is enforced at the storage account layer and applies to all users. Even your organization's administrators can't delete immutable data.
+When you configure [immutable blob storage](/azure/storage/blobs/immutable-storage-overview) on storage containers with [time-based retention policies](/azure/storage/blobs/immutable-time-based-retention-policy-overview), Azure Storage prevents deletion or modification of the data before a specified time. The prevention is enforced at the storage account layer and applies to all users. Even your organization's administrators can't delete immutable data.
 
 Immutable storage can be useful when you work with tenants that have legal or compliance requirements to maintain data or records. However, you should consider how this feature is used within the context of your [tenant lifecycle](../considerations/tenant-lifecycle.md). For example, if tenants are offboarded and request the deletion of their data, you might not be able to fulfil their requests. If you use immutable storage for your tenants' data, consider how you address this issue in your terms of service.
 
@@ -162,7 +162,7 @@ By creating tables for each tenant, you can use Azure Storage access control, in
 
 If you choose to share a queue, consider the quotas and limits that apply. In solutions with a high request volume, consider whether the target throughput of 2,000 messages per second is sufficient.
 
-Be aware that queues don't provide partitioning or sub-queues, so data for all tenants could be intermingled.
+Queues don't provide partitioning or subqueues, so data for all tenants could be intermingled.
 
 #### Queues per tenant
 
