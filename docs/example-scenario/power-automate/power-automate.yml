@@ -5,7 +5,7 @@ metadata:
   description: See how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows.
   author: svarukala
   ms.author: svarukal
-  ms.date: 10/14/2021
+  ms.date: 10/15/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
