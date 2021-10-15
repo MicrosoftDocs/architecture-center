@@ -4,7 +4,7 @@ This document discuss the dataflow, product integrations, and configurations ava
 
 ## Potential use cases
 
-Below you can see an example of gold customer records produced by CI's data unification process that takes customer data from multiple source systems to clean and merge them. In addition to core customer attributes, CI can also enrich the customer records with attributes like churn scores and brand affinities to name a few. Below are examples of such records.
+Below you can see an example of gold customer records produced by CI's data unification process that takes customer data from multiple source systems to clean and merge them. In addition to core customer attributes, CI can also enrich the customer records with attributes like churn scores and brand affinities to name a few. Below are fictional examples of such records.
 
 ![Customer Records in a database table](customerdimensionexample.png?raw=true "Example of customer records in a database table")
 
