@@ -1171,6 +1171,8 @@ items:
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
               - name: Orchestrate MLOps on Azure Databricks
                 href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
+              - name: Predict hospital readmissions using machine learning
+                href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
               - name: Real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Real-time scoring Python models
@@ -1812,7 +1814,7 @@ items:
                     href: serverless-quest/functions-app-operations.md
                   - name: Serverless Functions app security
                     href: serverless-quest/functions-app-security.md
-                  - name: Event Hubs with Azure Functions 
+                  - name: Event Hubs with Azure Functions
                     items:
                       - name: Overview
                         href: serverless/event-hubs-functions/event-hubs-functions.yml
@@ -1823,7 +1825,7 @@ items:
                       - name: Security
                         href: serverless/event-hubs-functions/security.md
                       - name: Observability
-                        href: serverless/event-hubs-functions/observability.yml 
+                        href: serverless/event-hubs-functions/observability.yml
               - name: Architectures
                 items:
                   - name: Azure Functions in a hybrid environment
