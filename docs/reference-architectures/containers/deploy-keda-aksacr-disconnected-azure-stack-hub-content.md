@@ -282,7 +282,8 @@ following:
     <TargetName>ASHKEDAExample</TargetName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Azure.Storage.Queues" Version="12.6.2" />
+    <PackageReference Include="Azure.Storage.Queues" Version="12.6.2" 
+/>
   </ItemGroup>
 </Project>
 ```
@@ -389,7 +390,8 @@ following commands:
 zcat ash-keda-example.tar.gz | sudo docker load
 
 # Tag the Docker images
-docker tag ash-keda-example:latest "$DOCKER_SERVER"/ash-keda-example:latest
+docker tag ash-keda-example:
+latest "$DOCKER_SERVER"/ash-keda-example:latest
 
 # Login to ACR
 az acr login --name myacr
@@ -422,7 +424,8 @@ spec:
       spec:
         containers:
         - name: ash-keda-example
-          image: myacr.azsacr.mylocation.azurestack.corp.microsoft.com/ash-keda-
+          image: 
+myacr.azsacr.mylocation.azurestack.corp.microsoft.com/ash-keda-
 example:latest
           resources:
             requests:
@@ -470,8 +473,8 @@ the pod logs for ash-keda-example on your AKS cluster.
 Check the pod logs with the following commands:
 
 ```
-kubectl get pods # Copy the most recent ash-keda-example pod name 
-into the next line
+kubectl get pods # Copy the most recent ash-keda-example pod name into 
+the next line
 kubectl logs <most recent ash-keda-example pod name>
 ```
 
