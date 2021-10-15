@@ -4,7 +4,7 @@ This solution idea demonstrates how end manufacturers can connect their assets t
 
 ## Architecture
 
-![Architecture Diagram](../media/condition-monitoring.png)
+[ ![Architecture Diagram](../media/condition-monitoring.svg) ](../media/condition-monitoring.svg#lightbox)
 
 ## Data flow
 
