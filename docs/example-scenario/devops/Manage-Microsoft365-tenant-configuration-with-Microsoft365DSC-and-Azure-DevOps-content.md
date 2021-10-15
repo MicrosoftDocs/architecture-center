@@ -1,4 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This example scenario can be used to automate changes to Microsoft 365 tenant configurations using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) module, which is able to configure and manage Microsoft 365 tenants in a true DevOps style: Configuration as Code. This solution can be used to track changes made by service administrators and put approval process around deployments to Microsoft 365 tenants. This helps prevent untracked changes into Microsoft 365 tenants and assists in preventing configuration drift between multiple Microsoft 365 tenants.
 
@@ -11,8 +10,8 @@ Managing Microsoft 365 tenant configuration in a controlled and automated manner
 
 ## Architecture
 
-![Architecture Diagram](../media/Manage-Microsoft365-tenant-configuration-with-Microsoft365DSC-and-Azure-DevOps-content.png)
-*Download an [SVG](../media/Manage-Microsoft365-tenant-configuration-with-Microsoft365DSC-and-Azure-DevOps-content.svg) of this architecture.*
+![Architecture Diagram](./media/Manage-Microsoft365-tenant-configuration-with-Microsoft365DSC-and-Azure-DevOps-content.png)
+*Download an [SVG](./media/Manage-Microsoft365-tenant-configuration-with-Microsoft365DSC-and-Azure-DevOps-content.svg) of this architecture.*
 
 1. Admin 1 adds/updates/deletes entry in his fork of M365 Config file
 2. Admin 1 commits and syncs changes to his forked repro
