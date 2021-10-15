@@ -10,7 +10,7 @@ Key drivers for moving from on-premises IBM AIX to RHEL in Azure might include t
 
 - **Updated hardware and reduced costs.** On-premises, legacy hardware components continually go out of date and out of support. Cloud components are always up to date. Month-to-month costs can be less in the cloud.
 
-- **Agile DevOps environment.** Deploying compliance changes in an on-premises AIX environment can take weeks. You need to set up similar performance engineering environments many times to test changes. In an Azure cloud environment, you can set up user acceptance testing (UAT) and development environments in hours. You can implement changes through a modern, well-defined DevOps continuous integration and continuous delivery (CI/CD) pipeline.
+- **Agile DevOps environment.** Deploying compliance changes in an on-premises AIX environment can take weeks. You might have to set up similar performance engineering environments many times to test changes. In an Azure cloud environment, you can set up user acceptance testing (UAT) and development environments in hours. You can implement changes through a modern, well-defined DevOps continuous integration and continuous delivery (CI/CD) pipeline.
 
 - **Improved Business Continuity and Disaster Recovery (BCDR).** In on-premises environments, recovery time objectives (RTOs) can be long. In the example on-premises AIX environment, the RTO via traditional backups and restores was two days. Migrating to Azure reduced the RTO to two hours.
 
@@ -19,6 +19,7 @@ Key drivers for moving from on-premises IBM AIX to RHEL in Azure might include t
 The following diagram shows the pre-migration, on-premises AIX legacy system architecture:
 
 :::image type="content" source="media/aix-on-premises-system.png" alt-text="Diagram that shows the pre-migration AIX system architecture." border="false" lightbox="media/aix-on-premises-system.png":::
+
 *Download a [Visio file](https://arch-center.azureedge.net/UNIX-AIX-Azure-RHEL-migration.vsdx) of this architecture.*
 
 - Network appliances provide an extensive network routing and load-balancing layer (**A**).
@@ -122,7 +123,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 ### Availability
 
-- NetApp Files can keep the file store in the secondary region updated with [Cross-region replication of Azure NetApp Files Volumes](/azure/azure-netapp-files/cross-region-replication-introduction). This Azure feature provides data protection through cross-region volume replication. You can fail over critical applications in case of a region-wide outage. Cross-region volume replication is currently in preview.
+- NetApp Files can keep the file store in the secondary region updated with [Cross-region replication of Azure NetApp Files Volumes](/azure/azure-netapp-files/cross-region-replication-introduction). This Azure feature provides data protection through cross-region volume replication. You can fail over critical applications if there is a region-wide outage. Cross-region volume replication is currently in preview.
 
 - Application cluster servers scale up VMs as necessary, which increases availability within Azure regions.
 
