@@ -76,7 +76,7 @@ Although this list provides a comprehensive view of all the potential roles that
 
 - **Data Movement:** You can use Databricks to copy data from an on-premises system to the data lake. Typically, Databricks is appropriate for data that has a streaming or real-time requirement, such as telemetry from a medical device.
 
-- **Machine Learning:** H2O.ai, DataRobot, Dataiku, and other vendors offer automated machine learning capabilities that are similar to Machine Learning autoML. You can use such platforms to supplement Azure data engineering and machine learning activities.
+- **Machine Learning:** H2O.ai, DataRobot, Dataiku, and other vendors offer automated machine learning capabilities that are similar to Machine Learning AutoML. You can use such platforms to supplement Azure data engineering and machine learning activities.
 
 ## Considerations
 
