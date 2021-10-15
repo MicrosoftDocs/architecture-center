@@ -270,8 +270,7 @@ In Azure, you can use [network security groups][Network security groups] to rest
 
 We recommend a *jumpbox* for connecting to the NiFi cluster for administrative tasks. Use this security-hardened VM with [just-in-time (JIT) access][Secure your management ports with just-in-time access] or [Azure Bastion][What is Azure Bastion?]. Set up network security groups to control how you grant access to the jumpbox or Azure Bastion. You can achieve network isolation and control by using network security groups judiciously on the architecture's various subnets.
 
-The following screenshot shows a typical virtual network. It contains a common subnet for the jumpbox, virtual machine scale set, and ZooKeeper VMs. This simplified network topology groups components into one subnet. Follow your organization's guidelines for separation of duties and network design.
-
+The following screenshot shows components in a typical virtual network. It contains a common subnet for the jumpbox, virtual machine scale set, and ZooKeeper VMs. This simplified network topology groups components into one subnet. Follow your organization's guidelines for separation of duties and network design.
 
 :::image type="content" source="media/nifi-virtual-network-devices-subnets.png" alt-text="Screenshot of a table that lists the devices, types, and subnets of the components of a virtual network.":::
 
@@ -286,7 +285,7 @@ NiFi in Azure doesn't need access to the public internet to run. If the data flo
    - Destination: `Internet`
    - Action: `Deny`
 
-:::image type="content" source="media/nifi-outbound-security-rules.png" alt-text="Screenshot showing values of outbound security rule settings like Priority, Name, Port, Protocol, Source, Destination, and Action." lightbox="nifi-outbound-security-rules-lightbox.png":::
+:::image type="content" source="media/nifi-outbound-security-rules.png" alt-text="Screenshot showing values of outbound security rule settings like Priority, Name, Port, Protocol, Source, Destination, and Action." lightbox="./media/nifi-outbound-security-rules-lightbox.png":::
 
 With this rule in place, you can still access some Azure services from the data flow if you configure a private endpoint in the virtual network. Use [Azure Private Link][What is Azure Private Link?] for this purpose. This service provides a way for your traffic to travel on the Microsoft backbone network while not requiring any other external network access. NiFi currently supports Private Link for the Blob Storage and Data Lake Storage processors. If a network time protocol (NTP) server isn't available in your private network, allow outbound access to NTP. For detailed information, see [Time sync for Linux VMs in Azure][Time sync for Linux VMs in Azure].
 
@@ -407,8 +406,8 @@ Otherwise, a hostname verification failure or an HTTP HOST header verification f
 | `nifi.security.truststore` | The path to a JKS or PKCS12 truststore that contains certificates or CA certificates that authenticate trusted users and cluster nodes. | `./conf/truststore.jks` |
 | `nifi.security.truststoreType` | The truststore type. | `JKS` or `PKCS12` |
 | `nifi.security.truststorePasswd` | The truststore password. | `RJlpGe6/TuN5fG+VnaEPi8` |
-| `nifi.cluster.protocol.is.secure` | A value that indicates whether to enable TLS for intracluster communication. If `nifi.cluster.is.node` is `true`, set this value to `true` to enable cluster TLS. | `true` |
-| `nifi.remote.input.secure` | A value that indicates whether to enable TLS for site-to-site. | `true` |
+| `nifi.cluster.protocol.is.secure` | The status of TLS for intracluster communication. If `nifi.cluster.is.node` is `true`, set this value to `true` to enable cluster TLS. | `true` |
+| `nifi.remote.input.secure` | The status of TLS for site-to-site communication. | `true` |
 
 The following example shows how these properties appear in `$NIFI_HOME/conf/nifi.properties`. Note that the `nifi.web.http.host` and `nifi.web.http.port` values are blank.
 
@@ -439,7 +438,7 @@ To enable TLS for NiFi client access to ZooKeeper, set the following properties 
 
 | Property name | Description | Example values |
 | --- | --- | --- |
-| `nifi.zookeeper.client.secure` | A value that indicates whether to connect to ZooKeeper with client TLS enabled. | `true` |
+| `nifi.zookeeper.client.secure` | The status of client TLS when connecting to ZooKeeper. | `true` |
 | `nifi.zookeeper.security.keystore` | The path to a JKS, PKCS12, or PEM keystore that contains the private key of the certificate that's presented to ZooKeeper for authentication. | `./conf/zookeeper.keystore.jks` |
 | `nifi.zookeeper.security.keystoreType` | The keystore type. | `JKS`, `PKCS12`, `PEM`, or autodetect by extension |
 | `nifi.zookeeper.security.keystorePasswd` | The keystore password. | `caB6ECKi03R/co+N+64lrz` |
@@ -520,7 +519,7 @@ AzureDiagnostics
 
 The following chart of the query results shows a time view of the health of the cluster:
 
-:::image type="content" source="media/nifi-health-query-chart.png" alt-text="Screenshot of a bar chart. The bars show a constant number of healthy nodes over a 24-hour period and no unhealthy nodes." lightbox="nifi-health-query-chart-lightbox.png":::
+:::image type="content" source="media/nifi-health-query-chart.png" alt-text="Screenshot of a bar chart. The bars show a constant number of healthy nodes over a 24-hour period and no unhealthy nodes." lightbox="./media/nifi-health-query-chart-lightbox.png":::
 
 ### Availability considerations
 
@@ -631,7 +630,7 @@ table_name
 
 That query produces a chart like the one in this screenshot:
 
-:::image type="content" source="media/nifi-bytes-queued-query-chart.png" alt-text="Screenshot of a line chart. The lines show the number of queued bytes over a four-hour period." lightbox="nifi-bytes-queued-query-chart-lightbox.png":::
+:::image type="content" source="media/nifi-bytes-queued-query-chart.png" alt-text="Screenshot of a line chart. The lines show the number of queued bytes over a four-hour period." lightbox="./media/nifi-bytes-queued-query-chart-lightbox.png":::
 
 > [!NOTE]
 > When you run NiFi on Azure, you're not limited to the Log Analytics reporting task. NiFi supports reporting tasks for many third-party monitoring technologies. For a list of supported reporting tasks, see the **Reporting Tasks** section of the [Apache NiFi Documentation index][Apache NiFi Overview].
@@ -690,7 +689,7 @@ NiFiAppLogs_CL
 
 That query produces results similar to the following results:
 
-:::image type="content" source="media/nini-app-logs-query-results.png" alt-text="Screenshot of query results that include a time stamp, the computer, raw data, the type, and the resource I D.":::
+:::image type="content" source="media/nini-app-logs-query-results.png" alt-text="Screenshot of query results that include a time stamp, the computer, raw data, the type, and the resource I D." lightbox="./media/nini-app-logs-query-results-lightbox.png":::
 
 #### Infrastructure log configuration
 
@@ -698,7 +697,7 @@ You can use Monitor to monitor and manage VMs or physical computers. These resou
 
 The following screenshot shows a sample agent configuration for NiFi VMs. The  `Perf` table stores the collected data.
 
-:::image type="content" source="media/nifi-linux-performance-counters-data.png" alt-text="Screenshot showing the Advanced settings window. The Data and Linux Performance Counters menu are highlighted. Performance counter settings are visible." lightbox="nifi-linux-performance-counters-data-lightbox.png":::
+:::image type="content" source="media/nifi-linux-performance-counters-data.png" alt-text="Screenshot showing the Advanced settings window. The Data and Linux Performance Counters menu are highlighted. Performance counter settings are visible." lightbox="./media/nifi-linux-performance-counters-data-lightbox.png":::
 
 Here's a sample query for the NiFi app `Perf` logs:
 
@@ -714,7 +713,7 @@ Perf
 
 That query produces a report like the one in this screenshot:
 
-:::image type="content" source="media/nifi-app-perf-log-query-report.png" alt-text="Screenshot of a line chart. The lines show the CPU percentage that NiFi VMs used over a four-hour period." lightbox="nifi-app-perf-log-query-report-lightbox.png":::
+:::image type="content" source="media/nifi-app-perf-log-query-report.png" alt-text="Screenshot of a line chart. The lines show the CPU percentage that NiFi VMs used over a four-hour period." lightbox="./media/nifi-app-perf-log-query-report-lightbox.png":::
 
 #### Alerts
 
@@ -736,11 +735,11 @@ The following sections discuss recommended, non-default configurations for NiFi 
 - `$ZOOKEEPER_HOME/conf/zoo.cfg`
 - `$ZOOKEEPER_HOME/bin/zkEnv.sh`
 
-For detailed information about available configuration properties and files, see the [Apache NiFi System Administrator's Guide][NiFi System Administrators Guide] and ZooKeeper Administrator's Guide.
+For detailed information about available configuration properties and files, see the [Apache NiFi System Administrator's Guide][NiFi System Administrators Guide] and [ZooKeeper Administrator's Guide][ZooKeeper Administrator Guide - Configuration Parameters].
 
 #### NiFi
 
-For an Azure deployment, consider adjusting properties in `$NIFI_HOME/conf/nifi.properties`. The following table lists the most important ones:
+For an Azure deployment, consider adjusting properties in `$NIFI_HOME/conf/nifi.properties`. The following table lists the most important properties. For more recommendations and insights, see the [Apache NiFi mailing lists][Apache nifi Mailing Lists].
 
 | Parameter | Description | Default | Recommendation |
 | --- | --- | --- | --- |
@@ -906,7 +905,7 @@ For more information, see the following resources:
 
 - [Apache NiFi System Administrator's Guide][NiFi System Administrators Guide]
 - [Apache NiFi mailing lists][Apache nifi Mailing Lists]
-- [Cloudera best practices for setting up a high performance NiFi installation][Cloudera HDF/CFM NIFI Best practices for setting up a high performance NiFi installation]
+- [Cloudera best practices for setting up a high-performance NiFi installation][Cloudera HDF/CFM NIFI Best practices for setting up a high performance NiFi installation]
 - [Azure premium storage: design for high performance][Azure premium storage: design for high performance]
 - [Troubleshoot Azure virtual machine performance on Linux or Windows][Troubleshoot Azure virtual machine performance on Linux or Windows]
 
@@ -987,3 +986,4 @@ For more information, see the following resources:
 [What is Azure Private Link?]: /azure/private-link/private-link-overview
 [What are virtual machine scale sets?]: /azure/virtual-machine-scale-sets/overview
 [ZooKeeper Administrator's Guide]: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html
+[ZooKeeper Administrator Guide - Configuration Parameters]: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_configuration
