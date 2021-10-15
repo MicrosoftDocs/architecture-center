@@ -1,11 +1,11 @@
 
-This example scenario can be used to automate changes to Microsoft 365 tenant configurations using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) module, which is able to configure and manage Microsoft 365 tenants in a true DevOps style: Configuration as Code. This solution can be used to track changes made by service administrators and put approval process around deployments to Microsoft 365 tenants. This helps prevent untracked changes into Microsoft 365 tenants and assists in preventing configuration drift between multiple Microsoft 365 tenants.
+This example scenario can be used to automate changes to Microsoft 365 tenant configurations using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) module, which is able to configure and manage Microsoft 365 tenants in a true DevOps style: Configuration as Code. This solution can be used to track changes made by service administrators and put approval process around deployments to Microsoft 365 tenants. This solution helps prevent untracked changes into Microsoft 365 tenants and helps preventing configuration drift between multiple Microsoft 365 tenants.
 
 ## Potential use cases
 
 Managing Microsoft 365 tenant configuration in a controlled and automated manner, using DevOps tools and practices, across:
 
-- Development, test, acceptance and production environments
+- Development, test, acceptance, and production environments
 - Multiple customer tenants, like in a managed service provider scenario
 
 ## Architecture
@@ -13,8 +13,8 @@ Managing Microsoft 365 tenant configuration in a controlled and automated manner
 ![Architecture Diagram](./media/Manage-Microsoft365-tenant-configuration-with-Microsoft365DSC-and-Azure-DevOps-content.png)
 *Download an [SVG](./media/Manage-Microsoft365-tenant-configuration-with-Microsoft365DSC-and-Azure-DevOps-content.svg) of this architecture.*
 
-1. Admin 1 adds/updates/deletes entry in his fork of M365 Config file
-2. Admin 1 commits and syncs changes to his forked repro
+1. Admin 1 adds/updates/deletes entry in user's fork of M365 Config file
+2. Admin 1 commits and syncs changes to user's forked repro
 3. Admin 1 creates pull request back to main repository
 4. Build pipeline runs on pull request
 5. Admins review code and perform merge on PR
@@ -26,7 +26,7 @@ Managing Microsoft 365 tenant configuration in a controlled and automated manner
 
 ### Components
 
-The following assets and components where used to build the Microsoft365DSC DevOps solution.
+The following assets and components were used to build the Microsoft365DSC DevOps solution.
 
 - [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/) allows continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target
 - [Microsoft365DSC](https://microsoft365dsc.com) allows organizations to automate the deployment, configuration, and monitoring of Microsoft 365 Tenants via PowerShell Desired State Configuration
@@ -43,7 +43,7 @@ We chose to use Azure KeyVault to store secrets, since that offers scalability. 
 
 Most people starting out with PowerShell Desired State Configuration experience a steep learning curve. To smoothen this learning curve, make sure you have a solid understanding of PowerShell and have experience with creating scripts.
 
-When talking to Operations teams, they usually consider Azure DevOps "a tool that developers use" and which is not for Operations. However those teams can greatly benefit from using Azure DevOps by storing their scripts in a repository (and adding source control/versioning), automated deployments of those scripts and using boards to track tasks, projects, etc. Please invest some time in investigating what Azure DevOps can offer Operations teams.
+When talking to Operations teams, they usually consider Azure DevOps "a tool that developers use" and which is not for Operations. However those teams can greatly benefit from using Azure DevOps by storing their scripts in a repository (and adding source control/versioning), automated deployments of those scripts and using boards to track tasks, projects, etc. Invest some time in investigating what Azure DevOps can offer Operations teams.
 
 ### Operations
 
@@ -51,9 +51,9 @@ Using "Configuration as Code" isn't a one time deal, it is a shift in the way of
 
 ### Scalability
 
-This solution is very suitable when working with multiple environments, multiple workloads and/or multiple teams. The validation process can be configured in such a way approval has to be given by experts from each workload. The solution is also able to be extended to deploy to multiple tenants, both for a Dev, Test, Acceptance, Production use and/or for multiple organizations.
+This solution is suitable when working with multiple environments, multiple workloads and/or multiple teams. The validation process can be configured in such a way approval has to be given by experts from each workload. The solution is also able to be extended to deploy to multiple tenants, both for a Dev, Test, Acceptance, Production use and/or for multiple organizations.
 
-To increase scalability even further, an aggregated configuration data solution like [Datum](https://github.com/gaelcolas/datum/) can be considered. This is outside the scope of this scenario.
+To increase scalability even further, an aggregated configuration data solution like [Datum](https://github.com/gaelcolas/datum/) can be considered. Datum is outside the scope of this scenario.
 
 ### Security
 
@@ -61,7 +61,7 @@ Most Microsoft365DSC resources support authentication via username/password, but
 
 ### DevOps
 
-This solution can run in Azure DevOps server and a similar solution can be created in GitHub using Github actions.  
+This solution can run in Azure DevOps server and a similar solution can be created in GitHub using GitHub actions.  
 
 ## Deploy this scenario
 
@@ -73,7 +73,7 @@ The whitepaper [Microsoft365Dsc and Azure DevOps](https://microsoft365dsc.com/Pa
 
 ## Related resources
 
-- [Microsoft365DSC Youtube channel](https://www.youtube.com/channel/UCveScabVT6pxzqYgGRu17iw)
+- [Microsoft365DSC YouTube channel](https://www.youtube.com/channel/UCveScabVT6pxzqYgGRu17iw)
 - [Microsoft365DSC site](https://microsoft365dsc.com/)
 - [Microsoft365DSC export generator tool](https://export.microsoft365dsc.com/)
 
