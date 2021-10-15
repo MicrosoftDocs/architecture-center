@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: AIX UNIX on-premises to Azure Linux migration
+  titleSuffix: Azure Example Scenarios
+  description: See an example of migrating an IBM AIX on-premises system and web application to RedHat Enterprise Linux in Azure.
+  author: jjfrost
+  ms.author: jfrost
+  ms.date: 10/15/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom: fcp
+azureCategories:
+  - migration
+  - networking
+products:
+  - azure-netapp-files
+  - azure-site-recovery
+  - azure-sql-database
+  - azure-virtual-machines
+  - azure-virtual-network
+name: AIX UNIX on-premises to Azure Linux migration
+summary: See an example of migrating an IBM AIX on-premises system and web application to RedHat Enterprise Linux in Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/rhel-azure-system.png
+content: |
+  [!include[](migrate-aix-azure-linux-content.md)]

@@ -2253,6 +2253,8 @@ items:
             items:
               - name: Architectures
                 items:
+                  - name: AIX UNIX to Azure Linux migration
+                    href: example-scenario/unix-migration/migrate-aix-azure-linux.yml
                   - name: Batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
                   - name: General mainframe refactor to Azure
