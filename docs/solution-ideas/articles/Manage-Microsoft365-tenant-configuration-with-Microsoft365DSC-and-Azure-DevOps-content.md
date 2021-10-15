@@ -66,17 +66,15 @@ This solution can run in Azure DevOps server and a similar solution can be creat
 
 ## Deploy this scenario
 
-[Blog Post here]()
+The whitepaper [Microsoft365Dsc and Azure DevOps](https://microsoft365dsc.com/Pages/Resources/Whitepapers/Managing%20Microsoft%20365%20with%20Microsoft365Dsc%20and%20Azure%20DevOps.pdf) details creating a solution with Azure DevOps and Microsoft365DSC.
 
 ## Next steps
 
 - [Microsoft365DSC source code](https://github.com/microsoft/Microsoft365DSC)
-- [Microsoft365DSC and Azure DevOps Whitepaper](https://microsoft365dsc.com/Pages/Resources/Whitepapers/Managing%20Microsoft%20365%20with%20Microsoft365Dsc%20and%20Azure%20DevOps.pdf)
 
 ## Related resources
 
-- [Microsoft365DSC Resources](https://microsoft365dsc.com/Pages/Resources/Default.aspx)
-- [Microsoft365DSC Youtube](https://www.youtube.com/channel/UCveScabVT6pxzqYgGRu17iw)
+- [Microsoft365DSC Youtube channel](https://www.youtube.com/channel/UCveScabVT6pxzqYgGRu17iw)
 - [Microsoft365DSC site](https://microsoft365dsc.com/)
 - [Microsoft365DSC export generator tool](https://export.microsoft365dsc.com/)
 
