@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: How to deploy KEDA to Azure Kubernetes Service/Azure Container Registry on disconnected Azure Stack Hub
+  title: Deploy KEDA to Azure Kubernetes Service/Azure Container Registry on a disconnected Azure Stack Hub
   description: This article shows you how to deploy Kubernetes Event-driven Autoscaling (KEDA) to a Kubernetes cluster on a disconnected Azure Stack Hub, using Azure Kubernetes Service (AKS) and Azure Container Registry.
   author: EdPrice-MSFT
   ms.author: chasat
-  ms.date: 10/08/2021
+  ms.date: 10/18/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -14,7 +14,7 @@ metadata:
   ms.custom:
     - containers
     - reference-architecture
-name: How to deploy KEDA to Azure Kubernetes Service/Azure Container Registry on disconnected Azure Stack Hub
+name: Deploy KEDA to Azure Kubernetes Service/Azure Container Registry on a disconnected Azure Stack Hub
 azureCategories:
   - containers
 summary: This article shows you how to deploy Kubernetes Event-driven Autoscaling (KEDA) to a Kubernetes cluster on a disconnected Azure Stack Hub, using Azure Kubernetes Services (AKS) and Azure Container Registry.
