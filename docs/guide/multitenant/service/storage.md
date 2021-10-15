@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Storage that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure Storage in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/30/2021
+ms.date: 10/15/2021
 ms.topic: conceptual
 ms.service: architecture-center
 products:
@@ -21,7 +21,7 @@ ms.custom:
 
 # Multitenancy and Azure Storage
 
-Azure Storage is a foundational service used in almost every solution. Multitenant solutions often use Azure Storage for blob, file, queue, and table storage. On this page, we describe some of the features of Azure Storage that are useful for multitenant solutions, and links to guidance that can help when planning your use of Azure Storage.
+Azure Storage is a foundational service used in almost every solution. Multitenant solutions often use Azure Storage for blob, file, queue, and table storage. On this page, we describe some of the features of Azure Storage that are useful for multitenant solutions, and then we provide links to the guidance that can help you, when you're planning how you're going to use Azure Storage.
 
 ## Features of Azure Storage that support multitenancy
 
@@ -29,13 +29,13 @@ Azure Storage includes a number of features that support multitenancy.
 
 ### Shared access signatures
 
-When you work with Azure Storage from a client application, it's important to consider whether client requests should be sent through another component that you control, like a content delivery network or API, or if the client should connect directly to your storage account. There might be good reasons to send requests through another component, including caching data at the edge of your network. However, in some situation, it's advantageous for client endpoints to connect directly to Azure Storage to download or upload data. This helps to improve the performance of your solution, especially when you work with large blobs or large numbers of files. It also reduces the load on your backend applications and servers, and it reduces the number of network hops. A [shared access signature](/azure/storage/common/storage-sas-overview) (SAS) enables you to securely provide your client applications with access to objects in Azure Storage.
+When you work with Azure Storage from a client application, it's important to consider whether client requests should be sent through another component that you control, like a content delivery network or API, or if the client should connect directly to your storage account. There might be good reasons to send requests through another component, including caching data at the edge of your network. However, in some situations, it's advantageous for client endpoints to connect directly to Azure Storage to download or upload data. This helps you improve the performance of your solution, especially when you work with large blobs or large numbers of files. It also reduces the load on your backend applications and servers, and it reduces the number of network hops. A [shared access signature](/azure/storage/common/storage-sas-overview) (SAS) enables you to securely provide your client applications with access to objects in Azure Storage.
 
-Shared access signatures can be used to restrict the scope of operations that a client can perform, and the objects that they can perform operations against. For example, if you have a shared storage account for all of your tenants, and store all of tenant A's data in a blob container named `tenanta`, you can create a SAS that only permits tenant A's users to access that container. See [Isolation models](#isolation-models) for further information about the approaches you can use isolate your tenants' data in a storage account.
+Shared access signatures can be used to restrict the scope of operations that a client can perform, and the objects that they can perform operations against. For example, if you have a shared storage account for all of your tenants, and you store all of tenant A's data in a blob container named `tenanta`, you can create an SAS that only permits tenant A's users to access that container. See [Isolation models](#isolation-models) for further information about the approaches you can use to isolate your tenants' data in a storage account.
 
-The [Valet Key pattern](../../../patterns/valet-key.md) is useful as a way to issue constrained and scoped shared access signatures from your application tier. For example, suppose you have a multitenant application that allows users to upload videos. Your API or application tier can authenticate the client using your own authentication system, and then provide a SAS to the client that allows them to upload a video file to a specified blob into a container and blob path that you specify. The client then uploads the file directly to the storage account, avoiding the additional bandwidth and load on your API. If they try to read data from the blob container, or if they try to write data to a different part of the container or another container in the storage account, Azure Storage blocks the request. The signature expires after a configurable time period.
+The [Valet Key pattern](../../../patterns/valet-key.md) is useful as a way to issue constrained and scoped shared access signatures from your application tier. For example, suppose you have a multitenant application that allows users to upload videos. Your API or application tier can authenticate the client using your own authentication system, and then provide a SAS to the client that allows them to upload a video file to a specified blob into a container and blob path that you specify. The client then uploads the file directly to the storage account, avoiding the additional bandwidth and load on your API. If they try to read data from the blob container, or if they try to write data to a different part of the container to another container in the storage account, Azure Storage blocks the request. The signature expires after a configurable time period.
 
-[Stored access policies](/rest/api/storageservices/define-stored-access-policy) extend the SAS functionality, enabling you to define a single policy that can be used when issuing multiple shared access signatures.
+[Stored access policies](/rest/api/storageservices/define-stored-access-policy) extend the SAS functionality, which enables you to define a single policy that can be used when issuing multiple shared access signatures.
 
 ### Identity-based access control
 
