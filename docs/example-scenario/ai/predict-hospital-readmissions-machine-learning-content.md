@@ -21,7 +21,7 @@ This architecture represents a sample end-to-end workflow for predicting hospita
 
 This framework makes use of native Azure analytics services for data ingestion, storage, data processing, analysis, and model deployment.
 
-:::image type="content" source="media/predicting-hospital-readmissions-machine-learning.png" lightbox="media/predicting-hospital-readmissions-machine-learning.png" alt-text="Architecture of a multi-tier app.":::
+:::image type="content" source="media/predict-hospital-readmissions-machine-learning.png" lightbox="media/predict-hospital-readmissions-machine-learning.png" alt-text="Architecture of a multi-tier app.":::
 
 The architecture is described in terms of the roles of the participants.
 
@@ -41,8 +41,8 @@ The architecture is described in terms of the roles of the participants.
      1. Identify and correct anomalies in the dataset—the prediction model should be performed on a dataset with a normal distribution.
      1. The expected output is these training datasets:
         - One to use for creating a satisfactory prediction model that's ready for deployment.
-        - One that can be given to a Citizen Data Scientist for automated model prediction (autoML).
-1. **Citizen Data Scientist:** Responsible for building a prediction model that's based on training data from the Data Scientist. A Citizen Data Scientist most likely uses an automated machine learning (AutoML) capability that doesn't require heavy coding skills to create prediction models.
+        - One that can be given to a Citizen Data Scientist for automated model prediction (AutoML).
+1. **Citizen Data Scientist:** Responsible for building a prediction model that's based on training data from the Data Scientist. A Citizen Data Scientist most likely uses an AutoML capability that doesn't require heavy coding skills to create prediction models.
 
    The expected output is a satisfactory prediction model that's ready for deployment.
 
@@ -61,7 +61,7 @@ Although this list provides a comprehensive view of all the potential roles that
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is an orchestration service that can move data from on-premises systems to Azure, to work with other Azure data services. Pipelines are used for data movement, and mapping data flows are used to perform various transformation tasks such as extract, transform, load (ETL) and extract, load, transform (ELT). In this architecture, the Data Engineer uses Data Factory to run a pipeline that copies historical hospital readmission data from an on-premises SQL Server to cloud storage.
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) is a Spark-based analytics and machine learning service that's used for data engineering and ML workloads. In this architecture, the Data Engineer uses Databricks to call a Data Factory pipeline to run a Databricks notebook. The notebook is developed by the Data Scientist to handle the initial data cleansing and feature engineering tasks. The Data Scientist may write code in additional notebooks to standardize the data and to build and deploy prediction models.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a massively scalable and secure storage service for high-performance analytics workloads. In this architecture, the Data Engineer uses Data Lakes Storage to define the initial landing zone for the on-premises data that's loaded to Azure, and the final landing zone for the training data. The data, in raw or final format, is ready for consumption by various downstream systems.
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a collaborative environment that's used to train, deploy, automate, manage, and track machine learning models. Automated machine learning (autoML) is a capability that automates the time-consuming and iterative tasks that are involved in ML model development. The Data Scientist uses Machine Learning to track ML runs from Databricks, and to create autoML models to serve as a performance benchmark for the Data Scientist's ML models. A Citizen Data Scientist uses this service to quickly run training data through autoML to generate models, without needing detailed knowledge of machine learning algorithms.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a collaborative environment that's used to train, deploy, automate, manage, and track machine learning models. Automated machine learning (AutoML) is a capability that automates the time-consuming and iterative tasks that are involved in ML model development. The Data Scientist uses Machine Learning to track ML runs from Databricks, and to create AutoML models to serve as a performance benchmark for the Data Scientist's ML models. A Citizen Data Scientist uses this service to quickly run training data through AutoML to generate models, without needing detailed knowledge of machine learning algorithms.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that unifies data integration, enterprise data warehousing, and big data analytics. Users have the freedom to query data by using serverless or dedicated resources, at scale. In this architecture:
   - The Data Engineer uses Synapse Analytics to easily create relational tables from data in the data lake to be the foundation for operational analytics.
   - The Data Scientist uses it to quickly query data in the data lake and develop prediction models by using Spark notebooks.
@@ -98,7 +98,7 @@ Providing real-time clinical data and insights is critical for many healthcare o
 
 ### Security
 
-Healthcare data often includes sensitive protected health information (PHI) and personally identifiable information (PII). The following resources are available to secure this data:
+Healthcare data often includes sensitive protected health information (PHI) and personal information. The following resources are available to secure this data:
 
 - Data Lake Storage uses Azure role-based access control (RBAC) and access control lists (ACLs) to create an [access control model](/azure/storage/blobs/data-lake-storage-access-control-model).
 - Synapse Analytics provides a number of [access and security controls](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage?bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&toc=/azure/synapse-analytics/sql-data-warehouse/toc.json) at the database, column, and row levels. Data can also be protected at the cell level and through [data encryption](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview?bc=%2Fazure%2Fsynapse-analytics%2Fsql-data-warehouse%2Fbreadcrumb%2Ftoc.json&toc=%2Fazure%2Fsynapse-analytics%2Fsql-data-warehouse%2Ftoc.json&tabs=azure-portal).
@@ -137,7 +137,7 @@ You can estimate costs by using the [Azure pricing calculator](https://azure.mic
 ### Healthcare solutions
 
 - [Microsoft Cloud for Healthcare](https://www.microsoft.com/industry/health/microsoft-cloud-for-healthcare)
-- [Azure for Healthcare—Healthcare Solutions](https://azure.microsoft.com/industries/healthcare)
+- [Azure for healthcare](https://azure.microsoft.com/industries/healthcare)
 - [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/?WT.mc_id=iot-c9-niner)
 - [IoMT FHIR Connector for Azure](https://azure.microsoft.com/blog/accelerate-iomt-on-fhir-with-new-microsoft-oss-connector)
 - [Remote Patient Monitoring with Internet of Medical Things (IoMT)](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Remote-Patient-Monitoring-with-Internet-of-Medical-Things-IoMT)
