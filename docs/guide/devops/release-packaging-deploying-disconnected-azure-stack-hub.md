@@ -3,7 +3,7 @@ title: Release packaging for deploying to disconnected Azure Stack Hub with Univ
 description: Create a release package using Azure Pipelines, Azure Artifacts, and Universal Packages to create and configure resources on a disconnected Azure Stack Hub
 author: EdPrice-MSFT
 ms.author: brimille
-ms.date: 10/14/2021
+ms.date: 10/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -20,11 +20,11 @@ products:
 ---
 
 
-# Release packaging for deploying to disconnected Azure Stack Hub with Universal Packages
+# Release packaging for deploying to a disconnected Azure Stack Hub with Universal Packages
 
 This article discusses creating a release package using Azure Pipelines,
 Azure Artifacts, and [Universal
-Packages](/azure/devops/pipelines/artifacts/universal-packages?view=azure-devops&tabs=yaml)
+Packages](/azure/devops/pipelines/artifacts/universal-packages)
 to create and configure resources on a disconnected Azure Stack Hub. Key
 considerations are also discussed to help you design and plan for deploying to a
 disconnected Stack Hub.
@@ -161,27 +161,25 @@ disconnected Azure Stack Hub.
 
 ## Next steps
 
-Azure Architecture Center guides:
-
-- [Configure hybrid cloud connectivity using Azure and Azure Stack
-    Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-connectivity)
-
-- [Configure hybrid cloud identity for Azure and Azure Stack Hub
-    apps](/azure/architecture/hybrid/deployments/solution-deployment-guide-identity)
-
-- [Deploy an app that scales cross-cloud using Azure and Azure Stack
-    Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling)
-
 Product documentation:
 
 - [Azure Stack
     Hub](https://azure.microsoft.com/products/azure-stack/hub/#overview)
 
+- [Azure Stack Hub
+    Overview](/azure-stack/operator/azure-stack-overview2)
+
+- [Azure Stack Hub disconnected deployment
+    considerations](/azure-stack/operator/azure-stack-disconnected-deployment)
+
 - [Azure
-    Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+    Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
 - [Artifacts in Azure
-    Pipelines](/azure/devops/pipelines/artifacts/artifacts-overview?view=azure-devops&tabs=nuget)
+    Pipelines](/azure/devops/pipelines/artifacts/artifacts-overview)
+
+- [Differences between global Azure, Azure Stack Hub, and Azure Stack
+    HCI](/azure-stack/operator/compare-azure-azure-stack)
 
 Microsoft Learn learning paths:
 
@@ -193,17 +191,13 @@ Microsoft Learn learning paths:
 
 ## Related resources
 
-- [Azure Stack Hub
-    Overview](/azure-stack/operator/azure-stack-overview?view=azs-2102)
+Azure Architecture Center guides:
 
-- [Azure Stack Hub disconnected deployment
-    considerations](/azure-stack/operator/azure-stack-disconnected-deployment?view=azs-2102)
+- [Configure hybrid cloud connectivity using Azure and Azure Stack
+    Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-connectivity)
 
-- [Azure
-    Pipelines](/azure/devops/pipelines/?view=azure-devops)
+- [Configure hybrid cloud identity for Azure and Azure Stack Hub
+    apps](/azure/architecture/hybrid/deployments/solution-deployment-guide-identity)
 
-- [Artifacts in Azure
-    Pipelines](/azure/devops/pipelines/artifacts/artifacts-overview?view=azure-devops&tabs=nuget)
-
-- [Differences between global Azure, Azure Stack Hub, and Azure Stack
-    HCI](/azure-stack/operator/compare-azure-azure-stack?view=azs-2102)
+- [Deploy an app that scales cross-cloud using Azure and Azure Stack
+    Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling)
