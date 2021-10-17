@@ -15,7 +15,7 @@ metadata:
     - containers
   ms.custom:
     - acom-architecture
-  social_image_url: /azure/architecture/solution-ideas/media/condition-monitoring.png
+  social_image_url: /azure/architecture/solution-ideas/media/condition-monitoring.svg
 name: Condition monitoring for industrial IoT
 azureCategories:
   - iot
@@ -30,6 +30,6 @@ products:
   - azure-iot-hub
   - azure-stream-analytics
   - azure-time-series-insights
-thumbnailUrl: /azure/architecture/browse/thumbs/condition-monitoring.png
+thumbnailUrl: /azure/architecture/browse/thumbs/condition-monitoring.svg
 content: |
    [!include[](condition-monitoring-content.md)]

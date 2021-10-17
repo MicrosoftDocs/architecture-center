@@ -201,6 +201,10 @@ items:
                     href: guide/multitenant/service/resource-manager.md
               - name: Storage and data
                 items:
+                  - name: Azure Storage
+                    href: guide/multitenant/service/storage.md
+                  - name: Azure SQL Database
+                    href: guide/multitenant/service/sql-database.md
                   - name: Azure Cosmos DB
                     href: guide/multitenant/service/cosmos-db.md
           - name: Related resources
@@ -241,7 +245,7 @@ items:
   - name: Microsoft Azure Well-Architected Framework
     items:
       - name: Overview
-        href: framework/index.md  
+        href: framework/index.md
       - name: Reliability
         items:
               - name: About
@@ -375,7 +379,7 @@ items:
               - name: Code deployments
                 href: framework/security/deploy-code.md
           - name: Monitor-remediate
-            items: 
+            items:
               - name: Checklist
                 href: framework/security/monitor.md
               - name: Tools
@@ -665,7 +669,7 @@ items:
           - name: Overview
             href: industries/retail.md
           - name: Guides
-            items: 
+            items:
               - name: Data management in the retail industry
                 href: /previous-versions/azure/industry-marketing/retail/retail-data-management-overview
                 maintainContext: true
@@ -675,11 +679,11 @@ items:
               - name: Optimize and reuse recommendations
                 href: /previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization
                 maintainContext: true
-              - name: Visual search in retail with CosmosDB
-                href: /previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview
-                maintainContext: true
               - name: SKU optimization for consumer brands
                 href: /previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide
+                maintainContext: true
+              - name: Visual search in retail with CosmosDB
+                href: /previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview
                 maintainContext: true
           - name: Architectures
             items:
@@ -687,6 +691,9 @@ items:
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
+              - name: Hybrid AI footfall detection for retail
+                href: /hybrid/app-solutions/pattern-retail-footfall-detection
+                maintainContext: true
               - name: Intelligent search engine for e-commerce
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Magento e-commerce platform in AKS
@@ -704,7 +711,7 @@ items:
           - name: Overview
             href: industries/finance.md
           - name: Guides
-            items: 
+            items:
               - name: Risk grid computing in banking
                 href: /previous-versions/azure/industry-marketing/financial/risk-grid-banking-overview
                 maintainContext: true
@@ -734,8 +741,10 @@ items:
                 href: example-scenario/data/fraud-detection.yml
               - name: Replicate and sync mainframe data in Azure
                 href: reference-architectures/migration/sync-mainframe-data-with-azure.yml
-          - name: Compliance Blueprints
+          - name: Compliance architecture
             items:
+              - name: AKS regulated cluster for PCI
+                href: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-ra-code-assets
               - name: Blueprint - Analytics for PCI DSS
                 href: /previous-versions/azure/security/blueprints/pcidss-analytics-overview
                 maintainContext: true
@@ -762,11 +771,13 @@ items:
             href: example-scenario/digital-health/health-portal.yml
           - name: Health data consortium
             href: example-scenario/data/azure-health-data-consortium.yml
+          - name: Population health management
+            href: solution-ideas/articles/population-health-management-for-healthcare.yml
           - name: Precision medicine pipeline
             href: example-scenario/precision-medicine/genomic-analysis-reporting.yml
           - name: Virtual visits with Cloud for Healthcare
             href: example-scenario/mch-health/virtual-health-mch.yml
-          - name: Compliance Blueprints
+          - name: Compliance architecture
             items:
               - name: Blueprint - HIPAA/HITRUST data and AI
                 href: /previous-versions/azure/security/blueprints/azure-health
@@ -774,7 +785,7 @@ items:
               - name: Implement the healthcare blueprint for AI
                 href: /previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint
                 maintainContext: true
-              - name: HIPAA and HITRUST compliant health data AI
+              - name: HIPAA and HITRUST compliant health data
                 href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
       - name: Government
         items:
@@ -792,7 +803,7 @@ items:
             href: example-scenario/private-web-app/private-web-app.yml
           - name: Azure Virtual Desktop for the enterprise
             href: example-scenario/wvd/windows-virtual-desktop.yml
-          - name: Compliance Blueprints
+          - name: Compliance architecture
             items:
               - name: Blueprint - Analytics for FedRAMP
                 href: /previous-versions/azure/security/blueprints/fedramp-analytics-overview
@@ -811,7 +822,7 @@ items:
           - name: Overview
             href: industries/manufacturing.md
           - name: Guides
-            items: 
+            items:
               - name: Industrial IoT analytics
                 href: guide/iiot-guidance/iiot-architecture.md
               - name: Upscale ML lifecycle with MLOps framework
@@ -829,7 +840,7 @@ items:
                 href: /previous-versions/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data
                 maintainContext: true
           - name: Architectures
-            items: 
+            items:
               - name: Build a speech-to-text transcription pipeline
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Computer vision on the edge
@@ -851,7 +862,7 @@ items:
           - name: Scalable personalization on Azure
             href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
       - name: Energy and environment
-        items: 
+        items:
           - name: Run reservoir simulations
             href: example-scenario/infrastructure/reservoir-simulation.yml
           - name: Geospatial data processing and analytics
@@ -869,9 +880,9 @@ items:
               - name: 3D video rendering
                 href: example-scenario/infrastructure/video-rendering.yml
               - name: Digital image-based modeling on Azure
-                href: example-scenario/infrastructure/image-modeling.yml 
+                href: example-scenario/infrastructure/image-modeling.yml
           - name: Databases for gaming
-            items: 
+            items:
               - name: Gaming using Azure MySQL
                 href: solution-ideas/articles/gaming-using-azure-database-for-mysql.yml
               - name: Gaming using Cosmos DB
@@ -914,7 +925,7 @@ items:
                   - name: Asynchronous multiplayer basics
                     href: /gaming/azure/reference-architectures/multiplayer-asynchronous
                     maintainContext: true
-                  - name: Serverless asynchronous multiplayer 
+                  - name: Serverless asynchronous multiplayer
                     href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
                     maintainContext: true
       - name: Automotive and transportation
@@ -1139,7 +1150,7 @@ items:
               - name: Batch scoring with Spark on Databricks
                 href: reference-architectures/ai/batch-scoring-databricks.yml
               - name: Blueprint architectures
-                items:                
+                items:
                   - name: Blueprint - HIPAA/HITRUST health data and AI
                     href: /previous-versions/azure/security/blueprints/azure-health
                     maintainContext: true
@@ -1148,6 +1159,8 @@ items:
                     maintainContext: true
               - name: Chatbot for hotel booking
                 href: example-scenario/ai/commerce-chatbot.yml
+              - name: Citizen AI with the Power Platform Platform and Azure
+                href: example-scenario/ai/citizen-ai-power-platform.yml
               - name: Computer vision on the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Deploy AI and ML at the edge
@@ -1164,6 +1177,8 @@ items:
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
               - name: Orchestrate MLOps on Azure Databricks
                 href: reference-architectures/ai/orchestrate-mlops-azure-databricks.yml
+              - name: Predict hospital readmissions using machine learning
+                href: example-scenario/ai/predict-hospital-readmissions-machine-learning.yml
               - name: Real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
               - name: Real-time scoring Python models
@@ -1302,6 +1317,8 @@ items:
                 href: reference-architectures/data/stream-processing-databricks.yml
               - name: Stream processing with Azure Stream Analytics
                 href: reference-architectures/data/stream-processing-stream-analytics.yml
+              - name: Stream processing with fully managed open-source data engines
+                href: example-scenario/data/open-source-data-engine-stream-processing.yml
           - name: Solution ideas
             items:
               - name: Advanced analytics
@@ -1628,6 +1645,8 @@ items:
                 href: reference-architectures/data/cluedin.yml
               - name: Master data management with Profisee
                 href: reference-architectures/data/profisee-master-data-management-data-factory.yml
+              - name: Migrate master data services with CluedIn
+                href: reference-architectures/data/migrate-master-data-services-with-cluedin.yml
               - name: N-tier app with Cassandra
                 href: reference-architectures/n-tier/n-tier-cassandra.yml
               - name: SQL 2008 R2 failover cluster in Azure
@@ -1801,6 +1820,18 @@ items:
                     href: serverless-quest/functions-app-operations.md
                   - name: Serverless Functions app security
                     href: serverless-quest/functions-app-security.md
+                  - name: Event Hubs with Azure Functions
+                    items:
+                      - name: Overview
+                        href: serverless/event-hubs-functions/event-hubs-functions.yml
+                      - name: Performance and scale
+                        href: serverless/event-hubs-functions/performance-scale.yml
+                      - name: Resilient design
+                        href: serverless/event-hubs-functions/resilient-design.md
+                      - name: Security
+                        href: serverless/event-hubs-functions/security.md
+                      - name: Observability
+                        href: serverless/event-hubs-functions/observability.yml
               - name: Architectures
                 items:
                   - name: Azure Functions in a hybrid environment
@@ -1831,6 +1862,8 @@ items:
             items:
               - name: DevOps Checklist
                 href: checklist/dev-ops.md
+              - name: Release packaging for deploying to disconnected Azure Stack Hub
+                href: guide/devops/release-packaging-deploying-disconnected-azure-stack-hub.md
               - name: Advanced Azure Resource Manager templates
                 items:
                   - name: Overview
@@ -2036,8 +2069,8 @@ items:
                     href: multitenant-identity/web-api.md
                   - name: Cache access tokens
                     href: multitenant-identity/token-cache.md
-                  - name: Client assertion
-                    href: multitenant-identity/client-assertion.md
+                  - name: Client certificate
+                    href: multitenant-identity/client-certificate.md
                   - name: Federate with a customer's AD FS
                     href: multitenant-identity/adfs.md
               - name: Integrate on-premises AD with Azure
@@ -2078,16 +2111,18 @@ items:
             items:
               - name: Basic enterprise integration on Azure
                 href: reference-architectures/enterprise-integration/basic-enterprise-integration.yml
-              - name: Data integration with Logic Apps and SQL Server
+              - name: Data integration with Logic Apps and SQL
                 href: example-scenario/integration/logic-apps-data-integration.yml
               - name: Enterprise business intelligence
                 href: reference-architectures/data/enterprise-bi-synapse.yml
-              - name: Enterprise integration using queues and events
+              - name: Enterprise integration - queues and events
                 href: reference-architectures/enterprise-integration/queues-events.yml
+              - name: On-premises data gateway for Logic Apps
+                href: hybrid/gateway-logic-apps.yml
+              - name: Power Automate deployment at scale
+                href: example-scenario/power-automate/power-automate.yml
               - name: Publish internal APIs to external users
                 href: example-scenario/apps/publish-internal-apis-externally.yml
-              - name: On-premises data gateway for Azure Logic Apps
-                href: hybrid/gateway-logic-apps.yml
           - name: Solution ideas
             items:
               - name: Custom Business Processes
@@ -2158,12 +2193,12 @@ items:
                     href: example-scenario/iot/real-time-iot-updates-cloud-apps.yml
                   - name: Scale solutions with deployment stamps
                     href: example-scenario/iot/application-stamps.yml
-              - name: Azure IoT client SDK support 
+              - name: Azure IoT client SDK support
                 href: guide/iot/azure-iot-client-sdk-support.md
               - name: Choose an IoT solution
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.md
               - name: Moving from test to production
-                href: example-scenario/iot/iot-move-to-production.md 
+                href: example-scenario/iot/iot-move-to-production.md
           - name: Architectures
             items:
               - name: Azure IoT reference architecture
@@ -2174,6 +2209,8 @@ items:
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Connected factory Hierarchy Service
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
+              - name: Efficient Docker image deployment
+                href: example-scenario/iot/efficient-docker-image-deployment.yml
               - name: IoT and data analytics
                 href: example-scenario/data/big-data-with-iot.yml
               - name: IoT using Cosmos DB
@@ -2183,7 +2220,7 @@ items:
               - name: Project 15 Open Platform
                 href: solution-ideas/articles/project-15-iot-sustainability.yml
               - name: Smart places with Azure Digital Twins
-                href: example-scenario/iot/smart-places.yml                
+                href: example-scenario/iot/smart-places.yml
           - name: Solution ideas
             items:
               - name: Condition monitoring
@@ -2566,7 +2603,7 @@ items:
               - name: SAP S/4 HANA for Large Instances
                 href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
               - name: SAP workload automation using Suse on Azure
-                href: solution-ideas/articles/sap-workload-automation-suse.yml  
+                href: solution-ideas/articles/sap-workload-automation-suse.yml
       - name: Security
         items:
           - name: Guides
@@ -2681,6 +2718,8 @@ items:
                 href: example-scenario/apps/ecommerce-search.yml
               - name: Migrate a web app using Azure APIM
                 href: example-scenario/apps/apim-api-scenario.yml
+              - name: Multi-tier app service with service endpoint
+                href: reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml
               - name: Protect APIs with Application Gateway
                 href: reference-architectures/apis/protect-apis.yml
               - name: Scalable and secure WordPress on Azure

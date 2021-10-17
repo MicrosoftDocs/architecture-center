@@ -524,7 +524,7 @@ cause the authentication provider to emit a newTokenAvailable event to the
 transports.
 
 A basic SAS token sample is provided in the
-[simple\_sample\_device\_with\_sas.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_with_sas.js)
+[simple\_sample\_device\_with\_sas.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/simple_sample_device_with_sas.js)
 example.
 
 Summary of Azure IoT Hub device SDK for Node.JS/JavaScript
