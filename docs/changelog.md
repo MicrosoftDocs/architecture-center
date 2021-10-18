@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 10/04/2021
+ms.date: 10/18/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -25,8 +25,29 @@ New and updated articles in Azure Architecture Center.
 
 ## October 2021
 
+### New Articles
+
+- [Client certificate for an Azure AD access token](./multitenant-identity/client-certificate.md)
+- [Deploy KEDA to Azure Kubernetes Service/Azure Container Registry on a disconnected Azure Stack Hub](./reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub.yml)
+- [Release packaging for deploying to disconnected Azure Stack Hub with Universal Packages](./guide/devops/release-packaging-deploying-disconnected-azure-stack-hub.md)
+- [Azure Storage considerations for multitenancy](./guide/multitenant/service/storage.md)
+- [Predict hospital readmissions by using machine learning](./example-scenario/ai/predict-hospital-readmissions-machine-learning.yml)
+- [Power Automate deployment at scale](./example-scenario/power-automate/power-automate.yml)
+- [Multi-tier app service with service endpoint](./reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml)
+- [Azure SQL Database considerations for multitenancy](./guide/multitenant/service/sql-database.md)
+- [Efficient Docker image deployment for intermittent low-bandwidth connectivity scenarios](./example-scenario/iot/efficient-docker-image-deployment.yml)
+- [Citizen AI with the Power Platform](./example-scenario/ai/citizen-ai-power-platform.yml)
+- [Stream processing with fully managed open-source data engines](./example-scenario/data/open-source-data-engine-stream-processing.yml)
+- [Event Hubs with Azure Functions guide](./serverless/event-hubs-functions/event-hubs-functions.yml)
+- [Monitoring Azure Functions and Event Hubs](./serverless/event-hubs-functions/observability.yml)
+- [Performance and scale guidance for Event Hubs with Azure Functions](./serverless/event-hubs-functions/performance-scale.yml)
+- [Resilient design guidance for Event Hubs and Functions](./serverless/event-hubs-functions/resilient-design.md)
+- [Guidance for securing Azure Functions with Event Hubs](./serverless/event-hubs-functions/security.md)
+
 ### Updated Articles
 
+- [Deploy AI-based footfall detection solution in Azure and Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md)  ([#5c73ee7ee](https://github.com/MicrosoftDocs/architecture-center/commit/5c73ee7ee))
+- [Big data analytics with enterprise-grade security using Azure Synapse](./solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)  ([#24ad8e000](https://github.com/MicrosoftDocs/architecture-center/commit/24ad8e000))
 - [Choose a batch processing technology](./data-guide/technology-choices/batch-processing.md)  ([#8a7513ed1](https://github.com/MicrosoftDocs/architecture-center/commit/8a7513ed1))
 - [Design for scaling](./framework/scalability/design-scale.md)  ([#f90bc6dea](https://github.com/MicrosoftDocs/architecture-center/commit/f90bc6dea))
 - [Overview of the operational excellence pillar](./framework/devops/overview.md)  ([#79ea619ac](https://github.com/MicrosoftDocs/architecture-center/commit/79ea619ac))
@@ -128,8 +149,7 @@ New and updated articles in Azure Architecture Center.
 - [Security monitoring in Azure](./framework/security/monitor.md)  ([#ff65cd168](https://github.com/MicrosoftDocs/architecture-center/commit/ff65cd168))
 - [Authentication in multitenant applications](./multitenant-identity/authenticate.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
 - [Authorization in multitenant applications](./multitenant-identity/authorize.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
-- [Client certificate for an Azure AD access token](./multitenant-identity/client-certificate.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
-- [Sign-up and tenant onboarding in multitenant applications](./multitenant-identity/signup.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
+- [Sign-up and onboarding in multi-tenant app](./multitenant-identity/signup.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
 - [Cache access tokens in a multitenant app](./multitenant-identity/token-cache.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
 - [Secure a backend web API in a multitenant app](./multitenant-identity/web-api.md)  ([#8eac12b0f](https://github.com/MicrosoftDocs/architecture-center/commit/8eac12b0f))
 - [Performance testing and antipatterns](./antipatterns/index.md)  ([#96c15437c](https://github.com/MicrosoftDocs/architecture-center/commit/96c15437c))
