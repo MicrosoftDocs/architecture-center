@@ -82,9 +82,7 @@ following on your jump box:
 
 ## Create storage account, AKS cluster, and Azure container registry via CLI
 
-First, from your jump box, follow the instructions to [connect to Azure Stack
-Hub with Azure
-CLI](/azure-stack/user/azure-stack-version-profiles-azurecli2?view=azs-2102&tabs=ad-win#connect-with-azure-cli).
+First, from your jump box, follow the instructions to [connect to Azure Stack Hub with Azure CLI](/azure-stack/user/azure-stack-version-profiles-azurecli2?view=azs-2102&tabs=ad-win#connect-with-azure-cli).
 
 Next, create a storage account with a queue to use for this example:
 
@@ -211,12 +209,12 @@ to reference images on your Azure container registry and to utilize
 
 Below, you see a screenshot on how to deploy the KEDA operator:
 
-![Screenshot of how to deploy the KEDA operator](images/deploy-keda-aksacr-disconnected-azure-stack-hub-01.png)
+:::image type="content" source="images/deploy-keda-aksacr-disconnected-azure-stack-hub-01.png" alt-text="Screenshot of how to deploy the KEDA operator.":::
 
 The following screenshot shows the changes needed to deploy the metrics API
 server:
 
-![Screenshot of changes needed to deploy metrics API server](images/deploy-keda-aksacr-disconnected-azure-stack-hub-02.png)
+:::image type="content" source="images/deploy-keda-aksacr-disconnected-azure-stack-hub-02.png" alt-text="Screenshot of changes needed to deploy metrics API server.":::
 
 ## Deploy KEDA images to Azure Container Registry
 
@@ -260,7 +258,7 @@ kubectl get deployments -n keda
 kubectl get pods -n keda
 ```
 
-![Screenshot of validating KEDA deployment](images/deploy-keda-aksacr-disconnected-azure-stack-hub-03.png)
+![Screenshot of validating KEDA deployment.](images/deploy-keda-aksacr-disconnected-azure-stack-hub-03.png)
 
 ## Build example app to be scaled by KEDA
 
@@ -366,7 +364,7 @@ COPY --from=build /app ./
 
 Note that your working directory should have the following structure:  
 
-![Screenshot of working directory structure](images/deploy-keda-aksacr-disconnected-azure-stack-hub-04.png)
+![Screenshot of working directory structure.](images/deploy-keda-aksacr-disconnected-azure-stack-hub-04.png)
 
 Build your application into your Docker image and save the Docker image so that
 it can be transferred to a location on your Azure Stack Hub that is accessible
@@ -468,7 +466,7 @@ Add a new message to your demo-queue to test your example app deployment. You
 should see the message removed from the queue and see the message reflected in
 the pod logs for ash-keda-example on your AKS cluster.
 
-![Screenshot of adding a message to your demo-queue](images/deploy-keda-aksacr-disconnected-azure-stack-hub-05.png)
+:::image type="content" source="images/deploy-keda-aksacr-disconnected-azure-stack-hub-05.png" alt-text="Screenshot of adding a message to your demo-queue.":::
 
 Check the pod logs with the following commands:
 
@@ -478,7 +476,7 @@ the next line
 kubectl logs <most recent ash-keda-example pod name>
 ```
 
-![Screenshot of checking the pod logs](images/deploy-keda-aksacr-disconnected-azure-stack-hub-06.png)
+![Screenshot of checking the pod logs.](images/deploy-keda-aksacr-disconnected-azure-stack-hub-06.png)
 
 ## Clean up resources
 
