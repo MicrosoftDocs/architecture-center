@@ -57,11 +57,11 @@ The following diagram shows the Azure RHEL post-migration system architecture:
 
 1. The solution encapsulates each application tier in its own virtual network, segmented with network security groups.
 
-1. [Availability sets](/azure/virtual-machines/availability-set-overview) and shared Azure Storage provide HA and scalability for virtual machines (VMs) at the application tier level. Application cluster servers share transaction state and scale up VMs as necessary.
+1. [Availability sets](/azure/virtual-machines/availability-set-overview) and shared Azure Storage provide HA and scalability for virtual machines (VMs) at the application tier level. Application cluster servers share transaction state, and scale up VMs as necessary.
 
 1. The application uses a [private endpoint](/azure/private-link/tutorial-private-endpoint-sql-portal) connection to store and access data in Azure SQL Database. SQL Database runs in a business continuity configuration, which provides geo-replication and autofailover groups for automatic and cross-geographic BCDR.
 
-1. The NetApp Files shared NAS provides fast access to binary data and replication to the secondary region.
+1. Azure NetApp Files provides a shared NAS, with fast access to binary data and replication to the secondary region.
 
 1. The secondary region provides BCDR with the following components:
 
@@ -88,7 +88,7 @@ The system also contains the following components:
 
 - [Azure App Service](https://azure.microsoft.com/services/app-service) is a fully managed web hosting service for quickly and easily deploying enterprise web apps for any platform on a scalable and reliable cloud infrastructure.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. Azure VMs give you the flexibility of virtualization without having to buy and maintain physical hardware.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is one of several Azure services that provide on-demand, scalable computing resources. With Azure VMs, you get the flexibility of virtualization without having to buy and maintain physical hardware.
 
   - [Azure SSD managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes for Azure VMs.
   - [Azure virtual network interface cards (NICs)](/azure/virtual-network/virtual-network-network-interface) let Azure VMs communicate with internet, Azure, and on-premises resources. You can add several virtual NICs to an Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
@@ -97,7 +97,7 @@ The system also contains the following components:
 
 - [Azure Files](https://azure.microsoft.com/en-us/services/storage/files) storage offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure file shares concurrently.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed database PaaS that always runs on the latest OS and stable SQL Server database engine version, with 99.99% availability. SQL Database handles database management functions, such as upgrades, patching, backups, and monitoring, without user involvement.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed database PaaS that always runs on the latest OS and stable SQL Server database engine version, with highest availability. SQL Database handles database management functions, such as upgrades, patching, backups, and monitoring, without user involvement.
 
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp) offers enterprise-grade Azure file shares powered by NetApp. Azure NetApp Files makes it easy for enterprises to migrate and run complex, file-based applications with no code changes.
 
@@ -109,7 +109,7 @@ The system also contains the following components:
 
 ### Alternatives
 
-Solutions that require high scale, isolation, secure network access, and high memory utilization can use [Azure App Service Environments](/azure/app-service/environment/intro) to host:
+[Azure App Service environments](/azure/app-service/environment/intro) are appropriate for application workloads that require high scale, isolation, and secure network access. This feature offers fully isolated and dedicated environments for securely running App Service apps at high scale. App Service environments can host the following types of apps:
 
 - Linux web apps, as in the current example
 - Windows web apps
@@ -123,7 +123,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 ### Availability
 
-- NetApp Files can keep the file store in the secondary region updated with [Cross-region replication of Azure NetApp Files Volumes](/azure/azure-netapp-files/cross-region-replication-introduction). This Azure feature provides data protection through cross-region volume replication. You can fail over critical applications if there is a region-wide outage. Cross-region volume replication is currently in preview.
+- Azure NetApp Files can keep the file store in the secondary region updated with [Cross-region replication of Azure NetApp Files Volumes](/azure/azure-netapp-files/cross-region-replication-introduction). This Azure feature provides data protection through cross-region volume replication. You can fail over critical applications if there is a region-wide outage. Cross-region volume replication is currently in preview.
 
 - Application cluster servers scale up VMs as necessary, which increases availability within Azure regions.
 
@@ -172,7 +172,7 @@ For proactive monitoring and management, consider using [Azure Monitor](https://
 - [AIX to Red Hat Enterprise Linux Strategic Migration Planning Guide](https://www.intel.com/content/dam/www/public/us/en/documents/guides/risc-migration-aix-to-red-had-enterprise-linux-strategic-migration-planning-guide.pdf).
 - For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
-## Related resource
+## Related resources
 
 - [High availability and disaster recovery scenarios for IaaS apps](../infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Multi-tier web application built for HA/DR](../infrastructure/multi-tier-app-disaster-recovery.yml)
