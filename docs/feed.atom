@@ -2,12 +2,156 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-10-04T16:42:45.269Z</updated>
+    <updated>2021-10-18T15:24:31.245Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Client certificate for an Azure AD access token]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/multitenant-identity/client-certificate</id>
+        <link href="https://docs.microsoft.com/azure/architecture/multitenant-identity/client-certificate"/>
+        <updated>2021-10-05T21:50:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use client certificate to prove the token request is genuine, to the Tailspin Surveys sample application.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy KEDA to Azure Kubernetes Service/Azure Container Registry on a disconnected Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub"/>
+        <updated>2021-10-18T08:01:24.000Z</updated>
+        <summary type="html"><![CDATA[This article shows you how to deploy Kubernetes Event-driven Autoscaling (KEDA) to a Kubernetes cluster on a disconnected Azure Stack Hub, using Azure Kubernetes Service (AKS) and Azure Container Registry.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release packaging for deploying to disconnected Azure Stack Hub with Universal Packages]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/devops/release-packaging-deploying-disconnected-azure-stack-hub</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/devops/release-packaging-deploying-disconnected-azure-stack-hub"/>
+        <updated>2021-10-15T21:42:32.000Z</updated>
+        <summary type="html"><![CDATA[Create a release package using Azure Pipelines, Azure Artifacts, and Universal Packages to create and configure resources on a disconnected Azure Stack Hub]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Storage considerations for multitenancy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/service/storage</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/service/storage"/>
+        <updated>2021-10-15T21:18:30.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure Storage that are useful when working with multitenanted systems. It provides links to guidance and examples for how to use Azure Storage in a multitenant solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Predict hospital readmissions by using machine learning]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/predict-hospital-readmissions-machine-learning"/>
+        <updated>2021-10-15T07:49:48.000Z</updated>
+        <summary type="html"><![CDATA[Learn how healthcare and life science organizations can centralize data and use data science and machine learning to stay relevant to their customers.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Power Automate deployment at scale]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/power-automate/power-automate</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/power-automate/power-automate"/>
+        <updated>2021-10-15T02:55:58.000Z</updated>
+        <summary type="html"><![CDATA[See how to use a hub-and-spoke architectural model to deploy Power Automate parent and child flows.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multi-tier app service with service endpoint]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint"/>
+        <updated>2021-10-13T19:12:01.000Z</updated>
+        <summary type="html"><![CDATA[This architecture shows how to use service endpoints to create secure communications between a front-end app and an API app in a multi-tier environment.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure SQL Database considerations for multitenancy]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/multitenant/service/sql-database</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/multitenant/service/sql-database"/>
+        <updated>2021-10-08T08:43:18.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure SQL Database that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure SQL in a multitenant solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Efficient Docker image deployment for intermittent low-bandwidth connectivity scenarios]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/iot/efficient-docker-image-deployment</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/iot/efficient-docker-image-deployment"/>
+        <updated>2021-10-08T08:19:43.000Z</updated>
+        <summary type="html"><![CDATA[An example of a reliable and resilient deployment capability for situations when you have limited, intermittent, or low bandwidth.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Citizen AI with the Power Platform]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/ai/citizen-ai-power-platform</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/ai/citizen-ai-power-platform"/>
+        <updated>2021-10-06T18:49:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to user Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning (ML) proof of concept, and a production version.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Stream processing with fully managed open-source data engines]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/open-source-data-engine-stream-processing"/>
+        <updated>2021-10-05T19:22:56.000Z</updated>
+        <summary type="html"><![CDATA[Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Event Hubs with Azure Functions guide]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless/event-hubs-functions/event-hubs-functions</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless/event-hubs-functions/event-hubs-functions"/>
+        <updated>2021-10-05T02:47:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to architect, develop, and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Monitoring Azure Functions and Event Hubs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless/event-hubs-functions/observability</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless/event-hubs-functions/observability"/>
+        <updated>2021-10-05T02:47:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to monitor an Azure Functions topology that uses Event Hubs.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Performance and scale guidance for Event Hubs with Azure Functions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless/event-hubs-functions/performance-scale</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless/event-hubs-functions/performance-scale"/>
+        <updated>2021-10-05T02:47:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to plan for and deploy more efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Resilient design guidance for Event Hubs and Functions]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless/event-hubs-functions/resilient-design</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless/event-hubs-functions/resilient-design"/>
+        <updated>2021-10-05T02:47:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to develop resilient and scalable code that runs on Azure Functions and responds to Event Hubs events.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Guidance for securing Azure Functions with Event Hubs]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/serverless/event-hubs-functions/security</id>
+        <link href="https://docs.microsoft.com/azure/architecture/serverless/event-hubs-functions/security"/>
+        <updated>2021-10-05T02:47:51.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to securely develop and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy AI-based footfall detection solution in Azure and Azure Stack Hub]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection</id>
+        <link href="https://docs.microsoft.com/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection"/>
+        <updated>2021-10-14T18:00:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy an AI-based footfall detection solution for analyzing visitor traffic in retail stores using Azure and Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Big data analytics with enterprise-grade security using Azure Synapse]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/big-data-analytics-enterprise-grade-security"/>
+        <updated>2021-10-14T07:01:13.000Z</updated>
+        <summary type="html"><![CDATA[Azure Synapse Analytics brings together data integration, enterprise data warehousing, and big data analytics.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Choose a batch processing technology]]></title>
         <id>https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/batch-processing</id>
@@ -686,14 +830,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/multitenant-identity/authorize"/>
         <updated>2021-08-25T22:02:37.000Z</updated>
         <summary type="html"><![CDATA[Learn about two general approaches to authorization using APIs provided by ASP.NET Core: role-based authorization and resource-based authorization.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Client assertion for an Azure AD access token]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/multitenant-identity/client-assertion</id>
-        <link href="https://docs.microsoft.com/azure/architecture/multitenant-identity/client-assertion"/>
-        <updated>2021-08-25T22:02:37.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to add client assertion, where the client uses an X.509 certificate to prove the token request is genuine, to the Tailspin Surveys sample application.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
