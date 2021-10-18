@@ -1434,6 +1434,8 @@ items:
               - name: AKS cluster best practices
                 href: /Azure/aks/best-practices
                 maintainContext: true
+              - name: Deploy KEDA to AKSACR on disconnected Azure Stack Hub
+                href: reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub.yml
               - name: AKS day-2 operations guide
                 items:
                   - name: Introduction
