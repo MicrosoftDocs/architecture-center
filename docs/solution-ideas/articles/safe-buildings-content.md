@@ -12,7 +12,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
 ## Architecture
 
-![Diagram that shows an overview of the organization of a Safe Building as described in this article.](../media/safe-building-arch-design.png)
+![Diagram that shows an overview of the organization of a Safe Building as described in this article.](../media/safe-building-arch-design.svg)
 
 1. Different devices collect data: thermal imaging cameras, LIDAR sensors, occupancy sensors, smart watches with hygiene apps, IR sensors, and air quality and temperature sensors. That data flows into the building's IoT Edge server.
 
