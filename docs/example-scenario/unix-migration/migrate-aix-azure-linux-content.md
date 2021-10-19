@@ -78,7 +78,7 @@ The system also contains the following components:
 
 ### Components
 
-- [Azure ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) extends an on-premises network into Microsoft cloud services over a private connection, facilitated by a connectivity provider. ExpressRoute provides a secure, reliable private connection to the Azure system, with low latency and high speed and bandwidth.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends an on-premises network into Microsoft cloud services over a private connection, facilitated by a connectivity provider. ExpressRoute provides a secure, reliable private connection to the Azure system, with low latency and high speed and bandwidth.
 
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager) is a DNS-based traffic load balancer that distributes traffic across Azure regions, with high availability and quick responsiveness.
 
@@ -95,7 +95,7 @@ The system also contains the following components:
 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for Azure private networks. Virtual Network lets many types of Azure resources, such as VMs, securely communicate with each other, the internet, and on-premises networks. Virtual Network offers Azure infrastructure benefits like scalability, availability, and isolation.
 
-- [Azure Files](https://azure.microsoft.com/en-us/services/storage/files) storage offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure file shares concurrently.
+- [Azure Files](https://azure.microsoft.com/services/storage/files) storage offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Cloud and on-premises Windows, Linux, and macOS deployments can mount Azure file shares concurrently.
 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed database PaaS that always runs on the latest OS and stable SQL Server database engine version, with highest availability. SQL Database handles database management functions, such as upgrades, patching, backups, and monitoring, without user involvement.
 
