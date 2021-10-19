@@ -333,13 +333,13 @@ To improve security, use Azure disk encryption. For a detailed procedure, see [E
    ```
 
 > [!NOTE]
-> If you've configured your virtual machine scale set for manual update mode, run the `update-instances` command. Include the version of the encryption key that you stored in Key Vault.
+> If you configured your virtual machine scale set for manual update mode, run the `update-instances` command. Include the version of the encryption key that you stored in Key Vault.
 
 ##### Encryption in transit
 
 NiFi supports TLS 1.2 for encryption in transit. This protocol offers protection for user access to the UI. With clusters, the protocol protects communication between NiFi nodes. It can also protect communication with ZooKeeper. When you enable TLS, NiFi uses mutual TLS (mTLS) for mutual authentication for:
 
-- Certificate-based client authentication if you've configured this type of authentication.
+- Certificate-based client authentication if you configured this type of authentication.
 - All intracluster communication.
 
 To enable TLS, take the following steps:
@@ -353,7 +353,7 @@ To enable TLS, take the following steps:
    - Truststore properties
    - Cluster and ZooKeeper security properties, if applicable
 
-1. Configure authentication in `$NIFI_HOME/conf/authorizers.xml`, typically with an initial user with certificate-based authentication or another option.
+1. Configure authentication in `$NIFI_HOME/conf/authorizers.xml`, typically with an initial user that has certificate-based authentication or another option.
 1. Optionally configure mTLS and a proxy read policy between NiFi and any proxies, load balancers, or external endpoints.
 
 For a complete walkthrough, see [Securing NiFi with TLS][Apache NiFi Walkthroughs - Securing NiFi with TLS] in the Apache project documentation.
@@ -398,7 +398,7 @@ Otherwise, a hostname verification failure or an HTTP HOST header verification f
 | --- | --- | --- |
 | `nifi.web.https.host` | Hostname or IP address to use for the UI and REST API. This value should be internally resolvable. We recommend not using a publicly accessible name. | `nifi.internal.cloudapp.net` |
 | `nifi.web.https.port` | HTTPS port to use for the UI and REST API. | `9443` (default) |
-| `nifi.web.proxy.host` | Comma-separated list of alternate hostnames that clients use to access the UI and REST API. This list typically includes any hostname specified as a subject alternative name (SAN) in the server certificate. The list can also include any hostname and port that a load balancer, proxy, or Kubernetes ingress controller uses. | `40.67.218.235, 40.67.218.235:443, nifi.westus2.cloudapp.com, nifi.westus2.cloudapp.com:443`
+| `nifi.web.proxy.host` | Comma-separated list of alternate hostnames that clients use to access the UI and REST API. This list typically includes any hostname that's specified as a subject alternative name (SAN) in the server certificate. The list can also include any hostname and port that a load balancer, proxy, or Kubernetes ingress controller uses. | `40.67.218.235, 40.67.218.235:443, nifi.westus2.cloudapp.com, nifi.westus2.cloudapp.com:443`
 | `nifi.security.keystore` | The path to a JKS or PKCS12 keystore that contains the certificate's private key. | `./conf/keystore.jks` |
 | `nifi.security.keystoreType` | The keystore type. | `JKS` or `PKCS12` |
 | `nifi.security.keystorePasswd` | The keystore password. | `O8SitLBYpCz7g/RpsqH+zM` |
@@ -497,7 +497,7 @@ You have two options for configuring the application gateway's front-end IP addr
 - With a public IP address
 - With a private subnet IP address
 
-Only include a public IP address if it's necessary for users to access the UI over the public internet. If public internet access for users isn't required, access the load balancer front end from a jumpbox in the virtual network or through a peering to your private network. If you configure the application gateway with a public IP address, we recommend enabling client certificate authentication for NiFi and enabling TLS for the NiFi UI. You can also use a network security group in the delegated application gateway subnet to limit source IP addresses.
+Only include a public IP address if users need to access the UI over the public internet. If public internet access for users isn't required, access the load balancer front end from a jumpbox in the virtual network or through peering to your private network. If you configure the application gateway with a public IP address, we recommend enabling client certificate authentication for NiFi and enabling TLS for the NiFi UI. You can also use a network security group in the delegated application gateway subnet to limit source IP addresses.
 
 #### Diagnostics and health monitoring
 
@@ -565,7 +565,7 @@ For more structured learning, see these tutorials:
 
 #### Log Analytics reporting task
 
-By default, NiFi sends metrics data to the `nifimetrics` table. But you can configure this setting in the reporting task properties. The reporting task captures the following NiFi metrics:
+By default, NiFi sends metrics data to the `nifimetrics` table. But you can configure a different destination in the reporting task properties. The reporting task captures the following NiFi metrics:
 
 | Metric type | Metric name |
 | --- | --- |
@@ -678,7 +678,7 @@ To capture more logs, follow these steps:
 
    :::image type="content" source="media/nifi-custom-log3.png" alt-text="Screenshot of a NiFi window. The configuration values of a custom log for ZooKeeper are visible.":::
 
-Here's a sample query of the `NiFiAppLogs` custom table that the first example configured:
+Here's a sample query of the `NiFiAppLogs` custom table that the first example created:
 
 ```kusto
 NiFiAppLogs_CL 
@@ -822,7 +822,7 @@ If you're running Java 8, don't use G1GC. Use ParallelGC instead. There are defi
 
 ##### Heap
 
-A set of properties in the `bootstrap.conf` file determines the configuration of the NiFi JVM heap. For a standard flow, configure a 32-GB heap with these settings:
+A set of properties in the `bootstrap.conf` file determines the configuration of the NiFi JVM heap. For a standard flow, configure a 32-GB heap by using these settings:
 
 ```config
 java.arg.3=-Xmx32g
@@ -843,7 +843,7 @@ When adjusting JVM memory settings, consider these important factors:
 - The number of *FlowFiles*, or NiFi data records, that are active in a given period. This number includes back-pressured or queued FlowFiles.
 - The number of attributes that are defined in FlowFiles.
 - The amount of memory that a processor requires to process a particular piece of content.
-- The way a processor processes data:
+- The way that a processor processes data:
 
   - Streaming data
   - Using record-oriented processors
