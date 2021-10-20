@@ -76,13 +76,32 @@ _Architecture diagram goes here_
 Under the diagram, include a numbered list that describes the data flow or workflow.
 -->
 
+The following diagram shows high level overview of the architecture for this infrastructure accelerator for data analysis workloads in regulated industries.
+
+[![Graphical example of an infrastructure accelerator architecture.](media/data-analysis-architecture-01.png)](media/data-analysis-architecture-01.png#lightbox)
+
+In upper part you can see capabilities of this infrastructure pattern for data analysis workloads. Items like input and target data sources (can be in cloud or onPrem), ingestion area, storing and snapshot data (versioning) in raw and cheap way, transform raw data, storing optimized data in structured way and with metadata for consumers and consume capabilities through front ends.
+
+Bottom part is on the other hand showing responsibilities of different IT roles typically involved for such data analysis cloud workloads.
+
+This architecture allows to provide strong and typical data analysis capabilities along with strong governance and security model regulated industries need.
+
+Description of implementation workflow:
+
+- Infrastructure and Governance model
+  - Cloud Ops Team provisions in repeatable and consistent way the Data Analysis environment with existing optimized security
+  settings for regulated industries through automated way. They can use existing scripts and optionally modify them to fit to the enterprise specific standards. Billing information for the environment can be monitored.
+  - Network team integrates the environment with Enterprise network (ideally Hub-and-spoke model with Enterprise Firewall), enables private links for endpoints
+  - Cloud Security Team reviews infrastructure through built-in or Enterprise specific Azure policies, reviews security score of the environment in Azure Advisor and Security Center. Security team can also own and maintain credentials stored in the Key vault to specific data source systems. Security team can also start to monitor audit information stored in the Log Analytics.
+
+
+
 TODO
 
 ### Components
 
 <!---
-A bulleted list of components in the architecture (including all relevant Azure services) with links to the service pages.
-
+#A bulleted list of components in the architecture (including all relevant Azure services) with links to the service pages.
 > Why is each component there?
 > What does it do and why was it necessary?
 #> Link the name of the service (via embedded link) to the service's product service page. Be sure to exclude the localization part of the URL (such as "en-US/").
@@ -99,15 +118,15 @@ A bulleted list of components in the architecture (including all relevant Azure 
 
 Key Components and services used in this pattern:
 
-- [Azure Data Lake Store Gen2](https://azure.microsoft.com/services/storage/data-lake-storage)
+- [Azure Data Lake Store Generation 2](https://azure.microsoft.com/services/storage/data-lake-storage)
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
 - [Azure Databricks](https://azure.microsoft.com/services/databricks)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 - [Azure Monitor and Log Analytics](https://azure.microsoft.com/services/monitor)
-- [Power BI Premium + VNET Integration - Optional](https://docs.microsoft.com/data-integration/vnet/use-data-gateways-sources-power-bi)
-- [Azure Data Factory Self HostIntegration Runtime - Optional](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+- [Power BI or Power BI Premium + VNET Integration - Optional](https://docs.microsoft.com/data-integration/vnet/use-data-gateways-sources-power-bi)
+- [Azure Data Factory Self Host Integration Runtime - Optional](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 
 ### Alternatives
 
@@ -131,6 +150,9 @@ See [Enterprise Data Warehouse Architecture](/azure/architecture/solution-ideas/
 -->
 
 TODO
+- Azure Mon + Log Analytics
+- Security Center
+- Azure Policies
 
 ### Availability
 
@@ -139,6 +161,8 @@ TODO
 -->
 
 TODO
+Prefer ZRS, no designed for Geo Redundancy
+
 
 ### Operations
 
