@@ -79,7 +79,7 @@ business continuity in case something happens to an administrator:
 
 ## Managed accounts for admins
 
-Ensure all critical impact admins in are managed by enterprise directory to
+Ensure all critical impact admins are managed by enterprise directory to
 follow organizational policy enforcement.
 
 Consumer accounts such as Microsoft accounts like \@Hotmail.com,
