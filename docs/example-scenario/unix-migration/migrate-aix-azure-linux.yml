@@ -5,7 +5,7 @@ metadata:
   description: Migrate an on-premises IBM AIX system and web application to a highly-available, secure RedHat Enterprise Linux solution in Azure.
   author: jjfrost
   ms.author: jfrost
-  ms.date: 10/18/2021
+  ms.date: 10/20/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
