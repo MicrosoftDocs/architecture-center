@@ -28,8 +28,6 @@ New and updated articles in Azure Architecture Center.
 ### New Articles
 
 - [Client certificate for an Azure AD access token](./multitenant-identity/client-certificate.md)
-- [Deploy KEDA to Azure Kubernetes Service/Azure Container Registry on a disconnected Azure Stack Hub](./reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub.yml)
-- [Release packaging for deploying to disconnected Azure Stack Hub with Universal Packages](./guide/devops/release-packaging-deploying-disconnected-azure-stack-hub.md)
 - [Azure Storage considerations for multitenancy](./guide/multitenant/service/storage.md)
 - [Predict hospital readmissions by using machine learning](./example-scenario/ai/predict-hospital-readmissions-machine-learning.yml)
 - [Power Automate deployment at scale](./example-scenario/power-automate/power-automate.yml)
