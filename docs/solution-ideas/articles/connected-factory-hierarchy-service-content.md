@@ -29,7 +29,7 @@ Typical uses for this architecture workload:
 ## Architecture
 
 The following example hierarchy service is developed as an ASP.NET Core REST API
-hosted on Azure [Kubernetes Services (AKS)](/azure/aks/intro-kubernetes). Data is
+hosted on [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes). Data is
 persisted in [Azure Digital Twins](/azure/digital-twins) and retrieved from
 either Azure Digital Twins or an in-memory cache for queries that would result
 in long response times when issued directly against Azure Digital Twins. The
