@@ -73,7 +73,7 @@ You can use the Azure Load Balancing page in the Azure portal to help you guide 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **Load balancing** appears in the search results, select it.
     
-    ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search-1.png)
+    ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search-1.png#lightbox)
     > [!NOTE]
     > To learn about some of the factors considered in selecting a load-balancing solution, see [Decision tree for load-balancing in Azure](#decision-tree-for-load-balancing-in-azure) in this article.
 
