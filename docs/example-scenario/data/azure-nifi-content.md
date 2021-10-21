@@ -920,7 +920,7 @@ For more information, see the following resources:
 [Apache NiFi]: https://nifi.apache.org
 [Apache nifi Downloads]: https://nifi.apache.org/download.html
 [Apache nifi Mailing Lists]: https://nifi.apache.org/mailing_lists.html
-[Apache NiFi monitoring with MonitoFi]: ../../guide/data/monitor-apache-nifi-monitofi-content.yml
+[Apache NiFi monitoring with MonitoFi]: ../../guide/data/monitor-apache-nifi-monitofi.yml
 [Apache NiFi Walkthroughs - Securing NiFi with TLS]: https://nifi.apache.org/docs/nifi-docs/html/walkthroughs.html#securing-nifi-with-tls
 [Apache Ranger documentation]: https://cwiki.apache.org/confluence/display/RANGER/NiFi+Plugin
 [Apache ZooKeeper general information]: https://cwiki.apache.org/confluence/display/ZOOKEEPER/Index
