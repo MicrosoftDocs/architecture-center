@@ -546,7 +546,7 @@ We recommend deploying the NiFi nodes into a single virtual machine scale set th
 Multiple options are available for monitoring the health and performance of a NiFi cluster:
 
 - Reporting tasks.
-- MonitoFi, a separate Microsoft-developed application. MonitoFi runs externally and monitors the cluster by using the NiFi API.
+- [MonitoFi][Apache NiFi monitoring with MonitoFi], a separate Microsoft-developed application. MonitoFi runs externally and monitors the cluster by using the NiFi API.
 
 #### Reporting task–based monitoring
 
@@ -911,6 +911,7 @@ For more information, see the following resources:
 
 ## Related resources
 
+- [Apache NiFi monitoring with MonitoFi][Apache NiFi monitoring with MonitoFi]
 - [Azure Data Explorer monitoring][Azure Data Explorer monitoring]
 - [Hybrid ETL with Azure Data Factory][Hybrid ETL with Azure Data Factory]
 - [DataOps for the modern data warehouse][DataOps for the modern data warehouse]
@@ -919,6 +920,7 @@ For more information, see the following resources:
 [Apache NiFi]: https://nifi.apache.org
 [Apache nifi Downloads]: https://nifi.apache.org/download.html
 [Apache nifi Mailing Lists]: https://nifi.apache.org/mailing_lists.html
+[Apache NiFi monitoring with MonitoFi]: ../../guide/data/monitor-apache-nifi-monitofi-content.yml
 [Apache NiFi Walkthroughs - Securing NiFi with TLS]: https://nifi.apache.org/docs/nifi-docs/html/walkthroughs.html#securing-nifi-with-tls
 [Apache Ranger documentation]: https://cwiki.apache.org/confluence/display/RANGER/NiFi+Plugin
 [Apache ZooKeeper general information]: https://cwiki.apache.org/confluence/display/ZOOKEEPER/Index

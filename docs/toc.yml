@@ -1266,6 +1266,8 @@ items:
                 href: data-guide/technology-choices/analytical-data-stores.md
               - name: Analytics and reporting
                 href: data-guide/technology-choices/analysis-visualizations-reporting.md
+              - name: Apache NiFi monitoring with MonitoFi
+                href: guide/data/monitor-apache-nifi-monitofi.yml
           - name: Architectures
             items:
               - name: Anomaly detector process
