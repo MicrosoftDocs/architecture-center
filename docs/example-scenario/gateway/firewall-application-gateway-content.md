@@ -152,7 +152,7 @@ The packet flow steps for each service are the same as in the previous standalon
 
 In this option, inbound web traffic goes through both Azure Firewall and WAF. The WAF provides protection at the web application layer. Azure Firewall acts as a central logging and control point, and it inspects traffic between the Application Gateway and the backend servers. The Application Gateway and Azure Firewall aren't sitting in parallel, but one after the other.
 
-With [Azure Firewall Premium](azfw-premium-features], this design can support end-to-end scenarios, where the Azure Firewall applies TLS inspection to do IDPS on the encrypted traffic between the Application Gateway and the web backend.
+With [Azure Firewall Premium](azfw-premium-features), this design can support end-to-end scenarios, where the Azure Firewall applies TLS inspection to do IDPS on the encrypted traffic between the Application Gateway and the web backend.
 
 This design is appropriate for applications that need to know incoming client source IP addresses, for example to serve geolocation-specific content or for logging. Azure Firewall SNATs the incoming traffic, changing the original source IP address. Application Gateway in front of Azure Firewall captures the incoming packet's source IP address in the *X-forwarded-for* header, so the web server can see the original IP address in this header. For more information, see [How an application gateway works](appgw-networking).
 
@@ -230,7 +230,7 @@ Network traffic from the public internet follows this flow:
 1. The client starts the connection to the public IP address of the Azure Firewall:
    - Source IP address: ClientPIP
    - Destination IP address: AzFWPIP
-2. The Azure Firewall DNATs the web port, usually TCP 443, to the private IP address of the Application Gateway instance. Azure Firewall also SNATs when doing DNAT. For more information, see [Azure Firewall known issues](azfw-issues]:
+2. The Azure Firewall DNATs the web port, usually TCP 443, to the private IP address of the Application Gateway instance. Azure Firewall also SNATs when doing DNAT. For more information, see [Azure Firewall known issues](azfw-issues):
    - Source IP address: 192.168.100.7 (the private IP address of the Azure Firewall instance)
    - Destination IP address: 192.168.200.4
 3. The Application Gateway establishes a new session between the instance handling the connection and one of the backend servers. The original IP address of the client isn't in the packet:
