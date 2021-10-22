@@ -11,17 +11,13 @@ products:
 categories: 
   - management-and-governance
   - security
+contributors:
+  - advocacy/writer/alias1
+  - advocacy/pm/alias2
+  - contentlearning/engg/alias3
+  - aquent/copy/alias4
 ms.custom:
   - article
-contributors:
-  contributor:
-    - organization: advocacy
-      role: writer
-    - organization: c&l
-      role: pm
-    - organization: c&l
-      role: engg
-
 ---
 
 # Administrative account security
