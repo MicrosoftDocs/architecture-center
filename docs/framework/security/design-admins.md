@@ -1,7 +1,7 @@
 ---
 title: Administrative account security
 description: Review administrator account security in Azure. Administration is monitoring, maintaining, and operating IT systems to meet service levels the business requires.
-author: PageWriter-MSFT
+author: PageWriter-MSFT, ckittel
 ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -13,15 +13,6 @@ categories:
   - security
 ms.custom:
   - article
-contributors:
-  contributor:
-    - organization: advocacy
-      role: writer
-    - organization: c&l
-      role: pm
-    - organization: c&l
-      role: engg
-
 ---
 
 # Administrative account security
