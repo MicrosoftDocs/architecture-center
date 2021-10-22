@@ -135,8 +135,8 @@ Learn more about pricing solutions:
 
 Explore related architectures:
 
-- [Demand forecasting for shipping and distribution](/azure/architecture/solution-ideas/articles/demand-forecasting-for-shipping-and-distribution)
-- [Use a demand forecasting model for price optimization](/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing)
-- [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
-- [Predictive insights with vehicle telematics](/azure/architecture/solution-ideas/articles/predictive-insights-with-vehicle-telematics)
-- [Predictive aircraft engine monitoring](/azure/architecture/solution-ideas/articles/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace)
+- [Demand forecasting for shipping and distribution](./demand-forecasting-for-shipping-and-distribution.yml)
+- [Use a demand forecasting model for price optimization](./demand-forecasting-price-optimization-marketing.yml)
+- [Predictive maintenance](./predictive-maintenance.yml)
+- [Predictive insights with vehicle telematics](./predictive-insights-with-vehicle-telematics.yml)
+- [Predictive aircraft engine monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)

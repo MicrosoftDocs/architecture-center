@@ -1,6 +1,3 @@
-
-
-
 This reference architecture illustrates how to design Azure Monitor to monitor performance and availability for operating system (OS) workloads running in virtual machines (VMs) in Microsoft Azure, in on-premises environments, and with third-party cloud providers.
 
 ![Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor][architectural-diagram]
@@ -175,10 +172,10 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Serverless event processing](/azure/architecture/reference-architectures/serverless/event-processing)
-- [Azure Data Explorer monitoring](/azure/architecture/solution-ideas/articles/monitor-azure-data-explorer)
-- [Unified logging for microservices applications](/azure/architecture/example-scenario/logging/unified-logging)
-- [Microservices architecture on Azure Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric)
+- [Serverless event processing](../reference-architectures/serverless/event-processing.yml)
+- [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
+- [Unified logging for microservices applications](../example-scenario/logging/unified-logging.yml)
+- [Microservices architecture on Azure Service Fabric](../reference-architectures/microservices/service-fabric.yml)
 
 [architectural-diagram]: ./images/hybrid-perf-monitoring.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx

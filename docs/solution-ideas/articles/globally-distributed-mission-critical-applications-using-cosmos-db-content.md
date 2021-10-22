@@ -38,12 +38,23 @@ Underneath the covers, Cosmos DB will handle the global distribution and replica
 
 ### Availability
 
-When considering the above approach, if you achieve high availability on Azure CosmosDB Automatic Failover, then you are configuring your solution to keep the running application at it's highest possible provided SLA.
-For the application layer, Traffic Manager should be configured with nested profiles. When pushing this design to the highest level, you can scale the different application choices, per region. The per-region deployment also takes a high-availability (HA) approach.
+The availability of the Cosmos DB instance depends on a number of factors. The greater the number of regions that Cosmos is replicated to, the greater the availability of the application. Each region contains all the data partitions of an Azure Cosmos DB container and can serve reads, by default. To increase the availability of the data layer, you can enable multi-region write. Doing this increases the availability of the data layer. You can also increase availability by employing weaker consistency levels and availability zones.
+
+When considering the above approach, if you achieve high availability on Azure Cosmos DB Automatic Failover, you are configuring your solution to keep the running application at it's highest possible provided SLA.
+
+For the application layer, Traffic Manager should be configured with nested profiles. When pushing this design to the highest level, you can scale the different application choices, per region. The per-region deployment also takes a high-availability approach.
+
+### Performance
+
+System performance is affected by a number of factors at the compute and database level. The SKU for an App Service plan or other compute option affects the memory and cores that are available in each region. Additionally, the number of regions the compute layer is deployed to dictates the scale that it is capable of handling. Deployment of additional locations takes pressure off existing regions and should cause linear increases in the maximum throughput that the application can fulfill.
+
+Cosmos DB should be configured so that it does not cause a bottleneck for the compute tier resources. Each database and container in Cosmos DB should be configured to auto-scale and should be supplied with a maximum request unit value that ensures Cosmos DB does not throttle requests. To determine appropriate max request unit values for the Cosmos DB entities, you can run load tests near approximate maximum throughput for the application. When compared with their stronger counterparts, weaker consistency levels offer higher throughput and performance benefits.
+
+Crucially, when implementing the logic in code that reads from and writes to Cosmos DB, whether it be through the SDK, Azure Functions bindings, and so on, `PreferredLocations` should be used so that each regional API routes requests to the closest Cosmos DB region. Based on the Azure Cosmos DB account configuration, current regional availability, and the preference list specified, the SDK chooses the most optimal endpoint to perform the read and write operations. This process results in significant performance boosts.
 
 ### Resiliency
 
-For higher resiliency, you can also use availability zones for Azure Cosmos DB deployments.
+For higher resiliency, you can use availability zones for Azure Cosmos DB deployments.
 Resiliency also depends on the consistency level choices that you make on your Cosmos DB deployment. Depending on this consistency level, you will achieve a different level of resiliency (see [Consistency, availability, and performance tradeoffs](/azure/cosmos-db/consistency-levels) for more info).
 
 ### Scalability
@@ -52,7 +63,7 @@ Scaling is based upon many levels in this diagram. Azure Cosmos DB is purpose-bu
 
 ### Security
 
-From a security perspective, drive towards an identity-based system, where Azure Active Directory can be used to secure access to the environment. In the backend, the application is (by best design) accessed through Managed Identities, although one could also consider the approach of using Azure Active Directory Users and Azure Key Vault for securing access.
+From a security perspective, drive towards an identity-based system, where Azure Active Directory can be used to secure access to the environment. In the backend, the application is (by best design) accessed through Managed Identities, although one could also consider the approach of using Azure Active Directory Users and Azure Key Vault for securing access. Additionally, the Cosmos DB instance should be further secured, such that the only entities capable of reading and writing to it are the various backends that are deployed to different regions. IP restriction can be applied to the account by using the built-in [firewall](/azure/cosmos-db/how-to-configure-firewall).
 
 > [!NOTE]
 > As of Ignite March 2021, we now also support [Azure Active Directory RBAC directly on the Cosmos DB SQL API](/azure/cosmos-db/how-to-setup-rbac).
@@ -94,6 +105,6 @@ Related full architectures:
 * [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 
 Related architecture guidance:
-
+* [Deploying multi-region APIs that write to Cosmos DB](../../patterns/geodes.md)
 * [Choosing an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
 * [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)

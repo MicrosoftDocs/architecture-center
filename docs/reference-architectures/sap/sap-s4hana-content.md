@@ -232,7 +232,7 @@ to maintain quorum with a device in a remote Azure region, away from the primary
 region where the cluster resides.
 
 For the backup data store, we recommend using Azure [cool and archive access
-tiers](/azure/storage/blobs/storage-blob-storage-tiers).
+tiers](/azure/storage/blobs/access-tiers-overview).
 These storage tiers are cost-effective ways to store long-lived data that is
 infrequently accessed.
 
@@ -532,7 +532,7 @@ your custom scripts to attach the existing (pre-built) load balancer, which
 already has the backend pool defined, to the NIC of the failover virtual
 machines. An example of the custom Site Recovery Automation Runbooks script is
 available on
-[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery).
+[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/asr-automation-recovery).
 
 > [!NOTE]
 > In case of a regional disaster that affects many customers in one

@@ -116,12 +116,12 @@ You can scale out the server sets to provide more throughput. For more informati
 
 Explore related architectures:
 
-- [Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](/azure/architecture/example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus)
-- [High-volume batch transaction processing](/azure/architecture/example-scenario/mainframe/process-batch-transactions)
-- [Mainframe file replication and sync on Azure](/azure/architecture/solution-ideas/articles/mainframe-azure-file-replication)
-- [Mainframe access to Azure databases](/azure/architecture/solution-ideas/articles/mainframe-access-azure-databases)
-- [Replicate and sync mainframe data in Azure](/azure/architecture/reference-architectures/migration/sync-mainframe-data-with-azure)
-- [Unlock legacy data with Azure Stack](/azure/architecture/solution-ideas/articles/unlock-legacy-data)
-- [Modernize mainframe & midrange data](/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure)
+- [Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](../../example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)
+- [High-volume batch transaction processing](../../example-scenario/mainframe/process-batch-transactions.yml)
+- [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
+- [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
+- [Replicate and sync mainframe data in Azure](./sync-mainframe-data-with-azure.yml)
+- [Unlock legacy data with Azure Stack](../../solution-ideas/articles/unlock-legacy-data.yml)
+- [Modernize mainframe & midrange data](./modernize-mainframe-data-to-azure.yml)
 
 For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).

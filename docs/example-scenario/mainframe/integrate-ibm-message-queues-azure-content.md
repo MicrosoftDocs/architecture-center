@@ -269,7 +269,7 @@ possibilities and you probably won’t use them all for MQ integration.
 ## Related resources
 
 -   [Azure data architecture
-    guide](/azure/architecture/data-guide/)
+    guide](../../data-guide/index.md)
 
 -   [Azure data platform
-    end-to-end](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+    end-to-end](../dataplate2e/data-platform-end-to-end.yml)

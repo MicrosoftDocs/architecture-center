@@ -1,9 +1,9 @@
 ---
 title: Azure Application Architecture Guide
 description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
-author: doodlemania2
+author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 01/08/2020
+ms.date: 07/09/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
@@ -13,13 +13,13 @@ ms.custom:
 
 # Azure Application Architecture Guide
 
-This guide presents a structured approach for designing applications on Azure that are scalable, secure, resilient, and highly available. It is based on proven practices that we have learned from customer engagements.
+This guide presents a structured approach for designing applications on Azure that are scalable, secure, resilient, and highly available. The guide is based on proven practices that we have learned from customer engagements.
 
 ## Introduction
 
 The cloud is changing how applications are designed and secured. Instead of monoliths, applications are decomposed into smaller, decentralized services. These services communicate through APIs or by using asynchronous messaging or eventing. Applications scale horizontally, adding new instances as demand requires.
 
-These trends bring new challenges. Application state is distributed. Operations are done in parallel and asynchronously. Applications must be resilient when failures occur. Malicious actors continuously target applications. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system. This guide is designed to help you navigate these changes.
+These trends bring new challenges. Application states are distributed. Operations are done in parallel and asynchronously. Applications must be resilient when failures occur. Malicious actors continuously target applications. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system. This guide is designed to help you navigate these changes.
 
 <!-- markdownlint-disable MD033 -->
 
@@ -89,7 +89,7 @@ We have identified 10 high-level design principles that will make your applicati
 
 ### Design patterns
 
-Software design patterns are repeatable patterns that are proven to solve specific problems. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, high availability, operational excellence, resiliency, performance, and security. You can find our catalog of design patterns [here](./index.md).
+Software design patterns are repeatable patterns that are proven to solve specific problems. Our catalog of Cloud design patterns addresses specific challenges in distributed systems. They address aspects such as availability, high availability, operational excellence, resiliency, performance, and security. You can find our catalog of design patterns [here](../patterns/index.md).
 
 ### Best practices
 

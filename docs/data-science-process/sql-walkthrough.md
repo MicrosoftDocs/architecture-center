@@ -22,7 +22,7 @@ In this tutorial, you walk through the process of building and deploying a machi
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
 
-The NYC Taxi Trip data is about 20 GB of compressed CSV files (~48 GB uncompressed), comprising more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff location and time, anonymized hack (driver's) license number and medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
+The NYC Taxi Trip data is about 20 GB of compressed CSV files (~48 GB uncompressed), comprising more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff location and time, anonymized hack (driver's) license number and medallion (taxi's unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
 1. The 'trip_data' CSV contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
    
@@ -84,7 +84,7 @@ In this tutorial we will demonstrate parallel bulk import of the data to a SQL S
 
 To set up your Azure Data Science environment:
 
-1. [Create a storage account](/azure/storage/common/storage-account-create.md)
+1. [Create a storage account](/azure/storage/common/storage-account-create)
 2. [Create an Azure Machine Learning workspace](/azure/machine-learning/classic/create-workspace)
 3. [Provision a Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview), which provides a SQL Server and an IPython Notebook server.
    
@@ -731,7 +731,7 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 ### References
 
 •    [Andrés Monroy NYC Taxi Trips Download Page](https://www.andresmh.com/nyctaxitrips/)  
-•    [FOILing NYC’s Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [FOILing NYC's Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough-26-1.png

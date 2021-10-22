@@ -1,7 +1,7 @@
 ---
-title: Release Engineering Application Development
-description: Release Engineering Application Development
-author: neilpeterson
+title: Release engineering app development
+description: Understand application development in release engineering. Build systems so your teams can turn ideas into production-delivered software with minimal friction.
+author: david-stanford
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -61,7 +61,7 @@ Some features of Bridge:
 
 **Learn more**
 
-- [Documentation: Use Bridge to Kubernetes with Visual Studio Code](/azure/dev-spaces/how-vs-code-works-with-dev-spaces)
+- [Documentation: Use Bridge to Kubernetes with Visual Studio Code](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes)
 - [Documentation: Use Bridge to Kubernetes with Visual Studio](/visualstudio/containers/bridge-to-kubernetes?preserve-view=true&view=vs-2019)
 
 ### Other tools

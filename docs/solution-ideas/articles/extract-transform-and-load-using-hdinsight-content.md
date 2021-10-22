@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Extract, transform, and load your big data clusters on demand with Hadoop MapReduce and Apache Spark.
@@ -31,6 +28,6 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Use a demand forecasting model for price optimization](/azure/architecture/solution-ideas/articles/demand-forecasting-price-optimization-marketing)
-- [Predictive insights with vehicle telematics](/azure/architecture/solution-ideas/articles/predictive-insights-with-vehicle-telematics)
-- [Interactive querying with HDInsight](/azure/architecture/solution-ideas/articles/interactive-querying-with-hdinsight)
+- [Use a demand forecasting model for price optimization](./demand-forecasting-price-optimization-marketing.yml)
+- [Predictive insights with vehicle telematics](./predictive-insights-with-vehicle-telematics.yml)
+- [Interactive querying with HDInsight](./interactive-querying-with-hdinsight.yml)

@@ -24,7 +24,7 @@ Oracle DB migrations can be accomplished in multiple ways. This solution covers 
 * [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway)
 * [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
 * [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
-* [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/disks-types)
+* [Azure Managed Disks](/azure/virtual-machines/disks-types)
 
 ### Alternatives
 
@@ -104,4 +104,3 @@ Learn more about the various architectural components:
 * [Azure Proximity Placement Groups](/azure/virtual-machines/co-location#proximity-placement-groups)
 * [Oracle Recovery Manager (RMAN)](https://www.oracle.com/database/technologies/high-availability/rman.html)
 * [Licensing Oracle Software in the cloud](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)
-

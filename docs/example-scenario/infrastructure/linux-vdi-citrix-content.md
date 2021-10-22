@@ -34,7 +34,7 @@ This example scenario demonstrates allowing the corporate network to access the 
 
 For this scenario, the following SKUs are used:
 
-- Citrix ADC (NetScaler): 2 x D4sv3 with [NetScaler 12.0 VPX Standard Edition 200 MBPS PAYG image](https://azuremarketplace.microsoft.com/marketplace/apps/citrix.netscaler-ma-service-agent-120)
+- Citrix ADC (NetScaler): 2 x D4sv3 with NetScaler 12.0 VPX Standard Edition 200 MBPS PAYG image
 - Citrix License Server: 1 x D2s v3
 - Citrix VDA: 4 x D8s v3
 - Citrix Storefront: 2 x D2s v3

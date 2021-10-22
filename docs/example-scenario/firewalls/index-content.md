@@ -1,6 +1,3 @@
-
-
-
 The cloud is changing the way infrastructure is designed, including the design of firewalls, because the network isn't physical or in virtual LANs anymore. Not all features of a physical network are available in a virtual network (VNet). This includes the use of floating IP addresses or broadcast traffic and that influences the implementation of HA architectures. Load balancers for *Network Virtual Appliances (NVAs)* can/must be implemented in a certain way to achieve a highly available (HA) architecture within a virtual network. This guide presents a structured approach for designing HA firewalls (FWs) in Azure using third-party virtual appliances.
 
 ## Options for designing highly available NVAs
@@ -95,12 +92,12 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
-- [Hybrid connection](/azure/architecture/solution-ideas/articles/hybrid-connectivity)
-- [Extend an on-premises network using VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn)
-- [Choose between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering)
-- [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn)
-- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
-- [Connect standalone servers by using Azure Network Adapter](/azure/architecture/hybrid/azure-network-adapter)
-- [Custom data sovereignty & data gravity requirements](/azure/architecture/solution-ideas/articles/data-sovereignty-and-gravity)
-- [SQL Server 2008 R2 failover cluster in Azure](/azure/architecture/example-scenario/sql-failover/sql-failover-2008r2)
+- [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
+- [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
+- [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml)
+- [Choose between virtual network peering and VPN gateways](../../reference-architectures/hybrid-networking/vnet-peering.yml)
+- [Troubleshoot a hybrid VPN connection](../../reference-architectures/hybrid-networking/troubleshoot-vpn.yml)
+- [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
+- [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
+- [Custom data sovereignty & data gravity requirements](../../solution-ideas/articles/data-sovereignty-and-gravity.yml)
+- [SQL Server 2008 R2 failover cluster in Azure](../sql-failover/sql-failover-2008r2.yml)

@@ -1,6 +1,3 @@
-
-
-
 This architecture shows how to include Azure file shares in your hybrid environment. Azure file shares are used as serverless file shares. By integrating them with Active Directory Directory Services (AD DS), you can control and limit access to AD DS users. Azure file shares then can replace traditional file servers.
 
 ![Azure file shares architecture diagram that shows how clients can access Azure file share directly over TCP port 445 (SMB 3.0) or by establishing VPN connection first.][architectural-diagram]
@@ -125,12 +122,12 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)
-- [Hybrid file services](/azure/architecture/hybrid/hybrid-file-services)
-- [Back up files and applications on Azure Stack Hub](/azure/architecture/hybrid/azure-stack-backup)
-- [Multiple forests with AD DS and Azure AD](/azure/architecture/example-scenario/wvd/multi-forest)
-- [Multiple forests with AD DS, Azure AD, and Azure AD DS](/azure/architecture/example-scenario/wvd/multi-forest-azure-managed)
-- [Windows Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+- [Azure enterprise cloud file share](./azure-files-private.yml)
+- [Hybrid file services](./hybrid-file-services.yml)
+- [Back up files and applications on Azure Stack Hub](./azure-stack-backup.yml)
+- [Multiple forests with AD DS and Azure AD](../example-scenario/wvd/multi-forest.yml)
+- [Multiple forests with AD DS, Azure AD, and Azure AD DS](../example-scenario/wvd/multi-forest-azure-managed.yml)
+- [Windows Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml)
 
 [architectural-diagram]: ./images/azure-file-share.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx

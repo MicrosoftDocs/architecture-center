@@ -119,7 +119,7 @@ BEGIN CATCH
 END CATCH;
 ```
 
-**Create an Azure Machine Learning workspace under your Azure subscription.** For instructions, see [Create an Azure Machine Learning workspace](/azure/machine-learning/classic/create-workspace.md).
+**Create an Azure Machine Learning workspace under your Azure subscription.** For instructions, see [Create an Azure Machine Learning workspace](/azure/machine-learning/classic/create-workspace).
 
 ## <a name="getdata"></a>Load the data into Azure Synapse Analytics
 

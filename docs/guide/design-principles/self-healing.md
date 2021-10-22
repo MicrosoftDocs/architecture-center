@@ -1,7 +1,7 @@
 ---
 title: Design for self healing
 titleSuffix: Azure Application Architecture Guide
-description: Resilient applications can recover from failures without manual intervention.
+description: Learn to design resilient applications that can recover from failures without manual intervention through self-healing.
 author: doodlemania2
 ms.date: 08/30/2018
 ms.topic: conceptual
@@ -64,7 +64,7 @@ For a structured approach to making your applications self healing, see [Design 
 [compensating-transactions]: ../../patterns/compensating-transaction.md
 [leader-election]: ../../patterns/leader-election.md
 [load-level]: ../../patterns/queue-based-load-leveling.md
-[resiliency-overview]: ../../framework/resiliency/overview.md
+[resiliency-overview]: ../../framework/resiliency/principles.md
 [retry]: ../../patterns/retry.md
 [throttle]: ../../patterns/throttling.md
 [transient-fault-handling]: ../../best-practices/transient-faults.md

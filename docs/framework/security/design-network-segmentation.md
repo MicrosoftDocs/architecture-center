@@ -1,31 +1,50 @@
 ---
-title: Implement network segmentation patterns on Azure
-description: Use network level segmentation to secure virtual networks.
+title: Implement network segmentation patterns
+description: Use network-level segmentation to secure virtual networks. Understand Azure features for segmentation. Review three different segmentation patterns.
 author: tremansdoerfer
-ms.date: 02/03/2021
+ms.author: rimansdo
+ms.date: 07/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 azureCategories:
   - hybrid
   - networking
+  - security
 products:
   - azure-firewall
   - azure-virtual-network
   - azure-express-route
 ms.custom:
   - article
+categories:
+  - security
+subject:
+  - security
 ---
 
 # Implement network segmentation patterns on Azure
 
-Create segmentation in your network footprint by defining perimeters. Main reasons for segmentation are:
+A unified enterprise segmentation strategy guides technical teams to consistently segment access using networking, applications, identity, and any other access controls. 
+Create segmentation in your network footprint by defining perimeters. The main reasons for segmentation are:
 
 - The ability to group related assets that are a part of (or support) workload operations.
 - Isolation of resources.
 - Governance policies set by the organization.
 
-Network controls can secure interactions between perimeters. This approach can strengthen the security posture and contain risks in a breach because the controls can detect, contain, and stop attackers from gaining access to entire workload.
+_Assume compromise_ is the recommended cybersecurity mindset and the ability to contain an attacker is vital in protecting information systems. Model an attacker able to achieve a foothold at various points within the workload and establish controls to mitigate further expansion.
+
+Network controls can secure interactions between perimeters. This approach can strengthen the security posture and contain risks in a breach because the controls can detect, contain, and stop attackers from gaining access to an entire workload.
+
+Containment of attack vectors within an environment is critical. However, to be effective in cloud environments, traditional approaches may prove inadequate and security organizations may need to evolve their methods.
+
+Traditional segmentation approaches typically fail to achieve their goals as they have not been developed in a method to align with business use cases and application workloads. Often this results in overwhelming complexity requiring broad firewall exceptions.
+
+An evolving emerging best practice recommendation is to adopt a Zero Trust strategy based on user, device, and application identities. In contrast to network access controls that are based on elements such as source and destination IP address, protocols, and port numbers, Zero Trust enforces and validates access control at _access time_. This avoids the need to play a prediction game for an entire deployment, network, or subnet — only the destination resource needs to provide the necessary access controls.
+
+- Azure Network Security Groups can be used for basic layer 3 and 4 access controls between Azure Virtual Networks, their subnets, and the internet.
+- Azure Web Application Firewall and the Azure Firewall can be used for more advanced network access controls that require application layer support.
+- Local Admin Password Solution (LAPS) or a third-party Privileged Access Management can set strong local admin passwords and just-in-time access to them.
 
 **How does the organization implement network segmentation?**
 ***
@@ -33,12 +52,14 @@ This article highlights some Azure networking features that create segments and 
 
 > [!IMPORTANT]
 >
->Align your network segmentation strategy with the enterprise segmentation model. This will reduce confusion and  challenges with different technical teams (networking, identity, applications, and so on). Each team should not develop their own segmentation and delegation models that don’t align with each other.
+>Align your network segmentation strategy with the enterprise segmentation model. This will reduce confusion and  challenges with different technical teams (networking, identity, applications, and so on). Each team should not develop their own segmentation and delegation models that don't align with each other.
 
 ## Key points
 
 - Create software-defined perimeters in your networking footprint and secure communication paths between them.
-- Azure Virtual Networks (VNets) are created in private address spaces. By default no traffic allowed by default between any two VNets. Open paths only when it's really needed.
+- Establish a complete zero trust segmentation strategy. 
+- Align technical teams in the enterprise on micro segmentation strategies for legacy applications.
+- Azure Virtual Networks (VNets) are created in private address spaces. By default, no traffic is allowed between any two VNets. Open paths only when it's really needed.
 - Use Network Security Groups (NSG) to secure communication between resources within a VNet.
 - Use Application Security Groups (ASGs) to define traffic rules for the underlying VMs that run the workload.  
 - Use Azure Firewall to filter traffic flowing between cloud resources, the internet, and on-premise.
@@ -49,6 +70,18 @@ This article highlights some Azure networking features that create segments and 
 ## What is segmentation?
 
 You can create software-defined perimeters in your networking footprint by using the various Azure services and features. When a workload (or parts of a given workload) is placed into separate segments, you can control traffic from/to those segments to secure communication paths. If a segment is compromised, you will be able to better contain the impact and prevent it from laterally spreading through the rest of your network. This strategy aligns with the key principle of [Zero Trust model published by Microsoft](https://www.microsoft.com/security/blog/2019/10/23/perimeter-based-network-defense-transform-zero-trust-model/) that aims to bring world class security thinking to your organization.
+
+## Suggested actions
+
+Create a risk containment strategy that blends proven approaches including:
+
+- Existing network security controls and practices
+- Native security controls available in Azure
+- Zero trust approaches
+
+## Learn more
+
+For information about creating a segmentation strategy, see [Enterprise segmentation strategy](/azure/architecture/framework/security/design-segmentation).
 
 ## Azure features for segmentation
 

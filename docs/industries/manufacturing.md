@@ -1,5 +1,5 @@
 ---
-title: Solutions for manufacturing industry
+title: Solutions for the manufacturing industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable manufacturing solutions.
 author: dsk-2015
@@ -18,14 +18,14 @@ categories:
   - web
 ---
 
-# Solutions for manufacturing industry
+# Solutions for the manufacturing industry
 
-Manufacturing sector, a hallmark of the modern industrialized world, encompasses all steps from procuring raw materials to transforming into final product. Starting from household manufacturing in the pre-industrial era, this sector has evolved through stages such as mechanized assembly lines and automation, every new development adding to faster and more efficient manufacturing process. Cloud computing can bring forth the next revolution for manufacturing companies by transforming their IT infrastructures and processes from error-prone on-premises to highly available, secure, and efficient cloud, as well as providing cutting edge Internet of Things (IoT), AI/ML, and analytics solutions.
+Manufacturing sector, a hallmark of the modern industrialized world, encompasses all steps from procuring raw materials to transforming into final product. Starting from household manufacturing in the pre-industrial era, this sector has evolved through stages such as mechanized assembly lines and automation, every new development adding to faster and more efficient manufacturing processes. Cloud computing can bring forth the next revolution for manufacturing companies by transforming their IT infrastructures and processes from error-prone on-premises to highly available, secure, and efficient cloud, as well as providing cutting edge Internet of Things (IoT), AI/ML, and analytics solutions.
 
 Microsoft Azure holds the promise of the [fourth industrial revolution](https://www.weforum.org/agenda/2016/01/the-fourth-industrial-revolution-what-it-means-and-how-to-respond/) by providing manufacturing solutions that can:
 
 - help build more agile smart factories with industrial IoT,
-- creating more resilient and profitable supply chains,
+- create more resilient and profitable supply chains,
 - transform your work force productivity,
 - unlock innovation and new business models, and
 - engage with customers in new ways.
@@ -46,7 +46,7 @@ The following articles provide detailed analysis of architectures developed and 
 | ------- | ------- | ------- |
 | [Azure Industrial IoT Analytics Guidance](../guide/iiot-guidance/iiot-architecture.md) | Build an architecture for an Industrial IoT (IIoT) analytics solution on Azure using PaaS (Platform as a service) components. | IoT |
 | [Upscale machine learning lifecycle with MLOps framework](../example-scenario/mlops/mlops-technical-paper.yml) | Learn how a Fortune 500 food company improved its demand forecasting and optimized the product stocks in different stores across several regions in US with the help of customized machine learning models. | AI/ML |
-| [Speech-to-text transcription pipeline with Azure Cognitive Services](../reference-architectures/ai/speech-to-text-transcription-pipeline.yml) | Iewamprove the efficiency of your customer care centers and transform your business by analyzing high volumes of recorded calls by building a speech-to-text transcription pipeline with Azure Cognitive Services. | AI/ML |
+| [Speech-to-text transcription pipeline with Azure Cognitive Services](../reference-architectures/ai/speech-to-text-transcription-pipeline.yml) | Improve the efficiency of your customer care centers and transform your business by analyzing high volumes of recorded calls and building a speech-to-text transcription pipeline with Azure Cognitive Services. | AI/ML |
 
 
 ## Solution ideas for manufacturing

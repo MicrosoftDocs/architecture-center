@@ -38,5 +38,5 @@ This solution uses the following Azure components:
 
 ## Related resources
 
-- [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking)
-- [Condition monitoring for Industrial IoT](/azure/architecture/solution-ideas/articles/condition-monitoring)
+- [Connect an on-premises network to Azure](../../reference-architectures/hybrid-networking/index.yml)
+- [Condition monitoring for Industrial IoT](./condition-monitoring.yml)

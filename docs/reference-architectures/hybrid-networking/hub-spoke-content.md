@@ -55,7 +55,7 @@ curl https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-
 Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
 
 ```azurecli-interactive
-az deployment group create --resource-group hub-spoke-three --template-file main.bicep
+az deployment group create --resource-group hub-spoke --template-file main.bicep
 ```
 
 #### [Azure portal](#tab/portal)
@@ -181,11 +181,11 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Azure firewall architecture guide](/azure/architecture/example-scenario/firewalls/)
-- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
-- [Extend an on-premises network using VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn)
-- [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn)
-- [Hybrid connection](/azure/architecture/solution-ideas/articles/hybrid-connectivity)
-- [Connect standalone servers by using Azure Network Adapter](/azure/architecture/hybrid/azure-network-adapter)
-- [Secure and govern workloads with network level segmentation](/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+- [Azure firewall architecture guide](../../example-scenario/firewalls/index.yml)
+- [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
+- [Extend an on-premises network using VPN](./vpn.yml)
+- [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.yml)
+- [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
+- [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
+- [Secure and govern workloads with network level segmentation](./network-level-segmentation.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../containers/aks/secure-baseline-aks.yml)

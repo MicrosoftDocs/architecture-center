@@ -1,5 +1,5 @@
 ---
-title: Solutions for government industry
+title: Solutions for the government industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable government solutions.
 author: dsk-2015
@@ -20,7 +20,7 @@ categories:
   - web
 ---
 
-# Solutions for government industry
+# Solutions for the government industry
 
 Microsoft Azure provides a mission-critical cloud platform, Azure Government, that delivers breakthrough innovation to US government customers and their partners. US federal, state, local, and tribal governments and their partners can have secure and dedicated access to this platform, with operations controlled by screened US citizens.
 
@@ -52,7 +52,7 @@ The following articles provide detailed analysis of architectures developed and 
 | [Hybrid Security Monitoring using Azure Security Center and Azure Sentinel](../hybrid/hybrid-security-monitoring.yml) | Monitor the security configuration and telemetry of on-premises and Azure operating system workloads. | Hybrid/Multicloud |
 | [Vision classifier model with Azure Custom Vision Cognitive Service](../example-scenario/dronerescue/vision-classifier-model-with-custom-vision.yml) | Combine AI and Internet of Things (IoT) by using Azure Custom Vision to classify images taken by a simulated drone. | AI/ML |
 | [Web app private connectivity to Azure SQL database](../example-scenario/private-web-app/private-web-app.yml) | Set up private connectivity from an Azure Web App to Azure Platform-as-a-Service (PaaS) services. | Security |
-| [Windows Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml) | Use Windows Virtual Desktop to build virtualized desktop infrastructure (VDI) solutions at enterprise scale, covering 1,000 virtual desktops and above. | Hybrid/Multicloud |
+| [Azure Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml) | Use Azure Virtual Desktop to build virtualized desktop infrastructure (VDI) solutions at enterprise scale, covering 1,000 virtual desktops and above. | Hybrid/Multicloud |
 
 ## Solution ideas for government
 

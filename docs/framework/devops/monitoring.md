@@ -1,6 +1,6 @@
 ---
 title: Monitoring for DevOps
-description: Describes how to monitor your workload to ensure your DevOps infrastructure is working as intended.
+description: Understand how to monitor your workload to make sure your DevOps infrastructure is working as intended.
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: conceptual
@@ -56,7 +56,7 @@ Additionally, for operators that prefer using the open-source Kubernetes monitor
 Regardless the form factor or programming language your application is based on, the network connecting your code to your users can make or break the experience that your application provides. As a consequence monitoring and troubleshooting the network can be decisive for an operations team. The component of Azure Monitor that manages the network components is called Network Watcher, a collection of network monitoring and troubleshooting tools. Some of these tools are:
 
 * Traffic Analytics will give you an overview of the traffic in your Virtual Networks, as well as the percentage coming from malicious IP addresses, leveraging Microsoft Threat Intelligence databases. This tool will show you as well the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems.
-* Network Performance Manager can generate synthetic traffic to measure the performance of network connections over multiple links, giving you a perspective on the evolution of WAN and Internet connections over time, as well as offering valuable monitoring information about Microsoft ExpressRoute circuits.
+* [Network Performance Monitor](/azure/azure-monitor/insights/network-performance-monitor) can generate synthetic traffic to measure the performance of network connections over multiple links, giving you a perspective on the evolution of WAN and Internet connections over time, as well as offering valuable monitoring information about Microsoft ExpressRoute circuits.
 * VPN diagnostics can help troubleshooting site-to-site VPN connections connecting your applications to users on-premises.
 * Connection Monitor allows you to measure the network availability between sets of endpoints.
 

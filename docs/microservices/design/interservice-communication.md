@@ -1,7 +1,8 @@
 ---
 title: Interservice communication in microservices
 description: Learn about the tradeoffs between asynchronous messaging versus synchronous APIs for communication between microservices and some challenges in communication.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 05/23/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -133,7 +134,7 @@ If the logic for compensating transactions is complex, consider creating a separ
 
 ![Diagram showing the Supervisor microservice](../images/supervisor.png)
 
-The Scheduler service itself might fault (for example, because a node crashes). In that case, a new instance can spin up and take over. However, any transactions that were already in progress must be resumed.
+The Scheduler service itself might fail (for example, because a node crashes). In that case, a new instance can spin up and take over. However, any transactions that were already in progress must be resumed.
 
 One approach is to save a checkpoint to a durable store after each step in the workflow is completed. If an instance of the Scheduler service crashes in the middle of a transaction, a new instance can use the checkpoint to resume where the previous instance left off. However, writing checkpoints can create a performance overhead.
 

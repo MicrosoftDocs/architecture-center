@@ -45,7 +45,7 @@ Read other Azure Architecture Center articles:
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Defect prevention with predictive maintenance](./defect-prevention-with-predictive-maintenance.yml)
 * [Predictive Marketing with Machine Learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
-* [Azure AI guide for predictive maintenance solutions](/azure/architecture/solution-ideas/articles/predictive-maintenance)
+* [Azure AI guide for predictive maintenance solutions](./predictive-maintenance.yml)
 
 See product documentation:
 

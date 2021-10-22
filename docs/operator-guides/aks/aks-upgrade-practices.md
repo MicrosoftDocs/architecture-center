@@ -1,5 +1,5 @@
 ---
-title: AKS Day-2 Operations Guide - Patch and upgrade guidance
+title: AKS Day-2 - Patch and upgrade guidance
 titleSuffix: Azure Architecture Center
 description: Learn about day-2 patching and upgrading practices for Azure Kubernetes Service (AKS) worker nodes and Kubernetes (K8S) versions.
 author: rishabhsaha
@@ -88,6 +88,7 @@ To upgrade node pools to the latest node image version:
 - [Upgrade all nodes in node pools](/azure/aks/node-image-upgrade#upgrade-all-nodes-in-all-node-pools).
 - [Upgrade a specific node pool](/azure/aks/node-image-upgrade#upgrade-a-specific-node-pool).
 - [Automate node pool upgrades using GitHub Actions](/azure/aks/node-upgrade-github-actions).
+- [Automate node pool upgrades using auto-upgrade channels](/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 
 ## Cluster upgrades
 
@@ -162,7 +163,7 @@ The following table describes characteristics of various AKS upgrade and patchin
 
 |Scenario|User initiated|K8S upgrade|OS kernel upgrade|Node image upgrade|
 |--------|--------------|------------------|-----------------|------------------|-----|
-|Security patching | No  | No | Yes, following reboot | No  |
+|Security patching | No  | No | Yes, following reboot | Yes  |
 |Cluster create | Yes  | Maybe | Yes, if an updated node image uses an updated kernel.|Yes, relative to an existing cluster if a new release is available.|
 |Control plane K8S upgrade | Yes  | Yes | No  | No  |
 |Node pool K8S upgrade | Yes  | Yes | Yes, if an updated node image uses an updated kernel.| Yes, if a new release is available.|

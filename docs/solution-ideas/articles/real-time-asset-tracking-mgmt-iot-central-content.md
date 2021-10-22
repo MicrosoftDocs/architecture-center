@@ -18,7 +18,7 @@ These other uses cases have similar design patterns:
 
 :::image type="content" source="../media/real-time-asset-tracking-mgmt-iot-central-content.svg" lightbox="../media/real-time-asset-tracking-mgmt-iot-central-content.svg" alt-text="The solution diagram shows devices sending data to IoT Central, which exports it to Event Hubs for use by various alerting and reporting services.":::
 
-*Download an [SVG](../media/real-time-asset-tracking-mgmt-iot-central-content.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/US-1839204-PR-3091-real-time-asset-tracking-mgmt-iot-central.vsdx) of this architecture.*
 
 1. IoT sensors installed on vehicles and other assets send telemetry to cloud gateway devices.
 1. Gateway devices send telemetry and aggregated insights to Azure IoT Central.
@@ -58,5 +58,5 @@ These other uses cases have similar design patterns:
 
 See these related architectures:
 
-- [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
-- [Retail - Buy online, pickup in store (BOPIS)](/azure/architecture/example-scenario/iot/vertical-buy-online-pickup-in-store)
+- [Environment monitoring and supply chain optimization with IoT](./environment-monitoring-and-supply-chain-optimization.yml)
+- [Retail - Buy online, pickup in store (BOPIS)](../../example-scenario/iot/vertical-buy-online-pickup-in-store.yml)

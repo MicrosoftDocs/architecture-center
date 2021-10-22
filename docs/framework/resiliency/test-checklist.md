@@ -1,6 +1,6 @@
 ---
 title: Testing for reliability
-description: Describes considerations for reliability in application testing.
+description: Use a reliability checklist for app testing. Validate existing thresholds, targets, assumptions, the health and capacity models, and operational procedures.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
@@ -31,17 +31,6 @@ Regular testing should be performed as part of each major change and if possible
 > - Configure and test health probes for your load balancers and traffic managers.
 > - Apply chaos principles continuously.
 > - Create and organize a central chaos engineering team.
-
-## In this section
-
-Follow these questions to assess the workload at a deeper level.
-
-| Assessment | Description |
-| ------------- | ------------- |
-| [How do you test the application to ensure it is fault tolerant?](./testing.md) | Test regularly to validate existing thresholds, targets and assumptions. Automate testing as much as possible.
-| [How are you handling disaster recovery for your application?](./backup-and-recovery.md) | A disaster recovery plan is considered complete after it has been fully tested. Include the people, processes, and applications needed to restore functionality within the service-level agreement (SLA).
-| [How are you managing errors & failures?](./app-design-error-handling.md) | Testing doesn't always catch everything. Ensure that your application can recover from errors in a critical when working in a distributed system.
-| [How do you chaos-engineer your applications to ensure that they're fault tolerant?](./chaos-engineering.md) | Deliberately inject faults that cause system components to fail. This can be done in a production or non-production environment.
 
 ## Azure services
 

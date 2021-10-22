@@ -14,7 +14,7 @@ The architecture consists of the following components.
 - **Hub subscription**. The hub subscription represents an Azure subscription that&#39;s used to host connectivity, management, and networking resources that are shared across multiple Azure-hosted workloads. These resources can be broken down into multiple subscriptions, as described in the [enterprise-scale architecture.][4]
   > [!NOTE]
   > The hub virtual network can be substituted with a [virtual wide area network (WAN)][5] hub, in which case the DNS servers would have to be hosted in a different [Azure virtual network (VNet)][6]. In the Enterprise-scale architecture, that VNet is maintained in its own subscription entitled the **Identity subscription**.
-- **Azure Bastion subnet**. The Azure Bastion service in the hub virtual network is used for remoting to virtual machines (VMs) in the hub and spoke VNets from the public internet for maintenance purposes.  
+  - **Azure Bastion subnet**. The Azure Bastion service in the hub virtual network is used for remoting to virtual machines (VMs) in the hub and spoke VNets from the public internet for maintenance purposes.  
   - **Private endpoint subnet**. The private endpoint subnet hosts private endpoints for Azure-hosted workloads in VNets that aren't peered to the hub. With this type of disconnected VNet, its IP addresses can clash with other IP addresses that are used in Azure and on-premises.
   - **Gateway subnet**. The gateway subnet hosts the Azure VPN, or ExpressRoute, gateway that's used to provide connectivity back to the on-premises datacenter.
   - **Shared services subnet**. The shared services subnet hosts services that are shared among multiple Azure workloads. In this scenario, this subnet hosts virtual machines running Windows or Linux that are also used as DNS servers. These DNS servers host the same DNS zones as the on-premises servers.
@@ -142,11 +142,11 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Azure enterprise cloud file share](/azure/architecture/hybrid/azure-files-private)
-- [Windows N-tier application on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-- [N-tier application with Apache Cassandra](/azure/architecture/reference-architectures/n-tier/n-tier-cassandra)
-- [Multitenant SaaS on Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)
-- [Extend an on-premises network using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute)
+- [Azure enterprise cloud file share](./azure-files-private.yml)
+- [Windows N-tier application on Azure](../reference-architectures/n-tier/n-tier-sql-server.yml)
+- [N-tier application with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)
+- [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
+- [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
 [architectual-diagram]: ./images/hybrid-dns-infra.png
 [architectual-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-dns-infra.vsdx

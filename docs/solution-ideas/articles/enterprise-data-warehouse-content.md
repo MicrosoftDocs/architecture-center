@@ -7,7 +7,7 @@ An enterprise data warehouse lets you bring together all your data at any scale 
 
 ## Architecture
 
-![Architecture diagram](../media/enterprise-data-warehouse.png)
+:::image type="content" source="../media/enterprise-data-warehouse.png" alt-text="Diagram of an enterprise data warehouse architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Azure Analysis Services and Power BI." border="false":::
 
 *Download an [SVG](../media/enterprise-data-warehouse.svg) of this architecture.*
 

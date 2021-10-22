@@ -1,8 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Artificial intelligence (AI) and machine learning (ML) offer unique opportunities and challenges for automating complex industrial systems. *Machine teaching* is a new paradigm for building ML systems that moves the focus away from algorithms and onto successful model generation and deployment.
+Artificial intelligence (AI) and machine learning (ML) offer unique opportunities and challenges for automating complex industrial systems. _Machine teaching_ is a new paradigm for building ML systems that moves the focus away from algorithms and onto successful model generation and deployment.
 
-Machine teaching infuses subject matter expertise into automated AI system training with *deep reinforcement learning (DRL)* and *simulations*. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates models that turn automated control systems into *autonomous systems*.
+Machine teaching infuses subject matter expertise into automated AI system training with _deep reinforcement learning (DRL)_ and _simulations_. Abstracting away AI complexity to focus on subject matter expertise and real-world conditions creates models that turn automated control systems into _autonomous systems_.
 
 Autonomous systems:
 
@@ -30,8 +30,8 @@ The Microsoft Autonomous Systems platform manages the full end-to-end machine te
 ![Autonomous Systems Platform](../media/machine-teaching-1-2.png)
 
 1. The Build phase consists of writing the machine teaching program and connecting to a domain-specific training simulator. Simulators generate sufficient training data for experiments and machine practice.
-3. In the Train phase, the training engine automates DRL model generation and training by combining high-level domain models with appropriate DRL algorithms and neural networks.
-5. The Deploy phase deploys the trained *brain* to the target application in the cloud, on-premises, or embedded on site. Specific SDKs and deployment APIs deploy trained AI systems to various target applications, perform machine tuning, and control the physical systems.
+1. In the Train phase, the training engine automates DRL model generation and training by combining high-level domain models with appropriate DRL algorithms and neural networks.
+1. The Deploy phase deploys the trained _brain_ to the target application in the cloud, on-premises, or embedded on site. Specific SDKs and deployment APIs deploy trained AI systems to various target applications, perform machine tuning, and control the physical systems.
 
 Subject matter experts with no AI background can break down their expertise into steps and tasks, criteria, and desired outcomes. Engineers building autonomous systems create accurate, detailed models of systems and environments, and make them intelligent using methods like deep learning, imitation learning, and reinforcement learning.
 
@@ -46,6 +46,7 @@ After training is complete, engineers deploy these trained agents to the real wo
 [Project Bonsai](https://azure.microsoft.com/services/project-bonsai/) is the machine teaching service for the Microsoft Autonomous Systems platform. Bonsai simplifies machine teaching with deep reinforcement learning (DRL) to train and deploy smarter autonomous systems.
 
 You can use Bonsai to:
+
 - Teach adaptive brains with intuitive goals and learning objectives, real-time success assessments, and automatic versioning control.
 - Integrate training simulations that implement real-world problems and provide realistic feedback.
 - Export trained brains and deploy them on-premises, in the cloud, or to IoT Edge or embedded devices.
@@ -55,13 +56,14 @@ You can use Bonsai to:
 In Bonsai, managed Azure graphics processing unit (GPU) clusters run AI training on complex neural networks at scale, with built-in support for retraining and analyzing AI system versions. The deployment and runtime frameworks package and deploy the resulting AI system models at scale.
 
 The Bonsai platform runs on Azure and charges resource costs to your Azure subscription.
+
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (basic tier) for storing exported brains and uploaded simulators.
 - [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) for running simulations.
 - [Azure Storage](https://azure.microsoft.com/services/storage/) for storing uploaded simulators as ZIP files.
 
 #### Inkling
 
-[Inkling](/bonsai/inkling/) is a declarative, statically-typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines *concepts* necessary to teach the AI, and *curriculum*, or methods for teaching the concepts.
+[Inkling](/bonsai/inkling/) is a declarative, statically-typed programming language for training AI in Bonsai. Inkling abstracts away the dynamic AI algorithms that require expertise in machine learning, enabling more developers to program AI. An Inkling file defines _concepts_ necessary to teach the AI, and _curriculum_, or methods for teaching the concepts.
 
 ![Inkling example](../media/inkling.png)
 
@@ -94,6 +96,7 @@ The following Bonsai screenshot shows Cartpole training progress, with **Goal sa
 ![Bonsai dashboard showing the Cartpole training example](../media/bonsai.png)
 
 For more information about the cartpole example or to try it yourself, see:
+
 - [Quickstart: Balance a pole with AI (Cartpole)](/bonsai/quickstart/cartpole/)
 - [Learn how you can teach an AI agent to balance a pole](https://blogs.microsoft.com/ai-for-business/cartpole-demo/)
 
@@ -127,7 +130,7 @@ AirSim works as a plug-in to Epic Games' [Unreal Engine](https://www.unrealengin
 
 This realism, based on efficiently generated ground-truth data, enables the study and execution of complex missions that are time-consuming or risky in the real world. For example, AirSim provides realistic environments, vehicle dynamics, and multi-modal sensing for researchers building autonomous vehicles. Collisions in a simulator cost virtually nothing, yet provide actionable information to improve the design of the system.
 
-You can use an [Azure Resource Manager (ARM) template](https://github.com/microsoft/AirSim/blob/master/azure/azure-env-creation/vm-arm-template.json) to automatically create a development environment, and code and debug a Python application connected to AirSim in Visual Studio Code. For more information, see [AirSim Development Environment on Azure](https://microsoft.github.io/AirSim/azure.html).
+You can use an [Azure Resource Manager (ARM) template](https://github.com/microsoft/AirSim/blob/master/azure/azure-env-creation/vm-arm-template.json) to automatically create a development environment, and code and debug a Python application connected to AirSim in Visual Studio Code. For more information, see [AirSim Development Environment on Azure](https://microsoft.github.io/AirSim/azure/).
 
 ## Next steps
 

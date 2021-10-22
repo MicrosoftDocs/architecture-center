@@ -152,7 +152,7 @@ disks](/azure/storage/storage-managed-disks-overview). You can use Azure shared 
 
 Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
-For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/storage-blob-storage-tiers). These storage tiers provide a cost-effective way to store long-lived data that is infrequently accessed.
+For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers provide a cost-effective way to store long-lived data that is infrequently accessed.
 
 [Ultra disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd)
 greatly reduce disk latency and benefit performance-critical applications like the SAP database servers. [Compare block storage options in Azure.](/azure/virtual-machines/windows/disks-types)
@@ -297,7 +297,7 @@ Many IT services, like administrative jump boxes, cloud-based directory services
 
 ### Automated DR with Azure Site Recovery
 
-To use Azure Site Recovery to automatically build a fully replicated production site of your original configuration, you need to run customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). For example, Site Recovery first deploys the virtual machines in availability sets. It then runs your custom scripts to attach the existing (prebuilt) load balancer, in which the backend pool is already defined, to the NIC of the failover virtual machines. An example of the custom Site Recovery Automation Runbooks script is available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery).
+To use Azure Site Recovery to automatically build a fully replicated production site of your original configuration, you need to run customized [deployment scripts](/azure/site-recovery/site-recovery-runbook-automation). For example, Site Recovery first deploys the virtual machines in availability sets. It then runs your custom scripts to attach the existing (prebuilt) load balancer, in which the backend pool is already defined, to the NIC of the failover virtual machines. An example of the custom Site Recovery Automation Runbooks script is available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/asr-automation-recovery).
 
 > [!NOTE]
 > In case of a regional disaster that causes a mass failover event for many Azure customers in one region, the target region's resource [capacity](/azure/site-recovery/azure-to-azure-common-questions#capacity) isn't guaranteed. Like all Azure services, Site Recovery continues to improve its features and capabilities. See the latest [support matrix](/azure/site-recovery/azure-to-azure-support-matrix) for disaster recovery of Azure virtual machines from one Azure region to another.

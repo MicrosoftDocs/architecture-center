@@ -74,7 +74,7 @@ In this model, the gateway uses a cache to map devices to IoT Hubs, defaulting t
  
 ## Additional considerations
 
-- If device enrollment is in progress, the device won't be reachable. Use DPS APIs like [Get Device Registration State](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate) to get the device's assigned IoT Hub and its current enrollment status.
+- If device enrollment is in progress, the device won't be reachable. Use DPS APIs like [Get Device Registration State](/rest/api/iot-dps/service/device-registration-state/get) to get the device's assigned IoT Hub and its current enrollment status.
 - While caching in a shared lookup avoids re-negotiating endpoints on every call, it's possible for the cache endpoint to fail. A secondary cache or fallback plan of renegotiating with DPS can improve solution reliability.
 - In the device-only case, devices are disconnected when moved from one IoT Hub to another, either through a disconnect or an error on the next attempted call. In the application-to-device case, the error occurs as the result of attempting to reach the device through the IoT Hub.
 

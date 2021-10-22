@@ -74,7 +74,7 @@ The [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) da
 
 Click **Continue to Download** to read more about the dataset and its availability.
 
-The data resides in an [Azure blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location.
+The data resides in an [Azure blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location.
 
 1. The data in this Azure blob storage consists of three subfolders of unzipped data.
 

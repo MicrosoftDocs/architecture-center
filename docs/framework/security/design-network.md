@@ -6,6 +6,13 @@ ms.date: 02/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure-security-center
+categories: 
+  - security
+subject:
+  - security
+  - networking
 ms.custom:
   - article
 ---
@@ -26,17 +33,6 @@ Protect assets by placing controls on network traffic originating in Azure, betw
 > - Prevent direct internet access of virtual machines.
 > - Control network traffic between subnets (east-west) and application tiers (north-south).
 > - Protect from data exfiltration attacks through a defense-in-depth approach with controls at each layer.
-
-
-## In this section
-Follow these questions to assess the workload at a deeper level. The recommendations in this section are based on using Azure Virtual Networking. 
-
-|Assessment|Description|
-|---|---|
-|[**How does the organization implement network segmentation to detect and contain adversary movement?**](design-network-segmentation.md)|Create segmentation in your network footprint to group the related assets and isolation. Align the network segmentation with the enterprise segmentation strategy.
-|[**Should this workload be accessible from public IP addresses?**](design-network-connectivity.md)|Use native Azure networking feature to restrict access to individual application services. Explore multiple levels (such as IP filtering or firewall rules) to prevent application services from being accessed by unauthorized actors.|
-|[**Are public endpoints of this workload protected?**](design-network-endpoints.md)|Use Azure Firewall to protect Azure Virtual Network resources. Web Application Firewall (WAF) mitigates the risk of an attacker being able to exploit commonly known security application vulnerabilities like cross-site scripting or SQL injection.|
-|[**Is the traffic between subnets, Azure components and tiers of the workload managed and secured?**](design-network-flow.md)|Place controls between subnets of a VNet. Detect threats by allowing or denying ingress and egress traffic.|
 
 ## Azure security benchmark
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
@@ -60,10 +56,10 @@ Here are some reference architectures related to network security:
 
 ## Next steps
 
-Monitor the communication between segments. Use data to identify anomalies, set alerts, or block traffic to mitigate the risk of attackers crossing segmentation boundaries. 
+We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program.
 
 > [!div class="nextstepaction"]
-> [Monitor identity, network, data risks](./monitor-identity-network.md)
+> [Data protection](./design-storage.md)
 
 ## Related links
 

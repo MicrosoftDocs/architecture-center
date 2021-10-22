@@ -1,7 +1,8 @@
 ---
 title: "High Performance Computing (HPC) on Azure"
 description: Learn about High Performance Computing on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.
-author: doodlemania2
+author: SMBrook
+ms.author: sibrook
 ms.date: 8/14/2019
 ms.topic: guide
 ms.service: architecture-center
@@ -249,7 +250,7 @@ Once network connectivity is securely established, you can start using cloud com
 There are a number of workload managers offered in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
 - [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc)
-- [SUSE Linux Enterprise Server for HPC](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-15-sp1-hpc)
+- [SUSE Linux Enterprise Server for HPC](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-15-sp2)
 - [TIBCO Datasynapse GridServer](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.tibco_datasynapse_gridserver)
 - [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview)
 - [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
@@ -368,11 +369,16 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 - [Microsoft Cognitive Toolkit](/cognitive-toolkit/cntk-on-azure)
 - [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
-### MPI Providers
+### MPI providers
 
 - [Microsoft MPI](/message-passing-interface/microsoft-mpi)
 
 ## Remote visualization
+
+Run GPU-powered virtual machines in Azure in the same region as the HPC output for the lowest latency, access, and to visualize remotely through Azure Virtual Desktop, Citrix, or VMware Horizon.
+
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Configure GPU acceleration for Azure Virtual Desktop](/azure/virtual-desktop/configure-vm-gpu)
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -387,7 +393,25 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
                         <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Linux virtual desktops with Citrix</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
-                        <p>Build a VDI environment for Linux Desktops using Citrix on Azure.</p>
+                        <p>Build a VDI environment for Linux desktops using Citrix on Azure.</p>
+                    </div>
+                </div>
+            </article>
+        </a>
+    </li>
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/example-scenario/wvd/windows-virtual-desktop">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="Diagram of an architecture for Azure Virtual Desktops on Azure." src="../example-scenario/wvd/images/windows-virtual-desktop.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Windows desktops using Azure Virtual Desktop on Azure</h3>
+                    </div>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
+                        <p>Build a VDI environment for Windows desktops using Azure Virtual Desktop on Azure.</p>
                     </div>
                 </div>
             </article>
@@ -395,7 +419,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
     </li>
 </ul>
 
-## Performance Benchmarks
+## Performance benchmarks
 
 - [Compute benchmarks](/azure/virtual-machines/windows/compute-benchmark-scores)
 

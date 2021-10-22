@@ -3,7 +3,7 @@ metadata:
   title: AI at the edge with Azure Stack Hub
   titleSuffix: Azure Solution Ideas
   description: Bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 03/03/2021
   ms.topic: conceptual

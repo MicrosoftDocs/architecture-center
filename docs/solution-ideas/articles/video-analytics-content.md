@@ -51,5 +51,5 @@ This solution uses the following Azure components:
 
 ## Related resources
 
-- [IoT event routing](/azure/architecture/example-scenario/iot/event-routing)
-- [Contactless IoT interfaces with Azure intelligent edge](/azure/architecture/solution-ideas/articles/contactless-interfaces)
+- [IoT event routing](../../example-scenario/iot/event-routing.yml)
+- [Contactless IoT interfaces with Azure intelligent edge](./contactless-interfaces.yml)

@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Event Grid connects data sources and event handlers. For example, using Event Grid instantly triggers a serverless function to run image analysis whenever someone adds a new photo to a blob storage container.
@@ -26,7 +23,7 @@ Learn more about the component technologies:
 
 Explore related architectures:
 
-- [Application integration using Event Grid](/azure/architecture/solution-ideas/articles/application-integration-using-event-grid)
-- [Ops automation using Event Grid](/azure/architecture/solution-ideas/articles/ops-automation-using-event-grid)
-- [Event-based cloud automation](/azure/architecture/reference-architectures/serverless/cloud-automation)
-- [Gridwich cloud media system](/azure/architecture/reference-architectures/media-services/gridwich-architecture)
+- [Application integration using Event Grid](./application-integration-using-event-grid.yml)
+- [Ops automation using Event Grid](./ops-automation-using-event-grid.yml)
+- [Event-based cloud automation](../../reference-architectures/serverless/cloud-automation.yml)
+- [Gridwich cloud media system](../../reference-architectures/media-services/gridwich-architecture.yml)

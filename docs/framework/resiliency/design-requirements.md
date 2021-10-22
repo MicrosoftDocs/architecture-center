@@ -1,6 +1,6 @@
 ---
 title: Target and non-functional requirements
-description: Describes reliability targets for availability, recovery, and non-functional requirements.
+description: Meet reliability targets for availability, recovery, and non-functional requirements, which involve application and data platforms, networking, and connectivity.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
@@ -31,7 +31,7 @@ Understanding your availability expectations is vital to reviewing overall opera
 Monitoring and measuring application availability is vital to qualifying overall application health and progress towards defined targets. Make sure you measure and monitor key targets such as:
 
 - Mean Time Between Failures (MTBF) &mdash; The average time between failures of a particular component.
-- Mean Time Between Failures (MTBF) &mdash; The average time between failures of a particular component.
+- Mean Time To Recover (MTTR) &mdash; The average time it takes to restore a component after a failure.
 
 ### Considerations for availability targets
 
