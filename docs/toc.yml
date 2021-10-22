@@ -1161,6 +1161,8 @@ items:
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
+              - name: Determine customer lifetime and churn
+                href: example-scenario/ai/determine-customer-lifetime-and-churn-with-azure-ai-services-content.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
               - name: Enterprise-grade conversational bot
