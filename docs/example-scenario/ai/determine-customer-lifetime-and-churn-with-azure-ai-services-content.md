@@ -136,15 +136,14 @@ To estimate the cost of Azure products and configurations, visit the [Azure pric
 Use these resources to explore this scenario:
 
 - [Artificial intelligence](../../data-guide/big-data/ai-overview.md)
-- [Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/)
-- [Introduction to Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/)
+- [Introduction to Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)
 - [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/)
 - [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/)
 
 To learn more, explore other scenarios:
 
-- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.md)
-- [Customer churn prediction using real-time analytics](../../solution-ideas/articles/customer-churn-prediction.md)
-- [Predict Length of Stay and Patient Flow](../../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.md)
-- [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.md)
--
+- [MLOps for Python models using Azure Machine Learning](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/mlops-python)
+- [Customer churn prediction using real-time analytics](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/customer-churn-prediction)
+- [Predict Length of Stay and Patient Flow](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics)
+- [Product recommendations for retail using Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/product-recommendations)
