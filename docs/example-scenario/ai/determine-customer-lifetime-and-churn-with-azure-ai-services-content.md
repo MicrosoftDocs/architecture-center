@@ -35,39 +35,35 @@ In general, the true value of a customer relationship can help answer these ques
 
 ![Architecture Diagram](./media/architecture-customerlifetime-churn.png)
 
-### Data flow
+1. Ingestion and orchestration
 
-#### Ingestion and Orchestration Phase
+   Ingest historical, transactional, and third-party data for the customer from on-premises data sources. Use Azure Data Factory and store the results in Azure Data Lake Storage.
 
-Ingest historical, transactional, and third-party data for the customer from on-premises data sources. Use Azure Data Factory and store the results in Azure Data Lake Storage.
+1. Data processing
 
-#### Data Processing
+   In the data processing phase, use Azure Databricks to pick up and clean the raw data from the Data Lake Storage. The data is stored in the silver layer in Azure Data Lake Services Gen2.
 
-In the data processing phase, use Azure Databricks to pick up and clean the raw data from the Azure Data Lake. The data is stored in the silver layer in Azure Data Lake Services Gen2.
+1. Feature engineering
 
-#### Feature Engineering
+   With Azure Databricks, load data from the silver layer of Data Lake Storage. The data is enriched using PySpark. After preparation, use feature engineering to provide better representation of data. Feature engineering can also improve the performance of the machine learning algorithm.
 
-With Azure Databricks, load data from the silver layer, where it's further enriched using PySpark. After preparation, use feature engineering to provide better representation of data. Feature engineering can also improve the performance of the machine learning algorithm.
+1. Model training
 
-#### Model training
+   In the model training phase, the silver tier data is the model training dataset. You can use MLFlow to manage machine learning experiments. MLFlow keeps track of all metrics you need to evaluate your machine learning experiment.
 
-In the model training phase, the silver tier data is the model training dataset. You can use MLFlow to manage machine learning experiments. MLFlow keeps track of all metrics you need to evaluate your machine learning experiment.
+   MLFlow parameters and MLFlow metrics are used for storing model-related parameters, such as training hyperparameters, and for storing model performance metrics. The machine learning model is iteratively retrained using Azure Data Factory pipelines. The model retraining pipeline gets updated training data from the Azure Data Lake Gen2 and retrains the model. The model retraining pipeline kicks off in the following ways:
 
-MLFlow parameters and MLFlow metrics are used for storing model-related parameters, such as training hyperparameters, and for storing model performance metrics.
+   - When the accuracy of the current model in production drops below a threshold tracked by MLFlow.
+   - When calendar triggers, based on the customer defined rules, are reached.
+   - When data drift is detected.
 
-The machine learning model is iteratively retrained using Azure Data Factory pipelines according to the conditions mentioned below. The model retraining pipeline gets updated training data from the Azure Data Lake Gen2 (silver tier) and retrains the model. The model retraining pipeline kicks off in different ways:
+1. Machine learning registry
 
-- When the accuracy of the current model in production drops below a threshold tracked by MLFlow.
-- When calendar triggers, based on the customer defined rules, are reached.
-- When data drift is detected.
+   An Azure Data Factory pipeline registers the best machine learning model in the Azure Machine Learning Service according to the metrics chosen. The machine learning model is deployed by using the Azure Kubernetes Service.
 
-#### Machine learning registry
+1. Serving phase
 
-An Azure Data Factory pipeline registers the best machine learning model in the Azure Machine Learning Service according to the metrics chosen.
-
-#### Serving phase
-
-In this phase, you can use reporting tools, such as Power BI, MicroStrategy, and Analyses Services, for your model predictions.
+   In the serving phase, you can use reporting tools, such as Power BI, MicroStrategy, and Analyses Services, for your model predictions.
 
 ### Components
 
@@ -75,25 +71,25 @@ In this phase, you can use reporting tools, such as Power BI, MicroStrategy, and
 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a fully managed database engine that handles most of the database management functions without user involvement. Azure SQL Database enables you to focus on the domain-specific database administration and optimization activities that are critical for your business.
 
-- [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) is a cloud service for storing large amounts of unstructured data such as text, binary data, audio, and documents. Azure Blob Storage allows data scientists quick access to data for experimentation and AI model building.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is a cloud service for storing large amounts of unstructured data such as text, binary data, audio, and documents. Azure Blob Storage allows data scientists quick access to data for experimentation and AI model building.
 
-- [Azure Databricks](https://azure.microsoft.com/en-us/services/databricks/) is a data analytics platform optimized for the Microsoft Azure cloud services platform.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a data analytics platform optimized for the Microsoft Azure cloud services platform.
 
-- [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/) includes a range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. Accelerate time to market with industry-leading MLOps—machine learning operations or DevOps for machine learning. Innovate on a secure, trusted platform.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) includes a range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. Accelerate time to market with industry-leading MLOps—machine learning operations or DevOps for machine learning. Innovate on a secure, trusted platform.
 
-- [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/) provides a data integration and transformation layer that works across your digital transformation initiatives.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) provides a data integration and transformation layer that works across your digital transformation initiatives.
 
-- [MLFlow](https://docs.microsoft.com/en-us/azure/databricks/applications/mlflow/) is an open-source platform for managing the end-to-end machine learning life cycle.
+- [MLFlow](/azure/databricks/applications/mlflow/) is an open-source platform for managing the end-to-end machine learning life cycle.
 
 ### Alternatives
 
-- Data Factory orchestrates the workflows for your data pipeline. If you want to load data only one time or on demand, use tools like SQL Server bulk copy and AzCopy to copy data into Blob storage. You can load the data directly into Azure Synapse using PolyBase.
+Data Factory orchestrates the workflows for your data pipeline. If you want to load data only one time or on demand, use tools like SQL Server bulk copy and AzCopy to copy data into Blob storage. You can then load the data directly into Azure Synapse using PolyBase.
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/) brings together enterprise data warehousing and big data analytics.
+Azure Synapse Analytics brings together enterprise data warehousing and big data analytics. For more information, see [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/).
 
 ## Considerations
 
-Some business intelligence tools may not support Azure Analysis Services. The curated data can be accessed directly from Azure SQL Database. In this implementation, data is stored using Azure Data Lake Storage Gen2 and accessed using Azure Databricks storage for data processing.
+Some business intelligence tools may not support Azure Analysis Services. The curated data can instead be accessed directly from Azure SQL Database. In this implementation, data is stored using Azure Data Lake Storage Gen2 and accessed using Azure Databricks storage for data processing.
 
 ### Availability
 
@@ -105,11 +101,11 @@ The service level agreements (SLAs) of most Azure components guarantee availabil
 
 ### Scalability
 
-This scenario uses Azure Data Lake Storage to store data for machine learning models and predictions. Azure Storage is scalable. It can store and serve many exabytes of data. This amount of storage is available with throughput measured in gigabits per second (Gbps). Processing runs at near-constant per-request latencies, which are measured at the service, account, and file levels.
+This scenario uses Azure Data Lake Storage to store data for machine learning models and predictions. Azure Storage is scalable. It can store and serve many exabytes of data. This amount of storage is available with throughput measured in gigabits per second (Gbps). Processing runs at near-constant per-request latencies. Latencies are measured at the service, account, and file levels.
 
 This scenario uses Azure Databricks clusters, which enable autoscaling by default. Autoscaling enables Databricks during runtime to dynamically reallocate workers. With Autoscaling, you don't need to start a cluster to match a workload, which makes it easier to achieve high cluster usage.
 
-### Security considerations
+### Security
 
 Protect assets by using controls on network traffic originating in Azure, between on-premises and Azure hosted resources, and traffic to and from Azure. For instance, Azure self-hosted integration runtime securely moves data from on-premises data storage to Azure.
 
@@ -117,17 +113,11 @@ Use Azure Key Vault and Databricks scoped secret to access data in Azure Data La
 
 Azure services are either deployed in a secure virtual network or access uses the Azure Private Link feature. If necessary, row-level security in Azure Analysis Services or SQL Database provides granular access to individual users.
 
-### Cost considerations
+## Pricing
 
 Azure Databricks is a premium Spark offering with an associated cost.
 
 There are standard and premium Databricks pricing tiers. For this scenario, the standard pricing tier is sufficient. If your application requires automatically scaling clusters to handle larger workloads or interactive Databricks dashboards, you might need the premium tier.
-
-### Storage considerations
-
-In this reference implementation, data is stored in [Azure Data Lake Storage](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).  
-
-## Pricing
 
 Costs related to this use case depend on the standard pricing for the following services for your usage:
 
@@ -143,12 +133,18 @@ To estimate the cost of Azure products and configurations, visit the [Azure pric
 
 ## Next steps
 
-[Artificial intelligence](../../data-guide/big-data/ai-overview.md)
+Use these resources to explore this scenario:
 
-[Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/)
+- [Artificial intelligence](../../data-guide/big-data/ai-overview.md)
+- [Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/)
+- [Introduction to Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/)
+- [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/)
 
-[Introduction to Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
+To learn more, explore other scenarios:
 
-[Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/)
-
-[Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/)
+- [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.md)
+- [Customer churn prediction using real-time analytics](../../solution-ideas/articles/customer-churn-prediction.md)
+- [Predict Length of Stay and Patient Flow](../../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.md)
+- [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.md)
+-
