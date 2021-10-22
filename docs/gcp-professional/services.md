@@ -3,7 +3,7 @@ title: Google Cloud to Azure services comparison
 description: Compare Google Cloud and Microsoft Azure services. Not every Google Cloud service or Azure service is listed, and not every matched service has exact feature parity.
 author: EdPrice-MSFT
 ms.author: petuton
-ms.date: 09/15/2021
+ms.date: 10/25/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -463,7 +463,7 @@ Here are some architectures that use AKS as the orchestrator.
 | Enterprise application services | [G Suite](https://gsuite.google.com) | [Microsoft 365](https://products.office.com) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
 | Gaming | [Game Servers](https://cloud.google.com/game-servers/docs) | [Azure PlayFab](https://playfab.com) | Managed services for hosting dedicated game servers. |
 | Hybrid | [Anthos](https://cloud.google.com/anthos) | [Azure Arc](https://azure.microsoft.com/services/azure-arc) | For customers who want to simplify complex and distributed environments across on-premises, edge and multi-cloud, Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure. |
-| Blockchain | [Digital Asset](https://developers.google.com/digital-asset-links) | [Azure Blockchain Service](https://azure.microsoft.com/services/blockchain-service) | Azure Blockchain Service is a fully managed ledger service that enables users the ability to grow and operate blockchain networks at scale in Azure. |
+| Blockchain | [Digital Asset](https://developers.google.com/digital-asset-links) | [Azure Confidential Ledger](https://azure.microsoft.com/services/azure-confidential-ledger) | Tamperproof, unstructured data store hosted in trusted execution environments and backed by cryptographically verifiable evidence. |
 | Monitoring | [Cloud Monitoring](https://cloud.google.com/monitoring) | [Application Insights](/azure/azure-monitor/app/app-insights-overview) | Service that provides visibility into the performance, uptime, and overall health of cloud-powered applications. |
 | Logging | [Cloud Logging](https://cloud.google.com/logging) | [Log Analytics](/azure/azure-monitor/log-query/get-started-portal) | Service for real-time log management and analysis. |
 
