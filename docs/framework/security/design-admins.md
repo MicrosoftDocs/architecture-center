@@ -13,6 +13,15 @@ categories:
   - security
 ms.custom:
   - article
+contributors:
+  contributor:
+    - organization: advocacy
+      role: writer
+    - organization: c&l
+      role: pm
+    - organization: c&l
+      role: engg
+
 ---
 
 # Administrative account security
