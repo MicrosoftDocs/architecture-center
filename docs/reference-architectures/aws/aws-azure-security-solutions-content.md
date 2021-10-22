@@ -153,52 +153,52 @@ As MCAS detects alerts, it displays them on the **Alerts** page in the MCAS port
 
 ### Create an Enterprise Application for Single Sign On to AWS
 
-Follow the intructions at [Tutorial: Azure Active Directory Single sign-on (SSO) integration with AWS Single Sign-on](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/aws-single-sign-on-tutorial?WT.mc_id=wwc_spark) to create an Enterprise Application for single sign on to AWS. 
+Follow the instructions at [Tutorial: Azure Active Directory Single sign-on (SSO) integration with AWS Single Sign-on](/azure/active-directory/saas-apps/aws-single-sign-on-tutorial?WT.mc_id=wwc_spark) to create an enterprise application for single sign-on to AWS. 
 
-1. Adding AWS Single Sign-on from the gallery
-1. Configure and test Azure AD SSO for AWS Single Sign-on
-   1. Configure Azure AD SSO
-   1. Configure AWS Single Sign-on SSO
-   1. Create AWS Single Sign-on test user
-   1. Test SSO
+1. Add AWS Single Sign-on from the gallery.
+1. Configure and test Azure AD SSO for AWS Single Sign-on:
+   1. Configure Azure AD SSO.
+   1. Configure AWS Single Sign-on SSO.
+   1. Create an AWS Single Sign-on test user.
+   1. Test SSO.
 
 ### Create a Conditional Acccess App Control Application in MCAS
 
-1. Go to [MCAS portal](https://portal.cloudappsecurity.com), select **Investigate**, select **Connected Apps**.
+1. Go to [MCAS portal](https://portal.cloudappsecurity.com), select **Investigate**, and select **Connected Apps**.
 
-![image](https://user-images.githubusercontent.com/90685955/135979376-3d25cce0-f234-4312-a86b-ca5af087b593.png)
+![Screenshot of selecting Investigate.](https://user-images.githubusercontent.com/90685955/135979376-3d25cce0-f234-4312-a86b-ca5af087b593.png)
 
 2. Select **Conditional Access App Control Apps**. Select **Add**.
 
-![image](https://user-images.githubusercontent.com/90685955/135979455-62a99612-16bc-461d-aca7-a01667727813.png)
+![Screenshot of adding conditional access app control.](https://user-images.githubusercontent.com/90685955/135979455-62a99612-16bc-461d-aca7-a01667727813.png)
 
-3.	In the **Search for an App** box, type **Amazon Web Services**, select the application. Select **Start Wizard**.
+3.	In the **Search for an App** box, type **Amazon Web Services**, and then select the application. Select **Start Wizard**.
 
-![image](https://user-images.githubusercontent.com/90685955/135981286-cc2315c8-c259-4a69-9e40-d80d7834b84c.png)
+![Screenshot of selecting Start Wizard.](https://user-images.githubusercontent.com/90685955/135981286-cc2315c8-c259-4a69-9e40-d80d7834b84c.png)
 
-4.	Select **Fill data manually**. Type the **Assertion consumer service URL** as shown below, select **Next**.
+4.	Select **Fill data manually**. Type the **Assertion consumer service URL** as shown below, and then click **Next**.
 
-![image](https://user-images.githubusercontent.com/90685955/135981414-a4dee7cf-12a9-4b7b-a952-c0d6a183f2bc.png)
+![Screenshot of filling the data manually.](https://user-images.githubusercontent.com/90685955/135981414-a4dee7cf-12a9-4b7b-a952-c0d6a183f2bc.png)
 
-5.	Select **Next** (you don’t need to do anything in this step).
+5.	Click **Next** (you don’t need to do anything in this step).
 
-![image](https://user-images.githubusercontent.com/90685955/135982097-9f215a97-0b17-443b-b91a-ca084dc1281e.png)
+![Screenshot of selecting Next.](https://user-images.githubusercontent.com/90685955/135982097-9f215a97-0b17-443b-b91a-ca084dc1281e.png)
 
 6.	Select **Fill in data manually**. Type the **Single sign-on service URL**, this is the Login URL for the **Enterprise Application** you created for **AWS**. Browse for the **Identity Providers** certificate, this is the certificate for the **Enterprise Application** you created, download it to your local device and upload it to the wizard. Select **Next**. 
 
-![image](https://user-images.githubusercontent.com/90685955/135982323-78cfdd54-9b93-4598-876d-afcf8c9148ed.png)
+![Screenshot of browsing for the Identity Providers certificate.](https://user-images.githubusercontent.com/90685955/135982323-78cfdd54-9b93-4598-876d-afcf8c9148ed.png)
 
-7. Select **Next** (you don’t need to do anything in this step).  
+7. Click **Next** (you don’t need to do anything in this step).  
 
-![image](https://user-images.githubusercontent.com/90685955/135982877-63b6e8c3-3604-44d2-b98c-0c722b669427.png)
+![Screenshot of selecting Next.](https://user-images.githubusercontent.com/90685955/135982877-63b6e8c3-3604-44d2-b98c-0c722b669427.png)
 
-8.Select **Finish** (you don’t need to do anything in this step).
+8. Click **Finish** (you don’t need to do anything in this step).
 
-![image](https://user-images.githubusercontent.com/90685955/135986029-5000a25d-3b17-4a9e-9105-34080b693161.png)
+![Screenshot of selecting Finish.](https://user-images.githubusercontent.com/90685955/135986029-5000a25d-3b17-4a9e-9105-34080b693161.png)
 
-9.	Select **Close** (you don’t need to do anything in this step).  
+9.	Click **Close** (you don’t need to do anything in this step).  
 
-![image](https://user-images.githubusercontent.com/90685955/135986146-f607b677-c5eb-4ef0-9a2a-3bff86a05022.png)
+![Screenshot of selecting Close.](https://user-images.githubusercontent.com/90685955/135986146-f607b677-c5eb-4ef0-9a2a-3bff86a05022.png)
 
 ### Configure Azure AD session policies for AWS activities
 
