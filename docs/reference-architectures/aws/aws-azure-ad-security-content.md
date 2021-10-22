@@ -201,9 +201,9 @@ If there's more than one AWS account to administer, such as DevTest and Producti
 
 Follow the steps below to configure Azure AD SSO for AWS:
 
-   1. On **Azure Portal**, follow the steps on [Configure Azure AD SSO](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso) to configure the **Enterprise Application** you have created for single sign on to **AWS**.
+   1. On **Azure Portal**, follow the steps on [Configure Azure AD SSO](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso) to configure the **Enterprise Application** you have created for single sign on to **AWS**.
   
-   1. On **AWS Console**, follow the steps on [Configure AWS SSO](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-aws-single-account-access-sso) to configure your **AWS account** for single sign on. As part of this configuration, you will create a new IAM user that acts on behalf of the Azure AD Provisioning agent to allow synchronization of all available **AWS IAM roles** into **Azure AD**. AWS needs this IAM user to map users to roles before they can sign in to the **AWS Management Console**.
+   1. On **AWS Console**, follow the steps on [Configure AWS SSO](/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-aws-single-account-access-sso) to configure your **AWS account** for single sign on. As part of this configuration, you will create a new IAM user that acts on behalf of the Azure AD Provisioning agent to allow synchronization of all available **AWS IAM roles** into **Azure AD**. AWS needs this IAM user to map users to roles before they can sign in to the **AWS Management Console**.
 
 - Make it easy to identify the components you create to support this integration. For example, name service accounts with a standard naming convention like "Svc-".
 - Be sure to document all new items.
@@ -211,11 +211,11 @@ Follow the steps below to configure Azure AD SSO for AWS:
 
 Based on these configuration steps, you can diagram the interactions like this:
 
-![image](https://user-images.githubusercontent.com/90685955/136037309-9e60846e-6dc9-4796-8e01-bc05ae1078c0.png)
+![Diagram of the configuration interactions.](https://user-images.githubusercontent.com/90685955/136037309-9e60846e-6dc9-4796-8e01-bc05ae1078c0.png)
 
 On **AWS Console**, follow the steps below to create additional roles.
 
-   1. In **AWS IAM**, select **Roles -> Create Role**
+   1. In **AWS IAM**, select **Roles -> Create Role**.
   
    1. On the **Create** role page, perform the following steps:
        1. Under **Select type of trusted entity**, select **SAML 2.0 federation**.
@@ -223,22 +223,22 @@ On **AWS Console**, follow the steps below to create additional roles.
        1. Select **Allow programmatic and AWS Management Console access**.
        1. Select **Next: Permissions**.
    1. On the **Attach permissions policies** dialog box, select **AdministratorAccess**. Then select **Next: Tags**.
-   1.	On the **Add Tags** dialog box, leave blank and select **Next: Review**
-   1.	On the **Review** dialog box, perform the following steps:
+   1.	In the **Add Tags** dialog box, leave it blank and select **Next: Review**.
+   1.	In the **Review** dialog box, perform the following steps:
        - In **Role Name**, enter your role name **(Administrator)**.
        - In **Role Description**, enter the description.
        - Select **Create Role**.
-   1. Create an additional role following the steps listed above, name it **Developer** and give it a few selected permissions of your choice (e.g. **AmazonS3FullAccess**)
-   1. You  have now successfully create an **Administrator** and a **Developer** role in **AWS**. 
+   1. Create an additional role, by following the steps listed above. Name the role **Developer** and give it a few selected permissions of your choice (such as **AmazonS3FullAccess**).
+   - You  have successfully created an **Administrator** and a **Developer** role in **AWS**. 
 
-   1. Create the following users and groups in **Azure AD**
+   1. Create the following users and groups in **Azure AD**:
       -	**User 1**: Test-AWSAdmin
       -	**User 2**: Test-AWSDeveloper
       -	**Group 1**: AWS-Account1-Administrators
       -	**Group 2**: AWS-Account1-Developers
       -	**Add** Test-AWSAdmin as a member of **AWS-Account1-Administrators**
       -	**Add** Test-AWSDeveloper as a member of **AWS-Account1-Developers**
-   1. Follow the steps on [How to configure role provisioning in AWS Single-Account Access](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/amazon-web-service-tutorial#how-to-configure-role-provisioning-in-aws-single-account-access) to configure automated role provisioning. Please note that it may take up to one hour to complete the first provisioning cycle.
+   1. Follow the steps on [How to configure role provisioning in AWS Single-Account Access](/azure/active-directory/saas-apps/amazon-web-service-tutorial#how-to-configure-role-provisioning-in-aws-single-account-access) to configure automated role provisioning. It may take up to one hour to complete the first provisioning cycle.
 
 ### How to update role mapping
 
