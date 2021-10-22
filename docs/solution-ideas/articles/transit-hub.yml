@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Transit Hub dynamic publish-subscribe messaging system
+  title: Transit Hub dynamic pub-sub messaging system
   titleSuffix: Azure Solution Ideas
-  description: See an elastic, flexible model for data producers and consumers to create and consume validated curated content or data.
+  description: See an elastic, flexible publish-subscribe model for data producers and consumers to create and consume validated curated content or data.
   author: codeBoarder-zz
   ms.author: rickwey
   ms.date: 10/22/2021
@@ -15,8 +15,8 @@ products:
   - azure-event-hubs
   - azure-functions
   - azure-service-bus
-name: Transit Hub dynamic publish-subscribe messaging system
-summary: See an elastic, flexible model for data producers and consumers to create and consume validated curated content or data.
+name: Transit Hub dynamic pub-sub messaging system
+summary: See an elastic, flexible publish-subscribe model for data producers and consumers to create and consume validated curated content or data.
 thumbnailUrl: /azure/architecture/browse/thumbs/transit-hub.png
 content: |
   [!include[](transit-hub-content.md)]

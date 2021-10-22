@@ -1852,6 +1852,8 @@ items:
                     href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
                   - name: Serverless computing LOB apps
                     href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
+                  - name: Transit Hub pub-sub messaging system
+                    href: solution-ideas/articles/transit-hub.yml
       - name: DevOps
         items:
           - name: Guides
