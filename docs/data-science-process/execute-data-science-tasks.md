@@ -66,7 +66,7 @@ There are various approaches and platforms to put models into production. Here a
 Further examples are available in walkthroughs that demonstrate all the steps in the process for **specific scenarios**. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
 > [!NOTE]
-> For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](/azure/machine-learning/classic/deploy-a-machine-learning-web-service).
+> For deployment using Machine Learning Studio (classic), see [Deploy a Machine Learning Studio (classic) web service](/azure/machine-learning/classic/deploy-a-machine-learning-web-service).
 >
 >
 
