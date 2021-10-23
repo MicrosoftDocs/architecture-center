@@ -25,11 +25,11 @@ This model is especially useful in the following scenarios:
    >[!NOTE]
    > Azure Schema Registry in Event Hubs can be a viable alternative to storing and caching JSON schemas. For more information, see [Azure Schema Registry in Event Hubs (Preview)](/azure/event-hubs/schema-registry-overview).
 
-1. If the topic already exists and the data is valid, the **Event Processing** function merges the data into the existing **Valid Data** Azure Service Bus topic, and sends the topic to the **Data Consumer** app.
+1. If a topic already exists and the data is valid, the **Event Processing** function merges the data into the existing **Valid Data** Azure Service Bus topic, and sends the topic to the **Data Consumer** app.
 
-1. If the topic already exists and the data is invalid, the **Event Processing** function merges the data into the existing **Invalid Data** Service Bus topic, and sends the topic back to the data producer. The data producer subscribes to the **Invalid Data** topics to get feedback about invalid data that the producer created.
+1. If a topic already exists and the data is invalid, the **Event Processing** function merges the data into the existing **Invalid Data** Service Bus topic, and sends the topic back to the data producer. The data producer subscribes to the **Invalid Data** topics to get feedback about invalid data that the producer created.
 
-1. If the topic doesn't exist yet, the **Event Processing** function publishes the new data to a **New Data** Service Bus topic, and sends the topic to the **Service Bus Topic Manager** function.
+1. If a topic doesn't exist yet, the **Event Processing** function publishes the new data to a **New Data** Service Bus topic, and sends the topic to the **Service Bus Topic Manager** function.
 
 1. If the new data is valid, the **Event Processing** function also inserts the data as a new **Snapshot Data** record in Azure Cosmos DB.
 
