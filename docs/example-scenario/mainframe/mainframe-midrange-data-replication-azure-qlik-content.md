@@ -105,21 +105,25 @@ Databricks, Data Lake Storage, and other Azure databases have auto-scaling capab
 - You can combine Monitor's Application Insights and Log Analytics features to monitor the health of Azure resources. You can set alerts so that you can manage proactively.
 - For guidance on resiliency in Azure, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
 
+## Pricing
+
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
+
 ## Next steps
 
 - [Qlik Data Integration platform](https://www.qlik.com/us/data-integration/data-integration-platform)
-- [What is Azure ExpressRoute?](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)
-- [What is VPN Gateway?](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-- [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-- [Azure Event Hubs — A big data streaming platform and event ingestion service](https://docs.microsoft.com/azure/event-hubs/event-hubs-about)
-- [Introduction to Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)
-- [Introduction to the core Azure Storage services](https://docs.microsoft.com/azure/storage/common/storage-introduction)
-- [What is Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/sql-database-paas-overview)
-- [Welcome to Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)
-- [Azure Monitor overview](https://docs.microsoft.com/azure/azure-monitor/overview)
-- [What is Application Insights?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
-- [Azure Monitor Logs overview](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs)
-- [Log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/log-query-overview)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
+- [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+- [Introduction to the core Azure Storage services](/azure/storage/common/storage-introduction)
+- [What is Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+- [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [What is Application Insights?](/azure/azure-monitor/app/app-insights-overview)
+- [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs)
+- [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
 
 ### Related resources
 
