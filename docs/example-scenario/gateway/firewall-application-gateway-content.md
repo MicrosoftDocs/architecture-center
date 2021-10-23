@@ -333,6 +333,8 @@ Learn more about the component technologies:
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [What is Azure Web Application Firewall?](/azure/web-application-firewall/overview)
 
+## Related resources
+
 Explore related architectures:
 
 - [Implement a secure hybrid network](../../reference-architectures/dmz/secure-vnet-dmz.yml)
