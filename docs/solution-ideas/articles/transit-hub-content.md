@@ -16,9 +16,8 @@ This model is especially useful in the following scenarios:
 
 ![Diagram of the Transit Hub publish-subscribe messaging system.](../media/transit-hub.png)
 
-1. The **Data Producer App** publishes data to Azure Event Hubs.
-1. The **Data Producer** also provides the JSON schema, and stores it in an Azure Storage container.
-1. As new data arrives, the event hub sends the data to the Azure Functions **Event Processing** function.
+1. The **Data Producer** app publishes data to Azure Event Hubs, which sends the data to the Azure Functions **Event Processing** function.
+1. The **Data Producer** also sends the JSON schema for storage in an Azure Storage container.
 1. The **Event Processing** function retrieves the JSON schema from Azure Cache for Redis to reduce latency, and uses the schema to validate the data.
 
    If the schema isn't cached yet, the **Event Processing** function retrieves the schema from the Azure Storage container. The request for the schema also stores the schema in Azure Cache for Redis for future retrieval.
@@ -26,27 +25,21 @@ This model is especially useful in the following scenarios:
    >[!NOTE]
    > Azure Schema Registry in Event Hubs can be a viable alternative to storing and caching JSON schemas. For more information, see [Azure Schema Registry in Event Hubs (Preview)](/azure/event-hubs/schema-registry-overview).
 
-1. If the topic already exists and the data is valid, the **Event Processing** function merges the data into an existing **Valid Data** Service Bus topic.
+1. If the topic already exists and the data is valid, the **Event Processing** function merges the data into the existing **Valid Data** Azure Service Bus topic, and sends the topic to the **Data Consumer** app.
 
-1. The **Event Processing** function sends the data from the existing **Valid Data** topics to the **Data Consumer App**.
+1. If the topic already exists and the data is invalid, the **Event Processing** function merges the data into the existing **Invalid Data** Service Bus topic, and sends the topic back to the data producer. The data producer subscribes to the **Invalid Data** topics to get feedback about invalid data that the producer created.
 
-1. If the topic already exists and the data is invalid, the **Event Processing** function merges the data into an existing **Invalid Data** Service Bus topic.
-
-1. If the topic doesn't exist yet, the **Event Processing** function publishes the new data to a **New Data** Service Bus topic.
+1. If the topic doesn't exist yet, the **Event Processing** function publishes the new data to a **New Data** Service Bus topic, and sends the topic to the **Service Bus Topic Manager** function.
 
 1. If the new data is valid, the **Event Processing** function also inserts the data as a new **Snapshot Data** record in Azure Cosmos DB.
 
-1. The **Event Processing** function sends the **New Data** topic to the **Service Bus Topic Manager** function.
+1. If the new data is valid, the **Service Bus Topic Manager** function creates a new **Valid Data** Service Bus topic, and sends the topic to Event Hubs.
 
-1. If the new data is valid, the **Service Bus Topic Manager** function creates a new **Valid Data** Service Bus topic.
+1. If the new data is invalid, the **Service Bus Topic Manager** function creates a new **Invalid Data** Service Bus topic, and sends the topic back to the **Data Producer** app.
 
-1. If the new data is invalid, the **Service Bus Topic Manager** function creates a new **Invalid Data** Service Bus topic.
+1. The **Snapshot Data Flat File Processor** in Azure Data Factory runs on a schedule to extract all snapshot data from the **Snapshot Data** Azure Cosmos DB database. The processor creates a flat file and publishes it to a **Snapshot Data Flat File** in Azure Storage for downloads.
 
-1. The **Service Bus Topic Manager** function republishes the data back to Event Hubs.
-
-1. The **Service Bus Topic Manager** function sends data from the **Invalid Data** topics back to the **Data Producer App**. The data producer subscribes to these topics to get feedback about invalid data that the producer created.
-1. The **Snapshot Data Flat File Processor** in Azure Data Factory runs on a predefined schedule to extract snapshot data from the **Snapshot Data** Azure Cosmos DB database. The processor creates a flat file and publishes it to a **Snapshot Data Flat File** in Azure Storage for downloads.
-1. The **Data Consumer App** retrieves a list of all the Service Bus topics that the **Service Bus Topic Manager** has available for subscription. The app registers with the **Service Bus Topic Manager** to subscribe to Service Bus topics.
+1. The **Data Consumer** app retrieves a list of all the Service Bus topics that the **Service Bus Topic Manager** has available for subscription. The app registers with the **Service Bus Topic Manager** to subscribe to Service Bus topics.
 
 ### Components
 
