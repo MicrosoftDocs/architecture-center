@@ -2802,7 +2802,7 @@ items:
                     href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
       - name: Mixed Reality
         items:
-          - Guides:
+          - name: Guides
             items:
               - name: Design and prototype for mixed reality
                 href: /windows/mixed-reality/design/design
