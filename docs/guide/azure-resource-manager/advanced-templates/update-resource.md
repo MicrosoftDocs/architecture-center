@@ -1,12 +1,15 @@
 ---
-title: Update a resource in an Azure Resource Manager template
+title: Update a resource in an ARM template
 description: Learn about how to extend the functionality of Azure Resource Manager templates to update a resource.
 author: PeterTaylor9999
-ms.date: 10/31/2018
+ms.date: 09/07/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.category:
+  - developer-tools
+  - devops
+categories:
   - developer-tools
   - devops
 products:
@@ -31,97 +34,99 @@ Let's look at an example template that demonstrates this. Our template deploys a
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "resources": [
-      {
-      "apiVersion": "2016-03-30",
-      "name": "firstVNet",
-      "location":"[resourceGroup().location]",
-      "type": "Microsoft.Network/virtualNetworks",
-      "properties": {
-          "addressSpace":{"addressPrefixes": [
-              "10.0.0.0/22"
-          ]},
-          "subnets":[
-              {
-                  "name":"firstSubnet",
-                  "properties":{
-                    "addressPrefix":"10.0.0.0/24"
-                  }
-              }
-            ]
-      }
-    },
-    {
-        "apiVersion": "2015-06-15",
-        "type":"Microsoft.Network/networkInterfaces",
-        "name":"nic1",
-        "location":"[resourceGroup().location]",
-        "dependsOn": [
-            "firstVNet"
-        ],
-        "properties": {
-            "ipConfigurations":[
-                {
-                    "name":"ipconfig1",
-                    "properties": {
-                        "privateIPAllocationMethod":"Dynamic",
-                        "subnet": {
-                            "id": "[concat(resourceId('Microsoft.Network/virtualNetworks','firstVNet'),'/subnets/firstSubnet')]"
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "resources": [
+        {
+            "apiVersion": "2020-05-01",
+            "name": "firstVNet",
+            "location": "[resourceGroup().location]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.0.0/22"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "firstSubnet",
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/24"
                         }
                     }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2020-05-01",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "nic1",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "firstVNet"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'firstVNet', 'firstSubnet')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2020-06-01",
+            "type": "Microsoft.Resources/deployments",
+            "name": "updateVNet",
+            "dependsOn": [
+                "nic1"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "parameters": {},
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.1",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "apiVersion": "2020-05-01",
+                            "name": "firstVNet",
+                            "location": "[resourceGroup().location]",
+                            "type": "Microsoft.Network/virtualNetworks",
+                            "properties": {
+                                "addressSpace": "[reference('firstVNet').addressSpace]",
+                                "subnets": [
+                                    {
+                                        "name": "[reference('firstVNet').subnets[0].name]",
+                                        "properties": {
+                                            "addressPrefix": "[reference('firstVNet').subnets[0].properties.addressPrefix]"
+                                        }
+                                    },
+                                    {
+                                        "name": "secondSubnet",
+                                        "properties": {
+                                            "addressPrefix": "10.0.1.0/24"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "outputs": {}
                 }
-            ]
+            }
         }
-    },
-    {
-      "apiVersion": "2015-01-01",
-      "type": "Microsoft.Resources/deployments",
-      "name": "updateVNet",
-      "dependsOn": [
-          "nic1"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "parameters": {},
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-              {
-                  "apiVersion": "2016-03-30",
-                  "name": "firstVNet",
-                  "location":"[resourceGroup().location]",
-                  "type": "Microsoft.Network/virtualNetworks",
-                  "properties": {
-                      "addressSpace": "[reference('firstVNet').addressSpace]",
-                      "subnets":[
-                          {
-                              "name":"[reference('firstVNet').subnets[0].name]",
-                              "properties":{
-                                  "addressPrefix":"[reference('firstVNet').subnets[0].properties.addressPrefix]"
-                                  }
-                          },
-                          {
-                              "name":"secondSubnet",
-                              "properties":{
-                                  "addressPrefix":"10.0.1.0/24"
-                                  }
-                          }
-                     ]
-                  }
-              }
-          ],
-          "outputs": {}
-          }
-        }
-    }
-  ],
-  "outputs": {}
+    ],
+    "outputs": {}
 }
 ```
 
@@ -149,7 +154,7 @@ The original `firstVNet` has been updated instead of re-created. If `firstVNet` 
 
 ## Next steps
 
-- Learn how deploy a resource based on a condition, such as whether a parameter value is present. See [Conditionally deploy a resource in an Azure Resource Manager template](./conditional-deploy.md).
+- Learn how to [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters.md).
 
-[cli]: /cli/azure/?view=azure-cli-latest
+[cli]: /cli/azure/
 [github]: https://github.com/mspnp/template-examples

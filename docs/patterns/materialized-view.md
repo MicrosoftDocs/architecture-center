@@ -1,7 +1,7 @@
 ---
 title: Materialized View pattern
 titleSuffix: Cloud Design Patterns
-description: Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.
+description: Generate prepopulated views over the data in one or more data stores when the data isn&apos;t ideally formatted for required query operations.
 author: dragon119
 ms.date: 06/23/2017
 ms.topic: conceptual

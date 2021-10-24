@@ -3,7 +3,7 @@ In this reference architecture, we'll build a baseline infrastructure that deplo
 ![GitHub logo](../../../_images/github.png) An implementation of this architecture is available on [GitHub: Azure Kubernetes Service (AKS) Secure Baseline Reference Implementation](https://github.com/mspnp/aks-secure-baseline). You can use it as a starting point and configure it as per your needs.
 
 > [!NOTE]
-> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the **Related articles** section for resources.
+> This reference architecture requires knowledge of Kubernetes and its concepts. If you need a refresher, see the [**Related articles**](#related-articles) section for resources.
 
 :::row:::
     :::column:::
@@ -251,7 +251,7 @@ The ingress controller is a critical component of cluster. Consider these points
 >
 > Traefik is a popular open-source option for a Kubernetes cluster and is chosen in this architecture for illustrative purposes. It shows third-party products integration with Azure services. For example, the implementation shows how to integrate Traefik with Azure AD Pod Managed Identity and Azure Key Vault.
 >
-> Another choice is Azure Application Gateway Ingress Controller and its well integrated with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway facilitates the virtual network entry point of your cluster. It can observe traffic entering the cluster. If you have an application that requires WAF, Application Gateway is a good choice because its integrated with WAF. Also, it provides the opportunity to do TLS termination.
+> Another choice is Azure Application Gateway Ingress Controller and it's well integrated with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway facilitates the virtual network entry point of your cluster. It can observe traffic entering the cluster. If you have an application that requires WAF, Application Gateway is a good choice because it's integrated with WAF. Also, it provides the opportunity to do TLS termination.
 
 ### Router settings
 
@@ -484,6 +484,11 @@ Enabling availability zones won't be enough if the entire region goes down. To h
 -   If an Azure resource supports geo-redundancy, provide the location where the redundant service will have its secondary. For example, enabling geo-replication for Azure Container Registry will automatically replicate images to the selected Azure regions, and will provide continued access to images even if a region were experiencing an outage.
 
 -   Choose a traffic router that can distribute traffic across zones or regions, depending on your requirement. This architecture deploys Azure Load Balancer because it can distribute non-web traffic across zones. If you need to distribute traffic across regions, Azure Front Door should be considered. For other considerations, see [Choose a load balancer](../../../guide/technology-choices/load-balancing-overview.md).
+
+> [!NOTE]
+> We've extended this reference architecture to include multiple regions in an active/active and highly available configuration. For information about that reference architecture, see [AKS baseline for multiregion clusters](../aks-multi-region/aks-multi-cluster.yml).
+>
+> ![GitHub logo](../../../_images/github.png) An implementation of the multiregion architecture is available on [GitHub: Azure Kubernetes Service (AKS) for Multi-Region Deployment](https://github.com/mspnp/aks-baseline-multi-region). You can use it as a starting point and configure it as per your needs.
 
 ### Disaster Recovery
 

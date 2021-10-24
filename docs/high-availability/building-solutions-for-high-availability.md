@@ -1,5 +1,5 @@
 ---
-title: Building solutions for high availability using Availability Zones
+title: Build solutions with Availability Zones
 titleSuffix: High Availability
 description: Learn about the Azure Availability Zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.
 author: EdPrice-MSFT
@@ -18,7 +18,7 @@ ms.custom:
 
 <!-- cSpell:ignore lbrader -->
 
-# Building solutions for high availability using Availability Zones
+# Build solutions for high availability using Availability Zones
 
 Microsoft Azure global infrastructure is designed and constructed at every layer
 to deliver the highest levels of redundancy and resiliency to its customers.
@@ -56,9 +56,9 @@ in Microsoft Azure Documentation.
 
 ## Availability Zones reference architectures
 
-The following architectures feature common high-availability scenarios, which features zone-based solutions:
+The following architectures feature high-availability scenarios:
 
-- [High availability enterprise deployment using App Services Environment](/azure/architecture/reference-architectures/enterprise-integration/ase-high-availability-deployment)
+- [High availability enterprise deployment using App Services Environment](../reference-architectures/enterprise-integration/ase-high-availability-deployment.yml)
 - [IaaS: Web application with relational database](./ref-arch-iaas-web-and-db.yml)
 - [Multi-region load balancing with Traffic Manager and Application Gateway](./reference-architecture-traffic-manager-application-gateway.yml)
 - [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)

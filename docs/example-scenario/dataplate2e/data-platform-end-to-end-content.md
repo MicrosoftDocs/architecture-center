@@ -70,7 +70,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. From the Azure Synapse pipeline, use a [Copy Data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the semi-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
 
-1. Use either [Data Flows](/azure/data-factory/concepts-data-flow-overview), [SQL Serverless queries](/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake/) or [Spark notebooks](/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform and move the your datasets into your Curated zone in your data lake. SQL Serverless queries expose underlying [CSV](/azure/synapse-analytics/sql/query-single-csv-file), [Parquet](/azure/synapse-analytics/sql/query-parquet-files) or [JSON](/azure/synapse-analytics/sql/query-json-files) files as external tables so they can be queried using T-SQL.
+1. Use either [Data Flows](/azure/data-factory/concepts-data-flow-overview), [SQL Serverless queries](/learn/modules/use-azure-synapse-serverless-sql-pools-for-transforming-data-lake/) or [Spark notebooks](/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform, and move your datasets into your Curated zone in your data lake. SQL Serverless queries expose underlying [CSV](/azure/synapse-analytics/sql/query-single-csv-file), [Parquet](/azure/synapse-analytics/sql/query-parquet-files) or [JSON](/azure/synapse-analytics/sql/query-json-files) files as external tables so they can be queried using T-SQL.
 
     1. As part of your data transformations, you can invoke machine learning models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine learning models can be consumed from [Azure Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
 
@@ -84,14 +84,14 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ### Non-structured data sources
 
-1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of non-structured  data sources, both on-premises and in the cloud. For example:
+1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of non-structured data sources, both on-premises and in the cloud. For example:
 
     - Ingest video, image, audio, or free text from file-based sources containing the source files. 
     - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
 1. From the Azure Synapse pipeline, use a [Copy Data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the non-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
 
-1. Use [Spark notebooks](/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform, enrich and move the your datasets into your Curated zone in your data lake.
+1. Use [Spark notebooks](/learn/modules/transform-data-with-dataframes-apache-spark-pools-azure-synapse-analytics/) to validate, transform, enrich, and move your datasets into your Curated zone in your data lake.
 
     1. As part of your data transformations, you can invoke machine learning models from your [SQL pools using standard T-SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-predict) or Spark notebooks. These ML models can be used to enrich your datasets and generate further business insights. These machine learning models can be consumed from [Azure Cognitive Services](/azure/synapse-analytics/machine-learning/tutorial-cognitive-services-sentiment) or [custom ML models from Azure ML](/azure/synapse-analytics/machine-learning/tutorial-sql-pool-model-scoring-wizard).
 

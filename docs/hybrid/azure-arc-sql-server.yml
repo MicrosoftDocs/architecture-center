@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc
+  title: Administer SQL Server with Azure Arc
   description: Learn how to leverage Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multi-cloud environments.
   author: doodlemania2
   ms.author: pnp

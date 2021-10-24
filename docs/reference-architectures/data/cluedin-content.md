@@ -123,9 +123,9 @@ The CluedIn platform has the following characteristics and considerations:
 
 ## Deployment
 
-- To deploy CluedIn for development and evaluation purposes using Docker, see [CluedIn with Docker](http://documentation.cluedin.net/docs/00-gettingStarted/30-docker-local.html).
+- To deploy CluedIn for development and evaluation purposes using Docker, see [CluedIn with Docker](https://documentation.cluedin.net/deployment/docker-compose).
 
-- To install CluedIn quickly in a Kubernetes cluster, see [CluedIn with Kubernetes](http://documentation.cluedin.net/docs/00-gettingStarted/40-kubernetes.html). The [Helm chart](https://cluedin-io.github.io/Charts/) installs the CluedIn server, website, and other required services, like storage and queues.
+- To install CluedIn quickly in a Kubernetes cluster, see [CluedIn with Kubernetes](https://documentation.cluedin.net/deployment/kubernetes). The [Helm chart](https://cluedin-io.github.io/Charts/) installs the CluedIn server, website, and other required services, like storage and queues.
 
 ## Pricing
 
