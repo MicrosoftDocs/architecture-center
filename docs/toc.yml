@@ -688,6 +688,8 @@ items:
             items:
               - name: Build a real-time recommendation API
                 href: reference-architectures/ai/real-time-recommendation.yml
+              - name: Content-based recommendation
+                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
               - name: E-commerce front end
                 href: example-scenario/apps/ecommerce-scenario.yml
               - name: Hybrid AI footfall detection for retail
@@ -703,8 +705,6 @@ items:
                 href: example-scenario/iot/vertical-buy-online-pickup-in-store.yml
               - name: Scalable order processing
                 href: example-scenario/data/ecommerce-order-processing.yml
-              - name: Scalable personalization on Azure
-                href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
       - name: Finance
         items:
           - name: Overview
@@ -856,6 +856,8 @@ items:
         items:
           - name: Overview
             href: industries/media.md
+          - name: Content-based recommendation
+            href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
           - name: 3D video rendering
             href: example-scenario/infrastructure/video-rendering.yml
           - name: Digital image-based modeling on Azure
@@ -864,8 +866,6 @@ items:
             href: example-scenario/ai/intelligent-apps-image-processing.yml
           - name: Movie recommendations on Azure
             href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
-          - name: Scalable personalization on Azure
-            href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
       - name: Energy and environment
         items:
           - name: Run reservoir simulations
@@ -878,6 +878,8 @@ items:
             href: solution-ideas/articles/project-15-iot-sustainability.yml
           - name: Environmental monitoring
             href: solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml
+          - name: Oil and gas tank level forecasting
+            href: solution-ideas/articles/oil-and-gas-tank-level-forecasting.yml
       - name: Game development
         items:
           - name: Rendering
@@ -2195,7 +2197,7 @@ items:
             href: hybrid/hybrid-start-here.md
           - name: Guides
             items:
-              - name: Hybrid workload in Azure WAF
+              - name: Hybrid workload in Azure
                 href: ./framework/hybrid/hybrid-overview.md
               - name: Azure Arc guidance
                 list:
@@ -2283,7 +2285,7 @@ items:
                 href: hybrid/gateway-logic-apps.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
-              - name: Use Azure file shares in a hybrid environment
+              - name: Azure file shares in hybrid environment
                 href: hybrid/azure-file-share.yml
           - name: Solution ideas
             items:
@@ -2703,6 +2705,17 @@ items:
                 href: solution-ideas/articles/disaster-recovery-smb-double-take-dr.yml
       - name: Media
         items:
+          - name: Guides
+            items:
+              - name: Media Services terminology and concepts
+                href: /azure/media-services/latest/concepts-overview
+                maintainContext: true
+              - name: Encoding video and audio with Media Services
+                href: /azure/media-services/latest/encode-concept
+                maintainContext: true
+              - name: Security baseline for Azure Media Services
+                href: /security/benchmark/azure/baselines/media-services-security-baseline
+                maintainContext: true
           - name: Architectures
             items:
               - name: Gridwich media processing system
@@ -2755,6 +2768,14 @@ items:
                 href: solution-ideas/articles/digital-media-video.yml
       - name: Migration
         items:
+          - name: Guides
+            items:
+              - name: Migrate an e-commerce solution to Azure
+                href: /previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure
+                maintainContext: true
+              - name: Migrate with Azure VMware Solution
+                href: /azure/cloud-adoption-framework/scenarios/azure-vmware/migrate
+                maintainContext: true
           - name: Architectures
             items:
               - name: Banking system
@@ -2781,6 +2802,58 @@ items:
                     href: example-scenario/oracle-migrate/oracle-migration-rearchitect.yml
       - name: Mixed Reality
         items:
+          - Guides:
+            items:
+              - name: Design and prototype for mixed reality
+                href: /windows/mixed-reality/design/design
+                maintainContext: true
+              - name: MR core concepts
+                items:
+                  - name: App model
+                    href: /windows/mixed-reality/design/app-model
+                    maintainContext: true
+                  - name: App views
+                    href: /windows/mixed-reality/design/app-views
+                    maintainContext: true
+                  - name: Audio in mixed reality
+                    href: /windows/mixed-reality/design/spatial-sound
+                    maintainContext: true
+                  - name: Comfort
+                    href: /windows/mixed-reality/design/comfort
+                    maintainContext: true
+                  - name: Coordinate systems
+                    href: /windows/mixed-reality/design/coordinate-systems
+                    maintainContext: true
+                  - name: Eye tracking
+                    href:  /windows/mixed-reality/design/eye-tracking
+                    maintainContext: true
+                  - name: Holographic frame
+                    href: /windows/mixed-reality/design/holographic-frame
+                    maintainContext: true
+                  - name: Room scan visualization
+                    href: /windows/mixed-reality/design/room-scan-visualization
+                    maintainContext: true
+                  - name: Scene understanding
+                    href: /windows/mixed-reality/design/scene-understanding
+                    maintainContext: true
+                  - name: Spatial anchors
+                    href: /windows/mixed-reality/design/spatial-anchors
+                    maintainContext: true
+                  - name: Spatial mapping
+                    href: /windows/mixed-reality/design/spatial-mapping
+                    maintainContext: true
+                  - name: Start gesture
+                    href: /windows/mixed-reality/design/system-gesture
+                    maintainContext: true
+              - name: Types of mixed reality apps
+                href: /windows/mixed-reality/design/types-of-mixed-reality-apps
+                maintainContext: true
+              - name: Design content for holographic display
+                href: /windows/mixed-reality/design/designing-content-for-holographic-display
+                maintainContext: true
+              - name: Shared experiences in mixed reality
+                href: /windows/mixed-reality/design/shared-experiences-in-mixed-reality
+                maintainContext: true
           - name: Solution ideas
             items:
               - name: Design review with mixed reality
@@ -2791,6 +2864,20 @@ items:
                 href: solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml
       - name: Mobile
         items:
+          - name: Guides
+            items:
+              - name: Choose a mobile development framework
+                href: /azure/developer/mobile-apps/choose-mobile-framework
+                maintainContext: true
+              - name: Add authentication in mobile apps
+                href: /azure/developer/mobile-apps/authentication
+                maintainContext: true
+              - name: Store, sync, and query mobile app data
+                href: /azure/developer/mobile-apps/data-storage
+                maintainContext: true
+              - name: Cloud storage for mobile apps
+                href: /azure/developer/mobile-apps/azure-storage
+                maintainContext: true
           - name: Solution ideas
             items:
               - name: Adding mobile front-ends to legacy apps
@@ -2921,7 +3008,7 @@ items:
                 maintainContext: true
               - name: SAP HANA on HLI with HA and DR
                 href: reference-architectures/sap/hana-large-instances.yml
-              - name: SAP HANA Scale-up on Linux
+              - name: SAP HANA scale-up on Linux
                 href: reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml
               - name: SAP NetWeaver on Windows on Azure
                 href: reference-architectures/sap/sap-netweaver.yml
@@ -2935,7 +3022,7 @@ items:
                 href: solution-ideas/articles/sap-netweaver-on-sql-server.yml
               - name: SAP S/4 HANA for Large Instances
                 href: solution-ideas/articles/sap-s4-hana-on-hli-with-ha-and-dr.yml
-              - name: SAP workload automation using Suse on Azure
+              - name: SAP workload automation using SUSE
                 href: solution-ideas/articles/sap-workload-automation-suse.yml
       - name: Security
         items:
@@ -2943,6 +3030,8 @@ items:
             items:
               - name: Highly-secure IaaS apps
                 href: reference-architectures/n-tier/high-security-iaas.yml
+              - name: Security design principles
+                href: framework/security/security-principles.md
               - name: Virtual Network security options
                 href: example-scenario/gateway/firewall-application-gateway.yml
               - name: Zero-trust network for web applications
@@ -2961,7 +3050,7 @@ items:
                 href: hybrid/hybrid-security-monitoring.yml
               - name: MCAS and Azure Sentinel security for AWS
                 href: reference-architectures/aws/aws-azure-security-solutions.yml
-              - name: Multi-region app with private database connectivity
+              - name: Multi-region app with private database
                 href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
               - name: Real-time fraud detection
                 href: example-scenario/data/fraud-detection.yml
@@ -2971,7 +3060,7 @@ items:
                 href: example-scenario/secrets/secure-refresh-tokens.yml
               - name: Securely managed web apps
                 href: example-scenario/apps/fully-managed-secure-apps.yml
-              - name: Securing your Microsoft Teams channel bot
+              - name: Secure a Microsoft Teams channel bot
                 href: example-scenario/teams/securing-bot-teams-channel.yml
               - name: Virtual network integrated microservices
                 href: example-scenario/integrated-multiservices/virtual-network-integration.yml
@@ -2979,6 +3068,20 @@ items:
                 href: example-scenario/private-web-app/private-web-app.yml
       - name: Storage
         items:
+          - name: Guides
+            items:
+              - name: Storage accounts
+                href: /azure/storage/common/storage-account-overview
+                maintainContext: true
+              - name: Data protection
+                href: /azure/storage/blobs/data-protection-overview
+                maintainContext: true
+              - name: Storage encryption for data at rest
+                href: /azure/storage/common/storage-service-encryption
+                maintainContext: true
+              - name: Azure Policy controls for Storage
+                href: /azure/storage/common/security-controls-policy
+                maintainContext: true
           - name: Architectures
             items:
               - name: Hybrid file services
@@ -2987,7 +3090,7 @@ items:
                 href: example-scenario/file-storage/oracle-azure-netapp-files.yml
               - name: SQL Server on Azure Virtual Machines with Azure NetApp Files
                 href: example-scenario/file-storage/sql-server-azure-netapp-files.yml
-              - name: Use Azure file shares in a hybrid environment
+              - name: Azure file shares in hybrid environment
                 href: hybrid/azure-file-share.yml
           - name: Solution ideas
             items:
@@ -2997,16 +3100,33 @@ items:
                 href: solution-ideas/articles/azure-batch-rendering.yml
               - name: Medical data storage
                 href: solution-ideas/articles/medical-data-storage.yml
-              - name: Multi-region web application with custom Storage Table replication
+              - name: Multi-region web app with replication
                 href: solution-ideas/articles/multi-region-web-app-multi-writes-azure-table.yml
-              - name: Two-region web application with Table Storage failover
+              - name: Two-region app with Table storage failover
                 href: solution-ideas/articles/multi-region-web-app-azure-table-failover.yml
       - name: Virtual Desktop
         items:
           - name: Guides
             items:
-              - name: FSLogix for the enterprise
-                href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
+              - name: Authentication in Azure Virtual Desktop
+                href: /azure/virtual-desktop/authentication
+                maintainContext: true
+              - name: AVD network connectivity
+                href: /azure/virtual-desktop/network-connectivity
+                maintainContext: true
+              - name: Connect RDP Shortpath
+                href: /azure/virtual-desktop/shortpath
+                maintainContext: true
+              - name: FSLogix guidance
+                items:
+                  - name: FSLogix for the enterprise
+                    href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
+                  - name: FSLogix profile containers and files
+                    href: /azure/virtual-desktop/fslogix-containers-azure-files
+                    maintainContext: true
+                  - name: Storage options for FSLogix profile containers
+                    href: /azure/virtual-desktop/store-fslogix-profile
+                    maintainContext: true
           - name: Architectures
             items:
               - name: Azure Virtual Desktop for the enterprise
@@ -3023,6 +3143,18 @@ items:
                 href: guide/design-principles/index.md
               - name: Design and implementation patterns
                 href: patterns/category/design-implementation.md
+              - name: Deployment best practices
+                href: /azure/app-service/deploy-best-practices
+                maintainContext: true
+              - name: Security recommendations for App Service
+                href: /azure/app-service/security-recommendations
+                maintainContext: true
+              - name: Security baseline for App Service
+                href: /security/benchmark/azure/baselines/app-service-security-baseline
+                maintainContext: true
+              - name: Networking features for App Service
+                href: /azure/app-service/networking-features
+                maintainContext: true
           - name: Architectures
             items:
               - name: Basic web application
