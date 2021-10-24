@@ -80,11 +80,11 @@ You are charged for all API Management instances when they are running. If you h
 
 Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview) model. Billing is calculated based on action and connector execution. For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-### Service Bus queues and subscriptions
+### Service Bus queues, topics and subscriptions
 
 Service Bus queues and subscriptions support both push and pull models for delivering messages. In the pull model, every polling request is metered as an action. Even with long polling at 30 secs (default), cost can be high. Unless you need real-time delivery of messages, consider using the push model.
 
-Service Bus queues are included in all tiers (Basic, standard, and premium tiers). While Service Bus topics are available in standard and premium tiers. For more information, see [Azure Service Bus pricing][service-bus-pricing].
+Service Bus queues are included in all tiers (Basic, standard, and premium tiers). While Service Bus topics and subscriptions are available in standard and premium tiers. For more information, see [Azure Service Bus pricing][service-bus-pricing].
 
 ### Event Grid
 
