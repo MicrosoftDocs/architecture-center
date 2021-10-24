@@ -3143,18 +3143,20 @@ items:
                 href: guide/design-principles/index.md
               - name: Design and implementation patterns
                 href: patterns/category/design-implementation.md
-              - name: Deployment best practices
-                href: /azure/app-service/deploy-best-practices
-                maintainContext: true
-              - name: Security recommendations for App Service
-                href: /azure/app-service/security-recommendations
-                maintainContext: true
-              - name: Security baseline for App Service
-                href: /security/benchmark/azure/baselines/app-service-security-baseline
-                maintainContext: true
-              - name: Networking features for App Service
-                href: /azure/app-service/networking-features
-                maintainContext: true
+              - name: App Service considerations
+                items:
+                  - name: Deployment best practices
+                    href: /azure/app-service/deploy-best-practices
+                    maintainContext: true
+                  - name: Security recommendations for App Service
+                    href: /azure/app-service/security-recommendations
+                    maintainContext: true
+                  - name: Security baseline for App Service
+                    href: /security/benchmark/azure/baselines/app-service-security-baseline
+                    maintainContext: true
+                  - name: Networking features for App Service
+                    href: /azure/app-service/networking-features
+                    maintainContext: true
           - name: Architectures
             items:
               - name: Basic web application
