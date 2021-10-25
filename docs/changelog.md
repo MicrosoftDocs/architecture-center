@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: doodlemania2
-ms.date: 10/18/2021
+ms.date: 10/25/2021
 ms.topic: article
 ms.service: architecture-center
 ---
@@ -28,6 +28,7 @@ New and updated articles in Azure Architecture Center.
 ### New Articles
 
 - [Client certificate for an Azure AD access token](./multitenant-identity/client-certificate.md)
+- [AIX UNIX on-premises to Azure Linux migration](./example-scenario/unix-migration/migrate-aix-azure-linux.yml)
 - [Azure Storage considerations for multitenancy](./guide/multitenant/service/storage.md)
 - [Predict hospital readmissions by using machine learning](./example-scenario/ai/predict-hospital-readmissions-machine-learning.yml)
 - [Power Automate deployment at scale](./example-scenario/power-automate/power-automate.yml)
@@ -44,6 +45,10 @@ New and updated articles in Azure Architecture Center.
 
 ### Updated Articles
 
+- [Commerce chatbot for customer service](./solution-ideas/articles/commerce-chatbot.yml)  ([#ca079d0bf](https://github.com/MicrosoftDocs/architecture-center/commit/ca079d0bf))
+- [MCAS and Azure Sentinel for AWS](./reference-architectures/aws/aws-azure-security-solutions.yml)  ([#15f56b812](https://github.com/MicrosoftDocs/architecture-center/commit/15f56b812))
+- [Azure AD security for AWS](./reference-architectures/aws/aws-azure-ad-security.yml)  ([#e5279fc93](https://github.com/MicrosoftDocs/architecture-center/commit/e5279fc93))
+- [Administrative account security](./framework/security/design-admins.md)  ([#fcad2a7dc](https://github.com/MicrosoftDocs/architecture-center/commit/fcad2a7dc))
 - [Deploy AI-based footfall detection solution in Azure and Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-retail-footfall-detection.md)  ([#5c73ee7ee](https://github.com/MicrosoftDocs/architecture-center/commit/5c73ee7ee))
 - [Big data analytics with enterprise-grade security using Azure Synapse](./solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)  ([#24ad8e000](https://github.com/MicrosoftDocs/architecture-center/commit/24ad8e000))
 - [Choose a batch processing technology](./data-guide/technology-choices/batch-processing.md)  ([#8a7513ed1](https://github.com/MicrosoftDocs/architecture-center/commit/8a7513ed1))
