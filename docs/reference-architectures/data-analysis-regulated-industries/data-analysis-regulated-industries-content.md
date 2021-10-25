@@ -61,22 +61,19 @@ Comment: DONE
 
 ## Architecture
 
-
-
-
-
-
 <!---
-_Architecture diagram goes here_
+Comment: DONE
+#_Architecture diagram goes here_
 
-> What does the solution look like at a high level?
-> Why did we build the solution this way?
-> What will the customer need to bring to this?  (Software, skills, etc?)
+#> What does the solution look like at a high level?
+#> Why did we build the solution this way?
+#> What will the customer need to bring to this?  (Software, skills, etc?)
 
-Under the diagram, include a numbered list that describes the data flow or workflow.
+#Under the diagram, include a numbered list that describes the data flow or workflow.
 -->
 
 The following diagram shows high level overview of the architecture for this infrastructure accelerator for data analysis workloads in regulated industries.
+Focus is to provide the highest security level as this deployment pattern is used in Highly Regulated Industries.
 
 [![Graphical example of an infrastructure accelerator architecture.](media/data-analysis-architecture-01.png)](media/data-analysis-architecture-01.png#lightbox)
 
@@ -86,17 +83,100 @@ Bottom part is on the other hand showing responsibilities of different IT roles 
 
 This architecture allows to provide strong and typical data analysis capabilities along with strong governance and security model regulated industries need.
 
+Implementation of such architecture and pattern in full range with major benefits requires specific skill-set like:
+
+- People who understands how to configure, monitor and operate Azure cloud, governance model, security, policies, landing zone, automation in cloud
+- People who understands configure and monitor cloud networking, private links, DNS, routing, access control lists, firewall, VPN integrations
+- People who understands and monitor cloud security, security incidents, constantly evaluating security threads
+- People who understands Azure Data Tools like Azure Data Factory, Azure Databricks, Azure Data lake, Azure SQL Database and can integrate data components (ETL/ELT), create semantic models, use different data formats
+- End users who can use Power BI for self service reporting
+
 Description of implementation workflow:
 
 - Infrastructure and Governance model
   - Cloud Ops Team provisions in repeatable and consistent way the Data Analysis environment with existing optimized security
-  settings for regulated industries through automated way. They can use existing scripts and optionally modify them to fit to the enterprise specific standards. Billing information for the environment can be monitored.
-  - Network team integrates the environment with Enterprise network (ideally Hub-and-spoke model with Enterprise Firewall), enables private links for endpoints
-  - Cloud Security Team reviews infrastructure through built-in or Enterprise specific Azure policies, reviews security score of the environment in Azure Advisor and Security Center. Security team can also own and maintain credentials stored in the Key vault to specific data source systems. Security team can also start to monitor audit information stored in the Log Analytics.
+  settings for regulated industries through automated and parametrized way. They can use existing scripts and optionally modify them to fit to the enterprise specific standards and policies. Cloud Ops and Cloud security team can start to see security compliance reports. Billing information for the environment can be monitored.
+  - Network team typically integrates the environment with Enterprise network (ideally Hub-and-spoke model with Enterprise Firewall), enables private links for endpoints and can start to monitor a traffic. Integration of Microsoft Power BI with virtual network (to use private traffic) is recommended.
+  - Cloud Security Team reviews infrastructure through built-in or Enterprise specific Azure policies, reviews security score of the environment in Azure Advisor and Security Center. Security team can also own and maintain credentials stored in the Key vault to specific data source systems and encryption keys. Security team can also start to monitor audit information stored in the central Log Analytics Workspace.
+- Usage and Data Analysis Capabilities
+  - Data Administrators/Data Developers can start to prepare ETL/ELT pipelines and semantic models for self-service BI. This covers complete data preparation life cycle (Ingest/Store/Transform/Store in Optimized Model/Consume).
+  - Business users can start to consume and present data through business semantic models prepared by Data Developers. Typically through front end applications like Microsoft Power BI or custom applications.
 
+Following diagram shows more components based view and integration with an enterprise environment.
 
+[![Components view and integration with an enterprise environment.](media/data-analysis-architecture-02.png)](media/data-analysis-architecture-02.png#lightbox)
 
-TODO
+### Description of Pattern and Architecture in Details
+
+Business Users needs to present, consume, slice and dice data in quick way on multiple devices from multiple places. Ideally on data model which is optimized (transformed) for data domain they are aligned to.
+
+To achieve this, you typically need to get data in scalable way from multiple data sources in raw format (typically sitting on-prem), store them in scalable way with potentially huge volumes. Store them to cheap storage in multiple versions and with history, clean data, combine data Together, pre-aggregate data and store them again in structured way with indexing capability to provide speed for access. You probably also want to mask data and secure/hide data which should not be seen by users from other geo regions or departments.
+
+For that, you need to understand (propagate security context) who is viewing the data from reporting tool to structured storage and ensure you are filtering data for target user based on role. (Role Based Access Control, Row Level Security). You do not want to do it manually, database engine should do it for you based on roles.
+
+_**Business Users needs to present, consume, slice and dice data in quick way on multiple devices from multiple places**_
+
+This can be achieved by easy-to-use PowerBI reporting tool, which can be used from anywhere and on multiple platforms and devices.
+
+PowerBI runs in cloud as managed service. Service can be also integrated with perimeter for access from devices and can also access data sources which are part of perimeter (on-premises or in cloud via private link).
+
+You do not want to use PowerBI gateway for perimeter access which is typically multiplexing accessing users to one service identity and thus undermining security context against target database which is important to preserve.
+
+PowerBI also supports integration with Azure Active Directory (cloud identity) and advanced security features. Identity and whole
+security context can be thus propagated through PowerBI to the database engine and database engine can use native filtering capabilities based on role accessing user belongs to.
+
+Example can be: user from mobile device outside perimeter needs to access predefined and optimized report which is accessing and rendering sensitive data from data source hosted inside a perimeter. User might be required to establish VPN connectivity first, will be prompted to authenticate to PowerBI, verified with MFA and PowerBI rendering engine will pass user's identity of accessing user to the target database hosted in the perimeter. Database can verify accessing user and understand user's role/security group. With that database engine can do query/data filtering and show only data user was allowed to see.
+
+_**Need to get data in scalable way from multiple data sources in raw format (typically sitting on-prem), store them in scalable way with huge volumes to cheap storage in multiple versions and with history**_
+
+PowerBI ideally needs to consume optimized data models for specific data domain which improves user experience, reduces waiting time and improves data model maintenance. Before that, you typically need to run some ETL process which will first get data from multiple data sources from many places, in raw format (snapshots) and store them for further processing.
+
+In this architecture load is mainly role of Azure Data Factory - Easy to use ETL tool along with Azure Storage in Azure Data Lake (Hierarchical namespace) mode.
+
+Azure Data Factory managed PaaS service allows you to connect many data sources through massive list of ever-growing list of supported connectors.
+Azure Data Factory has a workspace where ETL process can be designed and executed at scale. Workspace can be accessed from anywhere as access policy allows and is specified by security administrators. Similar approach like accessing O365 workspace.
+
+Azure Data Factory also understands and can store data in multiple file formats (standard or proprietary). Azure Data Factory can access data and store them in scalable manner as snapshots to Azure Data Lake Storage. Basically, get data in scalable way from anywhere and store them in raw format to Azure Data Lake Storage in versioned way so more sophisticated data models can be built based on such data.
+
+To access data sources from cloud you need to have some kind of gateway which will not require to punch hole into the enterprise firewall. This is what Azure Data Factory Self Host Integration Runtime provides. This component needs to be installed in the on-premises environment (physical or virtual machine) and needs to be allowed to open communication to the cloud. Azure Data Factory then can consume data from allowed data sources inside organization and process them in cloud by specific associated and only allowed Azure Data Factory instance.
+
+Azure Data Lake is very cheap, practically unlimited storage space where data can be stored in raw formats, in multiple versions (e.g daily snapshots) and storage is providing very secure (Role Based Access Control) way to store data. This storage is also optimized for support of massive parallel processing of data. To provide even better security story, Azure Data Lake Storage is part of perimeter without exposing any public endpoint.
+
+Storage will not be accessed directly by PowerBI (although technically possible and supported). Storage is kind of staging area in this case.
+PowerBI should work with more structured and optimized domain driven data source built from raw data from storage.
+
+_**Store data in structured way with indexing capability to provide speed for access. Data model which is optimized (transformed) for data domain data are aligned to.**_
+
+Once the data are snapshot and available in cheap storage in raw, versioned, and complete form, it's time to transform them to the most useful product.
+As domain data model expectations changes during a time it's very useful to keep data in complete - raw form and with history.
+This allows at any point in time to introduce new dimension or attribute to domain data model with projection to the history.
+
+ADAW supports transformations of data in mainly two ways (Azure Data Factory and Azure Databricks).
+Both very capable and scalable tools with rich transformational features and adapters.
+
+Solution was designed for reading data from Azure Data Lake Storage through private endpoint (part of perimeter), cleaning/normalizing data at scale, transforming at scale, aggregating/merging/combining data at scale and with cost control (Azure Data Factory and/or Azure Databricks - fast transformation with more horse power for higher cost vs slower transformation with less power for better price) and storing cleaned/transformed/aggregated and domain optimized data to highly structured database with indexed data and business/domain specific vocabulary (Azure SQL Database).
+
+Azure Databricks should be deployed with Premium SKU to enable advanced security features like RBAC for Cluster, Jobs, Notebooks and Azure AD passthrough.
+
+Also Azure Databricks Virtual Network integrated with data sources and perimeter and Firewall for egress control should be enabled.
+
+Azure Data Factory and Azure Databricks Workspace (not data) can be accessed through public endpoint with Azure Active Directory Authentication and enabled conditional access.
+
+Azure SQL Database in this solution is playing key role as data source consumed by PowerBI clients. Model is optimized for business domain, for PowerBI reports, with right business terminology and attributes and security trimming done at the database engine level through native capabilities.
+Also PowerBI is configured in the way to consume data over private endpoints from Azure SQL Database (point-to-point) and
+ingest data from Azure Databricks / Azure Data Factory Self Host Integration Runtime to improve security posture.
+
+_**Mask data and secure/hide data which should not be seen by users from other geo regions or departments.**_
+
+Data stored in the business data domain database (here Azure SQL Database) will probably contain data across whole organization and with sensitive data.
+It's important to allow access only to subset of data based on roles accessing user belongs to. Typically, data cross regions from different units in different geo locations, etc.
+It's not best approach to do such filtering manually in code (error prone) and also it is not desired to do it in reports itself.
+Such filtering based on security context should be done purely on the database level and all other consuming tools (including reporting tools) will receive already filtered data. Accessing tools should pass identity of viewing user - not service accounts.
+This allows to stay compliant with different auditing and traceability requirements.
+
+Fortunately, Azure SQL Database implements such native features on the database engine level (row-level security) which makes implementation of such security trimming and auditing easier.
+
+This requires propagating security context from viewing user to the database level. PowerBI can understand a propagate security context (user's cloud identity) to the business data domain database and database is able to use such identity, authenticate, authorize and filter data for such user based on the identity or roles this user belongs to.
 
 ### Components
 
@@ -150,9 +230,6 @@ See [Enterprise Data Warehouse Architecture](/azure/architecture/solution-ideas/
 -->
 
 TODO
-- Azure Mon + Log Analytics
-- Security Center
-- Azure Policies
 
 ### Availability
 
@@ -161,8 +238,6 @@ TODO
 -->
 
 TODO
-Prefer ZRS, no designed for Geo Redundancy
-
 
 ### Operations
 
@@ -183,20 +258,35 @@ TODO
 ### Scalability
 
 <!---
-> Are there any size considerations around this specific solution?
-> What scale does this work at?
-> At what point do things break or not make sense for this architecture?
+Comment: DONE
+#> Are there any size considerations around this specific solution?
+#> What scale does this work at?
+#> At what point do things break or not make sense for this architecture?
 -->
 
-TODO
+This architecture pattern is based at managed Azure services with great built-in scalability features which allows to find right balance between speed and cost.
+
+This solution can work with petabytes of data.
+
+If data ingestion is done from on premises data sources and perhaps through Azure Data Factory Self Host Integration Runtime, the limitation can be bandwidth and latency of VPN network and horse power of Self Host Integration Runtime machine.
+
+Address range / Size of virtual network for Data Analytical Workspace can limit number of VMs used by Azure Databricks.
 
 ### Security
 
 <!---
-> Are there any security considerations (past the typical) that I should know about this? 
+Comment: DONE
+#> Are there any security considerations (past the typical) that I should know about this? 
 -->
 
-TODO
+Consider following security monitoring and practices:
+
+- Use Azure Active Directory Identity Protection, configure MFA, Conditional Access and Monitor Azure Active Directory
+- Use Azure Security Center to monitor environments, recommendations, security score and potential issues and incidents
+- Use Azure Policies to monitor and Enforce security standards
+- Use and Monitor Diagnostic settings, vulnerability scans and Auditing Logs, forward logs to SIEM
+- Monitor Network traffic, routing, firewall, access control list and keep traffic in perimeter through private link and VPN feature
+- Store Credentials, Keys and secrets in Key Vault, limit access to Key Vault to limited number of people, do keys rotations and monitor operations and access to Key Vault
 
 ### Resiliency
 
