@@ -2,7 +2,7 @@
 metadata:
   title: Determine customer lifetime and churn with Azure AI services
   titleSuffix: Azure Solution Ideas
-  description: An approach for predicting customer lifetime value in Azure.
+  description: Learn how to create an Azure solution for predicting customer lifetime value and churn in Azure.
   author: gallogiulia
   ms.author: giuliagallo, nicoleserafino, arashmosharraf
   ms.date: 10/07/2021 

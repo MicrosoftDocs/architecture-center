@@ -1,12 +1,14 @@
-This scenario shows a solution for creating predictive models of the customer lifetime value. The solution can help your retail company understanding your customers better by using Azure AI technologies.
+This scenario shows a solution for creating predictive models of the customer lifetime value. The solution can help your retail company understand your customers better by using Azure AI technologies.
 
 #### Customer lifetime value and churn rate
 
-In marketing, customer lifetime value measures the net profit from a customer. This metric includes profit from the customer's whole relationship with a company. Prediction models vary in sophistication and accuracy. They can be a crude heuristic or use complex predictive analytics techniques. The customer lifetime value metric can help your business concentrate on your most profitable clients. For more information, see [Customer lifetime value](https://en.wikipedia.org/wiki/Customer_lifetime_value).
+Customer lifetime value measures the net profit from a customer. This metric includes profit from the customer's whole relationship with your company. The customer lifetime value metric can help your business concentrate on your most profitable customers.
 
-Another important metric for understanding how customers behave is churn or churn rate. Churn measures the number of individuals or items moving out of a group over a period. For more information, see [Churn Rate](https://en.wikipedia.org/wiki/Churn_rate).
+Prediction models for customer lifetime value vary in sophistication and accuracy. They can be a crude heuristic or use complex predictive analytics techniques. For more information, see [Customer lifetime value](https://en.wikipedia.org/wiki/Customer_lifetime_value).
 
-Customer lifetime value and customer churn are key metrics in marketing analytics. You can use these metrics to determine your ability to retain a certain customer. These metrics can provide an overview of the total worth of a customer to your business over the period of your relationship.
+Another important metric for understanding how customers behave is *churn* or *churn rate*. Churn measures the number of individuals or items moving out of a group over a period. For more information, see [Churn Rate](https://en.wikipedia.org/wiki/Churn_rate).
+
+Customer lifetime value and customer churn are key metrics in marketing analytics. You can use these metrics to determine your ability to retain certain customers. These metrics offer an overview of the total worth of a customer to your business over the period of your relationship.
 
 This solution demonstrates how to interconnect the following Azure AI technologies:
 
@@ -20,7 +22,7 @@ This solution demonstrates how to interconnect the following Azure AI technologi
 
 This retail customer scenario classifies your customers based on marketing and economic measures. Based on this information, you can calculate customer lifetime value.
 
-This scenario next creates a customer segmentation based on several metrics. It trains a multi-class classifier on new data. The resulting supervised multi-class classifier model scores batches of new customer orders through a regularly scheduled Azure Databricks notebook job.
+This scenario also creates a customer segmentation based on several metrics. It trains a multi-class classifier on new data. The resulting supervised multi-class classifier model scores batches of new customer orders through a regularly scheduled Azure Databricks notebook job.
 
 ## Potential use cases
 
@@ -33,7 +35,9 @@ In general, the true value of a customer relationship can help answer these ques
 
 ## Architecture
 
-![Architecture Diagram](./media/architecture-customerlifetime-churn.png)
+![Architecture diagram for scenario to determine customer lifetime and churn by using Azure AI services](./media/architecture-customerlifetime-churn.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-customerlifetime-churn.vsdx) of this architecture.*
 
 1. Ingestion and orchestration
 
@@ -63,13 +67,13 @@ In general, the true value of a customer relationship can help answer these ques
 
 1. Serving phase
 
-   In the serving phase, you can use reporting tools, such as Power BI, MicroStrategy, and Analyses Services, for your model predictions.
+   In the serving phase, you can use reporting tools to work with your model predictions. These tools include Power BI, MicroStrategy, and Analyses Services,
 
 ### Components
 
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage/) and [Azure Files](https://azure.microsoft.com/services/storage/files/) offer fully managed file shares in the cloud that are accessible by using the industry-standard SMB protocol. You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS.
+- [Azure Storage](https://azure.microsoft.com/product-categories/storage/) and [Azure Files](https://azure.microsoft.com/services/storage/files/) offer fully managed file shares in the cloud that are accessible by using the industry-standard SMB protocol. You can mount Azure file shares concurrently in the cloud or on on-premises deployments of Windows, Linux, and macOS.
 
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a fully managed database engine that handles most of the database management functions without user involvement. Azure SQL Database enables you to focus on the domain-specific database administration and optimization activities that are critical for your business.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a fully managed database engine that handles most management functions without your involvement. Azure SQL Database enables you to focus on the domain-specific database administration and optimization activities for your business.
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) is a cloud service for storing large amounts of unstructured data such as text, binary data, audio, and documents. Azure Blob Storage allows data scientists quick access to data for experimentation and AI model building.
 
@@ -111,7 +115,7 @@ Protect assets by using controls on network traffic originating in Azure, betwee
 
 Use Azure Key Vault and Databricks scoped secret to access data in Azure Data Lake Storage Gen2.
 
-Azure services are either deployed in a secure virtual network or access uses the Azure Private Link feature. If necessary, row-level security in Azure Analysis Services or SQL Database provides granular access to individual users.
+Azure services are either deployed in a secure virtual network or access uses the Azure Private Link feature. If necessary, row-level security provides granular access to individual users in Azure Analysis Services or SQL Database.
 
 ## Pricing
 
