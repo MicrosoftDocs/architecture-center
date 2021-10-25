@@ -6,7 +6,7 @@ Microservices introduce complexities in the development cycle compared to tradit
 
 *Development testing (DevTest)* is a software development approach that integrates testing early in the development phase to speed development. *DevOps* is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous delivery. [Kubernetes](https://kubernetes.io/) is an open-source container orchestration system for automating application deployments.
 
-This solution architecture models a development and deployment environment that uses DevOps in DevTest for rapid iterative development of an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) microservice application. 
+This solution architecture models a development and deployment environment that uses DevOps in DevTest for rapid iterative development of an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) microservice application. 
 
 ## Architecture
 
@@ -40,7 +40,7 @@ All services and environments report metrics to [Azure Monitor](/azure/devtest-l
 
 In this solution, a single [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) manages identity for both the DevTest and Production subscriptions. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) restricts access to protected resources, preventing unauthorized or inadvertent modification of Production resources. Developers don't have the same access control levels in Production as in their DevTest sandboxes.
 
-## Components
+### Components
 
 - [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) provides labs that have all the necessary tools and software to create environments. Developers can efficiently self-manage resources without waiting for approvals. With DevTest Labs, teams can control costs and regulate resources per lab, granting developers permission and flexibility to operate their sandboxes within cost constraints.
   
@@ -48,13 +48,13 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
   
 - [GitHub Actions](https://github.com/features/actions) provides a suite of build and release workflows, covering CI, automated testing, and container deployments.
   
-- [Azure Boards](https://azure.microsoft.com/services/devops/boards/) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban methodologies, customizable dashboards, and integrated reporting.
+- [Azure Boards](https://azure.microsoft.com/services/devops/boards) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities including native support for Scrum and Kanban methodologies, customizable dashboards, and integrated reporting.
   
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a fully featured CI/CD service that can automatically deploy updated Container Registry images to Kubernetes clusters.
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) is a fully featured CI/CD service that can automatically deploy updated Container Registry images to Kubernetes clusters.
   
 - [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps in Azure](devsecops-in-azure.yml) and [DevSecOps in GitHub](devsecops-in-github.yml).
   
-- [Azure Container Registry](/azure/container-registry/) supports building, storing, and managing container images and artifacts in private registries for all types of container deployments.
+- [Azure Container Registry](/azure/container-registry) supports building, storing, and managing container images and artifacts in private registries for all types of container deployments.
   
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes) makes it simple to deploy managed Kubernetes clusters by offloading much of the complexity, responsibility, and operational overhead to Azure.
   
@@ -64,14 +64,16 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
   
 - [Azure Monitor](/azure/devtest-labs/security-baseline) can monitor both Production and DevTest environments. Azure Monitor collects log data from VM operating systems and crash dump files, and aggregates them for viewing in [Azure Security Center](/azure/security-center/security-center-enable-data-collection).
 
-## Alternatives
-- [Azure Repos](https://azure.microsoft.com/services/devops/repos/) is an alternative to GitHub for Git repository hosting. With Azure Repos, Azure Boards, and Azure Pipelines, all Azure DevOps Services use the same portal and user interface, consolidating the services developers need for DevOps activities.
+### Alternatives
+
+- [Azure Repos](https://azure.microsoft.com/services/devops/repos) is an alternative to GitHub for Git repository hosting. With Azure Repos, Azure Boards, and Azure Pipelines, all Azure DevOps Services use the same portal and user interface, consolidating the services developers need for DevOps activities.
   
 - Some integrations available in Azure Pipelines, such as service connection or authentication directly into the Azure backbone, don't currently exist in GitHub Actions. For these needs, consider using Azure Pipelines instead of GitHub Actions for CI and build activities.
   
 - In a widely distributed system, there are benefits to separating microservices into individual repositories. Separation of ownership and permission is simpler, and projects in different languages are easier to maintain than with a single repository. However, in solutions with fewer microservices all in the same language or runtime, maintaining a single Git repository for the project may be easier.
 
 ## Next steps
+
 - [Design a microservice-oriented application](/dotnet/architecture/microservices/multi-container-microservice-net-applications/microservice-application-design)
 - [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
 - [DevSecOps in Azure](./devsecops-in-azure.yml)
