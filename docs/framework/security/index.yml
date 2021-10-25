@@ -42,7 +42,7 @@ landingContent:
           - text: Monitor checklist
             url: monitor.md
           - text: Governance, risk, and compliance
-            url: governance.md
+            url: /azure/architecture/framework/security/design-governance
       - linkListType: learn
         links:
           - text: Security 
@@ -129,7 +129,7 @@ landingContent:
           - text: Review and audit security posture
             url: monitor-audit.md
           - text: Check for identity, network, and data risks
-            url: monitor-identity-network.md
+            url: /azure/architecture/framework/security/monitor-resources
       - linkListType: concept
         links:
           - text: Prevent, detect, and respond to threats
@@ -141,7 +141,7 @@ landingContent:
           - text: Review critical access
             url: monitor-audit.md#review-critical-access
           - text: Review identity risks
-            url: monitor-identity-network.md#review-identity-risks
+            url: /azure/architecture/framework/security/monitor-resources#review-identity-risks
       - linkListType: video
         links:
           - text: Improving app security with Application Security Groups
@@ -152,13 +152,13 @@ landingContent:
       - linkListType: concept
         links:
           - text: Prioritize security best practices investments
-            url: governance.md#prioritize-security-best-practices-investments
+            url: /azure/architecture/framework/security/design-governance#prioritize-security-best-practices-investments
           - text: Use Azure Secure Score
-            url: governance.md#operationalize-azure-secure-score
+            url: /azure/architecture/framework/security/design-governance#operationalize-azure-secure-score
           - text: Manage connected tenants
-            url: governance.md#manage-connected-tenants
+            url: /azure/architecture/framework/security/design-governance#manage-connected-tenants
           - text: Designate clear lines of responsibility
-            url: governance.md#clear-lines-of-responsibility
+            url: /azure/architecture/framework/security/design-governance#clear-lines-of-responsibility
       - linkListType: video
         links:
           - text: Enabling secure remote work with using Windows Virtual Desktop
