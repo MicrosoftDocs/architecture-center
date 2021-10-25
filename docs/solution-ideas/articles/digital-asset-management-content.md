@@ -18,15 +18,15 @@ There are three steps in knowledge mining: ingest, enrich, and explore.
 
 - **Ingest**
 
-The ingest step aggregates content from a range of sources, including structured and unstructured data. For digital asset management, sources can be technical content like article and image archives, photos, videos, internal documents, marketing assets, and brochures.
+   The ingest step aggregates content from a range of sources, including structured and unstructured data. For digital asset management, sources can be technical content like article and image archives, photos, videos, internal documents, marketing assets, and brochures.
 
 - **Enrich**
 
-The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding. For example, you can enrich the content by using automatic image captioning and object detection with computer vision, celebrity recognition, language translation, and entity recognition.
+   The enrich step uses AI capabilities to extract information, find patterns, and deepen understanding. For example, you can enrich the content by using automatic image captioning and object detection with computer vision, celebrity recognition, language translation, and entity recognition.
 
 - **Explore**
 
-The explore step is exploring the data via search, existing business applications, or analytics solutions. For example, you can integrate the search index into a web site.
+   The explore step is exploring the data via search, existing business applications, or analytics solutions. For example, you can integrate the search index into a web site.
 
 ### Components
 
