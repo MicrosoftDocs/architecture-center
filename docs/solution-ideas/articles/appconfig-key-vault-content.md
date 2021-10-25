@@ -30,7 +30,7 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 
 [Download a Visio file](https://arch-center.azureedge.net/AppConfig_Development.vsdx) of this architecture.
 
-## Data flow
+### Data flow
 
 1. The application sends an authentication request during debugging in Visual Studio, or authenticates via the MSI in Azure.
 1. Upon successful authentication, Azure AD returns an access token.
@@ -39,7 +39,7 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 1. Using the sign-in identity, the app sends a request to Azure Key Vault to retrieve the application secret for the **secretURI** that App Configuration sent.
 1. Upon successful authorization, Key Vault returns the secret value.
 
-## Considerations
+### Considerations
 
 - It's best to use a different key vault for each application in each environment: development, Azure pre-production, and Azure production. Using different vaults helps prevent sharing secrets across environments, and reduces the threat in case of a breach. 
 
@@ -47,7 +47,7 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 
 ## Next steps
 
-- [Azure App Configuration](/azure/azure-app-configuration/)
+- [Azure App Configuration](/azure/azure-app-configuration)
 - [Azure Key Vault](/azure/key-vault/general/basic-concepts)
 - [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)
 - [App Configuration and Managed Service Identity](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
