@@ -6,7 +6,7 @@ This solution idea demonstrates how end manufacturers can connect their assets t
 
 [ ![Architecture Diagram](../media/condition-monitoring.svg) ](../media/condition-monitoring.svg#lightbox)
 
-## Data flow
+### Data flow
 
 The data flows through the solution as follows:
 
@@ -28,7 +28,7 @@ There are three predominant use cases in which the data provided by the Industri
 1. Azure Functions is a serverless compute service, which allows you to run small pieces of code (called "functions") without worrying about application infrastructure. With Azure Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
 1. Azure Notification Hubs allow you to send notifications to a wide range of mobile platforms and can allow notification of operators and administrators on certain events or alerts which require immediate attention.
 
-## Components
+### Components
 
 Data is loaded from these different data sources using several Azure components:
 
@@ -46,5 +46,5 @@ Data is loaded from these different data sources using several Azure components:
 
 ## Next steps
 
-- For a detailed view of the Industrial Modules and Services, see the Azure Industrial IoT Platform [architecture](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture.md) and a detailed view of all the individual Microservices and Agent processes is shown [here](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
+- For a detailed view of the Industrial Modules and Services, see the Azure Industrial IoT Platform [architecture](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture.md), and a detailed view of all the individual Microservices and Agent processes is shown [here](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
 - You can find more information on how to get started with the Azure Industrial IoT Platform in the [Industrial IoT GitHub repository](https://github.com/Azure/Industrial-IoT/blob/master/docs/architecture-details.md).
