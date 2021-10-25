@@ -1,4 +1,8 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]![image](https://user-images.githubusercontent.com/13895622/138624550-ef7ce281-75f4-472b-8995-ad7c99dfae6a.png)
+
 This architecture shows a secure research environment intended to allow researchers to access sensitive data under a higher level of control and data protection. This article is applicable for organizations that are bound by regulatory compliance or other strict security requirements. 
+
+## Potential use cases
 
 This architecture was originally created for higher education research institutions with HIPAA requirements. However, this design can be used in any industry that requires isolation of data for research perspectives. Some examples include: 
 - Industries that process regulated data as per NIST requirements 
@@ -10,7 +14,7 @@ By following the guidance you can maintain full control of your research data, h
 ## Architecture
 :::image type="content" source="./media/secure-research-env.svg" alt-text="Diagram of a secure research environment.":::
 
-## Data flow
+### Data flow
 
 1. Data owners upload datasets into a public blob storage account. The data is encrypted by using Microsoft-managed keys.
 
@@ -34,11 +38,11 @@ By following the guidance you can maintain full control of your research data, h
 8. Data Factory moves the data to the public storage account in a separate container to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
 
 
-## Components 
+### Components 
 
 This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles are described below. For links to product documentation to get started with these services, see [Related links](#related-links). 
  
-### Core workload components
+#### Core workload components
 
 Here are the core components that move and process research data. 
 
@@ -60,7 +64,7 @@ Here are the core components that move and process research data.
 
 - **Azure Logic Apps** provides automated low-code workflow to develop both the _trigger_ and _release_ portions of the manual approval process.   
 
-### Posture management components
+#### Posture management components
 
 These components continuously monitor the posture of the workload and its environment. The purpose is to discover and mitigate risks as soon as they are discovered. 
 
@@ -70,16 +74,17 @@ These components continuously monitor the posture of the workload and its enviro
 
 - **Azure Monitor** provides observability across your entire environment. View metrics, activity logs, and diagnostics logs from most of your Azure resources without added configuration. Management tools, such as those in Azure Security Center, also push log data to Azure Monitor. 
 
-
-### Governance components
+#### Governance components
 
 - **Azure Policy** helps to enforce organizational standards and to assess compliance at-scale. 
 
-## Security
+## Considerations
+
+### Security
 
 The main objective of this architecture is to provide a secure and trusted research environment that strictly limits the exfiltration of data from the secure area. 
 
-### Network security
+#### Network security
 
 Azure resources that are used to store, test, and train research data sets are provisioned in a secure environment. That environment is an Azure Virtual Network (VNet) that has network security groups (NSGs) rules to restrict access, mainly:
 
@@ -95,7 +100,7 @@ The secure environment has Azure Machine Learning compute that can access the da
 
 For Azure services that cannot be configured effectively with private endpoints or to provide stateful packet inspection, consider using Azure Firewall or a third-party network virtual appliance (NVA). 
 
-### Identity management
+#### Identity management
 
 The Blob storage access is through Azure Role-based access controls (RBAC). 
 
@@ -103,7 +108,7 @@ Azure Virtual Desktop supports Azure AD authentication to DSVM.
 
 Data Factory uses managed identity to access data from the blob storage. DSVMs also uses managed identity for remediation tasks.
 
-### Data security
+#### Data security
 
 To secure data at rest, all Azure Storage is encrypted with Microsoft-managed keys using strong cryptography. 
 
@@ -121,7 +126,7 @@ The Data Science VMs run customized base images. To build the base image, we hig
 
 The base image might need updates, such as additional binaries. Those binaries should be uploaded to the public blob storage and flow through the secure environment, much like the datasets are uploaded by data owners.
 
-## Other considerations 
+### Other considerations 
 
 Most research solutions are temporary workloads and don't need to be available for extended periods. This architecture is designed as a single-region deployment with availability zones. If the business requirements demand higher availability, replicate this architecture in multiple regions. You would need other components, such as global load balancer and distributor to route traffic to all those regions. As part of your recovery strategy, capturing and creating a copy of the customized base image with Azure Image Builder is highly recommended.
 
@@ -129,8 +134,8 @@ The size and type of the Data Science VMs should be appropriate to the style of 
 
 The cost of DSVMs depends on the choice of the underlying VM series. Because the workload is temporary,  the consumption plan is recommended for the Logic App resource. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on estimated sizing of resources needed. 
 
+## Next steps
 
-## Related links
 - [Microsoft Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine/overview)
 - [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [Azure Machine Learning Compute](/azure/machine-learning/service/concept-compute-target)
@@ -142,4 +147,3 @@ The cost of DSVMs depends on the choice of the underlying VM series. Because the
 - [Azure Monitor](/azure/azure-monitor/overview)
 - [Azure Policy](/azure/governance/policy/overview)
 - [Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)
-   
