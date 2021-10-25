@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Businesses use blockchain to digitize workflows they share with other organizations, such as moving physical assets across supply chains. The anatomy of blockchain apps is similar across use cases. Here, we use Azure Blockchain Service as the foundational managed blockchain network and build a consortium application that can ingest signals from relevant user interfaces and communicate ledger data to consuming apps across the consortium.
@@ -10,7 +7,7 @@ Businesses use blockchain to digitize workflows they share with other organizati
 ![Architecture diagram](../media/blockchain-workflow-application.png)
 *Download an [SVG](../media/blockchain-workflow-application.svg) of this architecture.*
 
-## Data flow
+### Data flow
 
 1. Relevant apps, devices, and data sources send events or data to a message broker (Azure Service Bus).
 1. The distributed ledger technology (DLT) consumer Logic App fetches the data from the Service Bus and sends to transaction builder which builds and signs the transaction.
@@ -19,7 +16,7 @@ Businesses use blockchain to digitize workflows they share with other organizati
 1. Message broker sends ledger data to consuming business applications and off-chain database.
 1. Information is analyzed and visualized using tools such as Power BI by connecting to off-chain database.
 
-## Components
+### Components
 
 * [Azure Blockchain Service](https://azure.microsoft.com/services/blockchain-service): Build, govern, and expand consortium blockchain networks
 * [Service Bus](https://azure.microsoft.com/services/service-bus): Connect across private and public cloud environments
