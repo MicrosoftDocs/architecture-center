@@ -2610,6 +2610,8 @@ items:
             items:
               - name: Architectures
                 items:
+                  - name: Mainframe and midrange data replication to Azure using Qlik
+                    href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
                   - name: Modernize mainframe and midrange data
                     href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
                   - name: Re-engineer mainframe batch apps
