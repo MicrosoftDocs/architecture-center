@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cycle-the technology foundation necessary to win customers for life.
@@ -12,7 +9,7 @@ This solution is built on the Azure managed services: [Azure SQL Database](https
 ![Architecture diagram](../media/digital-marketing-sitecore.png)
 *Download an [SVG](../media/digital-marketing-sitecore.svg) of this architecture.*
 
-## Components
+### Components
 
 * App Service [Web Apps](https://azure.microsoft.com/services/app-service/web) runs in multiple regions, accessible to web and mobile browsers, and is scaled out across multiple server instances. Used by Sitecore to host its content delivery, content management, reporting, and processing roles.
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database): A SQL Database stores and serves data about the site.
