@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Back up data and applications from an on-premises system to Azure using Azure Backup or a partner solution. An Internet connection to Azure is used to connect to Azure Backup or Azure Blob storage. Azure Backup Server can write backups directly to Azure Backup. Alternatively, a partner solution such as Commvault Simpana or Veeam Availability Suite, hosted on-premises, can write backups to Blob storage directly or via a cloud endpoint such as Veeam Cloud Connect.
@@ -12,7 +9,7 @@ This solution is built on the Azure managed services: [Backup Server](https://az
 ![Architecture Diagram](../media/backup-archive-cloud-application.png)
 *Download an [SVG](../media/backup-archive-cloud-application.svg) of this architecture.*
 
-## Components
+### Components
 
 * Azure [Backup Server](https://azure.microsoft.com/services/backup) orchestrates the backup of machines and manages the configuration of the restore procedures. It also has two days of backup data for operational recovery.
 * [Azure Backup](https://azure.microsoft.com/services/backup) service runs on the cloud and holds the recovery points, enforces policies, and enables you to manage data and application protection. You don't need to create or manage an Azure Blob storage account when using [Azure Backup](https://azure.microsoft.com/services/backup).
