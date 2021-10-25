@@ -1,4 +1,4 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]![image](https://user-images.githubusercontent.com/13895622/138624550-ef7ce281-75f4-472b-8995-ad7c99dfae6a.png)
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This architecture shows a secure research environment intended to allow researchers to access sensitive data under a higher level of control and data protection. This article is applicable for organizations that are bound by regulatory compliance or other strict security requirements. 
 
