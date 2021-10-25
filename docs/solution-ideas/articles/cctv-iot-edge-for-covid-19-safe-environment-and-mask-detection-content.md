@@ -17,7 +17,7 @@ This article showcases a COVID-19 Safe Solution that is being implemented in wor
 - Work areas including offices, factories, and warehouses.
 - Organizations with multiple locations, to enable widespread, systemic data analysis and actions.
 
-## Architecture for COVID-19 Safe Solution
+## Architecture
 
 ![Architecture diagram: Bosch COVID-19 Safe Solution for monitoring and alerting with Azure IoT Edge.](../media/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png)
 
@@ -33,7 +33,7 @@ This article showcases a COVID-19 Safe Solution that is being implemented in wor
 8. Redis, mongoDB, and blob storage store cloud data for Power BI analytics and visualizations via a custom connector.
 9. The app sends notifications and alerts to stakeholders via Microsoft Teams.
 
-## Components
+### Components
 
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) servers with onboard storage, computing, artificial intelligence (AI), and machine learning (ML) capabilities can quickly recognize and respond to sensor input.
 - Bosch video analytics use [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) skills and [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) to continually improve monitoring, detection, and real-time alert triggering.
