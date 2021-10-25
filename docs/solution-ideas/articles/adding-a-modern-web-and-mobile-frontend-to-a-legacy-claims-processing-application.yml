@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Add a mobile front-end to a legacy app
+  title: Add a mobile front end to a legacy app
   titleSuffix: Azure Solution Ideas
-  description: This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and speed up decision making.
+  description: This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and helps speed up decision making.
   author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
@@ -24,11 +24,11 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/adding-a-modern-web-and-mobile-frontend-to-a-legacy-claims-processing-application.png
-name: Adding a mobile front-end to a legacy app
+name: Adding a mobile front end to a legacy app
 azureCategories:
   - migration
   - mobile
-summary: This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and speed up decision making.
+summary: This solution consolidates data from multiple business systems and then surfaces the data through web and mobile front ends. This consolidation helps improve employee productivity and helps speed up decision making.
 products:
   - azure-active-directory
   - azure-active-directory-b2c
