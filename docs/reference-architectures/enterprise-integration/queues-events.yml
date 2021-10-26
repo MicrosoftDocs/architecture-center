@@ -27,6 +27,6 @@ summary: This reference architecture integrates enterprise backend systems, usin
 products:
   - azure-event-grid
   - azure-service-bus
-thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-integration-messagebrocker-events.png
+thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-integration-message-broker-events.png
 content: |
    [!include[](queues-events-content.md)]
