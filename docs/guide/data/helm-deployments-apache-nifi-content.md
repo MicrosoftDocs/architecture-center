@@ -46,7 +46,7 @@ Helm charts convert into Kubernetes manifest files. You create a chart in a fold
 
 ## Components
 
-A NiFi deployment uses the following components:
+The Helm chart includes the following components:
 
 ### ZooKeeper
 
@@ -63,11 +63,11 @@ Kubernetes offers two solutions for managing pods that run an application like N
 - A *ReplicaSet*, which maintains a stable set of the replica pods that run at any given time. You often use a ReplicaSet to guarantee the availability of a specified number of identical pods.
 - A *StatefulSet*, or the workload API object that you use to manage stateful applications. A StatefulSet manages pods that are based on an identical container specification. Kubernetes creates these pods from the same specification. But these pods aren't interchangeable. Each pod has a persistent identifier that it maintains across rescheduling.
 
-Since NiFi manages data, a StatefulSet provides the best pod-management solution in this case.
+Since you use NiFi to manage data, a StatefulSet provides the best pod-management solution for NiFi deployments.
 
 ### Data disks
 
-Concerning disk usage, consider disk striping and using multiple disks for repositories. In test deployments that used virtual machine scale sets, this approach worked best. The following excerpt from `nifi.properties` shows a disk usage configuration:
+For disk usage, consider disk striping and using multiple disks for repositories. In test deployments that used virtual machine scale sets, this approach worked best. The following excerpt from `nifi.properties` shows a disk usage configuration:
 
 ```config
 nifi.flowfile.repository.directory=/data/partition1/flowfiles
@@ -86,6 +86,13 @@ Kubernetes offers *ConfigMaps*. These objects store non-confidential data. Kuber
 In secured instances, NiFi uses authentication and authorization. NiFi manages this information in file system files. Specifically, each cluster node needs to maintain an `authorizations.xml` file and a `users.xml` file. All members need to be able to write to these files. And each node in the cluster needs to have an identical copy of this information. Otherwise, the cluster goes out of sync and breaks down.
 
 To meet these conditions, you can copy these files from the first member of the cluster to every member that comes into existence. Each new member then maintains their own copies. Pods generally don't have the authorization that they need to copy content from another pod. But a Kubernetes *ServiceAccount* provides a way for pods to get that authorization.
+
+### Services
+
+Kubernetes services make the application service available to users of the Kubernetes cluster. Service objects also make it possible for member nodes of NiFi clusters to communicate with each other. For Helm chart deployments, use two service types:
+
+- Headless services
+- IP-based services
 
 ## Next steps
 
