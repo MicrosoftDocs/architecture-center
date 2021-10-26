@@ -181,9 +181,10 @@ This requires propagating security context from viewing user to the database lev
 ### Components
 
 <!---
+Comment: DONE
 #A bulleted list of components in the architecture (including all relevant Azure services) with links to the service pages.
-> Why is each component there?
-> What does it do and why was it necessary?
+#> Why is each component there?
+#> What does it do and why was it necessary?
 #> Link the name of the service (via embedded link) to the service's product service page. Be sure to exclude the localization part of the URL (such as "en-US/").
 
 - Examples: 
@@ -198,15 +199,15 @@ This requires propagating security context from viewing user to the database lev
 
 Key Components and services used in this pattern:
 
-- [Azure Data Lake Store Generation 2](https://azure.microsoft.com/services/storage/data-lake-storage)
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
-- [Azure Databricks](https://azure.microsoft.com/services/databricks)
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
-- [Azure Monitor and Log Analytics](https://azure.microsoft.com/services/monitor)
-- [Power BI or Power BI Premium + VNET Integration - Optional](https://docs.microsoft.com/data-integration/vnet/use-data-gateways-sources-power-bi)
-- [Azure Data Factory Self Host Integration Runtime - Optional](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+- [Azure Data Lake Store Generation 2](https://azure.microsoft.com/services/storage/data-lake-storage): Storage for business data with snapshots in raw and versioned format.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database): Serving relational data layer as data source consumed by PowerBI clients
+- [Azure Databricks](https://azure.microsoft.com/services/databricks): Data Transformation engine. Allows you to spin up clusters and build quickly in a fully managed Apache Spark environment.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory): Data integration and transformation ETL/ELT layer.
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs): Storage for diagnostics, infrastructure logs and audit data. Business data should not be stored in blob storage next to the diagnostics data.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Store, Protect keys and credentials in secure place and monitor operations and access to it.
+- [Azure Monitor and Log Analytics Workspace](https://azure.microsoft.com/services/monitor): Monitor environment, diagnostics info, performance, view audit logs, vulnerability scans, traffic flows and let the platform send events for critical issues.
+- [Power BI or Power BI Premium + VNET Integration - Optional](https://docs.microsoft.com/data-integration/vnet/use-data-gateways-sources-power-bi): Import or direct query datasets to connect to data services within an Azure VNet without the need of an on-premises data gateway.
+- [Azure Data Factory Self Host Integration Runtime - Optional](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime): Can run activities between a cloud data store and a data store in a private network. It also can dispatch transform activities against compute resources in an on-premises network or an Azure virtual network.
 
 ### Alternatives
 
@@ -224,36 +225,53 @@ See [Enterprise Data Warehouse Architecture](/azure/architecture/solution-ideas/
 ## Considerations
 
 <!---
-> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
-> How do I need to think about managing, maintaining, and monitoring this long term?
-> Note that you should have at least two of the H3 sub-sections.
+Comment: DONE
+#> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
+#> How do I need to think about managing, maintaining, and monitoring this long term?
+#> Note that you should have at least two of the H3 sub-sections.
 -->
 
-TODO
+Generally try to avoid, configuring Azure policies in the way it will prevent deployments when security requirements are not met. Prefer audit mode and monitoring resources which are not compliant or Azure policies with auto remediation steps.
+
+Provide to users some autonomy so they are not extremely limited with capabilities. Key point is users should be enabled to be productive and demonstrate value quickly and not be focused on plumbing, troubleshooting permissions, network connectivity, blocked network ports, Azure endpoints etc.
 
 ### Availability
 
 <!---
-> How do I need to think about managing, maintaining, and monitoring this long term?
+Comment: DONE
+#> How do I need to think about managing, maintaining, and monitoring this long term?
 -->
 
-TODO
+This architecture pattern is based at managed Azure services with built-in HA according to the specific SLAs. Prefer Zone redundancy options where available (like storage for example). Geo redundancy is not utilized in this current architecture.
+Consider how mission critical is ingestion process and how mission critical is consumption process. It might have different criticality requirements and cost options.
 
 ### Operations
 
 <!---
-> How do I need to think about operating this solution?
+Comment: DONE
+#> How do I need to think about operating this solution?
 -->
 
-TODO
+Typical list of operations on this pattern:
+
+- Identity Team - Monitor Azure Active Directory Identity Protection, MFA, Conditional Access
+- Cloud Ops Team - Monitor and operate Azure cloud, governance model, Billing, security, Azure policies, landing zone
+- Cloud Network Team - Monitor cloud networking, routing, access control lists, firewall, network traffic
+- Cloud Security Team - Monitor cloud security, security incidents, constantly evaluating security threads, security recommendations, security score, enforce security standards, key vault and credentials
+- Solution Owner Team - Monitor performance of the solution, diagnostics logs, Troubleshooting
 
 ### Performance
 
 <!---
-> Are there any key performance considerations (past the typical)?
+Comment: DONE
+#> Are there any key performance considerations (past the typical)?
 -->
 
-TODO
+This architecture pattern is based at managed Azure services with great built-in and flexible performance options which allows to find right balance between speed and cost.
+
+Performance challenges might be related to Azure VMs (used by Azure Databricks - make sure to select appropriate SKU size), network throughput, bandwidth, latency, limits of host of Azure Data Factory Self Host Integration Runtime.
+
+Azure SQL Database has some artificial performance and scalability limits - depends on selected SKU. This can be changed any time later based on utilization.
 
 ### Scalability
 
@@ -284,7 +302,7 @@ Consider following security monitoring and practices:
 - Use Azure Active Directory Identity Protection, configure MFA, Conditional Access and Monitor Azure Active Directory
 - Use Azure Security Center to monitor environments, recommendations, security score and potential issues and incidents
 - Use Azure Policies to monitor and Enforce security standards
-- Use and Monitor Diagnostic settings, vulnerability scans and Auditing Logs, forward logs to SIEM
+- Use and Monitor Diagnostic settings, vulnerability scans, traffic flows and Auditing Logs, forward logs to SIEM
 - Monitor Network traffic, routing, firewall, access control list and keep traffic in perimeter through private link and VPN feature
 - Store Credentials, Keys and secrets in Key Vault, limit access to Key Vault to limited number of people, do keys rotations and monitor operations and access to Key Vault
 
@@ -324,16 +342,33 @@ Data Analytical Workspace can be deployed in automated way through provided scri
 
 <!---
 > How much will this cost to run?
-> Are there ways I could save cost?
+#> Are there ways I could save cost?
 > If it scales linearly, than we should break it down by cost/unit. If it does not, why?
-> What are the components that make up the cost?
-> How does scale affect the cost?
+#> What are the components that make up the cost?
+#> How does scale affect the cost?
 >
 > Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.
 > If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
 -->
 
-TODO
+Majority of components in this Architecture are based on Azure services with pay-as-you-go model.
+Services like Azure Databricks, Azure Data Factory, Azure Key Vault, Virtual Network, Azure Monitor have low or no cost until execution of the calculation operation is started.
+
+For Azure Data Lake Store and Azure Blob Storage cost depends on how much data is stored in the storage. Storage cost is not typically a factor for bigger enterprises unless you need to deal with tenths of terabytes and more.
+
+Cost for Azure SQL Database depends on SKU and might be flat cost or cost per use, size of SQL and amount of data.
+
+Log Analytics Workspace can incur some significant cost for data collected and stored in the workspace. Consider enabling retention policies for the data stored in a workspace.
+
+Data transfer cost incurs for traffic leaving Azure Datacenter (Egress). No any cost for ingress.
+
+VPN Connectivity like Azure Express Route or Site-2-Site connectivity is typically shared infrastructure cost.
+
+Azure Data Factory Self Host Integration Runtime is typically hosted in the private data center and thus separated from Azure cost.
+
+Consider Azure reservation options for Compute and Storage to optimize cost of the solution when needed.
+
+PowerBI cost has per user model separated from Azure cost. PowerBI premium has different pricing model also separated from Azure cost.
 
 ## Next steps
 
@@ -376,4 +411,12 @@ Comment: DONE
 [calculator]: https://azure.com/e/
 -->
 
-See the link to the project page: [Azure Data Analytical Workspace (ADAW) - Reference Architecture 2021 for Regulated Industries](https://github.com/jbinko/ADAW)
+[Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/)
+
+[Microsoft Cloud Adoption Framework for Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/)
+
+[Cloud Adoption Framework enterprise-scale landing zone architecture](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+
+[Hub-spoke network topology in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
+
+[Azure Data Analytical Workspace (ADAW) - Reference Architecture 2021 for Regulated Industries](https://github.com/jbinko/ADAW)
