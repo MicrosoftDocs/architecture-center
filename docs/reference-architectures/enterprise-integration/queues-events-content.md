@@ -1,6 +1,6 @@
 This reference architecture integrates enterprise backend systems, using message broker and events to decouple services for greater scalability and reliability. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
-![Reference architecture for enterprise integration using queues and events](./_images/enterprise-integration-messagebroker-events.png)
+![Reference architecture for enterprise integration using queues and events](./_images/enterprise-integration-message-broker-events.png)
 
 ## Architecture
 
