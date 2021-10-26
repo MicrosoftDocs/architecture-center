@@ -9,7 +9,7 @@ Today's organizations are generating ever-increasing amounts of structured and u
 
 ![Architecture Diagram](../media/erp-customer-service.png)
 
-## Data Flow
+### Data flow
 
 First, the company must ingest data from various sources.
 
@@ -30,7 +30,7 @@ Finally, they surface business intelligence insights to users across the company
 
 1. Power BI tightly integrates with Azure Synapse Analytics to provide powerful insights over operational, data warehouse, and data lake data.
 
-## Components
+### Components
 
 - [Azure Data Lake Storage Gen 2](/azure/storage/blobs/data-lake-storage-introduction) provides massively scalable and secure data lake storage for high-performance analytics workloads.
 - [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.
