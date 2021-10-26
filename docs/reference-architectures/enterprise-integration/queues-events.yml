@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Enterprise integration with queues and events
-  description: This reference architecture integrates enterprise backend systems, using message queues and events to decouple services for greater scalability and reliability.
+  title: Enterprise integration with message broker and events
+  description: This reference architecture integrates enterprise backend systems, using message broker and events to decouple services for greater scalability and reliability.
   author: mattfarm
   ms.author: pnp
   ms.reviewer:
@@ -19,14 +19,14 @@ metadata:
     - integration-services
     - reference-architecture
     - internal-intro
-name: Enterprise integration using queues and events
+name: Enterprise integration using message broker and events
 azureCategories:
   - integration
   - developer-tools
-summary: This reference architecture integrates enterprise backend systems, using message queues and events to decouple services for greater scalability and reliability.
+summary: This reference architecture integrates enterprise backend systems, using message broker and events to decouple services for greater scalability and reliability.
 products:
   - azure-event-grid
   - azure-service-bus
-thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-integration-queues-events.png
+thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-integration-message-broker-events.png
 content: |
    [!include[](queues-events-content.md)]
