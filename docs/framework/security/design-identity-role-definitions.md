@@ -100,13 +100,13 @@ After the policies are set, continuously improve those standards incrementally. 
 and avoid technical conflicts, assign network resource responsibilities to a
 single central networking organization. These resources should include
 virtual networks, subnets, Network Security Groups (NSG), and the virtual
-machines hosting virtual network appliances. Assign network resource responsibilities to a single central networking organization. The **Network Contributor** role is appropriate for this group. See [Centralize Network Management And Security](./network-security-containment.md#centralize-network-management-and-security) for more details
+machines hosting virtual network appliances. Assign network resource responsibilities to a single central networking organization. The **Network Contributor** role is appropriate for this group. See [Centralize Network Management And Security](/azure/architecture/framework/security/design-network-segmentation#centralize-network-management-and-security) for more details
 
 **Resource Role Permissions** – For most core services, administrative privileges required to manage them are granted through the application (Active Directory, DNS/DHCP, System Management Tools), so no additional Azure resource permissions are required. If your organizational model requires these teams to manage their own VMs, storage, or other Azure resources, you can assign these permissions to those roles. 
 
 Workload segments with autonomous DevOps teams will manage the resources associated with each application. The actual roles and their permissions depend on the application size and complexity, the application team size and complexity, and the culture of the organization and application team. 
 
-**Service admin (Break Glass Account)** – Use the **Service Administrator** role only for emergencies and initial setup. Do not use this role for daily tasks. See [Emergency Access ('Break Glass' Accounts)](./critical-impact-accounts.md#emergency-access-or-break-glass-accounts) for more details.
+**Service admin (Break Glass Account)** – Use the **Service Administrator** role only for emergencies and initial setup. Do not use this role for daily tasks. See [Emergency Access ('Break Glass' Accounts)](/azure/architecture/framework/security/design-admins#emergency-access-or-break-glass-accounts) for more details.
 
 
 
@@ -152,7 +152,7 @@ will depend on your organization structure.
 and avoid technical conflicts, assign network resource responsibilities to a
 single central networking organization. These resources should include
 virtual networks, subnets, Network Security Groups (NSG), and the virtual
-machines hosting virtual network appliances. See [Centralize Network Management And Security](./network-security-containment.md#centralize-network-management-and-security).
+machines hosting virtual network appliances. See [Centralize Network Management And Security](/azure/architecture/framework/security/design-network-segmentation#centralize-network-management-and-security).
 
 **Resource Role Permissions** – Segments with autonomous DevOps teams will
 manage the resources associated with each application. The actual roles and
@@ -160,7 +160,7 @@ their permissions depend on the application size and complexity, the
 application team size and complexity, and the culture of the organization
 and application team.
 
-**Service Admin (Break Glass Account)** – Use the service admin role only for emergencies (and initial setup if required). Do not use this role for daily tasks. See [Emergency Access ('Break Glass' Accounts)](./critical-impact-accounts.md#emergency-access-or-break-glass-accounts) for more details.
+**Service Admin (Break Glass Account)** – Use the service admin role only for emergencies (and initial setup if required). Do not use this role for daily tasks. See [Emergency Access ('Break Glass' Accounts)](/azure/architecture/framework/security/design-admins#emergency-access-or-break-glass-accounts) for more details.
 
 ## Security team visibility
 
@@ -194,7 +194,7 @@ you can assign this permission using:
 
 > [!IMPORTANT] 
 > Because security will have broad access to the environment (and visibility into
-potentially exploitable vulnerabilities), treat security teams as critical impact accounts and apply the same protections as administrators. The [Administration](./critical-impact-accounts.md)
+potentially exploitable vulnerabilities), treat security teams as critical impact accounts and apply the same protections as administrators. The [Administration](/azure/architecture/framework/security/design-admins)
 section details these controls for Azure.
 
 **Suggested actions**

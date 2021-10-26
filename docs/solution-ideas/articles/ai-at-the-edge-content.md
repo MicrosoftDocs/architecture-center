@@ -9,7 +9,7 @@ This solution idea shows a connected Stack Hub scenario, where edge applications
 ![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub.](../media/ai-at-the-edge.png)
 *Download an [SVG](../media/ai-at-the-edge.svg) of this architecture.*
 
-## Data flow
+### Data flow
 
 1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
 1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.
@@ -20,7 +20,7 @@ This solution idea shows a connected Stack Hub scenario, where edge applications
 1. Data from edge scoring is used to improve the model.
 1. (feedback loop) The model retraining can be triggered by a schedule. Data scientists work on the optimization. The improved model is deployed and containerized as an update to the container registry.
 
-## Components
+### Components
 
 Key technologies used to implement this architecture:
 

@@ -11,6 +11,11 @@ products:
 categories: 
   - management-and-governance
   - security
+contributors:
+  - advocacy/writer/alias1
+  - advocacy/pm/alias2
+  - contentlearning/engg/alias3
+  - aquent/copy/alias4
 ms.custom:
   - article
 ---
@@ -79,7 +84,7 @@ business continuity in case something happens to an administrator:
 
 ## Managed accounts for admins
 
-Ensure all critical impact admins in are managed by enterprise directory to
+Ensure all critical impact admins are managed by enterprise directory to
 follow organizational policy enforcement.
 
 Consumer accounts such as Microsoft accounts like \@Hotmail.com,
@@ -218,7 +223,7 @@ following methods of authentication. These capabilities are listed in preference
 order by highest cost/difficulty to attack (strongest/preferred options) to
 lowest cost/difficult to attack:
 
-- **[Passwordless (such as Windows Hello)](https://aka.ms/HelloForBusiness)**  
+- **[Passwordless (such as Windows Hello)](/windows/security/identity-protection/hello-for-business/hello-identity-verification)**  
 
 - **[Passwordless (Authenticator App)](/azure/active-directory/authentication/howto-authentication-phone-sign-in)**
 

@@ -7,7 +7,7 @@ Extend your on-premises big data investments to the cloud and transform your bus
 ![Architecture Diagram](../media/extend-your-on-premises-big-data-investments-with-hdinsight.png)
 *Download an [SVG](../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg) of this architecture.*
 
-## Components
+### Components
 
 - [Apache Hadoop](http://hadoop.apache.org/) or [Apache Spark](http://spark.apache.org/)
 - Metadata store
@@ -26,6 +26,8 @@ Learn more about the component technologies:
 - [Migrate your Hadoop data lakes with WANDisco LiveData Platform for Azure](https://azure.microsoft.com/blog/migrate-your-hadoop-data-lakes-with-wandisco-livedata-platform-for-azure/)
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+
+## Related resources
 
 Explore related architectures:
 

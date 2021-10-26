@@ -1,6 +1,3 @@
-
-
-
 Starting with the first steps of development, DevSecOps adheres to security best practices. By using a [shift-left][Shift left] strategy, DevSecOps redirects the security focus. Instead of pointing toward auditing at the end, it shifts to development in the beginning. Besides producing robust code, this [fail fast][Fail fast] approach helps to resolve problems early on, when they're easy to fix.
 
 With many security capabilities, GitHub offers tools that support every part of a DevSecOps workflow:
@@ -38,7 +35,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 1. Azure Security Center identifies attacks targeting applications that are running in deployed projects.
 1. Azure Monitor continuously tracks and evaluates app behavior. When threats materialize, this service sends alerts to start the process of rolling code back to previous commits.
 
-## Components
+### Components
 
 - [Azure AD][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub.
 - [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
@@ -50,7 +47,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 - [Azure Security Center][Azure Security Center] provides unified security management and advanced threat protection across hybrid cloud workloads.
 - [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
 
-### Security
+#### Security
 
 [GitHub Security][GitHub Security] provides multiple features for addressing security risks:
 
@@ -86,13 +83,6 @@ When GitHub identifies a vulnerability, it takes the steps illustrated in the fo
 
 To keep GitHub DevSecOps solutions aligned with the tenets of the [Azure Well-Architected Framework][Azure Well-Architected Framework], consider the following points when deciding how to implement this pattern.
 
-### Cost optimization
-
-- GitHub bills customers for GitHub Actions by the minute. In addition, the choice of operating system that hosts Actions jobs affects the per-minute consumption rate and per-minute cost. Wherever possible, choose Linux to host Actions. See [About billing for GitHub actions][About billing for GitHub actions].
-- Project managers on tight schedules may worry that adding security measures will delay development. Experience the opposite by saving time with these guidelines:
-  - Shift testing left, closer to the source. Teams make fewer mistakes as a result.
-  - Address issues during programming, rather than months down the line in production. Then developers don't need to refresh their knowledge of the code.
-
 ### Operational excellence
 
 - Run automated tests and maintenance in environments that use vulnerability management capabilities, since these capabilities change code and its dependencies on your behalf. Automated testing identifies any issues that result from these changes.
@@ -123,6 +113,13 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 - Scan your code using the CodeQL analysis engine. CodeQL can discover potential vulnerabilities and coding errors. It can run both on a schedule and when events occur, such as a commit or a PR creation. See [About code scanning][GitHub code scanning].
 - Make sure to [configure Dependabot security updates][Configure Dependabot security updates], which can remove known threats from projects.
 - You can augment the code-scanning capabilities of GitHub by adding [GitHub third-party code-scanning tools][GitHub code scanning] that produce Static Analysis Results Interchange Format (SARIF) files. GitHub then creates alerts when those tools identify potential security issues.
+
+## Pricing
+
+- GitHub bills customers for GitHub Actions by the minute. In addition, the choice of operating system that hosts Actions jobs affects the per-minute consumption rate and per-minute cost. Wherever possible, choose Linux to host Actions. See [About billing for GitHub actions][About billing for GitHub actions].
+- Project managers on tight schedules may worry that adding security measures will delay development. Experience the opposite by saving time with these guidelines:
+  - Shift testing left, closer to the source. Teams make fewer mistakes as a result.
+  - Address issues during programming, rather than months down the line in production. Then developers don't need to refresh their knowledge of the code.
 
 ## Next steps
 

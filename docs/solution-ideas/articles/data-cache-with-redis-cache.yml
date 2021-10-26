@@ -2,8 +2,8 @@
 metadata:
   title: Data cache
   titleSuffix: Azure Solution Ideas
-  description: Store and share database query results, session states, static contents, and more using a common cache-aside pattern.
-  author: doodlemania2
+  description: Store and share database query results, session states, static contents, and more, by using a common cache-aside pattern.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -19,7 +19,7 @@ metadata:
 name: Data cache
 azureCategories:
   - databases
-summary: Store and share database query results, session states, static contents, and more using a common cache-aside pattern.
+summary: Store and share database query results, session states, static contents, and more, by using a common cache-aside pattern.
 products:
   - azure-cache-redis
   - azure-cosmos-db

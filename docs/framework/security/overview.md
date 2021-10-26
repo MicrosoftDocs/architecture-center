@@ -166,7 +166,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [design]: ./security-principles.md
 [regulatory]: ./design-regulatory-compliance.md
 [org-risk]: ./resilience.md
-[admin]: ./critical-impact-accounts.md
+[admin]: /azure/architecture/framework/security/design-admins
 [info]: ./storage-data-encryption.md
 [sec-ops]: ./security-operations.md
 

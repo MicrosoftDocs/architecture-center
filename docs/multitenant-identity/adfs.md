@@ -203,5 +203,5 @@ The customer must do the following:
 [blog post]: https://www.cloudidentity.com/blog/?p=3343
 [Customizing the AD FS Sign-in Pages]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[client assertion]: ./client-assertion.md
+[client assertion]: /azure/architecture/multitenant-identity/client-certificate
 [active-directory-dotnet-webapp-wsfederation]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation

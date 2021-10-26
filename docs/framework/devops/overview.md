@@ -65,7 +65,7 @@ Reference the operational excellence principles to guide you in your overall str
 [deployment]: ./release-engineering-cd.md
 [iac]: ./automation-infrastructure.md
 [testing]: ./release-engineering-testing.md
-[app-design]: ./app-design.md
+[app-design]: /azure/architecture/framework/devops/release-engineering-app-dev
 
 <!-- checklist -->
 [devops-checklist]: /azure/architecture/checklist/dev-ops

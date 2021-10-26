@@ -238,10 +238,6 @@ different options for R developers to run their code in Azure.
     additional capabilities for improved performance and reproducibility, in
     addition to support for Windows- and Linux-based platforms
 
-- [Using R in Azure Machine Learning
-    Studio](https://azure.microsoft.com/resources/videos/r-in-ml-studio/).
-    A video illustrating how to incorporate your R code in ML studio.
-
 - [Tutorial: Create a logistic regression model in R with Azure Machine
     Learning](/azure/machine-learning/tutorial-1st-r-experiment)
 
@@ -278,9 +274,6 @@ hyperparameters.
 
 - [Tune hyperparameters for your model with Azure Machine
     Learning](/azure/machine-learning/how-to-tune-hyperparameters)
-
-- [Azure Machine Learning Studio (classic): Tune Model
-    Hyperparameters](/azure/machine-learning/studio-module-reference/tune-model-hyperparameters)
 
 ##### Model selection
 
@@ -381,8 +374,6 @@ and scikit-learn.
     Learning?](/azure/machine-learning/overview-what-is-azure-ml)
     General orientation with links to many learning resources, SDKs,
     documentation, and more
-
-- [Azure Machine Learning versus Azure Machine Learning Studio (classic)](/azure/machine-learning/compare-azure-ml-to-studio-classic)
 
 #### Machine learning reference architectures for Azure
 
