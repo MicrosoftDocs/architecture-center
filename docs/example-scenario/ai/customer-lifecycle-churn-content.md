@@ -2,6 +2,16 @@ This scenario shows a solution for creating predictive models of [customer lifet
 
 Customer lifetime value measures the net profit from a customer. This metric includes profit from the customer's whole relationship with your company. Another important metric for understanding how customers behave is *churn* or *churn rate*. Churn measures the number of individuals or items moving out of a group over a period.
 
+This solution demonstrates how to interconnect the following Azure AI technologies:
+
+- Use Azure Data Lake and Azure Databricks to implement best practices for data operations.
+- Use Azure Databricks to do exploratory data analysis.
+- Do batch experiment training of an [Sklearn](https://www.kite.com/python/docs/sklearn) machine learning model on Azure Databricks.
+- Use MLflow to track machine learning experiments.
+- Batch score machine learning models on Azure Databricks.
+- Use Azure Machine Learning to model registration and deployment.
+- Use Azure Data Factory and Azure Databricks notebooks to orchestrate the MLOps pipeline.
+
 ## Potential use cases
 
 This solution is helpful in the following use cases:
@@ -36,16 +46,6 @@ This solution is helpful in the following use cases:
 1. **Serving phase**: In the serving phase, you can use reporting tools to work with your model predictions. These tools include Power BI and Azure Analyses Services.
 
 ### Components
-
-This solution demonstrates how to interconnect the following Azure AI technologies:
-
-- Use Azure Data Lake and Azure Databricks to implement best practices for data operations.
-- Use Azure Databricks to do exploratory data analysis.
-- Do batch experiment training of an [Sklearn](https://www.kite.com/python/docs/sklearn) machine learning model on Azure Databricks.
-- Use MLflow to track machine learning experiments.
-- Batch score machine learning models on Azure Databricks.
-- Use Azure Machine Learning to model registration and deployment.
-- Use Azure Data Factory and Azure Databricks notebooks to orchestrate the MLOps pipeline.
 
 - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services) provides enterprise-grade data models in the cloud.
 
