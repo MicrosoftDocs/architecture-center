@@ -5,7 +5,7 @@ metadata:
   description: Learn how to use the Automated COBOL Refactoring solution from Advanced to modernize your mainframe COBOL applications, run them on Azure, and reduce costs.   
   author: bhbandam
   ms.author: bhbandam
-  ms.date: 10/22/2021
+  ms.date: 10/27/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
