@@ -3,7 +3,7 @@ metadata:
   title: Build cloud native applications
   titleSuffix: Azure Solution Ideas
   description: Learn how to build cloud native applications with Azure Cosmos DB, Azure Database for PostgreSQL and Azure Cache for Redis.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 06/26/2020
   ms.topic: conceptual
