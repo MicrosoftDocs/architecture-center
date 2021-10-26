@@ -1,7 +1,7 @@
-[MonitoFi][MonitoFi] is a tool that monitors the health and performance of [Apache NiFi][Apache NiFi] clusters. When you run [NiFi on Azure][Apache NiFi on Azure], MonitoFi provides the following information:
+[MonitoFi][MonitoFi] is a tool that monitors the health and performance of [Apache NiFi][Apache NiFi] clusters. When you run [NiFi on Azure][Apache NiFi on Azure] and use MonitoFi:
 
 - MonitoFi dashboards display historic information on the state of NiFi clusters.
-- Real-time notifications alert users when MonitoFi detects anomalies in clusters.
+- Real-time notifications alert users when anomalies are detected in clusters.
 
 MonitoFi runs in a [Docker][Docker] container, separately from NiFi. Azure Container Registry and Azure Container Instances manage and run the container images. Other architecture components include:
 
@@ -13,13 +13,13 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 
 ## Key benefits
 
-MonitoFi offers these qualities:
+MonitoFi has these advantages:
 
-- Lightweight and extensible: MonitoFi is a lightweight tool that runs externally. Because it's based on Python and is containerized, you can extend MonitoFi to add features. A MonitoFi instance that runs in one container can target multiple NiFi clusters.
-- Effective and useful: By using local instances of InfluxDB and Grafana, MonitoFi provides real-time monitoring and alerts. MonitoFi can monitor clusters with latencies as low as one second.
+- Lightweight and extensible: MonitoFi is a lightweight tool that runs externally. Because MonitoFi is based on Python and is containerized, you can extend it to add features. A MonitoFi instance that runs in one container can target multiple NiFi clusters.
+- Effective and useful: MonitoFi uses local instances of InfluxDB and Grafana to provide real-time monitoring and alerts. MonitoFi can monitor clusters with latencies as low as one second.
 - Flexible and robust: MonitoFi uses a REST API wrapper to retrieve JSON data from NiFi. MonitoFi converts that data into a usable format that doesn't depend on specific endpoints or field names. As a result, when NiFi REST API responses change, you don't need to change MonitoFi code.
-- Easy to adopt: You don't have to reconfigure existing NiFi clusters to start using MonitoFi to monitor them.
-- Easy to use: MonitoFi offers preset configurations. The tool also includes templates for Grafana dashboards that you can import without modification.
+- Easy to adopt: You don't have to reconfigure NiFi clusters to monitor them.
+- Easy to use: MonitoFi offers preset configurations. It also includes templates for Grafana dashboards that you can import without modification.
 - Highly configurable: MonitoFi runs in a Docker container. You configure MonitoFi by using environment variables. You can easily configure the following settings and others at runtime:
 
   - Endpoints
@@ -28,7 +28,7 @@ MonitoFi offers these qualities:
   - Instrumentation key settings
   - The collection interval
 
-  With this approach, you run one container image. But you can target different NiFi clusters, configurations, and different instances of Application Insights or InfluxDB. To change targets, you change the runtime command.
+  With one container image, you can target different NiFi clusters, configurations, and different instances of Application Insights or InfluxDB. To change targets, you change the runtime command.
 
 ## Architecture
 
@@ -36,11 +36,11 @@ MonitoFi offers these qualities:
 
 *Download an [SVG file][SVG file of architecture diagram] of this architecture.*
 
-- A Docker image encapsulates a MonitoFi Python module and the [Application Insights][What is Application Insights?] SDK. The system retrieves this Docker image from the [Docker Hub registry][MonitoFi : Health & Performance Monitor for Apache NiFi on Docker Hub] and stores it in [Container Registry][Container Registry] for use and deployment.
+- A Docker image encapsulates a MonitoFi Python module and the [Application Insights][What is Application Insights?] SDK. This Docker image can be retrieved from the [Docker Hub registry][MonitoFi : Health & Performance Monitor for Apache NiFi on Docker Hub] and stored in [Container Registry][Container Registry] for use and deployment.
 
-- By using [Container Instances][Container Instances] or [Docker][Docker Desktop] on a local machine, the system retrieves the image to run instances of the MonitoFi container.
+- If [Container Instances][Container Instances] or [Docker][Docker Desktop] run on a local machine, the image can be retrieved to run instances of the MonitoFi container.
 
-- Another container that's locally deployed hosts an InfluxDB server and a Grafana instance.
+- Another container that hosts an InfluxDB server and a Grafana instance is deployed locally.
 
 - The MonitoFi container collects information on each NiFi cluster's health and performance. The container requests data:
 
@@ -57,7 +57,7 @@ MonitoFi offers these qualities:
   - Uses Monitor as a data source.
   - Runs [Kusto Query Language][Kusto query overview] queries. The Application Insights dashboard includes sample queries.
 
-- Grafana uses MonitoFi dashboard queries and the following languages to display data from the local instance of InfluxDB:
+- Grafana is used to display data from the local instance of InfluxDB. For querying, Grafana uses the following languages:
 
   - The [Flux][Flux query language] query language
   - The [Influx Query Language (InfluxQL)][Influx Query Language (InfluxQL)]
@@ -66,9 +66,9 @@ MonitoFi offers these qualities:
 
 ## Deployment scenarios
 
-- In air-gapped and on-premises environments, there's no access to the public internet. As a result, these systems deploy a local instance of InfluxDB with Grafana. This approach provides a storage solution for the data. The MonitoFi container uses the NiFi REST API over a private IP address to retrieve cluster data. The container stores this data in InfluxDB. Grafana displays the InfluxDB data and uses email and Teams to alert users.
+- In air-gapped and on-premises environments, there's no access to the public internet. As a result, these systems deploy a local instance of InfluxDB with Grafana. This approach provides a storage solution for the data. The MonitoFi container uses the NiFi REST API over a private IP address to retrieve cluster data. The container stores this data in InfluxDB. Grafana is used to display the InfluxDB data and send email and Teams messages to alert users.
 
-- In public environments, the MonitoFi container uses the NiFi REST API to retrieve cluster data. The container then sends this data in a structured format to Application Insights. These environments also deploy a local instance of InfluxDB and a Grafana container. MonitoFi can store data in that instance of InfluxDB. Grafana displays the data and uses email and Teams to alert users.
+- In public environments, the MonitoFi container uses the NiFi REST API to retrieve cluster data. The container then sends this data in a structured format to Application Insights. These environments also deploy a local instance of InfluxDB and a Grafana container. MonitoFi can store data in that instance of InfluxDB. Grafana is used to display the data and send email and Teams messages to alert users.
 
 ## Deployment process
 
