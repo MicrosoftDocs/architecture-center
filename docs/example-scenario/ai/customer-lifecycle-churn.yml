@@ -28,4 +28,4 @@ products:
 
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-customer-lifetime-churn.png
 content: |
-  [!include[](determine-customer-lifetime-and-churn-with-azure-ai-services-content.md)]
+  [!include[](customer-lifecycle-churn-content.md)]
