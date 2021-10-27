@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes considerations for updating your multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 06/17/2021
+ms.date: 07/20/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -29,7 +29,7 @@ Consider the following questions:
 
 - Do your customers have expectations or requirements about when they can be updated? These might be formally communicated to you in contracts or service-level agreements, or they might be informal.
 - Do your customers expect service-defined or even self-defined maintenance windows? They might need to communicate to their own customers about any potential outages.
-- Do your customers have any regulatory concerns that require additional approval before updates can be applied? For example, if you provide a health solutions with IoT components, you might need to get approval from the United States Food and Drug Administration (FDA) before applying an update.
+- Do your customers have any regulatory concerns that require additional approval before updates can be applied? For example, if you provide a health solution that includes IoT components, you might need to get approval from the United States Food and Drug Administration (FDA) before applying an update.
 - Are any of your customers particularly sensitive or resistant to having updates applied? Try to understand why. For example, if they run a physical store or a retail website, they may want to avoid updates around Black Friday, as the risks are higher than potential benefits.
 - What's your track record of successfully completing updates without any impact to your customers? You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure that you quickly identify any issues that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
 - Will customers want to roll back updates if there's a breaking change?
@@ -88,7 +88,7 @@ If one of your customers has a problem because of an update, you need to ensure 
 
 Consider how you will deploy updates to your infrastructure. This is heavily influenced by the [tenancy model](tenancy-models.md) that you use. Three common approaches for deploying updates are deployment stamps, feature flags, and deployment rings.
 
-In all cases, ensure that you have sufficient reporting/visibility, so that you know what version of infrastructure, software, or feature each tenant is on, what they are eligible to migrate to, and any time data associated those states.
+In all cases, ensure that you have sufficient reporting/visibility, so that you know what version of infrastructure, software, or feature each tenant is on, what they are eligible to migrate to, and any time-related data associated those states.
 
 ### Deployment stamps
 
@@ -112,5 +112,5 @@ If your service exposes an external API, consider that any updates you apply mig
 
 ## Next steps
 
-- Return to the [architectural considerations for multitenant solutions](overview.md).
+- Consider when you would [map requests to tenants, in a multitenant solution](map-requests.md).
 - Review the [DevOps checklist](../../../checklist/dev-ops.md) in Azure Well-Architected Framework.

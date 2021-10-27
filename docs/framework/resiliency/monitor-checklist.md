@@ -1,6 +1,6 @@
 ---
 title: Monitoring for reliability
-description: Describes considerations for reliability in application monitoring.
+description: Review considerations for reliability in application monitoring. See a list of Azure services that you can use for monitoring.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
@@ -26,13 +26,6 @@ Monitoring and diagnostics are crucial for resiliency. If something fails, you n
 > - Azure Service Health events are used to alert on applicable service level events.
 > - Azure Resource Health events are used to alert on resource health events.
 > - Monitor long-running workflows for failures.
-
-## In this section
-
-| Assessment  | Description |
-| ------------- | ------------- |
-| [Do you use monitoring and diagnostics to improve availability and resiliency?](./monitoring.md)  | Get an overall picture of application health. If something fails, you need to know *that* it failed, *when* it failed, and *why*. |
-| [Has a health model been defined based on performance, availability, and recovery targets?](./monitor-model.md) | Define a health model to qualify what “healthy” and “unhealthy” states represent across all application components, in a measurable and observable format.
 
 ## Azure services for monitoring
 

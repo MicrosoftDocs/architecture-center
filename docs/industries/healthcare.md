@@ -1,5 +1,5 @@
 ---
-title: Solutions for healthcare industry
+title: Solutions for the healthcare industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure and other Microsoft services for building efficient and reliable healthcare solutions.
 author: dsk-2015
@@ -21,7 +21,7 @@ categories:
 keywords: Azure
 ---
 
-# Solutions for healthcare industry
+# Solutions for the healthcare industry
 
 The healthcare industry includes various systems that provide curative, preventative, rehabilitative, and palliative care to patients. Proper management of these systems enables healthcare providers and managers provide high-quality care and treatment for their patients. With Azure cloud and other Microsoft services, you can now create highly efficient and resilient healthcare systems that take care of not only the patient-provider interactions, but also provide clinical and data insights, leading to a more patient-centric strategy for the healthcare institute.
 
@@ -47,6 +47,7 @@ The following articles provide detailed analysis of architectures developed and 
 | [Confidential computing for healthcare](../example-scenario/confidential/healthcare-inference.yml) | Use [Azure confidential computing](/azure/confidential-computing/overview) to encrypt medical and patient data, for secure collaboration between hospitals and third-party diagnostic providers. | Security |
 | [Health Data Consortium on Azure](../example-scenario/data/azure-health-data-consortium.yml) | Use the Azure Data Platform, and [Azure Data Share](/azure/data-share/overview) to create an environment where healthcare organizations can appropriately, and securely share data with partner organizations to support activities like clinical trials and research.  | Data |
 | [Precision Medicine Pipeline with Genomics](../example-scenario/precision-medicine/genomic-analysis-reporting.yml) | Use [Microsoft Genomics](/azure/genomics/overview-what-is-genomics) and the Azure Data Platform to perform analysis and reporting for scenarios like precision medicine and genetic profiling. | Data/Analytics |
+| [Predict Hospital Readmissions with Machine Learning](../example-scenario/ai/predict-hospital-readmissions-machine-learning.yml) | Predict the readmissions of diabetic patients using Azure Data, AI, and Analytics tools through the different personas of Data Professionals throughout the process. | Data/AI |
 | [Build a telehealth system with Azure](../example-scenario/apps/telehealth-system.yml) | Explore a customer's implementation of a telehealth system using Azure cloud services. | Containers |
 
 ## Solution ideas for healthcare

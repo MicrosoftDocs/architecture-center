@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Cost Optimization
+title: Cost optimization documentation
 summary: Apply the cost principles in your architecture to accelerate your time to market while avoiding capital-intensive solutions. Consider opportunity costs. Use the cost calculators to estimate the initial and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
 
 metadata: 
-  title: conceptual
-  description: Apply the cost principles in your architecture to accelerate your time to market while avoiding capital-intensive solutions. Consider opportunity costs. Use the cost calculators to estimate the initial and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
+  title: Cost optimization documentation
+  description: Learn how to apply the cost principles in your architecture to accelerate your time to market while avoiding capital-intensive solutions.
   services: na
   author: PageWriter-MSFT
   ms.author: prwilk

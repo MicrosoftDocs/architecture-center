@@ -16,17 +16,25 @@ subject:
  
 # Secure deployment in Azure
 
-Have teams, processes, and tools that can quickly deploy security fixes. A _DevOps_ or multidisciplinary approach is recommended. Multiple teams work together with efficient practices and tools. Essential DevOps practices include change management of the workload through continuous integration, continuous delivery (CI/CD). 
+Have teams, processes, and tools that can quickly deploy security fixes? A _DevOps_ or multidisciplinary approach is recommended. Multiple teams work together with efficient practices and tools. Essential DevOps practices include change management of the workload through continuous integration, continuous delivery (CI/CD). 
 
 Continuous integration (CI) is an automated process where code changes trigger the building and testing of the application. Continuous Delivery (CD) is an automated process to build, test, configure, and deploy the application from a build to production environment. 
 
 Those processes allow you to rapidly address the security concerns without waiting for a longer planning and testing cycle. 
+
+Building a DevOps process which includes a security discipline helps incorporate security concepts and enhancements earlier in the application development process. An organization's ability to rapidly address security and operational concerns increases through the combination of the Secure Development Lifecycle (SDL) and Operations Lifecycle related to application creation, maintenance, and updates.
+
+Many traditional IT operating models aren't compatible with the cloud, and organizations must undergo operational and organizational transformation to deliver against enterprise migration targets. We recommend using a DevOps approach for both application and central teams.
+
+:::image type="content" source="./images/devops-model.png" alt-text="Conceptual art comparing traditional and DevOps models.":::
+
 
 ## Checklist
 
 **Have you adopted a secure DevOps approach to ensure security and feature enhancements can be quickly deployed?**
 ***
 > [!div class="checklist"]
+> - Establish a cross-functional DevOps platform team to build, manage, and maintain your workload.
 > - Involve the security team in the planning and design of the DevOps process to integrate preventive and detective controls for security risks.
 > - Clearly define CI/CD roles and permissions and minimize the number of people who have access to secure information or resources.
 > - Configure quality gate approvals in DevOps release process.
@@ -62,3 +70,8 @@ We recommend monitoring activities that maintain the security posture. These act
 
 ## Related link
 > Go back to the main article: [Security](overview.md)
+
+## Learn more
+- [Secure DevOps Kit for Azure](https://azsk.azurewebsites.net/)
+- [Agile Principles in Practice](/devops/plan/how-microsoft-plans-devops)
+- [Platform automation and DevOps](/azure/cloud-adoption-framework/ready/enterprise-scale/platform-automation-and-devops)

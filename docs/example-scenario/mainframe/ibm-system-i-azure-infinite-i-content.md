@@ -23,6 +23,8 @@ Use this architecture to easily migrate IBM System i and AS/400 workloads to Azu
 
 :::image type="content" source="media/ibm-system-i-azure-infinite-i.svg" alt-text="This architecture uses Infinite i to migrate System i workloads to Azure." lightbox="media/ibm-system-i-azure-infinite-i.svg":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/US-1828025-PR-2852-ibm-system-i-azure-infinite-i.vsdx) of this architecture.*
+
 1. TN5250 web terminal emulation provides user access to Azure over an SSL/TLS encrypted connection.
 1. Azure ExpressRoute provides a dedicated high-speed connection between on-premises and Azure resources.
 1. Infinite i application servers run the migrated workloads. Each server runs in its own Microsoft Azure Virtual Machines VM. The architecture uses two or more VMs for high availability, and Azure Load Balancer controls inbound and outbound network traffic. Infinite i supports an active-passive configuration (one active VM, one standby VM).

@@ -1,4 +1,4 @@
-This example scenario secures the connection to a Microsoft Teams channel bot’s
+This example scenario secures the connection to a Microsoft Teams channel bot's
 web app using Azure Private Link and Azure Private Endpoint, while enabling
 channels in the Teams client to communicate with the bot through an IP exposed
 through an Azure Firewall.
@@ -26,15 +26,15 @@ other web app.
     Network](/azure/virtual-network/) enables
     communications between Azure resources. The virtual network (VNet) in this
     example uses the address space of 10.0.0.0/16, and contains three subnets
-    for use by the scenario’s required components:
+    for use by the scenario's required components:
 
     -   *Azure Firewall Subnet* (10.0.1.0/26).
 
     -   *Virtual Network Integration Subnet* (10.0.2.0/24), which is used to
-        route traffic from the bot’s private endpoint to the firewall.
+        route traffic from the bot's private endpoint to the firewall.
 
     -   *Private Endpoint Subnet* (10.0.3.0/24), which is used to route traffic
-        from the firewall to the bot’s private endpoint.
+        from the firewall to the bot's private endpoint.
 
 -   [Azure Firewall](/azure/firewall/) exposes a
     single public IP address that clients can use to communicate with the
@@ -51,8 +51,8 @@ other web app.
     traffic coming to and from the bot passes through the firewall.
 
     -   The default route with the 0.0.0.0/0 address prefix instructs Azure to
-        route traffic that isn’t within the address prefix of any other route to
-        the subnet where the Azure Firewall is deployed. In this example, it’s
+        route traffic that isn't within the address prefix of any other route to
+        the subnet where the Azure Firewall is deployed. In this example, it's
         the only route.
 
     -   The *Virtual Network Integration Subnet* and the *Private Endpoint
@@ -95,7 +95,7 @@ other web app.
 -   [App Service
     Environment](/azure/app-service/environment/intro)
     (ASE) can provide a fully isolated and dedicated environment for securely
-    running App Service apps at high scale. This example doesn’t make use of ASE
+    running App Service apps at high scale. This example doesn't make use of ASE
     to reduce costs, but the sample architecture could support it with
     modifications.
 
@@ -103,7 +103,7 @@ other web app.
 
 ### Monitoring
 
-Although not implemented in this example scenario, a bot’s App Service can
+Although not implemented in this example scenario, a bot's App Service can
 utilize [Azure Monitor](/azure/azure-monitor/)
 services to monitor its availability and performance.
 
@@ -115,16 +115,16 @@ number of instances running your bot, allowing your bot to keep up with demand.
 For more information on autoscaling, see [Autoscaling best
 practices](../../best-practices/auto-scaling.md).
 
-For other scalability topics, see the Azure Architecture Center’s [Performance
+For other scalability topics, see the Azure Architecture Center's [Performance
 efficiency
 checklist](../../framework/scalability/performance-efficiency.md).
 
 ### DevOps
 
-It’s a common practice to deploy web apps, API apps, and mobile apps to an Azure
-App Service plan using continuous deployment pipelines. Because a secured bot’s
+It's a common practice to deploy web apps, API apps, and mobile apps to an Azure
+App Service plan using continuous deployment pipelines. Because a secured bot's
 App Service is protected using a private endpoint, externally hosted build
-agents don’t have the access required to deploy updates. To work around this,
+agents don't have the access required to deploy updates. To work around this,
 you may need to use a solution such as Azure Pipeline [self-hosted DevOps
 agents](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install).
 
@@ -234,8 +234,8 @@ account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 4.  [Deploy the basic
     bot](/azure/bot-service/bot-builder-tutorial-deploy-basic-bot?view=azure-bot-service-4.0&tabs=csharp)
     that you created in step 3 into the resource group you created in step 1. As
-    part of this process, you’ll create an app registration, which you need to
-    interact with the bot via channels. During this process, you’ll also deploy
+    part of this process, you'll create an app registration, which you need to
+    interact with the bot via channels. During this process, you'll also deploy
     the necessary App Service plan (Note: *Select an App Service plan that
     supports Private Link*), App Service, and the web app bot.
 
@@ -257,16 +257,16 @@ account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
     Framework SDK
     documentation](/azure/bot-service/bot-builder-tutorial-deploy-basic-bot?view=azure-bot-service-4.0&tabs=csharp#test-in-web-chat).  
       
-    Note that at this point the bot’s App Service is still publicly accessible
+    Note that at this point the bot's App Service is still publicly accessible
     over both the azurewebsites.net URL and over the custom URL you configured.
-    In the next steps, you’ll use private endpoints to disable public access.
-    You’ll also configure the firewall to only allow the bot service to
+    In the next steps, you'll use private endpoints to disable public access.
+    You'll also configure the firewall to only allow the bot service to
     communicate with Teams clients.
 
 8.  Run the following Azure CLI script to [deploy and configure the private
     endpoint](/azure/app-service/scripts/cli-deploy-privateendpoint).
-    This step also implements VNet integration for the bot’s App Service,
-    connecting it to your virtual network’s integration subnet.
+    This step also implements VNet integration for the bot's App Service,
+    connecting it to your virtual network's integration subnet.
 
 
    ```azurecli                                                                                       
@@ -332,8 +332,8 @@ account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
 
-9.  Next, you’ll create a route table to ensure that traffic to and from each
-    subnet goes through the firewall. You’ll need the private IP address of the
+9.  Next, you'll create a route table to ensure that traffic to and from each
+    subnet goes through the firewall. You'll need the private IP address of the
     firewall you created in the previous step.
 
    ```azurecli                                                                                                                                                       
@@ -342,7 +342,7 @@ account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
      -g ${RG_NAME} \
      -n rt-${PREFIX}RouteTable
 
-   # Create a default route with 0.0.0.0/0 prefix and the next hop as the Azure firewall virtual appliance to inspect all traffic. Make sure you use your firewall’s internal IP address instead of 10.0.1.4
+   # Create a default route with 0.0.0.0/0 prefix and the next hop as the Azure firewall virtual appliance to inspect all traffic. Make sure you use your firewall's internal IP address instead of 10.0.1.4
    az network route-table route create -g ${RG_NAME} \
      --route-table-name rt-${PREFIX}RouteTable -n default \
      --next-hop-type VirtualAppliance \
@@ -365,16 +365,16 @@ account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
  > ![Screenshot of rt-SecureBotRouteTable](media/securing-bot-image-009.png)
 
 
-10.  After creating the route table, you’ll add rules to your firewall to deliver
+10.  After creating the route table, you'll add rules to your firewall to deliver
     traffic from the public IP to the bot App Service and to restrict traffic
-    from any endpoint other than Microsoft Teams. In addition, you’ll allow
+    from any endpoint other than Microsoft Teams. In addition, you'll allow
     traffic between the virtual network and Azure Bot Services or Azure Active
     Directory using service tags.
 
    ```azurecli
    # Create a NAT rule collection and a single rule. The source address is the public IP range of Microsoft Teams
    # Destination address is that of the firewall. 
-   # The translated address is that of the app service’s private link.
+   # The translated address is that of the app service's private link.
    az network firewall nat-rule create \
      --resource-group ${RG_NAME} \
      --collection-name coll-${PREFIX}-nat-rules \

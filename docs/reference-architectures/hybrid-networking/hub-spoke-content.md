@@ -55,7 +55,7 @@ curl https://raw.githubusercontent.com/mspnp/samples/master/solutions/azure-hub-
 Run the following command to deploy the hub and spoke network configuration, VNet peerings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
 
 ```azurecli-interactive
-az deployment group create --resource-group hub-spoke-three --template-file main.bicep
+az deployment group create --resource-group hub-spoke --template-file main.bicep
 ```
 
 #### [Azure portal](#tab/portal)

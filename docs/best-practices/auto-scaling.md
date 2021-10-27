@@ -1,7 +1,7 @@
 ---
 title: Autoscaling guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on how to autoscale to dynamically allocate resources required by an application.
+description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
 author: dragon119
 ms.date: 05/17/2017
 ms.topic: conceptual
@@ -31,7 +31,7 @@ Many cloud-based systems, including Microsoft Azure, support automatic horizonta
 > [!NOTE]
 > Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this usually involves [data partitioning](./data-partitioning.md), which is generally not automated.
 
-## Overview
+## Autoscaling components
 
 An autoscaling strategy typically involves the following pieces:
 

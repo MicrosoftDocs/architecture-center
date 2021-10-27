@@ -1,6 +1,6 @@
 ---
 title: Run Apache Cassandra on Azure VMs
-description: Performance considerations for running Apache Cassandra on Azure virtual machines
+description: Examine performance considerations for running Apache Cassandra on Azure virtual machines. Use these recommendations as a baseline to test against your workload.
 author: arsenvlad
 ms.author: arsenv
 ms.date: 09/19/2019
@@ -128,7 +128,7 @@ For a multiregion deployment, use Azure Global VNet-peering to connect the virtu
 
 It's important to measure the baseline roundtrip latency between regions. Network latency between regions can be 10-100 times higher than latency within a region. Expect a lag between data appearing in the second region when using LOCAL_QUORUM write consistency, or significantly decreased performance of writes when using EACH_QUORUM.
 
-When running Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](http://cassandra.apache.org/doc/latest/operating/repair.html) becomes challenging. Tools such as [Reaper](http://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a data center, one data center at a time, to limit the load on the whole cluster). However, node repair for large clusters is not yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
+When running Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](http://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a data center, one data center at a time, to limit the load on the whole cluster). However, node repair for large clusters is not yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
 
 When nodes are added to a secondary region, performance will not scale linearly, because some bandwidth and CPU/disk resources are spent on receiving and sending replication traffic across regions.
 
@@ -148,9 +148,9 @@ For information on general Cassandra settings, not specific to Azure, see:
 
 - [DataStax Recommended Production Settings](https://docs.datastax.com/en/landing_page/doc/landing_page/recommendedSettings.html)
 
-- [Apache Cassandra Hardware Choices](http://cassandra.apache.org/doc/latest/operating/hardware.html)
+- [Apache Cassandra Hardware Choices](https://cassandra.apache.org/doc/latest/cassandra/operating/hardware.html)
 
-- [Apache Cassandra Configuration File](http://cassandra.apache.org/doc/latest/configuration/cassandra_config_file.html)
+- [Apache Cassandra Configuration File](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html)
 
 The following reference architecture deploys Cassandra as part of an n-tier configuration:
 

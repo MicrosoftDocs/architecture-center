@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: MCAS and Azure Sentinel for Amazon Web Services (AWS)
+  title: MCAS and Azure Sentinel for AWS
   titleSuffix: Azure Solution Ideas
   description: Learn how Microsoft Cloud App Security (MCAS) and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.
   author: doodlemania2

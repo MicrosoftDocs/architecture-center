@@ -93,7 +93,7 @@ General best practices related to Performance Efficiency are described in [Perfo
 #### Estimate the Application Gateway instance count
 Application Gateway v2 scales out based on many aspects, such as CPU, memory, network utilization, and more. To determine the approximate instance count, factor in these metrics:
 - **Current compute units**&mdash;Indicates CPU utilization. 1 Application Gateway instance is approximately 10 compute units.
-- **Throughput**&mdash;Application Gateway instance can serve 60-75 MBps of throughput. This data depends on the type of payload.
+- **Throughput**&mdash;Application Gateway instance can serve 60-75 Mbps of throughput. This data depends on the type of payload.
 
 Consider this equation when calculating instance counts.
 
@@ -172,11 +172,13 @@ Ensure you have configured the **IdleTimeout** settings to match the listener an
 
 For workload considerations, see [Application Monitoring](../../framework/devops/monitoring.md#application-monitoring).
 
+#### Monitoring Key Vault configuration issues through Azure Advisor
+Azure Application Gateway checks for the renewed certificate version in the linked Key Vault at every 4-hour interval. If it is inaccessible due to any incorrectly modified Key Vault configurations, it logs that error and pushes a corresponding Advisor recommendation. You must configure Advisor alert to stay updated and fix such issues immediately to avoid any Control or Data plane related problems. To set an alert for this specific case, use the Recommendation Type as "Resolve Azure Key Vault issue for your Application Gateway". 
 
 ## Reliability
 Here are some best practices to minimize failed instances.
 
-In addition, we recommend that you review the [Principles of the reliability pillar](../../framework/resiliency/overview.md).
+In addition, we recommend that you review the [Principles of the reliability pillar](../../framework/resiliency/principles.md).
 
 #### Plan for rule updates 
 Plan enough time for updates before accessing Application Gateway or making further changes. For example, removing servers from backend pool might take some time because they have to drain existing connections.

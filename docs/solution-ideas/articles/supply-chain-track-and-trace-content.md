@@ -43,14 +43,14 @@ The first service bus effectively serves as an "Outbox" for IoT Hub and the seco
 ## Next steps
 
 * [Find run-time exceptions with Application Insights](/azure/application-insights/app-insights-tutorial-runtime-exceptions)
-* [Create a blockchain app with Azure Blockchain Workbench](/azure/blockchain-workbench/blockchain-workbench-create-app)
-* [Azure Storage on Blockchain Workbench](/azure/blockchain-workbench/blockchain-workbench-architecture#azure-storage)
+* [Create a blockchain app with Azure Blockchain Workbench](/azure/blockchain/workbench/create-app)
+* [Azure Storage on Blockchain Workbench](/azure/blockchain/workbench/architecture#azure-storage)
 * [Azure and Linux Virtual Machines](/azure/virtual-machines/linux/overview)
-* [Blockchain Workbench API app registration](/azure/blockchain-workbench/blockchain-workbench-deploy#blockchain-workbench-api-app-registration)
-* [Blockchain Workbench Database](/azure/blockchain-workbench/blockchain-workbench-getdb-details)
+* [Blockchain Workbench API app registration](/azure/blockchain/workbench/deploy#blockchain-workbench-api-app-registration)
+* [Blockchain Workbench Database](/azure/blockchain/workbench/getdb-details)
 * [Log Analytics Tutorial](/azure/log-analytics/log-analytics-tutorial-viewdata)
-* [Service Bus on Blockchain Workbench](/azure/blockchain-workbench/blockchain-workbench-messages-overview#using-service-bus-topics-for-notifications)
-* [Event Notifications on Blockchain Workbench](/azure/blockchain-workbench/blockchain-workbench-messages-overview#event-notifications)
+* [Service Bus on Blockchain Workbench](/azure/blockchain/workbench/messages-overview#using-service-bus-topics-for-notifications)
+* [Event Notifications on Blockchain Workbench](/azure/blockchain/workbench/messages-overview#event-notifications)
 
 ## Deploy to Azure
 

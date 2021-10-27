@@ -31,7 +31,7 @@ expects. This includes supporting common requirements, such as:
     within the Synapse workspace (such as Azure Storage or Azure Cosmos DB).
     Other Azure resources such as Azure applications, Microsoft Power BI, and
     Azure Synapse service are secured using Private Endpoints integrated into
-    the example solution’s virtual network. Network traffic between your private
+    the example solution's virtual network. Network traffic between your private
     network and the Synapse pools use Private Link to move traffic over the
     Microsoft backbone network, eliminating exposure to the public internet.
 
@@ -76,7 +76,7 @@ This example solution makes use of several Azure services and features:
 
 -   [Dedicated SQL
     pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-    (formerly SQL DW) provides data warehousing capabilities for data after it’s
+    (formerly SQL DW) provides data warehousing capabilities for data after it's
     been processed and normalized and is ready for use by your end users and
     applications.
 
@@ -104,7 +104,7 @@ This example solution makes use of several Azure services and features:
 
 -   [Azure Private
     Endpoint](/azure/private-link/private-endpoint-overview)
-    provides a private IP address from the solution’s VNet to Azure managed
+    provides a private IP address from the solution's VNet to Azure managed
     services, effectively connecting a service to the VNet. This allows secure
     networking between the Azure Synapse workspace and other Azure services such
     as Azure Storage, Azure Cosmos DB, Azure SQL Database, or your own [Azure
@@ -112,7 +112,7 @@ This example solution makes use of several Azure services and features:
     service](/azure/private-link/private-link-service-overview).
 
 -   [Power BI](/power-bi) allows users to
-    perform advanced analysis and share insights using the solution’s processed
+    perform advanced analysis and share insights using the solution's processed
     data.
 
 ### Data flow
@@ -142,7 +142,7 @@ The data flows through the solution as follows:
         on the Microsoft backbone network, eliminating exposure to the public
         internet.
 
-3.  Data is encrypted at rest once it’s ingested into the data lake. Using your
+3.  Data is encrypted at rest once it's ingested into the data lake. Using your
     own customer-managed keys can further protect your encryption keys and add
     more flexibility when managing access controls.
 
@@ -153,15 +153,15 @@ The data flows through the solution as follows:
 
     1.  The Synapse pipelines copy activities initially ingest data from the
         source systems. This ingested data is stored in its raw format using the
-        data lake’s *Bronze* directory.
+        data lake's *Bronze* directory.
 
     2.  The Synapse Spark pool then runs data quality rules to cleanse the raw
-        data. This enriched data is then stored in the data lake’s *Silver*
+        data. This enriched data is then stored in the data lake's *Silver*
         directory.
 
     3.  After cleansing, the Spark pool applies any required normalization, data
         transformations, and business rules on the data in the Silver directory.
-        This transformed data is then stored in the data lake’s *Gold*
+        This transformed data is then stored in the data lake's *Gold*
         directory.
 
 5.  The Synapse Apache Spark to Synapse SQL connector pushes the normalized data
@@ -198,6 +198,18 @@ The data flows through the solution as follows:
     Link](https://azure.microsoft.com/services/private-link)
 
 -   [Power BI](https://powerbi.microsoft.com)
+
+## Deploy this scenario
+
+You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+The Azure Resource Manager templates, which you'll need to deploy the components described in this architecture, are available in the [GitHub](https://github.com/vsuopys/SecureSynapse/tree/master/SecureSynapseARM) repository. These templates will deploy all the services shown in the architecture diagram **except for**: the Power BI Data Gateway, self-hosted integration runtime, and Azure Key Vault for customer managed keys.
+
+It is up to the user to create the data lake folder structure and the Azure Synapse Analytics integration pipelines that are necessary to connect to the data sources.
+
+Deploy the ARM template directly by clicking this button:  
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fvsuopys%2FSecureSynapse%2Fmaster%2FSecureSynapseARM%2Fazuredeploy.json)
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
-title: Azure Kubernetes Service (AKS) operations triage
+title: Kubernetes Service (AKS) operations triage
 titleSuffix: Azure Architecture Center
-description: AKS operations to triage issues.
+description: Examine a short overview of triage practices for Azure Kubernetes Service (AKS) operations. View links to get more details about different triage practices.
 author: kevingbb
 ms.date: 10/12/2020
 ms.topic: conceptual

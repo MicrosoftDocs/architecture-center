@@ -1,5 +1,5 @@
 ---
-title: Testing applications for availability and resiliency
+title: Test apps for availability and resiliency
 description: Testing is an iterative process. Test the application, measure the outcome, analyze and address any failures that result, and repeat the process.
 author: v-aangie
 ms.date: 02/17/2021

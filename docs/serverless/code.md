@@ -1,7 +1,7 @@
 ---
 title: Serverless Functions code walkthrough
 titleSuffix: Azure Example Scenarios
-description: Follow this code walkthrough to implement an example serverless application with Azure Functions.
+description: Learn about serverless technologies in Azure by walking through an example implementation of a serverless application with Azure Functions.
 author: rogeriohc
 ms.author: pnp
 ms.date: 06/22/2020
