@@ -111,6 +111,6 @@ To see how pricing differs for your use case, change the variables to match your
 [Azure Machine Learning]: https://azure.microsoft.com/services/machine-learning-service
 [Microsoft Recommenders]: https://github.com/Microsoft/Recommenders
 [MMLSpark]: https://aka.ms/spark
-[MML Spark Serving]: https://github.com/Azure/mmlspark/blob/master/docs/mmlspark-serving.md
+[MML Spark Serving]: https://mmlspark.blob.core.windows.net/website/index.html
 [LightGBM]: https://github.com/Microsoft/LightGBM
 [1]: https://azure.microsoft.com/support/legal/sla/summary

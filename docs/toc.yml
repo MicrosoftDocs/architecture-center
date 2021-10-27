@@ -2083,6 +2083,8 @@ items:
                     href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
                   - name: Serverless computing LOB apps
                     href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
+                  - name: Transit Hub pub-sub messaging system
+                    href: solution-ideas/articles/transit-hub.yml
       - name: DevOps
         items:
           - name: Guides
@@ -2590,6 +2592,8 @@ items:
                     href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+                  - name: Refactor Mainframe Applications with Advanced
+                    href: example-scenario/mainframe/refactor-mainframe-applications-advanced.yml
                   - name: Refactor mainframe with Raincode
                     href: reference-architectures/app-modernization/raincode-reference-architecture.yml
                   - name: Unisys CPF rehost using virtualization
