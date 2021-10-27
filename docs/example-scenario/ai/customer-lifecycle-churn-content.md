@@ -65,6 +65,8 @@ This solution is helpful in the following use cases:
 
 - Some business intelligence tools may not support Azure Analysis Services. The curated data can instead be accessed directly from Azure SQL Database. Data is stored using Azure Data Lake Storage and accessed using Azure Databricks storage for data processing.
 
+## Considerations
+
 ### Availability
 
 The service level agreements (SLAs) of most Azure components guarantee availability:
