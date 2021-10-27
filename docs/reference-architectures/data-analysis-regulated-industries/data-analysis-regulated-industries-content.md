@@ -221,7 +221,7 @@ Comment: DONE
 #> What alternative technologies were considered and why didn't we use them?
 -->
 
-This pattern is effectively building something what is available in the Azure Synapse Analytics product. Use of Azure Synapse Analytics product should be the preferred way. However, sometimes customers cannot use/deploy Azure Synapse Analytics for whatever reason and in those cases this pattern can help and can be more adjustable solution.
+There is overlap between what this pattern provides with what is available in the Azure Synapse Analytics product. Whenever possible, the use of Azure Synapse Analytics is preferred. However, in regulated industries in particular, some customers cannot use/deploy Azure Synapse Analytics for a variety of reasons; in those cases this pattern can help compared to manually deploying a custom data analytics stack.
 
 See [Enterprise Data Warehouse Architecture](/azure/architecture/solution-ideas/articles/enterprise-data-warehouse) as alternative solution to this pattern.
 
@@ -234,9 +234,10 @@ Comment: DONE
 #> Note that you should have at least two of the H3 sub-sections.
 -->
 
-Generally try to avoid, configuring Azure policies in the way it will prevent deployments when security requirements are not met. Prefer audit mode and monitoring resources which are not compliant or Azure policies with auto remediation steps.
+#DJ Comment: I don't unerstand this
+In general, try to avoid configuring Azure policies to prevent deployments when security requirements are not met. Prefer audit mode and monitoring resources which are not compliant or Azure policies with auto remediation steps.
 
-Provide to users some autonomy so they are not extremely limited with capabilities. Key point is users should be enabled to be productive and demonstrate value quickly and not be focused on plumbing, troubleshooting permissions, network connectivity, blocked network ports, Azure endpoints etc.
+Provide to users the autonomy so they are not limited with various capabilities. Specifically, users should be enabled to be productive and demonstrate value quickly instead of being focused on plumbing, troubleshooting permissions, network connectivity, blocked network ports, Azure endpoints etc.
 
 ### Availability
 
@@ -270,9 +271,9 @@ Comment: DONE
 #> Are there any key performance considerations (past the typical)?
 -->
 
-This architecture pattern is based at managed Azure services with great built-in and flexible performance options which allows to find right balance between speed and cost.
+This architecture pattern is based at managed Azure services with built-in and flexible performance options which allows users to find the right balance between speed and cost.
 
-Performance challenges might be related to Azure VMs (used by Azure Databricks - make sure to select appropriate SKU size), network throughput, bandwidth, latency, limits of host of Azure Data Factory Self Host Integration Runtime.
+There may be performance challenges related to Azure VMs (used by Azure Databricks - make sure to select appropriate SKU size), network throughput, bandwidth, latency, limits of host of Azure Data Factory Self Host Integration Runtime.
 
 Azure SQL Database has some artificial performance and scalability limits - depends on selected SKU. This can be changed any time later based on utilization.
 
@@ -285,11 +286,11 @@ Comment: DONE
 #> At what point do things break or not make sense for this architecture?
 -->
 
-This architecture pattern is based at managed Azure services with great built-in scalability features which allows to find right balance between speed and cost.
+This architecture pattern is based on managed Azure services with built-in scalability features allowing users to find right the balance between speed and cost.
 
 This solution can work with petabytes of data.
 
-If data ingestion is done from on premises data sources and perhaps through Azure Data Factory Self Host Integration Runtime, the limitation can be bandwidth and latency of VPN network and horse power of Self Host Integration Runtime machine.
+If data ingestion is done from on premises data sources (e.g., through Azure Data Factory Self Host Integration Runtime), bandwidth can be a limiting factor along with the latency of the VPN network and compute power of Self Host Integration Runtime machine.
 
 Address range / Size of virtual network for Data Analytical Workspace can limit number of VMs used by Azure Databricks.
 
@@ -316,7 +317,7 @@ Comment: DONE
 #> Are there any key resiliency considerations (past the typical)?
 -->
 
-This pattern builds on Azure PaaS services hosted in one specific region. It might be beneficial to utilize other Azure regions as well to increase Resiliency of this solution but it brings additional complexity. Geo redundancy is currently out of the scope of this pattern description.
+This pattern builds on Azure PaaS services hosted in one specific region. It might be beneficial to utilize other Azure regions as well to increase resiliency of this solution but that comes with the cost of additional complexity. Geo redundancy is currently out of scope of this pattern.
 
 ### DevOps
 
@@ -337,9 +338,9 @@ Comment: DONE
 -->
 
 To implement this pattern go to the link to the project page: [Azure Data Analytical Workspace (ADAW) - Reference Architecture 2021 for Regulated Industries](https://github.com/jbinko/ADAW).
-Link includes deployment scripts, to successfully deploy workspace for data analysis based on Azure services.
+The link includes deployment scripts, to successfully deploy workspace for data analysis based on Azure services.
 
-Data Analytical Workspace can be deployed in automated way through provided scripts in cloud native way. This provides consistent experience with focus on high quality security standards. Approve once, deploy multiple times in the same secure way.
+The Data Analytical Workspace can be deployed automatically using the provided, cloud-native scripts. This provides users with a consistent experience with a focus on high quality security standards. Approve once, deploy multiple times in the same secure way.
 
 ## Pricing
 
@@ -354,7 +355,7 @@ Data Analytical Workspace can be deployed in automated way through provided scri
 > If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
 -->
 
-Majority of components in this Architecture are based on Azure services with pay-as-you-go model.
+The majority of components in this Architecture are based on Azure services with pay-as-you-go model.
 Services like Azure Databricks, Azure Data Factory, Azure Key Vault, Virtual Network, Azure Monitor have low or no cost until execution of the calculation operation is started.
 
 For Azure Data Lake Store and Azure Blob Storage cost depends on how much data is stored in the storage. Storage cost is not typically a factor for bigger enterprises unless you need to deal with tenths of terabytes and more.
