@@ -1,4 +1,4 @@
-Many lessons you learn in larger companies aren't directly applicable to a startup's first stack. In a product's initial [explore](startup-architecture.md#explore) stage, you need to optimize deployment for speed, cost, and optionability, or how fast you can change directions within a given architecture.
+Many lessons you learn in larger companies aren't directly applicable to a startup's first stack. In a product's initial [explore](startup-architecture.md#explore) stage, you need to optimize deployment for speed, cost, and *optionality*. Optionality refers to how fast you can change directions within a given architecture.
 
 A service-oriented or microservices architecture might work for a business in the [expand](startup-architecture.md#expand) or [extract](startup-architecture.md#extract) product development phases. This type of deployment architecture is rarely right for a startup that hasn't yet found product/market fit or commercial traction.
 
@@ -26,9 +26,9 @@ In this core startup stack architecture:
 
 ## Core startup stack components
 
-A complex stack can lead to bugs that require constant attention, or can be so sophisticated that it detracts from building your product. Bugs aren't caused by complexity, but a complex stack can make it easier to ship bugs. Not all sophisticated architectures are a waste of energy, but they waste your resources if you haven't yet found product/market fit. A first startup stack should be simple and get out of your way, so you can concentrate on product development.
+A complex stack can generate bugs that require constant attention. A sophisticated architecture can detract from building your product. Bugs aren't caused by complexity, but a complex stack make it easier to ship bugs. Not all sophisticated architectures are a waste of energy, but they waste your resources if you haven't yet found product/market fit. A first startup stack should be simple and get out of your way, so you can concentrate on product development.
 
-The following simple diagram shows the recommended core startup stack. These are just enough components to get your product off the ground and into the hands of your customers. For 80% of startups, this stack is all you need to test the basic hypotheses built into your product. Startups working in machine learning, internet of things (IoT), or highly regulated environments might require more components.
+The following simple diagram shows the recommended core startup stack. These components are enough to get your product off the ground and into the hands of your customers. For 80% of startups, this stack is all you need to test the basic hypotheses built into your product. Startups working in machine learning, internet of things (IoT), or highly regulated environments might require more components.
 
 ![A block diagram that shows a core startup stack.](images/startup-stack.png)
 
@@ -60,7 +60,7 @@ The lack of repeatable and rapid deployments is one of the worst impediments to 
 
 ## Deploy this architecture
 
-You can see a sample core startup stack implementation [on GitHub](https://github.com/Azure-Samples/core-startup-stack-rails). The sample uses a Ruby on Rails app, but the concepts and techniques are the same for most projects you build using a [Dockerfile](https://docs.docker.com/engine/reference/builder).
+You can see a sample core startup stack implementation [on GitHub](https://github.com/Azure-Samples/core-startup-stack-rails). The sample uses a Ruby on Rails app. The concepts and techniques are the same for most projects you build using a [Dockerfile](https://docs.docker.com/engine/reference/builder).
 
 ## Next steps
 
