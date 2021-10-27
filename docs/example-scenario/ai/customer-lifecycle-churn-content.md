@@ -1,6 +1,6 @@
-This scenario shows a solution for creating predictive models of [customer lifetime value](https://en.wikipedia.org/wiki/Customer_lifetime_value) and [churn rate](https://en.wikipedia.org/wiki/Churn_rate) by using Azure AI technologies. Customer lifetime value measures the net profit from a customer. This metric includes profit from the customer's whole relationship with your company. Another important metric for understanding how customers behave is *churn* or *churn rate*. Churn measures the number of individuals or items moving out of a group over a period.
+This scenario shows a solution for creating predictive models of [customer lifetime value](https://en.wikipedia.org/wiki/Customer_lifetime_value) and [churn rate](https://en.wikipedia.org/wiki/Churn_rate) by using Azure AI technologies. Customer lifetime value measures the net profit from a customer. This metric includes profit from the customer's whole relationship with your company. *Churn* or *churn rate* measures the number of individuals or items moving out of a group over a period.
 
-This retail customer scenario classifies your customers based on marketing and economic measures. This scenario also creates a customer segmentation based on several metrics. It trains a multi-class classifier on new data. The resulting supervised multi-class classifier model scores batches of new customer orders through a regularly scheduled Azure Databricks notebook job.
+This retail customer scenario classifies your customers based on marketing and economic measures. This scenario also creates a customer segmentation based on several metrics. It trains a multi-class classifier on new data. The resulting model scores batches of new customer orders through a regularly scheduled Azure Databricks notebook job.
 
 This solution demonstrates how to interconnect the following Azure AI technologies:
 
@@ -53,7 +53,7 @@ This solution is helpful in the following use cases:
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform optimized for the Microsoft Azure cloud services platform.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) includes a range of productive experiences to build, train, and deploy machine learning models and foster team collaboration. 
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) includes a range of experiences to build, train, and deploy machine learning models and foster team collaboration. 
 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a database engine that handles most management functions without your involvement. Azure SQL Database enables you to focus on the domain-specific database administration and optimization activities for your business.
 
@@ -63,14 +63,14 @@ This solution is helpful in the following use cases:
 
 - Data Factory orchestrates the workflows for your data pipeline. If you want to load data only one time or on demand, use tools like SQL Server bulk copy and AzCopy to copy data into [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs). You can then load the data directly into [Azure Synapse Analytics](/azure/synapse-analytics) using PolyBase.
 
-- Some business intelligence tools may not support Azure Analysis Services. The curated data can instead be accessed directly from Azure SQL Database. In this implementation, data is stored using Azure Data Lake Storage and accessed using Azure Databricks storage for data processing.
+- Some business intelligence tools may not support Azure Analysis Services. The curated data can instead be accessed directly from Azure SQL Database. Data is stored using Azure Data Lake Storage and accessed using Azure Databricks storage for data processing.
 
 ### Availability
 
 The service level agreements (SLAs) of most Azure components guarantee availability:
 
 - At least 99.9 percent of Data Factory pipelines are guaranteed to run successfully. See [SLA for Data Factory](https://azure.microsoft.com/support/legal/sla/data-factory/v1_2).
-- The Azure Databricks SLA guarantees 99.95 percent availability. See [Azure Databricks](https://azure.microsoft.com/services/databricks)
+- The Azure Databricks SLA guarantees 99.95 percent availability. See [Azure Databricks](https://azure.microsoft.com/services/databricks).
 - Data Lake Storage offers availability through redundancy. See [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 
 ### Scalability
@@ -83,7 +83,7 @@ This scenario uses Azure Databricks clusters, which enable autoscaling by defaul
 
 Protect assets by using controls on network traffic originating in Azure, between on-premises and Azure hosted resources, and traffic to and from Azure. For instance, Azure self-hosted integration runtime securely moves data from on-premises data storage to Azure.
 
-Use Azure Key Vault and Databricks scoped secret to access data in Azure Data Lake Storage.
+Use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) and Databricks scoped secret to access data in Azure Data Lake Storage.
 
 Azure services are either deployed in a secure virtual network or accessed using the Azure Private Link feature. If necessary, row-level security provides granular access to individual users in Azure Analysis Services or SQL Database.
 
