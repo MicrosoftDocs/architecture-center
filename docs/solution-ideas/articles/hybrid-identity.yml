@@ -24,7 +24,7 @@ metadata:
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/hybrid-identity/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-identity.png
-name: Hybrid Identity
+name: Hybrid identity
 azureCategories:
   - identity
   - hybrid
