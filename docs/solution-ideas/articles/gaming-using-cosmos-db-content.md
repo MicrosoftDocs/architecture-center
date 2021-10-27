@@ -7,14 +7,14 @@ This gaming solution idea elastically scales your database to accommodate unpred
 ![Architecture Diagram](../media/gaming-using-cosmos-db.png)
 *Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
 
-## Data flow
+### Data flow
 1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions or Containers and APIs published via Azure API Gateway. 
 2. Azure CDN serves static images and game content to the user that are stored in Azure Blob Storage.
 3. Azure Cosmos DB stores user's game state data.
 4. Azure Databricks correlates, cleanses and transforms game state data.
 5. Azure Functions processes the insights derived from Azure Databricks and pushes notifications using Azure Notification Hubs to mobile devices.
 
-## Components
+### Components
 
 This architecture includes the following components:
 
@@ -51,6 +51,8 @@ Review the following articles on Cosmos DB:
 - [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
 - [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units)
 - [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partition-data)
+
+## Related resources
 
 The following solution ideas feature Azure Cosmos DB:
 
