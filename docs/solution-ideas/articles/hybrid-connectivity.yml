@@ -3,7 +3,7 @@ metadata:
   title: Hybrid Connection
   titleSuffix: Azure Solution Ideas
   description: Use a hybrid connection for Azure Stack Hub solutions with apps that communicate with the Azure public cloud and on-premises Azure Stack Hub components.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 09/01/2020
   ms.topic: conceptual
