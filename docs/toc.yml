@@ -1268,6 +1268,8 @@ items:
                 href: data-guide/technology-choices/analysis-visualizations-reporting.md
               - name: Apache NiFi monitoring with MonitoFi
                 href: guide/data/monitor-apache-nifi-monitofi.yml
+              - name: Helm-based deployments for Apache NiFi
+                href: guide/data/helm-deployments-apache-nifi.yml
           - name: Architectures
             items:
               - name: Anomaly detector process

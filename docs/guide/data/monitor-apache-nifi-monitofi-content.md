@@ -113,6 +113,7 @@ When you deploy this solution, keep in mind the following prerequisites and limi
 ## Related resources
 
 - [Apache NiFi on Azure][Apache NiFi on Azure]
+- [Helm-based deployments for Apache NiFi][Helm-based deployments for Apache NiFi]
 - [Monitoring Azure Functions and Event Hubs][Monitoring Azure Functions and Event Hubs]
 - [Web application monitoring on Azure][Web application monitoring on Azure]
 
@@ -126,6 +127,7 @@ When you deploy this solution, keep in mind the following prerequisites and limi
 [Docker Image with InfluxDB and Grafana on Docker Hub]: https://hub.docker.com/r/dtushar/docker-influxdb-grafana
 [Flux query language]: https://www.influxdata.com/products/flux
 [Grafana]: https://grafana.com
+[Helm-based deployments for Apache NiFi]: ./helm-deployments-apache-nifi.yml
 [Influx Query Language (InfluxQL)]: https://docs.influxdata.com/influxdb/v1.8/query_language
 [InfluxDB]: https://www.influxdata.com
 [Kusto query overview]: /azure/data-explorer/kusto/query
