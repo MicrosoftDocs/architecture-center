@@ -34,7 +34,7 @@ This scenario uses a separate DevTest and Production [Azure Active Directory (Az
 
 [Azure Monitor](/azure/devtest-labs/security-baseline) works across subscriptions to monitor VMs in both the Production and DevTest environments.
 
-## Components
+### Components
 
 - [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) provides labs that have all the necessary tools and software to create environments. Developers can efficiently self-manage resources without waiting for approvals. With DevTest Labs, teams can control costs and regulate resources per lab, granting developers permission and flexibility to operate their sandboxes within cost constraints.
   
@@ -56,10 +56,12 @@ This scenario uses a separate DevTest and Production [Azure Active Directory (Az
   
 - [Azure Monitor](/azure/devtest-labs/security-baseline) can work across subscriptions to monitor VMs in both Production and DevTest environments. Azure Monitor can collect log data from VM operating systems as well as crash dump files, and aggregate them for viewing in [Azure Security Center](/azure/security-center/security-center-enable-data-collection).
 
-## Alternatives
+### Alternatives
+
 In situations where VM Image Builder and a Shared Image Gallery don't work, you can set up an [image factory](/azure/devtest-labs/image-factory-create) to build VM images from the CI/CD pipeline and distribute them automatically to any Azure DevTest Labs registered to those images. For more information, see [Run an image factory from Azure DevOps](/azure/devtest-labs/image-factory-set-up-devops-lab).
 
 ## Next steps
+
 - [DevSecOps in Azure](./devsecops-in-azure.yml)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.yml)
 - [DevTest and DevOps for microservices](dev-test-microservice.yml)

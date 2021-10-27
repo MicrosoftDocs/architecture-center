@@ -43,7 +43,9 @@ Examples include organizations in:
 
 The solution stores, processes, and serves data:
 
-### Store
+### Data flow
+
+#### Store
 
 Data Lake Storage stores the data in Delta Lake format. Delta Lake forms the curated layer of the data lake. A medallion architecture organizes the data into three layers:
 
@@ -51,7 +53,7 @@ Data Lake Storage stores the data in Delta Lake format. Delta Lake forms the cur
 - Silver tables contain cleaned, filtered data.
 - Gold tables store aggregated data that's ready for analytics and reporting.
 
-### Process
+#### Process
 
 - Code from various languages, frameworks, and libraries prepares, refines, and cleanses the raw data (**1**). Coding possibilities include Python, R, SQL, Spark, Pandas, and Koalas.
 
@@ -62,7 +64,7 @@ Data Lake Storage stores the data in Delta Lake format. Delta Lake forms the cur
   - Spark and Python pipelines can ingest models. These pipelines handle batch workloads or streaming ETL processes.
   - REST APIs provide access to models for many purposes. Examples include testing and interactive scoring in mobile and web applications.
 
-### Serve
+#### Serve
 
 Azure Databricks can deploy models to other services, such as Machine Learning and AKS (**4**).
 

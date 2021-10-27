@@ -2,8 +2,8 @@
 metadata:
   title: CI/CD for Azure Web Apps
   titleSuffix: Azure Solution Ideas
-  description: Learn how to create web apps using ASP.NET, Java, Node.js, or PHP and deliver value faster to your customers with a CI/CD pipeline.
-  author: doodlemania2
+  description: Learn how to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a CI/CD pipeline.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -30,7 +30,7 @@ azureCategories:
   - devops
   - web
   - featured
-summary: Learn how to create web apps using ASP.NET, Java, Node.js, or PHP and deliver value faster to your customers with a CI/CD pipeline.
+summary: Learn how to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a CI/CD pipeline.
 products:
   - azure-application-insights
   - azure-devops

@@ -6,7 +6,7 @@ Extract, transform, and load your big data clusters on demand with Hadoop MapRed
 
 ![Architecture diagram](../media/extract-transform-and-load-using-hdinsight.png)
 
-## Components
+### Components
 
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
@@ -25,6 +25,8 @@ Learn more about the component technologies:
 - [Invoke MapReduce Programs from Data Factory](/azure/data-factory/v1/data-factory-map-reduce)
 - [Use MapReduce in Apache Hadoop on HDInsight](/azure/hdinsight/hadoop/hdinsight-use-mapreduce)
 - [What is Apache Spark in Azure HDInsight](/azure/hdinsight/spark/apache-spark-overview)
+
+## Related resources
 
 Explore related architectures:
 

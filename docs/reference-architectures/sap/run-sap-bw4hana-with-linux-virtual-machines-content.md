@@ -141,7 +141,7 @@ This example uses [Premium managed disks](/azure/virtual-machines/windows/disks-
 
 Standard managed disks aren't supported, as stated in [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533). The use of standard storage isn't recommended for any SAP installations.
 
-For the backup data store, we recommend using Azure [cool and archive access tiers](/azure/storage/blobs/storage-blob-storage-tiers). These storage tiers are cost-effective ways to store long-lived data that is infrequently accessed.
+For the backup data store, we recommend using Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers are cost-effective ways to store long-lived data that is infrequently accessed.
 
 ## Networking
 

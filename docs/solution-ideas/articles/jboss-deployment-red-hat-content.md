@@ -55,7 +55,7 @@ JBoss EAP is suitable for these uses:
 
 ### Red Hat on Azure
 
-- [CDEPLOYING A RED HAT ENTERPRISE LINUX 8 IMAGE AS A VIRTUAL MACHINE ON MICROSOFT AZURE](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/assembly_deploying-a-rhel-image-as-a-virtual-machine-on-microsoft-azure_cloud-content/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index)
+- [CDEPLOYING A RED HAT ENTERPRISE LINUX 8 IMAGE AS A VIRTUAL MACHINE ON MICROSOFT AZURE](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index)
 - [Red Hat Enterprise Linux 8.0](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM?tab=Overview)
 - [Azure Red Hat OpenShift documentation](/azure/openshift)
 

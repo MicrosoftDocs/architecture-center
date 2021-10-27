@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft's global datacenters.
 
 ## Architecture
@@ -7,7 +5,7 @@ Guarantee access to users around the world with the high-availability and low-la
 ![Architecture Diagram](../media/globally-distributed-mission-critical-applications-using-cosmos-db.png)
 <br /> *Download an [SVG](../media/globally-distributed-mission-critical-applications-using-cosmos-db.svg) version of this architecture.*
 
-## Data flow
+### Data flow
 
 1. User accesses the application through the dedicated client.
 1. Azure Traffic Manager will route the user's connection to the best location for accessing the application, based upon a single or nested routing profiles.
@@ -17,19 +15,23 @@ Guarantee access to users around the world with the high-availability and low-la
 1. By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region and can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions to and from your Azure Cosmos account, your application doesn't need to be redeployed or paused, it continues to be highly available at all times.
 Underneath the covers, Cosmos DB will handle the global distribution and replication of the data based upon the number of defined regions. As an addition one should also benefit from the Automatic Failover option to fail over to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified.
 
-## Components
+### Components
 
 * [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager): create DNS-based load balancing / routing options for your applications with of six types of DNS-based traffic routing options, which can be nested.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on.
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale.
 
-### Compute options
+### Alternatives
+
+You can extend this scenario with several compute and serverless options.
+
+#### Compute options
 
 * [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Create Linux and Windows virtual machines (VMs) in seconds and reduce costs.
 * [Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service): Highly available, secure, and fully managed Kubernetes service for all your application and microservice base workloads.
 * [App Service](https://azure.microsoft.com/services/app-service): Quickly create powerful cloud apps for web and mobile.
 
-### Serverless options
+#### Serverless options
 
 * [Azure Functions](https://azure.microsoft.com/services/functions): More than just event-driven serverless compute.
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps): Quickly build powerful integration solutions.
@@ -65,8 +67,7 @@ Scaling is based upon many levels in this diagram. Azure Cosmos DB is purpose-bu
 
 From a security perspective, drive towards an identity-based system, where Azure Active Directory can be used to secure access to the environment. In the backend, the application is (by best design) accessed through Managed Identities, although one could also consider the approach of using Azure Active Directory Users and Azure Key Vault for securing access. Additionally, the Cosmos DB instance should be further secured, such that the only entities capable of reading and writing to it are the various backends that are deployed to different regions. IP restriction can be applied to the account by using the built-in [firewall](/azure/cosmos-db/how-to-configure-firewall).
 
-> [!NOTE]
-> As of Ignite March 2021, we now also support [Azure Active Directory RBAC directly on the Cosmos DB SQL API](/azure/cosmos-db/how-to-setup-rbac).
+We also support [Azure Active Directory RBAC directly on the Cosmos DB SQL API](/azure/cosmos-db/how-to-setup-rbac).
 
 ## Next steps
 
@@ -87,6 +88,8 @@ More about Azure Traffic Manager:
 * [What is Traffic Manager?](/azure/traffic-manager/traffic-manager-overview)
 * [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
 * [Tutorial: Configure the geographic traffic routing method using Traffic Manager](/azure/traffic-manager/traffic-manager-configure-geographic-routing-method)
+
+## Related resources
 
 Related solution ideas:
 

@@ -98,7 +98,7 @@ Use NSG or consider using Azure Firewall to protect and control traffic within t
 ### Learn more
 
 - [Azure firewall documentation](/azure/firewall/)
-- [Design virtual network subnet security](./network-security-containment.md#design-virtual-network-subnet-security)
+- [Design virtual network subnet security](/azure/architecture/framework/security/design-network-segmentation#design-virtual-network-subnet-security)
 - [Design an IP addressing schema for your Azure deployment](/learn/modules/design-ip-addressing-for-azure/)
 - [Network security groups](/azure/virtual-network/network-security-groups-overview)
 

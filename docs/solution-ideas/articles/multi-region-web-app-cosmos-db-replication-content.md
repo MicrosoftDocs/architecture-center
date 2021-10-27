@@ -8,7 +8,7 @@ In addition to replicating databases to other regions configured in an Azure Sto
 Azure Cosmos DB supports limitless throughput and latency below 10 ms to help your applications provide predictable response and avoid failures due to latency issues. There is a cache for each database to reduce access load and improve application response.
 
 > [!Note] 
-> Replication provides five consistency levels. For more information, see [Consistency levels in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels).
+> Replication provides five consistency levels. For more information, see [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels).
 
 ## Potential use cases
 
@@ -77,4 +77,4 @@ The architecture may be appropriate for any application that uses massive amount
 
 - [Build scalable database solutions with Azure services](../../data-guide/scenarios/build-scalable-database-solutions-azure-services.md)
 - [RESTful web API design](../../best-practices/api-design.md)
-- [Consistency levels in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels)
+- [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
