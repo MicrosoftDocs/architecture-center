@@ -72,11 +72,11 @@ Comment: DONE
 #Under the diagram, include a numbered list that describes the data flow or workflow.
 -->
 
-The following diagram shows a high level overview of the architecture for the infrastructure accelerator for data analysis workloads in regulated industries. As this pattern is targetted for use in highly regulated industries, our primary focus is to provide a high degree of security at all levels from storage to transport to use. 
+The following diagram shows a high level overview of the architecture for the infrastructure accelerator for data analysis workloads in regulated industries. As this pattern is targeted for use in highly regulated industries, our primary focus is to provide a high degree of security at all levels from storage to transport to use. 
 
 [![Graphical example of an infrastructure accelerator architecture.](media/data-analysis-architecture-01.png)](media/data-analysis-architecture-01.png#lightbox)
 
-In the upper part you can see the capabilities of the pattern. This includes elements such as target data sources (cloud or on-premise), ingestion areas, snapshot data, transformed data, optomized data storage, metadata storage, and front-end consumption capabilities.
+In the upper part you can see the capabilities of the pattern. This includes elements such as target data sources (cloud or on-premise), ingestion areas, snapshot data, transformed data, optimized data storage, metadata storage, and front-end consumption capabilities.
 
 The bottom part on the other hand is showing the responsibilities of the different IT roles that are typically involved with cloud-data analysis workloads.
 
@@ -127,9 +127,9 @@ _**Need to get data in scalable way from multiple data sources in raw format (ty
 
 PowerBI ideally needs to consume optimized data models for specific data domain in order to improve the user experience, reduce waiting time, and improve data model maintenance. To produce these models, users typically need to run a process which will ingest data from multiple data sources in raw format and store that data for further processing. Although there are many ways to do this, our approach recommends Azure Data Factory for this job. 
 
-Azure Data Factory is a managed PaaS service which allows users to connect to many data sources using over 90 (and still growing) supported connectors in multiple file formats. The main interfance for Azure Data Factory is the workspace where ETL process can be designed and executed at scale using a drag-and-drop interface. The workspace can be accessed from anywhere the access policy, specified by security administrators, allows. Finally, Data Factory need to provides accesses to data sources outside of Azure (i.e., on-premise) without punching holes into the enterprise firewall using the Self-Hosted Integration Runtime. This component is installed in the on-premises environment (physical or virtual machine) and should be deployed in a location allowed to send outgoing communication to Azure. After this is done, Azure Data Factory can use the Self-Hosted Integration Runtime to ingest data from valid data sources inside organizations and process them in Azure.
+Azure Data Factory is a managed PaaS service which allows users to connect to many data sources using over 90 (and still growing) supported connectors in multiple file formats. The main interface for Azure Data Factory is the workspace where ETL process can be designed and executed at scale using a drag-and-drop interface. The workspace can be accessed from anywhere the access policy, specified by security administrators, allows. Finally, Data Factory need to provides accesses to data sources outside of Azure (i.e., on-premise) without punching holes into the enterprise firewall using the Self-Hosted Integration Runtime. This component is installed in the on-premises environment (physical or virtual machine) and should be deployed in a location allowed to send outgoing communication to Azure. After this is done, Azure Data Factory can use the Self-Hosted Integration Runtime to ingest data from valid data sources inside organizations and process them in Azure.
 
-Azure Data Lake Storage is a cost effective, cloud-native storage service capable of securely storing in verious formats. In addition, Azure Data Lake Storage supports storing multiple versions (e.g daily snapshots) of data and supports Role Based Access Control while being optimized to support of massive parallel processing of data (e.g., using Spark). Finally, Azure Data Lake Storage supports private endpoints, allowing data to be stored/retrieved without traveling over a public endpoint.
+Azure Data Lake Storage is a cost effective, cloud-native storage service capable of securely storing in various formats. In addition, Azure Data Lake Storage supports storing multiple versions (e.g daily snapshots) of data and supports Role Based Access Control while being optimized to support of massive parallel processing of data (e.g., using Spark). Finally, Azure Data Lake Storage supports private endpoints, allowing data to be stored/retrieved without traveling over a public endpoint.
 
 Using our pattern, cloud storage (e.g., Azure Data Lake Storage) is not typically accessed directly by PowerBI (although direct access is technically possible and supported). Instead, Storage is both a long-term storage and short-term staging area for data transformation tools (e.g., Spark). PowerBI accesses the transformed data created from these tools typically using a service better suited to serving and indexing large amounts of data (e.g., Azure Dedicated SQL Pools) 
 
@@ -206,7 +206,7 @@ Comment: DONE
 #> Note that you should have at least two of the H3 sub-sections.
 -->
 
-In general, try to avoid configuring Azure policies to prevent deployments when security requirements are not met. Prefer audit mode and monitoring resources which are not compliant or Azure policies with auto remediation steps.
+In general, try to avoid configuring Azure policies to prevent creating resources when Azure policy rules are not met. Prefer Azure Policy audit mode and monitor resources which are not compliant or use Azure policies with auto remediation steps.
 
 Provide to users the autonomy so they are not limited with various capabilities. Specifically, users should be enabled to be productive and demonstrate value quickly instead of being focused on plumbing, troubleshooting permissions, network connectivity, blocked network ports, Azure endpoints etc.
 
@@ -343,7 +343,7 @@ The Azure Data Factory Self Host Integration Runtime is typically hosted in a pr
 
 Consider Azure reservation options for compute and storage to optimize the cost of the solution when needed.
 
-The PowerBI cost seperates models per user from the Azure cost. PowerBI premium has a different pricing model also separated from Azure cost.
+The PowerBI cost separates models per user from the Azure cost. PowerBI premium has a different pricing model also separated from Azure cost.
 
 ## Next steps
 
