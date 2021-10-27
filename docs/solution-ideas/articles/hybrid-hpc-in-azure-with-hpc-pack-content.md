@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Microsoft HPC Pack is a free high performance computing (HPC) solution built on Microsoft Azure and Windows Server technologies. HPC Pack combines a comprehensive set of deployment, administration, job scheduling, and monitoring tools for your Windows and Linux HPC cluster environment, providing a flexible platform for developing and running HPC applications on premises and in Azure.
@@ -17,7 +14,7 @@ The links below provide documentation on deploying and managing the Azure produc
 ![Architecture Diagram](../media/hybrid-hpc-in-azure-with-hpc-pack.png)
 *Download an [SVG](../media/hybrid-hpc-in-azure-with-hpc-pack.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Log into on-premises head node
 1. Add Azure compute nodes to the cluster
@@ -27,7 +24,7 @@ The links below provide documentation on deploying and managing the Azure produc
 1. Monitor job progress
 1. Stop the compute nodes or configure auto-scaling
 
-## Components
+### Components
 
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Create Linux and Windows virtual machines in seconds.
 * [Microsoft HPC Pack](https://www.visualstudio.com/vs): Free high performance computing (HPC) solution built on Microsoft Azure and Windows Server technologies.
