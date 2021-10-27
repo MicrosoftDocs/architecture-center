@@ -11,9 +11,21 @@ ms.subservice: azure-guide
 ms.custom:
   - fcp
   - guide
+categories:
+ - developer-tools
+ - devops
+ - management-and-governance
+ - web
+products:
+  - azure-app-service
+  - azure-blob-storage
+  - azure-cdn
+  - azure-database-postgresql
+  - azure-monitor
+  - azure-virtual-network
 ---
 
-## Architecture for startups
+# Architecture for startups
 
 Building a startup is a unique challenge. The core task is to find a place for an innovation in the market as a product or service. This process requires testing multiple assumptions that are built into the innovation. A successful startup must iterate through these assumptions, and grow and scale as their product gains product and market fit. After finding this fit, the startup must scale to meet market demands.
 
@@ -73,7 +85,7 @@ Resist the temptation to optimize prematurely. Make sure to take growth and matu
 
 ## Next steps
 
-- See and deploy an example [Core startup stack architecture](core-startup-stack.md).
+- See and deploy an example [Core startup stack architecture](core-startup-stack.yml).
 
 ## Related resources
 

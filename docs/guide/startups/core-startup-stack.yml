@@ -13,7 +13,7 @@ metadata:
     - fcp
     - guide
 azureCategories:
- - developer tools
+ - developer-tools
  - devops
  - management-and-governance
  - web
@@ -23,7 +23,7 @@ products:
   - azure-cdn
   - azure-database-postgresql
   - azure-monitor
-  - azure-virtual-networks
+  - azure-virtual-network
 name: Architecture for startups
 summary: See an example and understand the components of a simple core startup stack architecture for a first MVP or prototype.
 thumbnailUrl: /azure/architecture/browse/thumbs/core-startup-stack.png

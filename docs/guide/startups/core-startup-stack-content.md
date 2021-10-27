@@ -14,7 +14,7 @@ While the app is ambitious, it doesn't yet need a complex, microservice-driven e
 
 ![Diagram that shows the core startup stack architecture Contoso used to deploy their application.](images/startup-stack-architecture.png)
 
-- [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview) segments network traffic and keeps internal services protected from threats on the open internet. Application servers use [virtual network integration](/azure/app-service/web-sites-integrate-with-vnet) to communicate with the database without exposing the database server to the public internet.
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) segments network traffic and keeps internal services protected from threats on the open internet. Application servers use [virtual network integration](/azure/app-service/web-sites-integrate-with-vnet) to communicate with the database without exposing the database server to the public internet.
 - [Azure App Service](/azure/app-service/overview) provides a simple app server to deploy scalable applications without configuring servers, load balancers, or other infrastructure.
 - [Azure Database for PostgreSQL](/azure/postgresql/overview) is an Azure database as a service for one of the leading open-source relational database management system (RDBMS) solutions. You can concentrate on developing your application rather than managing database servers.
 - [Azure Monitor](/azure/azure-monitor/overview) monitors and analyzes what's happening across your application's infrastructure.
@@ -26,7 +26,7 @@ While the app is ambitious, it doesn't yet need a complex, microservice-driven e
 
 The recommended core startup stack has the following components:
 
-![A block diagram that shows a core startup stack.](images/startup-stack-blocks.png)
+![A block diagram that shows a core startup stack.](images/startup-stack.png)
 
 ### App Server
 
@@ -64,7 +64,7 @@ You can see a sample core startup stack implementation [on GitHub](https://githu
 
 ## Related resources
 
-- [Architecture for startups](startip-architecture.md)
+- [Architecture for startups](startup-architecture.md)
 - [Best practices in cloud applications](../../best-practices/index-best-practices.md)
 - [Best practices for using content delivery networks (CDNs)](../../best-practices/cdn.md)
 - [Ten design principles for Azure applications](../design-principles/index.md)
