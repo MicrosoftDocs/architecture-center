@@ -203,7 +203,7 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 
 ### <a name="sql-migration"></a>SQL Database Migration Wizard
 
-[SQL Server Database Migration Wizard](https://www.mssqltips.com/sqlservertip/1989/sql-azure-migration-wizard/) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.  
+[Microsoft Data Migration](https://techcommunity.microsoft.com/t5/microsoft-data-migration/bg-p/MicrosoftDataMigration) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.  
 
 ![SQL Server Migration Wizard][2]
 

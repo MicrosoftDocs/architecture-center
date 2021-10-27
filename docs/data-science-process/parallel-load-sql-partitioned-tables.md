@@ -104,7 +104,7 @@ For more information, see [Create Partitioned Tables and Indexes](/sql/relationa
 
 ## Bulk import the data for each individual partition table
 
-* You may use BCP, BULK INSERT, or other methods such as [SQL Server Migration Wizard](https://www.mssqltips.com/sqlservertip/1989/sql-azure-migration-wizard/). The example provided uses the BCP method.
+* You may use BCP, BULK INSERT, or other methods such as [Microsoft Data Migration](https://techcommunity.microsoft.com/t5/microsoft-data-migration/bg-p/MicrosoftDataMigration). The example provided uses the BCP method.
 * [Alter the database](/sql/t-sql/statements/alter-database-transact-sql-set-options) to change transaction logging scheme to BULK_LOGGED to minimize overhead of logging, for example:
   
    ```sql
