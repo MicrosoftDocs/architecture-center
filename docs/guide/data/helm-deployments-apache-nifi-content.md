@@ -6,6 +6,8 @@ A chart is the packaging format that Helm uses. You enter configuration requirem
 
 From a single chart, you can deploy applications to environments that use different configurations. When you run [NiFi on Azure][Apache NiFi on Azure], you can use Helm charts to deploy different NiFi configurations on Kubernetes.
 
+Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+
 ## Architecture
 
 :::image type="content" source="./media/helm-deployments-apache-nifi-architecture.svg" alt-text="Diagram showing how a user configures a Helm chart to deploy an application on Kubernetes. Components include pods and volumes that Kubernetes creates." border="false" lightbox="./media/helm-deployments-apache-nifi-architecture-lightbox.png":::
@@ -33,7 +35,7 @@ From a single chart, you can deploy applications to environments that use differ
   - Configuration objects.
   - Data volumes. Pod storage is temporary.
   - A log volume.
-  - Pods that use an image to run NiFi in a container. Kubernetes uses a StatefulSet workload resource to manage the pods.
+  - Pods that use an image to run NiFi in a container. Kubernetes uses a *StatefulSet* workload resource to manage the pods.
   - A Kubernetes service that makes the NiFi UI available to users.
   - Ingress routes if the cluster uses ingress to make the UI available externally.
 
