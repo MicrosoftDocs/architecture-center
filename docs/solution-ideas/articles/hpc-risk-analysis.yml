@@ -3,7 +3,7 @@ metadata:
   title: HPC Risk Analysis Template - Solution Architecture
   titleSuffix: Azure Solution Ideas
   description: Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and TIBCO GridServer.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
