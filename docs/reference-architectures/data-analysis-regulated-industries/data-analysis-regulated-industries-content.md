@@ -326,24 +326,24 @@ The Data Analytical Workspace can be deployed automatically using the provided, 
 > If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
 -->
 
-The majority of components in this Architecture are based on Azure services with pay-as-you-go model.
-Services like Azure Databricks, Azure Data Factory, Azure Key Vault, Virtual Network, Azure Monitor have low or no cost until execution of the calculation operation is started.
+The majority of the components in this Architecture are based on Azure services using a pay-as-you-go model.
+Services such as Azure Databricks, Azure Data Factory, Azure Key Vault, Virtual Network, and Azure Monitor have low or no cost until certain operations are started.
 
-For Azure Data Lake Store and Azure Blob Storage cost depends on how much data is stored in the storage. Storage cost is not typically a factor for bigger enterprises unless you need to deal with tenths of terabytes and more.
+For Azure Data Lake Store and Azure Blob Storage the cost depends on how much data is stored. Typically, the storage cost is not a major factor for most enterprises unless the data is more than tens of terabytes.
 
-Cost for Azure SQL Database depends on SKU and might be flat cost or cost per use, size of SQL and amount of data.
+The cost for Azure SQL Database depends on the SKU, flat cost or cost per use, and the amount of data.
 
-Log Analytics Workspace can incur some significant cost for data collected and stored in the workspace. Consider enabling retention policies for the data stored in a workspace.
+Log Analytics Workspace can incur some significant cost for data collected and stored in the workspace. Consider enabling retention policies for the data stored in a workspace to control this cost.
 
-Data transfer cost incurs for traffic leaving Azure Datacenter (Egress). No any cost for ingress.
+There is a data transfer cost for traffic leaving an Azure datacenter (egress). There is no cost for ingress.
 
-VPN Connectivity like Azure Express Route or Site-2-Site connectivity is typically shared infrastructure cost.
+VPN Connectivity such as Azure Express Route or Site-2-Site connectivity is typically a shared infrastructure cost.
 
-Azure Data Factory Self Host Integration Runtime is typically hosted in the private data center and thus separated from Azure cost.
+The Azure Data Factory Self Host Integration Runtime is typically hosted in a private data center and thus separated from Azure cost.
 
-Consider Azure reservation options for Compute and Storage to optimize cost of the solution when needed.
+Consider Azure reservation options for compute and storage to optimize the cost of the solution when needed.
 
-PowerBI cost has per user model separated from Azure cost. PowerBI premium has different pricing model also separated from Azure cost.
+The PowerBI cost seperates models per user from the Azure cost. PowerBI premium has a different pricing model also separated from Azure cost.
 
 ## Next steps
 
