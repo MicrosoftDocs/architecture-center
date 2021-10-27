@@ -1,0 +1,82 @@
+---
+title: Architecture for startups
+titleSuffix: Azure Architecture Center
+description: Understand how to approach architecture when you're working in a startup.
+author: mootpointer
+ms.author: anharvey
+ms.date: 10/26/2021
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+ms.custom:
+  - fcp
+  - guide
+---
+
+## Architecture for startups
+
+Building a startup is a unique challenge. The core task is to find a place for an innovation in the market as a product or service. This process requires testing multiple assumptions that are built into the innovation. A successful startup must iterate through these assumptions, and grow and scale as their product gains product and market fit. After finding this fit, the startup must scale to meet market demands.
+
+The different stages in the life of a startup mean that developers, architects, and chief technical officers (CTOs) are responsible for distinct phases of development. These stages require fundamentally different approaches and different technology choices. Part of your role is to establish which phase your startup is in, and to choose the technologies and architectures that match that phase.
+
+## Innovation stages
+
+Kent Beck describes a [three-stage process](https://medium.com/@kentbeck_7670/fast-slow-in-3x-explore-expand-extract-6d4c94a7539) of software product innovation. Those stages are *explore*, *expand*, and *extract*. You can think about the different parts of this process as a graph:
+
+![A graph showing a sigmoid curve plotted against a y-axis "Certainty/Investment/Risk of Change" and an x-axis "Time". The graph has three areas highlighted: the initial portion before upward inflection labelled "Explore", the high growth part of the sigmoid curve labelled "Expand" and the plateau labelled "Extract".](images/explore-expand-extract.png)
+
+- The **Explore** stage starts with a low slope, where you're trying to find what works. Certainty is low, you only invest small amounts, and the risk from any changes you make is also low.
+
+- At some point, the graph rises more rapidly. This rapid growth is the **Expand** stage. Your certainty greatly increases, you invest much more, and you're much more aware of risks.
+
+- Finally, as the graph flattens out, you reach the **Extract** stage. The certainty, investment, and risk from change are all high, but the rate of growth has reached a plateau.
+
+## Explore
+
+When your startup is in the exploration stage, your imperative is to invest small amounts of time and effort on many different product ideas. The fact that most ideas won't be right drives exploration. Only by iterating and learning can you find product and market fit. By making many small bets, you aim to find a product idea that pays off.
+
+This stage requires discipline. It's easy to overinvest in an idea that you could test with less time and energy. A technologist finds it especially easy to fall into this trap. To make architectural choices that ease exploration, remember that you're exploring. You don't yet know if the current product idea is one that will scale.
+
+From an architecture perspective, you can choose services that optimize for speed, cost, and optionality. By using managed services and platforms as a service (PaaS) like Azure App Service, you can get started quickly without worrying about complex infrastructure. You can manage costs by choosing smaller instance sizes while you're exploring. Containers support developing with whatever tools make sense for you.
+
+### Build your first stack
+
+As with your first product version, your first technology stack should be firmly rooted in exploration. That means the technology stack must ease rapid product iteration without wasting effort. You don't want to spend time or effort on infrastructure or architecture that isn't required for answering current questions.
+
+Exploration means that you need to optimize for speed, cost, and optionality. Speed is about how fast you can build and move forward with an idea, or move onto the next idea. Cost is how much you're spending to run your infrastructure. Optionality is how fast you can change directions given the current architecture.
+
+Cost, speed, and optionality must be balanced. Too much focus on cost limits speed and optionality. Too much focus on speed can lead to increased costs and reduced optionality. Designing for too many options builds complexity, which increases costs and reduces speed.
+
+## Expand
+
+Once your startup finds growth through exploration, you shift gears to expansion. You focus on removing any blockages to your product's and company's continued growth. From a technical perspective, you solve infrastructure scale challenges and increase development velocity. The goals are to meet your new customers' needs and advance your product roadmap.
+
+### Extend your architecture
+
+As you iterate on your product, you'll inevitably find areas where your architecture needs extending. You might need to complete long-running tasks in the background, or handle frequent updates from internet-of-things (IoT) devices. You might need to add full-text search or artificial intelligence to your product.
+
+You might need architectural changes to accommodate items on your roadmap, but resist the temptation to make those changes too far ahead. Extensions risk adding complexity to your architecture and infrastructure costs to your balance sheet.
+
+In early startup stages, any architecture extension should be just-in-time. The extension should take only as much time and energy as needed to test the next hypothesis. Be ready to remove extensions to reduce complexity. Look for product features that your customers aren't using as opportunities to simplify your architecture and reduce your infrastructure spending.
+
+## Extract
+
+In the extraction phase, the pace of growth slows as you reach the limits of the market opportunity. Because you expanded through the previous phase, there's now a lot to lose, so you take a more cautious approach. Margin expansion, cost reduction, and efficiency improvements characterize the extraction phase. Extraction must be done carefully to ensure that you don't compromise the product for the customers you won in the expansion phase.
+
+### Handle growth and mature your stack
+
+Once a product achieves product and market fit, many demands direct its architecture. Increased usage might require infrastructure scaling to handle load. New enterprise compliance requirements might require greater isolation. These changes are common steps in maturing a successful application.
+
+Changes to handle growth and add maturity are different from extending architecture. These changes aren't functional requirements, but relate to unlocking scale. Increased scale can include net new customers, increased usage from existing customers, and customers with higher regulatory requirements.
+
+Resist the temptation to optimize prematurely. Make sure to take growth and maturation steps that can help you continue iterating and improving your product.
+
+## Next steps
+
+- See and deploy an example [Core startup stack architecture](core-startup-stack.md).
+
+## Related resources
+
+- [Best practices in cloud applications](../../best-practices/index-best-practices.md)
+- [Ten design principles for Azure applications](../design-principles/index.md)
+

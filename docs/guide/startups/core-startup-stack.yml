@@ -1,0 +1,32 @@
+### YamlMime:Architecture
+metadata:
+  title: Core startup stack architecture
+  titleSuffix: Azure Architecture Center
+  description: See an example and understand the components of a simple core startup stack architecture for a first MVP or prototype.
+  author: mootpointer
+  ms.author: anharvey
+  ms.date: 10/26/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.custom:
+    - fcp
+    - guide
+azureCategories:
+ - developer tools
+ - devops
+ - management-and-governance
+ - web
+products:
+  - azure-app-service
+  - azure-blob-storage
+  - azure-cdn
+  - azure-database-postgresql
+  - azure-monitor
+  - azure-virtual-networks
+name: Architecture for startups
+summary: See an example and understand the components of a simple core startup stack architecture for a first MVP or prototype.
+thumbnailUrl: /azure/architecture/browse/thumbs/core-startup-stack.png
+content: |
+   [!include[](core-startup-stack-content.md)]
+
