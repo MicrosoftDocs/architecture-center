@@ -2,7 +2,7 @@
 title: Azure control plane security
 description: Examine security considerations for Azure control plane. A control plane refers to the management of resources in your subscription.
 author: PageWriter-MSFT
-ms.date: 07/09/2019
+ms.date: 10/26/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -23,7 +23,7 @@ The term _control plane_ refers to the management of resources in your subscript
 
 Azure Resource Manager handles all control plane requests and applies restrictions that you specify through Azure role-based access control (Azure RBAC), Azure Policy, locks. Apply those restrictions based on the requirement of the organization.
 
-It is recommended to implement Infrastructure as Code, and to deploy application infrastructure via automation and CI/CD for consistency and auditing purposes.
+It's recommended to implement Infrastructure as Code, and to deploy application infrastructure through automation, and CI/CD for consistency and auditing purposes.
 
 ## Key points
 > [!div class="checklist"]
@@ -67,7 +67,7 @@ For example, assign security teams with the **Security Readers** permission that
 
 Unlike Azure role-based access control, management locks are used to apply a restriction across all users and roles.
 
-Critical infrastructure typically doesn't change often. Use management locks to prevent deletion or modification of a resource, resource group, or subscription. Lock in use cases where only specific roles and users with permissions should be able to delete, or modify resources. 
+Critical infrastructure typically doesn't change often. Use management locks to prevent deletion or modification of a resource, resource group, or subscription. Lock in use cases where only specific roles and users with permissions can delete, or modify resources.
 
 As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to `CanNotDelete` or `ReadOnly`. In the portal, the locks are called **Delete** and **Read-only**, respectively:
 
@@ -86,10 +86,12 @@ Set locks in the DevOps process carefully because modification locks can sometim
 
 - Restrict application infrastructure access to CI/CD only.
 - Use conditional access policies to restrict access to Microsoft Azure Management.
+- Configure role-based and resource-based authorization within [Azure AD](/azure/active-directory/).
 
 ## Learn more
 
-[Manage access to Azure management with Conditional Access](/azure/role-based-access-control/conditional-access-azure-management)
+- [Manage access to Azure management with Conditional Access](/azure/role-based-access-control/conditional-access-azure-management)
+- [Role-based and resource-based authorization](/azure/architecture/multitenant-identity/authorize)
 
 ## Next steps
 
@@ -97,7 +99,6 @@ Grant or deny access to a system by verifying whether the accessor has the permi
 
 > [!div class="nextstepaction"]
 > [Authentication](design-identity-authentication.md)
-
 
 ## Related links
 
