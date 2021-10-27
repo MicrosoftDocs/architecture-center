@@ -29,7 +29,7 @@ products:
 
 Building a startup is a unique challenge. The core task is to find a place for an innovation as a product or service in the market. This process requires testing multiple assumptions that are built into the innovation. A successful startup must iterate through these assumptions, and grow and scale as its product gains product and market fit. After finding this fit, the startup must scale to meet market demands.
 
-The different stages in the life of a startup mean developers, architects, and chief technical officers (CTOs) are responsible for distinct phases of development. These stages require fundamentally different approaches and different technology choices. Part of your role is to establish which phase your startup is in. Choose the technologies and architectures that match that phase.
+The different startup life stages mean developers, architects, and chief technical officers (CTOs) are responsible for distinct phases of development. These stages require fundamentally different approaches and different technology choices. Part of your role is to establish which phase your startup is in. Choose the technologies and architectures that match that phase.
 
 ## Innovation stages
 
@@ -67,13 +67,13 @@ Once your startup finds growth through exploration, you shift gears to expansion
 
 As you iterate on your product, you'll inevitably find areas where your architecture needs extending. You might need to complete long-running tasks in the background, or handle frequent updates from internet-of-things (IoT) devices. You might need to add full-text search or artificial intelligence to your product.
 
-You might need architectural changes to accommodate items on your roadmap. Resist the temptation to make those changes too far ahead. Extensions risk adding complexity to your architecture and infrastructure costs to your balance sheet.
+You might need architectural changes to accommodate items on your roadmap. Resist the temptation to make those changes too far in advance. Extensions risk adding complexity to your architecture and infrastructure costs to your balance sheet.
 
 In early startup stages, any architecture extension should be just-in-time. The extension should take only as much time and energy as needed to test the next hypothesis. Be ready to remove extensions to reduce complexity. Look for product features that your customers aren't using as opportunities to simplify your architecture and reduce your infrastructure spending.
 
 ## Extract
 
-In the extraction phase, the pace of growth slows as you reach the limits of the market opportunity. Because you expanded through the previous phase, there's now a lot to lose, so you take a more cautious approach. Margin expansion, cost reduction, and efficiency improvements characterize the extraction phase. Extraction must be done carefully to ensure that you don't compromise the product for the customers you won in the expansion phase.
+In the extraction phase, the pace of growth slows as you reach the limits of the market opportunity. Because you expanded through the previous phase, there's now a lot to lose, so you take a more cautious approach. Margin expansion, cost reduction, and efficiency improvements characterize the extraction phase. You must do extraction carefully to ensure that you don't compromise the product for the customers you won in the expansion phase.
 
 ### Handle growth and mature your stack
 
