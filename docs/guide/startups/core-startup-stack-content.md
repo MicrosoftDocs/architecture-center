@@ -1,14 +1,14 @@
 Many lessons you learn in larger companies aren't directly applicable to a startup's first stack. In a product's initial [explore](startup-architecture.md#explore) stage, you need to optimize deployment for speed, cost, and *optionality*. Optionality refers to how fast you can change directions within a given architecture.
 
-A service-oriented or microservices architecture might work for a business in the [expand](startup-architecture.md#expand) or [extract](startup-architecture.md#extract) product development phases. This type of deployment architecture is rarely right for a startup that hasn't yet found product/market fit or commercial traction.
+A business in the [expand](startup-architecture.md#expand) or [extract](startup-architecture.md#extract) phases of product development  might use a service-oriented or microservices architecture. This type of deployment architecture is rarely right for a startup that hasn't yet found product/market fit or commercial traction.
 
-For a core startup deployment stack, a simple monolithic design is best. This design limits the time spent managing infrastructure, while still providing ample ability to scale as the startup wins more customers. This article presents an example of a simple core startup stack and discusses its components.
+For a core startup stack, a simple monolithic design is best. This design limits the time spent managing infrastructure, while providing ample ability to scale as the startup wins more customers. This article presents an example of a simple core startup stack, and discusses its components.
 
 ## Architecture
 
 A startup, Contoso, has built an application prototype with a [Rails](https://rubyonrails.org) back end and a [React](https://reactjs.org) front end written in [TypeScript](https://www.typescriptlang.org). Contoso has been running demos on their laptop. Now they want to deploy their app for their first customer sales meetings.
 
-While the app is ambitious, it doesn't yet need a complex, microservice-driven enterprise architecture. Contoso opted for a simpler monolithic design that includes the recommended startup stack components.
+While the app is ambitious, it doesn't yet need a complex, microservice-driven architecture. Contoso opted for a simple monolithic design that includes the recommended startup stack components.
 
 ![Diagram that shows the core startup stack architecture Contoso used to deploy their application.](images/startup-stack-architecture.png)
 
@@ -26,7 +26,7 @@ In this core startup stack architecture:
 
 ## Core startup stack components
 
-A complex stack can generate bugs that require constant attention. A sophisticated architecture can detract from building your product. Bugs aren't caused by complexity, but a complex stack make it easier to ship bugs. Not all sophisticated architectures are a waste of energy, but they waste your resources if you haven't yet found product/market fit. A first startup stack should be simple and get out of your way, so you can concentrate on product development.
+A complex stack can generate bugs that require constant attention. A sophisticated architecture might detract from building your product. Bugs aren't caused by complexity, but a complex stack makes it easier to ship bugs. Not all sophisticated architectures are a waste of energy, but they waste your resources if you haven't yet found product/market fit. A first startup stack should be simple and get out of your way, so you can concentrate on product development.
 
 The following simple diagram shows the recommended core startup stack. These components are enough to get your product off the ground and into the hands of your customers. For 80% of startups, this stack is all you need to test the basic hypotheses built into your product. Startups working in machine learning, internet of things (IoT), or highly regulated environments might require more components.
 
@@ -34,7 +34,7 @@ The following simple diagram shows the recommended core startup stack. These com
 
 ### CDN
 
-With few customers to start, a CDN might seem like a premature optimization. However, adding a CDN to a product already in production can have unexpected side effects, so it's best to implement a CDN up front. A CDN caches static content closer to your customers, and provides a façade behind which you can iterate on your APIs and your architecture.
+With few customers to start, a CDN might seem premature. However, adding a CDN to a product already in production can have unexpected side effects. It's best to implement a CDN up front. A CDN caches static content closer to your customers, and provides a façade behind which you can iterate on your APIs and your architecture.
 
 ### App Server
 
