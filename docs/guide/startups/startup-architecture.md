@@ -12,10 +12,10 @@ ms.custom:
   - fcp
   - guide
 categories:
- - developer-tools
- - devops
- - management-and-governance
- - web
+  - developer-tools
+  - devops
+  - management-and-governance
+  - web
 products:
   - azure-app-service
   - azure-blob-storage
@@ -27,9 +27,9 @@ products:
 
 # Architecture for startups
 
-Building a startup is a unique challenge. The core task is to find a place for an innovation in the market as a product or service. This process requires testing multiple assumptions that are built into the innovation. A successful startup must iterate through these assumptions, and grow and scale as their product gains product and market fit. After finding this fit, the startup must scale to meet market demands.
+Building a startup is a unique challenge. The core task is to find a place for an innovation as a product or service in the market. This process requires testing multiple assumptions that are built into the innovation. A successful startup must iterate through these assumptions, and grow and scale as its product gains product and market fit. After finding this fit, the startup must scale to meet market demands.
 
-The different stages in the life of a startup mean that developers, architects, and chief technical officers (CTOs) are responsible for distinct phases of development. These stages require fundamentally different approaches and different technology choices. Part of your role is to establish which phase your startup is in, and to choose the technologies and architectures that match that phase.
+The different stages in the life of a startup mean developers, architects, and chief technical officers (CTOs) are responsible for distinct phases of development. These stages require fundamentally different approaches and different technology choices. Part of your role is to establish which phase your startup is in. Choose the technologies and architectures that match that phase.
 
 ## Innovation stages
 
@@ -49,7 +49,7 @@ When your startup is in the exploration stage, your imperative is to invest smal
 
 This stage requires discipline. It's easy to overinvest in an idea that you could test with less time and energy. A technologist finds it especially easy to fall into this trap. To make architectural choices that ease exploration, remember that you're exploring. You don't yet know if the current product idea is one that will scale.
 
-From an architecture perspective, you can choose services that optimize for speed, cost, and optionality. By using managed services and platforms as a service (PaaS) like Azure App Service, you can get started quickly without worrying about complex infrastructure. You can manage costs by choosing smaller instance sizes while you're exploring. Containers support developing with whatever tools make sense for you.
+From an architecture perspective, choose services that optimize for speed, cost, and optionality. By using managed services and platforms as a service (PaaS) like Azure App Service, get started quickly without worrying about complex infrastructure. Manage costs by choosing smaller instance sizes while you're exploring. Containers support developing with whatever tools make sense for you.
 
 ### Build your first stack
 
@@ -67,7 +67,7 @@ Once your startup finds growth through exploration, you shift gears to expansion
 
 As you iterate on your product, you'll inevitably find areas where your architecture needs extending. You might need to complete long-running tasks in the background, or handle frequent updates from internet-of-things (IoT) devices. You might need to add full-text search or artificial intelligence to your product.
 
-You might need architectural changes to accommodate items on your roadmap, but resist the temptation to make those changes too far ahead. Extensions risk adding complexity to your architecture and infrastructure costs to your balance sheet.
+You might need architectural changes to accommodate items on your roadmap. Resist the temptation to make those changes too far ahead. Extensions risk adding complexity to your architecture and infrastructure costs to your balance sheet.
 
 In early startup stages, any architecture extension should be just-in-time. The extension should take only as much time and energy as needed to test the next hypothesis. Be ready to remove extensions to reduce complexity. Look for product features that your customers aren't using as opportunities to simplify your architecture and reduce your infrastructure spending.
 
@@ -77,9 +77,9 @@ In the extraction phase, the pace of growth slows as you reach the limits of the
 
 ### Handle growth and mature your stack
 
-Once a product achieves product and market fit, many demands direct its architecture. Increased usage might require infrastructure scaling to handle load. New enterprise compliance requirements might require greater isolation. These changes are common steps in maturing a successful application.
+Once a product achieves product and market fit, many demands drive its architecture. Increased usage might require infrastructure scaling to handle load. New enterprise compliance requirements might require greater isolation. These changes are common steps in maturing a successful application.
 
-Changes to handle growth and add maturity are different from extending architecture. These changes aren't functional requirements, but relate to unlocking scale. Increased scale can include net new customers, increased usage from existing customers, and customers with higher regulatory requirements.
+Changes to handle growth and add maturity are different from extending architecture. These changes aren't functional requirements, but relate to unlocking scale. Increased scale can come from net new customers, increased usage from existing customers, and customers with higher regulatory requirements.
 
 Resist the temptation to optimize prematurely. Make sure to take growth and maturation steps that can help you continue iterating and improving your product.
 
