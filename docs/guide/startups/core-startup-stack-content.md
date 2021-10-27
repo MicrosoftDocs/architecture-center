@@ -1,14 +1,18 @@
-Many lessons you learn in larger companies aren't directly applicable to a startup's first stack. A service-oriented or microservices architecture might work for a business in the [expand](startup-architecture.md#expand) or [extract](startup-architecture.md#extract) phases of product development. This type of architecture is rarely right for a startup that hasn't yet found product/market fit or commercial traction.
+Many lessons you learn in larger companies aren't directly applicable to a startup's first stack. In a product's initial [explore](startup-architecture.md#explore) stage, you optimize deployment for speed, cost, and options.
 
-In a product's initial [explore](startup-architecture.md#explore) stage, you optimize deployment for speed, cost, and optionality. This article presents an example and discusses the components of a simple core startup deployment stack.
+A service-oriented or microservices architecture might work for a business in the [expand](startup-architecture.md#expand) or [extract](startup-architecture.md#extract) product development phases. This type of deployment architecture is rarely right for a startup that hasn't yet found product/market fit or commercial traction.
+
+For a core startup stack, a simpler monolithic design limits the time spent managing infrastructure. The design still provides ample ability to scale as the startup wins more customers. This article presents an example and discusses the components of a simple core startup deployment stack.
 
 ## Architecture
 
-A startup, Contoso, has built an early application prototype with a [Rails](https://rubyonrails.org) back end and a [React](https://reactjs.org) front end written in [TypeScript](https://www.typescriptlang.org). Contoso has been running demos on their laptop, but now it's time to deploy their app for the first customer sales meetings.
+A startup, Contoso, has built an application prototype with a [Rails](https://rubyonrails.org) back end and a [React](https://reactjs.org) front end written in [TypeScript](https://www.typescriptlang.org). Contoso has been running demos on their laptop. Now they want to deploy their app for their first customer sales meetings.
 
-While the app is ambitious, it doesn't yet need a complex, microservice-driven enterprise architecture. Contoso opted for a simpler monolithic design that limits the time spent managing infrastructure. The design still provides ample ability to scale as the startup wins more customers.
+While the app is ambitious, it doesn't yet need a complex, microservice-driven enterprise architecture. Contoso opted for a simple monolithic design that includes the recommended startup stack components.
 
 ![Diagram that shows the core startup stack architecture Contoso used to deploy their application.](images/startup-stack-architecture.png)
+
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/Startup%20Stack%20Architecture.vsdx) of this architecture.*
 
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) segments network traffic and keeps internal services protected from threats on the open internet. Application servers use [virtual network integration](/azure/app-service/web-sites-integrate-with-vnet) to communicate with the database without exposing it to the internet.
 - [Azure App Service](/azure/app-service/overview) provides a simple app server to deploy scalable applications without configuring servers, load balancers, or other infrastructure.
@@ -20,9 +24,9 @@ While the app is ambitious, it doesn't yet need a complex, microservice-driven e
 
 ## Core startup stack components
 
-A complex stack can lead to bugs that require constant attention, or can be so sophisticated that it detracts from building your product. Bugs aren't caused by complexity, but a complex stack makes it easier to ship bugs. Not all sophisticated architectures are a waste of energy, but they waste your resources if you haven't yet found product/market fit. A first startup stack should be simple and get out of your way, so you can concentrate on product development.
+A complex stack can lead to bugs that require constant attention, or can be so sophisticated that it detracts from building your product. Bugs aren't caused by complexity, but a complex stack can make it easier to ship bugs. Not all sophisticated architectures are a waste of energy, but they waste your resources if you haven't yet found product/market fit. A first startup stack should be simple and get out of your way, so you can concentrate on product development.
 
-The following simple diagram shows the core startup stack. These recommended components are just enough to get your product off the ground and into the hands of your customers. For 80% of startups, this stack is all you need to test the basic hypotheses built into your product. Startups working in machine learning, internet of things (IoT), or highly regulated environments might require more components.
+The following simple diagram shows the recommended core startup stack. These are just enough components to get your product off the ground and into the hands of your customers. For 80% of startups, this stack is all you need to test the basic hypotheses built into your product. Startups working in machine learning, internet of things (IoT), or highly regulated environments might require more components.
 
 ![A block diagram that shows a core startup stack.](images/startup-stack.png)
 

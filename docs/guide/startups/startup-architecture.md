@@ -29,7 +29,7 @@ products:
 
 Building a startup is a unique challenge. The core task is to find a place for an innovation as a product or service in the market. This process requires testing multiple assumptions that are built into the innovation. A successful startup must iterate through these assumptions, and grow and scale as its product gains product and market fit. After finding this fit, the startup must scale to meet market demands.
 
-The different startup life stages mean developers, architects, and chief technical officers (CTOs) are responsible for distinct phases of development. These stages require fundamentally different approaches and different technology choices. Part of your role is to establish which phase your startup is in. Choose the technologies and architectures that match that phase.
+Developers, architects, and chief technical officers (CTOs) are responsible for distinct phases of development in the different startup life stages. These stages require fundamentally different approaches and different technology choices. Part of the task is to establish which phase your startup is in. Choose the technologies and architectures that match that phase.
 
 ## Innovation stages
 
@@ -49,15 +49,15 @@ When your startup is in the exploration stage, your imperative is to invest smal
 
 This stage requires discipline. It's easy to overinvest in an idea that you could test with less time and energy. A technologist finds it especially easy to fall into this trap. To make architectural choices that ease exploration, remember that you're exploring. You don't yet know if the current product idea is one that will scale.
 
-From an architecture perspective, choose services that optimize for speed, cost, and optionality. By using managed services and platforms as a service (PaaS) like Azure App Service, get started quickly without worrying about complex infrastructure. Manage costs by choosing smaller instance sizes while you're exploring. Containers support developing with whatever tools make sense for you.
+From an architecture perspective, choose services that optimize for speed, cost, and options. By using managed services and platforms as a service (PaaS) like Azure App Service, get started quickly without worrying about complex infrastructure. Manage costs by choosing smaller instance sizes while you're exploring. Containers support developing with whatever tools make sense for you.
 
 ### Build your first stack
 
 As with your first product version, your first technology stack should be firmly rooted in exploration. That means the technology stack must ease rapid product iteration without wasting effort. You don't want to spend time or effort on infrastructure or architecture that isn't required for answering current questions.
 
-Exploration means that you need to optimize for speed, cost, and optionality. Speed is about how fast you can build and move forward with an idea, or move onto the next idea. Cost is how much you're spending to run your infrastructure. Optionality is how fast you can change directions given the current architecture.
+Exploration means that you need to optimize for speed, cost, and options. Speed is about how fast you can build and move forward with an idea, or move onto the next idea. Cost is how much you're spending to run your infrastructure. Optionality determines how fast you can change directions within the current architecture.
 
-Cost, speed, and optionality must be balanced. Too much focus on cost limits speed and optionality. Too much focus on speed can lead to increased costs and reduced optionality. Designing for too many options builds complexity, which increases costs and reduces speed.
+You should balance cost, speed, and options. Too much focus on cost limits speed and optionality. Too much focus on speed can lead to increased costs and fewer options. Designing for too many options builds complexity, which increases costs and reduces speed.
 
 ## Expand
 
@@ -73,13 +73,13 @@ In early startup stages, any architecture extension should be just-in-time. The 
 
 ## Extract
 
-In the extraction phase, the pace of growth slows as you reach the limits of the market opportunity. Because you expanded through the previous phase, there's now a lot to lose, so you take a more cautious approach. Margin expansion, cost reduction, and efficiency improvements characterize the extraction phase. You must do extraction carefully to ensure that you don't compromise the product for the customers you won in the expansion phase.
+In the extraction phase, the pace of growth slows as you reach the limits of the market opportunity. Because you expanded through the previous phase, there's now a lot to lose, so you take a more cautious approach. Margin expansion, cost reduction, and efficiency improvements characterize the extraction phase. You must do extraction carefully to ensure you don't compromise the product for the customers you won in the expansion phase.
 
 ### Handle growth and mature your stack
 
 Once a product achieves product and market fit, many demands drive its architecture. Increased usage might require infrastructure scaling to handle load. New enterprise compliance requirements might require greater isolation. These changes are common steps in maturing a successful application.
 
-Changes to handle growth and add maturity are different from extending architecture. These changes aren't functional requirements, but relate to unlocking scale. Increased scale can come from net new customers, increased usage from existing customers, and customers with higher regulatory requirements.
+Changes you make to handle growth and add maturity are different from extending architecture. These changes aren't functional requirements, but relate to unlocking scale. Increased scale can come from net new customers, increased usage from existing customers, and customers with higher regulatory requirements.
 
 Resist the temptation to optimize prematurely. Make sure to take growth and maturation steps that can help you continue iterating and improving your product.
 
