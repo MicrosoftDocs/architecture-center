@@ -92,13 +92,13 @@ One advantage of cloud computing is the ability to use the PaaS model. And in so
 
 Click the following links for guidance in provisioning:
 
-- [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc/)
+- [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc)
 - [Azure Arc Jumpstart for templates](https://github.com/microsoft/azure_arc) (in GitHub)
-- [Azure Stack HCI pricing](https://azure.microsoft.com/pricing/details/azure-stack/hci/)
+- [Azure Stack HCI pricing](https://azure.microsoft.com/pricing/details/azure-stack/hci)
    - Azure Stack HCI can reduce costs by saving in server, storage, and network infrastructure.
-- [Azure VMware Solution pricing - Run your VMware workloads natively on Azure](https://azure.microsoft.com/pricing/details/azure-vmware/)
+- [Azure VMware Solution pricing - Run your VMware workloads natively on Azure](https://azure.microsoft.com/pricing/details/azure-vmware)
    - Run your VMware workloads natively on Azure.
-- [Azure Stack Hub pricing](https://azure.microsoft.com/pricing/details/azure-stack/hub/)
+- [Azure Stack Hub pricing](https://azure.microsoft.com/pricing/details/azure-stack/hub)
 
 ## Monitor and optimize
 
@@ -108,7 +108,7 @@ Treat cost monitoring and optimization as a process, rather than a point-in-time
    - Bring all your resources into a single system so you can organize and inventory through a variety of Azure scopes, such as Management groups, Subscriptions, and Resource Groups.
    - Create, apply, and enforce standardized and custom tags to keep track of resources.
    - Build powerful queries and search your global portfolio with Azure Resource Graph.
-- With [Azure Stack HCI](https://azure.microsoft.com/pricing/details/azure-stack/hci/)
+- With [Azure Stack HCI](https://azure.microsoft.com/pricing/details/azure-stack/hci)
    - Costs for datacenter real estate, electricity, personnel, and servers can be reduced or eliminated.
    - Costs are now part of OPEX, which can be scaled as needed.
 
