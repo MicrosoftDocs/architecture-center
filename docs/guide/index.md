@@ -1,5 +1,5 @@
 ---
-title: Azure Application Architecture Guide
+title: Azure application architecture fundamentals
 description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
 author: EdPrice-MSFT
 ms.author: pnp
@@ -11,9 +11,9 @@ ms.custom:
   - guide
 ---
 
-# Azure Application Architecture Guide
+# Azure application architecture fundamentals
 
-This guide presents a structured approach for designing applications on Azure that are scalable, secure, resilient, and highly available. The guide is based on proven practices that we have learned from customer engagements.
+This library of content presents a structured approach for designing applications on Azure that are scalable, secure, resilient, and highly available. The guidance is based on proven practices that we have learned from customer engagements.
 
 ## Introduction
 
@@ -51,9 +51,9 @@ Immutable infrastructure<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-## How this guide is structured
+## How this guidance is structured
 
-The Azure Application Architecture Guide is organized as a series of steps, from the architecture and design to implementation. For each step, there is supporting guidance that will help you with the design of your application architecture.
+The Azure application architecture fundamentals guidance is organized as a series of steps, from the architecture and design to implementation. For each step, there is supporting guidance that will help you with the design of your application architecture.
 
 ![Diagram that shows the structure of this guide, with the sections of this article represented in a flow diagram.](./images/a3g.svg)
 

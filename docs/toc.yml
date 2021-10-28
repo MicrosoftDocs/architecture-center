@@ -1260,6 +1260,8 @@ items:
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
+              - name: Determine customer lifetime and churn
+                href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
               - name: Enterprise-grade conversational bot
@@ -1530,7 +1532,7 @@ items:
                     maintainContext: true
               - name: VM security baselines
                 items:
-                  - name: Security baseline for VM Scale Sets
+                  - name: Security baseline for VM scale sets
                     href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
                     maintainContext: true
                   - name: Security baseline for Linux VMs
@@ -1541,7 +1543,7 @@ items:
                     maintainContext: true
               - name: Azure VMware Solution guidance
                 items:
-                  - name: API Management for Azure VMWare Solution
+                  - name: API Management for Azure VMware Solution
                     href: /azure/azure-vmware/concepts-api-management
                     maintainContext: true
                   - name: BCDR for Azure VMware Solution
@@ -1616,7 +1618,7 @@ items:
           - name: Guides
             items:
               - name: AKS cluster best practices
-                href: /Azure/aks/best-practices
+                href: /azure/aks/best-practices
                 maintainContext: true
               - name: AKS day-2 operations guide
                 items:
@@ -2083,6 +2085,8 @@ items:
                     href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
                   - name: Serverless computing LOB apps
                     href: solution-ideas/articles/onboarding-customers-with-a-cloud-native-serverless-architecture.yml
+                  - name: Transit Hub pub-sub messaging system
+                    href: solution-ideas/articles/transit-hub.yml
       - name: DevOps
         items:
           - name: Guides
@@ -2380,6 +2384,7 @@ items:
                 maintainContext: true
               - name: Security baseline for Logic Apps
                 href: /security/benchmark/azure/baselines/logic-apps-security-baseline
+                maintainContext: true
           - name: Architectures
             items:
               - name: Basic enterprise integration on Azure
@@ -2539,7 +2544,7 @@ items:
               - name: Mainframe migration framework
                 items:
                   - name: Mainframe migration overview
-                    href: /azure/cloud-adoption-framework/infrastructure/mainframe-migration
+                    href: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/index
                     maintainContext: true
                   - name: Mainframe myths and facts
                     href: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/myths-and-facts
@@ -2590,6 +2595,8 @@ items:
                     href: example-scenario/mainframe/migrate-ibm-i-series-applications.yml
                   - name: Refactor IBM z/OS mainframe CF
                     href: reference-architectures/zos/refactor-zos-coupling-facility.yml
+                  - name: Refactor Mainframe Applications with Advanced
+                    href: example-scenario/mainframe/refactor-mainframe-applications-advanced.yml
                   - name: Refactor mainframe with Raincode
                     href: reference-architectures/app-modernization/raincode-reference-architecture.yml
                   - name: Unisys CPF rehost using virtualization

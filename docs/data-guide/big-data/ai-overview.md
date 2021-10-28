@@ -165,7 +165,7 @@ ready for use right away. For example, you can add a component in Microsoft
 Power Apps based on a prebuilt model that recognizes contact information from
 business cards.
 
-- [Power Apps on Azure](https://azure.microsoft.com/products/powerapps/)
+- [Power Apps on Azure](https://powerapps.microsoft.com)
 
 - [AI Builder documentation](/ai-builder/)
 
