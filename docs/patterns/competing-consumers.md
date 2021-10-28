@@ -111,7 +111,7 @@ private string serviceBusConnectionString = ...;
     {
      // Create a new message to send to the queue
      string messageBody = $"Message {msgNumber}";
-     var message = new ServiceBusMessage(Encoding.UTF8.GetBytes(messageBody));
+     var message = new ServiceBusMessage(messageBody);
 
      // Write the body of the message to the console
      this._logger.LogInformation($"Sending message: {messageBody}");
