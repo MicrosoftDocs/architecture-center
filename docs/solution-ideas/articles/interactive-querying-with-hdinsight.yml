@@ -2,8 +2,8 @@
 metadata:
   title: Interactive querying with HDInsight
   titleSuffix: Azure Solution Ideas
-  description: Perform fast, interactive SQL queries at scale over structured or unstructured data with Apache Hive Live Long And Process (LLAP).
-  author: doodlemania2
+  description: Use Apache Hive Live Long And Process (LLAP) to perform fast, interactive SQL queries at scale, over structured or unstructured data.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -22,7 +22,7 @@ metadata:
 name: Interactive querying with HDInsight
 azureCategories:
   - databases
-summary: Perform fast, interactive SQL queries at scale over structured or unstructured data with Apache Hive Live Long And Process (LLAP).
+summary: Use Apache Hive Live Long And Process (LLAP) to perform fast, interactive SQL queries at scale, over structured or unstructured data.
 products:
   - azure-data-factory
   - azure-data-lake-storage
