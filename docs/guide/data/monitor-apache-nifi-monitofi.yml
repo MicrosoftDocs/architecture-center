@@ -2,10 +2,10 @@
 metadata:
   title: Apache NiFi monitoring with MonitoFi
   titleSuffix: Azure Architecture Center
-  description: Monitor Apache NiFi on Azure by using MonitoFi. This tool sends alerts and displays health and performance information in dashboards.
-  author: JKirsch1
-  ms.author: v-jenkir
-  ms.date: 10/21/2021
+  description: Monitor deployments of Apache NiFi on Azure by using MonitoFi. This tool sends alerts and displays health and performance information in dashboards.
+  author: MuazmaZ
+  ms.author: muzahid
+  ms.date: 10/28/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -21,7 +21,7 @@ products:
   - azure-container-registry
   - azure-monitor
 name: Apache NiFi monitoring with MonitoFi
-summary: Monitor Apache NiFi on Azure by using MonitoFi. This tool sends alerts and displays health and performance information in dashboards.
+summary: Monitor deployments of Apache NiFi on Azure by using MonitoFi. This tool sends alerts and displays health and performance information in dashboards.
 thumbnailUrl: /azure/architecture/browse/thumbs/monitor-apache-nifi-monitofi-architecture-thumbnail.png
 content: |
   [!include[](monitor-apache-nifi-monitofi-content.md)]

@@ -4,7 +4,7 @@ Helm *charts* provide a solution for managing the manifests. Helm is the package
 
 A chart is the packaging format that Helm uses. You enter configuration requirements into chart files. Helm keeps track of each chart's history and versions. Helm then uses charts to generate Kubernetes manifest files.
 
-From a single chart, you can deploy applications to environments that use different configurations. When you run [NiFi on Azure][Apache NiFi on Azure], you can use Helm charts to deploy different NiFi configurations on Kubernetes.
+From a single chart, you can deploy applications that use different configurations. When you run [NiFi on Azure][Apache NiFi on Azure], you can use Helm charts to deploy different NiFi configurations on Kubernetes.
 
 Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
 
@@ -14,9 +14,9 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 
 *Download an [SVG file][SVG file of architecture diagram] of this architecture.*
 
-- A Helm chart contains a `values.yaml` file. That file lists input values that users can configure.
+- A Helm chart contains a `values.yaml` file. That file lists input values that users can edit.
 
-- A user enters information into a chart, including:
+- A user adjusts settings in a chart, including values for:
 
   - Volume sizes.
   - The number of pods.
@@ -56,13 +56,13 @@ To run an application on Kubernetes, you run a pod. This basic unit runs differe
 Kubernetes offers two solutions for managing pods that run an application like NiFi:
 
 - A *ReplicaSet*, which maintains a stable set of the replica pods that run at any given time. You often use a ReplicaSet to guarantee the availability of a specified number of identical pods.
-- A *StatefulSet*, or the workload API object that you use to manage stateful applications. A StatefulSet manages pods that are based on an identical container specification. Kubernetes creates these pods from the same specification. But these pods aren't interchangeable. Each pod has a persistent identifier that it maintains across rescheduling.
+- A *StatefulSet*, which is the workload API object that you use to manage stateful applications. A StatefulSet manages pods that are based on an identical container specification. Kubernetes creates these pods from the same specification. But these pods aren't interchangeable. Each pod has a persistent identifier that it maintains across rescheduling.
 
-Since you use NiFi to manage data, a StatefulSet provides the best pod-management solution for NiFi deployments.
+Since you use NiFi to manage data, a StatefulSet provides the best solution for NiFi deployments.
 
 ### Data disks
 
-For disk usage, consider disk striping and using multiple disks for repositories. In test deployments that used virtual machine scale sets, this approach worked best. The following excerpt from `nifi.properties` shows a disk usage configuration:
+For disk usage, consider using a striped set of disks for repositories. In test deployments that used virtual machine scale sets, this approach worked best. The following excerpt from `nifi.properties` shows a disk usage configuration:
 
 ```config
 nifi.flowfile.repository.directory=/data/partition1/flowfiles
@@ -70,7 +70,7 @@ nifi.provenance.repository.directory.stripe1=/data/partition1/provenancenifi.pro
 nifi.content.repository.directory.stripe3=/data/partition3/content
 ```
 
-This configuration uses three volumes of equal size. You can adjust the values and the striping to meet your system's requirements.
+This configuration uses three volumes of equal size. You can adjust the values and the striping to meet your system requirements.
 
 ### ConfigMaps
 
@@ -80,7 +80,7 @@ Kubernetes offers *ConfigMaps* for storing non-confidential data. Kubernetes use
 
 In secured instances, NiFi uses authentication and authorization. NiFi manages this information in file system files. Specifically, each cluster node needs to maintain an `authorizations.xml` file and a `users.xml` file. All members need to be able to write to these files. And each node in the cluster needs to have an identical copy of this information. Otherwise, the cluster goes out of sync and breaks down.
 
-To meet these conditions, you can copy these files from the first member of the cluster to every member that comes into existence. Each new member then maintains their own copies. Pods generally don't have the authorization that they need to copy content from another pod. But a Kubernetes *ServiceAccount* provides a way for pods to get that authorization.
+To meet these conditions, you can copy these files from the first member of the cluster to every member that comes into existence. Each new member then maintains its own copies. Pods generally don't have authorization to copy content from another pod. But a Kubernetes *ServiceAccount* provides a way to get authorization.
 
 ### Services
 
@@ -98,12 +98,12 @@ To configure secured NiFi clusters, you need to store credentials. Kubernetes se
 
 You can use a public or private load balancer or an ingress controller to expose a NiFi cluster. When you use Helm charts for this implementation, two configurations are available:
 
-- An unsecured NiFi cluster is accessible through an HTTP URL without user authentication or authorization.
-- A secured NiFi cluster is accessible through an HTTPS URL. This kind of cluster is secured with TLS. When you configure secured clusters, you can provide your own certificates. The charts can also generate the certificates. For this purpose, the charts use a NiFi toolkit that provides a self-signed Certificate Authority (CA).
+- An unsecured NiFi cluster that's accessible through an HTTP URL without user authentication or authorization.
+- A secured NiFi cluster that's accessible through an HTTPS URL. This kind of cluster is secured with TLS. When you configure secured clusters, you can provide your own certificates. Alternatively, the charts can generate the certificates. For this purpose, the charts use a NiFi toolkit that provides a self-signed Certificate Authority (CA).
 
 If you configure a NiFi cluster to run as a secured cluster with TLS communication, you need to turn on user authentication. Use one of the following supported user authentication methods:
 
-- Certificated-based user authentication. Users are authenticated by the certificate that they present to the NiFi UI. To use this kind of user authentication system, add the CA's public certificate to the NiFi deployment.
+- Certificate-based user authentication. Users are authenticated by the certificate that they present to the NiFi UI. To use this kind of user authentication system, add the CA's public certificate to the NiFi deployment.
 - LDAP-based user authentication. An LDAP server authenticates user credentials. When you deploy the chart, provide information about the LDAP server and the information tree.
 - OpenID-based user authentication. Users provide information to the OpenID server to configure the deployment.
 
@@ -111,10 +111,10 @@ If you configure a NiFi cluster to run as a secured cluster with TLS communicati
 
 To optimize resource usage, use these Helm options to configure CPU and memory values:
 
-- The `request` option specifies the initial amount of the resource that the container requests.
-- The `limit` option specifies the maximum amount of the resource that the container should use.
+- The `request` option, which specifies the initial amount of the resource that the container requests
+- The `limit` option, which specifies the maximum amount of the resource that the container can use
 
-When you configure NiFi, take into account your system's memory configuration. Because NiFi is a Java application, you should adjust settings like the minimum and maximum java virtual machine (JVM) memory values. Use the following arguments to adjust these configurations:
+When you configure NiFi, consider your system's memory configuration. Because NiFi is a Java application, you should adjust settings like the minimum and maximum java virtual machine (JVM) memory values. Use the following settings:
 
 - `jvmMinMemory`
 - `jvmMaxMemory`
@@ -125,7 +125,7 @@ When you configure NiFi, take into account your system's memory configuration. B
 
 ## Security
 
-Use a Kubernetes security context to improve the security of the underlying containers that run the NiFi binary. A security context manages access to those containers and their pods. Through a security context, you can make it possible for non-root users to run the containers.
+Use a Kubernetes security context to improve the security of the underlying containers that run the NiFi binary. A security context manages access to those containers and their pods. Through a security context, you can grant non-root users permissions to run the containers.
 
 Other uses of security contexts include:
 
@@ -138,7 +138,7 @@ Other uses of security contexts include:
 Kubernetes containers are the basic units that run NiFi binaries. To configure a NiFi cluster, focus on the image that you use to run these containers. You have two options for this image:
 
 - Use the standard NiFi image to run the NiFi chart. The Apache NiFi community supplies that image. But you need to add a `kubectl` binary to the containers to configure secured clusters.
-- Use a custom image. If you take this approach, consider your file system requirements. In particular, ensure the location of the binaries that you're running is correct. For more information on the configured file system, see [Dockerfile in the Apache NiFi source code][Apache NiFi Dockerfile on GitHub].
+- Use a custom image. If you take this approach, consider your file system requirements. Ensure that the location of your NiFi binaries is correct. For more information on the configured file system, see [Dockerfile in the Apache NiFi source code][Apache NiFi Dockerfile on GitHub].
 
 ## Next steps
 
