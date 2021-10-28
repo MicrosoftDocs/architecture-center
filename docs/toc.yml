@@ -1532,7 +1532,7 @@ items:
                     maintainContext: true
               - name: VM security baselines
                 items:
-                  - name: Security baseline for virtual machine scale sets
+                  - name: Security baseline for VM scale sets
                     href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
                     maintainContext: true
                   - name: Security baseline for Linux VMs
@@ -1618,7 +1618,7 @@ items:
           - name: Guides
             items:
               - name: AKS cluster best practices
-                href: /Azure/aks/best-practices
+                href: /azure/aks/best-practices
                 maintainContext: true
               - name: AKS day-2 operations guide
                 items:
@@ -2384,6 +2384,7 @@ items:
                 maintainContext: true
               - name: Security baseline for Logic Apps
                 href: /security/benchmark/azure/baselines/logic-apps-security-baseline
+                maintainContext: true
           - name: Architectures
             items:
               - name: Basic enterprise integration on Azure
@@ -2543,7 +2544,7 @@ items:
               - name: Mainframe migration framework
                 items:
                   - name: Mainframe migration overview
-                    href: /azure/cloud-adoption-framework/infrastructure/mainframe-migration
+                    href: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/index
                     maintainContext: true
                   - name: Mainframe myths and facts
                     href: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/myths-and-facts
