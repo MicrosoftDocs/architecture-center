@@ -67,10 +67,10 @@ This solution is helpful in the following use cases:
 
 ### Availability
 
-The service level agreements (SLAs) of most Azure components guarantee availability:
+Azure components offer availability through redundancy and as specified in service-level agreements (SLAs):
 
-- At least 99.9 percent of Data Factory pipelines are guaranteed to run successfully. See [SLA for Data Factory](https://azure.microsoft.com/support/legal/sla/data-factory/v1_2).
-- The Azure Databricks SLA guarantees 99.95 percent availability. See [Azure Databricks](https://azure.microsoft.com/services/databricks).
+- For information about Data Factory pipelines, see [SLA for Data Factory](https://azure.microsoft.com/support/legal/sla/data-factory/v1_2).
+- For information about Azure Databricks, see [Azure Databricks](https://azure.microsoft.com/services/databricks).
 - Data Lake Storage offers availability through redundancy. See [Azure Storage redundancy](/azure/storage/common/storage-redundancy).
 
 ### Scalability
