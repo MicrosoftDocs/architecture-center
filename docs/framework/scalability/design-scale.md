@@ -14,7 +14,7 @@ categories: management-and-governance
 
 # Design for scaling
 
-*Scalability* is the ability of a system to handle increased load. Services covered by [Azure Autoscale](https://azure.microsoft.com/features/autoscale/) can scale automatically to match demand to accommodate workload. These services scale out to ensure capacity during workload peaks and return to normal automatically when the peak drops.
+*Scalability* is the ability of a system to handle increased load. Services covered by [Azure Autoscale](https://azure.microsoft.com/features/autoscale) can scale automatically to match demand to accommodate workload. These services scale out to ensure capacity during workload peaks and return to normal automatically when the peak drops.
 
 To achieve performance efficiency, consider how your application design scales and implement PaaS offerings that have built-in scaling operations.
 
