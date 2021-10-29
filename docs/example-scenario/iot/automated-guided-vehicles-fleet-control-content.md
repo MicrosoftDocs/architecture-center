@@ -259,10 +259,10 @@ considerations, see the “Cost optimization” section in [Microsoft Azure Well
 
 Azure Architecture Center overview articles:
 
--   [Microservices architecture style](azure/architecture/guide/architecture-styles/microservices)
--   [Choosing an Azure compute option for microservices](azure/architecture/microservices/design/compute-options)
--   [Highly available multi-region web application](azure/architecture/reference-architectures/app-service-web-app/multi-region)
--   [Advanced Azure Kubernetes Service (AKS) microservices architecture](azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
+-   [Microservices architecture style](/azure/architecture/guide/architecture-styles/microservices)
+-   [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
+-   [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
+-   [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 -   [Microservices with Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/microservices-with-aks)
 
 Product documentation:
