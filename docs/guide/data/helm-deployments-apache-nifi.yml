@@ -5,7 +5,7 @@ metadata:
   description: Use Helm charts when you deploy NiFi on Azure Kubernetes Service (AKS). Helm streamlines the process of installing and managing Kubernetes applications.
   author: MuazmaZ
   ms.author: muzahid
-  ms.date: 10/28/2021
+  ms.date: 10/29/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
