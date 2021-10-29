@@ -172,6 +172,12 @@ items:
                 href: guide/responsible-innovation/harms-modeling/type-of-harm.md
           - name: Community Jury
             href: guide/responsible-innovation/community-jury/index.md
+      - name: Architecture for startups
+        items:
+          - name: Overview
+            href: guide/startups/startup-architecture.md
+          - name: Core startup stack architecture
+            href: guide/startups/core-startup-stack.yml
       - name: Multitenant applications
         items:
           - name: Considerations
@@ -1260,6 +1266,8 @@ items:
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Deploy AI and ML at the edge
                 href: hybrid/deploy-ai-ml-azure-stack-edge.yml
+              - name: Determine customer lifetime and churn
+                href: example-scenario/ai/customer-lifecycle-churn.yml
               - name: Distributed deep learning training
                 href: reference-architectures/ai/training-deep-learning.yml
               - name: Enterprise-grade conversational bot
@@ -1624,7 +1632,7 @@ items:
           - name: Guides
             items:
               - name: AKS cluster best practices
-                href: /Azure/aks/best-practices
+                href: /azure/aks/best-practices
                 maintainContext: true
               - name: AKS day-2 operations guide
                 items:
@@ -2390,6 +2398,7 @@ items:
                 maintainContext: true
               - name: Security baseline for Logic Apps
                 href: /security/benchmark/azure/baselines/logic-apps-security-baseline
+                maintainContext: true
           - name: Architectures
             items:
               - name: Basic enterprise integration on Azure
@@ -2549,7 +2558,7 @@ items:
               - name: Mainframe migration framework
                 items:
                   - name: Mainframe migration overview
-                    href: /azure/cloud-adoption-framework/infrastructure/mainframe-migration
+                    href: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/index
                     maintainContext: true
                   - name: Mainframe myths and facts
                     href: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/myths-and-facts
