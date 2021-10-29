@@ -102,6 +102,27 @@ Azure Monitor is a managed service, and configuring an AKS cluster to use Azure 
 
 Azure Monitor is billed per gigabyte (GB) of data ingested into the service (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)). At very high volumes, cost may become a consideration. There are many open-source alternatives available for the Kubernetes ecosystem. For example, many organizations use **Fluentd** with **Elasticsearch**. Fluentd is an open-source data collector, and Elasticsearch is a document database that is for search. A challenge with these options is that they require additional configuration and management of the cluster. For a production workload, you may need to experiment with configuration settings. You'll also need to monitor the performance of the logging infrastructure.
 
+### OpenTelemetry
+
+OpenTelemetry is an cross-industry effort to improve tracing by standardizing the interface between applications, libraries, telemetry and data collectors. When using a libray and framework instrumented with OpenTelemetry, most of the work of logging typical system operations is handled by the libraries, including common scenarios like:
+
+- Logging basic request operations: start/exit time, duration
+- Exceptions thrown
+- Context propagation (e.g. sending a correlation ID across HTTP call boundaries)
+
+Instead, the base libraries and frameworks that handle these operations that handele these calls create rich interrlated Span and Trace data structures and propagate these across contexts. Before OpenTelemetry, these were usually just injected as special log messages or as proprietary data structures specific to the vendor building the monitoring tools. OpenTelemetry also encourages a richer instrumention data model than a traditional logging-first approach, and the logs are made more useful since log messages are linked to the Traces and Spans where they were generated. This often makes finding logs associated with a specific operation or request very easy.
+
+Most of the Azure SDKs have been instrumented with OpenTelemetry or in the process. _TODO: Is there a doc or link on this status we should add here?_
+
+An application developer can add manual instrumentation using the OpenTelemetry SDKs to:
+
+- Add instrumention where an underlying library does not provide it
+- Enrich the trace context by adding Spans to expose application-specific units of work (e.g. an order loop creating a span for the processing of each order line)
+- Enrich existing Spans with entity keys to enable easier tracing (e.g. add an "OrderID" key/value to the request that processes that order). These are surfaced by the monitoring tools as structured values for querying, filtering and aggregating (without parsing out log message strings or looking for combinations of log message sequences, as was commmon with a logging-first approach.)
+- Access Trace and Span attributes to inject traceIds into responses and payloads to streamline troubleshooting.
+
+Read more about instrumention and the OpenTelemetry SDKs in the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/instrumenting/).
+
 ### Application Insights
 
 For richer log data, we recommend instrumenting your code with Application Insights. This requires adding an Application Insights package to your code and configuring your code to send logging statements to Application Insights. The details depend on the platform, such as .NET, Java, or Node.js. The Application Insights package sends telemetry data to Azure Monitor.
