@@ -6,7 +6,7 @@ For a core startup stack, a simple monolithic design is best. This design limits
 
 ## Architecture
 
-A startup, Contoso, has built an application prototype with a [Rails](https://rubyonrails.org) back end and a [React](https://reactjs.org) front end written in [TypeScript](https://www.typescriptlang.org). Contoso has been running demos on their laptop. Now they want to deploy their app for their first customer sales meetings.
+A startup, Contoso, has built an application prototype with a [Ruby on Rails](https://rubyonrails.org) back end and a [React](https://reactjs.org) front end written in [TypeScript](https://www.typescriptlang.org). The Contoso team has been running demos on their laptops. Now they want to deploy their app for their first customer sales meetings.
 
 While the app is ambitious, it doesn't yet need a complex, microservice-driven architecture. Contoso opted for a simple monolithic design that includes the recommended startup stack components.
 
@@ -20,21 +20,21 @@ In this core startup stack architecture:
 - [Azure Database for PostgreSQL](/azure/postgresql/overview) is an Azure database service for a leading open-source relational database management system (RDBMS). You can concentrate on developing your application rather than managing database servers.
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) segments network traffic and keeps internal services protected from internet threats. Your app servers use [virtual network integration](/azure/app-service/web-sites-integrate-with-vnet) to communicate with the database without exposure to the internet.
 - [GitHub Actions](https://docs.github.com/actions) builds continuous integration and continuous deployment (CI/CD) into your source code management. GitHub Actions has extensive support for different languages, and strong integration with Azure services.
-- [Azure Blob storage](/azure/storage/blobs/storage-blobs-overview) stores static assets and moves load away from the app servers.
+- [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) stores static assets and moves load away from the app servers.
 - [Azure Content Delivery Network (CDN)](/azure/cdn/cdn-overview) accelerates content delivery to users through a global network.
 - [Azure Monitor](/azure/azure-monitor/overview) monitors and analyzes what's happening across your application's infrastructure.
 
 ## Core startup stack components
 
-A complex stack can generate bugs that require constant attention. A sophisticated architecture might detract from building your product. Bugs aren't caused by complexity, but a complex stack makes it easier to ship bugs. Not all sophisticated architectures are a waste of energy, but they waste your resources if you haven't yet found product/market fit. A first startup stack should be simple and get out of your way, so you can concentrate on product development.
+A complex stack can generate bugs that require constant attention. A sophisticated architecture might detract from building your product. Bugs aren't caused by complexity, but a complex stack makes it easier to ship bugs. Not all sophisticated architectures are a waste of energy, but they waste your resources if you haven't yet found product/market fit. Your first startup stack should be simple and get out of your way, so you can concentrate on product development.
 
-The following simple diagram shows the recommended core startup stack. These components are enough to get your product off the ground and into the hands of your customers. For 80% of startups, this stack is all you need to test the basic hypotheses built into your product. Startups working in machine learning, internet of things (IoT), or highly regulated environments might require more components.
+The following simple diagram shows the recommended core startup stack. These components are enough to get your product off the ground and into the hands of your customers. For 80 percent of startups, this stack is all you need to test the basic hypotheses built into your product. Startups working in machine learning, internet of things (IoT), or highly regulated environments might require more components.
 
 ![A block diagram that shows a core startup stack.](images/startup-stack.png)
 
 ### CDN
 
-With few customers to start, a CDN might seem premature. However, adding a CDN to a product already in production can have unexpected side effects. It's best to implement a CDN up front. A CDN caches static content closer to your customers, and provides a façade behind which you can iterate on your APIs and your architecture.
+With few customers at the start, a CDN might seem premature. However, adding a CDN to a product already in production can have unexpected side effects. It's best to implement a CDN up front. A CDN caches static content closer to your customers, and provides a façade behind which you can iterate on your APIs and your architecture.
 
 ### App Server
 
@@ -60,7 +60,7 @@ The lack of repeatable and rapid deployments is one of the worst impediments to 
 
 ## Deploy this architecture
 
-You can see a sample core startup stack implementation [on GitHub](https://github.com/Azure-Samples/core-startup-stack-rails). The sample uses a Ruby on Rails app. The concepts and techniques are the same for most projects you build using a [Dockerfile](https://docs.docker.com/engine/reference/builder).
+You can see a sample core startup stack implementation [on GitHub](https://github.com/Azure-Samples/core-startup-stack-rails). The sample uses a Ruby on Rails app. The concepts and techniques are the same for most projects you build by using a [Dockerfile](https://docs.docker.com/engine/reference/builder).
 
 ## Next steps
 

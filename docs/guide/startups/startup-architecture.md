@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Understand how to approach architecture when you're working in a startup.
 author: mootpointer
 ms.author: anharvey
-ms.date: 10/26/2021
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -35,7 +35,9 @@ In the different startup life stages, developers, architects, and chief technica
 
 Kent Beck describes a [three-stage process](https://medium.com/@kentbeck_7670/fast-slow-in-3x-explore-expand-extract-6d4c94a7539) of software product innovation. Those stages are *explore*, *expand*, and *extract*. You can think about the different parts of this process as a graph:
 
-![A graph showing a sigmoid curve plotted against a y-axis "Certainty/Investment/Risk of Change" and an x-axis "Time". The graph has three areas highlighted: the initial portion before upward inflection labelled "Explore", the high growth part of the sigmoid curve labelled "Expand" and the plateau labelled "Extract".](images/explore-expand-extract.png)
+:::image type="complex" source="images/explore-expand-extract.png" alt-text="A graph that shows the Explore, Expand, and Extract phases of product development." border="false":::
+  A graph showing a sigmoid curve plotted against a y-axis "Certainty/Investment/Risk of Change" and an x-axis "Time". The graph has three areas highlighted: the initial portion before upward inflection labelled "Explore", the high growth part of the sigmoid curve labelled "Expand" and the plateau labelled "Extract".
+:::image-end:::
 
 - The **Explore** stage starts with a low slope, where you're trying to find what works. Certainty is low, you only invest small amounts, and the risk from any changes you make is also low.
 
@@ -49,11 +51,11 @@ When your startup is in the exploration stage, your imperative is to invest smal
 
 This stage requires discipline. It's easy to overinvest in an idea that you could test with less time and energy. A technologist finds it especially easy to fall into this trap. To make architectural choices that ease exploration, remember that you're exploring. You don't yet know if the current product idea is one that will scale.
 
-From an architecture perspective, choose services that optimize for speed, cost, and options. By using managed services and platforms as a service (PaaS) like Azure App Service, get started quickly without worrying about complex infrastructure. Manage costs by choosing smaller instance sizes while you're exploring. Containers support developing with whatever tools make sense for you.
+From an architecture perspective, choose services that optimize for speed, cost, and options. Use managed services and platforms as a service (PaaS) like Azure App Service to get started quickly without worrying about complex infrastructure. Manage costs by choosing smaller instance sizes while you're exploring. Containers support developing with whatever tools make sense for you.
 
 ### Build your first stack
 
-As with your first product version, your first technology stack should be firmly rooted in exploration. That means the technology stack must ease rapid product iteration without wasting effort. You don't want to spend time or effort on infrastructure or architecture that isn't required for answering current questions.
+As with your first product version, your first technology stack should be firmly rooted in exploration. That means the technology stack should ease rapid product iteration without wasting effort. You don't want to spend time or effort on infrastructure or architecture that isn't required for answering current questions.
 
 During the exploration phase, you need to optimize for speed, cost, and optionality. Speed is about how fast you can build and move forward with an idea, or move onto the next idea. Cost is how much you're spending to run your infrastructure. Optionality describes how fast you can change directions given the current architecture.
 

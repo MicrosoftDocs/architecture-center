@@ -2,10 +2,10 @@
 metadata:
   title: Core startup stack architecture
   titleSuffix: Azure Architecture Center
-  description: See an example and understand the components of a simple core startup stack architecture for a first MVP or prototype.
+  description: See an example and understand the components of a simple core startup stack architecture for an initial MVP or prototype.
   author: mootpointer
   ms.author: anharvey
-  ms.date: 10/26/2021
+  ms.date: 10/28/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -25,7 +25,7 @@ products:
   - azure-monitor
   - azure-virtual-network
 name: Core startup stack architecture
-summary: See an example and understand the components of a simple core startup stack architecture for a first MVP or prototype.
+summary: See an example and understand the components of a simple core startup stack architecture for an initial MVP or prototype.
 thumbnailUrl: /azure/architecture/browse/thumbs/core-startup-stack.png
 content: |
    [!include[](core-startup-stack-content.md)]
