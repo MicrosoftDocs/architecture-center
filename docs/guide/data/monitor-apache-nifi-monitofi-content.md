@@ -32,7 +32,7 @@ MonitoFi has these advantages:
 
 ## Architecture
 
-:::image type="content" source="./media/monitor-apache-nifi-monitofi-architecture.png" alt-text="Diagram showing the flow of data between a NiFi cluster and MonitoFi. Other architecture components include Application Insights, InfluxDB, and Grafana." border="false" lightbox="./media/monitor-apache-nifi-monitofi-architecture-lightbox.png":::
+:::image type="content" source="./media/monitor-apache-nifi-monitofi-architecture.png" alt-text="Diagram showing the flow of data between a NiFi cluster and MonitoFi. Other architecture components include Application Insights, InfluxDB, and Grafana." border="false":::
 
 - A Docker image encapsulates a MonitoFi Python module and the [Application Insights][What is Application Insights?] SDK. This Docker image can be retrieved from the [Docker Hub registry][MonitoFi : Health & Performance Monitor for Apache NiFi on Docker Hub] and stored in [Container Registry][Container Registry] for use and deployment.
 
