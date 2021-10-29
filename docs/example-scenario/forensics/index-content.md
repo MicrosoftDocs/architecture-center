@@ -35,6 +35,8 @@ The Storage account in the SOC subscription hosts the disk snapshots in a contai
 
 The Storage account also hosts an [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal) to use as a temporary repository for calculating the snapshot's SHA-256 hash value.
 
+For better [performance](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-file-share-scale-targets) you can choose a Standard Storage Account, with the ["large file share" feature enabled](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal#enable-large-files-shares-on-an-existing-account), or a Premium Storage Account.
+
 ### Azure Key Vault
 
 The SOC subscription has its own key vault, which hosts a copy of the BEK that ADE uses to protect the target VM, as well as the KEK if applicable. The primary copy of the key stays in the key vault used by the target VM, so that VM can continue normal operation. The SOC key vault also contains the SHA-256 hash values for the disk snapshots.
@@ -55,6 +57,8 @@ The Hybrid Runbook Worker must have a managed identity or a Service Principal in
 - **Storage Account Contributor** on the SOC immutable Storage account
 - Access policy to **Get Secret** for the BEK, and **Get Key** for the KEK if present, on the target VM's key vault
 - Access policy to **Set Secret** for the BEK, and **Create Key** for the KEK if present, on the SOC key vault
+
+If the VM is behind a Firewall (Network Virtual Appliance (NVA), Azure Firewall, Network Security Group) or a Proxy, ensure to allow the connectivity between the VM and the Storage Account.
 
 ### Log Analytics
 
@@ -126,16 +130,16 @@ You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networ
 
 ## Implementation
 
-The following complete PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
+The following PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
 
 - [Copy‑VmDigitalEvidenceWin](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidenceWin.ps1) runbook for [Windows Hybrid RunBook Worker](/azure/automation/automation-windows-hrw-install).
 
 - [Copy‑VmDigitalEvidence](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1) runbook for [Linux Hybrid RunBook Worker](/azure/automation/automation-linux-hrw-install#installing-a-linux-hybrid-runbook-worker). The Hybrid Runbook Worker must have PowerShell Core installed and the `sha256sum` program available, to calculate the disk snapshots’ SHA-256 hash values.
 
-The Hybrid Runbook Worker must map the Azure File share containing the disk, used to calculate its hash values. Further details for the mounting procedure are available for both [Windows](/azure/storage/files/storage-how-to-use-files-windows) and [Linux](/azure/storage/files/storage-files-how-to-mount-nfs-shares) systems.
+The Hybrid Runbook Worker must map the Azure File share containing the disk, used to calculate its hash values. Further details for the mounting procedure are available for both [Windows](/azure/storage/files/storage-how-to-use-files-windows) and [Linux](/azure/storage/files/storage-files-how-to-mount-nfs-shares) systems and must be integrated in the PowerShell code.
 
 > [!NOTE]
-> Before run the script remember to complete the section *Mounting fileshare* with the code to mount the Azure file share. The code is strictly tied to your implementation. To generate the correct code follow the documentation links contained in the scripts.
+> Scripts are provided as a starting point, are not intended to be downloaded an run directly in a customer environment. Be sure to replace placeholders and adapt them to yor customer scenario. Before run the script remember to complete the section *Mounting fileshare* with the code to mount the Azure file share. The code is strictly tied to your implementation. To generate the correct code follow the documentation links contained in the scripts.
 
 ### Capture workflow
 
