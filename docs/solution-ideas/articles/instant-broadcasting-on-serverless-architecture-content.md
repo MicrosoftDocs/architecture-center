@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Simplify one-to-many real-time communication and updates using serverless code.
@@ -10,7 +7,7 @@ Simplify one-to-many real-time communication and updates using serverless code.
 ![Architecture Diagram](../media/instant-broadcasting-on-serverless-architecture.png)
 *Download an [SVG](../media/instant-broadcasting-on-serverless-architecture.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Client pulls web app content from blob storage
 1. Web app receives SignalR token and endpoint
