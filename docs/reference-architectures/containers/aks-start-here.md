@@ -63,7 +63,7 @@ If you need a regulated environment, make the baseline implementation highly sec
 
 ### Business Continuity and Disater Revovery
 
-A resillient solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
+A resilient solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
 
 > [!div class="nextstepaction"]
 > [Baseline for multiregion clusters](./aks-multi-region/aks-multi-cluster.yml)
