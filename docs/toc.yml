@@ -172,6 +172,12 @@ items:
                 href: guide/responsible-innovation/harms-modeling/type-of-harm.md
           - name: Community Jury
             href: guide/responsible-innovation/community-jury/index.md
+      - name: Architecture for startups
+        items:
+          - name: Overview
+            href: guide/startups/startup-architecture.md
+          - name: Core startup stack architecture
+            href: guide/startups/core-startup-stack.yml
       - name: Multitenant applications
         items:
           - name: Considerations

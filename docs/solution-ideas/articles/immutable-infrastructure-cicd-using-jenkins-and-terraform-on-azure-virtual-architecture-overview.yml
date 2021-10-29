@@ -3,7 +3,7 @@ metadata:
   title: Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview
   titleSuffix: Azure Solution Ideas
   description: When you develop apps, use a continuous integration and continuous deployment (CI/CD) pipeline to automatically push changes to Azure virtual machines.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
