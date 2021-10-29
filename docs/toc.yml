@@ -1,15 +1,13 @@
 items:
   - name: Azure Architecture Center
     href: ./index.yml
-  - name: Architecture icons
-    href: icons/index.md
   - name: Browse all Architectures
     href: browse/index.yml
-  - name: Browse Hybrid and Multicloud Architectures
-    href: browse/index.yml?&azure_categories=hybrid
+  - name: Architecture icons
+    href: icons/index.md
   - name: What's new
     href: changelog.md
-  - name: Application Architecture Guide
+  - name: Application Architecture Fundamentals
     items:
       - name: Introduction
         href: guide/index.md
