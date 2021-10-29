@@ -25,7 +25,7 @@ ms.custom:
 
 ---
 
-## Azure AD join for Azure Virtual Desktop
+# Azure AD join for Azure Virtual Desktop
 
 This article describes how to configure Azure Active Directory (Azure AD) domain join for Azure Virtual Desktop. Joining Azure Virtual Desktop to a domain no longer requires using Active Directory Domain Services (AD DS) domain controllers. Azure AD domain join for Azure Virtual Desktop provides a modern approach for authentication protocols like Windows Hello for Business, smartcards, FIDO2, and future capabilities. 
 
@@ -37,7 +37,7 @@ Azure Virtual Desktop domain join originally needed both Azure AD and Active Dir
 
 Azure AD authenticated users to the Azure Virtual Desktop and presented the users with a list of resources. Since the session hosts were all AD DS joined, AD DS then prompted users to sign in to AD DS with standard [Kerberos authentication](/windows-server/security/kerberos/kerberos-authentication-overview).
 
-Saving user credentials with the standard Azure AD process keeps credentials for 90 days. The Windows Remote Desktop client caches the AD DS credentials in the local Credential Manager. Once both sets of credentials were saved, the user experience was single sign on (SSO)-like. Users weren't prompted further for passwords after the first authentication. Caching the AD DS credentials is supported only in Windows clients.
+Saving user credentials with the standard Azure AD process keeps credentials for 90 days. The Windows Remote Desktop client caches the AD DS credentials in the local Credential Manager. Once both sets of credentials were saved, the user experience was single sign-on (SSO)-like. Users weren't prompted further for passwords after the first authentication. Caching the AD DS credentials is supported only in Windows clients.
 
 The ability to join Azure Virtual Desktop session host VMs to Azure AD now removes the need for AD DS domain controllers. Removing this requirement reduces cost and complexity. Other services that the Azure Virtual Desktop hosts consume, such as applications and Server Message Block (SMB) storage, might still require AD DS. But AD DS is no longer a requirement for Azure Virtual Desktop itself.
 
@@ -55,7 +55,7 @@ There are a few limitations for Azure Virtual Desktop Azure AD domain join:
 
 To deploy an Azure AD host pool, follow the instructions in [Create a host pool](/azure/virtual-desktop/create-host-pools-azure-marketplace). On the **Virtual Machines** tab, under **Domain to join**, select **Azure Active Directory**.
 
-:::image type="content" source="images/azure-ad-join.png" alt-text="Screenshot of Azure Azure Virtual Desktop with both directory options.":::
+:::image type="content" source="images/azure-ad-join.png" alt-text="Screenshot of Azure Virtual Desktop with both directory options.":::
 
 Selecting this option presents the option to also enroll these VMs with Intune.
 
@@ -69,7 +69,7 @@ You can also add session hosts to an existing host pool and have them Azure AD j
 
 After you create the host pool VMs, you can see the VMs in **Azure AD** > **Devices**.
 
-:::image type="content" source="images/azure-ad-devices.png" alt-text="Screenshot of Azure Azure Virtual Desktop session host V Ms listed in Azure A D devices.":::
+:::image type="content" source="images/azure-ad-devices.png" alt-text="Screenshot of Azure Virtual Desktop session host virtual machines listed in Azure A D devices.":::
 
 To confirm Azure AD registrations, go to **Azure Active Directory** > **Devices** > **Audit Logs** and look for **Register Device** in the **Activity** column.
 
@@ -77,7 +77,7 @@ To confirm Azure AD registrations, go to **Azure Active Directory** > **Devices*
 
 The VMs also appear in the [MEM portal](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/overview), in the **Devices** section.
 
-:::image type="content" source="images/mem-devices.png" alt-text="Screenshot of Azure Azure Virtual Desktop session host V Ms listed in M E M devices.":::
+:::image type="content" source="images/mem-devices.png" alt-text="Screenshot of Azure Virtual Desktop session host virtual machines listed in M E M devices.":::
 
 Azure AD join opens up all the Intune capabilities to apply policies, distribute software, and manage these VMs. For more information about Intune as part of Microsoft Endpoint Manager, see the [Getting started guide](https://techcommunity.microsoft.com/t5/intune-customer-success/getting-started-with-microsoft-endpoint-manager/ba-p/2497614).
 
@@ -89,7 +89,7 @@ dsregcmd /status
 
 The output shows the VM's Azure AD join status.
 
-:::image type="content" source="images/command-output.png" alt-text="Screenshot of the shell output from the DSREGCMD command showing Azure A D join status of YES.":::
+:::image type="content" source="images/command-output.png" alt-text="Screenshot of the shell output from the DSREGCMD command.":::
 
 On the local client, the Azure AD registration logs are in Event Viewer at **Applications and Services Logs** > **Microsoft** > **Windows** > **User Device Registration** > **Admin**.
 
@@ -102,15 +102,15 @@ On the local client, the Azure AD registration logs are in Event Viewer at **App
 
 ## Step 2: Enable user access
 
-In the next step, you enable sign-in access to the VMs. These VMs are Azure objects, and the authentication mechanism is Azure AD, so you manage user sign-in permission through Azure role-based access control (RBAC).
+In the next step, you enable sign-in access to the VMs. These VMs are Azure objects, and the authentication mechanism is Azure AD. You manage user sign-in permission through Azure role-based access control (RBAC).
 
 Users must be in the Azure Virtual Desktop [Desktop Application](/azure/virtual-desktop/manage-app-groups) group to sign in to the VMs, as always in Azure Virtual Desktop. For Azure AD join, you must also add the same Azure AD group that's in the Desktop Application group to the **Virtual Machine User Login** RBAC role.
 
 This role isn't a [Azure Virtual Desktop role](/azure/virtual-desktop/rbac), but an Azure role. This role has the **Log in to Virtual Machine** DataAction permission.
 
-:::image type="content" source="images/sign-in-role.png" alt-text="Screenshot that shows the Azure Virtual Desktop required R B A C role for V M sign in.":::
+:::image type="content" source="images/sign-in-role.png" alt-text="Screenshot that shows the Azure Virtual Desktop required role for V M sign-in.":::
 
-You need to decide the scope to assign this role.
+Decide the scope to assign this role.
 
 - Assigning the role at the **VM level** means you have to assign the role for each VM you add.
 - Assigning the role at the **resource group** level means the role automatically applies to all VMs in that resource group.
@@ -128,11 +128,11 @@ To assign the **Virtual Machine User Login** role:
 
 1. Under **Role**, select **Virtual Machine User Login**, and under **Select**, select the same user group that's assigned to the Desktop Application Group.
 
-   :::image type="content" source="images/user-login-role.png" alt-text="Screenshot that shows applying the required V M user login R B A C role.":::
+   :::image type="content" source="images/user-login-role.png" alt-text="Screenshot that shows applying the required V M user login role.":::
 
 The user group now shows under **Virtual Machine User Login**.
 
-:::image type="content" source="images/role-applied.png" alt-text="Screenshot showing the Azure Virtual Desktop V M user login R B A C role applied.":::
+:::image type="content" source="images/role-applied.png" alt-text="Screenshot showing the Azure Virtual Desktop V M user login role applied.":::
 
 If you don't assign this role, users get an error message when they try to sign in via the Windows client.
 
@@ -146,7 +146,7 @@ Web client users get a different-looking error.
 
 To give a user local administrative access on the VM, also add the user to the **Virtual Machine Administrator Login** role.
 
-This role has one additional **Log in to Virtual Machine as administrator** DataAction permission that enables administrative access.
+This role has one more **Log in to Virtual Machine as administrator** DataAction permission that enables administrative access.
 
 :::image type="content" source="images/admin-role.png" alt-text="Screenshot that shows the Azure Virtual Desktop Azure A D administrator role permission.":::
 
@@ -175,11 +175,11 @@ For Windows 10 version 2004 or later machines, if the PKU2U protocol is disabled
 
    :::image type="content" source="images/pku2u-protocol.png" alt-text="Screenshot of Azure Virtual Desktop Group Policy to enable the PKU2U protocol.":::
 
-If you're using any other Azure Virtual Desktop clients, such as Mac, iOS, Android, web, the Store client, or pre-version 2004 Windows 10, enable the [RDSTLS protocol](/openspecs/windows_protocols/ms-rdpbcgr/83d1186d-cab6-4ad8-8c5f-203f95e192aa). Enable this protocol by adding a new [custom RDP Property](/azure/virtual-desktop/customize-rdp-properties), *targetisAzure AD joinoined:i:1*. Azure Virtual Desktop then uses this protocol instead of PKU2U.
+If you're using other Azure Virtual Desktop clients, such as Mac, iOS, Android, web, the Store client, or pre-version 2004 Windows 10, enable the [RDSTLS protocol](/openspecs/windows_protocols/ms-rdpbcgr/83d1186d-cab6-4ad8-8c5f-203f95e192aa). Enable this protocol by adding a new [custom RDP Property](/azure/virtual-desktop/customize-rdp-properties), *targetisAzure AD joinoined:i:1*. Azure Virtual Desktop then uses this protocol instead of PKU2U.
 
 :::image type="content" source="images/rdp-protocol.png" alt-text="Screenshot of Azure Virtual Desktop RDP Property to enable other clients than Windows.":::
 
-Now you have a Azure Virtual Desktop host pool where the session hosts are joined only to Azure AD. The host pool no longer requires Active Directory. You're a step closer to modern management for your Azure Virtual Desktop estate. Azure AD provides many benefits for organizations, such as modern authentication protocols, SSO, and support for [FSLogix](/fslogix/overview) user profiles. Azure AD domain join capability also opens up the future possibility of decommissioning Active Directory.
+Now you have an Azure Virtual Desktop host pool where the session hosts are joined only to Azure AD. The host pool no longer requires Active Directory. You're a step closer to modern management for your Azure Virtual Desktop estate. Azure AD provides many benefits for organizations, such as modern authentication protocols, SSO, and support for [FSLogix](/fslogix/overview) user profiles. Azure AD domain join capability also opens up the future possibility of decommissioning Active Directory.
 
 ## Next steps
 
@@ -188,5 +188,5 @@ Now you have a Azure Virtual Desktop host pool where the session hosts are joine
 
 ## Related resources
 
-- [Azure Virtual Desktop for the enterprise](windows-virtual-desktop.md)
-- [Integrate on-premises AD domains with Azure AD](../../reference-architectures/identity/azure-ad.md)
+- [Azure Virtual Desktop for the enterprise](windows-virtual-desktop.yml)
+- [Integrate on-premises AD domains with Azure AD](../../reference-architectures/identity/azure-ad.yml)
