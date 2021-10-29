@@ -1382,12 +1382,8 @@ items:
                   href: data-guide/technology-choices/analytical-data-stores.md
                 - name: Analytics and reporting
                   href: data-guide/technology-choices/analysis-visualizations-reporting.md
-                - name: Apache NiFi monitoring with MonitoFi
-                  href: guide/data/monitor-apache-nifi-monitofi.yml
                 - name: Batch processing
                   href: data-guide/technology-choices/batch-processing.md
-                - name: Helm-based deployments for Apache NiFi
-                  href: guide/data/helm-deployments-apache-nifi.yml
               - name: Actuarial risk analysis
                 href: /previous-versions/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide
                 maintainContext: true
@@ -1402,6 +1398,12 @@ items:
                   - name: Security baseline for Azure Purview
                     href: /security/benchmark/azure/baselines/purview-security-baseline
                     maintainContext: true
+              - Apache NiFi guidance
+                items:
+                  - name: Apache NiFi monitoring with MonitoFi
+                    href: guide/data/monitor-apache-nifi-monitofi.yml
+                  - name: Helm-based deployments for Apache NiFi
+                    href: guide/data/helm-deployments-apache-nifi.yml
           - name: Architectures
             items:
               - name: Anomaly detector process
@@ -1521,7 +1523,7 @@ items:
             items:
               - name: Choose a compute service
                 href: guide/technology-choices/compute-decision-tree.md
-              - name: SAS on Azure architecture guide
+              - name: SAS on Azure architecture
                 href: guide/sas/sas-overview.yml
               - name: Industry guidance
                 items:
