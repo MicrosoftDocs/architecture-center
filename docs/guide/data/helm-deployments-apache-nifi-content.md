@@ -10,9 +10,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 
 ## Architecture
 
-:::image type="content" source="./media/helm-deployments-apache-nifi-architecture.svg" alt-text="Diagram showing how a user configures a Helm chart to deploy an application on Kubernetes. Components include pods and volumes that Kubernetes creates." border="false" lightbox="./media/helm-deployments-apache-nifi-architecture-lightbox.png":::
-
-*Download an [SVG file][SVG file of architecture diagram] of this architecture.*
+:::image type="content" source="./media/helm-deployments-apache-nifi-architecture.png" alt-text="Diagram showing how a user configures a Helm chart to deploy an application on Kubernetes. Components include pods and volumes that Kubernetes creates." border="false" lightbox="./media/helm-deployments-apache-nifi-architecture-lightbox.png":::
 
 - A Helm chart contains a `values.yaml` file. That file lists input values that users can edit.
 
@@ -180,4 +178,3 @@ Kubernetes containers are the basic units that run NiFi binaries. To configure a
 [Kubernetes Volumes]: https://kubernetes.io/docs/concepts/storage/volumes
 [Manage public content with Azure Container Registry]: /azure/container-registry/buffer-gate-public-content
 [Microservices architecture on Azure Kubernetes Service (AKS)]: ../../reference-architectures/containers/aks-microservices/aks-microservices.yml
-[SVG file of architecture diagram]: ./media/helm-deployments-apache-nifi-architecture.svg

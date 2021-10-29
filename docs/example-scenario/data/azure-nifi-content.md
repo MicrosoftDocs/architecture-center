@@ -646,11 +646,11 @@ To capture more logs, follow these steps:
 1. In the Azure portal, select **Log Analytics workspaces**, and then select your workspace.
 1. Under **Settings**, select **Custom logs**.
 
-   :::image type="content" source="media/nifi-set-up-custom-log1.png" alt-text="Screenshot of the MyWorkspace page in the Azure portal. Settings and Custom logs are called out.":::
+   :::image type="content" source="media/nifi-set-up-custom-log.png" alt-text="Screenshot of the MyWorkspace page in the Azure portal. Settings and Custom logs are called out.":::
 
 1. Select **Add custom log**.
 
-   :::image type="content" source="media/nifi-set-up-custom-log2.png" alt-text="Screenshot of the Custom logs page in the Azure portal with Add custom log called out.":::
+   :::image type="content" source="media/nifi-add-custom-log.png" alt-text="Screenshot of the Custom logs page in the Azure portal with Add custom log called out.":::
 
 1. Set up a custom log with these values:
 
@@ -658,7 +658,7 @@ To capture more logs, follow these steps:
    - Path type: `Linux`
    - Path name: `/opt/nifi/logs/nifi-app.log`
 
-   :::image type="content" source="media/nifi-custom-log1.png" alt-text="Screenshot of a NiFi window. The configuration values of a custom log for the NiFi application are visible.":::
+   :::image type="content" source="media/nifi-custom-log-nifi-application.png" alt-text="Screenshot of a NiFi window. The configuration values of a custom log for the NiFi application are visible.":::
 
 1. Set up a custom log with these values:
 
@@ -668,7 +668,7 @@ To capture more logs, follow these steps:
    - Second path type: `Linux`
    - Second path name: `/opt/nifi/logs/nifi-bootstrap.log`
 
-   :::image type="content" source="media/nifi-custom-log2.png" alt-text="Screenshot of a NiFi window. The configuration values of a custom log for the NiFi bootstrap and user are visible.":::
+   :::image type="content" source="media/nifi-custom-log-nifi-bootstrap.png" alt-text="Screenshot of a NiFi window. The configuration values of a custom log for the NiFi bootstrap and user are visible.":::
 
 1. Set up a custom log with these values:
 
@@ -676,7 +676,7 @@ To capture more logs, follow these steps:
    - Path type: `Linux`
    - Path name: `/opt/zookeeper/logs/*.out`
 
-   :::image type="content" source="media/nifi-custom-log3.png" alt-text="Screenshot of a NiFi window. The configuration values of a custom log for ZooKeeper are visible.":::
+   :::image type="content" source="media/nifi-custom-log-zookeeper.png" alt-text="Screenshot of a NiFi window. The configuration values of a custom log for ZooKeeper are visible.":::
 
 Here's a sample query of the `NiFiAppLogs` custom table that the first example created:
 
@@ -689,7 +689,7 @@ NiFiAppLogs_CL
 
 That query produces results similar to the following results:
 
-:::image type="content" source="media/nini-app-logs-query-results.png" alt-text="Screenshot of query results that include a time stamp, the computer, raw data, the type, and the resource I D." lightbox="./media/nini-app-logs-query-results-lightbox.png":::
+:::image type="content" source="media/nifi-app-logs-query-results.png" alt-text="Screenshot of query results that include a time stamp, the computer, raw data, the type, and the resource I D." lightbox="./media/nifi-app-logs-query-results-lightbox.png":::
 
 #### Infrastructure log configuration
 
@@ -928,7 +928,7 @@ For more information, see the following resources:
 [Apache ZooKeeper Releases]: https://zookeeper.apache.org/releases.html
 [Application Gateway health monitoring overview]: /azure/application-gateway/application-gateway-probe-overview
 [Availability Zones]: /azure/availability-zones/az-overview#availability-zones
-[Azure Active Directory (Azure AD)]: https://azure.microsoft.com/en-us/services/active-directory
+[Azure Active Directory (Azure AD)]: https://azure.microsoft.com/services/active-directory
 [Azure Application Gateway documentation]: /azure/application-gateway
 [Azure Data Explorer monitoring]: ../../solution-ideas/articles/monitor-azure-data-explorer.yml
 [Azure DevOps]: https://azure.microsoft.com/services/devops

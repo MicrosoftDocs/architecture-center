@@ -32,9 +32,7 @@ MonitoFi has these advantages:
 
 ## Architecture
 
-:::image type="content" source="./media/monitor-apache-nifi-monitofi-architecture.png" alt-text="Diagram showing the flow of data between a NiFi cluster and MonitoFi. Other architecture components include Application Insights, InfluxDB, and Grafana." border="false":::
-
-*Download an [SVG file][SVG file of architecture diagram] of this architecture.*
+:::image type="content" source="./media/monitor-apache-nifi-monitofi-architecture.png" alt-text="Diagram showing the flow of data between a NiFi cluster and MonitoFi. Other architecture components include Application Insights, InfluxDB, and Grafana." border="false" lightbox="./media/monitor-apache-nifi-monitofi-architecture-lightbox.png":::
 
 - A Docker image encapsulates a MonitoFi Python module and the [Application Insights][What is Application Insights?] SDK. This Docker image can be retrieved from the [Docker Hub registry][MonitoFi : Health & Performance Monitor for Apache NiFi on Docker Hub] and stored in [Container Registry][Container Registry] for use and deployment.
 
@@ -137,6 +135,5 @@ When you deploy this solution, keep in mind the following prerequisites and limi
 [MonitoFi : Health & Performance Monitor for Apache NiFi on GitHub]: https://github.com/microsoft/MonitoFi
 [Monitoring Azure Functions and Event Hubs]: ../../serverless/event-hubs-functions/observability.yml
 [NiFi Rest API 1.14.0]: https://nifi.apache.org/docs/nifi-docs/rest-api/index.html
-[SVG file of architecture diagram]: ./media/monitor-apache-nifi-monitofi-architecture.svg
 [Web application monitoring on Azure]: ../../reference-architectures/app-service-web-app/app-monitoring.yml
 [What is Application Insights?]: /azure/azure-monitor/app/app-insights-overview

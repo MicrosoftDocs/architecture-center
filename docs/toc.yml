@@ -1538,7 +1538,7 @@ items:
                     maintainContext: true
               - name: VM security baselines
                 items:
-                  - name: Security baseline for VM Scale Sets
+                  - name: Security baseline for virtual machine scale sets
                     href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
                     maintainContext: true
                   - name: Security baseline for Linux VMs
@@ -1549,7 +1549,7 @@ items:
                     maintainContext: true
               - name: Azure VMware Solution guidance
                 items:
-                  - name: API Management for Azure VMWare Solution
+                  - name: API Management for Azure VMware Solution
                     href: /azure/azure-vmware/concepts-api-management
                     maintainContext: true
                   - name: BCDR for Azure VMware Solution
