@@ -1,5 +1,5 @@
 
-Many companies are adopting DevOps practices and are looking to apply these practices to their Microsoft 365 tenant. Misconfiguration, tracking configuration changes, lack of approval process around tenant modifications are all common issues without that can occur without a DevOps practice in Microsoft365. This example scenario can be used to automate changes to Microsoft 365 tenant configurations using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) module, which is able to configure and manage Microsoft 365 tenants in a true DevOps style: Configuration as Code. This solution can be used to track changes made by service administrators and put approval process around deployments to Microsoft 365 tenants. This solution helps prevent untracked changes into Microsoft 365 tenants and helps preventing configuration drift between multiple Microsoft 365 tenants.
+Many companies are adopting DevOps practices and are looking to apply these practices to their Microsoft 365 tenant. Misconfiguration, tracking configuration changes, lack of approval process around tenant modifications are all common issues that can occur without a DevOps practice in Microsoft365. This example scenario can be used to automate changes to Microsoft 365 tenant configurations using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) module, which is able to configure and manage Microsoft 365 tenants in a true DevOps style: Configuration as Code. This solution can be used to track changes made by service administrators and put approval process around deployments to Microsoft 365 tenants. This solution helps prevent untracked changes into Microsoft 365 tenants and helps preventing configuration drift between multiple Microsoft 365 tenants.
 
 ## Potential use cases
 
@@ -72,5 +72,9 @@ This solution can run in Azure DevOps server and a similar solution can be creat
 - [Microsoft365DSC YouTube channel](https://www.youtube.com/channel/UCveScabVT6pxzqYgGRu17iw)
 - [Microsoft365DSC site](https://microsoft365dsc.com/)
 - [Microsoft365DSC export generator tool](https://export.microsoft365dsc.com/)
+
+## Pricing
+
+This solution utilizes Azure DevOps and for pricing information please visit the this [page](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/). If you choose to incorporate Azure Key Vault into solution you can find its pricing [here](https://azure.microsoft.com/pricing/details/key-vault/).
 
 [calculator]: https://azure.com/e/
