@@ -3,7 +3,7 @@ metadata:
   title: Elastic demand handling with AKS
   titleSuffix: Azure Solution Ideas
   description: Learn how to achieve fast and reliable service quality during seasonal and other high-traffic demand periods.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: stellal
   ms.date: 04/17/2020
   ms.topic: conceptual

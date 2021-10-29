@@ -1,5 +1,5 @@
 ---
-title: Considerations in Azure Industrial IoT solution
+title: Considerations in IIoT solution
 titleSuffix: Azure Application Architecture Guide
 description: Read about architectural considerations in an IIoT analytics solution. View discussions about performance, availability, and networking.
 author: khilscher

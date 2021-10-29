@@ -1,9 +1,9 @@
 ---
-title: Comparing AWS and Azure networking options
+title: Compare AWS and Azure networking options
 description: Compare networking options between Azure and AWS. The comparisons cover cloud virtual networking, cross-premises connectivity, DNS management, and more.
-author: Kaspanitz 
+author: vaboya
 ms.author: johanv
-ms.date: 08/09/2021
+ms.date: 09/17/2021
 ms.topic: reference
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -29,10 +29,16 @@ In AWS, Route 53 provides both DNS name management and DNS-level traffic routing
 
 - [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) provides DNS level traffic routing, load balancing, and failover capabilities.
 
-## Direct Connect and Azure ExpressRoute
+## Direct connect and Azure ExpressRoute
 
 Azure provides similar site-to-site dedicated connections through its
 [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute) service. ExpressRoute allows you to connect your local network directly to Azure resources using a dedicated private network connection. Azure also offers more conventional [site-to-site VPN connections](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) at a lower cost.
+
+## Route tables
+
+AWS provides route tables that contain routes to direct traffic, from a subnet/gateway subnet to the destination. In Azure, this feature is called user-defined routes. 
+
+With [user-defined routes](/azure/virtual-network/virtual-networks-udr-overview), you can create custom or user-defined (static) routes in Azure, to override Azure's default system routes, or to add more routes to a subnet's route table.
 
 ## Private Link
 

@@ -90,7 +90,7 @@ For detailed information on using Azure Service Bus queues, see [Service Bus que
 
 For information on Queue triggered Azure Functions, see [Azure Service Bus trigger for Azure Functions](/azure/azure-functions/functions-bindings-service-bus-trigger).
 
-The following code shows how you can create a new message and send it to a Service Bus Queue by using a `QueueClient` instance.
+The following code shows how you can create a new message and send it to a Service Bus Queue by using a `ServiceBusClient` instance.
 
 ```csharp
 private string serviceBusConnectionString = ...;
@@ -102,19 +102,22 @@ private string serviceBusConnectionString = ...;
    {
     var msgNumber = 0;
 
-    var queueClient = new QueueClient(serviceBusConnectionString, "myqueue");
+    var serviceBusClient = new ServiceBusClient(serviceBusConnectionString);
+
+    // create the sender
+    ServiceBusSender sender = serviceBusClient.CreateSender("myqueue");
 
     while (!ct.IsCancellationRequested)
     {
      // Create a new message to send to the queue
      string messageBody = $"Message {msgNumber}";
-     var message = new Message(Encoding.UTF8.GetBytes(messageBody));
+     var message = new ServiceBusMessage(Encoding.UTF8.GetBytes(messageBody));
 
      // Write the body of the message to the console
      this._logger.LogInformation($"Sending message: {messageBody}");
 
      // Send the message to the queue
-     await queueClient.SendAsync(message);
+     await sender.SendMessageAsync(message);
 
      this._logger.LogInformation("Message successfully sent.");
      msgNumber++;

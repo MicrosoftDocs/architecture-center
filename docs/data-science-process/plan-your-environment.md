@@ -65,7 +65,7 @@ Where does your data need to be for processing or modeling?
 For procedures and resources to ingest or load data into a variety of different storage and processing environments, see:
 
 * [Load data into storage environments for analytics](ingest-data.md)
-* [Import your training data into Azure Machine Learning Studio (classic) from various data sources](/azure/machine-learning/classic/import-data)
+* [Import your training data into Machine Learning Studio (classic) from various data sources](/azure/machine-learning/classic/import-data)
 
 ### Does the data need to be moved on a regular schedule or modified during migration?
 
@@ -105,9 +105,9 @@ These questions are key to planning your storage and processing environments. Th
 * Medium: Greater than 2 GB and less than 10 GB
 * Large: Greater than 10 GB
 
-Take the Azure Machine Learning Studio (classic) environment for example:
+Take the Machine Learning Studio (classic) environment for example:
 
-* For a list of the data formats and types supported by Azure Machine Learning Studio, see
+* For a list of the data formats and types supported by Machine Learning Studio (classic), see
   [Data formats and data types supported](/azure/machine-learning/classic/import-data#supported-data-formats-and-data-types) section.
 * For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 

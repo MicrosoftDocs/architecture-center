@@ -13,7 +13,7 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 - **[Web app][app-service-web-app]**. A typical modern application might include both a website and one or more RESTful web APIs. A web API might be consumed by browser clients through AJAX, by native client applications, or by server-side applications. For considerations on designing web APIs, see [API design guidance][api-guidance].
 - **Front Door**. [Front Door](/azure/frontdoor) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
 - **Function App**. Use [Function Apps][functions] to run background tasks. Functions are invoked by a trigger, such as a timer event or a message being placed on queue. For long-running stateful tasks, use [Durable Functions][durable-functions].
-- **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Queue storage][queue-storage] queue. The message triggers a function app. Alternatively, you can use Service Bus queues. For a comparison, see [Azure Queues and Service Bus queues - compared and contrasted][queues-compared].
+- **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Service Bus queue][queue-storage]. The message triggers a function app. Alternatively, you can use Azure Storage queues. For a comparison, see [Storage queues and Service Bus queues - compared and contrasted][queues-compared].
 - **Cache**. Store semi-static data in [Azure Cache for Redis][azure-redis].
 - **CDN**. Use [Azure Content Delivery Network][azure-cdn] (CDN) to cache publicly available content for lower latency and faster delivery of content.
 - **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider [Cosmos DB][cosmosdb].
@@ -29,7 +29,7 @@ Your requirements might differ from the architecture described here. Use the rec
 We recommend creating the web application and the web API as separate App Service apps. This design lets you run them in separate App Service plans so they can be scaled independently. If you don't need that level of scalability initially, you can deploy the apps into the same plan and move them into separate plans later if necessary.
 
 > [!NOTE]
-> For the Basic, Standard, and Premium plans, you are billed for the VM instances in the plan, not per app. See [App Service Pricing][app-service-pricing]
+> For the Basic, Standard, Premium, and Isolated plans, you are billed for the VM instances in the plan, not per app. See [App Service Pricing][app-service-pricing]
 >
 
 ### Cache
@@ -74,11 +74,11 @@ Use caching to reduce the load on servers that serve content that doesn't change
 
 If your app has static content, use CDN to decrease the load on the front end servers. For data that doesn't change frequently, use Azure Cache for Redis.
 
-Stateless apps that are configured for autoscaling are more cost effective than stateful apps. For an ASP.NET application, store your session state in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use Cosmos DB as a backend state store through a session state provider. See [Support Azure Cosmos DB and Azure Redis](https://github.com/Microsoft/service-fabric-services-and-actors-dotnet/issues/32).
+Stateless apps that are configured for autoscaling are more cost effective than stateful apps. For an ASP.NET application that uses session state, store it in-memory with Azure Cache for Redis. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](/azure/azure-cache-for-redis/cache-aspnet-session-state-provider). Another option is to use Cosmos DB as a backend state store through a session state provider. See [Use Azure Cosmos DB as an ASP.NET session state and caching provider](/azure/cosmos-db/sql/session-state-and-caching-provider).
 
 For more information, see the cost section in the [Microsoft Azure Well-Architected Framework](../../framework/cost/overview.md).
 
-Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions, rather than hourly.
+Consider placing a function app into a dedicated App Service plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan](/azure/azure-functions/functions-scale#consumption-plan), which is billed based on the number of executions and resources used, rather than hourly.
 
 Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
@@ -111,7 +111,7 @@ This section lists security considerations that are specific to the Azure servic
 
 ### Restrict incoming traffic
 
-Configure the application to accept traffic only from Front Door. This ensures that all traffic goes through the WAF before reaching the app. For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+Configure the application to accept traffic only from Front Door. This ensures that all traffic goes through the WAF before reaching the app. For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
 
 ### Cross-Origin Resource Sharing (CORS)
 
@@ -127,13 +127,11 @@ App Services has built-in support for CORS, without needing to write any applica
 
 Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at rest in the database. This feature performs real-time encryption and decryption of an entire database (including backups and transaction log files) and requires no changes to the application. Encryption does add some latency, so it's a good practice to separate the data that must be secure into its own database and enable encryption only for that database.
 
-
 ## DevOps considerations
 
 ### Front-end deployment
 
 This architecture builds on the one shown in [Basic web application][basic-web-app], see the [DevOps considerations section][basic-web-app-devops].
-
 
 ## Next steps
 
@@ -163,7 +161,7 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 [durable-functions]: /azure/azure-functions/durable-functions-overview
 [functions]: /azure/azure-functions/functions-overview
 [github]: https://github.com/mspnp/reference-architectures/tree/master/web-app
-[queue-storage]: /azure/storage/storage-dotnet-how-to-use-queues
+[queue-storage]: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues
 [queues-compared]: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
 [sql-db]: /azure/sql-database
 [sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction

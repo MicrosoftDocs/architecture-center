@@ -232,7 +232,7 @@ to maintain quorum with a device in a remote Azure region, away from the primary
 region where the cluster resides.
 
 For the backup data store, we recommend using Azure [cool and archive access
-tiers](/azure/storage/blobs/storage-blob-storage-tiers).
+tiers](/azure/storage/blobs/access-tiers-overview).
 These storage tiers are cost-effective ways to store long-lived data that is
 infrequently accessed.
 

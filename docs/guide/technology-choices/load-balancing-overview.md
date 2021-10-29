@@ -4,7 +4,7 @@ titleSuffix: Azure Application Architecture Guide
 description: Learn about Azure load-balancing services and how you can use them to distribute your workloads across multiple computing resources.
 author: EdPrice-MSFT
 ms.author: pnp
-ms.date: 03/02/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
@@ -26,7 +26,7 @@ Azure provides various load balancing services that you can use to distribute yo
 
 This article describes how you can use the Azure Load Balancing hub page in the Azure portal to determine an appropriate load-balancing solution for your business needs.
 
-## Overview
+## Service categorizations
 
 Azure load balancing services can be categorized along two dimensions: global versus regional, and HTTP(S) versus non-HTTP(S).
 
@@ -73,14 +73,15 @@ You can use the Azure Load Balancing page in the Azure portal to help you guide 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the *Search resources, services, and docs* box at the top of the portal, type *load balancing*. When **Load balancing** appears in the search results, select it.
     
-    ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search.png)
+    [ ![Search for load balancing - Azure portal screenshot](./images/load-balancing-search-1.png) ](./images/load-balancing-search-1.png#lightbox)
     > [!NOTE]
     > To learn about some of the factors considered in selecting a load-balancing solution, see [Decision tree for load-balancing in Azure](#decision-tree-for-load-balancing-in-azure) in this article.
 
 1. In the **Load balancing - help me choose (Preview)** page, do one of the following:
     - To find the appropriate load-balancing solution for your business, follow instructions in the default **Help me choose** tab.
       
-        ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png)
+        [ ![Choose an Azure load balancing solution - Azure portal screenshot](./images/load-balancing-help-me-choose.png) ](./images/load-balancing-help-me-choose.png#lightbox)
+        
     - To learn about the supported protocols and service capabilities of each load balancing service, select the **Service comparisons** tab.
     - To access free training on load balancing services, select the **Tutorial** tab.
      

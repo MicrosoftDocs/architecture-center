@@ -31,7 +31,7 @@ Many cloud-based systems, including Microsoft Azure, support automatic horizonta
 > [!NOTE]
 > Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this usually involves [data partitioning](./data-partitioning.md), which is generally not automated.
 
-## Overview
+## Autoscaling components
 
 An autoscaling strategy typically involves the following pieces:
 

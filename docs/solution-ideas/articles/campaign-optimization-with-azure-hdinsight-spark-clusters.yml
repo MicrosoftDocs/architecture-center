@@ -2,8 +2,8 @@
 metadata:
   title: Campaign optimization with HDInsight Spark
   titleSuffix: Azure Solution Ideas
-  description: Build and deploy a machine learning model to maximize the purchase rate of leads targeted by a marketing campaign using Microsoft Machine Learning Server.
-  author: doodlemania2
+  description: Build and deploy a machine learning model to maximize the purchase rate of leads that are targeted by a marketing campaign using Microsoft Machine Learning Server.
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -28,7 +28,7 @@ azureCategories:
   - databases
   - analytics
   - ai-machine-learning
-summary: Build and deploy a machine learning model to maximize the purchase rate of leads targeted by a marketing campaign using Microsoft Machine Learning Server.
+summary: Build and deploy a machine learning model to maximize the purchase rate of leads that are targeted by a marketing campaign using Microsoft Machine Learning Server.
 products:
   - azure-hdinsight
   - power-bi
