@@ -18,7 +18,7 @@ This standard Azure *hub-spoke* architecture deploys VMs on the **Production** s
 
 The SOC team has exclusive access to a different Azure **SOC** subscription, for resources that must be kept protected, unviolated, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable Blob storage](/azure/storage/blobs/storage-blob-immutable-storage), and keeps the snapshots' SHA-256 hash values and copies of the VMs' BEKs and KEKs in its own SOC key vault.
 
-In response to a request to capture a VM's digital evidence, an SOC team member signs in to the Azure SOC subscription, and uses a [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) VM in [Azure Automation](/azure/automation/automation-intro) to execute the **Copy-VmDigitalEvidence** runbook. The Hybrid Runbook Worker provides control of all mechanisms involved in the capture.
+In response to a request to capture a VM's digital evidence, a SOC team member signs in to the Azure SOC subscription, and uses a [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) VM in [Azure Automation](/azure/automation/automation-intro) to execute the **Copy-VmDigitalEvidence** runbook. The Hybrid Runbook Worker provides control of all mechanisms involved in the capture.
 
 The Copy-VmDigitalEvidence runbook:
 
@@ -145,7 +145,7 @@ The Hybrid Runbook Worker must map the Azure File share containing the disk, use
 
 The SOC team has created the Copy‑VmDigitalEvidence runbook and the dedicated [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) VM in their Azure Automation account.
 
-When the team receives a request to capture digital evidence, an SOC team member follows this workflow:
+When the team receives a request to capture digital evidence, a SOC team member follows this workflow:
 
 1. Sign in to the SOC subscription in the Azure portal, and select their Azure Automation account
 1. Edit the Copy-VmDigitalEvidence runbook to supply the following information:
