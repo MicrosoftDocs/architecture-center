@@ -177,7 +177,7 @@ items:
           - name: Overview
             href: guide/startups/startup-architecture.md
           - name: Core startup stack architecture
-            href: guide/startups/core-startup-stack.yml
+            href: example-scenario/startups/core-startup-stack.yml
       - name: Multitenant applications
         items:
           - name: Considerations
