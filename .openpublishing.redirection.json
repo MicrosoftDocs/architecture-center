@@ -2234,7 +2234,7 @@
     },
     {
       "source_path": "docs/guide/startups/core-startup-stack.yml",
-      "redirect_url": "/azure/architecture/example-scenario/core-startup-stack",
+      "redirect_url": "/azure/architecture/example-scenario/startups/core-startup-stack",
       "redirect_document_id": true
     },
     {

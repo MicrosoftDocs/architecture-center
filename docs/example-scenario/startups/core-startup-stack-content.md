@@ -1,6 +1,6 @@
-Many lessons you learn in larger companies aren't directly applicable to a startup's first stack. In a product's initial [explore](startup-architecture.md#explore) stage, you need to optimize deployment for speed, cost, and *optionality*. Optionality refers to how fast you can change directions within a given architecture.
+Many lessons you learn in larger companies aren't directly applicable to a startup's first stack. In a product's initial [explore](../../guide/startups/startup-architecture.md#explore) stage, you need to optimize deployment for speed, cost, and *optionality*. Optionality refers to how fast you can change directions within a given architecture.
 
-A business in the [expand](startup-architecture.md#expand) or [extract](startup-architecture.md#extract) phases of product development  might use a service-oriented or microservices architecture. This type of deployment architecture is rarely right for a startup that hasn't yet found product/market fit or commercial traction.
+A business in the [expand](../../guide/startups/startup-architecture.md#expand) or [extract](../../guide/startups/startup-architecture.md#extract) phases of product development  might use a service-oriented or microservices architecture. This type of deployment architecture is rarely right for a startup that hasn't yet found product/market fit or commercial traction.
 
 For a core startup stack, a simple monolithic design is best. This design limits the time spent managing infrastructure, while providing ample ability to scale as the startup wins more customers. This article presents an example of a simple core startup stack, and discusses its components.
 
@@ -68,8 +68,8 @@ You can see a sample core startup stack implementation [on GitHub](https://githu
 
 ## Related resources
 
-- [Architecture for startups](startup-architecture.md)
+- [Architecture for startups](../../guide/startups/startup-architecture.md)
 - [Best practices in cloud applications](../../best-practices/index-best-practices.md)
 - [Best practices for using content delivery networks (CDNs)](../../best-practices/cdn.md)
-- [Ten design principles for Azure applications](../design-principles/index.md)
+- [Ten design principles for Azure applications](../../guide/design-principles/index.md)
 
