@@ -1398,7 +1398,7 @@ items:
                   - name: Security baseline for Azure Purview
                     href: /security/benchmark/azure/baselines/purview-security-baseline
                     maintainContext: true
-              - Apache NiFi guidance
+              - name: Apache NiFi guidance
                 items:
                   - name: Apache NiFi monitoring with MonitoFi
                     href: guide/data/monitor-apache-nifi-monitofi.yml
