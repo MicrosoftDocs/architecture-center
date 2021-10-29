@@ -3,7 +3,7 @@ metadata:
   title: AKS container CI/CD with Jenkins and Kubernetes
   titleSuffix: Azure Solution Ideas
   description: By orchestrating the deployment of containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

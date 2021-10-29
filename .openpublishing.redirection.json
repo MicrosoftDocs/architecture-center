@@ -2233,6 +2233,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/guide/startups/core-startup-stack.yml",
+      "redirect_url": "/azure/architecture/example-scenario/startups/core-startup-stack",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub.yml",
       "redirect_url": "/azure/architecture/",
       "redirect_document_id": false

@@ -12,7 +12,7 @@ This solution is built on the Azure managed services: [Traffic Manager](https://
 ![Architecture Diagram](../media/digital-marketing-episerver.png)
 *Download an [SVG](../media/digital-marketing-episerver.svg) of this architecture.*
 
-## Components
+### Components
 
 * App Service [Web Apps](https://azure.microsoft.com/services/app-service/web) runs in multiple regions, accessible to web and mobile browsers, and is scaled out across multiple server instances.
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) determines which web app is geographically best placed to handle each request.

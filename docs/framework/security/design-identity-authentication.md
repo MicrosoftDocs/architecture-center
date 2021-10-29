@@ -104,7 +104,7 @@ Start by evaluating the organization's on-premises identity solution and user re
 Consider using [Azure AD Connect](/azure/active-directory/connect/active-directory-aadconnect) for synchronizing Azure AD with your existing on-premises directory. For migration projects, have a requirement to complete this task before an Azure migration and development projects begin.
 
 > [!IMPORTANT]
-> Don't synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](./critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
+> Don't synchronize high-privilege accounts to an on-premises directory. If an attacker gets full control of on-premises assets, they can compromise a cloud account.  This strategy will limit the scope of an incident. For more information, see [Critical impact account dependencies](/azure/architecture/framework/security/design-admins#critical-impact-admin-dependencies--accountworkstation).
 >
 >
 > Synchronization is blocked by default in the default Azure AD Connect configuration. Make sure that you haven't customized this configuration. For information about filtering in Azure AD, see [Azure AD Connect sync: Configure filtering](/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering).
@@ -159,7 +159,7 @@ An implementation of this strategy is enabling single sign-on (SSO) to devices, 
 **Learn more**
 
 - [Passwordless Strategy](/windows/security/identity-protection/hello-for-business/passwordless-strategy)
-- [Remove Virtual Machine (VM) direct internet connectivity](./governance.md#remove-virtual-machine-vm-direct-internet-connectivity)
+- [Remove Virtual Machine (VM) direct internet connectivity](/azure/architecture/framework/security/design-governance#remove-virtual-machine-vm-direct-internet-connectivity)
 
 ## Use modern password protection
 

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2021-10-18T15:24:31.245Z</updated>
+    <updated>2021-10-25T17:56:18.238Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
@@ -17,19 +17,11 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Deploy KEDA to Azure Kubernetes Service/Azure Container Registry on a disconnected Azure Stack Hub]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub</id>
-        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/deploy-keda-aksacr-disconnected-azure-stack-hub"/>
-        <updated>2021-10-18T08:01:24.000Z</updated>
-        <summary type="html"><![CDATA[This article shows you how to deploy Kubernetes Event-driven Autoscaling (KEDA) to a Kubernetes cluster on a disconnected Azure Stack Hub, using Azure Kubernetes Service (AKS) and Azure Container Registry.]]></summary>
-        <category label="new" term="new"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release packaging for deploying to disconnected Azure Stack Hub with Universal Packages]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/guide/devops/release-packaging-deploying-disconnected-azure-stack-hub</id>
-        <link href="https://docs.microsoft.com/azure/architecture/guide/devops/release-packaging-deploying-disconnected-azure-stack-hub"/>
-        <updated>2021-10-15T21:42:32.000Z</updated>
-        <summary type="html"><![CDATA[Create a release package using Azure Pipelines, Azure Artifacts, and Universal Packages to create and configure resources on a disconnected Azure Stack Hub]]></summary>
+        <title type="html"><![CDATA[AIX UNIX on-premises to Azure Linux migration]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux"/>
+        <updated>2021-10-20T07:20:24.000Z</updated>
+        <summary type="html"><![CDATA[Migrate an on-premises IBM AIX system and web application to a highly-available, secure RedHat Enterprise Linux solution in Azure.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -135,6 +127,38 @@
         <updated>2021-10-05T02:47:51.000Z</updated>
         <summary type="html"><![CDATA[Learn how to securely develop and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Commerce chatbot for customer service]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/commerce-chatbot</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/commerce-chatbot"/>
+        <updated>2021-10-25T15:07:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Bot and Azure Cognitive Services to create conversational interfaces for common customer service scenarios.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MCAS and Azure Sentinel for AWS]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-security-solutions</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-security-solutions"/>
+        <updated>2021-10-22T23:05:04.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Microsoft Cloud App Security (MCAS) and Azure Sentinel can help secure and protect Amazon Web Services (AWS) account access and environments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure AD security for AWS]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/aws/aws-azure-ad-security"/>
+        <updated>2021-10-22T22:52:53.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Azure Active Directory can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Administrative account security]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/framework/security/design-admins</id>
+        <link href="https://docs.microsoft.com/azure/architecture/framework/security/design-admins"/>
+        <updated>2021-10-21T23:22:55.000Z</updated>
+        <summary type="html"><![CDATA[Review administrator account security in Azure. Administration is monitoring, maintaining, and operating IT systems to meet service levels the business requires.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Deploy AI-based footfall detection solution in Azure and Azure Stack Hub]]></title>
