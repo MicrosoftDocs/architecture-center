@@ -2394,6 +2394,8 @@ items:
         items:
           - name: Guides
             items:
+              - name: Azure AD join for Azure Virtual Desktop
+                href: example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md
               - name: FSLogix for the enterprise
                 href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
           - name: Architectures
