@@ -51,6 +51,13 @@ Azure VMware Solution subscriptions are part of Landing Zone Management Group, w
 
 Sandbox subscriptions are deployed under [Sandbox Management Group](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation-guidelines#sandbox-governance-guidance), which provides a playground for experimenting with Azure services. At the same time, a sandbox subscription provides protection against impacting production workloads. An Azure VMware Solution sandbox subscription would have less restrictive policies, which allows you to have greater control over the service. By creating a separate Azure VMware Solution sandbox subscription, it is functionally marked to prevent the possibility of the subscription being used for production deployment.
 
+### Components
+
+ - [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
+ - [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+ - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
+ - [Azure Policy](https://azure.microsoft.com/services/azure-policy)
+
 ## Next steps
 
 Use the following guidance about other Azure VMware Solution ideas:
