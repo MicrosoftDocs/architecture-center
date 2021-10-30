@@ -3,7 +3,7 @@ metadata:
   title: Task-Based Consumer Mobile App
   titleSuffix: Azure Solution Ideas
   description: This mobile app architecture simplifies authentication, stores and syncs data, sends notifications, automates builds and tests, and monitors and analyzes usage.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

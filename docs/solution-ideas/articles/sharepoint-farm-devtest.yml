@@ -3,7 +3,7 @@ metadata:
   title: SharePoint Farm for Development Testing
   titleSuffix: Azure Solution Ideas
   description: Deploy a SharePoint farm for development testing. Use Azure Active Directory, SQL Server, and SharePoint resources for this agile development architecture.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

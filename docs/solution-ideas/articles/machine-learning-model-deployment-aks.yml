@@ -3,7 +3,7 @@ metadata:
   title: Deploy machine learning models to AKS
   titleSuffix: Azure Solution Ideas
   description: Deploy machine learning models to Azure Kubernetes Service (AKS) for high-scale production inference.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

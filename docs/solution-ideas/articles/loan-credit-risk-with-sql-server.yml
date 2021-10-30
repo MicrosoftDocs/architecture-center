@@ -3,7 +3,7 @@ metadata:
   title: Loan Credit Risk with SQL Server
   titleSuffix: Azure Solution Ideas
   description: Lending institutions can use the predictive analytics of SQL Server 2016 with R Services to reduce the number of loans to borrowers most likely to default.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

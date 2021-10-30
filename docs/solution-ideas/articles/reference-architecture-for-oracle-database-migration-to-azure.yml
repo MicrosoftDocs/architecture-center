@@ -3,7 +3,7 @@ metadata:
   title: Oracle Database Migration to Azure
   titleSuffix: Azure Solution Ideas
   description: Migrate an Oracle database and its applications to Azure. Use Oracle Active Data Guard for the database, and use Azure Load Balancer for the application tier.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

@@ -3,7 +3,7 @@ metadata:
   title: Running Oracle Databases on Azure
   titleSuffix: Azure Solution Ideas
   description: Use a canonical architecture to achieve high availability for Oracle Database Enterprise Edition in Azure.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

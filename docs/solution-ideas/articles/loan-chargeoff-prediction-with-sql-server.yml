@@ -3,7 +3,7 @@ metadata:
   title: Loan ChargeOff Prediction with SQL Server
   titleSuffix: Azure Solution Ideas
   description: Build and deploy a machine learning model with SQL Server 2016 with R Services to predict whether a bank loan will soon need to be charged off.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

@@ -3,7 +3,7 @@ metadata:
   title: Tier Applications & Data for Analytics
   titleSuffix: Azure Solution Ideas
   description: As data flows into a storage account, use Azure Stack to analyze the data for anomalies or compliance and to display insights in apps.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
