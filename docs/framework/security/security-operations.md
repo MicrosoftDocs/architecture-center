@@ -149,4 +149,3 @@ Integrating more data can allow you to enrich alerts with more context
 that enable rapid response and remediation (filter false positives, elevate
 true positives, and so on), but collection is not detection. If you don&apos;t have a
 reasonable expectation that the data will provide value (for example, high volume of firewall denies events), you may deprioritize integration of these events.
-

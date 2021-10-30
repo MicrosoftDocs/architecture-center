@@ -9,7 +9,7 @@ ms.subservice: well-architected
 products:
   - azure-monitor
 categories:
-  - management-and-governance  
+  - management-and-governance
 ms.custom:
   - fasttrack-edit
 ---
@@ -78,4 +78,3 @@ If you are using Application Insights to collect instrumentation data, there are
 - [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitor//logs/manage-cost-storage)
 - [Manage usage and costs for Application Insights](/azure/azure-monitor//app/pricing)
 > [Back to the main article](monitor.md)
-

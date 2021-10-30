@@ -9,7 +9,7 @@ ms.subservice: well-architected
 products:
   - azure-monitor
 categories:
-  - management-and-governance    
+  - management-and-governance
 ms.custom:
   - fasttrack-edit
 ---

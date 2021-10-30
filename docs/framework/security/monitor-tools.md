@@ -10,11 +10,9 @@ products:
   - azure-security-center
   - azure-sentinel
   - m365-security-center
-categories: 
-  - management-and-governance  
-subject: 
-  - security
-  - monitor
+categories:
+  - management-and-governance
+subject: security, monitor
 ms.custom:
   - article
 ---
@@ -95,4 +93,3 @@ For frequently asked questions on Azure Security Center, see [FAQ - General Ques
 For information on the Azure Sentinel tools that will help to meet these requirements, see [What is Azure Sentinel?](/azure/sentinel/overview#analytics)
 
 For types of DDoS attacks that DDoS Protection Standard mitigates as well as more features, see [Azure DDoS Protection Standard overview](/azure/virtual-network/ddos-protection-overview).
-

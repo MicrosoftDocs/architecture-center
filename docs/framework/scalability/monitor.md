@@ -10,7 +10,7 @@ products:
   - azure-monitor
   - azure-application-insights
 categories:
-  - management-and-governance    
+  - management-and-governance
 ms.custom:
   - fasttrack-edit
   - article
@@ -62,9 +62,3 @@ Based on insights gained through monitoring, optimize your code. One option migh
 ## Related links
 > [Back to the main article](overview.md)
   
-
-
-
-
-
-

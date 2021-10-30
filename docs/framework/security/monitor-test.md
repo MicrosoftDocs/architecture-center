@@ -8,11 +8,9 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure
-categories: 
-  - security  
-subject: 
+categories:
   - security
-  - testing
+subject: security, testing
 ms.custom:
   - article
 ---

@@ -8,11 +8,9 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-key-vault
-categories: 
+categories:
   - security
-subject:
-  - security
-  - configuration
+subject: security, configuration
 ms.custom:
   - article
 ---

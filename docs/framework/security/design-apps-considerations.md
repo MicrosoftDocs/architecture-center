@@ -12,8 +12,7 @@ products:
   - azure-devops
 categories:
   - security
-subject: 
-  - security
+subject: security
 ---
 # Application classification for security
 

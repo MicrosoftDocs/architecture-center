@@ -27,4 +27,3 @@ For auto scaling, consider the choice of instance size. The size can significant
 Many Azure services can be used to improve the application's ability to scale dynamically. Even where they may not have been originally designed to do so. 
 
 For example, many ASP.NET stateful web applications can be made stateless. Then they can be auto scaled, which results in cost benefit. You store state using [Azure Redis Cache](/azure/azure-cache-for-redis/cache-aspnet-session-state-provider), or Cosmos DB as a back-end session state store through a [Session State Provider](https://github.com/aspnet/AspNetSessionState).
-

@@ -1,5 +1,5 @@
 ---
-title:  Azure Well-Architected Framework review of an Azure NAT gateway
+title: Azure Well-Architected Framework review of an Azure NAT gateway
 titleSuffix: Azure Architecture Center
 description: Best practices for an Azure NAT gateway, based on the Azure Well-Architected Framework's five pillars of architecture excellence.
 author: jknightly
@@ -8,7 +8,8 @@ ms.date: 09/21/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.custom: fcp
+ms.custom:
+  - fcp
 products:
   - azure-application-gateway
   - azure-virtual-network

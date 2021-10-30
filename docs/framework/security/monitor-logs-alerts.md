@@ -10,11 +10,9 @@ products:
   - azure-security-center
   - azure-sentinel
   - azure-monitor
-categories: 
+categories:
   - security
-subject:
-  - security
-  - monitoring
+subject: security, monitoring
 ---
 
 # Security logs and alerts using Azure services

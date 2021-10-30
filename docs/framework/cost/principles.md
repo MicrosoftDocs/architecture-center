@@ -8,8 +8,10 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - overview
-products: azure
-categories: management-and-governance
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Principles of cost optimization

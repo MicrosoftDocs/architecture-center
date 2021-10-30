@@ -8,14 +8,10 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-active-directory
-categories: 
+categories:
   - management-and-governance
   - security
-contributors:
-  - advocacy/writer/alias1
-  - advocacy/pm/alias2
-  - contentlearning/engg/alias3
-  - aquent/copy/alias4
+contributors: advocacy/writer/alias1, advocacy/pm/alias2, contentlearning/engg/alias3, aquent/copy/alias4
 ms.custom:
   - article
 ---

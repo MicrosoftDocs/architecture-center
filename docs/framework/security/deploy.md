@@ -10,8 +10,7 @@ products:
   - azure-devops
 categories:
   - security
-subject:
-  - security
+subject: security
 ---
  
 # Secure deployment in Azure

@@ -11,8 +11,7 @@ products:
 categories:
   - security
   - identity
-subject:
-  - identity
+subject: identity
 ms.custom:
   - article
 ---

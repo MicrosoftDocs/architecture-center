@@ -30,5 +30,3 @@ Reservations can be applied to a specific scope—subscription, resource group, 
 Many services are eligible for reservations. This range covers virtual machines and a wide variety of managed services. For information about the services that are eligible for reservations, see [Charges covered by reservation](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation).
 
 Certain subscriptions and offer types support reservations. For a list of such subscriptions, see [Discounted subscription and offer types](/azure/cost-management-billing/reservations/prepare-buy-reservation#discounted-subscription-and-offer-types).
-
-

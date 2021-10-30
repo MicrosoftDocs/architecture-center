@@ -11,7 +11,8 @@ ms.custom:
   - article
 products:
   - azure
-categories: management-and-governance
+categories:
+  - management-and-governance
 ---
 
 # Using business metrics to design resilient Azure applications

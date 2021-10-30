@@ -2,7 +2,7 @@
 metadata:
   title: Microservices architecture on AKS
   description: Learn about the infrastructure and DevOps considerations of deploying and running a microservices architecture on Azure Kubernetes Service (AKS).
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 05/04/2020
   ms.topic: conceptual

@@ -18,7 +18,8 @@ categories:
   - containers
   - security
   - web
-keywords: Azure
+keywords:
+  - Azure
 ---
 
 # Solutions for the healthcare industry

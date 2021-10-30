@@ -9,8 +9,10 @@ ms.subservice: well-architected
 ms.custom:
   - fasttrack-edit
   - overview
-products: azure
-categories: management-and-governance
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Overview of the operational excellence pillar
