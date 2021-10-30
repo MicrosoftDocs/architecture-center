@@ -18,7 +18,7 @@ Providing network connectivity can enable the following key use cases:
 
 The following high-level architecture diagram covers key networking scenarios.
 
-![Diagram showing the Azure VMware Solution network architecture](../media/azure-vmware-solution-networking.png)
+[![Diagram showing the Azure VMware Solution network architecture](../media/azure-vmware-solution-networking.png)](../media/azure-vmware-solution-networking.png#lightbox)
 
 This architecture showcases a key network design that enables the following scenarios:
 
