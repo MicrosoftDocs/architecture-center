@@ -15,6 +15,7 @@ Azure supports two major workstreams in Veriown's IoT solution:
 Since bandwidth is limited and expensive in emerging markets, analyzing usage patterns and incidents can help content and service owners target customers with only the content and services they currently need.
 
 ## Potential use cases
+
 A solar-powered Connect device in a customer's home or business can provide:
 - LED light to replace kerosene lanterns
 - USB device charging
@@ -57,7 +58,7 @@ The system includes the following data analysis and control loop:
 1. Azure ML combines current data with stored external data, like historical weather and forecasts, and uses the results to retrain the power management ML models.
 1. IoT Hub sends the retrained models to the Connect devices, which adjust their behavior and schedules accordingly.
 
-## Components
+### Components
 - [Azure Application Gateway](/azure/application-gateway/overview) manages and load balances traffic to and from cloud web apps.
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) hosts and simplifies [Kubernetes](https://kubernetes.io/) orchestration of [Docker](https://www.docker.com/) containerized apps.
 - [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro) is a managed, private registry service that supports AKS applications at scale.
@@ -67,7 +68,7 @@ The system includes the following data analysis and control loop:
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that turn data into coherent, immersive, interactive visualizations and reports.
 - [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml) is a cloud-based ML environment that uses existing data to forecast future behaviors, outcomes, and trends.
 
-## See also
+## Next steps
 - [Azure IoT documentation](/azure/iot-fundamentals/)
 - [A solar-powered device will bring online entertainment, education to villages](https://www.thehindubusinessline.com/info-tech/soon-a-solar-powered-device-will-bring-online-entertainment-education-to-villages/article26945331.ece)
 - [Veriown website](https://veriown.com)
