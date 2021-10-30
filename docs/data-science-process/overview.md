@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: overview
 ms.date: 11/17/2020
 ms.author: tdsp
-ms.custom: previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:

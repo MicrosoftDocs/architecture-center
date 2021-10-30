@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-active-directory
-categories: 
+categories:
   - management-and-governance
   - security
 contributors:

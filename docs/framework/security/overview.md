@@ -6,7 +6,7 @@ ms.date: 09/08/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-products: 
+products:
   - azure
 categories:
   - security

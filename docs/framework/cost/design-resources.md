@@ -75,7 +75,3 @@ As you decide the offer type, consider the types that support [Azure Reservation
 ***
 
 Azure Marketplace offers both the Azure products and services from third-party vendors. Different billing structures apply to each of those categories. The billing structures can range from free, pay-as-you-go, one-time purchase fee, or a managed offering with support and licensing monthly costs.
-
-
-
-

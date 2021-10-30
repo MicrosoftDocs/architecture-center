@@ -8,7 +8,8 @@ ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
-ms.category: containers
+ms.category:
+  - containers
 products:
   - azure-kubernetes-service
 ---

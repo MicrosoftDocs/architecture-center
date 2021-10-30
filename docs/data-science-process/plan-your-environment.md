@@ -1,5 +1,5 @@
 ---
-title: Identify scenarios and plan the analytics process - Team Data Science Process | Azure Machine Learning 
+title: Identify scenarios and plan the analytics process - Team Data Science Process | Azure Machine Learning
 description: Identify scenarios and plan for advanced analytics data processing by considering a series of key questions.
 services: machine-learning
 author: marktab
@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:

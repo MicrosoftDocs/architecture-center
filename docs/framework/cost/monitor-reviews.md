@@ -34,4 +34,3 @@ Cost reviews can be conducted as part of the regular business reviews. It’s re
 - Because of a [budget alert](/azure/cost-management/cost-mgt-alerts-monitor-usage-spending) or Azure Advisor recommendations.
 
 Web Direct (pay-as-you-go) and Cloud Solution Provider (CSP) billing occurs monthly. While Enterprise Agreement (EA) billing occurs annually, costs should still be reviewed monthly.
-

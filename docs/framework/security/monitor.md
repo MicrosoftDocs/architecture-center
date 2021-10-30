@@ -10,7 +10,7 @@ products:
   - azure-security-center
   - azure-sentinel
   - azure-monitor
-categories: 
+categories:
   - security
 subject:
   - security

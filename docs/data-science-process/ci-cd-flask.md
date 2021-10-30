@@ -10,8 +10,12 @@ ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.category: ai-machine-learning
-ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr, fcp
+ms.category:
+  - ai-machine-learning
+ms.custom:
+  - previous-author=jainr
+  - previous-ms.author=jainr
+  - fcp
 products:
   - azure
   - azure-pipelines

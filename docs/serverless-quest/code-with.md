@@ -35,4 +35,3 @@ The Engineering Playbook shows how to increase engineering team efficiency, redu
 - As a distributed team, take time to share context via wikis, Teams, and backlog items.
 - Report product issues, and provide clear and repeatable engineering feedback.
 - Learn from other people's shared experiences and feedback.
-

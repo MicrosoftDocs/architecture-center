@@ -6,13 +6,14 @@ manager: danielke
 products:
   - azure-active-directory
   - azure-active-directory-b2c
-
-categories: identity
+categories:
+  - identity
 ms.service: architecture-center
 ms.topic: guide
 ms.date: 7/7/2021
 ms.author: lanallai
-ms.custom: fcp
+ms.custom:
+  - fcp
 ---
 
 # Secure development with single-page applications (SPAs)

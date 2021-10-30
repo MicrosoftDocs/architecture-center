@@ -1,5 +1,5 @@
 ---
-title:  Azure Well-Architected Framework review of Azure Firewall
+title: Azure Well-Architected Framework review of Azure Firewall
 titleSuffix: Azure Architecture Center
 description: This guidance provides best practices for Azure Firewall, based on the Well-Architected Framework's five pillars of architecture excellence.
 author: rohilla-shweta

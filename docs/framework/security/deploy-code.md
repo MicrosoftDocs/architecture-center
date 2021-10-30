@@ -1,6 +1,6 @@
 ---
 title: Code deployment security considerations in Azure
-description: Security strategy for automated deployment pipelines. 
+description: Security strategy for automated deployment pipelines.
 author: PageWriter-MSFT
 ms.date: 03/26/2021
 ms.topic: conceptual
@@ -10,7 +10,7 @@ products:
   - azure-devops
 categories:
   - security
-subject: 
+subject:
   - security
 ---
 

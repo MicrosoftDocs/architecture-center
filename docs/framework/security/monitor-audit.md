@@ -9,7 +9,7 @@ ms.subservice: well-architected
 products:
   - azure-security-center
   - azure-policy
-categories: 
+categories:
   - management-and-governance
 subject:
   - security

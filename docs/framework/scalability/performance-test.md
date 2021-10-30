@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 categories:
-  - management-and-governance   
+  - management-and-governance
 ms.custom:
   - How are you handling user load?
   - article

@@ -8,10 +8,8 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-
-# Intent: As an Azure Stack Hub operator, I want to deploy a SQL Server 2016 availability group across two Azure Stack Hub environments so I can have a highly available solution with a disaster recovery site. 
+# Intent: As an Azure Stack Hub operator, I want to deploy a SQL Server 2016 availability group across two Azure Stack Hub environments so I can have a highly available solution with a disaster recovery site.
 # Keyword: sql server 2016 availability group azure stack hub
-
 ---
 
 # Deploy a SQL Server 2016 availability group across two Azure Stack Hub environments

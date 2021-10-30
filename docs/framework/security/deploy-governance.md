@@ -1,6 +1,6 @@
 ---
 title: Governance considerations for secure deployment in Azure
-description: Governance for CI/CD pipelines to make sure right access and work is executed. 
+description: Governance for CI/CD pipelines to make sure right access and work is executed.
 author: PageWriter-MSFT
 ms.date: 03/26/2021
 ms.topic: conceptual
@@ -10,7 +10,7 @@ products:
   - azure-devops
 categories:
   - security
-subject: 
+subject:
   - security
 ---
 
