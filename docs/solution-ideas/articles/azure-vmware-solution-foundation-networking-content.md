@@ -73,7 +73,7 @@ Route 10 shows connectivity to AVS workloads from other workloads that run in Az
 
  - [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
  - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
- - [Azure Traffic Manager](https://azure.microsoft.com/en-us/services/traffic-manager)
+ - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager)
  - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway)
  - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
  - [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan)
