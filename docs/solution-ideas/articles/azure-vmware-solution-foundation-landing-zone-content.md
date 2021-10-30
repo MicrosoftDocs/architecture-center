@@ -11,9 +11,9 @@ This article covers considerations for deploying and running Azure VMware Soluti
 
 Running Azure VMware Solution as part of a landing zone environment helps address the following use-cases:
 
-1. Re-use an existing Azure tenancy infrastructure: Azure VMware Solution environment can be integrated with an existing Azure tenant. This way, customers can use their existing ownership chain for billing and accounting purposes.
-2. Re-use shared landing zones: Customers can re-use their existing shared landing zones, which run services as network connectivity, monitoring, and so on, with Azure VMware Solution environment. This re-use can reduce costs, as well as improve the operational efficiency.
-3. Separation of governance rules: Customers want to have different governance needs in dev/test environments, than in a production environment. Having separate landing zones for Azure VMware Solution environments enables the desired level of control, based on customer requirements.
+- Re-use an existing Azure tenancy infrastructure: Azure VMware Solution environment can be integrated with an existing Azure tenant. This way, customers can use their existing ownership chain for billing and accounting purposes.
+- Re-use shared landing zones: Customers can re-use their existing shared landing zones, which run services as network connectivity, monitoring, and so on, with Azure VMware Solution environment. This re-use can reduce costs, as well as improve the operational efficiency.
+- Separation of governance rules: Customers want to have different governance needs in dev/test environments, than in a production environment. Having separate landing zones for Azure VMware Solution environments enables the desired level of control, based on customer requirements.
 
 ## Architecture
 
