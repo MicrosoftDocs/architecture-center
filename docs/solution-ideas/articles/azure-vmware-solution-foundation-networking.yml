@@ -5,7 +5,7 @@ metadata:
   description: Get started with Azure VMware Solution foundation block networking. Understand what networking solution options exists and how to choose between them.
   author: Mahesh-MSFT
   ms.author: maksh
-  ms.date: 10/29/2021
+  ms.date: 11/01/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
