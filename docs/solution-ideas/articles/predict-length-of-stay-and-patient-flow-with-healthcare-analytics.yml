@@ -3,7 +3,7 @@ metadata:
   title: Predict Length of Stay and Patient Flow
   titleSuffix: Azure Solution Ideas
   description: Predict capacity and patient flow for your hospital or healthcare facility so that you can enhance the quality of care and improve operational efficiency.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 03/05/2021
   ms.topic: conceptual

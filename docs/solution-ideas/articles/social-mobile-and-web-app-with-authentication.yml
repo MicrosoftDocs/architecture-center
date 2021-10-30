@@ -3,7 +3,7 @@ metadata:
   title: Mobile and web social app with authentication
   titleSuffix: Azure Solution Ideas
   description: Build and implement a mobile client app architecture that offers authentication abilities and social image sharing with a companion web app, even while offline.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

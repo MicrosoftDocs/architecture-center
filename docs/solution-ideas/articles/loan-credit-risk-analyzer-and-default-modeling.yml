@@ -3,7 +3,7 @@ metadata:
   title: Loan Credit Risk + Default Modeling
   titleSuffix: Azure Solution Ideas
   description: SQL Server 2016 with R Services can help lenders issue fewer unprofitable loans by predicting borrower credit risk and default probability.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

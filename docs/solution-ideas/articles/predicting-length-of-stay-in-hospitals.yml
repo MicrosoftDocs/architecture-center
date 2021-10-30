@@ -3,7 +3,7 @@ metadata:
   title: Predicting Length of Stay in Hospitals
   titleSuffix: Azure Solution Ideas
   description: Length of stay predictions for hospital admissions can enhance care quality and operational workload efficiency and reduce readmissions.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 03/05/2021
   ms.topic: conceptual

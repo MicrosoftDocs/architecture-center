@@ -3,7 +3,7 @@ metadata:
   title: Hybrid SharePoint Farm with Microsoft 365
   titleSuffix: Azure Solution Ideas
   description: Deliver highly available intranet capability and share hybrid workloads with Microsoft 365 by using SharePoint servers, Azure Active Directory, and SQL Server.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

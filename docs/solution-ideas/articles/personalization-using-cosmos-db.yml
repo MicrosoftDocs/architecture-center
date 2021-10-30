@@ -3,7 +3,7 @@ metadata:
   title: Personalization using Cosmos DB
   titleSuffix: Azure Solution Ideas
   description: Generate personalized recommendations for customers in real time by using low-latency and tunable consistency settings for immediate insights.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 02/16/2019
   ms.topic: conceptual
