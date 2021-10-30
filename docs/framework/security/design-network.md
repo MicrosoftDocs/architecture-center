@@ -10,7 +10,9 @@ products:
   - azure-security-center
 categories:
   - security
-subject: security, networking
+subject:
+  - security
+  - networking
 ms.custom:
   - article
 ---

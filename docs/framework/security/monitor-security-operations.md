@@ -12,7 +12,9 @@ products:
   - azure-monitor
 categories:
   - security
-subject: security, monitoring
+subject:
+  - security
+  - monitoring
 ms.custom:
   - article
 ---
@@ -25,10 +27,11 @@ The responsibility of the security operation team (also known as Security Operat
 
 Here are some general best practices for conducting security operations:
 
-- Follow the NIST Cybersecurity Framework functions as part of operations. 
-    - **Detect** the presence of adversaries in the system. 
-    - **Respond** by quickly investigating whether it's an actual attack or a false alarm. 
-    - **Recover**  and restore the confidentiality, integrity, and availability of the workload during and after an attack.
+- Follow the NIST Cybersecurity Framework functions as part of operations.
+
+  - **Detect** the presence of adversaries in the system.
+  - **Respond** by quickly investigating whether it's an actual attack or a false alarm.
+  - **Recover**  and restore the confidentiality, integrity, and availability of the workload during and after an attack.
 
     For information about the framework, see [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework).
 

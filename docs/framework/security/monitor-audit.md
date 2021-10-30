@@ -11,7 +11,9 @@ products:
   - azure-policy
 categories:
   - management-and-governance
-subject: security, compliance
+subject:
+  - security
+  - compliance
 ms.custom:
   - article
 ---

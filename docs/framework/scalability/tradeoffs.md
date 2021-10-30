@@ -12,7 +12,9 @@ products:
   - azure-monitor
 categories:
   - management-and-governance
-subject: security, monitoring
+subject:
+  - security
+  - monitoring
 ms.custom:
   - What scalability tradeoffs are you making?
   - article

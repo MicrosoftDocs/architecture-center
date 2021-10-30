@@ -10,7 +10,8 @@ products:
   - azure-devops
 categories:
   - security
-subject: security
+subject:
+  - security
 ---
 
 # Infrastructure provisioning considerations in Azure

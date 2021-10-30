@@ -13,7 +13,8 @@ ms.custom:
   - article
 categories:
   - security
-subject: security
+subject:
+  - security
 ---
 
 # Data encryption in Azure

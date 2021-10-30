@@ -11,7 +11,8 @@ products:
   - azure-key-vault
 categories:
   - security
-subject: security
+subject:
+  - security
 ms.custom:
   - article
 ---

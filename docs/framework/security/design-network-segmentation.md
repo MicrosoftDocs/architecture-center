@@ -19,7 +19,8 @@ ms.custom:
   - article
 categories:
   - security
-subject: security
+subject:
+  - security
 ---
 
 # Implement network segmentation patterns on Azure

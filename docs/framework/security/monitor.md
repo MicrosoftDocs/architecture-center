@@ -12,7 +12,9 @@ products:
   - azure-monitor
 categories:
   - security
-subject: security, monitoring
+subject:
+  - security
+  - monitoring
 ms.custom:
   - article
 ---

@@ -12,7 +12,8 @@ ms.custom:
   - article
 categories:
   - security
-subject: security
+subject:
+  - security
 ---
 
 # Authorization with Azure AD 

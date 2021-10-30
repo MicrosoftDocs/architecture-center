@@ -10,7 +10,9 @@ products:
   - azure-security-center
 categories:
   - security
-subject: security, monitoring
+subject:
+  - security
+  - monitoring
 ---
 
 # Remediate security risks in Azure Security Center

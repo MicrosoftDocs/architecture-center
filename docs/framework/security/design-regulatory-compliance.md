@@ -10,7 +10,8 @@ products:
   - azure-security-center
 categories:
   - management-and-governance
-subject: security
+subject:
+  - security
 ms.custom:
   - article
 ---

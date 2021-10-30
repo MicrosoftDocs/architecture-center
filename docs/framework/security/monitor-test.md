@@ -10,7 +10,9 @@ products:
   - azure
 categories:
   - security
-subject: security, testing
+subject:
+  - security
+  - testing
 ms.custom:
   - article
 ---

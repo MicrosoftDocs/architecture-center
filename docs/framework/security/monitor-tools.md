@@ -12,7 +12,9 @@ products:
   - m365-security-center
 categories:
   - management-and-governance
-subject: security, monitor
+subject:
+  - security
+  - monitoring
 ms.custom:
   - article
 ---
@@ -39,7 +41,6 @@ Azure provides several monitoring tools that observe the operations and detect a
 Enable Azure Security Center at the subscription level to monitor all resource provisioned in that scope. At no additional cost, it provides continuous observability into resources, reports issues, and recommends fixes. By regularly reviewing and fixing issues, you can improve the security posture, detect threats early, prevent breaches.
 
 Beyond just observability, Security Center offers an advanced mode through its integration with **Azure Defender**. When these plans are enabled, built-in policies, custom policies, and initiatives protect resources and block malicious actors. You can also monitor compliance with regulatory standards - such as NIST, Azure CIS, Azure Security Benchmark. For pricing details, see [Security Center pricing](https://azure.microsoft.com/pricing/details/azure-defender/).
-
 
 ## Azure Sentinel
 
@@ -71,8 +72,7 @@ The *data classification* process categorizes data by sensitivity and business i
 
 With proper *file protection*, you can analyze data flows to gain insight into your business, detect risky behaviors and take corrective measures, track access to documents, and more. The protection technology in AIP uses encryption, identity, and authorization policies. Protection stays with the documents and emails, independently of the location, regardless of whether they are inside or outside your organization, networks, file servers, and applications
 
-[Azure Information Protection (AIP)](/azure/information-protection/what-is-information-protection) is part of Microsoft Information Protection (MIP) solution, and extends the labeling and classification functionality provided by Microsoft 365. For more information, see   
-[this article about classification](/microsoft-365/compliance/data-classification-overview).
+[Azure Information Protection (AIP)](/azure/information-protection/what-is-information-protection) is part of Microsoft Information Protection (MIP) solution, and extends the labeling and classification functionality provided by Microsoft 365. For more information, see [this article about classification](/microsoft-365/compliance/data-classification-overview).
 
 ## Azure Governance Visualizer
 
@@ -81,6 +81,7 @@ Azure Governance Visualizer is a PowerShell script that iterates through an Azur
 The visualizer provides a holistic overview of your technical Azure Governance implementation by connecting the dots.
 
 ## Next
+
 > [!div class="nextstepaction"]
 > [Monitor workload resources in Azure Security Center](monitor-resources.md)
 

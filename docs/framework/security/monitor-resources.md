@@ -11,7 +11,9 @@ products:
   - azure-active-directory
 categories:
   - security
-subject: security, monitoring
+subject:
+  - security
+  - monitoring
 ---
 
 # Monitor Azure resources in Azure Security Center
