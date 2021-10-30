@@ -144,7 +144,7 @@ This role has one more **Log in to Virtual Machine as administrator** DataAction
 
 ## Protocol and client options
 
-By default, host pool access only works from the [Windows Azure Virtual Desktop client](/azure/virtual-desktop/user-documentation/connect-windows-7-10?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json). To access host pool VMs, your local computer must be either:
+By default, host pool access only works from the [Windows Azure Virtual Desktop client](/azure/virtual-desktop/user-documentation/connect-windows-7-10?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json). To access host pool VMs, your local computer must be:
 
 - Azure AD-joined or hybrid Azure AD-joined to the same Azure AD tenant as the session host.
 - Running Windows 10 version 2004 or later, and also Azure AD-registered to the same Azure AD tenant as the session host.
@@ -154,7 +154,7 @@ Host pool access uses the Public Key User to User (PKU2U) protocol for authentic
 1. Navigate to **HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\pku2u**.
 1. Set **AllowOnlineID** to **1**.
 
-   ![Screenshot of the Azure Virtual Desktop registry setting to enable the PKU2U protocol.](images/registry.png)
+   :::image type="content" source="images/registry.png" alt-text="Screenshot of the Azure Virtual Desktop registry setting to enable the PKU2U protocol.":::
 
 1. If your client computers use Group Policy, also enable the following Group Policy Option:
 
@@ -164,7 +164,7 @@ Host pool access uses the Public Key User to User (PKU2U) protocol for authentic
 
    :::image type="content" source="images/pku2u-protocol.png" alt-text="Screenshot of Azure Virtual Desktop Group Policy to enable the PKU2U protocol.":::
 
-If you're using other Azure Virtual Desktop clients, such as Mac, iOS, Android, web, the Store client, or pre-version 2004 Windows 10, enable the [RDSTLS protocol](/openspecs/windows_protocols/ms-rdpbcgr/83d1186d-cab6-4ad8-8c5f-203f95e192aa). Enable this protocol by adding a new [custom RDP Property](/azure/virtual-desktop/customize-rdp-properties), *targetisaadjoined:i:1*. Azure Virtual Desktop then uses this protocol instead of PKU2U.
+If you're using other Azure Virtual Desktop clients, such as Mac, iOS, Android, web, the Store client, or pre-version 2004 Windows 10, enable the [RDSTLS protocol](/openspecs/windows_protocols/ms-rdpbcgr/83d1186d-cab6-4ad8-8c5f-203f95e192aa). Enable this protocol by adding a new [custom RDP Property](/azure/virtual-desktop/customize-rdp-properties) to the host pool, *targetisaadjoined:i:1*. Azure Virtual Desktop then uses this protocol instead of PKU2U.
 
 :::image type="content" source="images/rdp-protocol.png" alt-text="Screenshot of Azure Virtual Desktop RDP Property to enable other clients than Windows.":::
 
