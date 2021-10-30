@@ -22,10 +22,10 @@ The following high-level architecture diagram covers key networking scenarios.
 
 This architecture showcases a key network design that enables the following scenarios:
 
-1. Connectivity between on-premises and Azure VMware Solution
-2. Connectivity between public internet and Azure VMware Solution
-3. Connectivity between branch/VPN sites and Azure VMware Solution
-4. Connectivity between Azure and Azure VMware Solution
+- Connectivity between on-premises and Azure VMware Solution
+- Connectivity between public internet and Azure VMware Solution
+- Connectivity between branch/VPN sites and Azure VMware Solution
+- Connectivity between Azure and Azure VMware Solution
 
 Each route design is denoted by a number (1, 2, 3, and so on) and is discussed in detail below.
 
