@@ -19,7 +19,7 @@ Running Azure VMware Solution as part of a landing zone environment helps addres
 
 The following high-level diagram covers Azure VMware Solution and a landing zone implementation.
 
-![A diagram showing an Azure VMware Solution landing zone.](../media/azure-vmware-solution-landingzone.png)
+![A diagram showing an Azure VMware Solution landing zone.](../media/azure-vmware-solution-landing-zone.png)
 
 Azure Enterprise Scale Landing Zone (ESLZ) provides prescriptive deployment guidance on setting up Azure platform components (such as identity, network connectivity, management, and so on), along with application and workload components, such as Azure VMware Solution. A well-defined corelation between Azure platform components and Azure VMware Solution makes it easy to manage and scale Azure VMware Solution workloads. Key constituents of ESLZ for Azure VMware Solution deployment are discussed below.
 
