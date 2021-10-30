@@ -73,8 +73,7 @@ Monitor critical external dependencies, such as an API service, to ensure operat
 
 ## Cost considerations of monitoring
 
-Azure Monitor billing model is based on consumption.
-Azure creates metered instances that tracks usage  to calculate your bill. Pricing will depend on the metrics, alerting, notifications, Log Analytics and Application Insights.
+Azure Monitor billing model is based on consumption. Azure creates metered instances that tracks usage  to calculate your bill. Pricing will depend on the metrics, alerting, notifications, Log Analytics and Application Insights.
 
 For information about usage and estimated costs, see [Monitoring usage and estimated costs in Azure Monitor](/azure/azure-monitor/platform/usage-estimated-costs).
 

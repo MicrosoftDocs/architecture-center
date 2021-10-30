@@ -109,9 +109,7 @@ The end result of the `aks-engine deploy` command and the preparations in the pr
 
 ![Cluster IaaS components Azure Stack Hub portal](media/solution-deployment-guide-highly-available-kubernetes/aks-azure-stack-iaas-components.png)
 
-1) Azure load balancer (K8s API Endpoint)
-2) Worker Nodes (Agent Pool)
-3) Master Nodes
+1) Azure load balancer (K8s API Endpoint) 2) Worker Nodes (Agent Pool) 3) Master Nodes
 
 The cluster is now up-and-running and in the next step we'll connect to it.
 

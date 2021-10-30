@@ -22,13 +22,9 @@ Management groups can manage resources across multiple subscriptions consistentl
 
 ## Support your segmentation strategy with management groups
 
-Structure management groups into a simple design that guides the enterprise
-segmentation model.
+Structure management groups into a simple design that guides the enterprise segmentation model.
 
-Management groups offer the ability to consistently and efficiently manage resources (including multiple subscriptions as needed). However, because of their flexibility, it's possible to create an overly complex design. Complexity creates confusion
-and negatively impacts both operations and security (as illustrated by overly
-complex Organizational Unit (OU) and Group Policy Object (GPO) designs for
-Active Directory).
+Management groups offer the ability to consistently and efficiently manage resources (including multiple subscriptions as needed). However, because of their flexibility, it's possible to create an overly complex design. Complexity creates confusion and negatively impacts both operations and security (as illustrated by overly complex Organizational Unit (OU) and Group Policy Object (GPO) designs for Active Directory).
 
 Microsoft recommends aligning the top level of management groups (MGs) into a simple enterprise segmentation strategy and limit the levels to no more than two. 
 
@@ -50,18 +46,11 @@ In the [example reference](/azure/architecture/framework/security/design-segment
 
 ## Use root management group with caution
 
-Use the Root Management Group (MG) for enterprise consistency, but test changes
-carefully to minimize risk of operational disruption.
+Use the Root Management Group (MG) for enterprise consistency, but test changes carefully to minimize risk of operational disruption.
 
-The root management group enables you to ensure consistency across the enterprise by applying policies, permissions, and tags across all subscriptions.
-Care must be taken when planning and implementing assignments to the root
-management group because this can affect every resource on Azure and potentially
-cause downtime or other negative impacts on productivity in the event of errors
-or unanticipated effects.
+The root management group enables you to ensure consistency across the enterprise by applying policies, permissions, and tags across all subscriptions. Care must be taken when planning and implementing assignments to the root management group because this can affect every resource on Azure and potentially cause downtime or other negative impacts on productivity in the event of errors or unanticipated effects.
 
-- **Plan Carefully** - Select enterprise-wide elements to the root management
-    group that have a clear requirement to be applied across every resource
-    and/or low impact.
+- **Plan Carefully** - Select enterprise-wide elements to the root management group that have a clear requirement to be applied across every resource and/or low impact.
 
     Select enterprise-wide identities that have a clear requirement to be applied across all resources. Good candidates include:
 
@@ -77,8 +66,7 @@ or unanticipated effects.
 
 - **Test First -** Plan, test, and validate all enterprise-wide changes on the root management group before applying (policy, tags, Azure RBAC model, and so on).
 
-    -   **Test Lab -** Representative lab tenant or lab segment in production
-        tenant.
+    -   **Test Lab -** Representative lab tenant or lab segment in production tenant.
 
     -   **Production Pilot -** This can be a segment management group or designated subset in subscription(s) management group.
 

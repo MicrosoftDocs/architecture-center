@@ -294,8 +294,7 @@ AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 ## <a name="ipnb"></a>Data Exploration and Feature Engineering in IPython Notebook
 
-In this section, we will perform data exploration and feature generation
-using both Python and SQL queries against the SQL Server database created earlier. A sample IPython notebook named **machine-Learning-data-science-process-sql-story.ipynb** is provided in the **Sample IPython Notebooks** folder. This notebook is also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
+In this section, we will perform data exploration and feature generation using both Python and SQL queries against the SQL Server database created earlier. A sample IPython notebook named **machine-Learning-data-science-process-sql-story.ipynb** is provided in the **Sample IPython Notebooks** folder. This notebook is also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
 When working with big data, follow this recommended sequence:
 
@@ -375,13 +374,11 @@ print 'Time to read the sample table is %f seconds' % (t1-t0)
 print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 ```
 
-Time to read the sample table is 6.492000 seconds  
-Number of rows and columns retrieved = (84952, 21)
+Time to read the sample table is 6.492000 seconds   Number of rows and columns retrieved = (84952, 21)
 
 #### Descriptive Statistics
 
-Now are ready to explore the sampled data. We start with
-looking at descriptive statistics for the **trip\_distance** (or any other) field(s):
+Now are ready to explore the sampled data. We start with looking at descriptive statistics for the **trip\_distance** (or any other) field(s):
 
 ```sql
 df1['trip_distance'].describe()
@@ -435,8 +432,7 @@ pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
 #### Visualization: Scatterplot Example
 
-We show scatter plot between **trip\_time\_in\_secs** and **trip\_distance** to see if there
-is any correlation
+We show scatter plot between **trip\_time\_in\_secs** and **trip\_distance** to see if there is any correlation
 
 ```sql
 plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])

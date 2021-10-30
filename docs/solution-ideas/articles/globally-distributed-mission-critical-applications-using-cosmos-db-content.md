@@ -12,8 +12,7 @@ Guarantee access to users around the world with the high-availability and low-la
 1. In the landed region where the application is hosted the application will handle the session and the connection towards the database.
 1. This application can range from a simple static page up until a microservices-oriented application hosted in Kubernetes for instance.
 1. The connection between the application landscape and the Cosmos DB is handled through an Azure Active Directory User who can pick up the Cosmos DB keys in Key Vault.
-1. By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region and can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions to and from your Azure Cosmos account, your application doesn't need to be redeployed or paused, it continues to be highly available at all times.
-Underneath the covers, Cosmos DB will handle the global distribution and replication of the data based upon the number of defined regions. As an addition one should also benefit from the Automatic Failover option to fail over to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified.
+1. By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region and can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions to and from your Azure Cosmos account, your application doesn't need to be redeployed or paused, it continues to be highly available at all times. Underneath the covers, Cosmos DB will handle the global distribution and replication of the data based upon the number of defined regions. As an addition one should also benefit from the Automatic Failover option to fail over to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified.
 
 ### Components
 
@@ -56,8 +55,7 @@ Crucially, when implementing the logic in code that reads from and writes to Cos
 
 ### Resiliency
 
-For higher resiliency, you can use availability zones for Azure Cosmos DB deployments.
-Resiliency also depends on the consistency level choices that you make on your Cosmos DB deployment. Depending on this consistency level, you will achieve a different level of resiliency (see [Consistency, availability, and performance tradeoffs](/azure/cosmos-db/consistency-levels) for more info).
+For higher resiliency, you can use availability zones for Azure Cosmos DB deployments. Resiliency also depends on the consistency level choices that you make on your Cosmos DB deployment. Depending on this consistency level, you will achieve a different level of resiliency (see [Consistency, availability, and performance tradeoffs](/azure/cosmos-db/consistency-levels) for more info).
 
 ### Scalability
 

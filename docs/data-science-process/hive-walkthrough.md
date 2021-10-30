@@ -162,8 +162,7 @@ These two commands download all '.hql' files needed in this walkthrough to the l
 > 
 > 
 
-You are now ready to create Hive tables for the NYC taxi dataset.
-In the head node of the Hadoop cluster, open the Hadoop command line on the desktop of the head node. Enter the Hive directory by running the following command:
+You are now ready to create Hive tables for the NYC taxi dataset. In the head node of the Hadoop cluster, open the Hadoop command line on the desktop of the head node. Enter the Hive directory by running the following command:
 
 ```console
 cd %hive_home%\bin

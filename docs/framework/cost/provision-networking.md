@@ -53,8 +53,7 @@ By using the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calc
 #### Application Gateway (West US)
 ![Application Gateway (West US)](../_images/cost-net-ag.png)
 
-Consider a similar example where the type of traffic is changed. Instead the application is a UDP streaming service that is deployed across regions and traffic goes over the internet. 
-We can use a combination of Traffic Manager and Azure Load Balancer. Traffic Manager is a simple routing service that uses DNS to direct clients to specific service. Here are the cost estimates:
+Consider a similar example where the type of traffic is changed. Instead the application is a UDP streaming service that is deployed across regions and traffic goes over the internet.  We can use a combination of Traffic Manager and Azure Load Balancer. Traffic Manager is a simple routing service that uses DNS to direct clients to specific service. Here are the cost estimates:
 #### Azure Traffic Manager
 |Item|Example estimate|
 |---|---|

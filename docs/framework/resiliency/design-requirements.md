@@ -62,8 +62,7 @@ Are there any penalties, such as financial charges, associated with failing to m
 
 Recovery targets identify how long the workload can be unavailable and how much data is acceptable to lose during a disaster. Define target reports for the application and key scenarios. Target reports needed are Recovery Time Objective (RTO) &mdash; the maximum acceptable time an application is unavailable after an incident, and Recovery Point Objective (RPO) &mdash; the maximum duration of data loss that is acceptable during a disaster.
 
-Recovery targets are nonfunctional requirements of a system and should be dictated by business requirements.
- Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.
+Recovery targets are nonfunctional requirements of a system and should be dictated by business requirements. Recovery targets should be defined in accordance to the required RTO and RPO targets for the workloads.
 
 ## Meet application platform requirements
 

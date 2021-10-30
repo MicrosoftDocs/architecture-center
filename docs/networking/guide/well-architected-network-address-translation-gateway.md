@@ -66,8 +66,7 @@ NAT gateway is recommended as the default for enabling outbound connectivity for
 
 ## Reliability
 
-NAT gateway resources are highly available and span multiple fault domains. This is true even if a NAT gateway is deployed regionally, without availability zones.
-When using availability zones for zone isolation, NAT gateways can also be deployed zonally.
+NAT gateway resources are highly available and span multiple fault domains. This is true even if a NAT gateway is deployed regionally, without availability zones. When using availability zones for zone isolation, NAT gateways can also be deployed zonally.
 
 Availability zone isolation cannot be provided, unless each subnet only has resources within a specific zone. Instead, deploy a subnet for each of the availability zones where VMs are deployed, align the zonal VMs with matching zonal NAT gateways, and build separate zonal stacks.  For example, a virtual machine in availability zone 1 is on a subnet with other resources that are also only in availability zone 1. A NAT gateway is configured in availability zone 1 to serve that subnet. See the following diagram.
 

@@ -67,27 +67,19 @@ For a full list of features, see [Feature coverage for machines](/azure/security
 
 ### Remove direct internet connectivity
 
-Make sure policies and processes require restricting and monitoring direct
-internet connectivity by virtual machines.
+Make sure policies and processes require restricting and monitoring direct internet connectivity by virtual machines.
 
 For Azure, you can enforce policies by,
 
--   **Enterprise-wide prevention** - Prevent inadvertent exposure by following
-    the permissions and roles described in the reference model.
+-   **Enterprise-wide prevention** - Prevent inadvertent exposure by following the permissions and roles described in the reference model.
 
-    -   Ensures that network traffic is routed through approved egress points by
-        default.
+    -   Ensures that network traffic is routed through approved egress points by default.
 
-    -   Exceptions (such as adding a public IP address to a resource) must go
-        through a centralized group that evaluates exception requests and makes
-        sure appropriate controls are applied.
+    -   Exceptions (such as adding a public IP address to a resource) must go through a centralized group that evaluates exception requests and makes sure appropriate controls are applied.
 
--   **Identify and remediate** exposed virtual machines by using the [Azure Security Center](/azure/security-center/)
-    network visualization to quickly identify internet exposed resources.
+-   **Identify and remediate** exposed virtual machines by using the [Azure Security Center](/azure/security-center/) network visualization to quickly identify internet exposed resources.
 
--   **Restrict management ports** (RDP, SSH) using [Just in Time
-    access](/azure/security-center/security-center-just-in-time)
-    in Azure Security Center.
+-   **Restrict management ports** (RDP, SSH) using [Just in Time access](/azure/security-center/security-center-just-in-time) in Azure Security Center.
 
 
 One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.yml).
@@ -162,8 +154,7 @@ Most security incidents take place after an attacker initially gains access usin
 
 **Does the organization actively monitor identity-related risk events related to potentially compromised identities?**
 ***
-Monitor identity-related risk events on potentially compromised identities and remediate those risks. 
-Review the reported risk events in these ways:
+Monitor identity-related risk events on potentially compromised identities and remediate those risks.  Review the reported risk events in these ways:
 
 - Azure AD reporting. For information, see [users at risk security report](/azure/active-directory/reports-monitoring/concept-user-at-risk) and the [risky sign-ins security report](/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
 - Use the reporting capabilities of [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection).
@@ -177,21 +168,15 @@ Remediate risks by manually addressing each reported account or by setting up a 
 
 Regularly review roles that are assigned privileges with a business-critical impact. 
 
-Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change.
-You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review).
+Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change. You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review).
 
 ### Discover & replace insecure protocols
 
-Discover and disable the use of legacy insecure protocols SMBv1, LM/NTLMv1,
-wDigest, Unsigned LDAP Binds, and Weak ciphers in Kerberos.
+Discover and disable the use of legacy insecure protocols SMBv1, LM/NTLMv1, wDigest, Unsigned LDAP Binds, and Weak ciphers in Kerberos.
   
-Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, SHA-512). Use of weaker algorithms, like SHA-1 
-and MD5, should be avoided.
+Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, SHA-512). Use of weaker algorithms, like SHA-1  and MD5, should be avoided.
 
-Authentication protocols are a critical foundation of nearly all security
-assurances. These older versions can be exploited by attackers with access to
-your network and are often used extensively on legacy systems on Infrastructure
-as a Service (IaaS).
+Authentication protocols are a critical foundation of nearly all security assurances. These older versions can be exploited by attackers with access to your network and are often used extensively on legacy systems on Infrastructure as a Service (IaaS).
 
 Here are ways to reduce your risk:
 
@@ -225,13 +210,10 @@ For information about permissions for this access, see [Assign privileges for ma
 
 #### Suggested actions
 
-Ensure all Azure environments that connect to your production
-environment and network apply your organization's policy, and IT governance controls
-for security.
+Ensure all Azure environments that connect to your production environment and network apply your organization's policy, and IT governance controls for security.
 
 You can discover existing connected tenants using a
-[tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions
-you may assign to security is in the [Assign privileges for managing the environment](/azure/architecture/framework/security/design-identity-role-definitions#clear-lines-of-responsibility) section.
+[tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions you may assign to security is in the [Assign privileges for managing the environment](/azure/architecture/framework/security/design-identity-role-definitions#clear-lines-of-responsibility) section.
 
 
 

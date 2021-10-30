@@ -45,8 +45,7 @@ Cassandra nodes make heavy use of the network to send and receive data from the 
 
 We recommended enabling [Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli) on the NIC of the Cassandra node and on VMs running client applications accessing Cassandra.
 
-Accelerated networking requires a modern Linux distribution
-with the latest drivers, such as Cent OS 7.5+ or Ubuntu 16.x/18.x. For more information, see [Create a Linux virtual machine with Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli#confirm-that-accelerated-networking-is-enabled).
+Accelerated networking requires a modern Linux distribution with the latest drivers, such as Cent OS 7.5+ or Ubuntu 16.x/18.x. For more information, see [Create a Linux virtual machine with Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-cli#confirm-that-accelerated-networking-is-enabled).
 
 ## Azure VM data disk caching
 

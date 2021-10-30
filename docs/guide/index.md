@@ -28,23 +28,8 @@ These trends bring new challenges. Application states are distributed. Operation
     <tr><th>Traditional on-premises</th><th>Modern cloud</th></tr>
 </thead>
 <tbody>
-<tr><td>Monolithic<br/>
-Designed for predictable scalability<br/>
-Relational database<br/>
-Synchronized processing<br/>
-Design to avoid failures (MTBF)<br/>
-Occasional large updates<br/>
-Manual management<br/>
-Snowflake servers</td>
-<td>
-Decomposed<br/>
-Designed for elastic scale<br/>
-Polyglot persistence (mix of storage technologies)<br/>
-Asynchronous processing<br/>
-Design for failure (MTTR)<br/>
-Frequent small updates<br/>
-Automated self-management<br/>
-Immutable infrastructure<br/>
+<tr><td>Monolithic<br/> Designed for predictable scalability<br/> Relational database<br/> Synchronized processing<br/> Design to avoid failures (MTBF)<br/> Occasional large updates<br/> Manual management<br/> Snowflake servers</td>
+<td> Decomposed<br/> Designed for elastic scale<br/> Polyglot persistence (mix of storage technologies)<br/> Asynchronous processing<br/> Design for failure (MTTR)<br/> Frequent small updates<br/> Automated self-management<br/> Immutable infrastructure<br/>
 </td>
 </tbody>
 </table>

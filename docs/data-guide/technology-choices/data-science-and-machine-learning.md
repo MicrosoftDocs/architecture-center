@@ -125,8 +125,7 @@ Use the Data Science VM when you need to run or host your jobs on a single node.
 
 ## Azure Databricks
 
-[Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.
-Use Python, R, Scala, and SQL code in web-based notebooks to query, visualize, and model data.
+[Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Use Python, R, Scala, and SQL code in web-based notebooks to query, visualize, and model data.
 
 Use Databricks when you want to collaborate on building machine learning solutions on Apache Spark.
 

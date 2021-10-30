@@ -25,8 +25,7 @@ subject:
 
 # Implement network segmentation patterns on Azure
 
-A unified enterprise segmentation strategy guides technical teams to consistently segment access using networking, applications, identity, and any other access controls. 
-Create segmentation in your network footprint by defining perimeters. The main reasons for segmentation are:
+A unified enterprise segmentation strategy guides technical teams to consistently segment access using networking, applications, identity, and any other access controls.  Create segmentation in your network footprint by defining perimeters. The main reasons for segmentation are:
 
 - The ability to group related assets that are a part of (or support) workload operations.
 - Isolation of resources.

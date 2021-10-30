@@ -18,8 +18,7 @@ subject:
 
 The automated build and release pipelines should update a workload to a new version seamlessly without breaking dependencies. Augment the automation with processes that allow high priority fixes to get deployed quickly.
 
-Organizations should leverage existing guidance and automation when securing applications in the cloud, rather than starting from zero.
-Using resources and lessons learned by external organizations that are early adopters of these models can accelerate the improvement of an organizations security posture with less expenditure of effort and resources.
+Organizations should leverage existing guidance and automation when securing applications in the cloud, rather than starting from zero. Using resources and lessons learned by external organizations that are early adopters of these models can accelerate the improvement of an organizations security posture with less expenditure of effort and resources.
 
 ## Key points
 

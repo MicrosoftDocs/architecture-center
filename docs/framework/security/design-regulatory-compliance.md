@@ -78,17 +78,14 @@ Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-cente
 
 Consider whether to use specialized security capabilities in your enterprise architecture.
 
-Dedicated HSMs and Confidential Computing have the potential to enhance security and meet regulatory requirements, but can introduce complexity that may negatively impact your
-operations and efficiency.
+Dedicated HSMs and Confidential Computing have the potential to enhance security and meet regulatory requirements, but can introduce complexity that may negatively impact your operations and efficiency.
 
 ### Suggested actions
 
-We recommend careful consideration and judicious use of these security measures
-as required:
+We recommend careful consideration and judicious use of these security measures as required:
 
 - **Dedicated Hardware Security Modules (HSMs)**  
-    [Dedicated Hardware Security Modules (HSMs) may help meet regulatory or
-    security requirements](/azure/dedicated-hsm/).
+    [Dedicated Hardware Security Modules (HSMs) may help meet regulatory or security requirements](/azure/dedicated-hsm/).
 
 - **Confidential Computing**  
     [Confidential Computing may help meet regulatory or security requirements](https://azure.microsoft.com/blog/azure-confidential-computing/).

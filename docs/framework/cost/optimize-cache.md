@@ -20,9 +20,7 @@ For information about what type of data is suitable for caching, see [Caching](.
 ## Lower costs associated with reliability and latency
 Caching can be a cheaper way of storing data, providing reliability, and reducing network latency.
 
-- Depending on the type of the data, determine if you need the complex capabilities of the backend data store, such as data consistency. If the data is fully static, you can choose to store it only in a caching store. If the data doesn't change frequently, consider placing a copy of the data in a caching store and refresh it from time to time. For example, an
-application stores images in blob storage. Every time it requests an image, the business logic generates a thumbnail from the main image and returns it to the caller. If the main image doesn't change too often, then return the previously
-generated thumbnails stored in a cache. This way you can save on resources required to process the image and lower the request response rate. 
+- Depending on the type of the data, determine if you need the complex capabilities of the backend data store, such as data consistency. If the data is fully static, you can choose to store it only in a caching store. If the data doesn't change frequently, consider placing a copy of the data in a caching store and refresh it from time to time. For example, an application stores images in blob storage. Every time it requests an image, the business logic generates a thumbnail from the main image and returns it to the caller. If the main image doesn't change too often, then return the previously generated thumbnails stored in a cache. This way you can save on resources required to process the image and lower the request response rate. 
 - If the backend is unavailable, the cache continues to handle requests by using the copy until the backend fails over to the backup data store.
 - Caching can also be an effective way of reducing network latency. Instead of reaching the central server, the response is sent by using the cache. That way, the client can receive the response almost instantaneously. If you need higher network performance and the ability to support more client connections, choose a higher tier of the caching service. However, higher tiers will incur more costs.
 
@@ -35,5 +33,4 @@ Incorrect use of caching can result in severe business outcomes and higher costs
 
 - To make sure the caching layer is working optimally, add instrumentation. That feature will add complexity and implementation cost.
 
-Caching services such as Azure Cache for Redis are billed on the tier you choose. Pricing is primarily determined on the cache size and network performance and they're dependent. A smaller cache will increase latency. Before choosing a tier,
-estimate a baseline. An approach can be by load testing the number of users and cache size.
+Caching services such as Azure Cache for Redis are billed on the tier you choose. Pricing is primarily determined on the cache size and network performance and they're dependent. A smaller cache will increase latency. Before choosing a tier, estimate a baseline. An approach can be by load testing the number of users and cache size.

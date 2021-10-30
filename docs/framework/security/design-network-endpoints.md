@@ -101,8 +101,7 @@ It's challenging to write concise firewall rules for networks where different cl
 
 ### Authentication
 
-Disable insecure legacy protocols for internet-facing services.
-Legacy authentication methods are among the top attack vectors for cloud-hosted services. Those methods don't support other factors beyond passwords and are prime targets for password spraying, dictionary, or brute force attacks.
+Disable insecure legacy protocols for internet-facing services. Legacy authentication methods are among the top attack vectors for cloud-hosted services. Those methods don't support other factors beyond passwords and are prime targets for password spraying, dictionary, or brute force attacks.
 
 ## Mitigate DDoS attacks
 

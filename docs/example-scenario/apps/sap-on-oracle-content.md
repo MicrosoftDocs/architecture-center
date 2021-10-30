@@ -108,8 +108,7 @@ In Azure, security is a shared responsibility between Microsoft and Customer. SA
 
 In the reference architecture, the applications (SAP & Oracle software) are deployed on the Azure VMs running security hardened operating system images.
 
-End users using SAPGUI and browser for accessing SAP Application are authenticated using Single-Sign-On (SSO) and SAP Administrator (Basis) uses Azure Bastion to access operating system.
-All the communications between end-users and SAP application are encrypted (i.e. encryption-in-transit) using TLS and SNC (Secure Network Communication).
+End users using SAPGUI and browser for accessing SAP Application are authenticated using Single-Sign-On (SSO) and SAP Administrator (Basis) uses Azure Bastion to access operating system. All the communications between end-users and SAP application are encrypted (i.e. encryption-in-transit) using TLS and SNC (Secure Network Communication).
 
 For Oracle database the encryption-at-rest is achieved through Oracle Transparent Data Encryption (TDE) and for other components (i.e. managed disks of the VMs running SAP Application and non-data disks of Oracle database VMs) Azure Disk Encryption is used to achieve the same.
 
@@ -154,8 +153,7 @@ The considerations and recommendations around scalability are:
 
 SAP application servers in availability set behind standard load balancer and SAP central services in cluster construct the high availability solution of SAP application layer.
 
-The high availability in database layer is achieved through synchronous database replication between Oracle databases in two zones. The database failover between Azure zones is automated using Oracle Data Guard FSFO (Fast-Start Failover) Observer.
-The disaster-recovery of the application layer is achieved through Azure Site Recovery replication and database layer through asynchronous database replication between Azure regions.
+The high availability in database layer is achieved through synchronous database replication between Oracle databases in two zones. The database failover between Azure zones is automated using Oracle Data Guard FSFO (Fast-Start Failover) Observer. The disaster-recovery of the application layer is achieved through Azure Site Recovery replication and database layer through asynchronous database replication between Azure regions.
 
 For cost-effectiveness, SAP Central Services clustering is not deployed in the DR region. The Azure Site Recovery replication is enabled only from SAP Central Services but not from SAP ERS server.
 
@@ -202,8 +200,7 @@ Below are the considerations and recommendations related to monitoring aspects o
 #### Considerations
 
 - Ensure that the SAP deployment on Azure must meet the monitoring requirements mentioned in the [SAP Note – 2015553](https://launchpad.support.sap.com/#/notes/2015553).
-- SAP Application and Database Monitoring can be performed using SAP Tools like – SAP Solution Manager, 
-DB*/ SM*/ST* SAP transactions.
+- SAP Application and Database Monitoring can be performed using SAP Tools like – SAP Solution Manager,  DB*/ SM*/ST* SAP transactions.
 - Azure VMs running SAP application and databases can be monitored using Azure Monitor and Linux Pacemaker cluster can be monitored using [Azure Monitor for SAP (preview)](/azure/virtual-machines/workloads/sap/azure-monitor-providers#provider-type-high-availability-cluster).
 - Azure Network Watcher can be used for Network Monitoring.
 - Metrics and Logs from the Azure Monitor can be cascaded to Azure log Analytics workspace and corelated with other KPIs for different use cases.

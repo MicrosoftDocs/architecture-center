@@ -47,8 +47,7 @@ Each task has a note. Open those tasks to see what resources have already been c
 
 ## Excel template
 
-If don’t have access to Microsoft Project, an Excel worksheet with all the same data is also available for download here: [Excel template](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx)
-You can pull it in to whatever tool you prefer to use.
+If don’t have access to Microsoft Project, an Excel worksheet with all the same data is also available for download here: [Excel template](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) You can pull it in to whatever tool you prefer to use.
 
 Use these templates at your own risk. The [usual disclaimers](https://www.gnu.org/licenses/gpl-3.0.en.html) apply.
 

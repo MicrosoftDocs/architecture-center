@@ -109,8 +109,7 @@ In order to see the `ColumnNames` field, you must include `details=true` as a UR
 
 
 ## Score API
-The Score API is used for running anomaly detection on non-seasonal time series data. The API runs a number of anomaly detectors on the data and returns their anomaly scores.
-The figure below shows an example of anomalies that the Score API can detect. This time series has two distinct level changes, and three spikes. The red dots show the time at which the level change is detected, while the black dots show the detected spikes.
+The Score API is used for running anomaly detection on non-seasonal time series data. The API runs a number of anomaly detectors on the data and returns their anomaly scores. The figure below shows an example of anomalies that the Score API can detect. This time series has two distinct level changes, and three spikes. The red dots show the time at which the level change is detected, while the black dots show the detected spikes.
 ![Score API][1]
 
 ### Detectors
@@ -151,8 +150,7 @@ The API runs all detectors on your time series data and returns anomaly scores a
 | talert |1/0 value indicating there is a positive trend anomaly based on the input sensitivity |
 
 ## ScoreWithSeasonality API
-The ScoreWithSeasonality API is used for running anomaly detection on time series that have seasonal patterns. This API is useful to detect deviations in seasonal patterns.
-The following figure shows an example of anomalies detected in a seasonal time series. The time series has one spike (the first black dot), two dips (the second black dot and one at the end), and one level change (red dot). Both the dip in the middle of the time series and the level change are only discernable after seasonal components are removed from the series.
+The ScoreWithSeasonality API is used for running anomaly detection on time series that have seasonal patterns. This API is useful to detect deviations in seasonal patterns. The following figure shows an example of anomalies detected in a seasonal time series. The time series has one spike (the first black dot), two dips (the second black dot and one at the end), and one level change (red dot). Both the dip in the middle of the time series and the level change are only discernable after seasonal components are removed from the series.
 ![Seasonality API][2]
 
 ### Detectors

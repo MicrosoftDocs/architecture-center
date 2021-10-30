@@ -29,13 +29,9 @@ Based on Microsoft's experience with many cloud adoption projects, establishing 
 
 Designate the parties responsible for specific functions in Azure.
 
-Clearly documenting and sharing the contacts responsible for each of these
-functions will create consistency and facilitate communication. Based on our
-experience with many cloud adoption projects, this will avoid confusion that can
-lead to human and automation errors that create security risk.
+Clearly documenting and sharing the contacts responsible for each of these functions will create consistency and facilitate communication. Based on our experience with many cloud adoption projects, this will avoid confusion that can lead to human and automation errors that create security risk.
 
-Designate groups (or individual roles) that will be responsible for key
-functions.
+Designate groups (or individual roles) that will be responsible for key functions.
 
 |Group or individual role| Responsibility|
 |---|---|
@@ -66,24 +62,14 @@ When assigning permissions for a segment, consider consistency while allowing fl
 This section uses this [Reference model](design-segmentation.md#reference-model) to demonstrate the considerations for assigning permissions for different segments. Microsoft recommends starting from these models and adapting to your organization.
 
 #### Core services reference permissions
-This segment hosts shared services
-utilized across the organization. These shared services typically include
-Active Directory Domain Services, DNS/DHCP, System Management Tools hosted
-on Azure Infrastructure as a Service (IaaS) virtual machines.
+This segment hosts shared services utilized across the organization. These shared services typically include Active Directory Domain Services, DNS/DHCP, System Management Tools hosted on Azure Infrastructure as a Service (IaaS) virtual machines.
 
 ![Conceptual art showing reference permissions](images/ref-perms.png)
 
-**Security Visibility across all resources** – For security teams, grant
-read-only access to security attributes for all technical environments. This
-access level is needed to assess risk factors, identify potential
-mitigations, and advise organizational stakeholders who accept the risk. See
+**Security Visibility across all resources** – For security teams, grant read-only access to security attributes for all technical environments. This access level is needed to assess risk factors, identify potential mitigations, and advise organizational stakeholders who accept the risk. See
 [Security Team Visibility](#security-team-visibility) for more details.
 
-**Policy management across some or all resources** – To monitor and enforce
-compliance with external (or internal) regulations, standards, and security
-policy, assign appropriate permission to those roles. The roles and
-permissions you choose will depend on the organizational culture and
-expectations of the policy program. See [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/security-baseline).
+**Policy management across some or all resources** – To monitor and enforce compliance with external (or internal) regulations, standards, and security policy, assign appropriate permission to those roles. The roles and permissions you choose will depend on the organizational culture and expectations of the policy program. See [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/security-baseline).
 
 Before defining the policies, consider:
 - How is the organization’s security audited and reported? Is there mandatory reporting? 
@@ -96,11 +82,7 @@ After the policies are set, continuously improve those standards incrementally. 
 
 **Central IT operations across all resources** – Grant permissions to the central IT department (often the infrastructure team) to create, modify, and delete resources like virtual machines and storage. **Contributor** or **Owner** roles are appropriate for this function.
 
-**Central networking group across network resources** – To ensure consistency
-and avoid technical conflicts, assign network resource responsibilities to a
-single central networking organization. These resources should include
-virtual networks, subnets, Network Security Groups (NSG), and the virtual
-machines hosting virtual network appliances. Assign network resource responsibilities to a single central networking organization. The **Network Contributor** role is appropriate for this group. See [Centralize Network Management And Security](/azure/architecture/framework/security/design-network-segmentation#centralize-network-management-and-security) for more details
+**Central networking group across network resources** – To ensure consistency and avoid technical conflicts, assign network resource responsibilities to a single central networking organization. These resources should include virtual networks, subnets, Network Security Groups (NSG), and the virtual machines hosting virtual network appliances. Assign network resource responsibilities to a single central networking organization. The **Network Contributor** role is appropriate for this group. See [Centralize Network Management And Security](/azure/architecture/framework/security/design-network-segmentation#centralize-network-management-and-security) for more details
 
 **Resource Role Permissions** – For most core services, administrative privileges required to manage them are granted through the application (Active Directory, DNS/DHCP, System Management Tools), so no additional Azure resource permissions are required. If your organizational model requires these teams to manage their own VMs, storage, or other Azure resources, you can assign these permissions to those roles. 
 
@@ -112,90 +94,47 @@ Workload segments with autonomous DevOps teams will manage the resources associa
 
 #### Segment reference permissions
 
-This segment permission design provides
-consistency while allowing flexibility to accommodate the range of
-organizational models from a single centralized IT group to mostly
-independent IT and DevOps teams.
+This segment permission design provides consistency while allowing flexibility to accommodate the range of organizational models from a single centralized IT group to mostly independent IT and DevOps teams.
 
 ![Diagram showing segment Permissions.](images/ref-segment.png)
 
-**Security visibility across all resources** – For security teams, grant
-read-only access to security attributes for all technical environments. This
-access level is needed to assess risk factors, identify potential
-mitigations, and advise organizational stakeholders who accept the risk. See
+**Security visibility across all resources** – For security teams, grant read-only access to security attributes for all technical environments. This access level is needed to assess risk factors, identify potential mitigations, and advise organizational stakeholders who accept the risk. See
 [Security Team Visibility](#security-team-visibility).
 
-**Policy management across some or all resources** – To monitor and enforce
-compliance with external (or internal) regulations, standards, and security
-policy assign appropriate permission to those roles. The roles and
-permissions you choose will depend on the organizational culture and
-expectations of the policy program. See [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/security-baseline).
+**Policy management across some or all resources** – To monitor and enforce compliance with external (or internal) regulations, standards, and security policy assign appropriate permission to those roles. The roles and permissions you choose will depend on the organizational culture and expectations of the policy program. See [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/security-baseline).
 
-**IT Operations across all resources** – Grant permission to create, modify,
-and delete resources. The purpose of the segment (and resulting permissions)
-will depend on your organization structure.
+**IT Operations across all resources** – Grant permission to create, modify, and delete resources. The purpose of the segment (and resulting permissions) will depend on your organization structure.
 
-- Segments with resources managed by a centralized IT organization can grant
-    the central IT department (often the infrastructure team) permission to
-    modify these resources.
+- Segments with resources managed by a centralized IT organization can grant the central IT department (often the infrastructure team) permission to modify these resources.
 
-- Segments managed by independent business units or functions (such as a Human
-    Resources IT Team) can grant those teams permission to all resources in the
-    segment.
+- Segments managed by independent business units or functions (such as a Human Resources IT Team) can grant those teams permission to all resources in the segment.
 
-- Segments with autonomous DevOps teams don't need to grant permissions across
-    all resources because the resource role (below) grants permissions to
-    application teams. For emergencies, use the service admin account
-    (break-glass account).
+- Segments with autonomous DevOps teams don't need to grant permissions across all resources because the resource role (below) grants permissions to application teams. For emergencies, use the service admin account (break-glass account).
 
-**Central networking group across network resources** – To ensure consistency
-and avoid technical conflicts, assign network resource responsibilities to a
-single central networking organization. These resources should include
-virtual networks, subnets, Network Security Groups (NSG), and the virtual
-machines hosting virtual network appliances. See [Centralize Network Management And Security](/azure/architecture/framework/security/design-network-segmentation#centralize-network-management-and-security).
+**Central networking group across network resources** – To ensure consistency and avoid technical conflicts, assign network resource responsibilities to a single central networking organization. These resources should include virtual networks, subnets, Network Security Groups (NSG), and the virtual machines hosting virtual network appliances. See [Centralize Network Management And Security](/azure/architecture/framework/security/design-network-segmentation#centralize-network-management-and-security).
 
-**Resource Role Permissions** – Segments with autonomous DevOps teams will
-manage the resources associated with each application. The actual roles and
-their permissions depend on the application size and complexity, the
-application team size and complexity, and the culture of the organization
-and application team.
+**Resource Role Permissions** – Segments with autonomous DevOps teams will manage the resources associated with each application. The actual roles and their permissions depend on the application size and complexity, the application team size and complexity, and the culture of the organization and application team.
 
 **Service Admin (Break Glass Account)** – Use the service admin role only for emergencies (and initial setup if required). Do not use this role for daily tasks. See [Emergency Access ('Break Glass' Accounts)](/azure/architecture/framework/security/design-admins#emergency-access-or-break-glass-accounts) for more details.
 
 ## Security team visibility
 
-An application team needs to be aware of security initiatives to align their security
-improvement plans with the outcome of those activities. Provide security teams read-only
-access to the security aspects of all technical resources in their purview.
+An application team needs to be aware of security initiatives to align their security improvement plans with the outcome of those activities. Provide security teams read-only access to the security aspects of all technical resources in their purview.
 
-Security organizations require visibility into the technical environment to
-perform their duties of assessing and reporting on organizational risk. Without
-this visibility, security will have to rely on information provided from groups,
-operating the environment, which have potential conflict of interest (and other
-priorities).
+Security organizations require visibility into the technical environment to perform their duties of assessing and reporting on organizational risk. Without this visibility, security will have to rely on information provided from groups, operating the environment, which have potential conflict of interest (and other priorities).
 
-Note that security teams may separately be granted additional privileges if
-they have operational responsibilities or a requirement to enforce
-compliance on Azure resources.
+Note that security teams may separately be granted additional privileges if they have operational responsibilities or a requirement to enforce compliance on Azure resources.
 
-For example in Azure, assign security teams to the **Security Readers**
-permission that provides access to measure security risk (without providing
-access to the data itself).
+For example in Azure, assign security teams to the **Security Readers** permission that provides access to measure security risk (without providing access to the data itself).
 
-For enterprise security groups with broad responsibility for security of Azure,
-you can assign this permission using:
+For enterprise security groups with broad responsibility for security of Azure, you can assign this permission using:
 
-- *Root management group* – for teams responsible for assessing and reporting
-    risk on all resources
+- *Root management group* – for teams responsible for assessing and reporting risk on all resources
 
-- *Segment management group(s)* – for teams with limited scope of
-    responsibility (typically required because of organizational boundaries or
-    regulatory requirements)
+- *Segment management group(s)* – for teams with limited scope of responsibility (typically required because of organizational boundaries or regulatory requirements)
 
 > [!IMPORTANT] 
-> Because security will have broad access to the environment (and visibility into
-potentially exploitable vulnerabilities), treat security teams as critical impact accounts and apply the same protections as administrators. The [Administration](/azure/architecture/framework/security/design-admins)
-section details these controls for Azure.
+> Because security will have broad access to the environment (and visibility into potentially exploitable vulnerabilities), treat security teams as critical impact accounts and apply the same protections as administrators. The [Administration](/azure/architecture/framework/security/design-admins) section details these controls for Azure.
 
 **Suggested actions**
 
@@ -210,22 +149,15 @@ section details these controls for Azure.
 
 Does your security team have visibility into all existing subscriptions and cloud environments? How do they discover new ones?
 
-Ensure your security organization is aware of all enrollments and associated
-subscriptions connected to your existing environment (via ExpressRoute or
-Site-Site VPN) and monitoring as part of the overall enterprise.
+Ensure your security organization is aware of all enrollments and associated subscriptions connected to your existing environment (via ExpressRoute or Site-Site VPN) and monitoring as part of the overall enterprise.
 
-These Azure resources are part of your enterprise environment and security
-organizations require visibility into them. Security organizations need this
-access to assess risk and to identify whether organizational policies and
-applicable regulatory requirements are being followed.
+These Azure resources are part of your enterprise environment and security organizations require visibility into them. Security organizations need this access to assess risk and to identify whether organizational policies and applicable regulatory requirements are being followed.
 
 The organizations' cloud infrastructure should be well documented, with security team access to all resources required for monitoring and insight. Frequent scans of the cloud-connected assets should be performed to ensure no additional subscriptions or tenants have been added outside of organizational controls. Regularly review Microsoft guidance to ensure security team access best practices are consulted and followed.
 
 ### Suggested actions
 
-Ensure all Azure environments that connect to your production
-environment and network apply your organization's policy, and IT governance controls
-for security.
+Ensure all Azure environments that connect to your production environment and network apply your organization's policy, and IT governance controls for security.
 
 You can discover existing connected tenants using a
 [tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions

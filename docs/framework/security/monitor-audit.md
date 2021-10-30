@@ -37,24 +37,11 @@ To make sure that the security posture doesn't degrade over time, have regular a
 **Do you evaluate the security posture of this workload using standard benchmarks?**
 ***
 
-Use an industry standard benchmark to evaluate your organizations current
-security posture. 
+Use an industry standard benchmark to evaluate your organizations current security posture. 
 
-Benchmarking allows you to improve your security program by learning from
-external organizations. It lets you know how your current security
-state compares to that of other organizations, providing both external
-validation for successful elements of your current system and identifying
-gaps that serve as opportunities to enrich your team's overall security
-strategy. Even if your security program isn't tied to a specific benchmark or
-regulatory standard, you will benefit from understanding the documented ideal
-states by those outside and inside of your industry.
+Benchmarking allows you to improve your security program by learning from external organizations. It lets you know how your current security state compares to that of other organizations, providing both external validation for successful elements of your current system and identifying gaps that serve as opportunities to enrich your team's overall security strategy. Even if your security program isn't tied to a specific benchmark or regulatory standard, you will benefit from understanding the documented ideal states by those outside and inside of your industry.
 
-As an example, the Center for Internet Security (CIS) has created security
-benchmarks for Azure that map to the CIS Control Framework. Another
-reference example is the MITRE ATT&CK&trade; framework that defines the various
-adversary tactics and techniques based on real-world observations. These
-external references control mappings and help you to understand any gaps between
-your current strategy, what you have, and what other experts have in the industry.
+As an example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK&trade; framework that defines the various adversary tactics and techniques based on real-world observations. These external references control mappings and help you to understand any gaps between your current strategy, what you have, and what other experts have in the industry.
 
 ### Suggested action
   
@@ -122,8 +109,7 @@ Make sure that the security team is auditing the environment to report on compli
 
 Enforce and audit industry, government, and internal corporate security policies. Policy monitoring checks that initial configurations are correct and that it continues to be compliant over time. 
 
-For Azure, use Azure Policy to create and manage policies that enforce compliance. Azure Policies are built on the Azure Resource Manager capabilities. Azure Policy can also be assigned through Azure Blueprints. 
-For more information, see [Tutorial: Create and manage policies to enforce compliance](/azure/governance/policy/tutorials/create-and-manage).
+For Azure, use Azure Policy to create and manage policies that enforce compliance. Azure Policies are built on the Azure Resource Manager capabilities. Azure Policy can also be assigned through Azure Blueprints.  For more information, see [Tutorial: Create and manage policies to enforce compliance](/azure/governance/policy/tutorials/create-and-manage).
 
 ## Capture critical data
 

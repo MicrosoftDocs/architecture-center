@@ -24,8 +24,7 @@ This solution shows how to predict failures using the example of manufacturing p
 
 * [Event Hubs](/azure/event-hubs/) ingests assembly line events and passes them on to Stream Analytics and an Azure ML Web Service.
 * [Azure Stream Analytics](/azure/stream-analytics/): Stream Analytics accepts the input stream from Event Hubs, calls an Azure ML Web Service to do predictions, and sends the stream to Azure Synapse and Power BI and Logic Apps for alerts.
-* [Azure Machine Learning](/azure/machine-learning/): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud and deploy web
-services that can be called by Stream Analytics.
+* [Azure Machine Learning](/azure/machine-learning/): Machine Learning helps you design, test, operationalize, and manage predictive analytics solutions in the cloud and deploy web services that can be called by Stream Analytics.
 * [Storage Accounts](/azure/storage/): Azure Storage stores raw events stream data from Event Hub and serves for long-term data persistence.
 * [Logic Apps](/azure/logic-apps/): Sends alerts generated from the streaming data into operator device
 * [Synapse Analytics](/azure/synapse-analytics/): Store relational data for ad-hoc and planned analytical processing and user analytical queries
