@@ -9,7 +9,7 @@ This solution shows how to predict failures using the example of manufacturing p
 ![Architecture Diagram](../media/quality-assurance.png)
 *Download an [SVG](../media/quality-assurance.svg) of this architecture.*
 
-### Data Flow
+### Data flow
 
 1. Source system event generator streams data into Azure Event Hub.
 2. Event Hub uses Capture to send raw event to Data Lake.
@@ -31,7 +31,7 @@ services that can be called by Stream Analytics.
 * [Synapse Analytics](/azure/synapse-analytics/): Store relational data for ad-hoc and planned analytical processing and user analytical queries
 * [Power BI](/power-bi/create-reports/): visualizes real-time operational dashboards and also servers for analytical reports.
 
-## Alternatives
+### Alternatives
 
 * Depending on the scenario, the basic architecture can be simplified by removing batch layer - removing Storage for raw events and Azure Synapse for relational data
 * [Azure SQL Database](/azure/sql-database/) is a managed relational database-as-a service. Depending on your data volumes and access patterns, you may choose Azure SQL Database.
