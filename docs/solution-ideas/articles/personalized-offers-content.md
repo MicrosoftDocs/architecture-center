@@ -11,27 +11,7 @@ By analyzing massive amounts of data, marketers have the unique opportunity to d
 ![Architecture diagram](../media/personalized-offers.png)
 *Download an [SVG](../media/personalized-offers.svg) of this architecture.*
 
-## Description
-
-Save time and let a trained SI partner help you with a proof of concept, deployment & integration of this solution.
-
-The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure - data ingestion, data storage, data processing, and advanced analytics components - all of the essential elements for building a personalized offer solution.
-
-## Components
-
-This solution combines several Azure services to provide powerful advantages:
-
-* [Azure Event Hubs](/azure/event-hubs/) collects real-time consumption data.
-* [Azure Stream Analytics](/azure/stream-analytics/) aggregates the streaming data and makes it available for visualization and updates to the data used in making personalized offers to the customer.
-* [Azure CosmosDB SQL API](/azure/cosmos-db/introduction) stores the customer, product, and offer information. In the GitHub implementation, Azure Document DB was used, but this can be [achieved using Azure Cosmos DB SQL API](https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/).
-* [Azure Storage](/azure/storage/) is used to manage the queues that simulate user interaction.
-* [Azure Functions](/azure/azure-functions/) is used as a coordinator for the user simulation and as the central portion of the solution for generating personalized offers.
-* [Azure Machine Learning](/azure/machine-learning/) implements and executes the user to product affinity scoring, by considering user preference and product history
-* When no user history is available.
-[Azure Cache for Redis](/azure/azure-cache-for-redis/) is used to provide pre-computed product affinities for the customer.
-* [Power BI Dashboard](/power-bi/create-reports/) visualizes the real-time activity for the system and with the data from CosmosDB SQL API the behavior of the various offers.
-
-## Data Flow
+### Data flow
 
 1. User activity on the website is simulated with an Azure Function and a pair of Azure Storage Queues.
 1. Personalized Offer Functionality is implemented as an Azure Function.
@@ -45,6 +25,26 @@ This solution combines several Azure services to provide powerful advantages:
     * The aggregated data is sent to Azure CosmosDB SQL API.
     * The raw data is sent to Azure Data Lake Storage.
 
+### Components
+
+This solution combines several Azure services to provide powerful advantages:
+
+* [Azure Event Hubs](/azure/event-hubs/) collects real-time consumption data.
+* [Azure Stream Analytics](/azure/stream-analytics/) aggregates the streaming data and makes it available for visualization and updates to the data used in making personalized offers to the customer.
+* [Azure CosmosDB SQL API](/azure/cosmos-db/introduction) stores the customer, product, and offer information. In the GitHub implementation, Azure Document DB was used, but this can be [achieved using Azure Cosmos DB SQL API](https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/).
+* [Azure Storage](/azure/storage/) is used to manage the queues that simulate user interaction.
+* [Azure Functions](/azure/azure-functions/) is used as a coordinator for the user simulation and as the central portion of the solution for generating personalized offers.
+* [Azure Machine Learning](/azure/machine-learning/) implements and executes the user to product affinity scoring, by considering user preference and product history
+* When no user history is available.
+[Azure Cache for Redis](/azure/azure-cache-for-redis/) is used to provide pre-computed product affinities for the customer.
+* [Power BI Dashboard](/power-bi/create-reports/) visualizes the real-time activity for the system and with the data from CosmosDB SQL API the behavior of the various offers.
+
+## Solution details
+
+Save time and let a trained SI partner help you with a proof of concept, deployment, and integration of this solution.
+
+Microsoft Azure provides advanced analytics tools - data ingestion, data storage, data processing, and advanced analytics components - all of the essential elements for building a personalized offer solution.
+
 ## Next steps
 
 * [Deep-dive into the classifiers used in this model](https://github.com/Azure/cortana-intelligence-personalization-data-science-playbook/blob/master/Personalized_Offers_from_Classifiers_Use_Case.md#types)
@@ -54,7 +54,7 @@ This solution combines several Azure services to provide powerful advantages:
 * [Implement a classification model in Azure Machine Learning Studio](/learn/modules/create-classification-model-azure-machine-learning-designer/). No coding required!
 * [Learn how to create a drag-and-drop ML model](/learn/modules/use-automated-machine-learning/)
 
-## Recommended resources
+## Related resources
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
 * [Azure Machine Learning documentation](/azure/machine-learning/)
