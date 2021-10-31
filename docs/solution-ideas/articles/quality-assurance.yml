@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Quality Assurance
+  title: Quality assurance
   titleSuffix: Azure Solution Ideas
   description: Build a quality assurance system that collects data and improves productivity by identifying potential problems in a manufacturing pipeline before they occur.
   author: EdPrice-MSFT
@@ -22,7 +22,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/quality-assurance/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/quality-assurance.png
-name: Quality Assurance
+name: Quality assurance
 azureCategories:
   - ai-machine-learning
   - integration
