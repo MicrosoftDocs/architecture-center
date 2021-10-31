@@ -2,7 +2,7 @@
 
 In today's highly competitive and connected environment, modern businesses can no longer survive with generic, static online content. Furthermore, marketing strategies using traditional tools are often expensive, hard to implement, and do not produce the desired return on investment. These systems often fail to take full advantage of the data collected to create a more personalized experience for the user.
 
-Surfacing offers that are customized for the user has become essential to building customer loyalty and remaining profitable. On a retail website customers desire intelligent systems that provide offers and content based on their unique interests and preferences. Today's digital marketing teams can build this intelligence using the data generated from all types of user interactions.
+Surfacing offers that are customized for the user has become essential to building customer loyalty and remaining profitable. On a retail website, customers desire intelligent systems that provide offers and content, based on their unique interests and preferences. Today's digital marketing teams can build this intelligence using the data generated from all types of user interactions.
 
 By analyzing massive amounts of data, marketers have the unique opportunity to deliver highly relevant and personalized offers to each user. However, building a reliable and scalable big data infrastructure, and developing sophisticated machine learning models that personalize to each user is not trivial.
 
@@ -14,13 +14,13 @@ By analyzing massive amounts of data, marketers have the unique opportunity to d
 ### Data flow
 
 1. User activity on the website is simulated with an Azure Function and a pair of Azure Storage Queues.
-1. Personalized Offer Functionality is implemented as an Azure Function.
+1. Personalized offer functionality is implemented as an Azure Function.
     * This is the key function that ties everything together to produce an offer and record activity.
     * Data is read in from Azure Cache for Redis and Azure CosmosDB SQL API, product affinity scores are computed from Azure Machine Learning
     * If no history for the user exists, pre-computed affinities are read in from Azure Cache for Redis.
 1. Raw user activity data (Product and Offer Clicks), Offers made to users, and performance data (for Azure Functions and Azure Machine Learning) are sent to Azure Event Hub.
 1. The offer is returned to the User.
-    * In our simulation, this is done by writing to an Azure Storage Queue which is picked up by an Azure Function in order to produce the next user action.
+    * In our simulation, this process is done by writing to an Azure Storage Queue, which is picked up by an Azure Function in order to produce the next user action.
 1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hub.
     * The aggregated data is sent to Azure CosmosDB SQL API.
     * The raw data is sent to Azure Data Lake Storage.
@@ -31,7 +31,7 @@ This solution combines several Azure services to provide powerful advantages:
 
 * [Azure Event Hubs](/azure/event-hubs/) collects real-time consumption data.
 * [Azure Stream Analytics](/azure/stream-analytics/) aggregates the streaming data and makes it available for visualization and updates to the data used in making personalized offers to the customer.
-* [Azure CosmosDB SQL API](/azure/cosmos-db/introduction) stores the customer, product, and offer information. In the GitHub implementation, Azure Document DB was used, but this can be [achieved using Azure Cosmos DB SQL API](https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/).
+* [Azure CosmosDB SQL API](/azure/cosmos-db/introduction) stores the customer, product, and offer information. In the GitHub implementation, Azure Document DB was used, but this storage can also be [achieved using Azure Cosmos DB SQL API](https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/).
 * [Azure Storage](/azure/storage/) is used to manage the queues that simulate user interaction.
 * [Azure Functions](/azure/azure-functions/) is used as a coordinator for the user simulation and as the central portion of the solution for generating personalized offers.
 * [Azure Machine Learning](/azure/machine-learning/) implements and executes the user to product affinity scoring, by considering user preference and product history
