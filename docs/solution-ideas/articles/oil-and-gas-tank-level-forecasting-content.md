@@ -38,7 +38,7 @@ Forecasts are created by harnessing the power of real-time and historical data r
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
-* [Power BI](https://powerbi.microsoft.com/en-us/)
+* [Power BI](https://powerbi.microsoft.com/)
 
 ## Deploy this scenario
 
