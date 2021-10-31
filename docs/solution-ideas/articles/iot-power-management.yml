@@ -13,7 +13,7 @@ metadata:
     - iot
   ms.custom:
     - fcp
-name: 'IoT connected light, power, and internet for emerging markets'
+name: IoT connected light, power, and internet for emerging markets
 azureCategories:
   - iot
 summary: Energy provider Veriown uses solar-powered IoT devices with Azure services to provide clean, low-cost power, light, and internet service to remote customers.
