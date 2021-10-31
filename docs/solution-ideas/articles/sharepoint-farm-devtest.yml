@@ -33,7 +33,7 @@ products:
   - azure-expressroute
   - azure-vpn-gateway
   - sql-server
-  - sharepoint
+  - office-sp
 thumbnailUrl: /azure/architecture/browse/thumbs/sharepoint-farm-devtest.png
 content: |
    [!include[](sharepoint-farm-devtest-content.md)]
