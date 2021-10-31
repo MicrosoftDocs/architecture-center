@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Modern Customer Support Portal
+  title: Modern customer support portal
   titleSuffix: Azure Solution Ideas
   description: Monitor and respond to customer feedback with this line-of-business application solution. Connect multiple business systems to optimize customer support.
   author: EdPrice-MSFT
@@ -25,7 +25,7 @@ metadata:
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/modern-customer-support-portal-powered-by-an-agile-business-process/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/modern-customer-support-portal-powered-by-an-agile-business-process.png
-name: Modern Customer Support Portal
+name: Modern customer support portal
 azureCategories:
   - migration
   - hybrid
