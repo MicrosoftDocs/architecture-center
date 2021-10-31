@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Running Oracle Databases on Azure
+  title: Run Oracle databases on Azure
   titleSuffix: Azure Solution Ideas
   description: Use a canonical architecture to achieve high availability for Oracle Database Enterprise Edition in Azure.
   author: EdPrice-MSFT
@@ -23,7 +23,7 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/reference-architecture-for-oracle-database-on-azure/"
   social_image_url: /azure/architecture/solution-ideas/articles/media/reference-architecture-for-oracle-database-on-azure.png
-name: Running Oracle Databases on Azure
+name: Run Oracle databases on Azure
 azureCategories:
   - databases
   - management-and-governance
