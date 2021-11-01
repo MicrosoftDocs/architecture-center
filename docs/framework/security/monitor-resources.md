@@ -71,7 +71,7 @@ Make sure policies and processes require restricting and monitoring direct inter
 
 For Azure, you can enforce policies by,
 
--   **Enterprise-wide prevention** - Prevent inadvertent exposure by following the permissions and roles described in the reference model.
+-   **Enterprise-wide prevention:** Prevent inadvertent exposure by following the permissions and roles described in the reference model.
 
     -   Ensures that network traffic is routed through approved egress points by default.
 

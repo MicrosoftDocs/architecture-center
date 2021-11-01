@@ -75,7 +75,7 @@ Machine learning (ML) architecture is the layout of the mathematical operations 
 
 It helps to understand the issues that can arise when training an ML model that may only be seen after training or, even at the point of inferencing on device. Overfitting and underfitting are some of the common issues found during the training and testing process.
 
-* **Overfitting** - Overfitting can give a false sense of success because the performance metric (like accuracy) might be very good when the input data looks like the training data.  However, overfitting can occur when the model fits to the training data too closely and cannot generalize well to new data. For example, it may become apparent that the model only performs well indoors because the training data was from an indoor setting.
+* **Overfitting:** Overfitting can give a false sense of success because the performance metric (like accuracy) might be very good when the input data looks like the training data.  However, overfitting can occur when the model fits to the training data too closely and cannot generalize well to new data. For example, it may become apparent that the model only performs well indoors because the training data was from an indoor setting.
 
   Overfitting can be caused by following issues:
   
@@ -85,7 +85,7 @@ It helps to understand the issues that can arise when training an ML model that 
   * The model is trained over too many iterations.
   * There may be other reasons for good performance in training and significantly worse performance in validation and testing, which are out of scope for this article.
 
-* **Underfitting** - Underfitting happens when the model has generalized so well that it cannot tell the difference between classes with confidence. For example, the training _loss_ will still be unacceptably high.
+* **Underfitting:** Underfitting happens when the model has generalized so well that it cannot tell the difference between classes with confidence. For example, the training _loss_ will still be unacceptably high.
 
   Underfitting can be caused by following issues:
 
@@ -115,12 +115,12 @@ The data science process for edge deployments has a general pattern. After a cle
 
 ![Vision on the edge data science cycle](./images/data-science-cycle.png)
 
-* **Data collection** -  Data collection or acquisition could be an online image search from a currently deployed device, or other representative data source.  Generally, the more data the better. In addition, the more variability, the better the generalization.
-* **Data labeling** - If only hundreds of images need to be labeled, such as, when using transfer learning, it can be done in-house. If tens of thousands of images need to be labeled, a vendor could be enlisted for both data collection and labeling.  
-* **Train a model with ML framework** - An ML framework such as *TensorFlow* or *PyTorch* (both with Python and C++ APIs) will need to be chosen. Usually this depends upon what code samples are available in open-source or in-house, as well as the experience of the ML practitioner. Azure ML may be used to train a model using any ML framework and approach, as it is agnostic of framework and has Python and R bindings, and many wrappers around popular frameworks.
-* **Convert the model for inferencing on device** - Almost always, a model will need to be converted to work with a particular runtime. Model conversion usually involves advantageous optimizations like faster inference and smaller model footprints. This step differs for each ML framework and runtime. There are open-source interoperability frameworks available such as *ONNX* and *MMdnn*.  
-* **Build the solution for device** - The solution is usually built on the same type of device as will be used in the final deployment because binary files created system-specific.  
-* **Using runtime, deploy solution to device** - Once a runtime is chosen, usually in conjunction with the ML framework choice, the compiled solution may be deployed. The Azure IoT Runtime is a Docker-based system in which the ML runtimes may be deployed as containers.
+* **Data collection:**  Data collection or acquisition could be an online image search from a currently deployed device, or other representative data source.  Generally, the more data the better. In addition, the more variability, the better the generalization.
+* **Data labeling:** If only hundreds of images need to be labeled, such as, when using transfer learning, it can be done in-house. If tens of thousands of images need to be labeled, a vendor could be enlisted for both data collection and labeling.  
+* **Train a model with ML framework:** An ML framework such as *TensorFlow* or *PyTorch* (both with Python and C++ APIs) will need to be chosen. Usually this depends upon what code samples are available in open-source or in-house, as well as the experience of the ML practitioner. Azure ML may be used to train a model using any ML framework and approach, as it is agnostic of framework and has Python and R bindings, and many wrappers around popular frameworks.
+* **Convert the model for inferencing on device:** Almost always, a model will need to be converted to work with a particular runtime. Model conversion usually involves advantageous optimizations like faster inference and smaller model footprints. This step differs for each ML framework and runtime. There are open-source interoperability frameworks available such as *ONNX* and *MMdnn*.  
+* **Build the solution for device:** The solution is usually built on the same type of device as will be used in the final deployment because binary files created system-specific.  
+* **Using runtime, deploy solution to device:** Once a runtime is chosen, usually in conjunction with the ML framework choice, the compiled solution may be deployed. The Azure IoT Runtime is a Docker-based system in which the ML runtimes may be deployed as containers.
 
 The diagram below shows a sample data science process where open-source tools may be leveraged for the data science workflow. Data availability and type will drive most of the choices, including the devices/hardware chosen.
 

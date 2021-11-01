@@ -30,7 +30,7 @@ Each recommendation in this document includes a description of why it is recomme
 
 - **Use Identity as Primary Access Control –** Access to resources in cloud architectures is primarily governed by identity-based authentication and authorization for access controls. Your account control strategy should rely on identity systems for controlling access rather than relying on network controls or direct use of cryptographic keys.
 
-- **Accountability** – Designate clear ownership of assets and security responsibilities and ensure actions are traceable for nonrepudiation. You should also ensure entities have been granted the least privilege required (to a manageable level of granularity).
+- **Accountability:** Designate clear ownership of assets and security responsibilities and ensure actions are traceable for nonrepudiation. You should also ensure entities have been granted the least privilege required (to a manageable level of granularity).
 
 - <a id="embrace-automation"></a>**Embrace Automation -** Automation of tasks decreases the chance of human error that can create risk, so both IT operations and security best practices should be automated as much as possible to reduce human errors (while ensuring skilled humans govern and audit the automation).
 

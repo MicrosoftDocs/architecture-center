@@ -34,11 +34,11 @@ A modern IIoT analytics solution goes beyond moving existing industrial processe
 
 The following list shows some typical *personas* who would use the solution and how they would use this solution:
 
-- **Plant Manager** - responsible for the entire operations, production, and administrative tasks of the manufacturing plant.
-- **Production Manager** - responsible for production of a certain number of components.
-- **Process Engineer** - responsible for designing, implementing, controlling, and optimizing industrial processes.
-- **Operations Manager** - responsible for overall efficiency of operation in terms of cost reduction, process time, process improvement, and so on.
-- **Data Scientist** – responsible for building and training predictive Machine Learning models using historical industrial telemetry.
+- **Plant Manager:** responsible for the entire operations, production, and administrative tasks of the manufacturing plant.
+- **Production Manager:** responsible for production of a certain number of components.
+- **Process Engineer:** responsible for designing, implementing, controlling, and optimizing industrial processes.
+- **Operations Manager:** responsible for overall efficiency of operation in terms of cost reduction, process time, process improvement, and so on.
+- **Data Scientist:** responsible for building and training predictive Machine Learning models using historical industrial telemetry.
 
 The following architecture diagram shows the core subsystems that form an IIoT analytics solution.
 
@@ -100,11 +100,11 @@ A number of third-party [IoT Edge gateway devices](https://catalog.azureiotsolut
 
 There are [three patterns for connecting your devices](/azure/iot-edge/iot-edge-as-gateway) to Azure via an IoT Edge field gateway (or virtual machine):
 
-1. **Transparent** - Devices already have the capability to send messages to IoT Hub using AMQP or MQTT.  Instead of sending the messages directly to the hub, they instead send the messages to IoT Edge, which in turn passes them on to IoT Hub.  Each device has an [identity](/azure/iot-hub/iot-hub-devguide-identity-registry) and [device twin](/azure/iot-hub/iot-hub-devguide-device-twins) in Azure IoT Hub.
+1. **Transparent:** Devices already have the capability to send messages to IoT Hub using AMQP or MQTT.  Instead of sending the messages directly to the hub, they instead send the messages to IoT Edge, which in turn passes them on to IoT Hub.  Each device has an [identity](/azure/iot-hub/iot-hub-devguide-identity-registry) and [device twin](/azure/iot-hub/iot-hub-devguide-device-twins) in Azure IoT Hub.
 
-1. **Protocol Translation** - Also known as an opaque gateway pattern.  This pattern is often used to connect older brownfield equipment (for example, Modbus) to Azure. Modules are deployed to Azure IoT Edge to perform the protocol conversion. Devices must provide a unique identifier to the gateway.
+1. **Protocol Translation:** Also known as an opaque gateway pattern.  This pattern is often used to connect older brownfield equipment (for example, Modbus) to Azure. Modules are deployed to Azure IoT Edge to perform the protocol conversion. Devices must provide a unique identifier to the gateway.
 
-1. **Identity Translation** - In this pattern, devices cannot communicate directly to IoT Hub (for example, OPC UA Pub/Sub, BLE devices). The gateway is smart enough to understand the protocol used by the downstream devices, provide them identity, and translate IoT Hub primitives. Each device has an identity and device twin in Azure IoT Hub.  
+1. **Identity Translation:** In this pattern, devices cannot communicate directly to IoT Hub (for example, OPC UA Pub/Sub, BLE devices). The gateway is smart enough to understand the protocol used by the downstream devices, provide them identity, and translate IoT Hub primitives. Each device has an identity and device twin in Azure IoT Hub.  
 
 Although you can use any of these patterns in your IIoT Analytics Solution, your choice will be driven by which protocol is installed on your industrial systems. For example, if your SCADA system supports ethernet/IP, you will need to use a protocol translation software to convert ethernet/IP to MQTT or AMQP. See the [Connecting to Historians section](#connecting-to-historians) for additional guidance.
 

@@ -29,11 +29,11 @@ As part of overall design, prioritize where to invest the available resources; f
 
 The collective role of organization(s) is to manage the security standards of the organization through their lifecycle:
 
-- **Define** - Set organizational policies for operations, technologies, and configurations based on internal factors (business requirements, risks, asset evaluation) and external factors (benchmarks, regulatory standards, threat environment). 
+- **Define:** Set organizational policies for operations, technologies, and configurations based on internal factors (business requirements, risks, asset evaluation) and external factors (benchmarks, regulatory standards, threat environment). 
 
-- **Improve** – Continually push these standards incrementally forward towards the ideal state to ensure continual risk reduction.
+- **Improve:** Continually push these standards incrementally forward towards the ideal state to ensure continual risk reduction.
 
-- **Sustain** – Ensure the security posture doesn't degrade naturally over time by instituting auditing and monitoring compliance with organizational standards.
+- **Sustain:** Ensure the security posture doesn't degrade naturally over time by instituting auditing and monitoring compliance with organizational standards.
 
 ## Prioritize security best practices investments
 

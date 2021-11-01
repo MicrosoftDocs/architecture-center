@@ -38,9 +38,9 @@ The best way to damage an attacker’s ability to successfully attack your organ
 
 This is a general mindset with many possible applications, but two concrete applications of this are:
 
-- **Investment criteria** - As you consider various security investments, evaluate whether the potential investments lower attacker cost overall (for example, does this security investment force an attacker to build or buy a more expensive option? Does it eliminate one of many cheap options on the attacker menu? Or does it only eliminate an expensive/rare attack method?)
+- **Investment criteria:** As you consider various security investments, evaluate whether the potential investments lower attacker cost overall (for example, does this security investment force an attacker to build or buy a more expensive option? Does it eliminate one of many cheap options on the attacker menu? Or does it only eliminate an expensive/rare attack method?)
 
-- **Attack simulation goals** – As you engage in penetration testing or red teaming activities to test, you should focus these teams on identifying and cataloging the lowest cost methods to get to business critical data so you can eliminate those first.
+- **Attack simulation goals:** As you engage in penetration testing or red teaming activities to test, you should focus these teams on identifying and cataloging the lowest cost methods to get to business critical data so you can eliminate those first.
 
 ## Containing attacker access
 
@@ -48,8 +48,9 @@ A containment strategy should attempt to limit an attacker's time and levels  of
 
 The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data. Your investments should be focused on ensuring your security measures constrain how much access an adversary gets to the environment during an  attack operation and limit the amount of privileges, or permissions that  an adversary gains:
 
-**Time** – Limit how long the adversary can have access to your environment during an attack operation. This is primarily achieved through security operations that rapidly detect potential attacks, prioritizing potential detections so your team is focused on quickly investigating real attacks (vs. false positives), and reducing your mean time to remediate those real incidents.   More information on these goals and metrics is in the [security operations](./security-operations.md#objective-and-metrics) section.
-
+**Time:** Limit how long the adversary can have access to your environment during an attack operation. This is primarily achieved through security operations that rapidly detect potential attacks, prioritizing potential detections so your team is focused on quickly investigating real attacks (vs. false positives), and reducing your mean time to remediate those real incidents.  
+ More information on these goals and metrics is in the [security operations](./security-operations.md#objective-and-metrics) section.
+:** 
 **Privilege** – Limit the privileges and permissions that an adversary can gain during an attack operation (by permissions and by amount of time privileges are assigned). As attackers gain more privileges, they can access more  target systems and data (or use those systems to continue to pivot within your environment).  Your security strategy should be focused on containing those privileges with:
 
 - Preventive controls

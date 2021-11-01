@@ -179,11 +179,11 @@ We recommend connecting Azure Stream Analytics with Azure Logic Apps using [Azur
 
 To display visual alerts in your web application, we recommend creating an Azure Stream Analytics job to detect specific events and send those to either:
 
-- **An Event Hub output** - Then connect the Event Hub to Time Series Insights. Use the [Azure Time Series Insights JavaScript SDK (tsiclient)](https://tsiclientsample.azurewebsites.net/) to display the event in your web application.
+- **An Event Hub output:** Then connect the Event Hub to Time Series Insights. Use the [Azure Time Series Insights JavaScript SDK (tsiclient)](https://tsiclientsample.azurewebsites.net/) to display the event in your web application.
 
 or,
 
-- **An Azure Functions output** - Then [develop an Azure Function](/azure/azure-signalr/signalr-concept-azure-functions) that sends the events to your web application using [SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+- **An Azure Functions output:** Then [develop an Azure Function](/azure/azure-signalr/signalr-concept-azure-functions) that sends the events to your web application using [SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
 
 Operational alarms and events triggered on premise can also be ingested into Azure for reporting and to trigger work orders, SMS messages, and emails.
 

@@ -32,8 +32,8 @@ Securing an application requires security assurances for three aspects:
 - **Application hosting platform**. The computing environment where the application runs. This could take many forms with significant variations on who is responsible for security:
 
     -   **Legacy applications**. typically require a full operating system (and any middleware) hosted on physical or virtualized hardware. This operating system and installed middleware/other components are operated and secured by the application owner or their infrastructure team(s). The security responsibility for the physical hardware and OS virtualization components (virtualization hosts, operating systems, and management services) varies:
-         -   **On-premises** - The application owner is responsible for maintenance and security.
-         -   **IaaS** – The cloud provider is responsible for the underlying infrastructure and the application owner’s organization is responsible for the VM configuration, operating system, and any components installed on it.
+         -   **On-premises:** The application owner is responsible for maintenance and security.
+         -   **IaaS:** The cloud provider is responsible for the underlying infrastructure and the application owner’s organization is responsible for the VM configuration, operating system, and any components installed on it.
 
     -   **Modern applications** are hosted on PaaS environments such as an Azure application service. The underlying operating system is secured by the cloud provider. Application owners are responsible for the security of the application service configurations.
 
@@ -59,13 +59,13 @@ Using these services also frees your developer resources from reinventing the pr
 
 We recommend using cloud services from your cloud provider for identity, data protection, key management, and application configurations:
 
-- **Identity** – User directories and other authentication functions are complex to develop and critically important to security assurances. Avoid custom authentication solutions. Instead  choose native capabilities like Azure Active Directory ([Azure AD](/azure/active-directory/)), [Azure AD B2B](/azure/active-directory/b2b/), [Azure AD B2C](/azure/active-directory-b2c/), or third-party solutions to authenticate and grant permission to users, partners, customers, applications, services, and other entities. For more information, see [Security with identity and access management (IAM) in Azure](design-identity.md).
+- **Identity:** User directories and other authentication functions are complex to develop and critically important to security assurances. Avoid custom authentication solutions. Instead  choose native capabilities like Azure Active Directory ([Azure AD](/azure/active-directory/)), [Azure AD B2B](/azure/active-directory/b2b/), [Azure AD B2C](/azure/active-directory-b2c/), or third-party solutions to authenticate and grant permission to users, partners, customers, applications, services, and other entities. For more information, see [Security with identity and access management (IAM) in Azure](design-identity.md).
 
-- **Data Protection** – Use established capabilities from cloud providers such as native encryption in cloud services to encrypt and protect data. If direct use of cryptography is required, use well-established cryptographic algorithms and not attempt to invent their own.
+- **Data Protection:** Use established capabilities from cloud providers such as native encryption in cloud services to encrypt and protect data. If direct use of cryptography is required, use well-established cryptographic algorithms and not attempt to invent their own.
 
-- **Key management** – Always authenticate with identity services rather than handling cryptographic key. For situations where you need to keys, use a managed key store such as [Azure Key Vault](/azure/key-vault/). This will make sure keys are handled safely in application code. Tools such as, CredScan can discover potentially exposed keys in your application code.
+- **Key management:** Always authenticate with identity services rather than handling cryptographic key. For situations where you need to keys, use a managed key store such as [Azure Key Vault](/azure/key-vault/). This will make sure keys are handled safely in application code. Tools such as, CredScan can discover potentially exposed keys in your application code.
 
-- **Application Configurations** – Inconsistent configurations for applications can create security risks. Application configuration information can be stored with the application itself or preferably using a dedicated configuration management system like [Azure App Configuration](/azure/azure-app-configuration/overview) or Azure Key Vault. App Configuration provides a service to centrally manage application settings and feature flags, which helps mitigate this risk. Don't store keys and secrets in application configuration.
+- **Application Configurations:** Inconsistent configurations for applications can create security risks. Application configuration information can be stored with the application itself or preferably using a dedicated configuration management system like [Azure App Configuration](/azure/azure-app-configuration/overview) or Azure Key Vault. App Configuration provides a service to centrally manage application settings and feature flags, which helps mitigate this risk. Don't store keys and secrets in application configuration.
 
 
 For more information about using cloud services instead of custom implementations, reference [Applications and services](./design-apps-services.md).

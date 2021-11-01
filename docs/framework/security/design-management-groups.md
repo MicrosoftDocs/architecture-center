@@ -50,7 +50,7 @@ Use the Root Management Group (MG) for enterprise consistency, but test changes 
 
 The root management group enables you to ensure consistency across the enterprise by applying policies, permissions, and tags across all subscriptions. Care must be taken when planning and implementing assignments to the root management group because this can affect every resource on Azure and potentially cause downtime or other negative impacts on productivity in the event of errors or unanticipated effects.
 
-- **Plan Carefully** - Select enterprise-wide elements to the root management group that have a clear requirement to be applied across every resource and/or low impact.
+- **Plan Carefully:** Select enterprise-wide elements to the root management group that have a clear requirement to be applied across every resource and/or low impact.
 
     Select enterprise-wide identities that have a clear requirement to be applied across all resources. Good candidates include:
 
@@ -70,7 +70,7 @@ The root management group enables you to ensure consistency across the enterpris
 
     -   **Production Pilot -** This can be a segment management group or designated subset in subscription(s) management group.
 
-- **Validate Changes** – to ensure they have the desired effect.
+- **Validate Changes:** to ensure they have the desired effect.
   
 
 ## Next steps
