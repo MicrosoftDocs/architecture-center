@@ -23,7 +23,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 1. AKS routes the data so Azure Stream Analytics and Azure Databricks can analyze and enrich it.
 
 1. **Safe Buildings** sends the processed data to various data stores:
- 
+
     * Data Lake - Azure Data Lake Storage
 
     * Time Insight - Azure Cosmos DB and Azure Database for PostgreSQL

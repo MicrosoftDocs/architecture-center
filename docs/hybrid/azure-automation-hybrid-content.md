@@ -149,7 +149,7 @@ Use the following procedure to manually deploy Hybrid Runbook Worker Group and H
 
   ```powershell
   cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\\<version>\HybridRegistration"
-  
+
   Import-Module .\HybridRegistration.psd1
   ```
 
@@ -158,10 +158,10 @@ Use the following procedure to manually deploy Hybrid Runbook Worker Group and H
   ```powershell
   Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
   ```
-  
+
   > [!NOTE]
   > For the URL, use the previously recorded **URL**, and for the **Key**, use the previously copied **Primary access key**.
-  
+
 ### Create a Runbook in Azure Automation
 
 To manage resources on a local computer or against resources in the local environment where the hybrid worker is deployed, you must create a Runbook. Add a Runbook to Azure Automation by either creating a new one or importing an existing one from a file or the [Runbook Gallery][20].

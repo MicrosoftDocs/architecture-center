@@ -74,7 +74,7 @@ Relevant artifacts could include:
 ### Moderator
 
 Bring on a neutral user researcher to ensure everyone is heard, avoiding domination of the communications by any one member. The moderator will facilitate brainstorms and deliberations, as well as educate jury members in uncovering bias, and ways to ask difficult questions. If a user researcher is not available, choose a moderator who is skilled at facilitating group discussions. Following the session, the moderator is responsible for the following: 
-  
+
   - ensure that the agreed-upon compensation is provided to the jury members; 
   - produce a report that describes key insights, concerns, and recommendations, and 
   - share key insights and next steps with the jury, and thank them for their participation.
@@ -110,7 +110,7 @@ Sessions typically last 2-3 hours. Add more or longer deep dive sessions, as nee
 1. **Discussion of key themes:** Jury members ask in-depth questions about aspects of the project, fielded by the moderator. This session should also be between 30 to 60 minutes in length.
 
 1. This step can be any one of the following options:
-  
+
     - **Deliberation and cocreation:** This option is preferable. Jury members deliberate and co-create effective collaboration solutions with the project team. This is typically 30 to 60 minutes long.
     - **Individual anonymous survey:** Alternatively, conduct an anonymous survey of jury members. Anonymity may allow issues to be raised that would not otherwise be expressed. Use this 30-minute session if there are time constraints.
 

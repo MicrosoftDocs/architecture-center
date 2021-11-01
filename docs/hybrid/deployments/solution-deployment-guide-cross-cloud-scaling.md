@@ -152,7 +152,7 @@ Azure Pipelines and Azure DevOps Services provide a highly configurable and mana
       ![Set Agent queue for Azure cloud hosted environment](media/solution-deployment-guide-cross-cloud-scaling/image11.png)
 
 8. In Deploy Azure App Service menu, select the valid **Package or Folder** for the environment. Select **OK** to **folder location**.
-  
+
       ![Select package or folder for Azure App Service environment](media/solution-deployment-guide-cross-cloud-scaling/image12.png)
 
       ![Folder picker dialog 1](media/solution-deployment-guide-cross-cloud-scaling/image13.png)

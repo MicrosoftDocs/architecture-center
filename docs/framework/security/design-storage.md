@@ -29,7 +29,7 @@ Classify, protect, and monitor sensitive data assets using access control, encry
 > - Protect data moving over a network through encryption at all points so that it's not accessed unauthorized users.
 > - Store keys in managed key vault service with identity-based access control and audit policies.
 > - Rotate keys and other secrets frequently.
- 
+
 ## Azure security benchmark
 
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:

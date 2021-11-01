@@ -168,7 +168,7 @@ Azure DevOps Services provide a highly configurable and manageable pipeline for 
       ![Set Agent queue for Azure cloud hosted environment in Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image11.png)
 
 8. In Deploy Azure App Service menu, select the valid **Package or Folder** for the environment. Select **OK** to **folder location**.
-  
+
       ![Select package or folder for Azure App Service environment in Azure DevOps Services](media/solution-deployment-guide-geo-distributed/image12.png)
 
       ![Folder picker dialog 1](media/solution-deployment-guide-geo-distributed/image13.png)
@@ -331,9 +331,9 @@ After adding the CNAME, the DNS records page looks like the following example:
 15. **Add hostname**.
 
     It might take some time for the new hostnames to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
-  
+
     ![Custom domains](media/solution-deployment-guide-geo-distributed/image31.png) 
-  
+
     If there's an error, a verification error notification will appear at the bottom of the page. ![Domain verification error](media/solution-deployment-guide-geo-distributed/image32.png)
 
 > [!Note]  

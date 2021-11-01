@@ -75,7 +75,7 @@ For more information about using cloud services instead of custom implementation
 Use native security capabilities built into cloud services instead of adding external security components, such as  data encryption, network traffic filtering, threat detection, and other functions.
 
 Azure controls are maintained and supported by Microsoft. You don't have to invest in additional security tooling. 
- 
+
 - [List of Azure Services](https://azure.microsoft.com/services/)
 - [Native security capabilities of each service](/azure/security/common-security-attributes)
 

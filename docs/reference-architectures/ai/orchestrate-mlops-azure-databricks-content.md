@@ -37,9 +37,9 @@ The process in this scenario works as follows:
 5. The orchestrator notebook executes a magic Python “pip” command to install ML and MLOps wheel packages as notebook-scoped libraries.
 
 6. The orchestrator notebook executes the MLOps Python function and corresponding ML Python function for the stage from installed wheel packages.  
-      
+
     You can also implement conditional Python logic to enable or disable specific MLOps stages for a particular run or rerun of the Azure Databricks job. For example, if the MLOps stage “Feature Engineering” needs to be disabled for rerun, you can use an Azure Databricks job parameter to set when it gets disabled.  
-      
+
     **Note:** This step will be repeated for all MLOps stages.
 
 7. Results of model training or batch scoring can be published both in MLflow artifacts and Azure Storage based on usage:

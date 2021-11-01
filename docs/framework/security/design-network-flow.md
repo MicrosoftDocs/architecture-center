@@ -32,7 +32,7 @@ When analyzing the network flow of a workload, distinguish between east-west tra
 ***
 
 - **North-south traffic**
-    
+
     _North-south_ refers to the traffic that flows in and out of a datacenter. For example, traffic from an application to a backend service. This type of traffic is a typical target for attack vectors because it flows over the public internet. Proper network controls must be in place so that the queries to and from a data center are secure.
 
     Consider a typical flow in an Azure Kubernetes Service (AKS) cluster. The cluster receives incoming (ingress) traffic from HTTP requests. The cluster can also send outgoing (egress) traffic to send queries to other services, such as pulling a container image.

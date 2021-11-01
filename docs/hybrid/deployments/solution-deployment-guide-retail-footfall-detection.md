@@ -166,7 +166,7 @@ Now that data is flowing to Azure Stream Analytics from the camera, we need to m
 3. Select the **traffic-output** output sink.
 
 4. Select **Renew authorization** and sign in to your Power BI account.
-  
+
     ![Renew authorization prompt in Power BI](media/solution-deployment-guide-retail-footfall-detection/image2.png)
 
 5. Save the output settings.

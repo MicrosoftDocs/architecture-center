@@ -135,7 +135,7 @@ public class ValuesController : ApiController
           ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(5)
       };
       blobSasBuilder.SetPermissions(BlobSasPermissions.Write);
-  
+
       return new StorageEntitySas
       {
           BlobUri = blob.Uri,

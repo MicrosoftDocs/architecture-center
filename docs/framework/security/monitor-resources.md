@@ -173,7 +173,7 @@ Set up a recurring review pattern to ensure that accounts are removed from permi
 ### Discover & replace insecure protocols
 
 Discover and disable the use of legacy insecure protocols SMBv1, LM/NTLMv1, wDigest, Unsigned LDAP Binds, and Weak ciphers in Kerberos.
-  
+
 Applications should use the SHA-2 family of hash algorithms (SHA-256, SHA-384, SHA-512). Use of weaker algorithms, like SHA-1  and MD5, should be avoided.
 
 Authentication protocols are a critical foundation of nearly all security assurances. These older versions can be exploited by attackers with access to your network and are often used extensively on legacy systems on Infrastructure as a Service (IaaS).
@@ -186,13 +186,13 @@ Here are ways to reduce your risk:
     [SMB](https://support.microsoft.com/help/2696547/detect-enable-disable-smbv1-smbv2-smbv3-in-windows-and-windows-server),
     [NTLM](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain),
     [WDigest](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a).
-  
+
 - Use only secure hash algorithms (SHA-2 family). 
-  
+
 We recommend implementing changes using pilot or other testing methods to mitigate risk of operational interruption.
-  
+
 #### Learn more
-  
+
 For more information about hash algorithms, see [Hash and Signature Algorithms](/windows/win32/seccrypto/hash-and-signature-algorithms).
 
 ### Connected tenants

@@ -159,14 +159,14 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
   - With a quick configuration, you can secure a hub with a supported security partner. You can route and filter Internet traffic from your Virtual Networks (VNets) or branch locations within a region. You can do this with automated route management, without setting up and managing user-defined routes (UDRs).
   - The current supported security partners are Zscaler, Check Point, and iboss.
   - See more at [Deploy an Azure Firewall Manager security partner provider](/azure/firewall-manager/deploy-trusted-security-partner).
-  
+
  ## Next steps
 
  - See the [Microsoft Azure Well-Architected Framework](../../framework/index.md).
  - [What is Azure Firewall?](/azure/firewall/overview)
 
  ## Related resources
- 
+
  - [Azure Firewall architecture overview](../../example-scenario/firewalls/index.yml)
  - [Azure Well-Architected Framework review of Azure Application Gateway](./waf-application-gateway.md)
  - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)

@@ -133,7 +133,7 @@ Loading historical data into your IIoT analytics solution consists of three step
       1. If the aggregate size of the exported data is large (tens or hundreds of TBs), consider using [Azure Import/Export Service](/azure/storage/common/storage-import-export-service) or [Azure Data Box](/azure/databox/) to ship the files to the Azure region where your IIoT analytics solution is deployed. Once received, the files will be imported into your Azure Storage account.
 
 1. Import your data.
-    
+
       1. This step involves reading the files in your Azure Storage account, serializing the data as JSON, and sending data as streaming events into Time Series Insights. We recommend using an Azure Function to perform this.
       1. Time Series Insights only supports IoT Hub and Event Hub as data sources. We recommend using an Azure Function to send the events to a temporary Event Hub, which is connected to Time Series Insights. 
       1. Refer to [How to shape JSON events](/azure/time-series-insights/how-to-shape-query-json) and [Supported JSON shapes](/azure/time-series-insights/time-series-insights-send-events#supported-json-shapes) for best practices on shaping your JSON payload.

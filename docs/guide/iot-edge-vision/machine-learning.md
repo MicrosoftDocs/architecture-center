@@ -78,7 +78,7 @@ It helps to understand the issues that can arise when training an ML model that 
 * **Overfitting:** Overfitting can give a false sense of success because the performance metric (like accuracy) might be very good when the input data looks like the training data.  However, overfitting can occur when the model fits to the training data too closely and cannot generalize well to new data. For example, it may become apparent that the model only performs well indoors because the training data was from an indoor setting.
 
   Overfitting can be caused by following issues:
-  
+
   * The model learned to focus on incorrect, non-representative features specifically found in the training dataset.
   * The model architecture may have too many learnable parameters, correlated to the number of layers in a neural network and units per layer. A model's _memorization capacity_ is determined by the number of learnable parameters.
   * Not enough complexity or variation is found in the training data.
