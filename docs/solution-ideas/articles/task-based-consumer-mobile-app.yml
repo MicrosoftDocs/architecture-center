@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Task-Based Consumer Mobile App
+  title: Task-based consumer mobile app
   titleSuffix: Azure Solution Ideas
   description: This mobile app architecture simplifies authentication, stores and syncs data, sends notifications, automates builds and tests, and monitors and analyzes usage.
   author: EdPrice-MSFT
