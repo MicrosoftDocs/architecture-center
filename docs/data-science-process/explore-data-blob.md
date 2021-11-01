@@ -64,9 +64,9 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
     dataframe_blobdata = pd.read_csv(LOCALFILENAME)
     ```
 
-If you need more general information on reading from an Azure Storage Blob, look at our documentation [Azure Storage Blobs client library for Python](/python/api/overview/azure/storage-blob-readme).  
+If you need more general information on reading from an Azure Storage Blob, look at our documentation [Azure Storage Blobs client library for Python](/python/api/overview/azure/storage-blob-readme).
 
-Now you are ready to explore the data and generate features on this dataset.  
+Now you are ready to explore the data and generate features on this dataset.
 
 ## <a name="blob-dataexploration"></a>Examples of data exploration using pandas
 Here are a few examples of ways to explore data using pandas:

@@ -260,5 +260,5 @@ For more information about Azure logging and auditing features, see:
 
 For more information about Microsoft Azure Compliance, see:
 
-- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/)  
+- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/)
 - [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/)

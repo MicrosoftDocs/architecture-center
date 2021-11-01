@@ -155,7 +155,7 @@ The mathematical equations that calculate the distance between two GPS coordinat
 
 ![Create workspace](./media/create-features-hive/atan-2-new.png)
 
-A full list of Hive embedded UDFs can be found in the **Built-in Functions** section on the <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
+A full list of Hive embedded UDFs can be found in the **Built-in Functions** section on the <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).
 
 ## <a name="tuning"></a> Advanced topics: Tune Hive parameters to improve query speed
 
@@ -193,7 +193,7 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
     Typically, the default value of:
 
     - *mapred.min.split.size* is 0, that of
-    - *mapred.max.split.size* is **Long.MAX** and that of 
+    - *mapred.max.split.size* is **Long.MAX** and that of
     - *dfs.block.size* is 64 MB.
 
     As we can see, given the data size, tuning these parameters by "setting" them allows us to tune the number of mappers used.

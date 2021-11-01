@@ -28,7 +28,7 @@ Additional data science walkthroughs that execute the Team Data Science Process 
 
 ## Predict taxi tips using U-SQL with Azure Data Lake
 
-The [Use Azure Data Lake for data science](data-lake-walkthrough.md) walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks.  The data are a sample of the NYC taxi dataset.  The task is predicting whether or not a tip is paid by a customer. 
+The [Use Azure Data Lake for data science](data-lake-walkthrough.md) walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks.  The data are a sample of the NYC taxi dataset.  The task is predicting whether or not a tip is paid by a customer.
 
 
 ## Next steps

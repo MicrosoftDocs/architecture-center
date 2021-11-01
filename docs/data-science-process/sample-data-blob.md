@@ -29,7 +29,7 @@ This sampling task is a step in the [Team Data Science Process (TDSP)](/azure/ma
 
 ## Download and down-sample data
 
-1. Download the data from Azure Blob storage using the Blob service from the following sample Python code: 
+1. Download the data from Azure Blob storage using the Blob service from the following sample Python code:
 
     ```python
     from azure.storage.blob import BlobService

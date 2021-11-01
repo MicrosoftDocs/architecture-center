@@ -73,7 +73,7 @@ We will formulate three prediction problems based on the *tip\_amount*, namely:
 
    `Class 4 : tip_amount > $20`
 
-* Regression task: To predict the amount of tip paid for a trip.  
+* Regression task: To predict the amount of tip paid for a trip.
 
 ## <a name="setup"></a>Setting Up the Azure data science environment for advanced analytics
 
@@ -91,13 +91,13 @@ To set up your Azure Data Science environment:
 3. [Provision a Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview), which provides a SQL Server and an IPython Notebook server.
 
    > [!NOTE]
-   > The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
-   > 
-   > * Sample Scripts: `C:\Users\<user_name>\Documents\Data Science Scripts`  
-   > * Sample IPython Notebooks: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+   > The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:
+   >
+   > * Sample Scripts: `C:\Users\<user_name>\Documents\Data Science Scripts`
+   > * Sample IPython Notebooks: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`
    >   where `<user_name>` is your VM's Windows login name. We will refer to the sample folders as **Sample Scripts** and **Sample IPython Notebooks**.
-   > 
-   > 
+   >
+   >
 
 Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](plan-sample-scenarios.md#largelocaltodb).
 
@@ -137,7 +137,7 @@ The performance of loading/transferring large amounts of data to an SQL Database
    * Select **Database Settings** from the **Select a page** list to the left.
    * Verify and/or change the **Database default locations** to the **Data Disk** locations of your choice. This location is where new databases reside if created with the default settings.
 
-       ![SQL Database Defaults][15]  
+       ![SQL Database Defaults][15]
 5. To create a new database and a set of filegroups to hold the partitioned tables, open the sample script **create\_db\_default.sql**. The script will create a new database named **TaxiNYC** and 12 filegroups in the default data location. Each filegroup will hold one month of trip\_data and trip\_fare data. Modify the database name, if desired. Click **Execute** to run the script.
 6. Next, create two partition tables, one for the trip\_data and another for the trip\_fare. Open the sample script **create\_partitioned\_table.sql**, which will:
 
@@ -149,7 +149,7 @@ The performance of loading/transferring large amounts of data to an SQL Database
 7. In the **Sample Scripts** folder, there are two sample PowerShell scripts provided to demonstrate parallel bulk imports of data to SQL Server tables.
 
    * **bcp\_parallel\_generic.ps1** is a generic script to parallel bulk import data into a table. Modify this script to set the input and target variables as indicated in the comment lines in the script.
-   * **bcp\_parallel\_nyctaxi.ps1** is a pre-configured version of the generic script and can be used to load both tables for the NYC Taxi Trips data.  
+   * **bcp\_parallel\_nyctaxi.ps1** is a pre-configured version of the generic script and can be used to load both tables for the NYC Taxi Trips data.
 8. Right-click the **bcp\_parallel\_nyctaxi.ps1** script name and click **Edit** to open it in PowerShell. Review the preset variables and modify according to your selected database name, input data folder, target log folder, and paths to the  sample format files **nyctaxi_trip.xml** and **nyctaxi\_fare.xml** (provided in the **Sample Scripts** folder).
 
     ![Bulk Import Data][16]
@@ -173,7 +173,7 @@ In this exercise, we will:
 * Generate features and compute/compare trip distances.
 * Join the two tables and extract a random sample that will be used to build models.
 
-When you are ready to proceed to Azure Machine Learning, you may either:  
+When you are ready to proceed to Azure Machine Learning, you may either:
 
 1. Save the final SQL query to extract and sample the data and copy-paste the query directly into an [Import Data][import-data] module in Azure Machine Learning, or
 2. Persist the sampled and engineered data you plan to use for model building in a new database table and use the new table in the [Import Data][import-data] module in Azure Machine Learning.
@@ -306,9 +306,9 @@ When working with big data, follow this recommended sequence:
 * For larger data exploration, data manipulation and feature engineering, use Python to issue SQL Queries directly against the SQL Server database in the Azure VM.
 * Decide the sample size to use for Azure Machine Learning model building.
 
-When ready to proceed to Azure Machine Learning, you may either:  
+When ready to proceed to Azure Machine Learning, you may either:
 
-1. Save the final SQL query to extract and sample the data and copy-paste the query directly into an [Import Data][import-data] module in Azure Machine Learning. This method is demonstrated in the [Building Models in Azure Machine Learning](#mlmodel) section.    
+1. Save the final SQL query to extract and sample the data and copy-paste the query directly into an [Import Data][import-data] module in Azure Machine Learning. This method is demonstrated in the [Building Models in Azure Machine Learning](#mlmodel) section.
 2. Persist the sampled and engineered data you plan to use for model building in a new database table, then use the new table in the [Import Data][import-data] module.
 
 The following are a few data exploration, data visualization, and feature engineering examples. For more examples, see the sample SQL IPython notebook in the **Sample IPython Notebooks** folder.
@@ -350,7 +350,7 @@ ncols = pd.read_sql('''
 print 'Total number of columns = %d' % ncols.iloc[0,0]
 ```
 
-* Total number of rows = 173179759  
+* Total number of rows = 173179759
 * Total number of columns = 14
 
 #### Read-in a small data sample from the SQL Server Database
@@ -651,7 +651,7 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 
 1. Binary classification: To predict whether or not a tip was paid for a trip.
 2. Multiclass classification: To predict the range of tip paid, according to the previously defined classes.
-3. Regression task: To predict the amount of tip paid for a trip.  
+3. Regression task: To predict the amount of tip paid for a trip.
 
 ## <a name="mlmodel"></a>Building Models in Azure Machine Learning
 
@@ -691,10 +691,10 @@ An example of a binary classification experiment reading data directly from the 
 
 > [!IMPORTANT]
 > In the modeling data extraction and sampling query examples provided in previous sections, **all labels for the three modeling exercises are included in the query**. An important (required) step in each of the modeling exercises is to **exclude** the unnecessary labels for the other two problems, and any other **target leaks**. For e.g., when using binary classification, use the label **tipped** and exclude the fields **tip\_class**, **tip\_amount**, and **total\_amount**. The latter are target leaks since they imply the tip paid.
-> 
+>
 > To exclude unnecessary columns and/or target leaks, you may use the [Select Columns in Dataset][select-columns] module or the [Edit Metadata][edit-metadata]. For more information, see [Select Columns in Dataset][select-columns] and [Edit Metadata][edit-metadata] reference pages.
-> 
-> 
+>
+>
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
 

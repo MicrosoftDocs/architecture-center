@@ -26,13 +26,13 @@ categories:
 
 Solution templates are designed to accelerate the process of building an E2E demo. A deployed template provisions your subscription with necessary components and then builds the relationships between them. It also seeds the data pipeline with sample data from a data generator application,  which you download and install on your local machine after you deploy the solution template. The data from the generator hydrates the data pipeline and start generating machine learning predictions, which can then be visualized on the Power BI dashboard.
 
-The deployment process guides you through several steps to set up your solution credentials. Make sure you record the credentials such as solution name, username, and password that you provide during the deployment. 
+The deployment process guides you through several steps to set up your solution credentials. Make sure you record the credentials such as solution name, username, and password that you provide during the deployment.
 
 The goals of this article are to:
 
 - Describe the reference architecture and components provisioned in your subscription.
-- Demonstrate how to replace the sample data with your own data. 
-- Show how to modify the solution template.  
+- Demonstrate how to replace the sample data with your own data.
+- Show how to modify the solution template.
 
 ## Overview
 
@@ -51,7 +51,7 @@ For this template, the data source used is generated from a downloaded desktop a
 To find the instructions to download and install this application,   select the first node, Predictive Maintenance Data Generator, on the solution template diagram. The instructions are found in the Properties bar. This application feeds the [Azure Event Hub](#azure-event-hub) service with data points, or events, used in the rest of the solution flow. This data source is derived from publicly available data from the
 [NASA data repository](https://c3.nasa.gov/dashlink/resources/139/) using the [Turbofan Engine Degradation Simulation Data Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
-The event generation application populates the Azure Event Hub only while it's executing on your computer.  
+The event generation application populates the Azure Event Hub only while it's executing on your computer.
 
 ### Azure Event Hub
 
@@ -201,7 +201,7 @@ Power BI connects to an Azure SQL Database as its data source, where the predict
 
 Note:
 
-1.    On deploying your solution, a prediction will appear in the database within 3 hours. The pbix file that came with the Generator download contains some seed data so that you may create the Power BI dashboard right away. 
+1.    On deploying your solution, a prediction will appear in the database within 3 hours. The pbix file that came with the Generator download contains some seed data so that you may create the Power BI dashboard right away.
 2.    In this step, the prerequisite is to download and install the free software [Power BI desktop](/power-bi/fundamentals/desktop-get-the-desktop).
 
 The following steps guide you on how to connect the pbix file to the SQL Database that was spun up at the time of solution deployment containing data (for example, prediction results) for visualization.

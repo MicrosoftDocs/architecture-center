@@ -53,7 +53,7 @@ Is your data local or in the cloud? Possible locations include:
 
 ### What is the Azure destination?
 
-Where does your data need to be for processing or modeling? 
+Where does your data need to be for processing or modeling?
 
 * Azure Blob Storage
 * SQL Azure databases

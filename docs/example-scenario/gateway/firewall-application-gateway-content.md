@@ -61,7 +61,7 @@ The following packet walk example shows how a client accesses a VM-hosted applic
    - Source IP address: ClientPIP
    - Destination IP address: AzFwPIP
 2. The Azure Firewall [Destination NAT (DNAT) rule][azfw-dnat] translates the destination IP address to the application IP address inside the virtual network. The Azure Firewall also *Source NATs (SNATs)* the packet if it does DNAT. For more information, see [Azure Firewall known issues][azfw-issues]. The VM sees the following IP addresses in the incoming packet:
-   - Source IP address: 192.168.100.7 
+   - Source IP address: 192.168.100.7
    - Destination IP address: 192.168.1.4
 3. The VM answers the application request, reversing source and destination IP addresses. The inbound flow doesn't require a *user-defined route (UDR)*, because the source IP is Azure Firewall's IP address. The UDR in the diagram for 0.0.0.0/0 is for outbound connections, to make sure packets to the public internet go through the Azure Firewall.
    - Source IP address: 192.168.1.4

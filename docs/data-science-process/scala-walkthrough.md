@@ -36,8 +36,8 @@ The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. 
 
 > [!NOTE]
 > For a topic that shows you how to use Python rather than Scala to complete tasks for an end-to-end Data Science process, see [Data Science using Spark on Azure HDInsight](spark-overview.md).
-> 
-> 
+>
+>
 
 ## Prerequisites
 * You must have an Azure subscription. If you do not already have one, [get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -46,10 +46,10 @@ The setup steps and code in this article are for Azure HDInsight 3.4 Spark 1.6. 
 ![HDInsight cluster type configuration](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
 > [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-> 
-> 
+>
+>
 
-For a description of the NYC taxi trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections in [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md).  
+For a description of the NYC taxi trip data and instructions on how to execute code from a Jupyter notebook on the Spark cluster, see the relevant sections in [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md).
 
 ## Execute Scala code from a Jupyter notebook on the Spark cluster
 You can launch a Jupyter notebook from the Azure portal. Find the Spark cluster on your dashboard, and then click it to enter the management page for your cluster. Next, click **Cluster Dashboards**, and then click **Jupyter Notebook** to open the notebook associated with the Spark cluster.
@@ -283,8 +283,8 @@ In the following code, the `%%local` magic creates a local data frame, sqlResult
 
 > [!TIP]
 > Local magic is used multiple times in this article. If your data set is large, please sample to create a data frame that can fit in local memory.
-> 
-> 
+>
+>
 
 ### Plot the data
 You can plot by using Python code after the data frame is in local context as a Pandas data frame.
@@ -854,8 +854,8 @@ The code creates a local data frame from the query output and plots the data. Th
 
 > [!NOTE]
 > This Spark magic is used multiple times in this article. If the amount of data is large, you should sample to create a data frame that can fit in local memory.
-> 
-> 
+>
+>
 
 Create plots by using Python matplotlib.
 

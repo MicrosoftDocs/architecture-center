@@ -124,7 +124,7 @@ The overall solution is integrated into [Azure Security Center](/azure/security-
 
 - SAP whitepaper [Security Recommendations: A Practical Guide for Securing SAP® Solutions](https://www.sap.com/documents/2017/03/14cf06b2-af7c-0010-82c7-eda71af511fa.html) describes a good framework for SAP Solution Security.
 - Enable Single-Sign-On (SSO) for user authentication from SAPGUI and browser-based SAP access.
-- Use security hardened operating system images for provisioning Azure VMs. Refer to the latest [CIS benchmarks](https://www.cisecurity.org/benchmark/azure/) for the latest recommendations. 
+- Use security hardened operating system images for provisioning Azure VMs. Refer to the latest [CIS benchmarks](https://www.cisecurity.org/benchmark/azure/) for the latest recommendations.
 - Implement encryption-at-rest for:
   - Oracle Database - It’s recommended to use Oracle Transparent Data Encryption (TDE) for Oracle Database Encryption.
   - Managed Disks – use Azure Disk Encryption with Microsoft or Customer-Managed Keys.
@@ -137,7 +137,7 @@ The overall solution is integrated into [Azure Security Center](/azure/security-
 
 ### Scalability
 
-The scalability in the reference architecture will be achieved through scale-out of application servers and scale-up of database server. 
+The scalability in the reference architecture will be achieved through scale-out of application servers and scale-up of database server.
 
 The considerations and recommendations around scalability are:
 

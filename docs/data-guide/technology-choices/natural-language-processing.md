@@ -72,7 +72,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Low-level natural language processing capabilities
 
-| Capability | Azure HDInsight | Microsoft Cognitive Services |  
+| Capability | Azure HDInsight | Microsoft Cognitive Services |
 | --- | --- | --- |
 | Tokenizer | Yes (Spark NLP) | Yes (Linguistic Analysis API) |
 | Stemmer | Yes (Spark NLP) | No |

@@ -38,7 +38,7 @@ There are various approaches and platforms to put models into production. Here a
 
 ## A/B testing
 
-When multiple models are in production, [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) may be used to compare model performance. 
+When multiple models are in production, [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) may be used to compare model performance.
 
 ## Next steps
 
