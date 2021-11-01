@@ -63,7 +63,6 @@ from
 order by frequency desc;
 ```
 
-
 ### <a name="hive-riskfeature"></a>Risks of categorical variables in binary classification
 
 In binary classification, non-numeric categorical variables must be converted into numeric features when the models being used only take numeric features. This conversion is done by replacing each non-numeric level with a numeric risk. This section shows some generic Hive queries that calculate the risk values (log odds) of a categorical variable.
@@ -163,7 +162,7 @@ A full list of Hive embedded UDFs can be found in the **Built-in Functions** sec
 The default parameter settings of Hive cluster might not be suitable for the Hive queries and the data that the queries are processing. This section discusses some parameters that users can tune to improve the performance of Hive queries. Users need to add the parameter tuning queries before the queries of processing data.
 
 1. **Java heap space**: For queries involving joining large datasets, or processing long records, **running out of heap space** is one of the common errors. This error can be avoided by setting parameters *mapreduce.map.java.opts* and *mapreduce.task.io.sort.mb* to desired values. Here is an example:
-   
+
     ```hiveql
     set mapreduce.map.java.opts=-Xmx4096m;
     set mapreduce.task.io.sort.mb=-Xmx1024m;
@@ -171,35 +170,36 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
 
     This parameter allocates 4-GB memory to Java heap space and also makes sorting more efficient by allocating more memory for it. It is a good idea to play with these allocations if there are any job failure errors related to heap space.
 
-1. **DFS block size**: This parameter sets the smallest unit of data that the file system stores. As an example, if the DFS block size is 128 MB, then any data of size less than and up to 128 MB is stored in a single block. Data that is larger than 128 MB is allotted extra blocks. 
-2. Choosing a small block size causes large overheads in Hadoop since the name node has to process many more requests to find the relevant block pertaining to the file. A recommended setting when dealing with gigabytes (or larger) data is:
+1. **DFS block size**: This parameter sets the smallest unit of data that the file system stores. As an example, if the DFS block size is 128 MB, then any data of size less than and up to 128 MB is stored in a single block. Data that is larger than 128 MB is allotted extra blocks.
+
+1. Choosing a small block size causes large overheads in Hadoop since the name node has to process many more requests to find the relevant block pertaining to the file. A recommended setting when dealing with gigabytes (or larger) data is:
 
     ```hiveql
     set dfs.block.size=128m;
     ```
 
-2. **Optimizing join operation in Hive**: While join operations in the map/reduce framework typically take place in the reduce phase, sometimes, enormous gains can be achieved by scheduling joins in the map phase (also called "mapjoins"). Set this option:
-   
+1. **Optimizing join operation in Hive**: While join operations in the map/reduce framework typically take place in the reduce phase, sometimes, enormous gains can be achieved by scheduling joins in the map phase (also called "mapjoins"). Set this option:
+
     ```hiveql
     set hive.auto.convert.join=true;
     ```
 
-3. **Specifying the number of mappers to Hive**: While Hadoop allows the user to set the number of reducers, the number of mappers is typically not be set by the user. A trick that allows some degree of control on this number is to choose the Hadoop variables *mapred.min.split.size* and *mapred.max.split.size* as the size of each map task is determined by:
-   
+1. **Specifying the number of mappers to Hive**: While Hadoop allows the user to set the number of reducers, the number of mappers is typically not be set by the user. A trick that allows some degree of control on this number is to choose the Hadoop variables *mapred.min.split.size* and *mapred.max.split.size* as the size of each map task is determined by:
+
     ```hiveql
     num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
     ```
-   
-	Typically, the default value of:
-	
-   - *mapred.min.split.size* is 0, that of
-   - *mapred.max.split.size* is **Long.MAX** and that of 
-   - *dfs.block.size* is 64 MB.
 
-     As we can see, given the data size, tuning these parameters by "setting" them allows us to tune the number of mappers used.
+    Typically, the default value of:
+
+    - *mapred.min.split.size* is 0, that of
+    - *mapred.max.split.size* is **Long.MAX** and that of 
+    - *dfs.block.size* is 64 MB.
+
+    As we can see, given the data size, tuning these parameters by "setting" them allows us to tune the number of mappers used.
 
 4. Here are a few other more **advanced options** for optimizing Hive performance. These options allow you to set the memory allocated to map and reduce tasks, and can be useful in tweaking performance. Keep in mind that the *mapreduce.reduce.memory.mb* cannot be greater than the physical memory size of each worker node in the Hadoop cluster.
-   
+
     ```hiveql
     set mapreduce.map.memory.mb = 2048;
     set mapreduce.reduce.memory.mb=6144;

@@ -200,7 +200,7 @@ Follow these steps to deploy this scenario:
 
      - The Azure resource that represents a private DNS zone uses the actual DNS zone name, such as `privatelink.database.windows.net`.
      - You can't have different private DNS zones with the same name within a single resource group.
-  
+
      It's best to deploy all resources that you host in the same Azure region into the same resource group.
 
    - To avoid confusion, choose non-overlapping IP address ranges for the virtual networks in both regions. This approach isn't required but is best if you plan on peering the networks for other reasons later on.

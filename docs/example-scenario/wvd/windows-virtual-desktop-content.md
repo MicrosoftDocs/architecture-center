@@ -50,7 +50,7 @@ Customers manage these components of Azure Virtual Desktop solutions:
   - Windows 10 Enterprise Multi-session
   - Windows Server 2012 R2 and above
   - Custom Windows system images with pre-loaded apps, group policies, or other customizations
-  
+
   You can choose VM sizes, including GPU-enabled VMs. Each session host has a Azure Virtual Desktop host agent, which registers the VM as part of the Azure Virtual Desktop workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that users can access.
 - **Azure Virtual Desktop workspace:** The Azure Virtual Desktop workspace or tenant is a management construct to manage and publish host pool resources.
 

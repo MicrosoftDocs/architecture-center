@@ -59,17 +59,17 @@ To clone repositories and modify content on your local machine or Data Science V
 To create a project repository in your team's **MyTeam** project:
 
 1. Go to your team's project **Summary** page at *https:\//\<server name>/\<organization name>/\<team name>*, for example, **https:\//dev.azure.com/DataScienceUnit/MyTeam**, and select **Repos** from the left navigation. 
-   
+
 1. Select the repository name at the top of the page, and then select **New repository** from the dropdown.
-   
+
    ![Select New repository](./media/project-lead-tasks/project-leads-9-select-repos.png)
-   
+
 1. In the **Create a new repository** dialog, make sure **Git** is selected under **Type**. Enter *DSProject1* under **Repository name**, and then select **Create**.
-   
+
    ![Create repository](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
-   
+
 1. Confirm that you can see the new **DSProject1** repository on your project settings page. 
-   
+
    ![Project repository in Project Settings](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
 
 ## Import the team template into your project repository
@@ -77,17 +77,17 @@ To create a project repository in your team's **MyTeam** project:
 To populate your project repository with the contents of your team template repository:
 
 1. From your team's project **Summary** page, select **Repos** in the left navigation. 
-   
+
 1. Select the repository name at the top of the page, and select **DSProject1** from the dropdown.
-   
+
 1. On the **DSProject1 is empty** page, select **Import**. 
-   
+
    ![Select Import](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
-   
+
 1. In the **Import a Git repository** dialog, select **Git** as the **Source type**, and enter the URL for your **TeamTemplate** repository under **Clone URL**. The URL is *https:\//\<server name>/\<organization name>/\<team name>/_git/\<team template repository name>*. For example: **https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
-   
+
 1. Select **Import**. The contents of your team template repository are imported into your project repository. 
-   
+
    ![Import team template repository](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 
 If you need to customize the contents of your project repository to meet your project's specific needs, you can add, delete, or modify repository files and folders. You can work directly in Azure Repos, or clone the repository to your local machine or DSVM, make changes, and commit and push your updates to the shared project repository. Follow the instructions at [Customize the contents of the team repositories](team-lead-tasks.md#customize-the-contents-of-the-team-repositories).

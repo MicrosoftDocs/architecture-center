@@ -30,18 +30,16 @@ There are various approaches and platforms to put models into production. Here a
 - [Deployment of a model in SQL-server](/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
->[!NOTE]
->Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
->
+> [!NOTE]
+> Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
 
->[!NOTE]
->For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](/azure/machine-learning/classic/deploy-a-machine-learning-web-service).
->
+> [!NOTE]
+> For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](/azure/machine-learning/classic/deploy-a-machine-learning-web-service).
 
 ## A/B testing
 
 When multiple models are in production, [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) may be used to compare model performance. 
- 
+
 ## Next steps
 
 Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.

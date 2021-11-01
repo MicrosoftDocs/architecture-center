@@ -27,7 +27,7 @@ In this tutorial, you walk through the process of building and deploying a machi
 The NYC Taxi Trip data is about 20 GB of compressed CSV files (~48 GB uncompressed), comprising more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff location and time, anonymized hack (driver's) license number and medallion (taxi's unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
 1. The 'trip_data' CSV contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
-   
+
     `medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude`
 
     `89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171`
@@ -41,7 +41,7 @@ The NYC Taxi Trip data is about 20 GB of compressed CSV files (~48 GB uncompress
     `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868`
 
 2. The 'trip_fare' CSV contains details of the fare paid for each trip, such as payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. Here are a few sample records:
-   
+
     `medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount`
 
     `89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7`
@@ -89,7 +89,7 @@ To set up your Azure Data Science environment:
 1. [Create a storage account](/azure/storage/common/storage-account-create)
 2. [Create an Azure Machine Learning workspace](/azure/machine-learning/classic/create-workspace)
 3. [Provision a Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview), which provides a SQL Server and an IPython Notebook server.
-   
+
    > [!NOTE]
    > The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
    > 
@@ -124,36 +124,36 @@ The performance of loading/transferring large amounts of data to an SQL Database
 
 1. While logged in to your VM, start **SQL Server Management Studio**.
 2. Connect using Windows Authentication.
-   
+
     ![SSMS Connect][12]
 3. If you have not yet changed the SQL Server authentication mode and created a new SQL login user, open the script file named **change\_auth.sql** in the **Sample Scripts** folder. Change the  default user name and password. Click **Execute** in the toolbar to run the script.
-   
+
     ![Execute Script][13]
 4. Verify and/or change the SQL Server default database and log folders to ensure that newly created databases will be stored in a Data Disk. The SQL Server VM image that is optimized for data warehousing loads is pre-configured with data and log disks. If your VM did not include a Data Disk and you added new virtual hard disks during the VM setup process, change the default folders as follows:
-   
+
    * Right-click the SQL Server name in the left panel and click **Properties**.
-     
+
        ![SQL Server Properties][14]
    * Select **Database Settings** from the **Select a page** list to the left.
    * Verify and/or change the **Database default locations** to the **Data Disk** locations of your choice. This location is where new databases reside if created with the default settings.
-     
+
        ![SQL Database Defaults][15]  
 5. To create a new database and a set of filegroups to hold the partitioned tables, open the sample script **create\_db\_default.sql**. The script will create a new database named **TaxiNYC** and 12 filegroups in the default data location. Each filegroup will hold one month of trip\_data and trip\_fare data. Modify the database name, if desired. Click **Execute** to run the script.
 6. Next, create two partition tables, one for the trip\_data and another for the trip\_fare. Open the sample script **create\_partitioned\_table.sql**, which will:
-   
+
    * Create a partition function to split the data by month.
    * Create a partition scheme to map each month's data to a different filegroup.
    * Create two partitioned tables mapped to the partition scheme: **nyctaxi\_trip** will hold the trip\_data and **nyctaxi\_fare** will hold the trip\_fare data.
-     
+
      Click **Execute** to run the script and create the partitioned tables.
 7. In the **Sample Scripts** folder, there are two sample PowerShell scripts provided to demonstrate parallel bulk imports of data to SQL Server tables.
-   
+
    * **bcp\_parallel\_generic.ps1** is a generic script to parallel bulk import data into a table. Modify this script to set the input and target variables as indicated in the comment lines in the script.
    * **bcp\_parallel\_nyctaxi.ps1** is a pre-configured version of the generic script and can be used to load both tables for the NYC Taxi Trips data.  
 8. Right-click the **bcp\_parallel\_nyctaxi.ps1** script name and click **Edit** to open it in PowerShell. Review the preset variables and modify according to your selected database name, input data folder, target log folder, and paths to the  sample format files **nyctaxi_trip.xml** and **nyctaxi\_fare.xml** (provided in the **Sample Scripts** folder).
-   
+
     ![Bulk Import Data][16]
-   
+
     You may also select the authentication mode, default is Windows Authentication. Click the green arrow in the toolbar to run. The script will launch 24 bulk import operations in parallel, 12 for each partitioned table. You may monitor the data import progress by opening the SQL Server default data folder as set above.
 9. The PowerShell script reports the starting and ending times. When all bulk imports complete, the ending time is reported. Check the target log folder to verify that the bulk imports were successful, that is, no errors reported in the target log folder.
 10. Your database is now ready for exploration, feature engineering, and other operations as desired. Since the tables are partitioned according to the **pickup\_datetime** field, queries that include **pickup\_datetime** conditions in the **WHERE** clause will benefit from the partition scheme.
@@ -527,10 +527,10 @@ In the following example, we generate two sets of labels to use for modeling:
     nyctaxi_one_percent_add_col = '''
         ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
     '''
-   
+
     cursor.execute(nyctaxi_one_percent_add_col)
     cursor.commit()
-   
+
     nyctaxi_one_percent_update_col = '''
         UPDATE nyctaxi_one_percent
         SET
@@ -542,7 +542,7 @@ In the following example, we generate two sets of labels to use for modeling:
                             ELSE 4
                         END
     '''
-   
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 ```
@@ -677,7 +677,7 @@ A typical training experiment consists of the following steps:
 In this exercise, we have already explored and engineered the data in SQL Server, and decided on the sample size to ingest in Azure Machine Learning. To build one or more of the prediction models, we decided:
 
 1. Get the data to Azure Machine Learning using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
-   
+
     ![Azure Machine Learning Import Data][17]
 2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.
 3. Enter the database DNS name in the **Database server name** field. Format: `tcp:<your_virtual_machine_DNS_name>,1433`

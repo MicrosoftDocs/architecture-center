@@ -57,40 +57,40 @@ To clone repositories and modify content on your local machine or DSVM, or mount
 To work with repositories locally and push your changes up to the shared team and project repositories, you first copy or *clone* the repositories to your local machine. 
 
 1. In Azure DevOps, go to your team's project Summary page at *https:\//\<server name>/\<organization name>/\<team name>*, for example, **https:\//dev.azure.com/DataScienceUnit/MyTeam**.
-   
+
 1. Select **Repos** in the left navigation, and at the top of the page, select the repository you want to clone.
-   
+
 1. On the repo page, select **Clone** at upper right.
-   
+
 1. In the **Clone repository** dialog, select **HTTPS** for an HTTP connection, or **SSH** for an SSH connection, and copy the clone URL under **Command line** to your clipboard.
-   
+
    ![Clone repo](./media/project-ic-tasks/clone.png)
-   
+
 1. On your local machine or DSVM, create the following directories:
-   
+
    - For Windows: **C:\GitRepos**
    - For Linux: **$home/GitRepos**
-   
+
 1. Change to the directory you created.
-   
+
 1. In Git Bash, run the command `git clone <clone URL>` for each repository you want to clone. 
-   
+
    For example, the following command clones the **TeamUtilities** repository to the *MyTeam* directory on your local machine. 
-   
+
    **HTTPS connection:**
-   
+
    ```bash
    git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/MyTeam/_git/TeamUtilities
    ```
-   
+
    **SSH connection:**
-   
+
    ```bash
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
    ```
-   
+
 1. Confirm that you can see the folders for the cloned repositories in your local project directory.
-   
+
    ![Three local repository folders](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
 ## Mount Azure file storage to your DSVM

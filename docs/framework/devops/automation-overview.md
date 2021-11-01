@@ -56,7 +56,7 @@ Although there are many deployment technologies you can use with Azure, this art
 - [Terraform](./automation-infrastructure.md#automate-deployments-with-terraform)
 
 These technologies use a *declarative* approach. This lets you state what you intend to deploy without having to write the sequence of programming commands to create it. You can deploy not only virtual machines, but also the network infrastructure, storage systems, and any other resources you may need.
- 
+
 ### Infrastructure configuration
 
 If you don't manage configuration carefully, your business could encounter disruptions such as systems outages and security issues. Optimal configuration can enable you to quickly detect and correct configurations that could interrupt or slow performance.

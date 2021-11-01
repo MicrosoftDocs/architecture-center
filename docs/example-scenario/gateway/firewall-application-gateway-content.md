@@ -82,7 +82,7 @@ This design covers the situation where only web applications exist in the virtua
 
  >[!NOTE]
  > This is not a recommended design since using Azure Firewall to control outbound flows (instead of only NSGs) will prevent certain attack scenarios such as data exfiltration, where you make sure that your workloads are only sending data to an approved list of URLs.
- 
+
 
 The main difference from the previous design with only the Azure Firewall is that the Application Gateway doesn't act as a routing device with NAT. It behaves as a full reverse application proxy. That is, Application Gateway stops the web session from the client, and establishes a separate session with one of its backend servers. Inbound HTTP(S) connections from the Internet need to be sent to the public IP address of the Application Gateway, connections from Azure or on-premises to the private IP address. Return traffic from the Azure VMs will follow standard VNet routing back to the Application Gateway (see the packet walk further down for more details). Outbound internet flows from Azure VMs will go straight to the internet.
 
@@ -285,7 +285,7 @@ The diagram below shows how a spoke sends back SNATted traffic back to the ALB o
 ![Asymmetric routing in hub and spoke](./images/asymmetric_routing.png)
 
 To solve this problem, define UDRs in the spoke without the Azure Firewall subnet but with only the subnets where the shared services are located. In the example, the correct UDR in the spoke should only contain 192.168.1.0/24. It shouldn't contain the whole 192.168.0.0/16, as marked in red.
-   
+
 ## Integration with other Azure products
 
 You can integrate Azure Firewall and Azure Application Gateway with other Azure products and services.

@@ -75,7 +75,7 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
 ### Walk-through
 
 1.  Run the following Azure CLI commands in Azure Cloud Shell or your preferred deployment shell.  
-      
+
     This set of commands creates the necessary resource group, virtual network, and subnets required for this walk-through. Please note that the IP range used by Teams is
     [52.112.0.0/14](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide#skype-for-business-online-and-microsoft-teams).
 
@@ -169,7 +169,7 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
 6.  You need to secure the mapped custom domain by either uploading an existing certificate for the domain or purchasing an App Service Certificate in Azure and importing it. You can do this by following the steps outlined in the tutorial: [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](/azure/app-service/configure-ssl-bindings).
 
 7.  You should now have a fully functional bot that you can add to a channel in Teams or test through Web Chat using the directions found in the [Bot Framework SDK documentation](/azure/bot-service/bot-builder-tutorial-deploy-basic-bot?view=azure-bot-service-4.0&tabs=csharp#test-in-web-chat).  
-      
+
     Note that at this point the bot's App Service is still publicly accessible over both the azurewebsites.net URL and over the custom URL you configured. In the next steps, you'll use private endpoints to disable public access. You'll also configure the firewall to only allow the bot service to communicate with Teams clients.
 
 8.  Run the following Azure CLI script to [deploy and configure the private endpoint](/azure/app-service/scripts/cli-deploy-privateendpoint). This step also implements VNet integration for the bot's App Service, connecting it to your virtual network's integration subnet.

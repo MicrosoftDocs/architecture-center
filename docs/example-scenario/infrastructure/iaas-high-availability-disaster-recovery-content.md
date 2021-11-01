@@ -75,7 +75,7 @@ If your app supports Azure Site Recovery, you can provide a regional DR solution
 ## Alternatives
 
 - As an alternative to regional DR using Azure Site Recovery, if the app can replicate data natively, you can implement *multi-region DR* using hot/cold standby servers, such as a stretched cluster for DR only. This alternative isn't specifically detailed in the examples, but could be added to any of the solutions. Note that replication between regions is asynchronous, and some data loss is expected. 
-  
+
   Alternatively, if you have your own data replication technology, you can use it to create a secondary in-region zone for DR. Depending on the region of your workloads, it may also be possible to use Azure Site Recovery to replicate items to an alternative zone, you can check regional availability and read more about this feature at [Enable Zone to Zone Disaster Recovery for Azure virtual machines](/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
 
 - Multi-region HA is possible, but requires a global load balancer such as Front Door or Traffic Manager. For more information, see [Run an N-tier application in multiple Azure regions for high availability](../../reference-architectures/n-tier/multi-region-sql-server.yml).

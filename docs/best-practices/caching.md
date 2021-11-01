@@ -511,7 +511,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
   long oldValue = await cache.StringIncrementAsync("data:counter");
   // Increment by 1 (the default)
   // oldValue should be 100
-  
+
   long newValue = await cache.StringDecrementAsync("data:counter", 50);
   // Decrement by 50
   // newValue should be 50
@@ -540,7 +540,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
           new KeyValuePair<RedisKey, RedisValue>("data:key99", "value2"),
           new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
       };
-  
+
   // Store the list of key-value pairs in the cache
   cache.StringSet(keysAndValues.ToArray());
   ...

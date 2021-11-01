@@ -14,7 +14,7 @@ Any governance model must be tied to the organization's business rules, which ar
 - **Deployment environments**   Every team has two environments:
   - Production. Only admins have elevated privileges.
   - Non-production. All developers have elevated privileges (to encourage experimentation and innovation).
-  
+
 - **Automation goals**   Every application should implement Azure DevOps not just for continuous integration (CI), but also for continuous deployment (CD). For example, deployments can be automatically triggered by changes to the Git repository.
 
 - **Cloud journey so far**   The organization started with an isolated project model to accelerate the journey to the cloud. But now they are exploring options to break silos and encourage collaboration by creating the "collaboration" and "supermarket" projects.
@@ -39,11 +39,11 @@ The numbering reflects the order in which IT administrators and enterprise archi
 1. **Azure Active Directory**   We integrate Azure DevOps with [Azure AD](https://azure.microsoft.com/services/active-directory/) in order to have a single plane for identity. This means a developer uses the same Azure AD account for both Azure DevOps and Resource Manager. Users are not added individually. Instead, membership is assigned by Azure AD groups so that we can remove a developer's access to resources in a single step&#8212;by removing their Azure AD group memberships. For _each domain_, we create:
     - Azure AD groups. Two groups per domain (described further in step 4 and 5 later in this article).
     - Service principals. One explicit service principal _per environment_.
-  
+
 2. **Production environment**   To simplify deployment, this reference implementation uses a resource group to represent the production environment. In practice, you should use a [different subscription](/azure/cloud-adoption-framework/govern/guides/standard/).
 
    Privileged access to this environment is limited to administrators only.
-  
+
 3. **Development environment**   To simplify deployment, this reference implementation uses a resource group to represent the development environment. In practice, you should use a [different subscription](/azure/cloud-adoption-framework/govern/guides/standard/).
 
 4. **Role assignments in Resource Manager**   Although our Azure AD group names imply a role, access controls are not applied until a [role assignment](/azure/role-based-access-control/overview#role-assignments) is configured. This assigns a role to an Azure AD principal for a specific scope. For example, developers have the Contributor role on the production environment.

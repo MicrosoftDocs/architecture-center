@@ -184,7 +184,7 @@ public IHttpActionResult DeleteCustomer(int id)
 
 > [!TIP]
 > Do not include information that could be useful to an attacker attempting to penetrate your API.
-  
+
 Many web servers trap error conditions themselves before they reach the web API. For example, if you configure authentication for a web site and the user fails to provide the correct authentication information, the web server should respond with status code 401 (Unauthorized). Once a client has been authenticated, your code can perform its own checks to verify that the client should be able access the requested resource. If this authorization fails, you should return status code 403 (Forbidden).
 
 ### Handle exceptions consistently and log information about errors

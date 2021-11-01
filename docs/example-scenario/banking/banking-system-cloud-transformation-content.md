@@ -122,7 +122,7 @@ This component focuses on running Channel Holder, EFT Controller, and EFT Proces
 The list below summarizes the technologies that the CSE team used to create this solution:
 
 * Azure
-  
+
   * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 
   * [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)

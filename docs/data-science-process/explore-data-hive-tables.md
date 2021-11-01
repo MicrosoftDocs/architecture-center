@@ -45,7 +45,7 @@ This article assumes that you have:
 5. Get the distribution for numerical columns  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Extract records from joining two tables
-   
+
     ```hiveql
     SELECT
         a.<common_columnname1> as <new_name1>,

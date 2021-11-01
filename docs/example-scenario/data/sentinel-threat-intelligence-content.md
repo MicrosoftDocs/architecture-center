@@ -48,15 +48,15 @@ After you import threat indicators into Azure Sentinel by using the **Threat Int
 To view the threat indicators:
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Sentinel**.
-   
+
    ![Select Azure Sentinel](media/sentinel-threat-intelligence/search-product.png)
-   
+
 1. Select the workspace where you've imported threat indicators.
 1. In the left navigation, select **Logs**. 
 1. On the **Tables** tab, search for and select the **ThreatIntelligenceIndicator** table.
 1. Select the **preview data** ![preview data](media/sentinel-threat-intelligence/preview-icon.png) icon next to the table name to see table data.
 1. Select **See in query editor**, and then select the dropdown arrow to the left of any of the results to see information like the following example:
-   
+
    ![Sample threat indicator result](media/sentinel-threat-intelligence/sample-indicator.png)
 
 ### Azure Sentinel Analytics
@@ -109,7 +109,7 @@ TAXII 2.x servers advertise API Roots, which are URLs that host threat intellige
 If you don't have the API Root, you can usually get it from the threat intelligence provider's documentation page, but sometimes the only information available is the discovery endpoint URL. You can find the API Root using the discovery endpoint. The following example uses the discovery endpoint of the [Anomali Limo](https://www.anomali.com/community/limo) ThreatStream TAXII 2.0 server.
 
 1. From a browser, navigate and sign in to the ThreatStream TAXII 2.0 server discovery endpoint, [https://limo.anomali.com/taxii](https://limo.anomali.com/taxii), using the username *guest* and password *guest*. After you sign in, you see the following information:
-   
+
    ```json
    {
       "api_roots":
@@ -124,9 +124,9 @@ If you don't have the API Root, you can usually get it from the threat intellige
       "title": "ThreatStream Taxii 2.0 Server"
    }
    ```
-   
+
 1. To browse collections, enter the API Root you got from the previous step into your browser: [https://limo.anomali.com/api/v1/taxii2/feeds/collections/](https://limo.anomali.com/api/v1/taxii2/feeds/collections/). You see information like:
-   
+
    ```json
    {
     "collections":
@@ -149,7 +149,7 @@ If you don't have the API Root, you can usually get it from the threat intellige
     ]
    }
    ```
-   
+
 You now have the information you need to connect Azure Sentinel to one or more TAXII server collections provided by Anomali Limo. For example:
 
 | API Root                       | Collection ID |
@@ -163,9 +163,9 @@ To enable the **Threat Intelligence – TAXII** data connector in Azure Sentinel
 2. Select the workspace where you want to import threat indicators from the TAXII service.
 3. Select **Data connectors** from the left navigation, search for and select **Threat Intelligence – TAXII (Preview)**, and select **Open connector page**.
 4. On the **Configuration** page, enter a **Friendly name (for server)** such as the collection title, the **API root URL** and **Collection ID** you want to import, and **Username** and **Password** if required, and then select **Add**.
-   
+
    ![TAXII configuration page](media/sentinel-threat-intelligence/taxii-connector.png)
-   
+
 You see your connection under **List of configured TAXII 2.0 servers**. Repeat the configuration for each collection you want to connect from the same or different TAXII servers.
 
 ### Import threat indicators with the Platforms data connector
@@ -176,9 +176,9 @@ First, register the app in Azure AD:
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **App registrations**, and then select **New registration**.
 1. On the **Register an application** page, enter a name for your TIP or custom solution app registration, select **Accounts in this organizational directory only**, and then select **Register**.
-   
+
    ![App registration](media/sentinel-threat-intelligence/app-register.png)
-   
+
 1. After registration succeeds, copy and save the **Application (client) ID** and **Directory (tenant) ID** values from the **Overview** page of your registered app. 
 
 Next, grant permissions for the TIP or custom solution to connect to the Microsoft Graph **tiIndicators** API and send threat indicators. An Azure AD Global Administrator must also grant consent to the app for your organization.
@@ -186,18 +186,18 @@ Next, grant permissions for the TIP or custom solution to connect to the Microso
 1. Select **API permissions** from the left navigation of your registered TIP or custom solution app, and then select **Add a permission**.
 1. On the **Request API permissions** page, select **Microsoft Graph**, and then select **Application permissions**.
 1. Search for and select **ThreatIndicators.ReadWrite.OwnedBy**, and then select **Add permissions**.
-   
+
    ![App permissions](media/sentinel-threat-intelligence/app-permissions.png)
-   
+
 1. Select **Grant admin consent for \<your tenant>** on the app's **API permissions** page to grant consent for your organization. If you don't have the Global Administrator role on your account, this button is disabled. Ask a Global Administrator from your organization to perform this step. Once consent is granted to your app, you should see a green check mark under **Status**.
-   
+
    ![Grant app consent](media/sentinel-threat-intelligence/app-consent.png)
-   
+
 1. After permissions and consent are granted, select **Certificates & secrets** from the left navigation of your app, and select **New client secret**. 
 1. Select **Add** to get a secret API key for your app.
-   
+
    ![Get client secret](media/sentinel-threat-intelligence/new-secret.png)
-   
+
    Be sure to copy and save the client secret now, because you can't retrieve the secret once you navigate away from this page. 
 
 In your integrated TIP or custom solution, input the **Application (client) ID**, **Directory (tenant) ID**, and **client secret** values you saved. Set **Azure Sentinel** as the target, and set an action for each indicator. **Alert** is the most relevant action for most Azure Sentinel uses. The Microsoft Graph **tiIndicators** API now sends threat indicators to Azure Sentinel, which are available to all Azure Sentinel workspaces in your organization.
@@ -226,9 +226,9 @@ The example assumes you have used one or both of the threat intelligence data co
    ![Create Analytics rule](media/sentinel-threat-intelligence/create-rule-from-template.png)
 
    The rule logic page contains the query for the rule, entities to map, rule scheduling, and the number of query results that generate a security alert. The template settings run once an hour, identifies any IP address IoCs that match any IP addresses from Azure events, and generates security alerts for all matches. You can keep these settings, or change any of them to meet your needs. When you're finished, select **Next: Incident settings (Preview)**.
-   
+
 1. Under **Incident settings (Preview)**, make sure that **Create incidents from alerts triggered by this analytics rule** is set to **Enabled**, and select **Next: Automated response**. 
-   
+
    This step lets you configure automation to trigger when the rule generates a security alert. Automation in Azure Sentinel uses **Playbooks**, powered by Azure Logic Apps. For more information, see [Tutorial: Set up automated threat responses in Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook). For this example, just select **Next: Review**, and after reviewing the settings, select **Create**.
 
 Your rule activates immediately when created, and then triggers on the regular schedule going forward.
@@ -240,11 +240,11 @@ Your rule activates immediately when created, and then triggers on the regular s
 1. In the left navigation, select **Workbooks**. 
 1. Search for and select the workbook titled **Threat Intelligence**.
 1. Make sure you have the necessary data and connections as shown, and then select **Save**. 
-   
+
    ![Threat Intelligence Workbook](media/sentinel-threat-intelligence/threat-intel-workbook.png)
-   
+
    In the popup window, select a location, and then select **OK**. This step saves the workbook so you can modify it and save your changes. 
-   
+
 1. Select **View saved workbook** to open the workbook and see the default charts the template provides. 
 
 To edit the workbook, select **Edit** in the toolbar at the top of the page. You can select **Edit** next to any chart to edit the query and settings for that chart. 
@@ -252,15 +252,15 @@ To edit the workbook, select **Edit** in the toolbar at the top of the page. You
 To add a new chart that shows threat indicators by threat type:
 1. Select **Edit** at the top of the page, scroll to the bottom of the page and select **Add**, and then select **Add query**.
 1. Under **Log Analytics workspace Logs Query**, enter the following query:
-   
+
    ```
    ThreatIntelligenceIndicator
    | summarize count() by ThreatType
    ```
-   
+
 1. Select **Bar chart** in the **Visualization** dropdown, and then select **Done editing**. 
 1. At the top of the page, select **Done editing** and then select the **Save** icon to save your new chart and workbook.
-   
+
    ![New workbook chart](media/sentinel-threat-intelligence/workbook-chart.png)
 
 ## Next steps
@@ -274,4 +274,3 @@ Azure Sentinel workbooks are based on Azure Monitor workbooks, so extensive docu
 - [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator?view=graph-rest-beta)
 - [Tutorial: Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases)
 - [Tutorial: Set up automated threat responses in Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
-

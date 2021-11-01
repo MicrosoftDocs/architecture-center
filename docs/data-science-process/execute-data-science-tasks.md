@@ -75,7 +75,7 @@ Further examples are available in walkthroughs that demonstrate all the steps in
 ### A/B testing
 When multiple models are in production, it can be useful to perform [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) to compare performance of the models. 
 
- 
+
 ## Next steps
 
 [Track progress of data science projects](track-progress.md) shows how a data scientist can track the progress of a data science project.

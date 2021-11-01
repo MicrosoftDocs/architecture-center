@@ -42,11 +42,11 @@ In such a structure, there are group leads and team leads. Typically, a data sci
 With the assumption that the data science unit consists of teams within a group, there are four distinct roles for TDSP personnel:
 
 1. **Group Manager**: Manages the entire data science unit in an enterprise. A data science unit might have multiple teams, each of which is working on multiple data science projects in distinct business verticals. A Group Manager might delegate their tasks to a surrogate, but the tasks associated with the role do not change.
-   
+
 2. **Team Lead**: Manages a team in the data science unit of an enterprise. A team consists of multiple data scientists. For a small data science unit, the Group Manager and the Team Lead might be the same person.
-   
+
 3. **Project Lead**: Manages the daily activities of individual data scientists on a specific data science project.
-   
+
 4. **Project Individual Contributors**: Data Scientists, Business Analysts, Data Engineers, Architects, and others who execute a data science project.
 
 > [!NOTE]

@@ -33,7 +33,7 @@ The lifecycle outlines the major stages that projects typically execute, often i
 
 For descriptions of each of these stages, see [The Team Data Science Process lifecycle](./lifecycle.md).
 
- 
+
 ## Microsoft Project template
 
 The Microsoft Project template for the Team Data Science Process is available from here: [Microsoft Project template](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 

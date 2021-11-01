@@ -69,7 +69,7 @@ Sending unnecessary wakeup messages through SMS gateways is costly. Before sendi
         // Send the command via direct method. Initially use a timeout of zero
         // for the connection, which determines whether the device is connected to
         // IoT Hub or needs an SMS wakeup sent to it.
-        
+
         var method = new CloudToDeviceMethod("RemoteCommand", funcTimeOut, connTimeOut);
         methodInvocation1.SetPayloadJson(CommandPayload);
 

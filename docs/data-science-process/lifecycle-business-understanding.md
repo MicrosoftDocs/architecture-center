@@ -47,7 +47,7 @@ There are two main tasks addressed in this stage:
 1. A central objective of this step is to identify the key business variables that the analysis needs to predict. We refer to these variables as the *model targets*, and we use the metrics associated with them to determine the success of the project. Two examples of such targets are sales forecasts or the probability of an order being fraudulent.
 
 2. Define the project goals by asking and refining "sharp" questions that are relevant, specific, and unambiguous. Data science is a process that uses names and numbers to answer such questions. You typically use data science or machine learning to answer five types of questions:
- 
+
    * How much or how many? (regression)
    * Which category? (classification)
    * Which group? (clustering)
