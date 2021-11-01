@@ -80,7 +80,7 @@ Numbers in the following sections are approximate. The numbers are based on a va
 Also, note that:
 
 - You can't create more than 200 application groups per single Azure AD tenant.
-- We recommend that you don't publish more than 50 applications per application group. 
+- We recommend that you don't publish more than 50 applications per application group.
 
 ### Azure limitations
 
@@ -114,7 +114,7 @@ Architect your Azure Virtual Desktop solution to realize cost savings. Here are 
 ## Next steps
 
 - FSLogix for the enterprise - best practices [documentation](./windows-virtual-desktop-fslogix.yml)
-- Use the new [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only Azure Resource Manager's Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic). 
+- Use the new [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only Azure Resource Manager's Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
 - For multiple AD forests architecture, read [Multiple AD Forests Architecture in Azure Virtual Desktop](./multi-forest.yml).
 - [Azure Virtual Desktop partner integrations](/azure/virtual-desktop/partners) lists approved Azure Virtual Desktop partner providers and independent software vendors.
 - Use the resources at [Windows_10_VDI_Optimize](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) to help optimize performance in a Windows 10 Enterprise VDI environment.

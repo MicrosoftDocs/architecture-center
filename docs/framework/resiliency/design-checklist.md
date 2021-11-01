@@ -50,7 +50,7 @@ Reliable applications should maintain a pre-defined percentage of uptime (*avail
 
 ## Related links
 
-- [Use platform as a service (PaaS) options](../../guide/design-principles/managed-services.md)  
+- [Use platform as a service (PaaS) options](../../guide/design-principles/managed-services.md)
 - [Design to scale out](../../guide/design-principles/scale-out.md)
 - [Workload availability targets](./business-metrics.md).
 - [Building solutions for high availability using Availability Zones](../../high-availability/building-solutions-for-high-availability.md)

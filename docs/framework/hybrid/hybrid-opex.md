@@ -26,7 +26,7 @@ To keep your systems running, many workload teams have architected and designed 
 - Delegate access for DevOps roles and responsibilities through Azure RBAC.
 - Reduce errors with consistent policy driven deployment and operations through GitHub and Azure Policy.
 
-## Connect Kubernetes clusters to Azure and start deploying using a GitOps model  
+## Connect Kubernetes clusters to Azure and start deploying using a GitOps model
 
 GitOps relies on a Git repository to host files that contain the configuration representing the expected state of a resource. An agent running on the cluster monitors the state of the repository and, when there is a change on the repository, the agent pulls the changed files to the cluster and applies the new configuration.
 

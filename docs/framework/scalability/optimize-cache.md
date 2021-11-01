@@ -48,6 +48,6 @@ Azure CDN offers the following key features:
 - [**File compression**](/azure/cdn/cdn-improve-performance) - Improve file transfer speed and increase page-load performance by reducing a file's size before it is sent from the server.
 - [**Geo-filtering**](/azure/cdn/cdn-restrict-access-by-country-region) - Restrict access to your content by country/region by creating rules on specific paths on your CDN endpoint.
 
-## Next 
+## Next
 > [!div class="nextstepaction"]
 > [Partition](./optimize-partition.md)

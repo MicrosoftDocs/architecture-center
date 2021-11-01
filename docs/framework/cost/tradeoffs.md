@@ -58,13 +58,13 @@ For performance considerations, see the [Performance Efficiency](../scalability/
 ## Cost vs security
 Increasing security of the workload will increase cost.
 
-As a rule, don't compromise on security. For certain workloads, you can't avoid security costs. For example, for specific security and compliance requirements, deploying to differentiated regions will be more expensive. Premium security features can also increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom roles if you can use built-in roles. 
+As a rule, don't compromise on security. For certain workloads, you can't avoid security costs. For example, for specific security and compliance requirements, deploying to differentiated regions will be more expensive. Premium security features can also increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom roles if you can use built-in roles.
 
 For security considerations, see the [Security Pillar](../security/overview.md).
 
 ## Cost vs operational excellence
 
-Investing in systems monitoring and automation might increase the cost initially but over time will reduce cost. 
+Investing in systems monitoring and automation might increase the cost initially but over time will reduce cost.
 - IT operations processes like user or application access provisioning, incident response, and disaster recovery should be integrated with the workload.
 - Cost of maintaining infrastructure is more expensive. With PaaS or SaaS services, infrastructure, platform management services, and additional operational efficiencies are included in the service pricing.
 

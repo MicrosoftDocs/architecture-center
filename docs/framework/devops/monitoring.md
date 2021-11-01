@@ -73,7 +73,7 @@ Not only your application components are producing data, but there are many othe
 
 Just as important as monitoring your applications and Azure infrastructure, monitoring external dependencies is also critical. Ensure that you have solutions to gain insight into the health and availability of external dependencies such as third party services, package repositories, and other related applications.
 
-Azure monitor can have a role in monitoring external dependencies. Azure Monitor can ingest data from several custom data sources, which provides some extensibility into what can be monitored. Utilizing custom data sources for external dependencies provides you with the capabilities of Azure Monitor on virtual any service, endpoint, or software solution. 
+Azure monitor can have a role in monitoring external dependencies. Azure Monitor can ingest data from several custom data sources, which provides some extensibility into what can be monitored. Utilizing custom data sources for external dependencies provides you with the capabilities of Azure Monitor on virtual any service, endpoint, or software solution.
 
 To learn more about ingesting data from custom sources, see the following articles.
 

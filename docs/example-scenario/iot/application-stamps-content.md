@@ -29,7 +29,7 @@ Cost management:
 
 ## Move devices between stamps
 
-While deployment stamps are intended for atomic deployment, sometimes it's desirable to move device populations between stamps. Some examples include: 
+While deployment stamps are intended for atomic deployment, sometimes it's desirable to move device populations between stamps. Some examples include:
 - Moving populations of devices from test stamps to production stamps as part of a release cycle.
 - In a high-availability strategy, moving devices and consumers to another stamp as part of outage remediation.
 - Load balancing to distribute device population more evenly across stamps.
@@ -49,7 +49,7 @@ There are a couple of strategies for moving devices and application end-users fr
 
 Where stamps encompass an end-to-end application, [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-how-it-works) can move traffic from one stamp to another. This strategy involves creating multiple stamps, each containing the entire application with its own URL, and moving entire populations of devices and application users from one stamp to another.
 
-![A diagram explaining how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.svg) 
+![A diagram explaining how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.svg)
 
 The diagram above shows the process of moving a set of devices from Stamp 1 to Stamp 2:
 1. Devices acquire IoT Hub endpoint through DPS if it is either unknown or no longer valid.

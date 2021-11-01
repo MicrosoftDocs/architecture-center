@@ -27,7 +27,7 @@ When developing software for the cloud, or any environment, care needs to be tak
 
 - How do I ensure that all dependencies are in place?
 - How can I best configure my development environment to emulate a production environment?
-- How do I develop code where service dependencies may exist with code already in production? 
+- How do I develop code where service dependencies may exist with code already in production?
 
 The following sections briefly detail technology that aids during the local or what is often referred to as "inner-loop" development process.
 
@@ -72,13 +72,13 @@ The tooling ecosystem for container management is rich with options. Here are a 
 
 ## Source control
 
-Source control management (SCM) systems provide a way to control, collaborate, and peer review software changes. As software is merged into source control, the system helps manage code conflicts. Ultimately, source control provides a running history of the software, modification, and contributors. Whether a piece of software is open-sourced or private, using source control software has become a standardized method of managing software development. As detailed in later sections of the Well-Architected Framework, source control systems can also be enlightened with integrated testing, security, and release practices. As cloud practices are adopted and because so much of the cloud infrastructure is managed through code, version control systems are also becoming an integral part of infrastructure management. 
+Source control management (SCM) systems provide a way to control, collaborate, and peer review software changes. As software is merged into source control, the system helps manage code conflicts. Ultimately, source control provides a running history of the software, modification, and contributors. Whether a piece of software is open-sourced or private, using source control software has become a standardized method of managing software development. As detailed in later sections of the Well-Architected Framework, source control systems can also be enlightened with integrated testing, security, and release practices. As cloud practices are adopted and because so much of the cloud infrastructure is managed through code, version control systems are also becoming an integral part of infrastructure management.
 
 Many source control systems are powered by Git. Git is a distributed version control system with related tools that allow you and your team to track source code changes during the software development lifecycle. Using Git, you can create a copy of the software, make changes, propose the changes, and receive peer review on your proposal. During peer review, Git makes it easy to see precisely the changes being proposed. Once the proposed changes have been approved, Git helps merge the changes into the source, including conflict resolution. If, at any point, the changes need to be reverted, Git can also manage rollback.
 
 Let's examine a few aspects of version controlling software and infrastructure configurations.
 
-**Version Control and code changes** 
+**Version Control and code changes**
 
 Beyond providing us with a place to store code, source control systems allow us to understand what version of the software is current and identify changes between the present and past versions. Version control solutions should also provide a method for reverting to the previous version when needed.
 
@@ -86,11 +86,11 @@ The following image demonstrates how Git and GitHub are used to see the proposed
 
 :::image type="content" source="../_images/devops/git-changes.png" alt-text="Image alt text" lightbox="../_images/devops/git-changes-full.png":::
 
-**Forking and Pull Requests** 
+**Forking and Pull Requests**
 
 Using source control systems, you can create your own copies of the software source called forks. With your fork in place, changes can be made to the software without the risk that the changes will impact the software's current version. Once you are happy with the changes made in your fork, you can suggest that your changes be merged into the main source control through what is known as a pull request.
 
-**Peer Review** 
+**Peer Review**
 
 As updates are made to software and infrastructure configurations, version control software allows us to propose these changes before merging them into the source. During the proposal, peers can review the changes, recommend updates, and approve the changes. Source control solutions provide an excellent platform for collaboration on changes to the software.
 

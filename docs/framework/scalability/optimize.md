@@ -19,7 +19,7 @@ Resolving performance issues requires time and patience&mdash;not just in discov
 > [!div class="checklist"]
 > - Use caching whenever possible, whether it is client-side caching, view caching, or data caching.
 > - Partition data to optimize performance, improve scalability, and reduce contention by lowering the taxation of database operations.
-> - Prevent a system from attempting to scale out excessively. Gracefully degrading the functionality that the system provides if the maximum number of instances have been deployed, and the system is still overloaded. 
+> - Prevent a system from attempting to scale out excessively. Gracefully degrading the functionality that the system provides if the maximum number of instances have been deployed, and the system is still overloaded.
 > - Improve the reliability of your workloads by implementing high availability, disaster recovery, backup, and monitoring in Azure.
 
 ## In this section
@@ -45,7 +45,7 @@ Follow these questions to assess the workload at a deeper level.
 
 Compare your code to proven architectures. By referencing the design patterns, you can avoid common mistakes by developers who are deploying applications into the cloud. Finally, you may consider other Azure services that may be more appropriate for your objectives. While Azure has many services that seem to overlap in capabilities, often there are specific use-cases for which the services are designed.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Performance Efficiency patterns](performance-efficiency-patterns.md)
 
 ## Related links

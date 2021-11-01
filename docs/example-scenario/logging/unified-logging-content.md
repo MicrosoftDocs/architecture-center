@@ -73,7 +73,7 @@ When building a cloud-native distributed microservices architecture, teams can u
 
 [Azure Monitor](/azure/azure-monitor/overview) is a service that maximizes availability and performance by collecting, analyzing, and acting on telemetry from cloud-native applications. With Azure Monitor, teams can create operational dashboards that detect issues and alert teams of critical situations.
 
-If the team uses an ITSM system, Logic Apps can call the REST endpoint of the system and create an issue with the appropriate severity level. This process provides quick notification to all relevant teams and ensures that triaging is immediate and useful. For more information, see [Stream Analytics and Azure Logic Apps](/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps). 
+If the team uses an ITSM system, Logic Apps can call the REST endpoint of the system and create an issue with the appropriate severity level. This process provides quick notification to all relevant teams and ensures that triaging is immediate and useful. For more information, see [Stream Analytics and Azure Logic Apps](/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps).
 
 ### Application Insights
 
@@ -94,7 +94,7 @@ The following practices help microservices architectures perform unified logging
 - All logs, except audit logs, should be emitted to the same hub and stored in a central repository. If audit logs are required for security or compliance, it's best to store them in a separate data store. Make sure that recorded and stored information meets regulatory guidelines and doesn't contain any personally identifiable information.
 - Log data should use JSON format.
 - Logging should be asynchronous. Asynchronous logging helps to reduce overhead by delegating the call to a background task. The application doesn't need to await the results of the operation and can continue the logical program flow.
-- Logging should use a logging framework if possible. Don't expend engineering effort creating a logging system unless there's a clear business need. [Serilog](https://github.com/serilog) is a popular open-source logging framework that provides support for the Azure ecosystem through community supported extensions. 
+- Logging should use a logging framework if possible. Don't expend engineering effort creating a logging system unless there's a clear business need. [Serilog](https://github.com/serilog) is a popular open-source logging framework that provides support for the Azure ecosystem through community supported extensions.
 
 ### Logging levels
 

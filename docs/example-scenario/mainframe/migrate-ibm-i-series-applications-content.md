@@ -86,7 +86,7 @@ Skytap on Azure meets industry cloud security requirements, including System and
 
 To get started running iSeries applications on Azure, check out the [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) template in Azure Marketplace.
 
-## Pricing 
+## Pricing
 
 Running IBM i series workloads in Skytap on Azure helps optimize costs compared to on-premises deployments. The consumption-based usage plans let you deploy LPARs only as needed and scale them on demand to meet the needs of your workloads.
 
@@ -102,7 +102,7 @@ To learn more about Skytap on Azure, please contact <legacy2azure@microsoft.com>
 
 -   Explore the [Skytap on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=overview) template on Azure Marketplace.
 
-## Related resources 
+## Related resources
 
 -   [Skytap documentation](https://help.skytap.com/)
 

@@ -14,12 +14,12 @@ ms.custom:
 
 The common pricing options for Azure services are:
 
-- Consumption-based price - You are charged for only what you use. This model is also known as the Pay-As-You-Go rate. 
+- Consumption-based price - You are charged for only what you use. This model is also known as the Pay-As-You-Go rate.
 - Fixed price - You provision resources and are charged for those instances whether or not they are used.
 
-A common way to estimate cost is by considering workloads on a peak throughput. Under consistently high utilization, consumption-based pricing can be less efficient for estimating baseline costs when compared to the equivalent provisioned pricing. PaaS and serverless technologies can help you understand the economy cutoff point for consumption-based pricing. 
+A common way to estimate cost is by considering workloads on a peak throughput. Under consistently high utilization, consumption-based pricing can be less efficient for estimating baseline costs when compared to the equivalent provisioned pricing. PaaS and serverless technologies can help you understand the economy cutoff point for consumption-based pricing.
 
-Observe the difference between cost models based on fixed, static provisioning of services, more variable costs based on autoscaling of serverless technologies. 
+Observe the difference between cost models based on fixed, static provisioning of services, more variable costs based on autoscaling of serverless technologies.
 
 ![Choice of abstraction](../_images/choice-of-abstraction.png)
 

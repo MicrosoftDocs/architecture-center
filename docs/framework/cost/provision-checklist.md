@@ -13,7 +13,7 @@ ms.custom:
 
 # Provisioning cloud resources to optimize cost
 
-Deployment of cloud resources of a workload is known as _provisioning_.  
+Deployment of cloud resources of a workload is known as _provisioning_.
 
 Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of your SKU choices. This section describes some considerations. This list is not meant to be an exhaustive list, but a subset of options.
 

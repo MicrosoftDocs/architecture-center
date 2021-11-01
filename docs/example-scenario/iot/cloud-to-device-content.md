@@ -53,7 +53,7 @@ IoT command scenarios may involve *connected standby devices* that are in a low-
 
 ![A diagram illustrating how SMS messages or commands sent through the Azure IoT APIs can wake up a device and connect it to IoT Hub to receive commands.](media/connected-standby-devices.png)
 
-1. The application sends commands to devices using the [ServiceClient API](/dotnet/api/microsoft.azure.devices.serviceclient). One instance of **ServiceClient** can send messages and invoke methods for multiple devices. 
+1. The application sends commands to devices using the [ServiceClient API](/dotnet/api/microsoft.azure.devices.serviceclient). One instance of **ServiceClient** can send messages and invoke methods for multiple devices.
 1. The application also sends SMS wakeup calls to standby devices via the mobile provider's SMS gateway.
 1. On wakeup, standby devices use the [DeviceClient API](/dotnet/api/microsoft.azure.devices.client.deviceclient) to connect to IoT Hub and receive commands. One instance of **DeviceClient** represents a single device connected to IoT Hub.
 
