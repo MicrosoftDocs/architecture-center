@@ -29,7 +29,7 @@ As part of overall design, prioritize where to invest the available resources; f
 
 The collective role of organization(s) is to manage the security standards of the organization through their lifecycle:
 
-- **Define:** Set organizational policies for operations, technologies, and configurations based on internal factors (business requirements, risks, asset evaluation) and external factors (benchmarks, regulatory standards, threat environment). 
+- **Define:** Set organizational policies for operations, technologies, and configurations based on internal factors (business requirements, risks, asset evaluation) and external factors (benchmarks, regulatory standards, threat environment).
 
 - **Improve:** Continually push these standards incrementally forward towards the ideal state to ensure continual risk reduction.
 
@@ -52,11 +52,11 @@ Microsoft has provided some prioritized lists of security initiatives to help or
 ***
 > [!div class="checklist"]
 > - Create a landing zone for the workload. The infrastructure must have appropriate controls and be repeatable with every deployment.
-> - Enforce creation and deletion of services and their configuration through Azure Policies. 
+> - Enforce creation and deletion of services and their configuration through Azure Policies.
 > - Ensure consistency across the enterprise by applying policies, permissions, and tags across all subscriptions through careful implementation of root management group.
-> - Understand regulatory requirements and operational data that may be used for audits. 
+> - Understand regulatory requirements and operational data that may be used for audits.
 > - Continuously monitor and assess the compliance of your workload. Perform regular attestations to avoid fines.
-> - Review and apply recommendations from Azure. 
+> - Review and apply recommendations from Azure.
 > - Remediate basic vulnerabilities to keep the attacker costs high.
 
 ## In this section
@@ -78,7 +78,7 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 > ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to these controls:
 >
 > - [Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy)
-> - [Posture and vulnerability management](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management) 
+> - [Posture and vulnerability management](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 ## Reference architecture
 
@@ -88,7 +88,7 @@ Here are some reference architectures related to governance:
 
 ## Next steps
 
-Provide security assurance through identity management to authenticate and grant permission to users, partners, customers, applications, services, and other entities.  
+Provide security assurance through identity management to authenticate and grant permission to users, partners, customers, applications, services, and other entities.
 
 > [!div class="nextstepaction"]
 > [Identity and access management](./design-identity.md)

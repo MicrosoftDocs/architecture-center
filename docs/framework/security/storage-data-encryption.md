@@ -75,7 +75,7 @@ An example of service-specific service provider encryption is [Azure Storage Ser
 
 Protect data while it’s being transferred between components, locations or programs, such as over the network, across a service bus (from on-premises to cloud and vice-versa), or during an input/output process. Always use SSL/TLS when exchanging data across different locations. For more information, see [Protect data in transit](/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit).
 
-Sometimes you need to isolate your entire communication channel between your on-premises and cloud infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute/). For more information, see  these articles: 
+Sometimes you need to isolate your entire communication channel between your on-premises and cloud infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute/). For more information, see  these articles:
 
 - [Extending on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md)
 - [Configure a Point-to-Site VPN connection to a VNet using native Azure certificate authentication: Azure portal](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#architecture)

@@ -82,11 +82,11 @@ Our [best practices](/azure/architecture/best-practices) articles cover various 
 
 ### Security best practices
 
-Our [security best practices](/security/compass/applications-services) describe how to ensure that the confidentiality, integrity, and availability of your application aren't compromised by malicious actors. 
+Our [security best practices](/security/compass/applications-services) describe how to ensure that the confidentiality, integrity, and availability of your application aren't compromised by malicious actors.
 
 ## Quality pillars
 
-A successful cloud application will focus on five pillars of software quality: Cost optimization, Operational excellence, Performance efficiency, Reliability, and Security. 
+A successful cloud application will focus on five pillars of software quality: Cost optimization, Operational excellence, Performance efficiency, Reliability, and Security.
 
 Leverage the [Microsoft Azure Well-Architected Framework](../framework/index.md) to assess your architecture across these five pillars.
 

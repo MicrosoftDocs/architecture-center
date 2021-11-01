@@ -23,10 +23,10 @@ In this solution, you'll create a sample environment to:
 > - Use Docker to minimize dependency issues with Azure API profiles.
 > - Deploy a basic highly available MongoDB cluster with a disaster recovery site.
 
-> [!Tip]  
-> ![The hybrid tip icon.](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that lets you build and deploy hybrid apps anywhere.  
-> 
+> [!Tip]
+> ![The hybrid tip icon.](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)
+> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that lets you build and deploy hybrid apps anywhere.
+>
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ## Architecture for MongoDB with Azure Stack Hub
@@ -36,7 +36,7 @@ In this solution, you'll create a sample environment to:
 ## Prerequisites for MongoDB with Azure Stack Hub
 
 - Two connected Azure Stack Hub integrated systems (Azure Stack Hub). This deployment doesn't work on the Azure Stack Development Kit (ASDK). To learn more about Azure Stack Hub, see [What is Azure Stack Hub?](https://azure.microsoft.com/products/azure-stack/hub/)
-  - A tenant subscription on each Azure Stack Hub. 
+  - A tenant subscription on each Azure Stack Hub.
   - **Make a note of each subscription ID and the Azure Resource Manager endpoint for each Azure Stack Hub.**
 - An Azure Active Directory (Azure AD) service principal that has permissions to the tenant subscription on each Azure Stack Hub. You may need to create two service principals if the Azure Stack Hubs are deployed against different Azure AD tenants. To learn how to create a service principal for Azure Stack Hub, see [Use an app identity to access Azure Stack Hub resources](/azure-stack/user/azure-stack-create-service-principals).
   - **Make a note of each service principal's application ID, client secret, and tenant name (xxxxx.onmicrosoft.com).**

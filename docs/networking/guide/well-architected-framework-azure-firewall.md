@@ -123,7 +123,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
 - Azure Firewall provides different SLAs for when it is deployed in a single Availability Zone and for when it is deployed in multi-zones. For more information, see [SLA for Azure Firewall](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_1). For information about all Azure SLAs, see the [Azure service level agreements page](https://azure.microsoft.com/support/legal/sla/summary).
 
-- For workloads designed to be resistant to failures and to be fault-tolerant, remember to take into consideration that Azure Firewalls and Virtual Networks are regional resources. 
+- For workloads designed to be resistant to failures and to be fault-tolerant, remember to take into consideration that Azure Firewalls and Virtual Networks are regional resources.
 
 - Closely monitor metrics, especially SNAT port utilization, firewall health state, and throughput.
 

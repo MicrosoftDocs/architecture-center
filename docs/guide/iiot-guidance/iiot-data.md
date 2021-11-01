@@ -34,7 +34,7 @@ There are many options for visualizing your industrial data. Your IIoT analytics
 
 The Azure Time Series Insights explorer is a web application that provides powerful data trending and visualization capabilities that make it simple to explore and analyze billions of IIoT events simultaneously.
 
-Time Series Insights Explorer is ideally suited to personas, such as a Process Engineer or Operations Manager, who want to explore, analyze and visualize the raw data coming from your industrial systems. The insights gained from exploring the raw data can help build Azure Stream Analytics jobs, which look for conditions in the data or perform calculations over the data.  
+Time Series Insights Explorer is ideally suited to personas, such as a Process Engineer or Operations Manager, who want to explore, analyze and visualize the raw data coming from your industrial systems. The insights gained from exploring the raw data can help build Azure Stream Analytics jobs, which look for conditions in the data or perform calculations over the data.
 
 The Azure Time Series Insights explorer allows you to seamlessly explore both warm and cold data, or your historical data, as demonstrated in the following figure.
 

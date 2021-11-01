@@ -24,7 +24,7 @@ These requirements may need strict security measures that affect the overall arc
 
 ## Key points
 > [!div class="checklist"]
-> - Make sure that all regulatory and governance requirements are known, and well understood. 
+> - Make sure that all regulatory and governance requirements are known, and well understood.
 > - Periodically perform external and, or internal workload security audits.
 > - Have compliance checks as part of the workload operations.
 > - Use Microsoft Trust Center.
@@ -62,7 +62,7 @@ Use Azure Defender (Azure Security Center) to assess your current compliance sco
 
 Keep checking the [Microsoft Trust Center](https://www.microsoft.com/trust-center) for the latest information, news, and best practices in security, privacy, and compliance.
 
-- **Data governance**. Focus on protecting information in cloud services, mobile devices, workstations, or collaboration platforms. Build the security strategy by classifying and labeling information. Use strong access control and encryption technology. 
+- **Data governance**. Focus on protecting information in cloud services, mobile devices, workstations, or collaboration platforms. Build the security strategy by classifying and labeling information. Use strong access control and encryption technology.
 - **Compliance offerings**. Microsoft offers a comprehensive set of compliance offerings to help your organization follow national, regional, and industry-specific requirements governing the collection and use of data. For information, see [Compliance offerings](/microsoft-365/compliance/offering-home).
 - **Compliance score**. Use [Microsoft Compliance Score](/microsoft-365/compliance/compliance-manager) to assess your data protection controls on an ongoing basis. Act on the recommendations to make progress toward compliance.
 - **Audit reports**. Use audit reports to stay current on the latest privacy, security, and compliance-related information for Microsoft's cloud services. See [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
@@ -106,6 +106,6 @@ Monitor the compliance of the workload to check if the security controls are ali
 
 > Go back to the main article: [Governance](design-governance.md)
 
-## Next 
+## Next
 > [!div class="nextstepaction"]
 > [Azure landing zone](design-governance-landing-zone.md)

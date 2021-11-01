@@ -65,7 +65,7 @@ If you select the **Auto-generated Self-signed root and client Certificate** opt
 
 After the deployment finishes, the selected server's **Networks** tool is updated with the new Azure Network Adapter, which automatically starts after the deployment ends and indicates an active status. You can select the adapter to activate the **More** drop-down list, which you can select to disconnect or delete the adapter. On the actual server, the Azure Network Adapter is installed as a VPN connection. The adapter's name begins with **Windows Admin CenterVPN-** followed by a random three-digit number.
 
-When the Azure Network Adapter is installed and connected, you can use this new network connection to connect directly to the Azure VNets and their systems. This type of connection is typically used to establish a remote-desktop session via an Azure VM's internal IP address, instead of using the VM's public IP address.  
+When the Azure Network Adapter is installed and connected, you can use this new network connection to connect directly to the Azure VNets and their systems. This type of connection is typically used to establish a remote-desktop session via an Azure VM's internal IP address, instead of using the VM's public IP address.
 
 ### Using a dedicated WAC server
 

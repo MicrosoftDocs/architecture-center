@@ -26,13 +26,13 @@ Structure management groups into a simple design that guides the enterprise segm
 
 Management groups offer the ability to consistently and efficiently manage resources (including multiple subscriptions as needed). However, because of their flexibility, it's possible to create an overly complex design. Complexity creates confusion and negatively impacts both operations and security (as illustrated by overly complex Organizational Unit (OU) and Group Policy Object (GPO) designs for Active Directory).
 
-Microsoft recommends aligning the top level of management groups (MGs) into a simple enterprise segmentation strategy and limit the levels to no more than two. 
+Microsoft recommends aligning the top level of management groups (MGs) into a simple enterprise segmentation strategy and limit the levels to no more than two.
 
-In the [example reference](/azure/architecture/framework/security/design-segmentation#reference-model), there are enterprise-wide resources used by all segments, a set of core services that share services, additional segments for each workload. 
+In the [example reference](/azure/architecture/framework/security/design-segmentation#reference-model), there are enterprise-wide resources used by all segments, a set of core services that share services, additional segments for each workload.
 
 - Root management group for enterprise-wide resources.
 
-    Use the root management group to include identities that have the requirement to apply policies across every resource. For example, regulatory requirements, such as restrictions related to data sovereignty. This group is effective in by applying policies, permissions, tags, across all subscriptions. 
+    Use the root management group to include identities that have the requirement to apply policies across every resource. For example, regulatory requirements, such as restrictions related to data sovereignty. This group is effective in by applying policies, permissions, tags, across all subscriptions.
     > [!CAUTION]
     > Be careful when using the root management group because the policies can affect all resources on Azure and potentially cause downtime or other negative impacts. For considerations, see [Use root management group with caution](#use-root-management-group-with-caution) later in this article.
     >
@@ -42,7 +42,7 @@ In the [example reference](/azure/architecture/framework/security/design-segment
 
     Use a separate management group for teams with limited scope of responsibility. This group is typically required because of organizational boundaries or regulatory requirements.
 
-- Root or segment management group for the core set of services.  
+- Root or segment management group for the core set of services.
 
 ## Use root management group with caution
 

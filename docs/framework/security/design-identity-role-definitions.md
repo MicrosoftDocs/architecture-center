@@ -45,19 +45,19 @@ Designate groups (or individual roles) that will be responsible for key function
 >[!NOTE]
 > Application roles and responsibilities should cover different access level of each operational function. For example, publish production release, access customer data, manipulate database records, and so on. Application teams should include central functions listed in the preceding table.
 
-## Assign permissions 
+## Assign permissions
 
 Grant roles the appropriate permissions that start with least privilege and add more based on your operational needs. Provide clear guidance to your technical teams that implement permissions. This clarity makes it easier to detect and correct that reduces human errors such as overpermissioning.
 
 -  Assign permissions at management group for the segment rather than the individual subscriptions. This will drive consistency and ensure application to future subscriptions. In general, avoid granular and custom permissions.
 
-- Consider the built-in roles in Azure before creating custom roles to grant the appropriate permissions to VMs and other objects. 
+- Consider the built-in roles in Azure before creating custom roles to grant the appropriate permissions to VMs and other objects.
 
-- **Security managers** group membership may be appropriate for smaller teams/organizations where security teams have extensive operational responsibilities. 
+- **Security managers** group membership may be appropriate for smaller teams/organizations where security teams have extensive operational responsibilities.
 
-When assigning permissions for a segment, consider consistency while allowing flexibility to accommodate several organizational models. These models can range from a single centralized IT group to mostly independent IT and DevOps teams.  
+When assigning permissions for a segment, consider consistency while allowing flexibility to accommodate several organizational models. These models can range from a single centralized IT group to mostly independent IT and DevOps teams.
 
-### Reference model example 
+### Reference model example
 
 This section uses this [Reference model](design-segmentation.md#reference-model) to demonstrate the considerations for assigning permissions for different segments. Microsoft recommends starting from these models and adapting to your organization.
 
@@ -72,11 +72,11 @@ This segment hosts shared services utilized across the organization. These share
 **Policy management across some or all resources:** To monitor and enforce compliance with external (or internal) regulations, standards, and security policy, assign appropriate permission to those roles. The roles and permissions you choose will depend on the organizational culture and expectations of the policy program. See [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/security-baseline).
 
 Before defining the policies, consider:
-- How is the organization’s security audited and reported? Is there mandatory reporting? 
-- Are the existing security practices working? 
+- How is the organization’s security audited and reported? Is there mandatory reporting?
+- Are the existing security practices working?
 - Are there any requirements specific to industry, government, or regulatory requirements?
 
-Designate group(s) (or individual roles) for central functions that affect shared services and applications. 
+Designate group(s) (or individual roles) for central functions that affect shared services and applications.
 
 After the policies are set, continuously improve those standards incrementally. Make sure that the security posture doesn’t degrade over time by having auditing and monitoring compliance. For information about managing security standards of an organization, see [governance, risk, and compliance (GRC)](/azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance).
 
@@ -84,9 +84,9 @@ After the policies are set, continuously improve those standards incrementally. 
 
 **Central networking group across network resources:** To ensure consistency and avoid technical conflicts, assign network resource responsibilities to a single central networking organization. These resources should include virtual networks, subnets, Network Security Groups (NSG), and the virtual machines hosting virtual network appliances. Assign network resource responsibilities to a single central networking organization. The **Network Contributor** role is appropriate for this group. See [Centralize Network Management And Security](/azure/architecture/framework/security/design-network-segmentation#centralize-network-management-and-security) for more details
 
-**Resource Role Permissions:** For most core services, administrative privileges required to manage them are granted through the application (Active Directory, DNS/DHCP, System Management Tools), so no additional Azure resource permissions are required. If your organizational model requires these teams to manage their own VMs, storage, or other Azure resources, you can assign these permissions to those roles. 
+**Resource Role Permissions:** For most core services, administrative privileges required to manage them are granted through the application (Active Directory, DNS/DHCP, System Management Tools), so no additional Azure resource permissions are required. If your organizational model requires these teams to manage their own VMs, storage, or other Azure resources, you can assign these permissions to those roles.
 
-Workload segments with autonomous DevOps teams will manage the resources associated with each application. The actual roles and their permissions depend on the application size and complexity, the application team size and complexity, and the culture of the organization and application team. 
+Workload segments with autonomous DevOps teams will manage the resources associated with each application. The actual roles and their permissions depend on the application size and complexity, the application team size and complexity, and the culture of the organization and application team.
 
 **Service admin (Break Glass Account):** Use the **Service Administrator** role only for emergencies and initial setup. Do not use this role for daily tasks. See [Emergency Access ('Break Glass' Accounts)](/azure/architecture/framework/security/design-admins#emergency-access-or-break-glass-accounts) for more details.
 
@@ -133,7 +133,7 @@ For enterprise security groups with broad responsibility for security of Azure, 
 
 - *Segment management group(s)* – for teams with limited scope of responsibility (typically required because of organizational boundaries or regulatory requirements)
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Because security will have broad access to the environment (and visibility into potentially exploitable vulnerabilities), treat security teams as critical impact accounts and apply the same protections as administrators. The [Administration](/azure/architecture/framework/security/design-admins) section details these controls for Azure.
 
 **Suggested actions**

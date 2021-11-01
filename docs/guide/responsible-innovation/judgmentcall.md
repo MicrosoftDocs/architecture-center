@@ -21,9 +21,9 @@ Judgment Call is an award-winning game and team-based activity that puts Microso
 
 ## Benefits
 
-Technology builders need practical methods to incorporate ethics in product development, by considering the values of diverse stakeholders and how technology may uphold or not uphold those values. The goal of the game is to imagine potential outcomes of a product or platform by gaining a better understanding of stakeholders, and what they need and expect.  
+Technology builders need practical methods to incorporate ethics in product development, by considering the values of diverse stakeholders and how technology may uphold or not uphold those values. The goal of the game is to imagine potential outcomes of a product or platform by gaining a better understanding of stakeholders, and what they need and expect.
 
-The game helps people discuss challenging topics in a safe space within the context of gameplay, and gives technology creator a vocabulary to facilitate ethics discussions during product development. It gives managers and designers an interactive tool to lead ethical dialogue with their teams to incorporate ethical design in their products.  
+The game helps people discuss challenging topics in a safe space within the context of gameplay, and gives technology creator a vocabulary to facilitate ethics discussions during product development. It gives managers and designers an interactive tool to lead ethical dialogue with their teams to incorporate ethical design in their products.
 
 The theoretical basis and initial outcomes of the Judgment Call game were presented at the 2019 ACM Design Interactive Systems conference and the game was a finalist in the Fast Company 2019 Innovation by Design Awards (Social Goods category). The game has been presented to thousands of people in the US and internationally. While the largest group facilitated in game play has been over 100, each card deck can involve 1-10 players. This game is not intended to be a substitute for performing robust user research. Rather, it's an exercise to help tech builders learn how to exercise their moral imagination.
 
@@ -73,45 +73,45 @@ The players are expected to go through the following steps in this game:
 
     The moderator introduces a product, real or imaginary, for the players to role play. They can start with questions about the product with prompts such as:
 
-      - Who will use the product? 
+      - Who will use the product?
 
-      - What features will it have? 
+      - What features will it have?
 
-      - When will it be used? 
+      - When will it be used?
 
-      - Where will it be used? 
+      - Where will it be used?
 
-      - Why is it useful? 
+      - Why is it useful?
 
-      - How will it be used? 
+      - How will it be used?
 
  1. **Writing reviews**
 
     Players each write a review of the product or scenario based on the cards they've been dealt. Players take turns reading their reviews aloud. Listen carefully for any issues or themes that might come up. Take note of any changes you might make to your product based on insights discussed.
 
-      - The stakeholder card tells them who they are for the round. 
+      - The stakeholder card tells them who they are for the round.
 
-      - The ethical principle card is one of the six Microsoft AI principles; it tells them what area they're focusing on in their review. 
+      - The ethical principle card is one of the six Microsoft AI principles; it tells them what area they're focusing on in their review.
 
-      - The rating card tells them how much their stakeholder likes the technology (1, 3, or 5 stars). 
+      - The rating card tells them how much their stakeholder likes the technology (1, 3, or 5 stars).
 
-    The player then writes a review of the technology, from the perspective of their stakeholder, of why they like or dislike the product from the perspective of the ethical principle they received. 
+    The player then writes a review of the technology, from the perspective of their stakeholder, of why they like or dislike the product from the perspective of the ethical principle they received.
 
 ## Discussion
 
 The moderator has each player read their reviews. Everyone is invited to discuss the different perspectives and other considerations that may not have come up.
 
-Potential moderator questions include: 
+Potential moderator questions include:
 
-- Who is the most impacted? 
+- Who is the most impacted?
 
-- What features are problematic? 
+- What features are problematic?
 
-- What are the potential harms? 
+- What are the potential harms?
 
-## Harms mitigation 
+## Harms mitigation
 
-Finally, the group picks a thread from the discussion to begin identifying design or process changes that can mitigate a particular harm. At the end of each round, the decks are shuffled, and another round can begin with the same or a different scenario. 
+Finally, the group picks a thread from the discussion to begin identifying design or process changes that can mitigate a particular harm. At the end of each round, the decks are shuffled, and another round can begin with the same or a different scenario.
 
 ## Next steps
 

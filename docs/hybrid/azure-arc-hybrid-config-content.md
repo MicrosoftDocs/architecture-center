@@ -110,7 +110,7 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 ## Security considerations
 
-- Appropriate Azure role-based access control (Azure RBAC) access should be managed for Arc enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.  
+- Appropriate Azure role-based access control (Azure RBAC) access should be managed for Arc enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
 - You can use Azure Policy to manage security policies across your Arc enabled servers, including implementing security policies in Azure Security Center. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Security Center policies are based on policy initiatives created in Azure Policy.
 
 ## Cost considerations

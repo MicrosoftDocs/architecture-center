@@ -29,9 +29,9 @@ Generally, you should start by considering which storage model is best suited fo
 
 Relational databases organize data as a series of two-dimensional tables with rows and columns. Most vendors provide a dialect of the Structured Query Language (SQL) for retrieving and managing data. An RDBMS typically implements a transactionally consistent mechanism that conforms to the ACID (Atomic, Consistent, Isolated, Durable) model for updating information.
 
-An RDBMS typically supports a schema-on-write model, where the data structure is defined ahead of time, and all read or write operations must use the schema. 
+An RDBMS typically supports a schema-on-write model, where the data structure is defined ahead of time, and all read or write operations must use the schema.
 
-This model is very useful when strong consistency guarantees are important &mdash; where all changes are atomic, and transactions always leave the data in a consistent state. However, an RDBMS generally can't scale out horizontally without sharding the data in some way. Also, the data in an RDBMS must be normalized, which isn't appropriate for every data set. 
+This model is very useful when strong consistency guarantees are important &mdash; where all changes are atomic, and transactions always leave the data in a consistent state. However, an RDBMS generally can't scale out horizontally without sharding the data in some way. Also, the data in an RDBMS must be normalized, which isn't appropriate for every data set.
 
 ### Azure services
 
@@ -116,7 +116,7 @@ Typically, a document contains the data for single entity, such as a customer or
 
 ### Workload
 
-- Insert and update operations are common. 
+- Insert and update operations are common.
 - No object-relational impedance mismatch. Documents can better match the object structures used in application code.
 - Individual documents are retrieved and written as a single block.
 - Data requires index on multiple fields.
@@ -161,7 +161,7 @@ This structure makes it straightforward to perform queries such as "Find all emp
 - Nodes and relationships.
 - Nodes are similar to table rows or JSON documents.
 - Relationships are just as important as nodes, and are exposed directly in the query language.
-- Composite objects, such as a person with multiple phone numbers, tend to be broken into separate, smaller nodes, combined with traversable relationships 
+- Composite objects, such as a person with multiple phone numbers, tend to be broken into separate, smaller nodes, combined with traversable relationships
 
 ### Examples
 
@@ -247,7 +247,7 @@ Read and write operations for a row are usually atomic with a single column-fami
 
 ## Search Engine Databases
 
-A search engine database allows applications to search for information held in external data stores. A search engine database can index massive volumes of data and provide near real-time access to these indexes. 
+A search engine database allows applications to search for information held in external data stores. A search engine database can index massive volumes of data and provide near real-time access to these indexes.
 
 Indexes can be multi-dimensional and may support free-text searches across large volumes of text data. Indexing can be performed using a pull model, triggered by the search engine database, or using a push model, initiated by external application code.
 

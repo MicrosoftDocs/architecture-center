@@ -176,7 +176,7 @@ When the OIDC middleware redirects to the authorization endpoint, the redirect U
 - response_type  = "code id_token". This specifies hybrid flow.
 - response_mode = "form_post". This specifies form post response.
 
-To specify a different flow, set the **ResponseType** property on the options. 
+To specify a different flow, set the **ResponseType** property on the options.
 
 ```csharp
 app.AddAuthentication().AddOpenIdConnect(options =>

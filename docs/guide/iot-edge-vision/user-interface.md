@@ -19,11 +19,11 @@ ms.custom:
 
 # User interface in Azure IoT Edge Vision
 
-The user interface requirements of an IoT solution will vary depending on the overall objectives. Four types of user interfaces are commonly found in IoT solutions: 
+The user interface requirements of an IoT solution will vary depending on the overall objectives. Four types of user interfaces are commonly found in IoT solutions:
 
 * **Administrator:** Allows full access to device provisioning, device and solution configuration, user management, and so on. These features could be provided as part of one solution or as separate solutions.
 * **Consumer:** Is only applicable to consumer solutions. They provide similar access to the operator's interface, but limited to the devices owned by the user.
-* **Operator:** Provides centralized access to the operational components of the solution. It typically includes device management, alerts monitoring, and configuration.  
+* **Operator:** Provides centralized access to the operational components of the solution. It typically includes device management, alerts monitoring, and configuration.
 * **Analytics:** Is an interactive dashboard which provides visualization of telemetry and other data analyses.
 
 This article focuses on a simple operator’s user interface and visualization dashboard.
@@ -94,7 +94,7 @@ Contoso Shipping recently has had several pedestrian accidents at their loading 
 
 ### Considerations in this scenario
 
-Contoso Shipping can introspect by asking the following questions: 
+Contoso Shipping can introspect by asking the following questions:
 
 - What are we analyzing?
   - People and patterns of movement

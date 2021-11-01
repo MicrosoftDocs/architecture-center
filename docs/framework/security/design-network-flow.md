@@ -16,7 +16,7 @@ ms.custom:
 
 # Traffic flow security in Azure
 
-Protect data anywhere it goes including cloud services, mobile devices, workstations, or collaboration platforms. In addition to using access control and encryption mechanisms, apply strong network controls that detect, monitor, and contain attacks. 
+Protect data anywhere it goes including cloud services, mobile devices, workstations, or collaboration platforms. In addition to using access control and encryption mechanisms, apply strong network controls that detect, monitor, and contain attacks.
 
 ## Key points
 
@@ -43,7 +43,7 @@ When analyzing the network flow of a workload, distinguish between east-west tra
 
     _East-west_ traffic refers to traffic between or within data centers. For this type of traffic, several resources of the network infrastructure communicate with each other. Those resources can be virtual networks, subnets within those virtual networks, and so on. Security of east-west traffic can get overlooked even though it makes up a large portion of the workload traffic. It's assumed that the infrastructure firewalls are sufficient to block attacks. Make sure there are proper controls between network resources.
 
-    Extending the example of the AKS cluster to this concept, east-west traffic is the traffic within the cluster. For example, communication between pods, such as the ingress controller and the workload. If your workload is composed of multiple applications, the communication between those applications would fall into this category. 
+    Extending the example of the AKS cluster to this concept, east-west traffic is the traffic within the cluster. For example, communication between pods, such as the ingress controller and the workload. If your workload is composed of multiple applications, the communication between those applications would fall into this category.
 
     By using Kubernetes network policies, you can restrict which pods can communicate, starting from a Zero-Trust policy and then opening specific communication paths as needed.
 
@@ -56,7 +56,7 @@ When analyzing the network flow of a workload, distinguish between east-west tra
 
 ## Data exfiltration
 
-Data exfiltration is a common attack where an internal or external malicious actor does an unauthorized data transfer. Most often access is gained because of lack of network controls. 
+Data exfiltration is a common attack where an internal or external malicious actor does an unauthorized data transfer. Most often access is gained because of lack of network controls.
 
 Network virtual appliance (NVA) solutions and Azure Firewall (for supported protocols) can be leveraged as a reverse proxy to restrict access to only authorized PaaS services for services where Private Link is not yet supported (Azure Firewall).
 
@@ -66,11 +66,11 @@ Configure Azure Firewall or a third-party next generation firewall to protect ag
 ***
 Choose a defense-in-depth design that can protect network communications at various layers, such as a hub-spoke topology. Azure provides several controls to support the layered design:
 
-- Use Azure Firewall to allow or deny traffic using layer 3 to layer 7 controls. 
-- Use Azure Virtual Network User Defined Routes (UDR) to control next hop for traffic. 
+- Use Azure Firewall to allow or deny traffic using layer 3 to layer 7 controls.
+- Use Azure Virtual Network User Defined Routes (UDR) to control next hop for traffic.
 - Control traffic with Network Security Groups (NSGs) between resources within a virtual network, internet, and other virtual networks.
 - Secure the endpoints through Azure PrivateLink and Private Endpoints.
-- Detect and protect at deep levels through packet inspection. 
+- Detect and protect at deep levels through packet inspection.
 - Detect attacks and respond to alerts through Azure Sentinel and Azure Security Center.
 
 > [!IMPORTANT] 

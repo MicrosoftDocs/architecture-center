@@ -28,14 +28,14 @@ This article describes how to deploy an AI-based solution that generates insight
 In this solution, you learn how to:
 
 > [!div class="checklist"]
-> - Deploy Cloud Native Application Bundles (CNAB) at the edge. 
+> - Deploy Cloud Native Application Bundles (CNAB) at the edge.
 > - Deploy an app that spans cloud boundaries.
 > - Use the Custom Vision AI Dev Kit for inference at the edge.
 
-> [!Tip]  
-> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
-> 
+> [!Tip]
+> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)
+> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.
+>
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ## Prerequisites
@@ -69,9 +69,9 @@ Before getting started with this deployment guide, make sure you:
 
 ## Deploy the hybrid cloud app
 
-First you use the Porter CLI to generate a credential set, then deploy the cloud app.  
+First you use the Porter CLI to generate a credential set, then deploy the cloud app.
 
-1. Clone or download the repository containing the solution sample code: https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis. 
+1. Clone or download the repository containing the solution sample code: https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis.
 
 1. Porter will generate a set of credentials that will automate deployment of the app. Before running the credential generation command, be sure to have the following available:
 
@@ -89,7 +89,7 @@ First you use the Porter CLI to generate a credential set, then deploy the cloud
 
 1. Porter also requires a set of parameters to run. Create a parameter text file and enter the following name/value pairs. Ask your Azure Stack Hub administrator if you need assistance with any of the required values.
 
-   > [!NOTE] 
+   > [!NOTE]
    > The `resource suffix` value is used to ensure that your deployment's resources have unique names across Azure. It must be a unique string of letters and numbers, no longer than 8 characters.
 
     ```porter

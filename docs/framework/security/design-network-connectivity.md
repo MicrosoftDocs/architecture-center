@@ -59,7 +59,7 @@ Another way is to use network virtual appliances (NVAs) that check inbound (ingr
 
 Use User Defined Routes (UDR) to control the next hop for traffic between Azure, on-premises, and internet resources. The routes can be applied to virtual appliance, virtual network gateway, virtual network, or internet.
 
-For example, you need to inspect all ingress traffic from a public load balancer. One way is to host an NVA in a subnet that allows traffic only if certain criteria is met. That traffic is sent to the subnet that hosts an internal load balancer that routes that traffic to the backend services.  
+For example, you need to inspect all ingress traffic from a public load balancer. One way is to host an NVA in a subnet that allows traffic only if certain criteria is met. That traffic is sent to the subnet that hosts an internal load balancer that routes that traffic to the backend services.
 
 You can also use NVAs for egress traffic. For instance, all workload traffic is routed by using UDR to another subnet. That subnet has an internal load balancer that distributes requests to the NVA (or a set of NVAs). These NVAs direct traffic to the internet using their individual public IP addresses.
 
@@ -112,7 +112,7 @@ Internet edge traffic (also called _North-South traffic_) represents network con
 
 Azure provides networking solutions to restrict access to individual services. Use multiple levels of security, such as combination of IP filtering, firewall rules to prevent application services from being accessed by unauthorized actors.
 
-- Network virtual appliances (NVAs). You can use Azure Firewall or third-party solutions available in Azure Marketplace.  
+- Network virtual appliances (NVAs). You can use Azure Firewall or third-party solutions available in Azure Marketplace.
 
 Azure security features are sufficient for common attacks, easy to configure, and scale. Third-party solutions often have advanced features but they can be hard to configure if they don't integrate well with fabric controllers. From a cost perspective, Azure options tend to be cheaper than partner solutions.
 
