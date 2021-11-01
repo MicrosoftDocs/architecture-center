@@ -22,7 +22,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 **Tools:**
 
-**AKS Diagnostics**. In Azure portal, navigate to the AKS cluster resource. Select **Diagnose and solve problems**.  
+**AKS Diagnostics**. In Azure portal, navigate to the AKS cluster resource. Select **Diagnose and solve problems**.
 
 ![AKS Diagnostics](images/aks-diagnostics.png)
 

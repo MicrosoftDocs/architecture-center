@@ -29,7 +29,7 @@ Cost management:
 
 ## Move devices between stamps
 
-While deployment stamps are intended for atomic deployment, sometimes it's desirable to move device populations between stamps. Some examples include: 
+While deployment stamps are intended for atomic deployment, sometimes it's desirable to move device populations between stamps. Some examples include:
 - Moving populations of devices from test stamps to production stamps as part of a release cycle.
 - In a high-availability strategy, moving devices and consumers to another stamp as part of outage remediation.
 - Load balancing to distribute device population more evenly across stamps.
@@ -49,7 +49,7 @@ There are a couple of strategies for moving devices and application end-users fr
 
 Where stamps encompass an end-to-end application, [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-how-it-works) can move traffic from one stamp to another. This strategy involves creating multiple stamps, each containing the entire application with its own URL, and moving entire populations of devices and application users from one stamp to another.
 
-![A diagram explaining how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.svg) 
+![A diagram explaining how to move a set of devices from one stamp to another stamp.](media/moving-devices-using-dps.svg)
 
 The diagram above shows the process of moving a set of devices from Stamp 1 to Stamp 2:
 1. Devices acquire IoT Hub endpoint through DPS if it is either unknown or no longer valid.
@@ -71,7 +71,7 @@ To gracefully manage devices moving to different stamps and IoT Hubs, gateways c
 ![A diagram demonstrating how devices can move from one hub to another using an app gateway.](media/move-devices-behind-gateway.svg)
 
 In this model, the gateway uses a cache to map devices to IoT Hubs, defaulting to the cached endpoint unless it receives an [error](/azure/iot-hub/iot-hub-troubleshoot-error-404001-devicenotfound) indicating the device is not registered to the known IoT Hub. When this error occurs, the gateway uses the [DPS Service SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks) to query individual device enrollment and determine which IoT Hub the device is now registered to. The gateway then updates the cache with the new mapping to avoid re-negotiating the device-to-hub mapping on future calls.
- 
+
 ## Additional considerations
 
 - If device enrollment is in progress, the device won't be reachable. Use DPS APIs like [Get Device Registration State](/rest/api/iot-dps/service/device-registration-state/get) to get the device's assigned IoT Hub and its current enrollment status.

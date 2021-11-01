@@ -19,9 +19,9 @@ ms.custom:
 
 # Camera selection in Azure IoT Edge Vision
 
-One of the most critical components in any AI Vision workload is selecting the right camera. The items being identified by this camera must be presented in such a way that the artificial intelligence or machine learning models can evaluate them correctly. An in-depth understanding of the different camera types is required to understand this concept. 
+One of the most critical components in any AI Vision workload is selecting the right camera. The items being identified by this camera must be presented in such a way that the artificial intelligence or machine learning models can evaluate them correctly. An in-depth understanding of the different camera types is required to understand this concept.
 
-> [!NOTE] 
+> [!NOTE]
 > There are different manufacturers for **area**, **line**, and **smart** cameras. Instead of recommending any one vendor over another, Microsoft recommends that you select a vendor that fits your specific needs.
 
 ## Types of cameras
@@ -39,8 +39,8 @@ Examples of manufacturers of area scan cameras are [Basler](https://www.baslerwe
 Unlike the area scan cameras, the line scan camera has a single row of linear pixel sensors. This allows the camera to take one-pixel width images in quick successions, and then stitches them together into a video stream. This video stream is then sent over to an Edge device for processing.
 
 Line scan cameras are great for vision workloads where the items to be identified are either moving past the camera, or need to be rotated to detect defects. The line scan camera would then be able to produce a continuous image stream for evaluation. Examples of workloads that would work best with a line scan camera are:
-- an item defect detection on parts that are moved on a conveyer belt, 
-- workloads that require spinning to see a cylindrical object, or 
+- an item defect detection on parts that are moved on a conveyer belt,
+- workloads that require spinning to see a cylindrical object, or
 - any workload that requires rotation.
 
 Examples of manufacturers of line scan cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Teledyne Dalsa](https://www.teledynedalsa.com/en/home/), [Hamamatsu Corporation](https://www.hamamatsu.com/index.html?nfxsid=5ede4ac8e12e41591626440), [DataLogic](https://www.datalogic.com/), [Vieworks](https://vieworks.com/), and [Xenics](https://www.xenics.com/).
@@ -59,10 +59,10 @@ This is one of the most important factors to evaluate in any vision workload. A 
 
 If a camera has a choice between a larger sensor or a smaller sensor, some factors deciding why you might choose the larger sensor are:
 - need for precision measurements,
-- lower light conditions, 
+- lower light conditions,
 - shorter exposure times, or fast-moving items.
 
-### Resolution 
+### Resolution
 
 This is another important factor to both line scan and area scan camera workloads. If your workload must identify fine features, such as the writing on an IC chip, then you need greater resolution cameras. If your workload is trying to detect a face, then higher resolution is required. And if you need to identify a vehicle from a distance, again a higher resolution will be required.
 
@@ -75,7 +75,7 @@ Sensors come in two types- [*CCD* and *CMOS*](https://en.wikipedia.org/wiki/Imag
 
 ## Camera placement
 
-The items that you are capturing in your vision workload will determine the location and angles that the camera should be placed. The camera location can also affect the sensor type, lens type, and camera body type. 
+The items that you are capturing in your vision workload will determine the location and angles that the camera should be placed. The camera location can also affect the sensor type, lens type, and camera body type.
 
 There are several different factors that can weigh into the overall decision for camera placement. Two of the most critical ones are the lighting and the field of view.
 
@@ -127,7 +127,7 @@ In building a computer vision workload, it is also important to understand how t
 
   There are several standards defined for CSI:
 
-  * **CSI-1**:  This was the original standard that MIPI started with.  
+  * **CSI-1**:  This was the original standard that MIPI started with.
   * **CSI-2**:  This standard was released in 2005, and uses either D-PHY or C-PHY as physical layers options. This is further divided into several layers:
     * Physical Layer (C-PHY, D-PHY)
     * Lane Merger layer

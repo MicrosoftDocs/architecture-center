@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Apache NiFi on Azure
+  titleSuffix: Azure Example Scenarios
+  description: Automate data flows with Apache NiFi on Azure. Use a scalable, highly available solution to move data into the cloud or storage and between cloud systems.
+  author: MuazmaZ
+  ms.author: muzahid
+  ms.date: 10/29/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - integration
+  - storage
+products:
+  - azure-application-gateway
+  - azure-log-analytics
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-vm-scalesets
+name: Apache NiFi on Azure
+summary: Automate data flows with Apache NiFi on Azure. Use a scalable, highly available solution to move data into the cloud or storage and between cloud systems.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-nifi-architecture-thumbnail.png
+content: |
+  [!include[](azure-nifi-content.md)]

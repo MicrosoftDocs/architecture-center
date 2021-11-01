@@ -1,15 +1,13 @@
 items:
   - name: Azure Architecture Center
     href: ./index.yml
-  - name: Architecture icons
-    href: icons/index.md
   - name: Browse all Architectures
     href: browse/index.yml
-  - name: Browse Hybrid and Multicloud Architectures
-    href: browse/index.yml?&azure_categories=hybrid
+  - name: Architecture icons
+    href: icons/index.md
   - name: What's new
     href: changelog.md
-  - name: Application Architecture Guide
+  - name: Application architecture fundamentals
     items:
       - name: Introduction
         href: guide/index.md
@@ -177,7 +175,7 @@ items:
           - name: Overview
             href: guide/startups/startup-architecture.md
           - name: Core startup stack architecture
-            href: guide/startups/core-startup-stack.yml
+            href: example-scenario/startups/core-startup-stack.yml
       - name: Multitenant applications
         items:
           - name: Considerations
@@ -1406,10 +1404,18 @@ items:
                   - name: Security baseline for Azure Purview
                     href: /security/benchmark/azure/baselines/purview-security-baseline
                     maintainContext: true
+              - name: Apache NiFi guidance
+                items:
+                  - name: Apache NiFi monitoring with MonitoFi
+                    href: guide/data/monitor-apache-nifi-monitofi.yml
+                  - name: Helm-based deployments for Apache NiFi
+                    href: guide/data/helm-deployments-apache-nifi.yml
           - name: Architectures
             items:
               - name: Anomaly detector process
                 href: solution-ideas/articles/anomaly-detector-process.yml
+              - name: Apache NiFi on Azure
+                href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Azure analytics end to end
@@ -1523,7 +1529,7 @@ items:
             items:
               - name: Choose a compute service
                 href: guide/technology-choices/compute-decision-tree.md
-              - name: SAS on Azure architecture guide
+              - name: SAS on Azure architecture
                 href: guide/sas/sas-overview.yml
               - name: Industry guidance
                 items:
@@ -1538,7 +1544,7 @@ items:
                     maintainContext: true
               - name: VM security baselines
                 items:
-                  - name: Security baseline for VM scale sets
+                  - name: Security baseline for virtual machine scale sets
                     href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
                     maintainContext: true
                   - name: Security baseline for Linux VMs

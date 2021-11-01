@@ -93,4 +93,3 @@ Resist the temptation to optimize prematurely. Make sure to take growth and matu
 
 - [Best practices in cloud applications](../../best-practices/index-best-practices.md)
 - [Ten design principles for Azure applications](../design-principles/index.md)
-

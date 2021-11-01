@@ -1,7 +1,7 @@
 ---
 title: Design patterns for microservices
 description: Learn how designs that use microservices can increase the velocity of application releases by deploying small, autonomous services independently.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: architecture-center

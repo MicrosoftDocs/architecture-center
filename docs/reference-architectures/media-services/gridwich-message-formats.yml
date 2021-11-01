@@ -3,7 +3,7 @@ metadata:
   title: Gridwich request-response messages
   titleSuffix: Azure Reference Architectures
   description: Learn about the specific Event Grid events that form the request-response sequence for different Gridwich operations.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 11/12/2020
   ms.topic: conceptual

@@ -8,8 +8,10 @@ ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - references_regions
-products: azure
-categories: management-and-governance
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Design for scaling

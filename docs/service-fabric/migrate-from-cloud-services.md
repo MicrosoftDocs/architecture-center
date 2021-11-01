@@ -1,7 +1,7 @@
 ---
 title: Cloud Services app to Service Fabric
 description: Learn about the architectural decisions and recommended practices for migrating an application from Azure Cloud Services to Azure Service Fabric.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 05/29/2019
 ms.topic: conceptual
 ms.service: architecture-center

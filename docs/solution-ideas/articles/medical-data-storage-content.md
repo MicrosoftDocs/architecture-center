@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Cloud and hybrid solutions from Microsoft help you manage medical data storage efficiently and cost effectively, while infusing intelligence and maintaining compliance.
@@ -10,7 +7,7 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 ![Architecture diagram](../media/medical-data-storage.png)
 *Download an [SVG](../media/medical-data-storage.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Securely ingest medical image data using Azure Data Factory.
 1. Securely store medical image data in Azure Data Lake Store and/or Azure Blob Storage.
@@ -19,7 +16,7 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 1. Interact AI and Machine Learning results using PowerBI, while preserving Azure role-based access control (Azure RBAC).
 1. Securely interact with medical image data via a web based vendor neutral archive (VNA) image viewer.
 
-## Components
+### Components
 
 * [Data Factory](https://azure.microsoft.com/services/data-factory): Hybrid data integration at enterprise scale, made easy
 * [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): Hyperscale repository for big data analytics workloads

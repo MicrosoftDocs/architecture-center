@@ -1,7 +1,7 @@
 ---
 title: Claim-based identities in multitenant apps
 description: Learn about claims in Azure AD. As issuer, Azure AD sends a set of claims about the user which can be trusted because the issuer can be trusted.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -106,7 +106,7 @@ Here are some basic patterns for checking claims.
    ```
 
    This code checks whether the user has a Role claim with the value "Admin". It correctly handles the case where the user has no Role claim or multiple Role claims.
-  
+
    The **ClaimTypes** class defines constants for commonly used claim types. However, you can use any string value for the claim type.
 * To get a single value for a claim type, when you expect there to be at most one value:
 

@@ -2,7 +2,7 @@
 metadata:
   title: Stream processing with Stream Analytics
   description: This reference architecture shows an end-to-end stream processing pipeline, which ingests data, correlates records, and calculates a rolling average.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 11/06/2018
   ms.topic: conceptual

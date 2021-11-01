@@ -35,19 +35,19 @@ Serverless and Functions require new ways of thinking and new approaches to buil
 Successful implementation of serverless technologies with Azure Functions requires the following actions:
 
 - [Decide and plan](validate-commit-serverless-adoption.md)
-  
+
   *Architects* and *technical decision makers (TDMs)* perform [application assessment](application-assessment.md), conduct or attend [technical workshops and trainings](technical-training.md), run [proof of concept (PoC) or pilot](poc-pilot.md) projects, and conduct architectural designs sessions as necessary.
-  
+
 - [Develop and deploy apps](application-development.md)
-  
+
   *Developers* implement serverless Functions app development patterns and practices, configure DevOps pipelines, and employ site reliability engineering (SRE) best practices.
-  
+
 - [Manage operations](functions-app-operations.md)
-  
+
   *IT professionals* identify hosting configurations, future-proof scalability by automating infrastructure provisioning, and maintain availability by planning for business continuity and disaster recovery.
-  
+
 - [Secure apps](functions-app-security.md)
-  
+
   *Security professionals* handle Azure Functions security essentials, secure the hosting setup, and provide application security guidance.
 
 ## Related resources

@@ -2,14 +2,16 @@
 title: Microsoft Azure Well-Architected Framework
 titleSuffix: Azure Architecture Center
 description: Learn about the five pillars of the Azure Well-Architected Framework and how they can produce a high quality, stable, and efficient cloud architecture.
-author: david-stanford 
+author: david-stanford
 ms.author: v-stacywray
 ms.date: 09/09/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-products: azure
-categories: management-and-governance
+products:
+  - azure
+categories:
+  - management-and-governance
 ms.custom:
   - seojan19
   - guide

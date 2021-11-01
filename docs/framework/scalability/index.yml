@@ -47,7 +47,7 @@ landingContent:
         links:
           - text: "Azure SQL Capacity Planning: Overview"
             url: https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Capacity-Planning-Overview?term=Capacity&pubDate=3years&lang-en=true
-  # Card 
+  # Card
   - title: Design for performance efficiency
     linkLists:
       - linkListType: get-started
@@ -55,13 +55,13 @@ landingContent:
           - text: Monitoring distributed architectures
             url: design-distributed.md
           - text: Design scalable Azure applications
-            url: design-apps.md  
+            url: design-apps.md
           - text: Design Azure applications for efficiency
             url: design-efficiency.md
           - text: Design for scaling
-            url: design-scale.md   
+            url: design-scale.md
           - text: Plan for capacity
-            url: design-capacity.md                   
+            url: design-capacity.md
       - linkListType: concept
         links:
           - text: Consider team expertise
@@ -90,7 +90,7 @@ landingContent:
           - text: Performance testing
             url: performance-test.md
           - text: Load testing
-            url: performance-test.md#load-testing           
+            url: performance-test.md#load-testing
           - text: Stress testing
             url: performance-test.md#stress-testing
           - text: Multiregion testing

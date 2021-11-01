@@ -19,7 +19,7 @@ ms.custom:
 
 # Azure control plane security
 
-The term _control plane_ refers to the management of resources in your subscription. These activities include creating, updating, and deleting Azure resources as required by the technical team.  
+The term _control plane_ refers to the management of resources in your subscription. These activities include creating, updating, and deleting Azure resources as required by the technical team.
 
 Azure Resource Manager handles all control plane requests and applies restrictions that you specify through Azure role-based access control (Azure RBAC), Azure Policy, locks. Apply those restrictions based on the requirement of the organization.
 
@@ -28,7 +28,7 @@ It's recommended to implement Infrastructure as Code, and to deploy application 
 ## Key points
 > [!div class="checklist"]
 > - Restrict access based on a need-to-know basis and least privilege security principles.
-> - Assign permissions to users, groups, and applications at a certain scope through Azure RBAC. 
+> - Assign permissions to users, groups, and applications at a certain scope through Azure RBAC.
 > - Use built-in roles when possible.
 > - Prevent deletion or modification of a resource, resource group, or subscription through management locks.
 > - Use less critical control in your CI/CD pipeline for development and test environments.
@@ -78,7 +78,7 @@ When you apply a lock at a parent scope, all resources within that scope inherit
 
 Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
-Identify critical infrastructure and evaluate resource lock suitability. 
+Identify critical infrastructure and evaluate resource lock suitability.
 
 Set locks in the DevOps process carefully because modification locks can sometimes block automation. For examples of those blocks and considerations, see [Considerations before applying locks](/azure/azure-resource-manager/management/lock-resources#considerations-before-applying-locks).
 

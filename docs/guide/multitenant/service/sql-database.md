@@ -8,10 +8,10 @@ ms.date: 10/08/2021
 ms.topic: conceptual
 ms.service: architecture-center
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
+  - management-and-governance
+  - security
 ms.category:
   - fcp
 ms.custom:

@@ -2,7 +2,7 @@
 metadata:
   title: Connected factory hierarchy service
   titleSuffix: Azure Solution Ideas
-  description:  A hierarchy service allows your business stakeholders to centrally define how production assets like machines are organized within factories.
+  description: A hierarchy service allows your business stakeholders to centrally define how production assets like machines are organized within factories.
   author: EdPrice-MSFT
   ms.author: Maxzeier
   ms.date: 09/17/2021

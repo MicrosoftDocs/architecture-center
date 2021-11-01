@@ -17,19 +17,19 @@ This approach can also:
 :::image type="content" source="../media/video-analytics-architecture.png" alt-text="Screenshot showing on-premises video capture and analysis through Azure Stack Edge with Azure Video Analyzer and Spatial Analysis. Event notifications pass through Azure IoT Hub to a web app for alerts, and to Azure Media Services Storage for long-term analysis." border="false":::
 
 1. 5G-enabled IP cameras capture video in real time, and send the video feed to a 5G Radio Access Network (RAN) device.
-   
+
 1. The 5G radios in the stores forward the data to the 5G packet core running on the Azure Stack Edge IoT Edge server.
-   
+
 1. The packet core authenticates the devices, applies Quality of Service (QoS) policies, and routes the video traffic to the target application.
-   
+
 1. Azure Video Analyzer also runs on the edge server, which provides the low latency necessary for transporting and processing the video feeds.
-   
+
 1. Video Analyzer simplifies setting up a video streaming pipeline and pre-processing the video for spatial analysis.
-   
+
 1. The [Spatial Analysis](/azure/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview) module on the edge server anonymously counts cars, goods on a shelf, or people in line. The module sends these event notifications to the Azure IoT Hub module in the cloud.
-   
+
 1. The IoT Hub module records the event notifications in a web app, and alerts store managers or stock keepers if certain thresholds are passed.
-   
+
 1. An Azure Media Services Storage account stores events for long-term trend analysis to help with resource planning.
 
 ### Components

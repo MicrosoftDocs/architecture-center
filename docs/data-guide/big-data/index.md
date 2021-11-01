@@ -131,7 +131,7 @@ Relevant Azure services:
 
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)  
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 - [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)
 
 Learn more about IoT on Azure by reading the [Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/).

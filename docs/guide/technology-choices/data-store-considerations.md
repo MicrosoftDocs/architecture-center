@@ -17,7 +17,7 @@ This article describes the comparison criteria you should use when evaluating a 
 
 ## General considerations
 
-Keep the following considerations in mind when making your selection. 
+Keep the following considerations in mind when making your selection.
 
 ### Functional requirements
 

@@ -8,10 +8,10 @@ ms.date: 10/18/2021
 ms.topic: conceptual
 ms.service: architecture-center
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
+  - management-and-governance
+  - security
 ms.category:
   - fcp
 ms.custom:
@@ -130,7 +130,7 @@ When working with file shares, you might choose to use a shared file share, and 
 
 When you use an application that can communicate using the Server Message Block (SMB) protocol, and when you use Active Directory Domain Services either on-premises or in Azure, file shares [support authorization](/azure/storage/files/storage-files-active-directory-overview) at both the share and the directory/file levels.
 
-In other scenarios, consider using SAS to grant access to specific file shares or files. When you use SAS, you can't grant access to directories. 
+In other scenarios, consider using SAS to grant access to specific file shares or files. When you use SAS, you can't grant access to directories.
 
 When you work with shared file shares, consider whether you need to track the data and Azure Storage service usage for each tenant, and then plan an approach to do so (as necessary). See [Monitoring](#monitoring) for further information.
 

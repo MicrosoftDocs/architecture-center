@@ -1,16 +1,13 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Easily tier data and applications on-premises and in Azure with architecture that supports greater efficiency in applications. Filter unnecessary data early in the process, easily bring cloud applications close to the data on-premises, and analyze large scale aggregate data from multiple locations in Azure for fleet-level insights.
+Easily tier data and applications on-premises and in Azure, with architecture that supports greater efficiency in applications. Filter unnecessary data early in the process, easily bring cloud applications close to the data on-premises, and analyze large scale aggregate data from multiple locations in Azure, for fleet-level insights.
 
 ## Architecture
 
 ![Architecture diagram](../media/tiered-data-for-analytics.png)
 *Download an [SVG](../media/tiered-data-for-analytics.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Data flows into a storage account.
 1. Function on Azure Stack analyzes the data for anomalies or compliance.
@@ -20,7 +17,7 @@ Easily tier data and applications on-premises and in Azure with architecture tha
 1. Function sends data from queue to Azure Storage.
 1. Globally-relevant and compliant insights are available in the global app.
 
-## Components
+### Components
 
 * [Storage](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
 * [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code

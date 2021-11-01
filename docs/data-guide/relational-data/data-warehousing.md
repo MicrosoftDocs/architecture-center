@@ -1,7 +1,7 @@
 ---
 title: Data warehousing in Microsoft Azure
 description: Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources used for reporting and analysis of the data.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -119,7 +119,7 @@ To narrow the choices, start by answering these questions:
 - Do you need to support a large number of concurrent users and connections? The ability to support a number of concurrent users/connections depends on several factors.
 
   - For Azure SQL Database, refer to the [documented resource limits](/azure/sql-database/sql-database-resource-limits) based on your service tier.
-  
+
   - SQL Server allows a maximum of 32,767 user connections. When running on a VM, performance will depend on the VM size and other factors.
 
   - Azure Synapse has limits on concurrent queries and concurrent connections. For more information, see [Concurrency and workload management in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency). Consider using complementary services, such as [Azure Analysis Services](/azure/analysis-services/analysis-services-overview), to overcome limits in Azure Synapse.

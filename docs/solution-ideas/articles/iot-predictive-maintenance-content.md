@@ -1,12 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article demonstrates how end manufacturers can connect assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components. This will enable the use of Predictive Maintenance to improve the efficiency of your machines, while reducing the costs by optimizing the production. Mitigate disruptions by applying advanced analytics and machine learning to your production to anticipate outages. Ensure production uptime with rich insights and automatic alerts triggered by manufacturing data. OPC UA is a platform-independent and service-oriented interoperability standard for a secure and reliable data exchange. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. It's a standard that is driven by the OPC Foundation.
+This article demonstrates how end manufacturers can connect assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components. This will enable the use of Predictive Maintenance to improve the efficiency of your machines, while reducing the costs by optimizing the production. Mitigate disruptions by applying advanced analytics and machine learning to your production to anticipate outages. Ensure production uptime with rich insights and automatic alerts triggered by manufacturing data. 
+
+OPC UA is a platform-independent and service-oriented interoperability standard for a secure and reliable data exchange. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. It's a standard that is driven by the OPC Foundation.
 
 ## Architecture
 
 ![Architecture Diagram](../media/iot-predictive-maintenance.png)
 
-## Data flow
+### Data flow
 
 The data flows through the solution as follows:
 
@@ -21,7 +23,7 @@ The data flows through the solution as follows:
 1. Azure Databricks provides the latest versions of Apache Spark as an Azure service offering and allows you to seamlessly integrate with open source libraries. It provides a one-click setup, streamlined workflows, and an interactive workspace that enables collaboration.
 1. Explore your data with visual reports and collaborate, publish and share these reports with others. Power BI integrates with other tools, including Microsoft Excel, so you can get up to speed quickly and work seamlessly with your existing solutions.
 
-## Components
+### Components
 
 Data is loaded from these different data sources using several Azure components:
 

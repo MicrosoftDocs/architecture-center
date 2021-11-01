@@ -50,7 +50,7 @@ To narrow the choices, start by answering these questions:
 - Do you need massively parallel processing (MPP) support, where queries are automatically distributed across several processes or nodes? If yes, select an option that supports query scale out.
 
 - Do you prefer to use a relational data store? If so, narrow your options to those with a relational database model. However, note that some non-relational stores support SQL syntax for querying, and tools such as PolyBase can be used to query non-relational data stores.
- 
+
 - Do you collect time series data? Do you use append-only data?
 
 ## Capability matrix

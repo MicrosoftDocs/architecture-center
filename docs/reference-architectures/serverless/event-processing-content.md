@@ -188,7 +188,7 @@ Use the [Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick estima
 - [Azure Kubernetes in event stream processing](../../solution-ideas/articles/serverless-event-processing-aks.yml)
 
 <!-- links -->
- 
+
 
 [AAF-cost]: ../../framework/cost/overview.md
 [AAF-devops]: ../../framework/devops/overview.md

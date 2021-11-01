@@ -181,8 +181,7 @@ The reliability of regulated environments needs to be predictable so that they c
 
 ### Recovery targets and disaster recovery
 
-Due to the sensitive nature of the data handled in regulated workloads, recovery targets and recovery point objectives (RPOs) are critical to define. What is acceptable loss of CHD? Recovery efforts within the CDE are still subject to the standard requirements. Expect failures and have a clear recovery plan for those failures that align with roles, responsibilities, and justified data access. Live-site issues are not justification for deviating from any regulations.
-This is especially important in a full disaster recovery situation. Have clear disaster recovery documentation that adheres to the requirements and minimizes unexpected CDE or CHD access. After recovery, always review the recovery process steps to ensure that no unexpected access occurred. Document business justifications for those instances.
+Due to the sensitive nature of the data handled in regulated workloads, recovery targets and recovery point objectives (RPOs) are critical to define. What is acceptable loss of CHD? Recovery efforts within the CDE are still subject to the standard requirements. Expect failures and have a clear recovery plan for those failures that align with roles, responsibilities, and justified data access. Live-site issues are not justification for deviating from any regulations. This is especially important in a full disaster recovery situation. Have clear disaster recovery documentation that adheres to the requirements and minimizes unexpected CDE or CHD access. After recovery, always review the recovery process steps to ensure that no unexpected access occurred. Document business justifications for those instances.
 
 ### Recovery
 

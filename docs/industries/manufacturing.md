@@ -7,7 +7,8 @@ ms.date: 06/04/2021
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: 
-keywords: Azure
+keywords:
+  - Azure
 products:
   - azure
 categories:

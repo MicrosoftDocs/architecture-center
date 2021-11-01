@@ -155,7 +155,7 @@ SparkLoggingEvent_CL | where logger_name_s contains "com.microsoft.pnp"
 
 ```kusto
 SparkLoggingEvent_CL
-| where TimeGenerated > ago(7d) 
+| where TimeGenerated > ago(7d)
 | project TimeGenerated, clusterName_s, logger_name_s
 | summarize Count=count() by clusterName_s, logger_name_s, bin(TimeGenerated, 1h)
 ```

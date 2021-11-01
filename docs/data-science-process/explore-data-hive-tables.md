@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -43,7 +45,7 @@ This article assumes that you have:
 5. Get the distribution for numerical columns  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Extract records from joining two tables
-   
+
     ```hiveql
     SELECT
         a.<common_columnname1> as <new_name1>,

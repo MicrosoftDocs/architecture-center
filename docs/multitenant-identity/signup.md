@@ -1,7 +1,7 @@
 ---
 title: Sign-up and onboarding in multi-tenant app
 description: Learn how to implement a sign-up process in a multitenant application, which allows a customer to sign up their organization for your application.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -60,8 +60,7 @@ For the [Tailspin Surveys][Tailspin] application,  we defined several requiremen
 * Sign-up adds the user's tenant to the application database.
 * After a tenant signs up, the application shows an onboarding page.
 
-In this section, we'll walk through our implementation of the sign-up process.
-It's important to understand that "sign up" versus "sign in" is an application concept. During the authentication flow, Azure AD does not inherently know whether the user is in process of signing up. It's up to the application to keep track of the context.
+In this section, we'll walk through our implementation of the sign-up process. It's important to understand that "sign up" versus "sign in" is an application concept. During the authentication flow, Azure AD does not inherently know whether the user is in process of signing up. It's up to the application to keep track of the context.
 
 When an anonymous user visits the Surveys application, the user is shown two buttons, one to sign in, and one to "enroll your company" (sign up).
 

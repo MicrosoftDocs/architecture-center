@@ -1,6 +1,6 @@
 ---
 title: Load Testing
-description: Learn how load testing in Azure can help you assess the performance, stability, and behavior of your application.  
+description: Learn how load testing in Azure can help you assess the performance, stability, and behavior of your application.
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: conceptual

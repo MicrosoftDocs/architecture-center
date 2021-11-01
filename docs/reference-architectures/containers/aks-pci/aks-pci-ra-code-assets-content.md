@@ -105,8 +105,7 @@ There are several NSGs that control the flow in and out of the cluster. Here are
 - The cluster node pools are placed in dedicated subnets. For each subnet, there are NSGs that block any SSH access to node VMs and allow traffic from the virtual network. Traffic from the node pools is restricted to the virtual network.
 - All inbound traffic from the internet is intercepted by Azure Application Gateway. For example, NSG rules make sure that:
    - Only HTTPS traffic is allowed in. 
-   - Traffic from Azure Control Plane is allowed.    
-   For details, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
+   - Traffic from Azure Control Plane is allowed.     For details, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
 - On the subnets that have Azure Container Registry agents, NSGs allow only necessary outbound traffic. For instance, traffic is allowed to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.  
 - The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub, and limited outbound connections. Jump boxes do not have universal internet access, and are controlled at both the subnet NSG and Azure Firewall.
 
@@ -157,7 +156,7 @@ Define roles and set access policies according to the requirements of the role. 
 Minimize standing access, especially for high-impact accounts, such as SRE/Ops interactions with your cluster. The AKS control plane supports both [Azure AD Privileged Access Management (PAM) just-in-time (JIT)](/azure/aks/managed-aad#configure-just-in-time-cluster-access-with-azure-ad-and-aks). [Conditional Access Policies](/azure/aks/managed-aad#use-conditional-access-with-azure-ad-and-aks) can provide additional layers of required authentication validation for privileged access, based on the rules you build.
 
 For more details on using PowerShell to configure conditional access, see [Azure AD Conditional Access](https://github.com/mspnp/aks-baseline-regulated/blob/main/docs/conditional-access.md).
-  
+
 
 ## Disk encryption
 When you're designing encryption for data at rest, consider storage disks, AKS agent node VMs, other VMs, and any temporary and operating system disks. 

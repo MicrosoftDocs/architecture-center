@@ -33,7 +33,7 @@ You store your files in the cloud in Azure file shares. You can use Azure file s
 
 - Direct mount of an Azure file share. Because Azure Files provides SMB access, you can mount Azure file shares on-premises or in the cloud using the standard SMB client available in the Windows, macOS, and Linux operating systems. Azure file shares are serverless, so deploying for production scenarios doesn't require managing a file server or network-attached storage (NAS) device. This means you don't have to apply software patches or swap out physical disks.
 - Cache Azure file share on-premises with Azure File Sync. Azure File Sync enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your Azure file share.
-  
+
 ### Deploy the Storage Sync Service
 
 Begin Azure File Sync deployment by deploying a Storage Sync Service resource into a resource group of your selected subscription. We recommend provisioning as few Storage Sync Service objects as possible. You will create a trust relationship between your servers and this resource, and a server can only be registered to one Storage Sync Service. As a result, we recommend that you deploy as many Storage Sync Services as you need to separate groups of servers. Keep in mind that servers from different Storage Sync Services cannot sync with each other.
@@ -112,7 +112,7 @@ For more information on how to configure Azure File Sync with a proxy server, re
 - You should ensure that services referenced in the **Architecture** section are supported in the region to which you hybrid file services architecture is deployed.
 - To protect the data in your Azure file shares against data loss or corruption, all Azure file shares store multiple copies of each file as they are written. Depending on the requirements of your workload, you can select additional degrees of redundancy.
 - *Previous Versions* is a Windows feature that enables you to utilize server-side Volume Shadow Copy Service (VSS) snapshots of a volume to present restorable versions of a file to an SMB client. VSS snapshots and Previous Versions work independently of Azure File Sync. However, cloud tiering must be set to a compatible mode. Many Azure File Sync server endpoints can exist on the same volume. You have to make the following PowerShell call per volume that has even one server endpoint, where you plan to or are using cloud tiering. For more information about Previous Versions and VSS, refer to [Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)][Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)].
-  
+
 ## Manageability considerations
 
 - The Azure File Sync agent is updated on a regular basis to add new functionality and address issues. We recommend you configure Microsoft Update to get updates for the Azure File Sync agent as soon as they're available. For more information, refer to [Azure File Sync agent update policy][Azure File Sync agent update policy].

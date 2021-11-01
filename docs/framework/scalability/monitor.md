@@ -10,7 +10,7 @@ products:
   - azure-monitor
   - azure-application-insights
 categories:
-  - management-and-governance    
+  - management-and-governance
 ms.custom:
   - fasttrack-edit
   - article
@@ -29,10 +29,10 @@ Continuously monitoring services​ and checking the health state of current wor
 ***
 > [!div class="checklist"]
 > - Enable and capture telemetry throughout your application to build and visualize end-to-end transaction flows for the application.
-> - See metrics from Azure services such as CPU and memory utilization, bandwidth information, current storage utilization, and more. 
-> - Use resource and platform logs to get information about what events occur and under which conditions. 
+> - See metrics from Azure services such as CPU and memory utilization, bandwidth information, current storage utilization, and more.
+> - Use resource and platform logs to get information about what events occur and under which conditions.
 > - For scalability, look at the metrics to determine how to provision resources dynamically and scale with demand.
-> - In the collected logs and metrics look for signs that might make a system or its components suddenly become unavailable. 
+> - In the collected logs and metrics look for signs that might make a system or its components suddenly become unavailable.
 > - Use log aggregation technology to gather information across all application components.
 > - Store logs and key metrics of critical components for statistical evaluation and predicting trends.
 > - Identify antipatterns in the code.
@@ -54,17 +54,10 @@ The monitoring operations should utilize [Azure Monitor](https://azure.microsoft
 
 ## Next section
 
-Based on insights gained through monitoring, optimize your code. One option might be to consider other Azure services that may be more appropriate for your objectives.  
+Based on insights gained through monitoring, optimize your code. One option might be to consider other Azure services that may be more appropriate for your objectives.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Optimize](optimize.md)
 
 ## Related links
 > [Back to the main article](overview.md)
-  
-
-
-
-
-
-

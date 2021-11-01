@@ -3,7 +3,7 @@ metadata:
   title: Serverless application architectures using Event Grid
   titleSuffix: Azure Solution Ideas
   description: Use Event Grid to connect data sources and event handlers. Trigger a serverless function to run image analysis when a new photo enters a blob storage container.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
