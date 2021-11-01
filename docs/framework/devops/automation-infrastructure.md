@@ -16,7 +16,7 @@ ms.custom:
 
 Historically, deploying a new service or application involves manual work such as procuring and preparing hardware, configuring operating environments, and enabling monitoring solutions. Ideally, an organization would have multiple environments in which to test deployments. These test environments should be similar enough to production that deployment and run time issues are detected before deployment to production. This manual work takes time, is error-prone, and can produce inconsistencies between the environments if not done well.
 
-Cloud computing changes the way we procure infrastructure. No longer are we unboxing, racking, and cabling physical infrastructure. We have internet accessible management portals and REST interfaces to help us. We can now provision virtual machines, databases, and other cloud services on demand and globally. When we no longer need cloud services, they can be easily deleted. However, cloud computing alone does not remove the effort and risk in provisioning infrastructure. When using a cloud portal to build systems, many of the same manual configuration tasks remain. Application servers require configuration, databases need networking, and firewalls need firewalling. 
+Cloud computing changes the way we procure infrastructure. No longer are we unboxing, racking, and cabling physical infrastructure. We have internet accessible management portals and REST interfaces to help us. We can now provision virtual machines, databases, and other cloud services on demand and globally. When we no longer need cloud services, they can be easily deleted. However, cloud computing alone does not remove the effort and risk in provisioning infrastructure. When using a cloud portal to build systems, many of the same manual configuration tasks remain. Application servers require configuration, databases need networking, and firewalls need firewalling.
 
 ## Azure Landing Zones (Repeatable environment configuration)
 
@@ -32,7 +32,7 @@ The following is a series of links from the Cloud Adoption Framework to help dep
 - The Cloud Adoption Framework provides a number of [Azure Landing Zone implementation options](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options), including:
   - Start small & expand implementation using Azure Blueprints and ARM Templates
   - Enterprise-Scale implementation using Azure Policy and ARM Templates
-  - CAF Terraform modules and a variety of landing zone options 
+  - CAF Terraform modules and a variety of landing zone options
 
 To get started with Azure Landing Zones to create consistent, repeatable environment configuration see the article series on [Azure Landing Zones](/azure/cloud-adoption-framework/ready/landing-zone/).
 
@@ -107,7 +107,7 @@ Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as
 - **Modular deployments:** ARM templates can be broken up into multiple template files for reusability and modularization.
 - **Day one resource support:** ARM templates support all Azure resources and resource properties as they are released.
 - **Extensibility:** Azure deployments can be extended using deployment scripts and other automation solutions.
-- **Validation:** Azure deployments are evaluated against a validation API to catch configuration mistakes. 
+- **Validation:** Azure deployments are evaluated against a validation API to catch configuration mistakes.
 - **Testing:** the [ARM template test toolkit](/azure/azure-resource-manager/templates/test-toolkit) provides a static code analysis framework for testing ARM templates.
 - **Change preview:** [ARM template what-if](/azure/azure-resource-manager/templates/template-deploy-what-if?tabs=azure-powershell) allows you to see what will be changed before deploying an ARM template.
 - **Tooling:** Language service extensions are available for both [Visual Studio Code](/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code) and [Visual Studio](/azure/azure-resource-manager/templates/create-visual-studio-deployment-project) to assist in authoring ARM templates.
@@ -175,7 +175,7 @@ Manual deployment steps introduce significant risks where human error is concern
 
 ## Hotfix process
 
-In some cases, you may have an unplanned deployment need. For instance, to deploy critical hotfixes or security remediation patches. A defined process for unplanned deployments can help prevent service availability and other deployment issues during these critical events. 
+In some cases, you may have an unplanned deployment need. For instance, to deploy critical hotfixes or security remediation patches. A defined process for unplanned deployments can help prevent service availability and other deployment issues during these critical events.
 
 ## Next steps
 

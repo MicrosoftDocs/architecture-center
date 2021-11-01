@@ -10,7 +10,7 @@ This example architecture shows both approaches:
 
 -   **VM-based IaaS**. Running [Microsoft Host Integration Server](/host-integration-server/what-is-his) (HIS) on a VM, you can use a messaging integration component that connects to IBM MQ. You control the data transformation process by creating a .NET application to read and write messages. The application can persist data in the Azure data store of your choice, and you can choose the MQ server’s polling interval.
 
-## Potential use cases 
+## Potential use cases
 
 Either of these approaches can be used to:
 

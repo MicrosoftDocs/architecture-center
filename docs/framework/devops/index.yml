@@ -45,7 +45,7 @@ landingContent:
         links:
           - text: Getting Started with DevOps
             url: https://channel9.msdn.com/events/All-Around-Azure/All-Around-Azure-DevOps-with-GitHub/Session-1-Getting-started-with-DevOps?term=Operational%20Excellence%20devops&pubDate=year&lang-en=true&pageSize=15&skip=45
-  # Card 
+  # Card
   - title: Automate business solutions
     linkLists:
       - linkListType: get-started
@@ -53,11 +53,11 @@ landingContent:
           - text: Activate resources on demand
             url: automation-overview.md
           - text: Create repeatable and consistent environments
-            url: automation-infrastructure.md  
+            url: automation-infrastructure.md
           - text: Configure programmatic infrastructure
             url: automation-configuration.md
           - text: Automate operational tasks
-            url: automation-tasks.md                      
+            url: automation-tasks.md
       - linkListType: concept
         links:
           - text: Understand automation best practices
@@ -84,7 +84,7 @@ landingContent:
           - text: Configure development environments
             url: release-engineering-app-dev.md#development-environments
           - text: Practice continuous integration
-            url: release-engineering-ci.md            
+            url: release-engineering-ci.md
           - text: Perform release testing
             url: release-engineering-testing.md
           - text: Consider performance

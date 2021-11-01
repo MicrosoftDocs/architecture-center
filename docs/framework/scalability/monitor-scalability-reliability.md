@@ -30,7 +30,7 @@ For scalability, look at the metrics to determine how to provision resources dyn
 
 ## Reliability
 
-Monitor your application for early warning signs that might require proactive intervention. Tools that assess the overall health of the application and its dependencies help you to recognize quickly when a system or its components suddenly become unavailable. Use them to implement an early warning system. 
+Monitor your application for early warning signs that might require proactive intervention. Tools that assess the overall health of the application and its dependencies help you to recognize quickly when a system or its components suddenly become unavailable. Use them to implement an early warning system.
 
 Monitoring systems should capture comprehensive details so that applications can be restored efficiently and, if necessary, designers and developers can modify the system to prevent the situation from recurring.
 
@@ -46,9 +46,9 @@ To learn more, see [Monitoring health for reliability](../resiliency/monitoring.
 
 ## Next section
 
-Based on insights gained through monitoring, optimize your code. One option might be to consider other Azure services that may be more appropriate for your objectives.  
+Based on insights gained through monitoring, optimize your code. One option might be to consider other Azure services that may be more appropriate for your objectives.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Optimize](optimize.md)
 
 ## Related links

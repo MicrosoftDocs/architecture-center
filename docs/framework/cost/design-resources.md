@@ -11,7 +11,7 @@ ms.custom:
 ---
 
 # Azure resources 
-Just like on-premises equipment, there are several elements that affect monthly costs when using Azure services. 
+Just like on-premises equipment, there are several elements that affect monthly costs when using Azure services.
 
 ## Usage meters for resources
 Most services are priced based on units of size, amount of data, or operations. When you provision an Azure resource, Azure creates metered instances for that resource. The _meters_ track the resources' usage and generate a usage record that is used to calculate your bill.
@@ -22,9 +22,9 @@ For example, you provision a virtual machine in Azure. Some meters that track it
 **How is the usage tracked for each resource in the workload?**  
 ***
 
-For each Azure resource, have a clear understanding of the meters that track usage and the number of meters associated with the resource tier. The meters correlate to several billable units. Those units are charged to the account for each billing period. The rate per billable unit depends on the resource tier. 
+For each Azure resource, have a clear understanding of the meters that track usage and the number of meters associated with the resource tier. The meters correlate to several billable units. Those units are charged to the account for each billing period. The rate per billable unit depends on the resource tier.
 
-A resource tier impacts pricing because each tier offers levels of features such as performance or availability. For example, a Standard HDD hard disk is cheaper than a Premium SSD hard disk. 
+A resource tier impacts pricing because each tier offers levels of features such as performance or availability. For example, a Standard HDD hard disk is cheaper than a Premium SSD hard disk.
 
 > ![Task](../../_images/i-best-practices.svg) Start with a lower resource tier then scale the resource up as needed. Growing a service with little to  no downtime is easier when compared to downscaling a service. Downscaling usually requires deprovisioning or downtime. In general, choose scaling out instead of scaling up.
 
@@ -52,7 +52,7 @@ Deploy an additional smaller instance of compute alongside a smaller unit in par
 
 For details about how billing works, see [Azure Cost Management + Billing documentation](/azure/cost-management-billing/).
 
-## Subscription and offer type 
+## Subscription and offer type
 
 
 **What is the subscription and offer type in which resources are created?**  

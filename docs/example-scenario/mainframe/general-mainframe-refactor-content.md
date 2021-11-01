@@ -31,7 +31,7 @@ Refactoring on Azure can help organizations to:
 - Common services include program execution, I/O operations, error detection, and protection (**E**).
 - Middleware and utility services manage tape storage, queueing, output, and web services (**F**).
 - Operating systems are the interface between the compute engine and the software (**G**).
-- Partitions run separate workloads or segregate work types within the environment (**H**). 
+- Partitions run separate workloads or segregate work types within the environment (**H**).
 
 ## Refactored Azure architecture
 

@@ -18,7 +18,7 @@ This article and the [associated code project](https://github.com/mspnp/vnet-int
 
 ## Architecture
 
-APIM controls internal and third-party access to a set of API microservices built on Azure Functions. The **Patient API** provides *create, read, update, and delete (CRUD)* operations for patients and their test results. The **Audit API** function app provides operations to create auditing entries. 
+APIM controls internal and third-party access to a set of API microservices built on Azure Functions. The **Patient API** provides *create, read, update, and delete (CRUD)* operations for patients and their test results. The **Audit API** function app provides operations to create auditing entries.
 
 Each function app stores its data in an independent [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) database. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) securely holds all keys, secrets, and connection strings associated with the apps and databases. Application Insights telemetry and Azure Monitor centralize logging across the system.
 
