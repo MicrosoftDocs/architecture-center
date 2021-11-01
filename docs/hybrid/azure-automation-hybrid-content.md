@@ -6,7 +6,7 @@ This reference architecture illustrates how to extend automation to on-premises 
 
 Typical uses for this architecture include:
 
-- Automated management and configuration across Azure, on-premises, or other cloud providers.  
+- Automated management and configuration across Azure, on-premises, or other cloud providers.
 - Automation of Azure virtual machines (VMs) that reside behind a firewall, with outbound connectivity over the 443 TCP port.
 
 ## Architecture

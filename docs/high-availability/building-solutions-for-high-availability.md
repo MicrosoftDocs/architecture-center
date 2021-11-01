@@ -85,7 +85,7 @@ Zonal architecture applies to a specific resource, typically an infrastructure a
 
 In the illustration, each VM and load balancer (LB) are deployed to a specific zone.
 
-With zone-redundant services, the distribution of the workload is a feature of the service and is handled by Azure. Azure automatically replicates the resource across zones without requiring your intervention. ZRS, for example, replicates the data across three zones so a zone failure does not impact the HA of the data.  
+With zone-redundant services, the distribution of the workload is a feature of the service and is handled by Azure. Azure automatically replicates the resource across zones without requiring your intervention. ZRS, for example, replicates the data across three zones so a zone failure does not impact the HA of the data.
 
 The following illustration is of a zone-redundant load balancer.
 
@@ -101,7 +101,7 @@ The following is a summary of the zonal (Z) and zone-redundant (ZR) Azure servic
   <tr valign="top">
     <td>
 
- **Analytics** 
+ **Analytics**
 
 - **Azure Data Explorer (ZR)**
 
@@ -145,11 +145,11 @@ The following is a summary of the zonal (Z) and zone-redundant (ZR) Azure servic
 
 - **Azure Service Bus (ZR)** 
     </td>
-    <td> 
+    <td>
 
-**Management and governance** 
+**Management and governance**
 
-- **Azure Traffic Manager (ZR)** 
+- **Azure Traffic Manager (ZR)**
 
 **Networking**
 

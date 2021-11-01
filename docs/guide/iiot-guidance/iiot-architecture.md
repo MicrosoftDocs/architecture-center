@@ -58,7 +58,7 @@ In process manufacturing, industrial equipment (for example, flow monitors, pump
 
 In discrete manufacturing, industrial equipment (for example, factory robots, conveyor systems, and so on) are connected and controlled by a PLC. One or more PLCs may be connected to a central SCADA system using protocols such as Modbus or other industrial protocols.
 
-In some cases, the data from SCADA systems is forwarded and centralized in an MES or a *historian* software (also known as *process historian* or *operational historian*). These historians are often located in IT controlled networks and have some access to the internet.  
+In some cases, the data from SCADA systems is forwarded and centralized in an MES or a *historian* software (also known as *process historian* or *operational historian*). These historians are often located in IT controlled networks and have some access to the internet.
 
 Frequently, industrial equipment and SCADA systems are in a closed Process Control Network (PCN), behind one or more firewalls, with no direct access to the internet. Historians often contain industrial data from multiple facilities and are located outside of a PCN. So, connecting to a historian is often the path of least resistance, rather than connecting to a SCADA, MES, or PLC. If a historian is not available, then connecting to an MES or SCADA system would be the next logical choice.
 
@@ -89,7 +89,7 @@ There are two system modules provided as part of IoT Edge runtime.
 - The **EdgeAgent** module is responsible for pulling down the container orchestration specification (manifest) from the cloud, so that it knows which modules to run.  Module configuration is provided as part of the [module twin](/azure/iot-hub/iot-hub-devguide-module-twins).
 - The **EdgeHub** module manages the communication from the device to Azure IoT Hub, as well as the inter-module communication. Messages are routed from one module to the next using JSON configuration.
 
-[Azure IoT Edge automatic deployments](https://azure.microsoft.com/blog/new-enhancements-for-azure-iot-edge-automatic-deployments/) can be used to specify a standing configuration for new or existing devices. This provides a single location for deployment configuration across thousands of Azure IoT Edge devices.  
+[Azure IoT Edge automatic deployments](https://azure.microsoft.com/blog/new-enhancements-for-azure-iot-edge-automatic-deployments/) can be used to specify a standing configuration for new or existing devices. This provides a single location for deployment configuration across thousands of Azure IoT Edge devices.
 
 A number of third-party [IoT Edge gateway devices](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}) are available from the *Azure Certified for IoT Device Catalog*.
 
@@ -104,7 +104,7 @@ There are [three patterns for connecting your devices](/azure/iot-edge/iot-edge-
 
 1. **Protocol Translation:** Also known as an opaque gateway pattern.  This pattern is often used to connect older brownfield equipment (for example, Modbus) to Azure. Modules are deployed to Azure IoT Edge to perform the protocol conversion. Devices must provide a unique identifier to the gateway.
 
-1. **Identity Translation:** In this pattern, devices cannot communicate directly to IoT Hub (for example, OPC UA Pub/Sub, BLE devices). The gateway is smart enough to understand the protocol used by the downstream devices, provide them identity, and translate IoT Hub primitives. Each device has an identity and device twin in Azure IoT Hub.  
+1. **Identity Translation:** In this pattern, devices cannot communicate directly to IoT Hub (for example, OPC UA Pub/Sub, BLE devices). The gateway is smart enough to understand the protocol used by the downstream devices, provide them identity, and translate IoT Hub primitives. Each device has an identity and device twin in Azure IoT Hub.
 
 Although you can use any of these patterns in your IIoT Analytics Solution, your choice will be driven by which protocol is installed on your industrial systems. For example, if your SCADA system supports ethernet/IP, you will need to use a protocol translation software to convert ethernet/IP to MQTT or AMQP. See the [Connecting to Historians section](#connecting-to-historians) for additional guidance.
 

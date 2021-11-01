@@ -63,10 +63,10 @@ A hub-spoke architecture can be achieved two ways: a customer-managed hub infras
 
 This diagram illustrates a few of the advantages that this architecture can provide:
 * A full meshed hubs among Azure Virtual Networks
-* Branch to Azure connectivity 
+* Branch to Azure connectivity
 * Branch to Branch connectivity
 * Mixed use of VPN and Express Route
-* Mixed use of user VPN to the site 
+* Mixed use of user VPN to the site
 * VNET to VNET connectivity
 
 ## Recommendations

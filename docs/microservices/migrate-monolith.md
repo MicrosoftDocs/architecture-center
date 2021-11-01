@@ -63,9 +63,9 @@ Any migration strategy should allow teams to incrementally refactor the applicat
 - Split the front end from the back end.
 - Decompose and decouple the monolith into a series of microservices.
 
-To help facilitate this decomposition, a viable software development approach is to apply the principles of domain-driven design (DDD). 
+To help facilitate this decomposition, a viable software development approach is to apply the principles of domain-driven design (DDD).
 
-Domain Driven Design (DDD) is a software development approach first introduced by [Eric Evans](http://domainlanguage.com/ddd/). DDD requires a good understanding of the domain for which the application will be written. The necessary domain knowledge to create the application resides within the people who understand it &mdash; the domain experts. 
+Domain Driven Design (DDD) is a software development approach first introduced by [Eric Evans](http://domainlanguage.com/ddd/). DDD requires a good understanding of the domain for which the application will be written. The necessary domain knowledge to create the application resides within the people who understand it &mdash; the domain experts.
 
 The DDD approach can be applied retroactively to an existing application, as a way to begin decomposing the application.
 
@@ -113,7 +113,7 @@ At this stage, the team can begin peeling away the monolithic application and sl
 
 ![Use API layer](./images/monolith/figure6.png)
 
-As you continue to peel away the monolith, eventually there will come the point when it no longer needs to exist, and the microservices have been successfully extracted from the monolith. At this point, the anti-corruption layer (glue code) can safely be removed. 
+As you continue to peel away the monolith, eventually there will come the point when it no longer needs to exist, and the microservices have been successfully extracted from the monolith. At this point, the anti-corruption layer (glue code) can safely be removed.
 
 This approach is an example of the [Strangler Fig pattern](../patterns/strangler-fig.md) and allows for a controlled decomposition of a monolith into a set of microservices. Over time, as existing functionality is moved into microservices, the monolith will shrink in size and complexity, to the point that it no longer exists.
 

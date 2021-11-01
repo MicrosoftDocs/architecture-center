@@ -75,7 +75,7 @@ Key Azure services that can help in creating a landing zone:
 - [Azure Defender](/azure/security-center/azure-defender)
 
 ## Next
-Use management groups to manage resources across multiple subscriptions consistently and efficiently. 
+Use management groups to manage resources across multiple subscriptions consistently and efficiently.
 
 > [!div class="nextstepaction"]
 > [Management groups](design-management-groups.md)

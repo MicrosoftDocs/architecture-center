@@ -45,13 +45,13 @@ For more information, see [Azure security baseline for Azure Monitor](/security/
 
 In an IaaS model, you can host the workload on Azure infrastructure. Azure provides security assurances that maintain isolation and timely security updates to the infrastructure. For greater control, you host the entire IaaS solution on-premises or in a hosted data center and are responsible for security. You must implement security on the host, virtual machine, network, and storage. For instance if you have your own VNet, consider enabling Azure Private Link over Azure Monitor so you can access this over a private endpoint.
 
-In PaaS, you have shared responsibility with Azure in protecting the data. 
+In PaaS, you have shared responsibility with Azure in protecting the data.
 
 ## Virtual machines
 
 If you're running your own Windows and Linux virtual machines, use Azure Security Center. Take advantage of the free services to check for missing OS patches, security misconfiguration, and basic network security. Enabling Azure Defender is highly recommended because you get features that provide adaptive application controls, file integrity monitoring (FIM), and others.
 
-For example, a common risk is the virtual machines don't have vulnerability scanning solutions that check for threats. Azure Security Center reports those machines. You can remediate in Azure Security Center by deploying a scanning solution. You can use the built-in vulnerability scanner for virtual machines. You don't need a license. Instead, you can bring your license for supported partner solutions. 
+For example, a common risk is the virtual machines don't have vulnerability scanning solutions that check for threats. Azure Security Center reports those machines. You can remediate in Azure Security Center by deploying a scanning solution. You can use the built-in vulnerability scanner for virtual machines. You don't need a license. Instead, you can bring your license for supported partner solutions.
 
 > [!NOTE]
 >
@@ -61,9 +61,9 @@ Attackers constantly scan public cloud IP ranges for open management ports, whic
 
 With Azure Defender, you also get Microsoft Defender for Endpoint. This provides investigative tools Endpoint Detection and Response (EDR) that helps in threat detection and analysis.
 
-Azure Defender for servers also watches the network to and from virtual machines. If you are using network security groups to control access to the virtual machines and the rules are overpermissive, Security Center will flag them. Adaptive network hardening provides recommendations to further harden the NSG rules. 
+Azure Defender for servers also watches the network to and from virtual machines. If you are using network security groups to control access to the virtual machines and the rules are overpermissive, Security Center will flag them. Adaptive network hardening provides recommendations to further harden the NSG rules.
 
-For a full list of features, see [Feature coverage for machines](/azure/security-center/security-center-services?tabs=features-windows). 
+For a full list of features, see [Feature coverage for machines](/azure/security-center/security-center-services?tabs=features-windows).
 
 ### Remove direct internet connectivity
 
@@ -93,7 +93,7 @@ Containerized workloads have an extra layer of abstraction and orchestration. Th
 
     A popular process pattern is the quarantine pattern. This pattern allows you to get your images on a dedicated container registry and subject them to security or compliance scrutiny applicable for your organization. After it's validated, they can then be released from quarantine and promoted to being available.
 
-    Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. 
+    Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers.
 
 - Make sure you use images from authorized registries. You can enforce this restriction through Azure Policy. For example, for an Azure Kubernetes Service (AKS) cluster, have policies that restrict the cluster to only pull images from Azure Container Registry (ACR) that is deployed as part of the architecture.
 
@@ -104,11 +104,11 @@ Containerized workloads have an extra layer of abstraction and orchestration. Th
     >
     > The design considerations are described in [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
 
-- Regularly scan containers for known risks in the container registry, before use, and during use. 
+- Regularly scan containers for known risks in the container registry, before use, and during use.
 
-- Use security monitoring tools that are container aware to monitor for anomalous behavior and enable investigation of incidents. 
+- Use security monitoring tools that are container aware to monitor for anomalous behavior and enable investigation of incidents.
 
-    Azure Defender for container registries are designed to protect AKS clusters, container hosts (virtual machines running Docker), and ACR registries. When enabled, the images that are pulled or pushed to registries are subject to vulnerability scans. 
+    Azure Defender for container registries are designed to protect AKS clusters, container hosts (virtual machines running Docker), and ACR registries. When enabled, the images that are pulled or pushed to registries are subject to vulnerability scans.
 
 For more information, see these articles:
 
@@ -124,24 +124,24 @@ As an initial step, enable and review all logs (including raw traffic) from your
 - Security group logs – [flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal) and diagnostic logs
 - [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview)
 
-Take advantage of the [packet capture](/azure/network-watcher/network-watcher-alert-triggered-packet-capture) feature to set alerts and gain access to real-time performance information at the packet level. 
+Take advantage of the [packet capture](/azure/network-watcher/network-watcher-alert-triggered-packet-capture) feature to set alerts and gain access to real-time performance information at the packet level.
 
-Packet capture tracks traffic in and out of virtual machines. It gives you the capability to run proactive captures based on defined network anomalies including information about network intrusions. 
+Packet capture tracks traffic in and out of virtual machines. It gives you the capability to run proactive captures based on defined network anomalies including information about network intrusions.
 
 For an example, see [Scenario: Get alerts when VM is sending you more TCP segments than usual](/azure/network-watcher/network-watcher-alert-triggered-packet-capture#scenario).
 
 Then, focus on observability of specific services by reviewing the diagnostic logs. For example, for Azure Application Gateway with integrated WAF, see [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics). Azure Security Center analyzes diagnostic logs on virtual networks, gateways, network security groups and determines if the controls are secure enough. For example:
 
 - Is your virtual machine exposed to public internet. If so, do you have tight rules on network security groups to protect the machine?
-- Are the network security groups (NSG) and rules that control access to the virtual machines overly permissive? 
+- Are the network security groups (NSG) and rules that control access to the virtual machines overly permissive?
 - Are the storage accounts receiving traffic over secure connections?
 
 Follow the recommendations provided by Security Center. For more information, see [Networking recommendations](/azure/security-center/recommendations-reference#networking-recommendations). Use [Azure Firewall logs](/azure/firewall/logs-and-metrics) and metrics for observability into operational and audit logs.
 
 Integrate all logs into a security information and event management (SIEM) service, such as Azure Sentinel. The SIEM solutions support ingestion of large amounts of information and can analyze large datasets quickly. Based on those insights, you can:
 - Set alerts or block traffic crossing segmentation boundaries.
-- Identify anomalies. 
-- Tune the intake to significantly reduce the false positive alerts. 
+- Identify anomalies.
+- Tune the intake to significantly reduce the false positive alerts.
 
 
 
@@ -160,13 +160,13 @@ Monitor identity-related risk events on potentially compromised identities and r
 - Use the reporting capabilities of [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection).
 - Use the Identity Protection risk events API to get programmatic access to security detections by using Microsoft Graph. See [riskDetection](/graph/api/resources/riskdetection?view=graph-rest-1.0&preserve-view=true) and [riskyUser](/graph/api/resources/riskyuser?view=graph-rest-1.0&preserve-view=true) APIs.
 
-Azure AD uses adaptive machine learning algorithms, heuristics, and known compromised credentials (username/password pairs) to detect suspicious actions that are related to your user accounts. These username/password pairs come from monitoring public and dark web and by working with security researchers, law enforcement, security teams at Microsoft, and others. 
+Azure AD uses adaptive machine learning algorithms, heuristics, and known compromised credentials (username/password pairs) to detect suspicious actions that are related to your user accounts. These username/password pairs come from monitoring public and dark web and by working with security researchers, law enforcement, security teams at Microsoft, and others.
 
-Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events. 
+Remediate risks by manually addressing each reported account or by setting up a [user risk policy](/azure/active-directory/identity-protection/howto-user-risk-policy) to require a password change for high risk events.
 
 ### Regularly review critical access
 
-Regularly review roles that are assigned privileges with a business-critical impact. 
+Regularly review roles that are assigned privileges with a business-critical impact.
 
 Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change. You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review).
 
@@ -187,7 +187,7 @@ Here are ways to reduce your risk:
     [NTLM](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain),
     [WDigest](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a).
 
-- Use only secure hash algorithms (SHA-2 family). 
+- Use only secure hash algorithms (SHA-2 family).
 
 We recommend implementing changes using pilot or other testing methods to mitigate risk of operational interruption.
 

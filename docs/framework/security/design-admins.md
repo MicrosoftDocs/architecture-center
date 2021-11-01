@@ -123,7 +123,7 @@ Choose the level of isolation from on premises means of control also known as se
 
     -   Native Azure AD Accounts -*Create Native Azure AD Accounts that are not synchronized with on-premises active directory
 
-    -   Synchronize from On Premises Active Directory 
+    -   Synchronize from On Premises Active Directory
     - Use existing accounts hosted in the on premises active directory.
 
 - **Workstations:** Choose how you will manage and secure the workstations used by critical admin accounts:
@@ -142,7 +142,7 @@ Attack methods have evolved to the point where passwords alone cannot reliably p
 
 Administrative accounts and all critical accounts should use one of the following methods of authentication. These capabilities are listed in preference order by highest cost/difficulty to attack (strongest/preferred options) to lowest cost/difficult to attack:
 
-- **[Passwordless (such as Windows Hello)](/windows/security/identity-protection/hello-for-business/hello-identity-verification)**  
+- **[Passwordless (such as Windows Hello)](/windows/security/identity-protection/hello-for-business/hello-identity-verification)**
 
 - **[Passwordless (Authenticator App)](/azure/active-directory/authentication/howto-authentication-phone-sign-in)**
 

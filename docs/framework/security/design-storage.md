@@ -17,7 +17,7 @@ ms.custom:
 
 # Data protection considerations
 
-Classify, protect, and monitor sensitive data assets using access control, encryption, and logging in Azure. Provide controls on data at rest and in transit.  
+Classify, protect, and monitor sensitive data assets using access control, encryption, and logging in Azure. Provide controls on data at rest and in transit.
 
 ## Checklist
 **How are you managing encryption for this workload?**

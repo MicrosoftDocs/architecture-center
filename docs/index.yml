@@ -407,13 +407,13 @@ conceptualContent:
           url: reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml
         - text: SAP NetWeaver on SQL Server
           itemType: architecture
-          url: solution-ideas/articles/sap-netweaver-on-sql-server.yml  
+          url: solution-ideas/articles/sap-netweaver-on-sql-server.yml
         - text: SAP deployment using an Oracle DB
           itemType: architecture
           url: example-scenario/apps/sap-production.yml
         - text: Dev/test for SAP
           itemType: architecture
-          url: example-scenario/apps/sap-dev-test.yml           
+          url: example-scenario/apps/sap-dev-test.yml
 
     - title: Web apps
       links:

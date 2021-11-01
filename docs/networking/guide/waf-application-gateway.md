@@ -22,7 +22,7 @@ We assume that you have working knowledge of Azure Application Gateway and are w
 
 ## Cost Optimization
 
-Review and apply the [cost principles](../../framework/cost/overview.md) when making design choices. Here are some best practices. 
+Review and apply the [cost principles](../../framework/cost/overview.md) when making design choices. Here are some best practices.
 
 #### Review Application Gateway pricing
 
@@ -41,9 +41,9 @@ Identify and delete Application Gateway instances with empty backend pools.
 
 #### Stop Application Gateway instances when not in use
 
-You aren't billed when Application Gateway is in the stopped state. 
+You aren't billed when Application Gateway is in the stopped state.
 
-Continuously running Application Gateway instances can incur extraneous costs. Evaluate usage patterns and stop instances when you don't need them. For example, usage after business hours in Dev/Test environments is expected to be low. 
+Continuously running Application Gateway instances can incur extraneous costs. Evaluate usage patterns and stop instances when you don't need them. For example, usage after business hours in Dev/Test environments is expected to be low.
 
 See these articles for information about how to stop and start instances.
 
@@ -65,7 +65,7 @@ You're billed based on metered instances of Application Gateway based on the met
 
 ![Azure Application Gateway pricing Cost Review](./images/application-gateway-sample-cost.png)
 
-Evaluate the various metrics and capacity units and determine the cost drivers. 
+Evaluate the various metrics and capacity units and determine the cost drivers.
 
 These are key metrics for Application Gateway. This information can be used to validate that the provisioned instance count matches the amount of incoming traffic.
 
@@ -76,19 +76,19 @@ These are key metrics for Application Gateway. This information can be used to v
 For more information, see [Application Gateway metrics](/azure/application-gateway/application-gateway-metrics#application-gateway-metrics).
 
 
-Make sure you account for bandwidth costs. For details, see [Traffic across billing zones and regions](../../framework/cost/design-regions.md#traffic-across-billing-zones-and-regions). 
+Make sure you account for bandwidth costs. For details, see [Traffic across billing zones and regions](../../framework/cost/design-regions.md#traffic-across-billing-zones-and-regions).
 
 
 ## Performance Efficiency
 
-#### Take advantage features for autoscaling and performance benefits 
+#### Take advantage features for autoscaling and performance benefits
 
 The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. When compared to v1 SKU, v2 has capabilities that enhance the performance of the workload. For example, better TLS offload performance, quicker deployment and update times, zone redundancy, and more. For more information about autoscaling features, see [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
 If you are running v1 SKU gateways, consider migrating to v2 SKU. See  
 [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](/azure/application-gateway/migrate-v1-v2).
 
-General best practices related to Performance Efficiency are described in [Performance efficiency principles](../../framework/scalability/principles.md). 
+General best practices related to Performance Efficiency are described in [Performance efficiency principles](../../framework/scalability/principles.md).
 
 #### Estimate the Application Gateway instance count
 Application Gateway v2 scales out based on many aspects, such as CPU, memory, network utilization, and more. To determine the approximate instance count, factor in these metrics:
@@ -99,7 +99,7 @@ Consider this equation when calculating instance counts.
 
 ![Approximate instance count](./images/autoscale-instance.svg)
 
-After you've estimated the instance count, compare that value to the maximum instance count. This will indicate how close you are to the maximum available capacity. 
+After you've estimated the instance count, compare that value to the maximum instance count. This will indicate how close you are to the maximum available capacity.
 
 
 #### Define the minimum instance count
@@ -112,7 +112,7 @@ Check the **Current Compute Units** for the past one month. This metric represen
 #### Define the maximum instance count
 We recommend 125 as the maximum autoscale instance count. Make sure the subnet that has the Application Gateway has sufficient available IP addresses to support the scale-up set of instances.
 
-Setting the maximum instance count to 125 has no cost implications because you're billed only for the consumed capacity. 
+Setting the maximum instance count to 125 has no cost implications because you're billed only for the consumed capacity.
 
 #### Define Application Gateway subnet size
 
@@ -125,7 +125,7 @@ Here are some considerations for defining the subnet size:
 - If you want to deploy additional Application Gateway resources in the same subnet, consider the additional IP addresses that will be required for their maximum instance count for both, Standard and Standard v2.
 
 ## Operational Excellence
-Monitoring and diagnostics are crucial. Not only can you measure performance statistics but also use metrics troubleshoot and remediate issues quickly. 
+Monitoring and diagnostics are crucial. Not only can you measure performance statistics but also use metrics troubleshoot and remediate issues quickly.
 
 #### Monitor capacity metrics
 
@@ -133,7 +133,7 @@ Use these metrics as indicators of utilization of the provisioned Application Ga
 
 |Metric|Description|Use case|
 |---|---|---|
-|**Current Compute Units**|	CPU utilization of virtual machine running Application Gateway. One Application Gateway instance supports 10 Compute Units.|Helps detect issues when more traffic is sent than what Application Gateway instances can handle.|   
+|**Current Compute Units**|	CPU utilization of virtual machine running Application Gateway. One Application Gateway instance supports 10 Compute Units.|Helps detect issues when more traffic is sent than what Application Gateway instances can handle.|
 |**Throughput**|Amount of traffic (in Bps) served by Application Gateway.	|This threshold is dependent on the payload size. For smaller payloads but more frequent connections, expect lower throughput limits and adjust alerts accordingly. |
 |**Current Connections**| Active TCP connections on Application Gateway.| Helps detect issues where the connection count increases beyond the capacity of Application gateway. Look for a drop in capacity unit when the connection count increases, look for a simultaneous drop in capacity unit. This will indicate if Application Gateway is out of capacity.|
 
@@ -144,8 +144,8 @@ There are other metrics that can indicate issues either at Application Gateway o
 |Metric|Description|Use case|
 |---|---|---|
 |**Unhealthy Host Count** |	Number of backends that Application Gateway is unable to probe successfully. |Application Gateway instances are unable to connect to the backend. For example, the  probe interval is 10 seconds and unhealthy host count threshold is 3 failed probes). A backend will turn unhealthy if Application Gateway instance isn't able to reach it for 30 seconds. Also depends on the configured timeout and interval in the custom probe. |
-|**Response Status** (dimension 4xx and 5xx)| The HTTP response status returned to clients from Application Gateway. This status is usually same as the **Backend Response Status**, unless Application Gateway is unable to get a response from the backend or Application Gateway has an internal error in serving responses.|Issues with Application Gateway or the backend. Use this metric with **Backend Response Status** to identify whether Application Gateway or the backend is failing to serve requests.|  
-|**Backend Response Status** (dimension 4xx and 5xx)|The HTTP response status returned to Application Gateway from the backend. |	Use to validate if the backend is successfully receiving requests and serving responses.| 
+|**Response Status** (dimension 4xx and 5xx)| The HTTP response status returned to clients from Application Gateway. This status is usually same as the **Backend Response Status**, unless Application Gateway is unable to get a response from the backend or Application Gateway has an internal error in serving responses.|Issues with Application Gateway or the backend. Use this metric with **Backend Response Status** to identify whether Application Gateway or the backend is failing to serve requests.|
+|**Backend Response Status** (dimension 4xx and 5xx)|The HTTP response status returned to Application Gateway from the backend. |	Use to validate if the backend is successfully receiving requests and serving responses.|
 |**Backend Last Byte Response Time**|Time interval between the start of a connection to backend server and receiving the last byte of the response body.|	Increase in this latency implies that the backend is getting loaded and is taking longer to respond to requests. One way to resolve this issue is to scale up the backend.|
 |**Application Gateway Total Time**|Time period from when Application Gateway receives the first byte of the HTTP request to when the last response byte has been sent to the client. This includes client RTT| Increase in this latency, without any accompanying application changes or access traffic pattern changes should be investigated. If this metric increases, monitor other the metrics and determine if they other metrics are also increasing, such as compute units, total throughput, or total request count.|
 
@@ -173,7 +173,7 @@ Ensure you have configured the **IdleTimeout** settings to match the listener an
 For workload considerations, see [Application Monitoring](../../framework/devops/monitoring.md#application-monitoring).
 
 #### Monitoring Key Vault configuration issues through Azure Advisor
-Azure Application Gateway checks for the renewed certificate version in the linked Key Vault at every 4-hour interval. If it is inaccessible due to any incorrectly modified Key Vault configurations, it logs that error and pushes a corresponding Advisor recommendation. You must configure Advisor alert to stay updated and fix such issues immediately to avoid any Control or Data plane related problems. To set an alert for this specific case, use the Recommendation Type as "Resolve Azure Key Vault issue for your Application Gateway". 
+Azure Application Gateway checks for the renewed certificate version in the linked Key Vault at every 4-hour interval. If it is inaccessible due to any incorrectly modified Key Vault configurations, it logs that error and pushes a corresponding Advisor recommendation. You must configure Advisor alert to stay updated and fix such issues immediately to avoid any Control or Data plane related problems. To set an alert for this specific case, use the Recommendation Type as "Resolve Azure Key Vault issue for your Application Gateway".
 
 ## Reliability
 Here are some best practices to minimize failed instances.
@@ -184,18 +184,18 @@ In addition, we recommend that you review the [Principles of the reliability pil
 Plan enough time for updates before accessing Application Gateway or making further changes. For example, removing servers from backend pool might take some time because they have to drain existing connections.
 
 #### Use health probes to detect backend unavailability
-If Application Gateway is used to load balance incoming traffic over multiple backend instances, we recommend the use of health probes. These will ensure that traffic is not routed to backends that are unable to handle the traffic. 
+If Application Gateway is used to load balance incoming traffic over multiple backend instances, we recommend the use of health probes. These will ensure that traffic is not routed to backends that are unable to handle the traffic.
 
 #### Review the impact of the interval and threshold settings on health probes
-The health probe sends requests to the configured endpoint at a set _interval_. Also, there's a _threshold_ of failed requests that will be tolerated before the backend is marked unhealthy. These numbers present a trade-off. 
-- Setting a higher interval puts a higher load on your service. Each Application Gateway instance sends its own health probes, so 100 instances every 30 seconds means 100 requests per 30 seconds. 
-- Setting a lower interval leaves more time before an outage is detected. 
-- Setting a low unhealthy threshold may mean that short, transient failures may take down a backend. 
+The health probe sends requests to the configured endpoint at a set _interval_. Also, there's a _threshold_ of failed requests that will be tolerated before the backend is marked unhealthy. These numbers present a trade-off.
+- Setting a higher interval puts a higher load on your service. Each Application Gateway instance sends its own health probes, so 100 instances every 30 seconds means 100 requests per 30 seconds.
+- Setting a lower interval leaves more time before an outage is detected.
+- Setting a low unhealthy threshold may mean that short, transient failures may take down a backend.
 - Setting a high threshold it can take longer to take a backend out of rotation.
 
 #### Verify downstream dependencies through health endpoints
 
-Suppose each backend has its own dependencies to ensure failures are isolated. For example, an application hosted behind Application Gateway may have multiple backends, each connected to a different database (replica). When such a dependency fails, the application may be working but won't return valid results. For that reason, the health endpoint should ideally validate all dependencies. Keep in mind that if each call to the health endpoint has a direct dependency call, that database would receive 100 queries every 30 seconds instead of 1. To avoid this, the health endpoint should cache the state of the dependencies for a short period of time. 
+Suppose each backend has its own dependencies to ensure failures are isolated. For example, an application hosted behind Application Gateway may have multiple backends, each connected to a different database (replica). When such a dependency fails, the application may be working but won't return valid results. For that reason, the health endpoint should ideally validate all dependencies. Keep in mind that if each call to the health endpoint has a direct dependency call, that database would receive 100 queries every 30 seconds instead of 1. To avoid this, the health endpoint should cache the state of the dependencies for a short period of time.
 
 For more information, see these articles:
 
@@ -226,7 +226,7 @@ There are advantages of using Application Gateway for TLS termination:
 - Performance improves because requests going to different backends to have to re-authenticate to each backend.
 - Better utilization of backend servers because they don't have to perform TLS processing
 - Intelligent routing by accessing the request content.
-- Easier certificate management because the certificate only needs to be installed on Application Gateway. 
+- Easier certificate management because the certificate only needs to be installed on Application Gateway.
 
 #### Encrypting considerations
 
@@ -236,7 +236,7 @@ When re-encrypting backend traffic, ensure the backend server certificate contai
 [Application Gateway is integrated with Key Vault](/azure/application-gateway/key-vault-certs). This provides stronger security, easier separation of roles and responsibilities, support for managed certificates, and an easier certificate renewal and rotation process.
 
 #### Enabling the Web Application Firewall (WAF)
-When WAF is enabled, every request must be buffered by the Application Gateway until it fully arrives and check if the request matches with any rule violation in its core rule set and then forward the packet to the backend instances. For large file uploads (30MB+ in size), this can result in a significant latency. Because Application Gateway capacity requirements are different with WAF, we do not recommend enabling WAF on Application Gateway without proper testing and validation. 
+When WAF is enabled, every request must be buffered by the Application Gateway until it fully arrives and check if the request matches with any rule violation in its core rule set and then forward the packet to the backend instances. For large file uploads (30MB+ in size), this can result in a significant latency. Because Application Gateway capacity requirements are different with WAF, we do not recommend enabling WAF on Application Gateway without proper testing and validation.
 
 ## Next steps
 

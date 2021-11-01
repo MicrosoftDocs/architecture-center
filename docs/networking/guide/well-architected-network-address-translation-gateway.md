@@ -44,7 +44,7 @@ Each NAT gateway supports 64,000 flows for TCP and UDP respectively, per assigne
 - UDP flows, such as DNS lookups, use SNAT ports during the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. A shorter idle timeout, such as 4 minutes, will reduce the length of time that the SNAT ports will be in use.
 - Use connection pools to shape your connection volume.
 - Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, the TCP connection remains open. Intermediate systems and endpoints will keep this connection in use, which in turn makes the SNAT port unavailable for other connections. This anti-pattern can trigger application failures and SNAT exhaustion.
-- Don't change OS-level TCP-close related timer values, without expert knowledge of the implications. While the TCP stack will recover, your application performance can be negatively affected when the endpoints of a connection have mismatched expectations. Changing timer values is usually a sign of an underlying design problem. If the underlying application has other anti-patterns, SNAT exhaustion can also be amplified if the timer values are altered. 
+- Don't change OS-level TCP-close related timer values, without expert knowledge of the implications. While the TCP stack will recover, your application performance can be negatively affected when the endpoints of a connection have mismatched expectations. Changing timer values is usually a sign of an underlying design problem. If the underlying application has other anti-patterns, SNAT exhaustion can also be amplified if the timer values are altered.
 
 Review the following guidance to improve the scale and reliability of your service:
 
@@ -75,7 +75,7 @@ Availability zone isolation cannot be provided, unless each subnet only has reso
 
 ## Security
 
-A common approach is to design an outbound-only network virtual appliance (NVA) scenario with third-party firewalls or with proxy servers. When a NAT gateway is deployed to a subnet with a virtual machine scale set of NVAs, those NVAs will use the NAT gateway address(es) for outbound connectivity, as opposed to the IP of a load balancer or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb).  
+A common approach is to design an outbound-only network virtual appliance (NVA) scenario with third-party firewalls or with proxy servers. When a NAT gateway is deployed to a subnet with a virtual machine scale set of NVAs, those NVAs will use the NAT gateway address(es) for outbound connectivity, as opposed to the IP of a load balancer or the individual IPs. To employ this scenario with Azure Firewall, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb).
 
 ![Diagram that shows firewalls with a load balancer sandwich and NAT gateway.](./images/natgw-fw-vmss.svg)
 

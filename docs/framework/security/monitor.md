@@ -56,7 +56,7 @@ The Azure Security Benchmark includes a collection of high-impact security recom
   This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying several Microsoft security solutions.
 
 ## Next step
-We recommend applying as many best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program. 
+We recommend applying as many best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program.
 
 ## Related link
 > Go back to the main article: [Security](overview.md)

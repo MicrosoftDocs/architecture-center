@@ -51,7 +51,7 @@ landingContent:
         links:
           - text: "Cloud Security Posture Management (CSPM) with Azure Security Center"
             url: https://channel9.msdn.com/Shows/Azure-Friday/Cloud-Security-Posture-Management-CSPM-with-Azure-Security-Center?term=Security%20overview&pubDate=3years&lang-en=true
-  # Card 
+  # Card
   - title: Design for security
     linkLists:
       - linkListType: get-started
@@ -59,13 +59,13 @@ landingContent:
           - text: Plan segmentation
             url: design-segmentation.md
           - text: Consider team roles and responsibilities
-            url: design-identity-role-definitions.md 
+            url: design-identity-role-definitions.md
           - text: Implement network segmentation
             url: design-network-segmentation.md
           - text: Encrypt data
-            url: design-storage-encryption.md  
+            url: design-storage-encryption.md
           - text: Understand application security
-            url: design-apps-services.md                 
+            url: design-apps-services.md
       - linkListType: concept
         links:
           - text: Support segmentation with management groups
@@ -98,7 +98,7 @@ landingContent:
           - text: Consider secure deployment governance
             url: deploy-governance.md
           - text: Understand infrastructure provisioning
-            url: deploy-infrastructure.md          
+            url: deploy-infrastructure.md
           - text: Deploy code
             url: deploy-code.md
       - linkListType: concept
@@ -196,7 +196,7 @@ landingContent:
           - text: Azure Security Center
             url: /rest/api/securitycenter/
           - text: Adaptive Network Hardenings
-            url: /rest/api/securitycenter/adaptive-network-hardenings  
+            url: /rest/api/securitycenter/adaptive-network-hardenings
           - text: Alerts
             url: /rest/api/securitycenter/alerts
           - text: Iot Security Solution

@@ -16,7 +16,7 @@ ms.custom:
 
 # Tradeoffs for security
 
-Security provides confidentiality, integrity, and availability assurances of an organization's data and systems. When designing a system you can almost never compromise on security controls. When you enhance security of an architecture there might be impact on reliability, performance efficiency, cost, and operational excellence. This article describes some of those considerations. 
+Security provides confidentiality, integrity, and availability assurances of an organization's data and systems. When designing a system you can almost never compromise on security controls. When you enhance security of an architecture there might be impact on reliability, performance efficiency, cost, and operational excellence. This article describes some of those considerations.
 
 
 ## Security vs Reliability
@@ -37,13 +37,13 @@ Other security considerations that might impact reliability are:
 
 Increasing security of the workload will almost always lead to higher cost. There are some ways to optimize cost.
 
-- Maximum security may not always be practical for all environments. Evaluate the security requirements in pre-production and production environments. Are services such as Azure DDoS Protection, Azure Sentinel, Dedicated HSMs, Azure Defender needed in pre-production? Is inner loop mocking of security controls sufficient? If resources are not publicly accessible, can you dial down some controls for cost savings? Always make those choices, _if and only if_, the lowered environment still meets the business requirements. 
+- Maximum security may not always be practical for all environments. Evaluate the security requirements in pre-production and production environments. Are services such as Azure DDoS Protection, Azure Sentinel, Dedicated HSMs, Azure Defender needed in pre-production? Is inner loop mocking of security controls sufficient? If resources are not publicly accessible, can you dial down some controls for cost savings? Always make those choices, _if and only if_, the lowered environment still meets the business requirements.
 
-- Premium security features can increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom roles if you can use built-in roles. 
+- Premium security features can increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom roles if you can use built-in roles.
 
 - Every security control has an opportunity to impact workflows, and workflows that involve people can be expensive.  A security control that stops work from being done should be evaluated as necessary or unnecessarily redundant. Total cost of ownership (TCO) includes operational costs for developers, operators, IT SecOps and onerous security protocols. Reach agreement about where “less” can br “sufficient” to optimize costs.
 
-- TCO includes the time needed do tasks. Optimizing that time will optimize cost. Using platform features can lower TCO and enhance the security posture. Instead of training an engineer to manually review logs and correlate access patterns, use intelligence in services, such as Azure Defender  or Sentinel alerts. 
+- TCO includes the time needed do tasks. Optimizing that time will optimize cost. Using platform features can lower TCO and enhance the security posture. Instead of training an engineer to manually review logs and correlate access patterns, use intelligence in services, such as Azure Defender  or Sentinel alerts.
 
 ## Security vs Operational Excellence
 
