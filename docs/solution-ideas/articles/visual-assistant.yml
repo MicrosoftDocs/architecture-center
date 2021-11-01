@@ -3,7 +3,7 @@ metadata:
   title: Visual Assistant
   titleSuffix: Azure Solution Ideas
   description: Visual assistant identifies image content and delivers related information. It can read business cards and barcodes and recognize people, places, and objects.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 02/20/2021
   ms.topic: conceptual

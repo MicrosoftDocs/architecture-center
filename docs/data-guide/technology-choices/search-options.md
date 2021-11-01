@@ -1,6 +1,6 @@
 ---
 title: Choosing a search data store
-description: Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs. 
+description: Learn about the capabilities of search data stores in Azure and the key criteria for choosing one that best matches your needs.
 author: zoinerTejada
 ms.date: 11/30/2020
 ms.topic: conceptual
@@ -49,7 +49,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
-| Is managed service | Yes | No | Yes | Yes |  
+| Is managed service | Yes | No | Yes | Yes |
 | REST API | Yes | Yes | Yes | No |
 | Programmability | .NET, Java, Python, JavaScript | Java | Java | T-SQL |
 | Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | Yes | No |
@@ -74,9 +74,9 @@ The following tables summarize the key differences in capabilities.
 | Capability | Cognitive Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
 | Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes | Yes |
-| Transparent data encryption | No | No | No | Yes |  
+| Transparent data encryption | No | No | No | Yes |
 | Restrict access to specific IP addresses | Yes | Yes | Yes | Yes |
-| Restrict access to allow virtual network access only | Yes | Yes | Yes | Yes |  
+| Restrict access to allow virtual network access only | Yes | Yes | Yes | Yes |
 | Active Directory authentication (integrated authentication) | No | No | No | Yes |
 
 ## See also

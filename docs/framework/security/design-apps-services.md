@@ -27,12 +27,12 @@ Identify and classify key organizational applications according to organizationa
 
 ## Next steps
 
-See these best practices related to PaaS applications. 
+See these best practices related to PaaS applications.
 
 > [!div class="nextstepaction"]
 > [Securing PaaS deployments](/azure/security/fundamentals/paas-deployments)
 
-Secure communication paths between applications and the services. Make sure that there's a distinction between the endpoints exposed to the public internet and private ones. Also, the public endpoints are protected with web application firewall. 
+Secure communication paths between applications and the services. Make sure that there's a distinction between the endpoints exposed to the public internet and private ones. Also, the public endpoints are protected with web application firewall.
 
 > [!div class="nextstepaction"]
 > [Network security](./design-network.md)

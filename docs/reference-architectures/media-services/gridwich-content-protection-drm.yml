@@ -3,7 +3,7 @@ metadata:
   title: Gridwich content protection and DRM
   titleSuffix: Azure Reference Architectures
   description: Learn about Gridwich audio and video content protection for publishing with Azure Media Services DRM, and how to create and update content protection policies.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 11/12/2020
   ms.topic: conceptual

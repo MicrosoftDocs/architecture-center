@@ -71,7 +71,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
    - Azure Machine Learning provides AI capabilities for forecasting device behavior.
    - Azure Maps tracks geofencing data to provide location-based services.
 
-## Components
+### Components
 
 - [IoT Hub][IoT Hub] connects devices to Azure cloud resources. With this managed service, you can use queries to filter data that you send to the cloud.
 

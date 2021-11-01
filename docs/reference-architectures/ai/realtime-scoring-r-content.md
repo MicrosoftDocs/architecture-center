@@ -42,12 +42,7 @@ The primary difference between keys and tokens is that keys are static and can b
 
 ## Monitoring and logging considerations
 
-Azure Application Insights can be used to monitor models deployed to web service endpoints in [Azure Kubernetes Service (AKS)][aks] using Azure Machine Learning. The data collected from the endpoint includes:
-Output data
-Responses
-Request rates, response times, and failure rates
-Dependency rates, response times, and failure rates
-Exceptions
+Azure Application Insights can be used to monitor models deployed to web service endpoints in [Azure Kubernetes Service (AKS)][aks] using Azure Machine Learning. The data collected from the endpoint includes: Output data Responses Request rates, response times, and failure rates Dependency rates, response times, and failure rates Exceptions
 
 
 ## Cost considerations

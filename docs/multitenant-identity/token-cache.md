@@ -1,7 +1,7 @@
 ---
 title: Cache access tokens in a multitenant app
 description: Learn how to implement a custom token cache that derives from the Azure AD Authentication Library TokenCache class suitable for web apps.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -27,7 +27,7 @@ It's relatively expensive to get an OAuth access token, because it requires an H
 
 Some implementations include MSAL are in-memory cache and distributed cache. This option is set in the ConfigureServices method of the Startup class of the web application. To acquire a token for the downstream API, you'll need to `.EnableTokenAcquisitionToCallDownstreamApi()`.
 
-The Surveys app uses distributed token cache that stores data in the backing store. The app uses a Redis cache as the backing store. Every server instance in a server farm reads/writes to the same cache, and this approach scales to many users. 
+The Surveys app uses distributed token cache that stores data in the backing store. The app uses a Redis cache as the backing store. Every server instance in a server farm reads/writes to the same cache, and this approach scales to many users.
 
 For a single-instance web server, you could use the ASP.NET Core [in-memory cache][in-memory-cache]. (This is also a good option for running the app locally during development.)
 
@@ -65,9 +65,9 @@ The configuration for SurveyApi is specified in appsettings.json.
 
 ## Encrypting cached tokens
 
-Tokens are sensitive data, because they grant access to a user's resources. (Moreover, unlike a user's password, you can't just store a hash of the token.) Therefore, it's critical to protect tokens from being compromised. 
+Tokens are sensitive data, because they grant access to a user's resources. (Moreover, unlike a user's password, you can't just store a hash of the token.) Therefore, it's critical to protect tokens from being compromised.
 
-The Redis-backed cache is protected by a password, but if someone obtains the password, they could get all of the cached access tokens. The MSAL token cache is encrypted. 
+The Redis-backed cache is protected by a password, but if someone obtains the password, they could get all of the cached access tokens. The MSAL token cache is encrypted.
 
 ## Acquire the token
 

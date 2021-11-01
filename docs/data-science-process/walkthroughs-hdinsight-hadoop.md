@@ -10,14 +10,16 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
 
-# HDInsight Hadoop data science walkthroughs using Hive on Azure 
+# HDInsight Hadoop data science walkthroughs using Hive on Azure
 
 These walkthroughs use Hive with an HDInsight Hadoop cluster to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). For an introduction to Azure HDInsight, see [Introduction to Azure HDInsight, the Hadoop technology stack, and Hadoop clusters](/azure/hdinsight/hadoop/apache-hadoop-introduction).
 
@@ -26,9 +28,9 @@ Additional data science walkthroughs that execute the Team Data Science Process 
 
 ## Predict taxi tips using Hive with HDInsight Hadoop
 
-The [Use HDInsight Hadoop clusters](hive-walkthrough.md) walkthrough uses data from New York taxis to predict: 
+The [Use HDInsight Hadoop clusters](hive-walkthrough.md) walkthrough uses data from New York taxis to predict:
 
-- Whether a tip is paid 
+- Whether a tip is paid
 - The distribution of tip amounts
 
 The scenario is implemented using Hive with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/). You learn how to store, explore, and feature engineer data from a publicly available NYC taxi trip and fare dataset. You also use Azure Machine Learning to build and deploy the models.

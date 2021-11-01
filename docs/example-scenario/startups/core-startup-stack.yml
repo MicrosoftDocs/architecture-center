@@ -29,4 +29,3 @@ summary: See an example and understand the components of a simple core startup s
 thumbnailUrl: /azure/architecture/browse/thumbs/core-startup-stack.png
 content: |
    [!include[](core-startup-stack-content.md)]
-

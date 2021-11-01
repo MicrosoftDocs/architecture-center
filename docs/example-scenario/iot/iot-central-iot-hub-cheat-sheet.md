@@ -17,7 +17,7 @@ products:
 IoT solutions require a combination of technologies to effectively connect devices, events, and actions to cloud applications. In Azure, we have a single set of guidance for building and connecting devices to the cloud. However, there are many options for building and deploying your IoT cloud solutions. Which technologies and services you'll use depends on your scenario's development, deployment, and management needs.
 
 ## Starting with Azure IoT Central (aPaaS)
-Using an application platform as a service (aPaaS) streamlines many of the complex decisions you’ll face when building an IoT solution. Azure IoT Central is Microsoft’s aPaaS offering designed to simplify and accelerate IoT solution assembly and operation by assembling platform as a service (PaaS) components into an extensible and fully managed app development platform hosted by Microsoft. This takes a lot of the guesswork and complexity out of building reliable, scalable, and secure IoT applications. 
+Using an application platform as a service (aPaaS) streamlines many of the complex decisions you’ll face when building an IoT solution. Azure IoT Central is Microsoft’s aPaaS offering designed to simplify and accelerate IoT solution assembly and operation by assembling platform as a service (PaaS) components into an extensible and fully managed app development platform hosted by Microsoft. This takes a lot of the guesswork and complexity out of building reliable, scalable, and secure IoT applications.
 
 An out-of-the box web UX and API surface area make it simple to monitor device conditions, create rules, and manage millions of devices and their data remotely throughout their life cycles. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. Azure IoT Central also offers built-in disaster recovery, multitenancy, global availability, and a predictable cost structure.
 
@@ -28,13 +28,11 @@ In certain scenarios you may need a higher degree of control and customization t
 
 -   Azure IoT Device Provisioning Service and Azure IoT Hub for device provisioning, device connectivity, and management
 
--   Azure Time Series Insights for storing and analyzing warm and cold path time
-    series data from IoT devices
+-   Azure Time Series Insights for storing and analyzing warm and cold path time series data from IoT devices
 
 -   Azure Stream Analytics for analyzing hot path data from IoT devices
 
--   Azure IoT Edge for running AI, third-party services, or your own business
-    logic on IoT Edge devices
+-   Azure IoT Edge for running AI, third-party services, or your own business logic on IoT Edge devices
 
 [ ![Diagram detailing a possible example reference architecture composed of Azure PaaS services described in the article.](./media/azure-iot-arch.svg) ](./media/azure-iot-arch.svg#lightbox)
 
@@ -42,9 +40,7 @@ In certain scenarios you may need a higher degree of control and customization t
 
 Choosing to build with Azure IoT Central gives you the opportunity to focus time and money on transforming your business and designing innovative offerings, rather than maintaining and updating a complex and continually evolving IoT infrastructure. However, if your solution requires features or services that Azure IoT Central does not currently support, you may need to develop a PaaS solution using Azure IoT Hub as a core element.
 
-You can use the table and links below to help decide if you can use a managed
-solution based on Azure IoT Central, or if you should consider building a PaaS
-solution using Azure IoT Hub.
+You can use the table and links below to help decide if you can use a managed solution based on Azure IoT Central, or if you should consider building a PaaS solution using Azure IoT Hub.
 
 [ ![Diagram detailing various capabilities that might be required by an IoT solution.  Each row describes a set of capabilities that are available out of the box for customers using IoT Central and how an equivalent set of functionality could be achieved by composition using PaaS services.](./media/comparison-table-light.svg) ](./media/comparison-table-light.svg#lightbox)
 

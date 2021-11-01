@@ -46,8 +46,7 @@ For other availability considerations, see the [availability checklist](https://
 
 ### Scalability
 
-Kafka on HDInsight allows [configuration of storage and scalability](/azure/hdinsight/kafka/apache-kafka-scalability) for Kafka clusters. Cosmos DB provides fast, predictable performance and [scales seamlessly](/azure/cosmos-db/partition-data) as your application grows.
-The event sourcing microservices-based architecture of this scenario also makes it easier to scale your system and expand its functionality.
+Kafka on HDInsight allows [configuration of storage and scalability](/azure/hdinsight/kafka/apache-kafka-scalability) for Kafka clusters. Cosmos DB provides fast, predictable performance and [scales seamlessly](/azure/cosmos-db/partition-data) as your application grows. The event sourcing microservices-based architecture of this scenario also makes it easier to scale your system and expand its functionality.
 
 For other scalability considerations, see the [performance efficiency checklist][scalability] available in the Azure Architecture Center.
 

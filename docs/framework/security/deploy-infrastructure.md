@@ -1,6 +1,6 @@
 ---
 title: Security of infrastructure deployment in Azure
-description: Security strategy for deploying Azure resources. 
+description: Security strategy for deploying Azure resources.
 author: PageWriter-MSFT
 ms.date: 03/26/2021
 ms.topic: conceptual
@@ -16,7 +16,7 @@ subject:
 
 # Infrastructure provisioning considerations in Azure
 
-Azure resources can be provisioned in through code or user tools such as the Azure portal or via Azure CLI. It's not recommended that resources are provisioned or configured manually. Those methods are error prone and can lead to security gaps. Even the smallest of changes should be through code. The recommended approach is Infrastructure as code (IaC). It's easy to track because the provisioned infrastructure can be fully reproduced and reversed. 
+Azure resources can be provisioned in through code or user tools such as the Azure portal or via Azure CLI. It's not recommended that resources are provisioned or configured manually. Those methods are error prone and can lead to security gaps. Even the smallest of changes should be through code. The recommended approach is Infrastructure as code (IaC). It's easy to track because the provisioned infrastructure can be fully reproduced and reversed.
 
 
 ## Key points
@@ -26,7 +26,7 @@ Azure resources can be provisioned in through code or user tools such as the Azu
 > - Store keys and secrets outside of deployment pipeline in Azure Key Vault or in secure store for the pipeline.
 > - Incorporate security fixes and patching to the operating system and all parts of the codebase, including dependencies (preinstalled tools, frameworks, and libraries).
 
-## Infrastructure as code (IaC) 
+## Infrastructure as code (IaC)
 
 Make all operational changes and modifications through IaC. This is a key DevOps practice, and it's often used with continuous delivery. IaC manages the infrastructure - such as networks, virtual machines, and others - with a descriptive model, using a versioning system that is similar to what is used for source code. IaC model generates the same environment every time it's applied. Common examples of IaC are Azure Resource Manager or Terraform.
 

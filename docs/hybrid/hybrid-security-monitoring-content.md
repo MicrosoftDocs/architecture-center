@@ -1,8 +1,7 @@
 
 
 
-This reference architecture illustrates how to use Azure Security Center and Azure Sentinel to monitor
-the security configuration and telemetry of on-premises and Azure operating system workloads. This includes Azure Stack.
+This reference architecture illustrates how to use Azure Security Center and Azure Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads. This includes Azure Stack.
 
 ![Diagram illustrating deployed Microsoft Monitoring Agent on on-premises systems as well as on Azure based virtual machines transferring data to Azure Security Center and Azure Sentinel][architectural-diagram]
 
@@ -18,9 +17,7 @@ Typical uses for this architecture include:
 
 The architecture consists of the following components:
 
-- **[Azure Security Center][azure-security-center]**. This is an advanced, unified security-management platform that Microsoft offers to all Azure subscribers. Security Center  is segmented as a cloud security posture management (CSPM) and cloud workload protection platform (CWPP). CWPP is defined by workload-centric security protection solutions, which are typically agent-based.
-Azure Security Center provides threat protection for Azure workloads, both on-premises and in other clouds, including Windows and Linux virtual machines (VMs), containers, databases, and Internet of Things (IoT).
-When activated, the Log Analytics agent deploys automatically into Azure Virtual Machines. For on-premises Windows and Linux servers and VMs, you can manually deploy the agent, use your organization's deployment tool, such as Microsoft Endpoint Protection Manager, or utilize scripted deployment methods. Security Center begins assessing the security state of all your VMs, networks, applications, and data.
+- **[Azure Security Center][azure-security-center]**. This is an advanced, unified security-management platform that Microsoft offers to all Azure subscribers. Security Center  is segmented as a cloud security posture management (CSPM) and cloud workload protection platform (CWPP). CWPP is defined by workload-centric security protection solutions, which are typically agent-based. Azure Security Center provides threat protection for Azure workloads, both on-premises and in other clouds, including Windows and Linux virtual machines (VMs), containers, databases, and Internet of Things (IoT). When activated, the Log Analytics agent deploys automatically into Azure Virtual Machines. For on-premises Windows and Linux servers and VMs, you can manually deploy the agent, use your organization's deployment tool, such as Microsoft Endpoint Protection Manager, or utilize scripted deployment methods. Security Center begins assessing the security state of all your VMs, networks, applications, and data.
 - **[Azure Sentinel][azure-sentinel]**. Is a cloud-native Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution that uses advanced AI and security analytics to help you detect, hunt, prevent, and respond to threats across your enterprise.
 - **[Azure Stack][azure-stack]**. Is a portfolio of products that extend Azure services and capabilities to your environment of choice, from the datacenter to edge locations and remote offices. Systems that you integrate with Azure Stack typically utilize racks of four to sixteen servers, built by trusted hardware partners and delivered straight to your datacenter.
 - **[Azure Monitor][azure-monitor]**. Collects monitoring telemetry from a variety of on-premises and Azure sources. Management tools, such as those in Azure Security Center and Azure Automation, also push log data to Azure Monitor.
@@ -189,8 +186,7 @@ After you onboard your Azure subscription, you can enable Security Center to pro
 
 ### Enable ASC monitoring of Azure Stack VMs
 
-Azure Security Center uses the **Azure Monitor, Update and Configuration Management** VM extension bundled with Azure Stack.
-To enable the **Azure Monitor, Update and Configuration Management** extension, follow these steps:
+Azure Security Center uses the **Azure Monitor, Update and Configuration Management** VM extension bundled with Azure Stack. To enable the **Azure Monitor, Update and Configuration Management** extension, follow these steps:
 
 1. In a new browser tab, sign into your **Azure Stack** portal.
 1. Refer to the **Virtual machines** page, and then select the virtual machine that you want to protect with Security Center.

@@ -623,8 +623,8 @@ let metric = "BytesQueued";
 table_name
 | where Name_s == metric
 | where Computer contains {ComputerName}
-| project TimeGenerated, Computer, ProcessGroupName_s,  Count_d, Name_s 
-| summarize sum(Count_d) by bin(TimeGenerated, 1m),  Computer, Name_s 
+| project TimeGenerated, Computer, ProcessGroupName_s,  Count_d, Name_s
+| summarize sum(Count_d) by bin(TimeGenerated, 1m),  Computer, Name_s
 | render timechart 
 ```
 
@@ -681,9 +681,9 @@ To capture more logs, follow these steps:
 Here's a sample query of the `NiFiAppLogs` custom table that the first example created:
 
 ```kusto
-NiFiAppLogs_CL 
-| where TimeGenerated > ago(24h) 
-| where Computer contains {ComputerName} and RawData contains "error" 
+NiFiAppLogs_CL
+| where TimeGenerated > ago(24h)
+| where Computer contains {ComputerName} and RawData contains "error"
 | limit 10
 ```
 
@@ -704,10 +704,10 @@ Here's a sample query for the NiFi app `Perf` logs:
 ```kusto
 let cluster_name = {ComputerName};
 // The hourly average of CPU usage across all computers.
-Perf 
+Perf
 | where Computer contains {ComputerName}
 | where CounterName == "% Processor Time" and InstanceName == "_Total"
-| where ObjectName == "Processor" 
+| where ObjectName == "Processor"
 | summarize CPU_Time_Avg = avg(CounterValue) by bin(TimeGenerated, 30m), Computer
 ```
 

@@ -98,15 +98,15 @@ Copy the script and its configuration file to local storage, and edit the config
 You can run this script in one of two ways:
 
 - You can run the script manually, from the WSUS VM.
-  
+
   The following command, run from an elevated Command Prompt window, will install and configure WSUS. It will use the script and configuration file in the current directory.
 
     `powershell.exe -ExecutionPolicy Unrestricted -File .\Configure-WSUSServer.ps1 -WSUSConfigJson .\WSUS-Config.json`
 
 - You can use the [Custom Script Extension for Windows](/azure/virtual-machines/extensions/custom-script-windows).
-  
+
   Copy the script and the JSON configuration file to your own storage container.
-  
+
   In typical VM and Azure Virtual Network configurations, the Custom Script Extension needs only the following two parameters to run the script correctly. (You need to replace the values shown here with the URLs for your storage locations.)
 
   ```json

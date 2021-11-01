@@ -1,7 +1,7 @@
 ---
 title: Authentication in multitenant applications
 description: Learn about how a multitenant application can authenticate users from Azure Active Directory (Azure AD) and the OpenID Connect (OIDC) protocol.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -176,7 +176,7 @@ When the OIDC middleware redirects to the authorization endpoint, the redirect U
 - response_type  = "code id_token". This specifies hybrid flow.
 - response_mode = "form_post". This specifies form post response.
 
-To specify a different flow, set the **ResponseType** property on the options. 
+To specify a different flow, set the **ResponseType** property on the options.
 
 ```csharp
 app.AddAuthentication().AddOpenIdConnect(options =>

@@ -10,7 +10,7 @@ products:
   - azure-security-center
   - azure-sentinel
   - azure-monitor
-categories: 
+categories:
   - security
 subject:
   - security
@@ -18,7 +18,7 @@ subject:
 ms.custom:
   - article
 ---
- 
+
 # Security monitoring and remediation in Azure
 
 Regularly monitor resources to maintain the security posture and detect vulnerabilities. Detection can take the form of reacting to an alert of suspicious activity or proactively hunting for anomalous events in the enterprise activity logs. vigilantly responding to anomalies and alerts to prevent security assurance decay, and designing for defense in depth and least privilege strategies.
@@ -56,7 +56,7 @@ The Azure Security Benchmark includes a collection of high-impact security recom
   This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying several Microsoft security solutions.
 
 ## Next step
-We recommend applying as many best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program. 
+We recommend applying as many best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program.
 
 ## Related link
 > Go back to the main article: [Security](overview.md)

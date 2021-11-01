@@ -68,27 +68,27 @@ For budget concerns, you get a considerable amount of functionality at no cost t
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
 - [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](../../hybrid/azure-stack-robo.yml)
 - [Archive on-premises data to cloud](../../solution-ideas/articles/backup-archive-on-premises.yml)
- 
+
 ## Infrastructure Decisions
 
 Azure Stack HCI can help in cost-savings by using your existing Hyper-V and Windows Server skills to consolidate aging servers and storage. Azure Stack HCI pricing follows the monthly subscription billing model, with a flat rate per physical processor core in an Azure Stack HCI cluster.
 
 Use Azure Stack HCI to modernize on-prem workloads with hyperconverged infra. Azure Stack HCI billing is based on a monthly subscription fee per physical processor core, not a perpetual license. When customers connect to Azure, the number of cores used is automatically uploaded and assessed for billing purposes. Cost doesn’t vary with consumption beyond the physical processor cores. This means that more VMs don’t cost more, and customers who are able to run denser virtual environments are rewarded.
 
-If you are currently using VMware, you can take advantage of cost savings only available with Azure VMware Solution. Easily move VMware workloads to Azure and increase your productivity with elasticity, scale, and fast provisioning cycles. This will help enhance your workloads with the full range of Azure compute, monitor, backup, database, IoT, and AI services. 
+If you are currently using VMware, you can take advantage of cost savings only available with Azure VMware Solution. Easily move VMware workloads to Azure and increase your productivity with elasticity, scale, and fast provisioning cycles. This will help enhance your workloads with the full range of Azure compute, monitor, backup, database, IoT, and AI services.
 
 Lastly, you can slowly begin migrating out of your datacenter and use Azure Arc while you're migrating to project everything into Azure.
 
 ### Capacity planning
 
-Check out our checklist under the [Cost Optimization pillar](../cost/design-checklist.md) in the Well-Framework to learn more about capacity planning, and build a checklist to design cost-effective workloads. 
+Check out our checklist under the [Cost Optimization pillar](../cost/design-checklist.md) in the Well-Framework to learn more about capacity planning, and build a checklist to design cost-effective workloads.
 
 - Define SLAs
 - Determine regulatory needs
 
 ## Provision
 
-One advantage of cloud computing is the ability to use the PaaS model. And in some cases, PaaS services can be cheaper than managing VMs on your own. Some workloads cannot be moved to the cloud though for regulatory or latency reasons. Therefore, using a service like Azure Arc enabled  services allows you to flexibly use cloud innovation where you need it by deploying Azure services anywhere. 
+One advantage of cloud computing is the ability to use the PaaS model. And in some cases, PaaS services can be cheaper than managing VMs on your own. Some workloads cannot be moved to the cloud though for regulatory or latency reasons. Therefore, using a service like Azure Arc enabled  services allows you to flexibly use cloud innovation where you need it by deploying Azure services anywhere.
 
 Click the following links for guidance in provisioning:
 

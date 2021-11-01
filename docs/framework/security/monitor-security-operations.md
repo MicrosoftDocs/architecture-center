@@ -10,7 +10,7 @@ products:
   - azure-security-center
   - azure-sentinel
   - azure-monitor
-categories: 
+categories:
   - security
 subject:
   - security
@@ -27,10 +27,11 @@ The responsibility of the security operation team (also known as Security Operat
 
 Here are some general best practices for conducting security operations:
 
-- Follow the NIST Cybersecurity Framework functions as part of operations. 
-    - **Detect** the presence of adversaries in the system. 
-    - **Respond** by quickly investigating whether it's an actual attack or a false alarm. 
-    - **Recover**  and restore the confidentiality, integrity, and availability of the workload during and after an attack.
+- Follow the NIST Cybersecurity Framework functions as part of operations.
+
+  - **Detect** the presence of adversaries in the system.
+  - **Respond** by quickly investigating whether it's an actual attack or a false alarm.
+  - **Recover**  and restore the confidentiality, integrity, and availability of the workload during and after an attack.
 
     For information about the framework, see [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework).
 
@@ -59,20 +60,16 @@ For more information about monitoring tools, see [Security monitoring tools in A
 
 ## Assign incident notification contact
 
-Security alerts need to reach the right people in your organization. Establish a 
-designated point of contact to receive Azure incident notifications from Microsoft, and, or Azure 
-Security Center. In most cases, such notifications indicate that your resource is compromised or attacking another customer. This enables your security operations team to rapidly respond to potential security risks and remediate them. 
+Security alerts need to reach the right people in your organization. Establish a  designated point of contact to receive Azure incident notifications from Microsoft, and, or Azure  Security Center. In most cases, such notifications indicate that your resource is compromised or attacking another customer. This enables your security operations team to rapidly respond to potential security risks and remediate them.
 
-This enables your security operations team to rapidly respond to potential
-security risks and remediate them.
+This enables your security operations team to rapidly respond to potential security risks and remediate them.
 
 Ensure administrator contact information in the Azure enrollment portal includes contact information that will notify security operations directly or rapidly through an internal process.
 
 **Learn more**
 
-To learn more about establishing a designated point of contact to receive Azure incident 
-notifications from Microsoft, reference the following articles:
-  
+To learn more about establishing a designated point of contact to receive Azure incident  notifications from Microsoft, reference the following articles:
+
 - [Update notification settings](/azure/cost-management-billing/manage/ea-portal-administration#update-notification-settings)
 - [Configure email notifications for security alerts](/azure/security-center/security-center-provide-security-contact-details)
 

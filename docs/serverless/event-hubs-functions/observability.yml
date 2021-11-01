@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom:
-  - guide
+    - guide
 azureCategories:
   - compute
   - integration

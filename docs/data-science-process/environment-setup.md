@@ -10,16 +10,18 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
 # Set up data science environments for use in the Team Data Science Process
-The Team Data Science Process uses various data science environments for the storage, processing, and analysis of data. They include Azure Blob Storage, several types of Azure virtual machines, HDInsight (Hadoop) clusters, and Machine Learning workspaces. The decision about which environment to use depends on the type and quantity of data to be modeled and the target destination for that data in the cloud. 
+The Team Data Science Process uses various data science environments for the storage, processing, and analysis of data. They include Azure Blob Storage, several types of Azure virtual machines, HDInsight (Hadoop) clusters, and Machine Learning workspaces. The decision about which environment to use depends on the type and quantity of data to be modeled and the target destination for that data in the cloud.
 
-* For guidance on questions to consider when making this decision, see [Plan Your Machine Learning Studio (classic) Data Science Environment](plan-your-environment.md). 
+* For guidance on questions to consider when making this decision, see [Plan Your Machine Learning Studio (classic) Data Science Environment](plan-your-environment.md).
 * For a catalog of some of the scenarios you might encounter when doing advanced analytics, see [Scenarios for the Team Data Science Process](plan-sample-scenarios.md)
 
 The following articles describe how to set up the various data science environments used by the Team Data Science Process.

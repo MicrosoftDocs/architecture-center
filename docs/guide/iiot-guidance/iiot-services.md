@@ -37,8 +37,7 @@ A time series service will be required to provide a warm and cold store for the 
 - Ability to view and export the data in CSV format for further analysis.
 - Ability to share analysis across your organization.  Current visualizations can be saved and shared. Alternatively, the current state of each user's analysis is assigned a unique identifier.  This identifier is placed in the URL allowing users to easily share their analysis by placing the URL in emails, documents, etc.  Because TSI pricing is not *seat*-based, this democratizes the data by allowing anyone with access to the data to see it.
 
-You can continue to use Time Series Insights with the old pricing model (S1, S2) for warm, unplanned data analysis. However, we highly encourage you to use the updated offering (PAYG) as it offers many new capabilities as well as Pay-As-You-Go pricing, cost savings, and flexibility to scale.
-Alternatively, [Azure Data Explorer](/azure/data-explorer/) or [Cosmos DB](/azure/cosmos-db/introduction) may be used as a time series database if you plan to develop a custom time series service.
+You can continue to use Time Series Insights with the old pricing model (S1, S2) for warm, unplanned data analysis. However, we highly encourage you to use the updated offering (PAYG) as it offers many new capabilities as well as Pay-As-You-Go pricing, cost savings, and flexibility to scale. Alternatively, [Azure Data Explorer](/azure/data-explorer/) or [Cosmos DB](/azure/cosmos-db/introduction) may be used as a time series database if you plan to develop a custom time series service.
 
 > [!NOTE]
 > When connecting Time Series Insights with IoT Hub or Event Hub, ensure you select an appropriate [Time Series ID](/azure/time-series-insights/how-to-select-tsid). We recommend using a SCADA tag name field or OPC UA node id (for example, nsu=http://msft/boiler;i=#####) if possible, as these will map to leaf nodes in your [Time Series Model](/azure/time-series-insights/concepts-model-overview).
@@ -66,7 +65,7 @@ Your IIoT analytics solution will require a number of microservices to perform f
 
 - Performing data transformation such as converting binary payloads to JSON or differing JSON payloads to a common, canonical format.
   - We recommend creating Azure Functions connected to IoT Hub to perform payload transformations.
-  - Different industrial equipment vendors will send telemetry in different payload formats (JSON, binary, and so on) and schemas. When possible, we recommend converting the different equipment schemas to a common, canonical schema, ideally based on an industry standard.  
+  - Different industrial equipment vendors will send telemetry in different payload formats (JSON, binary, and so on) and schemas. When possible, we recommend converting the different equipment schemas to a common, canonical schema, ideally based on an industry standard.
   - If the message body is binary, use an Azure Function to convert the incoming messages to JSON and send the converted messages back to IoT Hub or to Event Hub.
 
       - When the message body is binary, [IoT Hub message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c) cannot be used against the message body, but can be used against [message properties](/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
@@ -78,7 +77,7 @@ Your IIoT analytics solution will require a number of microservices to perform f
 
 Your solution will likely involve additional microservices to satisfy the specific requirements of your IIoT analytics solution. If your organization is new to building microservices, we recommend implementing custom microservices using Azure Functions. Azure Functions is an event-driven serverless compute platform that can be used to develop microservices and solve complex orchestration problems. It allows you to build and debug locally (in several software languages) without additional setup, deploy and operate at scale in the cloud, and integrate Azure services using triggers and bindings.
 
-Both stateless and stateful microservices can be developed using Azure Functions. Azure Functions can use Cosmos DB, Table Storage, Azure SQL, and other databases to store stateful information. 
+Both stateless and stateful microservices can be developed using Azure Functions. Azure Functions can use Cosmos DB, Table Storage, Azure SQL, and other databases to store stateful information.
 
 Alternatively, if your organization has a previous experience building container-based microservices, we recommend you to also consider Azure Service Fabric or Azure Kubernetes Service (AKS). Refer to [Microservices in Azure](https://azure.microsoft.com/solutions/microservice-applications/) for more information.
 
@@ -106,7 +105,7 @@ We recommend developing a workflow that informs the administrators of the IIoT a
 
 To accomplish this, we recommend developing a workflow that involves [Power Apps](https://powerapps.microsoft.com/), [Logic Apps](/azure/logic-apps/), and Azure Functions, as follows:
 
-- The SCADA system operator can trigger the Logic Apps workflow using a Power Apps form whenever tags are created or edited in the SCADA system. 
+- The SCADA system operator can trigger the Logic Apps workflow using a Power Apps form whenever tags are created or edited in the SCADA system.
   - Alternatively, Logic Apps [connectors](/azure/connectors/apis-list) can monitor a table in the SCADA system database for tag changes.
   - The OPC UA Discovery service can be used to both find OPC UA servers and the tags and methods they implement.
 - The Logic Apps workflow includes an approval step where the IIoT analytics solution owners can approve the new/updated tags.
@@ -134,9 +133,9 @@ Loading historical data into your IIoT analytics solution consists of three step
       1. If the aggregate size of the exported data is large (tens or hundreds of TBs), consider using [Azure Import/Export Service](/azure/storage/common/storage-import-export-service) or [Azure Data Box](/azure/databox/) to ship the files to the Azure region where your IIoT analytics solution is deployed. Once received, the files will be imported into your Azure Storage account.
 
 1. Import your data.
-    
+
       1. This step involves reading the files in your Azure Storage account, serializing the data as JSON, and sending data as streaming events into Time Series Insights. We recommend using an Azure Function to perform this.
-      1. Time Series Insights only supports IoT Hub and Event Hub as data sources. We recommend using an Azure Function to send the events to a temporary Event Hub, which is connected to Time Series Insights. 
+      1. Time Series Insights only supports IoT Hub and Event Hub as data sources. We recommend using an Azure Function to send the events to a temporary Event Hub, which is connected to Time Series Insights.
       1. Refer to [How to shape JSON events](/azure/time-series-insights/how-to-shape-query-json) and [Supported JSON shapes](/azure/time-series-insights/time-series-insights-send-events#supported-json-shapes) for best practices on shaping your JSON payload.
       1. Make sure to use the same [Time Series ID](/azure/time-series-insights/how-to-select-tsid) as you do for your streaming data.
       1. Once this process is completed, the Event Hub and Azure Function may be deleted. This is an optional step.
@@ -180,11 +179,11 @@ We recommend connecting Azure Stream Analytics with Azure Logic Apps using [Azur
 
 To display visual alerts in your web application, we recommend creating an Azure Stream Analytics job to detect specific events and send those to either:
 
-- **An Event Hub output** - Then connect the Event Hub to Time Series Insights. Use the [Azure Time Series Insights JavaScript SDK (tsiclient)](https://tsiclientsample.azurewebsites.net/) to display the event in your web application.
+- **An Event Hub output:** Then connect the Event Hub to Time Series Insights. Use the [Azure Time Series Insights JavaScript SDK (tsiclient)](https://tsiclientsample.azurewebsites.net/) to display the event in your web application.
 
 or,
 
-- **An Azure Functions output** - Then [develop an Azure Function](/azure/azure-signalr/signalr-concept-azure-functions) that sends the events to your web application using [SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+- **An Azure Functions output:** Then [develop an Azure Function](/azure/azure-signalr/signalr-concept-azure-functions) that sends the events to your web application using [SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
 
 Operational alarms and events triggered on premise can also be ingested into Azure for reporting and to trigger work orders, SMS messages, and emails.
 

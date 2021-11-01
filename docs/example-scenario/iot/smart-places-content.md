@@ -46,8 +46,7 @@ This solution applies to many areas:
 
 The following diagram shows the flow of data in this solution:
 
-- The boxes that contain multiple icons represent categories of
-services. Within each category, services work independently or together to provide functionality.
+- The boxes that contain multiple icons represent categories of services. Within each category, services work independently or together to provide functionality.
 - Arrows between boxes represent communication between the corresponding areas.
 
 :::image type="content" source="./media/smart-places-diagram.svg" alt-text="Diagram that illustrates the recommended architecture for a smart space solution." border="false" lightbox="./media/smart-places-diagram.svg":::

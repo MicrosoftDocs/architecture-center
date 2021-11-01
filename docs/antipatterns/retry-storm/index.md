@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: anti-pattern
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
+  - management-and-governance
+  - security
 ms.custom:
   - article
 ---

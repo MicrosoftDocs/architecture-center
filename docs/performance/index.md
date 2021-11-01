@@ -2,7 +2,7 @@
 title: Performance tuning a distributed app
 titleSuffix: Azure Architecture Center
 description: Learn how to performance tune a distributed application by walking through several scenarios that use load tests and metrics to diagnose performance issues.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.author: pnp
 ms.date: 08/27/2019
 ms.topic: conceptual

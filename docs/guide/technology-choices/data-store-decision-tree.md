@@ -14,9 +14,9 @@ ms.custom:
 
 # Select an Azure data store for your application
 
-Azure offers a number of managed data storage solutions, each providing different features and capabilities. This article will help you to choose a managed data store for your application. 
+Azure offers a number of managed data storage solutions, each providing different features and capabilities. This article will help you to choose a managed data store for your application.
 
-If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate multiple data stores. 
+If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate multiple data stores.
 
 ## Select a candidate
 
