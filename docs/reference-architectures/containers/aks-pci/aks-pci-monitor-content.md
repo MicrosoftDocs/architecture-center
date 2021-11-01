@@ -42,7 +42,7 @@ Azure's alerting framework allows you to configure alerts to detect suspicious a
 ### **Requirement 11**&mdash;Regularly test security systems and processes
 
 #### AKS feature support
- 
+
 AKS is integrated with Azure monitoring services:
 
 - Azure Security Center provides many security scanning features. For example Security center scans images pulled and pushed to container registries and provides recommendations. For details, see [Vulnerability management - scanning container images](/azure/security-center/container-security#vulnerability-management---scanning-container-images). You can also use [file integrity monitoring (FIM)](/azure/security-center/security-center-file-integrity-monitoring) to check system files. 
@@ -81,9 +81,9 @@ We recommend that you use these ways to track operations performed on each compo
 - Diagnostic setting. Provides diagnostic and auditing information of Azure resources and the platform to which the setting applies. We recommend that you enable this for AKS and other components in the system, such as Azure Blob Storage and Key Vault. Based on the resource type, you can choose categories of logs and metric data and send them to a destination. Your diagnostics sink  must meet the required retention periods.
 
     - Diagnostic setting for AKS. From the provided AKS categories, enable Kubernetes audit logs. This includes `kube-audit` or `kube-audit-admin`, and `guard`. 
-    
+
       Enable `kube-audit-admin` to see log-data API server calls that might modify the state of your cluster. If you need an audit trail of all API server interactions (including non-modifying events such read requests), enable `kube-audit` instead. Those events can be prolific, create noise, and add to the cost. These logs have information about the access and identity name that's used to make the request. 
-      
+
       Enable `guard` logs to track managed Azure AD and Azure role-based access control (RBAC) audits. 
 
     In addition to the user-based logs, consider logs from the Kubernetes control plane, including `kube-apiserver` and `kube-controller-manager`. These aren't typically user-associated but can help correlate system changes that users have made.

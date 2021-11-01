@@ -180,7 +180,7 @@ For Azure, enable protections in Azure AD:
 1.    Configure Azure AD Connect to synchronize password hashes. For information, see [Implement password hash synchronization with Azure AD Connect sync](/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
 
 2.    Choose whether to automatically or manually remediate issues found in a report. For more information, see [Monitor identity risks](monitor-remediate.md). 
-    
+
 
 For more information about supporting modern passwords in Azure AD, see the following articles:
 

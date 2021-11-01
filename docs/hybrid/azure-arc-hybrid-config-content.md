@@ -102,7 +102,7 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 - In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. The rest of the data will be stored within the Azure geography containing the region you specify, which might also affect your choice of region if you have data residency requirements. If an outage affects the Azure region to which your machine is connected, the outage will not affect the Arc enabled server, but management operations using Azure might not be able to complete. For resilience in the event of a regional outage, if you have multiple locations that provide a geographical-redundant service, it's best to connect the machines in each location to a different Azure region.
 - Ensure that Azure Arc enabled servers is supported in your regions by checking [supported regions][supported regions].
 - Ensure that services referenced in the Architecture section are supported in the region to which Azure Arc enabled servers is deployed.
-  
+
 ## Manageability considerations
 
 - Consult the list of supported [operated systems][supported operating systems] on the Azure Arc enabled servers agent overview page.

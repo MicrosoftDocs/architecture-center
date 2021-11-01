@@ -85,7 +85,7 @@ Docker images for each deployment eliminate dependency issues between different 
     -AzureStackArmEndpoint_DR "https://management.drazurestack.com" `
     -AzureStackSubscriptionId_DR "drSubscriptionId"
     ```
-    
+
 4. Type `Y` to allow the NuGet provider to be installed, which will kick off the API Profile "2018-03-01-hybrid" modules to be installed.
 
 5. The HA resources will deploy first. Monitor the deployment and wait for it to finish. Once you have the message stating that the HA deployment is finished, you can check the HA Azure Stack Hub's portal to see the resources deployed.

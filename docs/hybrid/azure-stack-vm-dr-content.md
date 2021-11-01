@@ -258,7 +258,7 @@ When planning to deploy Azure Site Recovery on Azure Stack Hub, you need to cons
 - Implement vertical scaling. This involves modifying the amount and type of processor, memory, and disk resources of the Azure Stack Hub VM hosting the configuration server including the process server. To estimate resource requirements, you can use the information in the following table:
 
   *Table 1: Configuration and process server sizing requirements*
-  
+
 | CPU                                      | Memory | Cache disk | Data change rate | Protected machines  |
 |------------------------------------------|--------|------------|------------------|---------------------|
 | 8 vCPUs 2 sockets \* 4 cores @ 2\.5 GHz  | 16GB   | 300 GB     | 500 GB or less   | < 100 machines      |

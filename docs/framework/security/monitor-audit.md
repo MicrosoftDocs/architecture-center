@@ -44,7 +44,7 @@ Benchmarking allows you to improve your security program by learning from extern
 As an example, the Center for Internet Security (CIS) has created security benchmarks for Azure that map to the CIS Control Framework. Another reference example is the MITRE ATT&CK&trade; framework that defines the various adversary tactics and techniques based on real-world observations. These external references control mappings and help you to understand any gaps between your current strategy, what you have, and what other experts have in the industry.
 
 ### Suggested action
-  
+
 Develop an Azure security benchmarking strategy aligned to industry standards.
 
 As people in the organization and on the project change, it is crucial to make sure that only the right people have access to the application infrastructure. Auditing and reviewing access control reduces the attack vector to the application. Azure control plane depends on Azure AD and access reviews are often centrally performed as part of internal, or external audit activities.

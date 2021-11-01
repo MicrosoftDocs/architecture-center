@@ -13,7 +13,7 @@ categories:
 subject:
   - security
 ---
- 
+
 # Secure deployment in Azure
 
 Have teams, processes, and tools that can quickly deploy security fixes? A _DevOps_ or multidisciplinary approach is recommended. Multiple teams work together with efficient practices and tools. Essential DevOps practices include change management of the workload through continuous integration, continuous delivery (CI/CD). 

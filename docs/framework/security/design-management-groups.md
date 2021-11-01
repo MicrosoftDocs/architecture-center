@@ -71,7 +71,7 @@ The root management group enables you to ensure consistency across the enterpris
     -   **Production Pilot -** This can be a segment management group or designated subset in subscription(s) management group.
 
 - **Validate Changes:** to ensure they have the desired effect.
-  
+
 
 ## Next steps
 

@@ -19,24 +19,24 @@ Other examples of this approach include:
 :::image type="content" source="../media/healthcare-architecture.png" alt-text="Screenshot showing a healthcare facility with two hospitals that collect patient and facility data with IoT devices. The devices connect to radio access network (RAN) devices, IoT Edge servers, and several Azure services through Azure IoT Hub." border="false":::
 
 1. Hospital buildings use various connected devices to monitor both patient health and facility performance.
-   
+
    - Health-tracking devices include patient monitors, CT scanners, and blood pressure monitors.
    - Building safety and quality devices include air quality and building temperature sensors.
-   
+
 1. The patient health and building monitoring devices send data to LTE or 5G Radio Access Network (RAN) devices.
-   
+
 1. The 5G or LTE radios in the hospitals forward the data to the 5G or LTE packet cores running on the edge servers. The edge servers can be Azure Stack Edge or any Azure Arc-enabled servers.
-   
+
 1. On the edge servers, the IoT Edge runtime can preprocess data before sending it to Azure for further analysis.
-   
+
 1. In the cloud, Azure IoT Hub ingests data quickly and securely, and sends it to Azure Machine Learning.
-   
+
 1. Azure Machine Learning incorporates the new data to further optimize the model that controls the smart building settings.
-   
+
 1. Data from Azure IoT Hub also feeds into Azure Digital Twins, which provides a map of the hospitals' networked IoT devices as a virtual simulation.
-   
+
 1. Data also feeds into Azure Time Series Insights, which can analyze patient health over a period of time, or treatment efficacy over several hospitals. Time Series Insights also offers a visualization layer to aid in decision-making.
-   
+
 1. All the data is stored in Azure Data Lake Storage, which can store data of any format and size.
 
 ### Components

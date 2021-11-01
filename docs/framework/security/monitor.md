@@ -18,7 +18,7 @@ subject:
 ms.custom:
   - article
 ---
- 
+
 # Security monitoring and remediation in Azure
 
 Regularly monitor resources to maintain the security posture and detect vulnerabilities. Detection can take the form of reacting to an alert of suspicious activity or proactively hunting for anomalous events in the enterprise activity logs. vigilantly responding to anomalies and alerts to prevent security assurance decay, and designing for defense in depth and least privilege strategies.

@@ -44,7 +44,7 @@ As you review the results and apply recommendations, track the progress and prio
 
 - Set up a regular cadence (typically monthly) to review the secure score and plan initiatives with specific improvement goals. 
 - Assign stakeholders for monitoring and improving the score. Gamify the activity if possible to increase engagement and focus from the responsible teams.
-    
+
 As a technical workload owner, work with your organization's dedicated team that monitors Secure Score. In the DevOps model, workload teams may be responsible for their own resources. Typically, these teams are responsible. 
 - Security posture management team
 - Vulnerability management or governance, risk, and compliance team

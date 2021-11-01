@@ -132,10 +132,10 @@ For a complete list of server management capabilities, refer to [Manage Servers 
 
   > [!IMPORTANT]
   > Windows Admin Center doesn't replace all Remote Server Administration Tools (RSAT), such as Internet Information Services (IIS), because there is no equivalent management capability for it in Windows Admin Center.
-  
+
   > [!NOTE]
   > Windows Admin Center provides a subset of Server Manager features for managing Windows 10 client PCs.
-  
+
 - Windows Admin Center provides support for managing failover clusters and cluster resources, managing Hyper-V VMs and virtual switches, and managing Windows Server Storage Replica. In addition to using Windows Admin Center to manage and monitor an existing Hyper-Converged Infrastructure, you can also use Windows Admin Center to deploy a new Hyper-Converged Infrastructure. By using a multistage workflow, Windows Admin Center guides you through installing features, configuring networking, creating a cluster, and deploying Storage Spaces Direct and Software-Defined Networking. For more information, refer to [Manage Hyper-Converged Infrastructure with Windows Admin Center][wac-manage-hyper-converged].
   > [!NOTE]
   > You can use Windows Admin Center to manage Microsoft Hyper-V Server 2016 or Microsoft Hyper-V Server 2019 (the free Microsoft virtualization product).
@@ -149,7 +149,7 @@ For a complete list of server management capabilities, refer to [Manage Servers 
 
   > [!IMPORTANT]
   > The Azure AD app requires Azure integration in Windows Admin Center.
-  
+
 ## Security considerations
 
 - Deploying Windows Admin Center provides your organization with a centralized management interface for your server environment. By controlling access to Windows Admin Center, you can improve the security of your management landscape.

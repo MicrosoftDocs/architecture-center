@@ -69,7 +69,7 @@ Ensure administrator contact information in the Azure enrollment portal includes
 **Learn more**
 
 To learn more about establishing a designated point of contact to receive Azure incident  notifications from Microsoft, reference the following articles:
-  
+
 - [Update notification settings](/azure/cost-management-billing/manage/ea-portal-administration#update-notification-settings)
 - [Configure email notifications for security alerts](/azure/security-center/security-center-provide-security-contact-details)
 

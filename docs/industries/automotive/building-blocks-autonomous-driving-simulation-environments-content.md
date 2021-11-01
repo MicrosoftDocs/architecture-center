@@ -110,7 +110,7 @@ This layer durably and accessibly stores the results of the simulation. It’s p
 
 [Azure Monitor](https://azure.microsoft.com/services/monitor/#overview) collects monitoring telemetry from a variety of on-premises and Azure sources. This service aggregates and stores telemetry in a log data store that's optimized for cost and performance.
 
-  
+
 ## Alternatives
 
 This architecture uses VMs and containers for deploying the different tools and services. As an alternative, you can also use [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes). AKS offers serverless Kubernetes, an integrated CI/CD experience, and enterprise-grade security and governance.
@@ -119,7 +119,7 @@ The storage mechanism used for saving simulation results in this architecture is
 
 Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor/) to analyze and optimize the performance of your infrastructure, and to monitor and diagnose networking issues without logging into your VMs.
 
-  
+
 ## Considerations
 
 ### Availability and resiliency

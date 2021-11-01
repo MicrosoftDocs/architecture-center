@@ -40,13 +40,13 @@ Minimize the number of people who have access to secure information or resources
 
     **How do you define CI/CD roles and permissions?**
     ***
-    
+
     Azure DevOps offers built-in roles that can be assigned to individual users of groups. If built-in roles are insufficient to define least privilege for a pipeline, consider creating custom Azure RBAC roles. Make sure those roles align with the action and the organization's teams and responsibilities.
-    
+
     To support security of your pipeline operations, you can add users to a built-in security group, set individual permissions for a user or group, or add users to pre-defined roles. You manage security for the following objects from Azure Pipelines in the web portal, either from the user or admin context.
 
     For more information, see [Get started with permissions, access, and security groups](/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page&preserve-view=true).
-    
+
 - For permissions, you grant or restrict permissions by setting the permission state to **Allow** or **Deny**, either for a security group or an individual user. For a role, you add a user or group to the role.
 
 - Use separate pipeline identities between pre-production and production environments. If available, take advantage of pipeline features such as Environments to encapsulate last-mile authentication external to the executing pipeline.

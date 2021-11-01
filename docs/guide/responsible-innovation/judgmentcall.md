@@ -38,11 +38,11 @@ To prepare for this game, download the [printable Judgment Call game kit](https:
 The players are expected to go through the following steps in this game:
 
 1. **Identify the product**
-  
+
     Start by identifying a product that your team is building, or a scenario you are working on. For example, if your team is developing synthetic voice technology, your scenario could be developing a voice assistant for online learning.
 
 1. **Pass the cards**
-   
+
     Once you have decided on the scenario, pass out the cards. Each player receives a stakeholder card, an ethical principle card, a rating card, and a review form. The following is a description of these cards:
 
       - **Stakeholder:** This represents the group of people impacted by the technology or scenario you've chosen. Stakeholders can also include the makers (those proposing and working on the technology) as well as the internal project sponsors (managers and executives who are supportive of the project).
@@ -52,27 +52,27 @@ The players are expected to go through the following steps in this game:
       - **Rating:** Star cards give a rating: 1-star is poor, 3-star is mediocre, 5-star is excellent.
 
 1. **Brainstorm and identify stakeholders**
-    
+
     As a group, brainstorm all the stakeholders that could be directly or indirectly affected by the technology. Then assign each player a stakeholder from the list. In some cases, the Judgment Call decks may have pre-populated stakeholder cards, but players can add additional cards relevant to their situation.
 
     The deck provides following categories of stakeholders:
-      
+
       - **Direct:** These use the technology and/or the technology is used on them.
-      
+
       - **Indirect:** These feel the effects of the technology.
-      
+
       - **Special populations:** A wide range of categories that includes those who cannot use the technology or choose not to use it, and organizations that may be interested in its deployment like advocacy groups or the government.
-      
+
     There are a range of harms that can be felt or perpetuated onto each group of stakeholder. Types of stakeholders can include end users of the product, administrators, internal teams, advocacy groups, manufacturers, someone who might be excluded from using the product. Stakeholders can also include the makers who propose and work on the technology, as well as the internal project sponsors, that is, the managers and executives who are supportive of the project.
- 
+
 1. **Moderator selection**
- 
+
     The moderator describes scenarios for gameplay, guides discussion, and collects comment cards at the end. They will also give an overview of the ethical principles considered in the deck.
 
 1. **Presentation of a product**
 
     The moderator introduces a product, real or imaginary, for the players to role play. They can start with questions about the product with prompts such as:
-    
+
       - Who will use the product? 
 
       - What features will it have? 
@@ -84,11 +84,11 @@ The players are expected to go through the following steps in this game:
       - Why is it useful? 
 
       - How will it be used? 
-      
+
  1. **Writing reviews**
- 
+
     Players each write a review of the product or scenario based on the cards they've been dealt. Players take turns reading their reviews aloud. Listen carefully for any issues or themes that might come up. Take note of any changes you might make to your product based on insights discussed.
-    
+
       - The stakeholder card tells them who they are for the round. 
 
       - The ethical principle card is one of the six Microsoft AI principles; it tells them what area they're focusing on in their review. 

@@ -149,7 +149,7 @@ conceptualContent:
       footerLink:
         url: ./data-guide/big-data/machine-learning-at-scale.md
         text: See more
-    
+
     - title: Data
       links:
         - url: ./data-guide/big-data/index.md
