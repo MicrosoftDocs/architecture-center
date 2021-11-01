@@ -63,9 +63,9 @@ Consider the following guidelines when using Azure Active Directory:
 
 - When possible, use the MSAL library and the built-in support for retries.
 - If you are using the REST API for Azure Active Directory, retry the operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Do not retry for any other errors.
-- For 429 errors, only retry after the time indicated in the **Retry-After** header.  
-- For 5xx errors, use exponential back-off, with the first retry at least 5 seconds after the response. 
-- Do not retry on errors other than 429 and 5xx. 
+- For 429 errors, only retry after the time indicated in the **Retry-After** header.
+- For 5xx errors, use exponential back-off, with the first retry at least 5 seconds after the response.
+- Do not retry on errors other than 429 and 5xx.
 
 ### More information
 

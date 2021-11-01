@@ -32,7 +32,7 @@ Here are brief descriptions of what these walkthrough examples provide on their 
 - [HDInsight Hadoop walkthroughs using Hive](walkthroughs-hdinsight-hadoop.md) These walkthroughs use Hive with an HDInsight Hadoop cluster to do predictive analytics.
 - [Azure Data Lake walkthroughs using U-SQL](walkthroughs-azure-data-lake.md) These walkthroughs use U-SQL with Azure Data Lake to do predictive analytics.
 - [SQL Server](walkthroughs-sql-server.md) These walkthroughs use SQL Server, SQL Server R Services, and SQL Server Python Services to do predictive analytics.
-- [Azure Synapse Analytics](walkthroughs-sql-data-warehouse.md) These walkthroughs use Azure Synapse Analytics to do predictive analytics. 
+- [Azure Synapse Analytics](walkthroughs-sql-data-warehouse.md) These walkthroughs use Azure Synapse Analytics to do predictive analytics.
 
 
 
@@ -40,6 +40,6 @@ Here are brief descriptions of what these walkthrough examples provide on their 
 
 For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](overview.md).
 
-For a discussion of the Team Data Science Process lifecycle, see [Team Data Science Process lifecycle](lifecycle.md). This lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
+For a discussion of the Team Data Science Process lifecycle, see [Team Data Science Process lifecycle](lifecycle.md). This lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed.
 
 For an overview, see [Data Science Process](/azure/machine-learning/team-data-science-process/).

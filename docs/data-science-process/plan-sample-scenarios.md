@@ -28,12 +28,12 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 > [!NOTE]
 > **For all of the following scenarios, you need to:**
 > <br/>
-> 
+>
 > * [Create a storage account](/azure/storage/common/storage-account-create)
 >   <br/>
 > * [Create an Azure Machine Learning workspace](/azure/machine-learning/classic/create-workspace)
-> 
-> 
+>
+>
 
 ## <a name="smalllocal"></a>Scenario \#1: Small to medium tabular dataset in local files
 ![Small to medium local files][1]
@@ -91,7 +91,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
    Option \#2: Using IPython Notebook – not advisable for medium and larger datasets
 
-   <!-- -->    
+   <!-- -->
    * Use ODBC connection string to access SQL Server on VM.
    * Create database and target tables.
    * Use one of the bulk import methods to load the data from VM-local files.
@@ -130,8 +130,8 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
    > [!NOTE]
    > For faster loading of large data sizes, it is recommended that you create partitioned tables and bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](parallel-load-sql-partitioned-tables.md).
-   > 
-   > 
+   >
+   >
 1. Explore data, create features as needed. The features do not need to be materialized in the database tables. Only note the necessary query to create them.
 1. Decide on a data sample size, if needed and/or desired.
 1. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
@@ -151,8 +151,8 @@ Each of the following sections presents a sample scenario. For each scenario, a 
    > SQL Server instance in Azure. Skip the steps to export data,
    > create database, and load/import data to the target database and
    > follow the alternate method.
-   > 
-   > 
+   >
+   >
 1. Upload dump files to Azure Storage container.
 1. Load the data to a SQL Server database running on an Azure Virtual Machine.
 
@@ -170,8 +170,8 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
    > [!NOTE]
    > For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](parallel-load-sql-partitioned-tables.md).
-   > 
-   > 
+   >
+   >
 1. Explore data, create features as needed. The features do not need to be materialized in the database tables. Only note the necessary query to create them.
 1. Decide on a data sample size, if needed and/or desired.
 1. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
@@ -216,8 +216,8 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 
    > [!NOTE]
    > If the data is big, users can create the Hive table with partitions. Then, users can use a `for` loop in the Hadoop Command Line on the head node to load data into the Hive table partitioned by partition.
-   > 
-   > 
+   >
+   >
 1. Explore data and create features as needed in Hadoop Command Line. The features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
    a.  Log in to the head node of the Hadoop cluster

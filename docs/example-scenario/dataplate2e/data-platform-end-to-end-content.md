@@ -64,8 +64,8 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of semi-structured data sources, both on-premises and in the cloud. For example:
 
-    - Ingest data from file-based sources containing CSV or JSON files. 
-    - Connect to No-SQL databases such as Cosmos DB or Mongo DB. 
+    - Ingest data from file-based sources containing CSV or JSON files.
+    - Connect to No-SQL databases such as Cosmos DB or Mongo DB.
     - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
 1. From the Azure Synapse pipeline, use a [Copy Data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the semi-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
@@ -86,7 +86,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 1. Use [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull data from a wide variety of non-structured data sources, both on-premises and in the cloud. For example:
 
-    - Ingest video, image, audio, or free text from file-based sources containing the source files. 
+    - Ingest video, image, audio, or free text from file-based sources containing the source files.
     - Call REST APIs provided by SaaS applications that will function as your data source for the pipeline.
 
 1. From the Azure Synapse pipeline, use a [Copy Data activity](/azure/data-factory/copy-activity-overview) to stage the data copied from the non-structured data sources into the [Raw zone](https://techcommunity.microsoft.com/t5/data-architecture-blog/how-to-organize-your-data-lake/ba-p/1182562) of your [Azure Data Lake Store Gen 2](/azure/storage/blobs/data-lake-storage-introduction) data lake. You should save data preserving the original format as acquired from the data sources.
@@ -117,7 +117,7 @@ The analytics use cases covered by the architecture are illustrated by the diffe
 
 ## Discover and Govern
 
-Data governance is a common challenge in large enterprise environments. On one hand, business analysts need to be able to discover and understand data assets that can help them solve business problems. On the other hand, Chief Data Officers want insights on privacy and security of business data. 
+Data governance is a common challenge in large enterprise environments. On one hand, business analysts need to be able to discover and understand data assets that can help them solve business problems. On the other hand, Chief Data Officers want insights on privacy and security of business data.
 
 ### Azure Purview
 
@@ -141,7 +141,7 @@ Following these recommendations, the services below should be considered as part
 1. [Azure Cost Management](https://azure.microsoft.com/services/cost-management/): financial governance over your Azure workloads.
 1. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): secure credential and certificate management. For example, [Azure Synapse Pipelines](/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities), [Azure Synapse Spark Pools](/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary) and [Azure ML](/azure/machine-learning/how-to-use-secrets-in-runs) can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
 1. [Azure Monitor](https://azure.microsoft.com/services/monitor/): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
-1. [Azure Security Center](https://azure.microsoft.com/services/security-center/): strengthen and monitor the security posture of your Azure workloads.  
+1. [Azure Security Center](https://azure.microsoft.com/services/security-center/): strengthen and monitor the security posture of your Azure workloads.
 1. [Azure DevOps](https://azure.microsoft.com/solutions/devops/) & [GitHub](https://azure.microsoft.com/products/github/): implement DevOps practices to enforce automation and compliance to your workload development and deployment pipelines for Azure Synapse and Azure ML.
 1. [Azure Policy](/azure/governance/policy/): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
 

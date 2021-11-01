@@ -10,7 +10,7 @@ When deploying HA architectures, there are a few options to provide failover:
 
 The problem with the first two options is that failover itself is slow. The FW must instruct the failover, which is essentially a “reconfiguration” of Azure services through a new deployment. Depending on how fast that deployment is completed, the traffic flows will be down for several minutes. Furthermore, it doesn’t allow for an active-active configuration where both firewalls are operating at the same time.
 
-That's why the third option is most preferred. The downtime is minimized as the load balancer can fail over almost instantly to the stand-by firewall (in active-passive) or just remove the load from the failed firewall (in active-active). But you can't just use load balancers as "default gateways" as they affect the traffic flow and TCP packets need to be stateful. 
+That's why the third option is most preferred. The downtime is minimized as the load balancer can fail over almost instantly to the stand-by firewall (in active-passive) or just remove the load from the failed firewall (in active-active). But you can't just use load balancers as "default gateways" as they affect the traffic flow and TCP packets need to be stateful.
 
 ## Two-legged firewalls
 

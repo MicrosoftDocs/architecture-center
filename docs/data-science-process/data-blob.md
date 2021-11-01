@@ -185,7 +185,7 @@ For generating binned features, we proceed as follows:
 
     ```python
     dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)  
-    ```  
+    ```
 
 ## <a name="sql-featuregen"></a>Writing data back to Azure blob and consuming in Azure Machine Learning
 

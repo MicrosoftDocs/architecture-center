@@ -25,7 +25,7 @@ The Team Data Science Process (TDSP) is a framework developed by Microsoft that 
 
 This introductory article links to tutorials on how to set up the TDSP environment. The tutorials provide detailed guidance for using Azure DevOps Projects, Azure Repos repositories, and Azure Boards.  The motivating goal is moving from concept through modeling and into deployment.
 
-The tutorials use Azure DevOps because that is how to implement TDSP at Microsoft. Azure DevOps facilitates collaboration by integrating role-based security, work item management and tracking, and code hosting, sharing, and source control. The tutorials also use an Azure [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) as the analytics desktop, which has several popular data science tools pre-configured and integrated with Microsoft software and Azure services. 
+The tutorials use Azure DevOps because that is how to implement TDSP at Microsoft. Azure DevOps facilitates collaboration by integrating role-based security, work item management and tracking, and code hosting, sharing, and source control. The tutorials also use an Azure [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) as the analytics desktop, which has several popular data science tools pre-configured and integrated with Microsoft software and Azure services.
 
 You can use the tutorials to implement TDSP using other code-hosting, agile planning, and development tools and environments, but some features may not be available.
 
@@ -62,7 +62,7 @@ The following diagram shows the top-level tasks for each Team Data Science Proce
 
 The Group Manager or a designated TDSP system administrator completes the following tasks to adopt the TDSP:
 
-- Creates an Azure DevOps **organization** and a group project within the organization. 
+- Creates an Azure DevOps **organization** and a group project within the organization.
 - Creates a **project template repository** in the Azure DevOps group project, and seeds it from the project template repository developed by the Microsoft TDSP team. The Microsoft TDSP project template repository provides:
   - A **standardized directory structure**, including directories for data, code, and documents.
   - A set of **standardized document templates** to guide an efficient data science process.

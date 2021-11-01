@@ -226,7 +226,7 @@ quickly as possible. The classic example is credit card fraud detection, but rea
 
 Following is a breakdown of Azure technologies, platforms, and services you can use to develop AI solutions for your needs.
 
-### Azure Machine Learning 
+### Azure Machine Learning
 
 This is an enterprise-grade machine learning service to build and deploy models faster. Azure Machine Learning offers web interfaces and SDKs so you can quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
 

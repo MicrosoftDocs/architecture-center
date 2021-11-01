@@ -96,7 +96,7 @@ Start training on your local machine and then scale out to the cloud. [Train you
 
 [Machine Learning Studio (classic)](https://azure.microsoft.com/services/machine-learning-studio/) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions in the cloud.  It enables emerging data scientists to create and deploy machine learning models without the need to write much code.
 
-Machine Learning Studio (classic) supports both R and Python.  
+Machine Learning Studio (classic) supports both R and Python.
 
 Customers currently using or evaluating Machine Learning Studio (classic) are encouraged to try the designer in Azure Machine Learning, which provides drag-n-drop ML modules plus scalability, version control, and enterprise security.
 

@@ -13,7 +13,7 @@ Contoso Bank wanted to use a set of simulations to:
 
 * Determine the reaction to failures in the existing architectural design of specific mainframe software.
 
-The proposed solution would use a virtual application to simulate functional scenarios. Its purpose would be to monitor the performance and scalability of the infrastructure. The aim was to determine the impact of failures in the mainframe Electronic Funds Transfer (EFT) system workloads through this set of simulations.  
+The proposed solution would use a virtual application to simulate functional scenarios. Its purpose would be to monitor the performance and scalability of the infrastructure. The aim was to determine the impact of failures in the mainframe Electronic Funds Transfer (EFT) system workloads through this set of simulations.
 
 There was also a requirement to propose a smooth DevOps transition from on-premises to the cloud. The transition had to include the bank's process and methodology, and it had to  use Contoso Bank's existing tools. Using existing technologies would reduce the up-skill impact for the developers. The transition would assist Contoso Bank in reviewing current and future design decisions. The transition would also provide confidence that Azure is an environment robust enough to host the new distributed systems.
 

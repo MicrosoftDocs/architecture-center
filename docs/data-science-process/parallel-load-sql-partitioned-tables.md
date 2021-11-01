@@ -21,18 +21,18 @@ categories:
 
 # Build and optimize tables for fast parallel import of data into a SQL Server on an Azure VM
 
-This article describes how to build partitioned tables for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to a SQL database, importing data to the SQL database and subsequent queries can be improved by using *Partitioned Tables and Views*. 
+This article describes how to build partitioned tables for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to a SQL database, importing data to the SQL database and subsequent queries can be improved by using *Partitioned Tables and Views*.
 
 ## Create a new database and a set of filegroups
 * [Create a new database](/sql/t-sql/statements/create-database-transact-sql), if it doesn't exist already.
-* Add database filegroups to the database, which holds the partitioned physical files. 
+* Add database filegroups to the database, which holds the partitioned physical files.
 * This can be done with [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql) if new or [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options) if the database exists already.
 * Add one or more files (as needed) to each database filegroup.
 
   > [!NOTE]
   > Specify the target filegroup, which holds data for this partition and the physical database file name(s) where the filegroup data is stored.
-  > 
-  > 
+  >
+  >
 
 The following example creates a new database with three filegroups other than the primary and log groups, containing one physical file in each. The database files are created in the default SQL Server Data folder, as configured in the SQL Server instance. For more information about the default file locations, see [File Locations for Default and Named Instances of SQL Server](/sql/sql-server/install/file-locations-for-default-and-named-instances-of-sql-server).
 
@@ -194,8 +194,8 @@ The following PowerShell script is an example of parallel data loading using BCP
 
   > [!NOTE]
   > You may choose to create the indexes before bulk importing the data. Index creation before bulk importing slows down the data loading.
-  > 
-  > 
+  >
+  >
 
 ## Advanced Analytics Process and Technology in Action Example
 For an end-to-end walkthrough example using the Team Data Science Process with a public dataset, see [Team Data Science Process in Action: using SQL Server](sql-walkthrough.md).

@@ -53,7 +53,7 @@ This solution is helpful in the following use cases:
 
 - [Azure Databricks](https://azure.microsoft.com/services/databricks) is a data analytics platform optimized for the Microsoft Azure cloud services platform.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) includes a range of experiences to build, train, and deploy machine learning models and foster team collaboration. 
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) includes a range of experiences to build, train, and deploy machine learning models and foster team collaboration.
 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a database engine that handles most management functions without your involvement. Azure SQL Database enables you to focus on the domain-specific database administration and optimization activities for your business.
 

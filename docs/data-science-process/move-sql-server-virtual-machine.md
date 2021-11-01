@@ -60,7 +60,7 @@ If your data is in a flat file (arranged in a row/column format), it can be move
 BCP is a command-line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premises SQL Server, SQL Azure, and SQL Server VM on Azure).
 
 > [!NOTE]
-> **Where should my data be for BCP?**  
+> **Where should my data be for BCP?**
 > While it is not required, having files containing source data located on the same machine as the target SQL Server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](/azure/storage/common/storage-use-azcopy-v10), [Azure Storage Explorer](https://storageexplorer.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
 >
 >
@@ -140,7 +140,7 @@ Set-ExecutionPolicy Restricted #reset the execution policy
 
 [Bulk Insert SQL Query](/sql/t-sql/statements/bulk-insert-transact-sql) can be used to import data into the database from row/column based files (the supported types are covered in the[Prepare Data for Bulk Export or Import (SQL Server)](/sql/relational-databases/import-export/prepare-data-for-bulk-export-or-import-sql-server)) topic.
 
-Here are some sample commands for Bulk Insert are as below:  
+Here are some sample commands for Bulk Insert are as below:
 
 1. Analyze your data and set any custom options before importing to make sure that the SQL Server database assumes the same format for any special fields such as dates. Here is an example of how to set the date format as year-month-day (if your data contains the date in year-month-day format):
 
@@ -165,7 +165,7 @@ Here are some sample commands for Bulk Insert are as below:
 
 You can use SQL Server Integration Services (SSIS) to import data into SQL Server VM on Azure from a flat file. SSIS is available in two studio environments. For details, see [Integration Services (SSIS) and Studio Environments](/sql/integration-services/integration-services-ssis-development-and-management-tools):
 
-* For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt)  
+* For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt)
 * For details on the Import/Export Wizard, see [SQL Server Import and Export Wizard](/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard)
 
 ## <a name="sqlonprem_to_sqlonazurevm"></a>Moving Data from on-premises SQL Server to SQL Server on an Azure VM
@@ -204,7 +204,7 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 
 ### <a name="sql-migration"></a>SQL Database Migration Wizard
 
-[Microsoft Data Migration](https://techcommunity.microsoft.com/t5/microsoft-data-migration/bg-p/MicrosoftDataMigration) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.  
+[Microsoft Data Migration](https://techcommunity.microsoft.com/t5/microsoft-data-migration/bg-p/MicrosoftDataMigration) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.
 
 ![SQL Server Migration Wizard][2]
 
