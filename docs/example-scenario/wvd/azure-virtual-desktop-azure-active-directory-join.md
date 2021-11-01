@@ -27,11 +27,11 @@ ms.custom:
 
 # Azure AD join for Azure Virtual Desktop
 
-Azure Active Directory (Azure AD) provides many benefits for organizations, such as modern authentication protocols, single sign-on (SSO), and support for FSLogix user profiles. Azure Virtual Desktop virtual machine (VM) session hosts can join directly to Azure AD. Joining directly to Azure AD removes the previous need to use Active Directory Domain Services (AD DS) domain controllers.
+Azure Active Directory (Azure AD) provides many benefits for organizations, such as modern authentication protocols, single sign-on (SSO), and support for [FSLogix](/fslogix/overview) user profiles. Azure Virtual Desktop virtual machine (VM) session hosts can join directly to Azure AD. Joining directly to Azure AD removes the previous need to use Active Directory Domain Services (AD DS) domain controllers.
 
 Originally, Azure Virtual Desktop domain join needed both Azure AD and AD DS domain controllers. Traditional Windows Server AD DS domain controllers were on-premises machines, Azure VMs, or both. Azure Virtual Desktop accessed the controllers over a site-to-site virtual private network (VPN) or Azure ExpressRoute. Alternatively, [Azure Active Directory Domain Services](/azure/active-directory-domain-services) platform-as-a-service (PaaS) provided AD DS in Azure and supported trust relationships to existing on-premises AD DS. Users had to sign in to both Azure AD and AD DS.
 
-Other services that the Azure Virtual Desktop hosts consume, such as applications and Server Message Block (SMB) storage, might still require AD DS. But Azure Virtual Desktop itself no longer requires AD DS. Removing this requirement reduces cost and complexity.
+Other services that Azure Virtual Desktop hosts consume, such as applications and Server Message Block (SMB) storage, might still require AD DS. But Azure Virtual Desktop itself no longer requires AD DS. Removing this requirement reduces cost and complexity.
 
 Azure AD domain join for Azure Virtual Desktop provides a modern approach for smartcards, FIDO2, authentication protocols like Windows Hello for Business, and future capabilities. Azure AD domain join also opens up the possibility of decommissioning Active Directory, since Azure Virtual Directory host pools no longer require Active Directory.
 
@@ -43,7 +43,7 @@ There are a few limitations for Azure Virtual Desktop Azure AD domain join:
 
 - Azure AD join is only supported on Azure Virtual Desktop for Azure Resource Manager. Azure Virtual Desktop Classic isn't supported.
 
-- Only personal host pools are currently supported. This limitation isn't in multisession pooled host pools, but in Azure Files. Azure Files currently doesn't support Azure AD as a [Kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) realm, only Active Directory. This lack of Kerberos support prevents [FSLogix](/fslogix/overview) from working. FSLogix is the technology that manages roaming user profiles in a pooled host pool scenario.
+- Only personal host pools are currently supported. This limitation isn't in multisession pooled host pools, but in Azure Files. Azure Files currently doesn't support Azure AD as a [Kerberos](https://en.wikipedia.org/wiki/Kerberos_(protocol)) realm, only Active Directory. This lack of Kerberos support prevents FSLogix from working. FSLogix is the technology that manages roaming user profiles in a pooled host pool scenario.
 
 - The session hosts must be Windows 10 Enterprise version 2004 or later.
 
@@ -55,7 +55,7 @@ To deploy an Azure AD host pool, follow the instructions in [Create a host pool]
 
 Selecting **Azure Active Directory** presents the option to enroll the VMs with Intune. Select **Yes** if you want to enroll the VM with Intune.
 
-Intune can apply policies, distribute software, and help you manage these VMs. For more information about Intune as part of Microsoft Endpoint Manager, see [Getting started with Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/intune-customer-success/getting-started-with-microsoft-endpoint-manager/ba-p/2497614).
+Intune can apply policies, distribute software, and help you manage VMs. For more information about Intune as part of Microsoft Endpoint Manager, see [Getting started with Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/intune-customer-success/getting-started-with-microsoft-endpoint-manager/ba-p/2497614).
 
 :::image type="content" source="images/intune-enroll.png" alt-text="Screenshot of Azure Virtual Desktop with the Intune enroll option selected.":::
 
@@ -105,8 +105,8 @@ In Azure Virtual Desktop, users must be in the Azure Virtual Desktop [Desktop ap
 Choose the scope for this role.
 
 - Assigning the role at the **VM level** means you have to assign the role for each VM you add.
-- Assigning the role at the **resource group** level means the role automatically applies to all VMs in that resource group.
-- Assigning the role at the **Subscription** level means users can sign in to all VMs in the subscription.
+- Assigning the role at the **resource group level** means the role automatically applies to all VMs in that resource group.
+- Assigning the role at the **Subscription level** means users can sign in to all VMs in the subscription.
 
 Setting the role once at the resource group level might be the best option. This approach prevents having to assign the role for every VM, but avoids assigning it at the top level of the subscription.
 
