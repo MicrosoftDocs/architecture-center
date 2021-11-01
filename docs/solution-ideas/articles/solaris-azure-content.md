@@ -24,9 +24,9 @@ Running applications in an emulator on Azure has several benefits, such as reduc
 7. The management VM that runs Charon-SSP Director and Manager can be either Windows-based, or Linux-based with a graphic user interface like [GNOME](https://www.gnome.org/).
 8. End users can secure-shell (SSH) connect directly to the Solaris VMs, which have their own dedicated network interface cards and IP addresses.
 
-[XDMCP](https://wiki.ubuntu.com/xdmcp) is available for desktop access to the Solaris VMs. XDMCP isn't an encrypted protocol, so the recommended topology for accessing a Solaris VM via XDMCP is to create a Windows Server VM in Azure as a "hop" server, in which an XDMCP client such as [MobaXterm](https://mobaxterm.mobatek.net/) can be installed. With this configuration, all network traffic occurs over the private Azure virtual network.
+[XDMCP](https://wiki.ubuntu.com/xdmcp) is available for desktop access to the Solaris VMs. XDMCP isn't an encrypted protocol, so the recommended topology for accessing a Solaris VM via XDMCP is to create a Windows Server VM in Azure as a "hop" server, in which an XDMCP client, such as [MobaXterm](https://mobaxterm.mobatek.net), can be installed. With this configuration, all network traffic occurs over the private Azure virtual network.
 
-## Components
+### Components
 
 - [Azure VMs](https://azure.microsoft.com/services/virtual-machines/) are on-demand, scalable computing resources in Azure. An Azure VM gives you the flexibility of virtualization without having to buy and maintain physical hardware. Azure VMs give you a choice of operating systems including Windows and Linux.
   
