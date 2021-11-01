@@ -41,7 +41,7 @@ By following the guidance you can maintain full control of your research data, h
 ### Components 
 
 This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles are described below. For links to product documentation to get started with these services, see [Next steps](#next-steps). 
- 
+
 #### Core workload components
 
 Here are the core components that move and process research data. 

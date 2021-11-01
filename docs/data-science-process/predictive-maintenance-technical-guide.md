@@ -109,7 +109,7 @@ The Azure Stream Analytics query can be found by:
 * Locating the Stream Analytics jobs ![Stream Analytics icon](./media/predictive-maintenance-technical-guide/icon-stream-analytics.png) that were generated when the solution was deployed (*for example*,
   **maintenancesa02asapbi** and **maintenancesa02asablob** for the predictive maintenance solution)
 * Selecting
-  
+
   * ***INPUTS*** to view the query input
   * ***QUERY*** to view the query itself
   * ***OUTPUTS*** to view the different outputs
@@ -184,9 +184,9 @@ Once the Data Generator is launched, the pipeline begins to dehydrate, and the d
 
 * One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel is the **rawdata** folder. Inside the rawdata folder are folders with names such as hour=17, and hour=18. The presence of these folders indicates raw data is being generated on your computer and stored in blob storage. You should see csv files with finite sizes in MB in those folders.
 * The last step of the pipeline is to write data (for example predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel, locate SQL DATABASES :::image type="icon" source="./media/predictive-maintenance-technical-guide/icon-sql-databases.png" border="false"::: and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE.
-   
+
     ![Manage icon](./media/predictive-maintenance-technical-guide/icon-manage.png)
-   
+
     Here, you can click on New Query and query for the number of rows (for example select count(*) from PMResult). As your database grows, the number of rows in the table should  increase.
 
 ## Power BI Dashboard
@@ -207,19 +207,19 @@ Note:
 The following steps guide you on how to connect the pbix file to the SQL Database that was spun up at the time of solution deployment containing data (for example, prediction results) for visualization.
 
 1. Get the database credentials.
-   
+
    You'll need **database server name, database name, user name and password** before moving to next steps. Here are the steps to guide you how to find them.
-   
+
    * Once **'Azure SQL Database'** on your solution template diagram turns green, click it and then click **'Open'**.
    * You'll see a new browser tab/window that displays the Azure portal page. Click **'Resource groups'** on the left panel.
    * Select the subscription you're using for deploying the solution, and then select **'YourSolutionName\_ResourceGroup'**.
    * In the new pop out panel, click the  :::image type="icon" source="./media/predictive-maintenance-technical-guide/icon-sql.png" border="false"::: icon to access your database. Your database name is next to this icon (for example, **'pmaintenancedb'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSolutionName.database.windows.net**.
    * Your database **username** and **password** are the same as the username and password previously recorded during deployment of the solution.
 2. Update the data source of the cold path report file with Power BI Desktop.
-   
+
    * In the folder where you downloaded and unzipped the Generator file, double-click the
      **PowerBI\\PredictiveMaintenanceAerospace.pbix** file. If you see any warning messages when you open the file, ignore them. On the top of the file, click **'Edit Queries'**.
-     
+
      ![Edit Queries](./media/predictive-maintenance-technical-guide/edit-queries.png)
    * You'll see two tables, **RemainingUsefulLife** and **PMResult**. Select the first table and click ![Query settings icon](./media/predictive-maintenance-technical-guide/icon-query-settings.png) next to **'Source'** under
      **'APPLIED STEPS'** on the right **'Query Settings'** panel. Ignore any warning messages that appear.
@@ -231,7 +231,7 @@ The following steps guide you on how to connect the pbix file to the SQL Databas
      **'APPLIED STEPS'** on the right **'Query Settings'** panel, and update the server and database names as in the above steps and click OK.
    * Once you're guided back to the previous page, close the window. A message displays - click **Apply**. Lastly, click the **Save** button to save the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
 3. (Optional) Publish the cold path dashboard to [Power BI online](https://www.powerbi.com/). This step needs a Power BI account (or a work or school account).
-   
+
    * Click **'Publish'** and few seconds later a window appears displaying "Publishing to Power BI Success!" with a green check mark. Click the link below "Open PredictiveMaintenanceAerospace.pbix in Power BI". To find detailed instructions, see [Publish from Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * To create a new dashboard: click the **+** sign next to the
      **Dashboards** section on the left pane. Enter the name "Predictive Maintenance Demo" for this new dashboard.
@@ -256,12 +256,12 @@ The following steps guide you on how to connect the pbix file to the SQL Databas
 The following steps guide you how to visualize data output from Stream Analytics jobs that were generated at the time of solution deployment. A [Power BI online](https://www.powerbi.com/) account is required to perform the following steps. If you don't have an account, you can [create one](https://powerbi.microsoft.com/pricing).
 
 1. Add Power BI output in Azure Stream Analytics (ASA).
-   
+
    * You must follow the instructions in
      [Azure Stream Analytics & Power BI: An analytics dashboard for real-time visibility of streaming data](/azure/stream-analytics/stream-analytics-power-bi-dashboard) to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
    * The ASA query has three outputs that are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you need to add an output to ASA. When you add the first output (**aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message ("Starting Stream Analytics job maintenancesa02asapbi succeeded").
 2. Log in to [Power BI online](https://www.powerbi.com)
-   
+
    * On the left panel Datasets section in My Workspace, the
      ***DATASET*** names **aircraftmonitor**, **aircraftalert**, and
      **flightsbyhour** should appear. This is the streaming data you pushed from Azure Stream Analytics in the previous step. The dataset **flightsbyhour** may not show up at the same time as the other two datasets due to the nature of the SQL query behind it. However, it should show up after an hour.
@@ -271,7 +271,7 @@ The following steps guide you how to visualize data output from Stream Analytics
     ![Dashboard view](media/predictive-maintenance-technical-guide/dashboard-view.png)
 
 1. Here are some steps to create one of the tiles above –  the "Fleet View of Sensor 11 vs. Threshold 48.26" tile:
-   
+
    * Click dataset **aircraftmonitor** on the left panel Datasets section.
    * Click the **Line Chart** icon.
    * Click **Processed** in the **Fields** pane so that it shows under

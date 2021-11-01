@@ -78,7 +78,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 **Minimize the time that connections and resources are in use**. Maintain connections and resources only for as long as you need to use them. For example, open connections as late as possible, and allow them to be returned to the connection pool as soon as possible. Acquire resources as late as possible, and dispose of them as soon as possible.
 
 **Minimize the number of connections required**. Service connections absorb resources. Limit the number that are required and ensure that existing connections are reused whenever possible. For example, after performing authentication, use impersonation where appropriate to run code as a specific identity. This can help to make best use of the connection pool by reusing connections.
-  
+
 > [!NOTE]
 > APIs for some services automatically reuse connections, provided service-specific guidelines are followed. It's important that you understand the conditions that enable connection reuse for each service that your application uses.
 

@@ -149,7 +149,7 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %ProgramData%\FSLogix\Cache\\*.VHDX (additional - only if you use Cloud Cache)
   - %ProgramData%\FSLogix\Proxy\\*.VHD (additional - only if you use Cloud Cache)
   - %ProgramData%\FSLogix\Proxy\\*.VHDX (additional - only if you use Cloud Cache)
-  
+
 - Exclude processes:
 
   - %ProgramFiles%\FSLogix\Apps\frxccd.exe

@@ -69,7 +69,7 @@ BCP is a command-line utility installed with SQL Server and is one of the quicke
 
     ```sql
     CREATE DATABASE <database_name>
-    
+
     CREATE TABLE <tablename>
     (
         <columnname1> <datatype> <constraint>,

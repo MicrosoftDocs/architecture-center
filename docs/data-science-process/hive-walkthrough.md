@@ -86,7 +86,7 @@ You can set up an Azure environment for advanced analytics that employs an HDIns
 
 1. [Create a storage account](/azure/storage/common/storage-account-create): This storage account is used for storing data in Azure Blob storage. The data used in HDInsight clusters also resides here.
 2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). This step creates an HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
-   
+
    * Remember to link the storage account created in step 1 with your HDInsight cluster when you are creating it. This storage account accesses data that is processed within the cluster.
    * After you create the cluster, enable Remote Access to the head node of the cluster. Browse to the **Configuration** tab, and select **Enable Remote**. This step specifies the user credentials used for remote login.
 3. [Create an Machine Learning Studio (classic) workspace](/azure/machine-learning/classic/create-workspace): You use this workspace to build machine learning models. This task is addressed after completing an initial data exploration and down-sampling, by using the HDInsight cluster.

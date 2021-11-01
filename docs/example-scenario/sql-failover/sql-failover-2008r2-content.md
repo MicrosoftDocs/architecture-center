@@ -171,7 +171,7 @@ In each VM, sign in as a domain administrator, open a command line as an adminis
 
    1. SQL Server: **1433**
    1. Load Balancer Health Probe: **59999**
-  
+
   For complete guidelines, refer to [Configure the Windows Firewall to Allow SQL Server Access][Configure the Windows Firewall to Allow SQL Server Access].
 
 ##### Use the management console
@@ -184,11 +184,11 @@ In each VM, sign in as a domain administrator, open a command line as an adminis
 
       - SQL Server: **1433**
       - Load Balancer Health Probe: **59999**
-  
+
       For complete guidelines, refer to [Configure the Windows Firewall to Allow SQL Server Access][Configure the Windows Firewall to Allow SQL Server Access].
 
 1. Sign in to one VM and use the **Create Cluster** wizard to create a cluster.
-  
+
    - This operation creates a [Cluster Name Object (CNO)][Cluster Name Object] and adds it to the domain.
    - By default, the operation uses [Dynamic Host Configuration Protocol (DHCP)][Dynamic Host Configuration Protocol] to set the cluster IP address.
 

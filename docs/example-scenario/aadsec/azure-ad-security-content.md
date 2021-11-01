@@ -79,7 +79,7 @@ Azure AD can use the following conditional access controls with conditional acce
 - [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/) lets you configure and assign appropriate roles to users who need to do administrative or specialized tasks with Azure resources. You can use Azure RBAC to create or maintain separate dedicated admin-only accounts, scope access to roles you set up, time limit access, or grant access through approval workflows.
 
 - [Privileged identity management (PIM)](/azure/active-directory/privileged-identity-management/) helps reduce the attack vector for your organization by letting you add additional monitoring and protection to administrative accounts. With [Azure AD PIM](/azure/active-directory/privileged-identity-management/pim-configure), you can manage and control access to resources within Azure, Azure AD, and other Microsoft 365 services with [just-in-time (JIT) access and just-enough-administration (JEA)](/azure/azure-australia/role-privileged). PIM provides a history of administrative activities and a change log, and alerts you when users are added or removed from roles you define.
-  
+
   You can use PIM to [require approval](/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings) or justification for activating administrative roles. Users can maintain normal privileges most of the time, and request and receive access to roles they need to complete administrative or specialized tasks. When they complete their work and sign out, or the time limit on their access expires, they can reauthenticate with their standard user permissions.
 
 - [Microsoft cloud app security (MCAS)](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) is a *cloud app security broker (CAS-B)* that analyzes traffic logs to discover and monitor the applications and services in use in your organization. With MCAS, you can:
@@ -87,7 +87,7 @@ Azure AD can use the following conditional access controls with conditional acce
   - Identify applications as [sanctioned or unsanctioned](/cloud-app-security/governance-discovery)
   - [Control and limit access to data](/cloud-app-security/governance-actions)
   - [Apply information protection](/cloud-app-security/azip-integration) to guard against information loss
-  
+
   MCAS can also work with [access policies](/cloud-app-security/access-policy-aad) and [session policies](/cloud-app-security/session-policy-aad) to control user access to SaaS apps. For example, you can:
   - [Limit the IP ranges](/azure/active-directory/conditional-access/location-condition) that can access apps
   - [Require MFA](/azure/active-directory/authentication/concept-mfa-howitworks) for app access

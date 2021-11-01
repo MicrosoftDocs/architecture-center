@@ -32,7 +32,7 @@ For more information, see [Azure Front Door Pricing](https://azure.microsoft.com
 There are two main pricing models:
 
 - Fixed price
-  
+
   You're charged for the time that the gateway is provisioned and available and the amount of data processed by the gateway. For more information, see Application Gateway pricing.
 
 - Consumption price
@@ -70,7 +70,7 @@ For more information, see [Azure ExpressRoute pricing](https://azure.microsoft.c
 [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml) connects an Azure virtual network and an on-premises network connected using with VPN gateway failover.
 
 ## Azure Firewall
- 
+
  Azure Firewall usage can be charged at a fixed rate per deployment hour. There's additional cost for the amount of data transferred. 
 
 There aren't additional cost for a firewall deployed in an availability zone. There are additional costs for inbound and outbound data transfers associated with availability zones. 

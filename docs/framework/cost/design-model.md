@@ -14,10 +14,10 @@ ms.custom:
 _Cost modeling_ is an exercise where you create logical groups of cloud resources that are mapped to the organization's hierarchy and then estimate costs for those groups. The goal of cost modeling is to estimate the overall cost of the organization in the cloud. 
 
 1.  [**Understand how your responsibilities align with your organization**](#organization-structure)
-    
+
     Map the organization's needs to logical groupings offered by cloud services. This way the business leaders of the company get a clear view of the cloud services and how they're controlled.
 2.  [**Capture clear requirements**](design-capture-requirements.md)
-    
+
     Start your planning with a careful enumeration of requirements. From the high-level requirements, narrow down each requirement before starting on the design of the solution. 
 
 3.	[**Consider the cost constraints**](#cost-constraints)
@@ -25,9 +25,9 @@ _Cost modeling_ is an exercise where you create logical groups of cloud resource
     Evaluate the budget constraints on each business unit and determine the governance policies in Azure to lower cost by reducing wastage, overprovisioning, or expensive provisioning of resources.
 
 4.	[**Consider tradeoffs**](tradeoffs.md)
-    
+
     Optimal design doesn't equate to a lowest-cost design.
-    
+
     As requirements are prioritized, cost can be adjusted. Expect a series of tradeoffs in the areas that you want to optimize, such as security, scalability, resilience, and operability. If the cost to address the challenges in those areas is high, stakeholders will look for alternate options to reduce cost. There might be risky choices made in favor or a cheaper solution.
 
 5. [**Derive functional requirements from high-level goals**](#functional-requirements)
@@ -67,7 +67,7 @@ If your workload has dependencies on shared assets like Active Directory, Networ
 
 4. Calculate the ROI by understanding what is included in each grouping and what isn't.
 
- 
+
     **Which aspects of the hierarchy are covered by cloud services?**  
     ***
 

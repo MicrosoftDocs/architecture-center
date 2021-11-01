@@ -16,7 +16,7 @@ The presentation layer (SAPGUI, SAP NetWeaver Business Client, Browser etc.) of 
 #### Considerations
 
 - The presentation layer of the SAP Solution can reside in user workstation (laptop, desktop etc.), remote desktop in Azure or virtual desktop solutions like Citrix, [Windows Virtual Desktop](/azure/virtual-desktop/overview) etc.
- 
+
 #### Recommendations
 
 - While deploying SAP presentation layer, ensure the latency requirement between SAP Application servers and the presentation layer are met. This [SCN Wiki](https://wiki.scn.sap.com/wiki/display/VIRTUALIZATION/Frequently+Asked+Questions%3A+Microsoft+Azure#FrequentlyAskedQuestions:MicrosoftAzure-HowcanItestthelatencybetweenmyhomelocationandthenextAzuredatacenter?) page contains good guiding principles. When defining your strategy, aim to adhere to these latency guidelines:

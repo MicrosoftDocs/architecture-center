@@ -65,7 +65,7 @@ One of the biggest benefits of IaC is the level of confidence you can have in yo
 * It ensures that your IaC configurations are regularly exercised. If they are only deployed occasionally, it's much more likely they will become stale and you won't notice until it's too late. This is particularly important if you need to rely on your IaC configurations as part of a disaster recovery plan.
 * It ensures that your application code and infrastructure won't get out of sync. For example, if you have an application update that needs an IaC configuration to be deployed first (such as to deploy a new database), you want to make sure you won't accidentally forget to do this in the right order. Deploying the two together in one pipeline means you are less likely to encounter these kinds of 'race conditions'.
 * It helps to avoid configuration drift. If someone does accidentally make a change to a resource without following your IaC pipeline, then you want to correct this as quickly as possible and get the resource back to the correct state. By following an IaC approach, the source of truth for your environment's configuration is in code.
- 
+
 ### Manage multiple environments
 Many organizations maintain multiple environments, for example, test, staging, and production. In some cases, multiple production environments are maintained for things like multi-tenanted solutions and geographically distributed applications. Ensuring consistency across these can be difficult; using infrastructure as code solutions can help.
 

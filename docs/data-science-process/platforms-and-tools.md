@@ -135,13 +135,13 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
    ssh-keygen
    cat .ssh/id_rsa.pub
    ```
-   
+
    ![Commands to generate the SSH key](./media/platforms-and-tools/resources-1-generate-ssh.png)
 
 1. Copy the entire ssh key including *ssh-rsa*. 
 1. Log in to your Azure DevOps Services. 
 1. Click **<Your Name\>** at the top-right corner of the page and click **security**. 
-    
+
    ![Click your name and then click security](./media/platforms-and-tools/resources-2-user-setting.png)
 
 1. Click **SSH public keys**, and click **+Add**. 

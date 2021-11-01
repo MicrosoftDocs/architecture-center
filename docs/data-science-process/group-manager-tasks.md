@@ -42,21 +42,21 @@ The following tutorial walks through the steps in detail.
 ## Create an organization and project in Azure DevOps
 
 1. Go to [visualstudio.microsoft.com](https://visualstudio.microsoft.com), select **Sign in** at upper right, and sign into your Microsoft account. 
-   
+
    ![Sign in to your Microsoft account](./media/group-manager-tasks/signinvs.png)
-   
+
    If you don't have a Microsoft account, select **Sign up now**, create a Microsoft account, and sign in using this account. If your organization has a Visual Studio subscription, sign in with the credentials for that subscription.
-   
+
 1. After you sign in, at upper right on the Azure DevOps page, select **Create new organization**.
-   
+
    ![Create new organization](./media/group-manager-tasks/create-organization.png)
-   
+
 1. If you're prompted to agree to the Terms of Service, Privacy Statement, and Code of Conduct, select **Continue**.
-   
+
 1. In the signup dialog, name your Azure DevOps organization and accept the host region assignment, or drop down and select a different region. Then select **Continue**. 
 
 1. Under **Create a project to get started**, enter *GroupCommon*, and then select **Create project**. 
-   
+
    ![Create project](./media/group-manager-tasks/create-project.png)
 
 The **GroupCommon** project **Summary** page opens. The page URL is *https:\//\<servername>/\<organization-name>/GroupCommon*.
@@ -80,17 +80,17 @@ To set up the group common repositories in your project, you:
 To rename the default **GroupCommon** project repository to **GroupProjectTemplate**:
 
 1. On the **GroupCommon** project **Summary** page, select **Repos**. This action takes you to the default **GroupCommon** repository of the GroupCommon project, which is currently empty.
-   
+
 1. At the top of the page, drop down the arrow next to **GroupCommon** and select **Manage repositories**.
-   
+
    ![Manage repositories](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
-   
+
 1. On the **Project Settings** page, select the **...** next to **GroupCommon**, and then select **Rename repository**. 
-   
+
    ![Select ... and then select Rename repository](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
-   
+
 1. In the **Rename the GroupCommon repository** popup, enter *GroupProjectTemplate*, and then select **Rename**. 
-   
+
    ![Rename repository](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
 
 ### Create the GroupUtilities repository
@@ -98,17 +98,17 @@ To rename the default **GroupCommon** project repository to **GroupProjectTempla
 To create the **GroupUtilities** repository:
 
 1. On the **GroupCommon** project **Summary** page, select **Repos**. 
-   
+
 1. At the top of the page, drop down the arrow next to **GroupProjectTemplate** and select **New repository**.
-   
+
    ![Select New repository](./media/group-manager-tasks/create-grouputilities-repo-1.png)
-   
+
 1. In the **Create a new repository** dialog, select **Git** as the **Type**, enter *GroupUtilities* as the **Repository name**, and then select **Create**.
-   
+
    ![Create GroupUtilities repository](./media/group-manager-tasks/create-grouputilities-repo-2.png)
-   
+
 1. On the **Project Settings** page, select **Repositories** under **Repos** in the left navigation to see the two group repositories: **GroupProjectTemplate** and **GroupUtilities**.
-   
+
    ![Two group repositories](./media/group-manager-tasks/two-repositories.png)
 
 ## Import the Microsoft TDSP team repositories
@@ -118,17 +118,17 @@ In this part of the tutorial, you import the contents of the **ProjectTemplate**
 To import the TDSP team repositories:
 
 1. From the **GroupCommon** project home page, select **Repos** in the left navigation. The default **GroupProjectTemplate** repo opens. 
-   
+
 1. On the **GroupProjectTemplate is empty** page, select **Import**. 
-   
+
    ![Select Import](./media/group-manager-tasks/import-repo.png)
-   
+
 1. In the **Import a Git repository** dialog, select **Git** as the **Source type**, and enter *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* for the **Clone URL**. Then select **Import**. The contents of the Microsoft TDSP team ProjectTemplate repository are imported into your GroupProjectTemplate repository. 
-   
+
    ![Import Microsoft TDSP team repository](./media/group-manager-tasks/import-repo-2.png)
-   
+
 1. At the top of the **Repos** page, drop down and select the **GroupUtilities** repository.
-   
+
 Each of your two group repositories now contains all the files, except those in the *.git* directory, from the Microsoft TDSP team's corresponding repository. 
 
 ## Customize the contents of the group repositories
@@ -140,25 +140,25 @@ If you want to customize the contents of your group repositories to meet the spe
 To customize repository contents:
 
 1. On the **GroupCommon** project **Summary** page, select **Repos**. 
-   
+
 1. At the top of the page, select the repository you want to customize.
 
 1. In the repo directory structure, navigate to the folder or file you want to change. 
-   
+
    - To create new folders or files, select the arrow next to **New**. 
-     
+
      ![Create New file](./media/group-manager-tasks/new-file.png)
-     
+
    - To upload files, select **Upload file(s)**. 
-     
+
      ![Upload files](./media/group-manager-tasks/upload-files.png)
-     
+
    - To edit existing files, navigate to the file and then select **Edit**. 
-     
+
      ![Edit a file](./media/group-manager-tasks/edit-file.png)
-     
+
 1. After adding or editing files, select **Commit**.
-   
+
    ![Commit changes](./media/group-manager-tasks/commit.png)
 
 ### Make changes using your local machine or DSVM
@@ -172,34 +172,34 @@ If you want to make changes using your local machine or DSVM and push the change
 - For a Linux DSVM, an SSH public key set up on your DSVM and added in Azure DevOps. For more information and instructions, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix). 
 
 First, copy or *clone* the repository to your local machine. 
-   
+
 1. On the **GroupCommon** project **Summary** page, select **Repos**, and at the top of the page, select the repository you want to clone.
-   
+
 1. On the repo page, select **Clone** at upper right.
-   
+
 1. In the **Clone repository** dialog, select **HTTPS** for an HTTP connection, or **SSH** for an SSH connection, and copy the clone URL under **Command line** to your clipboard.
-   
+
    ![Clone repo](./media/group-manager-tasks/clone.png)
-   
+
 1. On your local machine, create the following directories:
-   
+
    - For Windows: **C:\GitRepos\GroupCommon**
    - For Linux, **$/GitRepos/GroupCommon** on your home directory 
-   
+
 1. Change to the directory you created.
-   
+
 1. In Git Bash, run the command `git clone <clone URL>.`
-   
+
    For example, either of the following commands clones the **GroupUtilities** repository to the *GroupCommon* directory on your local machine. 
-   
+
    **HTTPS connection:**
-   
+
    ```bash
    git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupUtilities
    ```
-   
+
    **SSH connection:**
-   
+
    ```bash
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/GroupCommon/GroupUtilities
    ```
@@ -228,30 +228,30 @@ git push
 To add members to the group:
 
 1. In Azure DevOps, from the **GroupCommon** project home page, select **Project settings** from the left navigation. 
-   
+
 1. From the **Project Settings** left navigation, select **Teams**, then on the **Teams** page, select the **GroupCommon Team**. 
-   
+
    ![Configure Teams](./media/group-manager-tasks/teams.png)
-   
+
 1. On the **Team Profile** page, select **Add**.
-   
+
    ![Add to GroupCommon Team](./media/group-manager-tasks/add-to-team.png)
-   
+
 1. In the **Add users and groups** dialog, search for and select members to add to the group, and then select **Save changes**. 
-   
+
    ![Add users and groups](./media/group-manager-tasks/add-users.png)
-   
+
 
 To configure permissions for members:
 
 1. From the **Project Settings** left navigation, select **Permissions**. 
-   
+
 1. On the **Permissions** page, select the group you want to add members to. 
-   
+
 1. On the page for that group, select **Members**, and then select **Add**. 
-   
+
 1. In the **Invite members** popup, search for and select members to add to the group, and then select **Save**. 
-   
+
    ![Grant permissions to members](./media/group-manager-tasks/grant-permissions.png)
 
 ## Next steps

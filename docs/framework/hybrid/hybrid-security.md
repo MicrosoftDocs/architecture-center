@@ -33,7 +33,7 @@ Azure Sentinel can help simplify data collection across different sources, inclu
 - Access unique Azure security capabilities such as Azure Security Center.
 - Centrally manage access for resources with Role-Based Access Control.
 - Centrally manage and enforce compliance and simplify audit reporting with Azure Policy.
- 
+
 ### Azure Arc enabled data services security capabilities
 
 - Protect your data workloads with Azure Security Center in your environment, using the advanced threat protection and vulnerability assessment features for unmatched security.

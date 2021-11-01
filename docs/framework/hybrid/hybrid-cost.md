@@ -68,7 +68,7 @@ For budget concerns, you get a considerable amount of functionality at no cost t
 - [Build high availability into your BCDR strategy](../../solution-ideas/articles/build-high-availability-into-your-bcdr-strategy.yml)
 - [Use Azure Stack HCI switchless interconnect and lightweight quorum for Remote Office/Branch Office](../../hybrid/azure-stack-robo.yml)
 - [Archive on-premises data to cloud](../../solution-ideas/articles/backup-archive-on-premises.yml)
- 
+
 ## Infrastructure Decisions
 
 Azure Stack HCI can help in cost-savings by using your existing Hyper-V and Windows Server skills to consolidate aging servers and storage. Azure Stack HCI pricing follows the monthly subscription billing model, with a flat rate per physical processor core in an Azure Stack HCI cluster.
