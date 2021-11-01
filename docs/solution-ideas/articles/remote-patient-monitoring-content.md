@@ -10,7 +10,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 ![Architecture diagram](../media/remote-patient-monitoring.png)
 *Download an [SVG](../media/remote-patient-monitoring.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Securely ingest medical sensor and device data using Azure IoT Hub.
 1. Securely store sensor and device data in Cosmos DB.
@@ -19,7 +19,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 1. Interact AI and Machine Learning results using Power BI, while preserving Azure role-based access control (Azure RBAC).
 1. Integrate data insights with backend systems and processes using Logic Apps.
 
-## Components
+### Components
 
 * [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub): Connect, monitor and manage billions of IoT assets
 * [Security Center](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads

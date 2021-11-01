@@ -14,7 +14,7 @@ ms.custom:
   - seo-aac-fy21q3
 keywords:
   - "Antipattern singleton"
-  - "what is instantiation" 
+  - "what is instantiation"
   - "instantiation"
   - "improper instantiation"
   - "antipattern"

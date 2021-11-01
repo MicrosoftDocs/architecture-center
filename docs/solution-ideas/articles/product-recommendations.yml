@@ -3,7 +3,7 @@ metadata:
   title: Product recommendations for retail using Azure
   titleSuffix: Azure Solution Ideas
   description: Aggregate customer data into complete profiles. Use advanced Azure machine learning models to provide predictive insights on simulated customers.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

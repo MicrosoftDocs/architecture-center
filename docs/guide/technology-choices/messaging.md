@@ -239,4 +239,3 @@ Consider these patterns when implementing asynchronous messaging:
 [Jonathon Oliver's blog post: Idempotency](https://blog.jonathanoliver.com/idempotency-patterns/)
 
 [Martin Fowler's blog post: What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
-

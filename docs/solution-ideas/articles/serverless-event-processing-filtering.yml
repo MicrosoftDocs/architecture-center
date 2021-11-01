@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: De-batching and filtering in serverless event processing with Event Hubs
+  title: De-batch and filter serverless event processing with Event Hubs
   titleSuffix: Azure Solution Ideas
   description: A serverless event-driven architecture using Azure Event Hubs and Azure Functions to ingest and filter a stream of data for database storage.
   author: rasavant-ms
@@ -17,7 +17,7 @@ products:
   - azure-event-hubs
   - azure-functions
   - azure-cosmos-db
-name: De-batching and filtering in serverless event processing with Event Hubs
+name: De-batch and filter serverless event processing with Event Hubs
 summary: A serverless event-driven architecture using Azure Event Hubs and Azure Functions to ingest and filter a stream of data for database storage.
 thumbnailUrl: /azure/architecture/browse/thumbs/serverless-event-processing-filtering-card.png
 content: |

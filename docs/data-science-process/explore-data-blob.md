@@ -10,7 +10,10 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 04/30/2021
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, fcp
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
+  - fcp
 products:
   - azure-machine-learning
 categories:

@@ -14,7 +14,8 @@ products:
   - azure-kubernetes-service
   - azure-service-fabric
   - azure-container-instances
-categories: containers
+categories:
+  - containers
 ms.custom:
   - microservices
   - guide

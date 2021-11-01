@@ -2,14 +2,15 @@
 metadata:
   title: Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization
   titleSuffix: Azure Example Scenarios
-  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  description: '<Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>'
   author: jjfrost
   ms.author: jfrost
   ms.date: 06/28/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp
+  ms.custom:
+    - fcp
 azureCategories:
   - compute
   - hybrid

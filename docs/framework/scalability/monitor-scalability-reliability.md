@@ -9,7 +9,7 @@ ms.subservice: well-architected
 products:
   - azure-monitor
 categories:
-  - management-and-governance     
+  - management-and-governance
 ms.custom:
   - fasttrack-edit
 ---
@@ -53,9 +53,3 @@ Based on insights gained through monitoring, optimize your code. One option migh
 
 ## Related links
 > [Back to the main article](monitor.md)
-
-
-
-
-
-

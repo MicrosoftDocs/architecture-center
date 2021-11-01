@@ -9,7 +9,7 @@ ms.subservice: well-architected
 products:
   - azure-cache-redis
 categories:
-  - management-and-governance   
+  - management-and-governance
 ---
 
 # Caching data for performance optimization

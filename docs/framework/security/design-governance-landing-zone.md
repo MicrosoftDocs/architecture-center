@@ -6,10 +6,10 @@ ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-products: 
+products:
   - azure-blueprints
   - azure-policy
-categories: 
+categories:
   - management-and-governance
 ms.custom:
   - article

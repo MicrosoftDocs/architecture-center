@@ -1,6 +1,6 @@
 ---
 title: Security of infrastructure deployment in Azure
-description: Security strategy for deploying Azure resources. 
+description: Security strategy for deploying Azure resources.
 author: PageWriter-MSFT
 ms.date: 03/26/2021
 ms.topic: conceptual

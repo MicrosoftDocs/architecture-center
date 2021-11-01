@@ -8,12 +8,11 @@ ms.service: architecture-center
 ms.subservice: well-architected
 products:
   - azure-security-center
-categories: 
+categories:
   - security
 subject:
   - security
   - monitoring
-ms.custom:
 ---
 
 # Remediate security risks in Azure Security Center
@@ -114,13 +113,3 @@ Make sure that you are integrating critical security alerts into Security Inform
 ## Related links
 
 > Go back to the main article: [Monitor](monitor.md)
-
-
-
-
-
-
-
-
-
-

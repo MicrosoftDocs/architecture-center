@@ -5,16 +5,16 @@ metadata:
   description: Learn how to create a solution for predicting customer lifetime value and churn using Azure Machine Learning.
   author: gallogiulia
   ms.author: giuliagallo
-  ms.date: 10/29/2021 
+  ms.date: 10/29/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:
-  - ai-machine-learning
+    - ai-machine-learning
   ms.custom:
-  - example-scenario
-  - ai-machine-learning
-  - fcp
+    - example-scenario
+    - ai-machine-learning
+    - fcp
   social_image_url: /azure/architecture/example-scenario/ai/media/architecture-customer-lifetime-churn.png
 name: Determine customer lifetime and churn with Azure AI services
 azureCategories:

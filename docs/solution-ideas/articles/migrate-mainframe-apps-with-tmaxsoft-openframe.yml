@@ -3,7 +3,7 @@ metadata:
   title: Migrate IBM mainframe apps to Azure with TmaxSoft OpenFrame
   titleSuffix: Solution Ideas
   description: Migrate IBM zSeries mainframe applications to Azure. Use a no-code approach that TmaxSoft OpenFrame offers for this lift and shift operation.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 09/18/2020
   ms.topic: conceptual

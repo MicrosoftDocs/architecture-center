@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Personalized Offers
+  title: Personalized offers
   titleSuffix: Azure Solution Ideas
   description: Build intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 02/20/2021
   ms.topic: conceptual
@@ -21,7 +21,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/personalized-offers/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/personalized-offers.png
-name: Personalized Offers
+name: Personalized offers
 azureCategories:
   - ai-machine-learning
 summary: Build intelligent marketing systems that provide customer-tailored content by using machine learning models that analyze data from multiple sources.

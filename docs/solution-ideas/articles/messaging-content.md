@@ -7,13 +7,13 @@ This example scenario demonstrates how to use Azure Cache for Redis as a message
 ![Architecture Diagram](../media/messaging.png)
 *Download an [SVG](../media/messaging.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
-1. The publisher's send messages to Azure Cache for Redis 
-1. Azure Cache for Redis stores these messages and manages the delivery to the subscribers
-1. The subscribers pull messages that they have subscribed to from Azure Cache for Redis
+1. The publishers send messages to Azure Cache for Redis.
+1. Azure Cache for Redis stores these messages and manages the delivery to the subscribers.
+1. The subscribers pull messages that they have subscribed to from Azure Cache for Redis.
 
-## Components
+### Components
 
 Key technologies used to implement this architecture:
 

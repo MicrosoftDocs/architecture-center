@@ -1,7 +1,7 @@
 ---
 title: Identifying microservice boundaries
 description: Learn how to start from a carefully designed domain model to determine the right size for a microservice.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: architecture-center

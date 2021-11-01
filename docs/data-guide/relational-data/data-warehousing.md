@@ -1,7 +1,7 @@
 ---
 title: Data warehousing in Microsoft Azure
 description: Learn about data warehousing in Azure. A data warehouse is a repository of integrated data from disparate sources used for reporting and analysis of the data.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center

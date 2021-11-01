@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This architecture uses multiple storage services to optimize storage performance and cost. Azure Cosmos DB holds recent data, and provides availability, performance, and resiliency. Azure Table Storage holds all data, both recent and historical, providing cost-effective storage for the historical data. The native Azure Storage replication capabilities replicate the Azure Cosmos DB data to other regions. The Azure Table Storage data must be replicated also, using either native replication or Azure Data Factory. Periodically, Azure Data Factory deletes historical data from Azure Cosmos DB to reduce costs.
 
 In the scenario, the application generates 3TB of data each month, with three months of data stored in Azure Cosmos DB for high availability and performance. The application data is also written to Azure Table storage in the primary region, where it may subsequently be duplicated to another Azure region using Azure Data Factory. To keep storage costs low, any data that is more than three months old is erased from Azure Cosmos DB.

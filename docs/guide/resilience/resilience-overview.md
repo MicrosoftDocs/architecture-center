@@ -6,13 +6,14 @@ manager: daveba
 products:
   - azure-active-directory
   - azure-active-directory-b2c
-
-categories: identity
+categories:
+  - identity
 ms.service: architecture-center
 ms.topic: conceptual
 ms.date: 04/22/2021
 ms.author: baselden
-ms.custom: fcp
+ms.custom:
+  - fcp
 ---
 
 # Resilient identity and access management with Azure AD

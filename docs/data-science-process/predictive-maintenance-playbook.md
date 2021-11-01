@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: previous-author=fboylu, previous-ms.author=fboylu
+ms.custom:
+  - previous-author=fboylu
+  - previous-ms.author=fboylu
 products:
   - azure-machine-learning
 categories:

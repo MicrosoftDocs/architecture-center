@@ -9,7 +9,7 @@ ms.subservice: well-architected
 products:
   - azure-security-center
   - azure-active-directory
-categories: 
+categories:
   - security
 subject:
   - security

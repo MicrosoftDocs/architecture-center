@@ -8,7 +8,8 @@ ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.workload: data-services
+ms.workload:
+  - data-services
 ms.devlang: R
 products:
   - azure-machine-learning

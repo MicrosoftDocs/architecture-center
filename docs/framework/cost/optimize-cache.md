@@ -34,4 +34,5 @@ Incorrect use of caching can result in severe business outcomes and higher costs
 
 - To make sure the caching layer is working optimally, add instrumentation. That feature will add complexity and implementation cost.
 
-Caching services such as Azure Cache for Redis are billed on the tier you choose. Pricing is primarily determined on the cache size and network performance and they're dependent. A smaller cache will increase latency. Before choosing a tier, estimate a baseline. An approach can be by load testing the number of users and cache size.
+Caching services such as Azure Cache for Redis are billed on the tier you choose. Pricing is primarily determined on the cache size and network performance and they're dependent. A smaller cache will increase latency. Before choosing a tier,
+estimate a baseline. An approach can be by load testing the number of users and cache size.
