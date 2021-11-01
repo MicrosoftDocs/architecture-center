@@ -6,7 +6,7 @@ ms.date: 09/08/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-products: 
+products:
   - azure
 categories:
   - security
@@ -24,30 +24,85 @@ The security of complex systems depends on understanding the business context, s
 
 :::image type="content" source="./images/security-areas.png" alt-text="Screenshot showing security design areas.":::
 
-Understanding an IT solution as it interacts with its surrounding environment holds the key to preventing unauthorized activity and to identifying anomalous behavior that may represent a security risk. Another key success factor is adopting a mindset of assuming failure of security controls so that you design compensating controls that limit risk and damage in the event a primary control fails. Assuming failures is sometimes referred to as "assume breach" or "assume compromise" and is closely related to the "Zero Trust" approach of continuously validating security assurances. The "Zero Trust" approach is described in the [Security Design Principles](../../framework/security/security-principles.md) section in more detail.
+Understanding an IT solution as it interacts with its surrounding environment
+holds the key to preventing unauthorized activity and to identifying anomalous
+behavior that may represent a security risk. Another key success factor is
+adopting a mindset of assuming failure of security controls so that you design
+compensating controls that limit risk and damage in the event a primary control
+fails. Assuming failures is sometimes referred to as "assume breach" or "assume
+compromise" and is closely related to the "Zero Trust" approach of continuously
+validating security assurances. The "Zero Trust" approach is described in the [Security Design Principles](../../framework/security/security-principles.md) section in more detail.
 
-Cloud architectures can help simplify the complex task of securing an enterprise estate through specialization and shared responsibilities:
+Cloud architectures can help simplify the complex task of securing an enterprise
+estate through specialization and shared responsibilities:
 
-**Specialization -** Instead of hundreds of thousands of organizations individually developing deep expertise on managing and securing common elements like datacenter physical security, firmware patching, and hypervisor configuration, specialist teams at cloud providers can develop advanced capabilities to operate and secure the systems on behalf of these organizations. The economies of scale allow cloud provider specialist teams to invest in optimization of management and security that far exceeds the ability of most organizations.   Cloud providers must be compliant with the same IT regulatory requirements as the aggregate of all their customers and must develop expertise to defend against the aggregate set of adversaries attacking their customers. As a consequence, the default security posture of applications deployed to the cloud is frequently much better than that of applications hosted on-premises.
+**Specialization -** Instead of hundreds of thousands of organizations
+individually developing deep expertise on managing and securing common
+elements like datacenter physical security, firmware patching, and
+hypervisor configuration, specialist teams at cloud providers can develop
+advanced capabilities to operate and secure the systems on behalf of these
+organizations. The economies of scale allow cloud provider specialist teams
+to invest in optimization of management and security that far exceeds the
+ability of most organizations.  
+Cloud providers must be compliant with the same IT regulatory requirements
+as the aggregate of all their customers and must develop expertise to defend
+against the aggregate set of adversaries attacking their customers. As a
+consequence, the default security posture of applications deployed to the
+cloud is frequently much better than that of applications hosted
+on-premises.
 
-**Shared Responsibility Model -** As computing environments move from customer-controlled datacenters to the cloud, the responsibility of security also shifts. Security of the operational environment is now a concern shared by both cloud providers and customers. By shifting these responsibilities to a cloud service like Azure, organizations can reduce focus on activities that aren't core business competencies. Depending on the specific technology choices, some security protections will be built into the particular service, while addressing others will remain the customer's responsibility. To ensure that the proper security controls are provided, a careful evaluation of the services and technology choices becomes necessary.
+**Shared Responsibility Model -** As computing environments move from
+customer-controlled datacenters to the cloud, the responsibility of
+security also shifts. Security of the operational environment is now a
+concern shared by both cloud providers and customers. By shifting these
+responsibilities to a cloud service like Azure, organizations can reduce
+focus on activities that aren't core business competencies. Depending on the
+specific technology choices, some security protections will be built into
+the particular service, while addressing others will remain the customer's
+responsibility. To ensure that the proper security controls are provided, a
+careful evaluation of the services and technology choices becomes necessary.
 
 :::image type="content" source="./images/shared-resp-color.png" alt-text="A diagram of shared responsibility and key strategies.":::
 
 **Shared Responsibility and Key Strategies**
 
-After reading this document, you will be equipped with key insights on how to improve the security posture of your architecture.
+After reading this document, you will be equipped with key insights on how to
+improve the security posture of your architecture.
 
-As part of your architecture design, you should consider all relevant areas that affect the success of your application. While this article is concerned primarily with security principles, you should also prioritize other requirements of a well-designed system including your applications' availability, scalability, costs, and operational characteristics (trading off one over the other as necessary). It is important to note that consistently sacrificing security for gains in the other areas is not advisable as security risks tend to increase dynamically over time.
+As part of your architecture design, you should consider all relevant areas that
+affect the success of your application. While this article is concerned
+primarily with security principles, you should also prioritize other
+requirements of a well-designed system including your applications'
+availability, scalability, costs, and operational characteristics (trading off
+one over the other as necessary). It is important to note that consistently
+sacrificing security for gains in the other areas is not advisable as security
+risks tend to increase dynamically over time.
 
 This results in three key strategies
 
-- **Establish a Modern Perimeter** – for the elements that your organization controls to ensure you have a consistent set of controls (a perimeter) between those assets and the threats to them. This should be designed based on intercepting authentication requests for the resources (identity controls) vs. the traditional approach of intercepting network traffic on enterprise networks, which isn't feasible for enterprise assets outside the network.   More on this and how it relates to Zero Trust and Enterprise Segmentation
+- **Establish a Modern Perimeter** – for the elements that your organization
+    controls to ensure you have a consistent set of controls (a perimeter)
+    between those assets and the threats to them. This should be designed based
+    on intercepting authentication requests for the resources (identity
+    controls) vs. the traditional approach of intercepting network traffic on
+    enterprise networks, which isn't feasible for enterprise assets outside the
+    network.  
+    More on this and how it relates to Zero Trust and Enterprise Segmentation
     are in the [Governance, Risk, and Compliance](/azure/architecture/framework/security/design-segmentation) and [Network Security & Containment](/azure/architecture/framework/security/design-network-segmentation) sections.
 
-- **Modernize Infrastructure Security** – for operating systems and middleware elements that are required by legacy applications; take advantage of cloud technology to reduce security risk to the organization. For example, knowing whether all servers in a physical datacenter are updated with security patches has always been extremely challenging because of discoverability. Software defined datacenters allow easy and rapid discovery of all resources, enabling technology like Azure Security Center to quickly and accurately measure the patch state of all servers and remediate them.
+- **Modernize Infrastructure Security** – for operating systems and middleware
+    elements that are required by legacy applications; take advantage of cloud
+    technology to reduce security risk to the organization. For example, knowing
+    whether all servers in a physical datacenter are updated with security
+    patches has always been extremely challenging because of discoverability.
+    Software defined datacenters allow easy and rapid discovery of all
+    resources, enabling technology like Azure Security Center to quickly and
+    accurately measure the patch state of all servers and remediate them.
 
-- **"Trust but Verify" each cloud provider** – for the elements, which are under the control of the cloud provider. You should ensure the security practices and regulatory compliance of each cloud provider (large and small) meet your requirements.
+- **"Trust but Verify" each cloud provider** – for the elements, which are
+    under the control of the cloud provider. You should ensure the security
+    practices and regulatory compliance of each cloud provider (large and small)
+    meet your requirements.
 
 To assess your workload using the tenets found in the Microsoft Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
@@ -76,7 +131,8 @@ If you want to integrate an on-premises Active Directory environment with an Azu
 
 ## Protect your infrastructure
 
-Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship][ad-subscriptions] with an Azure AD tenant. Use [Azure role-based access control (Azure RBAC)][rbac] to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. [Audit][resource-manager-auditing] all changes to infrastructure.
+Control access to the Azure resources that you deploy. Every Azure subscription has a [trust relationship][ad-subscriptions] with an Azure AD tenant.
+Use [Azure role-based access control (Azure RBAC)][rbac] to grant users within your organization the correct permissions to Azure resources. Grant access by assigning Azure roles to users or groups at a certain scope. The scope can be a subscription, a resource group, or a single resource. [Audit][resource-manager-auditing] all changes to infrastructure.
 
 ## Application security
 
