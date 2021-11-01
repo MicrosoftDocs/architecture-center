@@ -1,5 +1,5 @@
 
-Many companies are adopting DevOps practices and are looking to apply these practices to their Microsoft 365 tenant. Misconfiguration, tracking configuration changes, lack of approval process around tenant modifications are all common issues that can occur without a DevOps practice in Microsoft365. This example scenario can be used to automate changes to Microsoft 365 tenant configurations using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) module, which is able to configure and manage Microsoft 365 tenants in a true DevOps style: Configuration as Code. This solution can be used to track changes made by service administrators and put approval process around deployments to Microsoft 365 tenants. This solution helps prevent untracked changes into Microsoft 365 tenants and helps preventing configuration drift between multiple Microsoft 365 tenants.
+Many companies are adopting DevOps practices and are looking to apply these practices to their Microsoft 365 tenant. Misconfiguration, tracking configuration changes, lack of approval process around tenant modifications are all common issues that can occur without a DevOps practice in Microsoft365. This example scenario can be used to automate changes to Microsoft 365 tenant configurations using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops) and [Microsoft365DSC](https://microsoft365dsc.com). Microsoft365DSC is a [PowerShell Desired State Configuration (DSC)](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) module, which can configure and manage Microsoft 365 tenants in a true DevOps style: Configuration as Code. This solution can be used to track changes made by service administrators and put approval process around deployments to Microsoft 365 tenants. This solution helps prevent untracked changes into Microsoft 365 tenants and helps preventing configuration drift between multiple Microsoft 365 tenants.
 
 ## Potential use cases
 
@@ -13,15 +13,15 @@ Managing Microsoft 365 tenant configuration in a controlled and automated manner
 ![Architecture Diagram](./media/Manage-Microsoft365-tenant-configuration-with-Microsoft365DSC-and-Azure-DevOps-content.png)
 *Download an [SVG](./media/Manage-Microsoft365-tenant-configuration-with-Microsoft365DSC-and-Azure-DevOps-content.svg) of this architecture.*
 
-1. Admin 1 adds/updates/deletes entry in user's fork of M365 Config file
+1. Admin 1 adds/updates/deletes entry in user's fork of Microsoft 365 Config file
 2. Admin 1 commits and syncs changes to user's forked repository
 3. Admin 1 creates pull request back to main repository
 4. Build pipeline runs on pull request
 5. Admins review code and perform merge on PR
 6. Merged PR triggers pipeline to compile MOFs calling Azure Key Vault to retrieve credentials used in MOFs
 7. Azure PowerShell task in multi stage pipeline deploys configuration changes via Microsoft365DSC using compiled MOF files
-8. Admins validate changes in staging M365 tenant
-9. Admins get notification from approval process in Azure DevOps for production M365 tenant
+8. Admins validate changes in staging Microsoft 365 tenant
+9. Admins get notification from approval process in Azure DevOps for production Microsoft 365 tenant
 
 ### Components
 
@@ -36,7 +36,7 @@ The following assets and components were used to build the Microsoft365DSC DevOp
 
 As a next step, you can use Desired State Configuration in [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview) to store configurations in a central location and add reporting of compliance with the desired state.
 
-We chose to use Azure KeyVault to store Azure App certificates or user credentials used for authentication to M365 tenant, since that offers scalability. You can also consider using pipeline variables to reduce the complexity of the solution.
+We chose to use Azure KeyVault to store Azure App certificates or user credentials used for authentication to Microsoft 365 tenant, since that offers scalability. You can also consider using pipeline variables to reduce the complexity of the solution.
 
 ## Considerations
 
@@ -56,7 +56,7 @@ To increase scalability even further, an aggregated configuration data solution 
 
 ### Security
 
-Most Microsoft365DSC resources support authentication via username/password, but since Microsoft best practices state that Multi Factor Authentication (MFA) is recommended using this type of authentication is not recommended. Instead using application credentials is the way to go, where supported by the M365 resources. For example currently Security and Compliance only supports username/password but SharePoint Online, AzureAD and others support application credentials. Building M365DSC solution upon Azure DevOps you can also take advantage security within [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/security/overview?view=azure-devops) as well as an [approval process](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/approvals?view=azure-devops) to safeguard deployment to production tenant.
+Most Microsoft365DSC resources support authentication via username/password, but since Microsoft best practices state that multifactor authentication (MFA) is recommended using this type of authentication is not recommended. Instead using application credentials is the way to go, where supported by the Microsoft 365 resources. For example currently Security and Compliance only supports username/password but SharePoint Online, AzureAD and others support application credentials. Building M365DSC solution upon Azure DevOps you can also take advantage security within [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/security/overview?view=azure-devops) as well as an [approval process](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/approvals?view=azure-devops) to safeguard deployment to production tenant.
 
 ### DevOps
 
@@ -75,6 +75,6 @@ This solution can run in Azure DevOps server and a similar solution can be creat
 
 ## Pricing
 
-This solution utilizes Azure DevOps and for pricing information please visit the this [page](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/). If you choose to incorporate Azure Key Vault into solution you can find its pricing [here](https://azure.microsoft.com/pricing/details/key-vault/).
+This solution utilizes Azure DevOps and for pricing information please visit [page](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/). If you choose to incorporate Azure Key Vault into solution, you can find its pricing [here](https://azure.microsoft.com/pricing/details/key-vault/).
 
 [calculator]: https://azure.com/e/
