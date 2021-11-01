@@ -46,15 +46,15 @@ This architecture consists of several Azure cloud services that scale resources 
 
 Here are the core components that move and process research data. 
 
-- **Microsoft Data Science Virtual Machine (DSVM)** - VMs that are configured with tools used for data analytics and machine learning. 
+- **Microsoft Data Science Virtual Machine (DSVM):** VMs that are configured with tools used for data analytics and machine learning. 
 
 - **Azure Machine Learning** - Used to train, deploy, automate, and manage machine learning models and to manage the allocation and use of ML compute resources. 
 
 - **Azure Machine Learning Compute** - A cluster of nodes that are used to train and test machine learning and AI models. The compute is allocated on demand based on an automatic scaling option. 
 
-- **Azure Blob storage** - There are two instances. The public instance is used to temporarily store the data uploaded by data owners. Also, it stores deidentified data after modeling in a separate container. The second instance is private. It receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster. 
+- **Azure Blob storage:** There are two instances. The public instance is used to temporarily store the data uploaded by data owners. Also, it stores deidentified data after modeling in a separate container. The second instance is private. It receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster. 
 
-- **Azure Data Factory** - Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
+- **Azure Data Factory:** Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
 
 - **Azure Virtual Desktop** is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use Azure Bastion. But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
 

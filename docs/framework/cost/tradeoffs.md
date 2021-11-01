@@ -58,8 +58,7 @@ For performance considerations, see the [Performance Efficiency](../scalability/
 ## Cost vs security
 Increasing security of the workload will increase cost.
 
-As a rule, don't compromise on security. For certain workloads, you can't avoid security costs. For example, for specific security and compliance requirements, deploying to differentiated regions will be more expensive.
-Premium security features can also increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom roles if you can use built-in roles. 
+As a rule, don't compromise on security. For certain workloads, you can't avoid security costs. For example, for specific security and compliance requirements, deploying to differentiated regions will be more expensive. Premium security features can also increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom roles if you can use built-in roles. 
 
 For security considerations, see the [Security Pillar](../security/overview.md).
 

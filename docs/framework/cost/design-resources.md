@@ -26,8 +26,7 @@ For each Azure resource, have a clear understanding of the meters that track usa
 
 A resource tier impacts pricing because each tier offers levels of features such as performance or availability. For example, a Standard HDD hard disk is cheaper than a Premium SSD hard disk. 
 
-> ![Task](../../_images/i-best-practices.svg) Start with a lower resource tier then scale the resource up as needed. Growing a service with little to 
-no downtime is easier when compared to downscaling a service. Downscaling usually requires deprovisioning or downtime. In general, choose scaling out instead of scaling up.
+> ![Task](../../_images/i-best-practices.svg) Start with a lower resource tier then scale the resource up as needed. Growing a service with little to  no downtime is easier when compared to downscaling a service. Downscaling usually requires deprovisioning or downtime. In general, choose scaling out instead of scaling up.
 
 As part of the requirements, consider the metrics for each resource  and build your alerts on baseline thresholds for each metric. The alerts can be used to fine-tune the resources. For more information, see [Respond to cost alert](monitor-alert.md).
 
@@ -59,8 +58,7 @@ For details about how billing works, see [Azure Cost Management + Billing docume
 **What is the subscription and offer type in which resources are created?**  
 ***
 
-Azure usage rates and billing periods can vary depending on the subscription and offer type.
-Some subscription types also include usage allowances or lower prices. For example, Azure [Dev/Test subscription](https://azure.microsoft.com/offers/ms-azr-0148p/) offers lower prices on Azure services such as specific VM sizes, PaaS web apps, and VM images with pre-installed software. Visual Studio subscribers obtain as part of their benefits access to [Azure subscriptions](https://azure.microsoft.com/offers/ms-azr-0063p/) with monthly allowances.
+Azure usage rates and billing periods can vary depending on the subscription and offer type. Some subscription types also include usage allowances or lower prices. For example, Azure [Dev/Test subscription](https://azure.microsoft.com/offers/ms-azr-0148p/) offers lower prices on Azure services such as specific VM sizes, PaaS web apps, and VM images with pre-installed software. Visual Studio subscribers obtain as part of their benefits access to [Azure subscriptions](https://azure.microsoft.com/offers/ms-azr-0063p/) with monthly allowances.
 
 For information about the subscription offers, see [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/).
 

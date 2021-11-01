@@ -29,8 +29,7 @@ There are two parts to access control:
 - **Authentication** identifies the user.
 - **Authorization** determines what the user can do in the application.
 
-OAuth, an open framework, helps address these challenges and provides a protocol for developers to use when building their systems.
-OAuth 2.0 is the current standard.
+OAuth, an open framework, helps address these challenges and provides a protocol for developers to use when building their systems. OAuth 2.0 is the current standard.
 
 OAuth 2.0 provides secure delegated access. By issuing access tokens, you can authorize third-party access to your protected resources without providing credentials.
 

@@ -85,8 +85,7 @@ You can collect logs and alerts from various sources centrally in a Log Analytic
 
 Another way to see all data in a single view is to integrate logs and alerts into Security Information and Event Management (SIEM) solutions, such as Azure Sentinel. Other popular third-party choices are Splunk, QRadar, ArcSight. Azure Security Center and Azure Monitor supports all of those solutions.  
 
-Integrating more data can enrich alerts with additional context. However, collection is not detection.
-Make sure a high volume of low value data doesn't flow into those solutions. 
+Integrating more data can enrich alerts with additional context. However, collection is not detection. Make sure a high volume of low value data doesn't flow into those solutions. 
 
 If you don’t have a reasonable expectation that the data will provide value, deprioritize integration of these events. For example, high volume of firewall denies events may create noise without actual actions.
 

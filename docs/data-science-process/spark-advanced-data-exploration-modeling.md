@@ -1510,8 +1510,7 @@ oneHotTESTregScaled.unpersist()
 
 PythonRDD[122] at RDD at PythonRDD.scala: 43
 
-**Output path to model files to be used in the consumption notebook.**
-To consume and score an independent data-set, you need to copy and paste these file names in the "Consumption notebook".
+**Output path to model files to be used in the consumption notebook.** To consume and score an independent data-set, you need to copy and paste these file names in the "Consumption notebook".
 
 ```python
 # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION

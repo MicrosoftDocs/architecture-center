@@ -125,8 +125,7 @@ For more information, see
 - [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml) connects the virtual network to the on-premises network through a VPN device.
 
 ## Traffic Manager
-Traffic manager uses DNS to route and load balance traffic to service endpoints in different Azure regions. So, an important use case is disaster recovery. In a workload, you can use Traffic Manager to route incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region.
-There are other features that can make the application highly responsive and available. Those features cost money.
+Traffic manager uses DNS to route and load balance traffic to service endpoints in different Azure regions. So, an important use case is disaster recovery. In a workload, you can use Traffic Manager to route incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. There are other features that can make the application highly responsive and available. Those features cost money.
 - Determine the best web app to handle request based on geographic location. 
 - Configure caching to reduce the response time. 
 
@@ -151,8 +150,7 @@ When Traffic Manager receives a DNS request, it chooses an available endpoint ba
 The number of monitored endpoints are charged. You can add endpoints for services hosted in Azure and then add on endpoints for services hosted on-premises or with a different hosting provider. The external endpoints are more expensive, but health checks can provide high-availability applications that are resilient to endpoint failure, including Azure region failures.
 
 ### Real User Measurement charges
-Real User Measurements evaluates network latency from the client applications to Azure regions. That influences Traffic Manager to select the best Azure region in which the application is hosted.
-The number of measurements sent to Traffic Manager is billed.
+Real User Measurements evaluates network latency from the client applications to Azure regions. That influences Traffic Manager to select the best Azure region in which the application is hosted. The number of measurements sent to Traffic Manager is billed.
 
 ### Traffic view charges
 By using Traffic View, you can get insight into the traffic patterns where you have endpoints. The charges are based on the number of data points used to create the insights presented.

@@ -241,8 +241,7 @@ Logs are not available indefinitely. Ensure that Azure activity logs and diagnos
 
 - Restoring security functions
 - Identifying and documenting the duration (date and time start to end) of the security failure
-- Identifying and documenting cause(s) of failure, including root cause, and documenting
-remediation required to address root cause
+- Identifying and documenting cause(s) of failure, including root cause, and documenting remediation required to address root cause
 - Identifying and addressing any security issues that arose during the failure
 - Performing a risk assessment to determine whether further actions are required as a result of the security failure
 - Implementing controls to prevent cause of failure from reoccurring
@@ -290,8 +289,7 @@ The quarterly scan for vulnerabilities must be run by skilled personnel with dee
 
 This scan must also include in-cluster (pod-to-pod) networks.
 
-**APPLIES TO 11.2.2**
-Select an Approved Scanning Vendor (ASV) that has extensive experience with Azure networking and Kubernetes. This will provide depth and specificity in suggested remediation.
+**APPLIES TO 11.2.2** Select an Approved Scanning Vendor (ASV) that has extensive experience with Azure networking and Kubernetes. This will provide depth and specificity in suggested remediation.
 
 
 ### Requirement 11.3

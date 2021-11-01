@@ -25,8 +25,7 @@ subject:
 
 # Implement network segmentation patterns on Azure
 
-A unified enterprise segmentation strategy guides technical teams to consistently segment access using networking, applications, identity, and any other access controls. 
-Create segmentation in your network footprint by defining perimeters. The main reasons for segmentation are:
+A unified enterprise segmentation strategy guides technical teams to consistently segment access using networking, applications, identity, and any other access controls.  Create segmentation in your network footprint by defining perimeters. The main reasons for segmentation are:
 
 - The ability to group related assets that are a part of (or support) workload operations.
 - Isolation of resources.
@@ -57,7 +56,7 @@ This article highlights some Azure networking features that create segments and 
 ## Key points
 
 - Create software-defined perimeters in your networking footprint and secure communication paths between them.
-- Establish a complete zero trust segmentation strategy. 
+- Establish a complete zero trust segmentation strategy.
 - Align technical teams in the enterprise on micro segmentation strategies for legacy applications.
 - Azure Virtual Networks (VNets) are created in private address spaces. By default, no traffic is allowed between any two VNets. Open paths only when it's really needed.
 - Use Network Security Groups (NSG) to secure communication between resources within a VNet.
@@ -144,12 +143,12 @@ With Azure Firewall Manager preview, you can centrally manage policies across mu
 ## Pattern comparison
 
 |Considerations | Pattern 1 | Pattern 2 | Pattern 3
---- |--- | ---| ---
-|**Connectivity/routing: how each segment communicates to each other** | System routing provides default connectivity to any workload in any subnet. | Same as a pattern 1. | No default connectivity between spoke networks. A layer 3 router, such as the Azure Firewall, in the hub is required to enable connectivity.
-|**Network level traffic filtering**| Traffic is allowed by default. Use NSG, ASG to filter traffic. | Same as a pattern 1. | Traffic between spoke virtual networks is denied by default. Open selected paths to allow traffic through Azure Firewall configuration.
-|**Centralized logging**| NSG, ASG logs for the virtual network. | Aggregate NSG, ASG logs across all virtual networks. | Azure Firewall logs all accepted/denied traffic sent through the hub. View the logs in Azure Monitor.
-|**Unintended open public endpoints**| DevOps can accidentally open a public endpoint through incorrect NSG, ASG rules. | Same as a pattern 1. |Accidentally opened public endpoint in a spoke will not enable access because the return packet will get dropped through stateful firewall (asymmetric routing).
-**Application level protection** | NSG or ASG provides network layer support only.  | Same as a pattern 1. | Azure Firewall supports FQDN filtering for HTTP/S and MSSQL for outbound traffic and across virtual networks.
+|--|--|--|--|
+|**Connectivity/routing: how each segment communicates to each other** | System routing provides default connectivity to any workload in any subnet. | Same as a pattern 1. | No default connectivity between spoke networks. A layer 3 router, such as the Azure Firewall, in the hub is required to enable connectivity. |
+|**Network level traffic filtering**| Traffic is allowed by default. Use NSG, ASG to filter traffic. | Same as a pattern 1. | Traffic between spoke virtual networks is denied by default. Open selected paths to allow traffic through Azure Firewall configuration. |
+|**Centralized logging**| NSG, ASG logs for the virtual network. | Aggregate NSG, ASG logs across all virtual networks. | Azure Firewall logs all accepted/denied traffic sent through the hub. View the logs in Azure Monitor. |
+|**Unintended open public endpoints**| DevOps can accidentally open a public endpoint through incorrect NSG, ASG rules. | Same as a pattern 1. |Accidentally opened public endpoint in a spoke will not enable access because the return packet will get dropped through stateful firewall (asymmetric routing). |
+**Application level protection** | NSG or ASG provides network layer support only.  | Same as a pattern 1. | Azure Firewall supports FQDN filtering for HTTP/S and MSSQL for outbound traffic and across virtual networks. |
 
 ## Next step
 

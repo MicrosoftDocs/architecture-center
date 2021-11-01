@@ -103,14 +103,14 @@ There are great Azure tooling options for both models. Here we describe two of t
 
 Azure Resource Manager (ARM) Templates provide an Azure native infrastructure as code solution. ARM Templates are written in a language derived from JavaScript Object Notation (JSON), and they define the infrastructure and configurations for Azure deployments. An ARM template is declarative, you state what intend to deploy, provide configuration values, and the Azure engine takes care of making the necessary Azure REST API put requests. Additional benefits of using ARM templates for infrastructure deployments include:
 
-- **Parallel resource deployment** - the Azure deployment engine sequences resource deployments based on defined dependencies. If dependencies do not exist between two resources, they are deployed at the same time.
-- **Modular deployments** - ARM templates can be broken up into multiple template files for reusability and modularization.
-- **Day one resource support** - ARM templates support all Azure resources and resource properties as they are released.
-- **Extensibility** - Azure deployments can be extended using deployment scripts and other automation solutions.
-- **Validation** - Azure deployments are evaluated against a validation API to catch configuration mistakes. 
-- **Testing** - the [ARM template test toolkit](/azure/azure-resource-manager/templates/test-toolkit) provides a static code analysis framework for testing ARM templates.
-- **Change preview** - [ARM template what-if](/azure/azure-resource-manager/templates/template-deploy-what-if?tabs=azure-powershell) allows you to see what will be changed before deploying an ARM template.
-- **Tooling** - Language service extensions are available for both [Visual Studio Code](/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code) and [Visual Studio](/azure/azure-resource-manager/templates/create-visual-studio-deployment-project) to assist in authoring ARM templates.
+- **Parallel resource deployment:** the Azure deployment engine sequences resource deployments based on defined dependencies. If dependencies do not exist between two resources, they are deployed at the same time.
+- **Modular deployments:** ARM templates can be broken up into multiple template files for reusability and modularization.
+- **Day one resource support:** ARM templates support all Azure resources and resource properties as they are released.
+- **Extensibility:** Azure deployments can be extended using deployment scripts and other automation solutions.
+- **Validation:** Azure deployments are evaluated against a validation API to catch configuration mistakes. 
+- **Testing:** the [ARM template test toolkit](/azure/azure-resource-manager/templates/test-toolkit) provides a static code analysis framework for testing ARM templates.
+- **Change preview:** [ARM template what-if](/azure/azure-resource-manager/templates/template-deploy-what-if?tabs=azure-powershell) allows you to see what will be changed before deploying an ARM template.
+- **Tooling:** Language service extensions are available for both [Visual Studio Code](/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code) and [Visual Studio](/azure/azure-resource-manager/templates/create-visual-studio-deployment-project) to assist in authoring ARM templates.
 
 The following example demonstrates a simple ARM template that deploys a single Azure Storage account. In this example, a single parameter is defined to take in a name for the storage account. Under the resources section, a storage account is defined, the *storageName* parameter is used to provide a name, and the storage account details are defined. See the included documentation for an in-depth explanation of the different sections and configurations for ARM templates.
 

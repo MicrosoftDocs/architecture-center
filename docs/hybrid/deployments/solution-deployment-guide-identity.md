@@ -51,8 +51,7 @@ The [Azure Stack Hub API](/azure-stack/user/azure-stack-rest-api-use)  solution 
 
 ## Connect to Azure Stack Hub using PowerShell
 
-The quickstart [to get up and running with PowerShell in Azure Stack Hub](/azure-stack/operator/azure-stack-powershell-install)
-walks you through the steps needed to install Azure PowerShell and connect to your Azure Stack Hub installation.
+The quickstart [to get up and running with PowerShell in Azure Stack Hub](/azure-stack/operator/azure-stack-powershell-install) walks you through the steps needed to install Azure PowerShell and connect to your Azure Stack Hub installation.
 
 ### Prerequisites
 

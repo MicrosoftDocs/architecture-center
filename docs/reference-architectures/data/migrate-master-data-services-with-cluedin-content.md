@@ -66,8 +66,7 @@ CluedIn provides functionality for all of the above. In addition, the following 
   - Manage consent and run data subject access requests.
   - Write back to the MDS instance, if necessary.
 
-CluedIn also supports migrating data change history, and it can automatically build up data quality history from your MDS instances.
-You can also run an MDS solution and CluedIn in-sync, if you don't want to turn off your MDS instances as soon as the migration process has finished. 
+CluedIn also supports migrating data change history, and it can automatically build up data quality history from your MDS instances. You can also run an MDS solution and CluedIn in-sync, if you don't want to turn off your MDS instances as soon as the migration process has finished. 
 
 CluedIn natively supports the Common Data Model / Dataverse. In other words,  Power Apps, Power Automate, Power BI, virtual chatbots, and Microsoft Dynamics users can all natively utilize data from CluedIn, without the need for any extra setup or integration.
 
@@ -128,9 +127,7 @@ With native support for autoscaling, CluedIn uses the power of Azure to provide 
 
 ### Security
 
-CluedIn security grants permissions and controls access to different services through Azure RBAC, with Azure Key Vault security key control and Azure Monitor access tracking and logging.
-In addition to authenticated user accounts, CluedIn also supports single sign-on (SSO) and identity frameworks. Requests to the CluedIn application use encrypted access tokens that have no correlation with user identity.
-With Native Azure Active Directory support, simply plugin your SAML 2.0 information into CluedIn and it can immediately be used to manage user and role access to your new MDM solution.
+CluedIn security grants permissions and controls access to different services through Azure RBAC, with Azure Key Vault security key control and Azure Monitor access tracking and logging. In addition to authenticated user accounts, CluedIn also supports single sign-on (SSO) and identity frameworks. Requests to the CluedIn application use encrypted access tokens that have no correlation with user identity. With Native Azure Active Directory support, simply plugin your SAML 2.0 information into CluedIn and it can immediately be used to manage user and role access to your new MDM solution.
 
 ### Resiliency
 

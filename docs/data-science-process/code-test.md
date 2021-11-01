@@ -49,7 +49,6 @@ The overall workflow of testing code in a data science project looks like this:
 
 ![Flow chart of code testing](./media/code-test/test-flow-chart.png)
 
-
 ## Detailed steps
 
 Use the following steps to set up and run code testing and an automated build by using a build agent and Azure DevOps:
@@ -70,22 +69,21 @@ Use the following steps to set up and run code testing and an automated build by
 
 1. Suppose you've done some data preparation work, such as data ingestion, feature engineering, and creating label columns. You want to make sure your code is generating the results that you expect. Here's some code that you can use to test whether the data-processing code is working properly:
 
-	* Check that column names are right:
+    * Check that column names are right:
 
       ![Code for matching column names](./media/code-test/check-column-names.png)
 
-	* Check that response levels are right:
+    Check that response levels are right:
 
       ![Code for matching levels](./media/code-test/check-response-levels.png)
 
-	* Check that response percentage is reasonable:
+    * Check that response percentage is reasonable:
 
       ![Code for response percentage](./media/code-test/check-response-percentage.png)
 
-	* Check the missing rate of each column in the data:
+    * Check the missing rate of each column in the data:
 
       ![Code for missing rate](./media/code-test/check-missing-rate.png)
-
 
 1. After you've done the data processing and feature engineering work, and you've trained a good model, make sure that the model you trained can score new datasets correctly. You can use the following two tests to check the prediction levels and distribution of label values:
 
@@ -100,7 +98,6 @@ Use the following steps to set up and run code testing and an automated build by
 1. Put all test functions together into a Python script called **test_funcs.py**:
 
     ![Python script for test functions](./media/code-test/create-file-test-func.png)
-
 
 1. After the test codes are prepared, you can set up the testing environment in Visual Studio.
 

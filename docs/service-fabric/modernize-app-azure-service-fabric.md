@@ -32,8 +32,7 @@ Optimizing and provisioning the right amount of compute resources for containeri
 
 An enterprise can use Service Fabric as a platform to run a large set of existing Windows-based web applications with improved density, monitoring, consistency, and DevOps, all within a secure extended private network in the cloud. The principle is to use Docker and Service Fabric's containerization support that packages and hosts existing web applications on a shared cluster with shared monitoring and operations, in order to maximize cloud compute resources for the ideal performance-to-cost ratio.
 
-This article describes the processes, capabilities, and Service Fabric features that enable containerizing in an optimal environment for a large enterprise. The guidance is scoped to web applications and Windows containers.
-Before reading this article, get familiar with core Windows container and Service Fabric concepts. For more information, see:
+This article describes the processes, capabilities, and Service Fabric features that enable containerizing in an optimal environment for a large enterprise. The guidance is scoped to web applications and Windows containers. Before reading this article, get familiar with core Windows container and Service Fabric concepts. For more information, see:
 
 - [Create your first Service Fabric container application on Windows](/azure/service-fabric/service-fabric-get-started-containers)
 - [Service Fabric terminology overview](/azure/service-fabric/service-fabric-technical-overview)
@@ -241,8 +240,7 @@ For a large cluster that hosts stateless web applications, the typical hardware 
 - The number of IP addresses configured per node. Each container requires an IP with Open mode. Given 15 containers on a VM, 16 IP addresses must be allocated for each VM in the application node type.
 - Resource needs of the underline OS. The recommendation is to leave 25% of the resources on the VM for OS system processes.
 
-Here are some recommendations:
-Choose recent Windows Server builds because older builds of Windows Server (1607) use larger container image sizes compared to newer versions (1709 and later).
+Here are some recommendations: Choose recent Windows Server builds because older builds of Windows Server (1607) use larger container image sizes compared to newer versions (1709 and later).
 
 Select the most appropriate VM compute size and initial application node type VM count. Standard_D8s_v3, Standard_D16s_v3, and Standard_DSv32_v3 are example compute sizes that are known to work well for this tier for running containerized web applications.
 
@@ -286,8 +284,7 @@ Service Fabric has a built-in reverse proxy but is limited in its feature set. T
 
 Here is the network flow for the example infrastructure.
 
-![Diagram of the example infrastructure showing a reverse proxy for inbound traffic.](images/containersf-net.png)
-The key aspect of the ingress reverse proxy is inspecting inbound traffic and rewriting that traffic to the destination container.
+![Diagram of the example infrastructure showing a reverse proxy for inbound traffic.](images/containersf-net.png) The key aspect of the ingress reverse proxy is inspecting inbound traffic and rewriting that traffic to the destination container.
 
 For example, application A is registered with the Service Fabric DNS service with the domain name: appA.container.myorg.com. External users access the application with `https://appA.myorg.com`. Use public or organizational DNS and register appA.myorg.com to point to the public IP for the application node type.
 
@@ -400,8 +397,7 @@ Here are some articles about container security:
 
 Monitoring and logging are critical to operational success and is achieved through integration with [Azure Monitor](/azure/azure-monitor/overview) and [Log Analytics](/azure/azure-monitor/log-query/get-started-portal).
 
-Monitor the Service Fabric cluster and each executing containers by using the scale set extension agent for Log Analytics and its associated Container Monitoring Solution. Make sure that you configure and install the extension agent and solution during cluster creation. Docker statistics for container CPU and memory utilization are sent to Log Analytics and can be queried for proactive monitoring and alerting.
-Set up proactive alerts through Azure Monitor. Here are metrics that you should monitor.
+Monitor the Service Fabric cluster and each executing containers by using the scale set extension agent for Log Analytics and its associated Container Monitoring Solution. Make sure that you configure and install the extension agent and solution during cluster creation. Docker statistics for container CPU and memory utilization are sent to Log Analytics and can be queried for proactive monitoring and alerting. Set up proactive alerts through Azure Monitor. Here are metrics that you should monitor.
 
 - High CPU and memory utilization of a container.
 - Container count hitting a per VM threshold.
