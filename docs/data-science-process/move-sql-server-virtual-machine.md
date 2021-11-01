@@ -163,8 +163,7 @@ Here are some sample commands for Bulk Insert are as below:
 
 ### <a name="sql-builtin-utilities"></a>Built-in Utilities in SQL Server
 
-You can use SQL Server Integration Services (SSIS) to import data into SQL Server VM on Azure from a flat file.
-SSIS is available in two studio environments. For details, see [Integration Services (SSIS) and Studio Environments](/sql/integration-services/integration-services-ssis-development-and-management-tools):
+You can use SQL Server Integration Services (SSIS) to import data into SQL Server VM on Azure from a flat file. SSIS is available in two studio environments. For details, see [Integration Services (SSIS) and Studio Environments](/sql/integration-services/integration-services-ssis-development-and-management-tools):
 
 * For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt)  
 * For details on the Import/Export Wizard, see [SQL Server Import and Export Wizard](/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard)

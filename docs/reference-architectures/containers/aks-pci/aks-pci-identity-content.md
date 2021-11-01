@@ -324,9 +324,7 @@ You might have components that don't use Azure AD, such as access to jump boxes 
 
 ### Requirement 8.3
 
-Secure all individual non-console administrative access and all remote access to the CDE using multi-factor authentication.
-Note: Multi-factor authentication requires that a minimum of two of the three authentication methods (see Requirement 8.2 for descriptions of authentication methods) be used for authentication. Using one factor twice (for example, using two separate passwords) is not considered multi-factor
-authentication.
+Secure all individual non-console administrative access and all remote access to the CDE using multi-factor authentication. Note: Multi-factor authentication requires that a minimum of two of the three authentication methods (see Requirement 8.2 for descriptions of authentication methods) be used for authentication. Using one factor twice (for example, using two separate passwords) is not considered multi-factor authentication.
 
 #### Your responsibilities
 

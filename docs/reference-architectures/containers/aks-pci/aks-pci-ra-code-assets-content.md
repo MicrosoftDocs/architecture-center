@@ -105,8 +105,7 @@ There are several NSGs that control the flow in and out of the cluster. Here are
 - The cluster node pools are placed in dedicated subnets. For each subnet, there are NSGs that block any SSH access to node VMs and allow traffic from the virtual network. Traffic from the node pools is restricted to the virtual network.
 - All inbound traffic from the internet is intercepted by Azure Application Gateway. For example, NSG rules make sure that:
    - Only HTTPS traffic is allowed in. 
-   - Traffic from Azure Control Plane is allowed.    
-   For details, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
+   - Traffic from Azure Control Plane is allowed.     For details, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
 - On the subnets that have Azure Container Registry agents, NSGs allow only necessary outbound traffic. For instance, traffic is allowed to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.  
 - The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub, and limited outbound connections. Jump boxes do not have universal internet access, and are controlled at both the subnet NSG and Azure Firewall.
 

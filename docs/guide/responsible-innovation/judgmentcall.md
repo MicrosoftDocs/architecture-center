@@ -45,11 +45,11 @@ The players are expected to go through the following steps in this game:
    
     Once you have decided on the scenario, pass out the cards. Each player receives a stakeholder card, an ethical principle card, a rating card, and a review form. The following is a description of these cards:
 
-      - **Stakeholder** - This represents the group of people impacted by the technology or scenario you've chosen. Stakeholders can also include the makers (those proposing and working on the technology) as well as the internal project sponsors (managers and executives who are supportive of the project).
+      - **Stakeholder:** This represents the group of people impacted by the technology or scenario you've chosen. Stakeholders can also include the makers (those proposing and working on the technology) as well as the internal project sponsors (managers and executives who are supportive of the project).
 
-      - **Principle** - This includes Microsoft's ethical principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability.
+      - **Principle:** This includes Microsoft's ethical principles of fairness, privacy and security, reliability and safety, transparency, inclusion, and accountability.
 
-      - **Rating** - Star cards give a rating: 1-star is poor, 3-star is mediocre, 5-star is excellent.
+      - **Rating:** Star cards give a rating: 1-star is poor, 3-star is mediocre, 5-star is excellent.
 
 1. **Brainstorm and identify stakeholders**
     
@@ -57,11 +57,11 @@ The players are expected to go through the following steps in this game:
 
     The deck provides following categories of stakeholders:
       
-      - **Direct** - These use the technology and/or the technology is used on them.
+      - **Direct:** These use the technology and/or the technology is used on them.
       
-      - **Indirect** - These feel the effects of the technology.
+      - **Indirect:** These feel the effects of the technology.
       
-      - **Special populations** - A wide range of categories that includes those who cannot use the technology or choose not to use it, and organizations that may be interested in its deployment like advocacy groups or the government.
+      - **Special populations:** A wide range of categories that includes those who cannot use the technology or choose not to use it, and organizations that may be interested in its deployment like advocacy groups or the government.
       
     There are a range of harms that can be felt or perpetuated onto each group of stakeholder. Types of stakeholders can include end users of the product, administrators, internal teams, advocacy groups, manufacturers, someone who might be excluded from using the product. Stakeholders can also include the makers who propose and work on the technology, as well as the internal project sponsors, that is, the managers and executives who are supportive of the project.
  

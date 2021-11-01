@@ -4,9 +4,9 @@ The cloud is changing the way infrastructure is designed, including the design o
 
 When deploying HA architectures, there are a few options to provide failover:
 
-* **Azure API-managed route tables** - This option uses two route tables, one active, one passive to switch the active gateway IP for all services running on a VNet/subnet.
-* **Azure API-managed floating IP** - This option uses a secondary IP address on the FWs that can be moved between an active and a stand-by FW.
-* **Load Balancer managed** - This option uses an Azure Load Balancer to act as the gateway IP for the subnet, which then forwards the traffic to the active FW. It may even forward the traffic active-active to provide true load balancing.
+* **Azure API-managed route tables:** This option uses two route tables, one active, one passive to switch the active gateway IP for all services running on a VNet/subnet.
+* **Azure API-managed floating IP:** This option uses a secondary IP address on the FWs that can be moved between an active and a stand-by FW.
+* **Load Balancer managed:** This option uses an Azure Load Balancer to act as the gateway IP for the subnet, which then forwards the traffic to the active FW. It may even forward the traffic active-active to provide true load balancing.
 
 The problem with the first two options is that failover itself is slow. The FW must instruct the failover, which is essentially a “reconfiguration” of Azure services through a new deployment. Depending on how fast that deployment is completed, the traffic flows will be down for several minutes. Furthermore, it doesn’t allow for an active-active configuration where both firewalls are operating at the same time.
 

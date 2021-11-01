@@ -46,13 +46,13 @@ Azure Time Series Insights explorer has a powerful yet intuitive user interface,
 
 Key features of Azure Time Series Insights explorer:
 
-1. **Environment panel** - Displays all your Azure Time Series Insights environments.
-1. **Navigation bar** - Lets you switch between the Analyze and Model pages.
-1. **Hierarchy tree and search panel** - Lets you select and search for specific data elements to be charted.
-1. **Time series well** - Shows all your currently selected data elements.
-1. **Chart panel** - Displays your current working chart.
-1. **Timeline** - Lets you modify your working time span.
-1. **App bar** - Contains your user management options (such as current tenant), and allows you to change them and language settings.
+1. **Environment panel:** Displays all your Azure Time Series Insights environments.
+1. **Navigation bar:** Lets you switch between the Analyze and Model pages.
+1. **Hierarchy tree and search panel:** Lets you select and search for specific data elements to be charted.
+1. **Time series well:** Shows all your currently selected data elements.
+1. **Chart panel:** Displays your current working chart.
+1. **Timeline:** Lets you modify your working time span.
+1. **App bar:** Contains your user management options (such as current tenant), and allows you to change them and language settings.
 
 ## Dashboards
 

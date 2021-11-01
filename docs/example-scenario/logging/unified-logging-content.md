@@ -83,8 +83,7 @@ If the team uses an ITSM system, Logic Apps can call the REST endpoint of the sy
 
 [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) service. Sentinel provides a unified overview of the cloud estate through native integration of Azure services. Sentinel can collect information from the cloud as well as from downstream dependent systems in customers' data centers.
 
-Azure Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins, suspicious credentials, and the relevant connections from these events. Site reliability engineering (SRE) teams can use [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) to query the data.
-You can also designate automation to trigger when Sentinel rules generate security alerts. Automation in Azure Sentinel uses Playbooks powered by Azure Logic Apps. For more information, see [Tutorial: Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases).
+Azure Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins, suspicious credentials, and the relevant connections from these events. Site reliability engineering (SRE) teams can use [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) to query the data. You can also designate automation to trigger when Sentinel rules generate security alerts. Automation in Azure Sentinel uses Playbooks powered by Azure Logic Apps. For more information, see [Tutorial: Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases).
 
 ## Issues and considerations
 

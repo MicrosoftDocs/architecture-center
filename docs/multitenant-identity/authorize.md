@@ -161,8 +161,7 @@ if (await _authorizationService.AuthorizeAsync(User, survey, Operations.Read) ==
 
 Because we pass in a `Survey` object, this call will invoke the `SurveyAuthorizationHandler`.
 
-In your authorization code, a good approach is to aggregate all of the user's role-based and resource-based permissions, then check the aggregate set against the desired operation.
-Here is an example from the Surveys app. The application defines several permission types:
+In your authorization code, a good approach is to aggregate all of the user's role-based and resource-based permissions, then check the aggregate set against the desired operation. Here is an example from the Surveys app. The application defines several permission types:
 
 * Admin
 * Contributor

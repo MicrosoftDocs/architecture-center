@@ -28,13 +28,11 @@ In certain scenarios you may need a higher degree of control and customization t
 
 -   Azure IoT Device Provisioning Service and Azure IoT Hub for device provisioning, device connectivity, and management
 
--   Azure Time Series Insights for storing and analyzing warm and cold path time
-    series data from IoT devices
+-   Azure Time Series Insights for storing and analyzing warm and cold path time series data from IoT devices
 
 -   Azure Stream Analytics for analyzing hot path data from IoT devices
 
--   Azure IoT Edge for running AI, third-party services, or your own business
-    logic on IoT Edge devices
+-   Azure IoT Edge for running AI, third-party services, or your own business logic on IoT Edge devices
 
 [ ![Diagram detailing a possible example reference architecture composed of Azure PaaS services described in the article.](./media/azure-iot-arch.svg) ](./media/azure-iot-arch.svg#lightbox)
 
@@ -42,9 +40,7 @@ In certain scenarios you may need a higher degree of control and customization t
 
 Choosing to build with Azure IoT Central gives you the opportunity to focus time and money on transforming your business and designing innovative offerings, rather than maintaining and updating a complex and continually evolving IoT infrastructure. However, if your solution requires features or services that Azure IoT Central does not currently support, you may need to develop a PaaS solution using Azure IoT Hub as a core element.
 
-You can use the table and links below to help decide if you can use a managed
-solution based on Azure IoT Central, or if you should consider building a PaaS
-solution using Azure IoT Hub.
+You can use the table and links below to help decide if you can use a managed solution based on Azure IoT Central, or if you should consider building a PaaS solution using Azure IoT Hub.
 
 [ ![Diagram detailing various capabilities that might be required by an IoT solution.  Each row describes a set of capabilities that are available out of the box for customers using IoT Central and how an equivalent set of functionality could be achieved by composition using PaaS services.](./media/comparison-table-light.svg) ](./media/comparison-table-light.svg#lightbox)
 

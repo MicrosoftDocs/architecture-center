@@ -133,8 +133,7 @@ Each tier offers one or more instances. The main cost drivers are the QPUs and m
 - [Automated enterprise BI - Azure Architecture Center](../../reference-architectures/data/enterprise-bi-adf.yml)
 
 ## Azure Data Factory V2
-Azure Data Factory is a big data orchestrator. The service transfers data to and from diverse types of data stores. It transforms the data by using other compute services. It creates workflows that automate data movement and transformation. 
-You are only charged for consumption. Consumption is measured by these factors:
+Azure Data Factory is a big data orchestrator. The service transfers data to and from diverse types of data stores. It transforms the data by using other compute services. It creates workflows that automate data movement and transformation.  You are only charged for consumption. Consumption is measured by these factors:
 
 - Pipeline activities that take the actions on the data. Those actions include copying the data from various sources, transforming it, and controlling the flow. For more information, see [data movement activities](/azure/data-factory/copy-activity-overview), [data transformation activities](/azure/data-factory/transform-data), and [control activities](/azure/data-factory/control-flow-web-activity).
 
