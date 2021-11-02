@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces the approaches you can consider when planning a multitenant architecture.
 author: johndowns
 ms.author: jodowns
-ms.date: 04/28/2021
+ms.date: 11/02/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -21,32 +21,13 @@ ms.custom:
 
 # Architectural approaches for multitenancy
 
-* App styles:
-  * Web
-  * Mobile
-  * Fat client
-  * IoT
-  * Big Data
-  * Near real-time / even-driven applications (e.g. click analytics solutions)
-  * Microservices
-  * Serverless
-  * Monolithic / legacy
-* We should mention here that the application can provide more UIs: (e.g. web, mobile)
-* Big-picture styles:
-  * We may also mention the distinction between private cloud, public cloud, and hybrid cloud, here or in a separate page
-  * Single-tenant instances
-  * Multitenant instances
-  * Hybrid
-  * Stamps, geodes
+There are many different ways that you can design and build multitenant solutions in Azure. At one extreme, you can deploy isolated resources for every tenant. While this is a simple approach and can work for small numbers of tenants, it typically doesn't provide cost effectiveness and it can become difficult to manage your resources. At the other extreme, you can share every resource in your solution between every tenant. There are also a variety of approaches that fit between these extremes, and they all have tradeoffs: isolation, cost efficiency, performance, and manageability.
 
-## Approaches
-
-Migrate from single-tenant app to a set of single-tenant apps
-Or can make it multitenancy-aware
+Throughout this series, we discuss the main categories of Azure services that comprise a solution. For each category, we outline the key patterns and approaches you can consider when you're designing multitenant solutions, as well as antipatterns to avoid.
 
 ## Deployment Stamps pattern
 
-The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) involves deploying dedicated infrastructure for a tenant or group of tenants. A single stamp might contain multiple tenants or might be dedicated to a single tenant.
+The [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) is frequently used in multitenant solutions. It involves deploying dedicated infrastructure for a tenant or for a group of tenants. A single stamp might contain multiple tenants or might be dedicated to a single tenant.
 
 ![Diagram showing the Deployment Stamps pattern. Each tenant has their own stamp containing a database.](media/overview/deployment-stamps.png)
 
@@ -59,3 +40,11 @@ The biggest problem with the Deployment Stamps pattern, when being used to serve
 Single-tenant stamps often work well when you have a small number of tenants. As your number of tenants grows, it's possible but increasingly difficult to manage a fleet of stamps ([see this case study as an example](https://devblogs.microsoft.com/azure-sql/running-1m-databases-on-azure-sql-for-a-large-saas-provider-microsoft-dynamics-365-and-power-platform)). You can also apply the Deployment Stamps pattern to create a fleet of multitenant stamps, which can provide benefits for resource and cost sharing.
 
 To implement the Deployment Stamps pattern, it's important to use automated deployment approaches. Depending on your deployment strategy, you might consider managing your stamps within your deployment pipelines, by using declarative infrastructure as code, such as Bicep, ARM templates, or Terraform templates. Alternatively, you might consider building custom code to deploy and manage each stamp, such as by using the [Azure SDKs](https://azure.microsoft.com/downloads).
+
+## Intended audience
+
+This series is intended to be useful for solution architects and lead developers. Much of the guidance in this section is generic and applies to multiple Azure services within a category.
+
+## Next steps
+
+[Consider how to support multitenancy for the compute components of your solution.](compute.md)
