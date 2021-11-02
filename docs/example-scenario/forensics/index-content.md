@@ -139,7 +139,7 @@ The following PowerShell code samples of the Copy-VmDigitalEvidence runbook are 
 The Hybrid Runbook Worker must map the Azure File share containing the disk, used to calculate its hash values. Further details for the mounting procedure are available for both [Windows](/azure/storage/files/storage-how-to-use-files-windows) and [Linux](/azure/storage/files/storage-files-how-to-mount-nfs-shares) systems and must be integrated in the PowerShell code.
 
 > [!NOTE]
-> Scripts are provided as a starting point, are not intended to be downloaded an run directly in a customer environment. Be sure to replace placeholders and adapt them to yor customer scenario. Before run the script remember to complete the section *Mounting fileshare* with the code to mount the Azure file share. The code is strictly tied to your implementation. To generate the correct code follow the documentation links contained in the scripts.
+> Scripts are provided as a starting point, are not intended to be downloaded an run directly in a customer environment. Be sure to replace placeholders and adapt them to your customer scenario. Before run the script remember to complete the section *Mounting fileshare* with the code to mount the Azure file share. The code is strictly tied to your implementation. To generate the correct code follow the documentation links contained in the scripts.
 
 ### Capture workflow
 
