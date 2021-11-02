@@ -3,7 +3,7 @@ title: Azure AD join for Azure Virtual Desktop
 description: Learn how to configure Azure AD domain join for Azure Virtual Desktop host VMs without using Active Directory Domain Services domain controllers.
 author: TomHickling
 ms.author: thhickli
-ms.date: 11/01/2021
+ms.date: 11/02/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -22,7 +22,6 @@ products:
   - windows-virtual-desktop
 ms.custom:
   - fcp
-
 ---
 
 # Azure AD join for Azure Virtual Desktop
