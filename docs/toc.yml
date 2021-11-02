@@ -961,7 +961,7 @@ items:
                 href: /gaming/azure/reference-architectures/leaderboard-non-relational
                 maintainContext: true
               - name: Relational leaderboard
-                href: /azure/reference-architectures/leaderboard-relational
+                href: /gaming/azure/reference-architectures/leaderboard-relational
                 maintainContext: true
           - name: AI in games
             items:
