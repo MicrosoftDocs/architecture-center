@@ -3140,9 +3140,11 @@ items:
               - name: Authentication in Azure Virtual Desktop
                 href: /azure/virtual-desktop/authentication
                 maintainContext: true
-              - name: AVD network connectivity
+              - name: Azure Virtual Desktop network connectivity
                 href: /azure/virtual-desktop/network-connectivity
                 maintainContext: true
+              - name: Azure AD join for Azure Virtual Desktop
+                href: example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md
               - name: Connect RDP Shortpath
                 href: /azure/virtual-desktop/shortpath
                 maintainContext: true
