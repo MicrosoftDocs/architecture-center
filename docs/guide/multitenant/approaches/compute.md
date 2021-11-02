@@ -36,7 +36,7 @@ Systems need to perform adequately under changing demand. As the number of tenan
 
 If you deploy dedicated resources for each tenant, you have the flexibility to scale each tenant's resources independently. In a solution where compute resources are shared, multiple tenants might all benefit from extra capacity. They also will all suffer when the scale is insufficient to handle their overall load. For further information, see the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md).
 
-When you build cloud solutions, you can choose whether to [scale horizontally or vertically](../../../framework/scalability/design-scale). In a multitenant solution with a growing number of tenants, scaling horizontally typically provides you with greater flexibility and a higher overall scale ceiling.
+When you build cloud solutions, you can choose whether to [scale horizontally or vertically](../../../framework/scalability/design-scale.md). In a multitenant solution with a growing number of tenants, scaling horizontally typically provides you with greater flexibility and a higher overall scale ceiling.
 
 Whichever approach you use to scale, you typically need to plan the triggers that cause your components to scale. When you have shared components, consider the workload patterns of every tenant who uses the resources to ensure you provision capacity to meet the total required capacity. You might also be able to plan your scaling capacity based on the number of tenants. For example, if you measure the resources used to service 100 tenants, then as you onboard more tenants you can plan to scale such that your resources approximately double for every additional 100 tenants.
 
@@ -65,7 +65,7 @@ You might be concerned with logical isolation of tenants and to separate the man
 
 ### Deployment Stamps pattern
 
-For further information about how the [Deployment Stamps pattern](../../patterns/deployment-stamps.md) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
+For further information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
 
 ### Compute Resource Consolidation pattern
 
@@ -125,7 +125,7 @@ Instead, consider using asynchronous processing by making use of queues or other
 
 Multitenant solutions are often subject to bursty scale patterns. Shared components are particularly susceptible to this issue, because the scope for burst is higher and the impact is greater when you have more tenants with distinct usage patterns.
 
-Ensure you make good use of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](../../../framework/scalability/design-scale), and use auto-scaling to automatically handle spikes in load. You should also test your solution to understand how it behaves under different levels of load. Ensure you include the volumes expected in production, as well as your expected growth.
+Ensure you make good use of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](../../../framework/scalability/design-scale.md), and use auto-scaling to automatically handle spikes in load. You should also test your solution to understand how it behaves under different levels of load. Ensure you include the volumes expected in production, as well as your expected growth.
 
 ### No Caching antipattern
 

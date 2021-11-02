@@ -80,7 +80,7 @@ Several design patterns from the Azure Architecture Center are of relevance to m
 
 ### Deployment Stamps pattern
 
-For further information about how the [Deployment Stamps pattern](../../patterns/deployment-stamps.md) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
+For further information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
 
 ### Shared multitenant databases and file stores
 
