@@ -61,9 +61,9 @@ If you need a regulated environment, make the baseline implementation highly sec
 > [!div class="nextstepaction"]
 > [Regulated baseline cluster for PCI-DSS 3.2.1](./aks-pci/aks-pci-intro.yml)
 
-### High availability
+### Business Continuity and Disaster Recovery
 
-A highly available solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
+A resilient solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
 
 > [!div class="nextstepaction"]
 > [Baseline for multiregion clusters](./aks-multi-region/aks-multi-cluster.yml)

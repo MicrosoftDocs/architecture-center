@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Hybrid connection
+  title: Hybrid connections
   titleSuffix: Azure Solution Ideas
   description: Use a hybrid connection for Azure Stack Hub solutions with apps that communicate with the Azure public cloud and on-premises Azure Stack Hub components.
   author: EdPrice-MSFT
@@ -25,7 +25,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/hybrid-connectivity/"
     - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-connectivity.png
-name: Hybrid connection
+name: Hybrid connections
 azureCategories:
   - hybrid
   - networking

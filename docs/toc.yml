@@ -961,7 +961,7 @@ items:
                 href: /gaming/azure/reference-architectures/leaderboard-non-relational
                 maintainContext: true
               - name: Relational leaderboard
-                href: /azure/reference-architectures/leaderboard-relational
+                href: /gaming/azure/reference-architectures/leaderboard-relational
                 maintainContext: true
           - name: AI in games
             items:
@@ -2305,6 +2305,14 @@ items:
                 href: hybrid/azure-file-share.yml
           - name: Solution ideas
             items:
+              - name: Azure VMware Solution foundations
+                items:
+                  - name: Azure VMware Solution capacity planning
+                    href: solution-ideas/articles/azure-vmware-solution-foundation-capacity.yml
+                  - name: Azure VMware Solution landing zone
+                    href: solution-ideas/articles/azure-vmware-solution-foundation-landing-zone.yml
+                  - name: Azure VMware solution networking
+                    href: solution-ideas/articles/azure-vmware-solution-foundation-networking.yml
               - name: Cross-cloud scaling
                 href: solution-ideas/articles/cross-cloud-scaling.yml
               - name: Cross-platform chat
@@ -3132,9 +3140,11 @@ items:
               - name: Authentication in Azure Virtual Desktop
                 href: /azure/virtual-desktop/authentication
                 maintainContext: true
-              - name: AVD network connectivity
+              - name: Azure Virtual Desktop network connectivity
                 href: /azure/virtual-desktop/network-connectivity
                 maintainContext: true
+              - name: Azure AD join for Azure Virtual Desktop
+                href: example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join.md
               - name: Connect RDP Shortpath
                 href: /azure/virtual-desktop/shortpath
                 maintainContext: true
