@@ -127,7 +127,7 @@ Read more about instrumention and the OpenTelemetry SDKs in the [OpenTelemetry d
 
 Application Insights builds on OpenTelemetry, ingesting the rich data provided by instrumented libraries and apps and providing rich visualization and query support. The Application Insights agents for various platforms such as .NET, Java, or Node.js handles the data ingestion.
 
-If you are using .NET Core, we recommend also using the [Application Insights for Kubernetes](https://github.com/microsoft/ApplicationInsights-Kubernetes) library. This library enriches Application Insights traces with additional information such as the container, node, pod, labels, and replica set.  _TODO: Check on the status of this_
+If you are using .NET Core, we recommend also using the [Application Insights for Kubernetes](https://github.com/microsoft/ApplicationInsights-Kubernetes) library. This library enriches Application Insights traces with additional information such as the container, node, pod, labels, and replica set. _TODO: Check on the status of this_
 
 Application Insights maps the OpenTelemetry context to its internal data model:
 
@@ -209,27 +209,45 @@ MDC.put("DeliveryId", deliveryId);
 log.info("In schedule delivery action with delivery request {}", externalDelivery.toString());
 ```
 
+When the goal is to connect a business entity with a set of messages and operations for traceability, enriching OpenTelemetry objects is often a better approach. The OpenTelemetry SDKs for various langauges support adding custom attributes on Spans. For example the above, [using the Java OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/manual-instrumentation.md#adding-attributes-to-the-current-span) ([supported by Application Insights[(https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent#add-span-attributes)])could be rewritten as:
+
+```java
+import io.opentelemetry.api.trace.Span;
+
+// ...
+
+Span.current().setAttribute("A1234", deliveryId);
+```
+
+This sets a key/value on the Span which is connected to any other operations and log mesages that occur under that Span. This appears in the Application Insights Request object:
+
+```kusto
+requests
+| extend deliveryId = tostring(customDimensions.deliveryId)  // promote to column value (optional)
+| where deliveryId == "A1234"
+| project timestamp, name, url, success, resultCode, duration, operation_Id, deliveryId
+```
+
+This becomes more powerful when used with logs, filtering and annotating log traces with Span context:
+
+```kusto
+requests
+| extend deliveryId = tostring(customDimensions.deliveryId)  // promote to column value (optional)
+| where deliveryId == "A1234"
+| project deliveryId, operation_Id, requestTimestamp = timestamp, requestDuration = duration  // keep some request info
+| join kind=inner traces on operation_Id   // join logs only for this deliveryId
+| project requestTimestamp, requestDuration, logTimestamp = timestamp, deliveryId, message
+```
+
 ## Distributed tracing
 
-A significant challenge of microservices is to understand the flow of events across services. A single transaction may involve calls to multiple services. To reconstruct the entire sequence of steps, each service should propagate a _correlation ID_ that acts as a unique identifier for that operation. The correlation ID enables [distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html) across services.
+A significant challenge of microservices is to understand the flow of events across services. A single transaction may involve calls to multiple services. 
 
-The first service that receives a client request should generate the correlation ID. If the service makes an HTTP call to another service, it puts the correlation ID in a request header. If the service sends an asynchronous message, it puts the correlation ID into the message. Downstream services continue to propagate the correlation ID, so that it flows through the entire system. In addition, all code that writes application metrics or log events should include the correlation ID.
-
-When service calls are correlated, you can calculate operational metrics such as the end-to-end latency for a complete transaction, the number of successful transactions per second, and the percentage of failed transactions. Including correlation IDs in application logs makes it possible to perform root cause analysis. If an operation fails, you can find the log statements for all of the service calls that were part of the same operation.
-
-We recommend using Application Insights for distributed tracing. The Application Insights SDK automatically injects correlation context into HTTP headers, and includes the correlation ID in Application Insights logs. Some services may still need to explicitly propagate the correlation headers, depending on the frameworks and libraries being used. For more information, see [Telemetry correlation in Application Insights](/azure/azure-monitor/app/correlation).
-
-Some additional considerations when implementing distributed tracing:
-
-- There is now a standard HTTP header for correlation IDs, a [W3C proposal](https://w3c.github.io/trace-context/) has been accepted as an official recommendation recently. Your team should standardize on a custom header value. The choice may be decided by your logging framework, such as Application Insights, or choice of service mesh.
-
-- For asynchronous messages, if your messaging infrastructure supports adding metadata to messages, you should include the correlation ID as metadata. Otherwise, include it as part of the message schema. For example, see [Distributed tracing and correlation through Service Bus messaging](/azure/service-bus-messaging/service-bus-end-to-end-tracing).
-
-- Rather than a single opaque identifier, you might send a _correlation context_ that includes richer information, such as caller-callee relationships.
-
-- If you are using Istio or linkerd as a service mesh, these technologies automatically generate correlation headers when HTTP calls are routed through the service mesh proxies. Services should forward the relevant headers.
+[TODO: Modern advice assume that the work of creating a correlation/operation/trace ID is done by OpenTelemetry and context propogation are done by libraries; maybe link to resources about how to implement custom context propagation where needed]
 
 ### Example of distributed tracing
+
+[TODO: Revise based on above]
 
 This example follows a distributed transaction through a set of microservices. The example is taken from a reference implementation described [here](./design/index.md#reference-implementation).
 
