@@ -39,7 +39,7 @@ The folder structure of our collection of Azure architecture icons has changed. 
 
 There are ~26 icons that have been added to the existing set. The download file name has been updated to Azure_Public_Service_Icons_V4.zip
 
-## Terms
+## Icon terms
 
 Microsoft permits the use of these icons in architectural diagrams, training materials, or documentation. You may copy, distribute, and display the icons only for the permitted use unless granted explicit permission by Microsoft. Microsoft reserves all other rights.
 
@@ -50,7 +50,8 @@ I agree to the above terms
  > [!div class="button"]
  > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V4.zip)
 
-### See also
+## More icon sets from Microsoft
 
-[Dynamics 365 icons](/dynamics365/get-started/icons)<br/>
-[Microsoft Power Platform icons](/power-platform/guidance/icons)
+- [Microsoft 365 architecture icons and templates](/microsoft-365/solutions/architecture-icons-templates)
+- [Dynamics 365 icons](/dynamics365/get-started/icons)
+- [Microsoft Power Platform icons](/power-platform/guidance/icons)
