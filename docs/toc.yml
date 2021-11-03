@@ -1302,6 +1302,8 @@ items:
                 href: solution-ideas/articles/auditing-and-risk-compliance.yml
               - name: Autonomous systems
                 href: solution-ideas/articles/autonomous-systems.yml
+              - name: Build a delta lake
+                href: solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml
               - name: Business process management
                 href: solution-ideas/articles/business-process-management.yml
               - name: Content research
