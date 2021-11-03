@@ -71,6 +71,7 @@ Azure compute services provide different capabilities for scaling your workloads
 
 - **Azure App Service**: [Specify autoscale rules](/azure/app-service/manage-scale-up) that scale your infrastructure based on your requirements.
 - **Azure Functions**: Select from [multiple scale options](/azure/azure-functions/functions-scale#scale), including an event-driven scaling model that automatically scales based on the work that your functions perform.
+- **Azure Container Apps**: Use [event-driven autoscaling](/azure/container-apps/overview) to scale your application based on the work it performs and its current load.
 - **Azure Kubernetes Service (AKS)**: To keep up with application demands you may need to [adjust the number of nodes that run your workloads](/azure/aks/cluster-autoscaler). Additionally, to rapidly scale application workloads in an AKS cluster, you can use [virtual nodes](/azure/aks/virtual-nodes).
 - **Virtual machines:** A virtual machine scale set can [automatically increase or decrease the number of VM instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) that run your application.
 
@@ -87,6 +88,7 @@ However, compute resource consolidation increases the likelihood of the [Noisy N
 This pattern is achieved in different ways depending on the compute service you use. For example:
 
 - **Azure App Service and Azure Functions**: Deploy shared App Service plans, which represents the hosting server infrastructure.
+- **Azure Container Apps**: Deploy shared [environments](/azure/container-apps/environment).
 - **Azure Kubernetes Service (AKS)**: Deploy shared pods with a multitenancy-aware application.
 - **Virtual machines**: Deploy a single set of virtual machines for all tenants to use.
 
@@ -97,6 +99,7 @@ You can also consider deploying dedicated compute resources for every tenant. Th
 Depending on the Azure compute services you use, you need to deploy different dedicated resources, such as:
 
 - **Azure App Service and Azure Functions**: Deploy separate App Service plans for each tenant.
+- **Azure Container Apps**: Deploy separate environments for each tenant.
 - **Azure Kubernetes Service (AKS)**: Deploy dedicated clusters for each tenant.
 - **Virtual machines**: Deploy dedicated virtual machines for each tenant.
 
@@ -105,6 +108,8 @@ Depending on the Azure compute services you use, you need to deploy different de
 Semi-isolated approaches involve deploying aspects of the solution in an isolated configuration, while sharing other components.
 
 When you work with App Service and Azure Functions, you can deploy distinct applications for each tenant, and host the applications on shared App Service plans. This approach reduces the cost of your compute tier, because App Service plans represent the unit of billing. It also enables you to apply distinct configuration and policies to each application. However, this approach introduces the risk of the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md).
+
+Azure Container Apps enables you to deploy multiple applications to a shared environment, and then to use Dapr and other tools to configure each application separately.
 
 Azure Kubernetes Service (AKS), and Kubernetes more broadly, provide a variety of options for multitenancy, including:
 
