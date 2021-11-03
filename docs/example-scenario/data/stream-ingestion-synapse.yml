@@ -2,10 +2,10 @@
 metadata:
   title: High throughput stream ingestion to Azure Synapse
   titleSuffix: Azure Example Scenarios
-  description: This reference architecture leverages Azure Stream Analytics to ingest data to Azure Synapse dedicated SQL pool in high throughput scenarios.
+  description: This architecture leverages Azure Stream Analytics to ingest data to an Azure Synapse dedicated SQL pool in high throughput scenarios.
   author: ra1han
   ms.author: raihanalam
-  ms.date: <publish or major update date - mm/dd/yyyy>
+  ms.date: 11/04/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -17,7 +17,7 @@ products:
   - azure-synapse-analytics
   - azure-stream-analytics
 name: High throughput stream ingestion to Azure Synapse
-summary: This reference architecture leverages Azure Stream Analytics to ingest data to Azure Synapse dedicated SQL pool in high throughput scenarios.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+summary: This architecture leverages Azure Stream Analytics to ingest data to an Azure Synapse dedicated SQL pool in high throughput scenarios.
+thumbnailUrl: /azure/architecture/browse/thumbs/stream-synapse.png
 content: |
   [!include[](stream-ingestion-synapse-content.md)]
