@@ -2,7 +2,8 @@
 title: Retry general guidance
 titleSuffix: Best practices for cloud applications
 description: Learn how to handle transient faults when connecting to resources, caused by loss of network connectivity, temporary unavailability, or timeouts.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 07/13/2016
 ms.topic: conceptual
 ms.service: architecture-center
@@ -71,9 +72,9 @@ The following guidelines will help you to design a suitable transient fault hand
 
   - Determining the appropriate intervals between retries is the most difficult part of designing a successful strategy. Typical strategies use the following types of retry interval:
 
-    - **Exponential back-off**. The application waits a short time before the first retry, and then exponentially increasing times between each subsequent retry. For example, it may retry the operation after 3 seconds, 12 seconds, 30 seconds, and so on.
+    - **Exponential back-off**. The application waits a short time before the first retry, and then exponentially increasing time between each subsequent retry. For example, it may retry the operation after 3 seconds, 12 seconds, 30 seconds, and so on.
 
-    - **Incremental intervals**. The application waits a short time before the first retry, and then incrementally increasing times between each subsequent retry. For example, it may retry the operation after 3 seconds, 7 seconds, 13 seconds, and so on.
+    - **Incremental intervals**. The application waits a short time before the first retry, and then incrementally increasing time between each subsequent retry. For example, it may retry the operation after 3 seconds, 7 seconds, 13 seconds, and so on.
 
     - **Regular intervals**. The application waits for the same period of time between each attempt. For example, it may retry the operation every 3 seconds.
 
