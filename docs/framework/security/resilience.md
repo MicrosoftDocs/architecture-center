@@ -46,13 +46,13 @@ This is a general mindset with many possible applications, but two concrete appl
 
 A containment strategy should attempt to limit an attacker's time and levels  of privilege acquired within an environment. Containment is an important part  of resilience and recovery. If an attacker is able to escalate privileges and/or  remain undetected indefinitely, their scope of damage increases.
 
-The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data. Your investments should be focused on ensuring your security measures constrain how much access an adversary gets to the environment during an  attack operation and limit the amount of privileges, or permissions that an adversary gains:
+The actual security risk for an organization is heavily influenced by how much access an adversary can or does obtain to valuable systems and data. Your investments should be focused on ensuring your security measures constrain how much access an adversary gets to the environment during an attack operation and limit the privileges or permissions that an adversary gains:
 
 - **Time:** Limit how long the adversary can have access to your environment during an attack operation. This is primarily achieved through security operations that rapidly detect potential attacks, prioritizing potential detections so your team is focused on quickly investigating real attacks (vs. false positives), and reducing your mean time to remediate those real incidents.
 
   For more information on these goals and metrics, see the [security operations](./security-operations.md#objective-and-metrics) section.
 
-**Privilege:** Limit the privileges and permissions that an adversary can gain during an attack operation (by permissions and by amount of time privileges are assigned). As attackers gain more privileges, they can access more  target systems and data (or use those systems to continue to pivot within your environment). Your security strategy should be focused on containing those privileges with:
+**Privilege:** Limit the privileges and permissions that an adversary can gain during an attack operation (by permissions and by amount of time that privileges are assigned). As attackers gain more privileges, they can access more  target systems and data (or use those systems to continue to pivot within your environment). Your security strategy should be focused on containing those privileges with:
 
 - Preventive controls
 - Detection/response/recovery that is prioritized to focus on business critical assets and high amounts of permissions to assets typically IT operations roles.
