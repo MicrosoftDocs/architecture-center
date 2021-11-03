@@ -54,8 +54,7 @@ The data flows through the solution as follows:
 
     -   Using a firewall to limit Storage Account access to trusted Azure services is recommended to limit external attack vulnerability.
 
-    -   [Private endpoints](/azure/private-link/private-endpoint-overview) for your Azure Storage accounts allow clients on the virtual network (VNet) to securely access data over a [Private Link](/azure/private-link/private-link-overview). The private endpoint uses an IP address from the VNet address space for the storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link
-        on the Microsoft backbone network, eliminating exposure to the public internet.
+    -   [Private endpoints](/azure/private-link/private-endpoint-overview) for your Azure Storage accounts allow clients on the virtual network (VNet) to securely access data over a [Private Link](/azure/private-link/private-link-overview). The private endpoint uses an IP address from the VNet address space for the storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure to the public internet.
 
 3.  Data is encrypted at rest once it's ingested into the data lake. Using your own customer-managed keys can further protect your encryption keys and add more flexibility when managing access controls.
 

@@ -22,7 +22,7 @@ Data is loaded from these different data sources using several Azure components:
 
 - [Power Apps](https://powerapps.microsoft.com/): Increase agility across your organization by rapidly building low-code apps that modernize processes and solve tough challenges.
 - [Azure Functions](https://azure.microsoft.com/services/functions/): Accelerate and simplify application development with serverless compute
-- [Power Automate](https://flow.microsoft.com/): Streamline repetitive tasks and paperless processes with Microsoft Power Automate—so you can focus your attention where it&#39;s needed most.
+- [Power Automate](https://flow.microsoft.com/): Streamline repetitive tasks and paperless processes with Microsoft Power Automate—so you can focus your attention where it's needed most.
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/): A NoSQL key-value store for rapid development using massive semi-structured datasets
 
 ## Next Steps

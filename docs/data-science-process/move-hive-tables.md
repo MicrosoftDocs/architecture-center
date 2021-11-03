@@ -59,7 +59,7 @@ Log in to the head node of the Hadoop cluster, open the Hadoop Command Line on t
 You have three ways to submit Hive queries in the Hadoop Command Line:
 
 * directly
-* using '.hql' files
+* using `.hql` files
 * with the Hive command console
 
 #### Submit Hive queries directly in Hadoop Command Line.
@@ -67,25 +67,27 @@ You can run command like `hive -e "<your hive query>;` to submit simple Hive que
 
 ![Command to submit Hive query with output from Hive query](./media/move-hive-tables/run-hive-queries-1.png)
 
-#### Submit Hive queries in '.hql' files
-When the Hive query is more complicated and has multiple lines, editing queries in command line or Hive command console is not practical. An alternative is to use a text editor in the head node of the Hadoop cluster to save the Hive queries in a '.hql' file in a local directory of the head node. Then the Hive query in the '.hql' file can be submitted by using the `-f` argument as follows:
+#### Submit Hive queries in `.hql` files
+
+When the Hive query is more complicated and has multiple lines, editing queries in command line or Hive command console is not practical. An alternative is to use a text editor in the head node of the Hadoop cluster to save the Hive queries in an `.hql` file in a local directory of the head node. Then the Hive query in the `.hql` file can be submitted by using the `-f` argument as follows:
 
 ```console
-hive -f "<path to the '.hql' file>"
+hive -f "<path to the .hql file>"
 ```
 
-![Hive query in a '.hql' file](./media/move-hive-tables/run-hive-queries-3.png)
+![Hive query in an `.hql` file](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Suppress progress status screen print of Hive queries**
 
 By default, after Hive query is submitted in Hadoop Command Line, the progress of the Map/Reduce job is printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use an argument `-S` ("S" in upper case) in the command line as follows:
 
 ```console
-hive -S -f "<path to the '.hql' file>"
+hive -S -f "<path to the .hql file>"
 hive -S -e "<Hive queries>"
 ```
 
 #### Submit Hive queries in Hive command console.
+
 You can also first enter the Hive command console by running command `hive` in Hadoop Command Line, and then submit Hive queries in Hive command console. Here is an example. In this example, the two red boxes highlight the commands used to enter the Hive command console, and the Hive query submitted in Hive command console, respectively. The green box highlights the output from the Hive query.
 
 ![Open Hive command console and enter command, view Hive query output](./media/move-hive-tables/run-hive-queries-2.png)

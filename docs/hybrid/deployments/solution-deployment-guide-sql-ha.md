@@ -49,8 +49,7 @@ In this solution, you'll build a sample environment to:
 
 ## Get the Docker image
 
-Docker images for each deployment eliminate dependency issues between
-different versions of Azure PowerShell.
+Docker images for each deployment eliminate dependency issues between different versions of Azure PowerShell.
 
 1. Make sure that Docker for Windows is using Windows containers.
 2. Run the following script in an elevated command prompt to get the Docker container with the deployment scripts.

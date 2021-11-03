@@ -30,7 +30,7 @@ As an example, Microsoft makes significant investments in protection and trainin
 
 Microsoft's recommended core strategy for administrative privileges is to use the available controls to reduce risk
 
-**Reduce risk exposure (scope and time) –** The principle of least privilege is best accomplished with modern controls that provide privileges on demand.
+**Reduce risk exposure (scope and time):** The principle of least privilege is best accomplished with modern controls that provide privileges on demand.
     This help to limit risk by limiting administrative privileges exposure by:
 
 - **Scope:** *Just Enough Access (JEA)* provides only the required privileges for the administrative operation required (vs. having direct and immediate privileges to many or all systems at a time, which is almost never required).
@@ -82,9 +82,9 @@ Permanent privileges increase business risk by increasing the time an attacker c
 
 Grant privileges required only as required using one of these methods:
 
-- **Just in Time -** Enable Azure AD Privileged Identity Management (PIM) or a third party solution to require following an approval workflow to obtain privileges for critical impact accounts
+- **Just in Time:** Enable Azure AD Privileged Identity Management (PIM) or a third party solution to require following an approval workflow to obtain privileges for critical impact accounts
 
-- **Break glass –** For rarely used accounts, follow an emergency access process to gain access to the accounts. This is preferred for privileges that have little need for regular operational usage like members of global admin accounts.
+- **Break glass:** For rarely used accounts, follow an emergency access process to gain access to the accounts. This is preferred for privileges that have little need for regular operational usage like members of global admin accounts.
 
 ## Emergency access or 'Break Glass' accounts
 

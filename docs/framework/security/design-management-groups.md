@@ -50,28 +50,27 @@ Use the Root Management Group (MG) for enterprise consistency, but test changes 
 
 The root management group enables you to ensure consistency across the enterprise by applying policies, permissions, and tags across all subscriptions. Care must be taken when planning and implementing assignments to the root management group because this can affect every resource on Azure and potentially cause downtime or other negative impacts on productivity in the event of errors or unanticipated effects.
 
-- **Plan Carefully:** Select enterprise-wide elements to the root management group that have a clear requirement to be applied across every resource and/or low impact.
+- **Plan carefully:** Select enterprise-wide elements to the root management group that have a clear requirement to be applied across every resource and/or low impact.
 
-    Select enterprise-wide identities that have a clear requirement to be applied across all resources. Good candidates include:
+  Select enterprise-wide identities that have a clear requirement to be applied across all resources. Good candidates include:
 
-    -   **Regulatory requirements** with clear business risk/impact. For example, restrictions related to data sovereignty.
+  - **Regulatory requirements** with clear business risk/impact. For example, restrictions related to data sovereignty.
 
-    -   **Near-zero potential negative impact**  For example, policy with audit effect, tag assignment, Azure RBAC permissions assignments that have been carefully reviewed.
+  - **Near-zero potential negative impact.** For example, policy with audit effect, tag assignment, Azure RBAC permissions assignments that have been carefully reviewed.
 
-    Use a dedicated service principal name (SPN) to execute management group management operations, subscription management operations, and role assignment. SPN reduces the number of users who have elevated rights and follows least-privilege guidelines. Assign the **User Access Administrator** at the root management group scope (/) to grant the SPN just mentioned access at the root level. After the SPN is granted permissions, the **User Access Administrator** role can be safely removed. In this way, only the SPN is part of the **User Access Administrator** role. Assign **Contributor** permission to the SPN, which allows tenant-level operations. This permission level ensures that the SPN can be used to deploy and manage resources to any subscription within your organization.
+  Use a dedicated service principal name (SPN) to execute management group management operations, subscription management operations, and role assignment. SPN reduces the number of users who have elevated rights and follows least-privilege guidelines. Assign the **User Access Administrator** at the root management group scope (/) to grant the SPN just mentioned access at the root level. After the SPN is granted permissions, the **User Access Administrator** role can be safely removed. In this way, only the SPN is part of the **User Access Administrator** role. Assign **Contributor** permission to the SPN, which allows tenant-level operations. This permission level ensures that the SPN can be used to deploy and manage resources to any subscription within your organization.
 
-    Limit the number of Azure Policy assignments made at the root management group scope (/). This limitation minimizes debugging inherited policies in lower-level management groups.
+  Limit the number of Azure Policy assignments made at the root management group scope (`/`). This limitation minimizes debugging inherited policies in lower-level management groups.
 
-    Don't create any subscriptions under the root management group. This hierarchy ensures that subscriptions don't only inherit the small set of Azure policies assigned at the root-level management group, which don't represent a full set necessary for a workload.
+  Don't create any subscriptions under the root management group. This hierarchy ensures that subscriptions don't only inherit the small set of Azure policies assigned at the root-level management group, which don't represent a full set necessary for a workload.
 
-- **Test First -** Plan, test, and validate all enterprise-wide changes on the root management group before applying (policy, tags, Azure RBAC model, and so on).
+- **Test first:** Plan, test, and validate all enterprise-wide changes on the root management group before applying (policy, tags, Azure RBAC model, and so on).
 
-    -   **Test Lab -** Representative lab tenant or lab segment in production tenant.
+  - **Test lab:** Representative lab tenant or lab segment in production tenant.
 
-    -   **Production Pilot -** This can be a segment management group or designated subset in subscription(s) management group.
+  - **Production pilot:** This can be a segment management group or designated subset in subscription(s) management group.
 
-- **Validate Changes:** to ensure they have the desired effect.
-
+- **Validate changes:** to ensure they have the desired effect.
 
 ## Next steps
 
