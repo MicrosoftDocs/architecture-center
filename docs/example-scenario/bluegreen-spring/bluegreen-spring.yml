@@ -9,9 +9,11 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp
+  ms.custom:
+    - fcp
+    - fasttrack-new
+    - example-scenario
 azureCategories:
-  - microservices
   - devops
 products:
   - azure-spring-cloud
