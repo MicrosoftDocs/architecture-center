@@ -18,7 +18,7 @@ This solution benefits any organizations that wants to enable zero downtime depl
 
 ## Architecture
 
-![Diagram of blue-green deployment for Azure Spring Cloud, with GitHub source control, GitHub Action Workflow, and Azure Spring Cloud with a blue and a green slot.](media/bluegreen-spring.svg)
+![Diagram of blue-green deployment for Azure Spring Cloud, with GitHub source control, GitHub Action Workflow, and Azure Spring Cloud with a blue and a green slot.](media/bluegreen-spring.png)
 
 1. The **GitHub repository** holds the application code of which a new version needs to be deployed to Azure Spring Cloud. Every change to the application code happens under source control. GitHub functionality: 
 
