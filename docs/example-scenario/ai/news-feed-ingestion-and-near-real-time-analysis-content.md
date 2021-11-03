@@ -146,7 +146,7 @@ Additional analytics architectures:
 [language]: /azure/cognitive-services/translator/reference/v3-0-languages
 [logic-app]: /azure/logic-apps/logic-apps-overview
 [queues-topics]: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions
-[partial]: https://feedback.azure.com/forums/263030-azure-cosmos-db/suggestions/6693091-be-able-to-do-partial-updates-on-document
+[partial]: https://feedback.azure.com/d365community/idea/eebcd50e-0e25-ec11-b6e6-000d3a4f0858
 [plan]: /azure/azure-functions/functions-scale
 [plan-c]: /azure/azure-functions/consumption-plan
 [plan-ded]: /azure/azure-functions/dedicated-plan
