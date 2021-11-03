@@ -18,6 +18,7 @@ azureCategories:
   - databases
 summary: This architecture provides an example of the Delta Lake architecture for travel booking scenarios where large amounts of raw documents are generated at a high frequency.
 products:
+  - azure-event-hubs	
   - azure-data-lake-gen2
   - azure-databricks
   - azure-synapse-analytics
