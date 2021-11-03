@@ -34,11 +34,13 @@ Multitenancy, and the isolation model you select, impacts the scaling, performan
 
 Systems need to perform adequately under changing demand. As the number of tenants and amount of traffic increase, it might be necessary to increase the capacity of your resources to keep up with the growing number of tenants and maintain acceptable performance. Similarly, when the number of active users or amount of traffic decrease, it's good to automatically reduce the compute capacity to reduce costs, but to do so with minimal impact to users.
 
-If you deploy dedicated resources for each tenant, you have the flexibility to scale each tenant's resources independently. In a solution where compute resources are shared, multiple tenants might all benefit from extra capacity. They also will all suffer when the scale is insufficient to handle their overall load. For further information, see the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md).
+If you deploy dedicated resources for each tenant, you have the flexibility to scale each tenant's resources independently. In a solution where compute resources are shared between multiple tenants, then scaling those resources means that all of those tenants can make use of the new scale. However, they also will all suffer when the scale is insufficient to handle their overall load. For further information, see the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md).
 
 When you build cloud solutions, you can choose whether to [scale horizontally or vertically](../../../framework/scalability/design-scale.md). In a multitenant solution with a growing number of tenants, scaling horizontally typically provides you with greater flexibility and a higher overall scale ceiling.
 
-Whichever approach you use to scale, you typically need to plan the triggers that cause your components to scale. When you have shared components, consider the workload patterns of every tenant who uses the resources to ensure you provision capacity to meet the total required capacity. You might also be able to plan your scaling capacity based on the number of tenants. For example, if you measure the resources used to service 100 tenants, then as you onboard more tenants you can plan to scale such that your resources approximately double for every additional 100 tenants.
+#### Scale triggers
+
+Whichever approach you use to scale, you typically need to plan the triggers that cause your components to scale. When you have shared components, consider the workload patterns of every tenant who uses the resources to ensure you provision capacity to meet the total required capacity and to minimize the chance of a tenant experiencing the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). You might also be able to plan your scaling capacity based on the number of tenants. For example, if you measure the resources used to service 100 tenants, then as you onboard more tenants you can plan to scale such that your resources approximately double for every additional 100 tenants.
 
 ### State
 
@@ -57,11 +59,20 @@ It's also possible to store data in external caches, such as Azure Cache for Red
 
 ### Isolation
 
-When you design a multitenant compute tier, you often have many options to consider for the level of isolation between tenants. Each option comes with tradeoffs. To help to decide which option suits your solution best, consider your requirements for isolation.
+When you design a multitenant compute tier, you often have many options to consider for the level of isolation between tenants, including deploying [shared compute resources](#compute-resource-consolidation-pattern) to be used by all tenants, [dedicated compute resources](#dedicated-compute-resources-per-tenant) for each tenant, or [something in between these extremes](#semi-isolated-compute-resources). Each option comes with tradeoffs. To help to decide which option suits your solution best, consider your requirements for isolation.
 
 You might be concerned with logical isolation of tenants and to separate the management responsibilities or policies that are applied to each. Alternatively, you might need to deploy distinct resource configurations for specific tenants, such as deploying a specific virtual machine SKU to suit a tenant's workload.
 
 ## Approaches and patterns to consider
+
+### Auto-scale
+
+Azure compute services provide different capabilities for scaling your workloads. [Many compute services support auto-scaling](../../../best-practices/auto-scaling.md), which requires consideration of when to scale and the minimum and maximum levels of scale. The specific options available for scaling depend on the compute services you use. For example:
+
+- **Azure App Service**: [Specify autoscale rules](/azure/app-service/manage-scale-up) that scale your infrastructure based on your requirements.
+- **Azure Functions**: Select from [multiple scale options](/azure/azure-functions/functions-scale#scale), including an event-driven scaling model that automatically scales based on the work that your functions perform.
+- **Azure Kubernetes Service (AKS)**: To keep up with application demands you may need to [adjust the number of nodes that run your workloads](/azure/aks/cluster-autoscaler). Additionally, to rapidly scale application workloads in an AKS cluster, you can use [virtual nodes](/azure/aks/virtual-nodes).
+- **Virtual machines:** A virtual machine scale set can [automatically increase or decrease the number of VM instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) that run your application.
 
 ### Deployment Stamps pattern
 
