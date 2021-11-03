@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the compute components of your solution.
 author: DixitArora-MSFT
 ms.author: dixitaro
-ms.date: 11/02/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -24,7 +24,7 @@ ms.custom:
 
 Most cloud-based solutions are composed of compute resources of some kind, such as web and application tiers, batch processors, scheduled jobs, and even specialized resources like GPUs and high-performance compute (HPC). Multitenant solutions often benefit from shared compute resources because a higher density of tenants to infrastructure reduces the operational cost and management. It's important to consider the isolation requirements and the implications of shared infrastructure.
 
-On this page, we provides guidance about the considerations and requirements that are essential for solution architects when planning the compute services of a multitenant solution. This includes some common patterns for applying multitenancy to compute services along with some antipatterns to avoid.
+On this page, we provide guidance about the considerations and requirements that are essential for solution architects when planning the compute services of a multitenant solution. This includes some common patterns for applying multitenancy to compute services along with some antipatterns to avoid.
 
 ## Key considerations and requirements
 
@@ -34,13 +34,13 @@ Multitenancy, and the isolation model you select, impacts the scaling, performan
 
 Systems need to perform adequately under changing demand. As the number of tenants and amount of traffic increase, it might be necessary to increase the capacity of your resources to keep up with the growing number of tenants and maintain acceptable performance. Similarly, when the number of active users or amount of traffic decrease, it's good to automatically reduce the compute capacity to reduce costs, but to do so with minimal impact to users.
 
-If you deploy dedicated resources for each tenant, you have the flexibility to scale each tenant's resources independently. In a solution where compute resources are shared between multiple tenants, then scaling those resources means that all of those tenants can make use of the new scale. However, they also will all suffer when the scale is insufficient to handle their overall load. For further information, see the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md).
+If you deploy dedicated resources for each tenant, you have the flexibility to scale each tenant's resources independently. In a solution where compute resources are shared between multiple tenants, then scaling those resources means that all of those tenants can make use of the new scale. However, they also will all suffer when the scale is insufficient to handle their overall load. For more information, see the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md).
 
 When you build cloud solutions, you can choose whether to [scale horizontally or vertically](../../../framework/scalability/design-scale.md). In a multitenant solution with a growing number of tenants, scaling horizontally typically provides you with greater flexibility and a higher overall scale ceiling.
 
 #### Scale triggers
 
-Whichever approach you use to scale, you typically need to plan the triggers that cause your components to scale. When you have shared components, consider the workload patterns of every tenant who uses the resources to ensure you provision capacity to meet the total required capacity and to minimize the chance of a tenant experiencing the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). You might also be able to plan your scaling capacity based on the number of tenants. For example, if you measure the resources used to service 100 tenants, then as you onboard more tenants you can plan to scale such that your resources approximately double for every additional 100 tenants.
+Whichever approach you use to scale, you typically need to plan the triggers that cause your components to scale. When you have shared components, consider the workload patterns of every tenant who uses the resources to ensure you provision capacity to meet the total required capacity and to minimize the chance of a tenant experiencing the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). You might also be able to plan your scaling capacity based on the number of tenants. For example, if you measure the resources used to service 100 tenants, then as you onboard more tenants you can plan to scale such that your resources double for every additional 100 tenants.
 
 ### State
 
@@ -50,7 +50,7 @@ Stateful resources can be further subdivided based on the type of state they mai
 
 Transient state is often useful to improve the performance of your application tier by reducing the number of requests to backend storage services. For example, when you use an in-memory cache, you might be able to serve read requests without connecting to a database and performing an intensive query that you recently performed when you served another request.
 
-In extremely latency-sensitive applications, the cost of cache hydration can become significant. A multitenant solution can exacerbate this issue if each tenant requires different data to be cached. To mitigate this issue, some solutions use *session affinity* to ensure that all requests for a specific user or tenant are processed by the same compute worker node. Although session affinity can improve the ability of the application tier to use its cache effectively, it also makes it harder to scale and to balance the traffic load across workers. This tradeoff needs to be carefully considered. For many applications, session affinity is not required.
+In latency-sensitive applications, the cost of cache hydration can become significant. A multitenant solution can exacerbate this issue if each tenant requires different data to be cached. To mitigate this issue, some solutions use *session affinity* to ensure that all requests for a specific user or tenant are processed by the same compute worker node. Although session affinity can improve the ability of the application tier to use its cache effectively, it also makes it harder to scale and to balance the traffic load across workers. This tradeoff needs to be carefully considered. For many applications, session affinity is not required.
 
 It's also possible to store data in external caches, such as Azure Cache for Redis. External caches are optimized for low-latency data retrieval, while keeping the state isolated from the compute resources so they can be scaled and managed separately. In many solutions, external caches enable you to improve application performance while keeping the compute tier stateless.
 
@@ -65,19 +65,19 @@ You might be concerned with logical isolation of tenants and to separate the man
 
 ## Approaches and patterns to consider
 
-### Auto-scale
+### Autoscale
 
-Azure compute services provide different capabilities for scaling your workloads. [Many compute services support auto-scaling](../../../best-practices/auto-scaling.md), which requires consideration of when to scale and the minimum and maximum levels of scale. The specific options available for scaling depend on the compute services you use. For example:
+Azure compute services provide different capabilities for scaling your workloads. [Many compute services support autoscaling](../../../best-practices/auto-scaling.md), which requires consideration of when to scale and the minimum and maximum levels of scale. The specific options available for scaling depend on the compute services you use. For example:
 
 - **Azure App Service**: [Specify autoscale rules](/azure/app-service/manage-scale-up) that scale your infrastructure based on your requirements.
 - **Azure Functions**: Select from [multiple scale options](/azure/azure-functions/functions-scale#scale), including an event-driven scaling model that automatically scales based on the work that your functions perform.
 - **Azure Container Apps**: Use [event-driven autoscaling](/azure/container-apps/overview) to scale your application based on the work it performs and its current load.
-- **Azure Kubernetes Service (AKS)**: To keep up with application demands you may need to [adjust the number of nodes that run your workloads](/azure/aks/cluster-autoscaler). Additionally, to rapidly scale application workloads in an AKS cluster, you can use [virtual nodes](/azure/aks/virtual-nodes).
+- **Azure Kubernetes Service (AKS)**: To keep up with your application's demands you might need to [adjust the number of nodes that run your workloads](/azure/aks/cluster-autoscaler). Additionally, to rapidly scale application workloads in an AKS cluster, you can use [virtual nodes](/azure/aks/virtual-nodes).
 - **Virtual machines:** A virtual machine scale set can [automatically increase or decrease the number of VM instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview) that run your application.
 
 ### Deployment Stamps pattern
 
-For further information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
+For more information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
 
 ### Compute Resource Consolidation pattern
 
@@ -87,14 +87,14 @@ However, compute resource consolidation increases the likelihood of the [Noisy N
 
 This pattern is achieved in different ways depending on the compute service you use. For example:
 
-- **Azure App Service and Azure Functions**: Deploy shared App Service plans, which represents the hosting server infrastructure.
+- **Azure App Service and Azure Functions**: Deploy shared App Service plans, which represent the hosting server infrastructure.
 - **Azure Container Apps**: Deploy shared [environments](/azure/container-apps/environment).
 - **Azure Kubernetes Service (AKS)**: Deploy shared pods with a multitenancy-aware application.
 - **Virtual machines**: Deploy a single set of virtual machines for all tenants to use.
 
 ### Dedicated compute resources per tenant
 
-You can also consider deploying dedicated compute resources for every tenant. This typically comes with a higher cost because you have lower density of tenants to resources. However, it mitigates the risk of the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md) by ensuring the compute resources for every tenant are isolated from others. It also enables you to deploy distinct configuration for each tenant's resources based on their requirements.
+You can also consider deploying dedicated compute resources for every tenant. Dedicated resources typically come with a higher cost because you have a lower density of tenants to resources. However, it mitigates the risk of the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md) by ensuring the compute resources for every tenant are isolated from others. It also enables you to deploy distinct configuration for each tenant's resources based on their requirements.
 
 Depending on the Azure compute services you use, you need to deploy different dedicated resources, such as:
 
@@ -117,9 +117,9 @@ Azure Kubernetes Service (AKS), and Kubernetes more broadly, provide a variety o
  - Tenant-specific nodes or node pools on a shared cluster.
  - Tenant-specific pods that might use the same node pool.
 
-AKS also enables you apply pod-level governance to mitigate the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). For further information, see [Best practices for application developers to manage resources in Azure Kubernetes Service (AKS)](/azure/aks/developer-best-practices-resource-management).
+AKS also enables you to apply pod-level governance to mitigate the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). For more information, see [Best practices for application developers to manage resources in Azure Kubernetes Service (AKS)](/azure/aks/developer-best-practices-resource-management).
 
-It's also important to be aware of shared components in a Kubernetes cluster and how these might be affected by multitenancy. For example, the Kubernetes API server is a shared service that is used throughout the entire cluster. Even if you provide tenant-specific node pools to isolate the tenants' application workloads, the API server might experience contention from large numbers of requests across tenants.
+It's also important to be aware of shared components in a Kubernetes cluster and how these components might be affected by multitenancy. For example, the Kubernetes API server is a shared service that is used throughout the entire cluster. Even if you provide tenant-specific node pools to isolate the tenants' application workloads, the API server might experience contention from large numbers of requests across tenants.
 
 ## Antipatterns to avoid
 
@@ -141,7 +141,7 @@ Instead, consider using asynchronous processing by making use of queues or other
 
 Multitenant solutions are often subject to bursty scale patterns. Shared components are particularly susceptible to this issue, because the scope for burst is higher and the impact is greater when you have more tenants with distinct usage patterns.
 
-Ensure you make good use of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](../../../framework/scalability/design-scale.md), and use auto-scaling to automatically handle spikes in load. You should also test your solution to understand how it behaves under different levels of load. Ensure you include the volumes expected in production, as well as your expected growth.
+Ensure you make good use of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](../../../framework/scalability/design-scale.md), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it behaves under different levels of load. Ensure you include the volumes expected in production, and your expected growth.
 
 ### No Caching antipattern
 

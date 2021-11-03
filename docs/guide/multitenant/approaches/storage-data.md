@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the storage and data components of your solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/28/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -80,7 +80,7 @@ Several design patterns from the Azure Architecture Center are of relevance to m
 
 ### Deployment Stamps pattern
 
-For further information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
+For more information about how the [Deployment Stamps pattern](../../../patterns/deployment-stamp.md) can be used to support a multitenant solution, see [Overview](overview.md#deployment-stamps-pattern).
 
 ### Shared multitenant databases and file stores
 
