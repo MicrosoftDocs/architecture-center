@@ -3,7 +3,7 @@ metadata:
   title: Keyword search/speech-to-text/OCR digital media
   titleSuffix: Azure Solution Ideas
   description: Identify speech in static video files and manage it as standard content with this speech-to-text solution. Jump to video points that contain specific phrases.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

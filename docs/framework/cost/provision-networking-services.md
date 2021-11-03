@@ -32,7 +32,7 @@ For more information, see [Azure Front Door Pricing](https://azure.microsoft.com
 There are two main pricing models:
 
 - Fixed price
-  
+
   You're charged for the time that the gateway is provisioned and available and the amount of data processed by the gateway. For more information, see Application Gateway pricing.
 
 - Consumption price
@@ -46,18 +46,18 @@ For more information, see:
 ### Reference architecture
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml) uses Application Gateway as the ingress controller.
 
-- [Securely managed web applications](../../example-scenario/apps/fully-managed-secure-apps.yml) uses Application Gateway as a web traffic load balancer operating at Layer 7 that manages traffic to the web application. Web Application Firewall (WAF) is enabled to  enhance security. 
+- [Securely managed web applications](../../example-scenario/apps/fully-managed-secure-apps.yml) uses Application Gateway as a web traffic load balancer operating at Layer 7 that manages traffic to the web application. Web Application Firewall (WAF) is enabled to  enhance security.
 
 ## Azure ExpressRoute
 There are two main pricing models:
 
-- **Metered Data plan** 
+- **Metered Data plan**
 
-    There are two pricing tiers: **Standard** and **Premium**, which is priced higher. The tier pricing is based on the circuit bandwidth. 
+    There are two pricing tiers: **Standard** and **Premium**, which is priced higher. The tier pricing is based on the circuit bandwidth.
 
-    If you don't need to access the services globally, choose **Standard**. With this tier, you can connect to regions within the same zone at no additional cost. Outbound cross-zonal traffic incurs more cost. 
+    If you don't need to access the services globally, choose **Standard**. With this tier, you can connect to regions within the same zone at no additional cost. Outbound cross-zonal traffic incurs more cost.
 
-- **Unlimited Data plan** 
+- **Unlimited Data plan**
 
     All inbound and outbound data transfer is included in the flat rate. There are two pricing tiers: **Standard** and **Premium**, which is priced higher.
 
@@ -70,10 +70,10 @@ For more information, see [Azure ExpressRoute pricing](https://azure.microsoft.c
 [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml) connects an Azure virtual network and an on-premises network connected using with VPN gateway failover.
 
 ## Azure Firewall
- 
- Azure Firewall usage can be charged at a fixed rate per deployment hour. There's additional cost for the amount of data transferred. 
 
-There aren't additional cost for a firewall deployed in an availability zone. There are additional costs for inbound and outbound data transfers associated with availability zones. 
+ Azure Firewall usage can be charged at a fixed rate per deployment hour. There's additional cost for the amount of data transferred.
+
+There aren't additional cost for a firewall deployed in an availability zone. There are additional costs for inbound and outbound data transfers associated with availability zones.
 
 When compared to network virtual appliances (NVAs), with Azure Firewall you can save up to 30-50%. For more information see [Azure Firewall vs NVA](https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances).
 
@@ -95,7 +95,7 @@ For the **Standard** tier, you are charged only for the number of configured loa
 See [Azure Load Balancer Pricing](https://azure.microsoft.com/pricing/details/load-balancer/) for more information.
 
 ### Reference architecture
-- [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml): Multiple subnets are connected through Azure load balancers. 
+- [Connect an on-premises network to Azure using ExpressRoute](../../reference-architectures/hybrid-networking/expressroute-vpn-failover.yml): Multiple subnets are connected through Azure load balancers.
 
 - [SAP S/4HANA in Linux on Azure](../../reference-architectures/sap/sap-s4hana.yml): Distribute traffic to virtual machines in the application-tier subnet.
 
@@ -125,10 +125,9 @@ For more information, see
 - [Extend an on-premises network using VPN](../../reference-architectures/hybrid-networking/vpn.yml) connects the virtual network to the on-premises network through a VPN device.
 
 ## Traffic Manager
-Traffic manager uses DNS to route and load balance traffic to service endpoints in different Azure regions. So, an important use case is disaster recovery. In a workload, you can use Traffic Manager to route incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region.
-There are other features that can make the application highly responsive and available. Those features cost money.
-- Determine the best web app to handle request based on geographic location. 
-- Configure caching to reduce the response time. 
+Traffic manager uses DNS to route and load balance traffic to service endpoints in different Azure regions. So, an important use case is disaster recovery. In a workload, you can use Traffic Manager to route incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. There are other features that can make the application highly responsive and available. Those features cost money.
+- Determine the best web app to handle request based on geographic location.
+- Configure caching to reduce the response time.
 
 Traffic Manager isn't charged for bandwidth consumption. Billing is based on the number of DNS queries received, with a discount for services receiving more than 1 billion monthly queries. You're also charged for each monitored endpoint.
 
@@ -137,7 +136,7 @@ Traffic Manager isn't charged for bandwidth consumption. Billing is based on the
 [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml) uses Traffic Manager to route incoming requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. For more information, see the section [Traffic Manager configuration](../../reference-architectures/n-tier/multi-region-sql-server.yml#traffic-manager-configuration).
 
 ### DNS query charges
-Traffic Manager uses DNS to direct clients to specific service. 
+Traffic Manager uses DNS to direct clients to specific service.
 
 Only DNS queries that reach Traffic Manager are charged in million query units. For 100 million DNS queries month, the charges will be $54.00 a month based on the current Traffic Manager pricing.
 
@@ -146,13 +145,12 @@ Not all DNS queries reach Traffic Manager. Recursive DNS servers run by enterpri
 However, there is a tradeoff. Increased caching also impacts how often the endpoint status is refreshed.  For example, the user failover times, for an endpoint failure, will become longer.
 
 ### Health monitoring charges
-When Traffic Manager receives a DNS request, it chooses an available endpoint based on configured state and health of the endpoint. To do this, Traffic Manager continually monitors the health of each service endpoint. 
+When Traffic Manager receives a DNS request, it chooses an available endpoint based on configured state and health of the endpoint. To do this, Traffic Manager continually monitors the health of each service endpoint.
 
 The number of monitored endpoints are charged. You can add endpoints for services hosted in Azure and then add on endpoints for services hosted on-premises or with a different hosting provider. The external endpoints are more expensive, but health checks can provide high-availability applications that are resilient to endpoint failure, including Azure region failures.
 
 ### Real User Measurement charges
-Real User Measurements evaluates network latency from the client applications to Azure regions. That influences Traffic Manager to select the best Azure region in which the application is hosted.
-The number of measurements sent to Traffic Manager is billed.
+Real User Measurements evaluates network latency from the client applications to Azure regions. That influences Traffic Manager to select the best Azure region in which the application is hosted. The number of measurements sent to Traffic Manager is billed.
 
 ### Traffic view charges
 By using Traffic View, you can get insight into the traffic patterns where you have endpoints. The charges are based on the number of data points used to create the insights presented.

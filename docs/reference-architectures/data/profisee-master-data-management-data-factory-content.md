@@ -10,22 +10,22 @@ This architectural pattern demonstrates how MDM can be incorporated into the Azu
 
 #### Data flow
 
-1. **Source data load** – Source data from business applications is copied to Azure Data Lake, where it is initially stored for further transformation and use in downstream analytics. Source data can generally be classified into one of three categories:
+1. **Source data load:** Source data from business applications is copied to Azure Data Lake, where it is initially stored for further transformation and use in downstream analytics. Source data can generally be classified into one of three categories:
    - Structured master data – The information that describes customers, products, locations, and so on. Master data is low volume, high complexity, and changes slowly over time, is often the data that organizations struggle the most with data quality.
    - Structured transactional data – Business events that occur at a specific point in time, such as an order, invoice, or interaction. Transactions include the metrics for that transaction (for example, sales price) and references to master data (for example, the product and customer involved in a purchase). Transactional data is typically high volume, low complexity, and static (does not change over time).
    - Unstructured data – Can include documents, images, videos, social media content, audio, and so on. Modern analytics platforms can increasingly use unstructured data to glean new insights previously unavailable. Unstructured data is often associated to master data, such as the customer associated to a social media account, or the product associated to an image.
 
-2. **Source master data load** – Master data from source business applications is loaded into the MDM application. Source data should be loaded “as is”, with complete lineage information and minimal transformations.
+2. **Source master data load:** Master data from source business applications is loaded into the MDM application. Source data should be loaded “as is”, with complete lineage information and minimal transformations.
 
-3. **Automated MDM processing** – The MDM solution uses automated processes to standardize, verify, and enrich data (or example, verify and standardize address data), identify data quality issues, group duplicate records (or example, duplicate customers), and generate master records (also known as golden records).
+3. **Automated MDM processing:** The MDM solution uses automated processes to standardize, verify, and enrich data (or example, verify and standardize address data), identify data quality issues, group duplicate records (or example, duplicate customers), and generate master records (also known as golden records).
 
-4. **Data stewardship** – As necessary, data stewards can review and manage groups of matched records, create/manage data relationships, fill in missing information, and resolve data quality issues. Multiple alternate hierarchical roll-ups can be managed as required (for example, product hierarchies).
+4. **Data stewardship:** As necessary, data stewards can review and manage groups of matched records, create/manage data relationships, fill in missing information, and resolve data quality issues. Multiple alternate hierarchical roll-ups can be managed as required (for example, product hierarchies).
 
-5. **Managed master data load** – High-quality master data flows into downstream analytics solutions. This process is again simplified because data integrations no longer require any data quality transformations.
+5. **Managed master data load:** High-quality master data flows into downstream analytics solutions. This process is again simplified because data integrations no longer require any data quality transformations.
 
-6. **Transactional and unstructured data load** – Transactional and unstructured data is loaded into the downstream analytics solution, where it is combined with high-quality master data.
+6. **Transactional and unstructured data load:** Transactional and unstructured data is loaded into the downstream analytics solution, where it is combined with high-quality master data.
 
-7. **Visualization and analysis** – Data is modeled and made available to business users for analysis. High-quality master data eliminates common data quality issues, and improved insights are gained. 
+7. **Visualization and analysis:** Data is modeled and made available to business users for analysis. High-quality master data eliminates common data quality issues, and improved insights are gained. 
 
 ### Components
 
@@ -54,11 +54,11 @@ Absent a purpose-built MDMapplication, some of the technical capabilities needed
 
 The preceding image shows the details for integrating with the Profisee MDM solution. Key to note is that Azure Data Factory and Profisee include native REST integration support, providing a lightweight and modern integration.
 
-1. **Load source data to MDM** – Azure Data Factory is used to extract data from the data lake, transform it to match the master data model, and stream it into the MDM repository via a REST sink.
+1. **Load source data to MDM:** Azure Data Factory is used to extract data from the data lake, transform it to match the master data model, and stream it into the MDM repository via a REST sink.
 
-2. **MDM processing** – The MDM platform processes source master data through a sequence of activities to verify, standardize, and enrich the data, and to execute data-quality processes. Finally, matching and survivorship are performed to identify and group duplicate records and create master records. Optionally, data stewards can be issues tasks to perform data stewardship. The result is a set of master data for use in downstream analytics.
+2. **MDM processing:** The MDM platform processes source master data through a sequence of activities to verify, standardize, and enrich the data, and to execute data-quality processes. Finally, matching and survivorship are performed to identify and group duplicate records and create master records. Optionally, data stewards can be issues tasks to perform data stewardship. The result is a set of master data for use in downstream analytics.
 
-3. **Load master data for analytics** – Azure Data Factory uses its REST source to stream master data from Profisee to Azure Synapse Analytics. 
+3. **Load master data for analytics:** Azure Data Factory uses its REST source to stream master data from Profisee to Azure Synapse Analytics. 
 
 ### Azure Data Factory templates for Profisee
 

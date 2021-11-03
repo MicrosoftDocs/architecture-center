@@ -3,7 +3,7 @@ metadata:
   title: Instant IoT data streaming with AKS
   titleSuffix: Azure Solution Ideas
   description: Learn how to ingest and analyze high volumes of IoT data and generate real-time recommendations and insights.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: stellal
   ms.date: 04/17/2020
   ms.topic: conceptual

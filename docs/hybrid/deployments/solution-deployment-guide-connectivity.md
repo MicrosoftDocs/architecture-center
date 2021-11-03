@@ -8,10 +8,8 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-
 # Intent: As an Azure Stack Hub operator, I want to configure hybrid cloud connectivity using Azure and Azure Stack Hub so I can access global resources with security.
 # Keyword: hybrid cloud connectivity azure stack hub
-
 ---
 
 # Configure hybrid cloud connectivity using Azure and Azure Stack Hub
@@ -24,10 +22,10 @@ In this solution, you'll build a sample environment to:
 > - Keep data on-premises to meet privacy or regulatory requirements but keep access to global Azure resources.
 > - Maintain a legacy system while using cloud-scaled app deployment and resources in global Azure.
 
-> [!Tip]  
-> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
-> 
+> [!Tip]
+> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)
+> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.
+>
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ## Prerequisites

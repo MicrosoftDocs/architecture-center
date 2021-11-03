@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
+  - management-and-governance
+  - security
 ms.category:
   - fcp
 ms.custom:
@@ -182,4 +182,6 @@ In general, cloud-native services, like Azure Cosmos DB and Azure Blob Storage, 
 
 For more information about multitenancy and specific Azure services, see:
 
+* [Multitenancy and Azure Storage](../service/storage.md)
+* [Multitenancy and Azure SQL Database](../service/sql-database.md)
 * [Multitenancy and Azure Cosmos DB](../service/cosmos-db.md)

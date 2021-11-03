@@ -1,6 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-DevOps and Kubernetes are better together. By implementing secure DevOps together with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster, at scale. Put guardrails around the development processes, by using CI/CD with dynamic policy controls, and then accelerate your feedback loop with constant monitoring. Use Azure Pipelines to deliver fast, while ensuring the enforcement of critical policies, with Azure Policy. Azure provides you real-time observability for your build and release pipelines, and the ability to apply a compliance audit and reconfigurations easily.
+DevOps and Kubernetes are better together. By implementing secure DevOps together with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster, at scale. 
+
+## Potential use cases
+
+Put guardrails around the development processes, by using CI/CD with dynamic policy controls, and then accelerate your feedback loop with constant monitoring. Use Azure Pipelines to deliver fast, while ensuring the enforcement of critical policies, with Azure Policy. Azure provides you real-time observability for your build and release pipelines, and the ability to apply a compliance audit and reconfigurations easily.
 
 ## Architecture
 
@@ -9,7 +13,7 @@ DevOps and Kubernetes are better together. By implementing secure DevOps togethe
 
 <!-- markdownlint-disable MD033 -->
 
-## Data flow
+### Data flow
 
 1. Developers rapidly iterate, test, and debug different parts of an application together, in the same Kubernetes cluster.
 1. Code is merged into a GitHub repository, after which automated builds and tests are run by Azure Pipelines.
@@ -21,7 +25,7 @@ DevOps and Kubernetes are better together. By implementing secure DevOps togethe
 1. App telemetry, container health monitoring, and real-time log analytics are obtained using Azure Monitor.
 1. Insights are used to address issues and are fed into next sprint plans.
 
-## Components
+### Components
 
 * [GitHub Enterprise](https://help.github.com/en/github) hosts the source code, where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
 * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a service that provides Continuous Integration and Continuous Delivery jobs, to build and release your application automatically.

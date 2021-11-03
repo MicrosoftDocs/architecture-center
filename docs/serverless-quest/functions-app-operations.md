@@ -29,11 +29,11 @@ To plan operations, understand your workloads and their requirements, then desig
 The Azure Functions Runtime provides flexibility in hosting. Use the [hosting plan comparison table](/azure/azure-functions/functions-scale#hosting-plans-comparison) to determine the best choice for your requirements.
 
 - Azure Functions hosting plans
-  
+
   Each Azure Functions project deploys and runs in its own Functions app, which is the unit of scale and cost. The three hosting plans available for Azure Functions are the Consumption plan, Premium plan, and Dedicated (App Service) plan. The hosting plan determines scaling behavior, available resources, and support for advanced features like virtual network connectivity.
-  
+
 - Azure Kubernetes Service (AKS)
-  
+
   Kubernetes-based Functions provides the Functions Runtime in a Docker container with event-driven scaling through Kubernetes-based Event Driven Autoscaling (KEDA).
 
 For more information about hosting plans, see:

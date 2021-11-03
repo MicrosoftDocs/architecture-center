@@ -1,5 +1,5 @@
 ---
-title:  Azure Well-Architected Framework review of Azure Firewall
+title: Azure Well-Architected Framework review of Azure Firewall
 titleSuffix: Azure Architecture Center
 description: This guidance provides best practices for Azure Firewall, based on the Well-Architected Framework's five pillars of architecture excellence.
 author: rohilla-shweta
@@ -123,7 +123,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
 
 - Azure Firewall provides different SLAs for when it is deployed in a single Availability Zone and for when it is deployed in multi-zones. For more information, see [SLA for Azure Firewall](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_1). For information about all Azure SLAs, see the [Azure service level agreements page](https://azure.microsoft.com/support/legal/sla/summary).
 
-- For workloads designed to be resistant to failures and to be fault-tolerant, remember to take into consideration that Azure Firewalls and Virtual Networks are regional resources. 
+- For workloads designed to be resistant to failures and to be fault-tolerant, remember to take into consideration that Azure Firewalls and Virtual Networks are regional resources.
 
 - Closely monitor metrics, especially SNAT port utilization, firewall health state, and throughput.
 
@@ -159,14 +159,14 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
   - With a quick configuration, you can secure a hub with a supported security partner. You can route and filter Internet traffic from your Virtual Networks (VNets) or branch locations within a region. You can do this with automated route management, without setting up and managing user-defined routes (UDRs).
   - The current supported security partners are Zscaler, Check Point, and iboss.
   - See more at [Deploy an Azure Firewall Manager security partner provider](/azure/firewall-manager/deploy-trusted-security-partner).
-  
+
  ## Next steps
 
  - See the [Microsoft Azure Well-Architected Framework](../../framework/index.md).
  - [What is Azure Firewall?](/azure/firewall/overview)
 
  ## Related resources
- 
+
  - [Azure Firewall architecture overview](../../example-scenario/firewalls/index.yml)
  - [Azure Well-Architected Framework review of Azure Application Gateway](./waf-application-gateway.md)
  - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)

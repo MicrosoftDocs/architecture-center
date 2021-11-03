@@ -3,7 +3,7 @@ metadata:
   title: Suggest content tags with deep learning and NLP
   titleSuffix: Azure Solution Ideas
   description: Use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

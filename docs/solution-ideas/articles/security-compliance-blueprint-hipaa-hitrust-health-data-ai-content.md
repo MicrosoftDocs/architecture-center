@@ -1,14 +1,13 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
+Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with the highest level of built-in security.
 
 ## Architecture
 
 ![Architecture Diagram](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.png)
 *Download an [SVG](../media/security-compliance-blueprint-hipaa-hitrust-health-data-ai.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Securely ingest bulk patient data into Azure Blob storage.
 1. Event Grid publishes patient data to Azure Functions for processing, and securely stores patient data in SQL Database.
@@ -17,7 +16,7 @@
 1. Analyze newly ingested data using the trained Machine Learning model.
 1. Interact with patient data using Power BI while preserving Azure role-based access control (Azure RBAC).
 
-## Components
+### Components
 
 * [Azure Functions](https://azure.microsoft.com/services/functions): Process events with serverless code
 * [Event Grid](https://azure.microsoft.com/services/event-grid): Get reliable event delivery at massive scale

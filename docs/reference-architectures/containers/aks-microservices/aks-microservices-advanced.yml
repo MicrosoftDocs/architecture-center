@@ -2,7 +2,7 @@
 metadata:
   title: Advanced Azure Kubernetes Service (AKS) microservices architecture
   description: Learn about a scalable, secure AKS microservices architecture that builds on recommended AKS microservices baseline architectures and implementations.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.date: 02/20/2021
   ms.topic: conceptual
   ms.service: architecture-center

@@ -30,11 +30,11 @@ UVEN combined BCL and UVC technology offers:
 - Several cells can connect in a cluster. Only one of the clustered LCSs needs to connect to the internet. An LCS or cluster can operate standalone, or in an overall UVEN BCL network system with other clusters.
 - A UVEN BCL Net is completely decentralized and offers unlimited scalability, control, and flexibility.
 
-## Components
+### Components
 
 The UVEN system consists of light-emitting diode (LED) luminaires that are controlled by Azure Sphere-powered lighting control systems.
 
-### UVEN components
+#### UVEN components
 
 The basic UVEN ceiling panel consists of dynamic, adaptable LEDs that integrate BCL with disinfection in the same luminaire. As well as offering a large range of visible and UV emissions, the LEDs provide exceptional color and detail rendering, and the ability to dim smoothly down to 0.1%. LEDs are low-cost, long-lasting, and environmentally sustainable compared to traditional incandescent and fluorescent indoor light sources.
 
@@ -46,7 +46,7 @@ UV radiation can damage surfaces and equipment. UVEN advanced sensors and contro
 
 UVEN administrative support tools include an admin panel to maintain information about users and devices, and a dashboard to provide an overall view of user activity and exposure.
 
-### Azure Sphere
+#### Azure Sphere
 
 [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) is a secure application platform for IoT connected devices with built-in cloud communication and security. The platform consists of an Azure Sphere-certified secured MCU chip that runs a custom high-level Linux-based microcontroller operating system (OS). The Azure Sphere OS provides a platform for IoT application development, including both high-level and real-time capable applications. The OS connects to the cloud-based Azure Sphere Security Service (AS3) for continuous, renewable security.
 

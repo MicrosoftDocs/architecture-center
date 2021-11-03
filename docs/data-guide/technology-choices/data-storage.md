@@ -1,7 +1,7 @@
 ---
 title: Choosing a data storage technology
 description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -48,7 +48,7 @@ Azure Storage is a managed storage service that is highly available, secure, dur
 
 There are various Azure Storage services you can use to store data. The most flexible option for storing blobs from a number of data sources is [Blob storage](/azure/storage/blobs/storage-blobs-introduction). Blobs are basically files. They store pictures, documents, HTML files, virtual hard disks (VHDs), big data such as logs, database backups &mdash; pretty much anything. Blobs are stored in containers, which are similar to folders. A container provides a grouping of a set of blobs. A storage account can contain an unlimited number of containers, and a container can store an unlimited number of blobs.
 
-Azure Storage is a good choice for big data and analytics solutions, because of its flexibility, high availability, and low cost. It provides hot, cool, and archive storage tiers for different use cases. For more information, see [Azure Blob Storage: Hot, cool, and archive storage tiers](/azure/storage/blobs/storage-blob-storage-tiers).
+Azure Storage is a good choice for big data and analytics solutions, because of its flexibility, high availability, and low cost. It provides hot, cool, and archive storage tiers for different use cases. For more information, see [Azure Blob Storage: Hot, cool, and archive storage tiers](/azure/storage/blobs/access-tiers-overview).
 
 Azure Blob storage can be accessed from Hadoop (available through HDInsight). HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface provided by a WASB driver, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs. Azure Blob storage can also be accessed via Azure Synapse Analytics using its PolyBase feature.
 

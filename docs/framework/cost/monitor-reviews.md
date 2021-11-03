@@ -29,9 +29,8 @@ Also include members of the technical team. Application owners, systems administ
 
 Cost reviews can be conducted as part of the regular business reviews. It’s recommended that such reviews are scheduled,
 
-- During the billing period. This review is to create an awareness of the estimated pending billing. These reports can be based on [Azure Advisor](/azure/advisor/advisor-cost-recommendations), [Advisor Score](/azure/advisor/azure-advisor-score/), and [Azure Cost Management – Cost analysis](/azure/cost-management-billing/costs/). 
+- During the billing period. This review is to create an awareness of the estimated pending billing. These reports can be based on [Azure Advisor](/azure/advisor/advisor-cost-recommendations), [Advisor Score](/azure/advisor/azure-advisor-score/), and [Azure Cost Management – Cost analysis](/azure/cost-management-billing/costs/).
 - After the billing period. This review shows the actual cost with activity for that month. Use [Balance APIs](/azure/cost-management-billing/manage/consumption-api-overview#balances-api) to generate monthly reports. The APIs can query data  that gets information on balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges.
 - Because of a [budget alert](/azure/cost-management/cost-mgt-alerts-monitor-usage-spending) or Azure Advisor recommendations.
 
 Web Direct (pay-as-you-go) and Cloud Solution Provider (CSP) billing occurs monthly. While Enterprise Agreement (EA) billing occurs annually, costs should still be reviewed monthly.
-

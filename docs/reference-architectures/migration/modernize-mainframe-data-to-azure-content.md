@@ -47,7 +47,7 @@ In the next step, the process migrates data.
 #### File data
 
 - Data Provider connects remotely to IBM host file system servers (3a). With non-mainframe systems, Data Provider reads data offline.
-  
+
   Mainframe and midrange systems store data on DASD or tape in EBCDIC format in these types of files:
 
   - Indexed [VSAM][VSAM] files

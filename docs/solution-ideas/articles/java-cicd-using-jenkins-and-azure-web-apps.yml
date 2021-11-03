@@ -3,7 +3,7 @@ metadata:
   title: Java CI/CD using Jenkins and Azure Web Apps
   titleSuffix: Azure Solution Ideas
   description: Create web apps in Azure App Service. Use the continuous integration and continuous deployment (CI/CD) pipeline to deliver value to customers faster.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

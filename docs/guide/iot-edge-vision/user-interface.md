@@ -19,24 +19,24 @@ ms.custom:
 
 # User interface in Azure IoT Edge Vision
 
-The user interface requirements of an IoT solution will vary depending on the overall objectives. Four types of user interfaces are commonly found in IoT solutions: 
+The user interface requirements of an IoT solution will vary depending on the overall objectives. Four types of user interfaces are commonly found in IoT solutions:
 
 * **Administrator:** Allows full access to device provisioning, device and solution configuration, user management, and so on. These features could be provided as part of one solution or as separate solutions.
 * **Consumer:** Is only applicable to consumer solutions. They provide similar access to the operator's interface, but limited to the devices owned by the user.
-* **Operator:** Provides centralized access to the operational components of the solution. It typically includes device management, alerts monitoring, and configuration.  
+* **Operator:** Provides centralized access to the operational components of the solution. It typically includes device management, alerts monitoring, and configuration.
 * **Analytics:** Is an interactive dashboard which provides visualization of telemetry and other data analyses.
 
 This article focuses on a simple operator’s user interface and visualization dashboard.
 
 ## Technology options
 
-- **Power BI** - Power BI is a compelling option for our analytics and virtualization needs. It provides power features to create customizable interactive dashboards. It also allows connectivity to many popular database systems and services. It is available as a managed service and as a self-hosted package. The former is the most popular and recommended option. With Power BI embedded in your solution, you could add customer-facing reports, dashboards, and analytics in your own applications by using and branding Power BI as your own. You can reduce developer resources by automating the monitoring, management, and deployment of analytics, while getting full control of Power BI features and intelligent analytics.
+- **Power BI:** Power BI is a compelling option for our analytics and virtualization needs. It provides power features to create customizable interactive dashboards. It also allows connectivity to many popular database systems and services. It is available as a managed service and as a self-hosted package. The former is the most popular and recommended option. With Power BI embedded in your solution, you could add customer-facing reports, dashboards, and analytics in your own applications by using and branding Power BI as your own. You can reduce developer resources by automating the monitoring, management, and deployment of analytics, while getting full control of Power BI features and intelligent analytics.
 
-- **Azure Maps** - Another suitable technology for IoT visualizations is Azure Maps which allows you to create location-aware web and mobile applications using simple and secure geospatial services, APIs, and SDKs in Azure. You can deliver seamless experiences based on geospatial data with built-in location intelligence from world-class mobility technology partners.
+- **Azure Maps:** Another suitable technology for IoT visualizations is Azure Maps which allows you to create location-aware web and mobile applications using simple and secure geospatial services, APIs, and SDKs in Azure. You can deliver seamless experiences based on geospatial data with built-in location intelligence from world-class mobility technology partners.
 
-- **Azure App Service** - Azure App Service is a managed platform with powerful capabilities for building web and mobile apps for many platforms and mobile devices. It allows developers to quickly build, deploy, and scale web apps created with popular frameworks, such as .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python, in containers or running on any supported operating system. You can also meet rigorous, enterprise-grade performance, security, and compliance requirements by using the fully managed platform for your operational and monitoring tasks.
+- **Azure App Service:** Azure App Service is a managed platform with powerful capabilities for building web and mobile apps for many platforms and mobile devices. It allows developers to quickly build, deploy, and scale web apps created with popular frameworks, such as .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python, in containers or running on any supported operating system. You can also meet rigorous, enterprise-grade performance, security, and compliance requirements by using the fully managed platform for your operational and monitoring tasks.
 
-- **Azure SignalR Service** - For real-time data reporting, Azure SignalR Service, makes adding real-time communications to your web application as simple as provisioning a service. An in-depth real-time communications expertise is not required. It easily integrates with services such as Azure Functions, Azure Active Directory, Azure Storage, Azure App Service, Azure Analytics, Power BI, Azure IoT, Azure Cognitive Services, Azure Machine Learning, and more.
+- **Azure SignalR Service:** For real-time data reporting, Azure SignalR Service, makes adding real-time communications to your web application as simple as provisioning a service. An in-depth real-time communications expertise is not required. It easily integrates with services such as Azure Functions, Azure Active Directory, Azure Storage, Azure App Service, Azure Analytics, Power BI, Azure IoT, Azure Cognitive Services, Azure Machine Learning, and more.
 
 To secure your user interface solutions, **Azure Active Directory (Azure AD)** enterprise identity service provides single sign-on and multi-factor authentication.
 
@@ -94,7 +94,7 @@ Contoso Shipping recently has had several pedestrian accidents at their loading 
 
 ### Considerations in this scenario
 
-Contoso Shipping can introspect by asking the following questions: 
+Contoso Shipping can introspect by asking the following questions:
 
 - What are we analyzing?
   - People and patterns of movement

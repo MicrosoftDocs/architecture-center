@@ -183,8 +183,7 @@ Bastion billing is comparable to a basic, low-level virtual machine configured a
 
 ### Azure Virtual Network
 
-Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions.
-All traffic that occurs within the boundaries of a virtual network is free. So if two VMs that are in the same VNET are talking each other then no charges will occur.
+Azure Virtual Network is free. Every subscription is allowed to create up to 50 virtual networks across all regions. All traffic that occurs within the boundaries of a virtual network is free. So if two VMs that are in the same VNET are talking each other then no charges will occur.
 
 ### Internal load balancer
 

@@ -1,7 +1,7 @@
 ---
 title: AWS vs. Azure accounts and subscriptions
 description: Learn the differences in accounts and subscriptions between Azure and AWS. Understand the types of administrator accounts in Azure.
-author: bigkangji 
+author: bigkangji
 ms.author: pnp
 ms.date: 10/04/2021
 ms.topic: reference
@@ -24,10 +24,9 @@ Azure services can be purchased using several pricing options, depending on your
 
 <!-- markdownlint-enable MD033 -->
 
-An Azure account represents a billing relationship and Azure subscriptions help you organize access to Azure resources.
-Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure:
+An Azure account represents a billing relationship and Azure subscriptions help you organize access to Azure resources. Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure:
 
-- **Account Administrator**. The subscription owner and the billing owner for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription. Only one Account administrator is assigned per Azure Account. 
+- **Account Administrator**. The subscription owner and the billing owner for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription. Only one Account administrator is assigned per Azure Account.
 
 - **Service Administrator**. This user has rights to create and manage resources in the subscription, but is not responsible for billing. By default, for a new subscription, the Account Administrator is also the Service Administrator. The account administrator can assign a separate user to the service administrator for managing the technical and operational aspects of a subscription. Only one service administrator is assigned per subscription.
 
@@ -35,8 +34,7 @@ Account Administrator, Service Administrator, and Co-Administrator are the three
 
 Below the subscription level user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through an Azure Active Directory).
 
-Like AWS accounts, subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits).
-These limits can be increased up to the maximum by [filing a support request in the management portal](/archive/blogs/girishp/increasing-core-quota-limits-in-azure).
+Like AWS accounts, subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits). These limits can be increased up to the maximum by [filing a support request in the management portal](/archive/blogs/girishp/increasing-core-quota-limits-in-azure).
 
 ### See also
 

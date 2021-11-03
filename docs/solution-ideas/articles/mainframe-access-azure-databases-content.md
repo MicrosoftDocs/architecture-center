@@ -33,7 +33,7 @@ Various scenarios can benefit from this solution:
    - Azure SQL Database, which offers the benefits of a fully managed platform as a service (PaaS).
    - SQL Server on Azure Virtual Machines. As an infrastructure as a service (IaaS) offering, this service provides a customizable database engine.
    - SQL Server, a database engine for structured and unstructured data.
-   
+
    These database services can also form the core of business intelligence solutions that offer analytics and insights.
 
 ### Components

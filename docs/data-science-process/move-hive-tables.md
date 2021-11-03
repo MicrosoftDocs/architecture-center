@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -90,8 +92,7 @@ You can also first enter the Hive command console by running command `hive` in H
 
 The previous examples directly output the Hive query results on screen. You can also write the output to a local file on the head node, or to an Azure blob. Then, you can use other tools to further analyze the output of Hive queries.
 
-**Output Hive query results to a local file.**
-To output Hive query results to a local directory on the head node, you have to submit the Hive query in the Hadoop Command Line as follows:
+**Output Hive query results to a local file.** To output Hive query results to a local directory on the head node, you have to submit the Hive query in the Hadoop Command Line as follows:
 
 ```console
 hive -e "<hive query>" > <local path in the head node>

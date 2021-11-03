@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure VMware Solution capacity planning
+  titleSuffix: Azure Solution Ideas
+  description: Get started with Azure VMware Solution foundation block capacity planning. Understand how to size and plan for capacity needed to run workloads on Azure VMware Solution.
+  author: Mahesh-MSFT
+  ms.author: maksh
+  ms.date: 11/01/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - hybrid
+  - compute
+products:
+  - azure-vmware-solution
+  - azure-migrate
+name: Capacity planning considerations for Azure VMware Solution
+summary: Get started with Azure VMware Solution foundation block capacity planning. Understand how to size and plan for capacity needed to run workloads on Azure VMware Solution.
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-vmware-solution-sizing.png
+content: |
+  [!include[](azure-vmware-solution-foundation-capacity-content.md)]

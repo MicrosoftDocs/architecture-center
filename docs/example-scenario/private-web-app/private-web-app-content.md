@@ -7,9 +7,9 @@ The web app can securely connect to a backend database over a fully private conn
 These similar design patterns are variations on the same underlying principle:
 
 - Connect from a Web App to Azure Storage, Azure Cosmos DB, Azure Cognitive Search, Azure Event Grid, or any other service that supports an [Azure Private Endpoint](/azure/private-link/private-endpoint-overview#private-link-resource) for inbound connectivity.
-  
+
 - Connect from an [Azure Functions](/azure/azure-functions/functions-overview) App to any Azure service that supports an Azure Private Endpoint, as long as the Function App is deployed in a [pricing plan that supports Virtual Network integration](/azure/azure-functions/functions-networking-options#virtual-network-integration).
-  
+
 - Connect from a Web App or Functions App to another Web App, because App Service also supports [Private Endpoints](/azure/app-service/networking/private-endpoint) for inbound connectivity. For example, connect from a website to a REST API hosted in another Azure App Service instance.
 
 ## Architecture
@@ -17,15 +17,15 @@ These similar design patterns are variations on the same underlying principle:
 ![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](./media/appsvc-private-sql-solution-architecture.png)
 
 1. Using Azure App Service [regional VNet Integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration), the web app connects to Azure through an **AppSvcSubnet** delegated subnet in an Azure Virtual Network.
-   
+
    - In this example, the Virtual Network only routes traffic and is otherwise empty, but other subnets and workloads could also run in the Virtual Network.
-   
+
    - The App Service and Private Link subnets could be in separate peered Virtual Networks, for example as part of a hub-and-spoke network configuration. For regional VNet Integration, the peered Virtual Networks must be located in the same Azure region.
 
 1. [Azure Private Link](/azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database) sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the Azure SQL database in the **PrivateLinkSubnet** of the Virtual Network.
-   
+
 1. The web app connects to the SQL Database private endpoint through the **PrivateLinkSubnet** of the Virtual Network.
-   
+
 1. The database firewall allows only traffic coming from the **PrivateLinkSubnet** to connect, making the database inaccessible from the public internet.
 
 ### DNS configuration
@@ -41,21 +41,21 @@ Now `contoso.database.windows.net` no longer resolves to the public IP address, 
 This scenario uses the following Azure services:
 
 - [Azure App Service](/azure/app-service/app-service-web-overview) hosts web applications, allowing autoscale and high availability without having to manage infrastructure.
-  
+
 - [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
-  
+
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through Virtual Networks.
-  
+
 - [Azure Private Link](/azure/private-link/private-link-overview) provides a private endpoint in a Virtual Network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
 
 ## Alternatives
 
 - An alternative approach for private connectivity is an [App Service Environment](/azure/app-service/environment/intro) for hosting the web application within an isolated environment, and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as the database engine. Both of these services are natively deployed within a Virtual Network, so there's no need for VNet Integration or private endpoints. These offerings are typically more costly, because they provide single-tenant isolated deployment and other features.
-  
+
   If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a Private Endpoint for private connectivity to a SQL Database. If you already have SQL Managed Instance but are using multi-tenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
 
 - As an alternative to the Private Endpoint, you can use a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure the database. With a Service Endpoint, the private endpoint, **PrivateLinkSubnet**, and configuring the **Route All** regional VNet integration setting are unnecessary. You still need regional VNet Integration to route incoming traffic through the Virtual Network.
-  
+
   Compared to Service Endpoints, a Private Endpoint provides a private, dedicated IP address toward a specific instance, for example a logical SQL Server, rather than an entire service. Private Endpoints can help prevent data exfiltration towards other database servers. For more information, see [Comparison between Service Endpoints and Private Endpoints](/azure/virtual-network/vnet-integration-for-azure-services#compare-private-endpoints-and-service-endpoints).
 
 ## Considerations
@@ -79,9 +79,9 @@ You can also add a more restrictive firewall rule to allow only your app's [outb
 Using private connectivity through the Virtual Network provides the following firewall options to prevent others from accessing the database:
 
 - Create a [virtual network rule](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) that allows traffic only from the regional VNet Integration delegated subnet, **AppSvcSubnet** in this example. The delegated subnet must have a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) configured for `Microsoft.Sql`, so the database can identify traffic from that subnet.
-  
+
 - Configure the firewall to [Deny public network access](/azure/azure-sql/database/connectivity-settings#deny-public-network-access), which turns off all other firewall rules and makes the database accessible only through its private endpoint.
-  
+
 The option of denying public network access is the most secure configuration, but means that database access is only possible by going through the Virtual Network that hosts the private endpoint. To connect to the database, anything other than the web app must have direct connectivity to the Virtual Network.
 
 For example, deployments or urgent manual connections from SQL Server Management Studio (SSMS) on local machines can't reach the database except through VPN or ExpressRoute connectivity into the Virtual Network. You could also remotely connect to a VM in the Virtual Network and use SSMS from there. For exceptional situations, you could temporarily allow public network access, and reduce risk by using other configuration options.
@@ -123,35 +123,35 @@ You can use the [Azure portal](#azure-portal) or an [Azure Resource Manager (ARM
 1. In the [Azure portal](https://portal.azure.com), [create a Virtual Network](/azure/virtual-network/quick-create-portal) using the address range `10.1.0.0/16`, and [create two subnets](/azure/virtual-network/virtual-network-manage-subnet#add-a-subnet) within it:
    - **PrivateLinkSubnet**, address range `10.1.1.0/24`, to expose the private endpoint of the database.
    - **AppSvcSubnet**, address range `10.1.2.0/24`, for the web app's regional VNet Integration.
-   
+
 1. To [create the private endpoint](/azure/private-link/create-private-endpoint-portal#create-a-private-endpoint), in the Azure SQL Server left navigation, under **Security**, select **Private endpoint connections**.
 
 1. On the **Create a private endpoint** page, create the private endpoint in the **PrivateLinkSubnet**.
-   
+
    1. For **Resource type** select **Microsoft.Sql/servers**, for **Resource** select the logical SQL Server to expose, and for **Target sub-resource** select **sqlServer**.
-      
+
       ![Screenshot of Private Endpoint Resource creation page.](media/appsvc-private-sql-private-endpoint-create-resource.png)
-      
+
    1. On the **Configuration** page, select **Integrate with private DNS zone**, which will register the database server's private IP address in the `privatelink.database.windows.net` private Azure DNS zone.
-      
+
       ![Screenshot of the Private Endpoint Configuration page.](media/appsvc-private-sql-private-endpoint-create-configuration.png)
-   
+
 1. To [enable VNet Integration](/azure/app-service/web-sites-integrate-with-vnet#enable-vnet-integration), in the web app's App Service left navigation, under **Settings**, select **Networking**.
-   
+
 1. On the **Networking** page, in the **Outbound Traffic** section, click **VNet integration**.
-   
+
 1. On the **VNet Integration** page, select **Add VNet**.
-   
+
 1. On the **Add VNet Integration** page, under **Virtual Network**, select your Virtual Network from the dropdown. Under **Subnet**, select **Select existing**, and then select **AppSvcSubnet** from the dropdown. Select **OK**.
 
 1. Enable the **Route All** setting.
-   
+
    The **VNet Integration** page now shows the Virtual Network configuration details.
-   
+
    ![Screenshot of enabling regional VNet Integration for the web app.](media/appsvc-private-sql-regional-vnet-integration.png)
-   
+
    If you configure regional VNet Integration by using the portal **Networking** page, the required delegation of the subnet to `Microsoft.Web` happens automatically. If you don't use the **Networking** page, make sure to [delegate the subnet](/azure/virtual-network/manage-subnet-delegation#delegate-a-subnet-to-an-azure-service) to `Microsoft.Web` manually by following the instructions at [Delegate a subnet to an Azure service](/azure/virtual-network/manage-subnet-delegation#delegate-a-subnet-to-an-azure-service).
-   
+
 Your web application should now be able to connect to the database over the private IP address. To validate, set the database firewall to **Deny public network access**, to test that traffic is allowed only over the private endpoint.
 
 Keep using the regular hostname for the SQL Database in the connection string, for example `contoso.database.windows.net`, not the `privatelink`-specific hostname.
