@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - networking
- - security
+  - management-and-governance
+  - networking
+  - security
 ms.category:
   - fcp
 ms.custom:

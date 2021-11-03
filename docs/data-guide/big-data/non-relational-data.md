@@ -28,13 +28,13 @@ A document data store manages a set of named string fields and object data value
 
 Typically, a document contains the entire data for an entity. What items constitute an entity are application-specific. For example, an entity could contain the details of a customer, an order, or a combination of both. A single document might contain information that would be spread across several relational tables in a relational database management system (RDBMS). A document store does not require that all documents have the same structure. This free-form approach provides a great deal of flexibility. For example, applications can store different data in documents in response to a change in business requirements.
 
-![Example document data store](./images/document.png)  
+![Example document data store](./images/document.png)
 
 The application can retrieve documents by using the document key. This is a unique identifier for the document, which is often hashed, to help distribute data evenly. Some document databases create the document key automatically. Others enable you to specify an attribute of the document to use as the key. The application can also query documents based on the value of one or more fields. Some document databases support indexing to facilitate fast lookup of documents based on one or more indexed fields.
 
 Many document databases support in-place updates, enabling an application to modify the values of specific fields in a document without rewriting the entire document. Read and write operations over multiple fields in a single document are typically atomic.
 
-Relevant Azure service:  
+Relevant Azure service:
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
@@ -54,7 +54,7 @@ On disk, all of the columns within a column family are stored together in the sa
 
 Read and write operations for a row are typically atomic within a single column family, although some implementations provide atomicity across the entire row, spanning multiple column families.
 
-Relevant Azure service:  
+Relevant Azure service:
 
 - [Cosmos DB Cassandra API](/azure/cosmos-db/cassandra-introduction)
 - [HBase in HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
@@ -75,10 +75,10 @@ Key/value stores are also not optimized for scenarios where querying or filterin
 
 A single key/value store can be extremely scalable, as the data store can easily distribute data across multiple nodes on separate machines.
 
-Relevant Azure services:  
+Relevant Azure services:
 
 - [Azure Cosmos DB Table API](/azure/cosmos-db/table-introduction)
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)  
+- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)
 
 ## Graph data stores
@@ -91,9 +91,9 @@ The purpose of a graph data store is to allow an application to efficiently perf
 
 This structure makes it straightforward to perform queries such as "Find all employees who report directly or indirectly to Sarah" or "Who works in the same department as John?" For large graphs with lots of entities and relationships, you can perform complex analyses quickly. Many graph databases provide a query language that you can use to traverse a network of relationships efficiently.
 
-Relevant Azure service:  
+Relevant Azure service:
 
-- [Azure Cosmos DB Graph API](/azure/cosmos-db/graph-introduction)  
+- [Azure Cosmos DB Graph API](/azure/cosmos-db/graph-introduction)
 
 ## Time series data stores
 
@@ -107,7 +107,7 @@ For more information, see [Time series solutions](../scenarios/time-series.md)
 
 Relevant Azure services:
 
-- [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)  
+- [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)
 - [OpenTSDB with HBase on HDInsight](/azure/hdinsight/hdinsight-hbase-overview)
 
 ## Object data stores
@@ -123,7 +123,7 @@ One special case of object data stores is the network file share. Using file sha
 Relevant Azure services:
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)  
+- [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)
 - [Azure File Storage](https://azure.microsoft.com/services/storage/files/)
 
 ## External index data stores
@@ -138,7 +138,7 @@ The indexes are created by running an indexing process. This can be performed us
 
 External index data stores are often used to support full text and web-based search. In these cases, searching can be exact or fuzzy. A fuzzy search finds documents that match a set of terms and calculates how closely they match. Some external indexes also support linguistic analysis that can return matches based on synonyms, genre expansions (for example, matching "dogs" to "pets"), and stemming (for example, searching for "run" also matches "ran" and "running").
 
-Relevant Azure service:  
+Relevant Azure service:
 
 - [Azure Search](https://azure.microsoft.com/services/search/)
 
@@ -159,7 +159,7 @@ The following compares the requirements for each of the non-relational data stor
 | Indexing | Primary and secondary indexes | Primary and secondary indexes | Primary index only | Primary and secondary indexes |
 | Data shape | Document | Tabular with column families containing columns | Key and value | Graph containing edges and vertices |
 | Sparse | Yes | Yes | Yes | No |
-| Wide (lots of columns/attributes) | Yes | Yes | No | No |  
+| Wide (lots of columns/attributes) | Yes | Yes | No | No |
 | Datum size | Small (KBs) to medium (low MBs) | Medium (MBs) to Large (low GBs) | Small (KBs) | Small (KBs) |
 | Overall Maximum Scale | Very Large (PBs) | Very Large (PBs) | Very Large (PBs) | Large (TBs) |
 
@@ -174,6 +174,6 @@ The following compares the requirements for each of the non-relational data stor
 | Indexing | Primary and secondary indexes | Primary index only | N/A |
 | Data shape | Tabular | Blob and metadata | Document |
 | Sparse | No | N/A | No |
-| Wide (lots of columns/attributes) |  No | Yes | Yes |  
+| Wide (lots of columns/attributes) |  No | Yes | Yes |
 | Datum size | Small (KBs) | Large (GBs) to Very Large (TBs) | Small (KBs) |
 | Overall Maximum Scale | Large (low TBs)  | Very Large (PBs) | Large (low TBs) |

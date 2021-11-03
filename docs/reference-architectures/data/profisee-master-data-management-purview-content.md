@@ -49,7 +49,7 @@ Metadata and data flow include these steps, shown in the preceding figure:
 - [Azure Purview](https://azure.microsoft.com/services/purview/) is a data governance solution that provides broad visibility of organizations' on-premises and cloud data estates. It offers a combination of data discovery and classification, lineage, metadata search and discovery, and usage insights, which help you manage and understand data across your enterprise data landscape. 
 
 - [Profisee](https://profisee.com/platform/) is a fast and scalable MDM platform that integrates seamlessly with Microsoft technologies and the Azure data management ecosystem.
- 
+
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a hybrid data integration service that allows you to create, schedule, and orchestrate your ETL/ELT workflows. 
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is a fast, flexible, and trusted cloud data warehouse that lets you scale, compute, and store data elastically and independently, with a massive parallel processing architecture. 
@@ -176,7 +176,7 @@ Consolidating customer data for analytics is the most common MDM use case. Organ
 - It's hard to answer basic business questions, like, “Who are our top customers?” and “How many new customers did we have?” Answering these questions then requires significant manual effort. 
 
 - You have missing and inaccurate customer information, making it difficult to roll up or drill down into the data.
- 
+
 - You have an inability to analyze your customer data across the systems or business units, due to an inability to uniquely identify a customer across organizational and  system boundaries.
 
 - You have poor-quality insights from AI and machine learning, due to the poor-quality input data. 

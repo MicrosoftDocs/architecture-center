@@ -15,7 +15,7 @@ Device provisioning can happen through the [Azure IoT Hub Device Provisioning Se
 
 The following example shows how to implement a test-to-production environment transition workflow by using DPS.
 
-![A diagram showing how to implement a test-to-production environment transition workflow by using DPS.](media/late-binding-with-dps.png) 
+![A diagram showing how to implement a test-to-production environment transition workflow by using DPS.](media/late-binding-with-dps.png)
 
 1. The solution developer links the Test and Production IoT clouds to the provisioning service.
 2. The device implements the DPS protocol to find the IoT Hub if it's no longer provisioned. The device is initially provisioned to the Test environment.
@@ -27,7 +27,7 @@ The following example shows how to implement a test-to-production environment tr
 
 Consider the combinations of [Azure IoT Hub supported authentication protocols](/azure/iot-hub/iot-hub-devguide-protocols) when working through end-to-end IoT solutions. Combinations shown with red lines in the following diagram may be incompatible or have added considerations.
 
-![A diagram showing authentication flows for various topologies connecting to Azure IoT Hub.](media/authentication-matrix.png) 
+![A diagram showing authentication flows for various topologies connecting to Azure IoT Hub.](media/authentication-matrix.png)
 
 - SAS tokens are always registered as symmetric keys with IoT Hub.
 - Revoking certificates through DPS doesn't prevent currently provisioned devices from continuing to authenticate with IoT Hub. After revoking a certificate in DPS, also remove the device from the IoT Hub, either manually through the portal dashboard or programmatically using [Registry Manager APIs](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet).

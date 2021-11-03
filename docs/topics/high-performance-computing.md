@@ -140,7 +140,7 @@ Azure offers a range of sizes that are optimized for both CPU & GPU intensive wo
 
 - [Linux VMs](/azure/virtual-machines/linux/sizes-hpc)
 - [Windows VMs](/azure/virtual-machines/windows/sizes-hpc) VMs
-  
+
 #### GPU-enabled virtual machines
 
 N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-intensive applications including artificial intelligence (AI) learning and visualization.

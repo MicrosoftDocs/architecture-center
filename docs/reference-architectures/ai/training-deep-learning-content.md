@@ -66,7 +66,7 @@ Although Azure Machine Learning Compute can mount Standard tier Blob storage usi
 
 ## Container registry considerations
 
-Whenever an Azure Machine Learning workspace is provisioned, a set of dependent resources - Blob storage, Key Vault, Container Registry, and Application Insights - is also provisioned. Alternatively, one may use existing Azure resources and associate them with the new Azure Machine learning workspace during its creation. Please refer to the following [ARM template][aml-arm] for customization of your Azure Machine Learning workspace.
+Whenever an Azure Machine Learning workspace is provisioned, a set of dependent resources - Blob storage, Key Vault, Container Registry, and Application Insights - is also provisioned. Alternatively, one may use existing Azure resources and associate them with the new Azure Machine learning workspace during its creation.
 
 By default, Basic tier Azure Container Registry is provisioned. For large-scale deep learning, we recommend that you customize your workspace to use Premium tier Container registry as it offers significantly higher bandwidth that will allow you to quicker pull Docker images across nodes of your training cluster.
 
@@ -170,7 +170,6 @@ You may also find the following resources useful:
 [premium-storage]: /azure/storage/blobs/storage-blob-performance-tiers
 [premium-storage-comparison]: https://azure.microsoft.com/blog/premium-block-blob-storage-a-new-level-of-performance/
 [costs]: /azure/machine-learning/concept-plan-manage-cost
-[aml-arm]: https://azure.microsoft.com/resources/templates/machine-learning-advanced/
 [data-encryption]: /azure/machine-learning/concept-data-encryption
 [distr-training]: https://azure.github.io/azureml-cheatsheets/docs/cheatsheets/python/v1/distributed-training
 [distr-training-examples]: https://github.com/Azure/azureml-examples

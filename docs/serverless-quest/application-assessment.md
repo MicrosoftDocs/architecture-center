@@ -16,7 +16,7 @@ ms.custom:
 # Application assessment
 
 [Cloud rationalization](/azure/cloud-adoption-framework/digital-estate/5-rs-of-rationalization) is the process of evaluating applications to determine the best way to migrate or modernize them for the cloud.
- 
+
 Rationalization methods include:
 
 - **Rehost**. Also known as a *lift and shift* migration, rehost moves a current application to the cloud with minimal change.

@@ -7,7 +7,7 @@ Event Grid connects data sources and event handlers. For example, using Event Gr
 ![Architecture Diagram](../media/serverless-application-architectures-using-event-grid.png)
 *Download an [SVG](../media/serverless-application-architectures-using-event-grid.svg) of this architecture.*
 
-## Components
+### Components
 
 - [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)
 - [Azure Functions](https://azure.microsoft.com/services/functions/)
@@ -20,6 +20,8 @@ Learn more about the component technologies:
 - [What is Azure Event Grid?](/azure/event-grid/overview)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [Introduction to Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+
+## Related resources
 
 Explore related architectures:
 

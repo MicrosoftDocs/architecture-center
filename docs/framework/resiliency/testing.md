@@ -97,6 +97,6 @@ Load testing is crucial for identifying failures that only happen under load, su
 
 - For more test types, see [Test types](../../checklist/dev-ops.md#testing).
 - To learn about load and stress tests, see [Performance testing](../scalability/performance-test.md).
-- To learn about chaos testing, see [Chaos engineering](./chaos-engineering.md). 
+- To learn about chaos testing, see [Chaos engineering](./chaos-engineering.md).
 
  Go back to the main article: [Testing](test-checklist.md)

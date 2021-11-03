@@ -43,7 +43,7 @@ Many scenarios can benefit from TmaxSoft OpenFrame lift and shift. Possibilities
 1. OpenFrame can integrate with any RDBMS. Examples include Azure SQL Database, SQL Server, Oracle, Db2 LUW, Tibero, Postgres, and MySQL. OpenFrame uses ODBC connection drivers to communicate with installed databases.
 1. Azure Site Recovery provides disaster recovery (DR) for the virtual machine components.
 
-## Components
+### Components
 
 - [Azure ExpressRoute][Azure ExpressRoute] extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to Microsoft cloud services like [Microsoft Azure][What is Azure] and [Microsoft 365][What is Microsoft 365].
 

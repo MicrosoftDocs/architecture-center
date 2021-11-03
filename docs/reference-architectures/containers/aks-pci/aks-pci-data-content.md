@@ -231,7 +231,7 @@ Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, an
 
 
 #### Your responsibilities
-      
+
 Card holder data (CHD) that transits over the public internet must be encrypted. Data must be encrypted with TLS 1.2 (or later), with reduced cipher support for all transmissions. Do not support non-TLS to TLS redirects on any data transmission services. 
 
 Your design should have a strategic chain of TLS termination points. As data travels through network hops, maintain TLS at hops that require packet inspection. At the very least, have the final TLS termination point at the cluster's ingress resource. Consider taking it further within the cluster resources.
@@ -250,14 +250,14 @@ For more information, see [Azure encryption overview](/azure/security/fundamenta
 Ensure wireless networks transmitting cardholder data or connected to the cardholder data environment, use industry best practices (for example, IEEE 802.11i) to implement strong encryption for authentication and transmission.
 
 ##### Your responsibilities
-      
+
 This architecture and the implementation aren't designed to do on-premises or corporate network-to-cloud transactions over wireless connections. For considerations, refer to the guidance in the official PCI-DSS 3.2.1 standard. 
 
 #### Requirement 4.2
 Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
 
 ##### Your responsibilities
-      
+
 If your workload requires sending emails, consider building an email quarantine gate. This validation will give you the ability to scan all outbound messages for compliance and check that sensitive data isn't included. Ideally, you should also consider this approach for customer support messages.
 
 Validation should be done at the workload level and the change control process. The approval gates should understand the requirement. 
@@ -279,7 +279,7 @@ It's critical that you maintain thorough documentation about the processes and p
 - Pod to external services, Azure PaaS services that use TLS, a payment gateway, or a fraud detection system.
 
 People who are operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
-      
+
 ## Next
 
 Protect all systems against malware and regularly update antivirus software or programs. Develop and maintain secure systems and applications.

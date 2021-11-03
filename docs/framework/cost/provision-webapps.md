@@ -29,7 +29,7 @@ The *pricing tier* of an App Service plan determines what App Service features y
 **Are there exceptions that impact App Services plan cost?**
 ***
 
-You don't get charged for using the App Service features that are available to you (e.g., configuring custom domains, TLS/SSL certificates, deployment slots, backups, etc.). For a list of exceptions, see [How much does my App Service plan cost?](/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
+You don't get charged for using the App Service features that are available to you (such as configuring custom domains, TLS/SSL certificates, deployment slots, backups, and so on). For a list of exceptions, see [How much does my App Service plan cost?](/azure/app-service/overview-hosting-plans#how-much-does-my-app-service-plan-cost)
 
 ## App Service cost
 
@@ -63,15 +63,15 @@ To set up and scale a search experience quickly and cost-effectively, use Azure 
 
 The charges are based on the number of transactions for each type of operation specific to a service. A certain number of transactions are free. If you need additional transactions, choose from the Standard instances.
 
-For pricing details, see [Azure Cognitive Search pricing](https://azure.microsoft.com/pricing/details/search/).
+For pricing details, see [Azure Cognitive Search pricing](https://azure.microsoft.com/pricing/details/search).
 
 ## Azure SignalR cost
 
-Use SignalR for any scenario that requires pushing data from server to client in real time. For example, Azure SignalR provides secure and simplified communication between client and app one-to-one (e.g., chat window) or one-to-many (instant broadcasting, IoT dashboards, or notification to social network). To learn more about Azure SignalR, see [What is Azure SignalR Service?](/azure/azure-signalr/signalr-overview#what-is-azure-signalr-service-used-for)
+Use SignalR for any scenario that requires pushing data from server to client in real time. For example, Azure SignalR provides secure and simplified communication between client and app one-to-one (such as a chat window) or one-to-many (instant broadcasting, IoT dashboards, or notification to social network). To learn more about Azure SignalR, see [What is Azure SignalR Service?](/azure/azure-signalr/signalr-overview#what-is-azure-signalr-service-used-for)
 
 The Free tier is not recommended for a production environment. With the Standard tier, you pay only for what you use. A Standard tier is recommended as an enterprise solution because it offers a large number of concurrent connections and messages.
 
-For pricing details, see [Azure SignalR Service pricing](https://azure.microsoft.com/pricing/details/signalr-service/).
+For pricing details, see [Azure SignalR Service pricing](https://azure.microsoft.com/pricing/details/signalr-service).
 
 ## Notification Hubs cost
 

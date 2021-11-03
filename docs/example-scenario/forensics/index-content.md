@@ -18,7 +18,7 @@ This standard Azure *hub-spoke* architecture deploys VMs on the **Production** s
 
 The SOC team has exclusive access to a different Azure **SOC** subscription, for resources that must be kept protected, unviolated, and monitored. The [Azure Storage](/azure/storage/common/storage-introduction) account in the SOC subscription hosts copies of disk snapshots in [immutable Blob storage](/azure/storage/blobs/storage-blob-immutable-storage), and keeps the snapshots' SHA-256 hash values and copies of the VMs' BEKs and KEKs in its own SOC key vault.
 
-In response to a request to capture a VM's digital evidence, an SOC team member signs in to the Azure SOC subscription, and uses a [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) VM in [Azure Automation](/azure/automation/automation-intro) to execute the **Copy-VmDigitalEvidence** runbook. The Hybrid Runbook Worker provides control of all mechanisms involved in the capture.
+In response to a request to capture a VM's digital evidence, a SOC team member signs in to the Azure SOC subscription, and uses a [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) VM in [Azure Automation](/azure/automation/automation-intro) to execute the **Copy-VmDigitalEvidence** runbook. The Hybrid Runbook Worker provides control of all mechanisms involved in the capture.
 
 The Copy-VmDigitalEvidence runbook:
 
@@ -34,6 +34,8 @@ The Copy-VmDigitalEvidence runbook:
 The Storage account in the SOC subscription hosts the disk snapshots in a container configured as Azure immutable Blob storage. Immutable Blob storage stores business-critical data objects in a *Write Once, Read Many* (WORM) state, which makes the data non-erasable and non-modifiable for a user-specified interval. [Secure transfer](/azure/storage/common/storage-require-secure-transfer) must be enabled on the Storage account.
 
 The Storage account also hosts an [Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal) to use as a temporary repository for calculating the snapshot's SHA-256 hash value.
+
+For better [performance](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-file-share-scale-targets) you can choose a Standard Storage Account, with the ["large file share" feature enabled](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal#enable-large-files-shares-on-an-existing-account), or a Premium Storage Account.
 
 ### Azure Key Vault
 
@@ -55,6 +57,8 @@ The Hybrid Runbook Worker must have a managed identity or a Service Principal in
 - **Storage Account Contributor** on the SOC immutable Storage account
 - Access policy to **Get Secret** for the BEK, and **Get Key** for the KEK if present, on the target VM's key vault
 - Access policy to **Set Secret** for the BEK, and **Create Key** for the KEK if present, on the SOC key vault
+
+If the VM is behind a Firewall (Network Virtual Appliance (NVA), Azure Firewall, Network Security Group) or a Proxy, ensure to allow the connectivity between the VM and the Storage Account.
 
 ### Log Analytics
 
@@ -126,19 +130,22 @@ You can also deploy a Hybrid Runbook Worker on on-premises or other cloud networ
 
 ## Implementation
 
-The following complete PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
+The following PowerShell code samples of the Copy-VmDigitalEvidence runbook are available in GitHub:
 
 - [Copy‑VmDigitalEvidenceWin](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidenceWin.ps1) runbook for [Windows Hybrid RunBook Worker](/azure/automation/automation-windows-hrw-install).
 
 - [Copy‑VmDigitalEvidence](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1) runbook for [Linux Hybrid RunBook Worker](/azure/automation/automation-linux-hrw-install#installing-a-linux-hybrid-runbook-worker). The Hybrid Runbook Worker must have PowerShell Core installed and the `sha256sum` program available, to calculate the disk snapshots’ SHA-256 hash values.
 
-The Hybrid Runbook Worker must map the Azure File share containing the disk, used to calculate its hash values. Further details for the mounting procedure are available for both [Windows](/azure/storage/files/storage-how-to-use-files-windows) and [Linux](/azure/storage/files/storage-files-how-to-mount-nfs-shares) systems.
+The Hybrid Runbook Worker must map the Azure File share containing the disk, used to calculate its hash values. Further details for the mounting procedure are available for both [Windows](/azure/storage/files/storage-how-to-use-files-windows) and [Linux](/azure/storage/files/storage-files-how-to-mount-nfs-shares) systems and must be integrated in the PowerShell code.
+
+> [!NOTE]
+> Scripts are provided as a starting point, are not intended to be downloaded an run directly in a customer environment. Be sure to replace placeholders and adapt them to your customer scenario. Before run the script remember to complete the section *Mounting fileshare* with the code to mount the Azure file share. The code is strictly tied to your implementation. To generate the correct code follow the documentation links contained in the scripts.
 
 ### Capture workflow
 
 The SOC team has created the Copy‑VmDigitalEvidence runbook and the dedicated [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker) VM in their Azure Automation account.
 
-When the team receives a request to capture digital evidence, an SOC team member follows this workflow:
+When the team receives a request to capture digital evidence, a SOC team member follows this workflow:
 
 1. Sign in to the SOC subscription in the Azure portal, and select their Azure Automation account
 1. Edit the Copy-VmDigitalEvidence runbook to supply the following information:
@@ -253,5 +260,5 @@ For more information about Azure logging and auditing features, see:
 
 For more information about Microsoft Azure Compliance, see:
 
-- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/)  
+- [Azure Compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/)
 - [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/)

@@ -39,8 +39,7 @@ This architecture consists of the following components.
 
 [Azure Blob Storage][blob] is used to store the input data, the pre-trained machine learning models, and the forecast results. It delivers cost-effective storage for the performance that this workload requires.
 
-[Azure Container Instances][aci] provide serverless compute on demand. In this case, a container instance is
-deployed on a schedule to trigger the Batch jobs that generate the forecasts. The Batch jobs are triggered from an R script using the [doAzureParallel][doAzureParallel] package. The container instance automatically shuts down once the jobs have finished.
+[Azure Container Instances][aci] provide serverless compute on demand. In this case, a container instance is deployed on a schedule to trigger the Batch jobs that generate the forecasts. The Batch jobs are triggered from an R script using the [doAzureParallel][doAzureParallel] package. The container instance automatically shuts down once the jobs have finished.
 
 [Azure Logic Apps][logic-apps] triggers the entire workflow by deploying the container instances on a schedule. An Azure Container Instances connector in Logic Apps allows an instance to be deployed upon a range of trigger events.
 

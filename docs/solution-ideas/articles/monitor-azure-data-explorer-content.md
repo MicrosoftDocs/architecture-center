@@ -1,14 +1,14 @@
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This solution idea demonstrates a hybrid end-to-end monitoring solution integrated with Azure Sentinel and Azure Monitor for ingesting streamed and batched logs from diverse sources, on-premises, or any cloud, within an enterprise ecosystem. 
 
+## Architecture
+
 :::image type="content" source="../media/monitor-azure-data-explorer.png" alt-text="Monitoring solution with Azure Data Explorer" lightbox="../media/monitor-azure-data-explorer.png":::
 
-## Workflow
+### Workflow
 
-1. Combine features provided by Azure Sentinel and Azure Monitor with Azure Data Explorer to build a flexible and cost-optimized end-to-end monitoring solution. 
-Below are some examples:
+1. Combine features provided by Azure Sentinel and Azure Monitor with Azure Data Explorer to build a flexible and cost-optimized end-to-end monitoring solution.  Below are some examples:
    * Use Azure Sentinel as a SIEM and SOAR component in the overall monitoring solution where you can ingest security logs from firewalls, security center, and so on. SIEM is short for *security information and event management*, whereas SOAR is short for *security orchestration, automation and response*.
    * Use Azure Monitor’s native capabilities for IT asset monitoring, dashboarding, and alerting so you can ingest logs from VMs, services, and so on.
    * Use Azure Data Explorer for full flexibility and control in all aspects for all types of logs in the following scenarios:  
@@ -24,7 +24,7 @@ Below are some examples:
 > [!NOTE]
 > Azure Sentinel is built on Azure Monitor (Log Analytics) which in turn, is built on Azure Data Explorer. Therefore, switching between these services is seamless. This allows you to reuse Kusto query language queries and dashboards across these services.
 
-## Components
+### Components
 
 - [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/): Fully managed, real-time data ingestion service that’s simple, trusted, and scalable.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/): Managed service to enable bi-directional communication between IoT devices and Azure.
@@ -36,4 +36,4 @@ Below are some examples:
 
 ## Next steps
 
-For more information, see [Azure Data Explorer documentation](/azure/data-explorer/).
+For more information, see [Azure Data Explorer documentation](/azure/data-explorer).

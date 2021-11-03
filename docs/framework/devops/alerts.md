@@ -6,10 +6,11 @@ ms.date: 09/23/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-categories: management-and-governance
+categories:
+  - management-and-governance
 products:
-- azure
-- devops
+  - azure
+  - devops
 ---
 
 # Alerting

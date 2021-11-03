@@ -77,4 +77,3 @@ Send a follow-up email that includes:
 - Descriptions of the existing situation and proposed solution. 
 - Next steps and action items per the key decisions.
 - A formalized Visio or PowerPoint illustration from the ADS presentation board.
-

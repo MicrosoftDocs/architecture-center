@@ -1,7 +1,7 @@
 ---
 title: Architecting for resiliency and availability
 description: Learn how to build resiliency and availability into your Azure application by starting at the design stage and building key elements into your architecture.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -92,7 +92,7 @@ How you manage your data plays directly into the availability of your applicatio
 - **Ensure that no single user account has access to both production and backup data.** Your data backups are compromised if one single user account has permission to write to both production and backup sources. A malicious user could purposely delete all your data, and a regular user could accidentally delete it. Design your application to limit the permissions of each user account. Only grant write access to users who require it, and grant access to either production or backup, but not both.
 - **Document and test your data store failover and failback process.** If a data store fails catastrophically, a human operator must follow a set of documented instructions to fail over to a new data store. If the documented steps have errors, an operator won't be able to successfully follow them and to fail over the resource. Regularly test the instruction steps to verify that an operator who follows the documentation can successfully fail over and fail back.
 - **Back up your data and validate your data backups.** Regularly run a script to validate data integrity, schema, and queries to ensure that backup data is what you expect. Log and report any inconsistencies so the backup service can be repaired.
-- **Use periodic backup and point-in-time restore.** Regularly and automatically back up data that is not preserved elsewhere. Verify that you can reliably restore both the data and the application itself if failure occurs. Ensure that backups meet your RPO. Data replication isn't a backup feature, because human error or malicious operations can corrupt data across all the replicas. The backup process must be secure to protect the data in transit and in storage. Databases can usually be recovered to a previous point in time by using transaction logs. For more information, see [Recover from data corruption or accidental deletion](../framework/resiliency/backup-and-recovery.md).
+- **Use periodic backup and point-in-time restore.** Regularly and automatically back up data that is not preserved elsewhere. Verify that you can reliably restore both the data and the application itself if failure occurs. Ensure that backups meet your RPO. Data replication isn't a backup feature, because human error or malicious operations can corrupt data across all the replicas. The backup process must be secure to protect the data in transit and in storage. Databases can usually be recovered to a previous point in time by using transaction logs. For more information, see [Data Management for Reliability](/azure/architecture/framework/resiliency/data-management).
 - **Consider using a geo-redundant storage account.** Data stored in an Azure Storage account is always replicated locally. However, there are multiple replication strategies to choose from when a storage account is provisioned. To protect your application data against the rare case when an entire region becomes unavailable, select [Azure Read-Access Geo-Redundant Storage (RA-GRS)](/azure/storage/common/storage-designing-ha-apps-with-ragrs).  
 
     > [!NOTE]

@@ -44,7 +44,7 @@ _Mainframes_ were designed as scale-up servers to run high-volume online transac
 Part of demystifying mainframes involves decoding various overlapping terms. For example, central storage, real memory, real storage, and main storage generally all refer to storage that is attached directly to the mainframe processor.  Mainframe hardware includes processors and many other devices, such as direct-access storage devices (DASDs), magnetic tape drives, and several types of user consoles. Tapes and DASDs are used for system functions and by user programs.
 
 _Types of physical storage:_
-* **Central storage**. Located directly on the mainframe processor, it's also known as _processor storage_ or _real storage_. 
+* **Central storage**. Located directly on the mainframe processor, it's also known as _processor storage_ or _real storage_.
 * **Auxiliary storage**. Located separately from the mainframe, it includes storage on DASDs, which is also known as _paging storage_.
 
 #### MIPS
@@ -97,9 +97,9 @@ Midrange data is stored and organized in variety of ways, from relational and hi
 
 Consider the following details about endianness:
 
-- RISC and x86 processors differ in _endianness_, a term used to describe how a system stores bytes in computer memory.  
-- RISC-based computers are known as big endian systems, because they store the most significant (“big”) value first—that is, in the lowest storage address.  
-- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant (“little”) value) first. 
+- RISC and x86 processors differ in _endianness_, a term used to describe how a system stores bytes in computer memory.
+- RISC-based computers are known as big endian systems, because they store the most significant (“big”) value first—that is, in the lowest storage address.
+- Most Linux computers are based on the x86 processor, which are little endian systems, meaning they store the least significant (“little”) value) first.
 
 The following figure visually shows you the difference between big endian and little endian.
 
@@ -123,7 +123,7 @@ Often referred to as a lift-and-shift migration, this option doesn't require cod
 
 <ul class="grid">
 
-[!INCLUDE [Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment](../../includes/cards/lzlabs-software-defined-mainframe-in-azure-card.md)]  
+[!INCLUDE [Using LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment](../../includes/cards/lzlabs-software-defined-mainframe-in-azure-card.md)]
 
 </ul>
 
@@ -153,7 +153,7 @@ Refactoring requires minimal changes to applications. This often enables the app
 
 [!INCLUDE [IBM z/OS mainframe migration with Asysco AMT](../../includes/cards/asysco-zos-migration-card.md)] 
 [!INCLUDE [Refactor mainframe applications to Azure with Raincode compilers](../../includes/cards/raincode-reference-architecture-card.md)]  
-[!INCLUDE [IBM z/OS online transaction processing on Azure](../../includes/cards/ibm-zos-online-transaction-processing-azure-card.md)]  
+[!INCLUDE [IBM z/OS online transaction processing on Azure](../../includes/cards/ibm-zos-online-transaction-processing-azure-card.md)]
 
 </ul>
 
@@ -200,7 +200,7 @@ A key part of legacy migrations and transformations to Azure is consideration fo
 
 <ul class="grid">
 
-[!INCLUDE [Mainframe file replication and sync on Azure](../../includes/cards/mainframe-azure-file-replication-card.md)]  
+[!INCLUDE [Mainframe file replication and sync on Azure](../../includes/cards/mainframe-azure-file-replication-card.md)]
 
 </ul>
 

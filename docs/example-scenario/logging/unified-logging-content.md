@@ -73,7 +73,7 @@ When building a cloud-native distributed microservices architecture, teams can u
 
 [Azure Monitor](/azure/azure-monitor/overview) is a service that maximizes availability and performance by collecting, analyzing, and acting on telemetry from cloud-native applications. With Azure Monitor, teams can create operational dashboards that detect issues and alert teams of critical situations.
 
-If the team uses an ITSM system, Logic Apps can call the REST endpoint of the system and create an issue with the appropriate severity level. This process provides quick notification to all relevant teams and ensures that triaging is immediate and useful. For more information, see [Stream Analytics and Azure Logic Apps](/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps). 
+If the team uses an ITSM system, Logic Apps can call the REST endpoint of the system and create an issue with the appropriate severity level. This process provides quick notification to all relevant teams and ensures that triaging is immediate and useful. For more information, see [Stream Analytics and Azure Logic Apps](/archive/blogs/vinaysin/consuming-azure-stream-analytics-output-in-azure-logic-apps).
 
 ### Application Insights
 
@@ -83,8 +83,7 @@ If the team uses an ITSM system, Logic Apps can call the REST endpoint of the sy
 
 [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) is a Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) service. Sentinel provides a unified overview of the cloud estate through native integration of Azure services. Sentinel can collect information from the cloud as well as from downstream dependent systems in customers' data centers.
 
-Azure Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins, suspicious credentials, and the relevant connections from these events. Site reliability engineering (SRE) teams can use [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) to query the data.
-You can also designate automation to trigger when Sentinel rules generate security alerts. Automation in Azure Sentinel uses Playbooks powered by Azure Logic Apps. For more information, see [Tutorial: Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases).
+Azure Sentinel provides a dashboard view of the current security posture and allows administrators a global view on potentially malicious events such as failed logins, suspicious credentials, and the relevant connections from these events. Site reliability engineering (SRE) teams can use [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) to query the data. You can also designate automation to trigger when Sentinel rules generate security alerts. Automation in Azure Sentinel uses Playbooks powered by Azure Logic Apps. For more information, see [Tutorial: Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases).
 
 ## Issues and considerations
 
@@ -95,7 +94,7 @@ The following practices help microservices architectures perform unified logging
 - All logs, except audit logs, should be emitted to the same hub and stored in a central repository. If audit logs are required for security or compliance, it's best to store them in a separate data store. Make sure that recorded and stored information meets regulatory guidelines and doesn't contain any personally identifiable information.
 - Log data should use JSON format.
 - Logging should be asynchronous. Asynchronous logging helps to reduce overhead by delegating the call to a background task. The application doesn't need to await the results of the operation and can continue the logical program flow.
-- Logging should use a logging framework if possible. Don't expend engineering effort creating a logging system unless there's a clear business need. [Serilog](https://github.com/serilog) is a popular open-source logging framework that provides support for the Azure ecosystem through community supported extensions. 
+- Logging should use a logging framework if possible. Don't expend engineering effort creating a logging system unless there's a clear business need. [Serilog](https://github.com/serilog) is a popular open-source logging framework that provides support for the Azure ecosystem through community supported extensions.
 
 ### Logging levels
 

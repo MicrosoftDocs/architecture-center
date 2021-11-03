@@ -3,7 +3,7 @@ metadata:
   title: Bursting from AKS with ACI
   titleSuffix: Azure Solution Ideas
   description: Use Azure Kubernetes Service virtual node to provision pods inside Azure Container Instances when traffic spikes, eliminating the need for additional servers.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

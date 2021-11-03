@@ -1,7 +1,7 @@
 ---
 title: API design
 description: Learn about good API design in a microservices architecture. APIs should be efficient and have well-defined semantics and versioning schemes.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 05/23/2019
 ms.topic: conceptual
 ms.service: architecture-center

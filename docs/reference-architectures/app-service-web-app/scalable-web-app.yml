@@ -3,9 +3,9 @@ metadata:
   title: Scalable web application
   titleSuffix: Azure Reference Architectures
   description: Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application.
-  author: doodlemania2
+  author: ckittel
   ms.author: pnp
-  ms.date: 10/03/2019
+  ms.date: 10/18/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -26,6 +26,7 @@ products:
   - azure-functions
   - azure-search
   - azure-storage
+  - azure-service-bus
   - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/scalable-web-app.png
 content: |

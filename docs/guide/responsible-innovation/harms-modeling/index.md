@@ -21,7 +21,7 @@ Harms Modeling is a practice designed to help you anticipate the potential for h
 
 ## Why harms modeling?
 
-As technology builders, your work is global. Designing AI to be trustworthy requires creating solutions that reflect ethical principles deeply rooted in important and timeless values. In the process of designing and building your technologies, it is essential to evaluate not only ideal outcomes, but possible negative ones as well. 
+As technology builders, your work is global. Designing AI to be trustworthy requires creating solutions that reflect ethical principles deeply rooted in important and timeless values. In the process of designing and building your technologies, it is essential to evaluate not only ideal outcomes, but possible negative ones as well.
 
 ### Technology and human rights
 
@@ -70,24 +70,24 @@ These stakeholders are significantly impacted by the system. This includes end u
 
 This category is made up of the population frequently considered a minority, vulnerable, or stigmatized. This includes children, the elderly, members of the LGBTQ+ community, ethnic minorities, and other populations who often experience unique and disproportionate consequences.
 
-## Assessing Harm 
+## Assessing Harm
 
-Once you have defined the technology purpose, use cases, and stakeholders, conduct a Harms Modeling exercise to evaluate potential ways the use of a technology you are building could result in negative outcomes for people and society. 
+Once you have defined the technology purpose, use cases, and stakeholders, conduct a Harms Modeling exercise to evaluate potential ways the use of a technology you are building could result in negative outcomes for people and society.
 
 [![Harms modeling overview](../images/harms-model-example.png)](../images/harms-model-example.png#lightbox)
 *Download in [Microsoft Word](../images/harms-modeling.docx)*
 
 The diagram above is an example of a harms evaluation. This is a qualitative approach used to understand potential magnitude of harm.
 
-You can complete this ideation activity individually, but ideally it is conducted as collaboration between developers, data scientists, designers, user researcher, business decision-makers, and other disciplines that are involved in building the technology. 
+You can complete this ideation activity individually, but ideally it is conducted as collaboration between developers, data scientists, designers, user researcher, business decision-makers, and other disciplines that are involved in building the technology.
 
-Suggestions for harm description statements: 
-- Intended use: If [feature] was used for [use case], [stakeholder] could experience [harm description]. 
-- Unintended use: If [user] tried to use [feature] for [use case], [stakeholder] could experience [harm description]. 
-- System error: If [feature] failed to function properly when used for [use case], [stakeholder] could experience [harm description]. 
-- Misuse: [Malicious actor] could potentially use [feature], to cause [harm description] to [stakeholder]. 
+Suggestions for harm description statements:
+- Intended use: If [feature] was used for [use case], [stakeholder] could experience [harm description].
+- Unintended use: If [user] tried to use [feature] for [use case], [stakeholder] could experience [harm description].
+- System error: If [feature] failed to function properly when used for [use case], [stakeholder] could experience [harm description].
+- Misuse: [Malicious actor] could potentially use [feature], to cause [harm description] to [stakeholder].
 
-Use the categories, questions, and examples described in the [Types of harm](./type-of-harm.md) to generate specific ideas for how harm could occur. The article lists categories of harms, that are based upon common negative impact areas. Adapt and adopt additional categories that are relevant to you. 
+Use the categories, questions, and examples described in the [Types of harm](./type-of-harm.md) to generate specific ideas for how harm could occur. The article lists categories of harms, that are based upon common negative impact areas. Adapt and adopt additional categories that are relevant to you.
 
 ## Next Steps
 
