@@ -1091,6 +1091,8 @@ items:
                 href: example-scenario/data/data-warehouse.yml
               - name: Geospatial data processing and analytics
                 href: example-scenario/data/geospatial-data-processing-analytics-azure.yml
+              - name: High throughput stream ingestion
+                href: example-scenario/data/stream-ingestion-synapse.yml
               - name: Ingestion and analysis of news feeds
                 href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
               - name: Partitioning in Event Hubs and Kafka
