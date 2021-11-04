@@ -67,7 +67,7 @@ availability and disaster recovery can solve these issues.
 
 ### Geo-redundancy with zero-downtime failover for 99.9% availability and disaster recovery
 
-:::image type="content" source="./media/automated-guided-vehicles-fleet-control-01.png" alt-text="Screenshot of an instance of the back end, consisting of the following components, is deployed to two Azure regions: Azure IoT Hub, Ingestion, RabbitMQ, Mission State, Vehicle State, Job Manager, and Geo DB.":::
+:::image type="content" source="./media/automated-guided-vehicles-fleet-control-01.png" alt-text="Screenshot of an instance of the back end, consisting of the following components, is deployed to two Azure regions: Azure IoT Hub, Ingestion, RabbitMQ, Mission State, Vehicle State, Job Manager, and Geo DB." border="false":::
 
 -   An instance of the back end, consisting of the following components, is
     deployed to two Azure regions: [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/#overview),
@@ -86,7 +86,7 @@ availability and disaster recovery can solve these issues.
 
 ### Kubernetes and RabbitMQ for datacenter-agnostic deployments
 
-:::image type="content" source="./media/automated-guided-vehicles-fleet-control-02.jpg" alt-text="Screenshot of Kubernetes and RabbitMQ deployed on an Azure IoT Edge device.":::
+[ ![Screenshot of Kubernetes and RabbitMQ deployed on an Azure IoT Edge device.](./media/automated-guided-vehicles-fleet-control-02.png) ](./media/automated-guided-vehicles-fleet-control-02.png)
 
 In scenarios where the internet connection between a production plant and Azure
 is a limiting factor, our AGV control software can also be deployed to
@@ -96,7 +96,7 @@ deployed on an Azure IoT Edge device.
 
 ### Implementation of the VDA 5050 specification for AGV-vendor-agnostic communication
 
-:::image type="content" source="./media/automated-guided-vehicles-fleet-control-03.jpg"alt-text="Screenshot of an overview of the different services and components used to run the back-end AGV fleet control solution in Azure.":::
+[ ![Screenshot of the back-end AGV fleet control solution in Azure.](./media/automated-guided-vehicles-fleet-control-03.png) ](./media/automated-guided-vehicles-fleet-control-02.png)
 
 Thanks to compliance with the [VDA 5050 vehicle connector specification](https://en.vda.de/en/services/Publications/vda-5050-v-1.1.-agv-communication-interface.html), our AGV control software can communicate with all types of AGVs from different vendors that also comply with VDA 5050.
 
