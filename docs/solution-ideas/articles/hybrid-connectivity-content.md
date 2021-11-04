@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure Stack Hub enables you to deploy Azure services on-premises or in the cloud with a consistent application logic, development paradigm, and operations methodology.
@@ -14,14 +11,14 @@ Note: This doesn't apply to Azure Stack Hub deployments that are disconnected fr
 ![Architecture diagram](../media/hybrid-connectivity.png)
 *Download an [SVG](../media/hybrid-connectivity.svg) of this architecture.*
 
-## Data Flow
+### Data flow
 
 1. Deploy a virtual network in Azure and Azure Stack Hub.
 1. Deploy a virtual network gateway in Azure and Azure Stack Hub.
 1. Deploy virtual machines in each virtual network.
 1. Establish a VPN connection over the public internet between the network gateways.
 
-## Components
+### Components
 
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters.
 * [Virtual Network Gateway](https://azure.microsoft.com/services/vpn-gateway): Learn how to configure VPN Gateway, a virtual private network gateway.

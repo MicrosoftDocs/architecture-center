@@ -34,7 +34,7 @@ The architecture components depend on your deployment choice: Elastic Cloud mana
 
 ### Elastic on Azure
 
-- [Elastic Cloud on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure?tab=Overview)
+- [Elastic Cloud on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
 - [QuickStart: Get started with Elastic](/azure/partner-solutions/elastic/create)
 - [Esri builds flexible mapping managed service in the cloud](https://customers.microsoft.com/en-us/story/esri)
 - [Magento e-commerce platform in Azure Kubernetes Service (AKS)](../../example-scenario/magento/magento-azure.yml)

@@ -62,7 +62,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="63" cy="67.5767" width="126.01" height="23.625"/>
 			<rect x="0" y="55.7642" width="126" height="23.625" class="st1"/>
-			<text x="13.09" y="71.18" class="st2" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Throughput in MBps</text>		</g>
+			<text x="13.09" y="71.18" class="st2" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Throughput in Mbps</text>		</g>
 		<g id="shape7-19" v:mID="7" v:groupContext="shape" transform="translate(351.375,-27.8821)">
 			<title>Sheet.7</title>
 			<desc>,</desc>

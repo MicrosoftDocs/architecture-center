@@ -4,15 +4,15 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the storage and data components of your solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 09/28/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
+  - management-and-governance
+  - security
 ms.category:
   - fcp
 ms.custom:
@@ -22,7 +22,7 @@ ms.custom:
 
 # Architectural approaches for storage and data in multitenant solutions
 
-When planning multitenant storage or data components, you need to decide on an approach for sharing or isolating your tenants' data. Data is often considered the most valuable part of a solution, since it represents your or your customers' valuable business information. So, it's important to carefully plan the approach you use to manage data in a multitenant environment. On this page, we provide guidance about the key considerations and requirements to consider when deciding on an approach to store data in a multitenant system. We then suggest some common patterns for applying multitenancy to storage and data services, and some antipatterns to avoid. Finally, we provide targeted guidance for some specific situations.
+When planning multitenant storage or data components, you need to decide on an approach for sharing or isolating your tenants' data. Data is often considered the most valuable part of a solution, since it represents your or your customers' valuable business information. So, it's important to carefully plan the approach you use to manage data in a multitenant environment. On this page, we provide guidance about the key considerations and requirements that are essential for solution architects when deciding on an approach to store data in a multitenant system. We then suggest some common patterns for applying multitenancy to storage and data services, and some antipatterns to avoid. Finally, we provide targeted guidance for some specific situations.
 
 ## Key considerations and requirements
 
@@ -182,4 +182,6 @@ In general, cloud-native services, like Azure Cosmos DB and Azure Blob Storage, 
 
 For more information about multitenancy and specific Azure services, see:
 
+* [Multitenancy and Azure Storage](../service/storage.md)
+* [Multitenancy and Azure SQL Database](../service/sql-database.md)
 * [Multitenancy and Azure Cosmos DB](../service/cosmos-db.md)

@@ -33,7 +33,7 @@ Here are some common answers.
 - Increase performance or processing capabilities, through services like big data and machine learning.
 - Meet regulatory considerations, including taking advantage of certified infrastructure.
 
-Narrow down each requirement before you start the design of the workload. Expect the requirements to change over time as the solution is deployed and optimized. 
+Narrow down each requirement before you start the design of the workload. Expect the requirements to change over time as the solution is deployed and optimized.
 
 ## Landing zone
 Consider the cost implications of the geographic region to which the landing zone is deployed.
@@ -53,13 +53,13 @@ For security considerations, see the [Security Pillar](../security/overview.md).
 
 
 **Does the application have a Service Level Agreement that it must meet?** 
-*** 
+***
 
 Factor in the cost when you create high availability and disaster recovery strategies.
 
 Overall Service Level Agreement (SLA), Recovery Time Objective (RTO), and Recovery Point Objective (RPO) may drive towards expensive design choices in order to support higher availability requirements. For example, a choice might be to host the application across regions, which is costlier than single region but supports high availability.
 
-If your service SLAs, RTOs and RPOs allow, then consider cheaper options. For instance, pre-build automation scripts and packages that would redeploy the disaster recovery components of the solution from the ground-up in case a disaster occurs. Alternatively, use Azure platform-managed replication. Both options can lower cost because fewer cloud services are pre-deployed and managed, reducing wastage. 
+If your service SLAs, RTOs and RPOs allow, then consider cheaper options. For instance, pre-build automation scripts and packages that would redeploy the disaster recovery components of the solution from the ground-up in case a disaster occurs. Alternatively, use Azure platform-managed replication. Both options can lower cost because fewer cloud services are pre-deployed and managed, reducing wastage.
 
 In general, if the cost of high availability exceeds the cost of application downtime, then you could be over engineering the high availability strategy. Conversely, if the cost of high availability is less than the cost of a reasonable period of downtime, you may need to invest more.
 
@@ -69,30 +69,30 @@ Suppose the downtime costs are relatively low, you can save by using recovery fr
 
 
 **Does your service run seasonally or follow long-term patterns?**
-***  
+***
 
-For long running applications, consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to one-year or three-year term. VM reservations can reduce cost by 60% or more when compared to pay-as-you-go prices. 
+For long running applications, consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to one-year or three-year term. VM reservations can reduce cost by 60% or more when compared to pay-as-you-go prices.
 
 Reservation is still an operational expense with all the corresponding benefits. Monitor the cost on workloads that have been running in the cloud for an extended period to forecast the reserved instance sizes that are needed. For information about optimization, see [Reserved instances](./optimize-checklist.md).
 
-If your application runs intermittently, consider using Azure Functions in a consumption plan so you only pay for compute resources you use.  
+If your application runs intermittently, consider using Azure Functions in a consumption plan so you only pay for compute resources you use.
 
 ## Automation opportunities
 
 **Is it a business requirement to have the service be available 24x7?**  
 ***
 
-You may not have a business goal to leave the service running all the time. Doing so will incur a consistent cost. Can you save by shutting down the service or scaling it down outside normal business hours? If you can, 
+You may not have a business goal to leave the service running all the time. Doing so will incur a consistent cost. Can you save by shutting down the service or scaling it down outside normal business hours? If you can,
 - Azure has a rich set of APIs, SDKs, and automation technology that utilizes DevOps and traditional automation principles. Those technologies ensure that the workload is available at an appropriate level of scale as needed.
 - Repurpose some compute and data resources for other tasks that run out of regular business hours. See the [Compute Resource Consolidation](../../patterns/compute-resource-consolidation.md) pattern and consider containers or elastic pools for more compute and data cost flexibility.
 
 ## Budget for staff education
-Keep the technical staff up to date in cloud management skills so that the invested services are optimally used. 
+Keep the technical staff up to date in cloud management skills so that the invested services are optimally used.
 
-- Consider using resources such as [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/partners/) and [Microsoft Learn](/learn/) to onboard the staff. Those resources provide engineering investments at no cost to customers. 
+- Consider using resources such as [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/partners/) and [Microsoft Learn](/learn/) to onboard the staff. Those resources provide engineering investments at no cost to customers.
 - Identify training requirements and costs for cloud migration projects, application development, and architecture refinement.
 - Invest in key areas, such as identity management, security configuration, systems monitoring, and automation.
-- Give the staff access to training and relevant announcements. This way, they can be aware of new cloud capabilities and updates. 
+- Give the staff access to training and relevant announcements. This way, they can be aware of new cloud capabilities and updates.
 - Provide opportunities to get real-world experience of customers across the globe through conferences, specific cloud training, and passing dedicated Microsoft Exams (AZ, MS, MB, etc.).
 
 ## Standardization

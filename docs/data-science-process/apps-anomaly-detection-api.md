@@ -10,8 +10,12 @@ ms.subservice: azure-guide
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.category: ai-machine-learning
-ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok, fcp
+ms.category:
+  - ai-machine-learning
+ms.custom:
+  - previous-author=alokkirpal
+  - previous-ms.author=alok
+  - fcp
 products:
   - azure
   - azure-cognitive-services
@@ -25,6 +29,7 @@ categories:
 > This item is under maintenance. We encourage you to use the [Anomaly Detector API service](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) powered by a gallery of Machine Learning algorithms under Azure Cognitive Services to detect anomalies from business, operational, and IoT metrics.
 
 ## Overview
+
 [Anomaly Detection API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2) is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.
 
 This API can detect the following types of anomalous patterns in time series data:
@@ -37,7 +42,7 @@ These machine learning detectors track such changes in values over time and repo
 
 The Anomaly Detection offering comes with useful tools to get you started.
 
-* The [web application](https://anomalydetection-aml.azurewebsites.net/) helps you evaluate and visualize the results of anomaly detection APIs on your data.
+* The [web application](https://opendistro.github.io/for-elasticsearch-docs/docs/ad/api/) helps you evaluate and visualize the results of anomaly detection APIs on your data.
 
 > [!NOTE]
 > Try **IT Anomaly Insights solution** powered by [this API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2)
@@ -47,73 +52,80 @@ The Anomaly Detection offering comes with useful tools to get you started.
 -->
 
 ## API Deployment
+
 In order to use the API, you must deploy it to your Azure subscription where it will be hosted as an Azure Machine Learning web service.  You can do this from the [Azure AI Gallery](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  This will deploy two Azure Machine Learning Studio (classic) Web Services (and their related resources) to your Azure subscription - one for anomaly detection with seasonality detection, and one without seasonality detection.  Once the deployment has completed, you will be able to manage your APIs from the [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) page.  From this page, you will be able to find your endpoint locations, API keys, as well as sample code for calling the API.  More detailed instructions are available [here](/azure/machine-learning/classic/manage-new-webservice).
 
 ## Scaling the API
+
 By default, your deployment will have a free Dev/Test billing plan that includes 1,000 transactions/month and 2 compute hours/month.  You can upgrade to another plan as per your needs.  Details on the pricing of different plans are available [here](https://azure.microsoft.com/pricing/details/machine-learning/) under "Production Web API pricing".
 
-## Managing AML Plans
+## Managing AML plans
+
 You can manage your billing plan [here](https://services.azureml.net/plans/).  The plan name will be based on the resource group name you chose when deploying the API, plus a string that is unique to your subscription.  Instructions on how to upgrade your plan are available [here](/azure/machine-learning/classic/manage-new-webservice) under the "Managing billing plans" section.
 
-## API Definition
+## API definition
+
 The web service provides a REST-based API over HTTPS that can be consumed in different ways including a web or mobile application, R, Python, Excel, etc.  You send your time series data to this service via a REST API call, and it runs a combination of the three anomaly types described below.
 
 ## Calling the API
+
 In order to call the API, you will need to know the endpoint location and API key.  These two requirements, along with sample code for calling the API, are available from the [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) page.  Navigate to the desired API, and then click the "Consume" tab to find them.  You can call the API as a Swagger API (that is, with the URL parameter `format=swagger`) or as a non-Swagger API (that is, without the `format` URL parameter).  The sample code uses the Swagger format.  Below is an example request and response in non-Swagger format.  These examples are to the seasonality endpoint.  The non-seasonality endpoint is similar.
 
-### Sample Request Body
+### Sample request body
+
 The request contains two objects: `Inputs` and `GlobalParameters`.  In the example request below, some parameters are sent explicitly while others are not (scroll down for a full list of parameters for each endpoint).  Parameters that are not sent explicitly in the request will use the default values given below.
 
 ```json
 {
-            "Inputs": {
-                    "input1": {
-                            "ColumnNames": ["Time", "Data"],
-                            "Values": [
-                                    ["5/30/2010 18:07:00", "1"],
-                                    ["5/30/2010 18:08:00", "1.4"],
-                                    ["5/30/2010 18:09:00", "1.1"]
-                            ]
-                    }
-            },
-	"GlobalParameters": {
-		"tspikedetector.sensitivity": "3",
-		"zspikedetector.sensitivity": "3",
-		"bileveldetector.sensitivity": "3.25",
-		"detectors.spikesdips": "Both"
-	}
+    "Inputs": {
+        "input1": {
+            "ColumnNames": ["Time", "Data"],
+            "Values": [
+                ["5/30/2010 18:07:00", "1"],
+                ["5/30/2010 18:08:00", "1.4"],
+                ["5/30/2010 18:09:00", "1.1"]
+            ]
+        }
+    },
+    "GlobalParameters": {
+        "tspikedetector.sensitivity": "3",
+        "zspikedetector.sensitivity": "3",
+        "bileveldetector.sensitivity": "3.25",
+        "detectors.spikesdips": "Both"
+    }
 }
 ```
 
-### Sample Response
+### Sample response
+
 In order to see the `ColumnNames` field, you must include `details=true` as a URL parameter in your request.  See the tables below for the meaning behind each of these fields.
 
 ```json
 {
-	"Results": {
-		"output1": {
-			"type": "table",
-			"value": {
-				"Values": [
-					["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
-					["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
-					["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
-				],
-				"ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
-				"ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
-			}
-		}
-	}
+    "Results": {
+        "output1": {
+            "type": "table",
+            "value": {
+                "Values": [
+                    ["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
+                    ["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
+                    ["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
+                ],
+                "ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
+                "ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
+            }
+        }
+    }
 }
 ```
 
-
 ## Score API
-The Score API is used for running anomaly detection on non-seasonal time series data. The API runs a number of anomaly detectors on the data and returns their anomaly scores.
-The figure below shows an example of anomalies that the Score API can detect. This time series has two distinct level changes, and three spikes. The red dots show the time at which the level change is detected, while the black dots show the detected spikes.
+
+The Score API is used for running anomaly detection on non-seasonal time series data. The API runs a number of anomaly detectors on the data and returns their anomaly scores. The figure below shows an example of anomalies that the Score API can detect. This time series has two distinct level changes, and three spikes. The red dots show the time at which the level change is detected, while the black dots show the detected spikes.
 ![Score API][1]
 
 ### Detectors
+
 The anomaly detection API supports detectors in three broad categories. Details on specific input parameters and outputs for each detector can be found in the following table.
 
 | Detector Category | Detector | Description | Input Parameters | Outputs |
@@ -124,19 +136,21 @@ The anomaly detection API supports detectors in three broad categories. Details 
 | Level Change Detectors | Bidirectional Level Change Detector |Detect both upward and downward level change as per the set sensitivity |*bileveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select from; The higher the less sensitive) |rpscore: floating number representing anomaly score on upward and downward level change |
 
 ### Parameters
+
 More detailed information on these input parameters is listed in the table below:
 
 | Input Parameters | Description | Default Setting | Type | Valid Range | Suggested Range |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historywindow |History (in # of data points) used for  anomaly score computation |500 |integer |10-2000 |Time-series dependent |
-| detectors.spikesdips | Whether to detect only spikes, only dips, or both |Both |enumerated |Both, Spikes, Dips |Both |
-| bileveldetector.sensitivity |Sensitivity for bidirectional level change detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
-| trenddetector.sensitivity |Sensitivity for positive trend detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
-| tspikedetector.sensitivity |Sensitivity for TSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
-| zspikedetector.sensitivity |Sensitivity for ZSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
-| postprocess.tailRows |Number of the latest data points to be kept in the output results |0 |integer |0 (keep all data points), or specify number of points to keep in results |N/A |
+| `detectors.historywindow` |History (in # of data points) used for  anomaly score computation |500 |integer |10-2000 |Time-series dependent |
+| `detectors.spikesdips` | Whether to detect only spikes, only dips, or both |Both |enumerated |Both, Spikes, Dips |Both |
+| `bileveldetector.sensitivity` |Sensitivity for bidirectional level change detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
+| `trenddetector.sensitivity` |Sensitivity for positive trend detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
+| `tspikedetector.sensitivity` |Sensitivity for TSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
+| `zspikedetector.sensitivity` |Sensitivity for ZSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
+| `postprocess.tailRows` |Number of the latest data points to be kept in the output results |0 |integer |0 (keep all data points), or specify number of points to keep in results |N/A |
 
 ### Output
+
 The API runs all detectors on your time series data and returns anomaly scores and binary spike indicators for each point in time. The table below lists outputs from the API.
 
 | Outputs | Description |
@@ -151,11 +165,12 @@ The API runs all detectors on your time series data and returns anomaly scores a
 | talert |1/0 value indicating there is a positive trend anomaly based on the input sensitivity |
 
 ## ScoreWithSeasonality API
-The ScoreWithSeasonality API is used for running anomaly detection on time series that have seasonal patterns. This API is useful to detect deviations in seasonal patterns.
-The following figure shows an example of anomalies detected in a seasonal time series. The time series has one spike (the first black dot), two dips (the second black dot and one at the end), and one level change (red dot). Both the dip in the middle of the time series and the level change are only discernable after seasonal components are removed from the series.
+
+The ScoreWithSeasonality API is used for running anomaly detection on time series that have seasonal patterns. This API is useful to detect deviations in seasonal patterns. The following figure shows an example of anomalies detected in a seasonal time series. The time series has one spike (the first black dot), two dips (the second black dot and one at the end), and one level change (red dot). Both the dip in the middle of the time series and the level change are only discernable after seasonal components are removed from the series.
 ![Seasonality API][2]
 
 ### Detectors
+
 The detectors in the seasonality endpoint are similar to the ones in the non-seasonality endpoint, but with slightly different parameter names (listed below).
 
 ### Parameters
@@ -164,22 +179,23 @@ More detailed information on these input parameters is listed in the table below
 
 | Input Parameters | Description | Default Setting | Type | Valid Range | Suggested Range |
 | --- | --- | --- | --- | --- | --- |
-| preprocess.aggregationInterval |Aggregation interval in seconds for aggregating input time series |0 (no aggregation is performed) |integer |0: skip aggregation, > 0 otherwise |5 minutes to 1 day, time-series dependent |
-| preprocess.aggregationFunc |Function used for aggregating data into the specified AggregationInterval |mean |enumerated |mean, sum, length |N/A |
-| preprocess.replaceMissing |Values used to impute missing data |lkv (last known value) |enumerated |zero, lkv, mean |N/A |
-| detectors.historywindow |History (in # of data points) used for  anomaly score computation |500 |integer |10-2000 |Time-series dependent |
-| detectors.spikesdips | Whether to detect only spikes, only dips, or both |Both |enumerated |Both, Spikes, Dips |Both |
-| bileveldetector.sensitivity |Sensitivity for bidirectional level change detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
-| postrenddetector.sensitivity |Sensitivity for positive trend detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
-| negtrenddetector.sensitivity |Sensitivity for negative trend detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
-| tspikedetector.sensitivity |Sensitivity for TSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
-| zspikedetector.sensitivity |Sensitivity for ZSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
-| seasonality.enable |Whether seasonality analysis is to be performed |true |boolean |true, false |Time-series dependent |
-| seasonality.numSeasonality |Maximum number of periodic cycles to be detected |1 |integer |1, 2 |1-2 |
-| seasonality.transform |Whether seasonal (and) trend components shall be removed before applying anomaly detection |deseason |enumerated |none, deseason, deseasontrend |N/A |
-| postprocess.tailRows |Number of the latest data points to be kept in the output results |0 |integer |0 (keep all data points), or specify number of points to keep in results |N/A |
+| `preprocess.aggregationInterval` |Aggregation interval in seconds for aggregating input time series |0 (no aggregation is performed) |integer |0: skip aggregation, > 0 otherwise |5 minutes to 1 day, time-series dependent |
+| `preprocess.aggregationFunc` |Function used for aggregating data into the specified AggregationInterval |mean |enumerated |mean, sum, length |N/A |
+| `preprocess.replaceMissing` |Values used to impute missing data |lkv (last known value) |enumerated |zero, lkv, mean |N/A |
+| `detectors.historywindow` |History (in # of data points) used for  anomaly score computation |500 |integer |10-2000 |Time-series dependent |
+| `detectors.spikesdips` | Whether to detect only spikes, only dips, or both |Both |enumerated |Both, Spikes, Dips |Both |
+| `bileveldetector.sensitivity` |Sensitivity for bidirectional level change detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
+| `postrenddetector.sensitivity` |Sensitivity for positive trend detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
+| `negtrenddetector.sensitivity` |Sensitivity for negative trend detector. |3.25 |double |None |3.25-5 (Lesser values mean more sensitive) |
+| `tspikedetector.sensitivity` |Sensitivity for TSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
+| `zspikedetector.sensitivity` |Sensitivity for ZSpike Detector |3 |integer |1-10 |3-5 (Lesser values mean more sensitive) |
+| `seasonality.enable` |Whether seasonality analysis is to be performed |true |boolean |true, false |Time-series dependent |
+| `seasonality.numSeasonality` |Maximum number of periodic cycles to be detected |1 |integer |1, 2 |1-2 |
+| `seasonality.transform` |Whether seasonal (and) trend components shall be removed before applying anomaly detection |deseason |enumerated |none, deseason, deseasontrend |N/A |
+| `postprocess.tailRows` |Number of the latest data points to be kept in the output results |0 |integer |0 (keep all data points), or specify number of points to keep in results |N/A |
 
 ### Output
+
 The API runs all detectors on your time series data and returns anomaly scores and binary spike indicators for each point in time. The table below lists outputs from the API.
 
 | Outputs | Description |

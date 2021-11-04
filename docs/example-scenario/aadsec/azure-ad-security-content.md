@@ -33,7 +33,7 @@ This article advances the zero-trust, adaptive security approach to IDaaS, empha
 1. *Credential management* controls authentication.
 1. *Provisioning* and *entitlement management* define the access package, assign users to resources, and push data for *attestation*.
 1. The *authorization engine* evaluates the *access policy* to determine access. The engine also evaluates *risk detections*, including *user/entity behavioral analytics (UEBA)* data, and checks device compliance for *endpoint management*.
-1. If authorized, the user or device gains access per *conditional access policies and controls*. 
+1. If authorized, the user or device gains access per *conditional access policies and controls*.
 1. If authorization fails, users can do *real-time remediation* to unblock themselves.
 1. All session data is *logged* for analysis and reporting.
 1. The SOC team's *security information and event management system (SIEM)* receives all log, risk detection, and UEBA data from cloud and on-premises identities.
@@ -79,7 +79,7 @@ Azure AD can use the following conditional access controls with conditional acce
 - [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/) lets you configure and assign appropriate roles to users who need to do administrative or specialized tasks with Azure resources. You can use Azure RBAC to create or maintain separate dedicated admin-only accounts, scope access to roles you set up, time limit access, or grant access through approval workflows.
 
 - [Privileged identity management (PIM)](/azure/active-directory/privileged-identity-management/) helps reduce the attack vector for your organization by letting you add additional monitoring and protection to administrative accounts. With [Azure AD PIM](/azure/active-directory/privileged-identity-management/pim-configure), you can manage and control access to resources within Azure, Azure AD, and other Microsoft 365 services with [just-in-time (JIT) access and just-enough-administration (JEA)](/azure/azure-australia/role-privileged). PIM provides a history of administrative activities and a change log, and alerts you when users are added or removed from roles you define.
-  
+
   You can use PIM to [require approval](/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings) or justification for activating administrative roles. Users can maintain normal privileges most of the time, and request and receive access to roles they need to complete administrative or specialized tasks. When they complete their work and sign out, or the time limit on their access expires, they can reauthenticate with their standard user permissions.
 
 - [Microsoft cloud app security (MCAS)](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) is a *cloud app security broker (CAS-B)* that analyzes traffic logs to discover and monitor the applications and services in use in your organization. With MCAS, you can:
@@ -87,13 +87,13 @@ Azure AD can use the following conditional access controls with conditional acce
   - Identify applications as [sanctioned or unsanctioned](/cloud-app-security/governance-discovery)
   - [Control and limit access to data](/cloud-app-security/governance-actions)
   - [Apply information protection](/cloud-app-security/azip-integration) to guard against information loss
-  
+
   MCAS can also work with [access policies](/cloud-app-security/access-policy-aad) and [session policies](/cloud-app-security/session-policy-aad) to control user access to SaaS apps. For example, you can:
   - [Limit the IP ranges](/azure/active-directory/conditional-access/location-condition) that can access apps
   - [Require MFA](/azure/active-directory/authentication/concept-mfa-howitworks) for app access
   - [Allow activities only from within approved apps](/azure/active-directory/conditional-access/app-based-conditional-access)
 
-- The [access control page in the SharePoint admin center](https://admin.microsoft.com/sharepoint?page=accessControl&modern=true) provides several ways to control access to SharePoint and OneDrive content. You can choose to [block access](/sharepoint/control-access-from-unmanaged-devices#block-access-using-the-new-sharepoint-admin-center), allow [limited, web-only access](/sharepoint/control-access-from-unmanaged-devices#limit-access-using-the-new-sharepoint-admin-center) from unmanaged devices, or [control access based on network location](/sharepoint/control-access-based-on-network-location). 
+- The [access control page in the SharePoint admin center](https://admin.microsoft.com/sharepoint?page=accessControl&modern=true) provides several ways to control access to SharePoint and OneDrive content. You can choose to [block access](/sharepoint/control-access-from-unmanaged-devices#block-access-using-the-new-sharepoint-admin-center), allow [limited, web-only access](/sharepoint/control-access-from-unmanaged-devices#limit-access-using-the-new-sharepoint-admin-center) from unmanaged devices, or [control access based on network location](/sharepoint/control-access-based-on-network-location).
 
 - You can [scope application permissions to specific Exchange Online mailboxes](/graph/auth-limit-mailbox-access) by using **ApplicationAccessPolicy** from the Microsoft Graph API.
 
@@ -119,7 +119,7 @@ You can route Azure AD log data to endpoints like:
 - Azure Storage accounts
 - [Azure Monitor logs](/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor)
 - [Azure event hubs](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
-- SIEM solutions like [Azure Sentinel](/azure/sentinel/quickstart-onboard), [ArcSight](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), [Splunk](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk), [SumoLogic](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic), [other external SIEM tools](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#partner-tools-with-azure-monitor-integration), or your own solution. 
+- SIEM solutions like [Azure Sentinel](/azure/sentinel/quickstart-onboard), [ArcSight](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), [Splunk](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk), [SumoLogic](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic), [other external SIEM tools](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#partner-tools-with-azure-monitor-integration), or your own solution.
 
 You can also use the Microsoft Graph [reporting API](/azure/active-directory/reports-monitoring/concept-reporting-api) to retrieve and consume Azure AD log data within your own scripts.
 
@@ -127,21 +127,21 @@ You can also use the Microsoft Graph [reporting API](/azure/active-directory/rep
 
 Authentication methods are key to securing your organization's identities in a hybrid scenario. Microsoft provides [specific guidance](/azure/security/fundamentals/choose-ad-authn) on choosing a hybrid authentication method with Azure AD.
 
-[Azure Advanced Threat Protection (AATP)](/azure-advanced-threat-protection/what-is-atp) can use your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions. AATP focuses on UEBA to identify insider threats and flag risk. Even if an identity becomes compromised, AATP can help identify the compromise based on unusual user behavior. 
+[Azure Advanced Threat Protection (AATP)](/azure-advanced-threat-protection/what-is-atp) can use your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions. AATP focuses on UEBA to identify insider threats and flag risk. Even if an identity becomes compromised, AATP can help identify the compromise based on unusual user behavior.
 
-AATP is [integrated with MCAS](/azure-advanced-threat-protection/atp-mcas-integration) to extend protection to cloud apps. You can use MCAS to create [session policies](/cloud-app-security/session-policy-aad#protect-download) that protect your files on download. For example, you may automatically set view-only permissions on any file downloaded by specific types of users. 
+AATP is [integrated with MCAS](/azure-advanced-threat-protection/atp-mcas-integration) to extend protection to cloud apps. You can use MCAS to create [session policies](/cloud-app-security/session-policy-aad#protect-download) that protect your files on download. For example, you may automatically set view-only permissions on any file downloaded by specific types of users.
 
-You can use AATP with [Azure Identity Protection](/azure/active-directory/identity-protection/) to help protect user identities that are synchronized to Azure with [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect). 
+You can use AATP with [Azure Identity Protection](/azure/active-directory/identity-protection/) to help protect user identities that are synchronized to Azure with [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect).
 
 Azure [Application Proxy](/azure/active-directory/manage-apps/application-proxy) lets users access on-premises web applications from remote clients. With Application Proxy, you can monitor all sign-in activities for your applications in one place. You can provide secure remote access to on-premises apps, and use Azure features like conditional access for these applications.
 
-If some of your apps already use an existing [delivery controller or network controller](/azure/active-directory/manage-apps/secure-hybrid-access) to provide off-network access, you can integrate them with Azure AD. Several partners including [Akamai](/azure/active-directory/saas-apps/akamai-tutorial), [Citrix](/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [F5 Networks](/azure/active-directory/saas-apps/headerf5-tutorial), and [Zscaler](/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial) offer solutions and guidance for integration with Azure AD 
+If some of your apps already use an existing [delivery controller or network controller](/azure/active-directory/manage-apps/secure-hybrid-access) to provide off-network access, you can integrate them with Azure AD. Several partners including [Akamai](/azure/active-directory/saas-apps/akamai-tutorial), [Citrix](/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [F5 Networks](/azure/active-directory/saas-apps/headerf5-tutorial), and [Zscaler](/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial) offer solutions and guidance for integration with Azure AD
 
 ## Pricing
 
 Azure Active Directory pricing ranges from free, for features like SSO and MFA, to Premium P2, for features like PIM and Entitlement Management. For pricing details, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## Next steps 
+## Next steps
 - [Zero Trust security](https://www.microsoft.com/security/business/zero-trust)
 - [Zero Trust Deployment Guide for Microsoft Azure Active Directory](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/)
 - [Overview of the security pillar](../../framework/security/overview.md)

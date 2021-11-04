@@ -7,7 +7,7 @@ Rapidly build engaging, performant, and scalable cross-platform and native apps 
 ![Architecture Diagram](../media/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.png)
 *Download an [SVG](../media/scalable-web-and-mobile-applications-using-azure-database-for-postgresql.svg) of this architecture.*
 
-## Components
+### Components
 
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)
 - [Azure App Services](https://azure.microsoft.com/services/app-service/)
@@ -21,6 +21,8 @@ Learn more about the component technologies:
 - [App Service overview](/azure/app-service/overview)
 - [What is Azure Database for PostgreSQL?](/azure/postgresql/overview)
 - [Tutorial: Deploy a Django web app with PostgreSQL in Azure App Service](/azure/app-service/tutorial-python-postgresql-app)
+
+## Related resources
 
 Explore related architectures:
 

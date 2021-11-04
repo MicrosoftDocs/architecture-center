@@ -17,10 +17,10 @@ keywords:
   - anti-pattern
   - performance testing
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - security
+  - management-and-governance
+  - security
 ---
 
 # Performance testing and antipatterns for cloud applications

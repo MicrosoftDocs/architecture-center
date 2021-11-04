@@ -74,9 +74,7 @@ The following assets and technologies were used to craft the Baseball Machine Le
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) is the software programming environment used for this project. This architecture uses cross-platform components, so either the Windows or Mac version can be used.
 
-- [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)
-    (a feature of [Azure Monitor](/azure/azure-monitor/overview)) can
-    be used for performance monitoring and analytics and to drive autoscaling.
+- [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) (a feature of [Azure Monitor](/azure/azure-monitor/overview)) can be used for performance monitoring and analytics and to drive autoscaling.
 
 ## Considerations
 
@@ -86,16 +84,13 @@ This solution uses the prediction engine functionality in ML.NET to scale the mo
 
 Azure App Service is used for hosting the workbench in the cloud. With App Service you can automatically scale the number of instances that run your app, letting you keep up with customer demand. For more information on autoscale, refer to [Autoscaling best practices](../../best-practices/auto-scaling.md) in the Azure Architecture Center.
 
-In Blazor Server, the state of many components might be maintained concurrently by the server. Because of this, memory exhaustion is a concern that must be addressed. For guidance on how to author a Blazor Server app to help ensure the best use of server memory, consult [Threat mitigation guidance for ASP.NET Core Blazor
-Server](/aspnet/core/security/blazor/server/threat-mitigation). Applying these best practices allows a server-side Blazor application to scale
-to thousands of concurrent users—even on relatively small server hosts.
+In Blazor Server, the state of many components might be maintained concurrently by the server. Because of this, memory exhaustion is a concern that must be addressed. For guidance on how to author a Blazor Server app to help ensure the best use of server memory, consult [Threat mitigation guidance for ASP.NET Core Blazor Server](/aspnet/core/security/blazor/server/threat-mitigation). Applying these best practices allows a server-side Blazor application to scale to thousands of concurrent users—even on relatively small server hosts.
 
 General guidance on designing scalable solutions is provided in the Azure Architecture Center's [Performance efficiency checklist](../../framework/scalability/performance-efficiency.md).
 
 ### Resiliency and support
 
-Use .NET Core 3.1.x because it is a Long Term Support (LTS) release. Although Blazor Server is also available in .NET Core 3.0, that is not an LTS release and
-thus continuing compatibility with future component updates is not assured. [Learn more about the .NET Core Support Policy.](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
+Use .NET Core 3.1.x because it is a Long Term Support (LTS) release. Although Blazor Server is also available in .NET Core 3.0, that is not an LTS release and thus continuing compatibility with future component updates is not assured. [Learn more about the .NET Core Support Policy.](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 
 ## Deploy this solution
 
@@ -105,11 +100,9 @@ All of the source code for this scenario is available in the [Baseball Machine L
 
 For online deployments, you must have an existing Azure account. If you need one, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-For deployment as an Azure application instance, you need the [Visual Studio 2019 IDE](https://visualstudio.microsoft.com/vs/) and you must have [Git installed
-locally](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+For deployment as an Azure application instance, you need the [Visual Studio 2019 IDE](https://visualstudio.microsoft.com/vs/) and you must have [Git installed locally](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-The historical baseball data used for the analysis and machine learning models comes from [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics), which is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-sa/3.0/). The Major League
-Baseball data itself is public domain.
+The historical baseball data used for the analysis and machine learning models comes from [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics), which is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-sa/3.0/). The Major League Baseball data itself is public domain.
 
 ### Deployment to Azure
 
@@ -117,10 +110,9 @@ Baseball data itself is public domain.
 
 2. Start by cloning the [workbench GitHub repository](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp):
 
-    ~~~Git
-    git clone
-    https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp.git
-    ~~~
+    ```git
+    git clone https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp.git
+    ```
 
 3. Follow the instructions provided in the [GETSTARTED.md file](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp/blob/master/GETSTARTED.md).
 

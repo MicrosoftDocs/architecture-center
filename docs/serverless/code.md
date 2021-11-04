@@ -361,7 +361,7 @@ catch (Exception ex)
     logger.LogError(ex, "Error deserializing message", message.SystemProperties.PartitionKey, message.SystemProperties.SequenceNumber);
     await deadLetterMessages.AddAsync(new DeadLetterMessage { Exception = ex, EventData = message });
 }
- ```
+```
 
 The dead-letter queue is defined using an [output binding](/azure/azure-functions/functions-bindings-storage-queue-output) to a storage queue:
 
@@ -526,8 +526,7 @@ There are several advantages of this approach:
 
 ## GetStatus function
 
-The other Functions app in this solution implements a simple REST API to get the last-known status of a drone.
-This function is defined in a class named `GetStatusFunction`. Here is the complete code for the function:
+The other Functions app in this solution implements a simple REST API to get the last-known status of a drone. This function is defined in a class named `GetStatusFunction`. Here is the complete code for the function:
 
 <!-- cSpell:ignore CosmosDB -->
 

@@ -1,6 +1,6 @@
 ---
 title: Governance considerations for secure deployment in Azure
-description: Governance for CI/CD pipelines to make sure right access and work is executed. 
+description: Governance for CI/CD pipelines to make sure right access and work is executed.
 author: PageWriter-MSFT
 ms.date: 03/26/2021
 ms.topic: conceptual
@@ -10,14 +10,14 @@ products:
   - azure-devops
 categories:
   - security
-subject: 
+subject:
   - security
 ---
 
 
 # Governance considerations for secure deployment in Azure
 
-The automated continuous integration, continuous delivery (CI/CD) processes must have built-in governance that authorize and authenticate the identities to do the tasks within a defined scope. 
+The automated continuous integration, continuous delivery (CI/CD) processes must have built-in governance that authorize and authenticate the identities to do the tasks within a defined scope.
 
 
 ## Key points
@@ -26,7 +26,7 @@ The automated continuous integration, continuous delivery (CI/CD) processes must
 > - Clearly define CI/CD roles and permissions.
 > - Implement just-in-time privileged access management.
 > - Limit long-standing write access to production environments.
-> - Limit the scope of execution in the pipelines. 
+> - Limit the scope of execution in the pipelines.
 > - Configure quality gate approvals in DevOps release process.
 
 
@@ -40,20 +40,20 @@ Minimize the number of people who have access to secure information or resources
 
     **How do you define CI/CD roles and permissions?**
     ***
-    
+
     Azure DevOps offers built-in roles that can be assigned to individual users of groups. If built-in roles are insufficient to define least privilege for a pipeline, consider creating custom Azure RBAC roles. Make sure those roles align with the action and the organization's teams and responsibilities.
-    
+
     To support security of your pipeline operations, you can add users to a built-in security group, set individual permissions for a user or group, or add users to pre-defined roles. You manage security for the following objects from Azure Pipelines in the web portal, either from the user or admin context.
 
     For more information, see [Get started with permissions, access, and security groups](/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page&preserve-view=true).
-    
+
 - For permissions, you grant or restrict permissions by setting the permission state to **Allow** or **Deny**, either for a security group or an individual user. For a role, you add a user or group to the role.
 
 - Use separate pipeline identities between pre-production and production environments. If available, take advantage of pipeline features such as Environments to encapsulate last-mile authentication external to the executing pipeline.
 
-- If the pipeline runs infrequently and has high privileges, consider removing standing permissions for that identity. Use just-in-time (JIT) role assignments, time-based, and approval-based role activation. This strategy will mitigate the risks of excessive, unnecessary, or misused access permissions on crucial resources. [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) supports all those modes of activation. 
+- If the pipeline runs infrequently and has high privileges, consider removing standing permissions for that identity. Use just-in-time (JIT) role assignments, time-based, and approval-based role activation. This strategy will mitigate the risks of excessive, unnecessary, or misused access permissions on crucial resources. [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) supports all those modes of activation.
 
-- Review the organization's CI/CD pipeline and refine role assignment to create a clear delineation between development and production responsibilities.  
+- Review the organization's CI/CD pipeline and refine role assignment to create a clear delineation between development and production responsibilities.
 
 **Learn more**
 
@@ -61,9 +61,9 @@ For more information about pipeline permission and security roles, reference [Se
 
 ## Execution scope
 
-Where practical, limit the scope of execution in the pipelines. 
+Where practical, limit the scope of execution in the pipelines.
 
-Consider creating a multi-stage pipeline. Divide the work into discrete units and that can be isolated in a separate pipeline. Limit the identities only to the scope of the unit so that it has minimal  privileges enough to do the action. For example, you can have two units, one to deploy and another that builds source code. Only allow the deploy unit to have access to the identity, not the build unit. If the build unit is compromised, it could start tampering with the infrastructure. 
+Consider creating a multi-stage pipeline. Divide the work into discrete units and that can be isolated in a separate pipeline. Limit the identities only to the scope of the unit so that it has minimal  privileges enough to do the action. For example, you can have two units, one to deploy and another that builds source code. Only allow the deploy unit to have access to the identity, not the build unit. If the build unit is compromised, it could start tampering with the infrastructure.
 
 ## Gated approval process
 

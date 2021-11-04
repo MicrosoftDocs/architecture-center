@@ -10,8 +10,8 @@ products:
   - azure-cost-management
   - azure-security-center
   - azure-monitor
-categories: 
-  - management-and-governance 
+categories:
+  - management-and-governance
 subject:
   - security
   - monitoring

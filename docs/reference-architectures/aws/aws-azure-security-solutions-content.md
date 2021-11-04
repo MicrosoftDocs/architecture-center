@@ -48,15 +48,15 @@ Connect both AWS and MCAS into Azure Sentinel to get MCAS alerts and run additio
 The following principles and guidelines are important for any cloud security solution:
 
 - Ensure that the organization can monitor, detect, and automatically protect user and programmatic access into cloud environments.
-  
+
 - Continually review current accounts to ensure identity and permission governance and control.
-  
+
 - Follow [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and [zero trust](https://www.microsoft.com/security/business/zero-trust) principles. Make sure that each user can access only the specific resources they require, from trusted devices and known locations. Reduce the permissions of every administrator and developer to provide only the rights they need for the role they're performing. Review regularly.
-  
+
 - Continuously monitor platform configuration changes, especially if they provide opportunities for privilege escalation or attack persistence.
-  
+
 - Prevent unauthorized data exfiltration by actively inspecting and controlling content.
-  
+
 - Take advantage of solutions you might already own like Azure AD Premium P2 that can increase security without additional expense.
 
 ### Basic AWS account security
@@ -77,16 +77,16 @@ To ensure basic security hygiene for AWS accounts and resources:
 To prepare for deployment of Azure security solutions, review and record current AWS and Azure AD account information. If you have more than one AWS account deployed, repeat these steps for each account.
 
 1. In the [AWS Billing Management Console](https://console.aws.amazon.com/billing/home?#/account), record the following current AWS account information:
-   
+
    - **AWS Account Id**, a unique identifier.
    - **Account Name** or root user.
    - **Payment method**, whether assigned to a credit card or a company billing agreement.
    - **Alternate contacts** who have access to AWS account information.
    - **Security questions** securely updated and recorded for emergency access.
    - **AWS regions** enabled or disabled to comply with data security policy.
-   
+
 1. In the [Azure Active Directory portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview), review the Azure AD tenant:
-   
+
    - Assess **Tenant information** to see whether the tenant has an Azure AD Premium P1 or P2 license. A P2 license provides [Advanced Azure AD identity management](aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) features.
    - Assess **Enterprise applications** to see whether any existing applications use the AWS application type, as shown by `http://aws.amazon.com/` in the **Homepage URL** column.
 
@@ -100,19 +100,21 @@ To deploy MCAS, you:
 
 1. Add an MCAS app connector for AWS.
 1. Configure MCAS monitoring policies for AWS activities.
+1. Create an Enterprise Application for Single Sign On to AWS
+1. Create a Conditional Acccess App Control Application in MCAS
 1. Configure Azure AD session policies for AWS activities.
 1. Test MCAS policies for AWS.
 
 ### Add an AWS app connector
 
 1. In the [MCAS portal](https://portal.cloudappsecurity.com), expand **Investigate** and then select **Connected apps**.
-   
+
 1. On the **App Connectors** page, select the **+** and then select **Amazon Web Services** from the list.
-   
+
 1. Use a unique name for the connector that includes an identifier for the company and specific AWS account, for example *Contoso-AWS-Account1*.
 
 1. Follow the instructions at [Connect AWS to Microsoft Cloud App Security](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security) to create an appropriate AWS IAM user.
-   
+
    1. Define a policy for restricted permissions.
    1. Create a service account to use those permissions on behalf of the MCAS service.
    1. Provide the credentials to the app connector.
@@ -128,26 +130,75 @@ Once the app connector is enabled, MCAS shows new templates and options in the p
 To implement policies using the templates:
 
 1. In the MCAS left navigation, expand **Control** and then select **Templates**.
-   
+
    :::image type="content" source="media/template-menu.png" alt-text="Screenshot of the MCAS left navigation with Templates selected.":::
-   
+
 1. Search for **aws** and review the available policy templates for AWS.
-   
+
    :::image type="content" source="media/policy-template.png" alt-text="Screenshot of the list of available AWS templates in MCAS.":::
-   
+
 1. To use a template, select the **+** to the right of the template item.
-   
+
 1. Each policy type has different options. Review the configuration and save the policy. Repeat for each of the templates.
-   
+
    :::image type="content" source="media/create-policy.png" alt-text="Screenshot of a file policy configuration screen.":::
-   
+
    To use File policies, make sure the file monitoring setting is enabled in MCAS settings:
-   
+
    :::image type="content" source="media/file-monitoring.png" alt-text="Screenshot showing File monitoring enabled in MCAS settings.":::
 
 As MCAS detects alerts, it displays them on the **Alerts** page in the MCAS portal:
 
 :::image type="content" source="media/alerts.png" alt-text="Screenshot showing alerts in the MCAS portal.":::
+
+### Create an Enterprise Application for Single Sign On to AWS
+
+Follow the instructions at [Tutorial: Azure Active Directory Single sign-on (SSO) integration with AWS Single Sign-on](/azure/active-directory/saas-apps/aws-single-sign-on-tutorial?WT.mc_id=wwc_spark) to create an enterprise application for single sign-on to AWS. 
+
+1. Add AWS Single Sign-on from the gallery.
+1. Configure and test Azure AD SSO for AWS Single Sign-on:
+   1. Configure Azure AD SSO.
+   1. Configure AWS Single Sign-on SSO.
+   1. Create an AWS Single Sign-on test user.
+   1. Test SSO.
+
+### Create a Conditional Acccess App Control Application in MCAS
+
+1. Go to [MCAS portal](https://portal.cloudappsecurity.com), select **Investigate**, and select **Connected Apps**.
+
+![Screenshot of selecting Investigate.](https://user-images.githubusercontent.com/90685955/135979376-3d25cce0-f234-4312-a86b-ca5af087b593.png)
+
+2. Select **Conditional Access App Control Apps**. Select **Add**.
+
+![Screenshot of adding conditional access app control.](https://user-images.githubusercontent.com/90685955/135979455-62a99612-16bc-461d-aca7-a01667727813.png)
+
+3.	In the **Search for an App** box, type **Amazon Web Services**, and then select the application. Select **Start Wizard**.
+
+![Screenshot of selecting Start Wizard.](https://user-images.githubusercontent.com/90685955/135981286-cc2315c8-c259-4a69-9e40-d80d7834b84c.png)
+
+4.	Select **Fill data manually**. Type the **Assertion consumer service URL** as shown below, and then click **Next**.
+
+![Screenshot of filling the data manually.](https://user-images.githubusercontent.com/90685955/135981414-a4dee7cf-12a9-4b7b-a952-c0d6a183f2bc.png)
+
+5.	Click **Next** (you don’t need to do anything in this step).
+
+![Screenshot of selecting Next.](https://user-images.githubusercontent.com/90685955/135982097-9f215a97-0b17-443b-b91a-ca084dc1281e.png)
+
+6.	Select **Fill in data manually**. Type the **Single sign-on service URL**, this is the Login URL for the **Enterprise Application** you created for **AWS**. Browse for the **Identity Providers** certificate, this is the certificate for the **Enterprise Application** you created, download it to your local device and upload it to the wizard. Select **Next**. 
+
+![Screenshot of browsing for the Identity Providers certificate.](https://user-images.githubusercontent.com/90685955/135982323-78cfdd54-9b93-4598-876d-afcf8c9148ed.png)
+
+7. Click **Next** (you don’t need to do anything in this step).  
+
+![Screenshot of selecting Next.](https://user-images.githubusercontent.com/90685955/135982877-63b6e8c3-3604-44d2-b98c-0c722b669427.png)
+
+8. Click **Finish** (you don’t need to do anything in this step).
+
+![Screenshot of selecting Finish.](https://user-images.githubusercontent.com/90685955/135986029-5000a25d-3b17-4a9e-9105-34080b693161.png)
+
+9.	Click **Close** (you don’t need to do anything in this step).  
+
+![Screenshot of selecting Close.](https://user-images.githubusercontent.com/90685955/135986146-f607b677-c5eb-4ef0-9a2a-3bff86a05022.png)
 
 ### Configure Azure AD session policies for AWS activities
 
@@ -161,25 +212,25 @@ Session policies are a powerful combination of Azure AD Conditional Access polic
    - **Cloud apps or actions**: Select the enterprise application you created earlier, **Contoso-AWS-Account 1**
    - **Session**: Select **Use Conditional Access App Control**
 1. Set **Enable policy** to **On**.
-   
+
    :::image type="content" source="media/session-controls.png" alt-text="Screenshot of the filled-out new policy form for session controls.":::
-   
+
 1. Select **Create**.
 
 After you create the Azure AD Conditional Access policy, set up an MCAS Session Policy to control user behavior during AWS sessions.
 
 1. In the MCAS portal, expand **Control** and then select **Policies**.
-   
+
 1. On the **Policies** page, select **Create policy** and then select **Session policy** from the list.
-   
+
    :::image type="content" source="media/session-policy.png" alt-text="Screenshot of the Create policy list.":::
-   
+
 1. On the **Create session policy** page, under **Policy template**, select **Block upload of potential malware (based on Microsoft Threat Intelligence)**.
-   
+
 1. In the **ACTIVITIES** section, modify the activity filter to include **App** equal to **Amazon Web Services**, and remove the default device selection.
-   
+
    :::image type="content" source="media/activity-source.png" alt-text="Screenshot of the Activities section of the Create session policy page.":::
-   
+
 1. Review the other settings, and then select **Create**.
 
 ### Test MCAS policies for AWS
@@ -205,19 +256,19 @@ After you enable the Azure Sentinel Connector for AWS, you can monitor AWS incid
 As with the MCAS configuration, this connection requires configuring AWS IAM to provide credentials and permissions.
 
 1. In AWS IAM, follow the steps at [Connect Azure Sentinel to AWS CloudTrail](/azure/sentinel/connect-aws).
-   
+
 1. To complete the configuration in the Azure portal, under **Azure Sentinel** > **Data connectors**, select the **Amazon Web Services** connector.
-   
+
    :::image type="content" source="media/aws-connector.png" alt-text="Screenshot of the Azure Sentinel Data connectors page showing the Amazon Web Services connector.":::
-   
+
 1. Select **Open connector page**.
-   
+
 1. Under **Configuration**, enter the Role ARN from the AWS IAM configuration in the **Role to add** field, and select **Add**.
-   
+
 1. Select **Next steps**, and select the **AWS Network Activities** and **AWS User Activities** activities to monitor.
-   
+
 1. Under **Relevant analytic templates**, select **Create rule** next to the AWS analytic templates you want to enable.
-   
+
 1. Set up each rule, and select **Create**.
 
 The following table shows the available rule templates for checking AWS entity behaviors and threat indicators. The rule names describe their purpose, and the potential data sources list the data sources each rule can use.

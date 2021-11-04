@@ -46,8 +46,7 @@ This solution applies to many areas:
 
 The following diagram shows the flow of data in this solution:
 
-- The boxes that contain multiple icons represent categories of
-services. Within each category, services work independently or together to provide functionality.
+- The boxes that contain multiple icons represent categories of services. Within each category, services work independently or together to provide functionality.
 - Arrows between boxes represent communication between the corresponding areas.
 
 :::image type="content" source="./media/smart-places-diagram.svg" alt-text="Diagram that illustrates the recommended architecture for a smart space solution." border="false" lightbox="./media/smart-places-diagram.svg":::
@@ -358,7 +357,7 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [IoT analytics with Azure Data Explorer]: ../../solution-ideas/articles/iot-azure-data-explorer.yml
 [IoT solutions conceptual overview]: ../../example-scenario/iot/introduction-to-solutions.yml
 [Microsoft Graph]: https://developer.microsoft.com/graph
-[Microsoft Power Apps on Azure]: https://azure.microsoft.com/products/powerapps
+[Microsoft Power Apps on Azure]: https://powerapps.microsoft.com
 [Microsoft Teams]: https://www.microsoft.com/microsoft-teams/group-chat-software
 [Overview of Azure IoT Device SDKs - Device capabilities]: /azure/iot-develop/about-iot-sdks#device-capabilities
 [Power Automate]: https://flow.microsoft.com

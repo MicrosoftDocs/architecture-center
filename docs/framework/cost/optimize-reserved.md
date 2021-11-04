@@ -11,7 +11,7 @@ ms.custom:
 ---
 
 # Reserved instances
-[Azure Reservations](/azure/cost-management-billing/reservations/) are offered on many services as a way to lower cost. You reserve a prepaid capacity for a period, generally one or three years. With reserved instances, there’s a significant discount when compared with pay-as-you-go pricing. You can pay up front or monthly, price wise both are same. 
+[Azure Reservations](/azure/cost-management-billing/reservations/) are offered on many services as a way to lower cost. You reserve a prepaid capacity for a period, generally one or three years. With reserved instances, there’s a significant discount when compared with pay-as-you-go pricing. You can pay up front or monthly, price wise both are same.
 
 ## Usage pattern
 Before opting for reserved instances, analyze the usage data with pay-as-you-go prices over a time duration.
@@ -30,5 +30,3 @@ Reservations can be applied to a specific scope—subscription, resource group, 
 Many services are eligible for reservations. This range covers virtual machines and a wide variety of managed services. For information about the services that are eligible for reservations, see [Charges covered by reservation](/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation).
 
 Certain subscriptions and offer types support reservations. For a list of such subscriptions, see [Discounted subscription and offer types](/azure/cost-management-billing/reservations/prepare-buy-reservation#discounted-subscription-and-offer-types).
-
-

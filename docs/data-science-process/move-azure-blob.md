@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -33,17 +35,17 @@ Which method is best for you depends on your scenario. The [Scenarios for advanc
 
 > [!NOTE]
 > For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](/azure/storage/blobs/storage-quickstart-blobs-dotnet) and to [Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts).
-> 
-> 
+>
+>
 
 ## Using Azure Data Factory
 
-As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to: 
+As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to:
 
-* create and schedule a pipeline that downloads data from Azure blob storage, 
-* pass it to a published Azure Machine Learning web service, 
-* receive the predictive analytics results, and 
-* upload the results to storage. 
+* create and schedule a pipeline that downloads data from Azure blob storage,
+* pass it to a published Azure Machine Learning web service,
+* receive the predictive analytics results, and
+* upload the results to storage.
 
 For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](/azure/data-factory/transform-data-using-machine-learning).
 

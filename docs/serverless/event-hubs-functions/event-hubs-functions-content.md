@@ -12,7 +12,7 @@ The following diagram shows the Event Hubs stream processing architecture:
 ### Events
 
 An event is a notification or state change that is represented as a fact that happened in the past. Events are immutable and persisted in an **event hub**, also referred to as a *topic* in [Kafka](https://kafka.apache.org/). An event hub is comprised of one or more
-[partitions](//azure/event-hubs/event-hubs-features#partitions).
+[partitions](/azure/event-hubs/event-hubs-features#partitions).
 
 ### Partitions
 
@@ -41,8 +41,7 @@ Each instance of an Event Hubs triggered function is backed by a single [EventPr
 For example, consider an event hub with the following characteristics:
 
 - 10 partitions.
-- 1,000 events distributed evenly all partitions, with a varying number of
-    messages in each partition.
+- 1,000 events distributed evenly all partitions, with a varying number of messages in each partition.
 
 When your function is first enabled, there's only one instance of the function. Let's call the first function instance `Function_1`. `Function_1` has a single instance of  [EventProcessorHost] that holds a lease on all 10 partitions. This instance is reading events from partitions 1-10. From this point forward, one of the following happens:
 

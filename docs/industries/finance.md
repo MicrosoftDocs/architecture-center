@@ -18,7 +18,8 @@ categories:
   - storage
   - databases
   - compute
-keywords: Azure
+keywords:
+  - Azure
 ---
 
 # Solutions for the finance industry

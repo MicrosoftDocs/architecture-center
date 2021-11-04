@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Citizen AI with the Power Platform
+  titleSuffix: Azure Example Scenarios
+  description: Learn how to user Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning (ML) proof of concept, and a production version.
+  author: vyasdev
+  ms.author: vyvenugo
+  ms.date: 10/06/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - ai-machine-learning
+  - developer-tools
+products:
+  - azure-machine-learning
+  - power-platform
+  - power-apps
+  - power-automate
+  - power-bi
+name: Citizen AI with the Power Platform
+summary: Learn how to user Azure Machine Learning and Microsoft Power Platform to quickly create a machine learning (ML) proof of concept, and a production version.
+thumbnailUrl: /azure/architecture/browse/thumbs/citizen-ai-power-platform.png
+content: |
+  [!include[](citizen-ai-power-platform-content.md)]

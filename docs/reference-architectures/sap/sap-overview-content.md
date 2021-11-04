@@ -117,12 +117,9 @@ On the database layer, production data can be replicated within the region or be
 
 When designing a resilient architecture for the database layer, consider the following aspects:
 
-- **Resiliency against data loss.** Designing for resiliency means recovering from data loss. That might mean recovering from a logical error on the SAP database, a large-scale disaster, or the loss of a complete Azure region. When designing for recoverability, it is necessary to understand the Recovery Point Objective (RPO) and Recovery Time Objective (RTO) of your SAP application.
-It is essential to carefully consider both availability and recoverability within the design of the SAP deployment architecture. This will protect your business from financial losses resulting in downtime and data loss.
+- **Resiliency against data loss.** Designing for resiliency means recovering from data loss. That might mean recovering from a logical error on the SAP database, a large-scale disaster, or the loss of a complete Azure region. When designing for recoverability, it is necessary to understand the Recovery Point Objective (RPO) and Recovery Time Objective (RTO) of your SAP application. It is essential to carefully consider both availability and recoverability within the design of the SAP deployment architecture. This will protect your business from financial losses resulting in downtime and data loss.
 
-- **Use of synchronous replication.** When there is a business need of RPO = 0, meaning no data loss in case of a failure, we need to consider synchronous replication on the database layer and design accordingly.  This results in a system where every transaction needs to be committed on at least both sides of the highly available databases.
-Latency between the two DBMS instances needs to be measured and considered carefully.  The higher the network latency, the more likely it will affect the scalability of your workload.
-This is especially important when deciding to use [Availability Zones](/azure/availability-zones/az-overview) where workloads can be separated in an Azure region in unique physical locations.  As the physical distance between these locations, so will the network latency.
+- **Use of synchronous replication.** When there is a business need of RPO = 0, meaning no data loss in case of a failure, we need to consider synchronous replication on the database layer and design accordingly.  This results in a system where every transaction needs to be committed on at least both sides of the highly available databases. Latency between the two DBMS instances needs to be measured and considered carefully.  The higher the network latency, the more likely it will affect the scalability of your workload. This is especially important when deciding to use [Availability Zones](/azure/availability-zones/az-overview) where workloads can be separated in an Azure region in unique physical locations.  As the physical distance between these locations, so will the network latency.
 
 For more information, see [General Azure Virtual Machines DBMS deployment for SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_general) and its listed recommendations per DBMS. 
 
@@ -210,8 +207,7 @@ SAP on Azure is delivered in the infrastructure as a service (IaaS) cloud model.
 For authentication, you can take advantage of [Azure Active Directory](/azure/active-directory/) (Azure AD) with SAML to sign on to your SAP [NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial) or [HANA](/azure/active-directory/saas-apps/saphana-tutorial), also use SSO for other SAP services like [Fiori Launchpad](/azure/active-directory/saas-apps/sap-fiori-tutorial), [SAP Cloud Platform](/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial), or [SuccessFactors](/azure/active-directory/saas-apps/successfactors-tutorial) can be configured. 
 
 [Network security groups](/azure/virtual-network/security-overview) (NSGs) allow you to filter network traffic to and from resources in your
-[virtual network](/azure/virtual-network/virtual-networks-overview). You can define NSG rules to allow or deny access to your SAP services—for
-instance, allowing access to the SAP application ports from on-premises IP addresses ranges and denying public internet access.
+[virtual network](/azure/virtual-network/virtual-networks-overview). You can define NSG rules to allow or deny access to your SAP services—for instance, allowing access to the SAP application ports from on-premises IP addresses ranges and denying public internet access.
 
 [Application security groups](/azure/virtual-network/application-security-groups) (ASG) should be used to make it easier to configure the network security. The ASG can be used in security rules instead of explicit IPs for VMs. And the VMs are then assigned to ASG. This will support the reuse of the same policy over different application landscapes, because of this abstraction layer. 
 

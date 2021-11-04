@@ -1,23 +1,23 @@
 ---
-  title: Getting started with Azure IoT solutions
-  titleSuffix: Azure Reference Architectures
-  description: An overview of Azure IoT architectures.  Learn basic concepts around getting started with Azure IoT, how to get started building an IoT solution, or understand how to optimize an IoT solution for production.
-  author: mcosner
-  manager: lizross
-  ms.service: architecture-center
-  ms.subservice: reference-architecture
-  ms.topic: conceptual
-  ms.date: 9/23/2021
-  ms.author: mcosner
-  ms.category:
-    - iot
-  ms.custom:
-    - internal-intro
-  categories:
-    - iot
-  products:
-    - azure-iot-hub
-    - azure-iot-central
+title: Getting started with Azure IoT solutions
+titleSuffix: Azure Reference Architectures
+description: An overview of Azure IoT architectures.  Learn basic concepts around getting started with Azure IoT, how to get started building an IoT solution, or understand how to optimize an IoT solution for production.
+author: mcosner
+manager: lizross
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.topic: conceptual
+ms.date: 9/23/2021
+ms.author: mcosner
+ms.category:
+  - iot
+ms.custom:
+  - internal-intro
+categories:
+  - iot
+products:
+  - azure-iot-hub
+  - azure-iot-central
 ---
 
 # Getting started with Azure IoT solutions

@@ -10,7 +10,7 @@ metadata:
   author: v-stacywray
   ms.author: v-stacywray
   manager: david-stanford
-  ms.date: 08/12/2021
+  ms.date: 10/07/2021
   ms.topic: landing-page
   ms.service: architecture-center
   ms.subservice: well-architected
@@ -45,7 +45,7 @@ landingContent:
         links:
           - text: Inside Azure Datacenter Architecture with Mark Russinovich
             url: https://www.youtube.com/watch?v=69PrhWQorEM
-  # Card 
+  # Card
   - title: Design for availability and resiliency
     linkLists:
       - linkListType: get-started
@@ -53,13 +53,13 @@ landingContent:
           - text: Consider target and non-functional requirements
             url: design-requirements.md
           - text: Use availability zones within a region
-            url: app-design.md#use-availability-zones-within-a-region   
+            url: app-design.md#use-availability-zones-within-a-region
           - text: Respond to failure
             url: app-design.md#respond-to-failure
           - text: Build resiliency with failure mode analysis
             url: design-resiliency.md#build-resiliency-with-failure-mode-analysis
           - text: Understand the impact of dependencies
-            url: design-resiliency.md#understand-the-impact-of-dependencies                      
+            url: design-resiliency.md#understand-the-impact-of-dependencies
       - linkListType: concept
         links:
           - text: Understand design best practices
@@ -86,7 +86,7 @@ landingContent:
           - text: Resiliency testing
             url: testing.md
           - text: Backup and disaster recovery
-            url: backup-and-recovery.md            
+            url: backup-and-recovery.md
           - text: Error handling
             url: app-design-error-handling.md
           - text: Chaos engineering
@@ -151,6 +151,19 @@ landingContent:
             url: /azure/backup/backup-create-rs-vault#set-storage-redundancy
           - text: Azure Site Recovery
             url: /azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery
+# Card
+  - title: Region and availability zone fundamentals
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Achieve reliability through regions and availability zones
+            url: /azure/availability-zones/az-overview
+          - text: Understand service offerings across region types
+            url: /azure/availability-zones/region-types-service-categories-azure
+          - text: Consider Azure services that support availability zones
+            url: /azure/availability-zones/az-region
+          - text: Understand region and availability zone terminology
+            url: /azure/availability-zones/glossary 
  # Card
   - title: Reliability APIs
     linkLists:
