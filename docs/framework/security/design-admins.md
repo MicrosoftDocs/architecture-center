@@ -33,9 +33,9 @@ Microsoft's recommended core strategy for administrative privileges is to use th
 **Reduce risk exposure (scope and time):** The principle of least privilege is best accomplished with modern controls that provide privileges on demand.
     This help to limit risk by limiting administrative privileges exposure by:
 
-- **Scope:** *Just Enough Access (JEA)* provides only the required privileges for the administrative operation required (vs. having direct and immediate privileges to many or all systems at a time, which is almost never required).
+- **Scope:** *Just enough access (JEA)* provides only the required privileges for the administrative operation required (vs. having direct and immediate privileges to many or all systems at a time, which is almost never required).
 
-- **Time:** *Just in Time (JIT)* approaches provided the required privileged as they are needed.
+- **Time:** *Just in time (JIT)* approaches provided the required privileged as they are needed.
 
 - **Mitigate the remaining risks:** Use a combination of preventive and detective controls to reduce risks such as isolating administrator accounts from the most common risks phishing and general web browsing, simplifying and optimizing their workflow, increasing assurance of authentication decisions, and identifying anomalies from normal baseline behavior that can be blocked or investigated.
 
@@ -74,7 +74,7 @@ Phishing and web browser attacks represent the most common attack vectors to com
 
 Create a separate administrative account for all users that have a role requiring critical privileges. For these administrative accounts, block productivity tools like Office 365 email (remove license). If possible, block arbitrary web browsing (with proxy and/or application controls) while allowing exceptions for browsing to the Azure portal and other sites required for administrative tasks.
 
-## No standing access / Just in Time privileges
+## No standing access / just in time privileges
 
 Avoid providing permanent "standing" access for any critical impact accounts
 
@@ -82,7 +82,7 @@ Permanent privileges increase business risk by increasing the time an attacker c
 
 Grant privileges required only as required using one of these methods:
 
-- **Just in Time:** Enable Azure AD Privileged Identity Management (PIM) or a third party solution to require following an approval workflow to obtain privileges for critical impact accounts
+- **Just in time:** Enable Azure AD Privileged Identity Management (PIM) or a third party solution to require following an approval workflow to obtain privileges for critical impact accounts
 
 - **Break glass:** For rarely used accounts, follow an emergency access process to gain access to the accounts. This is preferred for privileges that have little need for regular operational usage like members of global admin accounts.
 
