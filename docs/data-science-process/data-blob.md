@@ -106,7 +106,7 @@ Here are a few examples of ways to explore data using Pandas:
     dataframe_blobdata_noNA.shape
     ```
 
-   Another way to replace missing values is with the mode function:
+    Another way to replace missing values is with the mode function:
 
     ```python
     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})  
