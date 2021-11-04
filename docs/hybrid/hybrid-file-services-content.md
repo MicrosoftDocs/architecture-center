@@ -157,3 +157,16 @@ For more information on how to configure Azure File Sync with a proxy server, re
 [Azure Storage Overview pricing]: https://azure.microsoft.com/pricing/details/storage/
 [Bandwidth Pricing Details]: https://azure.microsoft.com/pricing/details/data-transfers/
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/?scenario=data-management
+
+## Next steps
+
+Learn more about the component technologies:
+
+- [What is Azure File Sync?](/azure/storage/file-sync/file-sync-introduction)
+- [How is Azure File Sync billed?](/azure/storage/files/understanding-billing?toc=/azure/storage/file-sync/toc.json#azure-file-sync)
+- [How to plan for Azure File Sync Deployment?](/azure/storage/file-sync/file-sync-planning)
+- [How to deploy Azure File Sync?](/azure/storage/file-sync/file-sync-deployment-guide)
+- [Azure File Sync network consideration.](/azure/storage/file-sync/file-sync-networking-overview)
+- [What is Cloud Tiering?](/azure/storage/file-sync/file-sync-cloud-tiering-overview)
+- [What disaster recovery option are available in Azure File Sync?](/azure/storage/file-sync/file-sync-disaster-recovery-best-practices)
+- [How to backup Azure File Sync?](/azure/storage/file-sync/file-sync-disaster-recovery-best-practices)

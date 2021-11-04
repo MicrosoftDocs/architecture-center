@@ -146,7 +146,7 @@ The data should now be in Blob storage, and ready to be consumed within the HDIn
 
 To access the head node of the cluster for exploratory data analysis and down-sampling of the data, follow the procedure outlined in [Access the head node of Hadoop Cluster](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql).
 
-In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in '.hql' files. We then down-sample this data to be used within Machine Learning for building models.
+In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in `.hql` files. We then down-sample this data to be used within Machine Learning for building models.
 
 To prepare the cluster for exploratory data analysis, download the '.hql' files containing the relevant Hive scripts from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) to a local directory (C:\temp) on the head node. Open the command prompt from within the head node of the cluster, and run the following two commands:
 
@@ -156,13 +156,12 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-These two commands download all '.hql' files needed in this walkthrough to the local directory ***C:\temp&#92;*** in the head node.
+These two commands download all `.hql` files needed in this walkthrough to the local directory `C:\temp\` in the head node.
 
 ## <a name="#hive-db-tables"></a>Create Hive database and tables partitioned by month
+
 > [!NOTE]
-> This task is typically for an admin.
->
->
+> This task is typically performed by an administrator.
 
 You are now ready to create Hive tables for the NYC taxi dataset. In the head node of the Hadoop cluster, open the Hadoop command line on the desktop of the head node. Enter the Hive directory by running the following command:
 

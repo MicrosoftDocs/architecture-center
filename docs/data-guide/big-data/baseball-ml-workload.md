@@ -110,9 +110,9 @@ The historical baseball data used for the analysis and machine learning models c
 
 2. Start by cloning the [workbench GitHub repository](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp):
 
-    ~~~Git
+    ```git
     git clone https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp.git
-    ~~~
+    ```
 
 3. Follow the instructions provided in the [GETSTARTED.md file](https://github.com/bartczernicki/MachineLearning-BaseballPrediction-BlazorApp/blob/master/GETSTARTED.md).
 
