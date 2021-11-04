@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Loosely coupled quantum computing job
+  titleSuffix: Azure Example Scenarios
+  description: Submit and monitor quantum computing jobs running in an Azure Quantum Workspace from your classic application via RESTful API implemented via Azure Functions.
+  author: hsirtl
+  ms.author: hsirtl
+  ms.date: 11/04/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - compute
+products:
+  - azure-quantum
+  - azure-api-management
+  - azure-functions
+name: Loosely coupled quantum computing job
+summary: Submit and monitor quantum computing jobs running in an Azure Quantum Workspace from your classic application via RESTful API implemented via Azure Functions.
+thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+content: |
+  [!include[](tightly-coupled-quantum-computing-job-content.md)]
