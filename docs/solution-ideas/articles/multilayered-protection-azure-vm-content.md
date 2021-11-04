@@ -1,6 +1,6 @@
 This solution provides a multilayered approach for protecting virtual machines (VMs) in Azure. Users need to connect to VMs for management and administrative purposes. But it's critical to minimize the attack surface that connectivity creates.
 
-To reduce exposure to attacks, this solution locks down inbound traffic to VMs. But it also provides easy access to VMs when needed. By incorporating several protection mechanisms, this solution achieves non-persistent granular access to VMs. It aligns with the principle of least privilege and the concept of separation of duties. This level of protection minimizes the risk of many popular cyber attacks on VMs, such as brute-force attacks and distributed denial-of-service (DDoS) attacks.
+By incorporating several protection mechanisms, this solution achieves non-persistent granular access to VMs. This approach aligns with the *principle of least privilege (PoLP)* and the concept of *separation of duties*. To reduce exposure to attacks, this solution locks down inbound traffic to VMs. But VM connections are accessible when needed. Implementing this level of protection minimizes the risk of many popular cyber attacks on VMs, such as brute-force attacks and distributed denial-of-service (DDoS) attacks.
 
 This solution uses many Azure services and features including:
 
@@ -19,14 +19,29 @@ This solution uses many Azure services and features including:
 - Communication is secure.
 - Access to VMs in Azure is only provided when needed.
 
-In a production environment, after you've deployed your workloads on Azure infrastructure as a service (IaaS) VMs, eliminate unnecessary exposure to your VMs and Azure assets.
+This solution applies to many scenarios:
 
-These other uses cases have similar design patterns:
+- An administrator needs to access an Azure VM under these circumstances:
 
-- Situations in which VMs are running in Azure and an administrator needs to access a VM. The administrator uses Remote Desktop Protocol (RDP) to access a Windows VM or secure shell (SSH) to access a Linux VM. The access is needed to troubleshoot an issue, investigate behavior, or apply a critical update. The administrator should receive the minimum number of permissions that the work requires. The access should only work for a limited time. After the access expires, the system should lock down the VM access to prevent malicious access attempts.
-- Companies with employees who need access to a remote workstation that is hosted in Azure as a VM. The employees should only access the VM during work hours. Requests to access the VM outside work hours should be considered unnecessary and malicious.
-- Networks in which users would like to connect to Azure VM workloads. The system should only approve connections from managed and compliant devices.
-- Systems that have experienced a tremendous number of brute-force attacks. These attacks have targeted VMs in Azure on RDP and SSH ports 3389 and 22 and have tried to guess the credentials. The solution should prevent access ports such as 3389 and 22 from being exposed to the internet or on-premises environments.
+  - The administrator needs to troubleshoot an issue, investigate behavior, or apply a critical update.
+  - The administrator uses Remote Desktop Protocol (RDP) to access a Windows VM or secure shell (SSH) to access a Linux VM.
+  - The access should include the minimum number of permissions that the work requires.
+  - The access should be valid for only a limited time.
+  - After the access expires, the system should lock down the VM access to prevent malicious access attempts.
+
+- Employees need access to a remote workstation that's hosted in Azure as a VM. These conditions apply:
+
+  - The employees should access the VM only during work hours.
+  - The security system should consider requests to access the VM outside work hours unnecessary and malicious.
+
+- Users would like to connect to Azure VM workloads. The system should approve connections that are only from managed and compliant devices.
+
+- A system has experienced a tremendous number of brute-force attacks:
+
+  - These attacks have targeted Azure VMs on RDP and SSH ports 3389 and 22.
+  - The attacks have tried to guess the credentials.
+  - The solution should prevent access ports such as 3389 and 22 from being exposed to the internet or on-premises environments.
+
 
 ## Architecture
 
@@ -34,31 +49,23 @@ These other uses cases have similar design patterns:
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
-1. **Authentication and access decisions**: The user is authenticated against Azure AD for access to the Azure portal, Azure REST APIs, Azure PowerShell or the Azure CLI. If authentication is successful, an Azure AD Conditional Access policy takes effect. That policy verifies whether the user meets certain criteria. Examples include using a managed device or signing in from a known location. If the user fulfills the criteria, Conditional Access grants the user access to Azure through the Azure portal or another interface.
+1. **Authentication and access decisions**: The user is authenticated against Azure AD for access to the Azure portal, Azure REST APIs, Azure PowerShell, or the Azure CLI. If authentication is successful, an Azure AD Conditional Access policy takes effect. That policy verifies whether the user meets certain criteria. Examples include using a managed device or signing in from a known location. If the user fulfills the criteria, Conditional Access grants the user access to Azure through the Azure portal or another interface.
 
-1. **Identity-based just-in-time access**: During the authorization process, the user gets a custom role assignment of type *eligible* through Azure AD PIM. With this type of role, the user needs to activate the role to access the protected resources. The eligibility is not *permanent*. Instead, it's *time-bound*, meaning the user can only activate the role within specified start and end dates.
+1. **Identity-based just-in-time access**: During authorization, Azure AD PIM assigns the user an *eligible* custom role. The eligibility is limited to required resources and is *time-bound*, not *permanent*. Within a specified time frame, the user requests activation of this role through the Azure PIM interface. That request can trigger other actions. Examples include starting an approval workflow or prompting the user for multifactor authentication to verify identity. In an approval workflow, another person needs to approve the request. Otherwise the user isn't assigned the custom role and can't continue to the next step.
 
-   With this custom role, the user can access only the resources that are required for the user's purpose. For example, to access a VM, the user would get permissions for:
-
-   - Using Azure Bastion.
-   - Requesting JIT VM access in Defender for Cloud.
-   - Reading or listing VMs.
-
-   The user requests activation of the custom role through the Azure PIM interface. That request can trigger other actions. Examples include starting an approval workflow or prompting the user for multifactor authentication to verify identity. In an approval workflow, another person needs to approve the request. Otherwise the user isn't assigned the custom role and can't proceed to the next step.
-
-1. **Network based just-in-time access**: After authentication and authorization, the custom role is temporarily linked to the user's identity. The user can then request JIT VM access. That access opens a connection from the Azure Bastion subnet on port 3389 for RDP or port 22 for SSH. The connection runs directly to the VM network interface card (NIC) or the VM NIC subnet. By using that connection, Azure Bastion can open an internal RDP session that's limited to the Azure virtual network and isn't exposed to the public internet.
-
-   When you configure Azure Bastion in an Azure virtual network, you need to set up a separate subnet called `AzureBastionSubnet`. You can then associate a network security group with that subnet. In that group, you can specify a source for HTTPS, or port 443, traffic such as the user's on-premises IP classless inter-domain routing (CIDR) block. By using this configuration, you block connections that don't come from the user's on-premises environment.
+1. **Network based just-in-time access**: After authentication and authorization, the custom role is temporarily linked to the user's identity. The user then requests JIT VM access. That access opens a connection from the Azure Bastion subnet on port 3389 for RDP or port 22 for SSH. The connection runs directly to the VM network interface card (NIC) or the VM NIC subnet. By using that connection, Azure Bastion opens an internal RDP session. The session is limited to the Azure virtual network and isn't exposed to the public internet.
 
 1. **Connecting to the Azure VM**: By using a temporary token, the user accesses Azure Bastion. Through this service, the user establishes an indirect RDP connection to the Azure VM. The connection only works for a limited amount of time.
 
-### Components
+## Components
 
 This solution uses the following components:
 
+- [Azure Virtual Machines][Azure Virtual Machines] is an infrastructure-as-a-service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. In production environments that use this solution, deploy your workloads on Azure VMs. Then eliminate unnecessary exposure to your VMs and Azure assets.
+
 - [Azure AD][Azure AD] is a cloud-based identity service that controls access to Azure and other cloud apps.
 
-- [PIM][Privileged Identity Management (PIM)] is an Azure AD service that you can use to manage, control, and monitor access to important resources. In this solution, this service:
+- [PIM][Privileged Identity Management (PIM)] is an Azure AD service that manages, controls, and monitors access to important resources. In this solution, this service:
 
   - Limits permanent administrator access to standard and custom privileged roles.
   - Provides just-in-time identity-based access to custom roles.
@@ -67,11 +74,17 @@ This solution uses the following components:
 
 - [Azure RBAC][Azure RBAC] is an authorization system that provides fine-grained access management of Azure resources.
 
-- [Azure RBAC custom roles][Azure RBAC custom roles] provide a way to expand on Azure RBAC built-in roles. You can use them to assign permissions at levels that meet your organization's needs. These roles support the principle of least privilege. They grant only the permissions that a user needs for the user's purpose.
+- [Azure RBAC custom roles][Azure RBAC custom roles] provide a way to expand on Azure RBAC built-in roles. You can use them to assign permissions at levels that meet your organization's needs. These roles support PoLP. They grant only the permissions that a user needs for the user's purpose. To access a VM in this solution, the user gets permissions for:
+
+  - Using Azure Bastion.
+  - Requesting JIT VM access in Defender for Cloud.
+  - Reading or listing VMs.
 
 - [Azure AD Conditional Access][Azure AD Conditional Access] is a tool that Azure AD uses to control access to resources. Conditional Access policies support the [zero trust][Zero Trust] security model. In this solution, the policies ensure that only authenticated users get access to Azure resources.
 
-- [Azure Bastion][Azure Bastion] provides secure and seamless RDP and SSH connectivity to VMs in a network. In this solution, Azure Bastion connects users who use an internet browser like Microsoft Edge for HTTPS, or secured traffic on port 443. Azure Bastion initiates the RDP connection to the VM. RDP and SSH ports aren't exposed to the internet or the user's origin. Azure Bastion is optional in this architecture. By using the RDP protocol, users can connect directly to Azure VMs.
+- [Azure Bastion][Azure Bastion] provides secure and seamless RDP and SSH connectivity to VMs in a network. In this solution, Azure Bastion connects users who use an internet browser, such as Microsoft Edge, for HTTPS, or secured traffic on port 443. Azure Bastion sets up the RDP connection to the VM. RDP and SSH ports aren't exposed to the internet or the user's origin.
+
+  Azure Bastion is optional in this solution. By using the RDP protocol, users can connect directly to Azure VMs. If you do configure Azure Bastion in an Azure virtual network, set up a separate subnet called `AzureBastionSubnet`. Then associate a network security group with that subnet. In that group, specify a source for HTTPS traffic such as the user's on-premises IP classless inter-domain routing (CIDR) block. By using this configuration, you block connections that don't come from the user's on-premises environment.
 
 ## Next steps
 
@@ -86,19 +99,20 @@ This solution uses the following components:
 - [Security considerations for highly sensitive IaaS apps in Azure][Security considerations for highly sensitive IaaS apps in Azure]
 - [Azure Active Directory IDaaS in Security Operations][Azure Active Directory IDaaS in Security Operations]
 
-[Activate my Azure resource roles in Privileged Identity Management]: https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles
-[Azure Active Directory IDaaS in Security Operations]: /azure/architecture/example-scenario/aadsec/azure-ad-security
-[Azure AD]: https://azure.microsoft.com/en-us/services/active-directory/
-[Azure AD Conditional Access]: https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview
-[Azure Bastion]: https://docs.microsoft.com/en-us/azure/bastion
-[Azure RBAC]: https://docs.microsoft.com/en-us/azure/role-based-access-control/overview
-[Azure RBAC custom roles]: https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles
-[Configure Bastion and connect to a Windows VM through a browser]: https://docs.microsoft.com/en-us/azure/bastion/tutorial-create-host-portal
-[Hybrid Security Monitoring using Azure Security Center and Azure Sentinel]: /azure/architecture/hybrid/hybrid-security-monitoring
-[Just-in-time (JIT) VM access]: https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time
-[Privileged Identity Management (PIM)]: https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management
-[Understanding just-in-time (JIT) VM access]: https://docs.microsoft.com/en-us/azure/security-center/just-in-time-explained
-[Secure user sign-in events with Azure AD Multi-Factor Authentication]: https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-azure-mfa
-[Security considerations for highly sensitive IaaS apps in Azure]: /azure/architecture/reference-architectures/n-tier/high-security-iaas
+[Activate my Azure resource roles in Privileged Identity Management]: /azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles
+[Azure Active Directory IDaaS in Security Operations]: ../../example-scenario/aadsec/azure-ad-security.yml
+[Azure AD]: https://azure.microsoft.com/services/active-directory
+[Azure AD Conditional Access]: /azure/active-directory/conditional-access/overview
+[Azure Bastion]: /azure/bastion
+[Azure RBAC]: /azure/role-based-access-control/overview
+[Azure RBAC custom roles]: /azure/role-based-access-control/custom-roles
+[Azure Virtual Machines]: https://azure.microsoft.com/services/virtual-machines
+[Configure Bastion and connect to a Windows VM through a browser]: /azure/bastion/tutorial-create-host-portal
+[Hybrid Security Monitoring using Azure Security Center and Azure Sentinel]: ../../hybrid/hybrid-security-monitoring.yml
+[Just-in-time (JIT) VM access]: /azure/security-center/security-center-just-in-time
+[Privileged Identity Management (PIM)]: /azure/active-directory/privileged-identity-management
+[Understanding just-in-time (JIT) VM access]: /azure/security-center/just-in-time-explained
+[Secure user sign-in events with Azure AD Multi-Factor Authentication]: /azure/active-directory/authentication/tutorial-enable-azure-mfa
+[Security considerations for highly sensitive IaaS apps in Azure]: ../../reference-architectures/n-tier/high-security-iaas.yml
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1880866-multilayered-protection-azure-vm-architecture-diagram.vsdx
-[Zero Trust]: https://www.microsoft.com/en-us/security/business/zero-trust
+[Zero Trust]: https://www.microsoft.com/security/business/zero-trust

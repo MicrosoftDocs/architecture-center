@@ -2,7 +2,7 @@
 metadata:
   title: Multilayered protection for Azure virtual machine access
   titleSuffix: Azure Solution Ideas
-  description: Protect Azure VMs by implementing two types of just-in-time access. Align with security principles like defense in depth, least privilige, and zero trust.
+  description: Protect Azure VMs by implementing two types of just-in-time access. Align with security principles like defense in depth, least privilege, and zero trust.
   author: husamhilal
   ms.author: huhilal
   ms.date: 11/05/2021
