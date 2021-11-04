@@ -86,7 +86,7 @@ availability and disaster recovery can solve these issues.
 
 ### Kubernetes and RabbitMQ for datacenter-agnostic deployments
 
-[ ![Screenshot of Kubernetes and RabbitMQ deployed on an Azure IoT Edge device.](./media/automated-guided-vehicles-fleet-control-02.png) ](./media/automated-guided-vehicles-fleet-control-02.png)
+[ ![Screenshot of Kubernetes and RabbitMQ deployed on an Azure IoT Edge device.](./media/automated-guided-vehicles-fleet-control-02.png) ](./media/automated-guided-vehicles-fleet-control-02.png#lightbox)
 
 In scenarios where the internet connection between a production plant and Azure
 is a limiting factor, our AGV control software can also be deployed to
@@ -96,7 +96,7 @@ deployed on an Azure IoT Edge device.
 
 ### Implementation of the VDA 5050 specification for AGV-vendor-agnostic communication
 
-[ ![Screenshot of the back-end AGV fleet control solution in Azure.](./media/automated-guided-vehicles-fleet-control-03.png) ](./media/automated-guided-vehicles-fleet-control-02.png)
+[ ![Screenshot of the back-end AGV fleet control solution in Azure.](./media/automated-guided-vehicles-fleet-control-03.png) ](./media/automated-guided-vehicles-fleet-control-02.png#lightbox)
 
 Thanks to compliance with the [VDA 5050 vehicle connector specification](https://en.vda.de/en/services/Publications/vda-5050-v-1.1.-agv-communication-interface.html), our AGV control software can communicate with all types of AGVs from different vendors that also comply with VDA 5050.
 
