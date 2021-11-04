@@ -22,7 +22,7 @@ ms.custom:
 
 # Architectural approaches for cost management and allocation in a multitenant solution
 
-Multitenant solutions often require special consideration when you measure and allocate costs, and when you optimize costs. On this page, we describe some key guidance about the measurement, allocation, and optimization of costs for a multitenant application.
+Multitenant solutions often require special consideration when you measure and allocate costs, and when you optimize costs. On this page, we describe some key guidance for solution architects to consider about the measurement, allocation, and optimization of costs for a multitenant application.
 
 ## Key considerations and requirements
 
