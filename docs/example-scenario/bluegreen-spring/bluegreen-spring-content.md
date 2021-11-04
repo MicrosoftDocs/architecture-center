@@ -14,7 +14,7 @@ In the article, we will focus on Azure Spring Cloud as a service for making blue
 
 ## Potential use cases
 
-This solution benefits any organizations that want to enable zero downtime deployments. 
+This solution benefits any organizations for whom application availability is an important factor. They can improve their availability by utilizing zero downtime deployments. The solution is especially suitable for industries like e-commerce and gaming where downtime can lead to loss of experience and revenue. Although the general principles apply to industries overall, where a constant availability of an application for the end-user is important.
 
 ## Architecture
 
