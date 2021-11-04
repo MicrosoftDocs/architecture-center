@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Multilayered protection for Azure virtual machine access
+  title: Multilayered protection for Azure virtual machines
   titleSuffix: Azure Solution Ideas
   description: Protect Azure VMs by implementing two types of just-in-time access. Align with security principles like defense in depth, least privilege, and zero trust.
   author: husamhilal
