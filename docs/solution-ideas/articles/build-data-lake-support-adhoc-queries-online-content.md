@@ -81,7 +81,7 @@ approaches offer:
     approach is more immediate, but attention should be paid to the combined
     effect of data size, performance requirements, and update frequency,
     especially from a cost perspective.
--   Contrary to using a delta lake, using a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
+-   Contrary to using a delta lake, using a [lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
     keeps real-time data in a different repository than the historical data, and
     your client runs the logic to make heterogeneous queries transparent to the
     user. The advantage of this solution is the larger set of services that you
