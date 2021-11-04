@@ -25,6 +25,7 @@ This walkthrough demonstrates how to use the Team Data Science Process in an end
 It is also possible to use an IPython notebook to accomplish the tasks presented in this walkthrough. Users who would like to try this approach should consult the [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) topic.
 
 ## <a name="dataset"></a>Criteo Dataset Description
+
 The Criteo data is a click prediction dataset that is 370 GB of gzip compressed TSV files (~1.3 TB uncompressed), comprising more than 4.3 billion records. It is taken from 24 days of click data made available by [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). For the convenience of data scientists, the data available to us to experiment with has been unzipped.
 
 Each record in this dataset contains 40 columns:
@@ -33,21 +34,24 @@ Each record in this dataset contains 40 columns:
 * next 13 columns are numeric, and
 * last 26 are categorical columns
 
-The columns are anonymized and use a series of enumerated names: "Col1" (for the label column) to 'Col40" (for the last categorical column).
+The columns are anonymized and use a series of enumerated names: `Col1` (for the label column) to `Col40` (for the last categorical column).
 
 Here is an excerpt of the first 20 columns of two observations (rows) from this dataset:
 
-> `Col1    Col2    Col3    Col4    Col5    Col6    Col7    Col8    Col9    Col10    Col11    Col12    Col13    Col14    Col15            Col16            Col17            Col18            Col19        Col20`
->
-> `0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb`
->
-> `0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb`
+```output
+Col1    Col2    Col3    Col4    Col5    Col6    Col7    Col8    Col9    Col10    Col11    Col12    Col13    Col14    Col15            Col16            Col17            Col18            Col19        Col20
+
+0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb
+
+0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb
+```
 
 There are missing values in both the numeric and categorical columns in this dataset. A simple method for handling the missing values is described. Additional details of the data are explored when storing them into Hive tables.
 
 **Definition:** *Clickthrough rate (CTR):* This metric is the percentage of clicks in the data. In this Criteo dataset, the CTR is about 3.3% or 0.033.
 
 ## <a name="mltasks"></a>Examples of prediction tasks
+
 Two sample prediction problems are addressed in this walkthrough:
 
 1. **Binary classification**: Predicts whether a user clicked an add:
@@ -57,19 +61,23 @@ Two sample prediction problems are addressed in this walkthrough:
 2. **Regression**: Predicts the probability of an ad click from user features.
 
 ## <a name="setup"></a>Set Up an HDInsight Hadoop cluster for data science
+
 > [!NOTE]
 > This step is typically an **Admin** task.
 
 Set up your Azure Data Science environment for building predictive analytics solutions with HDInsight clusters in three steps:
 
 1. [Create a storage account](/azure/storage/common/storage-account-create): This storage account is used to store data in Azure Blob Storage. The data used in HDInsight clusters is stored here.
+
 2. [Customize Azure HDInsight Hadoop Clusters for Data Science](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql): This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps (described in this topic) to complete when customizing the HDInsight cluster.
 
    * Link the storage account created in step 1 with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
    * Enable Remote Access to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from the credentials specified at cluster creation): complete the following procedures.
+
 3. [Create an Azure Machine Learning Studio (classic) workspace](/azure/machine-learning/classic/create-workspace): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
 
 ## <a name="getdata"></a>Get and consume data from a public source
+
 The [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset can be accessed by clicking on the link, accepting the terms of use, and providing a name. A snapshot is shown here:
 
 ![Accept Criteo terms](./media/hive-criteo-walkthrough/hLxfI2E.png)
@@ -88,6 +96,7 @@ The data resides in an [Azure blob storage](/azure/storage/blobs/storage-quickst
 An alternative approach to access, explore, and model this data that does not require any local downloads is explained later in this walkthrough when we create Hive tables.
 
 ## <a name="login"></a>Log in to the cluster headnode
+
 To log in to the headnode of the cluster, use the [Azure portal](https://ms.portal.azure.com) to locate the cluster. Click the HDInsight elephant icon on the left and then double-click the name of your cluster. Navigate to the **Configuration** tab, double-click the CONNECT icon on the bottom of the page, and enter your remote access credentials when prompted, taking you to the headnode of the cluster.
 
 Here is what a typical first login to the cluster headnode looks like:
@@ -99,6 +108,7 @@ On the left is the "Hadoop Command Line", which is our workhorse for the data ex
 Now you are set up and ready to begin first part of the walkthrough: data exploration using Hive and getting data ready for Azure Machine Learning.
 
 ## <a name="hive-db-tables"></a> Create Hive database and tables
+
 To create Hive tables for our Criteo dataset, open the ***Hadoop Command Line*** on the desktop of the head node, and enter the Hive directory by entering the command
 
 ```console
@@ -124,7 +134,7 @@ The following code creates a database "criteo" and then generates four tables:
 
 Split the test dataset into two different tables because one of the days is a holiday. The objective is to determine if the model can detect differences between a holiday and non-holiday from the click-through rate.
 
-The script [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) is displayed here for convenience:
+The script [`sample_hive_create_criteo_database_and_tables.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) is displayed here for convenience:
 
 ```hiveql
 CREATE DATABASE IF NOT EXISTS criteo;
@@ -168,14 +178,16 @@ All these tables are external so you can point to their Azure Blob Storage (wasb
   hive
   ```
 
-     Now at the REPL command line, cutting and pasting the query executes it.
-* **Saving queries to a file and executing the command**: The second is to save the queries to a '.hql' file ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) and then issue the following command to execute the query:
+  Now at the REPL command line, cutting and pasting the query executes it.
+
+* **Saving queries to a file and executing the command**: The second is to save the queries to an `.hql` file ([`sample_hive_create_criteo_database_and_tables.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) and then issue the following command to execute the query:
 
   ```console
   hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
   ```
 
 ### Confirm database and table creation
+
 Next, confirm the creation of the database with the following command from the Hive bin/ directory prompt:
 
 ```console
@@ -209,10 +221,12 @@ Time taken: 1.437 seconds, Fetched: 4 row(s)
 ```
 
 ## <a name="exploration"></a> Data exploration in Hive
+
 Now you are ready to do some basic data exploration in Hive. You begin by counting the number of examples in the train and test data tables.
 
 ### Number of train examples
-The contents of [sample&#95;hive&#95;count&#95;train&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) are shown here:
+
+The contents of [`sample_hive_count_train_table_examples.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) are shown here:
 
 ```hiveql
 SELECT COUNT(*) FROM criteo.criteo_train;
@@ -232,7 +246,7 @@ hive -f C:\temp\sample_hive_count_criteo_train_table_examples.hql
 ```
 
 ### Number of test examples in the two test datasets
-Now count the number of examples in the two test datasets. The contents of [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;22&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) are here:
+Now count the number of examples in the two test datasets. The contents of [`sample_hive_count_criteo_test_day_22_table_examples.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) are here:
 
 ```hiveql
 SELECT COUNT(*) FROM criteo.criteo_test_day_22;
@@ -253,7 +267,7 @@ hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
 
 Finally, you examine the number of test examples in the test dataset based on day\_23.
 
-The command to do this is similar to the one shown (refer to [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
+The command to do this is similar to the one shown (refer to [`sample_hive_count_criteo_test_day_23_examples.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
 ```hiveql
 SELECT COUNT(*) FROM criteo.criteo_test_day_23;
@@ -267,7 +281,7 @@ Time taken: 253.089 seconds, Fetched: 1 row(s)
 ```
 
 ### Label distribution in the train dataset
-The label distribution in the train dataset is of interest. To see this, show contents of [sample&#95;hive&#95;criteo&#95;label&#95;distribution&#95;train&#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
+The label distribution in the train dataset is of interest. To see this, show contents of [`sample_hive_criteo_label_distribution_train_table.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
 
 ```hiveql
 SELECT Col1, COUNT(*) AS CT FROM criteo.criteo_train GROUP BY Col1;
@@ -284,7 +298,8 @@ Time taken: 459.435 seconds, Fetched: 2 row(s)
 The percentage of positive labels is about 3.3% (consistent with the original dataset).
 
 ### Histogram distributions of some numeric variables in the train dataset
-You can use Hive's native "histogram\_numeric" function to find out what the distribution of the numeric variables looks like. Here are the contents of [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
+
+You can use Hive's native "histogram\_numeric" function to find out what the distribution of the numeric variables looks like. Here are the contents of [`sample_hive_criteo_histogram_numeric.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
 
 ```hiveql
 SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
@@ -325,7 +340,8 @@ Time taken: 317.851 seconds, Fetched: 20 row(s)
 The LATERAL VIEW - explode combination in Hive serves to produce a SQL-like output instead of the usual list. In this table, the first column corresponds to the bin center and the second to the bin frequency.
 
 ### Approximate percentiles of some numeric variables in the train dataset
-Also of interest with numeric variables is the computation of approximate percentiles. Hive's native "percentile\_approx" does this for us. The contents of [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) are:
+
+Also of interest with numeric variables is the computation of approximate percentiles. Hive's native "percentile\_approx" does this for us. The contents of [`sample_hive_criteo_approximate_percentiles.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) are:
 
 ```hiveql
 SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
@@ -341,7 +357,7 @@ Time taken: 564.953 seconds, Fetched: 1 row(s)
 The distribution of percentiles is closely related to the histogram distribution of any numeric variable usually.
 
 ### Find number of unique values for some categorical columns in the train dataset
-Continuing the data exploration, find, for some categorical columns, the number of unique values they take. To do this, show contents of [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
+Continuing the data exploration, find, for some categorical columns, the number of unique values they take. To do this, show contents of [`sample_hive_criteo_unique_values_categoricals.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
 
 ```hiveql
 SELECT COUNT(DISTINCT(Col15)) AS num_uniques FROM criteo.criteo_train;
@@ -356,7 +372,7 @@ Time taken: 448.116 seconds, Fetched: 1 row(s)
 
 Col15 has 19M unique values! Using naive techniques like "one-hot encoding" to encode such high-dimensional categorical variables is not feasible. In particular, a powerful, robust technique called [Learning With Counts](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) for tackling this problem efficiently is explained and demonstrated.
 
-Finally look at the number of unique values for some other categorical columns as well. The contents of [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) are:
+Finally look at the number of unique values for some other categorical columns as well. The contents of [`sample_hive_criteo_unique_values_multiple_categoricals.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) are:
 
 ```hiveql
 SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
@@ -375,7 +391,7 @@ Again, note that except for Col20, all the other columns have many unique values
 
 ### Co-occurrence counts of pairs of categorical variables in the train dataset
 
-The count distributions of pairs of categorical variables are also of interest. This can be determined using the code in [sample&#95;hive&#95;criteo&#95;paired&#95;categorical&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
+The count distributions of pairs of categorical variables are also of interest. This can be determined using the code in [`sample_hive_criteo_paired_categorical_counts.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
 
 ```hiveql
 SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
@@ -405,7 +421,7 @@ Time taken: 560.22 seconds, Fetched: 15 row(s)
 ## <a name="downsample"></a> Down sample the datasets for Azure Machine Learning
 Having explored the datasets and demonstrated how to do this type of exploration for any variables (including combinations), down sample the data sets so that models in Azure Machine Learning can be built. Recall that the focus of the problem is: given a set of example attributes (feature values from Col2 - Col40), predict if Col1 is a 0 (no click) or a 1 (click).
 
-To down sample the train and test datasets to 1% of the original size, use Hive's native RAND() function. The next script, [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) does this for the train dataset:
+To down sample the train and test datasets to 1% of the original size, use Hive's native RAND() function. The next script, [`sample_hive_criteo_downsample_train_dataset.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) does this for the train dataset:
 
 ```hiveql
 CREATE TABLE criteo.criteo_train_downsample_1perc (
@@ -426,7 +442,7 @@ Time taken: 12.22 seconds
 Time taken: 298.98 seconds
 ```
 
-The script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) does it for test data, day\_22:
+The script [`sample_hive_criteo_downsample_test_day_22_dataset.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) does it for test data, day\_22:
 
 ```hiveql
 --- Now for test data (day_22)
@@ -447,7 +463,7 @@ Time taken: 1.22 seconds
 Time taken: 317.66 seconds
 ```
 
-Finally, the script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) does it for test data, day\_23:
+Finally, the script [`sample_hive_criteo_downsample_test_day_23_dataset.hql`](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) does it for test data, day\_23:
 
 ```hiveql
 --- Finally test data day_23
