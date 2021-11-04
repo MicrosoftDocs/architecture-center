@@ -10,6 +10,28 @@ manage user purchases. For example, leisure and travel booking systems
 disintermediate users and services providers for searching services, aggregating
 meaningful offers from providers, and managing user reservations.
 
+## Potential use cases
+
+You should use this pattern when:
+
+-   You need to quickly answer ad hoc queries from a live data repository.
+-   Your data is insourced as raw documents (for instance as json, xml, or csv
+    files).
+-   A fraction of data is sufficient to describe queries.
+-   Users want to retrieve full raw documents.
+-   The size of all data would require scaling the system above your target
+    price.
+
+This pattern might not be suitable when:
+
+-   Data is insourced as recordsets.
+-   Users are required to run analytics.
+-   Users are willing to use their own packaged BI tool.
+-   The size of data is not a challenge from a cost perspective.
+-   Raw documents are not necessarily required.
+
+## Architecture
+
 :::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-01.png" alt-text="Diagram of a marketplace with service providers and B2B and B2C users.":::
 
 Typical technical needs in these scenarios include the ability to:
@@ -23,7 +45,7 @@ Typical technical needs in these scenarios include the ability to:
 -   Feed downstream real-time analytics.
 -   Control costs.
 
-## Context and problem
+### Context and problem
 
 Leisure and travel booking scenarios can generate large amounts of raw documents
 at a high frequency. However, you may not need to index the entire contents of
@@ -48,7 +70,26 @@ architecture answers this challenge.
 
 :::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.png" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.png":::
 
-## Issues and considerations
+### Alternatives
+
+When considering this pattern, also consider the tradeoffs that alternative
+approaches offer:
+
+-   As an alternative to only indexing metadata, you could index all raw data in
+    a service that offers query capabilities, such as Azure Databricks, Azure
+    Synapse Analytics, Azure Cognitive Search, or Azure Data Explorer. This
+    approach is more immediate, but attention should be paid to the combined
+    effect of data size, performance requirements, and update frequency,
+    especially from a cost perspective.
+-   Contrary to using a delta lake, using a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
+    keeps real-time data in a different repository than the historical data, and
+    your client runs the logic to make heterogeneous queries transparent to the
+    user. The advantage of this solution is the larger set of services that you
+    can use (such as Azure Stream Analytics and Azure SQL Database), but the
+    architecture would be more complex and the code base more expensive to
+    maintain.
+
+## Considerations
 
 Consider the following points when deciding whether to implement this pattern:
 
@@ -85,46 +126,7 @@ Consider the following points when deciding whether to implement this pattern:
     of these Azure data services, preferably with a recent Spark version
     supporting Delta Lake 0.8 or 1.0.
 
-Alternatives
-
-When considering this pattern, also consider the tradeoffs that alternative
-approaches offer:
-
--   As an alternative to only indexing metadata, you could index all raw data in
-    a service that offers query capabilities, such as Azure Databricks, Azure
-    Synapse Analytics, Azure Cognitive Search, or Azure Data Explorer. This
-    approach is more immediate, but attention should be paid to the combined
-    effect of data size, performance requirements, and update frequency,
-    especially from a cost perspective.
--   Contrary to using a delta lake, using a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
-    keeps real-time data in a different repository than the historical data, and
-    your client runs the logic to make heterogeneous queries transparent to the
-    user. The advantage of this solution is the larger set of services that you
-    can use (such as Azure Stream Analytics and Azure SQL Database), but the
-    architecture would be more complex and the code base more expensive to
-    maintain.
-
-## When to use this pattern
-
-You should use this pattern when:
-
--   You need to quickly answer ad hoc queries from a live data repository.
--   Your data is insourced as raw documents (for instance as json, xml, or csv
-    files).
--   A fraction of data is sufficient to describe queries.
--   Users want to retrieve full raw documents.
--   The size of all data would require scaling the system above your target
-    price.
-
-This pattern might not be suitable when:
-
--   Data is insourced as recordsets.
--   Users are required to run analytics.
--   Users are willing to use their own packaged BI tool.
--   The size of data is not a challenge from a cost perspective.
--   Raw documents are not necessarily required.
-
-## Examples
+## Deploy this scenario
 
 In the following example architecture, we assume that one or more Azure Event
 Hubs namespaces will contain structured raw documents (such as json or xml
