@@ -22,7 +22,7 @@ ms.custom:
 
 # Architectural approaches for deployment and configuration of multitenant solutions
 
-Regardless of your architecture and the components you use to implement it, you need to deploy and configure your solution's components. In a multitenant environment, it's important to consider how you deploy your Azure resources, especially when you deploy dedicated resources for each tenant or reconfigure resources based on the number of tenants in your system. On this page, we provide guidance about deploying multitenant solutions, and some approaches you can consider when planning your deployment strategy.
+Regardless of your architecture and the components you use to implement it, you need to deploy and configure your solution's components. In a multitenant environment, it's important to consider how you deploy your Azure resources, especially when you deploy dedicated resources for each tenant or reconfigure resources based on the number of tenants in your system. On this page, we provide solution architects with guidance about deploying multitenant solutions, and some approaches to consider when planning your deployment strategy.
 
 ## Key considerations and requirements
 
