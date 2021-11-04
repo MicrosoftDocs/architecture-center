@@ -1140,7 +1140,7 @@ items:
                     href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
                     maintainContext: true
           - name: Game analytics
-            items: 
+            items:
               - name: Non-real-time dashboard
                 href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
                 maintainContext: true
@@ -1652,6 +1652,10 @@ items:
                 href: example-scenario/data/big-data-with-iot.yml
               - name: Long-term security logs in Azure Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
+              - name: Many models machine learning (ML) with Spark
+                href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
+              - name: Many models machine learning (ML) with Azure Machine Learning
+                href: example-scenario/ai/many-models-machine-learning-azure-aml.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Precision medicine pipeline with genomics
