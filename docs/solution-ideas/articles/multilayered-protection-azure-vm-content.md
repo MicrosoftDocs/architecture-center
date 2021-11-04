@@ -19,7 +19,7 @@ This solution uses many Azure services and features including:
 - Communication is secure.
 - Access to VMs in Azure is only provided when needed.
 
-This solution applies to many scenarios:
+The defense in depth strategy and the solution in this article apply to many scenarios:
 
 - An administrator needs to access an Azure VM under these circumstances:
 
@@ -29,7 +29,7 @@ This solution applies to many scenarios:
   - The access should be valid for only a limited time.
   - After the access expires, the system should lock down the VM access to prevent malicious access attempts.
 
-- Employees need access to a remote workstation that's hosted in Azure as a VM. These conditions apply:
+- Employees need access to a remote workstation that's hosted in Azure as a VM. The following conditions apply:
 
   - The employees should access the VM only during work hours.
   - The security system should consider requests to access the VM outside work hours unnecessary and malicious.
@@ -41,7 +41,6 @@ This solution applies to many scenarios:
   - These attacks have targeted Azure VMs on RDP and SSH ports 3389 and 22.
   - The attacks have tried to guess the credentials.
   - The solution should prevent access ports such as 3389 and 22 from being exposed to the internet or on-premises environments.
-
 
 ## Architecture
 
@@ -82,7 +81,7 @@ This solution uses the following components:
 
 - [Azure AD Conditional Access][Azure AD Conditional Access] is a tool that Azure AD uses to control access to resources. Conditional Access policies support the [zero trust][Zero Trust] security model. In this solution, the policies ensure that only authenticated users get access to Azure resources.
 
-- [Azure Bastion][Azure Bastion] provides secure and seamless RDP and SSH connectivity to VMs in a network. In this solution, Azure Bastion connects users who use an internet browser, such as Microsoft Edge, for HTTPS, or secured traffic on port 443. Azure Bastion sets up the RDP connection to the VM. RDP and SSH ports aren't exposed to the internet or the user's origin.
+- [Azure Bastion][Azure Bastion] provides secure and seamless RDP and SSH connectivity to VMs in a network. In this solution, Azure Bastion connects users who use Microsoft Edge or another internet browser for HTTPS, or secured traffic on port 443. Azure Bastion sets up the RDP connection to the VM. RDP and SSH ports aren't exposed to the internet or the user's origin.
 
   Azure Bastion is optional in this solution. By using the RDP protocol, users can connect directly to Azure VMs. If you do configure Azure Bastion in an Azure virtual network, set up a separate subnet called `AzureBastionSubnet`. Then associate a network security group with that subnet. In that group, specify a source for HTTPS traffic such as the user's on-premises IP classless inter-domain routing (CIDR) block. By using this configuration, you block connections that don't come from the user's on-premises environment.
 
