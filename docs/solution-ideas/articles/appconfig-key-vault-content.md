@@ -49,7 +49,7 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory): A universal platform to manage and secure identities.
 * [Azure App Configuration](https://azure.microsoft.com/services/app-configuration): Store configurations for all your Azure apps in a universal, hosted location.
-* [Azure Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources): Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.
+* [Azure Managed Service Identity](/azure/active-directory/managed-identities-azure-resources): Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard cryptographic keys and other secrets that are used by cloud apps and services.
 
 ## Next steps
