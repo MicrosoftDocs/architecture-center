@@ -13,7 +13,7 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: 'Retail - Buy online, pickup in store (BOPIS)'
+name: Retail - Buy online, pickup in store (BOPIS)
 azureCategories:
   - iot
 summary: Learn how to use Azure IoT to enhance a retail solution for stores implementing buy online, pickup in store scenarios.
@@ -22,8 +22,6 @@ products:
   - azure-event-hubs
   - azure-functions
   - azure-iot
-  - azure-kubernetes-service
-  - azure-maps
   - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/bopis.png
 content: |
