@@ -3087,6 +3087,8 @@ items:
                 href: reference-architectures/aws/aws-azure-security-solutions.yml
               - name: Multi-region app with private database
                 href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
+              - name: Multilayered protection for Azure VMs
+                href: solution-ideas/articles/multilayered-protection-azure-vm.yml
               - name: Real-time fraud detection
                 href: example-scenario/data/fraud-detection.yml
               - name: Restrict interservice communications
