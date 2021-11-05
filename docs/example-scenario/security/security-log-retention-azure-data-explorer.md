@@ -1,0 +1,169 @@
+Security logs are extremely useful for identifying threats and tracing unauthorized attempts to access data. Most security attacks begin well before they are discovered. As a result, having access to long-term security logs is just as important as having access to recent security logs. Being able to query long-term logs is critical for identifying the impact of threats and investigating the spread of illicit access attempts.
+
+This article outlines a solution for long-term retention of security logs. At the core of the architecture is Azure Data Explorer. This service provides lower-cost storage for security data but keeps that data in a format that you can query. Other main components include:
+
+- Microsoft Defender for Endpoint and Microsoft Sentinel, for these capabilities:
+
+  - Comprehensive endpoint security
+  - Security information and event management (SIEM)
+  - Security orchestration automated response (SOAR)
+
+- Azure Monitor to monitor IT assets.
+- Log Analytics, for short-term storage of Sentinel security logs.
+
+## Potential use cases
+
+By providing reduced-cost, long-term security log storage, this solution is suitable for security operations center (SOC) analysts who run full-scale investigations on security data.
+
+Another potential use case is to send all data, regardless of its security value, to Azure Sentinel and Azure Data Explorer at the same time. Some duplication results, but the cost savings can be significant. Because Azure Data Explorer provides long-term storage, you can reduce your Azure Sentinel retention costs.
+
+A customer testimony illustrates a specific use case: "We deployed an Azure Data Explorer cluster almost a year and a half ago. In the last Solorigate data breach, we used an Azure Data Explorer cluster for forensic analysis. A Microsoft Dart team also used an Azure Data Explorer cluster to complete the investigation. Long-term security data retention is critical for full-scale data investigations."
+
+## Architecture
+
+:::image type="content" source="./media/security-log-retention-azure-data-explorer-architecture-diagram.png" alt-text="Architecture diagram showing how streaming data flows through a system. Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components make up the system." border="false":::
+
+1. An enterprise uses Defender for Endpoint and Sentinel for SIEM and SOAR.
+1. Defender for Endpoint uses native functionality to export data to Event Hub and Azure Data Lake. Sentinel ingests Defender for Endpoint data to monitor devices.
+1. Azure Sentinel uses Azure Log Analytics as a data platform for exporting data to Event Hub and Azure Data Lake.
+1. Azure Data Explorer uses [connectors for Azure Event Hub][Ingest data from Event Hub into Azure Data Explorer], [Azure Blob Storage][What is Azure Blob storage?], and [Azure Data Lake Storage][Introduction to Azure Data Lake Storage Gen2] to ingest data with low-latency and high throughput. This process uses [Azure Event Grid][Ingest blobs into Azure Data Explorer by subscribing to Event Grid notifications], which triggers the Azure Data Explorer ingestion pipeline.
+1. To comply with regulatory requirements, Azure Data Explorer exports pre-aggregated data to Azure Data Lake Storage for archiving.
+1. Log Analytics and Azure Sentinel support cross-service queries with Azure Data Explorer. SOC analysts use this capability to run full-range investigations on security data.
+1. Azure Data Explorer provides native capabilities for processing, aggregating, and analyzing data.
+1. These tools and others provide near real-time analytics dashboards that offer insights at lightning speed:
+
+   - [Azure Data Explorer dashboards][Visualize data with Azure Data Explorer dashboards(Preview)]
+   - [Power BI][Introduction to dataflows and self-service data prep]
+   - [Grafana][Visualize data from Azure Data Explorer in Grafana]
+
+### Components
+
+- [Microsoft Defender for Endpoint][When your team is two steps ahead, security is innovation] protects organizations from threats across devices, identities, apps, email, data, and cloud workloads.
+
+- [Azure Sentinel][What is Azure Sentinel?] is a cloud-native SIEM and SOAR solution. It uses advanced AI and security analytics to detect, hunt, prevent, and respond to threats across enterprises.
+
+- [Azure Monitor][Azure Monitor] is a software as a service (SaaS) solution that collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs. Monitor also offers alerting functionality.
+
+- [Azure Log Analytics][Overview of Log Analytics in Azure Monitor] is an Azure Monitor service that you can use to query and inspect Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
+
+- [Azure Event Hubs][Event Hubs] is a fully managed, real-time data ingestion service that's straightforward, trusted, and scalable.
+
+- [Azure Data Lake Storage][Introduction to Azure Data Lake Storage Gen2] is a scalable storage repository that holds a large amount of data in its native, raw format. This data lake is built on top of [Azure Storage][Introduction to the core Azure Storage services] and provides functionality for storing and processing data.
+
+- [Azure Data Explorer][Azure Data Explorer] is a fast, fully managed, and highly scalable data analytics platform. You can use this cloud service for real-time analysis on large volumes of data. Azure Data Explorer is optimized for interactive, ad-hoc queries. It can handle diverse data streams from applications, websites, IoT devices, and other sources.
+
+- [Azure Data Explorer dashboards][Visualize data with Azure Data Explorer dashboards(Preview)] natively import data from Azure Data Explorer Web UI queries. These optimized dashboards provide a way to display and explore query results.
+
+### Alternatives
+
+Instead of using Azure Data Explorer for long-term storage of security logs, you can use Azure Storage. This approach simplifies the architecture and may help control the cost. A disadvantage is the need to rehydrate the logs for security audits and interactive investigative queries. With Azure Data Explorer, you can move data from the cold to the hot partition by changing a policy. This functionality speeds up data exploration.
+
+## Current monitoring stack
+
+The following diagram shows the current monitoring stack in Azure:
+
+:::image type="content" source="./media/security-log-retention-azure-data-explorer-current-monitor-stack-diagram.png" alt-text="Architecture diagram showing how streaming data flows through a system. Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components make up the system." border="false":::
+
+- Azure Sentinel uses a Log Analytics workspace to store security logs and provide SIEM and SOAR solutions.
+- Azure Monitor monitors IT assets and issues alerts when needed.
+- Azure Data Explorer provides an underlying data platform that provides security log storage for Log Analytics workspaces, Azure Monitor, and Azure Sentinel.
+
+## Main features
+
+- Long-term queryable data store: Azure Data Explorer indexes data during the process of storing it, making the data available for queries. When you need to focus on running audits and investigations, there's no need to ingest the data. Querying the data is a straightforward process.
+
+- Full Scale forensic analysis: Azure Data Explorer, Azure Log Analytics, and Azure Sentinel support cross-service queries. As a result, in a single query, you can reference data that's stored in any of these services. SOC analysts can use the Kusto query language to run full-range investigations. You can also use Azure Data Explorer queries in Azure Sentinel for hunting purposes. For more information, see [What's New: Azure Sentinel Hunting supports ADX cross-resource queries][What's New: Azure Sentinel Hunting supports ADX cross-resource queries].
+
+- On-demand data caching: Azure Data Explorer supports [window-based hot caching][Cache policy (hot and cold cache)]. You can use this functionality to move data from a selected period into the hot cache. Then you can run fast queries on the data, making investigations more efficient. You made need to add compute nodes to the hot cache for this purpose. After you complete the investigation, you can change the hot cache policy to move the data into the cold partition. You can also scale in the cluster.
+
+- Continuous export to archive the data: To comply with regulatory requirements, some enterprises need to store security logs for an unlimited amount of time. Azure Data Explorer supports continuous export. You can use this capability to build an archival tier by storing security logs in Azure Storage.
+
+- Proven query language: The Kusto query language is native to Azure Data Explorer. This language is also available in Azure Log Analytics workspaces and Azure Sentinel threat hunting environments. This availability significantly reduces the learning curve for SOC analysts. Queries that you run on Azure Sentinel also work on data that you store in Azure Data Explorer clusters.
+
+## Considerations
+
+Keep the points in the following sections in mind when you implement this solution.
+
+### Data export method
+
+If you need to export a large amount of data from Log Analytics, you may reach Event Hubs capacity limits. To avoid this situation, you can export data from Log Analytics into Azure Blob Storage. Then you can use Azure Data Factory workloads to periodically export the data into Azure Data Explorer. By using this method, you can copy data from Azure Data Factory only when it nears its retention limit in Azure Sentinel or Log Analytics. As a result, you avoid duplicating the data. For more information, see [Export data from Log Analytics into Azure Data Explorer][Export data from Log Analytics into Azure Data Explorer].
+
+### Query usage and audit preparedness
+
+Generally, you keep data in the cold cache in your Azure Data Explorer cluster. This approach minimizes your cluster cost. Most Azure Data Explorer queries on data from previous months work well. But when you query large data ranges, you may need to scale out the cluster and load the data into the hot cache. You can use the hot window feature of the hot cache policy for this purpose. You can also use this feature when you audit long-term data. When you use the hot window, you may need to scale your cluster up or out to make room for more data in the hot cache. After you've finished querying the large data range, you can change the hot cache policy to reduce your computing cost. By turning on the optimized auto scale feature in your Azure Data Explorer cluster, you can optimize your cluster size based on the caching policy. For more information on querying cold data in Azure Data Explorer, see [Query cold data with hot windows][Query cold data with hot windows].
+
+### Ingesting custom logs
+
+Azure Log Analytics doesn't currently support exporting custom log tables. For this scenario, you can use Azure Logic Apps to export data from Log Analytics workspacew. For more information, see [Archive data from Log Analytics workspace to Azure storage using Logic App][Archive data from Log Analytics workspace to Azure storage using Logic App].
+
+### Log archiving
+
+If you need to store security data for a long time or for an unlimited period, export these logs to Azure Storage. Azure Data Explorer supports continuous exporting. By using this functionality, you can export data to Azure Storage in compressed, partitioned Parquet format. You can then seamlessly query that data. For more information, see [Continuous data export overview][Continuous data export overview].
+
+## Deploy this scenario
+
+To automate deployment, use a [PowerShell script][Integrate Azure Data Explorer (ADX) for long-term log retention]. This script creates these components:
+
+- The target table
+- The raw table
+- The table mapping that defines how Event Hubs records land in the raw table
+- Retention and update policies
+- Event Hubs namespaces
+- Data export rules in the Azure Log Analytics workspace
+- The data connection between Event Hubs and the Azure Data Explorer raw data table
+
+## Pricing
+
+The Azure Data Explorer cluster cost is primarily based on the computing power that's used to store data in the hot cache. Queries on hot cache data offer better performance over cold cache queries. This solution stores most of the data in the cold cache, minimizing the computing cost.
+
+To explore the cost of running this solution in your environment, use the [Azure pricing calculator][Azure pricing calculator].
+
+## Next steps
+
+- [Integrate Azure Data Explorer for long-term log retention][Integrate Azure Data Explorer for long-term log retention]
+- [Move Your Microsoft Sentinel Logs to Long-Term Storage with Ease][Move Your Microsoft Sentinel Logs to Long-Term Storage with Ease]
+- [Cross-resource query Azure Data Explorer by using Azure Monitor][Cross-resource query Azure Data Explorer by using Azure Monitor]
+- [HOW TO: Configure Azure Sentinel data export for long-term storage][HOWTO: Configure Azure Sentinel data export for long-term storage]
+- [Using Azure Data Explorer for long term retention of Microsoft Sentinel logs][Using Azure Data Explorer for long term retention of Microsoft Sentinel logs]
+- [What's New: Azure Sentinel Hunting supports ADX cross-resource queries][What's New: Azure Sentinel Hunting supports ADX cross-resource queries]
+- [How to stream Microsoft Defender ATP hunting logs in Azure Data Explorer][How to stream Microsoft Defender ATP hunting logs in Azure Data Explorer]
+- [Blog Series: Limitless Advanced Hunting with Azure Data Explorer (ADX)][Blog Series: Limitless Advanced Hunting with Azure Data Explorer (ADX)]
+
+## Related resources
+
+- [Azure Data Explorer monitoring][Azure Data Explorer monitoring]
+- [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics]
+- [Big data analytics with Azure Data Explorer][Big data analytics with Azure Data Explorer]
+
+[Azure Data Explorer interactive analytics]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/interactive-azure-data-explorer
+[Azure Data Explorer monitoring]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/monitor-azure-data-explorer
+[Archive data from Log Analytics workspace to Azure storage using Logic App]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-export-logic-app
+[Azure Data Explorer]: https://azure.microsoft.com/en-us/services/data-explorer/
+[Azure Monitor]: https://azure.microsoft.com/en-us/services/monitor/
+[Azure pricing calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
+[Big data analytics with Azure Data Explorer]: https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/big-data-azure-data-explorer
+[Blog Series: Limitless Advanced Hunting with Azure Data Explorer (ADX)]: https://techcommunity.microsoft.com/t5/microsoft-365-defender/blog-series-limitless-advanced-hunting-with-azure-data-explorer/ba-p/2328705
+[Cache policy (hot and cold cache)]: https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/cachepolicy
+[Continuous data export overview]: https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/data-export/continuous-data-export
+[Cross-resource query Azure Data Explorer by using Azure Monitor]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy
+[Event Hubs]: https://azure.microsoft.com/en-us/services/event-hubs/
+[Export data from Log Analytics into Azure Data Explorer]: https://docs.microsoft.com/en-us/azure/sentinel/store-logs-in-azure-data-explorer?tabs=azure-storage-azure-data-factory#export-data-from-log-analytics-into-azure-data-explorer
+[How to stream Microsoft Defender ATP hunting logs in Azure Data Explorer]: https://techcommunity.microsoft.com/t5/azure-data-explorer/how-to-stream-microsoft-defender-atp-hunting-logs-in-azure-data/ba-p/1427888
+[HOWTO: Configure Azure Sentinel data export for long-term storage]: https://www.linkedin.com/pulse/howto-configure-azure-sentinel-data-export-long-term-storage-lauren/
+[Ingest blobs into Azure Data Explorer by subscribing to Event Grid notifications]: https://docs.microsoft.com/en-us/azure/data-explorer/ingest-data-event-grid?tabs=portal-1
+[Ingest data from Event Hub into Azure Data Explorer]: https://docs.microsoft.com/en-us/azure/data-explorer/ingest-data-event-hub
+[Integrate Azure Data Explorer for long-term log retention]: https://docs.microsoft.com/en-us/azure/sentinel/store-logs-in-azure-data-explorer?tabs=adx-event-hub
+[Integrate Azure Data Explorer (ADX) for long-term log retention]: https://github.com/Azure/Azure-Sentinel/tree/master/Tools/AzureDataExplorer
+[Introduction to Azure Data Lake Storage Gen2]: https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction
+[Introduction to the core Azure Storage services]: https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction
+[Introduction to dataflows and self-service data prep]: https://docs.microsoft.com/en-us/power-bi/transform-model/dataflows/dataflows-introduction-self-service
+[Move Your Microsoft Sentinel Logs to Long-Term Storage with Ease]: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/move-your-microsoft-sentinel-logs-to-long-term-storage-with-ease/ba-p/1407153
+[Overview of Log Analytics in Azure Monitor]: https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview
+[Query cold data with hot windows]: https://docs.microsoft.com/en-us/azure/data-explorer/hot-windows
+[Using Azure Data Explorer for long term retention of Microsoft Sentinel logs]: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/using-azure-data-explorer-for-long-term-retention-of-microsoft/ba-p/1883947
+[Visualize data with Azure Data Explorer dashboards(Preview)]: https://docs.microsoft.com/en-us/azure/data-explorer/azure-data-explorer-dashboards
+[Visualize data from Azure Data Explorer in Grafana]: https://docs.microsoft.com/en-us/azure/data-explorer/grafana
+[What is Azure Blob storage?]: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview
+[What is Azure Sentinel?]: https://docs.microsoft.com/en-us/azure/sentinel/overview
+[What's New: Azure Sentinel Hunting supports ADX cross-resource queries]: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-azure-sentinel-hunting-supports-adx-cross-resource/ba-p/2530678
+[When your team is two steps ahead, security is innovation]: https://www.microsoft.com/en-us/security/business/threat-protection
