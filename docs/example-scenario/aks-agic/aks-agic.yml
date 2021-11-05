@@ -21,10 +21,10 @@ azureCategories:
   - networking
 summary: Learn how to use the Application Gateway Ingress Controller (AGIC) with your Azure Kubernetes Service (AKS) cluster to expose microservice-based applications to the internet.
 products:
-  - azure-application-gatewayx
-  - azure-key-vaultx
-  - azure-container-registryx
-  - azure-kubernetes-servicex
+  - azure-application-gateway
+  - azure-key-vault
+  - azure-container-registry
+  - azure-kubernetes-service
   - azure-bastion
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-agic.png
 content: |
