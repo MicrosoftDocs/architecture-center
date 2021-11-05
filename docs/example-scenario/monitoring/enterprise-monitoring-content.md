@@ -1,14 +1,14 @@
-Large enterprises need to consider many factors when modernizing their existing monitoring solution. This example scenario illustrates enterprise-level monitoring that uses Azure Monitor. Enterprises can achieve centralized monitoring management across the board by using Azure Monitor features.
+Large enterprises need to consider many factors when modernizing their existing monitoring solution. Enterprises can achieve centralized monitoring management across the board by using Azure Monitor features. This example scenario illustrates enterprise-level monitoring that uses Azure Monitor.
 
-Enterprise teams have different workloads, such as Windows, Linux, SQL, identity-based workloads, virtual desktop infrastructure (VDI), containers, and web apps. These workloads can be running in any cloud providers, on-premises, or a combination. With such a vast array of workloads in different environments, cloud-based monitoring can be complex.
+Enterprise teams have different workloads, such as Windows, Linux, SQL, identity-based workloads, virtual desktop infrastructure (VDI), containers, and web apps. These workloads can be running in any cloud providers, on-premises, or a combination. With such a vast array of workloads in different environments, cloud-based monitoring is complex.
 
 Enterprise-level monitoring must also cover governance, operational best practices, effective cost management, and workspace security. Monitoring must provide enough flexibility to set up and manage team environments, and let teams manage themselves with some degree of control.
 
 Other critical monitoring design factors include:
 
 - How to spread Azure Log Analytics workspaces across different geographical regions or teams.
-- Monitoring the workspaces themselves.
-- Chargeback mechanisms for different teams, to optimize overall costs.
+- Monitoring the workspaces themselves, as well as their workloads.
+- How to charge back different teams to optimize overall costs.
 - How to visualize and possibly archive collected data.
 - Creating separate dashboards for operations, apps, and different teams.
 - Giving leadership enough visibility into the right set of information.
@@ -30,11 +30,11 @@ This solution can help with the following use cases:
 
   - Platform-as-a-service (PaaS) services like Azure Web Apps and Azure Functions Apps add configuration for Application Insights within their workspaces.
 
-  - For identity, on-premises Active Directory and cloud identity providers each have their own workspace.
+  - For identity, on-premises Active Directory and cloud identity providers each have their own workspaces.
 
-  - Azure Kubernetes Service (AKS), Azure Web Apps apps, Azure Virtual Desktop, Azure Pipelines, SQL workloads, and other PaaS services each have their own workspaces.
+  - Azure Kubernetes Service (AKS) and Azure Web Apps apps, Azure Virtual Desktop, Azure Pipelines, SQL workloads, and other PaaS services each have their own workspaces.
 
-- Each workspace has its own set of alerts configured. Azure Logic Apps and Azure Automation provide advance alerting and remediation. You can use Logic Apps to easily configure integration with IT Service Management (ITSM) tools.
+- Each workspace has its own set of configured alerts. Azure Logic Apps and Azure Automation provide advance alerting and remediation. You can use Logic Apps to configure integration with IT Service Management (ITSM) tools.
 
 - A set of on-premises virtual machines (VMs) connects through Azure Arc, providing an end-to-end Azure management plane. You can also use Azure Arc to connect infrastructure-as-a-service (IaaS) resources that run in a third-party cloud.
 
@@ -61,27 +61,27 @@ This architecture includes the following components:
 - [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) can send data to both Azure Monitor Logs and Azure Monitor Metrics. The Azure Monitor agent uses [Data Collection Rules](/azure/azure-monitor/agents/data-collection-rule-overview) (DCR), which provide scalable configurations. The Azure Monitor agent doesn't require workspace keys to connect.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors live applications on a wide variety of platforms across cloud, hybrid, and on-premises environments. Application Insights automatically detects performance anomalies, and includes powerful analytics tools to help you understand usage and diagnose issues.
 - [Azure Virtual Desktop insights](/azure/virtual-desktop/azure-monitor) use Azure Monitor for Azure Virtual Desktop to help IT professionals understand their Azure Virtual Desktop environments.
-- [Container insights](/azure/azure-monitor/containers/container-insights-overview) monitors the performance and health of Kubernetes clusters and other container-based workloads.
-- [Network insights](/azure/azure-monitor/insights/network-insights-overview) provides a comprehensive view of health and metrics for all deployed network resources.
-- [SQL insights (preview)](/azure/azure-monitor/insights/sql-insights-overview) monitors health and helps you diagnose problems and tune performance for any product in the Azure SQL family.
-- [VM Insights](/azure/azure-monitor/vm/vminsights-overview) monitors the performance and health of VMs and virtual machine scale sets, their running processes, and dependencies on other resources.
+- [Container insights](/azure/azure-monitor/containers/container-insights-overview) monitor the performance and health of Kubernetes clusters and other container-based workloads.
+- [Network insights](/azure/azure-monitor/insights/network-insights-overview) provide a comprehensive view of health and metrics for all deployed network resources.
+- [SQL insights (preview)](/azure/azure-monitor/insights/sql-insights-overview) monitor health and help you diagnose problems and tune performance for any product in the Azure SQL family.
+- [VM Insights](/azure/azure-monitor/vm/vminsights-overview) monitor the performance and health of VMs and virtual machine scale sets, their running processes, and dependencies on other resources.
 - [IT Service Management Connector](/azure/azure-monitor/alerts/itsmc-overview) (ITSMC) provides a bi-directional connection between Azure and supported ITSM tools to help you resolve ITSM work items faster.
 - [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide a flexible canvas to analyze multiple Azure data sources and combine them into interactive visual reports.
 - [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) creates and runs queries on Azure Monitor Logs data in [Log Analytics workspaces](/azure/azure-monitor/logs/quick-create-workspace). This solution uses the following Log Analytics features:
   - [Log Analytics agent](/azure/azure-monitor/agents/agents-overview#log-analytics-agent) collects monitoring data from cloud and on-premises operating systems and VM workloads, and sends it to a Log Analytics workspace.
   - [Azure Active Directory Monitoring](/azure/active-directory/reports-monitoring/overview-monitoring) routes Azure Active Directory (Azure AD) activity logs to a Log Analytics workspace.
   - [Log Analytics gateway](/azure/azure-monitor/agents/gateway) sends data to Azure Automation and Log Analytics workspaces for computers that can't directly connect to the internet.
-  - [Service Map](/azure/azure-monitor/vm/service-map) uses the Log Analytics agent to automatically discover application components on Windows and Linux systems and map the communication between services. 
+  - [Service Map](/azure/azure-monitor/vm/service-map) uses the Log Analytics agent to automatically discover application components on Windows and Linux systems, and map the communication between services. 
   - [Alert Management](/azure/azure-monitor/insights/alert-management-solution) helps you analyze all the alerts in your Log Analytics workspaces.
   - [Log Analytics data export (preview)](/azure/azure-monitor/logs/logs-data-export) continuously exports data from selected tables in a Log Analytics workspace to an Azure storage account or Azure Event Hubs.
   - [Log Analytics Workspace Insights](/azure/azure-monitor/logs/log-analytics-workspace-insights-overview) provides comprehensive monitoring of all Log Analytics workspaces through a unified view of workspace usage, performance, health, agent, queries, and change logs.
 
-#### Other Azure components
+#### Other components
 
 In this solution, Azure Monitor supports or integrates with the following Azure services:
 
 - [Azure Arc](https://azure.microsoft.com/services/azure-arc) simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform.
-- [Azure Automation](https://azure.microsoft.com/services/automation) delivers cloud-based automation, operating system updates, and configuration to support consistent management across environments. [Change Tracking] tracks changes in cloud and on-premises VMs to help you identify software issues, forwards the data to Azure Monitor Logs, and stores the data in a Log Analytics workspace.
+- [Azure Automation](https://azure.microsoft.com/services/automation) delivers cloud-based automation, operating system updates, and configuration to support consistent management across environments. [Change Tracking](/azure/automation/change-tracking/overview) tracks changes in cloud and on-premises VMs to help you identify software issues, forwards the data to Azure Monitor Logs, and stores the data in a Log Analytics workspace.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud over private connections with the help of connectivity providers.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides secure, scalable, cost-effective cloud storage for big data analytics.
 - [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless solution that implements readily available code blocks called *functions* that run on demand and scale up automatically.
@@ -139,16 +139,18 @@ Logic Apps workflows help you integrate and orchestrate data between apps, cloud
   - [Azure Security Baseline for Azure Monitor](/security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json)
   - [Azure Policy Regulatory Compliance Controls for Azure Monitor](/azure/azure-monitor/security-controls-policy)
 
-- Consider the following operational best practices to help keep costs in check:
+#### Costs
 
-  - Enable alerts only at times when data collection is high.
-  - Review Azure Monitor [monitoring solutions](/azure/azure-monitor/insights/solutions) before you implement them. For example, enabling Security Center to collect and audit security event data could exponentially increase data collection costs.
-  - Rationalize alert creation across the board. Consider creating a single alert instead of each workspace or team having the same alert.
-  - Group resources like alerts, Logic Apps, and workspaces in separate resource groups, and use tagging for identification.
-  - Use Log Analytics Workspace Insights for an overall view of costs across different workspaces.
-  - Use the Azure Monitor agent for granular data collection, to the level of collecting single Event IDs from System event logs. Fine-tuning data collection can provide cost efficiencies.
-  - Use Azure Monitor Data Export for data archival to low-cost storage.
-  - Follow best practices for telemetry data in Application Insights workspaces. For more information, see [Manage usage and costs for Application Insights](/azure/azure-monitor/app/pricing).
+Consider the following operational best practices to help keep costs in check:
+
+- Enable alerts only at times when data collection is high.
+- Review Azure Monitor [monitoring solutions](/azure/azure-monitor/insights/solutions) before you implement them. For example, enabling Security Center to collect and audit security event data could exponentially increase data collection costs.
+- Rationalize alert creation across the board. Consider creating a single alert instead of each workspace or team having the same alert.
+- Group resources like alerts, Logic Apps, and workspaces in separate resource groups, and use tagging for identification.
+- Use Log Analytics Workspace Insights for an overall view of costs across different workspaces.
+- Use the Azure Monitor agent for granular data collection, to the level of collecting single Event IDs from System event logs. Fine-tuning data collection can provide cost efficiencies.
+- Use Azure Monitor Data Export for data archival to low-cost storage.
+- Follow best practices for telemetry data in Application Insights workspaces. For more information, see [Manage usage and costs for Application Insights](/azure/azure-monitor/app/pricing).
 
 ### Performance
 
@@ -174,9 +176,9 @@ Metric alerts check at regular intervals whether conditions in one or more metri
 
 ### Scalability
 
-Review and be aware of [Azure subscription service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits), especially limits for [Logic Apps](/azure/logic-apps/logic-apps-limits-and-config?tabs=azure-portal) and [Azure Automation](/azure/azure-resource-manager/management/azure-subscription-service-limits#automation-limits).
-
 Azure Monitor has service limits per subscription for alerts, action groups, workspaces, and Application Insights. For more information, see [Azure Monitor service limits](/azure/azure-monitor/service-limits).
+
+Review and be aware of [Azure subscription service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits), especially limits for [Logic Apps](/azure/logic-apps/logic-apps-limits-and-config?tabs=azure-portal) and [Azure Automation](/azure/azure-resource-manager/management/azure-subscription-service-limits#automation-limits).
 
 ### Security
 
