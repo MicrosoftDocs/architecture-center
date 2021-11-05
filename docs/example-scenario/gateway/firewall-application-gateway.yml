@@ -25,7 +25,6 @@ products:
   - azure-application-gateway
   - azure-firewall
   - azure-front-door
-  - azure-kubernetes-service
   - azure-virtual-network
   - azure-web-application-firewall
 thumbnailUrl: /azure/architecture/browse/thumbs/decision-tree.png
