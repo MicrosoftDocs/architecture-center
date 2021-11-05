@@ -28,7 +28,6 @@ products:
   - azure-cosmos-db
   - azure-data-science-vm
   - azure-machine-learning
-  - azure-databricks
 thumbnailUrl: /azure/architecture/browse/thumbs/architecture-movie-recommender.png
 content: |
   [!include[](movie-recommendations-with-machine-learning-content.md)]
