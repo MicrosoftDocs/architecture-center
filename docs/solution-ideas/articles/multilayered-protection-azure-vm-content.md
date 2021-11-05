@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 This solution provides a multilayered approach for protecting virtual machines (VMs) in Azure. Users need to connect to VMs for management and administrative purposes. It's critical to minimize the attack surface that connectivity creates.
 
 By incorporating several protection mechanisms, this solution achieves non-persistent granular access to VMs. It aligns with the *principle of least privilege (PoLP)* and the concept of *separation of duties*. To reduce exposure to attacks, this solution locks down inbound traffic to VMs, but it makes VM connections accessible when needed. Implementing this type of protection minimizes the risk of many popular cyber attacks on VMs, such as brute-force attacks and distributed denial-of-service (DDoS) attacks.
@@ -56,7 +58,7 @@ The defense in depth strategy and the solution in this article apply to many sce
 
 1. **Connecting to the Azure VM**: By using a temporary token, the user accesses Azure Bastion. Through this service, the user establishes an indirect RDP connection to the Azure VM. The connection only works for a limited amount of time.
 
-## Components
+### Components
 
 This solution uses the following components:
 
