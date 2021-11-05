@@ -2,8 +2,8 @@
 metadata:
   title: Enterprise monitoring with Azure Monitor
   titleSuffix: Azure Example Scenarios
-  description: See an example enterprise monitoring solution that uses Azure Monitor to collect and manage data from cloud, on-premises, and hybrid resources.
-  author: EdPrice-MSFT>
+  description: See an enterprise monitoring solution that uses Azure Monitor to collect and manage data from cloud, on-premises, and hybrid resources.
+  author: EdPrice-MSFT
   ms.author: surins
   ms.date: 11/04/2021
   ms.topic: conceptual

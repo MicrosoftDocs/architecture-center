@@ -32,9 +32,9 @@ This solution can help with the following use cases:
 
   - For identity, on-premises Active Directory and cloud identity providers each have their own workspace.
 
-  - Azure Kubernetes Service (AKS), Azure Web Apps apps, Azure Virtual Desktop, Azure DevOps Pipelines, SQL workloads, and other PaaS services each have their own workspaces.
+  - Azure Kubernetes Service (AKS), Azure Web Apps apps, Azure Virtual Desktop, Azure Pipelines, SQL workloads, and other PaaS services each have their own workspaces.
 
-- Each workspace has its own set of alerts configured. Azure Logic Apps with Azure Automation provide advance alerting and remediation. You can use Logic Apps to easily configure integration with IT service management (ITSM) tools.
+- Each workspace has its own set of alerts configured. Azure Logic Apps and Azure Automation provide advance alerting and remediation. You can use Logic Apps to easily configure integration with IT Service Management (ITSM) tools.
 
 - A set of on-premises virtual machines (VMs) connects through Azure Arc, providing an end-to-end Azure management plane. You can also use Azure Arc to connect infrastructure-as-a-service (IaaS) resources that run in a third-party cloud.
 
@@ -46,7 +46,7 @@ This solution can help with the following use cases:
 
 - Azure Monitor connects to security information and event management (SIEM) tools like Azure Sentinel to create larger enterprise security datastores.
 
-- PowerBI and Azure Monitor Workbooks provide data visualization and dashboard capabilities.
+- Power BI and Azure Monitor Workbooks provide data visualization and dashboard capabilities.
 
 ### Components
 
@@ -58,7 +58,7 @@ This architecture includes the following components:
 
 - [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) collects numeric data from monitored resources into a time series database. Metrics in Azure Monitor are lightweight and support near real-time scenarios, so they're useful for alerting and fast detection of issues.
 - [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) collects and organizes log and performance data from monitored resources. You can consolidate data from multiple sources, including Azure [platform logs](/azure/azure-monitor/essentials/platform-logs-overview), into a single workspace. You can analyze the data by using a [sophisticated query language](/azure/azure-monitor/logs/log-query-overview) in Log Analytics.
-- [Azure Monitor agent](/azure/azure-monitor/agents/agents-overview#azure-monitor-agent) can send data to both Azure Monitor Logs and Azure Monitor Metrics. The Azure Monitor agent uses [Data Collection Rules](/azure/azure-monitor/agents/data-collection-rule-overview) (DCR), which provide scalable configurations. The Azure Monitor agent doesn't require workspace keys to connect.
+- [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) can send data to both Azure Monitor Logs and Azure Monitor Metrics. The Azure Monitor agent uses [Data Collection Rules](/azure/azure-monitor/agents/data-collection-rule-overview) (DCR), which provide scalable configurations. The Azure Monitor agent doesn't require workspace keys to connect.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors live applications on a wide variety of platforms across cloud, hybrid, and on-premises environments. Application Insights automatically detects performance anomalies, and includes powerful analytics tools to help you understand usage and diagnose issues.
 - [Azure Virtual Desktop insights](/azure/virtual-desktop/azure-monitor) use Azure Monitor for Azure Virtual Desktop to help IT professionals understand their Azure Virtual Desktop environments.
 - [Container insights](/azure/azure-monitor/containers/container-insights-overview) monitors the performance and health of Kubernetes clusters and other container-based workloads.
@@ -73,7 +73,7 @@ This architecture includes the following components:
   - [Log Analytics gateway](/azure/azure-monitor/agents/gateway) sends data to Azure Automation and Log Analytics workspaces for computers that can't directly connect to the internet.
   - [Service Map](/azure/azure-monitor/vm/service-map) uses the Log Analytics agent to automatically discover application components on Windows and Linux systems and map the communication between services. 
   - [Alert Management](/azure/azure-monitor/insights/alert-management-solution) helps you analyze all the alerts in your Log Analytics workspaces.
-  - [Log Analytics data export (preview](/azure/azure-monitor/logs/logs-data-export) continuously exports data from selected tables in a Log Analytics workspace to an Azure storage account or Azure Event Hubs as it's collected.
+  - [Log Analytics data export (preview)](/azure/azure-monitor/logs/logs-data-export) continuously exports data from selected tables in a Log Analytics workspace to an Azure storage account or Azure Event Hubs.
   - [Log Analytics Workspace Insights](/azure/azure-monitor/logs/log-analytics-workspace-insights-overview) provides comprehensive monitoring of all Log Analytics workspaces through a unified view of workspace usage, performance, health, agent, queries, and change logs.
 
 #### Other Azure components
@@ -81,7 +81,7 @@ This architecture includes the following components:
 In this solution, Azure Monitor supports or integrates with the following Azure services:
 
 - [Azure Arc](https://azure.microsoft.com/services/azure-arc) simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform.
-- [Azure Automation](https://azure.microsoft.com/services/automation) delivers cloud-based automation, operating system updates, and configuration to support consistent management across environments. Azure Automation [Change Tracking and Inventory] tracks changes in cloud and on-premises VMs to help you identify software issues, forwards the data to Azure Monitor Logs, and stores the data in a Log Analytics workspace.
+- [Azure Automation](https://azure.microsoft.com/services/automation) delivers cloud-based automation, operating system updates, and configuration to support consistent management across environments. [Change Tracking] tracks changes in cloud and on-premises VMs to help you identify software issues, forwards the data to Azure Monitor Logs, and stores the data in a Log Analytics workspace.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud over private connections with the help of connectivity providers.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides secure, scalable, cost-effective cloud storage for big data analytics.
 - [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless solution that implements readily available code blocks called *functions* that run on demand and scale up automatically.
@@ -158,11 +158,11 @@ The following performance considerations apply to this architecture:
 
 Latency refers to the amount of time between data creation on the monitored system and its availability for analysis in Azure Monitor. The typical latency to ingest log data is between 20 seconds and three minutes.
 
-To ensure minimal latency, place Azure Monitor workspaces, Logic Apps, and other related infrastructure in the same Azure region that hosts the workloads being monitored. However, there could still be latency issues. The specific latency for any data varies depending on a variety of factors.
+To ensure minimal latency, place Azure Monitor workspaces, Logic Apps, and other related infrastructure in the same Azure region that hosts the workloads being monitored. However, there could still be latency issues. The specific latency for any data varies depending on various factors.
 
 The total ingestion time for a particular set of data consists of the following time frames:
 
-- Agent time: The time to discover an event, collect it, and send it to the Azure Monitor Logs ingestion point as a log record. In most cases, an agent handles this process. The network can introduce additional latency.
+- Agent time: The time to discover an event, collect it, and send it to the Azure Monitor Logs ingestion point as a log record. In most cases, an agent handles this process. The network can introduce extra latency.
 - Pipeline time: The time for the ingestion pipeline to process the log record. This time includes parsing the event properties and possibly adding calculated information.
 - Indexing time: The time spent to ingest a log record into the Azure Monitor big data store.
 
@@ -209,7 +209,7 @@ An integration service environment (ISE) environment uses dedicated storage and 
 
 #### Log Analytics gateway
 
-The Log Analytics gateway sends data to Azure Automation and a Log Analytics workspace in Azure Monitor on behalf of the computers that can't directly connect to the internet. For more information, see [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](/azure/azure-monitor/agents/gateway).
+The Log Analytics gateway sends data to Azure Automation and a Log Analytics workspace in Azure Monitor for computers that can't directly connect to the internet. For more information, see [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](/azure/azure-monitor/agents/gateway).
 
 #### Azure Automation Hybrid Runbook Worker
 
@@ -239,7 +239,7 @@ Azure Automation runbooks that run in Azure might not have access to resources i
 >   - Data ingestion volume
 >   - Ingestion anomalies
 >   - Agent health
-> - Use the [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) to fine tune data collection. The Azure Monitor agent doesn't require workspace keys to connect.
+> - Use the Azure Monitor agent to fine tune data collection.
 > - Consider data archival to a cool storage tier. You can integrate cool data storage with data lake services.
 
 ## Pricing
@@ -254,19 +254,17 @@ Azure Automation runbooks that run in Azure might not have access to resources i
 
 ## Next steps
 
-- [Services that Azure Monitor can monitor](/azure/azure-monitor/monitor-reference)
+- [What is monitored by Azure Monitor?](/azure/azure-monitor/monitor-reference)
 - [Azure Monitor data platform](/azure/azure-monitor/data-platform)
-- [Alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview)
-- [Visualizing data collected by Azure Monitor](/azure/azure-monitor/visualizations)
-- [Monitoring solutions in Azure Monitor](/azure/azure-monitor/insights/solutions)
+- [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview)
+- [Azure Monitor best practices - Analyze and visualize data](/azure/azure-monitor/visualizations)
 - [Azure Monitor Microsoft Learning path](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
-- [Azure Monitor tutorials](/learn/paths/monitor-usage-performance-availability-resources-azure-monitor)
 
 ## Related resources
 
 - [Microsoft Well-Architected Framework operational excellence](../../framework/devops/index.yml)
 - [Monitoring for DevOps](../../framework/devops/monitoring.md)
-- [Alerting](../../framework/devops/alerting.md)
+- [Alerting](../../framework/devops/alerts.md)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
 - [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)
 
