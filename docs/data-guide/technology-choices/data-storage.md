@@ -1,5 +1,5 @@
 ---
-title: Choosing a data storage technology
+title: Choose a data storage technology
 description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
 author: EdPrice-MSFT
 ms.date: 11/19/2020
@@ -16,7 +16,7 @@ ms.custom:
 
 <!-- cSpell:ignore VHDs HDFS WASB HMAC POSIX ACLs JDBC -->
 
-# Choosing a big data storage technology in Azure
+# Choose a big data storage technology in Azure
 
 This topic compares options for data storage for big data solutions &mdash; specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or [real-time streaming ingestion](./real-time-ingestion.md).
 
