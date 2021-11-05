@@ -26,14 +26,9 @@ summary: Create a pipeline for ingesting and analyzing RSS news feed data using 
 products:
   - azure-cosmos-db
   - azure-functions
-  - azure-storage
-  - azure-search
-  - azure-cognitive-search
   - azure-service-bus
-  - azure-computer-vision
   - azure-translator-text
   - azure-face
-  - azure-application-insights
 thumbnailUrl: /azure/architecture/browse/thumbs/mass-ingestion-newsfeeds-architecture.png
 content: |
   [!include[](news-feed-ingestion-and-near-real-time-analysis-content.md)]
