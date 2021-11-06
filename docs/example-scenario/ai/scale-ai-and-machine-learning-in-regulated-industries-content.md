@@ -39,7 +39,7 @@ The architecture consists of the components described below. Each component of t
 1. **Data governance resource group** – Azure Purview is used as a data governance and data catalog solution and is used to enforce the necessary guardrails for datasets to follow data requirements and data regulations that are imposed by law or other entities. Purview is hosted centrally within this resource group, along with a Key Vault instance for storing secrets.
 1. **Centralized assets** – Hosts important and valuable assets that are central to the platform, such as:
    - Azure Container Registries that host base images used in Azure ML-based data products (images that are previously scanned and vulnerability-free)
-   - AI and ML models that are published and made available to consumers on the platform (so they can be deployed to one or more data landing zones if needed).
+   - AI/ML models that are published and made available to consumers on the platform (so they can be deployed to one or more data landing zones if needed).
 1. **Additional services** – Any other services that should be centralized can be hosted in one of these resource groups, which can include centralized API Management instances, third-party software, and so on.
 1. **Data visualization resource group** – Hosts data visualization solutions that are shared across data landing zones. Solutions can be Power BI, Tableau, or any other visualization solution.
 1. **Additional infrastructure controls & governance** – Azure Security Center and Azure Monitor are used as baseline security and monitoring solutions.
@@ -90,7 +90,7 @@ The components used in this solution are detailed in the [Architecture](#archite
 
 ## Alternatives
 
-In distributed organizations, business groups operate independently and with high degrees of autonomy. As such, they might consider an alternative solution design, with full isolation of use cases in Azure landing zones, sharing a minimal set of common services. Although this design allows a fast start, it requires high effort from IT and ISRM organizations, since design of individual use cases will quickly diverge from blueprint designs. Additionally, it requires independent ISRM processes, and audits, for each of the AI ML “products” hosted in Azure.
+In distributed organizations, business groups operate independently and with high degrees of autonomy. As such, they might consider an alternative solution design, with full isolation of use cases in Azure landing zones, sharing a minimal set of common services. Although this design allows a fast start, it requires high effort from IT and ISRM organizations, since design of individual use cases will quickly diverge from blueprint designs. Additionally, it requires independent ISRM processes, and audits, for each of the AI/ML “products” hosted in Azure.
 
 ## Measuring adoption and value
 
@@ -102,15 +102,15 @@ To scale AI and machine learning in regulated environments, and drive rapid adop
 - Number of experiments ran
 - Number of models deployed
 
-**Acceleration of AI development** – To accelerate AI/ ML solution development, the following KPIs are suggested:
+**Acceleration of AI development** – To accelerate AI/ML solution development, the following KPIs are suggested:
 
-- Number of different business units consuming Azure’s AI and ML services
+- Number of different business units consuming Azure’s AI/ML services
 - Number of users onboarded, per category – for example, data engineers, data scientists, citizen data scientists, and business users
 - Number of experiments ran
 - Time between onboarding of users and active usage
 - Time to provision services – from change configuration request to service provisioning completion
 
-**Compliance** – To ensure continuous compliance of deployed AI and ML solutions, the following KPIs are suggested:
+**Compliance** – To ensure continuous compliance of deployed AI/ML solutions, the following KPIs are suggested:
 
 - Overall compliancy with applicable ISRM controls
 - Number of Security vulnerability warnings
@@ -146,7 +146,7 @@ During architecture design, a careful analysis of the support and integration of
 
 ### Network design and ring fencing
 
-AI and ML environments must have ring-fencing in place, with network segmentation and network access controls implemented. Network communication between architecture components is limited to required data flows and underlying infrastructure to function (in an allowlisting approach). Signature-based analysis and behavior-based analysis should be applied.
+AI/ML environments must have ring-fencing in place, with network segmentation and network access controls implemented. Network communication between architecture components is limited to required data flows and underlying infrastructure to function (in an allowlisting approach). Signature-based analysis and behavior-based analysis should be applied.
 
 Enforce network access controls across several layers in the architecture, including Azure Firewalls, inspecting inbound and outbound network connectivity, network security groups (NSGs), and access to web application endpoint protected with web application firewall (WAF).
 
@@ -173,7 +173,7 @@ AI and machine learning environments running on Azure must be integrated with an
 
 Account provisioning systems are expected to connect to an organization’s Active Directory and Azure Active Directory (AAD), so that business authorization roles map to corresponding AD/AAD security groups.
 
-AI and ML environments follow a Role-Based Access Control (RBAC) model, and access level control authorizations ensure that users can only perform the tasks and actions for their job role and business requirement. Machine learning use cases are expected to be high segregated, as data scientists working in a particular use case are only allowed to access the resources part of that use case, following a principle of least privilege. These resources can include:
+AI/ML environments follow a Role-Based Access Control (RBAC) model, and access level control authorizations ensure that users can only perform the tasks and actions for their job role and business requirement. Machine learning use cases are expected to be high segregated, as data scientists working in a particular use case are only allowed to access the resources part of that use case, following a principle of least privilege. These resources can include:
 
 - Storage accounts
 - Azure Machine Learning (AML) workspaces
@@ -191,15 +191,15 @@ MFA must be enforced to all users, including Azure service managers, data engine
 
 In regulated environments, IT systems must follow strict waterfall-style quality control processes, with formal approvals (or gates) between process phases &mdash; like user requirements specifications, functional specifications, design, and testing specifications (or similar) &mdash; with extensive and time-consuming supporting documentation.
 
-Azure environments and data science development follow iterative processes, anchored in a DevOps culture. A significant effort in scaling AI and ML initiatives will be spent communicating the pillars of a DevOps organization and creating automated end-to-end traceability mapping between Azure DevOps epics, features, user stories, test plans and CI/CD pipelines, and required quality control entities and evidence.
+Azure environments and data science development follow iterative processes, anchored in a DevOps culture. A significant effort in scaling AI/ML initiatives will be spent communicating the pillars of a DevOps organization and creating automated end-to-end traceability mapping between Azure DevOps epics, features, user stories, test plans and CI/CD pipelines, and required quality control entities and evidence.
 
 ## Pricing
 
-Cost management is an important part of design in the implementation of scalable AI ML platforms, since running costs don't follow simple and predictable patterns. Cost is primarily driven by the number and size of the AI ML experiments being executed in the platform, and more specifically, on the number and SKUs of the compute resources used in model training and inference.
+Cost management is an important part of design in the implementation of scalable AI/ML platforms, since running costs don't follow simple and predictable patterns. Cost is primarily driven by the number and size of the AI/ML experiments being executed in the platform, and more specifically, on the number and SKUs of the compute resources used in model training and inference.
 
 Below are some highly recommended practices:
 
-- Every use case and AI ML “product” should have its own Azure services budget, contributing to a good cost management practice.
+- Every use case and AI/ML “product” should have its own Azure services budget, contributing to a good cost management practice.
 - Establish a transparent cost model for platform shared services.
 - Use tags consistently to associate use case and “product” resources with cost centers.
 - Use Azure Advisor and Azure Budget to understand where resources aren't being used in the most optimal way and review configurations regularly.
