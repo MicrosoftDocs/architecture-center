@@ -22,7 +22,7 @@ products:
   - azure-front-door
   - azure-functions
   - azure-service-bus
-  - azure-web-app
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/scalable-web-app.png
 content: |
    [!include[](scalable-web-app-content.md)]
