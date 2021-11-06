@@ -24,7 +24,6 @@ products:
   - azure-arc
   - azure-kubernetes-service
   - azure-monitor
-  - azure-pipelines
   - azure-policy
   - azure-rbac
 thumbnailUrl: /azure/architecture/browse/thumbs/arc-hybrid-kubernetes.png
