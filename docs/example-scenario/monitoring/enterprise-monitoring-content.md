@@ -26,6 +26,8 @@ This solution can help with the following use cases:
 
 :::image type="content" source="media/enterprise-monitoring.png" alt-text="Architectural diagram that shows enterprise workspaces and monitoring capabilities." border="false" lightbox="media/enterprise-monitoring.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/EnterpriseMonitoringFinal.vsdx) of this architecture.*
+
 - Different workloads across the enterprise have separate workspaces. Configuring different workspaces gives teams autonomy over their own data, and provides a separate cost overview per workspace.
 
   - Platform-as-a-service (PaaS) services like Azure Web Apps and Azure Functions Apps add configuration for Application Insights within their workspaces.
@@ -59,13 +61,13 @@ This architecture includes the following components:
 - [Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) collects numeric data from monitored resources into a time series database. Metrics in Monitor are lightweight and support near real-time scenarios, so they're useful for alerting and fast detection of issues.
 - [Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) collects and organizes log and performance data from monitored resources. You can consolidate data from multiple sources, including Azure [platform logs](/azure/azure-monitor/essentials/platform-logs-overview), into a single workspace. You can analyze the data by using a [sophisticated query language](/azure/azure-monitor/logs/log-query-overview) in Log Analytics.
 - [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) can send data to both Monitor Logs and Monitor Metrics. The Azure Monitor agent uses configurable [Data Collection Rules](/azure/azure-monitor/agents/data-collection-rule-overview) (DCRs), and doesn't require workspace keys to connect.
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors live applications on a wide variety of platforms across cloud, hybrid, and on-premises environments. Application Insights automatically detects performance anomalies, and includes powerful analytics tools to help you understand usage and diagnose issues.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors live applications on a wide variety of platforms across cloud, hybrid, and on-premises environments. Application Insights automatically detects performance anomalies. Application Insights includes powerful analytics tools to help you understand usage and diagnose issues.
 - [Azure Virtual Desktop insights](/azure/virtual-desktop/azure-monitor) use Monitor for Azure Virtual Desktop to help IT professionals understand their Azure Virtual Desktop environments.
 - [Container insights](/azure/azure-monitor/containers/container-insights-overview) monitor the performance and health of Kubernetes clusters and other container-based workloads.
 - [Network insights](/azure/azure-monitor/insights/network-insights-overview) provide a comprehensive view of health and metrics for all deployed network resources.
 - [SQL insights (preview)](/azure/azure-monitor/insights/sql-insights-overview) monitor health and help you diagnose problems and tune performance for any product in the Azure SQL family.
-- [VM insights](/azure/azure-monitor/vm/vminsights-overview) monitor the performance and health of VMs and virtual machine scale sets, their running processes, and dependencies on other resources.
-- [IT Service Management Connector](/azure/azure-monitor/alerts/itsmc-overview) (ITSMC) provides a bi-directional connection between Azure and supported ITSM tools to help you resolve ITSM work items faster.
+- [VM insights](/azure/azure-monitor/vm/vminsights-overview) monitor the performance and health of VMs and virtual machine scale sets. VM insights include running processes and dependencies on other resources.
+- [IT Service Management Connector](/azure/azure-monitor/alerts/itsmc-overview) (ITSMC) provides a bi-directional connection between Azure and supported ITSM tools to help you resolve work items faster.
 - [Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide a flexible canvas to analyze multiple Azure data sources and combine them into interactive visual reports.
 - [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) creates and runs queries on Monitor Logs data in [Log Analytics workspaces](/azure/azure-monitor/logs/quick-create-workspace). This solution uses the following Log Analytics features:
   - [Log Analytics agent](/azure/azure-monitor/agents/agents-overview#log-analytics-agent) collects monitoring data from cloud and on-premises operating systems and VM workloads, and sends it to a Log Analytics workspace.
@@ -73,25 +75,25 @@ This architecture includes the following components:
   - [Log Analytics gateway](/azure/azure-monitor/agents/gateway) sends data to Azure Automation and Log Analytics workspaces for computers that can't directly connect to the internet.
   - [Service Map](/azure/azure-monitor/vm/service-map) uses the Log Analytics agent to automatically discover application components on Windows and Linux systems, and map the communication between services. 
   - [Alert Management](/azure/azure-monitor/insights/alert-management-solution) helps you analyze all the alerts in your Log Analytics workspaces.
-  - [Log Analytics data export (preview)](/azure/azure-monitor/logs/logs-data-export) continuously exports data from selected tables in a Log Analytics workspace to an Azure storage account or Azure Event Hubs.
-  - [Log Analytics Workspace Insights](/azure/azure-monitor/logs/log-analytics-workspace-insights-overview) provides comprehensive monitoring of all Log Analytics workspaces through a unified view of workspace usage, performance, health, agent, queries, and change logs.
+  - [Log Analytics data export (preview)](/azure/azure-monitor/logs/logs-data-export) continuously exports data from selected tables in a Log Analytics workspace. Data can export to an Azure storage account or Azure Event Hubs.
+  - [Log Analytics Workspace Insights](/azure/azure-monitor/logs/log-analytics-workspace-insights-overview) provides comprehensive monitoring of all Log Analytics workspaces. Workspace Insights gives a unified view of workspace usage, performance, health, agent, queries, and change logs.
 
 #### Other components
 
 In this solution, Monitor supports or integrates with the following Azure and Microsoft services:
 
 - [Azure Arc](https://azure.microsoft.com/services/azure-arc) simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform.
-- [Azure Automation](https://azure.microsoft.com/services/automation) delivers cloud-based automation, operating system updates, and configuration to support consistent management across environments. [Change Tracking](/azure/automation/change-tracking/overview) tracks changes in cloud and on-premises VMs to help you identify software issues, forwards the data to Monitor Logs, and stores the data in a Log Analytics workspace.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud over private connections with the help of connectivity providers.
+- [Azure Automation](https://azure.microsoft.com/services/automation) delivers cloud-based automation, operating system updates, and configuration to support consistent management across environments. [Change Tracking](/azure/automation/change-tracking/overview) tracks changes in cloud and on-premises VMs to help you identify software issues. Change Tracking forwards the data to Monitor Logs and stores the data in a Log Analytics workspace.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends on-premises networks into the Microsoft cloud. ExpressRoute uses private connections with the help of connectivity providers.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) provides secure, scalable, cost-effective cloud storage for big data analytics.
-- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless solution that implements readily available code blocks called *functions* that run on demand and scale up automatically.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless solution that implements readily available code blocks called *functions*. Functions run on demand and scale up automatically.
 - [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service to easily deploy and manage containerized applications.
 - [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) evenly distributes incoming network traffic across backend resources or servers.
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated workflows that integrate apps, data, services, and systems.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated workflows. Logic apps can integrate apps, data, services, and systems.
 - [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager) provides a management layer and templates for creating, updating, and deleting resources in your Azure account.
 - [Azure Security Center](https://azure.microsoft.com/services/security-center) is part of Microsoft Defender for Cloud, a unified infrastructure security management system.
-- [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel) is a cloud-native, scalable, SIEM and security orchestration automated response (SOAR) solution.
-- [Azure SQL](https://azure.microsoft.com/products/azure-sql) family of SQL database services provides a consistent, unified experience and a full range of deployment options, from edge to cloud.
+- [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel) is a cloud-native, scalable, security information and event management (SIEM) and security orchestration automated response (SOAR) solution.
+- [Azure SQL](https://azure.microsoft.com/products/azure-sql) family of SQL database services provides a consistent, unified Azure SQL experience. Azure SQL has a full range of deployment options, from edge to cloud.
 - [Power BI](https://powerbi.microsoft.com/) is a collection of software services, apps, and connectors that turn your data sources into coherent, visually immersive, and interactive insights.
 
 ### Alternatives
@@ -100,9 +102,9 @@ You can use some monitoring alternatives along with or instead of Monitor.
 
 #### System Center Operations Manager
 
-[System Center Operations Manager](/system-center/scom/welcome) offers flexible, cost-effective infrastructure monitoring. Operations Manager helps ensure the predictable performance and availability of important applications, and offers comprehensive monitoring for your private and public datacenters and clouds.
+[System Center Operations Manager](/system-center/scom/welcome) offers flexible, cost-effective infrastructure monitoring. Operations Manager helps ensure the predictable performance and availability of important applications. Operations Manager offers comprehensive monitoring for private and public datacenters and clouds.
 
-To maintain your existing Operations Manager investment and use the extended capabilities of Monitor, you can integrate Operations Manager with your Log Analytics workspaces. You can use Monitor logs while continuing to use Operations Manager to:
+To maintain your existing Operations Manager investment, you can integrate Operations Manager with your Log Analytics workspaces. You can use Monitor logs and extended capabilities while still using Operations Manager for these functions:
 
 - Monitor the health of your IT services.
 - Maintain integration with your ITSM solutions for incident and problem management.
@@ -124,11 +126,11 @@ The following considerations apply to this solution.
 
 See [Regions and Availability Zones in Azure](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for the Azure regions that support availability zones. Monitor currently supports availability zones in regions East US 2 and West US 2.
 
-Monitor support for availability zones requires a Log Analytics workspace linked to an [Monitor Logs dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters). Dedicated clusters are a deployment option that enables advanced capabilities for Monitor Logs, including availability zones. Dedicated clusters created after October 2020 are enabled for availability zones by default in regions where Monitor supports availability zones.
+Monitor support for availability zones requires a Log Analytics workspace linked to an [Monitor Logs dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters). Dedicated clusters are a deployment option that enables advanced capabilities for Monitor Logs, including availability zones. Dedicated clusters created after October 2020 can use availability zones by default where Monitor supports them.
 
 #### Logic Apps business continuity disaster recovery (BCDR) workflows
 
-Logic Apps workflows help you integrate and orchestrate data between apps, cloud services, and on-premises systems by reducing how much code you write. When you plan for business continuity disaster recovery (BCDR), make sure to consider not just your logic apps, but the Azure resources you use with your logic apps. For BCDR guidance and strategies for automated logic apps workflows, see [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance).
+Logic Apps workflows help you integrate and orchestrate data between apps, cloud services, and on-premises systems. When you plan for business continuity disaster recovery (BCDR), make sure to consider not just your logic apps, but the Azure resources they work with. For BCDR guidance and strategies for automated logic apps workflows, see [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance).
 
 ### Operations
 
@@ -168,7 +170,7 @@ The following performance considerations apply to this solution:
 
 #### Latency
 
-Latency refers to the amount of time between data creation on the monitored system and its availability for analysis in Monitor. The typical latency to ingest log data is between 20 seconds and three minutes. The specific latency for any data depends on various factors.
+Latency is the amount of time between data creation on a monitored system and its availability for analysis in Monitor. The typical latency to ingest log data is between 20 seconds and three minutes. The specific latency for any data depends on various factors.
 
 The total ingestion time for a particular set of data has the following parts:
 
@@ -176,11 +178,11 @@ The total ingestion time for a particular set of data has the following parts:
 - Pipeline time: The time for the ingestion pipeline to process the log record. This time includes parsing the event properties and possibly adding calculated information.
 - Indexing time: The time spent to ingest a log record into the Monitor big data store.
 
-To ensure minimal latency, place Monitor workspaces, Logic Apps, and other related infrastructure in the same Azure region that hosts the workloads being monitored. However, there could still be latency issues. For more information, see [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time).
+To ensure minimal latency, place Monitor workspaces, Logic Apps, and related infrastructure in the same Azure region with the workloads they monitor or control. However, there could still be latency issues. For more information, see [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time).
 
 #### Log vs. metric alerts
 
-Metric alerts check at regular intervals whether conditions in one or more metric time-series are true, and notify you when the evaluations are met. Metric alerts are stateful by default, sending notifications only when the state changes, for example to *fired* or *resolved*.
+Metric alerts check at regular intervals whether conditions in one or more metric time-series are true, and notify you when conditions meet the evaluations. Metric alerts are stateful by default, sending notifications only when the state changes, for example to *fired* or *resolved*.
 
 Log alerts use a Log Analytics query to evaluate resource logs at a set frequency, and fire an alert based on the results.  Metric based alerts can be faster to send notifications than log alerts.
 
@@ -196,16 +198,16 @@ This solution uses the following security mechanisms:
 
 #### Access control
 
-Azure RBAC locks down resource groups that host alerts and Logic Apps per team or app owner. With Azure RBAC, you can grant users and groups only the amount of access they need to work with the monitoring data in a workspace. For example, you can grant access to the team responsible for infrastructure services hosted on Azure VMs, and they'll have access to only the logs generated by the VMs.
+Azure RBAC locks down resource groups that host alerts and Logic Apps per team or app owner. With Azure RBAC, you can grant users and groups only the amount of access they need to work with the monitoring data in a workspace. For example, you can grant access to the team that's responsible for Azure VM-hosted infrastructure services, only to the logs that those VMs generate.
 
-The data a user has access to is determined by a combination of factors.
+The data a user can access is determined by a combination of factors.
 
 |Factor|Description|
 |------|-----------|
 |[Access mode](/azure/azure-monitor/logs/design-logs-deployment#access-mode)|Method the user uses to access the workspace. Defines the scope of the data available and the access control mode applied.|
-|[Access control mode](/azure/azure-monitor/logs/design-logs-deployment#access-control-mode)|Setting on the workspace that defines whether permissions are applied at the workspace or resource level.|
-|[Permissions](/azure/azure-monitor/logs/manage-access)|Permissions applied to individuals or groups for the workspace or resource. Defines what data the user will have access to.|
-|[Table-level Azure RBAC](/azure/azure-monitor/logs/manage-access#table-level-azure-rbac)|Optional granular permissions that apply to all users regardless of their access mode or access control mode. Defines which data types a user can access.|
+|[Access control mode](/azure/azure-monitor/logs/design-logs-deployment#access-control-mode)|Setting on the workspace that defines whether permissions apply at the workspace or resource level.|
+|[Permissions](/azure/azure-monitor/logs/manage-access)|Permissions applied to individuals or groups for the workspace or resource. Defines what data the user can access.|
+|[Table-level Azure RBAC](/azure/azure-monitor/logs/manage-access#table-level-azure-rbac)|Optional granular permissions that apply to all users, regardless of their access mode or access control mode. Defines which data types a user can access.|
 
 For more information, see [Access control overview](/azure/azure-monitor/logs/design-logs-deployment#access-control-overview).
 

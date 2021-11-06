@@ -20,7 +20,7 @@ products:
   - azure-monitor
   - azure-sentinel
 name: Enterprise monitoring with Azure Monitor
-summary: See an example enterprise monitoring solution that uses Azure Monitor to collect and manage data from cloud, on-premises, and hybrid resources.
+summary: See an enterprise monitoring solution that uses Azure Monitor to collect and manage data from cloud, on-premises, and hybrid resources.
 thumbnailUrl: /azure/architecture/browse/thumbs/enterprise-monitoring.png
 content: |
   [!include[](enterprise-monitoring-content.md)]
