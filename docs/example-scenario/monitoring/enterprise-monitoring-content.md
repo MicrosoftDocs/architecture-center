@@ -28,6 +28,8 @@ This solution can help with the following use cases:
 
 *Download a [Visio file](https://arch-center.azureedge.net/EnterpriseMonitoringFinal.vsdx) of this architecture.*
 
+- This architecture follows a resource-context log model. Every log record an Azure resource emits automatically associates with the resource. This model helps separate workspaces that collect and ingest from different app owners.
+
 - Different workloads across the enterprise have separate workspaces. Configuring different workspaces gives teams autonomy over their own data, and provides a separate cost overview per workspace.
 
   - Platform-as-a-service (PaaS) services like Azure Web Apps and Azure Functions Apps add configuration for Application Insights within their workspaces.
@@ -42,7 +44,7 @@ This solution can help with the following use cases:
 
 - Custom logging captures information about third-party virtualized environments and collects custom application, software, or operating system logs.
 
-- Log Analytics Workspace Insights provides comprehensive monitoring of all the workspaces. Log Analytics Workspace Insights has its own separate set of alerts.
+- Log Analytics Workspace Insights provides comprehensive monitoring of all the workspaces. Using a single workspace to store collected data from all your resources aligns with the IT organization's operating model. This workspace gives the central team an overview of all the workspaces' usage, cost, and performance. The central workspace respects scoping and role-based access control (RBAC) based on the resources. Log Analytics Workspace Insights has its own separate set of alerts.
 
 - Log Analytics provides further integration by exporting workspace data for archiving or analytics. Archiving data to cool tier storage saves costs. You can use archived data for further analytics by creating datasets that feed into machine learning models.
 
@@ -102,7 +104,7 @@ You can use some monitoring alternatives along with or instead of Monitor.
 
 #### System Center Operations Manager
 
-[System Center Operations Manager](/system-center/scom/welcome) offers flexible, cost-effective infrastructure monitoring. Operations Manager helps ensure the predictable performance and availability of important applications. Operations Manager offers comprehensive monitoring for private and public datacenters and clouds.
+[System Center Operations Manager](/system-center/scom/welcome) offers flexible, cost-effective infrastructure monitoring. Operations Manager offers comprehensive monitoring for private and public datacenters and clouds. Operations Manager helps ensure the predictable performance and availability of important applications.
 
 To maintain your existing Operations Manager investment, you can integrate Operations Manager with your Log Analytics workspaces. You can use Monitor logs and extended capabilities while still using Operations Manager for these functions:
 
@@ -114,7 +116,7 @@ For more information, see [Connect Operations Manager to Azure Monitor](/azure/a
 
 #### Grafana
 
-[Grafana](https://grafana.com) is an open and composable observability and data visualization platform. Grafana helps you query, visualize, alert on, and understand your data wherever it's stored. You can build flexible dashboards to explore and share any data.
+[Grafana](https://grafana.com) is an open and composable observability and data visualization platform. Grafana helps you query, visualize, alert on, and understand your data wherever it's stored. You can build flexible dashboards to explore and share data.
 
 ## Considerations
 
@@ -126,7 +128,7 @@ The following considerations apply to this solution.
 
 See [Regions and Availability Zones in Azure](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for the Azure regions that support availability zones. Monitor currently supports availability zones in regions East US 2 and West US 2.
 
-Monitor support for availability zones requires a Log Analytics workspace linked to an [Monitor Logs dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters). Dedicated clusters are a deployment option that enables advanced capabilities for Monitor Logs, including availability zones. Dedicated clusters created after October 2020 can use availability zones by default where Monitor supports them.
+Monitor support for availability zones requires a Log Analytics workspace linked to a [Monitor Logs dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters). Dedicated clusters are a deployment option that enables advanced capabilities for Monitor Logs, including availability zones. Dedicated clusters created after October 2020 can use availability zones by default where Monitor supports them.
 
 #### Logic Apps business continuity disaster recovery (BCDR) workflows
 
@@ -141,28 +143,18 @@ Logic Apps workflows help you integrate and orchestrate data between apps, cloud
   - [Azure Security Baseline for Azure Monitor](/security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json)
   - [Azure Policy Regulatory Compliance Controls for Azure Monitor](/azure/azure-monitor/security-controls-policy)
 
-#### Resource context and central reporting
+- Azure Automation runbooks that run in Azure might not have access to resources in other clouds or on-premises. You can use the Azure Automation Hybrid Runbook Worker to run runbooks directly on the machine that's hosting the role. You can run the runbook against resources in the environment to manage the local resources. For more information, see [Automation Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker).
 
-This architecture follows a resource-context log model. Every log record an Azure resource emits is automatically associated with the resource. This model helps separate workspaces that collect and ingest from different app owners.
+- Consider the following operational best practices to help keep costs in check:
 
-Log Analytics Workspace Insights forwards logs to a central workspace to give the central team an overview of all the workspaces' usage, cost, and performance. You align with your IT organization's operating model by using a single workspace to store collected data from all your resources. The central workspace respects scoping and role-based access control (RBAC) based on the resources.
-
-#### Cost control
-
-Consider the following operational best practices to help keep costs in check:
-
-- Enable alerts only at times when data collection is high.
-- Review Monitor [monitoring solutions](/azure/azure-monitor/insights/solutions) before you implement them. For example, enabling Security Center to collect and audit security event data could exponentially increase data collection costs.
-- Rationalize alert creation across the board. Consider creating a single alert instead of each workspace or team having the same alert.
-- Group resources like alerts, Logic Apps, and workspaces in separate resource groups, and use tagging for identification.
-- Use Log Analytics Workspace Insights for an overall view of costs across different workspaces.
-- Use the Azure Monitor agent for granular data collection, to the level of collecting single Event IDs from System event logs. Fine-tuning data collection can provide cost efficiencies.
-- Use Monitor Data Export for data archival to low-cost storage.
-- Follow best practices for telemetry data in Application Insights workspaces. For more information, see [Manage usage and costs for Application Insights](/azure/azure-monitor/app/pricing).
-
-#### Azure Automation Hybrid Runbook Worker
-
-Azure Automation runbooks that run in Azure might not have access to resources in other clouds or on-premises. You can use the Azure Automation Hybrid Runbook Worker to run runbooks directly on the machine that's hosting the role. You can run the runbook against resources in the environment to manage the local resources. For more information, see [Automation Hybrid Runbook Worker overview](/azure/automation/automation-hybrid-runbook-worker).
+  - Enable alerts only at times when data collection is high.
+  - Review Monitor [monitoring solutions](/azure/azure-monitor/insights/solutions) before you implement them. For example, enabling Security Center to collect and audit security event data could exponentially increase data collection costs.
+  - Rationalize alert creation across the board. Consider creating a single alert instead of each workspace or team having the same alert.
+  - Group resources like alerts, Logic Apps, and workspaces in separate resource groups, and use tagging for identification.
+  - Use Log Analytics Workspace Insights for an overall view of costs across different workspaces.
+  - Use the Azure Monitor agent for granular data collection, to the level of collecting single Event IDs from System event logs. Fine-tuning data collection can provide cost efficiencies.
+  - Use Monitor Data Export for data archival to low-cost storage.
+  - Follow best practices for telemetry data in Application Insights workspaces. For more information, see [Manage usage and costs for Application Insights](/azure/azure-monitor/app/pricing).
 
 ### Performance
 
@@ -233,10 +225,10 @@ A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analyti
 > - Create workspaces in the same region as running workloads, to provide lower ingestion latency.
 > - For on-premises machines with no internet connectivity, use Azure Arc over Log Analytics Gateway.
 > - For on-premises machines with internet connectivity that are configured for Azure Arc, group VMs in separate resources per project, and use DCRs.
-> - Spread alerts across different resource groups to avoid hitting subscription limits of 800 deployments per resource group.
+> - Spread alerts across resource groups to avoid hitting subscription limits of 800 deployments per resource group.
 > - Rationalize alerts to use a single alert across different teams.
 > - Review security requirements for network, user, and overall cloud services.
-> - Create a separate resource group for each workspace to help apply role-based access control (RBAC) rules effectively.
+> - Create a separate resource group for each workspace to help apply RBAC rules effectively.
 > - Apply RBAC to user accounts and other objects for Log Analytics workspace access.
 > - Use Azure Sentinel to ingest identity and security-related logs.
 > - Monitor live applications with Application Insights to automatically detect performance anomalies.
