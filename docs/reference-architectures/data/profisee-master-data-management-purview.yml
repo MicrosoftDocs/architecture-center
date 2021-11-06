@@ -15,13 +15,11 @@ azureCategories:
   - databases
   - management-and-governance
 products:
-  - azure-data-factory 
+  - azure-data-factory
   - azure-kubernetes-service 
-  - azure-sql-database 
-  - azure-sql-managed-instance 
   - azure-synapse-analytics 
   - power-bi 
-  - azure-active-directory 
+  - azure-machine-learning
 name: Data governance with Profisee and Azure Purview
 summary: Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
 thumbnailUrl: /azure/architecture/browse/thumbs/profisee-master-data-management-purview.png
