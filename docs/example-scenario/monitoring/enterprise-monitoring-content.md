@@ -28,7 +28,7 @@ This solution can help with the following use cases:
 
 *Download a [Visio file](https://arch-center.azureedge.net/EnterpriseMonitoringFinal.vsdx) of this architecture.*
 
-- This architecture follows a resource-context log model. Every log record an Azure resource emits automatically associates with the resource. This model helps separate workspaces that collect and ingest from different app owners.
+- This architecture follows a resource-context log model. Every log record an Azure resource emits automatically associates with the resource. This model helps to separate workspaces that collect and ingest from different app owners.
 
 - Different workloads across the enterprise have separate workspaces. Configuring different workspaces gives teams autonomy over their own data, and provides a separate cost overview per workspace.
 
@@ -38,15 +38,15 @@ This solution can help with the following use cases:
 
   - Azure Kubernetes Service (AKS) and Azure Web Apps apps, Azure Virtual Desktop, Azure Pipelines, SQL workloads, and other PaaS services each have their own workspaces.
 
-- Each workspace has its own set of configured alerts. Azure Logic Apps and Azure Automation provide advance alerting and remediation. You can use Logic Apps to configure integration with IT Service Management (ITSM) tools.
+- Each workspace has its own set of configured alerts. Azure Logic Apps and Azure Automation provide advance alerting and remediation. Logic Apps provides integration with IT Service Management (ITSM) tools.
 
 - A set of on-premises virtual machines (VMs) connects through Azure Arc, providing an end-to-end Azure management plane. You can also use Azure Arc to connect infrastructure-as-a-service (IaaS) resources that run in a third-party cloud.
 
-- Custom logging captures information about third-party virtualized environments and collects custom application, software, or operating system logs.
+- Custom logging captures information about third-party virtualized environments, and collects custom application, software, and operating system logs.
 
-- Log Analytics Workspace Insights provides comprehensive monitoring of all the workspaces. Using a single workspace to store collected data from all your resources aligns with the IT organization's operating model. This workspace gives the central team an overview of all the workspaces' usage, cost, and performance. The central workspace respects scoping and role-based access control (RBAC) based on the resources. Log Analytics Workspace Insights has its own separate set of alerts.
+- Log Analytics Workspace Insights provides comprehensive workspace monitoring. Using a single workspace to store collected data from all resources aligns with the IT organization's operating model. This workspace gives the central team an overview of all the workspaces' usage, cost, and performance. The central workspace respects scoping and role-based access control (RBAC) based on the resources. Log Analytics Workspace Insights has its own separate set of alerts.
 
-- Log Analytics provides further integration by exporting workspace data for archiving or analytics. Archiving data to cool tier storage saves costs. You can use archived data for further analytics by creating datasets that feed into machine learning models.
+- Log Analytics provides further integration by exporting workspace data for archiving or analytics. Archiving data to cool-tier storage saves costs. You can use archived data for further analytics by creating datasets that feed into machine learning models.
 
 - Monitor connects to security information and event management (SIEM) tools like Azure Sentinel to create larger enterprise security datastores.
 
@@ -104,13 +104,13 @@ You can use some monitoring alternatives along with or instead of Monitor.
 
 #### System Center Operations Manager
 
-[System Center Operations Manager](/system-center/scom/welcome) offers flexible, cost-effective infrastructure monitoring. Operations Manager offers comprehensive monitoring for private and public datacenters and clouds. Operations Manager helps ensure the predictable performance and availability of important applications.
+[System Center Operations Manager](/system-center/scom/welcome) offers flexible, cost-effective infrastructure monitoring. Operations Manager provides comprehensive monitoring for private and public datacenters and clouds. Operations Manager helps ensure the predictable performance and availability of important applications.
 
 To maintain your existing Operations Manager investment, you can integrate Operations Manager with your Log Analytics workspaces. You can use Monitor logs and extended capabilities while still using Operations Manager for these functions:
 
-- Monitor the health of your IT services.
-- Maintain integration with your ITSM solutions for incident and problem management.
-- Manage the lifecycle of agents deployed to on-premises and public cloud IaaS VMs.
+- Monitoring the health of your IT services
+- Maintaining integration with your ITSM solutions for incident and problem management
+- Managing the lifecycle of agents deployed to on-premises and public cloud IaaS VMs.
 
 For more information, see [Connect Operations Manager to Azure Monitor](/azure/azure-monitor/agents/om-agents).
 
