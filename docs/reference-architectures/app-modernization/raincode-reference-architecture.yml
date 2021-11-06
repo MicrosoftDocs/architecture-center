@@ -22,11 +22,9 @@ summary: This architecture shows how the Raincode COBOL compiler modernizes main
 products:
   - azure-virtual-machines
   - azure-kubernetes-service
+  - azure-files
   - azure-expressroute
   - azure-load-balancer
-  - azure-sql-database
-  - azure-cosmos-db
-  - azure-database-postgresql
 thumbnailUrl: /azure/architecture/browse/thumbs/raincode-reference-architecture-02.png
 content: |
    [!include[](raincode-reference-architecture-content.md)]
