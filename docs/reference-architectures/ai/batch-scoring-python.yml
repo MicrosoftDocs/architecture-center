@@ -22,7 +22,6 @@ azureCategories:
   - developer-tools
 summary: Build a scalable solution for batch scoring models on a schedule in parallel using Azure Machine Learning.
 products:
-  - azure-blob-storage
   - azure-container-registry
   - azure-event-hubs
   - azure-machine-learning
