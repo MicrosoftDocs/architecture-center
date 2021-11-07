@@ -28,7 +28,6 @@ products:
   - azure-active-directory
   - azure-api-management
   - azure-dns
-  - azure-functions
   - azure-logic-apps
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/simple-enterprise-integration.png
