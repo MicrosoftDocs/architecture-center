@@ -15,7 +15,6 @@ azureCategories:
 summary: Best practices for securing data handled by a PCI-DSS 3.2.1 infrastructure. 
 products:
   - azure-kubernetes-service
-  - azure-firewall
   - azure-application-gateway
   - azure-active-directory
   - azure-security-center
