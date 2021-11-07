@@ -5,7 +5,7 @@ metadata:
   description: Simplify one-to-many real-time communication and updates by using SignalR Service and the serverless code of Azure Functions.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 12/16/2019
+  ms.date: 11/07/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
