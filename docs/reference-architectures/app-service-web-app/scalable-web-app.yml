@@ -19,15 +19,10 @@ azureCategories:
 summary: Use the proven practices in this reference architecture to improve scalability and performance in an Azure App Service web application.
 products:
   - azure-cdn
-  - azure-cognitive-search
-  - azure-cosmos-db
-  - azure-dns
   - azure-front-door
   - azure-functions
-  - azure-search
-  - azure-storage
   - azure-service-bus
-  - azure-sql-database
+  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/scalable-web-app.png
 content: |
    [!include[](scalable-web-app-content.md)]
