@@ -20,12 +20,11 @@ azureCategories:
   - featured
 summary: Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 products:
-  - azure-blob-storage
   - azure-functions
   - azure-iot-hub
   - azure-iot-dps
-  - azure-logic-apps
   - azure-stream-analytics
+  - azure-digital-twins
 thumbnailUrl: /azure/architecture/browse/thumbs/iot-refarch.svg
 content: |
    [!include[](iot-content.md)]
