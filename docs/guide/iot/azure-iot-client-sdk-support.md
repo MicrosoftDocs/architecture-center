@@ -7,7 +7,7 @@ ms.author: pnp
 ms.date: 09/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
   - azure-iot
   - azure-iot-hub
