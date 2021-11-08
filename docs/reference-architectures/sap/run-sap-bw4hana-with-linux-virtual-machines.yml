@@ -2,7 +2,7 @@
 metadata:
   title: Run SAP BW/4HANA with Linux VMs
   description: Learn about the SAP BW/4HANA application tier and how it&apos;s suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.
-  author: maggsl
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 06/10/2020
   ms.topic: conceptual
