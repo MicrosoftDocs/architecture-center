@@ -30,6 +30,7 @@ products:
   - azure-functions
   - azure-signalr-service
   - azure-web-apps
+  - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/instant-broadcasting-on-serverless-architecture.png
 content: |
    [!include[](instant-broadcasting-on-serverless-architecture-content.md)]
