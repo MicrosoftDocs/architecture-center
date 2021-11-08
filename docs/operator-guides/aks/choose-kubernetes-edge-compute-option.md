@@ -7,7 +7,7 @@ ms.author: prkau
 ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 ms.category:
   - containers
 products:
