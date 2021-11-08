@@ -1,5 +1,5 @@
 ---
-title: Plan serverless Functions deployment
+title: Plan a serverless Functions deployment
 titleSuffix: Azure Example Scenarios
 description: Perform activities to validate, commit, and plan serverless Azure Functions deployment.
 author: rogeriohc
@@ -13,7 +13,7 @@ ms.custom:
   - fcp
   - guide
 ---
-# Plan for serverless Functions
+# Plan for deploying serverless Functions
 
 To plan for moving an application to a serverless Azure Functions architecture, a technical decision maker (TDM) or architect:
 - Verifies the application's characteristics and business requirements.
