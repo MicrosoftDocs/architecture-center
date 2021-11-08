@@ -1,7 +1,8 @@
 ---
-title: Choosing a stream processing technology
+title: Choose a stream processing technology
 description: Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center
@@ -15,7 +16,7 @@ ms.custom:
 
 <!-- cSpell:ignore HDFS -->
 
-# Choosing a stream processing technology in Azure
+# Choose a stream processing technology in Azure
 
 This article compares technology choices for real-time stream processing in Azure.
 
