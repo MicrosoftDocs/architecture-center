@@ -22,12 +22,9 @@ summary: Learn how to configure a DevTest and DevOps infrastructure for developm
 products:
   - azure-active-directory
   - azure-boards
-  - azure-devops
   - azure-devtest-labs
   - azure-key-vault
-  - azure-monitor
   - azure-pipelines
-  - azure-policy
 thumbnailUrl: /azure/architecture/browse/thumbs/dev-test-iaas.png
 content: |
    [!include[](dev-test-iaas-content.md)]
