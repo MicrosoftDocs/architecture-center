@@ -36,7 +36,7 @@ Real time processing deals with streams of data that are captured in real-time a
 
 [Azure IoT Hub](/azure/iot-hub/) is a managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a cloud-based back end.
 
-Feature of IoT Hub include:
+Features of IoT Hub include:
 
 - Multiple options for device-to-cloud and cloud-to-device communication. These options include one-way messaging, file transfer, and request-reply methods.
 - Message routing to other Azure services.
