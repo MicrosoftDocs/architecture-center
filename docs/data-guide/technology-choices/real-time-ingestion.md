@@ -1,7 +1,7 @@
 ---
 title: Choose a real-time message ingestion technology
 description: Choose an Azure message ingestion store to support message buffering, scale-out processing, reliable delivery, and queuing semantics.
-author: zoinerTejada
+author: EdPrice-MSFT
 ms.author: pnp
 ms.date: 02/12/2018
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.custom:
   - guide
 ---
 
-# Choosing a real-time message ingestion technology in Azure
+# Choose a real-time message ingestion technology in Azure
 
 Real time processing deals with streams of data that are captured in real-time and processed with minimal latency. Many real-time processing solutions need a message ingestion store to act as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics.
 
@@ -36,7 +36,7 @@ Real time processing deals with streams of data that are captured in real-time a
 
 [Azure IoT Hub](/azure/iot-hub/) is a managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a cloud-based back end.
 
-Feature of IoT Hub include:
+Features of IoT Hub include:
 
 - Multiple options for device-to-cloud and cloud-to-device communication. These options include one-way messaging, file transfer, and request-reply methods.
 - Message routing to other Azure services.
