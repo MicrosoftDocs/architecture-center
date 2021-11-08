@@ -1,5 +1,5 @@
 ---
-title: Considerations in IIoT solution
+title: Considerations in an IIoT solution
 titleSuffix: Azure Application Architecture Guide
 description: Read about architectural considerations in an IIoT analytics solution. View discussions about performance, availability, and networking.
 author: khilscher
@@ -16,7 +16,7 @@ ms.custom:
   - guide
 ---
 
-# Architectural Considerations in an IIoT Analytics Solution
+# Architectural considerations in an IIoT analytics solution
 
 The [Microsoft Azure Well-Architected Framework](../../framework/index.md) describes some key tenets of a good architectural design. Keeping in line with these tenets, this article describes the considerations in the reference [Azure Industrial IoT analytics solution](./iiot-architecture.md) that improve its performance and resiliency.
 
