@@ -1442,6 +1442,8 @@ items:
                 href: example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml
               - name: IoT and data analytics
                 href: example-scenario/data/big-data-with-iot.yml
+              - name: Long-term security logs in Azure Data Explorer
+                href: example-scenario/security/security-log-retention-azure-data-explorer.yml
               - name: Partitioning in Event Hubs and Kafka
                 href: reference-architectures/event-hubs/partitioning-in-event-hubs-and-kafka.yml
               - name: Precision medicine pipeline with genomics
@@ -3083,6 +3085,8 @@ items:
                 href: solution-ideas/articles/homomorphic-encryption-seal.yml
               - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
                 href: hybrid/hybrid-security-monitoring.yml
+              - name: Long-term security logs in Azure Data Explorer
+                href: example-scenario/security/security-log-retention-azure-data-explorer.yml
               - name: MCAS and Azure Sentinel security for AWS
                 href: reference-architectures/aws/aws-azure-security-solutions.yml
               - name: Multi-region app with private database
