@@ -32,8 +32,6 @@ products:
   - azure-hdinsight
   - azure-machine-learning
   - azure-stream-analytics
-  - azure-sql-database
-  - azure-blob-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.png
 content: |
   [!include[](aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace-content.md)]

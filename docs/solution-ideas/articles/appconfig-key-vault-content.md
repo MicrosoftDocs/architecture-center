@@ -18,7 +18,7 @@ The following diagrams show how Azure App Configuration and Azure Key Vault can 
 
 ### Development environment
 
-In the development environment, the app uses Visual Studio or Azure CLI 2.0 `Azure.Identity` to sign in and send an authentication request to Azure Active Directory (Azure AD). 
+In the development environment, the app leverages an identity through Visual Studio or Azure CLI 2.0 to sign in and send an authentication request to Azure Active Directory (Azure AD). 
 
 ![Development environment](../media/appconfig-development.png) 
 
@@ -45,8 +45,15 @@ The Azure staging and production environments use an [Azure Managed Service Iden
 
 - To use these scenarios, the sign-in identity must have the **App Configuration Data Reader** role in the App Configuration resource, and have explicit **access policies** for retrieving the secrets in Azure Key Vault.
 
-## Next steps
+### Components
 
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): A universal platform to manage and secure identities.
+* [Azure App Configuration](https://azure.microsoft.com/services/app-configuration): Store configurations for all your Azure apps in a universal, hosted location.
+* [Azure Managed Service Identity](/azure/active-directory/managed-identities-azure-resources): Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard cryptographic keys and other secrets that are used by cloud apps and services.
+
+## Next steps
+Learn more about the component technologies:
 - [Azure App Configuration](/azure/azure-app-configuration)
 - [Azure Key Vault](/azure/key-vault/general/basic-concepts)
 - [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references)

@@ -26,7 +26,6 @@ products:
   - azure-cosmos-db
   - azure-data-factory
   - azure-databricks
-  - azure-functions
   - azure-event-hubs
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-analytics-end-to-end.png
 content: |

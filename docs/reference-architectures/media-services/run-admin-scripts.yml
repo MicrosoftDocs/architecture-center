@@ -15,10 +15,7 @@ name: Gridwich pipeline-generated admin scripts
 summary: Learn about the Gridwich pipeline-generated admin scripts and how to run them.
 products:
   - azure-active-directory
-  - azure-event-grid
   - azure-functions
-  - azure-key-vault
-  - azure-logic-apps
   - azure-media-services
   - azure-pipelines
   - azure-storage

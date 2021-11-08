@@ -2,7 +2,7 @@
 title: Data partitioning guidance
 titleSuffix: Best practices for cloud applications
 description: View guidance for how to separate data partitions to be managed and accessed separately. Understand horizontal, vertical, and functional partitioning strategies.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 11/04/2018
 ms.topic: conceptual
 ms.service: architecture-center

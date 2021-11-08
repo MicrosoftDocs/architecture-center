@@ -25,10 +25,8 @@ summary: This example demonstrates how manufacturers can connect their assets to
 products:
   - azure-data-lake
   - azure-event-hubs
-  - azure-functions
   - azure-iot-edge
   - azure-iot-hub
-  - azure-stream-analytics
   - azure-time-series-insights
 thumbnailUrl: /azure/architecture/browse/thumbs/condition-monitoring.svg
 content: |
