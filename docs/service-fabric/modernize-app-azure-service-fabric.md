@@ -85,7 +85,7 @@ From an application development perspective, determine the workstation requireme
 
 Service Fabric orchestration provides a platform for hosting, deploying, scaling, and operating applications at enterprise scale. Most large enterprises that use Azure:
 
-- Extend their corporate network with a private address space to an Azure subscription. use either [ExpressRoute](https://azure.microsoft.com/services/expressroute/) or a [Site-to-Site VPN](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) to provide secure on-premises connectivity.
+- Extend their corporate network with a private address space to an Azure subscription. Use either [ExpressRoute](https://azure.microsoft.com/services/expressroute/) or a [Site-to-Site VPN](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) to provide secure on-premises connectivity.
 - Want to control inbound and outbound network traffic through third-party firewall appliances and/or [Azure Network Security Group rules](/azure/virtual-network/security-overview).
 - Want tight control over the address space requirements and subnets.
 
