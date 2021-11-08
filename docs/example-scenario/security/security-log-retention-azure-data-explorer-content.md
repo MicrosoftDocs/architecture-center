@@ -19,7 +19,7 @@ This solution applies to various scenarios. Specifically, security operations ce
 - Threat hunting.
 - Security audits.
 
-A customer testifies to the usefulness of ths solution: "We deployed an Azure Data Explorer cluster almost a year and a half ago. In the last Solorigate data breach, we used an Azure Data Explorer cluster for forensic analysis. A Microsoft Dart team also used an Azure Data Explorer cluster to complete the investigation. Long-term security data retention is critical for full-scale data investigations."
+A customer testifies to the usefulness of the solution: "We deployed an Azure Data Explorer cluster almost a year and a half ago. In the last Solorigate data breach, we used an Azure Data Explorer cluster for forensic analysis. A Microsoft Dart team also used an Azure Data Explorer cluster to complete the investigation. Long-term security data retention is critical for full-scale data investigations."
 
 ## Architecture
 
@@ -61,7 +61,7 @@ A customer testifies to the usefulness of ths solution: "We deployed an Azure Da
 
 - Instead of using Azure Data Explorer for long-term storage of security logs, you can use Storage. This approach simplifies the architecture and can help control the cost. A disadvantage is the need to rehydrate the logs for security audits and interactive investigative queries. With Azure Data Explorer, you can move data from the cold partition to the hot partition by changing a policy. This functionality speeds up data exploration.
 
-- Another option is to send all data, regardless of its security value, to Sentinel and Azure Data Explorer at the same time. Some duplication results, but the cost savings can be significant. Because Azure Data Explorer provides long-term storage, you can reduce your Sentinel retention costs with this approach.
+- Another option with this solution is to send all data, regardless of its security value, to Sentinel and Azure Data Explorer at the same time. Some duplication results, but the cost savings can be significant. Because Azure Data Explorer provides long-term storage, you can reduce your Sentinel retention costs with this approach.
 
 - Log Analytics doesn't currently support exporting custom log tables. In this scenario, you can use Azure Logic Apps to export data from Log Analytics workspaces. For more information, see [Archive data from Log Analytics workspace to Azure Storage using Logic Apps][Archive data from Log Analytics workspace to Azure storage using Logic App].
 
@@ -118,7 +118,7 @@ By using this method, you can copy data from Data Factory only when the data nea
 
 #### Query usage and audit preparedness
 
-Generally, you keep data in the cold cache in your Azure Data Explorer cluster. This approach minimizes your cluster cost and is sufficient for most Azure Data Explorer queries that involve data from previous months. But when you query large data ranges, you might need to scale out the cluster and load the data into the hot cache.
+Generally, you keep data in the cold cache in your Azure Data Explorer cluster. This approach minimizes your cluster cost and is sufficient for most queries that involve data from previous months. But when you query large data ranges, you might need to scale out the cluster and load the data into the hot cache.
 
 You can use the hot window feature of the hot cache policy for this purpose. You can also use this feature when you audit long-term data. When you use the hot window, you might need to scale your cluster up or out to make room for more data in the hot cache. After you've finished querying the large data range, change the hot cache policy to reduce your computing cost.
 
