@@ -2,7 +2,7 @@
 title: Data partitioning strategies
 titleSuffix: Best practices for cloud applications
 description: View guidance on separating data partitions to be managed and accessed separately in different services, such as Azure Search, Azure storage queues, and more.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 11/04/2018
 ms.topic: conceptual
 ms.service: architecture-center
