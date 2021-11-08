@@ -7,6 +7,7 @@ ms.author: jodowns
 ms.date: 09/28/2021
 ms.topic: conceptual
 ms.service: architecture-center
+ms.subservice: azure-guide
 products:
   - azure
 categories:
