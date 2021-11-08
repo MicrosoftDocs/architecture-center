@@ -1,5 +1,5 @@
 ---
-title: Modernize enterprise applications - Azure Service Fabric
+title: Modernize enterprise applications with Azure Service Fabric
 description: Best practices about moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.
 author: colincole
 ms.author: pnp
