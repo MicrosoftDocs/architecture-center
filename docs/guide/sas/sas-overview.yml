@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: SAS on Azure architecture guide
+  title: SAS on Azure architecture
   titleSuffix: Azure Architecture Center
   description: Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid that use Azure.
   author: ranieuwe
@@ -19,7 +19,7 @@ azureCategories:
 products:
   - azure-virtual-machines
   - azure-virtual-network
-name: SAS on Azure architecture guide
+name: SAS on Azure architecture
 summary: Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid that use Azure.
 thumbnailUrl: /azure/architecture/browse/thumbs/sas-azure-guide-architecture-diagram-thumbnail.png
 content: |
