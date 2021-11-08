@@ -2,7 +2,7 @@
 title: Leader Election pattern
 titleSuffix: Cloud Design Patterns
 description: Learn how use the Leader Election pattern to coordinate the actions performed by a collection of collaborating task instances in a distributed application.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
