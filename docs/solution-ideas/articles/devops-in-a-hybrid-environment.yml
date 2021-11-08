@@ -27,8 +27,6 @@ products:
   - azure-key-vault
   - azure-monitor
   - azure-pipelines
-  - azure-sql-database
-  - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/devops-in-a-hybrid-environment.png
 content: |
    [!include[](devops-in-a-hybrid-environment-content.md)]
