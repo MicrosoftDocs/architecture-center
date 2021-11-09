@@ -44,7 +44,7 @@ The next diagram shows how Azure services can provide similar functionality and 
 
 1. The application servers host various application programs based on language, such as Java classes in Tomcat, or COBOL programs with CICS verbs in CICS emulation VMs.
 
-1. Data services use a combination of high-performance storage on Ultra or Premium solid-state disks (SSDs), file storage on NetApp or Azure Files, and standard blob, archive, and backup storage that can be locally redundant or geo-redundant.
+1. Data services use a combination of high-performance storage on Ultra or Premium solid-state disks (SSDs), file storage on Azure NetApp Files or Azure Files, and standard blob, archive, and backup storage that can be locally redundant or geo-redundant.
 
 1. Azure Blob storage is a common landing zone for external data sources.
 
