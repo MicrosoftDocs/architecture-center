@@ -346,6 +346,21 @@ In conclusion, Azure Stack Hub is a unique offering, which differs in many aspec
 
 It's important to note that the backup solution described here focuses exclusively on file and application data on Azure Stack Hub VMs. This is just a part of an overall business continuity strategy that should account for a variety of other scenarios affecting workload availability. These could include localized hardware and software failures, system outages, catastrophic events, and large-scale disasters.
 
+## Next steps
+
+- [How-to guides - Backup Storage Accounts on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-backup-storage)
+- [How-to guides - Backup of VMs on Azure Stack Hub using Commvault](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-backup-commvault)
+- [Disaster Recovery for Azure Stack Hub VMs](/azure/architecture/hybrid/azure-stack-vm-dr)
+
+## Related resources
+
+- [Backup Cloud and On-Premises workloads to Cloud](https://docs.microsoft.com/azure/backup/guidance-best-practices)
+- [Backup on premises applications and data to the cloud](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/backup-archive-on-premises-applications)
+- [Install Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-mabs-install-azure-stack)
+- [Backup files and applications on Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
+- [Backup a SharePoint farm on Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Backup a SQL Server in Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+
 [architectural-diagram]: ./images/azure-stack-backup.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-backup.vsdx
 [azure-backup-azure-stack]: /azure/backup/backup-mabs-install-azure-stack
