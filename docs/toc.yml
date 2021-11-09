@@ -3083,7 +3083,7 @@ items:
                 href: example-scenario/confidential/healthcare-inference.yml
               - name: Homomorphic encryption with SEAL
                 href: solution-ideas/articles/homomorphic-encryption-seal.yml
-              - name: Hybrid Security Monitoring using Azure Security Center and Azure Sentinel
+              - name: Hybrid security monitoring
                 href: hybrid/hybrid-security-monitoring.yml
               - name: Long-term security logs in Azure Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
