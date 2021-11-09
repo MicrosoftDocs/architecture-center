@@ -62,6 +62,7 @@ typical challenge of this type of scenario. The [Delta Lake](https://delta.io)
 architecture answers this challenge.
 
 ## Examples
+
 In the following example architecture, we assume that one or more Azure Event Hubs namespaces will contain structured raw documents (such as json or xml files). However, the actual type and format of documents and source services, and their type of integration, is highly dependent on the specific scenario and architecture.
 
 ### Streaming
