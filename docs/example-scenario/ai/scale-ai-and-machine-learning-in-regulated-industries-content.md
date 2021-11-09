@@ -23,7 +23,7 @@ Implementation of Enterprise Scale Analytics and AI reference architecture in re
 The architecture is shown in the diagram below and follows the principle of [Enterprise Scale Landing Zones](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture), specifically the Analytics and AI reference architecture.
 
 
-![Diagram of a scalable AI platform for regulated industries.](media/scale-ai-and-machine-learning-in-regulated-industries.png)
+[![Diagram of a scalable AI platform for regulated industries.](media/scale-ai-and-machine-learning-in-regulated-industries.png)](media/scale-ai-and-machine-learning-in-regulated-industries.png#lightbox)
 
 [Download a copy of this Visio.](https://arch-center.azureedge.net/scalable-ai-platform-regulated-industries-v1.vsdx)
 
