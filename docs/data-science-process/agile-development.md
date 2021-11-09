@@ -1,5 +1,5 @@
 ---
-title: Agile development of data science projects - Team Data Science Process
+title: Agile development of data science projects
 description: Execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
 author: marktab
 manager: marktab

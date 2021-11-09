@@ -18,7 +18,7 @@ ms.custom:
   - guide
 ---
 
-# Securing Azure Functions with Event Hubs
+# Secure Azure Functions with Event Hubs
 
 When configuring access to resources in Azure, you should apply fine-grained control over permissions to resources. Access to these resources should be based on *need to know* and *least privilege* security principles to make sure that clients can only perform the limited set of actions assigned to them.
 

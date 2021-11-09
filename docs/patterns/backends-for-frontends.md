@@ -2,7 +2,8 @@
 title: Backends for Frontends pattern
 titleSuffix: Cloud Design Patterns
 description: Explore the Backends for Frontends pattern, which creates separate backend services to be consumed by specific frontend applications or interfaces.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center

@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Long-term security log retention with Azure Data Explorer
+  titleSuffix: Azure Example Scenarios
+  description: Store security logs in Azure Data Explorer on a long-term basis. This solution minimizes costs and provides easy access when you need to query the data.
+  author: DeepakAgrawalMS
+  ms.author: dagrawal
+  ms.date: 11/09/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+azureCategories:
+  - analytics
+  - security
+  - storage
+products:
+  - azure-data-explorer
+  - azure-data-lake-storage
+  - azure-event-hubs
+  - azure-log-analytics
+  - azure-sentinel
+name: Long-term security log retention with Azure Data Explorer
+summary: Store security logs in Azure Data Explorer on a long-term basis. This solution minimizes costs and provides easy access when you need to query the data.
+thumbnailUrl: /azure/architecture/browse/thumbs/security-log-retention-azure-data-explorer-architecture-diagram-thumbnail.png
+content: |
+  [!include[](security-log-retention-azure-data-explorer-content.md)]

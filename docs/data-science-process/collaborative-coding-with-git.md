@@ -1,6 +1,6 @@
 ---
-title: Collaborative coding with Git - Team Data Science Process
-description: How to do collaborative code development for data science projects using Git with agile planning.
+title: Collaborative coding with Git
+description: How to do collaborative code development for data science projects, using Git with agile planning.
 author: marktab
 manager: marktab
 editor: marktab
