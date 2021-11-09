@@ -2,7 +2,8 @@
 title: Scheduler Agent Supervisor pattern
 titleSuffix: Cloud Design Patterns
 description: Explore the Scheduler Agent Supervisor pattern, which coordinates a set of actions across a distributed set of services and other remote resources.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
