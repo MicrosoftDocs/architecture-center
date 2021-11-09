@@ -61,11 +61,11 @@ requirements into a uniform, easy-to-maintain, high-performance system is a
 typical challenge of this type of scenario. The [Delta Lake](https://delta.io)
 architecture answers this challenge.
 
-## Examples
+### Examples
 
 In the following example architecture, we assume that one or more Azure Event Hubs namespaces will contain structured raw documents (such as json or xml files). However, the actual type and format of documents and source services, and their type of integration, is highly dependent on the specific scenario and architecture.
 
-### Streaming
+#### Streaming
 
 With Spark Structured Streaming, raw data is pulled, decompressed, parsed, and
 translated to tabular data in a streaming DataFrame.
@@ -173,7 +173,7 @@ df = df.withColumn("path", GetPath(col("timestamp"),
 col("transactionId"), col("providerName"), col('documentType')))
 ```
 
-### Metadata ingestion in a delta lake
+#### Metadata ingestion in a delta lake
 
 Metadata is written to a delta table that enables real-time query capabilities.
 Writes are streamed in a buffer, and queries to the table can merge results from
@@ -268,7 +268,7 @@ row['data'])
 df.writeStream.foreach(Row2ADLS).start()
 ```
 
-### Client
+#### Client
 
 The client can be a custom web application that uses metadata to retrieve
 document paths from the delta table with standard SQL statements and, in turn,
@@ -282,7 +282,7 @@ the documents in a certain transaction:
 select * from metadata where transactionId = '123456'
 ```
 
-### Components
+#### Components
 
 [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/#overview) is a platform as a service (PaaS) for building and hosting apps in managed virtual machines. App Service manages the underlying compute infrastructure on which your apps run, and it provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics.
 
@@ -322,7 +322,7 @@ Azure Event Hubs is highly versatile when it comes to decoupling a transactional
 
 For deploying the used services in this example workload automatically, it's best to use [continuous integration and continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks). Consider using a solution such as Azure DevOps or GitHub Actions, as described in the [Azure DevOps Starter](/azure/devops-project/overview) documentation.
 
-### Pricing
+## Pricing
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. See the cost section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) to learn about other considerations.
 
