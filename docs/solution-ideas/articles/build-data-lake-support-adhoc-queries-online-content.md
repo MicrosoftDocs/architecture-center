@@ -282,7 +282,7 @@ the documents in a certain transaction:
 select * from metadata where transactionId = '123456'
 ```
 
-#### Components
+### Components
 
 [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/#overview) is a platform as a service (PaaS) for building and hosting apps in managed virtual machines. App Service manages the underlying compute infrastructure on which your apps run, and it provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics.
 
