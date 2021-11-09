@@ -2,7 +2,8 @@
 title: Compensating Transaction pattern
 titleSuffix: Cloud Design Patterns
 description: Undo the work performed by a series of steps, which together define an eventually consistent operation.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
