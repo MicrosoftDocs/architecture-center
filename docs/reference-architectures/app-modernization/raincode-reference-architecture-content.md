@@ -101,7 +101,7 @@ This diagram shows how the legacy architecture can be migrated to Azure, taking 
 
     Unlike virtual machines, containers can scale out and scale in rapidly. Since the unit of scaling shifts to containers, infrastructure utilization is    optimized.
 
-5. Data services use a combination of high-performance storage on Ultra or Premium solid-state disks (SSDs), file storage on NetApp or Azure Files, and standard blob, archive, and backup storage that can be locally redundant or geo-redundant.
+5. Data services use a combination of high-performance storage on Ultra or Premium solid-state disks (SSDs), file storage on Azure NetApp Files or Azure Files, and standard blob, archive, and backup storage that can be locally redundant or geo-redundant.
 
 6. Azure SQL Database using either Hyperscale or Business Critical tiers for both high IOPS and high uptime SLA. Further, Private Link for Azure SQL Database is used to provide a private, direct connection isolated to the Azure Networking Backbone from the Azure VM to the Azure SQL Database. Raincode data migration tools can convert DMS/RDMS schemas to SQL.
 
