@@ -2,7 +2,8 @@
 title: Gatekeeper pattern
 titleSuffix: Cloud Design Patterns
 description: Learn how to use the Gatekeeper pattern to protect applications and services by using a dedicated host instance as a broker to validate requests and data.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center
