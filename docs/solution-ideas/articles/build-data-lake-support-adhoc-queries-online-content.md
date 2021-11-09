@@ -10,12 +10,35 @@ manage user purchases. For example, leisure and travel booking systems
 disintermediate users and services providers for searching services, aggregating
 meaningful offers from providers, and managing user reservations.
 
+## Potential use cases
+
+You should use this pattern when:
+
+-   You need to quickly answer ad hoc queries from a live data repository.
+-   Your data is insourced as raw documents (for instance as json, xml, or csv
+    files).
+-   A fraction of data is sufficient to describe queries.
+-   Users want to retrieve full raw documents.
+-   The size of all data would require scaling the system above your target
+    price.
+
+This pattern might not be suitable when:
+
+-   Data is insourced as recordsets.
+-   Users are required to run analytics.
+-   Users are willing to use their own packaged BI tool.
+-   The size of data is not a challenge from a cost perspective.
+-   Raw documents are not necessarily required.
+
+## Architecture
+
 :::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-01.png" alt-text="Diagram of a marketplace with service providers and B2B and B2C users.":::
 
 ## Potential use cases
 
 This architecture is applicable to several scenarios, including:
 
+<<<<<<< HEAD
 * Quickly retrieving either real-time (for example, for diagnostics) or historical (for compliance) raw documents in their original format.
 * Managing petabytes of data.
 * Guaranteeing seconds-range performance for real-time diagnostics.
@@ -39,6 +62,9 @@ Raw documents are not necessarily required.
 ## Architecture
 
 :::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.png" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.png":::
+=======
+### Context and problem
+>>>>>>> 05e8f14b453eccc6f9f98699d073e8ccca623267
 
 Leisure and travel booking scenarios can generate large amounts of raw documents
 at a high frequency. However, you may not need to index the entire contents of
@@ -61,7 +87,69 @@ requirements into a uniform, easy-to-maintain, high-performance system is a
 typical challenge of this type of scenario. The [Delta Lake](https://delta.io)
 architecture answers this challenge.
 
+<<<<<<< HEAD
 ## Examples
+=======
+:::image type="content" source="../media/build-data-lake-support-adhoc-queries-online-02.png" alt-text="Diagram of Delta Lake architecture." lightbox="../media/build-data-lake-support-adhoc-queries-online-02.png":::
+
+### Alternatives
+
+When considering this pattern, also consider the tradeoffs that alternative
+approaches offer:
+
+-   As an alternative to only indexing metadata, you could index all raw data in
+    a service that offers query capabilities, such as Azure Databricks, Azure
+    Synapse Analytics, Azure Cognitive Search, or Azure Data Explorer. This
+    approach is more immediate, but attention should be paid to the combined
+    effect of data size, performance requirements, and update frequency,
+    especially from a cost perspective.
+-   Contrary to using a delta lake, using a [lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture)
+    keeps real-time data in a different repository than the historical data, and
+    your client runs the logic to make heterogeneous queries transparent to the
+    user. The advantage of this solution is the larger set of services that you
+    can use (such as Azure Stream Analytics and Azure SQL Database), but the
+    architecture would be more complex and the code base more expensive to
+    maintain.
+
+## Considerations
+
+Consider the following points when deciding whether to implement this pattern:
+
+-   Azure Event Hubs is highly versatile when it comes to decoupling a
+    transactional system that generates raw documents from a diagnostics and
+    compliance system; is easy to implement in already-established
+    architectures; and, ultimately, is easy to use. However, the transactional
+    system might already use the streaming pattern to process incoming
+    documents. In that case, you would likely need to integrate logic for
+    managing diagnostics and compliance into the streaming application as a
+    substream.
+-   Users will perform a double hop to access data. They’ll query metadata
+    first, and then retrieve the desired set of documents. It might be difficult
+    to reuse existing or packaged client assets.
+-   The data lake will potentially manage petabytes of data, so data retention
+    policies generally apply. Data governance solutions should be employed to
+    manage data lifecycle, such as when to move old data between hot and cool
+    storage tiers, when to delete or archive old data, and when to aggregate
+    information into a downstream analytics solution.
+-   Azure Data Lake Storage Gen2 provides three [performance tiers](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-key-considerations):
+    hot, cool, and archive. In scenarios where documents are occasionally
+    retrieved, the cool performance tier should guarantee similar performance to
+    the hot performance tier but with the advantage of lower costs. In scenarios
+    where the probability of retrieval is higher with newer data, consider
+    blending the cool and hot tiers. Using archive tier storage could also
+    provide an alternative to hard deletion, as well as reduce the size of data
+    by keeping only meaningful information or more aggregated data.
+-   Consider how this approach might work with downstream analytics scenarios.
+    Although this pattern is not meant for analytics, it is appropriate for
+    feeding downstream real-time analytics, while batch scenarios could be fed
+    from the data lake instead.
+-   Spark is distributed with Azure Databricks, Azure Synapse Analytics, and
+    Azure HDInsight. Hence, the above architecture could be implemented with any
+    of these Azure data services, preferably with a recent Spark version
+    supporting Delta Lake 0.8 or 1.0.
+
+## Deploy this scenario
+>>>>>>> 05e8f14b453eccc6f9f98699d073e8ccca623267
 
 In the following example architecture, we assume that one or more Azure Event
 Hubs namespaces will contain structured raw documents (such as json or xml

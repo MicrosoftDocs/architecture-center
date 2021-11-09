@@ -2,21 +2,22 @@
 metadata:
   title: Build a delta lake to support ad hoc queries in online leisure and travel booking
   titleSuffix: Azure Solution Ideas
-  description: This architecture provides an example of the Delta Lake architecture for travel booking scenarios where large amounts of raw documents are generated at a high frequency.
+  description: This architecture provides an example of the Delta Lake architecture for travel booking scenarios, where large amounts of raw documents are generated at a high frequency.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 11/03/2021
+  ms.date: 11/05/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
     - databases
+    - analytics
   ms.custom:
     - solution-idea
 name: Build a delta lake to support ad hoc queries in online leisure and travel booking
 azureCategories:
   - databases
-summary: This architecture provides an example of the Delta Lake architecture for travel booking scenarios where large amounts of raw documents are generated at a high frequency.
+summary: This architecture provides an example of the Delta Lake architecture for travel booking scenarios, where large amounts of raw documents are generated at a high frequency.
 products:
   - azure-event-hubs	
   - azure-data-lake-gen2
