@@ -1,5 +1,5 @@
 ---
-title: Best practices for designing reliability in Azure applications
+title: Designing reliability in Azure apps
 description: Learn best practices for designing reliability in Azure applications, such as ensuring connectivity, using zone-aware services, designing for scalability, and more.
 author: v-aangie
 ms.date: 02/17/2021
@@ -53,7 +53,7 @@ Strong dependencies play a critical role in application function and availabilit
 
 ## Design for scalability
 
-A cloud application must be able to scale to accommodate changes in usage. Begin with discrete components, and design the application to respond automatically to load changes whenever possible. Keep scaling limits in mind during design so you can expand easily in the future. 
+A cloud application must be able to scale to accommodate changes in usage. Begin with discrete components, and design the application to respond automatically to load changes whenever possible. Keep scaling limits in mind during design so you can expand easily in the future.
 
 ## Next step
 

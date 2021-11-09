@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: JBoss deployment with Red Hat on Azure
+  titleSuffix: Azure Solution Ideas
+  description: Learn how the Red Hat JBoss Enterprise Application Platform (EAP) streamlines and simplifies the development and deployment of a diverse range of applications.
+  author: YenChiHo
+  ms.author: yenchiho
+  ms.date: 9/27/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - developer-tools
+  - migration
+products:
+  - azure-redhat-openshift
+  - azure-cosmos-db
+  - azure-monitor
+  - azure-container-registry
+  - azure-pipelines
+name: JBoss deployment with Red Hat on Azure
+summary: The Red Hat JBoss Enterprise Application Platform (EAP) streamlines and simplifies the development and deployment of a diverse range of applications
+thumbnailUrl: /azure/architecture/browse/thumbs/jboss-deployment-red-hat.png
+content: |
+  [!include[](jboss-deployment-red-hat-content.md)]

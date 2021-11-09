@@ -3,7 +3,7 @@ metadata:
   title: Scalable Web Apps
   titleSuffix: Azure Solution Ideas
   description: Improve app performance by using Azure Cache for Redis to improve responsiveness and handle increasing loads with fewer web-compute resources.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

@@ -20,14 +20,11 @@ azureCategories:
   - ai-machine-learning
 summary: Build an audio ingestion and speech-to-text transcription pipeline with Azure Cognitive Services. Speech recognition can be used for analyzing customer calls.
 products:
-  - azure-active-directory
   - azure-api-management
   - azure-blob-storage
   - azure-cognitive-services
   - azure-event-grid
   - azure-functions
-  - azure-key-vault
-  - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/speech-to-text-audio-files-upload.png
 content: |
   [!include[](speech-to-text-transcription-pipeline-content.md)]

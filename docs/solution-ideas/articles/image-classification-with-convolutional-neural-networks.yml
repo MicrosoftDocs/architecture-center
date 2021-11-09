@@ -3,7 +3,7 @@ metadata:
   title: Image classification with CNNs
   titleSuffix: Azure Solution Ideas
   description: Boost manufacturing productivity and automate failure detection using convolutional neural networks (CNNs) and gradient-boosting decision tree algorithms.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

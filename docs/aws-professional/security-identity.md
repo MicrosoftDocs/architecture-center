@@ -1,5 +1,5 @@
 ---
-title: Multi-cloud security and identity with Azure and AWS
+title: Security and identity with Azure and AWS
 description: Get guidance for integrating security and identity services across Azure and AWS. Explore strong authentication and explicit trust validation, PIM, and more.
 author: dougkl007
 ms.date: 11/10/2020

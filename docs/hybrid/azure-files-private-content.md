@@ -42,7 +42,7 @@ A Domain Name System (DNS) Server is a critical component of the solution. Each 
 
 After enabling a private endpoint, private IP addresses are allocated in the Azure virtual network. These addresses allow access to those services over a private connection, and the same FQDNs must now resolve to private IP addresses. To achieve that, Azure Files and Azure File Sync create a canonical name DNS record (CNAME) to redirect the resolution to a private domain name:
 
-- The Azure File Sync's public domain name `*.afs.azure.net` gets a CNAME redirect to the private domain name `*.<region>.privatelink.afs.azure.net`. 
+- The Azure File Sync's public domain name `*.afs.azure.net` gets a CNAME redirect to the private domain name `*.<region>.privatelink.afs.azure.net`.
 - The Azure Files public domain name `<name>.file.core.windows.net` gets a CNAME redirect to the private domain name `<name>.privatelink.file.core.windows.net`.
 
 The solution shown in this architecture correctly configures on-premises DNS settings so that they resolve private domain names to private IP addresses, by using the following methods:

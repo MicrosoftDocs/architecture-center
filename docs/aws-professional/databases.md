@@ -1,5 +1,5 @@
 ---
-title: Compare AWS and Azure database technologies
+title: Compare AWS and Azure database technology
 description: Compare database technology differences between Azure and AWS. Review the RDS and Azure relational database services. See equivalents for analytics and big data.
 author: splitfinity
 ms.author: pnp
@@ -13,7 +13,7 @@ ms.subservice: cloud-fundamentals
 
 ## RDS and Azure relational database services
 
-Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (RDS). These include: 
+Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (RDS). These include:
 
 - [SQL Database](/azure/sql-database/sql-database-technical-overview)
 - [Azure Database for MySQL](/azure/mysql/overview)

@@ -3,7 +3,7 @@ metadata:
   title: Retail and e-commerce using Cosmos DB
   titleSuffix: Azure Solution Ideas
   description: Use Azure Cosmos DB for retail and e-commerce apps to support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

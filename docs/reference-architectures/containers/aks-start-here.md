@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes Service (AKS) architecture design
+title: Azure Kubernetes Service (AKS) design
 titleSuffix: Azure Architecture Center
 description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance offerings ranging from &quot;just starting out&quot;, to production, and through sustained operations.
 author: ckittel
@@ -61,9 +61,9 @@ If you need a regulated environment, make the baseline implementation highly sec
 > [!div class="nextstepaction"]
 > [Regulated baseline cluster for PCI-DSS 3.2.1](./aks-pci/aks-pci-intro.yml)
 
-### High availability
+### Business Continuity and Disaster Recovery
 
-A highly available solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
+A resilient solution needs multiple instances of the baseline cluster across regions in an active/active and highly available configuration.
 
 > [!div class="nextstepaction"]
 > [Baseline for multiregion clusters](./aks-multi-region/aks-multi-cluster.yml)
@@ -86,7 +86,7 @@ See [Best Practices for Cluster Operations](/azure/aks/best-practices) and [Best
 Getting your workload deployed on AKS is a great milestone and this is when [day-2 operations](https://dzone.com/articles/defining-day-2-operations) are going to be top-of-mind. **Microsoft's AKS Day 2 Operations Guide** was built for your ease of reference. This will help ensure you are ready to meet the demands of your customers and ensure you are prepared for break-fix situations via optimized triage processes.
 
 > [!div class="nextstepaction"]
-> [Microsoft's AKS Day 2 Operations Guide](../../operator-guides/aks/aks-triage-practices.md)
+> [Microsoft's AKS Day 2 Operations Guide](../../operator-guides/aks/day-2-operations-guide.md)
 
 ## Stay current with AKS
 

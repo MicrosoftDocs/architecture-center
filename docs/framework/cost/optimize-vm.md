@@ -23,7 +23,7 @@ It is easy to handle cost comparison when you are well equipped and for this Mic
 Here are some strategies that you can use to lower cost for virtual machines.
 
 ## Resize virtual machines 
-You can lower cost by managing the size and the number of VMs. 
+You can lower cost by managing the size and the number of VMs.
 > ![Task](../../_images/i-best-practices.svg) Determine the load by analyzing the CPU utilization to make sure that the instance is adequately utilized.
 
 Ideally, with the right size, the current load should fit in a lower SKU of the same tier. Another way is to lower the number instances and still keep the load below a reasonable utilization. [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs)  recommends load less than 80% utilization for non-user facing workloads and 40% when user-facing workload. It also provides current and target SKU information.
@@ -35,24 +35,24 @@ Resizing a virtual machine does require the machine to be shut down and restarte
 ## Shut down the under utilized instances
 Use the **Start/stop VMs during off-hours** feature of virtual machines to minimize waste. There are many configuration options to schedule start the stop times. The feature is suitable as a low-cost automation option. For information, see [Start/stop VMs during off-hours solution in Azure Automation](/azure/automation/automation-solution-vm-management).
 
-[Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs) evaluates virtual machines based on CPU and network utilization over a time period. Then, the recommended actions are shut down or resize instances and cost saving with both actions. 
+[Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs) evaluates virtual machines based on CPU and network utilization over a time period. Then, the recommended actions are shut down or resize instances and cost saving with both actions.
 
 
 ## Spot VMs
-Some workloads don't have a business requirement to complete a job within a period. 
+Some workloads don't have a business requirement to complete a job within a period.
 
 **Can the workload be interrupted?**
 ***
-Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimental, development, and testing of large-scale solutions. 
+Spot VMs are ideal for workloads that can be interrupted, such as highly parallel batch processing jobs. These VMs take advantage of the surplus capacity in Azure at a lower cost. They're also well suited for experimental, development, and testing of large-scale solutions.
 
 For more information, see [Use Spot VMs in Azure](/azure/virtual-machines/windows/spot-vms).
 
 ## Reserved VMs
-Virtual machines are eligible for Azure Reservations. You can prepay for VM instances if you can commit to one or three years. Reserved instances are appropriate for workloads that have a long-term usage pattern. 
+Virtual machines are eligible for Azure Reservations. You can prepay for VM instances if you can commit to one or three years. Reserved instances are appropriate for workloads that have a long-term usage pattern.
 
 The discount only applies to compute and not the other meters used to measure usage for VMs. The discount can be extended to other services that emit VM usage, such as Virtual machine scale sets and Container services, to name a few. For more information, see [Software costs not included with Azure Reserved VM Instances](/azure/cost-management-billing/reservations/reserved-instance-windows-software-costs) and [Services that get VM reservation discounts](/azure/virtual-machines/windows/prepay-reserved-vm-instances#services-that-get-vm-reservation-discounts).
 
-With reserved instances, you need to determine the VM size to buy. Analyze usage data using **Reservations Consumption APIs** and follow the recommendations of [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs) and [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs) to determine the size.  
+With reserved instances, you need to determine the VM size to buy. Analyze usage data using **Reservations Consumption APIs** and follow the recommendations of [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs) and [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs) to determine the size.
 
 Reservations also apply to dedicated hosts. The discount is applied to all running hosts that match the reservation scope and attributes. An important consideration is the SKU for the host. When selecting a SKU, choose the VM series and type eligible to be a dedicated host. For more information, see [Azure Dedicated Hosts pricing](https://aka.ms/ADHPricing).
 

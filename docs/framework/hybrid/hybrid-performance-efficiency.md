@@ -40,7 +40,7 @@ When planning for deployment of Azure Arc enabled SQL Managed Instance, you shou
 You have the flexibility to extend the capacity of the underlying Kubernetes or AKS cluster over time by adding additional compute nodes or storage. Kubernetes or AKS offers an abstraction layer over the underlying virtualization stack and hardware. Storage classes implement such abstraction for storage.
 
 > [!NOTE]
-> When provisioning a pod, you need to decide which storage class to use for its volumes. Your decision is important from a performance standpoint because an incorrect choice could result in suboptimal performance. 
+> When provisioning a pod, you need to decide which storage class to use for its volumes. Your decision is important from a performance standpoint because an incorrect choice could result in suboptimal performance.
 
 When planning for deployment of Azure Arc enabled SQL Managed Instance, you should consider a range of factors affecting storage configuration [kubernetes-storage-class-factors](/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) for both [data controller](/azure/azure-arc/data/storage-configuration#data-controller-storage-configuration) and [database instances](/azure/azure-arc/data/storage-configuration#database-instance-storage-configuration).
 

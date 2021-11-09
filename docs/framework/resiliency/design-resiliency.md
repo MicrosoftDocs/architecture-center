@@ -59,6 +59,6 @@ The usage of platform level dependencies such as Azure Active Directory must als
 - For information on failure mode analysis, see [Failure mode analysis for Azure applications](../../resiliency/failure-mode-analysis.md).
 - For information on single point of failure, see [Make all things redundant](../../guide/design-principles/redundancy.md).
 - For information on fault-points and fault-modes, see [Failure Mode Analysis for Azure applications](../../resiliency/failure-mode-analysis.md).
-- For information on minimizing dependencies, see [Minimize coordination](../../guide/design-principles/minimize-coordination.md). 
+- For information on minimizing dependencies, see [Minimize coordination](../../guide/design-principles/minimize-coordination.md).
 
 Go back to the main article: [Design](design-checklist.md)

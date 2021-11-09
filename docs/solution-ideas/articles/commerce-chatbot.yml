@@ -3,7 +3,7 @@ metadata:
   title: Commerce chatbot for customer service
   titleSuffix: Azure Solution Ideas
   description: Learn how to use Azure Bot and Azure Cognitive Services to create conversational interfaces for common customer service scenarios.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -32,7 +32,6 @@ products:
   - azure-app-service
   - azure-bot-service
   - azure-language-understanding
-  - azure-sql-database
   - azure-cognitive-services
 thumbnailUrl: /azure/architecture/browse/thumbs/commerce-chatbot.png
 content: |

@@ -1,7 +1,8 @@
 ---
 title: Online analytical processing (OLAP)
 description: Learn about online analytical processing (OLAP) solutions to organize large databases and support complex analysis without affecting transactional systems.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: architecture-center

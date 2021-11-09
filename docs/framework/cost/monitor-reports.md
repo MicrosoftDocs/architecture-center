@@ -54,7 +54,7 @@ For example, you want to determine the cost of all resources used in your worklo
 - [Marketplace Store Charge API](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge): To get usage-based marketplace charges for third-party services.
 - [Price Sheet API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet): To get the applicable rate for each meter.
 
-The result of the APIs can be imported into analysis tools.  
+The result of the APIs can be imported into analysis tools.
 
 > [!NOTE]
 > Consumption APIs are supported for Enterprise Enrollments and Web Direct Subscriptions (with exceptions). Check [Consumption APIs](/rest/api/consumption/) for updates to determine support for other types of Azure subscriptions.

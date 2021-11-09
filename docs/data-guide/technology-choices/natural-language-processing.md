@@ -1,7 +1,8 @@
 ---
 title: Natural language processing technology
 description: Choose a natural language processing service for sentiment analysis, topic and language detection, key phrase extraction, and document categorization.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/25/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -12,7 +13,7 @@ ms.custom:
   - guide
 ---
 
-# Choosing a natural language processing technology in Azure
+# Choose a natural language processing technology in Azure
 
 Natural language processing (NLP) is used for tasks such as sentiment analysis, topic detection, language detection, key phrase extraction, and document categorization.
 
@@ -72,7 +73,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Low-level natural language processing capabilities
 
-| Capability | Azure HDInsight | Microsoft Cognitive Services |  
+| Capability | Azure HDInsight | Microsoft Cognitive Services |
 | --- | --- | --- |
 | Tokenizer | Yes (Spark NLP) | Yes (Linguistic Analysis API) |
 | Stemmer | Yes (Spark NLP) | No |

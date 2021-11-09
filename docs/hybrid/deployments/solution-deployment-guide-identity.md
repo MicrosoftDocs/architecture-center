@@ -8,10 +8,8 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-
 # Intent: As an Azure Stack Hub operator, I want to configure hybrid cloud identity for Azure and Azure Stack Hub apps so my hybrid apps have a hybrid identity architecture.
 # Keyword: hybrid cloud identity azure stack hub
-
 ---
 
 # Configure hybrid cloud identity for Azure and Azure Stack Hub apps
@@ -33,10 +31,10 @@ In this solution, you'll build a sample environment to:
 
 You must have Azure Stack Hub operator permissions for the steps in this solution.
 
-> [!Tip]  
-> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that lets you build and deploy hybrid apps anywhere.  
-> 
+> [!Tip]
+> ![Hybrid pillars diagram](media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)
+> Microsoft Azure Stack Hub is an extension of Azure. Azure Stack Hub brings the agility and innovation of cloud computing to your on-premises environment, enabling the only hybrid cloud that lets you build and deploy hybrid apps anywhere.
+>
 > The article [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability, and security) for designing, deploying, and operating hybrid apps. The design considerations assist in optimizing hybrid app design, minimizing challenges in production environments.
 
 ## Create a service principal for Azure AD in the portal
@@ -53,8 +51,7 @@ The [Azure Stack Hub API](/azure-stack/user/azure-stack-rest-api-use)  solution 
 
 ## Connect to Azure Stack Hub using PowerShell
 
-The quickstart [to get up and running with PowerShell in Azure Stack Hub](/azure-stack/operator/azure-stack-powershell-install)
-walks you through the steps needed to install Azure PowerShell and connect to your Azure Stack Hub installation.
+The quickstart [to get up and running with PowerShell in Azure Stack Hub](/azure-stack/operator/azure-stack-powershell-install) walks you through the steps needed to install Azure PowerShell and connect to your Azure Stack Hub installation.
 
 ### Prerequisites
 

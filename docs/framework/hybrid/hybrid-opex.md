@@ -1,5 +1,5 @@
 ---
-title: Operational excellence in a hybrid workload
+title: Operational excellence in hybrid workload
 description: Includes guidance and recommendations that apply to the Operational Excellence pillar in a hybrid and multi-cloud workload.
 author: v-aangie
 ms.date: 02/19/2021
@@ -18,8 +18,7 @@ Use _Azure Arc enabled infrastructure_ to add support for cloud [Operational Exc
 
 ## Build cloud native apps anywhere, at scale
 
-To keep your systems running, many workload teams have architected and designed applications where components are distributed across public cloud services, private clouds, data centers, and edge locations. With Azure Arc enabled Kubernetes, you can accelerate development by using best in class application services with standardized deployment, configuration, security, and observability.
-One of the primary benefits of Azure Arc is facilitating implementation of DevOps principles that apply established development practices to operations. This results in improved agility, without jeopardizing the stability of IT environment.
+To keep your systems running, many workload teams have architected and designed applications where components are distributed across public cloud services, private clouds, data centers, and edge locations. With Azure Arc enabled Kubernetes, you can accelerate development by using best in class application services with standardized deployment, configuration, security, and observability. One of the primary benefits of Azure Arc is facilitating implementation of DevOps principles that apply established development practices to operations. This results in improved agility, without jeopardizing the stability of IT environment.
 
 - Centrally code and deploy applications confidently to any Kubernetes distribution in any location.
 - Centrally manage and delegate access for DevOps roles and responsibilities.
@@ -27,7 +26,7 @@ One of the primary benefits of Azure Arc is facilitating implementation of DevOp
 - Delegate access for DevOps roles and responsibilities through Azure RBAC.
 - Reduce errors with consistent policy driven deployment and operations through GitHub and Azure Policy.
 
-## Connect Kubernetes clusters to Azure and start deploying using a GitOps model  
+## Connect Kubernetes clusters to Azure and start deploying using a GitOps model
 
 GitOps relies on a Git repository to host files that contain the configuration representing the expected state of a resource. An agent running on the cluster monitors the state of the repository and, when there is a change on the repository, the agent pulls the changed files to the cluster and applies the new configuration.
 
@@ -88,7 +87,7 @@ Click the following links for architecture details and diagrams that enable appl
 ## Manage data anywhere
 
 ![Management capabilities comparison by deployment model](../_images/hybrid-deployment.png)
-  
+
 ## Next steps
 
 >[!div class="nextstepaction"]

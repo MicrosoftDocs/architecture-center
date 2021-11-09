@@ -24,27 +24,27 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
 The CluedIn solution consists of various functional layers that run in a Kubernetes cluster in Azure Kubernetes Service (AKS). A combination of .NET Core microservice applications handles distinct functions like data ingestion, streaming data processing, queuing, and user interface.
 
 1. The CluedIn crawling layer ingests data from customer cloud sources like Azure SQL DB, Azure Cosmos DB, PostgreSQL, and Salesforce databases via Azure Data Factory connectors.
-   
+
    CluedIn also takes input from on-premises accessible systems like SAP, Oracle, IBM, and Hadoop, or can use on-premises agents to crawl non-public data.
-   
+
 1. The enterprise service bus connects through ports 5672 and 15672 for admin endpoints. Crawlers send data to the bus, and the processing layer consumes data from the bus, over port 5672.
-   
+
 1. The transaction log layer takes results from the processing layer.
-   
+
 1. In the persistence layer, databases consume data from the transaction log and persist it to provide eventual consistency across the different data stores. All the stores run in high-availability (HA) mode.
-   
+
    Unlike with data virtualization, the CluedIn persistence layer ingests parts of the source data and preserves the highest fidelity version of data and its structure. This high fidelity means that the CluedIn Data Fabric can serve business requests for data in any format or model.
-  
+
 1. The data abstraction layer connects to the different data stores through the ports for each store.
-   
+
 1. Data access is through GraphQL, REST, and WebSockets calls over port 443. GraphQL and REST use a pull model, and WebSockets uses a push model.
-   
+
    CluedIn protects data access through throttling and Cross-Site Request Forgery (CSRF) prevention.
-  
+
 1. The CluedIn ASP.NET Core web application communicates through a combination of REST and GraphQL calls over port 443.
-   
+
    All communication from the browser into the application uses a set of ingress definitions, which require only a single public IP address. In a production environment, all communication is over secure socket layer (SSL).
-  
+
 1. The CluedIn application provides cleaned, processed data to analytics services like Power BI and Azure Synapse Analytics for generating insights. The system backs up and stores all data in SQL or Redis databases.
 
 ## Components

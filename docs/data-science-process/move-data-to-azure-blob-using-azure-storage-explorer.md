@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -23,14 +25,14 @@ Azure Storage Explorer is a free tool from Microsoft that allows you to work wit
 
 > [!NOTE]
 > If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](/azure/machine-learning/data-science-virtual-machine/overview), then Azure Storage Explorer is already installed on the VM.
-> 
+>
 > [!NOTE]
-> For a complete introduction to Azure Blob Storage, refer to [Azure Blob Basics](/azure/storage/blobs/storage-quickstart-blobs-dotnet) and [Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts).   
-> 
-> 
+> For a complete introduction to Azure Blob Storage, refer to [Azure Blob Basics](/azure/storage/blobs/storage-quickstart-blobs-dotnet) and [Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts).
+>
+>
 
 ## Prerequisites
-This document assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure Storage account name and account key. 
+This document assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure Storage account name and account key.
 
 * To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 * For instructions on creating a storage account and for getting account and key information, see [About Azure Storage accounts](/azure/storage/common/storage-account-create). Make a note the access key for your storage account as you need this key to connect to the account with the Azure Storage Explorer tool.
@@ -39,7 +41,7 @@ This document assumes that you have an Azure subscription, a storage account, an
 <a id="explorer"></a>
 
 ## Use Azure Storage Explorer
-The following steps document how to upload/download data using Azure Storage Explorer. 
+The following steps document how to upload/download data using Azure Storage Explorer.
 
 1. Launch Microsoft Azure Storage Explorer.
 2. To bring up the **Sign in to your account...** wizard, select **Azure account settings** icon, then **Add an account** and enter you credentials. 

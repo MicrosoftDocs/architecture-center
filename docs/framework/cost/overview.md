@@ -1,44 +1,55 @@
 ---
-title: Principles of cost optimization
-description: Understand cost optimization principles, which are a series of important considerations that can help achieve both business objectives and cost justification.
-author: david-stanford
-ms.date: 05/13/2020
+title: Overview of the cost optimization pillar
+description: Provides an overview of the cost optimization pillar in the Azure Well-Architected Framework.
+author: v-stacywray
+manager: david-stanford
+ms.date: 09/20/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
 ms.custom:
   - overview
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
-# Principles of cost optimization
+# Overview of the cost optimization pillar
 
-A cost-effective workload is driven by business goals and the return on investment (ROI) while staying within a given budget. The principles of cost optimization are a series of important considerations that can help achieve both business objectives and cost justification.
+The cost optimization pillar provides principles for balancing business goals with budget justification to create a cost-effective workload while avoiding capital-intensive solutions. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies.
 
-To assess your workload using the tenets found in the Azure Well-Architected Framework, see the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
+Use the pay-as-you-go strategy for your architecture, and invest in [scaling out](optimize-autoscale.md), rather than delivering a large investment-first version. Consider opportunity costs in your architecture, and the balance between first mover advantage versus *fast follow*. Use the [cost calculators](https://azure.microsoft.com/pricing/calculator/) to estimate the initial cost and operational costs. Finally, establish [policies](principles.md), [budgets, and controls](monitor-alert.md) that set cost limits for your solution.
 
+To assess your workload using the tenets found in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/), reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
-**Keep within the cost constraints**
+We recommend exploring the following videos to dive deeper into Azure cost optimization:
 
-Every design choice has cost implications. Before choosing an architectural pattern, Azure service, or a price model for the service, consider the budget constraints set by the company. As part of design, identify acceptable boundaries on scale, redundancy, and performance against cost. After estimating the initial cost, set budgets and alerts at different scopes to measure the cost. One of cost drivers can be unrestricted resources. These resources typically need to scale and consume more cost to meet demand. 
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-cost-optimization-Part-1-Cost-Optimization-Ep-2-Well-Architected-series/player]
+<br>
 
-**Aim for scalable costs**
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/Diving-deeper-into-Azure-cost-optimization-Part-2-Cost-Optimization-Ep-2-Well-Architected-series/player]
 
-A key benefit of the cloud is the ability to scale dynamically. The workload cost should scale linearly with demand. You can save cost through automatic scaling. Consider the usage metrics and performance to determine the number of instances. Choose smaller instances for a highly variable workload and scale out to get the required level of performance, rather than up. This choice will enable you to make your cost calculations and estimates granular.
+## Topics
 
-**Pay for consumption**
+The Microsoft Azure Well-Architected Framework includes the following topics in the cost optimization pillar:
 
-Adopt a leasing model instead of owning infrastructure. Azure offers many SaaS and PaaS resources that simplify overall architecture. The  cost of hardware, software, development, operations, security, and data center space included in the pricing model. 
+| Cost Topic | Description |
+|------------|-------------|
+|[Capture cost requirements](./design-capture-requirements.md)| Start your planning with a careful enumeration of requirements. Make sure the needs of the stakeholders are addressed. For strong alignment with business goals, those areas must be defined by the stakeholders and shouldn't be collected from a vendor.|
+|[Cost of resources in Azure regions](./design-regions.md)|Cost of an Azure service can vary between locations based on demand and local infrastructure costs.|
+|[Governance](./design-resources.md)| Understand how governance can assist with cost management. This work will benefit your ongoing cost review process and will offer a level of protection for new resources.|
+|[Estimate the initial cost](./design-initial-estimate.md)|It's difficult to attribute costs before deploying a workload to the cloud. If you use methods for on-premises estimation or directly map on-premises assets to cloud resources, estimate will be inaccurate.|
+|[PaaS](./design-paas.md)| Look for areas in the architecture where it may be natural to incorporate platform-as-a-service (PaaS) options. These options include caching, queues, and data storage. PaaS reduces time and cost of managing servers, storage, networking, and other application infrastructure.|
+|[Consumption](./design-price.md)|A common way to estimate cost is by considering workloads on a peak throughput. Under consistently high usage, consumption-based pricing can be less efficient for estimating baseline costs when compared to the equivalent provisioned pricing.|
+|[Provision cloud resources](./provision-checklist.md)|Deployment of workload cloud resources can optimize cost.|
+|[Monitor cost](./monitor-alert.md)|Azure Cost Management has an alert feature. Alerts are generated when consumption reaches a threshold.|
+|[Optimize cost](./optimize-checklist.md)|Monitor and optimize the workload by using the right resources and sizes.
+|[Tradeoffs for costs](./tradeoffs.md)|As you design the workload, consider tradeoffs between cost optimization and other aspects of the design, such as security, scalability, resilience, and operability.
 
-Also, choose pay-as-you-go over fixed pricing. That way, as a consumer, you're charged for only what you use.
+## Next section
 
-**Right resources, right size**
+Read the cost optimization principles to guide you in your overall strategy.
 
-Choose the right resources that are aligned with business goals and can handle the performance of the workload. An inappropriate or misconfigured service can impact cost. For example, building a multi-region service when the service levels don't require high-availability or geo-redundancy will increase cost without any reasonable business justification.
-
-Certain infrastructure resources are delivered as fix-sized building blocks. Ensure that these blocks are adequately sized to meet capacity demand, deliver expected performance without wasting resources. 
-
-**Monitor and optimize**
-
-Treat cost monitoring and optimization as a process, rather than a point-in-time activity. Conduct regular cost reviews and measure and forecast the capacity needs so that you can provision resources dynamically and scale with demand. Review the cost management recommendations and take action to optimize workload costs.  Use [Advisor Score](/azure/advisor/azure-advisor-score) to identify the greatest opportunities for cost optimization for your workload.
-
-If you're just starting in this process review [enable success during a cloud adoption journey ](/azure/cloud-adoption-framework/getting-started/enable).
+> [!div class="nextstepaction"]
+> [Principles](principles.md)

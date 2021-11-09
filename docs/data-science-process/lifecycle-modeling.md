@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -28,7 +30,7 @@ This article outlines the goals, tasks, and deliverables associated with the mod
 
 Here is a visual representation of the TDSP lifecycle:
 
-![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png) 
+![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
 
 ## Goals
@@ -44,16 +46,16 @@ There are three main tasks addressed in this stage:
   * Determine if your model is **suitable for production.**
 
 ### Feature engineering
-Feature engineering involves the inclusion, aggregation, and transformation of raw variables to create the features used in the analysis. If you want insight into what is driving a model, then you need to understand how the features relate to each other and how the machine-learning algorithms are to use those features. 
+Feature engineering involves the inclusion, aggregation, and transformation of raw variables to create the features used in the analysis. If you want insight into what is driving a model, then you need to understand how the features relate to each other and how the machine-learning algorithms are to use those features.
 
-This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. Feature engineering is a balancing act of finding and including informative variables, but at the same time trying to avoid too many unrelated variables. Informative variables improve your result; unrelated variables introduce unnecessary noise into the model. You also need to generate these features for any new data obtained during scoring. As a result, the generation of these features can only depend on data that's available at the time of scoring. 
+This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. Feature engineering is a balancing act of finding and including informative variables, but at the same time trying to avoid too many unrelated variables. Informative variables improve your result; unrelated variables introduce unnecessary noise into the model. You also need to generate these features for any new data obtained during scoring. As a result, the generation of these features can only depend on data that's available at the time of scoring.
 
-For technical guidance on feature engineering when make use of various Azure data technologies, see [Feature engineering in the data science process](create-features.md). 
+For technical guidance on feature engineering when make use of various Azure data technologies, see [Feature engineering in the data science process](create-features.md).
 
 ### Model training
-Depending on the type of question that you're trying to answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](/azure/machine-learning/how-to-select-algorithms). Although this article uses Azure Machine Learning, the guidance it provides is useful for any machine-learning projects. 
+Depending on the type of question that you're trying to answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](/azure/machine-learning/how-to-select-algorithms). Although this article uses Azure Machine Learning, the guidance it provides is useful for any machine-learning projects.
 
-The process for model training includes the following steps: 
+The process for model training includes the following steps:
 
    * **Split the input data** randomly for modeling into a training data set and a test data set.
    * **Build the models** by using the training data set.
@@ -61,9 +63,9 @@ The process for model training includes the following steps:
    * **Determine the “best” solution** to answer the question by comparing the success metrics between alternative methods.
 
 > [!NOTE]
-> **Avoid leakage**: You can cause data leakage if you include data from outside the training data set that allows a model or machine-learning algorithm to make unrealistically good predictions. Leakage is a common reason why data scientists get nervous when they get predictive results that seem too good to be true. These dependencies can be hard to detect. To avoid leakage often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy of the results. 
-> 
-> 
+> **Avoid leakage**: You can cause data leakage if you include data from outside the training data set that allows a model or machine-learning algorithm to make unrealistically good predictions. Leakage is a common reason why data scientists get nervous when they get predictive results that seem too good to be true. These dependencies can be hard to detect. To avoid leakage often requires iterating between building an analysis data set, creating a model, and evaluating the accuracy of the results.
+>
+>
 
 ## Artifacts
 The artifacts produced in this stage include:
@@ -71,7 +73,7 @@ The artifacts produced in this stage include:
    * [Feature sets](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): The features developed for the modeling are described in the **Feature sets** section of the **Data definition** report. It contains pointers to the code to generate the features and a description of how the feature was generated.
    * [Model report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): For each model that's tried, a standard, template-based report that provides details on each experiment is produced.
    * **Checkpoint decision**: Evaluate whether the model performs sufficiently for production. Some key questions to ask are:
-     * Does the model answer the question with sufficient confidence given the test data? 
+     * Does the model answer the question with sufficient confidence given the test data?
      * Should you try any alternative approaches? Should you collect additional data, do more feature engineering, or experiment with other algorithms?
 
 ## Next steps
@@ -84,6 +86,6 @@ Here are links to each step in the lifecycle of the TDSP:
    4. [Deployment](lifecycle-deployment.md)
    5. [Customer acceptance](lifecycle-acceptance.md)
 
-We provide full end-to-end walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
+We provide full end-to-end walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
 For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](/azure/machine-learning/team-data-science-process/).
