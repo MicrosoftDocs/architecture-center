@@ -27,11 +27,11 @@ The architecture is shown in the diagram below and follows the principle of [Ent
 
 [Download a copy of this Visio.](https://arch-center.azureedge.net/scalable-ai-platform-regulated-industries-v1.vsdx)
 
-The architecture consists of the components described below. Each component of the architecture has a corresponding number in the diagram. We describe the main purpose of the component, how it fits into the architecture, and any other important considerations that should be taken when adopting it:
+The architecture consists of the workflow described below. Each component of the architecture has a corresponding number in the diagram. We describe the main purpose of the component, how it fits into the architecture, and any other important considerations that should be taken when adopting it:
 
 1. **Platform subscriptions** – Core Azure subscriptions that provide identity (through Azure AD), management, and connectivity. They aren't outlined here in more detail and are assumed to be ready and available as part of the core Enterprise Scale setup.
 
-### Data management components
+### Data management
 
 2. **Data Management Zone** – Responsible for data governance across the platform and enforces guardrails to provide more flexibility downstream in the Data Landing Zones. It has its own subscription and hosts centralized services such as data cataloging, monitoring, audits, and so on. This environment is highly controlled and subject to stringent audits. All data classification types are stored in the central data catalog (Azure Purview). Depending on metadata, different policies and access patterns are enforced. There's only one Data Management Zone subscription for the whole tenant. The Data Management Zone is peered (through VNET peering) with all other Data Landing Zones. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
 1. **Networking resource group** – Azure Virtual Networks, Network Security Groups, and all other networking-related resources needed for the Data Management Zone are provisioned within this resource group.
@@ -44,12 +44,12 @@ The architecture consists of the components described below. Each component of t
 1. **Data visualization resource group** – Hosts data visualization solutions that are shared across data landing zones. Solutions can be Power BI, Tableau, or any other visualization solution.
 1. **Additional infrastructure controls & governance** – Azure Security Center and Azure Monitor are used as baseline security and monitoring solutions.
 
-### Data landing zone components
+### Data landing zone
 
 10. **Data Landing Zone** – A subscription that represents a unit of scale within the data platform. Data Landing Zones are deployed based on the core data landing zone architecture (blueprint), including all key capabilities to host an analytics & AI platform. There can be one or many Data Landing Zones within the environment. Azure Policies are applied to keep access and configurations of various Azure services secure. The Data Landing Zone is peered (through VNET peering) with all other Data Landing Zones and the Data Management Zone. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
 1. **Networking resource group** – Azure Virtual Networks, Network Security Groups, and all other networking-related resources needed for the Data Landing Zone are provisioned within this resource group.
 1. **Deployment resource group** – Hosts private Azure DevOps CI/CD agents (virtual machines) needed for the Data Landing Zone and a Key Vault for storing any deployment-related secrets.
-1. **Data storage resource group** – Contains the main data storage accounts for this data landing zone, deployed as Azure Data Lake Service Gen2, with hierarchical namespace. They're spread across three main areas: 
+1. **Data storage resource group** – Contains the main data storage accounts for this data landing zone, deployed as Azure Data Lake Storage Gen2, with hierarchical namespace. They're spread across three main areas: 
    - **Raw** (where data is ingested from the data source in its original state)
    - **Curated & Enriched** (where data is cleansed, validated, and aggregated)
    - **Workspace** (where specific data products can store their datasets or the outputs of the ML models, and so on.).
@@ -73,7 +73,30 @@ The architecture consists of the components described below. Each component of t
 1. **Additional infrastructure controls & governance** – Azure Security Center, and Azure Monitor are used as baseline security and monitoring solutions.
 1. **Additional Data Landing Zones** – A placeholder for extra Azure subscriptions that would be used for hosting new data landing zones. They're based on criteria mentioned before, such as data residency requirements, or a different business unit that has its own cross-functional team and a set of use cases to be delivered.
 
-### Design principles
+### Components
+
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Azure Purview](https://azure.microsoft.com/services/purview)
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+- [Azure DevOps](https://azure.microsoft.com/services/devops)
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+- [Azure Security Center](https://azure.microsoft.com/services/security-center)
+- [Azure Monitor](https://azure.microsoft.com/services/monitor)
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy)
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
+- [Azure Databricks](https://azure.microsoft.com/services/databricks)
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)
+- [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
+
+### Alternatives
+
+In distributed organizations, business groups operate independently and with high degrees of autonomy. As such, they might consider an alternative solution design, with full isolation of use cases in Azure landing zones, sharing a minimal set of common services. Although this design allows a fast start, it requires high effort from IT and ISRM organizations, since design of individual use cases will quickly diverge from blueprint designs. Additionally, it requires independent ISRM processes, and audits, for each of the AI/ML “products” hosted in Azure.
+
+## Design principles
+
 This architecture is based on the following principles:
 
 - It follows the concept of Enterprise-scale, which is an architectural approach and a reference implementation aligned with the Azure roadmap and part of the Microsoft Cloud Adoption Framework (CAF). It enables effective construction and operationalization of landing zones on Azure, at scale. The name Landing Zone is used as a boundary in which new or migrated applications land in Azure, and in this scenario, it refers to parts of the data platform that are used to host the data and the AI/ML models.
@@ -83,14 +106,6 @@ This architecture is based on the following principles:
 - Single control and management plane (through the Azure portal) provides a consistent experience across all Azure resources and provisioning channels subject to role-based access and policy-driven controls. Azure-native platform services and capabilities are used whenever possible.
 - Cross-functional teams take ownership of the design, development, and operations to shorten the time to market and the agility within the platform. Core principles like DevOps, Infrastructure as Code (IaC), and resilient designs are used to avoid human error and single points of failure.
 - Data Domains can be used by domain and data source subject matter experts (SMEs) to pull in data assets from Azure, third-party, or on-premises environments. A Data Domain is a resource group within a Data Landing Zone that can be used by cross-functional teams for custom data ingestion. There can be one or many Data Domains within a Data Landing Zone. Data Domains can be viewed similarly to domains in Domain Driven Design (DDD) where they provide a context boundary and are self-sufficient and isolated. An example of a Data Domain would be clinical trial data or supply chain data.
-
-## Components
-
-The components used in this solution are detailed in the [Architecture](#architecture) section of this article.
-
-## Alternatives
-
-In distributed organizations, business groups operate independently and with high degrees of autonomy. As such, they might consider an alternative solution design, with full isolation of use cases in Azure landing zones, sharing a minimal set of common services. Although this design allows a fast start, it requires high effort from IT and ISRM organizations, since design of individual use cases will quickly diverge from blueprint designs. Additionally, it requires independent ISRM processes, and audits, for each of the AI/ML “products” hosted in Azure.
 
 ## Measuring adoption and value
 
@@ -212,14 +227,14 @@ Learn how to implement an enterprise scale landing zone for data analytics and A
 - [Enterprise Scale Analytics and AI reference architecture](/azure/cloud-adoption-framework/scenarios/data-management/enterprise-scale-landing-zone)
 
 Product documentation:
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)
-- [Machine Learning Operations (MLOps)](https://azure.microsoft.com/services/machine-learning/mlops/)
-- [Azure Databricks](https://azure.microsoft.com/services/databricks/)
-- [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
+- [Machine Learning Operations (MLOps)](https://azure.microsoft.com/services/machine-learning/mlops)
+- [Azure Databricks](https://azure.microsoft.com/services/databricks)
+- [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
 
 ## Related resources
 
 Azure Architecture Center overview articles:
 - [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
-- [Implementing the Azure blueprint for AI](https://docs.microsoft.com/previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint)
-- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
+- [Implementing the Azure blueprint for AI](/previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint)
+- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
