@@ -18,7 +18,7 @@ keywords:
 
 Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. This pattern is useful in applications that offer different service level guarantees to individual clients.
 
-## Context and Problem
+## Context and problem
 
 Applications can delegate specific tasks to other services, for example, to perform background processing or to integrate with other applications or services. In the cloud, a message queue is typically used to delegate tasks to background processing. In many cases the order requests are received in by a service isn't important. In some cases, though, it's necessary to prioritize specific requests. These requests should be processed earlier than lower priority requests that were sent previously by the application.
 
@@ -46,7 +46,7 @@ Using a priority queuing mechanism can provide the following advantages:
 
 - The multiple message queue approach can help maximize application performance and scalability by partitioning messages based on processing requirements. For example, vital tasks can be prioritized to be handled by receivers that run immediately while less important background tasks can be handled by receivers that are scheduled to run at less busy periods.
 
-## Issues and Considerations
+## Issues and considerations
 
 Consider the following points when deciding how to implement this pattern:
 
