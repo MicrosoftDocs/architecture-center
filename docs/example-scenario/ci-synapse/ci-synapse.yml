@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Build a Gold Customer Dimension
+  titleSuffix: Dynamics Customer Insights + Azure Synapse Analytics
+  description: Leverage Dynamics Customer Insights to create a gold customer dataset. Make the gold customer dataset available in Azure Data Lake for consumption with Azure Synapse Analytics. 
+  author: jondobrzeniecki 
+  ms.author: jodobrze
+  ms.date: 09/30/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - "databases"
+  - "analytics"
+  - "storage"
+  - "integration"
+products:
+  - "azure-data-lake-gen2"
+  - "azure-synapse-analytics"
+  - "azure-data-factory"
+  - "dynamics-cust-insights"
+name: "Build a Gold Customer Dimension"
+summary: Leverage Dynamics Customer Insights to create a gold customer dataset. Make the gold customer dataset available in Azure Data Lake for consumption with Azure Synapse Analytics. 
+thumbnailUrl: /ci-synapse.png
+content: |
+  [!include[](ci-synapse-content.md)]
