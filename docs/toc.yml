@@ -2154,6 +2154,8 @@ items:
                 href: example-scenario/apps/devops-dotnet-webapp.yml
               - name: DevSecOps in GitHub
                 href: solution-ideas/articles/devsecops-in-github.yml
+              - name: Enterprise monitoring with Azure Monitor
+                href: example-scenario/monitoring/enterprise-monitoring.yml
               - name: Jenkins on Azure
                 href: example-scenario/apps/jenkins.yml
               - name: Run containers in a hybrid environment
