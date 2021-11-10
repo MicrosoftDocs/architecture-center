@@ -20,6 +20,6 @@ products:
   - azure-monitor
 name: Automate infrastructure reconfiguration using Azure
 summary: Application Gateway is commonly used to load balance traffic to Azure Container Instances container groups. The private IP of a container group isn't static. This article explores automation for rotated IP addresses.
-thumbnailUrl: /azure/architecture/browse/thumbs/automation-appgw.png
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture.png
 content: |
   [!include[](automation-application-gateway-content.md)]
