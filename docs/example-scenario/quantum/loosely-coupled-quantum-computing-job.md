@@ -1,134 +1,109 @@
+Quantum computers harness the unique behavior of quantum physics and apply it to computing. This approach promises massive speedup in compute time compared to classical computing especially in areas like optimization, simulation, or machine learning. However, quantum computing components have a different operating model compared to classical software. There are typically one or more classical compute components that orchestrate the execution of quantum components. This orchestration includes following activities:
 
-Introductory section - no heading
+* Preparation of input data
+* Submission of quantum computing jobs to a target environment (e.g., quantum simulator, quantum hardware, optimization solver)
+* Monitoring of the job execution
+* Post-processing of job results
 
-> This should be an introduction of the business problem and why this scenario was built to solve it.
->> What industry is the customer in?
->> What prompted them to solve the problem?
->> What services were used in building out this solution?
->> What does this example scenario show? What are the customer's goals?
+This orchestration functionality can be integrated to classical applications in one of two ways:
 
-> What were the benefits of implementing the solution described below?
+* **Integration via loose coupling** - logic for the orchestration is exposed as an API that can be called by various classical software components. This approach should be used, if the quantum components are developed independently from any classical application and should be reused by various applications. This article focuses on this integration approach.
+* **Integration via tight coupling** - logic for the orchestration is integrated into the classical component. This approach should be used, if the quantum components are developed by the same team and share the same lifecycle as the classical components and if there is no intention to further expose the quantum components to other applications. For more information about this integration approach, see [Tightly coupled quantum computing job](tightly-coupled-quantum-computing-job.md).
 
 ## Potential use cases
 
-> Are there any other use cases or industries where this would be a fit?
-> How similar or different are they to what's in this article?
+This architecture can be used in all scenarios where quantum computing jobs must be executed as part of the program flow implemented in classical software. The loosely coupled approach allows reusing the quantum functionality in multiple applications that can submit quantum computing jobs via API-calls.
 
-These other uses cases have similar design patterns:
+Following scenarios promise to benefit from quantum computing in near-term:
 
-- List of example use cases
+* Optimization challenges
+* Simulation tasks
+* Machine Learning
 
 ## Architecture
 
 :::image type="content" source="media/loosely-coupled-quantum-computing-job-architecture.png" alt-text="Architecture of a hybrid app containing a loosely coupled quantum computing job":::
 
-> What does the solution look like at a high level?
-> Why did we build the solution this way?
-> What will the customer need to bring to this?  (Software, skills, etc?)
+1. A signed-in user triggers quantum job execution via a classic application.
+1. Classic client calls the custom job-API for submitting the job.
+1. The API Gateway triggers an Azure Function passing job input data.
+1. The Azure Function puts input data into Azure Storage.
+1. The function then submits the job to an Azure Quantum Workspace specifying the execution target(s). The function identifies the Quantum Workspace via data stored in Azure Key Vault and authenticates to the Quantum Workspace via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
+1. A provider executes the job on a target environment (e.g., quantum simulator, quantum hardware, optimization solver).
+1. Client application monitors job execution by polling job status via API-calls.
+1. The API Gateway monitors job execution by polling job status from the quantum provider.
+1. As soon as the quantum job finishes, the client application gets the compute result from the API implemented via an Azure Function.
 
-Under the diagram, include a numbered list that describes the data flow or workflow.
+This workflow implements the steps defined for the [Azure Quantum Job lifecycle](/azure/quantum/how-to-work-with-jobs#job-lifecycle).
 
 ### Components
 
-A bulleted list of components in the architecture (including all relevant Azure services) with links to the service pages.
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and protects access to the Azure Quantum Workspace.
+* [Azure API Management](https://azure.microsoft.com/services/api-management) acts as the API Gateway centrally exposing the API-endpoints for the quantum job management.
+* [Azure Functions](https://azure.microsoft.com/services/functions) implementing the job management calls, i.e., forwarding the client requests to appropriate quantum resources.
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets like Quantum Workspace name.
+* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides functionality for running quantum computing jobs on various target quantum environments.
+* [Azure Storage](https://azure.microsoft.com/services/storage)
 
-> Why is each component there?
-> What does it do and why was it necessary?
-> Link the name of the service (via embedded link) to the service's product service page. Be sure to exclude the localization part of the URL (such as "en-US/").
-
-- Examples: 
-  - [Azure App Service](https://azure.microsoft.com/services/app-service)
-  - [Azure Bot Service](https://azure.microsoft.com/services/bot-service)
-  - [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service)
-  - [Azure Cognitive Services Speech Services](https://azure.microsoft.com/services/cognitive-services/speech-services)
-  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
-  - [Azure Monitor](https://azure.microsoft.com/services/monitor): Application Insights is a feature of Azure Monitor.
-  - [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
+The [Azure Quantum Workspace](/azure/quantum/how-to-create-workspace) accessible via Azure Quantum is a collection of assets associated with running quantum or optimization applications on various targets. Depending on provisioned providers the jobs are executed on quantum simulators, quantum hardware, optimization solvers, etc.
 
 ### Alternatives
 
-Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives.
-
-> What alternative technologies were considered and why didn't we use them?
+The architecture presented here is developed under the assumption that the given business problem requires quantum computing resources for its solution. For some compute challenges existing services built to perform [high-performance computing](https://azure.microsoft.com/solutions/high-performance-computing/) or provide [AI functionality](https://azure.microsoft.com/overview/ai-platform/) could be an alternative.
 
 ## Considerations
 
-> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
-> How do I need to think about managing, maintaining, and monitoring this long term?
-> Note that you should have at least two of the H3 sub-sections.
+In general, it should be noted that some of the quantum targets (especially quantum hardware) will be a limited resource for the forseeable future. Access to these resources is implemented via a queueing mechanism leading to fluctuating runtime behavior of job executions. For getting the full response time the time waiting for an available resource must be added to the job execution time.
 
 ### Availability
 
-> How do I need to think about managing, maintaining, and monitoring this long term?
+Availability of the quantum compute functionality is highly dependent on the availability and install base of the chosen quantum compute target(s) selected via [quantum computing providers](/azure/quantum/qc-target-list) and [optimization providers](/azure/quantum/qio-target-list) in the Azure Quantum workspace. Depending on the selected compute targets, the classic client application should be prepared for longer waiting times and/or non-availability of the target.
 
-### Operations
+For the surrounding Azure services (API Management, Azure Functions, Storage Accounts, Azure Active Directory, etc.) the usual availability considerations apply:
 
-> How do I need to think about operating this solution?
+* For high-availability requirements [API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region) could be deployed to multiple zones or regions.
+* Depending on geo-replication [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-geo-disaster-recovery) could be provisioned in multiple regions.
+* Use redundancy options of [Azure Key Vault](/azure/key-vault/general/disaster-recovery-guidance).
+* If required, consider using replication options in [Azure Storage](/azure/storage/common/storage-redundancy).
 
-### Performance
+### Performance and Scalability
 
-> Are there any key performance considerations (past the typical)?
-
-### Scalability
-
-> Are there any size considerations around this specific solution?
-> What scale does this work at?
-> At what point do things break or not make sense for this architecture?
+Overall application performance in relation to the quantum computing job is dependent on the performance of the underlying quantum computing targets. For the classical parts be aware of typical design patterns ([typical design patterns for scalability](/azure/architecture/framework/scalability/performance-efficiency-patterns), [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency)) available in the Azure Architecture Center.
 
 ### Security
 
-> Are there any security considerations (past the typical) that I should know about this? 
+Unlike in the [tightly coupled alternative](tightly-coupled-quantum-computing-job.md), the architecture presented here assumes multiple clients are accessing the quantum workspace via the API. This implies following:
+
+* Clients must authenticate to the API, which can be implemented via [Authentication policies](/azure/api-management/api-management-authentication-policies).
+* Authentication of the Azure Functions can be implemented via [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview) associated to the functions. These identities can be used to authenticate to the Quantum workspace.
+* As number of clients and requests is not known in advanced request throttling could be implemented using [API Management request throttling functionality](/azure/api-management/api-management-sample-flexible-throttling) to protect the quantum backend and limit the use of the quantum resources.
+* Depending on request pattern caching of quantum computing results might be implemented via [API Management caching policies](/azure/api-management/api-management-caching-policies).
+
+For general security aspects consider applying the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) where appropriate.
 
 ### Resiliency
 
-> Are there any key resiliency considerations (past the typical)?
+Always respect that quantum target environments are limited resources. At some providers submitted jobs are first added to a queue before being processed. It is important to monitor job execution to give feedback to the user about the current status. For cases where job execution fails because of a transient error, a [retry pattern](/azure/architecture/patterns/retry) should be implemented for job submission. Submission should not happen via synchronous call but asynchronously instead with polling for the result.
 
 ### DevOps
 
-> Are there any key DevOps considerations (past the typical)?
-
 ## Deploy this scenario
-
-> (Optional, but greatly encouraged)
->
-> Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
 
 ## Pricing
 
-> How much will this cost to run?
-> Are there ways I could save cost?
-> If it scales linearly, than we should break it down by cost/unit. If it does not, why?
-> What are the components that make up the cost?
-> How does scale affect the cost?
->
-> Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.
-> If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
+Overall cost of this solution depends on the quantum computing target selected for running the quantum job. Calculating estimated cost for the classic components is straightforward and can be easily done with the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+
+For the Azure Quantum service following points should be considered:
+
+* Microsoft QIO Solvers are billed via the Azure subscription bill. Cost depends on selected SKU and usage pattern. For details refer to the [Azure Quantum pricing](https://azure.microsoft.com/pricing/details/azure-quantum/) page.
+* Other Optimization providers are available on Azure Marketplace. For cost details have a look at respective reference page listed on [Optimization providers on Azure Quantum](https://docs.microsoft.com/azure/quantum/qio-target-list)
+* Quantum Computing providers can be consumed via Azure Marketplace offering. Cost depends on type of resource (simulator or hardware), SKU and usage. For details see the reference page for the quantum computing provider needed for your scenario referenced on [Quantum computing providers on Azure Quantum](https://docs.microsoft.com/azure/quantum/qc-target-list).
 
 ## Next steps
 
-> Where should I go next if I want to start building this?
-> Are there any reference architectures that help me build this?
-> Be sure to link to the Architecture Center, to related architecture guides and architectures.
- 
-- Examples:
-  - [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
-  - [Choosing a Microsoft cognitive services technology](/azure/architecture/data-guide/technology-choices/cognitive-services)
-  - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
-  - [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
-  - [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
-  - [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
-  - [Introduction to Bot Framework Composer](/composer/introduction)
-  - [What is Application Insights](/azure/azure-monitor/app/app-insights-overview)
-  - [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
-  - [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
-  - [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)
 
 ## Related resources
 
-> Are there any relevant case studies or customers doing something similar?
-> Is there any other documentation that might be useful?
-> Are there product documents that go into more detail on specific technologies that are not already linked?
-
-<!-- links -->
-
-[calculator]: https://azure.com/e/
+* To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/).
+* For more details about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum/).
+* For general aspects of Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).

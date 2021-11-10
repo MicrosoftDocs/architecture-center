@@ -1,4 +1,4 @@
-Quantum computers harness the unique behavior of quantum physics and apply it to computing. This approach promises massive speedup in compute time compared to classical computing especially in areas like optimization, simulation, or machine learning. However, quantum computing components have a different operating model compared to classical software. There are typically one or more classical compute component that orchestrate the execution of quantum components. This orchestration includes following activities:
+Quantum computers harness the unique behavior of quantum physics and apply it to computing. This approach promises massive speedup in compute time compared to classical computing especially in areas like optimization, simulation, or machine learning. However, quantum computing components have a different operating model compared to classical software. There are typically one or more classical compute components that orchestrate the execution of quantum components. This orchestration includes following activities:
 
 * Preparation of input data
 * Submission of quantum computing jobs to a target environment (e.g., quantum simulator, quantum hardware, optimization solver)
@@ -7,12 +7,14 @@ Quantum computers harness the unique behavior of quantum physics and apply it to
 
 This orchestration functionality can be integrated to classical applications in one of two ways:
 
-* **Integration via tight coupling** - logic for the orchestration is integrated into the classical component. This approach should be used, if the quantum components are developed by the same team and shares the same lifecycle as the classical components and if there is no intention to further expose the quantum components to other applications. This article focuses on this integration approach.
+* **Integration via tight coupling** - logic for the orchestration is integrated into the classical component. This approach should be used, if the quantum components are developed by the same team and share the same lifecycle as the classical components and if there is no intention to further expose the quantum components to other applications. This article focuses on this integration approach.
 * **Integration via loose coupling** - logic for the orchestration is exposed as an API that can be called by various classical software components. This approach should be used, if the quantum components are developed independently from any classical application and should be reused by various applications. For more information about this integration approach, see [Loosely coupled quantum computing job](loosely-coupled-quantum-computing-job.md).
 
 ## Potential use cases
 
-This architecture can be used in all scenarios where quantum computing jobs must be executed as part of the program flow implemented in classical software. Following scenarios promise to benefit from quantum computing in near-term:
+This architecture can be used in all scenarios where quantum computing jobs must be executed as part of the program flow implemented in classical software.
+
+Following scenarios promise to benefit from quantum computing in near-term:
 
 * Optimization challenges
 * Simulation tasks
@@ -24,7 +26,7 @@ This architecture can be used in all scenarios where quantum computing jobs must
 
 1. A signed-in user triggers quantum job execution via a classic application.
 1. Classic client application puts input data into Azure Storage.
-1. Client application submits the job to an Azure Quantum Workspace specifying the execution target(s). The client identifies the Quantum Workspace via data stored in Azure Key Vault and authenticates to the Quantum Workspace via managed identity.
+1. Client application submits the job to an Azure Quantum Workspace specifying the execution target(s). The client identifies the Quantum Workspace via data stored in Azure Key Vault and authenticates to the Quantum Workspace via [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
 1. A provider executes the job on a target environment (e.g., quantum simulator, quantum hardware, optimization solver).
 1. Client application monitors job execution by polling job status.
 1. As soon as the quantum job finishes, the client application gets the compute result from Azure Storage.
@@ -42,7 +44,7 @@ The [Azure Quantum Workspace](/azure/quantum/how-to-create-workspace) accessible
 
 ### Alternatives
 
-The architecture presented here is developed under the assumption that the given business problem requires quantum computing resources for its solution. Azure Quantum is part of a family of services built to perform [high-performance computing](https://azure.microsoft.com/solutions/high-performance-computing/) or use [AI services](https://azure.microsoft.com/overview/ai-platform/) to solve similar problems.
+The architecture presented here is developed under the assumption that the given business problem requires quantum computing resources for its solution. For some compute challenges existing services built to perform [high-performance computing](https://azure.microsoft.com/solutions/high-performance-computing/) or provide [AI functionality](https://azure.microsoft.com/overview/ai-platform/) could be an alternative.
 
 ## Considerations
 
