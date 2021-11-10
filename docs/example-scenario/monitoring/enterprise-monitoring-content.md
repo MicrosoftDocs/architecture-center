@@ -1,4 +1,4 @@
-Large enterprises need to consider many factors when modernizing their existing monitoring solution. Enterprises can achieve centralized monitoring management across the board by using Azure Monitor features. This example scenario illustrates enterprise-level monitoring that uses Azure Monitor.
+Large enterprises need to consider many factors when modernizing their existing monitoring solution. Enterprises can achieve centralized monitoring management by using Azure Monitor features. This example scenario illustrates enterprise-level monitoring that uses Azure Monitor.
 
 Enterprise teams have different workloads, such as Windows, Linux, SQL, identity-based workloads, virtual desktop infrastructure (VDI), containers, and web apps. These workloads can be running in any cloud providers, on-premises, or a combination. With such a vast array of workloads in different environments, cloud-based monitoring is complex.
 
@@ -19,7 +19,7 @@ This solution can help with the following use cases:
 
 - Consolidated monitoring for different cloud and on-premises workloads.
 - Monitoring for container, Azure SQL, and Azure Virtual Desktop workloads.
-- Expanded monitoring scope, such as connecting Monitor to Azure Sentinel.
+- Expanded monitoring scope, such as connecting Monitor to Microsoft Sentinel.
 - Hybrid and heterogenous cloud monitoring across networks, identity providers, operating systems, and other domains.
 
 ## Architecture
@@ -28,7 +28,7 @@ This solution can help with the following use cases:
 
 *Download a [Visio file](https://arch-center.azureedge.net/EnterpriseMonitoringFinal.vsdx) of this architecture.*
 
-- This architecture follows a resource-context log model. Every log record an Azure resource emits automatically associates with the resource. This model helps to separate workspaces that collect and ingest from different app owners.
+- This architecture follows a resource-context log model. Every log record that an Azure resource emits automatically associates to the resource. This model helps to separate workspaces that collect and ingest from different app owners.
 
 - Different workloads across the enterprise have separate workspaces. Configuring different workspaces gives teams autonomy over their own data, and provides a separate cost overview per workspace.
 
@@ -36,19 +36,19 @@ This solution can help with the following use cases:
 
   - For identity, on-premises Active Directory and cloud identity providers each have their own workspaces.
 
-  - Azure Kubernetes Service (AKS) and Azure Web Apps apps, Azure Virtual Desktop, Azure Pipelines, SQL workloads, and other PaaS services each have their own workspaces.
+  - Azure Virtual Desktop, Azure Pipelines, SQL workloads, apps in Azure Kubernetes Service (AKS) and Azure Web Apps, and other PaaS services all have their own workspaces.
 
 - Each workspace has its own set of configured alerts. Azure Logic Apps and Azure Automation provide advance alerting and remediation. Logic Apps provides integration with IT Service Management (ITSM) tools.
 
 - A set of on-premises virtual machines (VMs) connects through Azure Arc, providing an end-to-end Azure management plane. You can also use Azure Arc to connect infrastructure-as-a-service (IaaS) resources that run in a third-party cloud.
 
-- Custom logging captures information about third-party virtualized environments, and collects custom application, software, and operating system logs.
+- Custom logging captures information about third-party virtualized environments, and collects custom operating system, software, and application logs.
 
-- Log Analytics Workspace Insights provides comprehensive workspace monitoring. Using a single workspace to store collected data from all resources aligns with the IT organization's operating model. This workspace gives the central team an overview of all the workspaces' usage, cost, and performance. The central workspace respects scoping and role-based access control (RBAC) based on the resources. Log Analytics Workspace Insights has its own separate set of alerts.
+- Log Analytics Workspace Insights provides comprehensive workspace monitoring. Using a single workspace to store collected data from all resources aligns with the IT organization's operating model. This workspace gives the central team an overview of usage, cost, and performance for all the workspaces. The central workspace respects scoping and role-based access control (RBAC) based on the resources. Log Analytics Workspace Insights has its own separate set of alerts.
 
 - Log Analytics provides further integration by exporting workspace data for archiving or analytics. Archiving data to cool-tier storage saves costs. You can use archived data for further analytics by creating datasets that feed into machine learning models.
 
-- Monitor connects to security information and event management (SIEM) tools like Azure Sentinel to create larger enterprise security datastores.
+- Monitor connects to security information and event management (SIEM) tools like Microsoft Sentinel to create larger enterprise security datastores.
 
 - Power BI and Monitor Workbooks provide data visualization and dashboard capabilities.
 
@@ -64,11 +64,11 @@ This architecture includes the following components:
 - [Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) collects and organizes log and performance data from monitored resources. You can consolidate data from multiple sources, including Azure [platform logs](/azure/azure-monitor/essentials/platform-logs-overview), into a single workspace. You can analyze the data by using a [sophisticated query language](/azure/azure-monitor/logs/log-query-overview) in Log Analytics.
 - [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) can send data to both Monitor Logs and Monitor Metrics. The Azure Monitor agent uses configurable [Data Collection Rules](/azure/azure-monitor/agents/data-collection-rule-overview) (DCRs), and doesn't require workspace keys to connect.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) monitors live applications on a wide variety of platforms across cloud, hybrid, and on-premises environments. Application Insights automatically detects performance anomalies. Application Insights includes powerful analytics tools to help you understand usage and diagnose issues.
-- [Azure Virtual Desktop insights](/azure/virtual-desktop/azure-monitor) use Monitor for Azure Virtual Desktop to help IT professionals understand their Azure Virtual Desktop environments.
-- [Container insights](/azure/azure-monitor/containers/container-insights-overview) monitor the performance and health of Kubernetes clusters and other container-based workloads.
-- [Network insights](/azure/azure-monitor/insights/network-insights-overview) provide a comprehensive view of health and metrics for all deployed network resources.
-- [SQL insights (preview)](/azure/azure-monitor/insights/sql-insights-overview) monitor health and help you diagnose problems and tune performance for any product in the Azure SQL family.
-- [VM insights](/azure/azure-monitor/vm/vminsights-overview) monitor the performance and health of VMs and virtual machine scale sets. VM insights include running processes and dependencies on other resources.
+- [Azure Virtual Desktop insights](/azure/virtual-desktop/azure-monitor) uses Monitor for Azure Virtual Desktop to help IT professionals understand their Azure Virtual Desktop environments.
+- [Container insights](/azure/azure-monitor/containers/container-insights-overview) monitors the performance and health of Kubernetes clusters and other container-based workloads.
+- [Network insights](/azure/azure-monitor/insights/network-insights-overview) provides a comprehensive view of health and metrics for all deployed network resources.
+- [SQL insights (preview)](/azure/azure-monitor/insights/sql-insights-overview) monitors health and help you diagnose problems and tune performance for any product in the Azure SQL family.
+- [VM insights](/azure/azure-monitor/vm/vminsights-overview) monitors the performance and health of VMs and virtual machine scale sets. VM insights include running processes and dependencies on other resources.
 - [IT Service Management Connector](/azure/azure-monitor/alerts/itsmc-overview) (ITSMC) provides a bi-directional connection between Azure and supported ITSM tools to help you resolve work items faster.
 - [Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide a flexible canvas to analyze multiple Azure data sources and combine them into interactive visual reports.
 - [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) creates and runs queries on Monitor Logs data in [Log Analytics workspaces](/azure/azure-monitor/logs/quick-create-workspace). This solution uses the following Log Analytics features:
@@ -94,7 +94,7 @@ In this solution, Monitor supports or integrates with the following Azure and Mi
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated workflows. Logic apps can integrate apps, data, services, and systems.
 - [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager) provides a management layer and templates for creating, updating, and deleting resources in your Azure account.
 - [Azure Security Center](https://azure.microsoft.com/services/security-center) is part of Microsoft Defender for Cloud, a unified infrastructure security management system.
-- [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel) is a cloud-native, scalable, security information and event management (SIEM) and security orchestration automated response (SOAR) solution.
+- [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel) is a cloud-native, scalable, security information and event management (SIEM) and security orchestration automated response (SOAR) solution.
 - [Azure SQL](https://azure.microsoft.com/products/azure-sql) family of SQL database services provides a consistent, unified Azure SQL experience. Azure SQL has a full range of deployment options, from edge to cloud.
 - [Power BI](https://powerbi.microsoft.com/) is a collection of software services, apps, and connectors that turn your data sources into coherent, visually immersive, and interactive insights.
 
@@ -230,7 +230,7 @@ A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analyti
 > - Review security requirements for network, user, and overall cloud services.
 > - Create a separate resource group for each workspace to help apply RBAC rules effectively.
 > - Apply RBAC to user accounts and other objects for Log Analytics workspace access.
-> - Use Azure Sentinel to ingest identity and security-related logs.
+> - Use Microsoft Sentinel to ingest identity and security-related logs.
 > - Monitor live applications with Application Insights to automatically detect performance anomalies.
 > - Use Application Insights analytics tools to help diagnose issues and understand app usage.
 > - Use Log Analytics Workspace Insights across the board to monitor and set alerts for the following measures:

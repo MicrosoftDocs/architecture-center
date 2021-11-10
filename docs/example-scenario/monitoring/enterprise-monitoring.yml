@@ -5,10 +5,11 @@ metadata:
   description: See an enterprise monitoring solution that uses Azure Monitor to collect and manage data from cloud, on-premises, and hybrid resources.
   author: EdPrice-MSFT
   ms.author: surins
-  ms.date: 11/04/2021
+  ms.date: 11/09/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom: fcp
 azureCategories:
   - devops
   - hybrid
