@@ -1810,7 +1810,7 @@ items:
                   - name: Serverless event processing
                     href: reference-architectures/serverless/event-processing.yml
                   - name: Automatic IP rotation with Azure Container Instances
-                    href: example-scenario/serverless/automation-appgw.yml
+                    href: example-scenario/serverless/automation-application-gateway.yml
               - name: Solution ideas
                 items:
                   - name: Azure Kubernetes in event stream processing
