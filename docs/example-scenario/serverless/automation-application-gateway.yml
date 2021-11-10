@@ -22,4 +22,4 @@ name: Automate infrastructure reconfiguration using Azure
 summary: Application Gateway is commonly used to load balance traffic to Azure Container Instances container groups. The private IP of a container group isn't static. This article explores automation for rotated IP addresses.
 thumbnailUrl: /azure/architecture/browse/thumbs/automation-appgw.png
 content: |
-  [!include[](automation-appgw-content.md)]
+  [!include[](automation-application-gateway-content.md)]
