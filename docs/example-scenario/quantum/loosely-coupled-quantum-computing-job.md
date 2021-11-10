@@ -1,4 +1,3 @@
-> The H1 title is a noun phrase that describes the scenario. Don't enter it here, but as the **name** value in the corresponding YAML file.
 
 Introductory section - no heading
 
@@ -21,7 +20,7 @@ These other uses cases have similar design patterns:
 
 ## Architecture
 
-_Architecture diagram goes here_
+:::image type="content" source="media/loosely-coupled-quantum-computing-job-architecture.png" alt-text="Architecture of a hybrid app containing a loosely coupled quantum computing job":::
 
 > What does the solution look like at a high level?
 > Why did we build the solution this way?
