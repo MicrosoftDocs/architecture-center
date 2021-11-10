@@ -1290,6 +1290,8 @@ items:
                 href: reference-architectures/ai/realtime-scoring-r.yml
               - name: Scalable personalization
                 href: example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+              - name: Scale AI and ML in regulated industries
+                href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
               - name: Speech to text conversion
                 href: reference-architectures/ai/speech-to-text-transcription-pipeline.yml
               - name: Training Python models
@@ -2152,6 +2154,8 @@ items:
                 href: example-scenario/apps/devops-dotnet-webapp.yml
               - name: DevSecOps in GitHub
                 href: solution-ideas/articles/devsecops-in-github.yml
+              - name: Enterprise monitoring with Azure Monitor
+                href: example-scenario/monitoring/enterprise-monitoring.yml
               - name: Jenkins on Azure
                 href: example-scenario/apps/jenkins.yml
               - name: Run containers in a hybrid environment

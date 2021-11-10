@@ -1,6 +1,3 @@
-
-
-
 This document describes the architecture and design considerations of a solution that delivers an optimized approach to backup and restore of files and applications of VM-based user workloads hosted on Azure Stack Hub.
 
 ![Diagram illustrating backup of Azure Stack Hub files and applications hosted on Azure VMs, running such workloads as SQL Server, SharePoint Server, Exchange Server, File Server, and Active Directory Domain Services domain controllers. The backup relies on Azure Backup Server running on a Windows Server VM, with a geo-replicated Azure Recovery Services vault providing long-term storage. Initial backups can be performed by using Azure Import/Export service. Optionally, Azure ExpressRoute can provide high-bandwidth connectivity to Azure.][architectural-diagram]
@@ -345,6 +342,21 @@ The recommended solution described in this reference architecture document is un
 In conclusion, Azure Stack Hub is a unique offering, which differs in many aspects from other virtualization platforms. As such, it warrants special considerations in regard to business continuity strategies for workloads running on its VMs. Leveraging Azure services helps simplify the design and implementation strategy. In this architecture reference document, we explored using MABS for backup of file and application data on Azure Stack Hub VMs in the connected deployment model. This approach allows customers to benefit from resiliency and manageability of Azure Stack Hub, and from the hyperscale and global presence of the Azure cloud.
 
 It's important to note that the backup solution described here focuses exclusively on file and application data on Azure Stack Hub VMs. This is just a part of an overall business continuity strategy that should account for a variety of other scenarios affecting workload availability. These could include localized hardware and software failures, system outages, catastrophic events, and large-scale disasters.
+
+## Next steps
+
+- [How-to guides - Backup Storage Accounts on Azure Stack](/azure-stack/user/azure-stack-network-howto-backup-storage)
+- [How-to guides - Backup of VMs on Azure Stack Hub using Commvault](/azure-stack/user/azure-stack-network-howto-backup-commvault)
+- [Disaster Recovery for Azure Stack Hub VMs](/azure/architecture/hybrid/azure-stack-vm-dr)
+
+## Related resources
+
+- [Backup Cloud and On-Premises workloads to Cloud](/azure/backup/guidance-best-practices)
+- [Backup on premises applications and data to the cloud](/azure/architecture/solution-ideas/articles/backup-archive-on-premises-applications)
+- [Install Azure Backup Server](/azure/backup/backup-mabs-install-azure-stack)
+- [Backup files and applications on Azure Stack](/azure/backup/backup-mabs-files-applications-azure-stack)
+- [Backup a SharePoint farm on Azure Stack](/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Backup a SQL Server in Azure Stack](/azure/backup/backup-mabs-sql-azure-stack)
 
 [architectural-diagram]: ./images/azure-stack-backup.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-backup.vsdx
