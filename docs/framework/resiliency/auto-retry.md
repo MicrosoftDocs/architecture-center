@@ -33,7 +33,7 @@ You'll need an [Azure Automation](/azure/automation/automation-security-overview
 
 To assign permissions to managed identities to stop and start a virtual machine, complete the following steps:
 
-1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-6.6.0add &preserve-view=true) `cmdlet` and follow the instructions:
+1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-6.6.0add&preserve-view=true) `cmdlet` and follow the instructions:
 
    ```azurepowershell
    # Sign in to your Azure subscription 
@@ -58,7 +58,7 @@ To assign permissions to managed identities to stop and start a virtual machine,
    $userAssignedManagedIdentity = "xUAMI" 
    ```
 
-1. Use the PowerShell `cmdlet` [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-6.6.0add &preserve-view=true) to assign a role to the system-assigned managed identity:
+1. Use the PowerShell `cmdlet` [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-6.6.0add&preserve-view=true) to assign a role to the system-assigned managed identity:
 
    ```powershell
    $role1 = "DevTest Labs User" 
@@ -96,9 +96,9 @@ To assign permissions to managed identities to stop and start a virtual machine,
 
 For the preceding scripts to work, install the following modules by navigating to the individual module gallery after you've created the automation account:
 
-- [Az.Accounts](/powershell/module/az.accounts/?view=azps-6.6.0add &preserve-view=true)
-- [Az.RecoveryServices](/powershell/module/az.recoveryservices/?view=azps-6.6.0add &preserve-view=true)
-- [Az.Graph](/cli/azure/graph?view=azure-cli-latestadd &preserve-view=true)
+- [Az.Accounts](/powershell/module/az.accounts/?view=azps-6.6.0add&preserve-view=true)
+- [Az.RecoveryServices](/powershell/module/az.recoveryservices/?view=azps-6.6.0add&preserve-view=true)
+- [Az.Graph](/cli/azure/graph?view=azure-cli-latestadd&preserve-view=true)
 
 ## Create a PowerShell runbook
 
@@ -179,7 +179,7 @@ You've now successfully created a PowerShell runbook.
 
 To create a new schedule with PowerShell, you must:
 
-- Use the [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-6.6.0add &preserve-view=true) `cmdlet` to create schedules.
+- Use the [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-6.6.0add&preserve-view=true) `cmdlet` to create schedules.
 - Specify the start time for the schedule and the frequency it should run.
 
 The following code example shows how to create a recurring schedule that runs every day at `1:00 PM` for one year:
@@ -207,7 +207,7 @@ Consider the following concepts when you link a schedule to a runbook:
 
 To link a schedule to a runbook with PowerShell, you must:
 
-- Use the [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-6.6.0add &preserve-view=true) `cmdlet` to link a schedule.
+- Use the [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-6.6.0add&preserve-view=true) `cmdlet` to link a schedule.
 - You can specify parameter values for the runbook with the Parameters parameter (PROVIDE A LINK OR MORE INFO).
 
 For more information about how to specify parameter values, reference [Starting a Runbook in Azure Automation](/azure/automation/start-runbooks).
