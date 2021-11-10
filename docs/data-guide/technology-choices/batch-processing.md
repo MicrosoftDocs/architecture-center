@@ -1,7 +1,7 @@
 ---
 title: Choose a batch processing technology
 description: Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.
-author: zoinerTejada
+author: EdPrice-MSFT
 ms.author: edprice
 ms.date: 01/19/2021
 ms.topic: conceptual

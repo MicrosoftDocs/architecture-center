@@ -3,7 +3,8 @@ metadata:
   title: Cyber threat intelligence in Azure Sentinel
   titleSuffix: Azure Example Scenarios
   description: Import threat indicators, view logs, create rules to generate security alerts and incidents, and visualize threat intelligence data with Azure Sentinel.
-  author: v-thepet
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 04/13/2020
   ms.topic: conceptual
   ms.service: architecture-center

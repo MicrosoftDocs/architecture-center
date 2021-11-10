@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: AKS regulated cluster for PCI-DSS 3.2.1 - Summary
-  description: Summary of a well-architected design of a PCI-DSS 3.2.1 infrastructure as a tenant on the AKS environment. 
+  description: Summary of a well-architected design of a PCI-DSS 3.2.1 infrastructure as a tenant on the AKS environment.
   author: PageWriter-MSFT
   ms.author: pnp
   ms.date: 07/06/2021
@@ -19,7 +19,6 @@ products:
   - azure-kubernetes-service
   - azure-firewall
   - azure-application-gateway
-  - azure-active-directory
   - azure-security-center
   - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-pci.png

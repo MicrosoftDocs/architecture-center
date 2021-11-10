@@ -458,7 +458,7 @@ The team developed end-user UIs for observability, monitoring, and instrumentati
   * Is there a way to tell if production data is deviating too much from expected values?
 
   * Is your model performing poorly in production?
-  
+
   * Do you have a failover state?
 
 * Track the quality of the processed data.
@@ -542,7 +542,7 @@ Here you'll find a list of considerations to explore. They're based on the lesso
 * Going from a notebook experiment to repeatable scripts is currently still a rather rough transition for many data scientists. The sooner we can get them writing their training code in Python scripts, the easier it will be for them to begin versioning their training code and enabling retraining.
 
 * That isn't the only possible method. Databricks supports scheduling notebooks as jobs. But based on current client experience, it's difficult to instrument with full DevOps practices because of testing limitations.
-  
+
 * It's also important to understand what metrics are being used to consider a model a success. Accuracy alone is often not good enough to determine the overall performance of one model versus another.
 
 ### Compute Considerations

@@ -1,7 +1,8 @@
 ---
 title: Choose a compute option for microservices
 description: Learn about service orchestrator and serverless architecture as compute options, or hosting models for the computing resources where your application runs.
-author: doodlemania2
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: architecture-center
@@ -16,7 +17,7 @@ ms.custom:
   - guide
 ---
 
-# Choosing an Azure compute option for microservices
+# Choose an Azure compute option for microservices
 
 The term *compute* refers to the hosting model for the computing resources that your application runs on. For a microservices architecture, two approaches are especially popular:
 

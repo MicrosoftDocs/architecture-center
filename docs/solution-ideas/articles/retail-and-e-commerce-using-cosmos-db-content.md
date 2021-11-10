@@ -7,7 +7,7 @@ This solution idea shows how to deploy an e-commerce web site on Azure. The e-co
 ![Architecture Diagram](../media/retail-and-e-commerce-using-cosmos-db.png)
 *Download an [SVG](../media/retail-and-e-commerce-using-cosmos-db.svg) of this architecture.*
 
-## Components
+### Components
 
 This architecture includes the following components:
 
@@ -25,7 +25,9 @@ Explore the related services:
 * [Introduction to the core Azure Storage services](/azure/storage/common/storage-introduction)
 * [What is Azure Cognitive Search?](/azure/search/search-what-is-azure-search)
 
-Explore related data architecture:
+## Related resources
+
+Explore related data architectures:
 
 * [Azure Data Architecture Guide](../../data-guide/index.md)
 * [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.md)

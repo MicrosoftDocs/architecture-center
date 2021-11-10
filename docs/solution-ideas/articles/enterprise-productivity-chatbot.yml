@@ -3,7 +3,7 @@ metadata:
   title: Enterprise bot for employee productivity
   titleSuffix: Azure Solution Ideas
   description: Use Azure Bot and Cognitive Services to build enterprise bots for internal productivity. Process natural language requests to streamline common employee tasks.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

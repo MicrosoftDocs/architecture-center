@@ -11,11 +11,9 @@ This reference architecture describes a common production system. You can choose
 
 The architecture includes the following components:
 
-**Azure Virtual Network (VNet).** The [VNet](/azure/virtual-network/virtual-networks-overview)
-service securely connects Azure resources to each other. In this architecture, a VNet connects to an on-premises environment through a gateway, which is deployed in the hub of a [hub-spoke topology](../hybrid-networking/hub-spoke.yml). The spoke is the VNet used for the SAP applications and the database tiers.
+**Azure Virtual Network (VNet).** The [VNet](/azure/virtual-network/virtual-networks-overview) service securely connects Azure resources to each other. In this architecture, a VNet connects to an on-premises environment through a gateway, which is deployed in the hub of a [hub-spoke topology](../hybrid-networking/hub-spoke.yml). The spoke is the VNet used for the SAP applications and the database tiers.
 
-**SAP HANA.** For high availability, SAP HANA runs on two or more Linux virtual machines. SAP HANA System Replication (HSR) is used to replicate data between
-the primary and secondary (replica) SAP HANA systems. HSR is also used for cross-region or cross-zone disaster recovery.
+**SAP HANA.** For high availability, SAP HANA runs on two or more Linux virtual machines. SAP HANA System Replication (HSR) is used to replicate data between the primary and secondary (replica) SAP HANA systems. HSR is also used for cross-region or cross-zone disaster recovery.
 
 **Availability zones.** Virtual machines that provide the same service are deployed into two different [Availability Zones](/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) within an Azure region for a higher [service-level agreement](https://azure.microsoft.com/support/legal/sla/virtual-machines) (SLA). Two or more virtual machines providing the same service can also be grouped into a highly available [availability set](/azure/virtual-machines/windows/tutorial-availability-sets).
 
@@ -31,26 +29,17 @@ This architecture describes a small, production-level deployment that can scale 
 
 ### SAP HANA
 
-SAP HANA is deployed on virtual machines in this reference architecture. Azure offers single-node scale up to 11.5 terabytes (TB) on virtual machines and
-single-node scale up to 24 TB on [Azure Large Instances](./hana-large-instances.yml).
-The [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-lists the virtual machines that are certified for the SAP HANA database. For details about SAP support for virtual machine types and throughput metrics
-(SAPS), see [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533). (To access this and other SAP notes, an SAP Service Marketplace account is required.)
+SAP HANA is deployed on virtual machines in this reference architecture. Azure offers single-node scale up to 11.5 terabytes (TB) on virtual machines and single-node scale up to 24 TB on [Azure Large Instances](./hana-large-instances.yml). The [SAP Certified and Supported SAP HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) lists the virtual machines that are certified for the SAP HANA database. For details about SAP support for virtual machine types and throughput metrics (SAPS), see [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533). (To access this and other SAP notes, an SAP Service Marketplace account is required.)
 
-Microsoft and SAP jointly certify a range of virtual machine sizes for SAP HANA workloads. For example, smaller deployments can run on an M-series virtual
-machine with 192 GB of RAM. To support the largest SAP HANA memory sizes on virtual machines—up to 11.5 TB—you can use the [Azure M-series v2](/azure/virtual-machines/mv2-series) (Mv2) virtual machines. The M208 virtual machine types achieve approximately 260,000 SAPS, and the M416 virtual machine types achieve approximately 488,000 SAPS.
+Microsoft and SAP jointly certify a range of virtual machine sizes for SAP HANA workloads. For example, smaller deployments can run on an M-series virtual machine with 192 GB of RAM. To support the largest SAP HANA memory sizes on virtual machines—up to 11.5 TB—you can use the [Azure M-series v2](/azure/virtual-machines/mv2-series) (Mv2) virtual machines. The M208 virtual machine types achieve approximately 260,000 SAPS, and the M416 virtual machine types achieve approximately 488,000 SAPS.
 
-The physical distance between the application and database tiers can impact performance, especially for SAP applications that require frequent communication
-with the database. We recommend using Azure [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) for virtual machines deployed in availability sets. Proximity placement groups ensure that the virtual machines stay in the same datacenter to minimize application latency. (Azure Site Recovery doesn't support the replication of virtual machines in proximity placement groups.) [Scripts and utilities](https://github.com/msftphleiten/proximity-placement-groups) are available on GitHub.
+The physical distance between the application and database tiers can impact performance, especially for SAP applications that require frequent communication with the database. We recommend using Azure [proximity placement groups](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) for virtual machines deployed in availability sets. Proximity placement groups ensure that the virtual machines stay in the same datacenter to minimize application latency. (Azure Site Recovery doesn't support the replication of virtual machines in proximity placement groups.) [Scripts and utilities](https://github.com/msftphleiten/proximity-placement-groups) are available on GitHub.
 
 ### Load balancer
 
-We recommend using the Standard Load Balancer and enabling [high availability ports](/azure/load-balancer/load-balancer-ha-ports-overview).
-This setup avoids the need to configure load-balancing rules for many SAP ports. With [Standard Load Balancer](/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer), you can also create a high availability solution across [Azure Availability Zones](/azure/availability-zones/az-overview). The Standard Load Balancer is secure by default, and no virtual machines behind the Standard Load Balancer will have outbound internet connectivity. To enable outbound internet in the virtual machines, you must consider your [Standard Load Balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration. Instead, you can use Azure Basic Load Balancer. It's offered at no charge but doesn't support zones and has no SLA.
+We recommend using the Standard Load Balancer and enabling [high availability ports](/azure/load-balancer/load-balancer-ha-ports-overview). This setup avoids the need to configure load-balancing rules for many SAP ports. With [Standard Load Balancer](/azure/load-balancer/load-balancer-overview#why-use-azure-load-balancer), you can also create a high availability solution across [Azure Availability Zones](/azure/availability-zones/az-overview). The Standard Load Balancer is secure by default, and no virtual machines behind the Standard Load Balancer will have outbound internet connectivity. To enable outbound internet in the virtual machines, you must consider your [Standard Load Balancer](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) configuration. Instead, you can use Azure Basic Load Balancer. It's offered at no charge but doesn't support zones and has no SLA.
 
-For SAP HANA database clusters, you must enable Direct Server Return (DSR), also known as Floating IP. This feature allows the server to respond to the IP
-address of the load balancer front end. This direct connection keeps the load balancer from becoming the bottleneck in the path of data transmission. If
-virtual machines in the back-end pool require public outbound connectivity, extra [configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) is required.
+For SAP HANA database clusters, you must enable Direct Server Return (DSR), also known as Floating IP. This feature allows the server to respond to the IP address of the load balancer front end. This direct connection keeps the load balancer from becoming the bottleneck in the path of data transmission. If virtual machines in the back-end pool require public outbound connectivity, extra [configuration](/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) is required.
 
 ### Networking
 
@@ -93,8 +82,7 @@ This reference architecture shows a highly available SAP HANA database system co
 
 - For automatic failover, use both HSR and Linux High Availability Extension (HAE) for your Linux distribution. Linux HAE provides the Pacemaker cluster services to the SAP HANA resources, detecting failure events and orchestrating the failover of errant services to the healthy node.
 
-For SAP HANA high availability on Linux, create a [Pacemaker cluster](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#create-a-pacemaker-cluster). This option is available for both [SUSE Linux Enterprise Server](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
-and [Red Hat Enterprise Linux](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker).
+For SAP HANA high availability on Linux, create a [Pacemaker cluster](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#create-a-pacemaker-cluster). This option is available for both [SUSE Linux Enterprise Server](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) and [Red Hat Enterprise Linux](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker).
 
 This architecture uses Linux clustering to detect system failures and make automatic failover easier. With a storage-based or cloud-based fencing mechanism, a failed system is isolated or shut down to prevent a cluster split-brain condition.
 

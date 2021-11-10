@@ -3,9 +3,9 @@ metadata:
   title: Extract, transform, and load (ETL) using HDInsight
   titleSuffix: Azure Solution Ideas
   description: Extract, transform, and load (ETL) big data clusters on demand by using Azure HDInsight, Hadoop MapReduce, and Apache Spark.
-  author: doodlemania2
-  ms.author: pnp
-  ms.date: 12/16/2019
+  author: EdPrice-MSFT
+  ms.author: jodobrze
+  ms.date: 11/10/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -27,7 +27,7 @@ azureCategories:
 summary: Extract, transform, and load (ETL) big data clusters on demand by using Azure HDInsight, Hadoop MapReduce, and Apache Spark.
 products:
   - azure-data-factory
-  - azure-data-lake-storage
+  - azure-data-lake-gen2
   - azure-hdinsight
 thumbnailUrl: /azure/architecture/browse/thumbs/extract-transform-and-load-using-hdinsight.png
 content: |

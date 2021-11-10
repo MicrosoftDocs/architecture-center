@@ -89,7 +89,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
   - Telnet
   - File Transfer Protocol (FTP)
   - Sockets
-  
+
   In Azure, web browsers replace legacy terminal emulation. On-demand and online users can use these web browsers to access system resources.
 
 - Mainframe applications are in COBOL, Fortran, C, MASM, SSG, Pascal, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.

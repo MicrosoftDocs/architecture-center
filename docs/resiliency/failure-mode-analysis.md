@@ -1,7 +1,7 @@
 ---
 title: Failure mode analysis
 description: Get information about doing a failure mode analysis (FMA) for cloud solutions that are based on Azure.
-author: doodlemania2
+author: EdPrice-MSFT
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: architecture-center
@@ -436,13 +436,12 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Use [App Service diagnostic logging][app-service-logging]. Use a service such as [Azure Log Analytics][azure-log-analytics], [Application Insights][app-insights], or [New Relic][new-relic] to help understand the diagnostic logs.
 
-:::image type="icon" source="../_images/github.png" border="false"::: A sample is available [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions: 
+:::image type="icon" source="../_images/github.png" border="false"::: A sample is available [here](https://github.com/mspnp/samples/tree/master/Reliability/FailureModeAnalysisSample). It uses [Polly](https://github.com/App-vNext/Polly) for these exceptions:
 
-- 429 - Throttling 
-- 408 - Timeout 
+- 429 - Throttling
+- 408 - Timeout
 - 401 - Unauthorized
-- 503 or 5xx - Service unavailable 
-
+- 503 or 5xx - Service unavailable
 
 ### One of the operations in a workflow or distributed transaction fails.
 

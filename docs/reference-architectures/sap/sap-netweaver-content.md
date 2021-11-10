@@ -4,13 +4,13 @@ This reference architecture shows a set of proven practices for running SAP NetW
 
 
 The first diagram shows SAP NetWeaver in a Windows environment in an availability set scenario. The architecture uses Azure NetApp Files for the shared files layer and a proximity placement group for improved performance:
- 
+
 ![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with availability sets.](./images/sap-netweaver-availability-set-proximity-placement-group-netapp.jpg)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVSet-Netapp-PPG.vsdx) that shows this architecture._
 
 The second diagram shows SAP NetWeaver in a Windows environment. Availability Zones are used for improved resilience:
- 
+
 ![Diagram that shows a reference architecture for SAP NetWeaver on Windows. The database is AnyDB on Azure VMs with Availability Zones.](./images/sap-netweaver-availability-zones.jpg)
 
 _Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-AVZones.vsdx) that shows this architecture._
@@ -56,8 +56,7 @@ These components are required:
 
 ## Recommendations
 
-This architecture describes a small production-level deployment. Your
-deployment will differ based on your business requirements, so consider these recommendations a starting point.
+This architecture describes a small production-level deployment. Your deployment will differ based on your business requirements, so consider these recommendations a starting point.
 
 ### Virtual machines
 
@@ -147,15 +146,13 @@ Some organizations use standard storage for their application servers. Standard 
 
 Application servers don't host business data. So you can also use the smaller P4 and P6 premium disks to help minimize cost. Doing so also allows you to benefit from the [single-instance VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6) if you have a central SAP stack installation.
 
-For high-availability scenarios, [Azure shared disks](/azure/virtual-machines/disks-shared) are available on Premium SSD and Ultra SSD [Azure managed
-disks](/azure/storage/storage-managed-disks-overview). You can use Azure shared disks with Windows Server, SUSE Linux Enterprise Server 15 SP1 and later, and SUSE Linux Enterprise Server For SAP.
+For high-availability scenarios, [Azure shared disks](/azure/virtual-machines/disks-shared) are available on Premium SSD and Ultra SSD [Azure managed disks](/azure/storage/storage-managed-disks-overview). You can use Azure shared disks with Windows Server, SUSE Linux Enterprise Server 15 SP1 and later, and SUSE Linux Enterprise Server For SAP.
 
 Azure Storage is also used by [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness) to maintain quorum with a device in a remote Azure region, away from the primary region where the cluster resides.
 
-For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/storage-blob-storage-tiers). These storage tiers provide a cost-effective way to store long-lived data that is infrequently accessed.
+For the backup data store, we recommend Azure [cool and archive access tiers](/azure/storage/blobs/access-tiers-overview). These storage tiers provide a cost-effective way to store long-lived data that is infrequently accessed.
 
-[Ultra disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd)
-greatly reduce disk latency and benefit performance-critical applications like the SAP database servers. [Compare block storage options in Azure.](/azure/virtual-machines/windows/disks-types)
+[Ultra disks](/azure/virtual-machines/linux/disks-enable-ultra-ssd) greatly reduce disk latency and benefit performance-critical applications like the SAP database servers. [Compare block storage options in Azure.](/azure/virtual-machines/windows/disks-types)
 
 For a high-availability, high-performance shared data store, use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction). This technology is particularly useful for the database tier when you're using [Oracle](/azure/azure-netapp-files/performance-oracle-single-volumes), and also when you're [hosting application data](/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
 
@@ -306,8 +303,7 @@ To use Azure Site Recovery to automatically build a fully replicated production 
 
 ### Backup
 
-Databases are critical workloads that require a low Recovery Point Objective
-(RPO) and long-term retention.
+Databases are critical workloads that require a low Recovery Point Objective (RPO) and long-term retention.
 
 - For SAP on SQL Server, one approach is to use [Azure Backup](/azure/backup/backup-azure-sql-database) to back up SQL Server databases that run on virtual machines. Another option is to use [Azure Files snapshots](https://azure.microsoft.com/mediahandler/files/resourcefiles/sql-server-data-files-in-microsoft-azure/SQL_Server_Data_Files_in_Microsoft_Azure.pdf) to back up SQL Server database files.
 
@@ -317,8 +313,7 @@ Databases are critical workloads that require a low Recovery Point Objective
 
 ### Identity management
 
-Use a centralized identity management system to control access to resources at
-all levels:
+Use a centralized identity management system to control access to resources at all levels:
 
 - Provide access to Azure resources by using [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 

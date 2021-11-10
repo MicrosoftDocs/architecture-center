@@ -2,7 +2,8 @@
 metadata:
   title: News feeds with near real-time analytics
   description: Create a pipeline for ingesting and analyzing RSS news feed data using Azure Cosmos DB, Azure Cognitive Services, and other Azure services.
-  author: njray
+  author: EdPrice-MSFT
+  ms.author: pnp
   ms.date: 2/1/2019
   ms.topic: conceptual
   ms.service: architecture-center
@@ -26,14 +27,9 @@ summary: Create a pipeline for ingesting and analyzing RSS news feed data using 
 products:
   - azure-cosmos-db
   - azure-functions
-  - azure-storage
-  - azure-search
-  - azure-cognitive-search
   - azure-service-bus
-  - azure-computer-vision
   - azure-translator-text
   - azure-face
-  - azure-application-insights
 thumbnailUrl: /azure/architecture/browse/thumbs/mass-ingestion-newsfeeds-architecture.png
 content: |
   [!include[](news-feed-ingestion-and-near-real-time-analysis-content.md)]

@@ -16,7 +16,6 @@ azureCategories:
   - migration
 products:
   - azure-virtual-network
-  - azure-blob-storage
   - azure-private-link
   - azure-expressroute
   - azure-virtual-machines

@@ -77,14 +77,14 @@ Take these steps to improve availability:
 ### Performance
 
 - Azure services, including VMs, scale to meet desired performance.
-- The Infinite i migration design process considers the performance characteristics of the workloads running on System i, and selects the right configuration of Azure services for the desired performance on Azure.  
-- Infinite i can take advantage of Azure scale sets to add capacity as needed.  
+- The Infinite i migration design process considers the performance characteristics of the workloads running on System i, and selects the right configuration of Azure services for the desired performance on Azure.
+- Infinite i can take advantage of Azure scale sets to add capacity as needed.
 - The architecture is designed to accommodate parallel processing of independent transactions.
 - For this architecture, Premium SSDs or Ultra Disk SSDs are usually a good choice.
 
 ### Security
 
-- Infinite i migrates the System i user-based access roles to Azure.  
+- Infinite i migrates the System i user-based access roles to Azure.
 - The Infinite i runtime environment provides the same level of security on Azure as the System i environment provided.
 - Azure security best practices can further protect the overall application  environment.
 
@@ -92,7 +92,7 @@ Take these steps to improve availability:
 
 The Infinite i solution keeps costs at a minimum to lower your total cost of ownership:
 
-- The migration to Azure eliminates IBM licensing and maintenance costs.  
+- The migration to Azure eliminates IBM licensing and maintenance costs.
 - Linux has lower implementation costs than IBM platforms.
 - The autoscale feature of PaaS services does scaling-on-demand to minimize costs.
 

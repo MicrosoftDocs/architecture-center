@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This architecture provides a high availability solution for a web application that uses massive amounts of data. It is a flexible approach that can provide a global solution that distributes applications and data to keep it close to users.
 
 The architecture requires custom replication software. This can be challenging to create, depending on the applications and the configuration.

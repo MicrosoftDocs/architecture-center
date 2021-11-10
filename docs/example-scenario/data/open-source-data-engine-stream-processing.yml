@@ -1,0 +1,28 @@
+### YamlMime:Architecture
+metadata:
+  title: Stream processing with fully managed open-source data engines
+  titleSuffix: Azure Example Scenarios
+  description: Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.
+  author: ajananth
+  ms.author: ajananth
+  ms.date: 10/06/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+  ms.custom:
+    - fcp
+name: Stream processing with fully managed open-source data engines
+azureCategories:
+  - analytics
+  - containers
+  - databases
+summary: Stream events by using fully managed Azure data services. Use open-source technologies like Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.
+products:
+  - azure-event-hubs
+  - azure-kubernetes-service
+  - azure-cosmos-db
+  - azure-database-postgresql
+  - azure-cache-redis
+thumbnailUrl: /azure/architecture/browse/thumbs/open-source-data-engine-stream-processing-architecture-thumbnail.png
+content: |
+   [!include[](open-source-data-engine-stream-processing-content.md)]

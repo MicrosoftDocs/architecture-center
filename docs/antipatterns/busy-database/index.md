@@ -2,7 +2,7 @@
 title: Busy Database antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Understand the Busy Database antipattern, which can cause performance and scalability problems by offloading processing to a database server.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -36,8 +36,7 @@ This antipattern typically occurs because:
 - Developers are trying to correct the [Extraneous Fetching][ExtraneousFetching] antipattern by pushing computations to the database.
 - Stored procedures are used to encapsulate business logic, perhaps because they are considered easier to maintain and update.
 
-The following example retrieves the 20 most valuable orders for a specified sales territory and formats the results as XML.
-It uses Transact-SQL functions to parse the data and convert the results to XML. You can find the complete sample [here][sample-app].
+The following example retrieves the 20 most valuable orders for a specified sales territory and formats the results as XML. It uses Transact-SQL functions to parse the data and convert the results to XML. You can find the complete sample [here][sample-app].
 
 ```sql
 SELECT TOP 20

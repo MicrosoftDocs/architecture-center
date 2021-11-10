@@ -9,8 +9,10 @@ ms.subservice: well-architected
 ms.custom:
   - fasttrack-edit
   - overview
-products: azure
-categories: management-and-governance
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Overview of the operational excellence pillar
@@ -65,7 +67,7 @@ Reference the operational excellence principles to guide you in your overall str
 [deployment]: ./release-engineering-cd.md
 [iac]: ./automation-infrastructure.md
 [testing]: ./release-engineering-testing.md
-[app-design]: ./app-design.md
+[app-design]: /azure/architecture/framework/devops/release-engineering-app-dev
 
 <!-- checklist -->
 [devops-checklist]: /azure/architecture/checklist/dev-ops

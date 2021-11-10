@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -40,7 +42,7 @@ The following table provides level-based guidance to help complete the DevOps ob
 |  |  | [This reference covers and introduction to the Microsoft Bot Framework and how to get started using it](/bot-framework/overview-introduction-bot-framework) | Bot Framework | Experienced | General technology background, familiarity with data solutions |
 |  | Visualization | [This self-paced, online course covers the Power BI system, and how to create and publish reports](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-0-what-is-power-bi/) | Microsoft Power BI | Beginner | General technology background, familiarity with data solutions |
 |  | Solutions | [This resource page covers multiple applications you can review, test and implement to see a complete solution from start to finish](https://gallery.cortanaintelligence.com/) | Microsoft Azure, Azure Machine Learning, Cognitive Services, Microsoft R, Azure Cognitive Search, Python, Azure Data Factory, Power BI, Azure Document DB, Application Insights, Azure SQL DB, Azure Synapse Analytics, Microsoft SQL Server, Azure Data Lake, Cognitive Services, Bot Framework, Azure Batch, | Intermediate | General technology background, familiarity with data solutions |
-| Understand and Implement DevOps Processes | DevOps Fundamentals | [This video series explains the covers the fundamentals of DevOps and helps explain how they map to DevOps practices](https://channel9.msdn.com/Series/DevOps-Fundamentals/Introduction-to-DevOps) | DevOps, Microsoft Azure Platform, Azure DevOps | Experienced | Used an SDLC, familiarity with Agile and other Development Frameworks, IT Operations Familiarity |
+| Understand and Implement DevOps processes | What is DevOps? | [This article explains the fundamentals of DevOps and helps explain how they map to DevOps practices](/devops/what-is-devops) | DevOps, Microsoft Azure Platform, Azure DevOps | Intermediate | Familiarity with Agile and other Development Frameworks, IT Operations Familiarity |
 | Use the DevOps Toolchain for Data Science | Configure | [This reference covers the basics of choosing the proper visualization in Visio to communicate your project design](https://support.office.com/article/Illustrate-business-processes-with-Visio-flowcharts-DAB16418-1FE6-4DE0-8F26-DBA44A26ED65) | Visio | Intermediate | General technology background, familiarity with data solutions |
 |  |  | [This reference describes the Azure Resource Manager, terms, and serves as the primary root source for samples, getting started, and other references](/azure/azure-resource-manager/management/overview) | Azure Resource Manager, Azure PowerShell, Azure CLI | Intermediate | General technology background, familiarity with data solutions |
 |  |  | [This reference explains the Azure Data Science Virtual Machines for Linux and Windows](/azure/machine-learning/data-science-virtual-machine/overview) | Data Science Virtual Machine | Experienced | Familiarity with Data Science Workloads, Linux |

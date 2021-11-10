@@ -10,7 +10,9 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
@@ -29,8 +31,8 @@ For a discussion of canonical scenarios that use SSIS to accomplish business nee
 
 > [!NOTE]
 > For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](/azure/storage/blobs/storage-quickstart-blobs-dotnet) and to [Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts).
-> 
-> 
+>
+>
 
 ## Prerequisites
 To perform the tasks described in this article, you must have an Azure subscription and an Azure Storage account set up. You need the Azure Storage account name and account key to upload or download data.
@@ -45,8 +47,8 @@ To use the **SSIS connectors**, you must download:
 
 > [!NOTE]
 > SSIS is installed with SQL Server, but is not included in the Express version. For information on what applications are included in various editions of SQL Server, see [SQL Server Editions](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
-> 
-> 
+>
+>
 
 For training materials on SSIS, see [Hands On Training for SSIS](https://www.microsoft.com/sql-server/training-certification)
 
@@ -73,8 +75,8 @@ The parameters that the task uses are described here:
 
 > [!NOTE]
 > The **AzureStorageConnection** credentials need to be correct and the **BlobContainer** must exist before the transfer is attempted.
-> 
-> 
+>
+>
 
 ## Download data from Azure blob storage
 To download data from Azure blob storage to on-premises storage with SSIS, use an instance of the [Azure Blob Download Task](/sql/integration-services/control-flow/azure-blob-download-task).

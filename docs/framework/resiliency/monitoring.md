@@ -6,8 +6,10 @@ ms.date: 09/23/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
-products: azure
-categories: management-and-governance
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Monitoring application health for reliability

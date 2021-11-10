@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Retail Assistant with Visual Capabilities
+  title: Retail assistant with visual capabilities
   titleSuffix: Azure Solution Ideas
   description: Use Azure services with a retail assistant or vacation planner to improve interactions with customers and provide suggestions based on visual information.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 02/11/2021
   ms.topic: conceptual
@@ -25,7 +25,7 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/retail-assistant-or-vacation-planner-with-visual-capabilities/"
     - ai-machine-learning
   social_image_url: /azure/architecture/solution-ideas/articles/media/retail-assistant-or-vacation-planner-with-visual-capabilities.png
-name: Retail Assistant with Visual Capabilities
+name: Retail assistant with visual capabilities
 azureCategories:
   - ai-machine-learning
   - web

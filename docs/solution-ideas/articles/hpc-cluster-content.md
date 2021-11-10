@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution is built on the Azure managed service: [Azure Batch](https://azure.microsoft.com/services/batch), and initiated by an [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) job. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
@@ -16,7 +14,7 @@ The solution involves the following steps:
 1. As the compute nodes work, Azure Monitor collects performance data from the pool (CPU, Memory, Disk I/O) and log files. The team can study this telemetry to build better jobs in the future.
 1.  When the compute nodes complete tasks, they output their program data back to Azure Storage for the team's review.
 
-## Components
+### Components
 
 * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) builds and tests code projects, and initiates the HPC jobs on the Azure Batch service. 
 * [Azure Storage](https://azure.microsoft.com/services/storage/) houses HPC data and executable files used in a job.

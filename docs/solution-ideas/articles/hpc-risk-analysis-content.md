@@ -1,6 +1,3 @@
-
-
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This templated risk analysis solution uses Azure HPC compute and GPU virtual machines (VMs) to expand on-premises TIBCO GridServer compute to Azure using Azure CycleCloud for auto-scaling integration. The job executes both on-premises and in the cloud by using Avere vFXT fast caching and native NFS access to market data available on-premises.
@@ -10,7 +7,7 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 ![Architecture diagram](../media/hpc-risk-analysis.png)
 *Download an [SVG](../media/hpc-risk-analysis.svg) of this architecture.*
 
-## Data Flow
+### Data Flow
 
 1. Operations team uses Azure CycleCloud to configure and launch risk analysis grid in Azure.
 1. Azure CycleCloud orchestrates VM creation and software configuration for TIBCO GridServer brokers and HPCCA, in-memory data cache, and Avere vFXT cache.
@@ -21,7 +18,7 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 1. As each task completes, results are returned to the submitter or driver and data is written back to the in-memory cache, or to NFS storage through the Avere vFXT, as required. Cached data is persisted either on-premises or in Azure Blob storage.
 1. As task queues drain, the TIBCO HPCCA uses the Azure CycleCloud Auto-Scaling API to shrink the compute grid and reduce cost.
 
-## Components
+### Components
 
 * [N-Series Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux): N-series virtual machines are ideal for compute and graphics-intensive workloads, helping customers to fuel innovation through scenarios like high-end remote visualization, deep learning, and predictive analytics.
 * [H-Series Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux): The H-series is a new family specifically designed to handle high performance computing workloads such as financial risk modeling, seismic and reservoir simulation, molecular modeling, and genomic research.

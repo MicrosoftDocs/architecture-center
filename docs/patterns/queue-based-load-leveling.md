@@ -2,7 +2,8 @@
 title: Queue-Based Load Leveling pattern
 titleSuffix: Cloud Design Patterns
 description: Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.
-author: dragon119
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: architecture-center

@@ -230,7 +230,7 @@ When you start the configuration, start with zero-trust policies. Make exception
 > Remember that for network access, NSGs allow all communication by default. Change that to set *deny all* as the starting rule with high priority. Then, add exceptions that will be applied before the *deny all* rule, as needed. Be consistent on the naming, so that it's easier to audit.
 >   
 > Azure Firewall implements *deny all* by default.
- 
+
 
 ### Requirement 7.3
 
@@ -324,9 +324,7 @@ You might have components that don't use Azure AD, such as access to jump boxes 
 
 ### Requirement 8.3
 
-Secure all individual non-console administrative access and all remote access to the CDE using multi-factor authentication.
-Note: Multi-factor authentication requires that a minimum of two of the three authentication methods (see Requirement 8.2 for descriptions of authentication methods) be used for authentication. Using one factor twice (for example, using two separate passwords) is not considered multi-factor
-authentication.
+Secure all individual non-console administrative access and all remote access to the CDE using multi-factor authentication. Note: Multi-factor authentication requires that a minimum of two of the three authentication methods (see Requirement 8.2 for descriptions of authentication methods) be used for authentication. Using one factor twice (for example, using two separate passwords) is not considered multi-factor authentication.
 
 #### Your responsibilities
 

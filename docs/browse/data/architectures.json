@@ -1102,7 +1102,7 @@
             "publish_date": "12/12/2017",
             "Summary": "<p>This reference architecture shows proven practices for a web application that uses <a href=\"https://docs.microsoft.com/azure/app-service\">Azure App Service</a> and <a href=\"https://docs.microsoft.com/azure/sql-database\">Azure SQL Database</a>. <a href=\"#deploy-the-solution\"><strong>Deploy this solution</strong></a>.</p>\n<p><img alt=\"Reference architecture for a basic web application in Azure\" src=\"https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/images/basic-web-app.png\" /></p>\n<p><em>Download a <a href=\"https://arch-center.azureedge.net/app-service-reference-architectures.vsdx\">Visio file</a> of this architecture.</em></p>",
             "sample_code": true,
-            "github_url": "https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates",
+            "github_url": "https://github.com/mspnp/samples/tree/master/solutions/basic-web-app",
             "visio_diagram": "https://arch-center.azureedge.net/app-service-reference-architectures.vsdx",
             "code_languages": [
                 "powershell"
@@ -4438,7 +4438,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\serverless\\_images\\cloud-automation.png",
             "publish_date": "1/14/2020",
             "Flow": {
-                "FlowStep_A": "[Cost center tagging](https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](/azure/governance/policy/) service [tags all new resources](/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](/powershell/module/azuread/?view=azureadps-2.0) or the [ADAL for Python library](https://pypi.org/project/adal/)."
+                "FlowStep_A": "[Cost center tagging](https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md): This implementation tracks the cost centers of each Azure resource. The [Azure Policy](/azure/governance/policy/) service [tags all new resources](/azure/azure-resource-manager/resource-group-using-tags) in a group with a default cost center ID. The Event Grid monitors resource creation events, and then calls an [Azure function](/azure/azure-functions/). The function interacts with Azure Active Directory, and validates the cost center ID for the new resource. If different, it updates the tag and sends out an email to the resource owner. The REST queries for Azure Active Directory are mocked out for simplicity. Azure AD can also be integrated using the [Azure AD PowerShell module](/powershell/module/azuread/?view=azureadps-2.0)."
             },
             "sample_code": true,
             "github_url": "https://github.com/mspnp/serverless-automation/blob/main/src/automation/cost-center/deployment.md",
@@ -4476,7 +4476,6 @@
             "image": "/azure/architecture/reference-architectures/hybrid-networking/images/expressroute.png",
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\hybrid-networking\\images\\expressroute.png",
             "publish_date": "7/23/2019",
-            "deployable": "https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy.json",
             "sample_code": true,
             "github_url": "https://github.com/mspnp/template-building-blocks/wiki",
             "visio_diagram": "https://arch-center.azureedge.net/hybrid-network-architectures.vsdx",
@@ -4512,7 +4511,7 @@
             "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\reference-architectures\\hybrid-networking\\images\\vpn.png",
             "publish_date": "1/24/2020",
             "sample_code": true,
-            "github_url": "https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md",
+            "github_url": "https://github.com/mspnp/samples/blob/master/solutions/secure-hybrid-network/README.md",
             "visio_diagram": "https://arch-center.azureedge.net/hybrid-network-architectures.vsdx",
             "name": "vpn",
             "popularity": 227,
