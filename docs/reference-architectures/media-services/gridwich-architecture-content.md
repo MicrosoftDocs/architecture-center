@@ -1,6 +1,5 @@
 
 
-
 A well-known mass media and entertainment conglomerate replaced their on-premises video streaming service with a cloud-based solution for ingesting, processing, and publishing video assets. The company's main goals were to take advantage of Azure cloud capacity, cost, and flexibility to:
 
 - Ingest raw video files, process and publish them, and fulfill media requests.

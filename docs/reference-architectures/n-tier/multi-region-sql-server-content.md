@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows a set of proven practices for running an N-tier application in multiple Azure regions, in order to achieve availability and a robust disaster recovery infrastructure.
 
 ![Highly available network architecture for Azure N-tier applications"](./images/multi-region-sql-server.png)
@@ -176,7 +175,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 ### VNET-Peering pricing
 A high-availability deployment that leverages multiple Azure Regions will make use of VNET-Peering. There are different charges for VNET-Peering within the same region and for Global VNET-Peering.
 
-For more information, see [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/). 
+For more information, see [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ## DevOps considerations
 
@@ -188,11 +187,9 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 
 Make sure not only to monitor your compute elements supporting your application code, but your data platform as well, in particular your databases, since a low performance of the data tier of an application could have serious consequences.
 
-
 In order to test the Azure environment where the applications are running, it should be version-controlled and deployed through the same mechanisms as application code, then it can be tested and validated using DevOps testing paradigms too.
 
 For more information, see the Operational Excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
-
 
 ## Related resources
 

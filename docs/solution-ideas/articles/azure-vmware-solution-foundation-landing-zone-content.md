@@ -65,7 +65,7 @@ Use the following guidance about other Azure VMware Solution ideas:
 * [Network topology and connectivity for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity)
 * [Azure VMware Solution Foundation - Networking](/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-networking)
 * [Azure VMware Solution Foundation - Capacity Planning](/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-capacity)
- 
+
 ## Related resources
 
 Refer to following additional resources to learn more about Azure VMware Solution:

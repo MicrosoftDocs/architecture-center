@@ -1,6 +1,5 @@
 
 
-
 Provisioning a virtual machine (VM) in Azure requires some additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a Linux VM on Azure.
 
 ![Linux VM in Azure](./images/single-vm-diagram.png)
@@ -88,7 +87,7 @@ All NSGs contain a set of [default rules][nsg-default-rules], including a rule t
 
 There are various options for VM sizes depending on the usage and workload. The range includes most economical option of the Bs-series to the newest GPU VMs optimized for machine learning. For information about the available options, see [Azure Linux VM pricing][linux-vms-pricing].
 
-For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option. 
+For workloads with no predictable time of completion or resource consumption, consider the **Pay as you go** option.
 
 Consider using [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) if you can commit to using a virtual machine over a one-year or three-year term. VM reservations can reduce costs up to 72 % compared to pay-as-you-go prices.
 
@@ -101,8 +100,6 @@ Use [Azure Spot VMs](/azure/virtual-machines/windows/spot-vms) to run workloads 
 Use the [Azure Pricing Calculator][azure-pricing-calculator] to estimates costs.
 
 For more information, see the cost section in [Microsoft Azure Well-Architected Framework][WAF-cost].
-
-
 
 ## Security considerations
 
@@ -130,7 +127,6 @@ Also, you can use different [Azure Resource Manager templates][arm-template] and
 For higher availability architecture see [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.yml), the reference architecture includes more than one VM and each VM is included in an availability set.
 
 Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the performance of your infrastructure, Monitor and diagnose networking issues without logging into your virtual machines.
-
 
 For more information, see the Operational excellence section in [Microsoft Azure Well-Architected Framework][WAF-devops].
 

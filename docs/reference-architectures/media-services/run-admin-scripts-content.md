@@ -1,6 +1,5 @@
 
 
-
 The Azure Pipelines continuous integration and delivery (CI/CD) pipelines deploy the Gridwich application into Azure, but they don't set up any identity principals or their access rights to Azure resources. The pipelines use Terraform to generate and publish admin scripts, and a user with elevated permissions must run the scripts manually to create and configure Azure resources. This article describes the admin scripts and how to run them.
 
 ## Grant admin privileges
