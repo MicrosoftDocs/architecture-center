@@ -19,7 +19,7 @@ This architecture works best for:
 
 ![Flow diagram that shows Azure Cosmos DB being accessed by a private endpoint for Azure Container Instances. It's fronted by Azure Application Gateway.](./media/architecture-automation.jpg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/Archecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/Architecture.vsdx) of this architecture.*
 
 ### Part 1: Typical web application traffic flow
 1a. Application Gateway has web application firewall capability, which is ideal for fronting public-facing traffic before it hits the back-end workload. Application Gateway exposes the public IP address, so Azure DDoS Protection provides another layer of protection.
