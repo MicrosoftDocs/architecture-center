@@ -2,7 +2,7 @@
 title: Automatic retry of failed backup jobs
 description: Provides guidance and code examples for how to retry backups for all failed jobs in Azure.
 author: v-stacywray
-ms.date: 11/10/2021
+ms.date: 11/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -208,7 +208,7 @@ Consider the following concepts when you link a schedule to a runbook:
 To link a schedule to a runbook with PowerShell, you must:
 
 - Use the [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-6.6.0add&preserve-view=true) `cmdlet` to link a schedule.
-- You can specify parameter values for the runbook with the Parameters parameter (PROVIDE A LINK OR MORE INFO).
+- You can specify parameter values for the runbook with the [Parameters $parameter](/azure/automation/shared-resources/schedules#link-a-schedule-to-a-runbook-with-powershell).
 
 For more information about how to specify parameter values, reference [Starting a Runbook in Azure Automation](/azure/automation/start-runbooks).
 
