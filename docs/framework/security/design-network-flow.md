@@ -75,7 +75,7 @@ Choose a defense-in-depth design that can protect network communications at vari
 
 > [!IMPORTANT] 
 >
->Network controls are not sufficient in blocking data exfiltration attempts. Harden the protection with proper identity controls, key protection, and encryption. For more information, see these sections:
+> Network controls are not sufficient in blocking data exfiltration attempts. Harden the protection with proper identity controls, key protection, and encryption. For more information, see these sections:
 > - [Data protection considerations](design-storage.md)
 > - [Identity and access management considerations](design-identity.md)
 

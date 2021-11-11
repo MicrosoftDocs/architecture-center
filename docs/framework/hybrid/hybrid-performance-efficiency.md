@@ -83,5 +83,5 @@ Deploy and manage containerized applications with GitHub and Azure Policy. Ensur
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Reliability](./hybrid-reliability.md)
+> [!div class="nextstepaction"]
+> [Reliability](./hybrid-reliability.md)

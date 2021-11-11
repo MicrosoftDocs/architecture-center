@@ -101,7 +101,6 @@ While the entirety of the [Azure Well-Architected Framework](../../framework/ind
 
 * [Multitenancy solutions with Power BI embedded analytics](/power-bi/developer/embedded/embed-multi-tenancy): When designing a multitenant application that contains Power BI Embedded, you must carefully choose the tenancy model that best fits your needs.
 
-
 ### IoT
 
 * [Multitenancy in IoT Hub Device Provisioning Service](/azure/iot-dps/how-to-provision-multitenant): A multitenant IoT solution will commonly assign tenant devices, by using a group of IoT hubs that are scattered across regions.

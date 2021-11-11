@@ -34,7 +34,6 @@ Simulated tests can also give you data to plan risk mitigation. Applications tha
 - Measure and reduce the potential attack surface that attackers target for exploitation for resources within the environment.
 - Ensure proper follow-up to educate users about the various means that an attacker may use.
 
-
 ## Penetration testing (pentesting)
 
 **Do you perform penetration testing on the workload?**
@@ -67,7 +66,6 @@ Simulate a persistent threat actor targeting your environment through a red team
 
 A popular choice to simulate realistic attack scenarios is [Office 365 Attack Simulator](/office365/securitycompliance/attack-simulator).
 
-
 **Is personal information detected and removed/obfuscated automatically?**
 ***
 
@@ -80,6 +78,5 @@ Threat modeling is a structured process to identify the possible attack vectors.
 For more information on current attacks, see the [Microsoft Security Intelligence (SIR)](https://www.microsoft.com/security/business/security-intelligence-report) report.
 
 [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
-
 
 > Go back to the main article: [Monitor](monitor.md)

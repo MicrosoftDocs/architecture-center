@@ -14,11 +14,9 @@ subject:
   - security
 ---
 
-
 # Governance considerations for secure deployment in Azure
 
 The automated continuous integration, continuous delivery (CI/CD) processes must have built-in governance that authorize and authenticate the identities to do the tasks within a defined scope.
-
 
 ## Key points
 
@@ -28,7 +26,6 @@ The automated continuous integration, continuous delivery (CI/CD) processes must
 > - Limit long-standing write access to production environments.
 > - Limit the scope of execution in the pipelines.
 > - Configure quality gate approvals in DevOps release process.
-
 
 ## Minimize access
 
@@ -95,8 +92,6 @@ Having multiple branches is recommended where each branch has a purpose and acce
 > [!div class="nextstepaction"]
 > [Secure infrastructure deployments](./deploy-infrastructure.md)
 
-
 ## Related links
-
 
 > Go back to the main article: [Secure deployment and testing in Azure](deploy.md)

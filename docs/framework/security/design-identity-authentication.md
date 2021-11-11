@@ -181,7 +181,6 @@ For Azure, enable protections in Azure AD:
 
 2.    Choose whether to automatically or manually remediate issues found in a report. For more information, see [Monitor identity risks](monitor-remediate.md).
 
-
 For more information about supporting modern passwords in Azure AD, see the following articles:
 
 - [What is Identity Protection?](/azure/active-directory/identity-protection/overview)
@@ -220,7 +219,6 @@ Grant or deny access to a system by verifying the accessor's identity.
 
 > [!div class="nextstepaction"]
 > [Authorization](design-identity-authorization.md)
-
 
 ## Related links
 

@@ -115,5 +115,5 @@ Measure your business' security requirements against the advantages and disadvan
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Application efficiency](./design-efficiency.md)
+> [!div class="nextstepaction"]
+> [Application efficiency](./design-efficiency.md)

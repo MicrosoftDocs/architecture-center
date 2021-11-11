@@ -82,5 +82,5 @@ Use *Azure Arc management* to extend Azure management to all assets in your work
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Cost optimization](./hybrid-cost.md)
+> [!div class="nextstepaction"]
+> [Cost optimization](./hybrid-cost.md)

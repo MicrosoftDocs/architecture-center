@@ -69,5 +69,5 @@ The reliability pillar covers the following topics and best practices to help yo
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Principles](./principles.md)
+> [!div class="nextstepaction"]
+> [Principles](./principles.md)

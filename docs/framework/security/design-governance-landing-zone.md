@@ -31,7 +31,6 @@ The preceding examples are conceptually simple but the implementation can get co
 
 [What is the Microsoft Cloud Adoption Framework for Azure?](/azure/cloud-adoption-framework/overview)
 
-
 ## Increase automation with Azure Blueprints
 
 Use Azure's native automation capabilities to increase consistency, compliance, and deployment speed for workloads. A recommended way to implement a landing zone is with Azure Blueprints and Azure Policies.

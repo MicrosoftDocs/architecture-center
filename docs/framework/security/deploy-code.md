@@ -82,5 +82,4 @@ Incorporate Secure DevOps on Azure toolkit and the guidance published by the Org
 - [GitHub Advanced Security](https://docs.github.com/en/github/getting-started-with-github/about-github-advanced-security)
 - [Vulnerability Scanning Tools](https://owasp.org/www-community/Vulnerability_Scanning_Tools)
 
-
 > Go back to the main article: [Secure deployment and testing in Azure](deploy.md)

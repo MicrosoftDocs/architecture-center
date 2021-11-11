@@ -50,7 +50,6 @@ Additionally, for operators that prefer using the open-source Kubernetes monitor
 
   :::image type="icon" source="../../_images/github.png" border="false"::: The [Sidecar Pattern](https://github.com/mspnp/samples/blob/master/OperationalExcellence/Patterns/SidecarPattern/Sidecar-pattern.md) adds a separate container with responsibilities that are required by the main container. A common use case is for running logging utilities and monitoring agents.
 
-
 ### Network monitoring
 
 Regardless the form factor or programming language your application is based on, the network connecting your code to your users can make or break the experience that your application provides. As a consequence monitoring and troubleshooting the network can be decisive for an operations team. The component of Azure Monitor that manages the network components is called Network Watcher, a collection of network monitoring and troubleshooting tools. Some of these tools are:
@@ -93,7 +92,7 @@ Dashboards in Azure offer a great way of exposing the rich information contained
 
 Whether it is for application, network or platform monitoring, you should not expect operators to constantly look at dashboards. Instead, alerts should be used to send proactive notifications to the relevant individuals that will react on them. Action groups in Azure Monitor can be used to notify multiple recipients, to trigger automated actions, or even to automatically open tickets in IT Service Management Tools such as ServiceNow.
 
-Automation around alerts is critical due to the highly collaborative nature of DevOps and the inherent speed needed for effective incident management. Earlier this year, a report from DevOps.com came out stating that 80% of IT teams are alerted to critical incidents via email. Email is an effective form of communication, but it shouldn’t be the most common notification method for a critical issue. Instead, if you can define actions to be executed upon receiving certain alerts (such as scaling up or down) your system will be self-healing.
+Automation around alerts is critical due to the highly collaborative nature of DevOps and the inherent speed needed for effective incident management. Earlier this year, a report from DevOps.com came out stating that 80% of IT teams are alerted to critical incidents via email. Email is an effective form of communication, but it shouldn't be the most common notification method for a critical issue. Instead, if you can define actions to be executed upon receiving certain alerts (such as scaling up or down) your system will be self-healing.
 
 ### Other monitoring tasks
 

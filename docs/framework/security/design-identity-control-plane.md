@@ -44,7 +44,7 @@ Azure role-based access control (Azure RBAC) provides the necessary tools to mai
 - Only the SecOps team can read and manage Key Vault secrets.
 - If there are multiple teams, Project A team can access and manage Resource Group A and all resources within.
 
->![Task](../../_images/i-best-practices.svg) Grant roles the appropriate permissions that start with least privilege and add more based on your operational needs. Provide clear guidance to your technical teams that implement permissions. This clarity makes it easier to detect and correct which reduces human errors such as overpermissioning.
+> ![Task](../../_images/i-best-practices.svg) Grant roles the appropriate permissions that start with least privilege and add more based on your operational needs. Provide clear guidance to your technical teams that implement permissions. This clarity makes it easier to detect and correct which reduces human errors such as overpermissioning.
 
 Azure RBAC helps you manage that separation. You can assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. For details, see [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 

@@ -20,9 +20,7 @@ ms.custom:
 
 # Security audits
 
-
 To make sure that the security posture doesn't degrade over time, have regular auditing that checks compliance with organizational standards. Enable, acquire, and store audit logs for Azure services.
-
 
 ## Key points
 > [!div class="checklist"]
@@ -62,7 +60,6 @@ Use Azure Defender (Azure Security Center) to continuously assess and monitor yo
 
 [Assess your regulatory compliance](/azure/security-center/security-center-compliance-dashboard#assess-your-regulatory-compliance)
 
-
 **Have you established a monitoring and assessment solution for compliance?**
 ***
 Continuously assess and monitor the compliance status of your workload. Azure Security Center provides a regulatory compliance dashboard that shows the current security state of workload against controls mandated by the standard governments or industry organizations and Azure Security Benchmark. Keep your resources in compliance with those standards. Security Center tracks many standards. You can set the standards by management groups in a subscription.
@@ -101,8 +98,6 @@ As people in the organization and on the project change, make sure that only the
 
 Azure control plane depends on Azure AD. You can conduct the review manually or through an automated process by using tools such as [Azure AD access reviews](/azure/active-directory/governance/create-access-review). These reviews are often centrally performed often as part of internal or external audit activities.
 
-
-
 ## Check policy compliance
 
 Make sure that the security team is auditing the environment to report on compliance with the security policy of the organization. Security teams may also enforce compliance with these policies.
@@ -114,7 +109,6 @@ For Azure, use Azure Policy to create and manage policies that enforce complianc
 ## Capture critical data
 
 [Azure Governance Visualizer](https://github.com/microsoft/CloudAdoptionFramework/tree/master/govern/AzureGovernanceVisualizer) captures data from the most relevant Azure governance capabilities such as Azure Policy, Azure role-based access control (Azure RBAC), and Azure Blueprints. The visualizer PowerShell script iterates through an Azure tenant's management group hierarchy down to the subscription level. From the collected data, the visualizer shows your hierarchy map, creates a tenant summary, and builds granular scope insights about your management groups and subscriptions.
-
 
 ## Next steps
 > [!div class="nextstepaction"]

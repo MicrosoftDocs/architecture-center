@@ -133,7 +133,6 @@ Choose the level of isolation from on premises means of control also known as se
 
     -   Manage with Existing Systems: Join existing AD domain and use existing management/security.
 
-
 ## Passwordless or multifactor authentication for admins
 
 Require all critical impact admins to use passwordless authentication or multifactor authentication (MFA).

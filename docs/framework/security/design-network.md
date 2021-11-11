@@ -53,7 +53,6 @@ Here are some reference architectures related to network security:
 - [Windows N-tier application on Azure with SQL Server](../../reference-architectures/n-tier/n-tier-sql-server.yml)
 - [Azure Kubernetes Service (AKS) production baseline](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
-
 ## Next steps
 
 We recommend applying as many as of the best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program.
@@ -69,6 +68,5 @@ Combine network controls with application, identity, and other technical control
 - [Data protection](design-storage.md)
 
 Ensure that resource grouping and administrative privileges align to the segmentation model. For more information, see [Administrative account security](design-admins.md).
-
 
 > Go back to the main article: [Security](overview.md)

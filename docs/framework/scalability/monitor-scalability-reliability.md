@@ -1,6 +1,6 @@
 ---
 title: Monitor performance for scalability and reliability
-description: Monitoring strategy should take into consideration scalability and reliability of the infrastructure, application, and dependent services.
+description: Monitoring strategy should take into consideration scalability and reliability of the infrastructure, application, and dependent services.
 author: PageWriter-MSFT
 ms.date: 04/28/2021
 ms.topic: conceptual
@@ -15,15 +15,15 @@ ms.custom:
 ---
 
 # Monitor performance for scalability and reliability
-The overall monitoring strategy should take into consideration scalability and reliability of the infrastructure, application, and dependent services.
+The overall monitoring strategy should take into consideration scalability and reliability of the infrastructure, application, and dependent services.
 
 ## Scalability
 
 A goal of analyzing metrics is to determine the thresholds for scale up, scale out, scale in, and scale down. The ability to scale dynamically is one of the biggest values of moving to the cloud.
 
-- Know the minimum number of instances that should run at any given time.
-- Determine what metrics are best for your solution to base your auto scaling rules.
-- Configure the auto scaling rules for those services that include it.
+- Know the minimum number of instances that should run at any given time.
+- Determine what metrics are best for your solution to base your auto scaling rules.
+- Configure the auto scaling rules for those services that include it.
 - Create alert rules for the services that could be scaled manually.
 
 For scalability, look at the metrics to determine how to provision resources dynamically and scale with demand.
