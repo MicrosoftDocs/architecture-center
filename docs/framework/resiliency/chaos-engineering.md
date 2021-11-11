@@ -28,7 +28,7 @@ It's difficult to simulate the characteristics of a service's behavior at scale 
 
 ## Increase resiliency
 
-Chaos engineering is aimed at increasing your service’s resiliency and its ability to react to failures. By conducting experiments in a controlled environment, you can identify issues that are likely to arise during development and deployment. During this process, be vigilant in adopting the following guidelines:
+Chaos engineering is aimed at increasing your service's resiliency and its ability to react to failures. By conducting experiments in a controlled environment, you can identify issues that are likely to arise during development and deployment. During this process, be vigilant in adopting the following guidelines:
 
 - Be proactive.
 - Embrace failure.
@@ -59,11 +59,11 @@ Chaos engineering requires specialized expertise, technology, and practices. As 
 
 If you plan to practice the simulated handling of potentially catastrophic scenarios under controlled conditions, here's a simplified way to organize your teams:
 
-|Attacker|	Defender|
+|Attacker| Defender|
 |---|---|
-|Inject faults|	Assess|
+|Inject faults| Assess|
 |Provide hints|Analyze|
-|	|Mitigate|
+| |Mitigate|
 
 ### Goals
 
@@ -139,8 +139,8 @@ The process must be very *low tax*. That is, the process must make it easy for d
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Best practices](./test-best-practices.md)
+> [!div class="nextstepaction"]
+> [Best practices](./test-best-practices.md)
 
 ## Related links
 
