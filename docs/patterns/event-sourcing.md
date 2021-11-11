@@ -129,7 +129,7 @@ The sequence of actions for reserving two seats is as follows:
 
 2. An aggregate containing information about all reservations for the conference is constructed by querying the events that describe bookings and cancellations. This aggregate is called `SeatAvailability`, and is contained within a domain model that exposes methods for querying and modifying the data in the aggregate.
 
-    > Some optimizations to consider are using snapshots (so that you don’t need to query and replay the full list of events to obtain the current state of the aggregate), and maintaining a cached copy of the aggregate in memory.
+    > Some optimizations to consider are using snapshots (so that you don't need to query and replay the full list of events to obtain the current state of the aggregate), and maintaining a cached copy of the aggregate in memory.
 
 3. The command handler invokes a method exposed by the domain model to make the reservations.
 
@@ -150,7 +150,7 @@ As well as providing more scope for scalability, using an event store also provi
 - Martin Fowler's blog:
 
   - [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
-  - [Snapshot on Martin Fowler’s Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)
+  - [Snapshot on Martin Fowler's Enterprise Application Architecture website](https://martinfowler.com/eaaDev/Snapshot.html)
 
 ## Related guidance
 
