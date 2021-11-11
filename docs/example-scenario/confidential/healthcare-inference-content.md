@@ -102,7 +102,7 @@ The profile doesn't include the following components:
 - SCONE ISV licensing
 - Compliance services required for solutions working with sensitive data, including:
 
-  - Azure Security Center and Azure Defender for Kubernetes
+  - Microsoft Defender for Cloud and Microsoft Defender for Kubernetes
   - Azure DDoS Protection: standard
   - Azure Firewall
   - Azure Application Gateway and Azure Web Application Firewall

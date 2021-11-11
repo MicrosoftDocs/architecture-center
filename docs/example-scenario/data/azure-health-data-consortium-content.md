@@ -57,7 +57,7 @@ Many types of healthcare professionals can benefit from this solution:
 
 Throughout the system:
 
-- Azure Active Directory (Azure AD), Azure Key Vault, and Azure Security Center manage access and provide security.
+- Azure Active Directory (Azure AD), Azure Key Vault, and Microsoft Defender for Cloud manage access and provide security.
 - Azure Pipelines, a service of Azure DevOps, builds, tests, and releases code.
 
 ### Components
@@ -100,7 +100,7 @@ This solution uses the following components:
 
 - [Azure Pipelines][What is Azure Pipelines?] automatically builds and tests code projects. This [Azure DevOps][What is Azure DevOps?] service combines continuous integration (CI) and continuous delivery (CD). Using these practices, Azure Pipelines constantly and consistently tests and builds code and ships it to any target.
 
-- [Security Center][What is Azure Security Center?] provides unified security management and advanced threat protection across hybrid cloud workloads.
+- [Defender for Cloud][What is Azure Security Center?] provides unified security management and advanced threat protection across hybrid cloud workloads.
 
 ### Alternatives
 

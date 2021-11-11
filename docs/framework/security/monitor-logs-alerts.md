@@ -33,11 +33,11 @@ Logs provide insight into the operations of a workload, the infrastructure, netw
 
 - **Azure Monitor** provides observability across your entire environment. You automatically get platform metrics, activity logs, and diagnostics logs from most of your Azure resources with no configuration. The activity logs provide detailed diagnostic and auditing information.
 
-- **Azure Security Center** generates notifications as security alerts by collecting, analyzings, and integrating log data from your Azure resources and the network. Alerts are available when you enable the Azure Defender plan. This will add to the overall cost.
+- **Microsoft Defender for Cloud** generates notifications as security alerts by collecting, analyzings, and integrating log data from your Azure resources and the network. Alerts are available when you enable the Microsoft Defender plans. This will add to the overall cost.
 
-- **Azure Sentinel** is a security information event management (SIEM) and security orchestration automated response (SOAR) solution. It's a single solution for alert detection, threat visibility, proactive hunting, and threat response.
+- **Microsoft Sentinel** is a security information event management (SIEM) and security orchestration automated response (SOAR) solution. It's a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
-Ideally use a combination of the preceding services to get a full view. For example, use Azure Monitor to collect information about the operating system running on Azure compute. If you're running your own compute, use Azure Security Center.
+Ideally use a combination of the preceding services to get a full view. For example, use Azure Monitor to collect information about the operating system running on Azure compute. If you're running your own compute, use Microsoft Defender for Cloud.
 
 ## Audit logging
 An important aspect of monitoring is tracking operations. For example, you want to know who created, updated, deleted a resource. Or, get resource-specific information such as when an image was pulled from Azure Container Registry. That information is crucial for a Security Operations (SecOps) team in detecting the presence of adversaries, reacting to an alert of suspicious activity, or proactively hunting for anomalous events. They are also useful for security auditing and compliance and offline analysis.
@@ -57,7 +57,7 @@ Another way is to send the logs to a storage account.
 ## Alerts
 Security alerts are notifications that are generated when anomalous activity is detected on the resources used by the workload or the platform.
 
-With the Azure Defender plan, Azure Security Center  analyzes log data and shows a list of alerts that's based on logs collected from resources within a scope. Alerts include context information such as severity, status, activity time. Security center also provides a correlated view called **incidents**. Use this data to analyze what actions the attacker took, and what resources were affected. Have strategies to react to alerts as soon as they are generated. An option is to  handle alerts in Azure Functions.
+With the Microsoft Defender plans, Microsoft Defender for Cloud  analyzes log data and shows a list of alerts that's based on logs collected from resources within a scope. Alerts include context information such as severity, status, activity time. Defender for Cloud also provides a correlated view called **incidents**. Use this data to analyze what actions the attacker took, and what resources were affected. Have strategies to react to alerts as soon as they are generated. An option is to  handle alerts in Azure Functions.
 
 Use the data to support these activities:
 
@@ -76,12 +76,12 @@ Consider a central view of log and data, when applicable. Some advantages includ
 - Single point of observability with all log data makes it easier consume data for hunting activities, querying, and statistical evaluation.
 - The integrated data can be fed into modern machine learning analytics platforms support ingestion of large amounts of information and can analyze large datasets quickly. In addition, these solutions can be tuned to significantly reduce the false positive alerts.
 
-You can collect logs and alerts from various sources centrally in a Log Analytics Workspace, storage account, and Event Hubs. You can then review and query log data efficiently. In Azure Monitor, use the **diagnostic setting** on resources to route specific logs that are important for the organization. Logs vary by resource type. In Azure Security Center, take advantage of the continuous export feature to route alerts.
+You can collect logs and alerts from various sources centrally in a Log Analytics Workspace, storage account, and Event Hubs. You can then review and query log data efficiently. In Azure Monitor, use the **diagnostic setting** on resources to route specific logs that are important for the organization. Logs vary by resource type. In Microsoft Defender for Cloud, take advantage of the continuous export feature to route alerts.
 
 > [!NOTE]
 > Platform logs are not available indefinitely. You'll need to keep them so that you can review them later for auditing purposes or offline analysis. Use Azure Storage Accounts for long-term/archival storage. In Azure Monitor, specify a retention period when you enable diagnostic setting for your resources.
 
-Another way to see all data in a single view is to integrate logs and alerts into Security Information and Event Management (SIEM) solutions, such as Azure Sentinel. Other popular third-party choices are Splunk, QRadar, ArcSight. Azure Security Center and Azure Monitor supports all of those solutions.
+Another way to see all data in a single view is to integrate logs and alerts into Security Information and Event Management (SIEM) solutions, such as Microsoft Sentinel. Other popular third-party choices are Splunk, QRadar, ArcSight. Microsoft Defender for Cloud and Azure Monitor supports all of those solutions.
 
 Integrating more data can enrich alerts with additional context. However, collection is not detection. Make sure a high volume of low value data doesn't flow into those solutions.
 
@@ -104,6 +104,6 @@ For more information, see these articles:
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 - [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
 - [Export alerts](/azure/security-center/security-center-alerts-overview#export-alerts)
-- [Understand Azure Security Center data collection](/azure/security-center/security-center-enable-data-collection)
+- [Understand Microsoft Defender for Cloud data collection](/azure/security-center/security-center-enable-data-collection)
 
 > Go back to the main article: [Monitor](monitor.md)

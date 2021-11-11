@@ -89,8 +89,8 @@ While the definition of roles and responsibilities around those areas might be a
 - Decisions about application security, Kubernetes RBAC, network policies, Azure policies, and communication with other services.
 - Configuration and maintenance of Azure Firewall, web application firewall (WAF), network security groups (NSGs), and DNS configuration.
 - Monitor and remediate server security, patching, configuration, and endpoint security.
-- Set direction for use of RBAC, Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources.
-- Incident monitoring and response team. Investigate and remediate security incidents in security information and event management (SIEM) or Azure Security Center.
+- Set direction for use of RBAC, Microsoft Defender for Cloud, Administrator protection strategy, and Azure Policy to govern Azure resources.
+- Incident monitoring and response team. Investigate and remediate security incidents in security information and event management (SIEM) or Microsoft Defender for Cloud.
 
 Then, formalize the definition by determining what level of access is required for the role with respect to the workload and the infrastructure. Here's a simple definition for illustrative purposes.
 

@@ -311,7 +311,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| [Inspector](https://aws.amazon.com/inspector) | [Security Center](https://azure.microsoft.com/services/security-center) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
+| [Inspector](https://aws.amazon.com/inspector) | [Defender for Cloud](https://azure.microsoft.com/services/security-center) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
 | [Certificate Manager](https://aws.amazon.com/certificate-manager) | [App Service Certificates available on the Portal](https://azure.microsoft.com/blog/internals-of-app-service-certificate) | Service that allows customers to create, manage, and consume certificates seamlessly in the cloud. |
 | [GuardDuty](https://aws.amazon.com/guardduty/) | [Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection) | Detect and investigate advanced attacks on-premises and in the cloud. |
 | [Artifact](https://aws.amazon.com/artifact) | [Service Trust Portal](https://servicetrust.microsoft.com/) | Provides access to audit reports, compliance guides, and trust documents from across cloud services. |

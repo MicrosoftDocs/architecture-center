@@ -232,7 +232,7 @@ These services provide support for components in all areas of the solution:
 
 - [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. This service notifies apps and personnel about irregular conditions.
 
-- [Azure Defender for IoT][Azure Defender for IoT] is a unified security service that protects IoT systems by identifying vulnerabilities and threats.
+- [Microsoft Defender for IoT][Azure Defender for IoT] is a unified security service that protects IoT systems by identifying vulnerabilities and threats.
 
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 

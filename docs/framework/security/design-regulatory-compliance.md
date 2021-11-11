@@ -52,7 +52,7 @@ Noncompliance can lead to fines or other business impact. Work with your regulat
 
 ### Suggested action
 
-Use Azure Defender (Azure Security Center) to assess your current compliance score and to identify the gaps.
+Use Microsoft Defender for Cloud to assess your current compliance score and to identify the gaps.
 
 **Learn more**
 

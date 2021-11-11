@@ -24,7 +24,7 @@ Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database): Managed, intelligent SQL in the cloud
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
 * [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
-* [Security Center](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
+* [Defender for Cloud](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 * [Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard and maintain control of keys and other secrets
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
@@ -40,7 +40,7 @@ Store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and
 * [Azure SQL Database Documentation](/azure/sql-database)
 * [Azure Machine Learning Documentation](/azure/machine-learning)
 * [Power BI Embedded Documentation](/azure/power-bi-embedded)
-* [Azure Security Center Documentation](/azure/security-center)
+* [Microsoft Defender for Cloud Documentation](/azure/security-center)
 * [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
 * [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
 * [What is Application Insights?](/azure/application-insights/app-insights-overview)

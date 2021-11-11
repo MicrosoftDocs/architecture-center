@@ -79,7 +79,7 @@ The following security considerations may also apply:
 - Limit access to Azure resources to control access to data and who can view telemetry from a specific application. To help lock down access to monitoring telemetry, see [Resources, roles, and access control in Application Insights][Resources, roles, and access control in Application Insights].
 - Consider whether to control read/write access in application code to prevent users from adding version or tag markers that limit data ingestion from the application. With Application Insights, there is no control over individual data items once they are sent to a resource, so if a user has access to any data, they have access to all data in an individual resource.
 - Add [governance](/azure/security/governance-in-azure) mechanisms to enforce policy or cost controls over Azure resources if needed. For example, use Log Analytics for security-related monitoring such as policies and role-based access control, or use [Azure Policy](/azure/azure-policy/azure-policy-introduction) to create, assign and, manage policy definitions.
-- To monitor potential security issues and get a central view of the security state of your Azure resources, consider using [Azure Security Center](/azure/security-center/security-center-intro).
+- To monitor potential security issues and get a central view of the security state of your Azure resources, consider using [Microsoft Defender for Cloud](/azure/security-center/security-center-intro).
 
 ## Cost considerations
 

@@ -67,11 +67,11 @@ Here are the core components that move and process research data.
 
 These components continuously monitor the posture of the workload and its environment. The purpose is to discover and mitigate risks as soon as they are discovered.
 
-- **Azure Security Center** is used to evaluate the overall security posture of the implementation and  provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be discovered early. Use features to track progress such as secure score and compliance score.
+- **Microsoft Defender for Cloud** is used to evaluate the overall security posture of the implementation and  provide an attestation mechanism for regulatory compliance. Issues that were previously found during audits or assessments can be discovered early. Use features to track progress such as secure score and compliance score.
 
-- **Azure Sentinel** is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to detect, hunt, prevent, and respond to threats.
+- **Microsoft Sentinel** is Security Information and Event Management (SIEM) and security orchestration automated response (SOAR) solution. You can centrally view logs and alerts from various sources and take advantage of advanced AI and security analytics to detect, hunt, prevent, and respond to threats.
 
-- **Azure Monitor** provides observability across your entire environment. View metrics, activity logs, and diagnostics logs from most of your Azure resources without added configuration. Management tools, such as those in Azure Security Center, also push log data to Azure Monitor.
+- **Azure Monitor** provides observability across your entire environment. View metrics, activity logs, and diagnostics logs from most of your Azure resources without added configuration. Management tools, such as those in Microsoft Defender for Cloud, also push log data to Azure Monitor.
 
 #### Governance components
 
@@ -140,8 +140,8 @@ The cost of DSVMs depends on the choice of the underlying VM series. Because the
 - [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Data Factory](/azure/data-factory/introduction)
 - [Azure Virtual Desktop](/azure/virtual-desktop/overview)
-- [Azure Security Center](/azure/security-center/)
-- [Azure Sentinel](/azure/sentinel/overview)
+- [Microsoft Defender for Cloud](/azure/security-center/)
+- [Microsoft Sentinel](/azure/sentinel/overview)
 - [Azure Monitor](/azure/azure-monitor/overview)
 - [Azure Policy](/azure/governance/policy/overview)
 - [Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)

@@ -39,7 +39,7 @@ Azure provides several built-in policies for most services. Review these [Azure 
 
 Compliance must be systematically monitored and maintained. Regular compliance attestations are performed. Knowing whether your cloud resources are in compliance will help prepare for attestations and audit.
 
-Take advantage the regulatory compliance dashboard in Azure Security Center. By continuously monitoring the dashboard, you can keep track of the compliance status of your workload.
+Take advantage the regulatory compliance dashboard in Microsoft Defender for Cloud. By continuously monitoring the dashboard, you can keep track of the compliance status of your workload.
 
 :::image type="content" source="./images/regulatory-compliance-pci.png" alt-text="Example compliance monitoring" border ="true":::
 
@@ -147,13 +147,13 @@ Maintain information about approved solutions that are part of the infrastructur
 
 To fulfill Requirement 10, observability into the CDE is critical for compliance. Activity logs provide information about operations related to account and secret management, diagnostic setting management, server management, and other resource access operations. All logs are recorded with date, time, identity, and other detailed information. Retain logs for up to a year for in storage accounts for long-term archival and auditing.
 
-Make sure logs are only accessed by roles that need them. Log Analytics and Azure Sentinel support various role-based access controls to manage audit trail access.
+Make sure logs are only accessed by roles that need them. Log Analytics and Microsoft Sentinel support various role-based access controls to manage audit trail access.
 
 ### Response and remediation
 
-The Azure monitoring services, Azure Monitor and Azure Security Center, can generate notifications or alerts when they detect anomalous activity. Those alerts include context information such as severity, status, and activity time. As alerts are generated, have a remediation strategy and review progress. We recommend centralizing data in a security information and event management (SIEM) solution because integrating data can provide rich alert context.
+The Azure monitoring services, Azure Monitor and Microsoft Defender for Cloud, can generate notifications or alerts when they detect anomalous activity. Those alerts include context information such as severity, status, and activity time. As alerts are generated, have a remediation strategy and review progress. We recommend centralizing data in a security information and event management (SIEM) solution because integrating data can provide rich alert context.
 
-From the **Security alerts** view in Azure Security Center, you have access to all alerts that Azure Security Center detects on your resources. Have a triage process to address the issue. Work with your security team to understand how relevant alerts will be made available to the workload owners.
+From the **Security alerts** view in Microsoft Defender for Cloud, you have access to all alerts that Microsoft Defender for Cloud detects on your resources. Have a triage process to address the issue. Work with your security team to understand how relevant alerts will be made available to the workload owners.
 
 ## Performance Efficiency
 
@@ -205,7 +205,7 @@ Here's a high-level representation of the cost impact of the main resources that
 
 ![Diagram of cost management in the architecture.](.\images\cost-analysis.png)
 
-The main drivers are the virtual machine scale sets that make up the node pools and Azure Firewall. Another contributor is Log Analytics. There are also incremental costs associated with Azure Defender, depending on your choice of plans.
+The main drivers are the virtual machine scale sets that make up the node pools and Azure Firewall. Another contributor is Log Analytics. There are also incremental costs associated with Microsoft Defender for Cloud, depending on your choice of plans.
 
 Have a clear understanding of what constitutes the price of a service. Azure tracks metered usage. Here's a drilldown of Azure Firewall for this architecture.
 

@@ -465,7 +465,7 @@ For more details about the processes and technologies used to create this soluti
 
 -   [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
 
--   [Monitor Azure resources in Azure Security Center](/azure/architecture/framework/security/monitor-resources)
+-   [Monitor Azure resources in Microsoft Defender for Cloud](/azure/architecture/framework/security/monitor-resources)
 
 -   [Azure IoT Edge for Azure Industrial IoT](/azure/architecture/guide/iiot-guidance/iiot-architecture#azure-iot-edge)
 

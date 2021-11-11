@@ -85,7 +85,7 @@ Use the following approaches to help lock down security on a basic Jenkins serve
 
 Jenkins jobs often require secrets to access Azure services that require authorization, such as Azure Container Service. Use [Key Vault][key-vault] to manage these secrets securely. Use Key Vault to store service principal credentials, passwords, tokens, and other secrets.
 
-To get a central view of the security state of your Azure resources, use [Azure Security Center][security-center]. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Security Center is configured per Azure subscription. Enable security data collection as described in the [Azure Security Center quick start guide][quick-start]. When data collection is enabled, Security Center automatically scans any virtual machines created under that subscription.
+To get a central view of the security state of your Azure resources, use [Microsoft Defender for Cloud][security-center]. Defender for Cloud monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Defender for Cloud is configured per Azure subscription. Enable security data collection as described in the [Microsoft Defender for Cloud quick start guide][quick-start]. When data collection is enabled, Defender for Cloud automatically scans any virtual machines created under that subscription.
 
 The Jenkins server has its own user management system, and the Jenkins community provides best practices for [securing a Jenkins instance on Azure][secure-jenkins].
 

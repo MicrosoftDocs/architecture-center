@@ -110,13 +110,13 @@ For more information, see [Security recommendations for Blob storage](/azure/sto
 
 Once an application is in production, security personnel can help optimize workflow and prepare for scaling.
 
-### Use Azure Security Center and apply security recommendations
+### Use Microsoft Defender for Cloud and apply security recommendations
 
-Azure Security Center is a security scanning solution for your application that identifies potential security vulnerabilities and creates recommendations. The recommendations guide you to configure needed controls to harden and protect your resources.
+Microsoft Defender for Cloud is a security scanning solution for your application that identifies potential security vulnerabilities and creates recommendations. The recommendations guide you to configure needed controls to harden and protect your resources.
 
 For more information, see:
-- [Protect your applications with Azure Security Center](/azure/security-center/security-center-virtual-machine-protection#app-services)
-- [Security Center app recommendations](/azure/security-center/recommendations-reference#recs-computeapp)
+- [Protect your applications with Microsoft Defender for Cloud](/azure/security-center/security-center-virtual-machine-protection#app-services)
+- [Defender for Cloud app recommendations](/azure/security-center/recommendations-reference#recs-computeapp)
 
 ### Enforce application governance policies
 Apply centralized, consistent enforcements and safeguards to your application at scale. For more information, see [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies).

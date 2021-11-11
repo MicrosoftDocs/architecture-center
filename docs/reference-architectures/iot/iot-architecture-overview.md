@@ -62,7 +62,7 @@ A standard IoT solution architecture consists of five basic elements:
 * **Provisioning** connects the devices to the cloud.
 * **Processing** analyzes data from devices to gather insights.
 * **Business integration** performs actions based on insights from the device data.
-* **Security monitoring** provides an end-to-end security solution for IoT workloads. Use Azure Defender for IoT.
+* **Security monitoring** provides an end-to-end security solution for IoT workloads. Use Microsoft Defender for IoT.
 
 These fundamentals exist whether you are using a PaaS or aPaaS solution.  However, we recommend all customers start with the aPaaS solution offered by Microsoft, [Azure IoT Central](/azure/iot-central/core/overview-iot-central). Its out-of-the-box UX and API surface simplify device connectivity, operations, and management so that you can spend more time and budget using IoT data to create business value.
 

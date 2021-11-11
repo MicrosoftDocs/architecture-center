@@ -71,7 +71,7 @@ Choose a defense-in-depth design that can protect network communications at vari
 - Control traffic with Network Security Groups (NSGs) between resources within a virtual network, internet, and other virtual networks.
 - Secure the endpoints through Azure PrivateLink and Private Endpoints.
 - Detect and protect at deep levels through packet inspection.
-- Detect attacks and respond to alerts through Azure Sentinel and Azure Security Center.
+- Detect attacks and respond to alerts through Microsoft Sentinel and Microsoft Defender for Cloud.
 
 > [!IMPORTANT] 
 >

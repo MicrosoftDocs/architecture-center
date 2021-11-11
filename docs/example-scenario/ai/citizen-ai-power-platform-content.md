@@ -71,7 +71,7 @@ To create a design that respects these recommendations, consider the following s
 - [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management): Financial governance over your Azure workloads.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): Secure credential and certificate management.
 - [Azure Monitor](https://azure.microsoft.com/services/monitor): Collection, analysis, and display of telemetry from your Azure resources. Use Monitor to proactively identify problems, to maximize performance and reliability.
-- [Azure Security Center](https://azure.microsoft.com/services/security-center): Strengthen and monitor the security posture of your Azure workloads.
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center): Strengthen and monitor the security posture of your Azure workloads.
 - [Azure DevOps](https://azure.microsoft.com/solutions/devops) & [GitHub](https://azure.microsoft.com/products/github): Implement DevOps practices to enforce automation and compliance of your workload development and deployment pipelines for Azure Synapse and Machine Learning.
 - [Azure Policy](/azure/governance/policy): Implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
 

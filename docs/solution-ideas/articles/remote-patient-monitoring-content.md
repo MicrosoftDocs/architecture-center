@@ -21,7 +21,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 ### Components
 
 * [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub): Connect, monitor and manage billions of IoT assets
-* [Security Center](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
+* [Defender for Cloud](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
 * [Cognitive Services](https://azure.microsoft.com/services/cognitive-services): Get started with quickstarts, samples, and tutorials
 * [Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard and maintain control of keys and other secrets
 * [Logic Apps](https://azure.microsoft.com/services/logic-apps): Automate the access and use of data across clouds without writing code
@@ -34,7 +34,7 @@ Predict and prevent future incidents by combining IoT and intelligence to optimi
 ## Next steps
 
 * [IoT Hub Documentation](/azure/iot-hub)
-* [Azure Security Center Documentation](/azure/security-center)
+* [Microsoft Defender for Cloud Documentation](/azure/security-center)
 * [Get Started with Azure](/azure/guides/developer/azure-developer-guide)
 * [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
 * [Azure Logic Apps Documentation](/azure/logic-apps)

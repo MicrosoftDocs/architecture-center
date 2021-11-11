@@ -210,13 +210,13 @@ The in-cluster `omsagent` pods running in `kube-system` are the Log Analytics co
 
 ### Security monitoring
 
-Use Azure Security Center to view and remediate security recommendations. Also view security alerts on your resources. Enable Azure Defender plans as they apply to various components of the cardholder data environment.
+Use Microsoft Defender for Cloud to view and remediate security recommendations. Also view security alerts on your resources. Enable Microsoft Defender plans as they apply to various components of the cardholder data environment.
 
-Integrate logs so that you're able to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Azure Sentinel.
+Integrate logs so that you're able to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Microsoft Sentinel.
 
 As required by the standard, all Log Analytics workspaces are set to a 90-day retention period. Consider setting up continuous export for longer-term storage. Don't store sensitive information in log data. Make sure access to archived log data is subject to the same levels of access controls as recent log data.
 
-For a complete perspective, see [Azure Security Center Enterprise Onboarding Guide](https://aka.ms/ASCOnboarding). This guide addresses enrollment, data exports to your SIEM solutions, responding to alerts, and building workflow automation.
+For a complete perspective, see [Microsoft Defender for Cloud Enterprise Onboarding Guide](https://aka.ms/ASCOnboarding). This guide addresses enrollment, data exports to your SIEM solutions, responding to alerts, and building workflow automation.
 
 ## Related Azure services
 

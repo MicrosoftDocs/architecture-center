@@ -139,7 +139,7 @@ Use an additional key encryption key (KEK) to protect your data encryption key (
 
 **Suggested actions**
 
-Identify unencrypted virtual machines via Azure Security Center or script, and encrypt via Azure Disk Encryption.  Ensure all new virtual machines are encrypted by default and regularly monitor for unprotected disks.
+Identify unencrypted virtual machines via Microsoft Defender for Cloud or script, and encrypt via Azure Disk Encryption.  Ensure all new virtual machines are encrypted by default and regularly monitor for unprotected disks.
 
 **Learn more**
 

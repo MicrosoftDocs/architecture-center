@@ -97,7 +97,7 @@ Another popular design is when you want Azure Firewall to inspect all traffic an
 
 For more information, see [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml).
 
-It's challenging to write concise firewall rules for networks where different cloud resources dynamically spin up and down. Use [Azure Security Center](/azure/security-center/) to detect misconfiguration risks.
+It's challenging to write concise firewall rules for networks where different cloud resources dynamically spin up and down. Use [Microsoft Defender for Cloud](/azure/security-center/) to detect misconfiguration risks.
 
 ### Authentication
 

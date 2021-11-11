@@ -67,7 +67,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 - [Azure Policy](/azure/governance/policy/concepts/recommended-policies) governs resources to meet organizational standards and compliance. In a DevTest role, Azure Policy can regulate and limit the number and costs of VMs. Auditing can provide insights and track the usage of the DevTest VMs.
 
-- [Azure Monitor](/azure/devtest-labs/security-baseline) can monitor both Production and DevTest environments. Azure Monitor can collect log data from VM operating systems and crash dump files, and aggregate them for viewing in [Azure Security Center](/azure/security-center/security-center-enable-data-collection). [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that works with App Service to monitor application performance and issues.
+- [Azure Monitor](/azure/devtest-labs/security-baseline) can monitor both Production and DevTest environments. Azure Monitor can collect log data from VM operating systems and crash dump files, and aggregate them for viewing in [Microsoft Defender for Cloud](/azure/security-center/security-center-enable-data-collection). [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that works with App Service to monitor application performance and issues.
 
 ### Alternatives
 - While this architecture uses Azure Pipelines for deployments, GitHub Actions can also perform PaaS deployments.

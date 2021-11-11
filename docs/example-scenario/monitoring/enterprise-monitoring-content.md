@@ -93,7 +93,7 @@ In this solution, Monitor supports or integrates with the following Azure and Mi
 - [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) evenly distributes incoming network traffic across backend resources or servers.
 - [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a cloud-based platform for creating and running automated workflows. Logic apps can integrate apps, data, services, and systems.
 - [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager) provides a management layer and templates for creating, updating, and deleting resources in your Azure account.
-- [Azure Security Center](https://azure.microsoft.com/services/security-center) is part of Microsoft Defender for Cloud, a unified infrastructure security management system.
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center) is part of Microsoft Defender for Cloud, a unified infrastructure security management system.
 - [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel) is a cloud-native, scalable, security information and event management (SIEM) and security orchestration automated response (SOAR) solution.
 - [Azure SQL](https://azure.microsoft.com/products/azure-sql) family of SQL database services provides a consistent, unified Azure SQL experience. Azure SQL has a full range of deployment options, from edge to cloud.
 - [Power BI](https://powerbi.microsoft.com/) is a collection of software services, apps, and connectors that turn your data sources into coherent, visually immersive, and interactive insights.
@@ -148,7 +148,7 @@ Logic Apps workflows help you integrate and orchestrate data between apps, cloud
 - Consider the following operational best practices to help keep costs in check:
 
   - Enable alerts only at times when data collection is high.
-  - Review Monitor [monitoring solutions](/azure/azure-monitor/insights/solutions) before you implement them. For example, enabling Security Center to collect and audit security event data could exponentially increase data collection costs.
+  - Review Monitor [monitoring solutions](/azure/azure-monitor/insights/solutions) before you implement them. For example, enabling Defender for Cloud to collect and audit security event data could exponentially increase data collection costs.
   - Rationalize alert creation across the board. Consider creating a single alert instead of each workspace or team having the same alert.
   - Group resources like alerts, Logic Apps, and workspaces in separate resource groups, and use tagging for identification.
   - Use Log Analytics Workspace Insights for an overall view of costs across different workspaces.

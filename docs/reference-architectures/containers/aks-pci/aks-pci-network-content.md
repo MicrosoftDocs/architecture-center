@@ -379,7 +379,7 @@ Develop configuration standards for all system components.
 
 #### Your responsibilities
 
-Implement the recommendations in the Azure security benchmark. It provides a single, consolidated view of Azure security recommendations, covering industry frameworks such as CIS, NIST, PCI-DSS 3.2.1, and others. Use Azure Security Center features and Azure Policy to help track against the standards. Azure security benchmark is the default initiative for Azure Security Center. Consider building additional automated checks in Azure Policy and Azure Tenant Security Solution (AzTS).
+Implement the recommendations in the Azure security benchmark. It provides a single, consolidated view of Azure security recommendations, covering industry frameworks such as CIS, NIST, PCI-DSS 3.2.1, and others. Use Microsoft Defender for Cloud features and Azure Policy to help track against the standards. Azure security benchmark is the default initiative for Microsoft Defender for Cloud. Consider building additional automated checks in Azure Policy and Azure Tenant Security Solution (AzTS).
 
 Document the desired configuration state of all components in the CDE, especially for AKS nodes, jump box, build agents, and other components that interact with the cluster.
 

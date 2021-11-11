@@ -41,7 +41,7 @@ The architecture consists of the workflow described below. Each component of the
    - AI/ML models that are published and made available to consumers on the platform (so they can be deployed to one or more data landing zones if needed).
 1. **Additional services** – Any other services that should be centralized can be hosted in one of these resource groups, which can include centralized API Management instances, third-party software, and so on.
 1. **Data visualization resource group** – Hosts data visualization solutions that are shared across data landing zones. Solutions can be Power BI, Tableau, or any other visualization solution.
-1. **Additional infrastructure controls & governance** – Azure Security Center and Azure Monitor are used as baseline security and monitoring solutions.
+1. **Additional infrastructure controls & governance** – Microsoft Defender for Cloud and Azure Monitor are used as baseline security and monitoring solutions.
 
 ### Data landing zone
 
@@ -69,7 +69,7 @@ The architecture consists of the workflow described below. Each component of the
    Regulated industries usually have strict data access restrictions, and usually allow production data to be hosted only within the production environment. Because of this reason, the development lifecycle of data products is occurring only in the production data landing zone, and a separate environment (resource group) is provisioned for development, testing, and deployment purposes.
 1. **Additional data products** – These resource groups host other data products, since one data landing zone can host one or many data products.
 1. **Shared compute resource group** – Any shared compute that is needed for hosting and deploying data products is provisioned within this resource group. An Azure Kubernetes cluster is an example.
-1. **Additional infrastructure controls & governance** – Azure Security Center, and Azure Monitor are used as baseline security and monitoring solutions.
+1. **Additional infrastructure controls & governance** – Microsoft Defender for Cloud, and Azure Monitor are used as baseline security and monitoring solutions.
 1. **Additional Data Landing Zones** – A placeholder for extra Azure subscriptions that would be used for hosting new data landing zones. They're based on criteria mentioned before, such as data residency requirements, or a different business unit that has its own cross-functional team and a set of use cases to be delivered.
 
 ### Components
@@ -80,7 +80,7 @@ The architecture consists of the workflow described below. Each component of the
 - [Azure DevOps](https://azure.microsoft.com/services/devops)
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
-- [Azure Security Center](https://azure.microsoft.com/services/security-center)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy)
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)

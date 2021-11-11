@@ -44,7 +44,7 @@ Azure's alerting framework allows you to configure alerts to detect suspicious a
 
 AKS is integrated with Azure monitoring services:
 
-- Azure Security Center provides many security scanning features. For example Security center scans images pulled and pushed to container registries and provides recommendations. For details, see [Vulnerability management - scanning container images](/azure/security-center/container-security#vulnerability-management---scanning-container-images). You can also use [file integrity monitoring (FIM)](/azure/security-center/security-center-file-integrity-monitoring) to check system files.
+- Microsoft Defender for Cloud provides many security scanning features. For example Defender for Cloud scans images pulled and pushed to container registries and provides recommendations. For details, see [Vulnerability management - scanning container images](/azure/security-center/container-security#vulnerability-management---scanning-container-images). You can also use [file integrity monitoring (FIM)](/azure/security-center/security-center-file-integrity-monitoring) to check system files.
 
 - Azure Monitor can be used to set alerts based on event type to protect system integrity and security. When there are any expected system failures on AKS nodes, AKS autoheals the resource in a timely manner without interruption to system processing.
 
@@ -167,7 +167,7 @@ Note: One example of time synchronization technology is Network Time Protocol (N
 
 #### Your responsibilities
 
-AKS uses NTP from the the underlying Azure hosts and does not require any outbound network traffic allowances to support this. Other VMs you add to your CDE might use external NTP servers such as ntp.ubuntu.org (and its pool) as their time synchronization source. Any additional compute you bring into your CDE should explicitly use the NTP source of your choice and should be documented.
+AKS uses NTP from the underlying Azure hosts and does not require any outbound network traffic allowances to support this. Other VMs you add to your CDE might use external NTP servers such as ntp.ubuntu.org (and its pool) as their time synchronization source. Any additional compute you bring into your CDE should explicitly use the NTP source of your choice and should be documented.
 
 ### Requirement 10.5
 
@@ -183,13 +183,13 @@ Limit viewing of audit trails to those with a job-related need.
 
 Having multiple logging syncs adds overhead to securing, reviewing, analyzing, and querying audit trail data. Plan your audit trail topologies to balance tradeoffs between complete audit trail isolation and management concerns.
 
-When possible, integrate logs. The advantage is the ability to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor for Containers to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Azure Sentinel. Other popular third-party choices are Splunk, QRadar, and ArcSight. Azure Security Center and Azure Monitor support all of those solutions. Those solutions are append-only data sinks to make sure the trail can't be altered.
+When possible, integrate logs. The advantage is the ability to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor for Containers to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Microsoft Sentinel. Other popular third-party choices are Splunk, QRadar, and ArcSight. Microsoft Defender for Cloud and Azure Monitor support all of those solutions. Those solutions are append-only data sinks to make sure the trail can't be altered.
 
-Security Center can export results at configured intervals. For more information, see [Continuous export](/azure/security-center/continuous-export).
+Defender for Cloud can export results at configured intervals. For more information, see [Continuous export](/azure/security-center/continuous-export).
 
 All logs are kept with at least three copies in one region. As a backup strategy, you can have more copies by enabling cross-region backup or replication. All log entries are available only through secured HTTP/S channels.
 
-Log Analytics and Azure Sentinel support various role-based access controls to manage audit trail access. Make sure the roles are mapped to the roles and responsibilities of the organization.
+Log Analytics and Microsoft Sentinel support various role-based access controls to manage audit trail access. Make sure the roles are mapped to the roles and responsibilities of the organization.
 
 Make sure your Log Analytics workspace supports both operations and compliance needs. Consider a dedicated workspace for your in-scope clusters, which forwards to your SIEM solution.
 
@@ -209,11 +209,11 @@ Review logs and security events for all system components to identify anomalies 
 
 #### Your responsibilities
 
-The Azure monitoring services, Azure Monitor and Azure Security Center, can generate notifications or alerts when they detect anomalous activity. Those alerts include context information such as severity, status, and activity time.
+The Azure monitoring services, Azure Monitor and Microsoft Defender for Cloud, can generate notifications or alerts when they detect anomalous activity. Those alerts include context information such as severity, status, and activity time.
 
-As alerts are generated, have a remediation strategy and review progress. One way is to track the security score in Azure Security Center and compare that against historical results.
+As alerts are generated, have a remediation strategy and review progress. One way is to track the security score in Microsoft Defender for Cloud and compare that against historical results.
 
-Centralize data in a single view by using SIEM solutions, such as Azure Sentinel. Integrating data can provide rich alert context.
+Centralize data in a single view by using SIEM solutions, such as Microsoft Sentinel. Integrating data can provide rich alert context.
 
 Alternatively, manually check the full log in your storage. For example, in Log Analytics, you can use a filtering capability based on type of the activity, content of the activity, or caller of the activity.
 
@@ -316,9 +316,9 @@ An alternate option is to use intrusion-detection and/or intrusion-prevention ca
 
 Another option is enabling [Azure Monitor Network Insights](/azure/azure-monitor/insights/network-insights-overview).
 
-Enable Azure Defender plans as they apply to various components of the CDE. For example, if Azure SQL is used to store CHD, then [Azure Defender for SQL](/azure/security-center/defender-for-sql-introduction) will make sure that data layer intrusions are detected.
+Enable Microsoft Defender plans as they apply to various components of the CDE. For example, if Azure SQL is used to store CHD, then [Microsoft Defender for SQL](/azure/security-center/defender-for-sql-introduction) will make sure that data layer intrusions are detected.
 
-Also, detect anomalies in traffic patterns by connecting NSG flow logs into a centralized SIEM solution, such as Azure Sentinel. In this reference implementation, logs are in append-only mode, which minimizes the change tracking on audit logs. However, all logs that are sent to external sinks for long-term storage must not be modified. They must follow the write-once/read-many approach. Make sure the file integrity monitoring (FIM) solution covers those external entities to detect changes.
+Also, detect anomalies in traffic patterns by connecting NSG flow logs into a centralized SIEM solution, such as Microsoft Sentinel. In this reference implementation, logs are in append-only mode, which minimizes the change tracking on audit logs. However, all logs that are sent to external sinks for long-term storage must not be modified. They must follow the write-once/read-many approach. Make sure the file integrity monitoring (FIM) solution covers those external entities to detect changes.
 
 ## Requirement 11.5
 

@@ -31,7 +31,7 @@ Regularly monitor resources to maintain the security posture and detect vulnerab
 > - Use native tools in Azure to monitor the workload resources and the infrastructure in which it runs.
 > - Consider investing in a Security Operations Center (SOC), or SecOps team and incident response plan.
 > - Monitor traffic, access requests, and application communication between segments.
-> - Discover and remediate common risks to improve secure score in Azure Security Center.
+> - Discover and remediate common risks to improve secure score in Microsoft Defender for Cloud.
 > - Use an industry standard benchmark to evaluate the security posture by learning from external organizations.
 > - Send logs and alerts to a central security log management for analysis.
 > - Perform regular internal and external compliance audits, including regulatory compliance attestations.
@@ -47,9 +47,9 @@ The Azure Security Benchmark includes a collection of high-impact security recom
 
 ## Reference architecture
 
-- [Hybrid Security Monitoring using Azure Security Center and Azure Sentinel](../../hybrid/hybrid-security-monitoring.yml)
+- [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
 
-  This reference architecture illustrates how to use Azure Security Center and Azure Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads.
+  This reference architecture illustrates how to use Microsoft Defender for Cloud and Microsoft Sentinel to monitor the security configuration and telemetry of on-premises and Azure operating system workloads.
 
 - [Azure security solutions for AWS](../../reference-architectures/aws/aws-azure-security-solutions.yml)
 

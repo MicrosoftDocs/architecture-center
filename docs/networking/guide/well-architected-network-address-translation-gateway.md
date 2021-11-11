@@ -79,7 +79,7 @@ A common approach is to design an outbound-only network virtual appliance (NVA) 
 
 ![Diagram that shows firewalls with a load balancer sandwich and NAT gateway.](./images/natgw-fw-vmss.svg)
 
-Azure Security Center can monitor for any suspicious outbound connectivity through a NAT gateway. This is an alert feature in [Azure Security Center](/azure/security-center).
+Microsoft Defender for Cloud can monitor for any suspicious outbound connectivity through a NAT gateway. This is an alert feature in [Microsoft Defender for Cloud](/azure/security-center).
 
 ## Next steps
 

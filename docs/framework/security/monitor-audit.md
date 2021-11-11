@@ -24,7 +24,7 @@ To make sure that the security posture doesn't degrade over time, have regular a
 
 ## Key points
 > [!div class="checklist"]
-> - Improve secure score in Azure Security Center.
+> - Improve secure score in Microsoft Defender for Cloud.
 > - Use an industry standard benchmark to evaluate your organizations current security posture.
 > - Perform regular internal and external compliance audits, including regulatory compliance attestations.
 > - Review the policy requirements.
@@ -54,7 +54,7 @@ Compliance is important for several reasons. Aside from signifying levels of sta
 
 ### Suggested action
 
-Use Azure Defender (Azure Security Center) to continuously assess and monitor your compliance score.
+Use Microsoft Defender for Cloud to continuously assess and monitor your compliance score.
 
 ### Learn more
 
@@ -62,7 +62,7 @@ Use Azure Defender (Azure Security Center) to continuously assess and monitor yo
 
 **Have you established a monitoring and assessment solution for compliance?**
 ***
-Continuously assess and monitor the compliance status of your workload. Azure Security Center provides a regulatory compliance dashboard that shows the current security state of workload against controls mandated by the standard governments or industry organizations and Azure Security Benchmark. Keep your resources in compliance with those standards. Security Center tracks many standards. You can set the standards by management groups in a subscription.
+Continuously assess and monitor the compliance status of your workload. Microsoft Defender for Cloud provides a regulatory compliance dashboard that shows the current security state of workload against controls mandated by the standard governments or industry organizations and Azure Security Benchmark. Keep your resources in compliance with those standards. Defender for Cloud tracks many standards. You can set the standards by management groups in a subscription.
 
 Consider using [Azure Access Reviews](/azure/active-directory/governance/access-reviews-overview) or [Entitlement Management](/azure/active-directory/governance/entitlement-management-overview) to periodically review access to the workload.
 
@@ -112,10 +112,10 @@ For Azure, use Azure Policy to create and manage policies that enforce complianc
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Remediate security risks in Azure Security Center](monitor-logs-alerts.md)
+> [Remediate security risks in Microsoft Defender for Cloud](monitor-logs-alerts.md)
 
 ## Related links
 
-- [Secure score in Azure Security Center](/azure/security-center/secure-score-security-controls) allows you view all the security vulnerabilities into a single score.
+- [Secure score in Microsoft Defender for Cloud](/azure/security-center/secure-score-security-controls) allows you view all the security vulnerabilities into a single score.
 
-- [Tutorial: Improve your regulatory compliance](/azure/security-center/security-center-compliance-dashboard) describes a step-by-step process to evaluate regulatory requirements in Azure Security Center.
+- [Tutorial: Improve your regulatory compliance](/azure/security-center/security-center-compliance-dashboard) describes a step-by-step process to evaluate regulatory requirements in Microsoft Defender for Cloud.

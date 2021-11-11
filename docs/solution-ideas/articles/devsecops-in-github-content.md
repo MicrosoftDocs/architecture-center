@@ -22,7 +22,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 ## Architecture
 
 :::image type="complex" source="../media/devsecops-in-github-data-flow.png" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
-   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure AD authenticates developers, Codespaces run security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Azure Security Center, and Azure Monitor evaluate deployed software for risks.
+   Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure AD authenticates developers, Codespaces run security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
 :::image-end:::
 *Download an [.svg][DevSecOps in GitHub svg] of this architecture.*
 
@@ -32,7 +32,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 1. Pull requests (PRs) trigger code builds and automated testing through GitHub Actions. GitHub encrypts secrets and credentials at rest and obfuscates these entries in logs.
 1. GitHub Actions deploy build artifacts to Azure App Service while making changes to other cloud resources, such as service endpoints.
 1. Azure Policy evaluates Azure resources that are in deployment. Defined policies then potentially deny releases, modify cloud resources, or create warning events in activity logs.
-1. Azure Security Center identifies attacks targeting applications that are running in deployed projects.
+1. Microsoft Defender for Cloud identifies attacks targeting applications that are running in deployed projects.
 1. Azure Monitor continuously tracks and evaluates app behavior. When threats materialize, this service sends alerts to start the process of rolling code back to previous commits.
 
 ### Components
@@ -44,7 +44,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 - [GitHub Actions][GitHub Actions] are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in repositories. Computers called *runners* host these CI/CD jobs.
 - [App Service][App Service] provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.
 - [Azure Policy][Azure Policy] helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For instance, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
-- [Azure Security Center][Azure Security Center] provides unified security management and advanced threat protection across hybrid cloud workloads.
+- [Microsoft Defender for Cloud][Azure Security Center] provides unified security management and advanced threat protection across hybrid cloud workloads.
 - [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
 
 #### Security

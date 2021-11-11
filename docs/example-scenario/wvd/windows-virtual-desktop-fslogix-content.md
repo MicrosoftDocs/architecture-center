@@ -155,9 +155,9 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %ProgramFiles%\FSLogix\Apps\frxccds.exe
   - %ProgramFiles%\FSLogix\Apps\frxsvc.exe
 
-#### Add exclusions for Microsoft Defender by using PowerShell
+#### Add exclusions for Microsoft Defender for Cloud by using PowerShell
 
-You can use this PowerShell script to add the exclusions for Microsoft Defender:
+You can use this PowerShell script to add the exclusions for Microsoft Defender for Cloud:
 
 ```powershell
   # Defender Exclusions for FSLogix

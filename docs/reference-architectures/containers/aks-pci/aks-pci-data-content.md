@@ -182,14 +182,14 @@ Fully document and implement all key-management processes and procedures for cry
 
 (APPLIES TO: Requirement 3.6.1, Requirement 3.6.2, Requirement 3.6.3, Requirement 3.2.4)
 
-If you're using Azure Key Vault to store secrets such as keys, certificates, and connection strings, protect it from unauthorized access. Azure Defender for Key Vault detects suspicious access attempts and generates alerts. You can view these alerts in Azure Security Center. For more information, see [Azure Defender for Key Vault](/azure/security-center/defender-for-key-vault-introduction).
+If you're using Azure Key Vault to store secrets such as keys, certificates, and connection strings, protect it from unauthorized access. Microsoft Defender for Key Vault detects suspicious access attempts and generates alerts. You can view these alerts in Microsoft Defender for Cloud. For more information, see [Microsoft Defender for Key Vault](/azure/security-center/defender-for-key-vault-introduction).
 
 Follow [NIST](https://csrc.nist.gov/) guidance about key management. For details, see:
 - [Cryptographic Key Management](https://csrc.nist.gov/projects/key-management/faqs).
 - [SP 800-133 Rev. 2, Recommendation for Cryptographic Key Generation](https://csrc.nist.gov/publications/detail/sp/800-133/rev-2/final)
 - [SP 800-57 Part 1 Rev. 5, Recommendation for Key Management](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
 
-See also [Azure Defender for Key Vault](/azure/security-center/defender-for-key-vault-introduction).
+See also [Microsoft Defender for Key Vault](/azure/security-center/defender-for-key-vault-introduction).
 
 #### Requirement 3.6.7
 Prevention of unauthorized substitution of cryptographic keys.
@@ -199,7 +199,7 @@ Prevention of unauthorized substitution of cryptographic keys.
 - **Enable diagnostics** on all key stores. Use Azure Monitor for Key Vault. It collects logs and metrics and sends them to Azure Monitor. For more information, see [Monitoring your key vault service with Azure Monitor for Key Vault](/azure/azure-monitor/insights/key-vault-insights-overview).
 - **Give read-only permissions** to all consumers.
 - **Do not have standing permissions** for all management service principals. Instead, use just-in-time (JIT) role assignments, time-based role activation, and approval-based role activation.
-- **Create a centralized view** by integrating logs and alerts into security information and event management (SIEM) solutions, such as Azure Sentinel.
+- **Create a centralized view** by integrating logs and alerts into security information and event management (SIEM) solutions, such as Microsoft Sentinel.
 - **Take action on alerts** and notifications, especially on unexpected changes.
 
 #### Requirement 3.6.8

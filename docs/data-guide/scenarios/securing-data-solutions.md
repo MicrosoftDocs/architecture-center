@@ -88,7 +88,7 @@ For more information, see [Azure network security](/azure/security/azure-network
 
 ### Monitoring
 
-[Azure Security Center](/azure/security-center/security-center-intro) automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, such as firewall solutions, to detect real threats and reduce false positives.
+[Microsoft Defender for Cloud](/azure/security-center/security-center-intro) automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, such as firewall solutions, to detect real threats and reduce false positives.
 
 [Log Analytics](/azure/log-analytics/log-analytics-overview) provides centralized access to your logs and helps you analyze that data and create custom alerts.
 

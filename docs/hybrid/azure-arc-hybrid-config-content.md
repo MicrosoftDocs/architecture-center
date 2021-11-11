@@ -83,9 +83,9 @@ You can use Azure Automation Change Tracking and Inventory for Arc enabled serve
 
 You can use Azure Monitor to monitor your VMs, virtual machine scale sets, and Azure Arc machines at scale. Azure Monitor analyzes the performance and health of your Windows and Linux VMs and monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
-### Implement Azure Sentinel
+### Implement Microsoft Sentinel
 
-You can use [Azure Sentinel][Azure Sentinel] to deliver intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. Azure Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution that enables several scenarios including:
+You can use [Microsoft Sentinel][Azure Sentinel] to deliver intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution that enables several scenarios including:
 
 - Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 - Detect previously undetected threats and minimize false positives.
@@ -110,7 +110,7 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 ## Security considerations
 
 - Appropriate Azure role-based access control (Azure RBAC) access should be managed for Arc enabled servers. To onboard machines, you must be a member of the **Azure Connected Machine Onboarding** role. To read, modify, re-onboard, and delete a machine, you must be a member of the **Azure Connected Machine Resource Administrator** role.
-- You can use Azure Policy to manage security policies across your Arc enabled servers, including implementing security policies in Azure Security Center. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Security Center policies are based on policy initiatives created in Azure Policy.
+- You can use Azure Policy to manage security policies across your Arc enabled servers, including implementing security policies in Microsoft Defender for Cloud. A security policy defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators. Defender for Cloud policies are based on policy initiatives created in Azure Policy.
 
 ## Cost considerations
 

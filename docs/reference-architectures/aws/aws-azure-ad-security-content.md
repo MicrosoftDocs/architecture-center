@@ -2,7 +2,7 @@ Amazon Web Services (AWS) accounts that support critical workloads and highly se
 
 Many organizations that use AWS already rely on Azure AD for Microsoft 365 or hybrid cloud identity management and access protection. These organizations can quickly and easily deploy Azure AD for their AWS accounts, often without additional cost. Other, [advanced Azure AD features](./aws-azure-ad-security.yml#advanced-azure-ad-identity-management-with-aws-accounts) like Privileged Identity Management (PIM) and Advanced Identity Protection can help protect the most sensitive AWS accounts.
 
-Azure AD easily integrates with other Microsoft security solutions like Microsoft Cloud App Security (MCAS) and Azure Sentinel. For more information, see [MCAS and Azure Sentinel for AWS](aws-azure-security-solutions.yml). Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
+Azure AD easily integrates with other Microsoft security solutions like Microsoft Defender for Cloud Apps and Microsoft Sentinel. For more information, see [Defender for Cloud Apps and Microsoft Sentinel for AWS](aws-azure-security-solutions.yml). Microsoft security solutions are extensible and have multiple levels of protection. Organizations can implement one or more of these solutions along with other types of protection for a full security architecture that protects current and future AWS deployments.
 
 This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying Azure AD identity and access solutions for AWS. You can configure and test these Microsoft security solutions without impacting your existing identity providers and AWS account users until you're ready to switch over.
 
@@ -286,7 +286,7 @@ Test signing-in as each of the test users to confirm that the SSO works.
 
    **ROLE / UPN / AWS Account Number**
 
-   You can use this user sign-in session information for tracking user sign-in activity in MCAS or Azure Sentinel.
+   You can use this user sign-in session information for tracking user sign-in activity in Defender for Cloud Apps or Microsoft Sentinel.
 
    :::image type="content" source="media/sign-in-session.png" alt-text="Screenshot of sign-in session information.":::
 
@@ -326,7 +326,7 @@ You might need to create several Conditional Access policies to meet business ne
 
 Once you enable Conditional Access, you can impose additional controls such as PAM and just-in-time (JIT) provisioning. For more information, see [What is automated SaaS app user provisioning in Azure AD](/azure/active-directory/app-provisioning/user-provisioning).
 
-If you have MCAS, you can use Conditional Access to configure MCAS session policies. For more information, see [Configure Azure AD session policies for AWS activities](aws-azure-security-solutions.yml#configure-mcas-monitoring-policies-for-aws-activities).
+If you have Defender for Cloud Apps, you can use Conditional Access to configure Defender for Cloud Apps session policies. For more information, see [Configure Azure AD session policies for AWS activities](aws-azure-security-solutions.yml#configure-mcas-monitoring-policies-for-aws-activities).
 
 ## See also
 
@@ -340,5 +340,5 @@ If you have MCAS, you can use Conditional Access to configure MCAS session polic
 - [PIM deployment plan](/azure/active-directory/privileged-identity-management/pim-deployment-plan).
 - [Identity protection security overview](/azure/active-directory/identity-protection/concept-identity-protection-security-overview).
 - [What is Microsoft Defender for Identity?](/defender-for-identity/what-is)
-- [Connect AWS to Microsoft Cloud App Security](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security).
-- [How Cloud App Security helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws).
+- [Connect AWS to Microsoft Defender for Cloud Apps](/cloud-app-security/connect-aws-to-microsoft-cloud-app-security).
+- [How Defender for Cloud Apps helps protect your Amazon Web Services (AWS) environment](/cloud-app-security/protect-aws).

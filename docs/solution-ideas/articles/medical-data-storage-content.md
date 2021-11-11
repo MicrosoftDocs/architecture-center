@@ -22,7 +22,7 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 * [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): Hyperscale repository for big data analytics workloads
 * [Cognitive Services](https://azure.microsoft.com/services/cognitive-services): Add smart API capabilities to enable contextual interactions
 * [Web Apps](https://azure.microsoft.com/services/app-service/web): Quickly create and deploy mission critical web apps at scale
-* [Security Center](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
+* [Defender for Cloud](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
 * [Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard and maintain control of keys and other secrets
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
@@ -36,7 +36,7 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 * [Data Lake Store Documentation](/azure/data-lake-store)
 * [Get started with Azure](/azure/guides/developer/azure-developer-guide)
 * [Web Apps overview](/azure/app-service/app-service-web-overview)
-* [Azure Security Center Documentation](/azure/security-center)
+* [Microsoft Defender for Cloud Documentation](/azure/security-center)
 * [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
 * [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
 * [Application Insights Documentation](/azure/application-insights)

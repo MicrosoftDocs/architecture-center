@@ -40,7 +40,7 @@ Each association between an Azure Arc enabled Kubernetes cluster configuration a
 
 If you are looking for a fully managed Kubernetes solution on-premises in your datacenters and/or edge locations, AKS on Azure Stack HCI is a great option. Azure Kubernetes Service on Azure Stack HCI is an on-premises implementation of Azure Kubernetes Service (AKS), which automates running containerized applications at scale. Azure Kubernetes Service is now in preview on Azure Stack HCI and Windows Server 2019 Datacenter, making it quicker to get started hosting Linux and Windows containers in your datacenter.
 
-AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized management. Once connected, you can deploy your applications and Azure data services to these clusters and extend Azure services such as Azure Monitor, Azure Policy and Azure Defender.
+AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized management. Once connected, you can deploy your applications and Azure data services to these clusters and extend Azure services such as Azure Monitor, Azure Policy and Microsoft Defender for Cloud.
 
 ### Azure Stack HCI use cases
 

@@ -49,7 +49,7 @@ landingContent:
             url: /learn/modules/azure-well-architected-introduction/7-security
       - linkListType: video
         links:
-          - text: "Cloud Security Posture Management (CSPM) with Azure Security Center"
+          - text: "Cloud Security Posture Management (CSPM) with Microsoft Defender for Cloud"
             url: https://channel9.msdn.com/Shows/Azure-Friday/Cloud-Security-Posture-Management-CSPM-with-Azure-Security-Center?term=Security%20overview&pubDate=3years&lang-en=true
   # Card
   - title: Design for security
@@ -193,7 +193,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Security Center
+          - text: Microsoft Defender for Cloud
             url: /rest/api/securitycenter/
           - text: Adaptive Network Hardenings
             url: /rest/api/securitycenter/adaptive-network-hardenings

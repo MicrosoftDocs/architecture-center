@@ -54,7 +54,7 @@ This scenario uses a separate DevTest and Production [Azure Active Directory (Az
 
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy/) governs resources to meet organizational standards and compliance. In a DevTest role, Azure Policy can regulate and limit the number and costs of VMs in the subscription. Auditing can provide insights and track the usage of the DevTest VMs.
 
-- [Azure Monitor](/azure/devtest-labs/security-baseline) can work across subscriptions to monitor VMs in both Production and DevTest environments. Azure Monitor can collect log data from VM operating systems as well as crash dump files, and aggregate them for viewing in [Azure Security Center](/azure/security-center/security-center-enable-data-collection).
+- [Azure Monitor](/azure/devtest-labs/security-baseline) can work across subscriptions to monitor VMs in both Production and DevTest environments. Azure Monitor can collect log data from VM operating systems as well as crash dump files, and aggregate them for viewing in [Microsoft Defender for Cloud](/azure/security-center/security-center-enable-data-collection).
 
 ### Alternatives
 

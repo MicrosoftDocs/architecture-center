@@ -3091,7 +3091,7 @@ items:
                 href: hybrid/hybrid-security-monitoring.yml
               - name: Long-term security logs in Azure Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
-              - name: MCAS and Azure Sentinel security for AWS
+              - name: Defender for Cloud Apps and Microsoft Sentinel security for AWS
                 href: reference-architectures/aws/aws-azure-security-solutions.yml
               - name: Multi-region app with private database
                 href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml

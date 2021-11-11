@@ -66,7 +66,7 @@ Not only your application components are producing data, but there are many othe
 * **Activity Log**: this is a trail audit that lets you see every change that has gone through Azure APIs. It can be critical to understand sudden performance changes or problems, that might have been due to a misconfiguration of the Azure platform.
 * **Azure Service Health**: sometimes outages are provoked not by configuration changes, but by glitches in the Azure platform itself. You can find information about any Azure-related problem impacting your application in the Azure Service Health logs.
 * **Azure Advisor**: find here recommendations about how to optimize your Azure platform to reduce costs, improve your security posture, or increase the availability of your environment.
-* **Azure Security Center**: not a focus of this pillar, but to be included for completeness: Azure Security Center can help you to understand whether your Azure resources are configured according to security best practices
+* **Microsoft Defender for Cloud**: not a focus of this pillar, but to be included for completeness: Microsoft Defender for Cloud can help you to understand whether your Azure resources are configured according to security best practices
 
 ## Monitor external dependencies
 
