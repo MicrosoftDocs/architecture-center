@@ -43,6 +43,8 @@ There's a well-known pattern called *Transactional Outbox* that can help you avo
 
 :::image type="content" source="./images/transactional-outbox-cosmos/outbox.png" alt-text="Diagram that shows event handling with the Transactional Outbox pattern and a relay service for publishing events to the message broker.":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/AzureComponents.vsdx) of this architecture.*
+
 In a relational database, the implementation of the pattern is straightforward. If the service uses Entity Framework Core, for example, it will use an Entity Framework context to create a database transaction, save the business object and the event, and commit the transaction–or do a rollback. Also, the worker service that's processing events is easy to implement: it periodically queries the Outbox table for new entries, publishes newly inserted events to the message bus, and finally marks these entries as processed.
 
 In practice, things aren't as easy as they might look at first. Most importantly, you need to make sure that the order of the events is preserved so that an `OrderUpdated` event doesn't get published before an `OrderCreated` event.
