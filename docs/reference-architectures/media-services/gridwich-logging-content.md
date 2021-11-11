@@ -1,6 +1,5 @@
 
 
-
 Best practices for logging include:
 
 - Don't use string formatting or interpolation. Logging a string with `$"This broke {brokenThing}"` isn't useful for debugging.

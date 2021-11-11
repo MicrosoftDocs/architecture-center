@@ -351,7 +351,7 @@ Notice that this class uses dependency injection to inject the `IDocumentClient`
 
 ## Error handling
 
-As mentioned earlier, the `RawTelemetryFunction` function app processes a batch of messages in a loop. That means the function needs to handle any exceptions gracefully and continue processing the rest of the batch. Otherwise, messages might get dropped.  
+As mentioned earlier, the `RawTelemetryFunction` function app processes a batch of messages in a loop. That means the function needs to handle any exceptions gracefully and continue processing the rest of the batch. Otherwise, messages might get dropped.
 
 If an exception is encountered when processing a message, the function puts the message onto a dead-letter queue:
 
@@ -635,7 +635,7 @@ For more information about authentication and authorization in this application,
 ## Next steps
 
 Once you get a feel for how this reference solution works, learn best practices and recommendations for similar solutions.
-- For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml). 
+- For a serverless event ingestion solution, see [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml).
 - For a serverless web app, see [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml).
 
 Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).

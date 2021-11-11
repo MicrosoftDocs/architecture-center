@@ -33,7 +33,7 @@ Each of the following factors adds to complexity, risk, or both.
 
 ### Architecture
 
-Define the high-level architecture, such as web application, web services, data storage, or caching. 
+Define the high-level architecture, such as web application, web services, data storage, or caching.
 
 | Factor | Complexity | Risk |
 |------------------------------------------------------------------|---|---|

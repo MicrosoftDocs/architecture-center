@@ -12,7 +12,7 @@ Providing network connectivity can enable the following key use cases:
 * Extend an on-premises VMware environment to Azure.
 * Migrate VMware workloads from on-premises to Azure.
 * Enable secure connectivity from the public internet to Azure VMware Solution workloads.
-* Set up disaster recovery (DR) processes between an on-premises environment and an Azure VMware Solution environment, or between two Azure VMware Solution environments.  
+* Set up disaster recovery (DR) processes between an on-premises environment and an Azure VMware Solution environment, or between two Azure VMware Solution environments.
 
 ## Architecture
 
@@ -35,7 +35,7 @@ Route 1 depicts the on-premises site connectivity with the Azure VMware Solution
 
 ### Azure private endpoint
 
-Route 2 represents connectivity between Azure services and Azure VMware Solution instance over a [Private Endpoint](/azure/private-link/private-endpoint-overview). An Azure service, such as Azure SQL DB or Azure Cosmos DB, can project a private endpoint into an Azure Virtual Network (VNet). This private endpoint gets a private IP address assigned from the VNet’s IP address space. An Azure VMware Solution instance is connected to a VNet via ExpressRoute. The instance can access a private endpoint in that VNet, as long as there is connectivity to Azure. This scenario represents initial steps towards the gradual modernization of VMs in Azure VMware Solution. As an example, this connectivity will enable a Web Server VM in Azure VMware Solution to connect with Azure SQL DB, which is a managed SQL database service.
+Route 2 represents connectivity between Azure services and Azure VMware Solution instance over a [Private Endpoint](/azure/private-link/private-endpoint-overview). An Azure service, such as Azure SQL DB or Azure Cosmos DB, can project a private endpoint into an Azure Virtual Network (VNet). This private endpoint gets a private IP address assigned from the VNet's IP address space. An Azure VMware Solution instance is connected to a VNet via ExpressRoute. The instance can access a private endpoint in that VNet, as long as there is connectivity to Azure. This scenario represents initial steps towards the gradual modernization of VMs in Azure VMware Solution. As an example, this connectivity will enable a Web Server VM in Azure VMware Solution to connect with Azure SQL DB, which is a managed SQL database service.
 
 ### Azure VNet peering
 
@@ -47,7 +47,7 @@ Route 4 shows how Azure services can be integrated with Azure VMware Solution. I
 
 ### NVA from Azure Marketplace
 
-Route 5 depicts the use of [Azure Marketplace](https://azuremarketplace.microsoft.com) solutions. Azure Marketplace provides a large collection of partner solutions across multiple IT solution categories, such as firewalls, Network Virtual Appliances (NVAs), load balancers, and so on. In this flow, customers can choose from their favorite vendor’s solution for accepting external user requests. Depending on the configured routes and the security check, as evaluated by the vendor solution, the request can then be forwarded to Azure VMware Solution VMs.  Customers can take advantage of the license mobility that's offered by a partner from an on-premises environment, and they can use it in Azure VMware Solution.
+Route 5 depicts the use of [Azure Marketplace](https://azuremarketplace.microsoft.com) solutions. Azure Marketplace provides a large collection of partner solutions across multiple IT solution categories, such as firewalls, Network Virtual Appliances (NVAs), load balancers, and so on. In this flow, customers can choose from their favorite vendor's solution for accepting external user requests. Depending on the configured routes and the security check, as evaluated by the vendor solution, the request can then be forwarded to Azure VMware Solution VMs.  Customers can take advantage of the license mobility that's offered by a partner from an on-premises environment, and they can use it in Azure VMware Solution.
 
 ### Azure Virtual WAN
 
@@ -59,15 +59,15 @@ Route 7 depicts connectivity from AVS to Azure PaaS services using a public endp
 
 ### Azure ExpressRoute Gateway
 
-Route 8 shows connectivity from branch offices to AVS. This connectivity uses Azure vWAN’ s VPN gateway. However, this can be easily changed to ExpressRoute gateway-based connectivity too. This type of connectivity is recommended when AVS workloads are to be accessed from multiple branch offices. This setup uses transitive connectivity between sites, using ER or a VPN gateway and AVS site enabled by Azure vWAN.
+Route 8 shows connectivity from branch offices to AVS. This connectivity uses Azure vWAN' s VPN gateway. However, this can be easily changed to ExpressRoute gateway-based connectivity too. This type of connectivity is recommended when AVS workloads are to be accessed from multiple branch offices. This setup uses transitive connectivity between sites, using ER or a VPN gateway and AVS site enabled by Azure vWAN.
 
 ### Azure VPN Gateway
 
-Route 9 depicts connectivity from either site-to-site (S2S) or point-to-site (P2S) VPN sites. This connectivity uses Azure vWAN’s VPN gateway. AVS workloads can be made available to VPN sites by using this topology. Azure vWAN VPN gateways are built for higher scalability and throughput, compared to VPN gateways in conventional hub networks. This topology is suitable for customers who expect a higher reach for AVS workloads from multiple VPN sites.
+Route 9 depicts connectivity from either site-to-site (S2S) or point-to-site (P2S) VPN sites. This connectivity uses Azure vWAN's VPN gateway. AVS workloads can be made available to VPN sites by using this topology. Azure vWAN VPN gateways are built for higher scalability and throughput, compared to VPN gateways in conventional hub networks. This topology is suitable for customers who expect a higher reach for AVS workloads from multiple VPN sites.
 
 ### Azure Virtual Network
 
-Route 10 shows connectivity to AVS workloads from other workloads that run in Azure Virtual Networks. This topology uses VNet to VNet connectivity provided by Azure vWAN. Unlike in a conventional hub and spoke networking topology, where transitive connectivity can be established through either Azure Firewall or through 3rd-party NVAs, Azure vWAN’s VNet-to-VNet connectivity is transitive, without needing Azure Firewall or a 3rd-party NVA.
+Route 10 shows connectivity to AVS workloads from other workloads that run in Azure Virtual Networks. This topology uses VNet to VNet connectivity provided by Azure vWAN. Unlike in a conventional hub and spoke networking topology, where transitive connectivity can be established through either Azure Firewall or through 3rd-party NVAs, Azure vWAN's VNet-to-VNet connectivity is transitive, without needing Azure Firewall or a 3rd-party NVA.
 
 ### Components
 

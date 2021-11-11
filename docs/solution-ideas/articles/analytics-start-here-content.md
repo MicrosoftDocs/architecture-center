@@ -16,7 +16,7 @@ If you're new to analytics on Azure, the best place to learn more is with
 
 -   [Explore Azure database and analytics services](/learn/modules/azure-database-fundamentals/)
 
-## Organizational readiness 
+## Organizational readiness
 
 If your organization is new to the cloud, the [Cloud Adoption Framework](/azure/cloud-adoption-framework/) can help you get started. This collection of documentation and best practices offers proven guidance from Microsoft designed to accelerate your cloud adoption journey. It also lists [innovation tools to democratize data in Azure](/azure/cloud-adoption-framework/innovate/best-practices/data).
 

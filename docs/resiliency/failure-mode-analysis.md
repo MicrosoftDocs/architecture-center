@@ -136,7 +136,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 ## Cloud Service
 
-### Web or worker roles are unexpectedly  being shut down.
+### Web or worker roles are unexpectedly  being shut down.
 
 **Detection**. The [RoleEnvironment.Stopping][RoleEnvironment.Stopping] event is fired.
 
@@ -340,7 +340,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Detection**. A cancellation token is passed to the service's `RunAsync` method. Service Fabric cancels the task before shutting down the node.
 
-**Recovery**. Use the cancellation token to detect shutdown. When Service Fabric requests cancellation, finish any work and exit `RunAsync` as quickly as possible.
+**Recovery**. Use the cancellation token to detect shutdown. When Service Fabric requests cancellation, finish any work and exit `RunAsync` as quickly as possible.
 
 **Diagnostics**. Application logs
 

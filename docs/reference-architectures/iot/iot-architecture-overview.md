@@ -38,7 +38,7 @@ If you are interested in learning about Azure IoT concepts in detail using a san
 
 ## Understanding the difference between PaaS and aPaaS solutions
 
-Microsoft enables you to create an IoT solution, by using individual PaaS services or in an aPaaS IoT solution platform. PaaS (platform as a service) is a cloud computing model in which Microsoft delivers Azure hardware and software tools that are tailored to a specific task or job function. With PaaS services, you are responsible for scaling and configuration, but the underlying infrastructure as a service (IaaS) is taken care of for you. aPaaS (application platform as a service) provides a cloud environment to build, manage, and deliver applications to customers. aPaaS offerings take care of scaling and most of the configuration, but they still require developer input to build out a finished solution. 
+Microsoft enables you to create an IoT solution, by using individual PaaS services or in an aPaaS IoT solution platform. PaaS (platform as a service) is a cloud computing model in which Microsoft delivers Azure hardware and software tools that are tailored to a specific task or job function. With PaaS services, you are responsible for scaling and configuration, but the underlying infrastructure as a service (IaaS) is taken care of for you. aPaaS (application platform as a service) provides a cloud environment to build, manage, and deliver applications to customers. aPaaS offerings take care of scaling and most of the configuration, but they still require developer input to build out a finished solution.
 
 ## Start with Azure IoT Central (aPaaS)
 
@@ -47,7 +47,7 @@ Microsoft's aPaaS IoT solution platform is **Azure IoT Central**. We recommend I
 > [!div class="nextstepaction"]
 > [Azure IoT Central](/azure/iot-central/core/overview-iot-central)
 
-Microsoft also enables you to build solutions using a collection of Azure PaaS components. You can use these to connect and provision things, analyze the insights they collect, and act influenced by those insights. 
+Microsoft also enables you to build solutions using a collection of Azure PaaS components. You can use these to connect and provision things, analyze the insights they collect, and act influenced by those insights.
 
 Compare IoT Central (aPaaS) to an Azure PaaS solution approach based on your solution needs.
 
@@ -64,8 +64,7 @@ A standard IoT solution architecture consists of five basic elements:
 * **Business integration** performs actions based on insights from the device data.
 * **Security monitoring** provides an end-to-end security solution for IoT workloads. Use Azure Defender for IoT.
 
-These fundamentals exist whether you are using a PaaS or aPaaS solution.  However, we recommend all customers start with the aPaaS solution offered by Microsoft, [Azure IoT Central](/azure/iot-central/core/overview-iot-central). Its out-of-the-box UX and API surface simplify device connectivity, operations, and management so that you can spend more time and budget using IoT data to create business value. 
-
+These fundamentals exist whether you are using a PaaS or aPaaS solution.  However, we recommend all customers start with the aPaaS solution offered by Microsoft, [Azure IoT Central](/azure/iot-central/core/overview-iot-central). Its out-of-the-box UX and API surface simplify device connectivity, operations, and management so that you can spend more time and budget using IoT data to create business value.
 
 > [!div class="nextstepaction"]
 > [Azure IoT reference architecture](../iot.yml)
