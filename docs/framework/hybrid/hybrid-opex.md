@@ -53,7 +53,7 @@ AKS clusters on Azure Stack HCI can be connected to Azure Arc for centralized ma
 
   - Use Azure Stack HCI to deploy your container-built edge workloads, and essential business applications in highly available virtual machines (VMs).
   - Bring efficient application development and deployment to remote locations at the right price by leveraging switchless deployment and 2 node clusters.
-  - Get a global view of your system’s health using Azure Monitor.
+  - Get a global view of your system's health using Azure Monitor.
 
 - **Upgrade your infrastructure for remote work using VDI**
 
@@ -90,5 +90,5 @@ Click the following links for architecture details and diagrams that enable appl
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Performance Efficiency](./hybrid-performance-efficiency.md)
+> [!div class="nextstepaction"]
+> [Performance Efficiency](./hybrid-performance-efficiency.md)

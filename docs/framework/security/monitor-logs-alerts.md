@@ -29,7 +29,6 @@ Logs provide insight into the operations of a workload, the infrastructure, netw
 > - Configure security log storage retention.
 > - Enable alerts for anomalous activities.
 
-
 ## Use native services
 
 - **Azure Monitor** provides observability across your entire environment. You automatically get platform metrics, activity logs, and diagnostics logs from most of your Azure resources with no configuration. The activity logs provide detailed diagnostic and auditing information.
@@ -68,7 +67,6 @@ Use the data to support these activities:
 
 For more information, see [Security alerts and incidents](/azure/security-center/security-center-alerts-overview).
 
-
 ## Centralize logs and alerts
 
 Organizations typically follow one of three models when deploying logs: centralized, decentralized, or hybrid. The choice depends on organizational structures. For example, if each team owns their resource group, log data is segregated per resource. While access control to that data might be easy to set up, it's difficult to correlate logs. This might be challenging for the SecOps team who need a holistic view to analyze the data.
@@ -87,7 +85,7 @@ Another way to see all data in a single view is to integrate logs and alerts int
 
 Integrating more data can enrich alerts with additional context. However, collection is not detection. Make sure a high volume of low value data doesn't flow into those solutions.
 
-If you don’t have a reasonable expectation that the data will provide value, deprioritize integration of these events. For example, high volume of firewall denies events may create noise without actual actions.
+If you don't have a reasonable expectation that the data will provide value, deprioritize integration of these events. For example, high volume of firewall denies events may create noise without actual actions.
 
 That choice will help in rapid response and remediation by filtering out false positives, and elevate true positives, and so on. Also it will lower SIEM cost, false positives, and increase performance.
 

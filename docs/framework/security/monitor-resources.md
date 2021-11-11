@@ -55,7 +55,7 @@ For example, a common risk is the virtual machines don't have vulnerability scan
 
 > [!NOTE]
 >
->Vulnerability assessments are also available for container images, and SQL servers.
+> Vulnerability assessments are also available for container images, and SQL servers.
 
 Attackers constantly scan public cloud IP ranges for open management ports, which can lead to attacks such as common passwords and known unpatched vulnerabilities. JIT (Just In Time) access allows you to lock down the inbound traffic to the virtual machines while providing easy access to connect to machines when needed. Security center identifies which machines should have JIT applied.
 
@@ -81,9 +81,7 @@ For Azure, you can enforce policies by,
 
 -   **Restrict management ports** (RDP, SSH) using [Just in Time access](/azure/security-center/security-center-just-in-time) in Azure Security Center.
 
-
 One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.yml).
-
 
 ## Containers
 
@@ -142,8 +140,6 @@ Integrate all logs into a security information and event management (SIEM) servi
 - Set alerts or block traffic crossing segmentation boundaries.
 - Identify anomalies.
 - Tune the intake to significantly reduce the false positive alerts.
-
-
 
 ## Identity
 Monitor identity-related risk events using adaptive machine learning algorithms, heuristics quickly before the attacker can gain deeper access into the system.
@@ -214,8 +210,6 @@ Ensure all Azure environments that connect to your production environment and ne
 
 You can discover existing connected tenants using a
 [tool](/azure/role-based-access-control/elevate-access-global-admin?toc=%252fazure%252factive-directory%252fprivileged-identity-management%252ftoc.json) provided by Microsoft. Guidance on permissions you may assign to security is in the [Assign privileges for managing the environment](/azure/architecture/framework/security/design-identity-role-definitions#clear-lines-of-responsibility) section.
-
-
 
 ## CI/CD pipelines
 

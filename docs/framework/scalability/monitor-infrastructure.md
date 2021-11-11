@@ -79,7 +79,6 @@ For information about usage and estimated costs, see [Monitoring usage and estim
 
 You can also use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to determine your pricing. The Pricing Calculator will help you estimate your likely costs based on your expected utilization.
 
-
 ## Next
 > [!div class="nextstepaction"]
 > [Data analysis considerations](monitor-analyze.md)

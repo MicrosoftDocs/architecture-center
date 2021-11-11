@@ -54,7 +54,6 @@ While caching can reduce cost, there are some performance tradeoffs. For example
 
 For performance considerations, see the [Performance Efficiency](../scalability/overview.md) pillar.
 
-
 ## Cost vs security
 Increasing security of the workload will increase cost.
 

@@ -34,7 +34,7 @@ To improve the efficacy of visual inspection, enterprises began turning to deep 
     - How compliant is the workforce with using personal protective equipment?
     - How often are people entering unauthorized work zones?
     - Are products being stored in a safe manner?
-    - Are there unreported close calls in a facility, or pedestrian/equipment “near misses”?
+    - Are there unreported close calls in a facility, or pedestrian/equipment "near misses"?
 
 ## Why vision on the Edge
 

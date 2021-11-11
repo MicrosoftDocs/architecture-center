@@ -73,7 +73,7 @@ For budget concerns, you get a considerable amount of functionality at no cost t
 
 Azure Stack HCI can help in cost-savings by using your existing Hyper-V and Windows Server skills to consolidate aging servers and storage. Azure Stack HCI pricing follows the monthly subscription billing model, with a flat rate per physical processor core in an Azure Stack HCI cluster.
 
-Use Azure Stack HCI to modernize on-prem workloads with hyperconverged infra. Azure Stack HCI billing is based on a monthly subscription fee per physical processor core, not a perpetual license. When customers connect to Azure, the number of cores used is automatically uploaded and assessed for billing purposes. Cost doesn’t vary with consumption beyond the physical processor cores. This means that more VMs don’t cost more, and customers who are able to run denser virtual environments are rewarded.
+Use Azure Stack HCI to modernize on-prem workloads with hyperconverged infra. Azure Stack HCI billing is based on a monthly subscription fee per physical processor core, not a perpetual license. When customers connect to Azure, the number of cores used is automatically uploaded and assessed for billing purposes. Cost doesn't vary with consumption beyond the physical processor cores. This means that more VMs don't cost more, and customers who are able to run denser virtual environments are rewarded.
 
 If you are currently using VMware, you can take advantage of cost savings only available with Azure VMware Solution. Easily move VMware workloads to Azure and increase your productivity with elasticity, scale, and fast provisioning cycles. This will help enhance your workloads with the full range of Azure compute, monitor, backup, database, IoT, and AI services.
 
@@ -114,5 +114,5 @@ Treat cost monitoring and optimization as a process, rather than a point-in-time
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Operational excellence](./hybrid-opex.md)
+> [!div class="nextstepaction"]
+> [Operational excellence](./hybrid-opex.md)

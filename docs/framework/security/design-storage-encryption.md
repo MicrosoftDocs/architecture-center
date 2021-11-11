@@ -172,7 +172,7 @@ Using the latest version of TLS is preferred. All Azure services support TLS 1.2
 
 When traffic from clients using older versions of TLS is minimal, or it's acceptable to fail requests made with an older version of TLS, consider enforcing a minimum TLS version. For information about TLS support in Azure Storage, see [Remediate security risks with a minimum version of TLS](/azure/storage/common/transport-layer-security-configure-minimum-version?tabs=portal#remediate-security-risks-with-a-minimum-version-of-tls).
 
-Sometimes you need to isolate your entire communication channel between your on-premises and the cloud infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute/). For more information, see  these articles:
+Sometimes you need to isolate your entire communication channel between your on-premises and the cloud infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute/). For more information, see  these articles:
 
 - [Extending on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md)
 - [Configure a Point-to-Site VPN connection to a VNet using native Azure certificate authentication: Azure portal](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#architecture)

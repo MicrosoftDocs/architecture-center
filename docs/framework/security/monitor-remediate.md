@@ -63,10 +63,7 @@ As a technical workload owner, work with your organization's dedicated team that
 |Networking Resources||Networking Team and Network Security Team|
 |IoT Security|IoT Resources | IoT Operations Team|
 
-
 :::image type="icon" source="../../_images/github.png" border="false"::: The [Azure Secure Score sample](https://github.com/mspnp/samples/tree/master/Security/AzureSecureScoreSample) shows how to get your Azure Secure Score for a subscription by calling the Azure Security Center REST API. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
-
-
 
 ## Review and remediate recommendations
 
@@ -96,7 +93,6 @@ Another use case is that it can be automatically remediated by deploying related
 - There's a significant wait before the resource is updated and the deployment starts. In the preceding example, there won't be logs captured during that wait time. Avoid using this effect for resources that cannot tolerate a delay.
 - The resource deployed because of **DeployIfNotExist** are created by a separate identity than that of the identity that did the original deployment. That identity must have high enough privileges to make the required changes.
 
-
 ## Manage alerts
 
 Azure Security Center shows a list of alerts that's based on logs collected from resources within a scope. Alerts include context information such as severity, status, activity time. Most alerts have MITRE ATT&CK® tactics that can help you understand the kill chain intent. Select the alert and investigate the problem with detailed information.
@@ -108,7 +104,6 @@ Make sure that you are integrating critical security alerts into Security Inform
 ## Next
 > [!div class="nextstepaction"]
 > [Azure security operations](monitor-security-operations.md)
-
 
 ## Related links
 

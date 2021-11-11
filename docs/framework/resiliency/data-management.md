@@ -53,7 +53,7 @@ Azure SQL Database provides two types of recovery: geo-restore and active geo-re
 
 #### Active geo-replication
 
-[Active geo-replication](/azure/sql-database/sql-database-geo-replication-overview) is available for all database tiers. It’s designed for applications that have more aggressive recovery requirements than geo-restore can offer. Using active geo-replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries. In addition, active geo-replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. For details, see [Configure active geo-replication for Azure SQL Database and initiate failover](/azure/sql-database/sql-database-geo-replication-portal). Refer to [Designing globally available services using Azure SQL Database](/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) and [Managing rolling upgrades of cloud applications by using SQL Database active geo-replication](/azure/sql-database/sql-database-manage-application-rolling-upgrade) for details on how to design and implement applications and applications upgrade without downtime.
+[Active geo-replication](/azure/sql-database/sql-database-geo-replication-overview) is available for all database tiers. It's designed for applications that have more aggressive recovery requirements than geo-restore can offer. Using active geo-replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries. In addition, active geo-replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. For details, see [Configure active geo-replication for Azure SQL Database and initiate failover](/azure/sql-database/sql-database-geo-replication-portal). Refer to [Designing globally available services using Azure SQL Database](/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) and [Managing rolling upgrades of cloud applications by using SQL Database active geo-replication](/azure/sql-database/sql-database-manage-application-rolling-upgrade) for details on how to design and implement applications and applications upgrade without downtime.
 
 ### SQL Server on Azure Virtual Machines
 
@@ -64,7 +64,6 @@ A variety of options are available for recovery and high availability for SQL Se
 Alternatively, you can use SQL Always On Availability Groups for high availability by creating a single availability group that includes the SQL Server instances in both regions.
 
 As an example, [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml) reference architecture shows a set of practices for running an N-tier application in multiple Azure regions to achieve availability and a robust disaster recovery infrastructure. It uses a SQL Server Always On Availability Group and Azure Traffic Manager.
-
 
 ## Storage resiliency
 

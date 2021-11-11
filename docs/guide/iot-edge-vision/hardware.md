@@ -28,11 +28,11 @@ The Central Processing Unit (CPU) is your default compute for most processes run
 
 ## GPU
 
-Many people are familiar with the Graphics Processing Unit (GPU) as this is the de-facto processor for any high-end PC graphics card. In recent years, the GPU has been leveraged in high performance computer (HPC) scenarios, in data mining, and in computer AI/ML workloads. The GPU’s massive potential of parallel computing can be used in a vision workload to accelerate the processing of pixel data. The downside to a GPU is its higher power consumption, which is a critical factor to consider for your vision workload.
+Many people are familiar with the Graphics Processing Unit (GPU) as this is the de-facto processor for any high-end PC graphics card. In recent years, the GPU has been leveraged in high performance computer (HPC) scenarios, in data mining, and in computer AI/ML workloads. The GPU's massive potential of parallel computing can be used in a vision workload to accelerate the processing of pixel data. The downside to a GPU is its higher power consumption, which is a critical factor to consider for your vision workload.
 
 ## FPGA
 
-Field Programmable Gate Arrays are reconfigurable hardware accelerators. These powerful accelerators allow for the growth of Deep Learning Neural networks, which are still evolving. These accelerators have millions of programmable gates, hundreds of I/O pins, and an exceptional compute power in the trillions of tera-MAC’s. There also many different libraries available for FPGAs that are optimized for vision workloads. Some of these libraries also include preconfigured interfaces to connect to downstream cameras and devices. One area that FPGAs tend to fall short on is floating point operations. However, manufacturers are currently working on this issue and have made many improvements in this area.
+Field Programmable Gate Arrays are reconfigurable hardware accelerators. These powerful accelerators allow for the growth of Deep Learning Neural networks, which are still evolving. These accelerators have millions of programmable gates, hundreds of I/O pins, and an exceptional compute power in the trillions of tera-MAC's. There also many different libraries available for FPGAs that are optimized for vision workloads. Some of these libraries also include preconfigured interfaces to connect to downstream cameras and devices. One area that FPGAs tend to fall short on is floating point operations. However, manufacturers are currently working on this issue and have made many improvements in this area.
 
 ## ASIC
 

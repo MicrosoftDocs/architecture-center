@@ -21,7 +21,6 @@ In an organization, several teams work together to make sure that the workload a
 
 Based on Microsoft's experience with many cloud adoption projects, establishing clearly defined roles and responsibilities for specific functions in Azure will avoid confusion that can lead to human and automation errors creating security risk.
 
-
 ## Clear lines of responsibility
 
 **Do the teams have a clear view on responsibilities and individual/group access levels?**
@@ -42,7 +41,7 @@ Designate groups (or individual roles) that will be responsible for key function
 | **Policy Management**                | *Typically GRC team + Architecture.* Apply governance based on risk analysis and compliance requirements. Set direction for use of Azure role-based access control (Azure RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources. |
 | **Identity Security and Standards**  | *Typically Security Team + Identity Team jointly.* Set direction for Azure AD directories, PIM/PAM usage, MFA, password/synchronization configuration, Application Identity Standards. |
 
->[!NOTE]
+> [!NOTE]
 > Application roles and responsibilities should cover different access level of each operational function. For example, publish production release, access customer data, manipulate database records, and so on. Application teams should include central functions listed in the preceding table.
 
 ## Assign permissions
@@ -72,13 +71,13 @@ This segment hosts shared services utilized across the organization. These share
 **Policy management across some or all resources:** To monitor and enforce compliance with external (or internal) regulations, standards, and security policy, assign appropriate permission to those roles. The roles and permissions you choose will depend on the organizational culture and expectations of the policy program. See [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/security-baseline).
 
 Before defining the policies, consider:
-- How is the organization’s security audited and reported? Is there mandatory reporting?
+- How is the organization's security audited and reported? Is there mandatory reporting?
 - Are the existing security practices working?
 - Are there any requirements specific to industry, government, or regulatory requirements?
 
 Designate group(s) (or individual roles) for central functions that affect shared services and applications.
 
-After the policies are set, continuously improve those standards incrementally. Make sure that the security posture doesn’t degrade over time by having auditing and monitoring compliance. For information about managing security standards of an organization, see [governance, risk, and compliance (GRC)](/azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance).
+After the policies are set, continuously improve those standards incrementally. Make sure that the security posture doesn't degrade over time by having auditing and monitoring compliance. For information about managing security standards of an organization, see [governance, risk, and compliance (GRC)](/azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance).
 
 **Central IT operations across all resources:** Grant permissions to the central IT department (often the infrastructure team) to create, modify, and delete resources like virtual machines and storage. **Contributor** or **Owner** roles are appropriate for this function.
 
@@ -89,8 +88,6 @@ After the policies are set, continuously improve those standards incrementally. 
 Workload segments with autonomous DevOps teams will manage the resources associated with each application. The actual roles and their permissions depend on the application size and complexity, the application team size and complexity, and the culture of the organization and application team.
 
 **Service admin (Break Glass Account):** Use the **Service Administrator** role only for emergencies and initial setup. Do not use this role for daily tasks. See [Emergency Access ('Break Glass' Accounts)](/azure/architecture/framework/security/design-admins#emergency-access-or-break-glass-accounts) for more details.
-
-
 
 #### Segment reference permissions
 

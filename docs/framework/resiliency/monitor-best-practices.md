@@ -30,7 +30,7 @@ Catching issues early can minimize the need to roll back the entire workflow or 
 
 ## Measure remote call statistics
 
-Measure remote call statistics, and share the data with the application team to give your operations team an instantaneous view into application health, summarize remote call metrics, such as latency, throughput, and errors in the 99 and 95 percentiles. Perform statistical analysis on the metrics to uncover errors that occur within each percentile.
+Measure remote call statistics, and share the data with the application team to give your operations team an instantaneous view into application health, summarize remote call metrics, such as latency, throughput, and errors in the 99 and 95 percentiles. Perform statistical analysis on the metrics to uncover errors that occur within each percentile.
 
 ## Track transient exceptions and retries
 

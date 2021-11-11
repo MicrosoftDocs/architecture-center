@@ -32,7 +32,6 @@ Load testing measures system performance as the workload increases. It identifie
 
 Load testing takes places in stages of load. These stages are usually measured by virtual users (VUs) or simulated requests, and the stages happen over given intervals. Load testing provides insights into how and when your application needs to scale in order to continue to meet your SLA to your customers (whether internal or external). Load testing can also be useful for determining latency across distributed applications and microservices.
 
-
 The following are key points to consider for load testing:
 
 - **Know the Azure service limits:** Different Azure services have *soft* and *hard* limits associated with them. The terms soft limit and hard limit describe the current, adjustable service limit (soft limit) and the maximum limit (hard limit). Understand the limits for the services you consume so that you are not blocked if you need to exceed them. For a list of the most common Azure limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
@@ -45,7 +44,7 @@ The following are key points to consider for load testing:
 
 ## Stress testing
 
-Unlike load testing, which ensures that a system can handle what it’s designed to handle, stress testing focuses on overloading the system until it breaks. A stress test determines how stable a system is and its ability to withstand extreme increases in load. It does this by testing the maximum number requests from another service (for example) that a system can handle at a given time before performance is compromised and fails. Find this maximum to understand what kind of load the current environment can adequately support.
+Unlike load testing, which ensures that a system can handle what it's designed to handle, stress testing focuses on overloading the system until it breaks. A stress test determines how stable a system is and its ability to withstand extreme increases in load. It does this by testing the maximum number requests from another service (for example) that a system can handle at a given time before performance is compromised and fails. Find this maximum to understand what kind of load the current environment can adequately support.
 
 Determine the maximum demand you want to place on memory, CPU, and disk IOPS. Once a stress test has been performed, you will know the maximum supported load and an operational margin. It is best to choose an operational threshold so that scaling can be performed before the threshold has been reached.
 
@@ -70,5 +69,5 @@ For more information on autoscaling, see [Design for scaling](./design-scale.md)
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Testing tools](./test-tools.md)
+> [!div class="nextstepaction"]
+> [Testing tools](./test-tools.md)

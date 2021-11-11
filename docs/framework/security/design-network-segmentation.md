@@ -51,7 +51,7 @@ This article highlights some Azure networking features that create segments and 
 
 > [!IMPORTANT]
 >
->Align your network segmentation strategy with the enterprise segmentation model. This will reduce confusion and  challenges with different technical teams (networking, identity, applications, and so on). Each team should not develop their own segmentation and delegation models that don't align with each other.
+> Align your network segmentation strategy with the enterprise segmentation model. This will reduce confusion and  challenges with different technical teams (networking, identity, applications, and so on). Each team should not develop their own segmentation and delegation models that don't align with each other.
 
 ## Key points
 
