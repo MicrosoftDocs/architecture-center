@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This example shows how you can modernize your legacy systems that cannot support new processes and provide better user experience. 
+This example shows how you can modernize your legacy systems that cannot support new processes and provide better user experience.
 
 ## Potential use cases
 

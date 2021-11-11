@@ -24,7 +24,7 @@ This model is especially useful in the following scenarios:
 
    If the schema isn't cached yet, the **Event Processing** function retrieves the schema from the Azure Storage container. The request for the schema also stores the schema in Azure Cache for Redis for future retrieval.
 
-   >[!NOTE]
+   > [!NOTE]
    > Azure Schema Registry in Event Hubs can be a viable alternative to storing and caching JSON schemas. For more information, see [Azure Schema Registry in Event Hubs (Preview)](/azure/event-hubs/schema-registry-overview).
 
 1. If a topic already exists and the data is valid, the **Event Processing** function merges the data into the existing **Valid Data** Azure Service Bus topic, and sends the topic to the **Data Consumer** app.
@@ -53,7 +53,6 @@ This model is especially useful in the following scenarios:
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache)
 
-
 ## Next steps
 
 - [Azure Web PubSub service documentation](/azure/azure-web-pubsub)
@@ -63,4 +62,3 @@ This model is especially useful in the following scenarios:
 
 - [Publisher-Subscriber pattern](../../patterns/publisher-subscriber.md)
 - [Asynchronous messaging options in Azure](../../guide/technology-choices/messaging.md)
-

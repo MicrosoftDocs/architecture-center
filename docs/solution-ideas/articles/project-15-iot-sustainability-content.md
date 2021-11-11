@@ -31,7 +31,7 @@ Open Platform components fall into these categories:
 
 - **Fully included:** Azure Services that you deploy once. You expand these components when you add devices to the solution.
 
-- **Included but needing customization:** Services that the solution deploys. You modify these services to suit your use case. See [Project 15 Open Platform Developer Guide][Project 15 Open Platform Developer Guide] for detailed information on these services. For a high-level view of the services, see [Solution details][Solution details] later in this article.  
+- **Included but needing customization:** Services that the solution deploys. You modify these services to suit your use case. See [Project 15 Open Platform Developer Guide][Project 15 Open Platform Developer Guide] for detailed information on these services. For a high-level view of the services, see [Solution details][Solution details] later in this article.
 
 - **Not included and requiring full customization:** The place where intellectual property resides. Once you deploy the solution to your own Azure account, it's yours to build out. Think of how you use a word processor. The word processor is a tool, and the book you write is yours. The story you publish is yours, and the revenue you generate is yours. With Project 15 Open Platform, the same idea applies. This solution is a tool you use to create your own solutions.
 

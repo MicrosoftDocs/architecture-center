@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-DevOps and Kubernetes are better together. By implementing secure DevOps together with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster, at scale. 
+DevOps and Kubernetes are better together. By implementing secure DevOps together with Kubernetes on Azure, you can achieve the balance between speed and security and deliver code faster, at scale.
 
 ## Potential use cases
 
