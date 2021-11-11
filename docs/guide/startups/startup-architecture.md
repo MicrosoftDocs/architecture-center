@@ -18,11 +18,6 @@ categories:
   - web
 products:
   - azure-app-service
-  - azure-blob-storage
-  - azure-cdn
-  - azure-database-postgresql
-  - azure-monitor
-  - azure-virtual-network
 ---
 
 # Architecture for startups
