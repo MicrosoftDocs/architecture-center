@@ -19,12 +19,12 @@ This architecture works best for:
 
 ![Flow diagram that shows Azure Cosmos DB being accessed by a private endpoint for Azure Container Instances. It's fronted by Azure Application Gateway.](./media/architecture-automation.jpg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/Archicture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/Archecture.vsdx) of this architecture.*
 
 ### Part 1: Typical web application traffic flow
 1a. Application Gateway has web application firewall capability, which is ideal for fronting public-facing traffic before it hits the back-end workload. Application Gateway exposes the public IP address, so Azure DDoS Protection provides another layer of protection.
 
-1b. The backend pool of Application Gateway is configured using the private IP address of the Azure container instance in a container group. Azure container instances in container groups don't come with fully qualified domain names (FQDN), so the IP address has to be used.
+1b. The backend pool of Application Gateway is configured with the private IP address of the Azure container instance in a container group. Azure container instances in container groups don't come with fully qualified domain names (FQDN), so the IP address has to be used.
 
 1c. Containers in Azure Container Instances can consume private resources, like Azure Cosmos DB, via private links.
 
@@ -33,9 +33,9 @@ This architecture works best for:
 
 2b. Application Insights is used in containers to collect additional metrics, including heart beats, which can be sent to Application Insights for monitoring via a custom thread.
 
-2c. You can configure alerts based on threshold levels defined in steps 2a and 2b. For example, assume your system has three container instances running as a backend pool. You could configure an alert to fire when **Healthy host count** is less than 3. In an action group of alert rules, you can use an Azure function as the action type to trigger the custom action.
+2c. You can configure alerts based on threshold levels defined in steps 2a and 2b. For example, assume your system has three container instances running as a backend pool. You could configure an alert to fire when **healthy host count** is less than 3. In an action group of alert rules, you can use an Azure function as the action type to trigger the custom action.
 
-2d. In the Azure function, an Azure SDK is used to get the configuration of existing container instances and re-create the same instances. This function is triggered by the alert defined in step 2c. This function might take long time to run, depending on the complexity of the setup. Azure functions can time out, so you can use Azure Durable Functions to handle long running processes and get status updates.
+2d. In the Azure function, an Azure SDK is used to get the configuration of existing container instances and re-create the same instances. This function is triggered by the alert defined in step 2c. This function might take a long time to run, depending on the complexity of the setup. Azure functions can time out, so you can use Azure Durable Functions to handle long-running processes and get status updates.
 
 ## Components
 
