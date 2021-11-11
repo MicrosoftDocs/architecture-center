@@ -1,6 +1,5 @@
 
 
-
 This reference architecture illustrates how developers can create, manage, and monitor deployed containers in the public cloud, across multiple clouds, and on-premises.
 
 ![The diagram illustrates a developer team that deploys its container images to a Microsoft Azure Container Registry. Subsequently, the container images are pulled and deployed to either an on-premises or cloud-based Kubernetes cluster. The containers are monitored using Azure Monitor and the container images are scanned and monitored using Azure Container Registry.][architectural-diagram]

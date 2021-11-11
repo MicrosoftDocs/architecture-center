@@ -62,8 +62,8 @@ You need an Azure Stack Hub installation connected to Azure AD with a subscripti
 To connect to Azure Stack Hub using code, use the Azure Resource Manager endpoints API to get the authentication and graph endpoints for your Azure Stack Hub installation. Then authenticate using REST requests. You can find a sample client application on
 [GitHub](https://github.com/shriramnat/HybridARMApplication).
 
->[!Note]
->Unless the Azure SDK for your language of choice supports Azure API Profiles, the SDK may not work with Azure Stack Hub. To learn more about Azure API Profiles, see the [manage API version profiles](/azure-stack/user/azure-stack-version-profiles) article.
+> [!Note]
+> Unless the Azure SDK for your language of choice supports Azure API Profiles, the SDK may not work with Azure Stack Hub. To learn more about Azure API Profiles, see the [manage API version profiles](/azure-stack/user/azure-stack-version-profiles) article.
 
 ## Next steps
 

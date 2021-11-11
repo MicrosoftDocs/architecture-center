@@ -49,7 +49,6 @@ The following articles provide detailed analysis of architectures developed and 
 | [Upscale machine learning lifecycle with MLOps framework](../example-scenario/mlops/mlops-technical-paper.yml) | Learn how a Fortune 500 food company improved its demand forecasting and optimized the product stocks in different stores across several regions in US with the help of customized machine learning models. | AI/ML |
 | [Speech-to-text transcription pipeline with Azure Cognitive Services](../reference-architectures/ai/speech-to-text-transcription-pipeline.yml) | Improve the efficiency of your customer care centers and transform your business by analyzing high volumes of recorded calls and building a speech-to-text transcription pipeline with Azure Cognitive Services. | AI/ML |
 
-
 ## Solution ideas for manufacturing
 
 The following are other ideas that you can use as a starting point for your manufacturing solution.

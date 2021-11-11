@@ -117,9 +117,7 @@ In Azure AD, the admin consent flow is triggered by adding a "prompt" parameter 
 
 <!-- markdownlint-disable MD040 -->
 
-```
-/authorize?prompt=admin_consent&...
-```
+`/authorize?prompt=admin_consent&...`
 
 <!-- markdownlint-enable MD040 -->
 

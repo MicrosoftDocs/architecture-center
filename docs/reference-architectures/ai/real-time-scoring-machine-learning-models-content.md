@@ -1,6 +1,5 @@
 
 
-
 This reference architecture shows how to deploy Python models as web services to make real-time predictions using [Azure Kubernetes Service][aml-aks]. Machine learning models deployed on Azure Kubernetes are good for high-scale production deployments.
 
 Two scenarios are covered in this article: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown. In addition, two reference implementations for these scenarios are available on GitHub, one for [regular Python models][github-python] and one for [deep learning models][github-dl].
@@ -111,7 +110,6 @@ Use [Azure RBAC][rbac] to control access to the Azure resources that you deploy.
 Use the  [Azure pricing calculator][azure-pricing-calculator] to estimate costs. Here are some other considerations.
 
 For more information, see the Microsoft Azure Well-Architected Framework article [Principles of cost optimization][aaf-cost].
-
 
 ### Azure Machine Learning
 

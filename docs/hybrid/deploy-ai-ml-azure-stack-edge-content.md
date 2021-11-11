@@ -2,7 +2,7 @@ This reference architecture illustrates how to use [Azure Stack Edge][azure-stac
 
 Typical uses for extending inference include when you need to:
 
-- Run local, rapid machine learning inference against data as it’s ingested and you have a significant on-premises hardware footprint.
+- Run local, rapid machine learning inference against data as it's ingested and you have a significant on-premises hardware footprint.
 - Create long-term research solutions where existing on-premises data is cleaned and used to generate a model. The model is then used both on-premises and in the cloud; it's retrained regularly as new data arrives.
 - Build software applications that need to make inferences about users, both at a physical location and online.
 

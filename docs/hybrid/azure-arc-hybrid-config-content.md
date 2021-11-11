@@ -1,6 +1,5 @@
 
 
-
 This reference architecture illustrates how Azure Arc enables you to manage, govern, and secure servers across on-premises, multiple cloud, and edge scenarios.
 
 ![An Azure Arc hybrid server topology diagram with Arc enabled servers connected to Azure.][architectural-diagram]

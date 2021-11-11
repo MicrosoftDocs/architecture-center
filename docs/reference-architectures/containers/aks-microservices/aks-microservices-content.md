@@ -51,14 +51,13 @@ In Kubernetes, the functionality of an API gateway is primarily handled by an **
 
 ### Data storage
 
-In a microservices architecture, services should not share data storage solutions. Each service should manage its own data set to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. 
+In a microservices architecture, services should not share data storage solutions. Each service should manage its own data set to avoid hidden dependencies among services. Data separation helps avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements.
 
 For more information, see [Designing microservices: Data considerations](../../../microservices/design/data-considerations.md).
 
 Avoid storing persistent data in local cluster storage because that ties the data to the node. Instead, use an external service such as Azure SQL Database or Cosmos DB. Another option is to mount a persistent data volume to a solution using Azure Disks or Azure Files.
 
 For more information, see [Storage options for application in Azure Kubernetes Service](/azure/aks/concepts-storage).
-
 
 ## Service object
 The Kubernetes **Service** object provides a set of capabilities that match the microservices requirements for service discoverability:

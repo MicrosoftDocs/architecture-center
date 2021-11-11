@@ -32,13 +32,13 @@ The process in this scenario works as follows:
 
 3. Trigger or schedule model training or batch scoring of Azure Databricks jobs with required parameters.
 
-4. Azure Databricks job invokes it’s respective orchestrator notebook.
+4. Azure Databricks job invokes it's respective orchestrator notebook.
 
-5. The orchestrator notebook executes a magic Python “pip” command to install ML and MLOps wheel packages as notebook-scoped libraries.
+5. The orchestrator notebook executes a magic Python "pip" command to install ML and MLOps wheel packages as notebook-scoped libraries.
 
-6. The orchestrator notebook executes the MLOps Python function and corresponding ML Python function for the stage from installed wheel packages.  
+6. The orchestrator notebook executes the MLOps Python function and corresponding ML Python function for the stage from installed wheel packages.
 
-    You can also implement conditional Python logic to enable or disable specific MLOps stages for a particular run or rerun of the Azure Databricks job. For example, if the MLOps stage “Feature Engineering” needs to be disabled for rerun, you can use an Azure Databricks job parameter to set when it gets disabled.  
+    You can also implement conditional Python logic to enable or disable specific MLOps stages for a particular run or rerun of the Azure Databricks job. For example, if the MLOps stage "Feature Engineering" needs to be disabled for rerun, you can use an Azure Databricks job parameter to set when it gets disabled.
 
     **Note:** This step will be repeated for all MLOps stages.
 
@@ -66,7 +66,7 @@ In addition to addressing the issue of long-running process, this approach also 
 
 -  An alternative to MLflow projects
 
-    -  This approach allows the reuse of an existing Databricks cluster. To run an MLflow project against Azure Databricks, a new cluster must be created; an existing cluster cannot be used. However, in certain situations it’s not possible to create a new cluster on Databricks—for example, if the Databricks service is shared, or if you lack necessary permissions to create new clusters. In these situations, this approach offers a workaround.
+    -  This approach allows the reuse of an existing Databricks cluster. To run an MLflow project against Azure Databricks, a new cluster must be created; an existing cluster cannot be used. However, in certain situations it's not possible to create a new cluster on Databricks—for example, if the Databricks service is shared, or if you lack necessary permissions to create new clusters. In these situations, this approach offers a workaround.
 
     -  This approach can be used completely within the Databricks ecosystem, by using features like Jobs or Node Pools without interacting with external systems (for example, MLflow CLI). This might be required if Databricks access is restricted behind a VPN.
 
@@ -116,7 +116,7 @@ Costs related to this use case will depend on the standard pricing for the follo
 A sample implementation of this concept is available on the [Azure Databricks MLOps using MLflow repository](https://github.com/Azure-Samples/azure-databricks-mlops-mlflow)
 . This sample provides:
 
--  A way to run Python-based MLOps without using [MLflow projects](https://mlflow.org/docs/latest/projects.html), but still using MLflow for managing the end-to-end machine learning life cycle.
+-  A way to run Python-based MLOps without using [MLflow projects](https://mlflow.org/docs/latest/projects.html), but still using MLflow for managing the end-to-end machine learning life cycle.
 
 -  A sample of machine learning source code structure along with unit test cases.
 

@@ -55,7 +55,6 @@ Because of AKS and Azure AD integration, you can leverage ID management and auth
 
 [**Requirement 9**](#requirement-9)&mdash;Restrict physical access to cardholder data
 
-
 ### Requirement 7.1
 
 Limit access to system components and cardholder data to only those individuals whose job requires such access.
@@ -101,7 +100,7 @@ Then, formalize the definition by determining what level of access is required f
 |**Application developers**|Develop the application. All application code is subject to training and quality gates upholding compliance, attestation, and release management processes. Might manage the build pipelines, but usually not deployment pipelines.|Read access to Kubernetes namespaces and Azure resources that are in scope of the workload. No write access for deploying or modifying any state of the system.|
 |**Application operators (or SRE)**|Have a deep understanding of the code base, observability, and operations. Do live-site triage and troubleshooting. Along with application developers, improve availability, scalability and performance of the application. Manage the "last-mile" deployment pipeline and help manage the build pipelines.|Highly privileged within the scope of the application that includes related Kubernetes namespaces and Azure resources. Likely have standing access to parts of the Kubernetes cluster.
 |**Infrastructure owners**| Design a cost-effective architecture, including its connectivity and the functionality of components. The scope can include cloud and on-premises services. Decide capabilities data retention, business continuity features, and others.|Access to platform logs and cost center data. No access is required within the cluster.|
-|**Infrastructure operators (or SRE)**|Operations related to the cluster and dependent services. Build, deploy, and bootstrap the pipeline for the cluster in which the workload is deployed. Set targets node pools, and expected sizing and scale requirements. Monitor the health of the container hosting infrastructure and dependent services.|Read access to workload namespaces. Highly-privileged access for the cluster. 
+|**Infrastructure operators (or SRE)**|Operations related to the cluster and dependent services. Build, deploy, and bootstrap the pipeline for the cluster in which the workload is deployed. Set targets node pools, and expected sizing and scale requirements. Monitor the health of the container hosting infrastructure and dependent services.|Read access to workload namespaces. Highly-privileged access for the cluster.
 |**Policy, security owners**| Have security or regulation compliance expertise. Define policies that protect the security and regulatory compliance of the company employees, its assets, and those of the company's customers. Works with all other roles to ensure policy is applied and auditable through every phase.|Read access to the workload and the cluster. Also access to log and audit data.|
 |**Network operators**|Allocation of enterprise-wide virtual network and subnets. Configuration and maintenance of Azure Firewall, WAF, NSGs, and DNS configuration.|Highly-privileged in the networking layer. No write permission within the cluster.|
 
@@ -136,7 +135,6 @@ Here are some examples.
 |A _cluster operator_ designs and deploys a reliable and secure AKS cluster to the platform. Responsible for maintaining cluster up time. <p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s), but are not highly privileged. </p> |**Infrastructure operators**|
 |A _network engineer_ allocates of enterprise-wide virtual network and subnets, on-premises to cloud connectivity, and network security. |**Infrastructure operators**|
 
-
 #### Requirement 7.1.4
 
 Require documented approval by authorized parties specifying required privileges.
@@ -147,7 +145,7 @@ Have a gated process for approving changes in roles and permissions, including t
 
 ### Requirement 7.2
 
-Establish an access control system for systems components that restricts access based on a user's need to know, and is set to “deny all” unless specifically allowed.
+Establish an access control system for systems components that restricts access based on a user's need to know, and is set to "deny all" unless specifically allowed.
 
 #### Your responsibilities
 
@@ -224,13 +222,12 @@ When you start the configuration, start with zero-trust policies. Make exception
 
 - All Azure services, Azure Key Vault, and Azure Container Registry, have *deny all* set of permissions by default.
 
-- Any administrative access points, such as a jump box, should deny all access in the initial configuration. All elevated permissions must be defined explicitly to the deny all rule. 
+- Any administrative access points, such as a jump box, should deny all access in the initial configuration. All elevated permissions must be defined explicitly to the deny all rule.
 
 > [!NOTE]
 > Remember that for network access, NSGs allow all communication by default. Change that to set *deny all* as the starting rule with high priority. Then, add exceptions that will be applied before the *deny all* rule, as needed. Be consistent on the naming, so that it's easier to audit.
->   
+>
 > Azure Firewall implements *deny all* by default.
-
 
 ### Requirement 7.3
 
@@ -278,7 +275,6 @@ Use Azure AD as the identity store. Because the cluster and all Azure resources 
 Take advantage of Azure AD business-to-business (B2B) that's designed to host third-party accounts, such as vendors, partners, as guest users. Grant the appropriate level of access by using conditional policies to protect corporate data. These accounts must have minimal standing permissions and mandatory expiry dates. For more information, see [What is guest user access in Azure Active Directory B2B](/azure/active-directory/external-identities/what-is-b2b).
 
 Your organization should have a clear and documented pattern of vendor and similar access.
-
 
 **APPLIES TO: 8.1.6, 8.1.7, 8.1.8**
 
@@ -389,10 +385,9 @@ All access to any database containing cardholder data (including access by appli
 
 #### Your responsibilities
 
-Provide access based on roles and responsibilities. People can use their identity, but the access must be restricted on a need-to-know basis, with minimal standing permissions. People should never use application identities, and database access identities must never be shared. 
+Provide access based on roles and responsibilities. People can use their identity, but the access must be restricted on a need-to-know basis, with minimal standing permissions. People should never use application identities, and database access identities must never be shared.
 
 If possible, access database from applications through managed identity. Otherwise, limit exposure to connection strings and credentials. Use Kubernetes secrets to store sensitive information instead of keeping them places where they are easily discovered, such as pod definition. Another way is to store and load secrets to and from a managed store, such as Azure Key Vault. With managed identities enabled on an AKS cluster, it has to authenticate itself against Key Vault to get access.
-
 
 ### Requirement 8.8
 
@@ -423,7 +418,6 @@ Here are some suggestions for applying technical controls:
 - Minimize exporting of CHD backups to on-premises destinations. Use solutions hosted in Azure to limit physical access to backups.
 
 - Minimize backups to on-premises. If this is required, be aware that the on-premises destination will be in scope for audit.
-
 
 ## Next steps
 

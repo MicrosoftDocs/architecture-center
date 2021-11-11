@@ -1,4 +1,4 @@
-This reference architecture details several configurations to consider when running microservices on Azure Kubernetes Services. Topics include configuring network policies, pod autoscaling, and distributed tracing across a microservice-based application. 
+This reference architecture details several configurations to consider when running microservices on Azure Kubernetes Services. Topics include configuring network policies, pod autoscaling, and distributed tracing across a microservice-based application.
 
 This architecture builds on the [AKS Baseline architecture](../aks/secure-baseline-aks.yml), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details are not covered in this document. It is recommended that you become familiar with the AKS baseline before proceeding with the microservices content.
 
@@ -23,7 +23,7 @@ The AKS infrastructure features used in this architecture include:
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
   - [Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-overview)
 
-**[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network/)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet. 
+**[Azure Virtual Networks](https://azure.microsoft.com/services/virtual-network/)** are isolated and highly secure environments for running virtual machines (VMs) and applications. This reference architecture uses a peered hub-spoke virtual network topology. The hub virtual network holds the Azure firewall and Azure Bastion subnets. The spoke virtual network holds the AKS system and user node pool subnets and the Azure Application Gateway subnet.
 
 **[Azure Private Link](https://azure.microsoft.com/services/private-link/)** allocates specific private IP addresses to access Azure Container Registry and Key Vault from [Private Endpoints](/azure/private-link/private-endpoint-overview) within the AKS system and user node pool subnet.
 
@@ -98,7 +98,7 @@ For the [AGIC](https://azure.github.io/application-gateway-kubernetes-ingress/) 
 
 ### Zero-trust network policies
 
-Network policies specify how AKS pods are allowed to communicate with each other and with other network endpoints. By default, all ingress and egress traffic is allowed to and from pods. When designing how your microservices communicate with each other and with other endpoints, consider following a *zero trust principle* where access to any service, device, application, or data repository requires explicit configuration. 
+Network policies specify how AKS pods are allowed to communicate with each other and with other network endpoints. By default, all ingress and egress traffic is allowed to and from pods. When designing how your microservices communicate with each other and with other endpoints, consider following a *zero trust principle* where access to any service, device, application, or data repository requires explicit configuration.
 
 One strategy in implementing a zero-trust policy is to create a network policy that denies all ingress and egress traffic to all pods within the target namespace. The following example shows a 'deny all policy' that would apply to all pods located in the backend-dev namespace.
 
