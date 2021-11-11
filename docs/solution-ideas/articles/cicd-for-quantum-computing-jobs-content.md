@@ -1,6 +1,3 @@
-> The H1 title is a noun phrase that describes the scenario. Don't enter it here, but as the **name** value in the corresponding YML file.> 
-> Include the solution idea header note at the top of the solution idea. This adds clarification why this is a scaled-back architecture (and provides consistency with our other SIs)...
-
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Introductory section (no heading)
@@ -20,7 +17,7 @@ These other uses cases have similar design patterns:
 
 ## Architecture
 
-_Architecture diagram goes here_
+![Architecture diagram](../media/cicd-for-quantum-computing-jobs.png)
 
 After the architecture diagram, include a numbered list that describes the data flow or workflow through the solution. Explain what each step does. Start from the user or external data source, and then follow the flow through the rest of the solution.
 
