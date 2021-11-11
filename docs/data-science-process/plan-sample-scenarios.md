@@ -254,6 +254,5 @@ For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Anal
 [8]: ./media/plan-sample-scenarios/dsp-plan-sample-scenarios.png
 [9]: ./media/plan-sample-scenarios/dsp-plan-local-to-hive.png
 
-
 <!-- Module References -->
 [import-data]: /azure/machine-learning/studio-module-reference/import-data

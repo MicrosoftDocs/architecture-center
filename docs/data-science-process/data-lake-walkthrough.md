@@ -32,7 +32,6 @@ These technologies are used in this walkthrough.
 * Azure Machine Learning
 * Scripts
 
-
 ### Azure Data Lake Analytics
 
 The [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) has all the capabilities required to make it easy for data scientists to store data of any size, shape and speed, and to conduct data processing, advanced analytics, and machine learning modeling with high scalability in a cost-effective way.   You pay on a per-job basis, only when data is actually being processed. Azure Data Lake Analytics includes U-SQL, a language that blends the declarative nature of SQL with the expressive power of C# to provide scalable distributed query capability. It enables you to process unstructured data by applying schema on read, insert custom logic and user-defined functions (UDFs), and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
@@ -69,7 +68,6 @@ Before you begin these topics, you must have the following:
 >
 >
 
-
 ## Prepare data science environment for Azure Data Lake
 
 To prepare the data science environment for this walkthrough, create the following resources:
@@ -82,14 +80,12 @@ To prepare the data science environment for this walkthrough, create the followi
 
 This section provides instructions on how to create each of these resources. If you choose to use Hive tables with Azure Machine Learning, instead of Python, to build a model, you also need to provision an HDInsight (Hadoop) cluster. This alternative procedure in described in the Option 2 section.
 
-
 > [!NOTE]
 > The **Azure Data Lake Store** can be created either separately or when you create the **Azure Data Lake Analytics** as the default storage. Instructions are referenced for creating each of these resources separately, but the Data Lake storage account need not be created separately.
 >
 >
 
 ### Create an Azure Data Lake Storage
-
 
 Create an ADLS from the [Azure portal](https://portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure portal](/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there.
 

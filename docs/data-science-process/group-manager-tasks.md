@@ -18,7 +18,6 @@ categories:
   - ai-machine-learning
 ---
 
-
 # Team Data Science Process group manager tasks
 
 This article describes the tasks that a *group manager* completes for a data science organization. The group manager manages the entire data science unit in an enterprise. A data science unit may have several teams, each of which is working on many data science projects in distinct business verticals. The group manager's objective is to establish a collaborative group environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). For an outline of all the personnel roles and associated tasks handled by a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
@@ -240,7 +239,6 @@ To add members to the group:
 1. In the **Add users and groups** dialog, search for and select members to add to the group, and then select **Save changes**.
 
    ![Add users and groups](./media/group-manager-tasks/add-users.png)
-
 
 To configure permissions for members:
 

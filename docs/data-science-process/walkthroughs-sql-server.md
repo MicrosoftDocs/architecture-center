@@ -25,26 +25,21 @@ These walkthroughs use SQL Server, SQL Server R Services, and SQL Server Python 
 
 Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use. See [Walkthroughs executing the Team Data Science Process](walkthroughs.md) for an itemization of these examples.
 
-
 ## Predict taxi tips using Python and SQL queries with SQL Server
 
 The [Use SQL Server](sql-walkthrough.md) walkthrough shows how you build and deploy machine learning classification and regression models.  The data are a publicly available NYC taxi trip and fare dataset.
-
 
 ## Predict taxi tips using Microsoft R with SQL Server
 
 The [Use SQL Server R Services](/sql/machine-learning/tutorials/walkthrough-data-science-end-to-end-walkthrough) walkthrough shows how to build and deploy an R model to SQL Server. The walkthrough is designed to introduce R developers to R Services (In-Database).
 
-
 ## Predict taxi tips using R from T-SQL or stored procedures with SQL Server
 
 The [Data science walkthrough for R and SQL Server](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) provides SQL programmers with experience building an advanced analytics solution with Transact-SQL using SQL Server R Services to operationalize an R solution.
 
-
 ## Predict taxi tips using Python in SQL Server stored procedures
 
 The [Use T-SQL with SQL Server Python Services](/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) walkthrough provides SQL programmers with experience building a machine learning solution in SQL Server. It demonstrates how to incorporate Python into an application by adding Python code to stored procedures.
-
 
 ## Next steps
 

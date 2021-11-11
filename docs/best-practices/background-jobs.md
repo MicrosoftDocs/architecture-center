@@ -120,11 +120,13 @@ Azure WebJobs have the following characteristics:
 - To minimize the impact of jobs on the performance of the web app, consider creating an empty Azure Web App instance in a new App Service plan to host long-running or resource-intensive WebJobs.
 
 ### Azure Functions
+
 An option that is similar to WebJobs is Azure Functions. This service is serverless that is most suitable for event-driven triggers that run for a short period. A function can also be used to run scheduled jobs through timer triggers, when configured to run at set times.
 
 Azure Functions is not a recommended option for large, long-running tasks because they can cause unexpected timeout issues. However, depending on the hosting plan, they can be considered for schedule-driven triggers.
 
 #### Considerations
+
 If the background task is expected to run for a short duration in response to an event, consider running the task in a Consumption plan. The execution time is configurable up to a maximum time. A function that runs for longer costs more. Also CPU-intensive jobs that consume more memory can be more expensive. If you use additional triggers for services as part of your task, those are billed separately.
 
 The Premium plan is more suitable if you have a high number of tasks that are short but expected to run continuously. This plan is more expensive because it needs more memory and CPU. The benefit is that you can use features such as virtual network integration.
@@ -132,9 +134,9 @@ The Premium plan is more suitable if you have a high number of tasks that are sh
 The Dedicated plan is most suitable for background jobs if your workload already runs on it. If you have underutilized VMs, you can run it on the same VM and share compute costs.
 
 For more information, see these articles:
+
 - [Azure Functions hosting options](/azure/azure-functions/functions-scale)
 - [Timer trigger for Azure Functions](/azure/azure-functions/functions-bindings-timer?tabs=csharp)
-
 
 ### Azure Virtual Machines
 

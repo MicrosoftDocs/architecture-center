@@ -32,7 +32,6 @@ Here is a visual representation of the TDSP lifecycle:
 
 ![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
-
 ## Goals
 * Produce a clean, high-quality data set whose relationship to the target variables is understood. Locate the data set in the appropriate analytics environment so you are ready to model.
 * Develop a solution architecture of the data pipeline that refreshes and scores the data regularly.
