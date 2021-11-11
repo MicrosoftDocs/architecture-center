@@ -32,10 +32,6 @@ products:
   - azure-cosmos-db
   - azure-functions
   - azure-storage
-  - azure-search
-  - azure-cognitive-search
-  - azure-computer-vision
-  - azure-translator-text
 ---
 
 <!-- cSpell:ignore Alexa Rekognition Cognito ElastiCache Greengrass Firehose -->

@@ -14,14 +14,11 @@ azureCategories:
   - containers
   - devops
 products:
-  - azure-container-registry
   - azure-container-instances
-  - azure-kubernetes-service
   - azure-active-directory
   - azure-virtual-network
   - azure-virtual-machines
-  - azure-devops
-  - azure-monitor
+  - azure-pipelines
 name: Building blocks for autonomous-driving simulation environments
 summary: To assess autonomous driving (AD), function engineers need to simulate the behavior of vehicles with AD capabilities.
 thumbnailUrl: /azure/architecture/browse/thumbs/building-blocks-autonomous-driving-simulation-environments.png

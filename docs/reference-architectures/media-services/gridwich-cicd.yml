@@ -19,7 +19,6 @@ products:
   - azure-functions
   - azure-key-vault
   - azure-pipelines
-  - azure-storage
 thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png
 content: |
    [!include[](gridwich-cicd-content.md)]

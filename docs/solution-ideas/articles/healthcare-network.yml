@@ -19,10 +19,6 @@ products:
   - azure-iot-hub
   - azure-sphere
   - azure-stack-edge
-  - azure-machine-learning
-  - azure-digital-twins
-  - azure-time-series-insights
-  - azure-data-lake-storage
 name: IoT device connectivity for healthcare facilities
 summary: See how buildings and campuses can securely, reliably, and scalably connect their on-premises Internet of Things (IoT) devices to the cloud.
 thumbnailUrl: /azure/architecture/browse/thumbs/healthcare-architecture.png

@@ -26,14 +26,11 @@ azureCategories:
   - ai-machine-learning
 summary: Create personalized marketing offers and improve customer response using big-data insights based on Azure Machine Learning and Stream Analytics.
 products:
-  - azure-cache-redis
   - azure-cosmos-db
   - azure-event-hubs
   - azure-functions
   - azure-machine-learning
-  - azure-storage-accounts
   - azure-stream-analytics
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/personalized-marketing.png
 content: |
   [!include[](personalized-marketing-content.md)]

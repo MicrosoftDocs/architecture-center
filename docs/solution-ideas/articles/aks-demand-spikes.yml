@@ -22,12 +22,9 @@ azureCategories:
 summary: Learn how to achieve fast and reliable service quality during seasonal and other high-traffic demand periods.
 products:
   - azure-api-management
-  - azure-cdn
   - azure-cosmos-db
   - azure-functions
   - azure-kubernetes-service
-  - azure-notification-hubs
-  - azure-storage
   - azure-traffic-manager
 thumbnailUrl: /azure/architecture/browse/thumbs/aks-demand-spikes.png
 content: |

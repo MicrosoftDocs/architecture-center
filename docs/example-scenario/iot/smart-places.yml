@@ -19,7 +19,6 @@ azureCategories:
   - iot
 summary: Use Azure Digital Twins to create models of smart places from IoT device data. View and control products, systems, environments, and experiences.
 products:
-  - azure-api-management
   - azure-data-explorer
   - azure-data-factory
   - azure-digital-twins

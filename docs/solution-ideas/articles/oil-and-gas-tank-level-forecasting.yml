@@ -33,7 +33,6 @@ products:
   - azure-machine-learning
   - azure-stream-analytics
   - azure-synapse-analytics
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/oil-and-gas-tank-level-forecasting.png
 content: |
    [!include[](oil-and-gas-tank-level-forecasting-content.md)]

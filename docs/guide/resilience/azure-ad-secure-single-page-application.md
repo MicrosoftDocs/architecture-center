@@ -9,6 +9,7 @@ products:
 categories:
   - identity
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: guide
 ms.date: 7/7/2021
 ms.author: lanallai

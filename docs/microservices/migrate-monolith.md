@@ -18,7 +18,7 @@ ms.custom:
   - guide
 ---
 
-# Monoliths to microservices using domain-driven design
+# Migrate a monolith application to microservices using domain-driven design
 
 This article describes how to use domain-driven design (DDD) to migrate a monolithic application to microservices.
 

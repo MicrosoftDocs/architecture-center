@@ -18,7 +18,6 @@ products:
   - azure-blob-storage
   - azure-event-grid
   - azure-functions
-  - azure-key-vault
   - azure-logic-apps
   - azure-media-services
 thumbnailUrl: /azure/architecture/browse/thumbs/request-response.png

@@ -16,16 +16,11 @@ azureCategories:
   - databases
   - storage
 products:
-  - azure-blob-storage
-  - azure-cosmos-db
-  - azure-data-lake-storage
   - azure-databricks
   - azure-event-hubs
   - azure-functions
   - azure-sql-database
   - azure-stream-analytics
-  - azure-table-storage
-  - power-bi
 name: Cost savings through HTAP with Azure SQL
 summary: Use a scalable HTAP architecture with Azure SQL Database to combine transaction processing with analytics. Reduce latencies and costs with in-memory databases.
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-sql-htap-thumbnail.png
