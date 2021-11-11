@@ -63,7 +63,6 @@ The following example shows how to generate binned features by binning (using fi
 SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>
 ```
 
-
 ### <a name="sql-featurerollout"></a>Rolling out the features from a single column
 In this section, we demonstrate how to roll out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
 

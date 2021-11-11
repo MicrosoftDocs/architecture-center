@@ -59,7 +59,7 @@ Below are the considerations and recommendations around virtual machine componen
 #### Considerations
 
 - Based on sizing requirements, Azure VM can be selected from the list of SAP certified VMs mentioned in the [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533).
-- Only Windows Server and Oracle Linux are the certified and supported operating systems for Oracle databases and Oracle Client binaries. Therefore, SAP Application and Database server’s operating system is restricted to Windows Server and Oracle Linux. However, the central cervices, which don’t run any Oracle binaries can run on any of the operating systems mentioned in the [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533).
+- Only Windows Server and Oracle Linux are the certified and supported operating systems for Oracle databases and Oracle Client binaries. Therefore, SAP Application and Database server's operating system is restricted to Windows Server and Oracle Linux. However, the central cervices, which don't run any Oracle binaries can run on any of the operating systems mentioned in the [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533).
 - Pacemaker clustering solution is not supported on Oracle Linux on Azure. One of the alternatives for this is [SIOS Protection Suite for Linux](https://us.sios.com/sap-clustering/).
 - There are few restrictions around usage of Oracle products on Azure. Refer [SAP Note – 2039619](https://launchpad.support.sap.com/#/notes/2039619) for details.
 
@@ -126,7 +126,7 @@ The overall solution is integrated into [Azure Security Center](/azure/security-
 - Enable Single-Sign-On (SSO) for user authentication from SAPGUI and browser-based SAP access.
 - Use security hardened operating system images for provisioning Azure VMs. Refer to the latest [CIS benchmarks](https://www.cisecurity.org/benchmark/azure/) for the latest recommendations.
 - Implement encryption-at-rest for:
-  - Oracle Database - It’s recommended to use Oracle Transparent Data Encryption (TDE) for Oracle Database Encryption.
+  - Oracle Database - It's recommended to use Oracle Transparent Data Encryption (TDE) for Oracle Database Encryption.
   - Managed Disks – use Azure Disk Encryption with Microsoft or Customer-Managed Keys.
   - Backups – All the backed-up data to Azure is encrypted by default.
 - Implement encryption-in-transit for:

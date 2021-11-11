@@ -363,7 +363,6 @@ If your data is already serialized, use `update_from_raw_data` instead of `updat
 [ipython-intermediate-dataset]:./media/python-data-access/ipython-intermediate-dataset.png
 [ipython-histogram]:./media/python-data-access/ipython-histogram.png
 
-
 <!-- Module References -->
 [convert-to-csv]: /azure/machine-learning/studio-module-reference/convert-to-csv
 [split]: /azure/machine-learning/studio-module-reference/split-data

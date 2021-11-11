@@ -35,7 +35,6 @@ The solution involves the following steps:
 1. The remote infrastructure accepts the attestation token from the medical platform's web api and verifies it with a public certificate found in the Azure Attestation service. If the token is verified, there is near certainty that the enclave is safe and neither the data or app code have been opened outside of the enclave.
 1. The diagnostics provider, confident that the data has not been exposed, sends it into its own enclave in an Open Neural Network Exchange (ONNX) runtime server. An AI model interprets the medical imagery and returns its diagnosis results back to the medical platform's confidential Web API app. From here, the software can then interact with patient records and/or contact other hospital staff.
 
-
 ### Components
 
 - [Static website hosting in Blob Storage](/azure/storage/blobs/storage-blob-static-website) serves static content like HTML, CSS, JavaScript, and image files directly from a storage container.

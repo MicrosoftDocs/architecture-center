@@ -752,7 +752,6 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [17]: ./media/sql-walkthrough/aml-reader.png
 [18]: ./media/sql-walkthrough/aml-scoring.png
 
-
 <!-- Module References -->
 [edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
 [select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset

@@ -253,7 +253,6 @@ To add members to the team:
 
    ![Add users and groups](./media/team-lead-tasks/add-users.png)
 
-
 To configure permissions for team members:
 
 1. From the **Project Settings** left navigation, select **Permissions**.
@@ -272,7 +271,7 @@ This step is optional, but sharing data and analytics resources with your entire
 
 For information about sharing other resources with your team, such as Azure HDInsight Spark clusters, see [Platforms and tools](platforms-and-tools.md). That topic provides guidance from a data science perspective on selecting resources that are appropriate for your needs, and links to product pages and other relevant and useful tutorials.
 
->[!NOTE]
+> [!NOTE]
 > To avoid transmitting data across data centers, which might be slow and costly, make sure that your Azure resource group, storage account, and DSVM are all hosted in the same Azure region.
 
 ### Create Azure file storage

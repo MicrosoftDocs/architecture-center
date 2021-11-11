@@ -37,7 +37,6 @@ By following the guidance you can maintain full control of your research data, h
 
 8. Data Factory moves the data to the public storage account in a separate container to allow external researchers to have access to their exported data and models. Alternately, you can provision another storage account in a lower security environment.
 
-
 ### Components
 
 This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles are described below. For links to product documentation to get started with these services, see [Next steps](#next-steps).
@@ -46,17 +45,17 @@ This architecture consists of several Azure cloud services that scale resources 
 
 Here are the core components that move and process research data.
 
-- **Microsoft Data Science Virtual Machine (DSVM):** VMs that are configured with tools used for data analytics and machine learning.
+- **Microsoft Data Science Virtual Machine (DSVM):** VMs that are configured with tools used for data analytics and machine learning.
 
-- **Azure Machine Learning** - Used to train, deploy, automate, and manage machine learning models and to manage the allocation and use of ML compute resources.
+- **Azure Machine Learning:** Used to train, deploy, automate, and manage machine learning models and to manage the allocation and use of ML compute resources.
 
-- **Azure Machine Learning Compute** - A cluster of nodes that are used to train and test machine learning and AI models. The compute is allocated on demand based on an automatic scaling option.
+- **Azure Machine Learning Compute:** A cluster of nodes that are used to train and test machine learning and AI models. The compute is allocated on demand based on an automatic scaling option.
 
-- **Azure Blob storage:** There are two instances. The public instance is used to temporarily store the data uploaded by data owners. Also, it stores deidentified data after modeling in a separate container. The second instance is private. It receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster.
+- **Azure Blob storage:** There are two instances. The public instance is used to temporarily store the data uploaded by data owners. Also, it stores deidentified data after modeling in a separate container. The second instance is private. It receives the training and test data sets from Machine Learning that are used by the training scripts. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster.
 
 - **Azure Data Factory:** Automatically moves data between storage accounts of differing security levels to ensure separation of duties.
 
-- **Azure Virtual Desktop** is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use Azure Bastion. But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
+- **Azure Virtual Desktop** is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use Azure Bastion. But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
 
     - Ability to stream an app like VSCode to run notebooks against the machine learning compute resources.
     - Ability to limit copy, paste, and screen captures.
@@ -92,7 +91,6 @@ Azure resources that are used to store, test, and train research data sets are p
 - Access to and from specific services and ports. For example, this architecture blocks all ports ranges except the ones required for Azure Services (such as Azure Monitor).     A full list of Service Tags and the corresponding services can be found [here](/azure/virtual-network/service-tags-overview).
 
     Also, access from VNet with Azure Virtual Desktop (AVD) on ports limited to approved access methods is accepted, all other traffic is denied. When compared to this environment, the other VNet (with AVD) is relatively open.
-
 
 The main blob storage in the secure environment is off the public internet. It's only accessible within the VNet through [private endpoint connections](/azure/storage/files/storage-files-networking-endpoints) and Azure Storage Firewalls. It's used to limit the networks from which clients can connect to Azure file shares.
 
@@ -132,14 +130,14 @@ Most research solutions are temporary workloads and don't need to be available f
 
 The size and type of the Data Science VMs should be appropriate to the style of work being performed. This architecture is intended to support a single research project and the scalability is achieved by adjusting the size and type of the VMs and the choices made for compute resources available to AML.
 
-The cost of DSVMs depends on the choice of the underlying VM series. Because the workload is temporary,  the consumption plan is recommended for the Logic App resource. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on estimated sizing of resources needed.
+The cost of DSVMs depends on the choice of the underlying VM series. Because the workload is temporary,  the consumption plan is recommended for the Logic App resource. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on estimated sizing of resources needed.
 
 ## Next steps
 
-- [Microsoft Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine/overview)
+- [Microsoft Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine/overview)
 - [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [Azure Machine Learning Compute](/azure/machine-learning/service/concept-compute-target)
-- [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
+- [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Data Factory](/azure/data-factory/introduction)
 - [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 - [Azure Security Center](/azure/security-center/)

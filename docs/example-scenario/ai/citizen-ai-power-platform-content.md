@@ -109,7 +109,7 @@ Here's a user interface for the app, created in Power Apps by using the low-code
 
 :::image type="content" source="media/citizen-ai-power-platform-car-price.png" alt-text="The UI provides various controls, such as buttons and drop-down lists, for the user to enter car data. The app predicts a price and displays it when the when the user selects the Predict button." lightbox="media/citizen-ai-power-platform-car-price.png" :::
 
-You can use Power Automate to build a low-code workflow to parse the user’s input, pass it to the Machine Learning endpoint, and retrieve the prediction. You can also use [Power BI to interact with the Machine Learning model](/power-bi/connect-data/service-aml-integrate) and create custom business reports and dashboards.
+You can use Power Automate to build a low-code workflow to parse the user's input, pass it to the Machine Learning endpoint, and retrieve the prediction. You can also use [Power BI to interact with the Machine Learning model](/power-bi/connect-data/service-aml-integrate) and create custom business reports and dashboards.
 
 :::image type="content" source="media/citizen-ai-power-platform-dashboard.png" alt-text="Schematic of the workflow." lightbox="media/citizen-ai-power-platform-dashboard.png" :::
 

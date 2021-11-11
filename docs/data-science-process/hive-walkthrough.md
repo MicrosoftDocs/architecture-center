@@ -566,7 +566,6 @@ From the Hive directory prompt, run:
 hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 ```
 
-
 ### Exploration: Class distributions in the multiclass setting
 > [!NOTE]
 > This is typically a data scientist task.
