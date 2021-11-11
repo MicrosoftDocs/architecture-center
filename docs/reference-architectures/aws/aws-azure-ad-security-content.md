@@ -169,7 +169,7 @@ The following diagram shows an example of the configuration steps and final poli
 
 ![Diagram showing configuration steps and final role mapping from AWS IAM to Azure AD.](media/role-mapping.png)
 
-## Deploy Azure AD for single sign-on to an individual AWS account 
+## Deploy Azure AD for single sign-on to an individual AWS account
 
 Azure AD supports single sign-on integration with AWS SSO. With AWS SSO you can connect Azure AD to AWS in one place and centrally govern access across hundreds of accounts and AWS SSO integrated applications. This enables seamless Azure AD sign-in experience for users to use the AWS CLI.
 
@@ -179,8 +179,8 @@ This procedure covers the following steps:
 
 1. Create a new Azure AD enterprise application.
 2. Configure Azure AD SSO for AWS.
-4. Update role mapping.
-5. Test Azure AD SSO into AWS Management Console.
+3. Update role mapping.
+4. Test Azure AD SSO into AWS Management Console.
 
 The following links provide full detailed implementation steps and troubleshooting:
 
@@ -222,22 +222,26 @@ On **AWS Console**, follow the steps below to create additional roles.
        1. Under **Choose a SAML 2.0 Provider**, select the SAML provider you created in the previous step.
        1. Select **Allow programmatic and AWS Management Console access**.
        1. Select **Next: Permissions**.
+
    1. On the **Attach permissions policies** dialog box, select **AdministratorAccess**. Then select **Next: Tags**.
-   1.	In the **Add Tags** dialog box, leave it blank and select **Next: Review**.
-   1.	In the **Review** dialog box, perform the following steps:
+   1. In the **Add Tags** dialog box, leave it blank and select **Next: Review**.
+   1. In the **Review** dialog box, perform the following steps:
        - In **Role Name**, enter your role name **(Administrator)**.
        - In **Role Description**, enter the description.
        - Select **Create Role**.
+
    1. Create an additional role, by following the steps listed above. Name the role **Developer** and give it a few selected permissions of your choice (such as **AmazonS3FullAccess**).
-   - You  have successfully created an **Administrator** and a **Developer** role in **AWS**. 
+
+      You have successfully created an **Administrator** and a **Developer** role in **AWS**.
 
    1. Create the following users and groups in **Azure AD**:
-      -	**User 1**: Test-AWSAdmin
-      -	**User 2**: Test-AWSDeveloper
-      -	**Group 1**: AWS-Account1-Administrators
-      -	**Group 2**: AWS-Account1-Developers
-      -	**Add** Test-AWSAdmin as a member of **AWS-Account1-Administrators**
-      -	**Add** Test-AWSDeveloper as a member of **AWS-Account1-Developers**
+      - **User 1**: Test-AWSAdmin
+      - **User 2**: Test-AWSDeveloper
+      - **Group 1**: AWS-Account1-Administrators
+      - **Group 2**: AWS-Account1-Developers
+      - **Add** Test-AWSAdmin as a member of **AWS-Account1-Administrators**
+      - **Add** Test-AWSDeveloper as a member of **AWS-Account1-Developers**
+
    1. Follow the steps on [How to configure role provisioning in AWS Single-Account Access](/azure/active-directory/saas-apps/amazon-web-service-tutorial#how-to-configure-role-provisioning-in-aws-single-account-access) to configure automated role provisioning. It may take up to one hour to complete the first provisioning cycle.
 
 ### How to update role mapping
