@@ -1,11 +1,10 @@
-Containerization is a common approach to app modernization. You might consider using Azure Kubernetes Service for advanced workloads, or use Azure Container Instances for simple container workloads, like a simple web application. This article focuses on implementing infrastructure-level serverless automation for Container Instances, together with Application Gateway.
+Containerization is a common approach to app modernization. You might consider using Azure Kubernetes Service for advanced workloads, or use Azure Container Instances for simple container workloads, like a simple web application. This article focuses on implementing infrastructure-level serverless automation for Container Instances when Application Gateway is used as a firewall.
 
-We'll start with a common scenario. To secure Azure container instances, you can use container groups in Azure Container Instances. Container groups allow you to deploy Azure container instances in a virtual network so that the containers can access other private resources or other Azure services via an Azure private endpoint. For customers hosting web applications, it's a common practice to have a web application firewall like Azure Application Gateway to front incoming traffic while using Azure Container Instances as a backend pool. This article is a great starting point: [Expose a static IP address for a container group
-](/azure/container-instances/container-instances-application-gateway).
+We'll start with a common scenario. To secure Azure container instances, you can use container groups in Azure Container Instances. By using container groups, you can deploy Azure container instances in a virtual network so that the containers can access other private resources or other Azure services via an Azure private endpoint. For customers hosting web applications, it's a common practice to use a web application firewall like Azure Application Gateway to front incoming traffic while using Azure Container Instances as a backend pool. This article is a great starting point: [Expose a static IP address for a container group](/azure/container-instances/container-instances-application-gateway).
 
 One potential challenge with this approach is using a non-static private IP address as a backend pool. The private IP might be rotated during maintenance, requiring the cloud admin to manually reconfigure the backend pool. If new containers are added for scaling, the admin would also need to do reconfiguration to ensure traffic is routed to the right backend pool. And liveness probes and readiness probes aren't supported in container groups, which makes it harder to identify workload downtime.
 
-This article explores enhancements to address these common issues by adopting Application Insights and Azure Monitor for monitoring and using Azure Functions to perform automatic rotation of private IPs. This approach will improve the redundancy of the workload.
+This article explores enhancements to address these common problems by adopting Application Insights and Azure Monitor for monitoring and using Azure Functions to perform automatic rotation of private IPs. This approach will improve the redundancy of the workload.
 
 ## Use cases
 
@@ -20,7 +19,7 @@ This architecture works best for:
 
 ![Flow diagram that shows Azure Cosmos DB being accessed by a private endpoint for Azure Container Instances. It's fronted by Azure Application Gateway.](./media/architecture-automation.jpg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/file-name.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/Archicture.vsdx) of this architecture.*
 
 ### Part 1: Typical web application traffic flow
 1a. Application Gateway has web application firewall capability, which is ideal for fronting public-facing traffic before it hits the back-end workload. Application Gateway exposes the public IP address, so Azure DDoS Protection provides another layer of protection.
