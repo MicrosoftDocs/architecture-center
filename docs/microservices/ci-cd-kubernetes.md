@@ -16,8 +16,6 @@ ms.custom:
   - guide
 ---
 
-<!-- markdownlint-disable MD040 -->
-
 # Building a CI/CD pipeline for microservices on Kubernetes
 
 It can be challenging to create a reliable CI/CD process for a microservices architecture. Individual teams must be able to release services quickly and reliably, without disrupting other teams or destabilizing the application as a whole.

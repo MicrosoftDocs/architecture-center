@@ -71,8 +71,6 @@ There is a spectrum from IaaS to pure PaaS. For example, Azure VMs can autoscale
 
 In general, there is a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure and manage the VMs and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS services fall somewhere in between.
 
-<!-- markdownlint-disable MD033 -->
-
 | Criteria | Virtual Machines | App Service | Azure Spring Cloud| Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
 | Application composition | Agnostic | Applications, containers | Applications, microservices |Services, guest executables, containers | Functions | Containers | Containers | Scheduled jobs  |

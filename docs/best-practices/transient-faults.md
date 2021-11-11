@@ -18,11 +18,7 @@ All applications that communicate with remote services and resources must be sen
 
 This document covers general guidance for transient fault handling. For information about handling transient faults when using Microsoft Azure services, see [Azure service-specific retry guidelines](./retry-service-specific.md).
 
-<!-- markdownlint-disable MD026 -->
-
 ## Why do transient faults occur in the cloud?
-
-<!-- markdownlint-enable MD026 -->
 
 Transient faults can occur in any environment, on any platform or operating system, and in any kind of application. In solutions that run on local on-premises infrastructure, the performance and availability of the application and its components is typically maintained through expensive and often underused hardware redundancy, and components and resources are located close to each other. While this approach makes a failure less likely, it can still result in transient faults - and even an outage through unforeseen events such as external power supply or network issues, or other disaster scenarios.
 

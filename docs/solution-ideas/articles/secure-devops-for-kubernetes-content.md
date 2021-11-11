@@ -11,8 +11,6 @@ Put guardrails around the development processes, by using CI/CD with dynamic pol
 ![Architecture diagram](../media/secure-devops-for-kubernetes.png)
 *Download an [SVG](../media/secure-devops-for-kubernetes.svg) of this architecture.*
 
-<!-- markdownlint-disable MD033 -->
-
 ### Data flow
 
 1. Developers rapidly iterate, test, and debug different parts of an application together, in the same Kubernetes cluster.

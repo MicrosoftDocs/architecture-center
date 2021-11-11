@@ -15,8 +15,6 @@ ms.custom:
 social_image_url: /azure/architecture/topics/media/architecture-hpc-saas.png
 ---
 
-<!-- markdownlint-disable MD033 -->
-<!-- markdownlint-disable MD026 -->
 <!-- cSpell:ignore fullheight neuro milliman hymans netapp gluster tibco cyclecloud hpcpack radioss ansys axioma alces slurm mdcs cntk -->
 
 # High Performance Computing (HPC) on Azure
@@ -53,17 +51,14 @@ The following articles provide more detail about this dynamic scaling capability
 
 As you're looking to implement your own HPC solution on Azure, ensure you're reviewed the following topics:
 
-<!-- markdownlint-disable MD032 -->
-
 > [!div class="checklist"]
+>
 > - Choose the appropriate [architecture](#infrastructure) based on your requirements
 > - Know which [compute](#compute) options is right for your workload
 > - Identify the right [storage](#storage) solution that meets your needs
 > - Decide how you're going to [manage](#management) all your resources
 > - Optimize your [application](#hpc-applications) for the cloud
 > - [Secure](#security) your Infrastructure
-
-<!-- markdownlint-enable MD032 -->
 
 ## Infrastructure
 

@@ -42,7 +42,7 @@ In the Azure portal, add a Key Vault access policy to allow the Azure Functions 
 
 ### Azure CLI
 
-You can also set Azure Key Vault policy by using the [Azure CLI](/cli/azure/keyvault?view=azure-cli-latest):
+You can also set Azure Key Vault policy by using the [Azure CLI](/cli/azure/keyvault):
 
 ```azurecli
 az keyvault set-policy --name $<Key Vault Name> --spn $<Service Connection Principal> --secret-permissions set

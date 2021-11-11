@@ -37,7 +37,11 @@ To learn how Azure can provide an intelligent cloud backbone to content owners a
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/n3fRYmbqkEc]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 
