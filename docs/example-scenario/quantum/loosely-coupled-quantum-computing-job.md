@@ -93,7 +93,7 @@ Always respect that quantum target environments are limited resources. At some p
 
 ### DevOps
 
-## Deploy this scenario
+For a description of how a CI/CD-approach for this architecture could look like, see [CI/CD for Quantum Computing Jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs-content.md).
 
 ## Pricing
 
@@ -107,6 +107,7 @@ For the Azure Quantum service following points should be considered:
 
 ## Next steps
 
+%%%missing%%%
 
 ## Related resources
 

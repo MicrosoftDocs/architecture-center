@@ -1,52 +1,50 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Introductory section (no heading)
-The introduction contains:
+Quantum computing harnesses the unique behavior of quantum physics and applies it to computing. This approach promises massive speedup in compute time compared to classical computing especially in areas like optimization, simulation, or machine learning. However, quantum computing components have a different development and operating model compared to pure classical software. Typically, one or more classical compute component orchestrates the [execution of quantum jobs](/azure/quantum/how-to-work-with-jobs) at runtime.
 
-- A paragraph that describes what the solution does (the domain)
-- A paragraph that contains a brief description of the main Azure services that make up the solution. This paragraph should convey the Azure value proposition, not a complete description of the architecture.
-
-## Potential use cases
-
-> Are there any other use cases or industries where this would be a fit?
-> How similar or different are they to what's in this article?
-
-These other uses cases have similar design patterns:
-
-- List of example use cases
+This combination of classical and quantum components must be reflected in the build process. This is true for both the [loosely](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.md) and the [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.md) integration approach. The quantum components have special requirements for their [software development lifecycle](/azure/quantum/overview-what-is-qsharp-and-qdk#what-can-i-do-with-the-qdk). For quality assurance, quantum jobs should be run on simulators, sized on resource estimators and in some cases run on quantum hardware. After successful tests, the job artifacts can be integrated into the classical components that submit the job to quantum targets at runtime.
 
 ## Architecture
 
 ![Architecture diagram](../media/cicd-for-quantum-computing-jobs.png)
 
-After the architecture diagram, include a numbered list that describes the data flow or workflow through the solution. Explain what each step does. Start from the user or external data source, and then follow the flow through the rest of the solution.
+### Data flow
+
+1. Developer changes the source code of the application components.
+1. Changes are committed to the source code repository.
+1. Changes to quantum code trigger the quantum build pipeline. The build pipeline checks out the code, compiles it, performs resource estimation, and runs the algorithm on a simulator.
+1. The compiled quantum algorithm is submitted to a quantum environment for testing.
+1. Changes trigger a build pipeline for the classical components. The pipeline checks out the code, compiles it, does unit and integration tests.
+1. Successful compilation and tests trigger a release pipeline. The pipeline first provisions the Azure environment by deploying the Azure Resource Manager templates stored in the repository (Infrastructure as Code).
+1. Compiled app classic artifacts are deployed to Azure. The quantum jobs are submitted to a quantum workspace during runtime.
+1. Runtime behavior, health, performance, and usage information are monitored via Application Insights.
+1. Backlog items are updated depending on monitoring results.
 
 ### Components
 
-A bullet list of components in the architecture (including all relevant Azure services) with links to the product service pages. This is for lead generation (what business, marketing, and PG want). It helps drive revenue.
+The DevOps tools included here:
 
-> Why is each component there?
-> What does it do and why was it necessary?
+* [Azure Repos](/azure/devops/repos/) for storing both the quantum and classic code and Azure Resource Manager templates for the environment provisioning.
+* [Azure Pipelines](/azure/devops/pipelines/) for implementing the CI/CD-steps including environment provisioning before code deployment.
 
-- Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
+The CI/CD-processes can be implemented using GitHub repositories and GitHub actions instead.
+
+The application components used:
+
+* A client application that orchestrates the quantum job. Integration can be implemented in a [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job.md) or a [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job.md) approach.
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory) coordinates user authentication and protects access to the Azure Quantum Workspace.
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards and maintains control of keys and other secrets like Quantum Workspace name.
+* [Azure Quantum](https://azure.microsoft.com/services/quantum) provides functionality for running quantum computing jobs on various target quantum environments.
+* [Azure Storage](https://azure.microsoft.com/services/storage)
+
+The [Azure Quantum Workspace](/azure/quantum/how-to-create-workspace) is a collection of assets associated with running quantum or optimization applications. Depending on provisioned providers the jobs are executed on quantum simulators, quantum hardware, or optimization solvers.
 
 ## Next steps
 
-Links to articles on the AAC, and other Docs articles. Could also be to appropriate sources outside of Docs, such as GitHub repos or an official technical blog post.
-
-Examples:
-* [Artificial intelligence (AI) - Architectural overview](/azure/architecture/data-guide/big-data/ai-overview)
-* [Choosing a Microsoft cognitive services technology](/azure/architecture/data-guide/technology-choices/cognitive-services)
-* [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+%%%missing%%%
 
 ## Related resources
 
-Another optional link list, in bulleted form. If you have several links to other articles in Docs, include those in "Next steps" and use "Related resources" for related architecture guides and architectures.
-
-Here is an example section:
-
-Fully deployable architectures:
-
-* [Chatbot for hotel reservations](/azure/architecture/example-scenario/ai/commerce-chatbot)
-* [Build an enterprise-grade conversational bot](/azure/architecture/reference-architectures/ai/conversational-bot)
-* [Speech-to-text conversion](/azure/architecture/reference-architectures/ai/speech-ai-ingestion)![image.](https://user-images.githubusercontent.com/13895622/116135227-b73cac00-a685-11eb-92d3-003350ba6604.png)
+* To get an overview of Microsoft Quantum, the world's first full-stack, open cloud quantum computing ecosystem, see [Microsoft Quantum](https://azure.microsoft.com/solutions/quantum-computing/).
+* For more information about the Azure Quantum service, see [Azure Quantum](https://azure.microsoft.com/services/quantum/).
+* For general aspects of Azure Quantum job management, see [Work with Azure Quantum jobs](/azure/quantum/how-to-work-with-jobs).
