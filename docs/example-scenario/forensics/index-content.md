@@ -1,6 +1,5 @@
 
 
-
 Digital forensics is a science that addresses the recovery and investigation of digital data to support criminal investigations or civil proceedings. Computer forensics is a branch of digital forensics that captures and analyzes data from computers, virtual machines (VMs), and digital storage media.
 
 Companies must guarantee that digital evidence they provide in response to legal requests demonstrates a valid *Chain of Custody* (CoC) throughout the evidence acquisition, preservation, and access process. To ensure a valid CoC, digital evidence storage must demonstrate adequate access control, data protection and integrity, monitoring and alerting, and logging and auditing.
@@ -78,7 +77,7 @@ As an example, the report [Cohasset Assessment - Microsoft Azure WORM Storage](h
 - **Financial Industry Regulatory Authority (FINRA) Rule 4511(c)**, which defers to the format and media requirements of SEC Rule 17a-4(f)
 - **Commodity Futures Trading Commission (CFTC) in regulation 17 CFR § 1.31(c)-(d)**, which regulates commodity futures trading
 
-It is Cohasset’s opinion that Microsoft Azure Storage, with the Immutable Storage for Azure Blobs feature and Policy Lock option, retains time-based Blobs (records) in a non-erasable and non-rewritable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
+It is Cohasset's opinion that Microsoft Azure Storage, with the Immutable Storage for Azure Blobs feature and Policy Lock option, retains time-based Blobs (records) in a non-erasable and non-rewritable format and meets relevant storage requirements of SEC Rule 17a-4(f), FINRA Rule 4511(c), and the principles-based requirements of CFTC Rule 1.31(c)-(d).
 
 ## Considerations
 
@@ -134,7 +133,7 @@ The following PowerShell code samples of the Copy-VmDigitalEvidence runbook are 
 
 - [Copy‑VmDigitalEvidenceWin](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidenceWin.ps1) runbook for [Windows Hybrid RunBook Worker](/azure/automation/automation-windows-hrw-install).
 
-- [Copy‑VmDigitalEvidence](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1) runbook for [Linux Hybrid RunBook Worker](/azure/automation/automation-linux-hrw-install#installing-a-linux-hybrid-runbook-worker). The Hybrid Runbook Worker must have PowerShell Core installed and the `sha256sum` program available, to calculate the disk snapshots’ SHA-256 hash values.
+- [Copy‑VmDigitalEvidence](https://github.com/mspnp/solution-architectures/blob/master/forensics/Copy-VmDigitalEvidence.ps1) runbook for [Linux Hybrid RunBook Worker](/azure/automation/automation-linux-hrw-install#installing-a-linux-hybrid-runbook-worker). The Hybrid Runbook Worker must have PowerShell Core installed and the `sha256sum` program available, to calculate the disk snapshots' SHA-256 hash values.
 
 The Hybrid Runbook Worker must map the Azure File share containing the disk, used to calculate its hash values. Further details for the mounting procedure are available for both [Windows](/azure/storage/files/storage-how-to-use-files-windows) and [Linux](/azure/storage/files/storage-files-how-to-mount-nfs-shares) systems and must be integrated in the PowerShell code.
 

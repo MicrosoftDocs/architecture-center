@@ -12,7 +12,7 @@ Imagine a car manufacturing company that wants to create a solution to:
 
 -   Store the data for additional downstream processing to provide actionable insights (For example, maintenance alerts for vehicle owners, accident information for insurance agencies, etc.).
 
--   Allow dealer service technicians to interact with vehicles using a mixed reality application to aid in troubleshooting and repair (For example, using a HoloLens application to view real-time data and view/clear diagnostic codes available through a vehicle’s
+-   Allow dealer service technicians to interact with vehicles using a mixed reality application to aid in troubleshooting and repair (For example, using a HoloLens application to view real-time data and view/clear diagnostic codes available through a vehicle's
     [OBD-II](https://wikipedia.org/wiki/On-board_diagnostics) port, view repair procedures, or to view an exploded 3D parts diagram).
 
 ## Architecture
@@ -29,26 +29,26 @@ The data flows through the solution as follows:
 
 4.  Web, mobile, BI, and mixed reality applications can be built on the serving layer. For example, you can expose serving layer data using APIs for third-party uses (for example, insurance companies, suppliers, etc.).
 
-5.  When a vehicle requires servicing at a dealer service center, an Azure Sphere device is connected to the vehicle’s OBD-II port by a service technician.
+5.  When a vehicle requires servicing at a dealer service center, an Azure Sphere device is connected to the vehicle's OBD-II port by a service technician.
 
-6.  The Azure Sphere application connects to the vehicle’s OBD-II port and streams OBD-II data to Azure IoT Edge over MQTT. The Azure Sphere device is connected over Wi-Fi to the Azure IoT Edge device installed at the service center. The OBD-II data is streamed from Azure IoT Edge to Azure IoT Hub and processed in the same message processing pipeline.
+6.  The Azure Sphere application connects to the vehicle's OBD-II port and streams OBD-II data to Azure IoT Edge over MQTT. The Azure Sphere device is connected over Wi-Fi to the Azure IoT Edge device installed at the service center. The OBD-II data is streamed from Azure IoT Edge to Azure IoT Hub and processed in the same message processing pipeline.
 
     -   With the latest 20.10 OS release, Azure Sphere can now connect securely to Azure IoT Edge using its own device certificates. Azure Sphere device certificate is unique to every device and is automatically renewed by Azure Sphere Security Service every 24 hours after the device passes the remote attestation and authentication process.
 
     -   Azure Sphere communicates directly with the Azure Sphere Security Service and not through Azure IoT Edge. Azure Sphere Security Service is Microsoft's cloud-based service that communicates with Azure Sphere chips to enable maintenance, update, and control. Sometimes abbreviated AS3.
 
-7.  [General-purpose MQTT brokering](/azure/iot-edge/iot-edge-runtime?view=iotedge-2020-11#using-the-mqtt-broker) is now available in Azure IoT Edge. The Azure Sphere device will publish messages to the IoT Hub built-in MQTT topic (```devices/{sphere_deviceid}/messages/events/```).
+7.  [General-purpose MQTT brokering](/azure/iot-edge/iot-edge-runtime?view=iotedge-2020-11#using-the-mqtt-broker) is now available in Azure IoT Edge. The Azure Sphere device will publish messages to the IoT Hub built-in MQTT topic (`devices/{sphere_deviceid}/messages/events/`).
 
     -   Azure IoT Edge modules are containerized applications managed by IoT Edge and can run Azure services (such as Azure Stream Analytics), custom ML models or your own solution-specific code.
 
-8.  A service technician, wearing a HoloLens, can subscribe to the MQTT topic (```devices/{sphere_deviceid}/messages/events/```) and securely view OBD-II data using a HoloLens application containing an MQTT client. The HoloLens MQTT client must be [authorized to connect and subscribe](/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11#authorization) to the topic. By connecting the HoloLens directly to the IoT Edge gateway, the service technician can view the vehicle’s data in near real-time, avoiding the latency of sending the data to the cloud and back. The service technician can also interact with the vehicle’s OBD-II port (for example, clear “check engine”
+8.  A service technician, wearing a HoloLens, can subscribe to the MQTT topic (`devices/{sphere_deviceid}/messages/events/`) and securely view OBD-II data using a HoloLens application containing an MQTT client. The HoloLens MQTT client must be [authorized to connect and subscribe](/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11#authorization) to the topic. By connecting the HoloLens directly to the IoT Edge gateway, the service technician can view the vehicle's data in near real-time, avoiding the latency of sending the data to the cloud and back. The service technician can also interact with the vehicle's OBD-II port (for example, clear "check engine"
     light) even when the service center is disconnected from the cloud.
 
 ### Components
 
 -   [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) is a secure, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured, connected, crossover microcontroller unit (MCU), a custom Linux-based operating system (OS), and a cloud-based security service that provides continuous, renewable security.
 
--   [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) provides MQTT brokering and runs intelligent edge applications on-premises to ensure low latency, lower bandwidth usage.
+-   [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) provides MQTT brokering and runs intelligent edge applications on-premises to ensure low latency, lower bandwidth usage.
 
 -   [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is in the ingestion layer and supports bi-directional communication back to devices, allowing Actions to be sent from the cloud or Azure IoT Edge to the device.
 

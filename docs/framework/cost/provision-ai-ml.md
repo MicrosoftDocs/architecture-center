@@ -20,11 +20,11 @@ The main cost driver for machine learning workloads is the compute cost. Those r
 
 The compute cost depends on the cluster size, node type, and number of nodes. Billing starts while the cluster nodes are starting, running, or shutting down.
 
-With services such as [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), you have the option of creating fix-sized clusters or use autoscaling. 
->![Task](../../_images/i-best-practices.svg) If the amount of compute is not known, start with a zero-node cluster. The cluster will scale up when it detects jobs in the queue. A zero-node cluster is not charged.
+With services such as [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning), you have the option of creating fix-sized clusters or use autoscaling.
+> ![Task](../../_images/i-best-practices.svg) If the amount of compute is not known, start with a zero-node cluster. The cluster will scale up when it detects jobs in the queue. A zero-node cluster is not charged.
 
 Fix-sized clusters are appropriate for jobs that run at a constant rate and the amount of compute is known and measured beforehand. The time taken to spin up or down a cluster incurs additional cost.
->![Task](../../_images/i-best-practices.svg) If you don’t need retraining frequently, turn off the cluster when not in use.
+> ![Task](../../_images/i-best-practices.svg) If you don't need retraining frequently, turn off the cluster when not in use.
 
 To lower the cost for experimental or development workloads, choose Spot VMs. They aren't recommended for production workloads because they might be evicted by Azure at any time. For more information, see [Use Spot VMs in Azure](/azure/virtual-machines/windows/spot-vms).
 
@@ -65,7 +65,6 @@ The billing depends on the type of service. The charges are based on the number 
 - [Cognitive services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
 #### Reference architecture
 [Build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml)
-
 
 ## Azure Bot Service
 

@@ -1,6 +1,5 @@
 
 
-
 Many businesses rely on SQL Server 2008 R2 failover clusters to manage their data. However, [support for SQL Server 2008 R2][Microsoft SQL Server 2008 R2 lifecycle] and [for Windows Server 2008 R2][Windows Server 2008 R2 lifecycle] has ended. Regular security updates are no longer available.
 
 Customers who would like to migrate to Azure often can't change their infrastructure. The [Azure shared disks][Azure shared disks] feature makes migration possible in this situation. With this feature and a Windows Server 2008 R2 failover cluster, users can replicate their on-premises deployment in Azure. There's no need for third-party software to manage shared storage.
@@ -104,8 +103,6 @@ Follow these steps to set up the cluster.
      > Don't use the [SQL Server 2008 R2 SP3 on Windows Server 2008 R2][SQL Server 2008 R2 SP3 on Windows Server 2008 R2] image that is available in [Azure Marketplace][Azure Marketplace]. This image pre-configures SQL Server as a standalone instance. However, the solution architecture requires a cluster configuration, making the Azure Marketplace image unsuitable.
 
 2. Configure an [availability set][Configure multiple virtual machines in an availability set for redundancy] to guarantee VM redundancy and availability.
-
-
 
 #### Configure the VMs
 

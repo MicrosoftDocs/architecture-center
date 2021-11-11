@@ -29,7 +29,6 @@ Determine short and long-term actions justified by business value. Can a tempora
 
 If the alert was caused because of unnecessary or expensive resources, you can implement additional Azure Policy controls. You can also add budget automation to trigger resource scaling or shutdowns.
 
-
 ## Revise budgets
 
 After you identify and analyze your spending patterns, you can set budget limits for applications or business units. You'll want to [assign access](/azure/cost-management/assign-access-acm-data) to view or manage each budget to the appropriate groups. Setting several alert thresholds for each budget can help track your burn down rate.

@@ -75,7 +75,7 @@ This architecture includes the following components:
   - [Log Analytics agent](/azure/azure-monitor/agents/agents-overview#log-analytics-agent) collects monitoring data from cloud and on-premises operating systems and VM workloads, and sends it to a Log Analytics workspace.
   - [Azure Active Directory Monitoring](/azure/active-directory/reports-monitoring/overview-monitoring) routes Azure Active Directory (Azure AD) activity logs to a Log Analytics workspace.
   - [Log Analytics gateway](/azure/azure-monitor/agents/gateway) sends data to Azure Automation and Log Analytics workspaces for computers that can't directly connect to the internet.
-  - [Service Map](/azure/azure-monitor/vm/service-map) uses the Log Analytics agent to automatically discover application components on Windows and Linux systems, and map the communication between services. 
+  - [Service Map](/azure/azure-monitor/vm/service-map) uses the Log Analytics agent to automatically discover application components on Windows and Linux systems, and map the communication between services.
   - [Alert Management](/azure/azure-monitor/insights/alert-management-solution) helps you analyze all the alerts in your Log Analytics workspaces.
   - [Log Analytics data export (preview)](/azure/azure-monitor/logs/logs-data-export) continuously exports data from selected tables in a Log Analytics workspace. Data can export to an Azure storage account or Azure Event Hubs.
   - [Log Analytics Workspace Insights](/azure/azure-monitor/logs/log-analytics-workspace-insights-overview) provides comprehensive monitoring of all Log Analytics workspaces. Workspace Insights gives a unified view of workspace usage, performance, health, agent, queries, and change logs.
@@ -266,4 +266,3 @@ A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analyti
 - [Alerting](../../framework/devops/alerts.md)
 - [Hybrid availability and performance monitoring](../../hybrid/hybrid-perf-monitoring.yml)
 - [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)
-

@@ -303,7 +303,6 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 - [IoT analytics with Azure Data Explorer][IoT analytics with Azure Data Explorer]
 - [Cognizant Safe Buildings with IoT and Azure][Cognizant Safe Buildings with IoT and Azure]
 
-
 [Adopting an industry ontology]: /azure/digital-twins/concepts-ontologies-adopt
 [API Management - overview]: https://azure.microsoft.com/services/api-management/#overview
 [App Service overview]: /azure/app-service/overview
