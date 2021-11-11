@@ -115,11 +115,7 @@ After the user authenticates in Azure AD and gets redirected back to the applica
 
 In Azure AD, the admin consent flow is triggered by adding a "prompt" parameter to the query string in the authentication request:
 
-<!-- markdownlint-disable MD040 -->
-
 `/authorize?prompt=admin_consent&...`
-
-<!-- markdownlint-enable MD040 -->
 
 The Surveys application adds the prompt during the `RedirectToIdentityProvider` event. This event is called right before the middleware redirects to the authentication endpoint.
 

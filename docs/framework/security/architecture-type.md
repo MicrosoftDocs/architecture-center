@@ -10,8 +10,6 @@ ms.custom:
   - article
 ---
 
-<!-- markdownlint-disable MD026 -->
-
 # What types of attack should the architecture resist?
 
 An architecture built on good security practices should be resilient to attacks. It should both resist attacks and recover rapidly from disruption to the security assurances of confidentiality, integrity, and availability.

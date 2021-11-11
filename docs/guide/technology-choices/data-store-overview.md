@@ -353,8 +353,6 @@ Sometimes, using simple flat files can be the most effective means of storing an
 
 Aided with this understanding of different data storage models, the next step is to evaluate your workload and application, and decide which data store will meet your specific needs. Use the [data storage decision tree](./data-store-decision-tree.md) to help with this process.
 
-<!-- markdownlint-enable MD033 -->
-
 <!-- links -->
 
 [blob]: https://azure.microsoft.com/services/storage/blobs/

@@ -48,8 +48,6 @@ As the leading public cloud platforms, Azure and AWS each offer a broad and deep
 
 For an overview of Azure for AWS users, see [Introduction to Azure for AWS professionals](./index.md).
 
-<!-- markdownlint-disable MD033 -->
-
 ## Marketplace
 
 | AWS service | Azure service | Description |

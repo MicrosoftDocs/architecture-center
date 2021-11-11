@@ -65,8 +65,6 @@ Here's a screenshot of the web app, showing the result of a query:
 
 Fabrikam has decided to use Azure Functions to implement the application business logic. Azure Functions is an example of "Functions as a Service" (FaaS). In this computing model, a *function* is a piece of code that is deployed to the cloud and runs in a hosting environment. This hosting environment completely abstracts the servers that run the code.
 
-<!-- markdownlint-disable MD026 -->
-
 ### Why choose a serverless approach?
 
 A serverless architecture with Functions is an example of an event-driven architecture. The function code is a triggered by some event that's external to the function &mdash; in this case, either a message from a drone, or an HTTP request from a client application. With a function app, you don't need to write any code for the trigger. You only write the code that runs in response to the trigger. That means you can focus on your business logic, rather than writing a lot of code to handle infrastructure concerns like messaging.

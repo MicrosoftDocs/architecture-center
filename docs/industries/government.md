@@ -37,7 +37,11 @@ Microsoft is committed to provide government agencies with innovative technology
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/_WcyWeARD2Y]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 
