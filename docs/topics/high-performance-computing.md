@@ -173,7 +173,7 @@ H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA netwo
 
 ### Do-it-yourself
 
-Building an HPC system from scratch on Azure offers a significant amount of flexibility, but is often very maintenance intensive.  
+Building an HPC system from scratch on Azure offers a significant amount of flexibility, but is often very maintenance intensive.
 
 1. Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 2. Use Azure Resource Manager templates to deploy leading [workload managers](#workload-managers), infrastructure, and [applications](#hpc-applications).
@@ -303,7 +303,7 @@ Managing your HPC cost on Azure can be done through a few different ways.  Ensur
 
 ## Security
 
-For an overview of security best practices on Azure, review the [Azure Security Documentation](/azure/security/azure-security).  
+For an overview of security best practices on Azure, review the [Azure Security Documentation](/azure/security/azure-security).
 
 In addition to the network configurations available in the [Cloud Bursting](#hybrid-and-cloud-bursting) section, you may want to implement a hub/spoke configuration to isolate your compute resources:
 

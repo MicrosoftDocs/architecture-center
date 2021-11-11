@@ -30,7 +30,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 1. Developers begin working on tasks in Codespaces. Organized into containers, these pre-built development environments provide correctly configured IDEs that are equipped with required security scanning extensions.
 1. When developers commit new code, GitHub Actions automatically scan the code to quickly find vulnerabilities and coding errors.
 1. Pull requests (PRs) trigger code builds and automated testing through GitHub Actions. GitHub encrypts secrets and credentials at rest and obfuscates these entries in logs.
-1. GitHub Actions deploy build artifacts to Azure App Service while making changes to other cloud resources, such as service endpoints.  
+1. GitHub Actions deploy build artifacts to Azure App Service while making changes to other cloud resources, such as service endpoints.
 1. Azure Policy evaluates Azure resources that are in deployment. Defined policies then potentially deny releases, modify cloud resources, or create warning events in activity logs.
 1. Azure Security Center identifies attacks targeting applications that are running in deployed projects.
 1. Azure Monitor continuously tracks and evaluates app behavior. When threats materialize, this service sends alerts to start the process of rolling code back to previous commits.
@@ -62,7 +62,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
     - The [National Vulnerability Database][National Vulnerability Database]: A standardized repository of vulnerabilities that the U.S. government maintains.
     - [GitHub tracking][GitHub tracking]: A combination of machine learning and human review that GitHub conducts to detect vulnerabilities in public commits.
     - [GitHub security advisories][GitHub security advisories]: Information about vulnerabilities that development teams make public on GitHub.
-    - [PHP Security Advisories Database][PHP Security Advisories Database]: References to known security vulnerabilities in PHP projects and libraries.  
+    - [PHP Security Advisories Database][PHP Security Advisories Database]: References to known security vulnerabilities in PHP projects and libraries.
 
 When GitHub identifies a vulnerability, it takes the steps illustrated in the following diagram.
 :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
@@ -91,7 +91,7 @@ To keep GitHub DevSecOps solutions aligned with the tenets of the [Azure Well-Ar
 - One concern with DevSecOps is that code scans can generate noisy results filled with false positives, leading to the following types of problems:
   - Developers waste time investigating nonexistent problems.
   - Addressing security issues interrupts workflow.
-  - Having lost trust in security tools because of the inaccuracies, developers ignore results.  
+  - Having lost trust in security tools because of the inaccuracies, developers ignore results.
 
   Overcome these obstacles by integrating security into the software lifecycle:
   - Employ tools like Codespaces that embed scanning checks in IDEs, meaning developers use them in familiar environments.

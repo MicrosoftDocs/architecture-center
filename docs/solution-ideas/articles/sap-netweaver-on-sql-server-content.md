@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This NetWeaver on SQL Server application solution illustrates how a user request flows through an SAP landscape that's built on NetWeaver, by using Azure Virtual Machines to host SAP applications and a SQL Server database. 
+This NetWeaver on SQL Server application solution illustrates how a user request flows through an SAP landscape that's built on NetWeaver, by using Azure Virtual Machines to host SAP applications and a SQL Server database.
 
 ## Potential use cases
 

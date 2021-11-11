@@ -110,8 +110,8 @@ These capabilities consist of the following components:
 | **Component** | **Value Proposition**                                                                                                                                                               |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Admin API** | Supports atomic business operations and validation of business rules.                                                                                                               |
-| **Query API** | Improves Azure Digital Twins query performance when materializing large graphs (by using an in-memory cache) and provides query capabilities for manufacturing-specific data needs. |
-| **IO API**    | Enables bulk import/export for manufacturing-specific scenarios.                                                                                                                    |
+| **Query API** | Improves Azure Digital Twins query performance when materializing large graphs (by using an in-memory cache) and provides query capabilities for manufacturing-specific data needs. |
+| **IO API**    | Enables bulk import/export for manufacturing-specific scenarios.                                                                                                                    |
 
 ### Supported operations
 

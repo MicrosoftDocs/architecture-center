@@ -49,7 +49,7 @@ This solution uses the following Azure components:
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge) deploys cloud intelligence locally on IoT devices.
 - [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a cloud-based managed service for bidirectional communication between IoT devices and Azure.
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is an integrated data science solution for data scientists and developers to build, train, and deploy machine learning models.
-- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) is an IoT platform that creates digital representations of real-world things, places, processes, and people in the cloud. 
+- [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) is an IoT platform that creates digital representations of real-world things, places, processes, and people in the cloud.
 - [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) is an end-to-end IoT analytics platform to monitor, analyze, and visualize industrial IoT analytics data at scale.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a scalable and secure data lake for high-performance analytics workloads.
 

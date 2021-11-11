@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Quickly build and launch digital campaigns that automatically scale based on customer demand. 
+Quickly build and launch digital campaigns that automatically scale based on customer demand.
 
 ## Potential use cases
 
