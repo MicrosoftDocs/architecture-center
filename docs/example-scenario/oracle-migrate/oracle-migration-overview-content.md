@@ -1,6 +1,5 @@
 
 
-
 This series of articles provides a way for you to assess your current Oracle database environment, figure out your best migration path to Azure, and links to documents that help you make your migratory move. Your migration path can be to an Azure Virtual Machine (VM). It might also be to an Azure Managed Database that is running on an Azure VM.
 
 To migrate an Oracle database to an Azure environment, you have to:
@@ -48,7 +47,6 @@ The Microsoft Data Migration Jumpstart Engineering team maintains an inventory o
 | Schema Data Size | <10 GB | 11-75 GB | 76-500 GB | 501-2000 | >2000 |
 
 Use the [Microsoft Assessment and Planning (MAP) Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to evaluate the existing Oracle database and schemas. For more information, refer to the [Oracle to SQL Server: Migration guide](/sql/sql-server/migrate/guides/oracle-to-sql-server).
-
 
 ## Migration decision tree
 

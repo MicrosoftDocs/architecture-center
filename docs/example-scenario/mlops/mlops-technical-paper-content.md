@@ -1,6 +1,5 @@
 
 
-
 This client engagement (or project) focused on helping a Fortune 500 food company that ships products directly to multiple retail outlets to improve their demand forecasting. The improvement helped them optimize the stocking of their products in different stores across several regions of the US. To achieve this, Microsoft's Commercial Software Engineering (CSE) team worked with the client's data scientists to develop customized machine learning models for the selected regions for a pilot study. These models considered variables that had to do with:
 
 * Shopper demographics
@@ -37,7 +36,7 @@ Most existing tools are only used for specific purposes and aren't well disposed
 
 The CSE team did extensive work in this area to help the client scale up the operation to production levels. The process had to be made more effective by implementing different aspects of Continuous Integration/Continuous Delivery (CI/CD) capabilities and items like observability and integration with Azure capabilities. In doing so, the team uncovered gaps in existing MLOps guidance. Those gaps needed further refinement so MLOps was better understood and applied at scale. Understanding MLOps practices helps organizations ensure the machine learning models the system produces are production quality models that improve business performance. The organization no longer has to focus the majority of the time on the associated low-level details relating to infrastructure and engineering work required to develop and run machine learning models for production level operations. It also helps incorporate the communities of data science and software engineering. Team members learn how to work together to deliver a production-ready system.
 
-The CSE team used this project to address machine learning community needs by addressing items like developing an MLOps maturity model (and perhaps leading to the creation of “MLOps in a Box”). These efforts target improving MLOps adoption through understanding common challenges facing key players in the MLOps process.
+The CSE team used this project to address machine learning community needs by addressing items like developing an MLOps maturity model (and perhaps leading to the creation of "MLOps in a Box"). These efforts target improving MLOps adoption through understanding common challenges facing key players in the MLOps process.
 
 ## Engagement and Technical scenarios
 

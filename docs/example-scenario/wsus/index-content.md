@@ -1,8 +1,6 @@
 
 <!-- cSpell:ignore vpaulreed WSUS NSGs VM's -->
 
-
-
 If you've locked down your Azure virtual network from the internet, you can still get Windows updates without jeopardizing security and opening up access to the internet as a whole. This article contains recommendations on how you can set up a perimeter network, also called a DMZ, to host a Windows Server Update Service (WSUS) instance to securely update virtual networks without internet connectivity.
 
 If you're using Azure Firewall, you can use the Windows Update FQDN tag in application rules to allow the required outbound network traffic through your firewall. For more information, see [FQDN tags overview](/azure/firewall/fqdn-tags).
@@ -76,8 +74,8 @@ You can also combine the two approaches by using the automation script to do mos
 
 The Configure-WSUSServer script allows you to quickly set up a WSUS server that will automatically synchronize and approve updates for a chosen set of products and languages.
 
->[!NOTE]
->The script always sets up WSUS to use Windows Internal Database to store its update data. This speeds up setup and reduces administration complexity. But if your server will support thousands of client computers, especially if you also need to support a wide variety of products and languages, you should set up WSUS manually instead so that you can use SQL Server as the database.
+> [!NOTE]
+> The script always sets up WSUS to use Windows Internal Database to store its update data. This speeds up setup and reduces administration complexity. But if your server will support thousands of client computers, especially if you also need to support a wide variety of products and languages, you should set up WSUS manually instead so that you can use SQL Server as the database.
 
 The latest version of this script is [available on GitHub](https://github.com/mspnp/solution-architectures/tree/master/wsus).
 
@@ -92,8 +90,8 @@ You configure the script by using a JSON file. You can currently configure these
 
 Copy the script and its configuration file to local storage, and edit the configuration file to suit your needs.
 
->[!WARNING]
->Be careful when you edit the configuration file. The syntax used for JSON configuration files is strict. If you inadvertently change the structure of the file rather than just the parameter values, the configuration file won't load.
+> [!WARNING]
+> Be careful when you edit the configuration file. The syntax used for JSON configuration files is strict. If you inadvertently change the structure of the file rather than just the parameter values, the configuration file won't load.
 
 You can run this script in one of two ways:
 
@@ -140,8 +138,8 @@ The script will start the initial synchronization needed to make updates availab
 
 During synchronization, WSUS determines if any new updates have been made available since the last time you synchronized. If it's your first time synchronizing WSUS, the metadata is downloaded immediately. The payload downloads only if local storage is turned on and the update is approved for at least one computer group.
 
->[!NOTE]
->Initial synchronization can take more than an hour. All synchronizations after that should be significantly faster.
+> [!NOTE]
+> Initial synchronization can take more than an hour. All synchronizations after that should be significantly faster.
 
 ## Configure virtual networks to communicate with WSUS
 

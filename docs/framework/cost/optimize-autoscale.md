@@ -12,7 +12,7 @@ ms.custom:
 
 # Autoscale instances
 
-In Azure, it’s easier to grow a service with little to no downtime against downscaling a service, which usually requires deprovisioning or downtime. In general, opt for scale-out instead of scale up.
+In Azure, it's easier to grow a service with little to no downtime against downscaling a service, which usually requires deprovisioning or downtime. In general, opt for scale-out instead of scale up.
 
 For certain application, capacity requirements may swing over time. Autoscaling policies allow for less error-prone operations and cost savings through robust automation.
 

@@ -1,7 +1,5 @@
 <!-- cSpell:ignore fabraga -->
 
-
-
 This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
 
 The solution described in this article combines a range of Azure services that will ingest, store, process, enrich, and serve data and insights from different sources (structured, semi-structured, unstructured, and streaming).
@@ -21,8 +19,8 @@ This approach can also be used to:
 
 > [!NOTE]
 >
->- The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features that are not covered by this design.
->- Specific business requirements for your analytics use case may also ask for the use of different services or features that are not considered in this design.
+> - The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features that are not covered by this design.
+> - Specific business requirements for your analytics use case may also ask for the use of different services or features that are not considered in this design.
 
 ## Analytics Use Cases
 
