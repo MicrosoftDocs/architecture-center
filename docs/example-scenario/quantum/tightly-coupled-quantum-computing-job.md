@@ -83,7 +83,7 @@ Always respect that quantum target environments are limited resources. At some p
 
 ### DevOps
 
-## Deploy this scenario
+For a description of how a CI/CD-approach for this architecture could look like, see [CI/CD for Quantum Computing Jobs](../../solution-ideas/articles/cicd-for-quantum-computing-jobs-content.md).
 
 ## Pricing
 
@@ -96,6 +96,8 @@ For the Azure Quantum service following points should be considered:
 * Quantum Computing providers can be consumed via Azure Marketplace offering. Cost depends on type of resource (simulator or hardware), SKU, and usage. For details see the reference page for the provider needed for your scenario referenced on [Quantum computing providers on Azure Quantum](https://docs.microsoft.com/azure/quantum/qc-target-list).
 
 ## Next steps
+
+%%%missing%%%
 
 ## Related resources
 
