@@ -33,7 +33,7 @@ This approach works well until an error occurs between saving the order object a
 
 Whatever the error is, the result is that the `OrderCreated` event can't be published to the message bus. Other services won't be notified that an order has been created. The `Ordering` service now has to take care of various things that don't relate to the actual business process. It needs to keep track of events that still need to be put on the message bus as soon as it's back online. Even the worst case can happen: data inconsistencies in the application because of lost events.
 
-:::image source="./images/transactional-outbox-cosmos/eventhandling.png" alt-text="Diagram that shows event handling without the Transactional Outbox pattern.":::
+:::image source="./images/transactional-outbox-cosmos/even-thandling-before-pattern.png" alt-text="Diagram that shows event handling without the Transactional Outbox pattern.":::
 
 
 ## Solution
