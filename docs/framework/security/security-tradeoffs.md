@@ -36,13 +36,13 @@ Other security considerations that might impact reliability are:
 
 Increasing security of the workload will almost always lead to higher cost. There are some ways to optimize cost.
 
-- Maximum security may not always be practical for all environments. Evaluate the security requirements in pre-production and production environments. Are services such as Azure DDoS Protection, Azure Sentinel, Dedicated HSMs, Azure Defender needed in pre-production? Is inner loop mocking of security controls sufficient? If resources are not publicly accessible, can you dial down some controls for cost savings? Always make those choices, _if and only if_, the lowered environment still meets the business requirements.
+- Maximum security may not always be practical for all environments. Evaluate the security requirements in pre-production and production environments. Are services such as Azure DDoS Protection, Microsoft Sentinel, Dedicated HSMs, Microsoft Defender for Cloud needed in pre-production? Is inner loop mocking of security controls sufficient? If resources are not publicly accessible, can you dial down some controls for cost savings? Always make those choices, *if and only if*, the lowered environment still meets the business requirements.
 
 - Premium security features can increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom roles if you can use built-in roles.
 
 - Every security control has an opportunity to impact workflows, and workflows that involve people can be expensive.  A security control that stops work from being done should be evaluated as necessary or unnecessarily redundant. Total cost of ownership (TCO) includes operational costs for developers, operators, IT SecOps and onerous security protocols. Reach agreement about where "less" can br "sufficient" to optimize costs.
 
-- TCO includes the time needed do tasks. Optimizing that time will optimize cost. Using platform features can lower TCO and enhance the security posture. Instead of training an engineer to manually review logs and correlate access patterns, use intelligence in services, such as Azure Defender  or Sentinel alerts.
+- TCO includes the time needed do tasks. Optimizing that time will optimize cost. Using platform features can lower TCO and enhance the security posture. Instead of training an engineer to manually review logs and correlate access patterns, use intelligence in services, such as Microsoft Defender for Cloud  or Sentinel alerts.
 
 ## Security vs Operational Excellence
 
@@ -61,4 +61,5 @@ Operational Excellence involves understanding business and workload behavior, an
     The most "serviceable" architectures are the ones that are the most transparent to everyone involved, and those often have the least number of security controls. Adding security controls to your architecture like filtered telemetry feeds, redacted logs, runtime system access restrictions, and so on can all impact the supportability of a solution. Adding security controls often require adding compensating or compromised solutions for observability into the platform.
 
 ## Related link
+
 > Go back to the main article: [Security](overview.md)

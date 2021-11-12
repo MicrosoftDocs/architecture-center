@@ -37,8 +37,8 @@ Designate groups (or individual roles) that will be responsible for key function
 | **Network Security**                 | *Typically existing network security team.* Configuration and maintenance of Azure Firewall, Network Virtual Appliances (and associated routing), Web Application Firewall (WAF), Network Security Groups, Application Security Groups (ASG), and other cross-network traffic. |
 | **Network Management**               | *Typically existing network operations team.* Enterprise-wide virtual network and subnet allocation. |
 | **Server Endpoint Security**         | *Typically IT operations, security, or jointly.* Monitor and remediate server security (patching, configuration, endpoint security). |
-| **Incident Monitoring and Response** | *Typically security operations team.* Incident monitoring and response to investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console such as Azure Security Center Azure AD Identity Protection.|
-| **Policy Management**                | *Typically GRC team + Architecture.* Apply governance based on risk analysis and compliance requirements. Set direction for use of Azure role-based access control (Azure RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources. |
+| **Incident Monitoring and Response** | *Typically security operations team.* Incident monitoring and response to investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console such as Microsoft Defender for Cloud Azure AD Identity Protection.|
+| **Policy Management**                | *Typically GRC team + Architecture.* Apply governance based on risk analysis and compliance requirements. Set direction for use of Azure role-based access control (Azure RBAC), Microsoft Defender for Cloud, Administrator protection strategy, and Azure Policy to govern Azure resources. |
 | **Identity Security and Standards**  | *Typically Security Team + Identity Team jointly.* Set direction for Azure AD directories, PIM/PAM usage, MFA, password/synchronization configuration, Application Identity Standards. |
 
 > [!NOTE]
@@ -61,6 +61,7 @@ When assigning permissions for a segment, consider consistency while allowing fl
 This section uses this [Reference model](design-segmentation.md#reference-model) to demonstrate the considerations for assigning permissions for different segments. Microsoft recommends starting from these models and adapting to your organization.
 
 #### Core services reference permissions
+
 This segment hosts shared services utilized across the organization. These shared services typically include Active Directory Domain Services, DNS/DHCP, System Management Tools hosted on Azure Infrastructure as a Service (IaaS) virtual machines.
 
 ![Conceptual art showing reference permissions](images/ref-perms.png)

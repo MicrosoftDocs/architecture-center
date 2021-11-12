@@ -89,7 +89,7 @@ Use [Azure Monitor for containers][monitor-containers] to collect metrics and lo
 
 ## Security considerations
 
-Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment, although it doesn't monitor AKS agent nodes. Security Center is configured per Azure subscription. Enable security data collection as described in [Enable Security Center on your subscriptions][get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+Use [Microsoft Defender for Cloud][security-center] to get a central view of the security state of your Azure resources. Defender for Cloud monitors potential security issues and provides a comprehensive picture of the security health of your deployment, although it doesn't monitor AKS agent nodes. Defender for Cloud is configured per Azure subscription. Enable security data collection as described in [Enable Defender for Cloud on your subscriptions][get-started]. When data collection is enabled, Defender for Cloud automatically scans any VMs created under that subscription.
 
 **Operations**. To sign in to an AKS cluster using your Azure Active Directory (Azure AD) authentication token, configure AKS to use Azure AD for [user authentication][aad-auth]. Cluster administrators can also configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership.
 

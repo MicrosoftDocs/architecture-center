@@ -35,6 +35,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Google Cloud Marketplace](https://cloud.google.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace/) | Easy-to-deploy and automatically configured third-party applications, including single virtual machine or multiple virtual machine solutions. |
 
 ##  Data platform
+
 ###  Database
 
 | Type | Google Cloud service | Azure service | Azure service description |
@@ -181,6 +182,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 [view all](../browse/index.yml?azure_categories=ai-machine-learning)
 
 ## Data catalog & governance
+
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud Data Catalog](https://cloud.google.com/data-catalog) | [Azure Purview](/azure/purview) | Azure Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. |
@@ -374,12 +376,12 @@ Here are some architectures that use AKS as the orchestrator.
 | Data in-use | [Confidential Computing](https://cloud.google.com/confidential-computing) | [Azure Confidential Computing](/azure/confidential-computing/overview) | Encrypt data in-use. |
 | Hardware security module (HSM) | [Cloud HSM](https://cloud.google.com/kms/docs/hsm) | [Azure Dedicated HSM](/azure/dedicated-hsm/overview) | Azure service that provides cryptographic key storage in Azure, to host encryption keys and perform cryptographic operations in a high-availabilty service of FIPS 140-2 Level 3 certified hardware security modules (HSMs). |
 | Data loss prevention (DLP) | [Cloud Data Loss Prevention](https://cloud.google.com/dlp) | [Azure Information Protection](/azure/information-protection/what-is-information-protection) | Azure Information Protection (AIP) is a cloud-based solution that enables organizations to discover, classify, and protect documents and emails by applying labels to content. |
-| Security | [Security Command Center](https://cloud.google.com/security-command-center), [Web Security Scanner](https://cloud.google.com/security-scanner) | [Azure Security Center](https://azure.microsoft.com/services/security-center) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
+| Security | [Security Command Center](https://cloud.google.com/security-command-center), [Web Security Scanner](https://cloud.google.com/security-scanner) | [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
 | Threat detection | [Event Threat Detection](https://cloud.google.com/event-threat-detection) | [Azure Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection) | Detect and investigate advanced attacks on-premises and in the cloud. |
-| SIEM | [Chronicle](https://cloud.google.com/chronicle) | [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel) | A cloud-native security information and event manager (SIEM) platform that uses built-in AI to help analyze large volumes of data from all sources, including users, applications, servers, and devices that are running on-premises or in any cloud. |
-| Container security | [Container Security](https://cloud.google.com/containers/security) | [Container Security in Azure Security Center](/azure/security-center/container-security) | Azure Security Center is the Azure-native solution for securing your containers. |
+| SIEM | [Chronicle](https://cloud.google.com/chronicle) | [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel) | A cloud-native security information and event manager (SIEM) platform that uses built-in AI to help analyze large volumes of data from all sources, including users, applications, servers, and devices that are running on-premises or in any cloud. |
+| Container security | [Container Security](https://cloud.google.com/containers/security) | [Container Security in Microsoft Defender for Cloud](/azure/security-center/container-security) | Microsoft Defender for Cloud is the Azure-native solution for securing your containers. |
 | | [Artifact Registry](https://cloud.google.com/artifact-registry) | [Azure Container Registry](/azure/container-registry/container-registry-intro) | A managed, private Docker registry service that's based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your private Docker container images and related artifacts that allow you to only deploy trusted containers. |
-| | [Container Analysis](https://cloud.google.com/container-analysis/docs/vulnerability-scanning) | [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) | Perform vulnerability scans on all container images when they're pushed to the registry, imported into the registry, or pulled within the last 30 days. |
+| | [Container Analysis](https://cloud.google.com/container-analysis/docs/vulnerability-scanning) | [Microsoft Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) | Perform vulnerability scans on all container images when they're pushed to the registry, imported into the registry, or pulled within the last 30 days. |
 
 ### Security architectures
 
@@ -387,7 +389,7 @@ Here are some architectures that use AKS as the orchestrator.
 
 [!INCLUDE [Real-time fraud detection](../../includes/cards/fraud-detection.md)]
 [!INCLUDE [Securely managed web applications](../../includes/cards/fully-managed-secure-apps.md)]
-[!INCLUDE [Threat indicators for cyber threat intelligence in Azure Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
+[!INCLUDE [Threat indicators for cyber threat intelligence in Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
 
 </ul>
 

@@ -19,7 +19,7 @@ ms.custom:
 
 A key benefit of hybrid cloud environments is the ability to scale dynamically and back up resources in the cloud, avoiding the capital expenditures of a secondary datacenter. However, when workloads sit in both on-premises and cloud environments, it can be challenging to have visibility into the cost. With Azure's hybrid technologies, you can define policies and constraints for both on-premises and cloud workloads with Azure Arc. By utilizing Azure Policy, you're able to enforce organizational standards for your workload and the entire IT estate.
 
-Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires Azure Defender functionality of Azure Security Center, which has [pricing implications](https://azure.microsoft.com/pricing/details/security-center/).
+Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires Microsoft Defender for Cloud functionality of Microsoft Defender for Cloud, which has [pricing implications](https://azure.microsoft.com/pricing/details/security-center/).
 
 Other considerations are described in the [Principles of cost optimization](../cost/design-model.md) section in the Microsoft Azure Well-Architected Framework.
 
@@ -48,8 +48,8 @@ For budget concerns, you get a considerable amount of functionality at no cost t
 - **Paid-for Azure Arc enabled attached services**
    - Azure policy
    - Azure monitor
-   - Security center – Standard
-   - Azure Sentinel
+   - Defender for Cloud – Standard
+   - Microsoft Sentinel
    - Backup
    - Config and change management
 

@@ -4,7 +4,7 @@ Azure VMware Solution can be deployed as part of either a new landing zone or an
 
 This article covers considerations for deploying and running Azure VMware Solution as part of a landing zone environment.
 
-> [!Note]
+> [!NOTE]
 > [Enterprise-scale for Microsoft Azure VMware Solution](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) provides further details. We recommend that you use the latest landing zone guidance available in it.
 
 ## Potential use cases
@@ -53,23 +53,23 @@ Sandbox subscriptions are deployed under [Sandbox Management Group](/azure/cloud
 
 ### Components
 
- - [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
- - [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
- - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
- - [Azure Policy](https://azure.microsoft.com/services/azure-policy)
+- [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory)
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute)
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy)
 
 ## Next steps
 
 Use the following guidance about other Azure VMware Solution ideas:
 
-* [Network topology and connectivity for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity)
-* [Azure VMware Solution Foundation - Networking](/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-networking)
-* [Azure VMware Solution Foundation - Capacity Planning](/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-capacity)
+- [Network topology and connectivity for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity)
+- [Azure VMware Solution Foundation - Networking](/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-networking)
+- [Azure VMware Solution Foundation - Capacity Planning](/azure/architecture/solution-ideas/articles/azure-vmware-solution-foundation-capacity)
 
 ## Related resources
 
 Refer to following additional resources to learn more about Azure VMware Solution:
 
-* [Enterprise-scale for Microsoft Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone)
-* [Azure VMware Solution](/azure/azure-vmware)
-* [Enterprise-scale landing zone architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
+- [Enterprise-scale for Microsoft Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone)
+- [Azure VMware Solution](/azure/azure-vmware)
+- [Enterprise-scale landing zone architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)

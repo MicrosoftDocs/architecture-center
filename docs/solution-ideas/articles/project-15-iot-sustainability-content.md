@@ -66,7 +66,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
    - Azure Active Directory (Azure AD) manages users.
    - API Apps and Event Grid manage external data.
    - Azure Digital Twins offers modeling capabilities for optimizing operations.
-   - Azure Defender secures the solution by establishing security policies and access controls.
+   - Microsoft Defender for Cloud secures the solution by establishing security policies and access controls.
    - Azure Notification Hubs and Azure Logic Apps handle notifications.
    - Azure Machine Learning provides AI capabilities for forecasting device behavior.
    - Azure Maps tracks geofencing data to provide location-based services.
@@ -101,7 +101,7 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Azure Digital Twins][Azure Digital Twins] creates models of IoT devices and environments. You can use these digital representations to develop better products, optimize operations, minimize costs, and improve customer experiences.
 
-- [Azure Defender][Azure Defender] offers extended detection and response (XDR) capabilities that protect hybrid cloud workloads against threats.
+- [Microsoft Defender for Cloud][Azure Defender] offers extended detection and response (XDR) capabilities that protect hybrid cloud workloads against threats.
 
 - [Notification Hubs][Notification Hubs] provides a push engine that you can use to send notifications to any platform from any back end.
 
