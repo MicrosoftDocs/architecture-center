@@ -2111,6 +2111,8 @@ items:
                         href: serverless/event-hubs-functions/observability.yml
               - name: Architectures
                 items:
+                  - name: Automatic IP rotation with Container Instances
+                    href: example-scenario/serverless/automation-application-gateway.yml
                   - name: Azure Functions in a hybrid environment
                     href: hybrid/azure-functions-hybrid.yml
                   - name: Event-based cloud automation
