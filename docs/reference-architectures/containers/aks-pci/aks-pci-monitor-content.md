@@ -240,6 +240,7 @@ Logs are not available indefinitely. Ensure that Azure activity logs and diagnos
 -Resuming monitoring of security controls"
 
 #### Your responsibilities
+
 When it's practical, have alerts that indicate the existence of critical security controls. Otherwise, ensure that your audit process can detect the lack of an expected security control in a timely manner. Consider controls such as security agents running in the AKS cluster and access controls (IAM and network) on Azure resources. Include settings such as checking if the AKS cluster is a private cluster, checking for network exposure points through Network Security Group (NSG) rules, or checking for unexpected public IPs. Also include unexpected changes in DNS, network routing, firewall, and Azure AD.
 
 ### Requirement 10.9

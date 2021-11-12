@@ -1,6 +1,6 @@
 ---
-title: Remediate security risks in Azure Security Center
-description: Remediate the common risks identified by Azure Security Center.
+title: Remediate security risks in Microsoft Defender for Cloud
+description: Remediate the common risks identified by Microsoft Defender for Cloud.
 author: PageWriter-MSFT
 ms.date: 03/18/2021
 ms.topic: conceptual
@@ -46,6 +46,7 @@ As you review the results and apply recommendations, track the progress and prio
 - Assign stakeholders for monitoring and improving the score. Gamify the activity if possible to increase engagement and focus from the responsible teams.
 
 As a technical workload owner, work with your organization's dedicated team that monitors Secure Score. In the DevOps model, workload teams may be responsible for their own resources. Typically, these teams are responsible.
+
 - Security posture management team
 - Vulnerability management or governance, risk, and compliance team
 - Architecture team
@@ -90,6 +91,7 @@ For example, a workload runs in an Azure Kubernetes Service (AKS) cluster. The b
 That sort of isolation can be maintained through policies at a higher level such as the subscription level or even management groups.
 
 Another use case is that it can be automatically remediated by deploying related resources. For example, the organization wants all storage resources in a subscription to send logs to a common Log Analytics workspace. If a storage account doesn't pass the policy, a deployment is automatically started as remediation. That remediation can be enforced through **DeployIfNotExist**. There are some considerations.
+
 - There's a significant wait before the resource is updated and the deployment starts. In the preceding example, there won't be logs captured during that wait time. Avoid using this effect for resources that cannot tolerate a delay.
 - The resource deployed because of **DeployIfNotExist** are created by a separate identity than that of the identity that did the original deployment. That identity must have high enough privileges to make the required changes.
 
@@ -102,6 +104,7 @@ Finally take action. That action can be to fix the resources that are out of com
 Make sure that you are integrating critical security alerts into Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR) without introducing a high volume of low value data. Microsoft Defender for Cloud can stream alerts to Microsoft Sentinel. You can also use a third-party solution by using Microsoft Graph Security API.
 
 ## Next
+
 > [!div class="nextstepaction"]
 > [Azure security operations](monitor-security-operations.md)
 

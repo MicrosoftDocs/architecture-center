@@ -21,4 +21,4 @@ products:
   - m365-ems-cloud-app-security
 thumbnailUrl: /azure/architecture/browse/thumbs/benefits.png
 content: |
-   [!include[](aws-azure-security-solutions-content.md)]
+   [!INCLUDE[](aws-azure-security-solutions-content.md)]

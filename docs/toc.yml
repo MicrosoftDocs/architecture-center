@@ -937,7 +937,7 @@ items:
                     href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
                     maintainContext: true
           - name: Game analytics
-            items: 
+            items:
               - name: Non-real-time dashboard
                 href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
                 maintainContext: true
@@ -1589,7 +1589,7 @@ items:
                     maintainContext: true
                   - name: Security and governance for VMware Solution
                     href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
-                    maintainContext: true                    
+                    maintainContext: true
           - name: Architectures
             items:
               - name: Azure VMware Solution in hub-and-spoke

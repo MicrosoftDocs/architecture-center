@@ -96,7 +96,7 @@ This solution uses the following components:
 
 ## Related resources
 
-- [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel][Hybrid Security Monitoring using Azure Security Center and Azure Sentinel]
+- [Hybrid Security Monitoring using Microsoft Defender for Cloud and Microsoft Sentinel](/azure/defender-for-cloud/defender-for-cloud-introduction)
 - [Security considerations for highly sensitive IaaS apps in Azure][Security considerations for highly sensitive IaaS apps in Azure]
 - [Azure Active Directory IDaaS in Security Operations][Azure Active Directory IDaaS in Security Operations]
 
@@ -109,7 +109,6 @@ This solution uses the following components:
 [Azure RBAC custom roles]: /azure/role-based-access-control/custom-roles
 [Azure Virtual Machines]: https://azure.microsoft.com/services/virtual-machines
 [Configure Bastion and connect to a Windows VM through a browser]: /azure/bastion/tutorial-create-host-portal
-[Hybrid Security Monitoring using Azure Security Center and Azure Sentinel]: ../../hybrid/hybrid-security-monitoring.yml
 [Just-in-time (JIT) VM access]: /azure/security-center/security-center-just-in-time
 [Privileged Identity Management (PIM)]: /azure/active-directory/privileged-identity-management
 [Understanding just-in-time (JIT) VM access]: /azure/security-center/just-in-time-explained

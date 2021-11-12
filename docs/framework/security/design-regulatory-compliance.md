@@ -23,6 +23,7 @@ A workload can have regulatory requirements, which may mandate that operational 
 These requirements may need strict security measures that affect the overall architecture, the selection, and configuration of specific PaaS, and SaaS services. The requirements also have implications for how the workload should be operationalized.
 
 ## Key points
+
 > [!div class="checklist"]
 > - Make sure that all regulatory and governance requirements are known, and well understood.
 > - Periodically perform external and, or internal workload security audits.
@@ -107,5 +108,6 @@ Monitor the compliance of the workload to check if the security controls are ali
 > Go back to the main article: [Governance](design-governance.md)
 
 ## Next
+
 > [!div class="nextstepaction"]
 > [Azure landing zone](design-governance-landing-zone.md)

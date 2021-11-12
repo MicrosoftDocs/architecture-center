@@ -18,28 +18,28 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 
 ### Components
 
-* [Data Factory](https://azure.microsoft.com/services/data-factory): Hybrid data integration at enterprise scale, made easy
-* [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): Hyperscale repository for big data analytics workloads
-* [Cognitive Services](https://azure.microsoft.com/services/cognitive-services): Add smart API capabilities to enable contextual interactions
-* [Web Apps](https://azure.microsoft.com/services/app-service/web): Quickly create and deploy mission critical web apps at scale
-* [Defender for Cloud](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
-* [Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard and maintain control of keys and other secrets
-* Application Insights: Detect, triage, and diagnose issues in your web apps and services
-* [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
-* [Machine Learning](/azure/machine-learning): Easily build, deploy, and manage predictive analytics solutions
-* [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
+- [Data Factory](https://azure.microsoft.com/services/data-factory): Hybrid data integration at enterprise scale, made easy
+- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage): Hyperscale repository for big data analytics workloads
+- [Cognitive Services](https://azure.microsoft.com/services/cognitive-services): Add smart API capabilities to enable contextual interactions
+- [Web Apps](https://azure.microsoft.com/services/app-service/web): Quickly create and deploy mission critical web apps at scale
+- [Defender for Cloud](https://azure.microsoft.com/services/security-center): Unify security management and enable advanced threat protection across hybrid cloud workloads
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Synchronize on-premises directories and enable single sign-on
+- [Key Vault](https://azure.microsoft.com/services/key-vault): Safeguard and maintain control of keys and other secrets
+- Application Insights: Detect, triage, and diagnose issues in your web apps and services
+- [Azure Monitor](https://azure.microsoft.com/services/monitor): Full observability into your applications, infrastructure, and network
+- [Machine Learning](/azure/machine-learning): Easily build, deploy, and manage predictive analytics solutions
+- [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
 
 ## Next steps
 
-* [Azure Data Factory V2 Preview Documentation](/azure/data-factory)
-* [Data Lake Store Documentation](/azure/data-lake-store)
-* [Get started with Azure](/azure/guides/developer/azure-developer-guide)
-* [Web Apps overview](/azure/app-service/app-service-web-overview)
-* [Microsoft Defender for Cloud Documentation](/azure/security-center)
-* [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
-* [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
-* [Application Insights Documentation](/azure/application-insights)
-* [Azure Monitor Documentation](/azure/monitoring-and-diagnostics)
-* [Azure Machine Learning Documentation](/azure/machine-learning)
-* [Power BI Embedded Documentation](/azure/power-bi-embedded)
+- [Azure Data Factory V2 Preview Documentation](/azure/data-factory)
+- [Data Lake Store Documentation](/azure/data-lake-store)
+- [Get started with Azure](/azure/guides/developer/azure-developer-guide)
+- [Web Apps overview](/azure/app-service/app-service-web-overview)
+- [Microsoft Defender for Cloud Documentation](/azure/security-center)
+- [Get started with Azure AD](/azure/active-directory/get-started-azure-ad)
+- [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
+- [Application Insights Documentation](/azure/application-insights)
+- [Azure Monitor Documentation](/azure/monitoring-and-diagnostics)
+- [Azure Machine Learning Documentation](/azure/machine-learning)
+- [Power BI Embedded Documentation](/azure/power-bi-embedded)

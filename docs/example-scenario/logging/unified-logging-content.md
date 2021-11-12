@@ -126,6 +126,7 @@ A key aspect of logging is the structure of the log itself. Log data is essentia
 A structured format makes event data readable and able to be parsed by automated systems. JSON is the data interchange format used by most web services today, and its familiar schema is well suited for structured logging.
 
 When defining log structure, you can add context to every request with the following objects:
+
 - Correlation ID for the request. The ID chains related log events together to provide a narrative for events and help establish where issues occur in distributed systems. The correlation ID should be a globally unique value.
 - Date and time in UTC
 - Service name
@@ -158,6 +159,6 @@ Incorporating the preceding changes into a distributed application allows team m
 
 ## Next steps
 
-* [Building microservices on Azure](../../microservices/index.md)
-* [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)
-* [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture)
+- [Building microservices on Azure](../../microservices/index.md)
+- [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)
+- [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture)

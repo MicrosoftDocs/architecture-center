@@ -253,6 +253,7 @@ To add a new chart that shows threat indicators by threat type:
 1. Under **Log Analytics workspace Logs Query**, enter the following query:
 
    ```
+
    ThreatIntelligenceIndicator
    | summarize count() by ThreatType
    ```
@@ -263,11 +264,13 @@ To add a new chart that shows threat indicators by threat type:
    ![New workbook chart](media/sentinel-threat-intelligence/workbook-chart.png)
 
 ## Next steps
+
 Visit Microsoft Sentinel on [GitHub](https://github.com/Azure/Azure-Sentinel) to see contributions by both the community at large and by Microsoft. Here you'll find new ideas, templates, and conversations about all the feature areas of Microsoft Sentinel.
 
 Microsoft Sentinel workbooks are based on Azure Monitor workbooks, so extensive documentation and templates are available. A great place to start is [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/app/usage-workbooks). There is a rich community of Azure Monitor workbook users on [GitHub](https://github.com/microsoft/Application-Insights-Workbooks), where you can download additional templates and contribute your own templates.
 
 ## Related resources
+
 - [What is Microsoft Sentinel?](/azure/sentinel/overview)
 - [Quickstart: On-board Microsoft Sentinel](/azure/sentinel/quickstart-onboard)
 - [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator?view=graph-rest-beta)

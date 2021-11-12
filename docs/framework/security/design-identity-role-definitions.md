@@ -61,6 +61,7 @@ When assigning permissions for a segment, consider consistency while allowing fl
 This section uses this [Reference model](design-segmentation.md#reference-model) to demonstrate the considerations for assigning permissions for different segments. Microsoft recommends starting from these models and adapting to your organization.
 
 #### Core services reference permissions
+
 This segment hosts shared services utilized across the organization. These shared services typically include Active Directory Domain Services, DNS/DHCP, System Management Tools hosted on Azure Infrastructure as a Service (IaaS) virtual machines.
 
 ![Conceptual art showing reference permissions](images/ref-perms.png)

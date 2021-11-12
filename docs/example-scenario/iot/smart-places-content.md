@@ -232,7 +232,7 @@ These services provide support for components in all areas of the solution:
 
 - [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. This service notifies apps and personnel about irregular conditions.
 
-- [Microsoft Defender for IoT][Azure Defender for IoT] is a unified security service that protects IoT systems by identifying vulnerabilities and threats.
+- [Microsoft Defender for IoT](/azure/defender-for-iot/overview) is a unified security service that protects IoT systems by identifying vulnerabilities and threats.
 
 - [Azure DevOps Services][Azure DevOps] provides services, tools, and environments for managing coding projects and deployments.
 
@@ -312,7 +312,6 @@ Use the [Azure pricing calculator][Azure pricing calculator] to estimate the cos
 [Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db
 [Azure Data Explorer]: /azure/data-explorer/data-explorer-overview
 [Azure Data Factory]: /azure/data-factory/introduction
-[Azure Defender for IoT]: /azure/defender-for-iot/overview
 [Azure DevOps]: https://azure.microsoft.com/services/devops
 [Azure Digital Twins]: /azure/digital-twins/overview
 [Azure Digital Twins APIs and SDKs]: /azure/digital-twins/concepts-apis-sdks

@@ -60,6 +60,7 @@ Avoid storing persistent data in local cluster storage because that ties the dat
 For more information, see [Storage options for application in Azure Kubernetes Service](/azure/aks/concepts-storage).
 
 ## Service object
+
 The Kubernetes **Service** object provides a set of capabilities that match the microservices requirements for service discoverability:
 
 - IP address. The Service object provides a static internal IP address for a group of pods (ReplicaSet). As pods are created or moved around, the service is always reachable at this internal IP address.

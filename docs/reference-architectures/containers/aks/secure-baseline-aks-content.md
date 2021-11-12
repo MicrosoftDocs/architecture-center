@@ -7,18 +7,21 @@ In this reference architecture, we'll build a baseline infrastructure that deplo
 
 :::row:::
     :::column:::
+
       #### Networking configuration
       [Network topology](#network-topology)\
       [Plan the IP addresses](#plan-the-ip-addresses)\
       [Deploy Ingress resources](#deploy-ingress-resources)
     :::column-end:::
     :::column:::
+
       #### Cluster compute
       [Compute for the base cluster](#configure-compute-for-the-base-cluster)\
       [Container image reference](#container-image-reference)\
       [Policy management](#policy-management)
     :::column-end:::
     :::column:::
+
       #### Identity management
       [Integrate Azure AD for the cluster](#integrate-azure-active-directory-for-the-cluster)\
       [Integrate Azure AD for the workload](#integrate-azure-active-directory-for-the-workload)
@@ -27,17 +30,20 @@ In this reference architecture, we'll build a baseline infrastructure that deplo
 
 :::row:::
    :::column:::
+
       #### Secure data flow
       [Secure the network flow](#secure-the-network-flow)\
       [Add secret management](#add-secret-management)
     :::column-end:::
    :::column:::
+
       #### Business continuity
       [Scalability](#node-and-pod-scalability)\
       [Cluster and node availability](#business-continuity-decisions)\
       [Availability and multi-region support](#availability-zones-and-multi-region-support)
     :::column-end:::  
     :::column:::
+
       #### Operations
       [Cluster and workload CI/CD pipelines](#cluster-and-workload-operations-devops)\
       [Cluster health and metrics](#monitor-and-collect-metrics)\
@@ -324,7 +330,7 @@ You can implement end-to-end TLS traffic all at every hop the way through to the
 For zero-trust control and the ability to inspect traffic, all egress traffic from the cluster moves through Azure Firewall. You can implement that choice using user-defined routes (UDRs). The next hop of the route is the [private IP address](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses) of the Azure Firewall. Here, Azure Firewall decides whether to block or allow the egress traffic. That decision is based on the specific rules defined in the Azure Firewall or the built-in threat intelligence rules.
 
 > [!NOTE]
-> If you use a public load balancer as your public point for ingress traffic and egress through Azure Firewall using UDRs, you might see an [asymmetric routing situation](/azure/aks/limit-egress-traffic#add-a-dnat-rule-to-azure-firewall). This architecture uses _internal_ load balancers in a dedicated ingress subnet behind the Application Gateway. This design choice not only enhances security but also eliminates asymmetric routing concerns. Alternatively, you could route ingress traffic through your Azure Firewall before or after your Application Gateway. That approach isn't necessary or recommended for most situations.
+> If you use a public load balancer as your public point for ingress traffic and egress through Azure Firewall using UDRs, you might see an [asymmetric routing situation](/azure/aks/limit-egress-traffic#add-a-dnat-rule-to-azure-firewall). This architecture uses *internal* load balancers in a dedicated ingress subnet behind the Application Gateway. This design choice not only enhances security but also eliminates asymmetric routing concerns. Alternatively, you could route ingress traffic through your Azure Firewall before or after your Application Gateway. That approach isn't necessary or recommended for most situations.
 > For more information about asymmetric routing, see [Integrate Azure Firewall with Azure Standard Load Balancer](/azure/firewall/integrate-lb#asymmetric-routing).
 
 An exception to the zero-trust control is when the cluster needs to communicate with other Azure resources. For instance, the cluster needs to pull an updated image from the container registry. The recommended approach is by using  [Azure Private Link](/azure/private-link/private-link-overview). The advantage is that specific subnets reach the service directly. Also, traffic between the cluster and the service isn't exposed to public internet. A downside is that Private Link needs additional configuration instead of using the target service over its public endpoint. Also, not all Azure services or SKUs support Private Link. For those cases, consider enabling a Service Endpoint on the subnet to access the service.
@@ -375,7 +381,7 @@ An effective way to manage an AKS cluster is by enforcing governance through pol
 
 When setting policies, apply them based on the requirements of the workload. Consider these factors:
 
-- Do you want to set a collection of policies (called initiatives) or choose individual policies. Azure Policy provides two built-in initiatives: basic and restricted. Each initiative is a collection of built-in policies applicable to an AKS cluster. It's recommended that you select an initiative _and_ pick and choose additional policies for the cluster and the resources (ACR, Application Gateway, Key Vault, and others) that interact with the cluster, as per the requirements of your organization.
+- Do you want to set a collection of policies (called initiatives) or choose individual policies. Azure Policy provides two built-in initiatives: basic and restricted. Each initiative is a collection of built-in policies applicable to an AKS cluster. It's recommended that you select an initiative *and* pick and choose additional policies for the cluster and the resources (ACR, Application Gateway, Key Vault, and others) that interact with the cluster, as per the requirements of your organization.
 
 - Do you want to **Audit** or **Deny** the action. In **Audit** mode, the action is allowed but it's flagged as **Non-Compliant**. Have processes to check non-compliant states at a regular cadence and take necessary action. In **Deny** mode, the action is blocked because it violates the policy. Be careful in choosing this mode because it can be too restrictive for the workload to function.
 
@@ -385,7 +391,7 @@ When setting policies, apply them based on the requirements of the workload. Con
 
 - Do you have organization-wide requirements? If so, add those policies at the management group level. Your cluster should also assign its own workload-specific policies, even if the organization has generic policies.
 
-- Azure policies are assigned to specific scopes. Ensure the _production_ policies are also validated against your _pre-production_ environment. Otherwise, when deploying to your production environment, you may run into unexpected additional restrictions that weren't accounted for in pre-production.
+- Azure policies are assigned to specific scopes. Ensure the *production* policies are also validated against your *pre-production* environment. Otherwise, when deploying to your production environment, you may run into unexpected additional restrictions that weren't accounted for in pre-production.
 
 In this reference implementation Azure Policy is enabled when the AKS cluster is created and assigns the restrictive initiative in **Audit** mode to gain visibility into non-compliance.
 

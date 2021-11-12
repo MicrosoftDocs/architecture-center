@@ -5,6 +5,7 @@ This architecture shows a secure research environment intended to allow research
 ## Potential use cases
 
 This architecture was originally created for higher education research institutions with HIPAA requirements. However, this design can be used in any industry that requires isolation of data for research perspectives. Some examples include:
+
 - Industries that process regulated data as per NIST requirements
 - Medical centers collaborating with internal or external researchers
 - Banking and finance
@@ -12,6 +13,7 @@ This architecture was originally created for higher education research instituti
 By following the guidance you can maintain full control of your research data, have separation of duties, and meet strict regulatory compliance standards while providing collaboration between the typical roles involved in a research-oriented workload; data owners, researchers, and approvers.
 
 ## Architecture
+
 :::image type="content" source="./media/secure-research-env.svg" alt-text="Diagram of a secure research environment.":::
 
 ### Data flow
@@ -57,11 +59,11 @@ Here are the core components that move and process research data.
 
 - **Azure Virtual Desktop** is used as a jump box to gain access to the resources in the secure environment with streaming applications and a full desktop, as needed. Alternately, you can use Azure Bastion. But, have a clear understanding of the security control differences between the two options. Virtual Desktop has some advantages:
 
-    - Ability to stream an app like VSCode to run notebooks against the machine learning compute resources.
-    - Ability to limit copy, paste, and screen captures.
-    - Support for Azure Active Directory Authentication to DSVM.
+  - Ability to stream an app like VSCode to run notebooks against the machine learning compute resources.
+  - Ability to limit copy, paste, and screen captures.
+  - Support for Azure Active Directory Authentication to DSVM.
 
-- **Azure Logic Apps** provides automated low-code workflow to develop both the _trigger_ and _release_ portions of the manual approval process.
+- **Azure Logic Apps** provides automated low-code workflow to develop both the *trigger* and *release* portions of the manual approval process.
 
 #### Posture management components
 

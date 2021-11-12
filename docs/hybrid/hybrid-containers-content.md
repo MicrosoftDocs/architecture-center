@@ -88,10 +88,10 @@ In this reference, Azure Container Instances container groups are utilized as *v
 
 ## Next steps
 
-* [Learn more about Azure Container Registry][azure-container-registry]
-* [Learn more about Azure Kubernetes Service][azure-kubernetes-service]
-* [Learn more about Azure Policy][azure-policy]
-* [Learn more about Azure Monitor][azure-monitor]
+- [Learn more about Azure Container Registry][azure-container-registry]
+- [Learn more about Azure Kubernetes Service][azure-kubernetes-service]
+- [Learn more about Azure Policy][azure-policy]
+- [Learn more about Azure Monitor][azure-monitor]
 
 [architectural-diagram]: ./images/hybrid-containers.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-containers.vsdx

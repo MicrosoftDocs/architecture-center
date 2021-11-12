@@ -82,15 +82,19 @@ The description of this flow is in the following sections.
 You can [view the topology of an Azure virtual network](/azure/network-watcher/view-network-topology) if you have  Azure Network Watcher. You can view all of the resources in a virtual network, the resources associated to resources in a virtual network, and the relationships between the resources.
 
 #### Requirement 1.1.3
+
 Current diagram that shows all cardholder data flows across systems and networks.
+
 ##### Your responsibilities
+
 As part of your documentation, include a data flow diagram that shows how data is protected at rest and in transit.
 
 The diagram should show how data flows to and from the workload and what information is passed from one resource to another. Make sure the diagram is kept current. Add a step as part of the change management process, to update the data flow diagram.
 
-Because this architecture is focused on the infrastructure and _not_ the workload, we have omitted illustrations here.
+Because this architecture is focused on the infrastructure and *not* the workload, we have omitted illustrations here.
 
 #### Requirement 1.1.4
+
 Requirements for a firewall at each Internet connection and between any demilitarized zone (DMZ) and the internal network zone.
 
 ##### Your responsibilities
@@ -170,6 +174,7 @@ Have processes at least every six months to review the network configurations an
 Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment.
 
 ##### Your responsibilities
+
 In this architecture, the AKS cluster is a key component of the cardholder data environment (CDE). We strongly recommend that the cluster is deployed as a private cluster for enhanced security. In a private cluster, network traffic between the AKS-managed Kubernetes API server and your node pools is private. The API server is exposed via a Private Endpoint in the cluster's network.
 
 You can also choose a public cluster, but be aware of potential challenges with this option. The API server will be exposed to the internet. The DNS record will always be discoverable. So, you need to have controls to keep the cluster API protected from public access. An approach is to have tight controls through Kubernetes role-based access controls (RBAC), paired with the authorized IP ranges feature of AKS. However, this solution isn't recommended for clusters containing regulated workloads.
@@ -186,7 +191,7 @@ Restrict inbound and outbound traffic to that which is necessary for the cardhol
 
 ##### Your responsibilities
 
-By design, Azure Virtual Network cannot be directly reached by the public internet. All inbound (or _ingress_) traffic must go through an intermediate traffic router. However, all components in the network can reach public endpoints. That outbound (or _egress_) traffic must be explicitly secured allowing only secure ciphers and TLS 1.2 or later.
+By design, Azure Virtual Network cannot be directly reached by the public internet. All inbound (or *ingress*) traffic must go through an intermediate traffic router. However, all components in the network can reach public endpoints. That outbound (or *egress*) traffic must be explicitly secured allowing only secure ciphers and TLS 1.2 or later.
 
 -  Azure Application Gateway integrated WAF intercepts all HTTP(S) ingress traffic and routes inspected traffic to the cluster.
 
@@ -322,7 +327,7 @@ Do not disclose private IP addresses and routing information to unauthorized par
 
 ##### Your responsibilities
 
-To meet this requirement, a public AKS cluster is not an option. A private cluster keeps DNS records off the public internet by using a private DNS zone. However, it's still possible to [Create a private AKS cluster with a Public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). So, it's recommended to _explicitly_ disable this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider adding Azure Policy to enforce the use of private clusters without public DNS records.
+To meet this requirement, a public AKS cluster is not an option. A private cluster keeps DNS records off the public internet by using a private DNS zone. However, it's still possible to [Create a private AKS cluster with a Public DNS address](/azure/aks/private-clusters#create-a-private-aks-cluster-with-a-public-dns-address). So, it's recommended to *explicitly* disable this feature by setting `enablePrivateClusterPublicFQDN` to `false` to prevent disclosure of your control plane's private IP address. Consider adding Azure Policy to enforce the use of private clusters without public DNS records.
 
 Also, use a private DNS zone for routing between the subnet that has Azure Application Gateway integrated with WAF, and the subnet that has the internal load balancer. Ensure that no HTTP responses include any private IP information in the headers or body. Ensure that logs that might contain IP and DNS records are not exposed outside of operational needs.
 
@@ -341,6 +346,7 @@ In this architecture, that jump box is in a separate subnet in the spoke network
 To run certain commands on the jump box, you'll need to reach public endpoints. For example, endpoints managed by the Azure management plane. That outbound traffic must be secure. Similar to other components in the spoke network, outbound traffic from the jump box is restricted by using a UDR that forces HTTPs  traffic to go through Azure Firewall.
 
 ### Requirement 1.5
+
 Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.
 
 ##### Your responsibilities
@@ -348,6 +354,7 @@ Ensure that security policies and operational procedures for managing firewalls 
 It's critical that you maintain thorough documentation about the process and policies. This is especially true when you're managing Azure Firewall rules that segment the AKS cluster. People operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people with accounts that are granted broad administrative privileges.
 
 ## Requirement 2
+
 Do not use vendor-supplied defaults for system passwords and other security parameters
 
 ### Requirement 2.1
@@ -386,6 +393,7 @@ Document the desired configuration state of all components in the CDE, especiall
 For more information, see [Azure security benchmark](/security/benchmark/azure/introduction).
 
 #### Azure responsibility
+
 Azure provides security configuration standards that are consistent with industry-accepted hardening standards. The standards are reviewed at least annually.
 
 #### Requirement 2.2.1
@@ -457,6 +465,7 @@ Remove all unnecessary functionality, such as scripts, drivers, features, subsys
 Don't install software on jump boxes or build agents that don't participate in the processing of a transaction or provide observability for compliance requirements, such as security agents. This recommendation also applies to the cluster entities, such as `DaemonSet` and pods. Make sure all installations are detected and logged.
 
 ### Requirement 2.3
+
 Encrypt all non-console administrative access using strong cryptography.
 
 #### Your responsibilities
@@ -468,6 +477,7 @@ All administrative access to the cluster should be done by using the console. Do
 Azure ensures the use of strong cryptography is enforced when accessing the hypervisor infrastructure. It ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography.
 
 ### Requirement 2.4
+
 Maintain an inventory of system components that are in scope for PCI DSS.
 
 #### Your responsibilities

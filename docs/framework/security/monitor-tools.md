@@ -21,7 +21,7 @@ ms.custom:
 
 # Azure security monitoring tools
 
-The _leverage native control_ security principle tells us to use native controls built into cloud services over external controls through third-party solutions. Native reduce the effort required to integrate external security tooling and update those integrations over time.
+The *leverage native control* security principle tells us to use native controls built into cloud services over external controls through third-party solutions. Native reduce the effort required to integrate external security tooling and update those integrations over time.
 
 Azure provides several monitoring tools that observe the operations and detect anomalous behavior. These tools can detect threats at different levels and report issues. Addressing the issues early in the operational lifecycle will strengthen your overall security posture.
 

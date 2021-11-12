@@ -45,6 +45,7 @@ This architecture and the implementation are focused on infrastructure and not t
 - A quarterly process for identifying and securely deleting stored cardholder data that exceeds defined retention.
 
 #### Your responsibilities
+
 Do not store state in the AKS cluster. If you choose to store CHD, explore secure storage options. Options include Azure Storage for file storage, or databases such as Azure SQL Database or Azure Cosmos DB.
 
 Adhere strictly to the standard guidance about what kind of CHD can be stored. Define data retention policies based on your business requirements and the type of storage used. Some key considerations are:
@@ -69,6 +70,7 @@ For more information, see [Managing the data life cycle using Azure Data Factory
 Do not store sensitive authentication data after authorization (even if encrypted). If sensitive authentication data is received, render all data unrecoverable upon completion of the authorization process.
 
 #### Your responsibilities
+
 (APPLIES TO: Requirement 3.2.1, Requirement 3.2.2, Requirement 3.2.3)
 
 Processing and protecting data is beyond the scope of this architecture. Here are some general considerations.
@@ -86,6 +88,7 @@ As general guidance, merchants shouldn't store this information. If there's a ne
 Mask PAN when displayed (the first six and last four digits are the maximum number of digits to be displayed), such that only personnel with a legitimate business need can see the full PAN.
 
 #### Your responsibilities
+
 Primary account number (PAN) is considered to be sensitive data, and exposure to this data must be prevented. One way is to reduce the displayed digits through masking.
 
 Do not implement data masking in the workload. Instead, use database-level constructs. The Azure SQL line of services, including Azure Synapse Analytics, supports dynamic data masking, which reduces exposure at the application layer. It's a policy-based security feature that defines who can view the unmasked data and how much data is exposed through masking.  The built-in **Credit card** masking method exposes the last four digits of the designated fields and adds a constant string as a prefix in the form of a credit card.
@@ -95,6 +98,7 @@ For more information, see [Dynamic data masking](/azure/azure-sql/database/dynam
 If you do need to bring in unmasked data into your cluster, mask as soon as possible.
 
 ### Requirement 3.4
+
 Render PAN unreadable anywhere it is stored (including on portable digital media, backup media, and in logs) by using any of the following approaches:
 - One-way hashes based on strong cryptography, (hash must be of the entire PAN)
 - Truncation (hashing cannot be used to replace the truncated segment of PAN)
@@ -102,6 +106,7 @@ Render PAN unreadable anywhere it is stored (including on portable digital media
 - Strong cryptography with associated key-management processes and procedures.
 
 #### Your responsibilities
+
 For this requirement, you might need to use direct cryptography in the workload. PCI DSS guidance recommends using industry-tested algorithms so that they stand up to real-world attacks. Avoid using custom encryption algorithms.
 
 Appropriate data-masking techniques also fulfill this requirement. You're responsible for masking all primary account number (PAN) data. The Azure SQL line of services, including Azure Synapse Analytics, supports dynamic data masking. See [Requirement 3.3](#requirement-33).
@@ -119,6 +124,7 @@ Make sure PAN is not exposed as part of your workflow processes. Here are some c
 If disk encryption is used (rather than file- or column-level database encryption), logical access must be managed separately and independently of native operating system authentication and access control mechanisms (for example, by not using local user account databases or general network login credentials). Decryption keys must not be associated with user accounts.
 
 ##### Your responsibilities
+
 As a general rule, do not store state in the AKS cluster. Use an external data storage that supports storage-engine level encryption.
 
 All stored data in Azure Storage is encrypted and decrypted by using strong cryptography. Microsoft manages the associated keys. Self-managed encryption keys are preferred. Always encrypt outside the storage layer and only write encrypted data into the storage medium, ensuring that the keys are never adjacent to the storage layer.
@@ -132,6 +138,7 @@ Make sure you store your keys in a managed key store (Azure Key Vault, Azure Key
 If you need to store data temporarily, enable the [host-encryption](/azure/aks/enable-host-encryption) feature of AKS to make sure that data stored on VM nodes is encrypted.
 
 ### Requirement 3.5
+
 Document and implement procedures to protect keys used to secure stored cardholder data against disclosure and misuse:
 
 #### Your responsibilities
@@ -143,6 +150,7 @@ These points are described in the subsections:
 - If you use self-managed keys (instead of Microsoft-managed keys), have a process and documentation for maintaining tasks related to key management.
 
 #### Requirement 3.5.1
+
 Additional requirement for service providers only: Maintain a documented description of the cryptographic architecture that includes:
 - Details of all algorithms, protocols, and keys used for the protection of cardholder data, including key strength and expiry date
 - Description of the key usage for each key
@@ -157,6 +165,7 @@ By default, Azure uses Microsoft-managed keys for all encrypted data, per custom
 As part of your documentation, include information related to key management such as expiration, location, and maintenance plan details.
 
 #### Requirement 3.5.2
+
 Restrict access to cryptographic keys to the fewest number of custodians necessary.
 
 ##### Your responsibilities
@@ -164,6 +173,7 @@ Restrict access to cryptographic keys to the fewest number of custodians necessa
 Minimize the number of people who have access to the keys. If you're using any group-based role assignments, set up a recurring audit process to review roles that have access. When project team members change, accounts that are no longer relevant must be removed from permissions. Only the right people should have access. Consider removing standing permissions in favor of just-in-time (JIT) role assignments, time-based role activation, and approval-based role activation.
 
 #### Requirement 3.5.3
+
 Store secret and private keys used to encrypt/decrypt cardholder data in one (or more) of the following forms at all times:
 - Encrypted with a key-encrypting key that is at least as strong as the data-encrypting key, and that is stored  separately from the data-encrypting key
 - Within a secure cryptographic device (such as a hardware (host) security module (HSM) or PTS-approved point-of-interaction device)
@@ -176,6 +186,7 @@ A PCI-DSS 3.2.1 workload will need to use more than one encryption key as part o
 You can use Azure Key Vault to store the DEK and use Azure Dedicated HSM to store the KEK. For information about HSM key management, see [What is Azure Dedicated HSM?](/azure/dedicated-hsm/overview).
 
 ### Requirement 3.6
+
 Fully document and implement all key-management processes and procedures for cryptographic keys used for encryption of cardholder data, including the following:
 
 #### Your responsibilities
@@ -192,6 +203,7 @@ Follow [NIST](https://csrc.nist.gov/) guidance about key management. For details
 See also [Microsoft Defender for Key Vault](/azure/security-center/defender-for-key-vault-introduction).
 
 #### Requirement 3.6.7
+
 Prevention of unauthorized substitution of cryptographic keys.
 
 ##### Your responsibilities
@@ -203,6 +215,7 @@ Prevention of unauthorized substitution of cryptographic keys.
 - **Take action on alerts** and notifications, especially on unexpected changes.
 
 #### Requirement 3.6.8
+
 Requirement for cryptographic key custodians to formally acknowledge that they understand and accept their key-custodian responsibilities.
 
 ##### Your responsibilities
@@ -210,9 +223,11 @@ Requirement for cryptographic key custodians to formally acknowledge that they u
 Maintain documentation that describes the accountabilities of the parties responsible in the operations of key management.
 
 ### Requirement 3.7
+
 Ensure that security policies and operational procedures for protecting stored cardholder data are documented, in use, and known to all affected parties.
 
 #### Your responsibilities
+
 Create documentation as a general statement plus a series of up-to-date role guides for all personas.  Perform new-hire training and ongoing training.
 
 It's critical that you maintain thorough documentation about the processes and policies. Several teams participate in making sure data is protected at rest and in transit. In your documentation, provide role guidance for all personas. The roles should include SRE, customer support, sales, network operations, security operations, software engineers, database administrators, and others. Personnel should be trained in NIST guidance and data-at-rest strategies to keep the skillset up to date. Training requirements are addressed in [Requirement 6.5](./aks-pci-malware.yml#requirement-65) and [Requirement 12.6](./aks-pci-policy.yml).
@@ -244,6 +259,7 @@ Ensure wireless networks transmitting cardholder data or connected to the cardho
 This architecture and the implementation aren't designed to do on-premises or corporate network-to-cloud transactions over wireless connections. For considerations, refer to the guidance in the official PCI-DSS 3.2.1 standard.
 
 #### Requirement 4.2
+
 Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
 
 ##### Your responsibilities

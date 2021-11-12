@@ -23,14 +23,14 @@ Application Insights is the Azure Service that allows not only to verify that yo
 
 Make sure you leverage all the rich information that Application Insights can provide about your application. This list is not exhaustive, but here you can find some of the visibility that Application Insights can give you:
 
-* Application Insights offers you a default dashboard with an educated guess of the most important metrics you will be interested in. You can then modify it and customize it to your own needs.
-* By instrumenting your application correctly, Application Insights will give you performance statistics both from a client and a server perspective
-* The Application Map will show you application dependencies in other services such as backend APIs or databases, allowing to determine visually where performance problems lie
-* Smart Detection will warn you when anomalies in performance or utilization patterns happen
-* Usage Analysis can give you telemetry on which features of your application are most frequently used, or whether all your application functionality is being used. This feature is especially useful after changes to the application functionality, to verify whether those changes were successful
-* Release annotations are visual indicators in your Application Insights charts of new builds and other events, so that you can visually correlate changes in application performance to code releases, being able to quickly pinpoint performance problems.
-* Cross-component transaction diagnostics allow you to follow failed transactions to find the point in the architecture where the fault was originated.
-* Snapshot Debugger, to automatically collect a snapshot of a live application in case of an exception, to analyze it at a later stage.
+- Application Insights offers you a default dashboard with an educated guess of the most important metrics you will be interested in. You can then modify it and customize it to your own needs.
+- By instrumenting your application correctly, Application Insights will give you performance statistics both from a client and a server perspective
+- The Application Map will show you application dependencies in other services such as backend APIs or databases, allowing to determine visually where performance problems lie
+- Smart Detection will warn you when anomalies in performance or utilization patterns happen
+- Usage Analysis can give you telemetry on which features of your application are most frequently used, or whether all your application functionality is being used. This feature is especially useful after changes to the application functionality, to verify whether those changes were successful
+- Release annotations are visual indicators in your Application Insights charts of new builds and other events, so that you can visually correlate changes in application performance to code releases, being able to quickly pinpoint performance problems.
+- Cross-component transaction diagnostics allow you to follow failed transactions to find the point in the architecture where the fault was originated.
+- Snapshot Debugger, to automatically collect a snapshot of a live application in case of an exception, to analyze it at a later stage.
 
 To use Application Insights you have two options: you can use **codeless monitoring**, where onboarding your app to Application Insights does not require any code change, or **code-based monitoring**, where you instrument your code to send telemetry to Application Insights using the Software Development Kit for your programming language of choice.
 
@@ -54,19 +54,19 @@ Additionally, for operators that prefer using the open-source Kubernetes monitor
 
 Regardless the form factor or programming language your application is based on, the network connecting your code to your users can make or break the experience that your application provides. As a consequence monitoring and troubleshooting the network can be decisive for an operations team. The component of Azure Monitor that manages the network components is called Network Watcher, a collection of network monitoring and troubleshooting tools. Some of these tools are:
 
-* Traffic Analytics will give you an overview of the traffic in your Virtual Networks, as well as the percentage coming from malicious IP addresses, leveraging Microsoft Threat Intelligence databases. This tool will show you as well the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems.
-* [Network Performance Monitor](/azure/azure-monitor/insights/network-performance-monitor) can generate synthetic traffic to measure the performance of network connections over multiple links, giving you a perspective on the evolution of WAN and Internet connections over time, as well as offering valuable monitoring information about Microsoft ExpressRoute circuits.
-* VPN diagnostics can help troubleshooting site-to-site VPN connections connecting your applications to users on-premises.
-* Connection Monitor allows you to measure the network availability between sets of endpoints.
+- Traffic Analytics will give you an overview of the traffic in your Virtual Networks, as well as the percentage coming from malicious IP addresses, leveraging Microsoft Threat Intelligence databases. This tool will show you as well the systems in your virtual networks that generate most traffic, so that you can visually identify bottlenecks before they degenerate into problems.
+- [Network Performance Monitor](/azure/azure-monitor/insights/network-performance-monitor) can generate synthetic traffic to measure the performance of network connections over multiple links, giving you a perspective on the evolution of WAN and Internet connections over time, as well as offering valuable monitoring information about Microsoft ExpressRoute circuits.
+- VPN diagnostics can help troubleshooting site-to-site VPN connections connecting your applications to users on-premises.
+- Connection Monitor allows you to measure the network availability between sets of endpoints.
 
 ### Other information sources
 
 Not only your application components are producing data, but there are many other signals that you need to track to effectively operate a cloud environment:
 
-* **Activity Log**: this is a trail audit that lets you see every change that has gone through Azure APIs. It can be critical to understand sudden performance changes or problems, that might have been due to a misconfiguration of the Azure platform.
-* **Azure Service Health**: sometimes outages are provoked not by configuration changes, but by glitches in the Azure platform itself. You can find information about any Azure-related problem impacting your application in the Azure Service Health logs.
-* **Azure Advisor**: find here recommendations about how to optimize your Azure platform to reduce costs, improve your security posture, or increase the availability of your environment.
-* **Microsoft Defender for Cloud**: not a focus of this pillar, but to be included for completeness: Microsoft Defender for Cloud can help you to understand whether your Azure resources are configured according to security best practices
+- **Activity Log**: this is a trail audit that lets you see every change that has gone through Azure APIs. It can be critical to understand sudden performance changes or problems, that might have been due to a misconfiguration of the Azure platform.
+- **Azure Service Health**: sometimes outages are provoked not by configuration changes, but by glitches in the Azure platform itself. You can find information about any Azure-related problem impacting your application in the Azure Service Health logs.
+- **Azure Advisor**: find here recommendations about how to optimize your Azure platform to reduce costs, improve your security posture, or increase the availability of your environment.
+- **Microsoft Defender for Cloud**: not a focus of this pillar, but to be included for completeness: Microsoft Defender for Cloud can help you to understand whether your Azure resources are configured according to security best practices
 
 ## Monitor external dependencies
 
@@ -98,9 +98,9 @@ Automation around alerts is critical due to the highly collaborative nature of D
 
 Beyond Azure Monitor, you will want to keep an eye on certain events to make sure that your application is running smoothly:
 
-* Review Azure subscription limits for your resources, and make sure you are not coming too close.
-* Understand Azure support plans. Refer to Azure support FAQs. Familiarize your team with Azure support.
-* Make sure that you monitor expiration dates of digital certificates, or even better, configure automatic digital certificate renewal with Azure Key Vault.
+- Review Azure subscription limits for your resources, and make sure you are not coming too close.
+- Understand Azure support plans. Refer to Azure support FAQs. Familiarize your team with Azure support.
+- Make sure that you monitor expiration dates of digital certificates, or even better, configure automatic digital certificate renewal with Azure Key Vault.
 
 ## Summary
 

@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure resources in Azure Security Center
-description: Use Azure Security Center to monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues.
+title: Monitor Azure resources in Microsoft Defender for Cloud
+description: Use Microsoft Defender for Cloud to monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues.
 author: PageWriter-MSFT
 ms.date: 03/18/2021
 ms.topic: conceptual
@@ -23,7 +23,9 @@ Most cloud architecture have compute, networking, data, and identity components 
 Microsoft Defender for Cloud has many plans that monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues. Common issues include internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more.
 
 ## Key points
-> [!div class="checklist"]
+
+ [!div class="checklist"]
+>
 > - Enable Microsoft Defender for Cloud as a defense-in-depth measure. Use resource-specific Defender for Cloud features such as Microsoft Defender for servers, Microsoft Defender for Endpoint, Microsoft Defender for Storage.
 > - Observe container hygiene through container aware tools and regular scanning.
 > - Review all network flow logs through network watcher. See diagnostic logs in Microsoft Defender for Cloud.
@@ -69,17 +71,17 @@ For a full list of features, see [Feature coverage for machines](/azure/security
 
 Make sure policies and processes require restricting and monitoring direct internet connectivity by virtual machines.
 
-For Azure, you can enforce policies by,
+For Azure, you can enforce policies by:
 
--   **Enterprise-wide prevention:** Prevent inadvertent exposure by following the permissions and roles described in the reference model.
+- **Enterprise-wide prevention:** Prevent inadvertent exposure by following the permissions and roles described in the reference model.
 
-    -   Ensures that network traffic is routed through approved egress points by default.
+  - Ensures that network traffic is routed through approved egress points by default.
 
-    -   Exceptions (such as adding a public IP address to a resource) must go through a centralized group that evaluates exception requests and makes sure appropriate controls are applied.
+  - Exceptions (such as adding a public IP address to a resource) must go through a centralized group that evaluates exception requests and makes sure appropriate controls are applied.
 
--   **Identify and remediate** exposed virtual machines by using the [Microsoft Defender for Cloud](/azure/security-center/) network visualization to quickly identify internet exposed resources.
+- **Identify and remediate** exposed virtual machines by using the [Microsoft Defender for Cloud](/azure/security-center/) network visualization to quickly identify internet exposed resources.
 
--   **Restrict management ports** (RDP, SSH) using [Just in Time access](/azure/security-center/security-center-just-in-time) in Microsoft Defender for Cloud.
+- **Restrict management ports** (RDP, SSH) using [Just in Time access](/azure/security-center/security-center-just-in-time) in Microsoft Defender for Cloud.
 
 One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.yml).
 
@@ -114,7 +116,7 @@ For more information, see these articles:
 
 ## Network
 
-**How do you monitor and diagnose conditions of the network?** 
+**How do you monitor and diagnose conditions of the network?**
 ***
 
 As an initial step, enable and review all logs (including raw traffic) from your network devices.
@@ -137,11 +139,13 @@ Then, focus on observability of specific services by reviewing the diagnostic lo
 Follow the recommendations provided by Defender for Cloud. For more information, see [Networking recommendations](/azure/security-center/recommendations-reference#networking-recommendations). Use [Azure Firewall logs](/azure/firewall/logs-and-metrics) and metrics for observability into operational and audit logs.
 
 Integrate all logs into a security information and event management (SIEM) service, such as Microsoft Sentinel. The SIEM solutions support ingestion of large amounts of information and can analyze large datasets quickly. Based on those insights, you can:
+
 - Set alerts or block traffic crossing segmentation boundaries.
 - Identify anomalies.
 - Tune the intake to significantly reduce the false positive alerts.
 
 ## Identity
+
 Monitor identity-related risk events using adaptive machine learning algorithms, heuristics quickly before the attacker can gain deeper access into the system.
 
 ### Review identity risks
@@ -216,5 +220,6 @@ You can discover existing connected tenants using a
 DevOps practices are for change management of the workload through continuous integration, continuous delivery (CI/CD). Make sure you add security validation in the pipelines. Follow the guidance described in [Learn how to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&preserve-view=true).
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [View logs and alerts](monitor-logs-alerts.md)

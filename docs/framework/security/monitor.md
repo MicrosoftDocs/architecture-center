@@ -24,6 +24,7 @@ ms.custom:
 Regularly monitor resources to maintain the security posture and detect vulnerabilities. Detection can take the form of reacting to an alert of suspicious activity or proactively hunting for anomalous events in the enterprise activity logs. vigilantly responding to anomalies and alerts to prevent security assurance decay, and designing for defense in depth and least privilege strategies.
 
 ## Checklist
+
 **How are you monitoring security-related events in this workload?**
 ***
 
@@ -38,6 +39,7 @@ Regularly monitor resources to maintain the security posture and detect vulnerab
 > - Regularly test your security design and implementation using test cases based on real-world attacks.
 
 ## Azure security benchmark
+
 The Azure Security Benchmark includes a collection of high-impact security recommendations. Use them to secure the services and processes you use to run the workload in Azure:
 
 > ![Security Benchmark](../../_images/benchmark-security.svg) The questions in this section are aligned to these controls:
@@ -56,7 +58,9 @@ The Azure Security Benchmark includes a collection of high-impact security recom
   This article provides AWS identity architects, administrators, and security analysts with immediate insights and detailed guidance for deploying several Microsoft security solutions.
 
 ## Next step
+
 We recommend applying as many best practices as early as possible, and then working to retrofit any gaps over time as you mature your security program.
 
 ## Related link
+
 > Go back to the main article: [Security](overview.md)

@@ -31,4 +31,4 @@ products:
 
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-security-monitoring.png
 content: |
-   [!include[](hybrid-security-monitoring-content.md)]
+   [!INCLUDE[](hybrid-security-monitoring-content.md)]

@@ -44,7 +44,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 - [GitHub Actions][GitHub Actions] are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in repositories. Computers called *runners* host these CI/CD jobs.
 - [App Service][App Service] provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.
 - [Azure Policy][Azure Policy] helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For instance, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
-- [Microsoft Defender for Cloud][Azure Security Center] provides unified security management and advanced threat protection across hybrid cloud workloads.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides unified security management and advanced threat protection across hybrid cloud workloads.
 - [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
 
 #### Security
@@ -149,7 +149,6 @@ For long-running or complex Actions, host your own runners for CI/CD jobs. You c
 [GitHub Actions]: https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions
 [App Service]: https://azure.microsoft.com/services/app-service/
 [Azure Policy]: /azure/governance/policy/overview
-[Azure Security Center]: /azure/security-center/security-center-intro
 [Azure Monitor]: /azure/azure-monitor/overview
 [GitHub code scanning]: https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
 [CodeQL]: https://securitylab.github.com/tools/codeql

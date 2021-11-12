@@ -36,12 +36,15 @@ When you create a VHD, it is unformatted. Log into the VM to format the disk. In
 
 ```bash
 # Create a partition.
+
 sudo fdisk /dev/sdc     # Enter 'n' to partition, 'w' to write the change.
 
 # Create a file system.
+
 sudo mkfs -t ext3 /dev/sdc1
 
 # Mount the drive.
+
 sudo mkdir /data1
 sudo mount /dev/sdc1 /data1
 ```

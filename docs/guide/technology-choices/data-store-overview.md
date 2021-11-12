@@ -293,8 +293,8 @@ Time series data is a set of values organized by time. Time series databases  ty
 
 ### Data type
 
- - A timestamp is used as the primary key and sorting mechanism.
- - Tags may define additional information about the type, origin, and other information about the entry.
+- A timestamp is used as the primary key and sorting mechanism.
+- Tags may define additional information about the type, origin, and other information about the entry.
 
 ### Examples
 

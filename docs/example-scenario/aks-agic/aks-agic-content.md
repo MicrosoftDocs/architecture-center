@@ -21,7 +21,8 @@ Use [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/i
 ## Architecture
 
 ![Architecture Diagram](./media/aks-agic.png)
-_Download an [SVG](./media/aks-agic.svg)_
+
+*Download an [SVG](./media/aks-agic.svg)*
 
 The companion ARM template deploys a new virtual network with four subnets:
 

@@ -206,6 +206,7 @@ For more information, see [Access control overview](/azure/azure-monitor/logs/de
 #### Private Endpoint connectivity over ExpressRoute
 
 Monitor is a constellation of different interconnected services that work together to monitor your workloads. You can use [Azure Private Link](/azure/private-link/private-link-overview) to securely link Azure PaaS resources to your virtual network with private endpoints. [Azure Monitor Private Link Scope](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.azuremonitorprivatelinkscope) provides private connectivity between applications deployed in virtual networks and Monitor resources, defining the boundaries of your monitoring network. For more information, see [Use Azure Private Link to connect networks to Azure Monitor](/azure/azure-monitor/logs/private-link-security).
+
 #### Logic Apps integration service environment (ISE)
 
 An integration service environment (ISE) environment keeps dedicated storage and other resources separate from the global, multi-tenant Logic Apps service. For more information, see [Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment).
@@ -217,6 +218,7 @@ A Log Analytics gateway sends data to Azure Automation and a Monitor Log Analyti
 ### Considerations checklist
 
 > [!div class="checklist"]
+>
 > - Enable Monitor solutions gradually, to minimize impact on environment and cost.
 > - Refer to Azure service limits on all architectural components.
 > - Set alerts on cost limits. Adding new solutions can increase the data collected multifold, thus increasing costs.

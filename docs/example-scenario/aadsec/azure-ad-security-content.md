@@ -1,5 +1,4 @@
 
-
 This architecture shows how Security Operations Center (SOC) teams can incorporate Azure Active Directory (Azure AD) identity and access capabilities into an overall integrated and layered *zero-trust* security strategy.
 
 Network security dominated SOC operations when all services and devices were contained on managed networks in organizations. However, [Gartner](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g) predicts that through 2022, the market size of cloud services will grow at a rate nearly three times that of overall IT services. As more companies embrace cloud computing, there's a shift toward treating [user identity](/azure/security/fundamentals/identity-management-best-practices#treat-identity-as-the-primary-security-perimeter) as the primary security boundary.
@@ -21,6 +20,7 @@ The [Microsoft Cybersecurity Reference Architecture (MCRA)](https://gallery.tech
 This article advances the zero-trust, adaptive security approach to IDaaS, emphasizing components available on the Azure AD platform.
 
 ## Use cases
+
 - Design new security solutions
 - Enhance or integrate with existing implementations
 - Educate SOC teams
@@ -81,13 +81,15 @@ Azure AD can use the following conditional access controls with conditional acce
 
   You can use PIM to [require approval](/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings) or justification for activating administrative roles. Users can maintain normal privileges most of the time, and request and receive access to roles they need to complete administrative or specialized tasks. When they complete their work and sign out, or the time limit on their access expires, they can reauthenticate with their standard user permissions.
 
-- [Microsoft Defender for Cloud Apps](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) is a *cloud access security broker (CAS-B)* that analyzes traffic logs to discover and monitor the applications and services in use in your organization. With Defender for Cloud Apps, you can:
+- [Microsoft Defender for Cloud Apps](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) is a *cloud access security broker (CASB)* that analyzes traffic logs to discover and monitor the applications and services in use in your organization. With Defender for Cloud Apps, you can:
+
   - [Create policies](/cloud-app-security/control-cloud-apps-with-policies) to manage interaction with apps and services
   - Identify applications as [sanctioned or unsanctioned](/cloud-app-security/governance-discovery)
   - [Control and limit access to data](/cloud-app-security/governance-actions)
   - [Apply information protection](/cloud-app-security/azip-integration) to guard against information loss
 
   Defender for Cloud Apps can also work with [access policies](/cloud-app-security/access-policy-aad) and [session policies](/cloud-app-security/session-policy-aad) to control user access to SaaS apps. For example, you can:
+  
   - [Limit the IP ranges](/azure/active-directory/conditional-access/location-condition) that can access apps
   - [Require MFA](/azure/active-directory/authentication/concept-mfa-howitworks) for app access
   - [Allow activities only from within approved apps](/azure/active-directory/conditional-access/app-based-conditional-access)
@@ -115,6 +117,7 @@ Azure AD can use the following conditional access controls with conditional acce
 Azure AD [audit reports](/azure/active-directory/reports-monitoring/concept-audit-logs) provide traceability for Azure activities with audit logs, sign-in logs, and risky sign-in and risky user reports. You can filter and search the log data based on several parameters, including service, category, activity, and status.
 
 You can route Azure AD log data to endpoints like:
+
 - Azure Storage accounts
 - [Azure Monitor logs](/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor)
 - [Azure event hubs](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
@@ -141,6 +144,7 @@ If some of your apps already use an existing [delivery controller or network con
 Azure Active Directory pricing ranges from free, for features like SSO and MFA, to Premium P2, for features like PIM and Entitlement Management. For pricing details, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Next steps
+
 - [Zero Trust security](https://www.microsoft.com/security/business/zero-trust)
 - [Zero Trust Deployment Guide for Microsoft Azure Active Directory](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/)
 - [Overview of the security pillar](../../framework/security/overview.md)

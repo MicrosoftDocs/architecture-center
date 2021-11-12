@@ -639,5 +639,6 @@ Once you get a feel for how this reference solution works, learn best practices 
 Azure Functions is just one Azure compute option. For help with choosing a compute technology, see [Choose an Azure compute service for your application](../guide/technology-choices/compute-decision-tree.md).
 
 ## Related resources
+
 - For in-depth discussion on developing serverless solutions on premises as well as in the cloud, read [Serverless apps: Architecture, patterns, and Azure implementation](/dotnet/standard/serverless-architecture).
 - Read more about the [Event-driven architecture style](../guide/architecture-styles/event-driven.md).

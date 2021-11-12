@@ -85,7 +85,7 @@ You can use Azure Monitor to monitor your VMs, virtual machine scale sets, and A
 
 ### Implement Microsoft Sentinel
 
-You can use [Microsoft Sentinel][Azure Sentinel] to deliver intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution that enables several scenarios including:
+You can use [Microsoft Sentinel](/azure/sentinel/overview) to deliver intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution that enables several scenarios including:
 
 - Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 - Detect previously undetected threats and minimize false positives.
@@ -119,18 +119,17 @@ The Connected Machine agent for Linux and Windows communicates outbound securely
 
 ## Next steps
 
-* [Learn more about Azure Arc][Azure Arc]
-* [Learn more about Azure virtual machines][Azure virtual machines]
-* [Learn more about Azure Policy Guest Configuration][Azure Policy Guest Configuration]
-* [Learn more about Azure Monitor][Azure Monitor]
-* [Overview of Azure Arc enabled servers agent][agent-overview]
+- [Learn more about Azure Arc][Azure Arc]
+- [Learn more about Azure virtual machines][Azure virtual machines]
+- [Learn more about Azure Policy Guest Configuration][Azure Policy Guest Configuration]
+- [Learn more about Azure Monitor][Azure Monitor]
+- [Overview of Azure Arc enabled servers agent][agent-overview]
 
 [architectural-diagram]: ./images/azure-arc-hybrid-config.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-arc-hybrid-config.vsdx
 [Azure Arc]: /azure/azure-arc/
 [Azure Policy Guest Configuration]: /azure/governance/policy/concepts/guest-configuration
 [Azure Monitor]: /azure/azure-monitor/
-[Azure Sentinel]: /azure/sentinel/overview
 [Azure virtual machines]: /azure/virtual-machines/
 [windows-agent-download]: https://aka.ms/AzureConnectedMachineAgent
 [microsoft-package-repo]: https://packages.microsoft.com/

@@ -35,6 +35,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 | [Google Cloud Marketplace](https://cloud.google.com/marketplace) | [Azure Marketplace](https://azure.microsoft.com/marketplace/) | Easy-to-deploy and automatically configured third-party applications, including single virtual machine or multiple virtual machine solutions. |
 
 ##  Data platform
+
 ###  Database
 
 | Type | Google Cloud service | Azure service | Azure service description |
@@ -181,6 +182,7 @@ For an overview of Azure for Google Cloud users, see the introduction to [Azure 
 [view all](../browse/index.yml?azure_categories=ai-machine-learning)
 
 ## Data catalog & governance
+
 | Google Cloud service | Azure service | Description |
 | --- | --- | --- |
 | [Cloud Data Catalog](https://cloud.google.com/data-catalog) | [Azure Purview](/azure/purview) | Azure Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. |
@@ -387,7 +389,7 @@ Here are some architectures that use AKS as the orchestrator.
 
 [!INCLUDE [Real-time fraud detection](../../includes/cards/fraud-detection.md)]
 [!INCLUDE [Securely managed web applications](../../includes/cards/fully-managed-secure-apps.md)]
-[!INCLUDE [Threat indicators for cyber threat intelligence in Azure Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
+[!INCLUDE [Threat indicators for cyber threat intelligence in Sentinel](../../includes/cards/sentinel-threat-intelligence.md)]
 
 </ul>
 

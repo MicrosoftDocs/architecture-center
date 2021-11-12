@@ -1,6 +1,6 @@
 ---
 title: Security alerts in Azure
-description: Use security logs to view operations and raise alerts on anomalous activities in Azure Security Center.
+description: Use security logs to view operations and raise alerts on anomalous activities in Microsoft Defender for Cloud.
 author: PageWriter-MSFT
 ms.date: 03/18/2021
 ms.topic: conceptual
@@ -22,7 +22,9 @@ subject:
 Logs provide insight into the operations of a workload, the infrastructure, network communications, and so on. When suspicious activity is detected, use alerts as a way of detecting potential threats. As part of your defense-in-depth strategy and continuous monitoring, respond to the alerts to prevent security assurance from decaying over time.
 
 ## Key points
+
 > [!div class="checklist"]
+>
 > - Configure central security log management.
 > - Enable audit logging for Azure resources.
 > - Collect security logs from operating systems.
@@ -40,21 +42,23 @@ Logs provide insight into the operations of a workload, the infrastructure, netw
 Ideally use a combination of the preceding services to get a full view. For example, use Azure Monitor to collect information about the operating system running on Azure compute. If you're running your own compute, use Microsoft Defender for Cloud.
 
 ## Audit logging
+
 An important aspect of monitoring is tracking operations. For example, you want to know who created, updated, deleted a resource. Or, get resource-specific information such as when an image was pulled from Azure Container Registry. That information is crucial for a Security Operations (SecOps) team in detecting the presence of adversaries, reacting to an alert of suspicious activity, or proactively hunting for anomalous events. They are also useful for security auditing and compliance and offline analysis.
 
 On Azure, that information is emitted as [platform logs](/azure/azure-monitor/essentials/platform-logs-overview) by the resources and the platform on which they run. They are tracked by Azure Resource Manager as and when subscription-level events occur. Each resource emits logs specific to the service.
 
 Consider storing your data for audit purposes or statistical analysis. You can retain data in your log analytics workspace and specify the data type. This example sets the retention for `SecurityEvents` to 730 days:
 
-```
+```http
 PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview {"properties":  {"retentionInDays": 730 } }
-
 ```
+
 Retaining data in this manner can reduce your costs for data retention over time. For information about the type of data you can retain, see [security data types](/azure/azure-monitor/reference/tables/tables-category#security).
 
 Another way is to send the logs to a storage account.
 
 ## Alerts
+
 Security alerts are notifications that are generated when anomalous activity is detected on the resources used by the workload or the platform.
 
 With the Microsoft Defender plans, Microsoft Defender for Cloud  analyzes log data and shows a list of alerts that's based on logs collected from resources within a scope. Alerts include context information such as severity, status, activity time. Defender for Cloud also provides a correlated view called **incidents**. Use this data to analyze what actions the attacker took, and what resources were affected. Have strategies to react to alerts as soon as they are generated. An option is to  handle alerts in Azure Functions.
@@ -72,6 +76,7 @@ For more information, see [Security alerts and incidents](/azure/security-center
 Organizations typically follow one of three models when deploying logs: centralized, decentralized, or hybrid. The choice depends on organizational structures. For example, if each team owns their resource group, log data is segregated per resource. While access control to that data might be easy to set up, it's difficult to correlate logs. This might be challenging for the SecOps team who need a holistic view to analyze the data.
 
 Consider a central view of log and data, when applicable. Some advantages include:
+
 - The resources in the workload can share a common log workspace reducing duplication.
 - Single point of observability with all log data makes it easier consume data for hunting activities, querying, and statistical evaluation.
 - The integrated data can be fed into modern machine learning analytics platforms support ingestion of large amounts of information and can analyze large datasets quickly. In addition, these solutions can be tuned to significantly reduce the false positive alerts.
@@ -92,6 +97,7 @@ That choice will help in rapid response and remediation by filtering out false p
 Other ways of log integration may involve a hybrid model that mixes centralized and decentralized (distributed among teams) approaches. For details, see [Important considerations for an access control strategy](/azure/azure-monitor/logs/design-logs-deployment#important-considerations-for-an-access-control-strategy).
 
 ## Next
+
 Responding to alerts is an essential way to prevent security assurance decay, and designing for defense-in depth and least privilege strategies.
 
 > [!div class="nextstepaction"]

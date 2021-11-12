@@ -109,7 +109,7 @@ Kubernetes role-based access control (RBAC) manages permissions to the Kubernete
 
 #### Zero-Trust access
 
-Kubernetes RBAC, Azure RBAC, and Azure services implement _deny all_ by default. Override that setting with caution, allowing access to only those entities who need it. Another area for implementing Zero-Trust is to disable SSH access to the cluster nodes.
+Kubernetes RBAC, Azure RBAC, and Azure services implement *deny all* by default. Override that setting with caution, allowing access to only those entities who need it. Another area for implementing Zero-Trust is to disable SSH access to the cluster nodes.
 
 ### Least privileges
 
@@ -211,7 +211,7 @@ Have a clear understanding of what constitutes the price of a service. Azure tra
 
 ![Diagram that illustrates cost management in an Azure Firewall example.](.\images\firewall-cost.png)
 
-The cost associated with some resources, such as Azure Firewall, can be spread across multiple business units and/or applications. Another way to optimize cost might be to host a multitenant cluster within an organization, maximizing density with workload diversity. We do _not_ recommend this approach for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
+The cost associated with some resources, such as Azure Firewall, can be spread across multiple business units and/or applications. Another way to optimize cost might be to host a multitenant cluster within an organization, maximizing density with workload diversity. We do *not* recommend this approach for regulated workloads. Always prioritize compliance and segmentation over cost benefits.
 
 To keep within the budget constraints, some ways to control cost are by adjusting the Azure Application Gateway infrastructure, setting the instance count for autoscaling, and reducing the log output as long as they still meet the audit trail required by PCI-DSS 3.2.1. Always evaluate those choices against the tradeoffs on other aspects of the design that allow you to meet your SLA. For example, are you still able to scale appropriately to meet spikes in traffic.
 

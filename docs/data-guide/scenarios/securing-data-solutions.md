@@ -70,7 +70,7 @@ For more information, see [Azure Logging and Auditing](/azure/security/azure-log
 
 Use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to restrict access to Azure resources based on user roles. If you are using Active Directory on-premises, you can [synchronize with Azure AD](/azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements) to provide users with a cloud identity based on their on-premises identity.
 
-Use [Conditional access in Azure Active Directory](/azure/active-directory/active-directory-conditional-access-azure-portal) to enforce controls on the access to applications in your environment based on specific conditions. For example, your policy statement could take the form of: _When contractors are trying to access our cloud apps from networks that are not trusted, then block access_.
+Use [Conditional access in Azure Active Directory](/azure/active-directory/active-directory-conditional-access-azure-portal) to enforce controls on the access to applications in your environment based on specific conditions. For example, your policy statement could take the form of: *When contractors are trying to access our cloud apps from networks that are not trusted, then block access*.
 
 [Azure AD Privileged Identity Management](/azure/active-directory/active-directory-privileged-identity-management-configure) can help you manage, control, and monitor your users and what sorts of tasks they are performing with their admin privileges. This is an important step to limiting who in your organization can carry out privileged operations in Azure AD, Azure, Microsoft 365, or SaaS apps, as well as monitor their activities.
 

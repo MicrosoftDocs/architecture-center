@@ -25,24 +25,24 @@ Security is a prime concern for businesses that store any sort of custom or clie
 
 ### Components
 
-* [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) provides identity and access management services for your organization, allowing control over access to the resources inside Azure, GitHub Enterprise, and Azure DevOps.
-* Source code is hosted on [GitHub Enterprise](https://help.github.com/en/github), where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
-* Use [Azure Boards](/azure/devops/boards/github/connect-to-github?view=azure-devops) to plan work and track its progress, using Agile tools such as Kanban boards.
-* [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops) is a service that provides Continuous Integration and Continuous Delivery jobs, to build and release your application automatically.
-* Host your Docker container images on [Azure Container Registry](/azure/container-registry/container-registry-concepts). This service includes container image scanning with the integration with Microsoft Defender for Cloud.
-* [Azure Kubernetes Service](/azure/aks/intro-kubernetes) offers a Kubernetes cluster that is fully managed by Azure, to ensure availability and security of your infrastructure.
-* [Terraform](/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks) is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, as well as on other environments.
-* [Azure Policy](/azure/governance/policy/overview) lets you create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. It integrates with Azure Kubernetes Service too.
-* You can use [Azure Key Vault](/azure/key-vault/key-vault-overview) to store certificates, connection strings, tokens, and other secrets. This sensitive information is read by your application at run-time, so it's abstracted away from your developers.
-* Azure [Cosmos DB](/azure/cosmos-db/introduction) is a globally distributed, multi-model database service, that is fully managed and compatible with multiple APIs, including MongoDB, Cassandra, SQL.
-* [Azure Application Gateway](/azure/application-gateway/ingress-controller-overview) is a Layer-7 load balancer with support for advanced routing rules and a Web Application Firewall (WAF).
-* Using [Azure Monitor](/azure/azure-monitor/overview) lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
-* Using [Azure AD B2C](/azure/active-directory-b2c/overview) you can provide identity services to consumers (end-users) of your application, even if they're not part of your organization.
+- [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) provides identity and access management services for your organization, allowing control over access to the resources inside Azure, GitHub Enterprise, and Azure DevOps.
+- Source code is hosted on [GitHub Enterprise](https://help.github.com/en/github), where developers can collaborate within your organization and the open-source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open-source dependencies
+- Use [Azure Boards](/azure/devops/boards/github/connect-to-github?view=azure-devops) to plan work and track its progress, using Agile tools such as Kanban boards.
+- [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops) is a service that provides Continuous Integration and Continuous Delivery jobs, to build and release your application automatically.
+- Host your Docker container images on [Azure Container Registry](/azure/container-registry/container-registry-concepts). This service includes container image scanning with the integration with Microsoft Defender for Cloud.
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes) offers a Kubernetes cluster that is fully managed by Azure, to ensure availability and security of your infrastructure.
+- [Terraform](/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks) is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, as well as on other environments.
+- [Azure Policy](/azure/governance/policy/overview) lets you create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. It integrates with Azure Kubernetes Service too.
+- You can use [Azure Key Vault](/azure/key-vault/key-vault-overview) to store certificates, connection strings, tokens, and other secrets. This sensitive information is read by your application at run-time, so it's abstracted away from your developers.
+- Azure [Cosmos DB](/azure/cosmos-db/introduction) is a globally distributed, multi-model database service, that is fully managed and compatible with multiple APIs, including MongoDB, Cassandra, SQL.
+- [Azure Application Gateway](/azure/application-gateway/ingress-controller-overview) is a Layer-7 load balancer with support for advanced routing rules and a Web Application Firewall (WAF).
+- Using [Azure Monitor](/azure/azure-monitor/overview) lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
+- Using [Azure AD B2C](/azure/active-directory-b2c/overview) you can provide identity services to consumers (end-users) of your application, even if they're not part of your organization.
 
 ## Next steps
 
-* [DevSecOps in GitHub](./devsecops-in-github.yml)
+- [DevSecOps in GitHub](./devsecops-in-github.yml)
 
 ## Related resources
 
-* Using [Microsoft Defender for Cloud](/azure/security-center/container-security), you can supply threat and vulnerability management for your deployed container-based solution.
+- Using [Microsoft Defender for Cloud](/azure/security-center/container-security), you can supply threat and vulnerability management for your deployed container-based solution.
