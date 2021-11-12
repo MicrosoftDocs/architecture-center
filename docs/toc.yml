@@ -2091,7 +2091,7 @@ items:
                     href: example-scenario/signalr/index.yml
                   - name: Serverless event processing
                     href: reference-architectures/serverless/event-processing.yml
-                  - name: Automatic IP rotation with Azure Container Instances
+                  - name: Automatic IP rotation with Container Instances
                     href: example-scenario/serverless/automation-application-gateway.yml
               - name: Solution ideas
                 items:

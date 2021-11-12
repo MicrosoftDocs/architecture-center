@@ -4,7 +4,7 @@ We'll start with a common scenario. To secure Azure container instances, you can
 
 One potential challenge with this approach is using a non-static private IP address as a backend pool. The private IP might be rotated during maintenance, requiring the cloud admin to manually reconfigure the backend pool. If new containers are added for scaling, the admin would also need to do reconfiguration to ensure traffic is routed to the right backend pool. And liveness probes and readiness probes aren't supported in container groups, which makes it harder to identify workload downtime.
 
-This article explores enhancements to address these common problems by adopting Application Insights and Azure Monitor for monitoring and using Azure Functions to perform automatic rotation of private IPs. This approach will improve the redundancy of the workload.
+This article explores enhancements to address these common problems through the adoption of Application Insights and Azure Monitor for monitoring and using Azure Functions to perform automatic rotation of private IPs. This approach improves the redundancy of the workload.
 
 ## Use cases
 
@@ -12,12 +12,12 @@ This architecture works best for:
 - Serverless deployment.
 - Minimal operation for a cloud-native workload with automation.
 - A simple container workload that doesn't require advanced container orchestration.
-- A high-redundant, external-facing workload with automated reconfiguration.
+- A highly redundant, external-facing workload with automated reconfiguration.
 - A container workload that requires access to private resources, like those exposed by Azure private endpoints.
 
 ## Architecture
 
-![Flow diagram that shows Azure Cosmos DB being accessed by a private endpoint for Azure Container Instances. It's fronted by Azure Application Gateway.](./media/architecture-automation.jpg)
+![Flow diagram that shows Azure Cosmos DB being accessed by a private endpoint for Azure Container Instances. It's fronted by Azure Application Gateway.](./media/architecture-automation.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/Architecture.vsdx) of this architecture.*
 
@@ -51,16 +51,16 @@ This architecture works best for:
 
 #### Networking
 
-- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview): Azure DDoS (Basic) Protection is free and enabled on all public IPs. Azure DDoS Protection Standard provides more capabilities, like ingesting logs to other locations and the ability to engage the DDoS Protection Rapid Response team.
-- [Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview): Azure Web Application Firewall provides protection for public-facing applications against exploits like SQL injection and XSS attacks.
-- [Azure Private Link](/azure/private-link/private-link-overview): Azure Private Link provides access to Azure PaaS services via a private endpoint on the Microsoft backbone to further enhance network access security.
+- [Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection): Azure DDoS (Basic) Protection is free and enabled on all public IPs. Azure DDoS Protection Standard provides more capabilities, like ingesting logs to other locations and the ability to engage the DDoS Protection Rapid Response team.
+- [Azure Application Gateway](https://azure.microsoft.com/en-us/services/application-gateway): Azure Web Application Firewall provides protection for public-facing applications against exploits like SQL injection and XSS attacks.
+- [Azure Private Link](https://azure.microsoft.com/services/private-link): Azure Private Link provides access to Azure PaaS services via a private endpoint on the Microsoft backbone to further enhance network access security.
 
 #### Application
 
-- [Azure Container Instances](/azure/container-instances/container-instances-overview): Azure Container Instances runs container images seamlessly without requiring you to set up additional infrastructure. You should consider [Azure Kubernetes Service (AKS)](/azure/aks) for advanced container orchestration.
+- [Azure Container Instances](https://azure.microsoft.com/services/container-instances): Azure Container Instances runs container images seamlessly without requiring you to set up additional infrastructure. You should consider [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) for advanced container orchestration.
 
-- [Azure Cosmos DB](/azure/cosmos-db/introduction): Azure Cosmos DB is a fully managed NoSQL database that supports multiple platforms, like SQL, Cassandra, and MongoDB.
-- [Azure Key Vault](/azure/key-vault/general/overview): As a security best practice, developers don't store connection strings as clear text in application source code. Azure Key Vault serves as a central location to store secrets with improved security. Applications can retrieve necessary keys with improved security.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Azure Cosmos DB is a fully managed NoSQL database that supports multiple platforms, like SQL, Cassandra, and MongoDB.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault): As a security best practice, developers don't store connection strings as clear text in application source code. Azure Key Vault serves as a central location to store secrets with improved security. Applications can retrieve necessary keys with improved security.
 
 
 ### Alternatives
