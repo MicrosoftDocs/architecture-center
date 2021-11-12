@@ -22,7 +22,7 @@ This architecture works best for:
 *Download a [Visio file](https://arch-center.azureedge.net/Architecture.vsdx) of this architecture.*
 
 ### Part 1: Typical web application traffic flow
-1a. Application Gateway has web application firewall capability, which is ideal for fronting public-facing traffic before it hits the back-end workload. Application Gateway exposes the public IP address, so Azure DDoS Protection provides another layer of protection.
+1a. Application Gateway has web application firewall capability, which is ideal for fronting public-facing traffic before it hits the backend workload. Application Gateway exposes the public IP address, so Azure DDoS Protection provides another layer of protection.
 
 1b. The backend pool of Application Gateway is configured with the private IP address of the Azure container instance in a container group. Azure container instances in container groups don't come with fully qualified domain names (FQDN), so the IP address has to be used.
 
@@ -37,39 +37,39 @@ This architecture works best for:
 
 2d. In the Azure function, an Azure SDK is used to get the configuration of existing container instances and re-create the same instances. This function is triggered by the alert defined in step 2c. This function might take a long time to run, depending on the complexity of the setup. Azure functions can time out, so you can use Azure Durable Functions to handle long-running processes and get status updates.
 
-## Components
+### Components
 
-### Automation
+#### Automation
 
-- [Azure Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp): Unlike Azure Functions, Durable Functions is stateful and supports several stateful workflow patterns. In this example, the [monitor pattern](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#monitoring) is used.
-- [Azure SDKs](https://azure.microsoft.com/downloads/): Azure SDKs are collections of libraries that you can use to interact with Azure services in your preferred programming language. The SDKs give you more flexibility for integrating logic that performs automation.
+- [Azure Durable Functions](/azure/azure-functions/durable/durable-functions-overview): Unlike Azure Functions, Durable Functions is stateful and supports several stateful workflow patterns. In this example, the [monitor pattern](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#monitoring) is used.
+- [Azure SDKs](https://azure.microsoft.com/downloads): Azure SDKs are collections of libraries that you can use to interact with Azure services in your preferred programming language. The SDKs give you more flexibility for integrating logic that performs automation.
 
-### Monitoring
+#### Monitoring
 
 - [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics): This feature of Azure Monitor collects predefined numeric data from Azure services.
 - [Action groups](/azure/azure-monitor/alerts/action-groups): An action group is a collection of notification preferences defined by the resource owner. You can define notification channels and actions based on triggered alerts.
 
-### Networking
+#### Networking
 
 - [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview): Azure DDoS (Basic) Protection is free and enabled on all public IPs. Azure DDoS Protection Standard provides more capabilities, like ingesting logs to other locations and the ability to engage the DDoS Protection Rapid Response team.
 - [Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview): Azure Web Application Firewall provides protection for public-facing applications against exploits like SQL injection and XSS attacks.
 - [Azure Private Link](/azure/private-link/private-link-overview): Azure Private Link provides access to Azure PaaS services via a private endpoint on the Microsoft backbone to further enhance network access security.
 
-### Application
+#### Application
 
-- [Azure Container Instances](/azure/container-instances/container-instances-overview): Azure Container Instances runs container images seamlessly without requiring you to set up additional infrastructure. You should consider [Azure Kubernetes Service (AKS)](/azure/aks/) for advanced container orchestration.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview): Azure Container Instances runs container images seamlessly without requiring you to set up additional infrastructure. You should consider [Azure Kubernetes Service (AKS)](/azure/aks) for advanced container orchestration.
 
 - [Azure Cosmos DB](/azure/cosmos-db/introduction): Azure Cosmos DB is a fully managed NoSQL database that supports multiple platforms, like SQL, Cassandra, and MongoDB.
 - [Azure Key Vault](/azure/key-vault/general/overview): As a security best practice, developers don't store connection strings as clear text in application source code. Azure Key Vault serves as a central location to store secrets with improved security. Applications can retrieve necessary keys with improved security.
 
 
-## Alternatives
+### Alternatives
 
 The preceding scenario updates a backend pool for Application Gateway. As an alternative, you could use an Azure private DNS zone as a target backend for Application Gateway and use Azure functions to update a record instead of making changes on Application Gateway. This alternative would reduce deployment time. On the other hand, Application Gateway metrics wouldn't be able to identify the host count because it would be abstracted by DNS. So this automation would need to be triggered through an application monitoring solution like Application Insights or Azure Monitor directly. 
 
-Azure provides multiple options to host container-based workloads, like [Azure Kubernetes Service](/azure/aks/intro-kubernetes) and [Azure App Service](/azure/app-service/quickstart-custom-container?tabs=dotnet&pivots=container-linux).
+Azure provides multiple options to host container-based workloads, like [Azure Kubernetes Service](/azure/aks/intro-kubernetes) and [Azure App Service](/azure/app-service/quickstart-custom-container).
 
-Azure Kubernetes Service provides advanced container orchestration and network capabilities like the [Service resource](https://kubernetes.io/docs/concepts/services-networking/service/), which isn't available in Container Instances. This reference architecture addresses this requirement.
+Azure Kubernetes Service provides advanced container orchestration and network capabilities like the [Service resource](https://kubernetes.io/docs/concepts/services-networking/service), which isn't available in Container Instances. This reference architecture addresses this requirement.
 
 App Service can also host container workloads, and [App Service Environment](/azure/app-service/environment/intro) allows developers to deploy App Service in Azure Virtual Network. The pricing structure of Container Instances, as compared to App Service, makes it compelling for small workloads.
 
@@ -98,7 +98,7 @@ The ability to deploy PaaS into a virtual network (VNet injection) doesn't impro
 
 Private Link projects a private endpoint into the virtual network, which allows the application to access Azure PaaS directly via a private IP address. At the same time, admins can further control who can access the relevant Azure PaaS.
 
-If you store container images in [Azure Container Registry](/azure/container-registry/), you can enable [Microsoft Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) to perform container image vulnerability scans.
+If you store container images in [Azure Container Registry](/azure/container-registry), you can enable [Microsoft Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) to perform container image vulnerability scans.
 
 ## Deploy this scenario
 
@@ -108,14 +108,14 @@ You'll need a service principal (client ID and secret). It will be used by Azure
 
 ## Pricing
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for Azure resources.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for Azure resources.
 
 See [this example](https://azure.com/e/437a828a735f44c6b942c72ef67ade58) of the preceding implementation.
 
 ## Next steps
 
-- [Architect modern applications in Azure](/learn/paths/architect-modern-apps/)
-- [Implement network security in Azure](/learn/paths/implement-network-security/)
-- [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook/)
+- [Architect modern applications in Azure](/learn/paths/architect-modern-apps)
+- [Implement network security in Azure](/learn/paths/implement-network-security)
+- [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook)
 - [Azure Architecture Center: Automation](https://docs.microsoft.com/azure/architecture/browse/?terms=automation)
-- [Azure Architecture Center: Serverless](https://docs.microsoft.com/en-us/azure/architecture/browse/?terms=serverless)
+- [Azure Architecture Center: Serverless](https://docs.microsoft.com/azure/architecture/browse/?terms=serverless)
