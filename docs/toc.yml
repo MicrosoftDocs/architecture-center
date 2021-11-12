@@ -581,7 +581,15 @@ items:
                   - name: Cost Optimization
                     href: framework/services/compute/azure-app-service/cost-optimization.md
                   - name: Operational Excellence
-                    href: framework/services/compute/azure-app-service/operational-excellence.md                  
+                    href: framework/services/compute/azure-app-service/operational-excellence.md  
+              - name: Azure Kubernetes Service
+                items: 
+                  - name: Reliability
+                    href: framework/services/compute/azure-kubernetes-service/reliability.md
+                  - name: Security
+                    href: framework/services/compute/azure-kubernetes-service/security.md
+                  - name: Cost Optimization
+                    href: framework/services/compute/azure-kubernetes-service/cost-optimization.md
   - name: Design Patterns
     items:
       - name: Overview
