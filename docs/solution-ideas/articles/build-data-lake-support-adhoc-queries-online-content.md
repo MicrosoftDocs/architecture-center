@@ -233,7 +233,7 @@ Actual raw documents are written to an appropriate storage performance tier in
 Azure Data Lake Gen2.
 
 The following code snippet shows a simple function to upload a file to Azure
-Data Lake Store Gen2; using a *foreach* method in the DataStreamWriter class
+Data Lake Store Gen2; using a *foreach* method in the `DataStreamWriter` class
 allows you to upload the file hosted in each record of the streaming DataFrame:
 
 ```
@@ -300,7 +300,7 @@ As an alternative to only indexing metadata, you could index all raw data in a s
 
 Contrary to using a delta lake, using a [Lambda architecture](/azure/architecture/data-guide/big-data/#lambda-architecture) keeps real-time data in a different repository than historical data, and your client runs the logic to make heterogeneous queries transparent to the user. The advantage of this solution is the larger set of services that you can use (such as Azure Stream Analytics and Azure SQL Database), but the architecture becomes more complex and the code base more expensive to maintain.
 
-Spark is distributed with Azure Databricks, [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/#overview), and [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/#overview). Hence, this architecture could be implemented with any of these Azure data services, preferably with a recent Spark version supporting Delta Lake 0.8 or 1.0.
+Spark is distributed with [Azure Databricks](https://azure.microsoft.com/services/databricks/), [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/#overview), and [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/#overview). Hence, this architecture could be implemented with any of these Azure data services, preferably with a recent Spark version supporting Delta Lake 0.8 or 1.0.
 
 ## Considerations
 
