@@ -203,5 +203,5 @@ Throughput is far higher. Over the same duration as the previous test, the syste
 [performance-counters]: /azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
 [web-sites-monitor]: /azure/app-service-web/web-sites-monitor
 
-[sync-performance]: _images/SyncPerformance.jpg
-[async-performance]: _images/AsyncPerformance.jpg
+[sync-performance]: ./_images/SyncPerformance.jpg
+[async-performance]: ./_images/AsyncPerformance.jpg

@@ -61,7 +61,6 @@ There are two main pricing models:
 
     All inbound and outbound data transfer is included in the flat rate. There are two pricing tiers: **Standard** and **Premium**, which is priced higher.
 
-
 Calculate your utilization and choose a billing plan. The **Unlimited Data plan** is recommended if you exceed about 68% of utilization.
 
 For more information, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute).
@@ -77,11 +76,9 @@ There aren't additional cost for a firewall deployed in an availability zone. Th
 
 When compared to network virtual appliances (NVAs), with Azure Firewall you can save up to 30-50%. For more information see [Azure Firewall vs NVA](https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances).
 
-
 ### Reference architecture
 - [Hub-spoke network topology in Azure](../../reference-architectures/hybrid-networking/hub-spoke.yml)
 - [Deploy highly available NVAs](../../reference-architectures/dmz/nva-ha.yml)
-
 
 ## Azure Load Balancer
 The service distributes inbound traffic according to the configured rules.

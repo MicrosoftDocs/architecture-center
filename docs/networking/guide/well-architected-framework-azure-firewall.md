@@ -22,7 +22,7 @@ This article provides architectural best practices for Azure Firewall. The guida
 
 ## Cost optimization
 
-Review underutilized Azure Firewall instances, and identify and delete Azure Firewall deployments not in use. To identify Azure Firewall deployments not in use, start analyzing the Monitoring Metrics and User Defined Routes (UDRs) that are associated with subnets pointing to the Firewall’s private IP. Then, combine that with additional validations, such as if the Azure Firewall has any Rules (Classic) for NAT, or Network and Application, or even if the DNS Proxy setting is configured to **Disabled**, as well as with internal documentation about your environment and deployments. See the details about monitoring logs and metrics at [Monitor Azure Firewall logs and metrics](/azure/firewall/firewall-diagnostics) and [SNAT port utilization](/azure/firewall/logs-and-metrics#metrics).
+Review underutilized Azure Firewall instances, and identify and delete Azure Firewall deployments not in use. To identify Azure Firewall deployments not in use, start analyzing the Monitoring Metrics and User Defined Routes (UDRs) that are associated with subnets pointing to the Firewall's private IP. Then, combine that with additional validations, such as if the Azure Firewall has any Rules (Classic) for NAT, or Network and Application, or even if the DNS Proxy setting is configured to **Disabled**, as well as with internal documentation about your environment and deployments. See the details about monitoring logs and metrics at [Monitor Azure Firewall logs and metrics](/azure/firewall/firewall-diagnostics) and [SNAT port utilization](/azure/firewall/logs-and-metrics#metrics).
 
 Share the same Azure Firewall across multiple workloads and Azure Virtual Networks. Deploy a central Azure Firewall in the hub virtual network, and share the same Firewall across many spoke virtual networks that are connected to the same hub from the same region. Ensure that there is no unexpected cross-region traffic as part of the hub-spoke topology.
 
@@ -45,7 +45,7 @@ Review the differences between the two Azure Firewall SKUs. The Standard option 
 - Use Azure Firewall Premium, if any of the following capabilities are required:
   - TLS inspection - Decrypts outbound traffic, processes the data, encrypts the data, and then sends it to the destination.
   - IDPS - A network intrusion detection and prevention system (IDPS) allows you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
-  - URL filtering - Extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, the filtered URL might be www.contoso.com/a/c instead of www.contoso.com.
+  - URL filtering - Extends Azure Firewall's FQDN filtering capability to consider an entire URL. For example, the filtered URL might be www.contoso.com/a/c instead of www.contoso.com.
   - Web categories - Administrators can allow or deny user access to website categories, such as gambling websites, social media websites, and others.
   - See more details at [Azure Firewall Premium Preview features](/azure/firewall/premium-features).
 - Use Firewall Manager to deploy and manage multiple Azure Firewalls across Azure Virtual WAN hubs and hub-spoke based deployments.
@@ -90,7 +90,7 @@ The following metrics can be used by the customer, as indicators of utilization 
 
 Azure Firewall exposes a few other logs and metrics for troubleshooting that can be used as indicators of issues. We recommend evaluating alerts, as per the table below. Refer to [Monitor Azure Firewall logs and metrics](/azure/firewall/firewall-diagnostics).
 
-| **Metric name**  | **Explanation** |
+| **Metric name**  | **Explanation** |
 | :--: | :-- |
 | Application rule log | Each new connection that matches one of your configured application rules will result in a log for the accepted/denied connection. |
 | Network rule log | Each new connection that matches one of your configured network rules will result in a log for the accepted/denied connection. |
@@ -151,7 +151,7 @@ Azure Firewall exposes a few other logs and metrics for troubleshooting that can
   - Azure Firewall Premium is a next-generation firewall, with capabilities that are required for highly sensitive and regulated environments. It includes the following features:
     - TLS inspection - Decrypts outbound traffic, processes the data, encrypts the data, and then sends it to the destination.
     - IDPS - A network intrusion detection and prevention system (IDPS) allows you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
-    - URL filtering - Extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, the filtered URL might be www.contoso.com/a/c instead of www.contoso.com.
+    - URL filtering - Extends Azure Firewall's FQDN filtering capability to consider an entire URL. For example, the filtered URL might be www.contoso.com/a/c instead of www.contoso.com.
     - Web categories - Administrators can allow or deny user access to website categories, such as gambling websites, social media websites, and others.
   - See more at [Azure Firewall Premium Preview features](/azure/firewall/premium-features).
 - Deploy a security partner provider:

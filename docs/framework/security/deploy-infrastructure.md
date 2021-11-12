@@ -18,7 +18,6 @@ subject:
 
 Azure resources can be provisioned in through code or user tools such as the Azure portal or via Azure CLI. It's not recommended that resources are provisioned or configured manually. Those methods are error prone and can lead to security gaps. Even the smallest of changes should be through code. The recommended approach is Infrastructure as code (IaC). It's easy to track because the provisioned infrastructure can be fully reproduced and reversed.
 
-
 ## Key points
 
 > [!div class="checklist"]

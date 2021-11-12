@@ -1,13 +1,13 @@
 This reference architecture illustrates how to leverage Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multi-cloud environments.
 
-![Diagram illustrating different scenarios that leverage Azure Arc to optimize administration of SQL Server instances residing on-premises or hosted by third-party cloud providers. The first group of scenarios consists of SQL Server instances running on physical servers or virtual machines. The second group of scenarios comprises on-premises, third-party cloud hosted Kubernetes clusters, or Azure Kubernetes Service clusters running on Azure Stack HCI, with Azure Arc data controller serving as an intermediary management layer. All of these scenarios offer integration with a range of Azure services, such as Azure Monitor and Log Analytics, Azure Policy, Azure Security Center, and Azure Sentinel.][architectural-diagram]
+![Diagram illustrating different scenarios that leverage Azure Arc to optimize administration of SQL Server instances residing on-premises or hosted by third-party cloud providers. The first group of scenarios consists of SQL Server instances running on physical servers or virtual machines. The second group of scenarios comprises on-premises, third-party cloud hosted Kubernetes clusters, or Azure Kubernetes Service clusters running on Azure Stack HCI, with Azure Arc data controller serving as an intermediary management layer. All of these scenarios offer integration with a range of Azure services, such as Azure Monitor and Log Analytics, Azure Policy, Microsoft Defender for Cloud, and Microsoft Sentinel.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
 Typical uses for this architecture include:
 
 - Assessing Azure Arc enabled SQL Server configuration, availability, performance, and compliance by using Azure Monitor.
-- Detecting and remediating security threats targeting Azure Arc enabled SQL Server by using Azure Security Center and Azure Sentinel.
+- Detecting and remediating security threats targeting Azure Arc enabled SQL Server by using Microsoft Defender for Cloud and Microsoft Sentinel.
 - Automating deployment and management of Azure Arc enabled SQL Managed Instance on Azure Arc enabled Kubernetes in on-premises and multi-cloud environments.
 - Automating deployment and management of Azure Arc enabled SQL Managed Instance on Azure Kubernetes Service (AKS) on Azure Stack HCI.
 
@@ -30,8 +30,8 @@ The architecture consists of the following components and capabilities:
 - **[Azure Resource Manager][azure-resource-manager]**. Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags to secure and organize your resources after deployment.
 - **[Azure Monitor][azure-monitor]**. This cloud-based service maximizes the availability and performance of applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from Azure and non-Azure locations.
 - **[Log Analytics][azure-log-analytics]**. This is the primary tool in the Azure portal for writing log queries and interactively analyzing their results.
-- **[Azure Sentinel][azure-sentinel]**. This is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution.
-- **[Azure Security Center][azure-security-center]**. This unified infrastructure security management system strengthens the security posture of your datacenters and provides advanced threat protection across your hybrid workloads.
+- **[Microsoft Sentinel][azure-sentinel]**. This is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution.
+- **[Microsoft Defender for Cloud][azure-security-center]**. This unified infrastructure security management system strengthens the security posture of your datacenters and provides advanced threat protection across your hybrid workloads.
 - **[Azure Backup][azure-backup]**. The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
 
 ## Recommendations
@@ -54,7 +54,7 @@ You can use Azure Arc enabled SQL Server instances, hosted on physical and virtu
 > [!NOTE]
 > Log Analytics agent is commonly referred to as Microsoft Monitoring Agent (MMA).
 
-- Advanced data security for Azure Arc enabled SQL Server. This functionality helps you detect and remediate security anomalies and threats to Azure Arc enabled SQL Server instances. Like the on-demand SQL Assessment, to enable Azure Arc enabled SQL Server, you need to install the Log Analytics agent on the server hosting the SQL Server instance. You must also enable the Azure Defender feature of Azure Security Center to automatically define the scope of data collection and to analyze it. You can [review results of this analysis in the Azure Security Center][azure-security-center-explore] and, after you [onboard Azure Sentinel][azure-sentinel-onboarding], use it to further investigate security alerts directly in the Azure portal.
+- Advanced data security for Azure Arc enabled SQL Server. This functionality helps you detect and remediate security anomalies and threats to Azure Arc enabled SQL Server instances. Like the on-demand SQL Assessment, to enable Azure Arc enabled SQL Server, you need to install the Log Analytics agent on the server hosting the SQL Server instance. You must also enable the Microsoft Defender for Cloud feature of Microsoft Defender for Cloud to automatically define the scope of data collection and to analyze it. You can [review results of this analysis in the Microsoft Defender for Cloud][azure-security-center-explore] and, after you [onboard Microsoft Sentinel][azure-sentinel-onboarding], use it to further investigate security alerts directly in the Azure portal.
 
 ### Automate deployment and management of Azure Arc enabled SQL Managed Instance in on-premises and multi-cloud environments
 
@@ -69,7 +69,7 @@ Azure Arc enabled SQL Managed Instance offers [near 100% compatibility][azure-ar
 <!--LM: Please check that "becomes" retains the meaning in the following paragraph.-->
 Azure Arc enabled SQL Managed Instance relies on Azure Arc data controller to establish and maintain a logical connection to the Azure Resource Manager control plane. The data controller becomes a group of pods running within the local Kubernetes or AKS cluster. The pods orchestrate SQL Managed Instance management and operational tasks, such as provisioning and deprovisioning, automatic failover, updates, scaling, backup and restoration, and monitoring.
 
-When planning for Azure Arc enabled data services, you need to decide whether the data controller will operate in the [Directly Connected or Indirectly Connected connectivity mode][azure-arc-data-services-connectivity-modes]. Your decision has important implications for the management capabilities and the amount of data being sent to Azure. If the Azure Arc enabled data services are directly connected to Azure, then you can manage them by using the standard Azure Resource Manager-based interfaces and tools, including the Azure portal, Azure Command-Line Interface (Azure CLI), or Azure Resource Manager templates. If the Azure Arc enabled data services are indirectly connected to Azure, then Azure Resource Manager provides their read-only inventory. Similarly, the Directly Connected mode is necessary if you want to provide Azure Arc enabled data services with support for Azure Active Directory (Azure AD), Azure role-based access control (Azure RBAC), or integrate them with such Azure services as Azure Defender, Azure Monitor, or Azure Backup.
+When planning for Azure Arc enabled data services, you need to decide whether the data controller will operate in the [Directly Connected or Indirectly Connected connectivity mode][azure-arc-data-services-connectivity-modes]. Your decision has important implications for the management capabilities and the amount of data being sent to Azure. If the Azure Arc enabled data services are directly connected to Azure, then you can manage them by using the standard Azure Resource Manager-based interfaces and tools, including the Azure portal, Azure Command-Line Interface (Azure CLI), or Azure Resource Manager templates. If the Azure Arc enabled data services are indirectly connected to Azure, then Azure Resource Manager provides their read-only inventory. Similarly, the Directly Connected mode is necessary if you want to provide Azure Arc enabled data services with support for Azure Active Directory (Azure AD), Azure role-based access control (Azure RBAC), or integrate them with such Azure services as Microsoft Defender for Cloud, Azure Monitor, or Azure Backup.
 
 > [!CAUTION]
 > The Indirectly Connected connectivity mode requires a minimal amount of data to be delivered to Azure for inventory and billing purposes at least once per month.
@@ -97,7 +97,7 @@ The [Microsoft Azure Well-Architected Framework][azure-well-architected-framerwo
 
 ### Cost optimization
 
-- Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires [Azure Defender] functionality of Azure Security Center, which has [pricing implications][azure-defender-pricing].
+- Azure Arc helps minimize or even eliminate the need for on-premises management and monitoring systems, which reduces operational complexity and cost, especially in large, diverse, and distributed environments. This helps offset additional costs associated with Azure Arc-related services. For example, advanced data security for Azure Arc enabled SQL Server instance requires [Microsoft Defender for Cloud] functionality of Microsoft Defender for Cloud, which has [pricing implications][azure-defender-pricing].
 <!--LM: Azure Defender is in brackets. Did you mean to insert a link here?-->
 - Containerizing your SQL Server environment by using Azure Arc enabled SQL Managed Instance helps increase workload density and mobility. This facilitates more efficient hardware utilization, which tends to maximize return on investment (ROI) and minimize operational costs, helping accelerate datacenter consolidation initiatives.
 

@@ -34,11 +34,7 @@ When using NLP to extract information and insight from free-form text, the start
 - Processing a collection of free-form text documents is typically computationally resource intensive, as well as being time intensive.
 - Without a standardized document format, it can be difficult to achieve consistently accurate results using free-form text processing to extract specific facts from a document. For example, think of a text representation of an invoice&mdash;it can be difficult to build a process that correctly extracts the invoice number and invoice date for invoices across any number of vendors.
 
-<!-- markdownlint-disable MD026 -->
-
 ## What are your options when choosing an NLP service?
-
-<!-- markdownlint-enable MD026 -->
 
 In Azure, the following services provide natural language processing (NLP) capabilities:
 

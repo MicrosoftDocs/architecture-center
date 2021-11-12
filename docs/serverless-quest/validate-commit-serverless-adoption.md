@@ -32,7 +32,6 @@ TDMs and architects may perform one or more of the following activities:
 
 - **Conduct architectural design sessions.** An architectural design session (ADS) is an in-depth discussion on how a new solution will blend into the environment. ADSs validate business requirements and transform them to functional and other requirements.
 
-
 ## Next steps
 For example scenarios that use serverless architectures with Azure Functions, see [Serverless reference architectures](reference-architectures.md).
 

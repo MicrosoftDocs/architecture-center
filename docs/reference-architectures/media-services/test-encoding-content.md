@@ -1,5 +1,5 @@
 
-Testing an application is an integral part of the application development life cycle. Testing ensures that your application or service will perform as expected when published. 
+Testing an application is an integral part of the application development life cycle. Testing ensures that your application or service will perform as expected when published.
 
 You can test your deployed application in Azure or locally, and in both cases, you can monitor the events sent to the topic.
 
@@ -55,7 +55,7 @@ You can test your deployed application in Azure or locally, and in both cases, y
 
 ## How to test Gridwich projects locally
 
-Make sure your Gridwich project and pipelines are in place, and developer permissions are set up. For more information, see [Gridwich Azure DevOps setup](set-up-azure-devops.yml). 
+Make sure your Gridwich project and pipelines are in place, and developer permissions are set up. For more information, see [Gridwich Azure DevOps setup](set-up-azure-devops.yml).
 
 To create a new cloud development environment, see [Create a new environment](create-delete-cloud-environment.yml). Verify that you have the correct settings for the environment you're targeting.
 

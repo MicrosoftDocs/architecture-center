@@ -1,6 +1,5 @@
 
 
-
 This reference architecture illustrates how to use Azure File Sync and Azure Files to extend file services hosting capabilities across cloud and on-premises file share resources.
 
 ![An Azure hybrid file services topology diagram.][Architecture diagram]

@@ -20,7 +20,6 @@ subject:
 
 Authorization is a process that grants or denies access to a system by verifying whether the accessor has the permissions to perform the requested action. The accessor in this context is the workload (cloud application) or the user of the workload. The action might be operational or related to resource management. There are two main approaches to authorization: role-based and resource-based. Both can be configured with Azure AD.
 
-
 ## Key points
 
 - Use a mix of role-based and resource-based authorization. Start with the principle of least privilege and add more actions based on your needs.

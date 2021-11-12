@@ -49,7 +49,7 @@ This results in three key strategies:
 
     More on this and how it relates to Zero Trust and Enterprise Segmentation are in the [Governance, Risk, and Compliance](/azure/architecture/framework/security/design-segmentation) and [Network Security & Containment](/azure/architecture/framework/security/design-network-segmentation) sections.
 
-- **Modernize infrastructure security:** For operating systems and middleware elements that are required by legacy applications; take advantage of cloud technology to reduce security risk to the organization. For example, knowing whether all servers in a physical datacenter are updated with security patches has always been extremely challenging because of discoverability. Software-defined datacenters allow easy and rapid discovery of all resources, enabling technology like Azure Security Center to quickly and accurately measure the patch state of all servers and remediate them.
+- **Modernize infrastructure security:** For operating systems and middleware elements that are required by legacy applications; take advantage of cloud technology to reduce security risk to the organization. For example, knowing whether all servers in a physical datacenter are updated with security patches has always been extremely challenging because of discoverability. Software-defined datacenters allow easy and rapid discovery of all resources, enabling technology like Microsoft Defender for Cloud to quickly and accurately measure the patch state of all servers and remediate them.
 
 - **"Trust but verify" each cloud provider:** For the elements which are under the control of the cloud provider. You should ensure the security practices and regulatory compliance of each cloud provider (large and small) meet your requirements.
 
@@ -101,7 +101,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 
 ## Security resources
 
-- [Azure Security Center][security-center] provides integrated security monitoring and policy management for your workload.
+- [Microsoft Defender for Cloud][security-center] provides integrated security monitoring and policy management for your workload.
 - [Azure Security Documentation][security-documentation]
 - [Microsoft Trust Center][trust-center]
 

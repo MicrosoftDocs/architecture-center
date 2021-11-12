@@ -39,8 +39,6 @@ In a real-world project, it's likely that both stages would overlap. While porti
 
 The application code is available on [GitHub][sample-code]. This repo contains both the Cloud Services application and the Service Fabric version.
 
-<!-- markdownlint-disable MD026 -->
-
 ## Why Service Fabric?
 
 Service Fabric is a good fit for this project, because most of the features needed in a distributed system are built into Service Fabric, including:

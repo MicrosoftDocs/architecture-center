@@ -49,5 +49,5 @@ To assess your workload using the tenets found in the Microsoft Azure Well-Archi
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Design](./design-checklist.md)
+> [!div class="nextstepaction"]
+> [Design](./design-checklist.md)

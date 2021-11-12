@@ -45,8 +45,8 @@ Reliable applications should maintain a pre-defined percentage of uptime (*avail
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Target & non-functional requirements](./design-requirements.md)
+> [!div class="nextstepaction"]
+> [Target & non-functional requirements](./design-requirements.md)
 
 ## Related links
 

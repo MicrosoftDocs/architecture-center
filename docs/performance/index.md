@@ -22,9 +22,9 @@ Scenarios:
 - [Calling multiple backend services](./backend-services.md)
 - [Event stream processing](./event-streaming.md)
 
-## What is performance? 
+## What is performance?
 
-Performance is frequently measured in terms of throughput, response time, and availability. Performance targets should be based on business operations. Customer-facing tasks may have more stringent requirements than operational tasks such as generating reports. 
+Performance is frequently measured in terms of throughput, response time, and availability. Performance targets should be based on business operations. Customer-facing tasks may have more stringent requirements than operational tasks such as generating reports.
 
 Define a service level objective (SLO) that defines performance targets for each workload. You typically achieve this by breaking a performance target into a set of Key Performance Indicators (KPIs), such as:
 

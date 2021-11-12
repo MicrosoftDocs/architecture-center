@@ -1,6 +1,5 @@
 
 
-
 Customer care centers are an integral part of the success of many businesses. You can improve the efficiency of your call centers by using speech AI. Speech recognition and the analysis of high volumes of recorded customer calls can provide your business with valuable information about current trends, product shortcomings, and successes. Enterprise solutions that use the Speech APIs of [Azure Cognitive Services](/azure/cognitive-services/speech-service/overview) can be implemented to consume and process such high volumes of discrete data.
 
 The reference architecture described in this article shows how to build an audio ingestion and speech-to-text transcription pipeline for customer care centers. This pipeline processes batches of recorded audio files and stores the transcribed text files in Azure Blob storage. This architecture doesn't implement real-time speech processing.

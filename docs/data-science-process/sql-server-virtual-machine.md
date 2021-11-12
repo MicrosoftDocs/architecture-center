@@ -161,6 +161,5 @@ For an end-to-end walkthrough example of the Azure Data Science Process using a 
 
 [1]: ./media/sql-server-virtual-machine/reader-db-featurized-input.png
 
-
 <!-- Module References -->
 [import-data]: /azure/machine-learning/studio-module-reference/import-data

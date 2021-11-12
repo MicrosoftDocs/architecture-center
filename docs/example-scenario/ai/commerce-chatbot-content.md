@@ -1,7 +1,5 @@
 <!-- cSpell:ignore iainfoulds botservice -->
 
-
-
 This example scenario applies generally to businesses that want to integrate a conversational chatbot into applications. Specifically, this scenario shows a C# chatbot for a hotel to allow customers to check availability and book accommodation through a web or mobile application.
 
 Beyond hotel booking, this chatbot could be used in a wide range of commerce settings. For example, the chatbot can enable customers to review the take-out menu of restaurant and place an order. Or, the chatbot can enable customers of a photography studio to search for and order prints. Traditionally, businesses hire and train customer service agents to respond to these types of customer requests. As a result, customers wait until a representative is available to provide assistance.

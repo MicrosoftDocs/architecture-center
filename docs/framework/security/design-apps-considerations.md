@@ -33,7 +33,7 @@ Securing an application requires security assurances for three aspects:
 
     -   **Legacy applications**. typically require a full operating system (and any middleware) hosted on physical or virtualized hardware. This operating system and installed middleware/other components are operated and secured by the application owner or their infrastructure team(s). The security responsibility for the physical hardware and OS virtualization components (virtualization hosts, operating systems, and management services) varies:
          -   **On-premises:** The application owner is responsible for maintenance and security.
-         -   **IaaS:** The cloud provider is responsible for the underlying infrastructure and the application owner’s organization is responsible for the VM configuration, operating system, and any components installed on it.
+         -   **IaaS:** The cloud provider is responsible for the underlying infrastructure and the application owner's organization is responsible for the VM configuration, operating system, and any components installed on it.
 
     -   **Modern applications** are hosted on PaaS environments such as an Azure application service. The underlying operating system is secured by the cloud provider. Application owners are responsible for the security of the application service configurations.
 
@@ -49,7 +49,6 @@ Identify applications that have a high potential impact and,or a high potential 
     - Stored Credentials or keys/certificates that grant access to the data/service.
     - Permissions granted through access control lists or other methods.
 - **High exposure to attacks**. Applications that are easily accessible to attackers such as web applications on the public internet. Legacy applications can also be higher exposure as attackers (and penetration testers) frequently target them because they know these legacy applications often have vulnerabilities that are difficult to fix.
-
 
 ## Use Azure services for fundamental components
 
@@ -67,7 +66,6 @@ We recommend using cloud services from your cloud provider for identity, data pr
 
 - **Application Configurations:** Inconsistent configurations for applications can create security risks. Application configuration information can be stored with the application itself or preferably using a dedicated configuration management system like [Azure App Configuration](/azure/azure-app-configuration/overview) or Azure Key Vault. App Configuration provides a service to centrally manage application settings and feature flags, which helps mitigate this risk. Don't store keys and secrets in application configuration.
 
-
 For more information about using cloud services instead of custom implementations, reference [Applications and services](./design-apps-services.md).
 
 ## Use native capabilities
@@ -78,8 +76,6 @@ Azure controls are maintained and supported by Microsoft. You don't have to inve
 
 - [List of Azure Services](https://azure.microsoft.com/services/)
 - [Native security capabilities of each service](/azure/security/common-security-attributes)
-
-
 
 ## Next steps
 - [Applications and services](design-apps-services.md)

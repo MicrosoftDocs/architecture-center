@@ -1,6 +1,5 @@
 
 
-
 Azure Media Services uses [Digital Rights Management (DRM)](https://en.wikipedia.org/wiki/Digital_rights_management) to protect content, and supports [Microsoft PlayReady](https://www.microsoft.com/playready/overview/), [Google Widevine](https://www.widevine.com/solutions/widevine-drm), and [Apple FairPlay](https://developer.apple.com/streaming/fps/). This article discusses Gridwich content protection, and explains how to set up and update content protection and DRM policies.
 
 ## Asset streaming locators
@@ -96,7 +95,6 @@ A secured token service (STS), not provided in Gridwich, should deliver tokens w
   "aud": "urn:drm"
 }
 ```
-
 
 ```json
 {

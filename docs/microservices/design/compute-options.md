@@ -54,11 +54,7 @@ With a [serverless](https://azure.microsoft.com/solutions/serverless/) architect
 
 [Azure Functions](/azure/azure-functions/) is a serverless compute service that supports various function triggers, including HTTP requests, Service Bus queues, and Event Hubs events. For a complete list, see [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings). Also consider [Azure Event Grid](/azure/event-grid/), which is a managed event routing service in Azure.
 
-<!-- markdownlint-disable MD026 -->
-
 ## Orchestrator or serverless?
-
-<!-- markdownlint-enable MD026 -->
 
 Here are some factors to consider when choosing between an orchestrator approach and a serverless approach.
 

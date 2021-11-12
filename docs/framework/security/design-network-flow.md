@@ -33,7 +33,7 @@ When analyzing the network flow of a workload, distinguish between east-west tra
 
 - **North-south traffic**
 
-    _North-south_ refers to the traffic that flows in and out of a datacenter. For example, traffic from an application to a backend service. This type of traffic is a typical target for attack vectors because it flows over the public internet. Proper network controls must be in place so that the queries to and from a data center are secure.
+    *North-south* refers to the traffic that flows in and out of a datacenter. For example, traffic from an application to a backend service. This type of traffic is a typical target for attack vectors because it flows over the public internet. Proper network controls must be in place so that the queries to and from a data center are secure.
 
     Consider a typical flow in an Azure Kubernetes Service (AKS) cluster. The cluster receives incoming (ingress) traffic from HTTP requests. The cluster can also send outgoing (egress) traffic to send queries to other services, such as pulling a container image.
 
@@ -41,7 +41,7 @@ When analyzing the network flow of a workload, distinguish between east-west tra
 
 - **East-west traffic**
 
-    _East-west_ traffic refers to traffic between or within data centers. For this type of traffic, several resources of the network infrastructure communicate with each other. Those resources can be virtual networks, subnets within those virtual networks, and so on. Security of east-west traffic can get overlooked even though it makes up a large portion of the workload traffic. It's assumed that the infrastructure firewalls are sufficient to block attacks. Make sure there are proper controls between network resources.
+    *East-west* traffic refers to traffic between or within data centers. For this type of traffic, several resources of the network infrastructure communicate with each other. Those resources can be virtual networks, subnets within those virtual networks, and so on. Security of east-west traffic can get overlooked even though it makes up a large portion of the workload traffic. It's assumed that the infrastructure firewalls are sufficient to block attacks. Make sure there are proper controls between network resources.
 
     Extending the example of the AKS cluster to this concept, east-west traffic is the traffic within the cluster. For example, communication between pods, such as the ingress controller and the workload. If your workload is composed of multiple applications, the communication between those applications would fall into this category.
 
@@ -71,11 +71,11 @@ Choose a defense-in-depth design that can protect network communications at vari
 - Control traffic with Network Security Groups (NSGs) between resources within a virtual network, internet, and other virtual networks.
 - Secure the endpoints through Azure PrivateLink and Private Endpoints.
 - Detect and protect at deep levels through packet inspection.
-- Detect attacks and respond to alerts through Azure Sentinel and Azure Security Center.
+- Detect attacks and respond to alerts through Microsoft Sentinel and Microsoft Defender for Cloud.
 
 > [!IMPORTANT] 
 >
->Network controls are not sufficient in blocking data exfiltration attempts. Harden the protection with proper identity controls, key protection, and encryption. For more information, see these sections:
+> Network controls are not sufficient in blocking data exfiltration attempts. Harden the protection with proper identity controls, key protection, and encryption. For more information, see these sections:
 > - [Data protection considerations](design-storage.md)
 > - [Identity and access management considerations](design-identity.md)
 

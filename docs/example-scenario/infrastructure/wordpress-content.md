@@ -1,7 +1,5 @@
 <!-- cSpell:ignore wordpress rsync CDNs -->
 
-
-
 This example scenario is applicable to companies that need a highly scalable and secure installation of WordPress. This scenario is based on a deployment that was used for a large convention and was successfully able to scale to meet the spike traffic that sessions drove to the site.
 
 ## Relevant use cases

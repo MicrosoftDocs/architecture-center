@@ -84,7 +84,6 @@ The Team Lead or a designated project administrator completes the following task
 
 For detailed instructions, see [Team Lead tasks for a data science team](team-lead-tasks.md).
 
-
 ## Project Lead tasks
 
 The Project Lead completes the following tasks to adopt the TDSP:

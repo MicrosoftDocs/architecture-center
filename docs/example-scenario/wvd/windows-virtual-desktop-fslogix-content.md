@@ -22,7 +22,6 @@ Profile Container is used to redirect the full user profile. Profile Container i
 
 There are several reasons why Profile Container and Office Container may be used together. For more information, read the comparison of [Profile Container vs. Office Container](/fslogix/profile-container-office-container-cncpt).
 
-
 ### Multiple profile connections
 
 [Concurrent or multiple connections](/fslogix/configure-concurrent-multiple-connections-ht) refers to a user connected to multiple sessions, in either multiple hosts or the same host, concurrently using the same profile. This should not be confused with the term *multi-session*, which refers to an operating system that supports multiple users to connect simultaneously.
@@ -156,9 +155,9 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
   - %ProgramFiles%\FSLogix\Apps\frxccds.exe
   - %ProgramFiles%\FSLogix\Apps\frxsvc.exe
 
-#### Add exclusions for Microsoft Defender by using PowerShell
+#### Add exclusions for Microsoft Defender for Cloud by using PowerShell
 
-You can use this PowerShell script to add the exclusions for Microsoft Defender:
+You can use this PowerShell script to add the exclusions for Microsoft Defender for Cloud:
 
 ```powershell
   # Defender Exclusions for FSLogix
@@ -218,13 +217,13 @@ Because of the resource utilization, it may be more cost effective to consider a
 
 In an enterprise architecture, it is common to make user profiles resilient. To configure an FSLogix profile solution to be as efficient as possible, the amount of data being moved around should be reduced to the bare minimum:
 
--	The first step to create an efficient FSLogix profile solution is the use of [OneDrive folder backup](/onedrive/redirect-known-folders) to put document-based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users' documents.
+- The first step to create an efficient FSLogix profile solution is the use of [OneDrive folder backup](/onedrive/redirect-known-folders) to put document-based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users' documents.
 
--	In order to reduce the amount of data needing to be independently replicated, archived, and restored, you should also split out the Office cache data into the O365 disk. This is because the cache data often comprises the vast majority of the profile data capacity that is used. Because the O365 disk only contains cache data (the source for which is safely stored in the cloud), you do not need to make this data resilient. Once the documents and cache are separated from the Profile disk, you should then enact your replication archive and restore policies on this much smaller capacity disk.
+- In order to reduce the amount of data needing to be independently replicated, archived, and restored, you should also split out the Office cache data into the O365 disk. This is because the cache data often comprises the vast majority of the profile data capacity that is used. Because the O365 disk only contains cache data (the source for which is safely stored in the cloud), you do not need to make this data resilient. Once the documents and cache are separated from the Profile disk, you should then enact your replication archive and restore policies on this much smaller capacity disk.
 
--	Azure Files offers the replication option of a storage account fail-over against the other region configured in your storage account redundancy plan. This is only supported for the standard storage account type using Geo-Redundent Storage (GRS). Other options to use are AzCopy or any other file copy mechanism such as *RoboCopy*.
+- Azure Files offers the replication option of a storage account fail-over against the other region configured in your storage account redundancy plan. This is only supported for the standard storage account type using Geo-Redundant Storage (GRS). Other options to use are AzCopy or any other file copy mechanism such as *RoboCopy*.
 
--	Azure NetApp Files offers cross-region replication. With this feature, you are able to replicate your FSLogix file share to another region over the Azure backbone.
+- Azure NetApp Files offers cross-region replication. With this feature, you are able to replicate your FSLogix file share to another region over the Azure backbone.
 
 ## Backup and restore
 

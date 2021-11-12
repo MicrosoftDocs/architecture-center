@@ -81,7 +81,7 @@ The Spark kernels that are provided with Jupyter notebooks have preset contexts.
 * `sqlContext` for HiveContext
 
 ### Spark magics
-The Spark kernel provides some predefined “magics,” which are special commands that you can call with `%%`. Two of these commands are used in the following code samples.
+The Spark kernel provides some predefined "magics," which are special commands that you can call with `%%`. Two of these commands are used in the following code samples.
 
 * `%%local` specifies that the code in subsequent lines will be executed locally. The code must be valid Scala code.
 * `%%sql -o <variable name>` executes a Hive query against `sqlContext`. If the `-o` parameter is passed, the result of the query is persisted in the `%%local` Scala context as a Spark data frame.
@@ -202,7 +202,6 @@ val taxi_temp = (taxi_train_file.map(_.split("\t"))
                             p(11).toDouble, p(12).toDouble, p(13).toDouble, p(14).toDouble, p(15).toDouble, p(16).toDouble,
                             p(17), p(18), p(19).toDouble, p(20).toDouble, p(21).toDouble, p(22).toDouble,
                             p(23).toDouble, p(24).toDouble, p(25).toDouble, p(26).toDouble)))
-
 
 # CREATE AN INITIAL DATA FRAME AND DROP COLUMNS, AND THEN CREATE A CLEANED DATA FRAME BY FILTERING FOR UNWANTED VALUES OR OUTLIERS
 val taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
@@ -548,7 +547,6 @@ val indexerModel = indexer.fit(indexedTESTbinaryDF)
 val indexedTESTwithCatFeat = indexerModel.transform(indexedTESTregDF)
 ```
 
-
 ## Binary classification model: Predict whether a tip should be paid
 In this section, you create three types of binary classification models to predict whether or not a tip should be paid:
 
@@ -624,7 +622,6 @@ Use Python on local Pandas data frames to plot the ROC curve.
 # QUERY THE RESULTS
 %%sql -q -o sqlResults
 SELECT tipped, probability from testResults
-
 
 # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
 %%local
@@ -798,7 +795,6 @@ val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
 println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 ```
 
-
 **Output:**
 
 Time to run the cell: 13 seconds.
@@ -900,7 +896,6 @@ val predictions = gbtModel.transform(indexedTESTwithCatFeat)
 # COMPUTE TEST SET R2
 val evaluator = new RegressionEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("r2")
 val Test_R2 = evaluator.evaluate(predictions)
-
 
 # GET THE TIME TO RUN THE CELL
 val endtime = Calendar.getInstance().getTime()
@@ -1047,7 +1042,6 @@ val RMSE  = Array.fill(numModels)(0.0)
 # CREATE K-FOLDS
 val splits = MLUtils.kFold(indexedTRAINbinary, numFolds = nFolds, seed=1234)
 
-
 # LOOP THROUGH K-FOLDS AND THE PARAMETER GRID TO GET AND IDENTIFY THE BEST PARAMETER SET BY LEVEL OF ACCURACY
 for (i <- 0 to (nFolds-1)) {
     validateLB = i * h
@@ -1116,7 +1110,6 @@ val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 val endtime = Calendar.getInstance().getTime()
 val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
 println("Time taken to run the above cell: " + elapsedtime + " seconds.");
-
 
 # LOAD THE MODEL
 val savedRFModel = RandomForestModel.load(sc, filename)

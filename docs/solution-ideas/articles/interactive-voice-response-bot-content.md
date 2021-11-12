@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea shows how to architect an interactive voice response (IVR) application with a bot and custom machine-learning intelligence. 
+This solution idea shows how to architect an interactive voice response (IVR) application with a bot and custom machine-learning intelligence.
 
 ## Potential use cases
 

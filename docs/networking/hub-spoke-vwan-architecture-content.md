@@ -1,18 +1,18 @@
 This hub-spoke architecture provides an alternate solution to the
 reference architectures [hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml) and [implement a secure hybrid network](../reference-architectures/dmz/secure-vnet-dmz.yml?tabs=portal).
 
-The *hub* is a virtual network in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are virtual networks that peer with the hub and can be used to isolate workloads. Traffic flows between the on-premises data center(s) and the hub through an ExpressRoute or VPN gateway connection. The main differentiator of this approach is the use of
+The *hub* is a virtual network in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are virtual networks that peer with the hub and can be used to isolate workloads. Traffic flows between the on-premises data center(s) and the hub through an ExpressRoute or VPN gateway connection. The main differentiator of this approach is the use of
 [Azure Virtual WAN](https://azure.microsoft.com/services/virtual-wan/) (VWAN) to replace hubs as a managed service.
 
 This architecture includes the benefits of standard hub-spoke network topology and introduces new benefits:
 
 -   **Less operational overhead** by replacing existing hubs with a fully managed VWAN service.
 
--   **Cost savings** by using a managed service and removing the necessity of network virtual appliance.
+-   **Cost savings** by using a managed service and removing the necessity of network virtual appliance.
 
--   **Improved security** by introducing centrally managed secured Hubs with Azure Firewall and VWAN to minimize security risks related to misconfiguration.
+-   **Improved security** by introducing centrally managed secured Hubs with Azure Firewall and VWAN to minimize security risks related to misconfiguration.
 
--   **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
+-   **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
 
 ## Potential use cases
 
@@ -89,7 +89,7 @@ Create a Standard Virtual WAN if you have a requirement for any of the following
 
 -   Integrated monitoring with [Azure Monitor](/azure/virtual-wan/azure-monitor-insights) (Metrics and Resource Health)
 
-Standard Virtual WANs are by default connected in a full mesh. Standard Virtual WAN supports any-to-any connectivity (Site-to-Site VPN, VNet, ExpressRoute, Point-to-site endpoints) in a single hub as well as across hubs. Basic virtual WAN supports only Site-to-Site VPN connectivity, branch-to-branch connectivity, and branch-to-VNet connectivity in a **single hub**.
+Standard Virtual WANs are by default connected in a full mesh. Standard Virtual WAN supports any-to-any connectivity (Site-to-Site VPN, VNet, ExpressRoute, Point-to-site endpoints) in a single hub as well as across hubs. Basic virtual WAN supports only Site-to-Site VPN connectivity, branch-to-branch connectivity, and branch-to-VNet connectivity in a **single hub**.
 
 ### Virtual WAN Hub
 
@@ -120,11 +120,11 @@ However, if you have several spokes that need to connect with each other, you wi
 
 You can also configure spokes to use the hub gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub, and connect to remote networks, you must:
 
--   Configure the peering connection in the hub to **allow gateway transit**.
+-   Configure the peering connection in the hub to **allow gateway transit**.
 
--   Configure the peering connection in each spoke to **use remote gateways**.
+-   Configure the peering connection in each spoke to **use remote gateways**.
 
--   Configure all peering connections to **allow forwarded traffic**.
+-   Configure all peering connections to **allow forwarded traffic**.
 
 For additional information, see [Choose between virtual network peering and VPN gateways](../reference-architectures/hybrid-networking/vnet-peering.yml)*.*
 

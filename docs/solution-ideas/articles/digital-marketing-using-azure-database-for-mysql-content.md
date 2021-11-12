@@ -15,7 +15,7 @@ This solution consists of the Azure managed services: Azure CDN, Webapps, Azure 
 
 1. Web app service can provide with content management system and supports WordPress, Umbraco, Joomla! and Drupal
 2. Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth and speed responsiveness
-3. Load customer data into an Azure Database for MySQL which is a fully managed database service with minimal requirements 
+3. Load customer data into an Azure Database for MySQL which is a fully managed database service with minimal requirements
 4. Store session state and output cache on Azure Cache for Redis to improve performance and reduce the load on your web front end
 5. Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle
 

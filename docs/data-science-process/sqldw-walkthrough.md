@@ -1065,7 +1065,6 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [25]: ./media/sqldw-walkthrough/ipnb-service-aml-4.png
 [26]: ./media/sqldw-walkthrough/tip-class-hist-1.png
 
-
 <!-- Module References -->
 [edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
 [select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset

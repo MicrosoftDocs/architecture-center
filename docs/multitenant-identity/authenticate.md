@@ -81,7 +81,6 @@ Here's what the other middleware options mean:
 - **SignInScheme**. Set this to `CookieAuthenticationDefaults.AuthenticationScheme`. This setting means that after the user is authenticated, the user claims are stored locally in a cookie. This cookie is how the user stays logged in during the browser session.
 - **Events.** Event callbacks; see [Authentication events](#authentication-events).
 
-
 ## Initiate the authentication flow
 
 To start the authentication flow in ASP.NET MVC, return a **ChallengeResult** from the controller:

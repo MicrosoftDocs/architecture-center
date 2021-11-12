@@ -8,7 +8,7 @@ This gaming solution idea elastically scales your database to accommodate unpred
 *Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
 
 ### Data flow
-1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions, or Containers, and to APIs that are published via Azure API Gateway. 
+1. Azure Traffic Manager routes a user's game traffic to the apps hosted in Azure App Service, Functions, or Containers, and to APIs that are published via Azure API Gateway.
 2. Azure CDN serves static images and game content to the user that are stored in Azure Blob Storage.
 3. Azure Cosmos DB stores user's game state data.
 4. Azure Databricks correlates, cleanses, and transforms game state data.
@@ -35,7 +35,7 @@ This architecture includes the following components:
 
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a fully managed NoSQL database service for building and modernizing scalable, high-performance applications.
 
-- [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. 
+- [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
 
 - [Azure Functions](https://azure.microsoft.com/services/functions/) are serverless compute options that allow applications to run on-demand without having to manage infrastructure.
 
@@ -45,7 +45,7 @@ This architecture includes the following components:
 
 Review the following articles on Cosmos DB:
 
-- [Common Azure Cosmos DB Use Cases](/azure/cosmos-db/use-cases) 
+- [Common Azure Cosmos DB Use Cases](/azure/cosmos-db/use-cases)
 - [Change feed in Azure Cosmos DB](/azure/cosmos-db/change-feed)
 - [Time to Live (TTL) in Azure Cosmos DB](/azure/cosmos-db/time-to-live)
 - [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)

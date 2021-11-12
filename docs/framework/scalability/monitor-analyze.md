@@ -14,7 +14,6 @@ ms.custom:
   - fasttrack-edit
 ---
 
-
 # Performance data integration
 
 Performance testing and investigation should be based on data captured from repeatable processes. To understand how an application's performance is affected by code and infrastructure changes, retain data for analysis. Additionally, it's important to measure how performance has changed _over time_, not just compared to the last measurement taken.
@@ -27,7 +26,6 @@ This article describes some considerations and tools you can use to aggregate da
 > - Use log aggregation technologies to consolidate data into a single workspace and analyze using a sophisticated query language.
 > - Retain data in a time-series database to predict performance issues before they occur.
 > - Balance the retention policy and service pricing plans with the cost expectation of the organization.
-
 
 ## Data interpretation
 

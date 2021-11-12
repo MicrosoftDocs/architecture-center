@@ -418,7 +418,7 @@ These Service Fabric virtual machine scale set extensions are installed on a typ
 
 If your containerized application runs in a shared cluster, you can get logs such as IIS and custom logs from the container into Log Analytics. This option is recommended because of speed, scalability, and the ability to handle large amounts of unstructured data.
 
-Set up log rotation through Docker to keep the logs size manageable. For more information, see [Rotating Docker Logs - Keeping your overlay folder small](https://medium.com/@Quigley_Ja/rotating-docker-logs-keeping-your-overlay-folder-small-40cfa2155412).
+Set up log rotation through Docker to keep the logs size manageable. For more information, see [Rotating Docker Logs - Keeping your overlay folder small](https://medium.com/@Quigley_Ja/rotating-docker-logs-keeping-your-overlay-folder-small-40cfa2155412).
 
 Here are two approaches for getting application logs into Log Analytics.
 

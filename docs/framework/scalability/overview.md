@@ -24,7 +24,11 @@ To assess your workload using the tenets found in the [Microsoft Azure Well-Arch
 
 To boost performance efficiency, we recommend the following video about optimizing for quick and reliable VM deployments:
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://channel9.msdn.com/Events/All-Around-Azure/Well-Architected-The-Backstage-Tour/Performance-Efficiency/player]
+
+<!-- markdownlint-enable MD034 -->
 
 ## Topics
 

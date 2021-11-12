@@ -19,7 +19,6 @@ categories:
   - ai-machine-learning
 ---
 
-
 # HDInsight Spark data science walkthroughs using PySpark and Scala on Azure
 
 These walkthroughs use PySpark and Scala on an Azure Spark cluster to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). For an overview of Spark on HDInsight, see [Introduction to Spark on HDInsight](/azure/hdinsight/spark/apache-spark-overview).
@@ -39,11 +38,9 @@ To learn how to score the classification and regression models created in this t
 ### Cross-validation and hyperparameter sweeping
 See [Advanced data exploration and modeling with Spark](spark-advanced-data-exploration-modeling.md) on how models can be trained using cross-validation and hyper-parameter sweeping.
 
-
 ## Predict taxi tips using Scala on Azure Spark
 
 The [Use Scala with Spark on Azure](scala-walkthrough.md) walkthrough predicts whether a tip is paid and the range of amounts expected to be paid. It shows how to use Scala for supervised machine learning tasks with the Spark machine learning library (MLlib) and SparkML packages on an Azure HDInsight Spark cluster. It walks you through the tasks that constitute the [Data Science Process](/azure/machine-learning/team-data-science-process/): data ingestion and exploration, visualization, feature engineering, modeling, and model consumption. The models built include logistic and linear regression, random forests, and gradient boosted trees.
-
 
 ## Next steps
 
