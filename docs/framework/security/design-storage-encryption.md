@@ -28,6 +28,7 @@ Data can be categorized by its state:
 In a cloud solution, a single business transaction can lead to multiple data operations where data moves from one storage medium to another. To provide complete data protection, it must be encrypted on storage volumes and while it's transferred from one point to another.
 
 ## Key points
+
 - Use identity-based storage access controls.
 - Use standard and recommended encryption algorithms.
 - Use only secure hash algorithms (SHA-2 family).
@@ -139,7 +140,7 @@ Use an additional key encryption key (KEK) to protect your data encryption key (
 
 **Suggested actions**
 
-Identify unencrypted virtual machines via Azure Security Center or script, and encrypt via Azure Disk Encryption.  Ensure all new virtual machines are encrypted by default and regularly monitor for unprotected disks.
+Identify unencrypted virtual machines via Microsoft Defender for Cloud or script, and encrypt via Azure Disk Encryption.  Ensure all new virtual machines are encrypted by default and regularly monitor for unprotected disks.
 
 **Learn more**
 

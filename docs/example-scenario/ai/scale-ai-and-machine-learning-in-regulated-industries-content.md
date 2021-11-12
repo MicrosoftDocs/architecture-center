@@ -32,7 +32,7 @@ The architecture consists of the workflow described below. Each component of the
 
 ### Data management
 
-2. **Data Management Zone** – Responsible for data governance across the platform and enforces guardrails to provide more flexibility downstream in the Data Landing Zones. It has its own subscription and hosts centralized services such as data cataloging, monitoring, audits, and so on. This environment is highly controlled and subject to stringent audits. All data classification types are stored in the central data catalog (Azure Purview). Depending on metadata, different policies and access patterns are enforced. There's only one Data Management Zone subscription for the whole tenant. The Data Management Zone is peered (through VNET peering) with all other Data Landing Zones. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
+1. **Data Management Zone** – Responsible for data governance across the platform and enforces guardrails to provide more flexibility downstream in the Data Landing Zones. It has its own subscription and hosts centralized services such as data cataloging, monitoring, audits, and so on. This environment is highly controlled and subject to stringent audits. All data classification types are stored in the central data catalog (Azure Purview). Depending on metadata, different policies and access patterns are enforced. There's only one Data Management Zone subscription for the whole tenant. The Data Management Zone is peered (through VNET peering) with all other Data Landing Zones. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
 1. **Networking resource group** – Azure Virtual Networks, Network Security Groups, and all other networking-related resources needed for the Data Management Zone are provisioned within this resource group.
 1. **Deployment resource group** – Hosts private Azure DevOps CI/CD agents (virtual machines) needed for the Data Management Zone and a Key Vault for storing any deployment-related secrets.
 1. **Data governance resource group** – Azure Purview is used as a data governance and data catalog solution and is used to enforce the necessary guardrails for datasets to follow data requirements and data regulations that are imposed by law or other entities. Purview is hosted centrally within this resource group, along with a Key Vault instance for storing secrets.
@@ -41,11 +41,11 @@ The architecture consists of the workflow described below. Each component of the
    - AI/ML models that are published and made available to consumers on the platform (so they can be deployed to one or more data landing zones if needed).
 1. **Additional services** – Any other services that should be centralized can be hosted in one of these resource groups, which can include centralized API Management instances, third-party software, and so on.
 1. **Data visualization resource group** – Hosts data visualization solutions that are shared across data landing zones. Solutions can be Power BI, Tableau, or any other visualization solution.
-1. **Additional infrastructure controls & governance** – Azure Security Center and Azure Monitor are used as baseline security and monitoring solutions.
+1. **Additional infrastructure controls & governance** – Microsoft Defender for Cloud and Azure Monitor are used as baseline security and monitoring solutions.
 
 ### Data landing zone
 
-10. **Data Landing Zone** – A subscription that represents a unit of scale within the data platform. Data Landing Zones are deployed based on the core data landing zone architecture (blueprint), including all key capabilities to host an analytics & AI platform. There can be one or many Data Landing Zones within the environment. Azure Policies are applied to keep access and configurations of various Azure services secure. The Data Landing Zone is peered (through VNET peering) with all other Data Landing Zones and the Data Management Zone. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
+1. **Data Landing Zone** – A subscription that represents a unit of scale within the data platform. Data Landing Zones are deployed based on the core data landing zone architecture (blueprint), including all key capabilities to host an analytics & AI platform. There can be one or many Data Landing Zones within the environment. Azure Policies are applied to keep access and configurations of various Azure services secure. The Data Landing Zone is peered (through VNET peering) with all other Data Landing Zones and the Data Management Zone. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
 1. **Networking resource group** – Azure Virtual Networks, Network Security Groups, and all other networking-related resources needed for the Data Landing Zone are provisioned within this resource group.
 1. **Deployment resource group** – Hosts private Azure DevOps CI/CD agents (virtual machines) needed for the Data Landing Zone and a Key Vault for storing any deployment-related secrets.
 1. **Data storage resource group** – Contains the main data storage accounts for this data landing zone, deployed as Azure Data Lake Storage Gen2, with hierarchical namespace. They're spread across three main areas:
@@ -69,7 +69,7 @@ The architecture consists of the workflow described below. Each component of the
    Regulated industries usually have strict data access restrictions, and usually allow production data to be hosted only within the production environment. Because of this reason, the development lifecycle of data products is occurring only in the production data landing zone, and a separate environment (resource group) is provisioned for development, testing, and deployment purposes.
 1. **Additional data products** – These resource groups host other data products, since one data landing zone can host one or many data products.
 1. **Shared compute resource group** – Any shared compute that is needed for hosting and deploying data products is provisioned within this resource group. An Azure Kubernetes cluster is an example.
-1. **Additional infrastructure controls & governance** – Azure Security Center, and Azure Monitor are used as baseline security and monitoring solutions.
+1. **Additional infrastructure controls & governance** – Microsoft Defender for Cloud, and Azure Monitor are used as baseline security and monitoring solutions.
 1. **Additional Data Landing Zones** – A placeholder for extra Azure subscriptions that would be used for hosting new data landing zones. They're based on criteria mentioned before, such as data residency requirements, or a different business unit that has its own cross-functional team and a set of use cases to be delivered.
 
 ### Components
@@ -80,7 +80,7 @@ The architecture consists of the workflow described below. Each component of the
 - [Azure DevOps](https://azure.microsoft.com/services/devops)
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry)
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
-- [Azure Security Center](https://azure.microsoft.com/services/security-center)
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy)
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
@@ -177,6 +177,7 @@ All Azure services must ingest their security events into an organization's Secu
 - Updated access to logs and interruption to logging
 
 Azure security logs can be ingested into SOC through different patterns:
+
 - A central Azure Log Analytics workspace
 - Event Hub connected to SOC platform systems, such as Splunk
 - Windows VM and other compute resources deployed with SOC agents
@@ -219,13 +220,17 @@ Below are some highly recommended practices:
 - Use Azure Advisor and Azure Budget to understand where resources aren't being used in the most optimal way and review configurations regularly.
 
 ## Next steps
+
 Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more, available here:
+
 - [Azure Machine Learning Documentation](/azure/machine-learning)
 
 Learn how to implement an enterprise scale landing zone for data analytics and AI in Azure:
+
 - [Enterprise Scale Analytics and AI reference architecture](/azure/cloud-adoption-framework/scenarios/data-management/enterprise-scale-landing-zone)
 
 Product documentation:
+
 - [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning)
 - [Machine Learning Operations (MLOps)](https://azure.microsoft.com/services/machine-learning/mlops)
 - [Azure Databricks](https://azure.microsoft.com/services/databricks)
@@ -234,6 +239,7 @@ Product documentation:
 ## Related resources
 
 Azure Architecture Center overview articles:
+
 - [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 - [Implementing the Azure blueprint for AI](/previous-versions/azure/industry-marketing/health/sg-healthcare-ai-blueprint)
 - [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)

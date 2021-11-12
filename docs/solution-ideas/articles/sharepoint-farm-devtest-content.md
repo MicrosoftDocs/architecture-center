@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution provides a small scale deployment of SharePoint, by using a single Azure Active Directory (Azure AD), SQL, and SharePoint resources. 
+This solution provides a small scale deployment of SharePoint, by using a single Azure Active Directory (Azure AD), SQL, and SharePoint resources.
 
 ## Potential use cases
 

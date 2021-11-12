@@ -60,7 +60,7 @@ Using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and other A
 
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) - Focus on application innovation, not database management, with fully managed and intelligent Azure Database for PostgreSQL.
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) - The intelligent, scalable, relational database service built for the cloud. It’s evergreen and always up to date, with AI-powered and automated features that optimize performance and durability for you.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) - The intelligent, scalable, relational database service built for the cloud. It's evergreen and always up to date, with AI-powered and automated features that optimize performance and durability for you.
 
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) - Fully managed, open source–compatible in-memory data store to power fast, scalable applications.
 

@@ -37,7 +37,7 @@ A combination of multi-factor authentication (MFA) and conditional access (CA) p
 
 ## Cloud Platform Security (multi-cloud)
 
-Once a common identity has been established in your multi-cloud environment, the [Cloud Platform Security (CPS)](/cloud-app-security/tutorial-cloud-platform-security) service of [Microsoft Cloud App Security (MCAS)](/cloud-app-security/) can be used to discover, monitor, assess, and protect those services. Using the Cloud Discovery dashboard, security operations personnel can review the apps and resources being used across AWS and Azure cloud platforms. Once services are reviewed and sanctioned for use, the services can then be managed as enterprise applications in Azure Active Directory to enable SAML, password-based, and linked Single Sign-On mode for the convenience of users.
+Once a common identity has been established in your multi-cloud environment, the [Cloud Platform Security (CPS)](/cloud-app-security/tutorial-cloud-platform-security) service of [Microsoft Defender for Cloud Apps](/cloud-app-security/) can be used to discover, monitor, assess, and protect those services. Using the Cloud Discovery dashboard, security operations personnel can review the apps and resources being used across AWS and Azure cloud platforms. Once services are reviewed and sanctioned for use, the services can then be managed as enterprise applications in Azure Active Directory to enable SAML, password-based, and linked Single Sign-On mode for the convenience of users.
 
 CPS also provides for the ability to assess the cloud platforms connected for misconfigurations and compliance using vendor specific recommended security and configuration controls. This design enables organizations to maintain a single consolidated view of all cloud platform services and their compliance status.
 
@@ -47,7 +47,7 @@ Additionally, CPS provides access and session control policies to prevent and pr
 
 To limit and control access for your highest privileged accounts in Azure AD, [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/) can be enabled to provide just-in-time access to services for Azure cloud services. Once deployed, PIM can be used to control and limit access using the assignment model for roles, eliminate persistent access for these privileged accounts, and provide additional discover and monitoring of users with these account types.
 
-When combined with [Azure Sentinel](/azure/sentinel/), workbooks and playbooks can be established to monitor and raise alerts to your security operations center personnel when there is lateral movement of accounts that have been compromised.
+When combined with [Microsoft Sentinel](/azure/sentinel/), workbooks and playbooks can be established to monitor and raise alerts to your security operations center personnel when there is lateral movement of accounts that have been compromised.
 
 ## Consistent end-to-end identity management
 

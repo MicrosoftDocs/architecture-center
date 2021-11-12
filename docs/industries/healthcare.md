@@ -30,7 +30,11 @@ Modernization and digital transformation of healthcare facilities is all the mor
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/ehv6UL-_MoE]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 

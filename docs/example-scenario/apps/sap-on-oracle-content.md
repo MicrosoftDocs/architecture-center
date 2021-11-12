@@ -114,7 +114,7 @@ For Oracle database the encryption-at-rest is achieved through Oracle Transparen
 
 The solution uses Azure backup for protecting the VMs and the Oracle database, and all the backed-up data is automatically encrypted when stored in the cloud using Azure Storage encryption.
 
-The overall solution is integrated into [Azure Security Center](/azure/security-center/security-center-introduction) and [Azure Sentinel](/azure/sentinel/overview).
+The overall solution is integrated into [Microsoft Defender for Cloud](/azure/security-center/security-center-introduction) and [Microsoft Sentinel](/azure/sentinel/overview).
 
 #### Considerations
 
@@ -132,7 +132,7 @@ The overall solution is integrated into [Azure Security Center](/azure/security-
 - Implement encryption-in-transit for:
   - Use TLS for encrypting HTTP communications and SNC for DIAG/RFC communications.
 - Use Azure Bastion (PaaS) for secure and seamless RDP/SSH connectivity to your VMs directly in the Azure portal over SSL.
-- Enable Azure Security Center (ASC) Standard for SAP on Azure subscriptions.
+- Enable Microsoft Defender for Cloud Standard for SAP on Azure subscriptions.
 - Enable resource locking to prevent accidental deletion of the deployed Azure resource.
 
 ### Scalability
@@ -204,7 +204,7 @@ Below are the considerations and recommendations related to monitoring aspects o
 - Azure VMs running SAP application and databases can be monitored using Azure Monitor and Linux Pacemaker cluster can be monitored using [Azure Monitor for SAP (preview)](/azure/virtual-machines/workloads/sap/azure-monitor-providers#provider-type-high-availability-cluster).
 - Azure Network Watcher can be used for Network Monitoring.
 - Metrics and Logs from the Azure Monitor can be cascaded to Azure log Analytics workspace and corelated with other KPIs for different use cases.
-- Azure Security Center and Azure Sentinel can be used for security monitoring and audit logging.
+- Microsoft Defender for Cloud and Microsoft Sentinel can be used for security monitoring and audit logging.
 
 #### Recommendations
 

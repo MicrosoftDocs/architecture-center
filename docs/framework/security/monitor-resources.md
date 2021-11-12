@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure resources in Azure Security Center
-description: Use Azure Security Center to monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues.
+title: Monitor Azure resources in Microsoft Defender for Cloud
+description: Use Microsoft Defender for Cloud to monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues.
 author: PageWriter-MSFT
 ms.date: 03/18/2021
 ms.topic: conceptual
@@ -16,17 +16,19 @@ subject:
   - monitoring
 ---
 
-# Monitor Azure resources in Azure Security Center
+# Monitor Azure resources in Microsoft Defender for Cloud
 
 Most cloud architecture have compute, networking, data, and identity components and each require different monitoring mechanisms. Even Azure services have individual monitoring needs. For instance, to monitor Azure Functions you want to enable Azure Application Insights.
 
-Azure Security Center has many plans that monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues. Common issues include internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more.
+Microsoft Defender for Cloud has many plans that monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues. Common issues include internet connected VMs, or missing security updates, missing endpoint protection or encryption, deviations from baseline security configurations, missing Web Application Firewall (WAF), and more.
 
 ## Key points
-> [!div class="checklist"]
-> - Enable Azure Defender as a defense-in-depth measure. Use resource-specific Defender features such as Azure Defender for Servers, Azure Defender for Endpoint, Azure Defender for Storage.
+
+ [!div class="checklist"]
+>
+> - Enable Microsoft Defender for Cloud as a defense-in-depth measure. Use resource-specific Defender for Cloud features such as Microsoft Defender for servers, Microsoft Defender for Endpoint, Microsoft Defender for Storage.
 > - Observe container hygiene through container aware tools and regular scanning.
-> - Review all network flow logs through network watcher. See diagnostic logs in Azure Security Center.
+> - Review all network flow logs through network watcher. See diagnostic logs in Microsoft Defender for Cloud.
 > - Integrate all logs in a central SIEM solution to analyze and detect suspicious behavior.
 > - Monitor identity-related risk events in Azure AD reporting amd Azure Active Directory Identity Protection.
 
@@ -49,19 +51,19 @@ In PaaS, you have shared responsibility with Azure in protecting the data.
 
 ## Virtual machines
 
-If you're running your own Windows and Linux virtual machines, use Azure Security Center. Take advantage of the free services to check for missing OS patches, security misconfiguration, and basic network security. Enabling Azure Defender is highly recommended because you get features that provide adaptive application controls, file integrity monitoring (FIM), and others.
+If you're running your own Windows and Linux virtual machines, use Microsoft Defender for Cloud. Take advantage of the free services to check for missing OS patches, security misconfiguration, and basic network security. Enabling Microsoft Defender for Cloud is highly recommended because you get features that provide adaptive application controls, file integrity monitoring (FIM), and others.
 
-For example, a common risk is the virtual machines don't have vulnerability scanning solutions that check for threats. Azure Security Center reports those machines. You can remediate in Azure Security Center by deploying a scanning solution. You can use the built-in vulnerability scanner for virtual machines. You don't need a license. Instead, you can bring your license for supported partner solutions.
+For example, a common risk is the virtual machines don't have vulnerability scanning solutions that check for threats. Microsoft Defender for Cloud reports those machines. You can remediate in Microsoft Defender for Cloud by deploying a scanning solution. You can use the built-in vulnerability scanner for virtual machines. You don't need a license. Instead, you can bring your license for supported partner solutions.
 
 > [!NOTE]
 >
 > Vulnerability assessments are also available for container images, and SQL servers.
 
-Attackers constantly scan public cloud IP ranges for open management ports, which can lead to attacks such as common passwords and known unpatched vulnerabilities. JIT (Just In Time) access allows you to lock down the inbound traffic to the virtual machines while providing easy access to connect to machines when needed. Security center identifies which machines should have JIT applied.
+Attackers constantly scan public cloud IP ranges for open management ports, which can lead to attacks such as common passwords and known unpatched vulnerabilities. JIT (Just In Time) access allows you to lock down the inbound traffic to the virtual machines while providing easy access to connect to machines when needed. Defender for Cloud identifies which machines should have JIT applied.
 
-With Azure Defender, you also get Microsoft Defender for Endpoint. This provides investigative tools Endpoint Detection and Response (EDR) that helps in threat detection and analysis.
+With Microsoft Defender for Cloud, you also get Microsoft Defender for Endpoint. This provides investigative tools Endpoint Detection and Response (EDR) that helps in threat detection and analysis.
 
-Azure Defender for servers also watches the network to and from virtual machines. If you are using network security groups to control access to the virtual machines and the rules are overpermissive, Security Center will flag them. Adaptive network hardening provides recommendations to further harden the NSG rules.
+Microsoft Defender for servers also watches the network to and from virtual machines. If you are using network security groups to control access to the virtual machines and the rules are overpermissive, Defender for Cloud will flag them. Adaptive network hardening provides recommendations to further harden the NSG rules.
 
 For a full list of features, see [Feature coverage for machines](/azure/security-center/security-center-services?tabs=features-windows).
 
@@ -69,17 +71,17 @@ For a full list of features, see [Feature coverage for machines](/azure/security
 
 Make sure policies and processes require restricting and monitoring direct internet connectivity by virtual machines.
 
-For Azure, you can enforce policies by,
+For Azure, you can enforce policies by:
 
--   **Enterprise-wide prevention:** Prevent inadvertent exposure by following the permissions and roles described in the reference model.
+- **Enterprise-wide prevention:** Prevent inadvertent exposure by following the permissions and roles described in the reference model.
 
-    -   Ensures that network traffic is routed through approved egress points by default.
+  - Ensures that network traffic is routed through approved egress points by default.
 
-    -   Exceptions (such as adding a public IP address to a resource) must go through a centralized group that evaluates exception requests and makes sure appropriate controls are applied.
+  - Exceptions (such as adding a public IP address to a resource) must go through a centralized group that evaluates exception requests and makes sure appropriate controls are applied.
 
--   **Identify and remediate** exposed virtual machines by using the [Azure Security Center](/azure/security-center/) network visualization to quickly identify internet exposed resources.
+- **Identify and remediate** exposed virtual machines by using the [Microsoft Defender for Cloud](/azure/security-center/) network visualization to quickly identify internet exposed resources.
 
--   **Restrict management ports** (RDP, SSH) using [Just in Time access](/azure/security-center/security-center-just-in-time) in Azure Security Center.
+- **Restrict management ports** (RDP, SSH) using [Just in Time access](/azure/security-center/security-center-just-in-time) in Microsoft Defender for Cloud.
 
 One way of managing VMs in the virtual network is by using [Azure Bastion](/azure/bastion/). This service allows you to log into VMs in the virtual network through SSH or remote desktop protocol (RDP) without exposing the VMs directly to the internet. To see a reference architecture that uses Bastion, see [Network DMZ between Azure and an on-premises datacenter](../../reference-architectures/dmz/secure-vnet-dmz.yml).
 
@@ -91,7 +93,7 @@ Containerized workloads have an extra layer of abstraction and orchestration. Th
 
     A popular process pattern is the quarantine pattern. This pattern allows you to get your images on a dedicated container registry and subject them to security or compliance scrutiny applicable for your organization. After it's validated, they can then be released from quarantine and promoted to being available.
 
-    Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers.
+    Microsoft Defender for Cloud identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers.
 
 - Make sure you use images from authorized registries. You can enforce this restriction through Azure Policy. For example, for an Azure Kubernetes Service (AKS) cluster, have policies that restrict the cluster to only pull images from Azure Container Registry (ACR) that is deployed as part of the architecture.
 
@@ -106,15 +108,15 @@ Containerized workloads have an extra layer of abstraction and orchestration. Th
 
 - Use security monitoring tools that are container aware to monitor for anomalous behavior and enable investigation of incidents.
 
-    Azure Defender for container registries are designed to protect AKS clusters, container hosts (virtual machines running Docker), and ACR registries. When enabled, the images that are pulled or pushed to registries are subject to vulnerability scans.
+    Microsoft Defender for container registries are designed to protect AKS clusters, container hosts (virtual machines running Docker), and ACR registries. When enabled, the images that are pulled or pushed to registries are subject to vulnerability scans.
 
 For more information, see these articles:
 
-- [Container security in Security Center](/azure/security-center/container-security)
+- [Container security in Defender for Cloud](/azure/security-center/container-security)
 
 ## Network
 
-**How do you monitor and diagnose conditions of the network?** 
+**How do you monitor and diagnose conditions of the network?**
 ***
 
 As an initial step, enable and review all logs (including raw traffic) from your network devices.
@@ -128,20 +130,22 @@ Packet capture tracks traffic in and out of virtual machines. It gives you the c
 
 For an example, see [Scenario: Get alerts when VM is sending you more TCP segments than usual](/azure/network-watcher/network-watcher-alert-triggered-packet-capture#scenario).
 
-Then, focus on observability of specific services by reviewing the diagnostic logs. For example, for Azure Application Gateway with integrated WAF, see [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics). Azure Security Center analyzes diagnostic logs on virtual networks, gateways, network security groups and determines if the controls are secure enough. For example:
+Then, focus on observability of specific services by reviewing the diagnostic logs. For example, for Azure Application Gateway with integrated WAF, see [Web application firewall logs](/azure/application-gateway/application-gateway-diagnostics). Microsoft Defender for Cloud analyzes diagnostic logs on virtual networks, gateways, network security groups and determines if the controls are secure enough. For example:
 
 - Is your virtual machine exposed to public internet. If so, do you have tight rules on network security groups to protect the machine?
 - Are the network security groups (NSG) and rules that control access to the virtual machines overly permissive?
 - Are the storage accounts receiving traffic over secure connections?
 
-Follow the recommendations provided by Security Center. For more information, see [Networking recommendations](/azure/security-center/recommendations-reference#networking-recommendations). Use [Azure Firewall logs](/azure/firewall/logs-and-metrics) and metrics for observability into operational and audit logs.
+Follow the recommendations provided by Defender for Cloud. For more information, see [Networking recommendations](/azure/security-center/recommendations-reference#networking-recommendations). Use [Azure Firewall logs](/azure/firewall/logs-and-metrics) and metrics for observability into operational and audit logs.
 
-Integrate all logs into a security information and event management (SIEM) service, such as Azure Sentinel. The SIEM solutions support ingestion of large amounts of information and can analyze large datasets quickly. Based on those insights, you can:
+Integrate all logs into a security information and event management (SIEM) service, such as Microsoft Sentinel. The SIEM solutions support ingestion of large amounts of information and can analyze large datasets quickly. Based on those insights, you can:
+
 - Set alerts or block traffic crossing segmentation boundaries.
 - Identify anomalies.
 - Tune the intake to significantly reduce the false positive alerts.
 
 ## Identity
+
 Monitor identity-related risk events using adaptive machine learning algorithms, heuristics quickly before the attacker can gain deeper access into the system.
 
 ### Review identity risks
@@ -176,7 +180,7 @@ Authentication protocols are a critical foundation of nearly all security assura
 
 Here are ways to reduce your risk:
 
-- Discover protocol usage by reviewing logs with Azure Sentinel's Insecure Protocol Dashboard or third-party tools.
+- Discover protocol usage by reviewing logs with Microsoft Sentinel's Insecure Protocol Dashboard or third-party tools.
 
 - Restrict or Disable use of these protocols by following guidance for
     [SMB](https://support.microsoft.com/help/2696547/detect-enable-disable-smbv1-smbv2-smbv3-in-windows-and-windows-server),
@@ -216,5 +220,6 @@ You can discover existing connected tenants using a
 DevOps practices are for change management of the workload through continuous integration, continuous delivery (CI/CD). Make sure you add security validation in the pipelines. Follow the guidance described in [Learn how to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&preserve-view=true).
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [View logs and alerts](monitor-logs-alerts.md)

@@ -17,7 +17,6 @@ Mainframe and midrange customers can benefit from this solution, especially when
 - Acquire business intelligence to improve operations and gain a competitive advantage.
 - Escape the high costs and rigidity associated with mainframe and midrange data stores.
 
-
 ## Architecture
 
 :::image type="complex" source="./images/modernize-mainframe-data-with-azure.png" alt-text="Architecture diagram showing how to modernize mainframe and midrange systems by migrating data to Azure." border="false":::

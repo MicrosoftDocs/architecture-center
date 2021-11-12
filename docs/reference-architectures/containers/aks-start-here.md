@@ -36,16 +36,16 @@ If you're new to Kubernetes or AKS, the best place to learn about the service is
 
 You understand the benefits and trade-offs of Kubernetes, and have decided that AKS is the best Azure compute platform for your workload. Your organizational controls have been put into place; you're ready to learn how to deploy production-ready clusters for your workload.
 
-**Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters. 
+**Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters.
 
 > [!div class="nextstepaction"]
 > [Microsoft's AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
 We recommend you start from the baseline implementation and modify it to align to your workload's specific needs.
 
-## Suite of baseline implementations 
+## Suite of baseline implementations
 
-We've provided a set of more baseline implementations to illustrate how you can adopt and configure components of AKS Baseline Cluster for various scenarios. 
+We've provided a set of more baseline implementations to illustrate how you can adopt and configure components of AKS Baseline Cluster for various scenarios.
 
 ### Microservices
 
@@ -96,8 +96,6 @@ Kubernetes and AKS are both moving fast. The platform is evolving and just knowi
 > [AKS product roadmap](https://aka.ms/aks/roadmap)
 
 ---
-
-
 
 ## Additional resources
 

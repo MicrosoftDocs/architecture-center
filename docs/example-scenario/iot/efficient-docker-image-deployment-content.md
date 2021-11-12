@@ -214,6 +214,7 @@ Based on the details above, CSE selected the full image delta transfer method. T
 Developers will interact with the source code for their modules in a source code repository. The basic structure of the repository consists of folders that contain the code for each module, as follows:
 
 ```
+
 \- repository root
 
     - modulea
@@ -278,6 +279,7 @@ Azure Container Registry (ACR) is used to store each module's Docker images. The
 The manifest repository contains the deployment manifests for all workstreams. The templates are put in folders based on the workstream they represent, shown below. In this engagement, the two workstreams are shared infrastructure and the (software) container application.
 
 ```
+
 \- repository root
 
      - Workstream1
@@ -352,6 +354,7 @@ This process involves the following steps:
 -   Pushes the new deployment manifest to the proper IoT hub.
 
 >   The IoT Hub instance where the deployment gets pushed is an environment variable configured when the pipeline is created.
+
 ### Fast file transfer solution
 
 >   This customer was already using a fast file transfer solution, called
@@ -465,7 +468,7 @@ For more details about the processes and technologies used to create this soluti
 
 -   [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
 
--   [Monitor Azure resources in Azure Security Center](/azure/architecture/framework/security/monitor-resources)
+-   [Monitor Azure resources in Microsoft Defender for Cloud](/azure/architecture/framework/security/monitor-resources)
 
 -   [Azure IoT Edge for Azure Industrial IoT](/azure/architecture/guide/iiot-guidance/iiot-architecture#azure-iot-edge)
 

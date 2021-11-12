@@ -98,7 +98,6 @@ public class SurveyService : ISurveyService
 ```
 Another way is to inject an `ITokenAcquisition` service in the controller. For more information, see [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
 
-
 [**Next**][client-certificate]
 
 <!-- links -->

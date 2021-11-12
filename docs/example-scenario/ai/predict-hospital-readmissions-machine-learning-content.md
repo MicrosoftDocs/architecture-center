@@ -69,7 +69,7 @@ Although this list provides a comprehensive view of all the potential roles that
 - [Microsoft Power BI](https://powerbi.microsoft.com) is a collection of software services, apps, and connectors that work together to turn unrelated sources of data into coherent, visually immersive, and interactive insights. The BI Analyst uses Power BI to develop visualizations from the data, such as a map of each patient's home location and nearest hospital.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is a cloud-based identity and access management service. In this architecture, it controls access to the Azure services.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a cloud service that provides a secure store for secrets such as keys, passwords, and certificates. Key Vault holds the secrets that Databricks uses to gain write access to the data lake.
-- [Azure Security Center](https://azure.microsoft.com/services/security-center) is a unified infrastructure security management system that strengthens the security posture of data centers, and provides advanced threat protection across hybrid workloads in the cloud and on-premises. You can use it to monitor security threats against the Azure environment.
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center) is a unified infrastructure security management system that strengthens the security posture of data centers, and provides advanced threat protection across hybrid workloads in the cloud and on-premises. You can use it to monitor security threats against the Azure environment.
 - [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications. AKS simplifies deployment of a managed AKS cluster in Azure by offloading the operational overhead to Azure.
 
 ### Alternatives
@@ -132,7 +132,7 @@ You can estimate costs by using the [Azure pricing calculator](https://azure.mic
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [About Azure Key Vault](/azure/key-vault/general/overview)
-- [What is Azure Security Center?](/azure/security-center/security-center-introduction)
+- [What is Microsoft Defender for Cloud?](/azure/security-center/security-center-introduction)
 
 ### Healthcare solutions
 

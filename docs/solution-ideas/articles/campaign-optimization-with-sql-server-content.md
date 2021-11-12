@@ -4,7 +4,7 @@ This solution idea describes building and deploying a machine learning model tha
 
 ## Potential use cases
 
-When businesses launch a marketing campaign to attract customers to new or existing products, they often use a set of business rules to select leads for their campaign to target. Machine learning can be used to help increase the response rate from these leads. 
+When businesses launch a marketing campaign to attract customers to new or existing products, they often use a set of business rules to select leads for their campaign to target. Machine learning can be used to help increase the response rate from these leads.
 
 For example, a machine learning model can be used to predict actions that are expected to maximize the purchase rate of leads targeted by the campaign. The predictions then serve as the basis for recommendations to be used by a renewed campaign. Recommendations can be about *how* to contact the targeted leads, for example, with e-mail, SMS, or a cold call. And recommendations can be about *when* to contact targeted leads, for example, day of week and time of day.
 
