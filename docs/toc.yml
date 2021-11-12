@@ -582,6 +582,14 @@ items:
                     href: framework/services/compute/azure-app-service/cost-optimization.md
                   - name: Operational Excellence
                     href: framework/services/compute/azure-app-service/operational-excellence.md  
+              - name: Azure Batch
+                items:
+                  - name: Reliability
+                    href: framework/services/compute/azure-batch/reliability.md
+                  - name: Operational Excellence
+                    href: framework/services/compute/azure-batch/operational-excellence.md
+                  - name: Performance Efficiency
+                    href: framework/services/compute/azure-batch/performance-efficiency.md                
               - name: Azure Kubernetes Service
                 items: 
                   - name: Reliability
