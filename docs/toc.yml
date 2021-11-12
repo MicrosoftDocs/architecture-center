@@ -574,6 +574,14 @@ items:
         items:
           - name: Compute
             items: 
+              - name: Azure App Service
+                items:
+                  - name: Reliability
+                    href: framework/services/compute/azure-app-service/reliability.md
+                  - name: Cost Optimization
+                    href: framework/services/compute/azure-app-service/cost-optimization.md
+                  - name: Operational Excellence
+                    href: framework/services/compute/azure-app-service/operational-excellence.md  
               - name: Azure Batch
                 items:
                   - name: Reliability
@@ -581,7 +589,7 @@ items:
                   - name: Operational Excellence
                     href: framework/services/compute/azure-batch/operational-excellence.md
                   - name: Performance Efficiency
-                    href: framework/services/compute/azure-batch/performance-efficiency.md
+                    href: framework/services/compute/azure-batch/performance-efficiency.md                
   - name: Design Patterns
     items:
       - name: Overview
@@ -1835,6 +1843,8 @@ items:
                     href: data-guide/technology-choices/stream-processing.md
               - name: Data management patterns
                 href: patterns/category/data-management.md
+              - name: Use the Transactional Outbox pattern
+                href: best-practices/transactional-outbox-cosmos.yml
               - name: Industry guidance
                 items:
                   - name: Data management in banking
@@ -1850,7 +1860,7 @@ items:
                 href: data-guide/scenarios/data-transfer.md
               - name: Extend on-premises data solutions to Azure
                 href: data-guide/scenarios/hybrid-on-premises-and-cloud.md
-              - name: Securing data solutions
+              - name: Secure data solutions
                 href: data-guide/scenarios/securing-data-solutions.md
               - name: Tenancy models for SaaS databases
                 href: isv/application-tenancy.md
