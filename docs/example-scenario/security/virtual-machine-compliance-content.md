@@ -1,8 +1,8 @@
 Each enterprise has its own compliance regulations and standards. Concerning security, each company has its own risk appetite. Security standards can differ from one organization to another and from one region to another.
 
-Complying with these differing standards can be more challenging in dynamically scaling cloud environments than in on-premises systems. When teams use DevOps practices, there are generally fewer restrictions on who can create Azure resources like virtual machines (VMs). This fact complicates compliance challenges.
+Complying with differing standards can be more challenging in dynamically scaling cloud environments than in on-premises systems. When teams use DevOps practices, there are generally fewer restrictions on who can create Azure resources like virtual machines (VMs). This fact complicates compliance challenges.
 
-By using Azure Policy and role-based access control assignments, enterprises can enforce standards on Azure resources. But with VMs, these mechanisms only affect the control plane, or the route to the VM. The images that run on a VM still pose a security threat. Some companies prevent developers from accessing VMs. This approach impairs agility, making it difficult follow DevOps practices.
+By using Azure Policy and role-based access control assignments, enterprises can enforce standards on Azure resources. But with VMs, these mechanisms only affect the control plane, or the route to the VM. The system images that run on a VM still pose a security threat. Some companies prevent developers from accessing VMs. This approach impairs agility, making it difficult follow DevOps practices.
 
 This article presents a solution for managing the compliance of VMs that run on Azure. Besides tracking compliance, the solution also minimizes the risk from system images that run on VMs. At the same time, the solution is compatible with DevOps practices. Core components include Azure Image Builder, Azure Compute Gallery, and Azure Policy.
 
@@ -59,6 +59,42 @@ The process of tracking virtual machine compliance contains these steps:
 
 - You can use [Custom Script Extensions][Custom Script Extensions] for installing software on VMs or configuring VMs after deployment. But each VM or virtual machine scale set can only have one custom script extension. And if you use custom script extensions, you may prevent DevOps teams from performing customizations that their applications need.
 
+## Approach
+
+Add intro sentence to avoid stacked headings.
+
+### Identify pets and cattle
+
+DevOps teams use an analogy called pets and cattle to define service models. To track a VM's compliance, first determine whether it's a pet or cattle server.
+
+- Pets require significant attention. They're not easy to dispense. You need to invest a considerable amount of time and financial resources to recover them. For example, a server that runs SAP might be a pet. Besides the software that runs on the server, other considerations can also determine the service model. If you have a low failure tolerance, production servers that run on real-time and near realtime systems can also be pets.
+- Cattle servers are part of an identical group. You can replace them easily. For example, VMs that run in a virtual machine scale set are cattle. If there are enough VMs in the virtual machine scale set, your system keeps running, and you don't need to know each VM's name. Another example of cattle might be your testing environment. You use an automated procedure to create the servers in that environment from scratch. After you finish running the tests, you decommission the servers.
+
+An environment might only contain pet servers, or it might only contain cattle servers. In contrast, a set of VMs in an environment might be pets. In the same environment, a different set of VMs might be cattle.
+
+To manage compliance:
+
+- Pet compliance is generally more challenging to track than cattle compliance. Usually only DevOps teams can track and maintain the compliance of pet environments and servers. But this article's solution increases the visibility of each pet's status, making compliance tracking easier for everyone in the organization.
+- For cattle environments, refresh the VMs and rebuild them from scratch on a regular basis. Those steps should be adequate for compliance. You can align this refresh cycle with your DevOps team's regular release cadence.
+
+## Restrict images
+
+Don't allow DevOps teams to use Azure Marketplace VM images. Only allow VMs images that the Azure Compute Gallery publishes. This restriction is critical for ensuring VM compliance. You can use a custom policy in Azure Policy to enforce this restriction. For a sample, see [Allow image publishers][Only allow certain image publishers from the Marketplace]. 
+
+As a part of this solution, Azure Image Builder should use an Azure Marketplace image. It's essential to use the latest image that's available in Azure Marketplace. Apply any customizations on top of that image. Azure Marketplace images are refreshed often, and each image has certain preset configurations, ensuring your images are secure by default.
+
+## Customize images
+
+A golden image is the version of a marketplace image that's published to Azure Compute Gallery. Golden images are available for consumption by DevOps teams. Before the process publishes the image, customization takes place. Customization activities are unique to each enterprise. Common activities include:
+
+- Operating system hardening
+- Deploying custom agents for third-party software
+- Installing enterprise certificate authority (CA) root certificates.
+
+
+
+
+
 ## Considerations
 
 Keep the following points in mind when you implement this solution.
@@ -97,4 +133,5 @@ To explore the cost of running this solution in your environment, use the [Azure
 [Azure Policy guest configuration feature]: https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration
 [Azure Policy and Policy Dashboard]: https://docs.microsoft.com/azure/governance/policy/overview
 [Custom Script Extensions]: https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-windows
+[Only allow certain image publishers from the Marketplace]: https://github.com/Azure/azure-policy/tree/master/samples/Compute/allowed-image-publishers
 [What is an Azure landing zone?]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/
