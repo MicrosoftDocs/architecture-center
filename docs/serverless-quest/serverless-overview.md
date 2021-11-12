@@ -1,6 +1,6 @@
 ---
-title: Serverless Functions overview
-titleSuffix: Azure Example Scenarios
+title: Serverless Functions architecture
+titleSuffix: Azure Architecture Center
 description: Learn about serverless architecture with Azure Functions, and how to implement serverless Functions adoption.
 author: rogeriohc
 ms.date: 06/22/2020
