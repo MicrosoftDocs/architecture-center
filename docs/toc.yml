@@ -570,6 +570,18 @@ items:
                 href: framework/hybrid/hybrid-reliability.md
               - name: Security
                 href: framework/hybrid/hybrid-security.md
+      - name: Services 
+        items:
+          - name: Compute
+            items: 
+              - name: Azure Batch
+                items:
+                  - name: Reliability
+                    href: framework/services/compute/azure-batch/reliability.md
+                  - name: Operational Excellence
+                    href: framework/services/compute/azure-batch/operational-excellence.md
+                  - name: Performance Efficiency
+                    href: framework/services/compute/azure-batch/performance-efficiency.md
   - name: Design Patterns
     items:
       - name: Overview
@@ -937,7 +949,7 @@ items:
                     href: /gaming/azure/reference-architectures/multiplayer-asynchronous-serverless
                     maintainContext: true
           - name: Game analytics
-            items:
+            items: 
               - name: Non-real-time dashboard
                 href: /gaming/azure/reference-architectures/analytics-non-real-time-dashboard
                 maintainContext: true
@@ -1589,7 +1601,7 @@ items:
                     maintainContext: true
                   - name: Security and governance for VMware Solution
                     href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
-                    maintainContext: true
+                    maintainContext: true                    
           - name: Architectures
             items:
               - name: Azure VMware Solution in hub-and-spoke
@@ -3091,7 +3103,7 @@ items:
                 href: hybrid/hybrid-security-monitoring.yml
               - name: Long-term security logs in Azure Data Explorer
                 href: example-scenario/security/security-log-retention-azure-data-explorer.yml
-              - name: Defender for Cloud Apps and Microsoft Sentinel security for AWS
+              - name: MCAS and Azure Sentinel security for AWS
                 href: reference-architectures/aws/aws-azure-security-solutions.yml
               - name: Multi-region app with private database
                 href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
