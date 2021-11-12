@@ -6,7 +6,7 @@ One potential challenge with this approach is using a non-static private IP addr
 
 This article explores enhancements to address these common problems through the adoption of Application Insights and Azure Monitor for monitoring and using Azure Functions to perform automatic rotation of private IPs. This approach improves the redundancy of the workload.
 
-## Use cases
+## Potential use cases
 
 This architecture works best for:
 - Serverless deployment.
@@ -58,10 +58,8 @@ This architecture works best for:
 #### Application
 
 - [Azure Container Instances](https://azure.microsoft.com/services/container-instances): Azure Container Instances runs container images seamlessly without requiring you to set up additional infrastructure. You should consider [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) for advanced container orchestration.
-
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Azure Cosmos DB is a fully managed NoSQL database that supports multiple platforms, like SQL, Cassandra, and MongoDB.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault): As a security best practice, developers don't store connection strings as clear text in application source code. Azure Key Vault serves as a central location to store secrets with improved security. Applications can retrieve necessary keys with improved security.
-
 
 ### Alternatives
 
@@ -72,7 +70,6 @@ Azure provides multiple options to host container-based workloads, like [Azure K
 Azure Kubernetes Service provides advanced container orchestration and network capabilities like the [Service resource](https://kubernetes.io/docs/concepts/services-networking/service), which isn't available in Container Instances. This reference architecture addresses this requirement.
 
 App Service can also host container workloads, and [App Service Environment](/azure/app-service/environment/intro) allows developers to deploy App Service in Azure Virtual Network. The pricing structure of Container Instances, as compared to App Service, makes it compelling for small workloads.
-
 
 ## Considerations
 
@@ -117,5 +114,18 @@ See [this example](https://azure.com/e/437a828a735f44c6b942c72ef67ade58) of the 
 - [Architect modern applications in Azure](/learn/paths/architect-modern-apps)
 - [Implement network security in Azure](/learn/paths/implement-network-security)
 - [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook)
-- [Azure Architecture Center: Automation](https://docs.microsoft.com/azure/architecture/browse/?terms=automation)
-- [Azure Architecture Center: Serverless](https://docs.microsoft.com/azure/architecture/browse/?terms=serverless)
+
+## Related resources
+
+Browse our architectures:
+- [Azure Architecture Center: Automation](/azure/architecture/browse/?terms=automation)
+- [Azure Architecture Center: Serverless](/azure/architecture/browse/?terms=serverless)
+
+Related guidance:
+- [Serverless Functions architecture](/azure/architecture/serverless-quest/serverless-overview)
+- [Serverless batch processing with Durable Functions in Azure Container Instances](/azure/architecture/solution-ideas/articles/durable-functions-containers)
+- [Run containers in a hybrid environment](/azure/architecture/hybrid/hybrid-containers)
+- [Bursting from AKS with ACI](/azure/architecture/solution-ideas/articles/scale-using-aks-with-aci)
+- [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
+- [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
+- [Zero-trust network for web applications with Azure Firewall and Application Gateway](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
