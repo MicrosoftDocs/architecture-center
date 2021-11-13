@@ -45,3 +45,8 @@ Explore the following table of recommendations to optimize your workload design 
 |Keep application binaries and reference data up to date in all regions.|Staying up to date will ensure the region can be brought online quickly without waiting for file upload and deployment.|
 |Use fewer jobs and more tasks.|Using a job to run a single task is inefficient. For example, it's more efficient to use a single job containing `1000` tasks rather than creating `100` jobs that contain `10` tasks each. Running `1000` jobs, each with a single task, would be the least efficient, slowest, and most expensive approach.|
 |Pre-create all required services in each region, such as the Batch account and storage account.|There's often no charge for creating accounts and charges accrue only when you use the account, or when you store data.|
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Azure Batch and performance efficiency](./performance-efficiency.md)

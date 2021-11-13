@@ -49,3 +49,8 @@ Explore the following table of recommendations to optimize your App Service conf
 |Use a scale-out and scale-in rule combination|If you use only one part of the combination, autoscale will only take action in a single direction (scale out, or in) until it reaches the maximum, or minimum instance counts defined in the profile. This scaling behavior isn't optimal, ideally you want your resource to scale up at times of high usage to ensure availability. Similarly, at times of low usage, you want your resource to scale down, so you can realize cost savings.|
 |Understand the behavior of multiple scaling rules in a profile.|There are cases where you may have to set multiple rules in a profile. On scale-out, autoscale runs if `any` rule is met. On scale-in, autoscale requires `all` rules to be met.|
 |Consider Basic or Free tier for non-production usage.|For non-prod App Service plans, consider scaling to Basic or Free Tier and scale up, as needed, and scale down when not in use – for example, during a Load Test exercise or based on the capabilities provided (such as custom domain, SSL, and more).|
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Azure App Service and operational excellence](./operational-excellence.md)

@@ -117,3 +117,8 @@ Resources
 ### Learn more
 
 [The Ultimate Guide to Running Healthy Apps in the Cloud](https://azure.github.io/AppService/2020/05/15/Robust-Apps-for-the-cloud.html)
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Azure App Service and cost optimization](./cost-optimization.md)

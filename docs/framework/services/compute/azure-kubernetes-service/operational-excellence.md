@@ -1,8 +1,8 @@
 ---
-title: Azure Kubernetes Service (AKS) and reliability
-description: Focuses on the Azure Kubernetes Service (AKS) used in the Compute solution to provide best-practice, configuration recommendations, and design considerations related to service reliability.
+title: Azure Kubernetes Service (AKS) and operational excellence
+description: Focuses on the Azure Kubernetes Service (AKS) used in the Compute solution to provide best-practice, configuration recommendations, and design considerations related to operational excellence.
 author: v-stacywray
-ms.date: 10/19/2021
+ms.date: 11/11/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -13,29 +13,27 @@ categories:
   - management-and-governance
 ---
 
-# Azure Kubernetes Service (AKS) and reliability
+# Azure Kubernetes Service (AKS) and operational excellence
 
 [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
 
-To explore how AKS can bolster the resiliency of your application workload, reference architecture guidance and best practices on the [AKS Solution architectures](/azure/architecture/reference-architectures/containers/aks-start-here) page.
+To explore how AKS can bolster the operational excellence of your application workload, reference architecture guidance and best practices on the [AKS Solution architectures](/azure/architecture/reference-architectures/containers/aks-start-here) page.
 
 The following sections include configuration checklists, recommended configuration options, and supporting source artifacts specific to AKS.
 
 ## Checklists
 
-**Have you configured Azure Kubernetes Service (AKS) with resiliency in mind?**
+**Have you configured Azure Kubernetes Service (AKS) with operational excellence in mind?**
 ***
 
 > [!div class="checklist"]
-> - Run resource-intensive applications, such as ingress controllers, or workloads that require specialized hardware (such as large data processing workloads like machine learning (ML) or artificial intelligence (AI)).
+> - Review AKS best practices documentation.
+> - Run multiple workloads in a single AKS cluster.
+> - Reboot nodes when updates and patches require it.
 > - Don't modify resources in the [node resource group (for example MC_)](/azure/aks/faq#why-are-two-resource-groups-created-with-aks). You should *only* make modifications at [cluster creation time](/azure/aks/faq#can-i-provide-my-own-name-for-the-aks-node-resource-group), or with assistance from [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/supportPlans).
-> - Define [Pod resource requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) in application deployment manifests.
-> - Control pod scheduling using node selectors and affinity.
 > - Use a central monitoring tool, such as [Azure Monitor and App Insights](/azure/azure-monitor/containers/container-insights-overview) to centrally collect metrics, logs, and diagnostics for troubleshooting purposes.
 > - Enable and review [Kubernetes master node logs](/azure/azure-monitor/containers/container-insights-log-query#resource-logs).
 > - Configure scraping of Prometheus metrics with Azure Monitor for containers.
-> - Use [Azure Network Policies](/azure/aks/use-network-policies) or Calico to control traffic between pods. *Requires CNI Network Plug-in*.
-> - Ensure proper selection of network plugin based on network requirements and cluster sizing.
 > - Use the [AKS Uptime SLA](/azure/aks/uptime-sla) for production grade clusters.
 > - Store container images within Azure Container Registry and enable [geo-replication](/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images) to replicate container images across leveraged AKS regions.
 > - Enable [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) to enable vulnerability scanning for container images.
@@ -49,8 +47,8 @@ The following sections include configuration checklists, recommended configurati
 > [!div class="checklist"]
 > - Use Virtual Machine Scale Set (VMSS) VM set type for AKS node pools.
 > - Keep the System node pool isolated from application workloads.
-> - Use dedicated node pools for infrastructure tools that require high resource utilization, such as, Istio, or have a special scale, or load behavior.
-> - Separate applications to dedicated node pools based on specific requirements. 
+> - Use dedicated node pools for infrastructure tools that require high resource utilization, such as Istio, or have a special scale, or load behavior.
+> - Separate applications to dedicated node pools based on specific requirements.
 > - Use [taints and tolerations](/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) to provide dedicated nodes and limit resource intensive applications.
 > - Consider the use of [Virtual Nodes](/azure/aks/virtual-nodes-cli) [(vKubelet)](https://github.com/virtual-kubelet/virtual-kubelet) with ACI for rapid, massive, and infinite scale.
 
@@ -86,16 +84,13 @@ The following sections include configuration checklists, recommended configurati
 
 ## AKS configuration recommendations
 
-Explore the following table of recommendations to optimize your AKS configuration for service reliability:
+Explore the following table of recommendations to optimize your AKS configuration for operational excellence:
 
 |AKS Recommendation|Description|
 |------------------|-----------|
-|Control pod scheduling using node selectors and affinity.|Allows the Kubernetes scheduler to logically isolate workloads by hardware in the node. Unlike tolerations, pods without a matching node selector can be scheduled on labeled nodes, which allows unused resources on the nodes to consume, but gives priority to pods that define the matching node selector. Use node affinity for more flexibility, which allows you to define what happens if the pod can't be matched with a node.|
+|Review AKS best practices documentation.|To build and run applications successfully in AKS, there are some key considerations to understand and implement. These areas include multi-tenancy and scheduler features, cluster, and pod security, or business continuity and disaster recovery.|
 |Configure scraping of Prometheus metrics with Azure Monitor for containers.|Azure Monitor for containers provides a seamless onboarding experience to collect Prometheus metrics. Reference [Configure scraping of Prometheus metrics with Azure Monitor for containers](/azure/azure-monitor/containers/container-insights-prometheus-integration) for more information.|
-|Ensure proper selection of network plugin based on network requirements and cluster sizing.|Azure CNI is required for specific scenarios, for example, Windows-based node pools, specific networking requirements and Kubernetes Network Policies. Reference [Kubenet vs. Azure CNI](/azure/aks/concepts-network#compare-network-models) for more information.|
-|Use the [AKS Uptime SLA](/azure/aks/uptime-sla) for production grade clusters.|The AKS Uptime SLA guarantees:<br> - `99.95%` availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, or <br> - `99.9%` availability for AKS Clusters that don't use Azure Availability Zones.|
 |Authenticate with Azure AD to Azure Container Registry.|AKS and Azure AD enables authentication with Azure Container Registry without the use of K8s and `imagePullSecrets` secrets. Reference [Authenticate with Azure Container Registry from Azure Kubernetes Service](/azure/aks/cluster-container-registry-integration?tabs=azure-cli) for more information.|
-|Use [Availability Zones](/azure/aks/availability-zones) to maximize resilience within an Azure region by distributing AKS agent nodes across physically separate data centers.|Where colocality requirements exist, either a regular VMSS-based AKS deployment into a single zone or [proximity placement groups](/azure/aks/reduce-latency-ppg) can be used to minimize internode latency.|
 |Adopt a [multiregion strategy](/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment) by deploying AKS clusters deployed across different Azure regions to maximize availability and provide business continuity.|Internet facing workloads should leverage [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Traffic Manager](/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters.|
 
 ### Node pool design recommendations
@@ -113,8 +108,8 @@ The following table reflects scalability recommendations and descriptions relate
 
 |Scalability Recommendations|Description|
 |---------------------------|-----------|
-|Enable cluster autoscaler to automatically adjust the number of agent nodes in response to resource constraints.|The ability to automatically scale up or down the number of nodes in your AKS cluster lets you run an efficient, cost-effective cluster.|
-|Consider using Azure Spot VMs for workloads that can handle interruptions, early terminations, or evictions.|For example, workloads such as batch processing jobs, development, testing environments, and large compute workloads may be good candidates to be scheduled on a spot node pool. Using spot VMs for nodes with your AKS cluster allows you to take advantage of unused capacity in Azure at a significant cost savings.|
+|Enable [cluster autoscaler](/azure/aks/cluster-autoscaler) to automatically adjust the number of agent nodes in response to resource constraints.|The ability to automatically scale up or down the number of nodes in your AKS cluster lets you run an efficient, cost-effective cluster.|
+|Consider using [Azure Spot VMs](/azure/aks/spot-node-pool) for workloads that can handle interruptions, early terminations, or evictions.|For example, workloads such as batch processing jobs, development, and testing environments, and large compute workloads may be good candidates for you to schedule on a spot node pool. Using spot VMs for nodes with your AKS cluster allows you to take advantage of unused capacity in Azure at a significant cost savings.|
 |Separate workloads into different node pools and consider scaling user node pools to zero.|Unlike System node pools that always require running nodes, user node pools allow you to scale to `0`.|
 
 ### AKS roadmap and GitHub release notes recommendations
@@ -124,9 +119,9 @@ The following table reflects AKS roadmap and GitHub release notes recommendation
 |Roadmap and Release Notes Recommendations|Description|
 |----------------------------------------------------|-----------|
 |Subscribe to the AKS Roadmap and Release Notes on GitHub|Make sure that you're subscribed to the [public AKS Roadmap Release Notes](https://github.com/azure/aks) on GitHub to stay up to date on upcoming changes, improvements, and most importantly Kubernetes version releases, and the deprecation of old releases.|
-|Regularly upgrade to a supported version of Kubernetes.|AKS supports three minor versions of Kubernetes. When a new minor patch version is introduced, the oldest minor version and patch releases supported are retired. Minor updates to Kubernetes happen on a periodic basis. It's important to have a governance process to check and upgrade as needed to not fall out of support. For more information, reference [Supported Kubernetes versions AKS](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).|
-|Regularly process node image updates.|AKS supports [upgrading the images](/azure/aks/node-image-upgrade) on a node to be up to date with the newest OS and runtime updates without updating the version of Kubernetes. The AKS team provides one new image version per week with the latest updates, including Linux or Windows patches.|
-|Leverage AKS Cluster auto-upgrade with Planned Maintenance.|AKS supports different [auto-upgrade channels](/azure/aks/upgrade-cluster#set-auto-upgrade-channel) (08/18/21 in public preview) to upgrade AKS clusters to newer versions of Kubernetes and newer node images once available. [Planned Maintenance](/azure/aks/planned-maintenance) (08/18/21 in public preview) can be used to define maintenance windows for these operations.|
+|Regularly upgrade to a supported version of Kubernetes|AKS supports three minor versions of Kubernetes. When a new minor patch version is introduced, the oldest minor version and patch releases supported are retired. Minor updates to Kubernetes happen on a periodic basis. It's important to have a governance process to check and upgrade as needed to not fall out of support. For more information, reference [Supported Kubernetes versions AKS](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).|
+|Regularly process node image updates|AKS supports [upgrading the images](/azure/aks/node-image-upgrade) on a node to be up to date with the newest OS and runtime updates without updating the version of Kubernetes. The AKS team provides one new image version per week with the latest updates, including Linux or Windows patches.|
+|Leverage AKS Cluster auto-upgrade with Planned Maintenance|AKS supports different [auto-upgrade channels](/azure/aks/upgrade-cluster#set-auto-upgrade-channel) (08/18/21 in public preview) to upgrade AKS clusters to newer versions of Kubernetes and newer node images once available. [Planned Maintenance](/azure/aks/planned-maintenance) (08/18/21 in public preview) can be used to define maintenance windows for these operations.|
 
 ### Security guideline recommendations
 
@@ -134,34 +129,9 @@ The following table reflects security guideline recommendations and descriptions
 
 |Security Guideline Recommendations|Description|
 |----------------------------------|-----------|
-|Secure clusters and pods with Azure Policy.|[Azure Policy](/azure/aks/use-azure-policy) can help to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. It can also control what functions pods are granted and if anything is running against company policy. This access is defined through built-in policies provided by the Azure Policy Add-on for AKS. By providing more control over the security aspects of your pod's specification, like root privileges, Azure Policy enables stricter security adherence and visibility into what you've deployed in your cluster. If a pod doesn't meet conditions specified in the policy, Azure Policy can disallow the pod to start or flag a violation.|
+|Secure clusters and pods with Azure Policy|[Azure Policy](/azure/aks/use-azure-policy) can help to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. It can also control what functions pods are granted and if anything is running against company policy. This access is defined through built-in policies provided by the Azure Policy Add-on for AKS. By providing more control over the security aspects of your pod's specification, like root privileges, Azure Policy enables stricter security adherence and visibility into what you've deployed in your cluster. If a pod doesn't meet conditions specified in the policy, Azure Policy can disallow the pod to start or flag a violation.|
 
 ## Source artifacts
-
-To identify which networking plugin (CNI or Kubenet) that AKS clusters are using, use the following query:
-
-```sql
-Resources
-| where type =~ 'Microsoft.ContainerService/managedClusters'
-| project name, location, resourceGroup, subscriptionId, properties.networkProfile.networkPlugin
-```
-
-To identify AKS clusters *not* deployed across **Availability Zones**, use the following query:
-
-```sql
-Resources
-| where type =~ 'Microsoft.ContainerService/managedClusters'
-| where isnull(zones)
-```
-
-To identify AKS clusters deployed using **Availability Sets**, use the following query:
-
-```sql
-Resources
-| where type =~ 'Microsoft.ContainerService/managedClusters'
-| where properties.agentPoolProfiles[0].type != 'VirtualMachineScaleSets'
-| project name, location, resourceGroup, subscriptionId, properties.agentPoolProfiles[0].type
-```
 
 To identify AKS clusters *not* using **RBAC**, use the following query:
 
@@ -178,7 +148,8 @@ Resources
 | where type =~ 'Microsoft.ContainerService/managedClusters'
 | where isnull(identity)
 ```
+
 ## Next step
 
 > [!div class="nextstepaction"]
-> [AKS and security](./security.md)
+> [AKS and performance efficiency](./performance-efficiency.md)
