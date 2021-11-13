@@ -1,6 +1,6 @@
 ---
-title: Deploy models in production - Team Data Science Process
-description: How to deploy models to production enabling them to play an active role in making business decisions.
+title: Deploy ML models in production
+description: How to deploy models to production, which enables them to play an active role in making business decisions.
 author: marktab
 manager: marktab
 editor: marktab
@@ -18,7 +18,7 @@ categories:
   - ai-machine-learning
 ---
 
-# Deploy models to production to play an active role in making business decisions
+# Deploy ML models to production to play an active role in making business decisions
 
 Production deployment enables a model to play an active role in a business. Predictions from a deployed model can be used for business decisions.
 
