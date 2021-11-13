@@ -1,5 +1,5 @@
 ---
-title: Analytics on SQL Server with R, Python, and T-SQL - Team Data Science Process
+title: Analytics on SQL Server with R, Python, and T-SQL
 description: Examples that walk through the use R, Python, and T-SQL in SQL Server to do predictive analytics.
 services: machine-learning
 author: marktab
