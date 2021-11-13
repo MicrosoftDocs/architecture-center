@@ -1,5 +1,5 @@
 ---
-title: Move Data to and from Azure Blob storage - Team Data Science Process
+title: Move data to and from Azure Blob storage 
 description: Move Data to and from Azure Blob storage using Azure Storage Explorer, AzCopy, Python, and SSIS.
 services: machine-learning
 author: marktab
