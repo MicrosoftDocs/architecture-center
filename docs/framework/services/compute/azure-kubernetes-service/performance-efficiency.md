@@ -41,3 +41,8 @@ The following table reflects scalability recommendations and descriptions relate
 |Enable [cluster autoscaler](/azure/aks/cluster-autoscaler) to automatically adjust the number of agent nodes in response to resource constraints.|The ability to automatically scale up or down the number of nodes in your AKS cluster lets you run an efficient, cost-effective cluster.|
 |Consider using [Azure Spot VMs](/azure/aks/spot-node-pool) for workloads that can handle interruptions, early terminations, or evictions.|For example, workloads such as batch processing jobs, development, testing environments, and large compute workloads may be good candidates for you to schedule on a spot node pool. Using spot VMs for nodes with your AKS cluster allows you to take advantage of unused capacity in Azure at a significant cost savings.|
 |Separate workloads into different node pools and consider scaling user node pools to zero.|Unlike System node pools that always require running nodes, user node pools allow you to scale to `0`.|
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [AKS and reliability](./reliability.md)

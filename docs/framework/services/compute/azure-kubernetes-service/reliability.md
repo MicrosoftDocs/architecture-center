@@ -178,3 +178,7 @@ Resources
 | where type =~ 'Microsoft.ContainerService/managedClusters'
 | where isnull(identity)
 ```
+## Next step
+
+> [!div class="nextstepaction"]
+> [AKS and security](./security.md)

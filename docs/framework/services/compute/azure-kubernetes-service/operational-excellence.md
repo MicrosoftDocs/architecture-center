@@ -47,7 +47,7 @@ The following sections include configuration checklists, recommended configurati
 > [!div class="checklist"]
 > - Use Virtual Machine Scale Set (VMSS) VM set type for AKS node pools.
 > - Keep the System node pool isolated from application workloads.
-> - Use dedicated node pools for infrastructure tools that require high resource utilization, such as, Istio, or have a special scale, or load behavior.
+> - Use dedicated node pools for infrastructure tools that require high resource utilization, such as Istio, or have a special scale, or load behavior.
 > - Separate applications to dedicated node pools based on specific requirements.
 > - Use [taints and tolerations](/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) to provide dedicated nodes and limit resource intensive applications.
 > - Consider the use of [Virtual Nodes](/azure/aks/virtual-nodes-cli) [(vKubelet)](https://github.com/virtual-kubelet/virtual-kubelet) with ACI for rapid, massive, and infinite scale.
@@ -90,7 +90,6 @@ Explore the following table of recommendations to optimize your AKS configuratio
 |------------------|-----------|
 |Review AKS best practices documentation.|To build and run applications successfully in AKS, there are some key considerations to understand and implement. These areas include multi-tenancy and scheduler features, cluster, and pod security, or business continuity and disaster recovery.|
 |Configure scraping of Prometheus metrics with Azure Monitor for containers.|Azure Monitor for containers provides a seamless onboarding experience to collect Prometheus metrics. Reference [Configure scraping of Prometheus metrics with Azure Monitor for containers](/azure/azure-monitor/containers/container-insights-prometheus-integration) for more information.|
-|Use the [AKS Uptime SLA](/azure/aks/uptime-sla) for production grade clusters.|The AKS Uptime SLA guarantees:<br> - `99.95%` availability of the Kubernetes API server endpoint for AKS Clusters that use Azure Availability Zones, or <br> - `99.9%` availability for AKS Clusters that don't use Azure Availability Zones.|  
 |Authenticate with Azure AD to Azure Container Registry.|AKS and Azure AD enables authentication with Azure Container Registry without the use of K8s and `imagePullSecrets` secrets. Reference [Authenticate with Azure Container Registry from Azure Kubernetes Service](/azure/aks/cluster-container-registry-integration?tabs=azure-cli) for more information.|
 |Adopt a [multiregion strategy](/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment) by deploying AKS clusters deployed across different Azure regions to maximize availability and provide business continuity.|Internet facing workloads should leverage [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Traffic Manager](/azure/aks/operator-best-practices-multi-region#use-azure-traffic-manager-to-route-traffic), or a third-party CDN to route traffic globally across AKS clusters.|
 
@@ -120,7 +119,7 @@ The following table reflects AKS roadmap and GitHub release notes recommendation
 |Roadmap and Release Notes Recommendations|Description|
 |----------------------------------------------------|-----------|
 |Subscribe to the AKS Roadmap and Release Notes on GitHub|Make sure that you're subscribed to the [public AKS Roadmap Release Notes](https://github.com/azure/aks) on GitHub to stay up to date on upcoming changes, improvements, and most importantly Kubernetes version releases, and the deprecation of old releases.|
-|Regularly upgrade to a supported version of Kubernetes.|AKS supports three minor versions of Kubernetes. When a new minor patch version is introduced, the oldest minor version and patch releases supported are retired. Minor updates to Kubernetes happen on a periodic basis. It's important to have a governance process to check and upgrade as needed to not fall out of support. For more information, reference [Supported Kubernetes versions AKS](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).|
+|Regularly upgrade to a supported version of Kubernetes|AKS supports three minor versions of Kubernetes. When a new minor patch version is introduced, the oldest minor version and patch releases supported are retired. Minor updates to Kubernetes happen on a periodic basis. It's important to have a governance process to check and upgrade as needed to not fall out of support. For more information, reference [Supported Kubernetes versions AKS](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).|
 |Regularly process node image updates|AKS supports [upgrading the images](/azure/aks/node-image-upgrade) on a node to be up to date with the newest OS and runtime updates without updating the version of Kubernetes. The AKS team provides one new image version per week with the latest updates, including Linux or Windows patches.|
 |Leverage AKS Cluster auto-upgrade with Planned Maintenance|AKS supports different [auto-upgrade channels](/azure/aks/upgrade-cluster#set-auto-upgrade-channel) (08/18/21 in public preview) to upgrade AKS clusters to newer versions of Kubernetes and newer node images once available. [Planned Maintenance](/azure/aks/planned-maintenance) (08/18/21 in public preview) can be used to define maintenance windows for these operations.|
 
@@ -149,3 +148,8 @@ Resources
 | where type =~ 'Microsoft.ContainerService/managedClusters'
 | where isnull(identity)
 ```
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [AKS and performance efficiency](./performance-efficiency.md)

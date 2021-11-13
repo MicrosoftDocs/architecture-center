@@ -40,3 +40,8 @@ Consider the following recommendation to optimize your workload design and Azure
 |Recommendation|Description|
 |------------------|------------|
 |Use fewer jobs and more tasks.|Using a job to run a single task is inefficient. For example, it's more efficient to use a single job containing `1000` tasks rather than creating `100` jobs that contain `10` tasks each. Running `1000` jobs, each with a single task, would be the least efficient, slowest, and most expensive approach.|
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [AKS and reliability](/framework/services/compute/azure-kubernetes-service/reliability.md)
