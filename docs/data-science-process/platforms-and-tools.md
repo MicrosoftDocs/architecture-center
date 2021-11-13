@@ -1,5 +1,5 @@
 ---
-title: Platforms and tools for data science projects - Team Data Science Process
+title: Platforms and tools for data science projects
 description: Itemizes and discusses the data and analytics resources available to enterprises standardizing on the Team Data Science Process.
 author: marktab
 manager: marktab
