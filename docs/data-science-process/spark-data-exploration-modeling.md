@@ -1,5 +1,5 @@
 ---
-title: Data exploration and modeling with Spark - Team Data Science Process
+title: Data exploration and modeling with Spark
 description: Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on HDInsight Spark.
 services: machine-learning
 author: marktab
