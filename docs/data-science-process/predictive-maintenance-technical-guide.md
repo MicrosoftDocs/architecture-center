@@ -1,5 +1,5 @@
 ---
-title: Guide to predictive maintenance for aerospace - Team Data Science Process
+title: Predictive maintenance for aerospace 
 description: A technical guide to the Solution Template for predictive maintenance in aerospace, utilities, and transportation.
 services: machine-learning
 author: marktab
@@ -18,7 +18,7 @@ products:
 categories:
   - ai-machine-learning
 ---
-# Technical guide to the Solution Template for predictive maintenance in aerospace
+# Solution template for predictive maintenance in aerospace
 
 > [!Important]
 > This article has been deprecated. The discussion about Predictive Maintenance in Aerospace is still relevant, but for current information, refer to [Solution Overview for Business Audiences](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
