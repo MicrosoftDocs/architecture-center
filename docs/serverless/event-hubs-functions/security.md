@@ -1,5 +1,5 @@
 ---
-title: Guidance for securing Azure Functions with Event Hubs
+title: Secure Azure Functions with Event Hubs
 description: Learn how to securely develop and deploy efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.
 author: dbarkol
 ms.author: dabarkol
