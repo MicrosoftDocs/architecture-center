@@ -1,5 +1,5 @@
 ---
-title: Analytics on Azure HDInsight Hadoop using Hive - Team Data Science Process
+title: Analytics on Azure HDInsight Hadoop using Hive 
 description: Examples of the Team Data Science Process that walk through the use of Hive on Azure HDInsight Hadoop to do predictive analytics.
 services: machine-learning
 author: marktab
