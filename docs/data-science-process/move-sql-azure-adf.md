@@ -1,5 +1,5 @@
 ---
-title: SQL Server data to SQL Database with Azure Data Factory - Team Data Science Process
+title: SQL Server data to SQL Database with Azure Data Factory 
 description: Set up an ADF pipeline that composes two data migration activities that together move data on a daily basis between databases on-premises and in the cloud.
 services: machine-learning
 author: marktab
