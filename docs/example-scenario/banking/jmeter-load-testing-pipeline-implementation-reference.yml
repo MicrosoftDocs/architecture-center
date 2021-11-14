@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: JMeter implementation reference for load testing pipeline solution
+  title: JMeter implementation for a load testing pipeline
   description: This article provides an overview of an implementation for a scalable cloud load testing pipeline.
   author: EdPrice-MSFT
   ms.author: pnp
@@ -14,7 +14,7 @@ metadata:
     - fcp
     - cse
     - example-scenario
-name: JMeter implementation reference for load testing pipeline solution
+name: JMeter implementation for a load testing pipeline
 azureCategories:
   - devops
 summary: This article provides an overview of an implementation for a scalable cloud load testing pipeline.
