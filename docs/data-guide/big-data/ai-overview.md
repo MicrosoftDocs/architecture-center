@@ -1,5 +1,5 @@
 ---
-title: Artificial intelligence (AI)
+title: Artificial intelligence (AI) architecture
 description: Get started with artificial intelligence (AI). Use high-level architectural types, see Azure AI platform offerings, and find customer success stories.
 author: EdPrice-MSFT
 ms.author: pnp
@@ -17,7 +17,7 @@ categories:
 
 <!-- cSpell:ignore maggsl scikit -->
 
-# Artificial intelligence (AI)
+# Artificial intelligence architecture
 
 *Artificial intelligence* (AI) is the capability of a computer to imitate intelligent human behavior. Through AI, machines can analyze images, comprehend speech, interact in natural ways, and make predictions using data.
 

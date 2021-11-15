@@ -1,5 +1,5 @@
 ---
-title: Build and deploy a model using Azure Synapse Analytics - Team Data Science Process
+title: Build and deploy a model using Azure Synapse Analytics
 description: Build and deploy a machine learning model using Azure Synapse Analytics with a publicly available dataset.
 services: machine-learning
 author: marktab
@@ -19,7 +19,7 @@ products:
 categories:
   - ai-machine-learning
 ---
-# The Team Data Science Process in action: using Azure Synapse Analytics
+# Build and deploy a model using Azure Synapse Analytics
 
 In this tutorial, we walk you through building and deploying a machine learning model using Azure Synapse Analytics for a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip.  Models include multiclass classification (whether or not there is a tip) and regression (the distribution for the tip amounts paid).
 

@@ -1,5 +1,5 @@
 ---
-title: Analytics on Azure Synapse Analytics with T-SQL, Python - Team Data Science Process
+title: Analytics on Azure Synapse Analytics with T-SQL, Python
 description: Examples that walk through the use of Azure Synapse Analytics to do predictive analytics.
 services: machine-learning
 author: marktab

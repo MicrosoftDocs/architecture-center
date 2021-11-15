@@ -1,5 +1,5 @@
 ---
-title: Analytics using U-SQL on Azure Data Lake - Team Data Science Process
+title: Analytics using U-SQL on Azure Data Lake
 description: Examples that walk through the use of U-SQL on Azure Data Lake to do predictive analytics.
 services: machine-learning
 author: marktab
