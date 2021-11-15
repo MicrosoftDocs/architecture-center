@@ -41,5 +41,7 @@ Consider the following recommendation to optimize your Azure Service Fabric conf
 |-----------------------------------|-----------|
 |Exclude the Service Fabric processes from Windows Defender to improve performance.|By default, Windows Defender antivirus is installed on Windows Server 2016 and 2019. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, you can exclude the Service Fabric executables from Defender scans.|
 
+## Next step
+
 > [!div class="nextstepaction"]
-> [Azure Virtual Machines and reliability](./reliability.md)
+> [Azure Virtual Machines and reliability](/framework/services/compute/virtual-machines/reliability.md)
