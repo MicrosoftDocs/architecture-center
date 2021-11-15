@@ -56,31 +56,32 @@ The target FQDNs are:
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through virtual networks.
 - [Azure Private Link](https://azure.microsoft.com/services/private-link) provides a private endpoint in a virtual network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) private peering extends on-premises networks into the Microsoft cloud over a private connection. You could also establish Site-to-Site VPN between on-premises and the Azure network instead of using Azure ExpressRoute.
--	[Azure Firewall](https://azure.microsoft.com/services/azure-firewall) is a managed, cloud-based network security service that protects Azure Virtual Network resources. 
--	[Private DNS Zone](/azure/dns/private-dns-overview) provides a reliable and secure DNS service, to manage and resolve domain names in the virtual network.
+-	[Azure Firewall](https://azure.microsoft.com/services/azure-firewall) is a managed, cloud-based network security service that helps to protect Azure Virtual Network resources. 
+-	[Private DNS Zone](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for managing and resolving domain names in the virtual network.
 
 ### Alternatives
 
-An alternative approach for private connectivity is to use [App Service Environment](/azure/app-service/environment/intro) for hosting the Web Application within an isolated environment. For database, [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) can be natively deployed within a Virtual Network, so there's no need for VNet Integration or Private Endpoints. These offerings are typically more costly, because they provide single-Tenant isolated deployment and other features.
-If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a Private Endpoint for private connectivity to a SQL Database. If you already have SQL Managed Instance but are using multi-tenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
+For private connectivity, an alternative approach is to use [App Service Environment](/azure/app-service/environment/intro) to host the web application in an isolated environment. For the database, you can natively deploy [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) in a virtual network, so you don't need VNet Integration or private endpoints. These offerings are typically more expsnsive because they provide single-tenant isolated deployment and other features.
 
-For some of the other Azure services like Key Vault or Storage Account, there is no alternative but to use Private Endpoints for secure and private connections from Web App.
+If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to a SQL database. If you already have SQL Managed Instance but are using multitenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
+
+For some other Azure services, like Key Vault or Storage Account, there's no alternative to using private endpoints for highly secure and private connections from Web Apps.
 
 ## Considerations
 
 The following considerations apply to this scenario.
 
 ### Security
-Using Private Endpoint for your Web App enables you to:
-- Secure your Web App by configuring the Private Endpoint, eliminating public exposure.
-- Securely connect to Web App from on-premises networks that connect to the VNet using a VPN or ExpressRoute private peering. Inbound connections to the Web App are allowed from the on-premises network or from within the Azure virtual network only.
-- Avoid any data exfiltration from your VNet.
+Using Private Endpoint for your web app enables you to:
+- Help secure your web app by configuring the private endpoint, eliminating public exposure.
+- Connect with improved security to Web Apps from on-premises networks that connect to the virtual network by using a VPN or ExpressRoute private peering. Inbound connections to the web app are allowed from the on-premises network or from within the Azure virtual network only.
+- Avoid any data exfiltration from your virtual network.
 
-You can further secure the inbound connection to the web app by fronting the app with a service like [Application Gateway](/azure/application-gateway/overview) or [Azure Front Door](/azure/frontdoor/front-door-overview), optionally with [Web Application Firewall](/azure/web-application-firewall/overview) capabilities. When you enable Private Endpoint to your Web App, the [access restrictions](/azure/app-service/app-service-ip-restrictions) configuration of the Web App is not evaluated.
+You can further improve the security of the inbound connection to the web app by fronting the app with a service like Azure [Application Gateway](/azure/application-gateway/overview) or [Azure Front Door](/azure/frontdoor/front-door-overview), optionally with Azure [Web Application Firewall](/azure/web-application-firewall/overview). When you enable Private Endpoint for your web app, the [access restrictions](/azure/app-service/app-service-ip-restrictions) configuration of the web app isn't evaluated.
 
-This scenario also secures the outbound connection from an App Service Web App to a downstream dependency like a database, Storage or Key Vault. 
+This scenario also improves security of the outbound connection from an App Service web app to a downstream dependency like a database, Storage, or Key Vault. 
 
-Application routing can be configured to either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your VNet. This behavior is configured through the ‘Route All’ setting. If [Route All](/azure/app-service/web-sites-integrate-with-vnet#application-routing) is disabled, web app only routes private traffic into your VNet. To block traffic to public addresses, you must ensure you enable Route All setting to the VNet. A [Network security group](/azure/virtual-network/security-overview/) can also be used to block outbound traffic to resources in your VNet or the Internet. When Route All is not enabled, NSGs are only applied to RFC1918 traffic.
+You can configure application routing to route either all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your virtual network. You configure this behavior by using the **Route All** setting. If [Route All](/azure/app-service/overview-vnet-integration#application-routing) is disabled, the web app routes only private traffic into your virtual network. To block traffic to public addresses, enable the **Route All** setting to the virtual network. A [Network security group](/azure/virtual-network/security-overview/) can also be used to block outbound traffic to resources in your VNet or the Internet. When Route All is not enabled, NSGs are only applied to RFC1918 traffic.
 
 In this example, the Web App does not need to communicate with any service that is not present within the virtual network, so ‘Route All’ setting is enabled.
 
