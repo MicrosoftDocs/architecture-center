@@ -12,7 +12,7 @@ This reference architecture shows how to set up improved-security private connec
 
 ## Architecture 
 
-![Diagram that shows the reference architecture for secure access to multitenant web apps from an on-premises network.](./images/multitenant-web-apps.png)
+![Diagram that shows the reference architecture for secure access to multitenant web apps from an on-premises network.](./media/multitenant-web-apps.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/multitenant-web-apps.vsdx ) of this architecture.*
 

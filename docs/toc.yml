@@ -3245,7 +3245,7 @@ items:
               - name: Scalable web app
                 href: reference-architectures/app-service-web-app/scalable-web-app.yml
               - name: Securely access multitenant web apps from on-premises 
-                href: reference-architectures/app-service-web-app/access-multitenant-web-app-from-on-premises.yml 
+                href: example-scenario/security/access-multitenant-web-app-from-on-premises.yml 
               - name: Serverless web app
                 href: reference-architectures/serverless/web-app.yml
               - name: Virtual visits with Microsoft Cloud for Healthcare
