@@ -50,12 +50,12 @@ The target FQDNs are:
 
 ### Components
 - [Azure App Service](https://azure.microsoft.com/services/app-service) hosts web applications and function apps, allowing autoscale and high availability without requiring you to manage infrastructure.
- - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
- - [Azure Storage Account](https://azure.microsoft.com/product-categories/storage) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all of the Azure Storage data objects: blobs, file shares, queues, tables, and disks.
+ - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a general-purpose relational-database managed service that supports relational data, spatial data, JSON, and XML.
+ - [Azure Storage Account](https://azure.microsoft.com/product-categories/storage) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all Azure Storage data objects: blobs, file shares, queues, tables, and disks.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a service for securely storing and accessing API keys, passwords, certificates, cryptographic keys, or any other secrets used by cloud apps and services.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through Virtual Networks.
-- [Azure Private Link](https://azure.microsoft.com/services/private-link) provides a Private Endpoint in a Virtual Network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) Private Peering extends on-premises networks into the Microsoft cloud over a private connection. Site-to-site VPN could also be established between on-premises and Azure network, instead of Azure ExpressRoute.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through virtual networks.
+- [Azure Private Link](https://azure.microsoft.com/services/private-link) provides a private endpoint in a virtual network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) private peering extends on-premises networks into the Microsoft cloud over a private connection. You can also establish Site-to-Site VPN between on-premises and the Azure network instead of using Azure ExpressRoute.
 -	[Azure Firewall](https://azure.microsoft.com/services/azure-firewall) is a managed, cloud-based network security service that protects Azure Virtual Network resources. 
 -	[Private DNS Zone](azure/dns/private-dns-overview) provides a reliable and secure DNS service, to manage and resolve domain names in the virtual network.
 
