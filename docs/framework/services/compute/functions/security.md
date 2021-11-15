@@ -46,4 +46,4 @@ The following table reflects design consideration recommendations and descriptio
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Service Fabric and reliability](/framework/services/compute/azure-kubernetes-service/security.md)
+> [Azure Service Fabric and reliability](/framework/services/compute/service-fabric/reliability.md)
