@@ -1,4 +1,4 @@
-This reference architecture shows how to set up secure private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity with between the app and other Azure PaaS services over Azure Private Link, without using the public internet. 
+This reference architecture shows how to set up improved-security private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity with between the app and other Azure PaaS services over Azure Private Link, without using the public internet. 
 
 ## Potential use cases
 
@@ -56,7 +56,7 @@ The target fully qualified domain names (FQDNs) are:
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through virtual networks.
 - [Azure Private Link](https://azure.microsoft.com/services/private-link) provides a private endpoint in a virtual network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) private peering extends on-premises networks into the Microsoft cloud over a private connection. You could also establish Site-to-Site VPN between on-premises and the Azure network instead of using Azure ExpressRoute.
--	[Azure Firewall](https://azure.microsoft.com/services/azure-firewall) is a managed, cloud-based network security service that helps to protect Azure Virtual Network resources. 
+-	[Azure Firewall](https://azure.microsoft.com/services/azure-firewall) is a managed, cloud-based network security service that helps protect Azure Virtual Network resources. 
 -	[Private DNS Zone](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for managing and resolving domain names in the virtual network.
 
 ### Alternatives
@@ -77,7 +77,7 @@ Using Private Endpoint for your web app enables you to:
 - Connect with improved security to Web Apps from on-premises networks that connect to the virtual network by using a VPN or ExpressRoute private peering. Inbound connections to the web app are allowed from the on-premises network or from within the Azure virtual network only.
 - Avoid any data exfiltration from your virtual network.
 
-You can further improve the security of the inbound connection to the web app by fronting the app with a service like Azure [Application Gateway](/azure/application-gateway/overview) or [Azure Front Door](/azure/frontdoor/front-door-overview), optionally with Azure [Web Application Firewall](/azure/web-application-firewall/overview). When you enable Private Endpoint for your web app, the [access restrictions](/azure/app-service/app-service-ip-restrictions) configuration of the web app isn't evaluated.
+You can further improve the security of the inbound connection to the web app by fronting the app with a service like [Azure Application Gateway](/azure/application-gateway/overview) or [Azure Front Door](/azure/frontdoor/front-door-overview), optionally with [Azure Web Application Firewall](/azure/web-application-firewall/overview). When you enable Private Endpoint for your web app, the [access restrictions](/azure/app-service/app-service-ip-restrictions) configuration of the web app isn't evaluated.
 
 This scenario also improves security of the outbound connection from an App Service web app to a downstream dependency like a database, Storage, or Key Vault. 
 
@@ -148,11 +148,11 @@ To explore the cost of running this scenario, see the [Azure pricing calculator 
 - For more information on inbound and outbound scenarios for App Service, and which features to use in which case, see the [App Service networking features overview](/azure/app-service/networking-features).
 - For more information about private endpoints for Azure Web Apps, see [Using Private Endpoints for Azure Web Apps](/azure/app-service/networking/private-endpoint).
 - For more information about integrating multitenant web apps with Azure Virtual Network, see [Integrate your app with an Azure virtual network](/azure/app-service/web-sites-integrate-with-vnet).
--	The FQDN of some of the PaaS services might resolve automatically to a public IP address. For more information about overriding the DNS configuration to connect to the private endpoint, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
+-	The FQDN of some of the PaaS services might resolve automatically to a public IP address. For information about overriding the DNS configuration to connect to the private endpoint, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
 ## Related resources
 
 - For information about a similar reference architecture, see [Web app private connectivity to Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app).
 - Learn how to [integrate Azure Functions with an Azure virtual network by using private endpoints](/azure/azure-functions/functions-create-vnet).
 - Learn how to [enable private site access with Azure Functions](/azure/azure-functions/functions-create-private-site-access).
-- Learn how to [work with secrets from Azure Key Vault in your App Service or Azure Functions application](azure/app-service/app-service-key-vault-references).
+- Learn how to [work with secrets from Azure Key Vault in your App Service or Azure Functions application](/azure/app-service/app-service-key-vault-references).
