@@ -1,5 +1,5 @@
 ---
-title: Choosing an Azure compute service
+title: Choose an Azure compute service
 description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
 author: EdPrice-MSFT
 ms.author: pnp
