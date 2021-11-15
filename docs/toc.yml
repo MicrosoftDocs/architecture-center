@@ -606,6 +606,16 @@ items:
                 items:
                   - name: Security
                     href: framework/services/compute/functions/security.md
+              - name: Service Fabric
+                items:
+                  - name: Reliability
+                    href: framework/services/compute/service-fabric/reliability.md 
+                  - name: Security
+                    href: framework/services/compute/service-fabric/security.md
+                  - name: Operational Excellence
+                    href: framework/services/compute/service-fabric/operational-excellence.md
+                  - name: Performance Efficiency
+                    href: framework/services/compute/service-fabric/performance-efficiency.md
   - name: Design Patterns
     items:
       - name: Overview
