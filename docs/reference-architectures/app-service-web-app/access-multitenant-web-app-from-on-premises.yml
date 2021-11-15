@@ -22,7 +22,7 @@ products:
   - "azure-key-vault"
   - "azure-storage-accounts"
 name: Securely access multitenant web apps from an on-premises network
-summary: This reference architecture illustrates how to set up secure private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. 
-thumbnailUrl: /azure/architecture/browse/thumbs/multitenant-web-apps.jpg
+summary: This reference architecture shows how to set up secure private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. 
+thumbnailUrl: /azure/architecture/browse/thumbs/multitenant-web-apps.png
 content: |
   [!include[](access-multitenant-web-app-from-on-premises-content.md)]
