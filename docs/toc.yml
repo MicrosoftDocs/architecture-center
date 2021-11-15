@@ -616,6 +616,14 @@ items:
                     href: framework/services/compute/service-fabric/operational-excellence.md
                   - name: Performance Efficiency
                     href: framework/services/compute/service-fabric/performance-efficiency.md
+              - name: Virtual Machines
+                items:
+                  - name: Reliability
+                    href: framework/services/compute/virtual-machines/reliability.md
+                  - name: Cost Optimization
+                    href: framework/services/compute/virtual-machines/cost-optimization.md
+                  - name: Operational Excellence
+                    href: framework/services/compute/virtual-machines/operational-excellence.md
   - name: Design Patterns
     items:
       - name: Overview
