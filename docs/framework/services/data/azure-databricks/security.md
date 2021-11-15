@@ -64,4 +64,4 @@ Azure Databricks source artifacts include the Databricks blog: [Best practices t
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Database for MySQL](/framework/services/data/azure-cache-redis/reliability.md)
+> [Azure Database for MySQL](/framework/services/data/azure-db-mysql/cost-optimization.md)

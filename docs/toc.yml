@@ -612,7 +612,11 @@ items:
               - name: Azure Databricks
                 items:
                   - name: Security
-                    href: framework/services/data/azure-databricks/security.md 
+                    href: framework/services/data/azure-databricks/security.md
+              - name: Azure Database for MySQL
+                items:
+                  - name: Cost Optimization
+                    href: framework/services/data/azure-db-mysql/cost-optimization.md
   - name: Design Patterns
     items:
       - name: Overview
