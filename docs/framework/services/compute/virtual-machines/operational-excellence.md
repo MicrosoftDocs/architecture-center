@@ -106,4 +106,5 @@ Resources
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure SQL Database and reliability ](./reliability.md)
+> [Azure Cache for Redis and reliability](/framework/services/data/azure-cache-redis/reliability.md)
+
