@@ -609,6 +609,10 @@ items:
                     href: framework/services/data/azure-cache-redis/reliability.md
                   - name: Operational Excellence
                     href: framework/services/data/azure-cache-redis/operational-excellence.md
+              - name: Azure Databricks
+                items:
+                  - name: Security
+                    href: framework/services/data/azure-databricks/security.md 
   - name: Design Patterns
     items:
       - name: Overview
