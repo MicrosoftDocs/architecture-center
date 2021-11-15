@@ -7,7 +7,7 @@ This reference architecture shows how to set up secure private connectivity to a
    - Another web app
    - Azure SQL Database
    - Azure Storage
-   - Azure Key Vault
+   - Azure Key Vault 
    - Any other service that supports Azure private endpoints for inbound connectivity 
 
 ## Architecture
