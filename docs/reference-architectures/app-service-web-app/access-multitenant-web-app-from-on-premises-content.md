@@ -10,7 +10,7 @@ This reference architecture shows how to set up secure private connectivity to a
    - Azure Key Vault 
    - Any other service that supports Azure private endpoints for inbound connectivity 
 
-## Architecture
+## Architecture 
 
 ![Diagram that shows the reference architecture for secure access to multitenant web apps from an on-premises network.](./images/multitenant-web-apps.png)
 
