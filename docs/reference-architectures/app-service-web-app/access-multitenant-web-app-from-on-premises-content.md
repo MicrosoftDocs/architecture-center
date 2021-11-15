@@ -49,7 +49,7 @@ The target FQDNs are:
 - Firewall and virtual network configuration for Azure SQL, Azure Storage Account, and Azure Key Vault allows traffic only from *VNet Integration Subnet*. The configuration doesn't allow communication with any other virtual network or with the public internet.
 
 ### Components
-- [Azure App Service](https://azure.microsoft.com/services/app-service) hosts web applications and function apps, allowing autoscale and high availability without having to manage infrastructure.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) hosts web applications and function apps, allowing autoscale and high availability without requiring you to manage infrastructure.
  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a general-purpose relational database managed service that supports relational data, spatial data, JSON, and XML.
  - [Azure Storage Account](https://azure.microsoft.com/product-categories/storage) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all of the Azure Storage data objects: blobs, file shares, queues, tables, and disks.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a service for securely storing and accessing API keys, passwords, certificates, cryptographic keys, or any other secrets used by cloud apps and services.
