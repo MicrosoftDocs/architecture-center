@@ -2,7 +2,7 @@ This reference architecture shows how to set up secure private connectivity to a
 
 ## Potential use cases
 
-- Access a multitenant web app or function app privately with improved security over its [private endpoint](azure/private-link/private-endpoint-overview.md) from the on-premises network or from within an Azure virtual network. 
+- Access a multitenant web app or function app privately with improved security over its [private endpoint](/azure/private-link/private-endpoint-overview) from the on-premises network or from within an Azure virtual network. 
 - Connect from a web app or function app to Azure platform as a service (PaaS) offerings:
    - Another web app
    - Azure SQL Database
