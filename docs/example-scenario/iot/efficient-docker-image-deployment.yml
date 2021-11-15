@@ -20,8 +20,8 @@ products:
   - azure-devops
   - azure-functions
   - azure-container-registry
-  - azure-key-vault
   - azure-storage
+  - azure-key-vault
 thumbnailUrl: /azure/architecture/browse/thumbs/efficient-docker-image-deployment-01.png
 content: |
    [!include[](efficient-docker-image-deployment-content.md)]
