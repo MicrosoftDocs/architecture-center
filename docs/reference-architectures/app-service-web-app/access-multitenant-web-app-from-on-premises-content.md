@@ -151,5 +151,5 @@ To explore the cost of running this scenario, all the mentioned services are pre
 
 ## Related resources
 
-- For information about a similar reference architecture, see [Web app private connectivity to Azure SQL database](../../example-scenario/private-web-app/private-web-app)
+- For information about a similar reference architecture, see [Web app private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app)
 - Learn how to [Integrate Azure Functions with an Azure virtual network by using private endpoints](/azure/azure-functions/functions-create-vnet)
