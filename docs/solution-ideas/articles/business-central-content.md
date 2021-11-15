@@ -8,7 +8,8 @@ Partners can build their own architecture where they can deploy Business Central
 
 ## Architecture
 
-![Architecture Diagram](../media/business-central-as-a-service.png)
+![Business Central Architecture Diagram](https://user-images.githubusercontent.com/40874599/141758794-b43dfb64-85f3-4a52-b60f-4d41630a2719.png)
+
 
 ### Data flow
 
@@ -51,3 +52,7 @@ There are various options for VM sizes depending on the usage and workload. The 
 - [Creating a new Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/new-navserverinstance?view=businesscentral-ps-16)
 - [Changing the service state of a Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/set-navserverinstance?view=businesscentral-ps-16)
 - [Staring a server instance](/powershell/module/microsoft.dynamics.nav.management/start-navserverinstance?view=businesscentral-ps-16)
+
+## Related Resources
+- [Architecture - E-commerce front end](https://docs.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-scenario)
+- [Architecture - E-commerce website running in secured App Service Environment](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ecommerce-website-running-in-secured-ase)
