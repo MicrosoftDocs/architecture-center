@@ -20,8 +20,8 @@ azureCategories:
 summary: This article provides an overview of an implementation for a scalable cloud load testing pipeline.
 products:
   - azure-container-instances
-  - azure-container-registry
   - azure-pipelines
+  - azure-container-registry
 thumbnailUrl: /azure/architecture/browse/thumbs/load-testing-pipeline-jmeter.png
 content: |
    [!include[](jmeter-load-testing-pipeline-implementation-reference-content.md)]
