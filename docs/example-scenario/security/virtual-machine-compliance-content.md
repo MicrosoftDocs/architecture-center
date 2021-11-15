@@ -85,12 +85,47 @@ As a part of this solution, Azure Image Builder should use an Azure Marketplace 
 
 ## Customize images
 
-A golden image is the version of a marketplace image that's published to Azure Compute Gallery. Golden images are available for consumption by DevOps teams. Before the process publishes the image, customization takes place. Customization activities are unique to each enterprise. Common activities include:
+A golden image is the version of a marketplace image that's published to Azure Compute Gallery. Golden images are available for consumption by DevOps teams. Before the image is published, customization takes place. Customization activities are unique to each enterprise. Common activities include:
 
 - Operating system hardening
 - Deploying custom agents for third-party software
 - Installing enterprise certificate authority (CA) root certificates.
 
+You can use Azure Image Builder to customize images by adjusting operating system settings and by running custom scripts and commands. Image Builder supports Windows and Linux images. For more information on customizing images, see [Azure Policy Regulatory Compliance controls for Azure Virtual Machines][Azure Policy Regulatory Compliance controls for Azure Virtual Machines].
+
+## Track image tattoos
+
+Image tattooing is the process of keeping track of all image version information that a VM uses. This information is invaluable during troubleshooting and can include:
+
+- The original source of the image, such as the version and the name of the publisher.
+- The operating system version string, which is needed if there's an in-place upgrade.
+- The version of your custom image.
+- Your publish date.
+
+The amount and type of information that you track varies depends on your organization's compliance level.
+
+For image tattooing on Windows VMs, set up a custom registry. Add all required information to this registry path as key-value pairs. On Linux VMs, enter image tattooing data into environment variables or a file. Put the file in the `/etc/` folder, where it doesn't conflict with developer work or applications. If you'd like to use Azure Policy to track the tattooing data or report on it, store each piece of data as a unique key-value pair. For information on determining the version of a Marketplace image, see [How to find Marketplace Image version][How to find Marketplace Image version].
+
+## Validate golden images with automated tests
+
+Generally, you should refresh golden images monthly to stay current with the latest updates and changes in Azure Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM and run tests on it before the beginning of each month. The tests should confirm pared images before publishing them for consumption. Automate tests by using a test automation solution or by running commands or batches on the VM.
+
+Common test scenarios include:
+
+- Validating the VM boot time.
+- Confirming any customization of the image, such as operating system configuration settings or agent deployments.
+
+A failed test should interrupt the process. Repeat the test after addressing the root cause of the problem. If the tests run without problem for the most part, automating the testing process reduces the effort that goes into maintaining an evergreen state.
+
+## Publish golden images
+
+Publish final images on Azure Compute Gallery as a managed image or as a VHD that DevOps teams can use. Mark any earlier images as aged. If you haven't set an end of life date for an image version in Azure Compute Gallery, you might prefer to discontinue the oldest image. This decision depends on your company's policies.
+
+For information on limits that apply when you use Azure Compute Galleries, see [Store and share images in an Azure Compute Gallery][Store and share images in an Azure Compute Gallery - Limits].
+
+Another good practice is to publish the latest images across different regions. With Azure Compute Gallery, you can manage the lifecycle and replication of your images across different Azure regions.
+
+For more information on Azure Compute Gallery, see [Store and share images in an Azure Compute Gallery][Store and share images in an Azure Compute Gallery].
 
 
 
@@ -132,6 +167,10 @@ To explore the cost of running this solution in your environment, use the [Azure
 [Azure Image Builder]: https://docs.microsoft.com/azure/virtual-machines/image-builder-overview
 [Azure Policy guest configuration feature]: https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration
 [Azure Policy and Policy Dashboard]: https://docs.microsoft.com/azure/governance/policy/overview
+[Azure Policy Regulatory Compliance controls for Azure Virtual Machines]: https://docs.microsoft.com/azure/virtual-machines/security-controls-policy
 [Custom Script Extensions]: https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-windows
+[How to find Marketplace Image version]: https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties
 [Only allow certain image publishers from the Marketplace]: https://github.com/Azure/azure-policy/tree/master/samples/Compute/allowed-image-publishers
+[Store and share images in an Azure Compute Gallery]: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries
+[Store and share images in an Azure Compute Gallery - Limits]: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#limits
 [What is an Azure landing zone?]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/
