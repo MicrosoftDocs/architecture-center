@@ -2,6 +2,7 @@
 title: Claim-based identities in multitenant apps
 description: Learn about claims in Azure AD. As issuer, Azure AD sends a set of claims about the user which can be trusted because the issuer can be trusted.
 author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
@@ -64,15 +65,7 @@ Any claims that you add during **AuthenticationValidated** are stored in the ses
 
 Here are some examples of claims transformation:
 
-* **Claims normalization**, or making claims consistent across users. This is particularly relevant if you are getting claims from multiple IDPs, which might use different claim types for similar information. For example, Azure AD sends a "upn" claim that contains the user's email. Other IDPs might send an "email" claim. The following code converts the "upn" claim into an "email" claim:
-
-  ```csharp
-  var email = principal.FindFirst(ClaimTypes.Upn)?.Value;
-  if (!string.IsNullOrWhiteSpace(email))
-  {
-      identity.AddClaim(new Claim(ClaimTypes.Email, email));
-  }
-  ```
+* **Claims normalization**, or making claims consistent across users. This is particularly relevant if you are getting claims from multiple IDPs, which might use different claim types for similar information.
 
 * Add **default claim values** for claims that aren't present &mdash; for example, assigning a user to a default role. In some cases this can simplify authorization logic.
 * Add **custom claim types** with application-specific information about the user. For example, you might store some information about the user in a database. You could add a custom claim with this information to the authentication ticket. The claim is stored in a cookie, so you only need to get it from the database once per login session. On the other hand, you also want to avoid creating excessively large cookies, so you need to consider the trade-off between cookie size versus database lookups.
