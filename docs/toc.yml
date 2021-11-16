@@ -1371,6 +1371,10 @@ items:
                 href: solution-ideas/articles/tiered-data-for-analytics.yml
       - name: Blockchain
         items:
+          - name: Guides
+            items:
+              - name: Multiparty computing
+                href: docs/guide/blockchain/multiparty-compute.md
           - name: Architectures
             items:
               - name: Decentralized trust between banks

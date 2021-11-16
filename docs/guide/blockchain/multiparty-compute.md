@@ -27,8 +27,8 @@ Multiparty computing has the following attributes:
 - More than one company or organization is involved.
 - The parties are independent.
 - The parties don't trust one another with all their data.
-- All parties need access to a common computing and data storage platform.
-- Some of the processes must be private among some of the parties involved.
+- All parties access a common computing and data storage platform.
+- Some processes must be private for some of the parties involved.
 
 A supply chain is an example of a workflow that involves multiple parties. Raw materials flow from the point of origin to manufacturing. Goods from the manufacturer go through shipping partners to a distribution hub. From the hub, goods are sent to retail outlets.
 
@@ -50,7 +50,7 @@ Since secure enclaves have the capability to remotely attest themselves to other
 
 Azure offers a managed service called Azure Confidential Ledger that lets you run a blockchain model on secure enclaves.
 
-Finally, you could choose a centralized system, which offers immutability and trustworthiness. Azure SQL Database ledger offers the trusted needed for multiparty computing in a relational database. You may not need a decentralized consensus, but just the immutability aspect of the ledger.
+Finally, you could choose a centralized system, which offers immutability and trustworthiness. Azure SQL Database ledger offers the trust needed for multiparty computing in a relational database. You may not need a decentralized consensus, but just the immutability aspect of the ledger.
 
 ## Blockchain network models
 
@@ -67,7 +67,7 @@ There are various kinds of blockchain networks to address your business needs. O
 
 An alternative is a *permissioned blockchain network*, where you need permission from the existing members of the network to join. This model works for enterprises that deal with known organizations. For instance, a superstore may want to have a closed and permissioned blockchain network for its supply chain participants.
 
-A business process might require only tamper-proof or tamper-evident data, which wouldn't require blockchain. If your process can run centrally or all parties trust one another with the data, blockchain might also be unnecessary.
+A business process might require only tamper-proof or tamper-evident data, which wouldn't require blockchain. If your process can run centrally, or all parties trust one another with the data, blockchain might also be unnecessary.
 
 ## Azure multiparty computing
 
@@ -83,7 +83,7 @@ There are deployment templates available on Azure for most blockchain ledgers fo
 
 ### Blockchain on Kubernetes
 
-Since most blockchain ledgers support deploying into Docker containers, you can use Kubernetes to manage the containers. Azure has a managed Kubernetes orchestrator called Azure Kubernetes Service (AKS) that you can use to deploy and configure your blockchain nodes.
+Since most blockchain ledgers support deploying into Docker containers, you can use Kubernetes to manage the containers. Azure has a managed Kubernetes offering called Azure Kubernetes Service (AKS) that you can use to deploy and configure your blockchain nodes.
 
 AKS implementations come with a managed service for the virtual machines that power the AKS cluster. However, your organization must still manage your AKS clusters and any networking or storage options in your architecture.
 
@@ -103,24 +103,24 @@ Azure Confidential Ledger is a managed service built on the Confidential Consort
 
 - Existing encryption
   - **Data at rest.** Encrypt inactive data when stored in blob storage or a database.
-  - **Data in transit.** Encrypt data that is flowing between public or private networks.
+  - **Data in transit.** Encrypt data that's flowing between public or private networks.
 - Confidential computing
-  - **Data in use.** Encrypt data that is in use, while in memory and during computation.
+  - **Data in use.** Encrypt data that's in use, while in memory and during computation.
 
-Confidential computing allows encryption of data in the main memory. Confidential computing lets you process data from multiple sources without exposing the input data to other parties. This type of secure computation supports multiparty computing scenarios where data protection is mandatory in every step, such as anti-money laundering, fraud detection, and secure analysis of healthcare data.
+Confidential computing allows encryption of data in the main memory. Confidential computing lets you process data from multiple sources without exposing the input data to other parties. This type of secure computation supports multiparty computing scenarios where data protection is mandatory in every step, such as money laundering detection, fraud detection, and secure analysis of healthcare data.
 
-Data stored in Confidential Ledger is immutable and tamper-proof in the append-only ledger. The ledger is also independently verifiable. Confidential Ledger uses secure enclaves for a decentralized blockchain network and requiring a minimal trusted computing base.
+Data stored in Confidential Ledger is immutable and tamper-proof in the append-only ledger. The ledger is also independently verifiable. Confidential Ledger uses secure enclaves for a decentralized blockchain network and requires a minimal trusted computing base.
 
 ### Azure SQL Database ledger
 
-Azure SQL Database ledger allows participants to verify the data integrity of centrally housed data without the network consensus of a blockchain network. For some centralized solutions, trust is important, but decentralized infrastructure isn't necessary. This approach avoids complexity and performance implications.
+Azure SQL Database ledger allows participants to verify the data integrity of centrally-housed data without the network consensus of a blockchain network. For some centralized solutions trust is important, but decentralized infrastructure isn't necessary. This approach avoids complexity and performance implications of such an infrastructure.
 
 ![Diagram shows database ledger architecture.](images/database-ledger.png)
 
 > [!NOTE]
 > Azure SQL Database ledger is currently in public preview.
 
-Ledger provides tamper-evidence capabilities in your database. These capabilities allow you to cryptographically attest that your data hasn't been tampered with.
+Ledger provides tamper-evidence capabilities for your database. These capabilities allow you to cryptographically attest that your data hasn't been tampered with.
 
 Ledger helps protect data from any attacker or high-privileged user, including database, system, and cloud administrators. Historical data is preserved. If a row is updated in the database, its previous value is maintained in a history table. This offers protection without any application changes.
 
@@ -135,17 +135,17 @@ This table compares Confidential Ledger with Azure SQL Database ledger.
 |  | SQL Database ledger | Confidential Ledger |
 |- |-------------------------- |-------------------- |
 | **Centralized system that requires tamper evidence** | Yes | No |
-| **Decentralized system that requires data to be tamper-proof** | No | Yes |
-| **Protecting relation data from tampering** | Yes | No |
-| **Protecting unstructured data (files) from tampering** | No | Yes |
+| **Decentralized system that requires data to be tamper proof** | No | Yes |
+| **Protects relational data from tampering** | Yes | No |
+| **Protects unstructured data from tampering** | No | Yes |
 | **Secure off-chain store of chain data in a blockchain** | Yes | No |
 | **Secure off-chain store for files referenced to from a blockchain** | No | Yes |
-| **Rich queryability of relational data** | Yes | No |
-| **Queriability of unstructured stored data** | No | Yes |
+| **Relational data is queryable** | Yes | No |
+| **Unstructured stored data is queryable** | No | Yes |
 
 ### Confidential Ledger and Azure Blob Storage
 
-The immutable storage feature of Azure Blob Storage ensures data written to it can be read but never changed. This table compares that technology with Confidential Ledger.
+The immutable storage feature of Azure Blob Storage ensures that data written to it can be read but never changed. This table compares that technology with Confidential Ledger.
 
 |  | Confidential Ledger | Immutable storage |
 |- |-------------------- |------------------ |
@@ -164,9 +164,10 @@ This diagram summarizes options for the multiparty computing with Azure services
 
 - [Azure Confidential Ledger](https://azure.microsoft.com/services/azure-confidential-ledger)
 - [Azure SQL Database ledger](/azure/azure-sql/database/ledger-overview)
-- [Azure Virtual Machine](https://azure.microsoft.com/services/virtual-machines)
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
+- [Quorum Blockchain Service](/marketplace/apps/consensys.qbs-contact-me)
 
 ## Related resources
 
