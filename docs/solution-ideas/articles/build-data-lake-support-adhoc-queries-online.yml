@@ -5,7 +5,7 @@ metadata:
   description: This architecture provides an example of the Delta Lake architecture for travel booking scenarios, where large amounts of raw documents are generated at a high frequency.
   author: EdPrice-MSFT
   ms.author: pnp
-  ms.date: 11/05/2021
+  ms.date: 11/17/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
