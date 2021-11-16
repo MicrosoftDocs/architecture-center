@@ -1,8 +1,8 @@
-This reference architecture shows how to set up improved-security private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity with between the app and other Azure PaaS services over Azure Private Link, without using the public internet. 
+This article shows how to set up improved-security private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity between the app and other Azure PaaS services over Azure Private Link, without using the public internet. 
 
 ## Potential use cases
 
-- Access a multitenant web app or function app privately with improved security over its [private endpoint](/azure/private-link/private-endpoint-overview) from the on-premises network or from within an Azure virtual network. 
+- Access a multitenant web app or function app privately with improved security over its [private endpoint](/azure/private-link/private-endpoint-overview) from an on-premises network or from within an Azure virtual network. 
 - Connect from a web app or function app to Azure platform as a service (PaaS) offerings:
    - Another web app
    - Azure SQL Database
@@ -16,9 +16,8 @@ This reference architecture shows how to set up improved-security private connec
 
 *Download a [Visio file](https://arch-center.azureedge.net/multitenant-web-apps.vsdx ) of this architecture.*
 
-This diagram illustrates the following architecture: 
 - By using Azure App Service [regional virtual network integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration), the web app connects to Azure services through delegated subnet *VNet Integration Subnet* in an Azure virtual network.
-   -	The App Service *VNet Integration Subnet* and *Private Endpoint Subnet* are in separate virtual networks. Both of these networks are peered with *Hub Virtual Network* as part of a hub-and-spoke network configuration. For regional virtual network integration, the peered virtual networks must be located in the same Azure region.
+   -	The *VNet Integration Subnet* and *Private Endpoint Subnet* networks are in separate virtual networks. Both of these networks are peered with *Hub Virtual Network* as part of a hub-and-spoke network configuration. For regional virtual network integration, the peered virtual networks must be located in the same Azure region.
 - [Azure Private Link](/azure/private-link/private-link-service-overview) sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the PaaS services, web apps, Azure SQL database, Azure storage account, and Azure key vault in *Private Endpoint Virtual Network*.
 - The on-premises network and Azure virtual networks can be connected via [Site-to-Site (S2S) VPN](/azure/vpn-gateway/tutorial-site-to-site-portal) or [Azure ExpressRoute private peering](/azure/expressroute/expressroute-circuit-peerings#privatepeering). Users in the on-premises network access the app privately and with improved security over the private network only.
 
@@ -29,7 +28,7 @@ This diagram illustrates the following architecture:
 
    Private DNS zones are also deployed in the same subscription as *Private Endpoint Virtual Network*.
 
-   In this example, A DNS forwarder machine in the on-premises network (192.168.0.254) forwards all DNS resolution requests to the hostname azurewebsites.net to the DNS forwarder VM in Azure (10.0.0.132). This VM forwards all requests to the Azure-provided DNS service IP address 168.63.129.16.
+   In this example, a DNS forwarder machine in the on-premises network (192.168.0.254) forwards all DNS resolution requests to the hostname azurewebsites.net to the DNS forwarder VM in Azure (10.0.0.132). This VM forwards all requests to the Azure-provided DNS service IP address 168.63.129.16.
 
    This app service configuration should be present:
 
@@ -51,7 +50,7 @@ The target fully qualified domain names (FQDNs) are:
 ### Components
 - [Azure App Service](https://azure.microsoft.com/services/app-service) hosts web applications and function apps, allowing autoscale and high availability without requiring you to manage infrastructure.
  - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a general-purpose relational-database managed service that supports relational data, spatial data, JSON, and XML.
- - [Azure Storage Account](https://azure.microsoft.com/product-categories/storage) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all Azure Storage data objects: blobs, file shares, queues, tables, and disks.
+ - [Azure Storage account](https://azure.microsoft.com/product-categories/storage) provides a unique namespace for Azure Storage data that's accessible from anywhere in the world over HTTP or HTTPS. It contains all Azure Storage data objects: blobs, file shares, queues, tables, and disks.
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) is a service for securely storing and accessing API keys, passwords, certificates, cryptographic keys, or any other secrets used by cloud apps and services.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through virtual networks.
 - [Azure Private Link](https://azure.microsoft.com/services/private-link) provides a private endpoint in a virtual network for connectivity to Azure PaaS services like Azure Storage and SQL Database, or to customer or partner services.
@@ -65,7 +64,7 @@ For private connectivity, an alternative approach is to use [App Service Environ
 
 If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to a SQL database. If you already have SQL Managed Instance but are using multitenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
 
-For some other Azure services, like Key Vault or Storage Account, there's no alternative to using private endpoints for highly secure and private connections from Web Apps.
+For some other Azure services, like Key Vault or Storage, there's no alternative to using private endpoints for highly secure and private connections from Web Apps.
 
 ## Considerations
 
@@ -103,13 +102,13 @@ For example, deployments or urgent manual connections from SQL Server Management
 
 #### Storage Account and Key Vault firewall options
 
-Storage accounts and Key Vaults have a public endpoint that's accessible from the internet. You can also create [private endpoints for your storage account](/azure/storage/common/storage-private-endpoints) and [key vault](/azure/key-vault/general/private-link-service?tabs=portal). Doing so assigns these services a private IP address from your virtual network and helps to secure all traffic between your virtual network and the respective service over a private link. 
+Storage accounts and key vaults have a public endpoint that's accessible from the internet. You can also create [private endpoints for your storage account](/azure/storage/common/storage-private-endpoints) and [key vault](/azure/key-vault/general/private-link-service?tabs=portal). Doing so assigns these services a private IP address from your virtual network and helps to secure all traffic between your virtual network and the respective service over a private link. 
 
-When you create a private endpoint, *VNet Integration Subnet* can access the service privately and with improved security over a private link. But the storage account and key vault will still be accessible from other Azure virtual networks. To block access from any other virtual network, create the service endpoint for this delegated subnet.
+When you create a private endpoint, *VNet Integration Subnet* can access the service privately and with improved security over a private link. But the storage account and key vault are still accessible from other Azure virtual networks. To block access from any other virtual network, create the service endpoint for this delegated subnet.
 
 ### Availability
 
-Azure Private Link supporting App Service is available in all public regions. For Azure SQL Database, Azure Storage, and Azure Key Vault, the Private Link service is available in all public and government regions.
+Azure Private Link support for App Service is available in all public regions. For Azure SQL Database, Azure Storage, and Azure Key Vault, the Private Link service is available in all public and government regions.
 
 Private Link introduces an additional component and availability consideration into the architecture. The Private Link service has a [high-availability SLA](https://azure.microsoft.com/support/legal/sla/private-link/). You need to take this SLA into account when you calculate the composite SLA of the entire solution.
 
@@ -133,7 +132,7 @@ You can also use the connection troubleshoot service in Azure [Network Watcher](
 
 ## Pricing
 
-There's no added cost for App Service regional VNet Integration in a supported pricing tier of Standard or higher. But Private Endpoints for Web Apps is supported only on Elastic Premium, Premium V2, Premium V3 plans. 
+There's no added cost for App Service regional VNet Integration in a supported pricing tier of Standard or higher. But Private Endpoints for Web Apps is supported only on Elastic Premium, Premium V2, and Premium V3 plans. 
 
 The Azure Private Link service that enables the private endpoints for PaaS services has an associated cost that's based on an hourly fee plus a premium on bandwidth. See the [Private Link pricing](https://azure.microsoft.com/pricing/details/private-link) page for details. Connections from a client virtual network to the Azure Firewall in the hub virtual network incur charges. You aren't charged for connections from Azure Firewall in the hub virtual network to private endpoints in a peered virtual network.
 
@@ -152,7 +151,7 @@ To explore the cost of running this scenario, see the [Azure pricing calculator 
 
 ## Related resources
 
-- For information about a similar reference architecture, see [Web app private connectivity to Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app).
-- Learn how to [integrate Azure Functions with an Azure virtual network by using private endpoints](/azure/azure-functions/functions-create-vnet).
-- Learn how to [enable private site access with Azure Functions](/azure/azure-functions/functions-create-private-site-access).
-- Learn how to [work with secrets from Azure Key Vault in your App Service or Azure Functions application](/azure/app-service/app-service-key-vault-references).
+- [Web app private connectivity to Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app).
+- [Tutorial: Integrate Azure Functions with an Azure virtual network by using private endpoints](/azure/azure-functions/functions-create-vnet).
+- [Tutorial: Establish Azure Functions private site access](/azure/azure-functions/functions-create-private-site-access).
+- [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references).
