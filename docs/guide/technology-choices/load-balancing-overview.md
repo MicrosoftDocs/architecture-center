@@ -7,18 +7,21 @@ ms.author: pnp
 ms.date: 10/21/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 ms.category:
   - web
   - compute
 products:
   - azure-load-balancer
+  - azure-front-door
+  - azure-application-gateeway
+  - azure-traffic-manager
 ms.custom:
   - guide
   - internal-intro
 ---
 
-# Understand Azure Load Balancing
+# Understand Azure load balancing
 
 The term *load balancing* refers to the distribution of workloads across multiple computing resources. Load balancing aims to optimize resource use, maximize throughput, minimize response time, and avoid overloading any single resource. It can also improve availability by sharing a workload across redundant computing resources.
 

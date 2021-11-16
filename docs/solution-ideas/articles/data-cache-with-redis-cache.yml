@@ -24,9 +24,7 @@ products:
   - azure-cache-redis
   - azure-cosmos-db
   - azure-database-mysql
-  - azure-database-postgresql
   - azure-sql-database
-  - azure-storage
   - azure-web-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/data-cache-with-redis-cache.png
 content: |

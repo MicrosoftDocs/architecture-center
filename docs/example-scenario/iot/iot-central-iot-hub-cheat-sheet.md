@@ -12,7 +12,7 @@ products:
   - azure-iot-hub
   - azure-iot-central
 ---
-# Comparing Internet of Things (IoT) solutions approaches (PaaS vs. aPaaS)
+# Compare Internet of Things (IoT) solution approaches (PaaS vs. aPaaS)
 
 IoT solutions require a combination of technologies to effectively connect devices, events, and actions to cloud applications. In Azure, we have a single set of guidance for building and connecting devices to the cloud. However, there are many options for building and deploying your IoT cloud solutions. Which technologies and services you'll use depends on your scenario's development, deployment, and management needs.
 

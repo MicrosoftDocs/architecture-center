@@ -1,7 +1,8 @@
 ---
 title: Online transaction processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 07/27/2019
 ms.topic: conceptual
 ms.service: architecture-center

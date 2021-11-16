@@ -6,7 +6,7 @@ author: dsk-2015
 ms.date: 06/04/2021
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: 
+ms.subservice: azure-guide
 keywords:
   - Azure
 products:

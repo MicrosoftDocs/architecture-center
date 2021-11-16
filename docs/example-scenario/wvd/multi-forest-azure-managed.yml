@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: This is a solution idea that builds on the multiple forests scenario, using Azure Virtual Desktop and Azure Active Directory Domain Services.
   author: nehalineogi
-  ms.author: pnp
-  ms.date: 08/31/2020
+  ms.author: tmaher
+  ms.date: 03/24/2021
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario

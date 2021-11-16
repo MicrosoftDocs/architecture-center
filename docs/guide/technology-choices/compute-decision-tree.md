@@ -6,7 +6,7 @@ ms.author: pnp
 ms.date: 03/29/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 categories:
   - compute
 products:

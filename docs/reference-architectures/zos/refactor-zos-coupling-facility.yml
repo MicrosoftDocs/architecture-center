@@ -14,20 +14,7 @@ metadata:
 name: Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure
 summary: Learn how Azure services and components can provide scale-out performance comparable to IBM z/OS mainframe CF and Parallel Sysplex capabilities.
 products:
-  - azure-bastion
-  - azure-cache-redis
-  - azure-cosmos-db
-  - azure-data-factory
-  - azure-database-postgresql
-  - azure-databricks
-  - azure-expressroute
-  - azure-files
   - azure-kubernetes-service
-  - azure-load-balancer
-  - azure-managed-disks
-  - azure-private-link
-  - azure-stream-analytics
-  - azure-sql-database
   - azure-virtual-machines
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/ibm-mainframe.png

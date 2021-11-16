@@ -2,7 +2,7 @@
 title: Index Table pattern
 titleSuffix: Cloud Design Patterns
 description: Learn about the Index Table pattern. Create indexes over the fields in data stores that are frequently referenced by queries.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/23/2017
 ms.topic: conceptual
 ms.service: architecture-center

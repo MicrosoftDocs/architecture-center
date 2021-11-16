@@ -7,7 +7,7 @@ ms.author: pnp
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 products:
   - azure-kubernetes-service
 ms.custom:

@@ -31,10 +31,7 @@ products:
   - azure-event-hubs
   - azure-hdinsight
   - azure-machine-learning
-  - azure-sql-database
-  - azure-storage-accounts
   - azure-stream-analytics
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/predictive-insights-with-vehicle-telematics.png
 content: |
   [!include[](predictive-insights-with-vehicle-telematics-content.md)]

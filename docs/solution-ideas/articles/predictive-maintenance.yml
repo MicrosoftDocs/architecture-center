@@ -31,10 +31,7 @@ products:
   - azure-event-hubs
   - azure-hdinsight
   - azure-machine-learning
-  - azure-sql-database
-  - azure-storage
   - azure-stream-analytics
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/predictive-maintenance.png
 content: |
   [!include[](predictive-maintenance-content.md)]
