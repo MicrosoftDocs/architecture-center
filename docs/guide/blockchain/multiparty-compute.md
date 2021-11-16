@@ -167,7 +167,7 @@ This diagram summarizes options for the multiparty computing with Azure services
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines)
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
-- [Quorum Blockchain Service](/marketplace/apps/consensys.qbs-contact-me)
+- [Quorum Blockchain Service](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.qbs-contact-me)
 
 ## Related resources
 
