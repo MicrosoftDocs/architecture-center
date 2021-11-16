@@ -34,25 +34,23 @@ Azure SQL Database includes the following design considerations:
 
 - Azure SQL Database Business Critical tier configured with geo-replication has a guaranteed Recovery time objective (RTO) of `30` seconds for `100%` of deployed hours.
 - Use *sharding* to distribute data and processes across many identically structured databases. Sharding provides an alternative to traditional scale-up approaches for cost and elasticity. Consider using sharding to partition the database horizontally. Sharding can provide fault isolation. For more information, reference [Scaling out with Azure SQL Database](/azure/azure-sql/database/elastic-scale-introduction).
-- Azure SQL Database Business Critical or Premium tiers not configured for Zone Redundant Deployments, General Purpose, Standard, or Basic tiers, or Hyperscale tier with two or more replicas have an availability guarantee of at least `99.99%`.
+- Azure SQL Database Business Critical or Premium tiers not configured for Zone Redundant Deployments, General Purpose, Standard, or Basic tiers, or Hyperscale tier with two or more replicas have an availability guarantee. For more information about the availability guarantee, reference [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_6/).
 - Provides built-in regional high availability and turnkey geo-replication to any Azure region. It includes intelligence to support self-driving features, such as:
   - Performance tuning
   - Threat monitoring
   - Vulnerability assessments
   - Fully automated patching and updating of the code base
 
-- Hyperscale tier, with one replica, has an availability guarantee of at least `99.95%` and `99.9%` for zero replicas.
 - Define an application performance SLA and monitor it with alerts. Quickly detect when your application performance inadvertently degrades below an acceptable level, which is important to maintain high resiliency. Use the monitoring solution previously defined to set alerts on key query performance metrics so you can take action when the performance breaks the SLA. Go to [Monitor Your Database](/azure/azure-sql/database/monitor-tune-overview) for more information.
 - Use geo-restore to recover from a service outage. You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible because of an outage. Geo-restore restores a database from a geo-redundant backup. For more information, reference [Recover an Azure SQL database using automated database backups](/azure/azure-sql/database/recovery-using-backups).
 - Use the Business Critical tier configured with geo-replication, which has a guaranteed Recovery point objective (RPO) of `5` seconds for `100%` of deployed hours.
 - PaaS capabilities built into Azure SQL Database enable you to focus on the domain-specific database administration and optimization activities that are critical for your business.
 - Use point-in-time restore to recover from human error. Point-in-time restore returns your database to an earlier point in time to recover data from changes done inadvertently. For more information, read the [Point-in-time restore (PITR)](/azure/azure-sql/database/recovery-using-backups#point-in-time-restore) documentation.
-- Business Critical or Premium tiers are configured as Zone Redundant Deployments, which have an availability guarantee of at least `99.995%`.
+- Business Critical or Premium tiers are configured as Zone Redundant Deployments which have an availability guarantee. For more information about the availability guarantee, reference [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_6/).
 
 ## Checklist
 
 **Have you configured Azure SQL Database with reliability in mind?**
-***
 
 > [!div class="checklist"]
 > - Use Active Geo-Replication to create a readable secondary in a different region.

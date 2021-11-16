@@ -31,7 +31,6 @@ The following sections include a configuration checklist and recommended configu
 ## Checklist
 
 **Have you configured Azure SQL Database with cost optimization in mind?**
-***
 
 > [!div class="checklist"]
 > - Evaluate DTU usage.
