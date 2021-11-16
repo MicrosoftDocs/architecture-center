@@ -555,17 +555,17 @@ items:
                 items:
                   - name: Reliability
                     href: framework/services/compute/azure-app-service/reliability.md
-                  - name: Cost optimization
+                  - name: Cost Optimization
                     href: framework/services/compute/azure-app-service/cost-optimization.md
-                  - name: Operational excellence
+                  - name: Operational Excellence
                     href: framework/services/compute/azure-app-service/operational-excellence.md                  
               - name: Azure Batch
                 items:
                   - name: Reliability
                     href: framework/services/compute/azure-batch/reliability.md
-                  - name: Operational excellence
+                  - name: Operational Excellence
                     href: framework/services/compute/azure-batch/operational-excellence.md
-                  - name: Performance efficiency
+                  - name: Performance Efficiency
                     href: framework/services/compute/azure-batch/performance-efficiency.md
               - name: Azure Kubernetes Service
                 items: 
@@ -573,11 +573,11 @@ items:
                     href: framework/services/compute/azure-kubernetes-service/reliability.md
                   - name: Security
                     href: framework/services/compute/azure-kubernetes-service/security.md
-                  - name: Cost optimization
+                  - name: Cost Optimization
                     href: framework/services/compute/azure-kubernetes-service/cost-optimization.md
-                  - name: Operational excellence
+                  - name: Operational Excellence
                     href: framework/services/compute/azure-kubernetes-service/operational-excellence.md
-                  - name: Performance efficiency
+                  - name: Performance Efficiency
                     href: framework/services/compute/azure-kubernetes-service/performance-efficiency.md
               - name: Functions
                 items:
@@ -589,17 +589,17 @@ items:
                     href: framework/services/compute/service-fabric/reliability.md 
                   - name: Security
                     href: framework/services/compute/service-fabric/security.md
-                  - name: Operational excellence
+                  - name: Operational Excellence
                     href: framework/services/compute/service-fabric/operational-excellence.md
-                  - name: Performance efficiency
+                  - name: Performance Efficiency
                     href: framework/services/compute/service-fabric/performance-efficiency.md
               - name: Virtual Machines
                 items:
                   - name: Reliability
                     href: framework/services/compute/virtual-machines/reliability.md
-                  - name: Cost optimization
+                  - name: Cost Optimization
                     href: framework/services/compute/virtual-machines/cost-optimization.md
-                  - name: Operational excellence
+                  - name: Operational Excellence
                     href: framework/services/compute/virtual-machines/operational-excellence.md
           - name: Data
             items:
@@ -607,7 +607,7 @@ items:
                 items:
                   - name: Reliability
                     href: framework/services/data/azure-cache-redis/reliability.md
-                  - name: Operational excellence
+                  - name: Operational Excellence
                     href: framework/services/data/azure-cache-redis/operational-excellence.md
               - name: Azure Databricks
                 items:
@@ -615,20 +615,26 @@ items:
                     href: framework/services/data/azure-databricks/security.md
               - name: Azure Database for MySQL
                 items:
-                  - name: Cost optimization
+                  - name: Cost Optimization
                     href: framework/services/data/azure-db-mysql/cost-optimization.md
               - name: Azure Database for PostgreSQL
                 items:
-                  - name: Cost optimization
+                  - name: Cost Optimization
                     href: framework/services/data/azure-db-postgresql/cost-optimization.md
               - name: Azure SQL Database
                 items:
                   - name: Reliability
                     href: framework/services/data/azure-sql-database/reliability.md
-                  - name: Cost optimization
+                  - name: Cost Optimization
                     href: framework/services/data/azure-sql-database/cost-optimization.md
-                  - name: Operational excellence
+                  - name: Operational Excellence
                     href: framework/services/data/azure-sql-database/operational-excellence.md
+              - name: Azure SQL Managed Instance
+                items:
+                  - name: Reliability
+                    href: framework/services/data/azure-sql-managed-instance/reliability.md
+                  - name: Operational excellence
+                    href: framework/services/data/azure-sql-managed-instance/operational-excellence.md
   - name: Design Patterns
     items:
       - name: Overview
