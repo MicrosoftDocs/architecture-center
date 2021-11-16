@@ -182,8 +182,6 @@ landingContent:
             url: /azure/storage/blobs/storage-blobs-introduction
           - text: "Azure Content Delivery Network (CDN)"
             url: /azure/cdn/cdn-overview
-          - text: Azure Cosmos DB 
-            url: https://azure.microsoft.com/en-us/services/cosmos-db/
           - text: Azure Front Door 
             url: /azure/frontdoor/front-door-caching#file-compression
           - text: Azure Load Testing Preview
