@@ -1867,6 +1867,8 @@ items:
                     href: data-guide/technology-choices/stream-processing.md
               - name: Data management patterns
                 href: patterns/category/data-management.md
+              - name: Use the Transactional Outbox pattern
+                href: best-practices/transactional-outbox-cosmos.yml
               - name: Industry guidance
                 items:
                   - name: Data management in banking
