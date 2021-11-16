@@ -7,7 +7,7 @@ items:
     href: icons/index.md
   - name: What's new
     href: changelog.md
- - name: Application architecture fundamentals
+ -  name: Application architecture fundamentals
     items:
       - name: Introduction
         href: guide/index.md
