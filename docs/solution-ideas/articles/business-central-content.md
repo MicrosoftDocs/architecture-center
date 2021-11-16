@@ -8,7 +8,7 @@ Partners can build their own architecture where they can deploy Business Central
 
 ## Architecture
 
-![Business Central Architecture Diagram](https://user-images.githubusercontent.com/40874599/141758794-b43dfb64-85f3-4a52-b60f-4d41630a2719.png)
+![Diagram showing the Business Central architecture.](../media/business-central-as-a-service.png)
 
 
 ### Data flow
