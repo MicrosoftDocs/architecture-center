@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Reference Architectures
   description: Understand the concepts and roles of sagas and saga participants in orchestrating Gridwich workflows.
   author: bgener
-  ms.author: pnp
+  ms.author: bogenera
   ms.date: 11/16/2021
   ms.topic: conceptual
   ms.service: architecture-center

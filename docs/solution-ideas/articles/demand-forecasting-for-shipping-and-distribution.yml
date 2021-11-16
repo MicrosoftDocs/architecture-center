@@ -3,7 +3,7 @@ metadata:
   title: Demand forecasting for shipping and distribution
   titleSuffix: Azure Solution Ideas
   description: Use historical demand data to train a demand forecasting model for shipping and distribution solutions on Microsoft AI Platform.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -30,9 +30,6 @@ summary: Use historical demand data to train a demand forecasting model for ship
 products:
   - azure-blob-storage
   - azure-data-factory
-  - azure-functions
-  - azure-hdinsight
-  - azure-web-apps
   - power-bi
   - azure-stream-analytics
   - azure-event-hubs

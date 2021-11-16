@@ -1,6 +1,6 @@
 ---
-title: Azure services for securing network connectivity
-description: Best practices for securing access to internet, PaaS services, and on-premises networks.
+title: Services for securing network connectivity
+description: Learn about best practices for securing access to the internet, Azure platform as a service (PaaS) services, and on-premises networks.
 author: PageWriter-MSFT
 ms.date: 02/03/2021
 ms.topic: conceptual
@@ -46,9 +46,11 @@ A good Azure IP addressing schema provides flexibility, room for growth, and int
 **How do you isolate and protect traffic within the workload VNet?**
 ***
 To secure communication within a VNet, set rules that inspect traffic. Then, *allow* or *deny* traffic to, or from specific sources, and route them to the specified destinations.
->![Task](../../_images/i-best-practices.svg) Review the rule set and confirm that the required services are not unintentionally blocked.
+> ![Task](../../_images/i-best-practices.svg) Review the rule set and confirm that the required services are not unintentionally blocked.
 
 For traffic between subnets, the recommended way is through [Network Security Groups (NSG)](/azure/virtual-network/security-overview). Define rules on each NSG that checks traffic to and from single IP address, multiple IP addresses, or entire subnets.
+
+If NSGs are being used to isolate and protect the application, the rule set should be reviewed to confirm that required services are not unintentionally blocked, or more permissive access than expected is allowed. Azure Firewall (and Firewall Manager) can be used to centralize and manage firewall policies.
 
 Another way is to use network virtual appliances (NVAs) that check inbound (ingress) and outbound (egress) traffic and filters based on rules.
 
@@ -57,7 +59,7 @@ Another way is to use network virtual appliances (NVAs) that check inbound (ingr
 
 Use User Defined Routes (UDR) to control the next hop for traffic between Azure, on-premises, and internet resources. The routes can be applied to virtual appliance, virtual network gateway, virtual network, or internet.
 
-For example, you need to inspect all ingress traffic from a public load balancer. One way is to host an NVA in a subnet that allows traffic only if certain criteria is met. That traffic is sent to the subnet that hosts an internal load balancer that routes that traffic to the backend services.  
+For example, you need to inspect all ingress traffic from a public load balancer. One way is to host an NVA in a subnet that allows traffic only if certain criteria is met. That traffic is sent to the subnet that hosts an internal load balancer that routes that traffic to the backend services.
 
 You can also use NVAs for egress traffic. For instance, all workload traffic is routed by using UDR to another subnet. That subnet has an internal load balancer that distributes requests to the NVA (or a set of NVAs). These NVAs direct traffic to the internet using their individual public IP addresses.
 
@@ -89,14 +91,20 @@ The exception is when you want to use security groups only for network logging p
 
 Design virtual networks and subnets for growth. We recommend planning subnets based on common roles and functions that use common protocols for those roles and functions. This allows you to add resources to the subnet without making changes to security groups that enforce network level access controls.
 
+### Suggested actions
+
+Use NSG or consider using Azure Firewall to protect and control traffic within the VNET.
+
 ### Learn more
 
-- [Design virtual network subnet security](/azure/architecture/framework/Security/network-security-containment#design-virtual-network-subnet-security)
+- [Azure firewall documentation](/azure/firewall/)
+- [Design virtual network subnet security](/azure/architecture/framework/security/design-network-segmentation#design-virtual-network-subnet-security)
 - [Design an IP addressing schema for your Azure deployment](/learn/modules/design-ip-addressing-for-azure/)
+- [Network security groups](/azure/virtual-network/network-security-groups-overview)
 
 ## Internet edge traffic
 
-As you design the workload, consider security for internet traffic. Does the workload or parts of it need to be accessible from public IP addresses. What level of access should be given to prevent unauthorized access.
+As you design the workload, consider security for internet traffic. Does the workload or parts of it need to be accessible from public IP addresses? What level of access should be given to prevent unauthorized access?
 
 Internet edge traffic (also called _North-South traffic_) represents network connectivity between resources used by the workload and the internet. An internet edge strategy should be designed to mitigate as many attacks from the internet to detect or block threats. There are two primary choices that provide security controls and monitoring:
 
@@ -104,13 +112,29 @@ Internet edge traffic (also called _North-South traffic_) represents network con
 
 Azure provides networking solutions to restrict access to individual services. Use multiple levels of security, such as combination of IP filtering, firewall rules to prevent application services from being accessed by unauthorized actors.
 
-- Network virtual appliances (NVAs). You can use Azure Firewall or third-party solutions available in Azure Marketplace.  
+- Network virtual appliances (NVAs). You can use Azure Firewall or third-party solutions available in Azure Marketplace.
 
 Azure security features are sufficient for common attacks, easy to configure, and scale. Third-party solutions often have advanced features but they can be hard to configure if they don't integrate well with fabric controllers. From a cost perspective, Azure options tend to be cheaper than partner solutions.
+
+Information revealing the application platform, such as HTTP banners containing framework information (`X-Powered-By`, `X-ASPNET-VERSION`), are commonly used by malicious actors when mapping attack vectors of the application.
+
+HTTP headers, error messages, and website footers should not contain information about the application platform. Azure CDN can be used to separate the hosting platform from end users. Azure API Management offers transformation policies that allow you to modify HTTP headers and remove sensitive information.
+
+**Suggested action**
+
+Consider using CDN for the workload to limit platform detail exposure to attackers.
+
+**Learn more**
+
+[Azure CDN documentation](/en-us/azure/cdn/)
 
 ## Communication with backend services
 
 Most workloads are composed of multiple tiers where several services can serve each tier. Common examples of tiers are web front ends, business processes, reporting and analysis, backend infrastructure, and so on.
+
+Application resources allowing multiple methods to publish app content (such as FTP, Web Deploy) should have the unused endpoints disabled. For Azure Web Apps, SCM is the recommended endpoint and it can be protected separately with network restrictions for sensitive scenarios.
+
+Public access to any workload should be judiciously approved and planned, as public entry points represent a key possible vector of compromise. When allowing access from public IPs to any back-end service, limiting the range of allowed IPs can significantly reduce the attack surface of that service. For example, if using Azure Front Door, you can limit backend tiers to allow Front Door IPs only; or if a partner uses your API, limit access to only their nominated public IP(s).
 
 **How do you configure traffic flow between multiple application tiers?**
 ***
@@ -119,7 +143,19 @@ Use Azure Virtual Network Subnet to allocate separate address spaces for differe
 **Do you need to restrict access to the backend infrastructure?**
 ***
 
+Restrict access to backend services to a minimal set of public IP addresses with App Services IP restrictions or Azure Front Door.
+
 Web applications typically have one public entry point and don't expose subsequent APIs and database servers over the internet. Expose only a minimal set of public IP addresses based on need _and_ only those who really need it. For example, when using gateway services, such as Azure Front Door, it's possible to restrict access only to a set of Front Door IP addresses and lock down the infrastructure completely.
+
+**Suggested action**
+
+- Restrict and protect application publishing methods.
+
+**Learn more**
+
+- [Set up Azure App Service access restrictions](/azure/app-service/app-service-ip-restrictions)
+- [Azure Front Door documentation](/azure/app-service/app-service-ip-restrictions)
+- [Deploy your app to Azure App Service using FTP/S](/azure/app-service/deploy-ftp?tabs=portal)
 
 ## Connection with Azure PaaS services
 
@@ -148,7 +184,7 @@ In a hybrid architecture, the workload runs partly on-premises and partly in Azu
 **How do you establish cross premises connectivity?**
 ***
 
-Use Azure ExpressRoute to set up cross premises connectivity to on-premises networks. This service uses a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. This way, you can reduce the risk of potential of access to company’s information assets on-premises.
+Use Azure ExpressRoute to set up cross premises connectivity to on-premises networks. This service uses a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. This way, you can reduce the risk of potential of access to company's information assets on-premises.
 
 **How do you access VMs?**
 ***

@@ -17,7 +17,7 @@ ms.custom:
 
 # Application profiling considerations for performance monitoring
 
-Continuously monitor the application with Application Performance Monitoring (APM) technology, such as Azure Application Insights. This technology can help you manage the performance and availability of the application, aggregating application level logs, and events for subsequent interpretation. 
+Continuously monitor the application with Application Performance Monitoring (APM) technology, such as Azure Application Insights. This technology can help you manage the performance and availability of the application, aggregating application level logs, and events for subsequent interpretation.
 
 ## Key points
 > [!div class="checklist"]
@@ -39,8 +39,7 @@ Collect application logs and events across all application environments. Use a s
 ***
 Structured format in a well-known schema can help expediate parsing and analyzing logs. Structured data can be indexed, queried, and reported without complexity.
 
-Also, application events should be captured as a structured data type with machine-readable data points rather than unstructured string types. 
-
+Also, application events should be captured as a structured data type with machine-readable data points rather than unstructured string types.
 
 ## Application instrumentation
 
@@ -49,7 +48,7 @@ Also, application events should be captured as a structured data type with machi
 
 Instrumentation of your code allows precise detection of underperforming pieces when load or stress tests are applied. It is critical to have this data available to improve and identify performance opportunities in the application code.
 
-Use APM such as [Application Insights](/azure/azure-monitor/app/app-insights-overview) to continuously improve performance and usability. You need to enable Application Insights by installing an instrumentation package. The service provides extensive telemetry out of the box. You can customize what is captured for greater visibility.  After it's enabled, metrics and logs related to the performance and operations are collected. View and analyze the captured data in [Azure Monitor](/azure/azure-monitor/overview). 
+Use APM such as [Application Insights](/azure/azure-monitor/app/app-insights-overview) to continuously improve performance and usability. You need to enable Application Insights by installing an instrumentation package. The service provides extensive telemetry out of the box. You can customize what is captured for greater visibility.  After it's enabled, metrics and logs related to the performance and operations are collected. View and analyze the captured data in [Azure Monitor](/azure/azure-monitor/overview).
 
 ## Distributed tracing
 
@@ -78,9 +77,8 @@ It should be possible to correlate application log events across critical system
 If you are using Application Insights to collect instrumentation data, there are cost considerations. For more information, see [Manage usage and costs for Application Insights](/azure/azure-monitor//app/pricing).
 
 ## Next
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Monitor infrastructure](monitor-infrastructure.md)
-
 
 ## Related links
 - [Distributed tracing](../../microservices/logging-monitoring.md#distributed-tracing)

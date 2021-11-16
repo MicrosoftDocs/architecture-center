@@ -1,6 +1,5 @@
 
 
-
 The Internet-of-Things (IoT) *analyze and optimize loop* enables the generation and application of business optimization insights to one or more deployments of physical systems controlled by software, based on the entire enterprise business context. The analyze and optimize loop sources telemetry, typically from [monitor and manage loop](monitor-manage-loop.yml) processes, refines it, and combines it with enterprise data sources to generate insights.
 
 This article provides an overview of analyze and optimize process loop architecture, characteristics, and components.

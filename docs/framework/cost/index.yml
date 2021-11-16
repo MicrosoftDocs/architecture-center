@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Cost Optimization
+title: Cost optimization documentation
 summary: Apply the cost principles in your architecture to accelerate your time to market while avoiding capital-intensive solutions. Consider opportunity costs. Use the cost calculators to estimate the initial and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
 
 metadata: 
-  title: conceptual
-  description: Apply the cost principles in your architecture to accelerate your time to market while avoiding capital-intensive solutions. Consider opportunity costs. Use the cost calculators to estimate the initial and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
+  title: Cost optimization documentation
+  description: Learn how to apply the cost principles in your architecture to accelerate your time to market while avoiding capital-intensive solutions.
   services: na
   author: PageWriter-MSFT
   ms.author: prwilk
@@ -34,7 +34,7 @@ landingContent:
           - text: Monitor checklist
             url: monitor-checklist.md
           - text: Optimize checklist
-            url: optimize-checklist.md  
+            url: optimize-checklist.md
           - text: Tradeoffs
             url: tradeoffs.md
       - linkListType: learn
@@ -45,7 +45,7 @@ landingContent:
         links:
           - text: What trade-offs have you made to optimize for cost?
             url: https://www.microsoft.com/videoplayer/embed/RE4zw3n
-  # Card 
+  # Card
   - title: Design within the cost limits
     linkLists:
       - linkListType: get-started
@@ -53,15 +53,15 @@ landingContent:
           - text: Organization structure
             url: design-model.md#organization-structure
           - text: Capture clear requirements
-            url: design-capture-requirements.md   
+            url: design-capture-requirements.md
           - text: Consider the cost constraints
             url: design-model.md#cost-constraints
           - text: Consider tradeoffs
-            url: tradeoffs.md                     
+            url: tradeoffs.md
       - linkListType: concept
         links:
           - text: Develop a cost model
-            url: design-model.md 
+            url: design-model.md
           - text: Understand the usage meters
             url: design-resources.md
           - text: Cost impact across regions 
@@ -69,9 +69,9 @@ landingContent:
           - text: Consumption or fixed? 
             url: design-price.md
           - text: Use PaaS 
-            url: design-paas.md                                                           
+            url: design-paas.md
           - text: Estimate an initial cost 
-            url: design-initial-estimate.md  
+            url: design-initial-estimate.md
       - linkListType: video
         links:
           - text: How is your organization modeling cloud costs?
@@ -84,7 +84,7 @@ landingContent:
           - text: AI + Machine Learning
             url: provision-ai-ml.md
           - text: Big Data
-            url: provision-analytics.md            
+            url: provision-analytics.md
           - text: Data store
             url: provision-datastores.md
           - text: Networking

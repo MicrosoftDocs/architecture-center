@@ -13,14 +13,14 @@ Typical uses for this architecture include:
 
 The architecture consists of the following components:
 
-- **Log Analytics workspace** - A [Log Analytics workspace][1] is a data repository for log data that's collected from resources that run in Azure, on-premises, or in another cloud provider.
-- **Automation Hybrid Worker solution** - Create [Hybrid Runbook Workers][2] to run [Azure Automation][3] runbooks on your Azure and non-Azure computers.
-- **Automation account** - This is a cloud service that automates configuration and management across your Azure and non-Azure environments.
-- **Hybrid Runbook Worker** - This is a computer that's configured with the Hybrid Runbook Worker feature and can run runbooks directly on the computer and against the resources in the local environment.
-- **Hybrid Runbook Worker group** - It's a group of Hybrid Runbook Workers used for high availability.
-- **Runbook** - This is a collection of one or more linked activities that together automate a process or operation.
-- **On-premises computers and VMs** - These are on-premises computers and VMs with Windows or Linux operating systems that reside on-premises.
-- **Azure VMs** - Azure VMs include Windows or Linux VMs that are hosted in Azure.
+- **Log Analytics workspace:** A [Log Analytics workspace][1] is a data repository for log data that's collected from resources that run in Azure, on-premises, or in another cloud provider.
+- **Automation Hybrid Worker solution:** Create [Hybrid Runbook Workers][2] to run [Azure Automation][3] runbooks on your Azure and non-Azure computers.
+- **Automation account:** This is a cloud service that automates configuration and management across your Azure and non-Azure environments.
+- **Hybrid Runbook Worker:** This is a computer that's configured with the Hybrid Runbook Worker feature and can run runbooks directly on the computer and against the resources in the local environment.
+- **Hybrid Runbook Worker group:** It's a group of Hybrid Runbook Workers used for high availability.
+- **Runbook:** This is a collection of one or more linked activities that together automate a process or operation.
+- **On-premises computers and VMs:** These are on-premises computers and VMs with Windows or Linux operating systems that reside on-premises.
+- **Azure VMs:** Azure VMs include Windows or Linux VMs that are hosted in Azure.
 
 ## Recommendations
 

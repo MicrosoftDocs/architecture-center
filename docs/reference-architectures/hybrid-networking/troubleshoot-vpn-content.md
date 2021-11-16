@@ -1,8 +1,6 @@
 
 <!-- cSpell:ignore RRAS Russinovich sysinternals psping profx -->
 
-
-
 This article gives some tips for troubleshooting a VPN gateway connection between an on-premises network and Azure. For general information on troubleshooting common VPN-related errors, see [Troubleshooting common VPN related errors][troubleshooting-vpn-errors].
 
 ## Verify the VPN appliance is functioning correctly

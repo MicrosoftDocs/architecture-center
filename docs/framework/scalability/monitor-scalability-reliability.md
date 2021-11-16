@@ -1,6 +1,6 @@
 ---
 title: Monitor performance for scalability and reliability
-description: Monitoring strategy should take into consideration scalability and reliability of the infrastructure, application, and dependent services.
+description: Monitoring strategy should take into consideration scalability and reliability of the infrastructure, application, and dependent services.
 author: PageWriter-MSFT
 ms.date: 04/28/2021
 ms.topic: conceptual
@@ -9,28 +9,28 @@ ms.subservice: well-architected
 products:
   - azure-monitor
 categories:
-  - management-and-governance     
+  - management-and-governance
 ms.custom:
   - fasttrack-edit
 ---
 
 # Monitor performance for scalability and reliability
-The overall monitoring strategy should take into consideration scalability and reliability of the infrastructure, application, and dependent services.
+The overall monitoring strategy should take into consideration scalability and reliability of the infrastructure, application, and dependent services.
 
 ## Scalability
 
 A goal of analyzing metrics is to determine the thresholds for scale up, scale out, scale in, and scale down. The ability to scale dynamically is one of the biggest values of moving to the cloud.
 
-- Know the minimum number of instances that should run at any given time.
-- Determine what metrics are best for your solution to base your auto scaling rules.
-- Configure the auto scaling rules for those services that include it.
+- Know the minimum number of instances that should run at any given time.
+- Determine what metrics are best for your solution to base your auto scaling rules.
+- Configure the auto scaling rules for those services that include it.
 - Create alert rules for the services that could be scaled manually.
 
 For scalability, look at the metrics to determine how to provision resources dynamically and scale with demand.
 
 ## Reliability
 
-Monitor your application for early warning signs that might require proactive intervention. Tools that assess the overall health of the application and its dependencies help you to recognize quickly when a system or its components suddenly become unavailable. Use them to implement an early warning system. 
+Monitor your application for early warning signs that might require proactive intervention. Tools that assess the overall health of the application and its dependencies help you to recognize quickly when a system or its components suddenly become unavailable. Use them to implement an early warning system.
 
 Monitoring systems should capture comprehensive details so that applications can be restored efficiently and, if necessary, designers and developers can modify the system to prevent the situation from recurring.
 
@@ -46,16 +46,10 @@ To learn more, see [Monitoring health for reliability](../resiliency/monitoring.
 
 ## Next section
 
-Based on insights gained through monitoring, optimize your code. One option might be to consider other Azure services that may be more appropriate for your objectives.  
+Based on insights gained through monitoring, optimize your code. One option might be to consider other Azure services that may be more appropriate for your objectives.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Optimize](optimize.md)
 
 ## Related links
 > [Back to the main article](monitor.md)
-
-
-
-
-
-

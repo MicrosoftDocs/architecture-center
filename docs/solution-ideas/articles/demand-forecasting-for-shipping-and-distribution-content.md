@@ -9,7 +9,7 @@ The demand forecasting process described in this solution can be operationalized
 ![Architecture diagram: demand forecasting for shipping and distribution](../media/demand-forecasting-for-shipping-and-distribution.png)
 *Download an [SVG](../media/demand-forecasting-for-shipping-and-distribution.svg) of this architecture.*
 
-## Example solution
+### Workflow
 
 For an example of a demand forecasting solution for shipping and distribution similar to the solution described in this article, see the [Azure AI Gallery](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2). General characteristics of demand forecasting solutions like the one proposed here are:
 
@@ -23,7 +23,7 @@ Under these conditions, you can take advantage of the hierarchy formed among the
 
 The [AI Gallery solution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) computes forecasts at all aggregation levels in the hierarchy for each time period specified. Remember that deployments of your demand forecasting solutions will incur consumption charges for the services used. Use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to predict costs. When you're no longer using a deployed solution, delete it to stop incurring charges.
 
-## Components
+### Components
 
 This demand forecasting solution idea uses the following resources hosted and managed in Azure:
 
@@ -40,12 +40,14 @@ See product documentation:
 * [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](/power-bi/fundamentals/power-bi-overview)
 
-Read related Azure Architecture Center articles:
-
-* [Demand forecasting and price optimization](./demand-forecasting-price-optimization-marketing.yml)
-* [Demand forecasting with Azure Stream Analytics and Machine Learning](./demand-forecasting.yml)
-
 Learn about:
 
 * [Demand forecasting for shipping and distribution solution](https://gallery.azure.ai/Solution/Demand-Forecasting-for-Shipping-and-Distribution-2) in the Azure AI Gallery
 * [Forecasting best practices](https://github.com/microsoft/forecasting) on GitHub
+
+## Related resources
+
+Read related Azure Architecture Center articles:
+
+* [Demand forecasting and price optimization](./demand-forecasting-price-optimization-marketing.yml)
+* [Demand forecasting with Azure Stream Analytics and Machine Learning](./demand-forecasting.yml)

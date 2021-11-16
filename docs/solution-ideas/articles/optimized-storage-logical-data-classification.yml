@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Optimized storage with logical data classification
+  titleSuffix: Azure Architecture
+  description: Architecture for a high-availability solution that handles massive amounts of data. It uses an optimized tiering strategy to reduce storage costs.
+  author: nabilshams
+  ms.author: nasiddi
+  ms.date: 09/14/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - databases
+  - web
+  - migration
+  - storage
+products:
+  - azure-front-door
+  - azure-app-service
+  - azure-functions
+  - azure-cosmos-db
+  - azure-table-storage
+name: Optimized storage with logical data classification
+summary: Architecture for a high-availability solution that handles massive amounts of data. It uses an optimized tiering strategy to reduce storage costs.
+thumbnailUrl: /azure/architecture/browse/thumbs/optimized-storage-logical-data-classification.png
+content: |
+  [!include[](optimized-storage-logical-data-classification-content.md)]

@@ -1,150 +1,120 @@
 ---
-title: Cache access tokens in a multitenant application
+title: Cache access tokens in a multitenant app
 description: Learn how to implement a custom token cache that derives from the Azure AD Authentication Library TokenCache class suitable for web apps.
-author: doodlemania2
-ms.date: 07/21/2017
+author: EdPrice-MSFT
+ms.author: pnp
+ms.date: 10/06/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.category:
+categories:
   - identity
+  - web
 ms.custom:
-  - has-adal-ref
   - guide
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: web-api
 pnp.series.next: adfs
+products:
+  - azure-active-directory
+  - azure-app-service-web
 ---
 
 # Cache access tokens
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
-It's relatively expensive to get an OAuth access token, because it requires an HTTP request to the token endpoint. Therefore, it's good to cache tokens whenever possible. The [Azure AD Authentication Library][ADAL] (ADAL)  automatically caches tokens obtained from Azure AD, including refresh tokens.
+It's relatively expensive to get an OAuth access token, because it requires an HTTP request to the token endpoint. Therefore, it's good to cache tokens whenever possible. The [Microsoft Authentication Library for .NET (MSAL.NET)][MSAL] (MSAL) caches tokens obtained from Azure AD, including refresh tokens.
 
-ADAL provides a default token cache implementation. However, this token cache is intended for native client apps, and is **not** suitable for web apps:
+Some implementations include MSAL are in-memory cache and distributed cache. This option is set in the ConfigureServices method of the Startup class of the web application. To acquire a token for the downstream API, you'll need to `.EnableTokenAcquisitionToCallDownstreamApi()`.
 
-* It is a static instance, and not thread safe.
-* It doesn't scale to large numbers of users, because tokens from all users go into the same dictionary.
-* It can't be shared across web servers in a farm.
+The Surveys app uses distributed token cache that stores data in the backing store. The app uses a Redis cache as the backing store. Every server instance in a server farm reads/writes to the same cache, and this approach scales to many users.
 
-Instead, you should implement a custom token cache that derives from the ADAL `TokenCache` class but is suitable for a server environment and provides the desirable level of isolation between tokens for different users.
+For a single-instance web server, you could use the ASP.NET Core [in-memory cache][in-memory-cache]. (This is also a good option for running the app locally during development.)
 
-The `TokenCache` class stores a dictionary of tokens, indexed by issuer, resource, client ID, and user. A custom token cache should write this dictionary to a backing store, such as a Redis cache.
+```csharp
+services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApp(
+    options =>
+    {
+        Configuration.Bind("AzureAd", options);
+        options.Events = new SurveyAuthenticationEvents(loggerFactory);
+        options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.Events.OnTokenValidated += options.Events.TokenValidated;
+    })
+    .EnableTokenAcquisitionToCallDownstreamApi()
+    .AddDownstreamWebApi(configOptions.SurveyApi.Name, Configuration.GetSection("SurveyApi"))
+    .AddDistributedTokenCaches();
 
-In the Tailspin Surveys application, the `DistributedTokenCache` class implements the token cache. This implementation uses the [IDistributedCache][distributed-cache] abstraction from ASP.NET Core. That way, any `IDistributedCache` implementation can be used as a backing store.
+    services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = configOptions.Redis.Configuration;
+        options.InstanceName = "TokenCache";
+    });
+}
+```
 
-* By default, the Surveys app uses a Redis cache.
-* For a single-instance web server, you could use the ASP.NET Core [in-memory cache][in-memory-cache]. (This is also a good option for running the app locally during development.)
+The configuration for SurveyApi is specified in appsettings.json.
 
-`DistributedTokenCache` stores the cache data as key/value pairs in the backing store. The key is the user ID plus client ID, so the backing store holds separate cache data for each unique combination of user/client.
-
-![Token cache](./images/token-cache.png)
-
-The backing store is partitioned by user. For each HTTP request, the tokens for that user are read from the backing store and loaded into the `TokenCache` dictionary. If Redis is used as the backing store, every server instance in a server farm reads/writes to the same cache, and this approach scales to many users.
+```json
+  "SurveyApi": {
+    "BaseUrl": "https://localhost:44301",
+    "Scopes": "https://test.onmicrosoft.com/surveys.webapi/surveys.access",
+    "Name": "SurveyApi"
+  },
+```
 
 ## Encrypting cached tokens
 
-Tokens are sensitive data, because they grant access to a user's resources. (Moreover, unlike a user's password, you can't just store a hash of the token.) Therefore, it's critical to protect tokens from being compromised. The Redis-backed cache is protected by a password, but if someone obtains the password, they could get all of the cached access tokens. For that reason, the `DistributedTokenCache` encrypts everything that it writes to the backing store. Encryption is done using the ASP.NET Core [data protection][data-protection] APIs.
+Tokens are sensitive data, because they grant access to a user's resources. (Moreover, unlike a user's password, you can't just store a hash of the token.) Therefore, it's critical to protect tokens from being compromised.
 
-> [!NOTE]
-> If you deploy to Azure Web Sites, the encryption keys are backed up to network storage and synchronized across all machines (see [Key management and lifetime][key-management]). By default, keys are not encrypted when running in Azure Web Sites, but you can [enable encryption using an X.509 certificate][x509-cert-encryption].
+The Redis-backed cache is protected by a password, but if someone obtains the password, they could get all of the cached access tokens. The MSAL token cache is encrypted.
 
-## DistributedTokenCache implementation
+## Acquire the token
 
-The `DistributedTokenCache` class derives from the ADAL [TokenCache][tokencache-class] class.
-
-In the constructor, the `DistributedTokenCache` class creates a key for the current user and loads the cache from the backing store:
+The Survey application calls the downstream web API from the page constructor.
 
 ```csharp
-public DistributedTokenCache(
-    ClaimsPrincipal claimsPrincipal,
-    IDistributedCache distributedCache,
-    ILoggerFactory loggerFactory,
-    IDataProtectionProvider dataProtectionProvider)
-    : base()
+public class SurveyService : ISurveyService
 {
-    _claimsPrincipal = claimsPrincipal;
-    _cacheKey = BuildCacheKey(_claimsPrincipal);
-    _distributedCache = distributedCache;
-    _logger = loggerFactory.CreateLogger<DistributedTokenCache>();
-    _protector = dataProtectionProvider.CreateProtector(typeof(DistributedTokenCache).FullName);
-    AfterAccess = AfterAccessNotification;
-    LoadFromCache();
-}
-```
+    private string _serviceName;
+    private readonly IDownstreamWebApi _downstreamWebApi;
 
-The key is created by concatenating the user ID and client ID. Both of these are taken from claims found in the user's `ClaimsPrincipal`:
-
-```csharp
-private static string BuildCacheKey(ClaimsPrincipal claimsPrincipal)
-{
-    string clientId = claimsPrincipal.FindFirstValue("aud", true);
-    return string.Format(
-        "UserId:{0}::ClientId:{1}",
-        claimsPrincipal.GetObjectIdentifierValue(),
-        clientId);
-}
-```
-
-To load the cache data, read the serialized blob from the backing store, and call `TokenCache.Deserialize` to convert the blob into cache data.
-
-```csharp
-private void LoadFromCache()
-{
-    byte[] cacheData = _distributedCache.Get(_cacheKey);
-    if (cacheData != null)
+    public SurveyService(HttpClientService factory, IDownstreamWebApi downstreamWebApi, IOptions<ConfigurationOptions> configOptions)
     {
-        this.Deserialize(_protector.Unprotect(cacheData));
+        _serviceName = configOptions.Value.SurveyApi.Name;
+        _downstreamWebApi = downstreamWebApi;
+    }
+
+    public async Task<SurveyDTO> GetSurveyAsync(int id)
+    {
+        return await _downstreamWebApi.CallWebApiForUserAsync<SurveyDTO>(_serviceName,
+            options =>
+            {
+                options.HttpMethod = HttpMethod.Get;
+                options.RelativePath = $"surveys/{id}";
+            });
     }
 }
 ```
+Another way is to inject an `ITokenAcquisition` service in the controller. For more information, see [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
 
-Whenever ADAL accesses the cache, it fires an `AfterAccess` event. If the cache data has changed, the `HasStateChanged` property is true. In that case, update the backing store to reflect the change, and then set `HasStateChanged` to false.
+[**Next**][client-certificate]
 
-```csharp
-public void AfterAccessNotification(TokenCacheNotificationArgs args)
-{
-    if (this.HasStateChanged)
-    {
-        try
-        {
-            if (this.Count > 0)
-            {
-                _distributedCache.Set(_cacheKey, _protector.Protect(this.Serialize()));
-            }
-            else
-            {
-                // There are no tokens for this user/client, so remove the item from the cache.
-                _distributedCache.Remove(_cacheKey);
-            }
-            this.HasStateChanged = false;
-        }
-        catch (Exception exp)
-        {
-            _logger.WriteToCacheFailed(exp);
-            throw;
-        }
-    }
-}
-```
+## Next steps
 
-TokenCache sends two other events:
+- [Token cache serialization in MSAL.NET](/azure/active-directory/develop/msal-net-token-cache-serialization)
+- [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-acquire-cache-tokens)
 
-* `BeforeWrite`. Called immediately before ADAL writes to the cache. You can use this to implement a concurrency strategy
-* `BeforeAccess`. Called immediately before ADAL reads from the cache. Here you can reload the cache to get the latest version.
+## Related resources
 
-In our case, we decided not to handle these two events.
-
-* For concurrency, last write wins. That's OK, because tokens are stored independently for each user + client, so a conflict would only happen if the same user had two concurrent login sessions.
-* For reading, we load the cache on every request. Requests are short lived. If the cache gets modified in that time, the next request will pick up the new value.
-
-[**Next**][client-assertion]
+- [Identity management in multitenant applications](/azure/architecture/multitenant-identity)
+- [Secure a backend web API for multitenant applications](/azure/architecture/multitenant-identity/web-api)
 
 <!-- links -->
 
-[ADAL]: /previous-versions/azure/jj573266(v=azure.100)
-[client-assertion]: ./client-assertion.md
+[MSAL]: /azure/active-directory/develop/msal-overview
+[client-certificate]: ./client-certificate.md
 [data-protection]: /aspnet/core/security/data-protection
 [distributed-cache]: /aspnet/core/performance/caching/distributed
 [key-management]: /aspnet/core/security/data-protection/configuration/default-settings

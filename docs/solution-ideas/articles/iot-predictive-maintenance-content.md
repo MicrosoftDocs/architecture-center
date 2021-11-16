@@ -1,17 +1,19 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article demonstrates how end manufacturers can connect assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components. This will enable the use of Predictive Maintenance to improve the efficiency of your machines, while reducing the costs by optimizing the production. Mitigate disruptions by applying advanced analytics and machine learning to your production to anticipate outages. Ensure production uptime with rich insights and automatic alerts triggered by manufacturing data. OPC UA is a platform-independent and service-oriented interoperability standard for a secure and reliable data exchange. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. It's a standard that is driven by the OPC Foundation.
+This article demonstrates how end manufacturers can connect assets to the cloud using OPC UA (Open Platform Communication Unified Architecture) and the Industrial Components. This will enable the use of Predictive Maintenance to improve the efficiency of your machines, while reducing the costs by optimizing the production. Mitigate disruptions by applying advanced analytics and machine learning to your production to anticipate outages. Ensure production uptime with rich insights and automatic alerts triggered by manufacturing data.
+
+OPC UA is a platform-independent and service-oriented interoperability standard for a secure and reliable data exchange. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. It's a standard that is driven by the OPC Foundation.
 
 ## Architecture
 
 ![Architecture Diagram](../media/iot-predictive-maintenance.png)
 
-## Data flow
+### Data flow
 
 The data flows through the solution as follows:
 
-1. Industrial devices that can natively communicate OPC UA can directly connect to IoT Edge. IoT Edge is the compute power that sits on your on-premises network. It’s the runtime environment of the Industrial Modules (OPC Publisher, OPC Twin, and Discovery Module). Modules are containers that run Azure services, 3rd party services, or your own code. The OPC Publisher module connects to OPC UA servers and publishes OPC UA telemetry data to Azure IoT Hub. OPC Twin creates a digital twin of an OPC UA server in the cloud and provides OPC UA browse/read/write/method call capabilities via a cloud-based REST (Representational State Transfer) interface. The Discovery module provides discovery services on the edge, which include OPC UA server discovery.
-1. Industrial devices that can’t communicate through OPC UA need a 3rd party PLC adapter to connect to IoT Edge. Adapters are obtainable as modules in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).
+1. Industrial devices that can natively communicate OPC UA can directly connect to IoT Edge. IoT Edge is the compute power that sits on your on-premises network. It's the runtime environment of the Industrial Modules (OPC Publisher, OPC Twin, and Discovery Module). Modules are containers that run Azure services, 3rd party services, or your own code. The OPC Publisher module connects to OPC UA servers and publishes OPC UA telemetry data to Azure IoT Hub. OPC Twin creates a digital twin of an OPC UA server in the cloud and provides OPC UA browse/read/write/method call capabilities via a cloud-based REST (Representational State Transfer) interface. The Discovery module provides discovery services on the edge, which include OPC UA server discovery.
+1. Industrial devices that can't communicate through OPC UA need a 3rd party PLC adapter to connect to IoT Edge. Adapters are obtainable as modules in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).
 1. The 3rd party PLC adapters enable a connectivity between the devices and IoT Edge.
 1. For analytical capabilities closer to where the data originates, there are modules like Machine Learning on Edge or Functions obtainable from the Azure Marketplace, allowing low latency and operation in disconnected state.
 1. Azure IoT Hub connects the devices virtually to the cloud for further data processing. It enables a security-enhanced bidirectional communication between IoT applications and devices.
@@ -21,7 +23,7 @@ The data flows through the solution as follows:
 1. Azure Databricks provides the latest versions of Apache Spark as an Azure service offering and allows you to seamlessly integrate with open source libraries. It provides a one-click setup, streamlined workflows, and an interactive workspace that enables collaboration.
 1. Explore your data with visual reports and collaborate, publish and share these reports with others. Power BI integrates with other tools, including Microsoft Excel, so you can get up to speed quickly and work seamlessly with your existing solutions.
 
-## Components
+### Components
 
 Data is loaded from these different data sources using several Azure components:
 

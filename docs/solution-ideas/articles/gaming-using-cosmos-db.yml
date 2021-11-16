@@ -3,7 +3,7 @@ metadata:
   title: Gaming using Cosmos DB
   titleSuffix: Azure Solution Ideas
   description: Elastically scale your database to accommodate unpredictable bursts of traffic and deliver low-latency, multi-player experiences on a global scale.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual

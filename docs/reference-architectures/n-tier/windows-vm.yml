@@ -3,7 +3,7 @@ metadata:
   title: Run a Windows VM on Azure
   titleSuffix: Azure Reference Architectures
   description: Learn the best practices for running a Windows virtual machine on Azure, which requires some additional components, including networking and storage resources.
-  author: telmosampaio
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/13/2018
   ms.topic: conceptual

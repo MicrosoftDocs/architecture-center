@@ -26,7 +26,6 @@ products:
   - azure-container-registry
   - azure-blob-storage
   - azure-data-lake-gen2
-  - azure-logic-apps
 thumbnailUrl: /azure/architecture/browse/thumbs/end-to-end-smart-factory-01.png
 content: |
   [!include[](end-to-end-smart-factory-content.md)]

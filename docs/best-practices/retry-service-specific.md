@@ -1,8 +1,8 @@
 ---
-title: Retry guidance for Azure services
+title: Azure service retry guidance
 titleSuffix: Best practices for cloud applications
 description: Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 09/16/2020
 ms.topic: conceptual
 ms.service: architecture-center
@@ -15,7 +15,7 @@ ms.custom:
   - best-practice
 ---
 
-<!-- cSpell:ignore ADAL adonet backoff booksleeve linq timespan servicebus retryable typeof localdb mssqllocaldb autoflushing -->
+<!-- cSpell:ignore MSAL adonet backoff booksleeve linq timespan servicebus retryable typeof localdb mssqllocaldb autoflushing -->
 
 # Retry guidance for Azure services
 
@@ -27,7 +27,7 @@ The following table summarizes the retry features for the Azure services describ
 
 | **Service** | **Retry capabilities** | **Policy configuration** | **Scope** | **Telemetry features** |
 | --- | --- | --- | --- | --- |
-| **[Azure Active Directory](#azure-active-directory)** |Native in ADAL library |Embedded into ADAL library |Internal |None |
+| **[Azure Active Directory](#azure-active-directory)** |Native in MSAL library |Embedded into MSAL library |Internal |None |
 | **[Cosmos DB](#cosmos-db)** |Native in service |Non-configurable |Global |TraceSource |
 | **Data Lake Store** |Native in client |Non-configurable |Individual operations |None |
 | **[Event Hubs](#event-hubs)** |Native in client |Programmatic |Client |None |
@@ -44,7 +44,7 @@ The following table summarizes the retry features for the Azure services describ
 > [!NOTE]
 > For most of the Azure built-in retry mechanisms, there is currently no way apply a different retry policy for different types of error or exception. You should configure a policy that provides the optimum average performance and availability. One way to fine-tune the policy is to analyze log files to determine the type of transient faults that are occurring.
 
-<!-- markdownlint-disable MD024 MD033 -->
+<!-- markdownlint-disable MD024 -->
 
 ## Azure Active Directory
 
@@ -55,21 +55,21 @@ Azure Active Directory (Azure AD) is a comprehensive identity and access managem
 
 ### Retry mechanism
 
-There is a built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow ADAL to handle retries.
+There is a built-in retry mechanism for Azure Active Directory in the [Microsoft Authentication Library (MSAL) ](/azure/active-directory/develop/msal-overview). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow MSAL to handle retries.
 
 ### Retry usage guidance
 
 Consider the following guidelines when using Azure Active Directory:
 
-- When possible, use the ADAL library and the built-in support for retries.
+- When possible, use the MSAL library and the built-in support for retries.
 - If you are using the REST API for Azure Active Directory, retry the operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Do not retry for any other errors.
-- For 429 errors, only retry after the time indicated in the **Retry-After** header.  
-- For 5xx errors, use exponential back-off, with the first retry at least 5 seconds after the response. 
-- Do not retry on errors other than 429 and 5xx. 
+- For 429 errors, only retry after the time indicated in the **Retry-After** header.
+- For 5xx errors, use exponential back-off, with the first retry at least 5 seconds after the response.
+- Do not retry on errors other than 429 and 5xx.
 
 ### More information
 
-- [Azure Active Directory Authentication Libraries][adal]
+- [Microsoft Authentication Library (MSAL) ](/azure/active-directory/develop/msal-overview)
 
 ## Cosmos DB
 
@@ -371,7 +371,7 @@ Service Bus implements retries using implementations of the abstract [**RetryPol
 | Package | Description | Namespace |
 |---------|-------------|-------|
 | [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | Azure Service Bus client library for .NET Standard. | `Microsoft.ServiceBus` |
-|  [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) |  This package is the older Service Bus client library. It requires .Net Framework 4.5.2. | `Microsoft.Azure.ServiceBus` |
+|  [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) |  This package is the older Service Bus client library. It requires .NET Framework 4.5.2. | `Microsoft.Azure.ServiceBus` |
 
 Both versions of the client library provide the following built-in implementations of `RetryPolicy`:
 
@@ -514,7 +514,6 @@ namespace RetryCodeSamples
                         maxBackoff: TimeSpan.FromSeconds(30),
                         maxRetryCount: 3);
 
-
                 // Policies cannot be specified on a per-operation basis.
                 var session = await messagingFactory.AcceptMessageSessionAsync();
             }
@@ -522,7 +521,6 @@ namespace RetryCodeSamples
             {
                 var client = messagingFactory.CreateQueueClient(QueueName);
                 // The client inherits the policy from the factory that created it.
-
 
                 // Set different values for the retry policy on the client.
                 client.RetryPolicy =
@@ -864,9 +862,7 @@ Azure Storage services include blob storage, files, and storage queues.
 
 ### Blobs, Queues and Files
 
-The ClientOptions Class is the base type for all client option types and exposes various common client options like Diagnostics, Retry, Transport. To provide the client configuration options for connecting to Azure Queue, Blob, and File Storage you must use the corresponding derived type.
-In the next example, you use the QueueClientOptions class (derived from ClientOptions) to configure a client to connect to Azure Queue Service. The Retry property is the set of options that can be specified to influence how retry attempts are made, and how a failure is eligible to be retried.
-
+The ClientOptions Class is the base type for all client option types and exposes various common client options like Diagnostics, Retry, Transport. To provide the client configuration options for connecting to Azure Queue, Blob, and File Storage you must use the corresponding derived type. In the next example, you use the QueueClientOptions class (derived from ClientOptions) to configure a client to connect to Azure Queue Service. The Retry property is the set of options that can be specified to influence how retry attempts are made, and how a failure is eligible to be retried.
 
 ```csharp
 using System;
@@ -901,7 +897,6 @@ namespace RetryCodeSamples
                     // Otherwise, subsequent retries will alternate back and forth between primary and secondary Uri.
                 };
 
-
                 Uri queueServiceUri = new Uri("https://storageaccount.queue.core.windows.net/");
                 string accountName = "Storage account name";
                 string accountKey = "storage account key";
@@ -915,7 +910,6 @@ namespace RetryCodeSamples
                 // Return an async collection of queues in the storage account.
                 var queues = serviceClient.GetQueuesAsync(QueueTraits.None, null, cancellationToken);
 ```
-
 
 ### Table Support
 
@@ -1124,7 +1118,7 @@ Consider the following when accessing Azure or third-party services:
 - The transient detection logic will depend on the actual client API you use to invoke the REST calls. Some clients, such as the newer **HttpClient** class, will not throw exceptions for completed requests with a non-success HTTP status code.
 
 - The HTTP status code returned from the service can help to indicate whether the failure is transient. You may need to examine the exceptions generated by a client or the retry framework to access the status code or to determine the equivalent exception type. The following HTTP codes typically indicate that a retry is appropriate:
-  
+
   - 408 Request Timeout
   - 429 Too Many Requests
   - 500 Internal Server Error
@@ -1186,7 +1180,7 @@ The following are the typical types of retry strategy intervals:
 
 <!-- links -->
 
-[adal]: /azure/active-directory/develop/active-directory-authentication-libraries
+[msal]: /azure/active-directory/develop/msal-overview
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
 [CosmosClientOptions]: /dotnet/api/microsoft.azure.cosmos.cosmosclientoptions?view=azure-dotnets&preserve-view=true
 [dotnet-foundation]: https://dotnetfoundation.org

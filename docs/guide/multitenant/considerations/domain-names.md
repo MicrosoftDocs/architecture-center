@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
+  - azure
 categories:
- - management-and-governance
- - networking
- - security
+  - management-and-governance
+  - networking
+  - security
 ms.category:
   - fcp
 ms.custom:
@@ -136,4 +136,4 @@ Several Azure services support automatic management of certificates for custom d
 
 ## Next steps
 
-Return to the [architectural considerations overview](overview.md). Or, review the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+Return to the [architectural considerations overview](overview.md). Or, review the [Microsoft Azure Well-Architected Framework](../../../framework/index.md).

@@ -2,7 +2,7 @@
 metadata:
   title: Design a hybrid Domain Name System solution with Azure
   description: Learn how to design a hybrid Domain Name System (DNS) solution to resolve names for workloads that are hosted on-premises and in Microsoft Azure.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 07/23/2020
   ms.topic: conceptual

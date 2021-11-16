@@ -1,6 +1,5 @@
 
 
-
 This article summarizes the process and components the Microsoft Commercial Software Engineering (CSE) team used to build a solution for a banking customer. For the sake of anonymity, the article refers to the customer as Contoso Bank. It's a major international Financial Services Industry (FSI) organization that wanted to modernize one of its financial transaction systems.
 
 Contoso Bank wanted to use simulated and actual applications and existing workloads to monitor the reaction of the solution infrastructure for scalability and performance. The solution had to be compatible with the requirements of the existing payment system.
@@ -13,7 +12,7 @@ Contoso Bank wanted to use a set of simulations to:
 
 * Determine the reaction to failures in the existing architectural design of specific mainframe software.
 
-The proposed solution would use a virtual application to simulate functional scenarios. Its purpose would be to monitor the performance and scalability of the infrastructure. The aim was to determine the impact of failures in the mainframe Electronic Funds Transfer (EFT) system workloads through this set of simulations.  
+The proposed solution would use a virtual application to simulate functional scenarios. Its purpose would be to monitor the performance and scalability of the infrastructure. The aim was to determine the impact of failures in the mainframe Electronic Funds Transfer (EFT) system workloads through this set of simulations.
 
 There was also a requirement to propose a smooth DevOps transition from on-premises to the cloud. The transition had to include the bank's process and methodology, and it had to  use Contoso Bank's existing tools. Using existing technologies would reduce the up-skill impact for the developers. The transition would assist Contoso Bank in reviewing current and future design decisions. The transition would also provide confidence that Azure is an environment robust enough to host the new distributed systems.
 
@@ -122,7 +121,7 @@ This component focuses on running Channel Holder, EFT Controller, and EFT Proces
 The list below summarizes the technologies that the CSE team used to create this solution:
 
 * Azure
-  
+
   * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 
   * [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)

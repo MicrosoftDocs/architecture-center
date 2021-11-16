@@ -7,7 +7,7 @@ Use AKS to simplify the deployment and management of microservices-based archite
 ![Architecture Diagram](../media/microservices-with-aks.png)
 *Download an [SVG](../media/microservices-with-aks.svg) of this architecture.*
 
-## Data flow
+### Data flow
 
 1. Developer uses an IDE, such as Visual Studio, to commit changes to GitHub.
 1. GitHub triggers a new build on Azure DevOps.
@@ -18,11 +18,11 @@ Use AKS to simplify the deployment and management of microservices-based archite
 1. Microservices use databases to store and retrieve information.
 1. Administrator accesses via a separate admin portal.
 
-## Components
+### Components
 
 - [Azure DevOps](https://azure.microsoft.com/services/devops/) packages the microservices as containers.
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) offers fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster. 
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster.
 - [GitHub Enterprise](https://help.github.com/en/github) provides a code-hosting platform that developers can use for collaborating on both open-source and inner-source projects.
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) Pipelines is part of Azure DevOps Services that is used to run automated builds, tests, and deployments. Every time code is changed in the code repository, Azure DevOps pipeline continuously builds container images, pushed to your Azure Container Registry, and the manifests are then deployed to your Azure Kubernetes Service cluster.
 - [Azure Active Directory](https://azure.microsoft.com/services/active-directory/). When AKS is integrated with Azure Active Directory, it allows to use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC to manage AKS resources securely.

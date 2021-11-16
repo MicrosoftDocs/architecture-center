@@ -10,11 +10,11 @@ The architecture consists of the following components.
 
 - **On-premises network**. The on-premises network represents a single datacenter that's connected to Azure over an [Azure ExpressRoute][1] or [virtual private network (VPN)][2] connection. In this scenario, the following components make up the on-premises network:
   - **DNS** servers. These servers represent two servers with DNS service installed that are acting as resolver/forwarder. These DNS servers are used for all computers in the on-premises network as DNS servers. Records must be created on these servers for all endpoints in Azure and on-premises.
-  - **Gateway**. The [gateway][3] represents either a VPN device or an ExpressRoute connection that&#39;s used to connect to Azure.
-- **Hub subscription**. The hub subscription represents an Azure subscription that&#39;s used to host connectivity, management, and networking resources that are shared across multiple Azure-hosted workloads. These resources can be broken down into multiple subscriptions, as described in the [enterprise-scale architecture.][4]
+  - **Gateway**. The [gateway][3] represents either a VPN device or an ExpressRoute connection that's used to connect to Azure.
+- **Hub subscription**. The hub subscription represents an Azure subscription that's used to host connectivity, management, and networking resources that are shared across multiple Azure-hosted workloads. These resources can be broken down into multiple subscriptions, as described in the [enterprise-scale architecture.][4]
   > [!NOTE]
   > The hub virtual network can be substituted with a [virtual wide area network (WAN)][5] hub, in which case the DNS servers would have to be hosted in a different [Azure virtual network (VNet)][6]. In the Enterprise-scale architecture, that VNet is maintained in its own subscription entitled the **Identity subscription**.
-- **Azure Bastion subnet**. The Azure Bastion service in the hub virtual network is used for remoting to virtual machines (VMs) in the hub and spoke VNets from the public internet for maintenance purposes.  
+  - **Azure Bastion subnet**. The Azure Bastion service in the hub virtual network is used for remoting to virtual machines (VMs) in the hub and spoke VNets from the public internet for maintenance purposes.
   - **Private endpoint subnet**. The private endpoint subnet hosts private endpoints for Azure-hosted workloads in VNets that aren't peered to the hub. With this type of disconnected VNet, its IP addresses can clash with other IP addresses that are used in Azure and on-premises.
   - **Gateway subnet**. The gateway subnet hosts the Azure VPN, or ExpressRoute, gateway that's used to provide connectivity back to the on-premises datacenter.
   - **Shared services subnet**. The shared services subnet hosts services that are shared among multiple Azure workloads. In this scenario, this subnet hosts virtual machines running Windows or Linux that are also used as DNS servers. These DNS servers host the same DNS zones as the on-premises servers.
@@ -26,7 +26,7 @@ The architecture consists of the following components.
   - **AppGateway subnet**. This subnet is the required subnet for the Azure Application Gateway service.
     - **AppGateway**. [Application Gateway][10] provides access to the sample workload in the **default** subnet to users from the public internet.
     - **wkld1-pip**. This address is the public IP address that's used to access the sample workload from the public internet.
-- **Disconnected subscription**. The disconnected subscription represents a collection of workloads that don&#39;t require connectivity back to the on-premises datacenter and that use the [private link service][11].
+- **Disconnected subscription**. The disconnected subscription represents a collection of workloads that don't require connectivity back to the on-premises datacenter and that use the [private link service][11].
   - **PLSSubnet**. The private link service subnet (PLSSubnet) contains one or more private link service resources that provide connectivity to workloads hosted in the **Connected subscription**.
   - **Default subnet**. The default subnet contains a sample workload.
     - **web-vmss**. This sample virtual machine scale set hosts a workload in Azure that can be accessed from on-premises, Azure, and the public internet.

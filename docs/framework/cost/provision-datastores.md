@@ -1,6 +1,6 @@
 ---
 title: Data store cost estimates
-description: Describes cost strategies for database design
+description: Get detailed information about making cost estimates for your Azure data stores. Learn cost strategies for database design.
 author: v-aangie
 ms.date: 08/25/2020
 ms.topic: conceptual
@@ -31,7 +31,7 @@ The following list of questions address the requirements that can have the great
 - How large are the entities you need to store?
 - What is the overall amount of storage capacity you need?
 - What kind of schemas will you apply to your data (e.g., fixed schema, schema-on-write, or schema-on-read)?
-- What are your data performance requirements (e.g., acceptable response times for querying and aggregation of data once ingested)?  
+- What are your data performance requirements (e.g., acceptable response times for querying and aggregation of data once ingested)?
 - What level of fault-tolerance do you need to provide for data consumers?
 - What kind of data replication capabilities do you require?
 - Will the limits of a particular data store support your requirements for scale, number of connections, and throughput?
@@ -109,7 +109,7 @@ All options offer a consumption and provisioned pricing models. With pre-provisi
 
 With Azure SQL Database the initial 32 GB of storage is included in the price. For the other listed options, you need to buy storage separately and might increase the cost depending on your storage needs.
 
-For most databases, there is no charge for the price of backup storage that is equal in size to primary storage. If you need more backup storage, you will incur an additional cost.  
+For most databases, there is no charge for the price of backup storage that is equal in size to primary storage. If you need more backup storage, you will incur an additional cost.
 
 ## Key/value and document databases cost
 

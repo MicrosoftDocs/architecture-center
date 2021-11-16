@@ -1,16 +1,20 @@
 ---
-title: Tradeoffs for costs
-description: Describes some of the trade-offs you may decide to make when optimizing a workload for cost.
+title: Tradeoffs for cost
+description: View tradeoffs you may decide to make when optimizing a workload for cost, such as with reliability, performance efficiency, security, or operational excellence.
 author: david-stanford
 ms.date: 05/12/2020
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure
+categories:
+  - cost-optimization
 ms.custom:
   - article
 ---
 
-# Tradeoffs for costs
+# Tradeoffs for cost
 
 As you design the workload, consider tradeoffs between cost optimization and other aspects of the design, such as security, scalability, resilience, and operability.
 
@@ -18,7 +22,7 @@ As you design the workload, consider tradeoffs between cost optimization and oth
 ***
 An optimal design doesn't equate to a low-cost design. There might be risky choices made in favor of a cheaper solution.
 
-## Cost versus reliability
+## Cost vs reliability
 Cost has a direct correlation with reliability.
 
 **Does the cost of high availability components exceed the acceptable downtime?**
@@ -32,7 +36,7 @@ If the cost of high availability exceeds the cost of downtime, you can save by u
 
 For resiliency, availability, and reliability considerations, see the [Reliability](../resiliency/principles.md?branch=master) pillar.
 
-## Cost versus performance efficiency
+## Cost vs performance efficiency
 
 Boosting performance will lead to higher cost.
 
@@ -50,18 +54,16 @@ While caching can reduce cost, there are some performance tradeoffs. For example
 
 For performance considerations, see the [Performance Efficiency](../scalability/overview.md) pillar.
 
-
-## Cost versus security
+## Cost vs security
 Increasing security of the workload will increase cost.
 
-As a rule, don't compromise on security. For certain workloads, you can't avoid security costs. For example, for specific security and compliance requirements, deploying to differentiated regions will be more expensive.
-Premium security features can also increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom roles if you can use built-in roles. 
+As a rule, don't compromise on security. For certain workloads, you can't avoid security costs. For example, for specific security and compliance requirements, deploying to differentiated regions will be more expensive. Premium security features can also increase the cost. There are areas you can reduce cost by using native security features. For example, avoid implementing custom roles if you can use built-in roles.
 
 For security considerations, see the [Security Pillar](../security/overview.md).
 
-## Cost versus operational excellence
+## Cost vs operational excellence
 
-Investing in systems monitoring and automation might increase the cost initially but over time will reduce cost. 
+Investing in systems monitoring and automation might increase the cost initially but over time will reduce cost.
 - IT operations processes like user or application access provisioning, incident response, and disaster recovery should be integrated with the workload.
 - Cost of maintaining infrastructure is more expensive. With PaaS or SaaS services, infrastructure, platform management services, and additional operational efficiencies are included in the service pricing.
 

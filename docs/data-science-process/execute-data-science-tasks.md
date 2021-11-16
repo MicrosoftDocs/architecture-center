@@ -9,13 +9,14 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom:
+  - previous-author=deguhath
+  - previous-ms.author=deguhath
 products:
   - azure-machine-learning
 categories:
   - ai-machine-learning
 ---
-
 
 # Execute data science tasks: exploration, modeling, and deployment
 
@@ -25,14 +26,13 @@ Typical data science tasks include data exploration, modeling, and deployment. T
 - [SQL-Server with ML services](/sql/advanced-analytics/r/r-services)
 - [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
 
+## 1. <a name='DataQualityReportUtility-1'></a> Exploration
 
-## 1. <a name='DataQualityReportUtility-1'></a> Exploration 
+A data scientist can perform exploration and reporting in a variety of ways: by using libraries and packages available for Python (matplotlib for example) or with R (ggplot or lattice for example). Data scientists can customize such code to fit the needs of data exploration for specific scenarios. The needs for dealing with structured data are different that for unstructured data such as text or images.
 
-A data scientist can perform exploration and reporting in a variety of ways: by using libraries and packages available for Python (matplotlib for example) or with R (ggplot or lattice for example). Data scientists can customize such code to fit the needs of data exploration for specific scenarios. The needs for dealing with structured data are different that for unstructured data such as text or images. 
+Products such as Azure Machine Learning also provide [advanced data preparation](/azure/machine-learning/how-to-create-register-datasets) for data wrangling and exploration, including feature creation. The user should decide on the tools, libraries, and packages that best suite their needs.
 
-Products such as Azure Machine Learning also provide [advanced data preparation](/azure/machine-learning/how-to-create-register-datasets) for data wrangling and exploration, including feature creation. The user should decide on the tools, libraries, and packages that best suite their needs. 
-
-The deliverable at the end of this phase is a data exploration report. The report should provide a fairly comprehensive view of the data to be used for modeling and an assessment of whether the data is suitable to proceed to the modeling step. 
+The deliverable at the end of this phase is a data exploration report. The report should provide a fairly comprehensive view of the data to be used for modeling and an assessment of whether the data is suitable to proceed to the modeling step.
 
 ## 2. <a name='ModelingUtility-2'></a> Modeling
 
@@ -42,7 +42,7 @@ There are numerous toolkits and packages for training models in a variety of lan
 After multiple models have been built, you usually need to have a system for registering and managing the models. Typically you need a combination of scripts or APIs and a backend database or versioning system. A few options that you can consider for these management tasks are:
 
 1. [Azure Machine Learning - model management service](/azure/machine-learning/)
-2. [ModelDB from MIT](https://people.csail.mit.edu/mvartak/papers/modeldb-hilda.pdf) 
+2. [ModelDB from MIT](https://people.csail.mit.edu/mvartak/papers/modeldb-hilda.pdf)
 3. [SQL-server as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
@@ -52,7 +52,6 @@ Production deployment enables a model to play an active role in a business. Pred
 
 ### Production platforms
 There are various approaches and platforms to put models into production. Here are a few options:
-
 
 - [Model deployment in Azure Machine Learning](/azure/machine-learning/how-to-deploy-and-where)
 - [Deployment of a model in SQL-server](/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
@@ -66,14 +65,13 @@ There are various approaches and platforms to put models into production. Here a
 Further examples are available in walkthroughs that demonstrate all the steps in the process for **specific scenarios**. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
 > [!NOTE]
-> For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](/azure/machine-learning/classic/deploy-a-machine-learning-web-service).
+> For deployment using Machine Learning Studio (classic), see [Deploy a Machine Learning Studio (classic) web service](/azure/machine-learning/classic/deploy-a-machine-learning-web-service).
 >
 >
 
 ### A/B testing
-When multiple models are in production, it can be useful to perform [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) to compare performance of the models. 
+When multiple models are in production, it can be useful to perform [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) to compare performance of the models.
 
- 
 ## Next steps
 
 [Track progress of data science projects](track-progress.md) shows how a data scientist can track the progress of a data science project.

@@ -2,8 +2,9 @@
 metadata:
   title: Analytics end-to-end with Azure Synapse
   titleSuffix: Azure Example Scenarios
-  description: This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.
+  description: Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.
   author: fabragaMS
+  ms.author: fabraga
   ms.date: 04/23/2021
   ms.topic: conceptual
   ms.service: architecture-center
@@ -26,7 +27,6 @@ products:
   - azure-cosmos-db
   - azure-data-factory
   - azure-databricks
-  - azure-functions
   - azure-event-hubs
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-analytics-end-to-end.png
 content: |

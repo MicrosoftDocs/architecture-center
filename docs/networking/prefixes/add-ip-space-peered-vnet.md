@@ -22,6 +22,9 @@ products:
 
 Many organizations deploy a virtual networking architecture that follows the [hub-spoke](../../reference-architectures/hybrid-networking/hub-spoke.yml) model. At some point, the hub virtual network might require additional IP address spaces. However, address ranges can't be added or deleted from a virtual network's address space once it's peered with another virtual network. To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering manually. The scripts described in this article can make that process easier.
 
+> [!NOTE]
+> This article has not yet been updated to reflect Azure networking's support for peering resync. Azure virtual networks support adding and removing address space without the need to remove and restablish peerings; instead each remote peering needs a sync operation performed after the network space has changed. The sync can be performed using the [Sync-AzVirtualNetworkPeering](/powershell/module/az.network/sync-azvirtualnetworkpeering) PowerShell command or from the Azure Portal.
+
 ## Single subscription
 
 A single subscription use case, both hub and all spoke virtual networks are in the same subscription.

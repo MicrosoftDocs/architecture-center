@@ -1,9 +1,9 @@
 ### YamlMime:Architecture
 metadata:
-  title: Predictive maintenance 
+  title: Predictive maintenance
   titleSuffix: Azure Solution Ideas
   description: Build a predictive maintenance solution that monitors aircraft parts in real time and uses analytics to predict the remaining useful life of engine components.
-  author: doodlemania2
+  author: EdPrice-MSFT
   ms.author: pnp
   ms.date: 12/16/2019
   ms.topic: conceptual
@@ -31,10 +31,7 @@ products:
   - azure-event-hubs
   - azure-hdinsight
   - azure-machine-learning
-  - azure-sql-database
-  - azure-storage
   - azure-stream-analytics
-  - power-bi
 thumbnailUrl: /azure/architecture/browse/thumbs/predictive-maintenance.png
 content: |
   [!include[](predictive-maintenance-content.md)]

@@ -18,7 +18,6 @@ products:
   - azure-iot-hub
   - azure-media-services
   - azure-stack-edge
-  - azure-app-service
   - azure-web-apps
 name: Video capture and analytics for retail
 summary: See how retailers like grocery stores can use 5G video networks and IoT Edge devices to monitor storefront events and take immediate actions to improve customer experience.

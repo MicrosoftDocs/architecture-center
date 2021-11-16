@@ -25,6 +25,8 @@ Many cases can benefit from the Astadia and Micro Focus pattern:
    The diagram contains two areas, one for Azure components, and one for on-premises components. The on-premises area is simple, with icons for a user and a network service. The Azure area is complex. Boxes containing icons fill the Azure area. The boxes represent a virtual network, sets of virtual machines, third-party software, database services, storage solutions, and other components. Arrows connect some boxes. Number and letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
+*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+
 1. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
 
    - To minimize the need for retraining, you can avoid modifying the web application presentation layer during migration. But you can also update the presentation layer to align with UX requirements.
@@ -72,6 +74,8 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
    The main part of the diagram is a box that contains several smaller boxes. Those boxes represent communications standards, application servers, data storage, middleware, monitoring components, an operating system, and a printer system. Above the box, icons represent users. Arrows connect the users with the communications box. Below the box, icons represent printers. Arrows connect the printers with the printer system box. Letter labels link parts of the diagram with the description in the document.
 :::image-end:::
 
+*Download a [Visio file][Visio version of Sperry architecture diagram] of this architecture.*
+
 - On-premises users interact with the mainframe (**A**):
 
   - Admin users interact through a Universal Terminal System (UTS) terminal emulator.
@@ -85,7 +89,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
   - Telnet
   - File Transfer Protocol (FTP)
   - Sockets
-  
+
   In Azure, web browsers replace legacy terminal emulation. On-demand and online users can use these web browsers to access system resources.
 
 - Mainframe applications are in COBOL, Fortran, C, MASM, SSG, Pascal, UCOBOL, and ECL (**B**). In Azure, Micro Focus COBOL recompiles COBOL and other legacy application code to .NET. Micro Focus can also maintain and reprocess original base code whenever that code changes. This architecture doesn't require any changes in the original source code.
@@ -287,6 +291,8 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 [Optimize VM costs]: ../../framework/cost/optimize-vm.md
 [Use auto-failover groups to enable transparent and coordinated failover of multiple databases]: /azure/azure-sql/database/auto-failover-group-overview
 [Virtual Network pricing]: https://azure.microsoft.com/pricing/details/virtual-network/
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-architecture-diagram.vsdx
+[Visio version of Sperry architecture diagram]: https://arch-center.azureedge.net/US-1813846-PR-2593-migrate-unisys-dorado-mainframe-apps-original-architecture.vsdx
 [VM pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 [What are ARM templates?]: /azure/azure-resource-manager/templates/overview
 [What is Application Insights?]: /azure/azure-monitor/app/app-insights-overview

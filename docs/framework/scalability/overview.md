@@ -1,34 +1,53 @@
 ---
-title: Overview of the performance efficiency pillar
-description: Describes the performance efficiency pillar
+title: Performance efficiency pillar overview
+description: Explore an overview of the performance efficiency pillar in the Azure Well-Architected Framework. Learn about the importance of scalability.
 author: v-aangie
-ms.date: 10/23/2020
+ms.date: 10/01/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
+products:
+  - azure
 categories:
-  - management-and-governance   
+  - management-and-governance
 ms.custom:
   - overview
 ---
 
 # Overview of the performance efficiency pillar
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. Before the cloud became popular, when it came to planning how a system would handle increases in load, many organizations intentionally provisioned workloads to be oversized to meet business requirements. This might make sense in on-premises environments because it ensured *capacity* during peak usage. [Capacity](/azure/api-management/api-management-capacity#what-is-capacity) reflects resource availability (CPU and memory). This was a major consideration for processes that would be in place for many years.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. Before the cloud became popular, when it came to planning how a system would handle increases in load, many organizations intentionally provisioned oversized workloads to meet business requirements. This decision made sense in on-premises environments because it ensured *capacity* during peak usage. [Capacity](/azure/api-management/api-management-capacity#what-is-capacity) reflects resource availability (CPU and memory). Capacity was a major consideration for processes that would be in place for many years.
 
-Just as you needed to anticipate increases in load in on-premises environments, you need to anticipate increases in cloud environments to meet business requirements. One difference is that you may no longer need to make long-term predictions for anticipated changes to ensure that you will have enough capacity in the future. Another difference is in the approach used to manage performance.
+Just as you need to anticipate increases in load in on-premises environments, you need to expect increases in cloud environments to meet business requirements. One difference is that you may no longer need to make long-term predictions for expected changes to ensure you'll have enough capacity in the future. Another difference is in the approach used to manage performance.
 
-## What is scalability and why is it important?
+To assess your workload using the tenets found in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/), reference the [Microsoft Azure Well-Architected Review](/assessments/?id=azure-architecture-review&mode=pre-assessment).
 
-An important consideration in achieving performance efficiency is to consider how your application scales and to implement PaaS offerings that have built-in scaling operations. *Scalability* is the ability of a system to handle increased load. Services covered by [Azure Autoscale](/azure/azure-monitor/platform/autoscale-overview)<!--replace LINK with new Autoscaling--> can scale automatically to match demand to accommodate workload. They will scale out to ensure capacity during workload peaks and scaling will return to normal automatically when the peak drops.
+To boost performance efficiency, we recommend the following video about optimizing for quick and reliable VM deployments:
 
-In the cloud, the ability to take advantage of scalability depends on your infrastructure and services. Some platforms, such as Kubernetes, were built with scaling in mind. Virtual machines, on the other hand, may not scale as easily although scale operations are possible. With virtual machines, you may want to plan ahead to avoid scaling infrastructure in the future to meet demand. Another option is to select a different platform such as Azure virtual machines scale sets.
+<!-- markdownlint-disable MD034 -->
 
-When using scalability, you need only predict the current average and peak times for your workload. Payment plan options allow you to manage this prediction. You pay either per minute or per-hour depending on the service for a designated time period.
+> [!VIDEO https://channel9.msdn.com/Events/All-Around-Azure/Well-Architected-The-Backstage-Tour/Performance-Efficiency/player]
 
-## Next section
+<!-- markdownlint-enable MD034 -->
 
-Read the performance efficient principles that are intended to guide you in your overall strategy.
+## Topics
 
-> [!div class="nextstepaction"] 
+The performance efficiency pillar covers the following topics to help you effectively scale your workload:
+
+|Performance efficiency topic|Description|
+|----------------------------|-----------|
+|[Performance efficiency checklist](performance-efficiency.md)|Review your application architecture to ensure your workload scales to meet the demands placed on it by users in an efficient manner.|
+|[Performance principles](principles.md)|Principles to guide you in your overall strategy for improving performance efficiency.|
+|[Design for performance](design-checklist.md)| Review your application architecture from a performance design standpoint.|
+|[Consider scalability](design-scale.md)|Plan for growth by understanding your current workloads.|
+|[Plan for capacity](design-capacity.md)|Plan to scale your application tier by adding extra infrastructure to meet demand.|
+|[Monitor for performance](monitor.md)|Monitor services and check the health state of current workloads to maintain overall workload performance.|
+|[Performance patterns](performance-efficiency-patterns.md)|Implement design patterns to build more performant workloads.|
+|[Tradeoffs](tradeoffs.md)|Consider tradeoffs between performance optimization and other aspects of the design, such as reliability, security, cost efficiency, and operability.|
+
+## Next steps
+
+Reference the performance efficiency principles intended to guide you in your overall strategy.
+
+> [!div class="nextstepaction"]
 > [Principles](principles.md)

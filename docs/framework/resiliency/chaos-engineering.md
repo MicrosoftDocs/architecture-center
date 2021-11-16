@@ -1,6 +1,6 @@
 ---
 title: Chaos engineering
-description: Chaos engineering fundamentals for improving the reliability of a service built on Azure.
+description: Understand chaos engineering fundamentals for improving the reliability of a service that's built on Azure.
 author: v-aangie
 ms.date: 02/17/2021
 ms.topic: conceptual
@@ -17,7 +17,7 @@ Chaos engineering is a methodology that helps developers attain consistent relia
 
 A common way to introduce chaos is to deliberately inject faults that cause system components to fail. The goal is to observe, monitor, respond to, and improve your system's reliability under adverse circumstances. For example, taking dependencies offline (stopping API apps, shutting down VMs, etc.), restricting access (enabling firewall rules, changing connection strings, etc.), or forcing failover (database level, Front Door, etc.), is a good way to validate that the application is able to handle faults gracefully.
 
-It's difficult to simulate the characteristics of a service's behavior at scale outside a production environment. The transient nature of cloud platforms can exacerbate this difficulty. Architecting your service to expect failure is a core approach to creating a modern service. Chaos engineering embraces the uncertainty of the production environment and strives to anticipate rare, unpredictable, and disruptive outcomes, so that you can minimize any potential impact on your customers. 
+It's difficult to simulate the characteristics of a service's behavior at scale outside a production environment. The transient nature of cloud platforms can exacerbate this difficulty. Architecting your service to expect failure is a core approach to creating a modern service. Chaos engineering embraces the uncertainty of the production environment and strives to anticipate rare, unpredictable, and disruptive outcomes, so that you can minimize any potential impact on your customers.
 
 ## Key points
 
@@ -28,7 +28,7 @@ It's difficult to simulate the characteristics of a service's behavior at scale 
 
 ## Increase resiliency
 
-Chaos engineering is aimed at increasing your service’s resiliency and its ability to react to failures. By conducting experiments in a controlled environment, you can identify issues that are likely to arise during development and deployment. During this process, be vigilant in adopting the following guidelines:
+Chaos engineering is aimed at increasing your service's resiliency and its ability to react to failures. By conducting experiments in a controlled environment, you can identify issues that are likely to arise during development and deployment. During this process, be vigilant in adopting the following guidelines:
 
 - Be proactive.
 - Embrace failure.
@@ -59,11 +59,11 @@ Chaos engineering requires specialized expertise, technology, and practices. As 
 
 If you plan to practice the simulated handling of potentially catastrophic scenarios under controlled conditions, here's a simplified way to organize your teams:
 
-|Attacker|	Defender|
+|Attacker| Defender for Cloud|
 |---|---|
-|Inject faults|	Assess|
+|Inject faults| Assess|
 |Provide hints|Analyze|
-|	|Mitigate|
+| |Mitigate|
 
 ### Goals
 
@@ -139,8 +139,8 @@ The process must be very *low tax*. That is, the process must make it easy for d
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Best practices](./test-best-practices.md)
+> [!div class="nextstepaction"]
+> [Best practices](./test-best-practices.md)
 
 ## Related links
 
