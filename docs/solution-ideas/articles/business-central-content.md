@@ -53,6 +53,7 @@ There are various options for VM sizes depending on the usage and workload. The 
 - [Changing the service state of a Business Central Server instance](/powershell/module/microsoft.dynamics.nav.management/set-navserverinstance?view=businesscentral-ps-16)
 - [Staring a server instance](/powershell/module/microsoft.dynamics.nav.management/start-navserverinstance?view=businesscentral-ps-16)
 
-## Related Resources
-- [Architecture - E-commerce front end](https://docs.microsoft.com/azure/architecture/example-scenario/apps/ecommerce-scenario)
-- [Architecture - E-commerce website running in secured App Service Environment](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/ecommerce-website-running-in-secured-ase)
+## Related resources
+
+- [Architecture - E-commerce front end]((../../example-scenario/apps/ecommerce-scenario.yml)
+- [Architecture - E-commerce website running in secured App Service Environment](./ecommerce-website-running-in-secured-ase.yml)
