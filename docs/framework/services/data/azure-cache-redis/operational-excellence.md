@@ -93,4 +93,4 @@ Resources
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Databricks and security](./reliability.md)
+> [Azure Databricks and security](/framework/services/data/azure-databricks/security.md)

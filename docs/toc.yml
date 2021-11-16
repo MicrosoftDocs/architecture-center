@@ -609,6 +609,32 @@ items:
                     href: framework/services/data/azure-cache-redis/reliability.md
                   - name: Operational Excellence
                     href: framework/services/data/azure-cache-redis/operational-excellence.md
+              - name: Azure Databricks
+                items:
+                  - name: Security
+                    href: framework/services/data/azure-databricks/security.md
+              - name: Azure Database for MySQL
+                items:
+                  - name: Cost Optimization
+                    href: framework/services/data/azure-db-mysql/cost-optimization.md
+              - name: Azure Database for PostgreSQL
+                items:
+                  - name: Cost Optimization
+                    href: framework/services/data/azure-db-postgresql/cost-optimization.md
+              - name: Azure SQL Database
+                items:
+                  - name: Reliability
+                    href: framework/services/data/azure-sql-database/reliability.md
+                  - name: Cost Optimization
+                    href: framework/services/data/azure-sql-database/cost-optimization.md
+                  - name: Operational Excellence
+                    href: framework/services/data/azure-sql-database/operational-excellence.md
+              - name: Azure SQL Managed Instance
+                items:
+                  - name: Reliability
+                    href: framework/services/data/azure-sql-managed-instance/reliability.md
+                  - name: Operational excellence
+                    href: framework/services/data/azure-sql-managed-instance/operational-excellence.md
   - name: Design Patterns
     items:
       - name: Overview
