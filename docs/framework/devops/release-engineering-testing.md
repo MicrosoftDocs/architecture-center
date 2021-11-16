@@ -16,7 +16,7 @@ A main tenet of a DevOps practice to achieve system reliability is the "Shift Le
 
 Another aspect to consider is that testing should occur on both application code as well as infrastructure code and they should be subject to the same quality controls. As described in [Infrastructure as Code][iac], the environment where applications are running should be version-controlled and deployed through the same mechanisms as application code, and hence can be tested and validated using DevOps testing paradigms too.
 
-You can use your favorite testing tool to run your tests, including [Azure Pipelines][pipelines] for automated testing and [Azure Testing Plans][devopstests] for manual testing.
+You can use your favorite testing tool to run your tests, including [Azure Load Testing Preview][alt] for generating high-scale load, [Azure Pipelines][pipelines] for automated testing and [Azure Testing Plans][devopstests] for manual testing.
 
 There are multiple stages at which tests can be performed in the life cycle of code, and each of them has some particularities that is important to understand. In this guide, you can find a summary of the different tests that you should consider while developing and deploying applications.
 
@@ -95,3 +95,4 @@ In order to deploy software quickly and reliably, testing is a fundamental compo
 [devopstests]: /azure/devops/test
 [telemetry]: /azure/azure-monitor/app/usage-overview
 [slots]: /azure/app-service/deploy-staging-slots
+[alt]: /azure/load-testing/overview-what-is-azure-load-testing

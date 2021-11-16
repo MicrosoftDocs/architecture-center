@@ -107,6 +107,12 @@ landingContent:
             url: test-tools.md#caching-data
           - text: Use a content delivery network
             url: test-tools.md#content-delivery-network
+      - linkListType: learn
+        links:
+          - text: Identify performance bottlenecks with Azure Load Testing Preview
+            url: /azure/load-testing/tutorial-identify-bottlenecks-azure-portal
+          - text: Identify performance regressions through automated load testing
+            url: /azure/load-testing/tutorial-cicd-azure-pipelines
       - linkListType: video
         links:
           - text: Scale your cloud app with Azure Cache for Redis
@@ -180,10 +186,10 @@ landingContent:
             url: https://azure.microsoft.com/en-us/services/cosmos-db/
           - text: Azure Front Door 
             url: /azure/frontdoor/front-door-caching#file-compression
+          - text: Azure Load Testing Preview
+            url: /azure/load-testing/overview-what-is-azure-load-testing
           - text: Azure Monitor
             url: /azure/azure-monitor/overview
-          - text: Azure SQL Database
-            url: https://azure.microsoft.com/en-us/products/azure-sql/database/
           - text: B-series virtual machines
             url: /azure/virtual-machines/sizes-b-series-burstable
           - text: Microsoft Well-Architected Review
