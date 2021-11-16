@@ -30,9 +30,9 @@ This article describes how to implement a *sign-up* process in a multitenant app
 
 There are several reasons to implement a sign-up process:
 
-* Allow an AD admin to consent for the customer's entire organization to use the application.
-* Collect credit card payment or other customer information.
-* Perform any one-time per-tenant setup needed by your application.
+- Allow an AD admin to consent for the customer's entire organization to use the application.
+- Collect credit card payment or other customer information.
+- Perform any one-time per-tenant setup needed by your application.
 
 ## Admin consent and Azure AD permissions
 
@@ -56,10 +56,10 @@ If the application requires additional permissions at a later point, the custome
 
 For the [Tailspin Surveys][Tailspin] application,  we defined several requirements for the sign-up process:
 
-* A tenant must sign up before users can sign in.
-* Sign-up uses the admin consent flow.
-* Sign-up adds the user's tenant to the application database.
-* After a tenant signs up, the application shows an onboarding page.
+- A tenant must sign up before users can sign in.
+- Sign-up uses the admin consent flow.
+- Sign-up adds the user's tenant to the application database.
+- After a tenant signs up, the application shows an onboarding page.
 
 In this section, we'll walk through our implementation of the sign-up process. It's important to understand that "sign up" versus "sign in" is an application concept. During the authentication flow, Azure AD does not inherently know whether the user is in process of signing up. It's up to the application to keep track of the context.
 
@@ -103,7 +103,7 @@ public IActionResult SignUp()
 
 Like `SignIn`, the `SignUp` action also returns a `ChallengeResult`. But this time, we add a piece of state information to the `AuthenticationProperties` in the `ChallengeResult`:
 
-* signup: A Boolean flag, indicating that the user has started the sign-up process.
+- signup: A Boolean flag, indicating that the user has started the sign-up process.
 
 The state information in `AuthenticationProperties` gets added to the OpenID Connect [state] parameter, which round trips during the authentication flow.
 
@@ -115,11 +115,7 @@ After the user authenticates in Azure AD and gets redirected back to the applica
 
 In Azure AD, the admin consent flow is triggered by adding a "prompt" parameter to the query string in the authentication request:
 
-<!-- markdownlint-disable MD040 -->
-
 `/authorize?prompt=admin_consent&...`
-
-<!-- markdownlint-enable MD040 -->
 
 The Surveys application adds the prompt during the `RedirectToIdentityProvider` event. This event is called right before the middleware redirects to the authentication endpoint.
 

@@ -36,12 +36,15 @@ When you create a VHD, it is unformatted. Log into the VM to format the disk. In
 
 ```bash
 # Create a partition.
+
 sudo fdisk /dev/sdc     # Enter 'n' to partition, 'w' to write the change.
 
 # Create a file system.
+
 sudo mkfs -t ext3 /dev/sdc1
 
 # Mount the drive.
+
 sudo mkdir /data1
 sudo mount /dev/sdc1 /data1
 ```
@@ -103,11 +106,11 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 ## Security considerations
 
-Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Security Center is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Security Center Standard][security-center-get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+Use [Microsoft Defender for Cloud][security-center] to get a central view of the security state of your Azure resources. Defender for Cloud monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Defender for Cloud is configured per Azure subscription. Enable security data collection as described in [Onboard your Azure subscription to Defender for Cloud Standard][security-center-get-started]. When data collection is enabled, Defender for Cloud automatically scans any VMs created under that subscription.
 
-**Patch management**. If enabled, Security Center checks whether any security and critical updates are missing.
+**Patch management**. If enabled, Defender for Cloud checks whether any security and critical updates are missing.
 
-**Antimalware**. If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
+**Antimalware**. If enabled, Defender for Cloud checks whether antimalware software is installed. You can also use Defender for Cloud to install antimalware software from inside the Azure portal.
 
 **Access control**. Use [Azure role-based access control (Azure RBAC)][rbac] to control access to Azure resources. Azure RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so on. Other [built-in roles][rbac-roles] that may be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network].
 

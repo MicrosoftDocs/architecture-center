@@ -122,8 +122,8 @@ The Azure Network Adapter's installation interface might not meet your naming co
     | HTTPS | 5986 |
 
   - How you connect to the server on which the Windows Admin Center (WAC) is installed depends on your WAC's installation type. The default port varies and can be port 6516 when installed on Windows 10 or port 443 when installed on Windows Server. For more information, see [Install Windows Admin Center][15].
-- Azure Security Center integration:
-  - To help protect the server on which the Azure Network Adapter is installed, you can integrate the server to Azure Security Center by selecting **Azure Security Center** from the **Tools** section in WAC. During the integration, you must select an existing Azure Log Analytics workspace or create a new one. You'll be billed separately for each server that you integrate with Azure Security Center. For more information, see [Azure Security Center pricing][16].
+- Microsoft Defender for Cloud integration:
+  - To help protect the server on which the Azure Network Adapter is installed, you can integrate the server to Microsoft Defender for Cloud by selecting **Microsoft Defender for Cloud** from the **Tools** section in WAC. During the integration, you must select an existing Azure Log Analytics workspace or create a new one. You'll be billed separately for each server that you integrate with Microsoft Defender for Cloud. For more information, see [Microsoft Defender for Cloud pricing][16].
 
 ## DevOps considerations
 
@@ -133,7 +133,7 @@ The Azure Network Adapter's installation interface might not meet your naming co
 ## Cost considerations
 
 - Azure Pricing Calculator:
-  - Using the Azure Network Adapter doesn't actually cost anything, as it's a component that you deploy to an on-premises system. The Azure VPN Gateway, as part of the solution, does generate extra costs, as does the use of other services, such as Azure Recovery Vault or Azure Security Center. For more information about actual costs, see the [Azure Pricing Calculator][18]. It's important to note that actual costs vary by Azure region and your individual contract. Contact a Microsoft sales representative for more information about pricing.
+  - Using the Azure Network Adapter doesn't actually cost anything, as it's a component that you deploy to an on-premises system. The Azure VPN Gateway, as part of the solution, does generate extra costs, as does the use of other services, such as Azure Recovery Vault or Microsoft Defender for Cloud. For more information about actual costs, see the [Azure Pricing Calculator][18]. It's important to note that actual costs vary by Azure region and your individual contract. Contact a Microsoft sales representative for more information about pricing.
 - Egress costs:
   - There are extra costs associated with outbound Inter-VNet data transfers. Those costs are dependent on your VPN Gateway's SKU and the actual amount of data you're using. For more information, see the [Azure Pricing Calculator][18]. It's important to note that actual costs vary by Azure region and your individual contract. Contact a Microsoft sales representative for additional information about pricing.
 

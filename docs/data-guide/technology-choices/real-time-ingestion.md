@@ -18,11 +18,7 @@ ms.custom:
 
 Real time processing deals with streams of data that are captured in real-time and processed with minimal latency. Many real-time processing solutions need a message ingestion store to act as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics.
 
-<!-- markdownlint-disable MD026 -->
-
 ## What are your options for real-time message ingestion?
-
-<!-- markdownlint-enable MD026 -->
 
 - [Azure Event Hubs](/azure/event-hubs/)
 - [Azure IoT Hub](/azure/iot-hub/)
@@ -69,8 +65,6 @@ To narrow the choices, start by answering these questions:
 
 The following tables summarize the key differences in capabilities.
 
-<!-- markdownlint-disable MD033 -->
-
 | Capability | IoT Hub | Event Hubs | Kafka on HDInsight |
 | --- | --- | --- | --- |
 | Cloud-to-device communications | Yes | No | No |
@@ -78,8 +72,6 @@ The following tables summarize the key differences in capabilities.
 | Device state information | [Device twins](/azure/iot-hub/iot-hub-devguide-device-twins) | No | No |
 | Protocol support | MQTT, AMQP, HTTPS <sup>1</sup> | AMQP, HTTPS, [Kafka Protocol](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) | [Kafka Protocol](https://cwiki.apache.org/confluence/display/KAFKA/A+Guide+To+The+Kafka+Protocol) |
 | Security | Per-device identity; revocable access control. | Shared access policies; limited revocation through publisher policies. | Authentication using SASL; pluggable authorization; integration with external authentication services supported. |
-
-<!-- markdownlint-enable MD026 -->
 
 [1] You can also use [Azure IoT protocol gateway](/azure/iot-hub/iot-hub-protocol-gateway) as a custom gateway to enable protocol adaptation for IoT Hub.
 

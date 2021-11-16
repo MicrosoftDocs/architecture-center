@@ -346,7 +346,7 @@ You must have an existing Azure account. If you do not have an Azure subscriptio
 -   [Azure Active Directory IDaaS in Security Operations - Azure Example Scenarios \| Microsoft
     Docs](../aadsec/azure-ad-security.yml)
 
--   [Threat indicators for cyber threat intelligence in Azure Sentinel - Azure Example Scenarios \| Microsoft
+-   [Threat indicators for cyber threat intelligence in Microsoft Sentinel - Azure Example Scenarios \| Microsoft
     Docs](../data/sentinel-threat-intelligence.yml)
 
 -   [Confidential computing on a healthcare platform - Azure Example Scenarios

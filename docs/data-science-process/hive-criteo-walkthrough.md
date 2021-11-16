@@ -1,5 +1,5 @@
 ---
-title: Use Azure HDInsight Hadoop Cluster on 1-TB dataset - Team Data Science Process
+title: Use Azure HDInsight Hadoop Cluster on 1-TB dataset
 description: Using the Team Data Science Process for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset
 services: machine-learning
 author: marktab
@@ -18,7 +18,7 @@ products:
 categories:
   - ai-machine-learning
 ---
-# The Team Data Science Process in action - Using an Azure HDInsight Hadoop Cluster on a 1-TB dataset
+# Use an Azure HDInsight Hadoop Cluster on a 1-TB dataset
 
 This walkthrough demonstrates how to use the Team Data Science Process in an end-to-end scenario with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data from one of the publicly available [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) datasets. It uses Azure Machine Learning to build a binary classification model on this data. It also shows how to publish one of these models as a Web service.
 

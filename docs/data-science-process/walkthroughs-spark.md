@@ -1,5 +1,5 @@
 ---
-title: Analytics on HDInsight Spark with PySpark, Scala - Team Data Science Process
+title: Analytics on HDInsight Spark with PySpark, Scala
 description: Examples of the Team Data Science Process that walk through the use of PySpark and Scala on an Azure HDInsight Spark.
 services: machine-learning
 author: marktab

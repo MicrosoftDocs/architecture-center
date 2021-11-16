@@ -1,10 +1,10 @@
-This article describes a reference architecture for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1). This architecture is focused on the infrastructure and _not_ the PCI-DSS 3.2.1 workload.
+This article describes a reference architecture for an Azure Kubernetes Service (AKS) cluster that runs a workload in compliance with the Payment Card Industry Data Security Standard (PCI-DSS 3.2.1). This architecture is focused on the infrastructure and *not* the PCI-DSS 3.2.1 workload.
 
 > This article is part of a series. Read the [introduction](aks-pci-intro.yml).
 
 The recommendations and examples are extracted from this accompanying reference implementation:
 
-![GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does _not_ represent or implement an actual PCI DSS workload.
+![GitHub logo.](../../../_images/github.png) [GitHub: Azure Kubernetes Service (AKS) Baseline Cluster for Regulated Workloads](https://github.com/mspnp/aks-baseline-regulated) demonstrates the regulated infrastructure. This implementation provides a microservices application. It's included to help you experience the infrastructure and illustrate the network and security controls. The application does *not* represent or implement an actual PCI DSS workload.
 
 ![Architecture of an AKS PCI infrastructure.](images/regulated-architecture.svg)
 
@@ -98,10 +98,12 @@ A combination of various Azure services and features and native Kubernetes const
 ### Subnet security through network security groups (NSGs)
 
 There are several NSGs that control the flow in and out of the cluster. Here are some examples:
+
 - The cluster node pools are placed in dedicated subnets. For each subnet, there are NSGs that block any SSH access to node VMs and allow traffic from the virtual network. Traffic from the node pools is restricted to the virtual network.
 - All inbound traffic from the internet is intercepted by Azure Application Gateway. For example, NSG rules make sure that:
-   - Only HTTPS traffic is allowed in.
-   - Traffic from Azure Control Plane is allowed.     For details, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
+
+  - Only HTTPS traffic is allowed in.
+  - Traffic from Azure Control Plane is allowed. For more information, see [Allow access to a few source IPs](/azure/application-gateway/configuration-infrastructure#network-security-groups).
 - On the subnets that have Azure Container Registry agents, NSGs allow only necessary outbound traffic. For instance, traffic is allowed to Azure Key Vault, Azure Active Directory, Azure Monitor, and other services that the container registry needs to talk to.
 - The subnet with the jump box is intended for management operations. The NSG rule only allows SSH access from Azure Bastion in the hub, and limited outbound connections. Jump boxes do not have universal internet access, and are controlled at both the subnet NSG and Azure Firewall.
 
@@ -151,6 +153,7 @@ Minimize standing access, especially for high-impact accounts, such as SRE/Ops i
 For more details on using PowerShell to configure conditional access, see [Azure AD Conditional Access](https://github.com/mspnp/aks-baseline-regulated/blob/main/docs/conditional-access.md).
 
 ## Disk encryption
+
 When you're designing encryption for data at rest, consider storage disks, AKS agent node VMs, other VMs, and any temporary and operating system disks.
 
 ### Storage disks
@@ -170,6 +173,7 @@ That feature is extended to the data stored on the VM host of your AKS agent nod
 You can enforce those features through Azure Policy.
 
 ### Cluster backups (state and resources)
+
 If your workload requires in-cluster storage, have a robust and secure process for backup and recovery. Consider services such as Azure Backup (for Azure Disks and Azure Files), for backup and recovery of any `PersistantVolumeClaim`. There are advantages if the backup system supports native Kubernetes resources. You can supplement your primary method that reconciles the cluster to a well-known state, with the backup system for critical system recovery techniques. For example, it can help in drift detection and cataloging system state changes over time at the Kubernetes resource level.
 
 Backup processes need to classify data in the backup within or external to the cluster. If the data is in scope for PCI DSS 3.2.1, extend your compliance boundaries to include the lifecycle and destination of the backup, which will be outside of the cluster. Backups can be an attack vector. When designing your backup, consider geographic restrictions, encryption at rest, access controls, roles and responsibilities, auditing, time-to-live, and tampering prevention.
@@ -180,7 +184,7 @@ In-cluster backup systems are expected to run with high privileges during its op
 
 Typically, Azure policies applied do not have workload-tuned settings. In the implementation, we're applying the **Kubernetes cluster pod security restricted standards for Linux-based workloads** initiative, which doesn't allow tuning of settings. Consider exporting this initiative and customizing its values for your specific workload. You can include all Gatekeeper `deny` Azure policies under one custom initiative, and all `audit` Azure policies under another initiative. Doing so categorizes block actions from information-only policies.
 
-Consider including the `kube-system` and `gatekeeper-system` namespaces to policies in your _audit_ policies for added visibility. Including those namespaces in _deny_ policies could cause cluster failure because of an unsupported configuration.
+Consider including the `kube-system` and `gatekeeper-system` namespaces to policies in your *audit* policies for added visibility. Including those namespaces in *deny* policies could cause cluster failure because of an unsupported configuration.
 
 You can enforce data encryption by setting some Azure Policy alerts. For example, you can enforce BYOK with an alert that detects clusters that don't have `diskEncryptionSetID` on the cluster resource. Another policy can detect if Host-Based Encryption is enabled on `agentPoolProfiles`. The reference implementation doesn't use any disks in the cluster, and the operating system disk is ephemeral. Both of those example policies are in place as a reminder of the security feature. The policies are set to `audit`, not `block`.
 
@@ -210,13 +214,13 @@ The in-cluster `omsagent` pods running in `kube-system` are the Log Analytics co
 
 ### Security monitoring
 
-Use Azure Security Center to view and remediate security recommendations. Also view security alerts on your resources. Enable Azure Defender plans as they apply to various components of the cardholder data environment.
+Use Microsoft Defender for Cloud to view and remediate security recommendations. Also view security alerts on your resources. Enable Microsoft Defender plans as they apply to various components of the cardholder data environment.
 
-Integrate logs so that you're able to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Azure Sentinel.
+Integrate logs so that you're able to review, analyze, and query data efficiently. Azure provides several technology options. You can use Azure Monitor to write logs into a Log Analytics workspace. Another option is to integrate data into security information and event management (SIEM) solutions, such as Microsoft Sentinel.
 
 As required by the standard, all Log Analytics workspaces are set to a 90-day retention period. Consider setting up continuous export for longer-term storage. Don't store sensitive information in log data. Make sure access to archived log data is subject to the same levels of access controls as recent log data.
 
-For a complete perspective, see [Azure Security Center Enterprise Onboarding Guide](https://aka.ms/ASCOnboarding). This guide addresses enrollment, data exports to your SIEM solutions, responding to alerts, and building workflow automation.
+For a complete perspective, see [Microsoft Defender for Cloud Enterprise Onboarding Guide](https://aka.ms/ASCOnboarding). This guide addresses enrollment, data exports to your SIEM solutions, responding to alerts, and building workflow automation.
 
 ## Related Azure services
 

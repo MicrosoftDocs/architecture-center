@@ -245,7 +245,7 @@ We recommend using Key Vault to safeguard cryptographic keys and secrets. You ca
 
 ### Security resources
 
-- [Azure Security Center](https://azure.microsoft.com/services/security-center) provides integrated security monitoring and policy management across your Azure subscriptions.
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center) provides integrated security monitoring and policy management across your Azure subscriptions.
 
 - [Azure security documentation](/azure/security)
 

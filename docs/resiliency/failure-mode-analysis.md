@@ -32,8 +32,6 @@ As a starting point for your FMA process, this article contains a catalog of pot
 
 ## App Service
 
-<!-- markdownlint-disable MD026 -->
-
 ### App Service app shuts down.
 
 **Detection**. Possible causes:
@@ -470,8 +468,6 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 ## Next steps
 
 For more information about the FMA process, see [Resilience by design for cloud services][resilience-by-design-pdf] (PDF download).
-
-<!-- markdownlint-enable MD026 -->
 
 <!-- links -->
 

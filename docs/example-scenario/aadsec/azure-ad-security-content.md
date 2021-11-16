@@ -1,5 +1,4 @@
 
-
 This architecture shows how Security Operations Center (SOC) teams can incorporate Azure Active Directory (Azure AD) identity and access capabilities into an overall integrated and layered *zero-trust* security strategy.
 
 Network security dominated SOC operations when all services and devices were contained on managed networks in organizations. However, [Gartner](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g) predicts that through 2022, the market size of cloud services will grow at a rate nearly three times that of overall IT services. As more companies embrace cloud computing, there's a shift toward treating [user identity](/azure/security/fundamentals/identity-management-best-practices#treat-identity-as-the-primary-security-perimeter) as the primary security boundary.
@@ -21,6 +20,7 @@ The [Microsoft Cybersecurity Reference Architecture (MCRA)](https://gallery.tech
 This article advances the zero-trust, adaptive security approach to IDaaS, emphasizing components available on the Azure AD platform.
 
 ## Use cases
+
 - Design new security solutions
 - Enhance or integrate with existing implementations
 - Educate SOC teams
@@ -81,13 +81,15 @@ Azure AD can use the following conditional access controls with conditional acce
 
   You can use PIM to [require approval](/azure/active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings) or justification for activating administrative roles. Users can maintain normal privileges most of the time, and request and receive access to roles they need to complete administrative or specialized tasks. When they complete their work and sign out, or the time limit on their access expires, they can reauthenticate with their standard user permissions.
 
-- [Microsoft cloud app security (MCAS)](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) is a *cloud app security broker (CAS-B)* that analyzes traffic logs to discover and monitor the applications and services in use in your organization. With MCAS, you can:
+- [Microsoft Defender for Cloud Apps](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) is a *cloud access security broker (CASB)* that analyzes traffic logs to discover and monitor the applications and services in use in your organization. With Defender for Cloud Apps, you can:
+
   - [Create policies](/cloud-app-security/control-cloud-apps-with-policies) to manage interaction with apps and services
   - Identify applications as [sanctioned or unsanctioned](/cloud-app-security/governance-discovery)
   - [Control and limit access to data](/cloud-app-security/governance-actions)
   - [Apply information protection](/cloud-app-security/azip-integration) to guard against information loss
 
-  MCAS can also work with [access policies](/cloud-app-security/access-policy-aad) and [session policies](/cloud-app-security/session-policy-aad) to control user access to SaaS apps. For example, you can:
+  Defender for Cloud Apps can also work with [access policies](/cloud-app-security/access-policy-aad) and [session policies](/cloud-app-security/session-policy-aad) to control user access to SaaS apps. For example, you can:
+  
   - [Limit the IP ranges](/azure/active-directory/conditional-access/location-condition) that can access apps
   - [Require MFA](/azure/active-directory/authentication/concept-mfa-howitworks) for app access
   - [Allow activities only from within approved apps](/azure/active-directory/conditional-access/app-based-conditional-access)
@@ -115,10 +117,11 @@ Azure AD can use the following conditional access controls with conditional acce
 Azure AD [audit reports](/azure/active-directory/reports-monitoring/concept-audit-logs) provide traceability for Azure activities with audit logs, sign-in logs, and risky sign-in and risky user reports. You can filter and search the log data based on several parameters, including service, category, activity, and status.
 
 You can route Azure AD log data to endpoints like:
+
 - Azure Storage accounts
 - [Azure Monitor logs](/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor)
 - [Azure event hubs](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
-- SIEM solutions like [Azure Sentinel](/azure/sentinel/quickstart-onboard), [ArcSight](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), [Splunk](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk), [SumoLogic](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic), [other external SIEM tools](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#partner-tools-with-azure-monitor-integration), or your own solution.
+- SIEM solutions like [Microsoft Sentinel](/azure/sentinel/quickstart-onboard), [ArcSight](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), [Splunk](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk), [SumoLogic](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic), [other external SIEM tools](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#partner-tools-with-azure-monitor-integration), or your own solution.
 
 You can also use the Microsoft Graph [reporting API](/azure/active-directory/reports-monitoring/concept-reporting-api) to retrieve and consume Azure AD log data within your own scripts.
 
@@ -128,7 +131,7 @@ Authentication methods are key to securing your organization's identities in a h
 
 [Azure Advanced Threat Protection (AATP)](/azure-advanced-threat-protection/what-is-atp) can use your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions. AATP focuses on UEBA to identify insider threats and flag risk. Even if an identity becomes compromised, AATP can help identify the compromise based on unusual user behavior.
 
-AATP is [integrated with MCAS](/azure-advanced-threat-protection/atp-mcas-integration) to extend protection to cloud apps. You can use MCAS to create [session policies](/cloud-app-security/session-policy-aad#protect-download) that protect your files on download. For example, you may automatically set view-only permissions on any file downloaded by specific types of users.
+AATP is [integrated with Defender for Cloud Apps](/azure-advanced-threat-protection/atp-mcas-integration) to extend protection to cloud apps. You can use Defender for Cloud Apps to create [session policies](/cloud-app-security/session-policy-aad#protect-download) that protect your files on download. For example, you may automatically set view-only permissions on any file downloaded by specific types of users.
 
 You can use AATP with [Azure Identity Protection](/azure/active-directory/identity-protection/) to help protect user identities that are synchronized to Azure with [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect).
 
@@ -141,6 +144,7 @@ If some of your apps already use an existing [delivery controller or network con
 Azure Active Directory pricing ranges from free, for features like SSO and MFA, to Premium P2, for features like PIM and Entitlement Management. For pricing details, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Next steps
+
 - [Zero Trust security](https://www.microsoft.com/security/business/zero-trust)
 - [Zero Trust Deployment Guide for Microsoft Azure Active Directory](https://www.microsoft.com/security/blog/2020/04/30/zero-trust-deployment-guide-azure-active-directory/)
 - [Overview of the security pillar](../../framework/security/overview.md)

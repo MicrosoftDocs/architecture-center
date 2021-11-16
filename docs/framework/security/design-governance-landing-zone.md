@@ -17,7 +17,7 @@ ms.custom:
 
 # Zero-trust landing zone in Azure
 
-A _landing zone_ refers to a prepared infrastructure into which a workload gets deployed. It already has the compute, data sources, access controls, and networking components provisioned. When a workload lands on Azure, the required plumbing is ready; the workload needs to plug into it.
+A *landing zone* refers to a prepared infrastructure into which a workload gets deployed. It already has the compute, data sources, access controls, and networking components provisioned. When a workload lands on Azure, the required plumbing is ready; the workload needs to plug into it.
 
 From a security perspective, there are several benefits. First, a landing zone offers isolation by creating segments. You can isolate assets at several layers from Azure enrollment down to a subscription that has the resources for the workload. This strategy of having resources within a boundary that is separate from other parts of the organization is an effective way of detecting and containing adversary movements.
 
@@ -50,6 +50,7 @@ In Azure, you can take advantage of Azure Policy to create and manage policies t
 For more information on how to do this in Azure, please review [Tutorial: Create and manage policies to enforce compliance](/azure/governance/policy/tutorials/create-and-manage).
 
 ## Architecture
+
 For information about an enterprise-scale reference architecture, see [Cloud Adoption Framework enterprise-scale landing zone architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture). The architecture provides considerations in these critical design areas:
 - [Enterprise Agreement (EA) enrollment and Azure Active Directory tenants](/azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants)
 - [Identity and access management](/azure/cloud-adoption-framework/ready/enterprise-scale/identity-and-access-management)
@@ -61,6 +62,7 @@ For information about an enterprise-scale reference architecture, see [Cloud Ado
 - [Platform automation and DevOps](/azure/cloud-adoption-framework/ready/enterprise-scale/platform-automation-and-devops)
 
 ## Azure services
+
 **How do you consistently deploy landing zones that follow organizational policies?**
 ***
 
@@ -70,10 +72,11 @@ Key Azure services that can help in creating a landing zone:
 - [Azure Resource Manager template specs](/azure/azure-resource-manager/templates/template-specs)  stores an Azure Resource Manager template (ARM template) in Azure for later deployment.
 - [Azure Policy](/azure/governance/policy/overview) enforces organizational standards and to assess compliance at-scale.
 - [Azure AD](https://azure.microsoft.com/services/active-directory/) and [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) work in conjunction to provide identity and access controls.
-- [Azure Security Center](/azure/security-center/security-center-intro)
-- [Azure Defender](/azure/security-center/azure-defender)
+- [Microsoft Defender for Cloud](/azure/security-center/security-center-intro)
+- [Microsoft Defender for Cloud](/azure/security-center/azure-defender)
 
 ## Next
+
 Use management groups to manage resources across multiple subscriptions consistently and efficiently.
 
 > [!div class="nextstepaction"]

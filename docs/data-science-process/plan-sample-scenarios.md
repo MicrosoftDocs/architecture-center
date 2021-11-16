@@ -1,5 +1,5 @@
 ---
-title: Identify scenarios for Azure Machine Learning - Team Data Science Process
+title: Identify scenarios for Azure Machine Learning
 description: Select the appropriate scenarios for doing advanced predictive analytics with the Team Data Science Process.
 services: machine-learning
 author: marktab

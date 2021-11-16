@@ -89,8 +89,8 @@ While the definition of roles and responsibilities around those areas might be a
 - Decisions about application security, Kubernetes RBAC, network policies, Azure policies, and communication with other services.
 - Configuration and maintenance of Azure Firewall, web application firewall (WAF), network security groups (NSGs), and DNS configuration.
 - Monitor and remediate server security, patching, configuration, and endpoint security.
-- Set direction for use of RBAC, Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources.
-- Incident monitoring and response team. Investigate and remediate security incidents in security information and event management (SIEM) or Azure Security Center.
+- Set direction for use of RBAC, Microsoft Defender for Cloud, Administrator protection strategy, and Azure Policy to govern Azure resources.
+- Incident monitoring and response team. Investigate and remediate security incidents in security information and event management (SIEM) or Microsoft Defender for Cloud.
 
 Then, formalize the definition by determining what level of access is required for the role with respect to the workload and the infrastructure. Here's a simple definition for illustrative purposes.
 
@@ -129,11 +129,11 @@ Here are some examples.
 
 |Job classification|Role|
 |---|---|
-|A _product owner_ defines the scope of the workload and prioritizes features. Balances customer data protection and ownership with business objectives. Needs access to reports, the cost center, or Azure dashboards. No access is needed for in-cluster or cluster-level permissions.|**Application owners**|
-|A _software engineer_ designs, develops, and containerizes the application code. A group with standing read permissions within defined scopes within Azure (such as Application Insights) and the workload namespaces. These scopes and permissions might be different between pre-production and production environments.|**Application developer**|
-|A _site reliability engineer_ does live-site triage, manages pipelines, and sets up application infrastructure.<p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s), but are not highly privileged. </p> |**Application operators**|
-|A _cluster operator_ designs and deploys a reliable and secure AKS cluster to the platform. Responsible for maintaining cluster up time. <p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s), but are not highly privileged. </p> |**Infrastructure operators**|
-|A _network engineer_ allocates of enterprise-wide virtual network and subnets, on-premises to cloud connectivity, and network security. |**Infrastructure operators**|
+|A *product owner* defines the scope of the workload and prioritizes features. Balances customer data protection and ownership with business objectives. Needs access to reports, the cost center, or Azure dashboards. No access is needed for in-cluster or cluster-level permissions.|**Application owners**|
+|A *software engineer* designs, develops, and containerizes the application code. A group with standing read permissions within defined scopes within Azure (such as Application Insights) and the workload namespaces. These scopes and permissions might be different between pre-production and production environments.|**Application developer**|
+|A *site reliability engineer* does live-site triage, manages pipelines, and sets up application infrastructure.<p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s), but are not highly privileged. </p> |**Application operators**|
+|A *cluster operator* designs and deploys a reliable and secure AKS cluster to the platform. Responsible for maintaining cluster up time. <p>Group A with full control within their allocated namespace(s). Standing permissions are not required.</p><p>Group B for day-to-day operations on the workload. It can have standing permissions within their allocated namespace(s), but are not highly privileged. </p> |**Infrastructure operators**|
+|A *network engineer* allocates of enterprise-wide virtual network and subnets, on-premises to cloud connectivity, and network security. |**Infrastructure operators**|
 
 #### Requirement 7.1.4
 
@@ -153,8 +153,8 @@ After following [Requirement 7.1](#requirement-71), you should have assessed rol
 
 Based on roles and responsibilities, assign roles to the infrastructure's role-based access control (RBAC). That mechanism can be:
 
-- **Kubernetes RBAC** is a native Kubernetes authorization model that controls access to the _Kubernetes control plane_, exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
-- **Azure RBAC** is an Azure AD-based authorization model that controls access to the _Azure control plane_. This is an association of your Azure AD tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources, such as networks, an AKS cluster, and managed identities.
+- **Kubernetes RBAC** is a native Kubernetes authorization model that controls access to the *Kubernetes control plane*, exposed through the Kubernetes API server. This set of permissions defines what you can do with the API server. For example, you can deny a user the permissions to create or even list pods.
+- **Azure RBAC** is an Azure AD-based authorization model that controls access to the *Azure control plane*. This is an association of your Azure AD tenant with your Azure subscription. With Azure RBAC you can grant permissions to create Azure resources, such as networks, an AKS cluster, and managed identities.
 
 Suppose you need to give permissions to the cluster operators (mapped to the infrastructure operator role). All people who are assigned the infrastructure operator responsibilities belong to an Azure AD Group. As established in 7.1.1, this role requires the highest privilege in the cluster. Kubernetes has built-in RBAC roles, such as `cluster-admin`, that meets those requirements. You'll need to bind the Azure AD Group for infrastructure operator to `cluster-admin` by creating role bindings. There are two approaches. You can choose the built-in roles. Or, if the built-in roles do not meet your requirements (for example, they might be overly permissive), create custom roles for your bindings.
 
@@ -216,9 +216,9 @@ Default "deny-all" setting.
 
 When you start the configuration, start with zero-trust policies. Make exceptions as needed and document them in detail.
 
-- Kubernetes RBAC implements _deny all_ by default. Don't override by adding highly-permissive cluster role bindings that inverse the deny all setting.
+- Kubernetes RBAC implements *deny all* by default. Don't override by adding highly-permissive cluster role bindings that inverse the deny all setting.
 
-- Azure RBAC also implements _deny all_ by default. Don't override by adding RBAC assignments that inverse the deny all setting.
+- Azure RBAC also implements *deny all* by default. Don't override by adding RBAC assignments that inverse the deny all setting.
 
 - All Azure services, Azure Key Vault, and Azure Container Registry, have *deny all* set of permissions by default.
 

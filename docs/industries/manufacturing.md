@@ -35,7 +35,11 @@ To learn how you can modernize your manufacturing business using Azure, visit [A
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/xn32a320sv4]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 
