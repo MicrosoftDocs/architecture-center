@@ -615,8 +615,12 @@ items:
                     href: framework/services/data/azure-databricks/security.md
               - name: Azure Database for MySQL
                 items:
-                  - name: Cost Optimization
+                  - name: Cost optimization
                     href: framework/services/data/azure-db-mysql/cost-optimization.md
+              - name: Azure Database for PostgreSQL
+                items:
+                  - name: Cost optimization
+                    href: framework/services/data/azure-db-postgresql/cost-optimization.md
   - name: Design Patterns
     items:
       - name: Overview
