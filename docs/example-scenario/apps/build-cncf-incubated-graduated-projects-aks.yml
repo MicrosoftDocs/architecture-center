@@ -2,7 +2,7 @@
 metadata:
   title: Build CNCF incubated and graduated projects by using Azure Kubernetes Service
   titleSuffix: Azure Example Scenarios
-  description: This article demonstrates, after deployment of AKS, how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF. 
+  description: This article demonstrates how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS. 
   author: ssarwa
   ms.author: ssarwa
   ms.date: 11/19/2021
@@ -13,8 +13,8 @@ azureCategories:
   - "containers"
 products:
   - "azure-kubernetes-service"
-name: <The H1 title is a noun phrase that describes the scenario. Avoid naming the scenario after the Azure technologies that are used. Example: "Insurance claim image classification on Azure">
-summary: This article demonstrates, after deployment of AKS, how to conceptualize, architect, build, and deploy an application that uses projects from the Cloud Native Computing Foundation.
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+name: Build CNCF incubated and graduated projects by using Azure Kubernetes Service
+summary: This article demonstrates how to conceptualize, architect, build, and deploy an application that uses projects from the Cloud Native Computing Foundation after deployment of AKS.
+thumbnailUrl: /azure/architecture/browse/thumbs/cncf-architecture.png
 content: |
-  [!include[](<sample-solution>-content.md)]
+  [!include[](build-cncf-incubated-graduated-projects-aks-content.md)]
