@@ -77,13 +77,13 @@ To manage compliance:
 - Pet compliance is generally more challenging to track than cattle compliance. Usually only DevOps teams can track and maintain the compliance of pet environments and servers. But this article's solution increases the visibility of each pet's status, making compliance tracking easier for everyone in the organization.
 - For cattle environments, refresh the VMs and rebuild them from scratch on a regular basis. Those steps should be adequate for compliance. You can align this refresh cycle with your DevOps team's regular release cadence.
 
-## Restrict images
+### Restrict images
 
 Don't allow DevOps teams to use Azure Marketplace VM images. Only allow VMs images that the Azure Compute Gallery publishes. This restriction is critical for ensuring VM compliance. You can use a custom policy in Azure Policy to enforce this restriction. For a sample, see [Allow image publishers][Only allow certain image publishers from the Marketplace]. 
 
 As a part of this solution, Azure Image Builder should use an Azure Marketplace image. It's essential to use the latest image that's available in Azure Marketplace. Apply any customizations on top of that image. Azure Marketplace images are refreshed often, and each image has certain preset configurations, ensuring your images are secure by default.
 
-## Customize images
+### Customize images
 
 A golden image is the version of a marketplace image that's published to Azure Compute Gallery. Golden images are available for consumption by DevOps teams. Before the image is published, customization takes place. Customization activities are unique to each enterprise. Common activities include:
 
@@ -93,7 +93,7 @@ A golden image is the version of a marketplace image that's published to Azure C
 
 You can use Azure Image Builder to customize images by adjusting operating system settings and by running custom scripts and commands. Image Builder supports Windows and Linux images. For more information on customizing images, see [Azure Policy Regulatory Compliance controls for Azure Virtual Machines][Azure Policy Regulatory Compliance controls for Azure Virtual Machines].
 
-## Track image tattoos
+### Track image tattoos
 
 Image tattooing is the process of keeping track of all image version information that a VM uses. This information is invaluable during troubleshooting and can include:
 
@@ -106,7 +106,7 @@ The amount and type of information that you track varies depends on your organiz
 
 For image tattooing on Windows VMs, set up a custom registry. Add all required information to this registry path as key-value pairs. On Linux VMs, enter image tattooing data into environment variables or a file. Put the file in the `/etc/` folder, where it doesn't conflict with developer work or applications. If you'd like to use Azure Policy to track the tattooing data or report on it, store each piece of data as a unique key-value pair. For information on determining the version of a Marketplace image, see [How to find Marketplace Image version][How to find Marketplace Image version].
 
-## Validate golden images with automated tests
+### Validate golden images with automated tests
 
 Generally, you should refresh golden images monthly to stay current with the latest updates and changes in Azure Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM and run tests on it before the beginning of each month. The tests should confirm pared images before publishing them for consumption. Automate tests by using a test automation solution or by running commands or batches on the VM.
 
@@ -117,7 +117,7 @@ Common test scenarios include:
 
 A failed test should interrupt the process. Repeat the test after addressing the root cause of the problem. If the tests run without problem for the most part, automating the testing process reduces the effort that goes into maintaining an evergreen state.
 
-## Publish golden images
+### Publish golden images
 
 Publish final images on Azure Compute Gallery as a managed image or as a VHD that DevOps teams can use. Mark any earlier images as aged. If you haven't set an end of life date for an image version in Azure Compute Gallery, you might prefer to discontinue the oldest image. This decision depends on your company's policies.
 
@@ -127,8 +127,43 @@ Another good practice is to publish the latest images across different regions. 
 
 For more information on Azure Compute Gallery, see [Store and share images in an Azure Compute Gallery][Store and share images in an Azure Compute Gallery].
 
+### Refresh golden images
 
+When an image is used for an application, it can be hard to update the underlying operating system image with recent compliance changes. Strict business requirements can complicate the process of refreshing the underlying VM. Refreshing can also be complex when the VM is critical to the business.
 
+Since cattle servers are dispensible, you can coordinate with DevOps teams to refresh these servers in a planned maintenance window as a business-as-usual activity.
+
+It's more challenging to refresh pet servers. Discontinuing an image can put applications at risk. In scale-out scenarios, Azure can't find the respective images, resulting in failures.
+
+Consider these guidelines when refreshing pet servers:
+
+- For best practices, see [Overview of the reliability pillar][Overview of the reliability pillar] in the Azure Well-Architected Framework.
+- To streamline the process, see the principles that these documents discuss:
+
+  - [Deployment Stamps pattern][Deployment Stamps pattern]
+  - [Geode pattern][Geode pattern]
+  - [Bulkhead pattern][Bulkhead pattern]
+
+- Tag each pet server with a "pet" label. Configure a policy in Azure Policy to take this tag into account when refreshing. 
+
+### Improve visibility
+
+Generally, you should use Azure Policy to manage any control-plane compliance activity. You can also use Azure Policy for:
+
+- Tracking VM compliance.
+- Installing Azure agents.
+- Capturing diagnostic logs.
+- Improving the visibility of VM compliance.
+
+Use the guest configuration feature of Azure Policy to audit the configuration changes that you make during image customization. When drift occurs, the Azure Policy dashboard lists the affected VM as non-compliant. By using image tattooing information, Azure Policy can track when you use outdated images or operating systems.
+
+Audit pet servers for each application. By using Azure Policies with audit effect, you can improve the visibility of these servers. Adjust the audit process according to your company's risk appetite and internal risk management processes.
+
+Each DevOps team can track its applications' compliance levels in the Azure Policy dashboard and take appropriate corrective actions. When you assign these policies to a management group or a subscription, give the assignment description a URL that leads to a company-wide wiki. You can also use a short URL like aka.ms/policy-21. In the wiki, list the steps that DevOps teams should take to make their VMs compliant.
+
+IT risk managers and security officers can also use the Azure Policy dashboard to manage company risks according to their company's risk appetite
+
+By using the guest configuration feature of Azure Policy with remediation options, you can apply corrective actions automatically. But interrogating a VM frequently or making changes on a VM that you use for a business-critical application could degrade performance. Plan remediation actions carefully for production workloads. Give a DevOps team ownership of application compliance in all environments. This approach is essential for pet servers and environments, which are long-term Azure components.
 
 ## Considerations
 
@@ -136,7 +171,10 @@ Keep the following points in mind when you implement this solution.
 
 ### Scalability considerations
 
-Consider these scalability issues:
+You can configure the number of replicas that Azure Compute Gallery stores of each image. A higher number of replicas minimizes the risk of throttling when you provision multiple VMs simultaneously. For general guidance on scaling and configuring an appropriate number of replicas, see [Scaling for Azure Compute Gallery][Scaling for Azure Compute Gallery].
+
+
+
 
 
 ### Performance considerations
@@ -168,9 +206,14 @@ To explore the cost of running this solution in your environment, use the [Azure
 [Azure Policy guest configuration feature]: https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration
 [Azure Policy and Policy Dashboard]: https://docs.microsoft.com/azure/governance/policy/overview
 [Azure Policy Regulatory Compliance controls for Azure Virtual Machines]: https://docs.microsoft.com/azure/virtual-machines/security-controls-policy
+[Bulkhead pattern]: https://docs.microsoft.com/azure/architecture/patterns/bulkhead
 [Custom Script Extensions]: https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-windows
+[Deployment Stamps pattern]: https://docs.microsoft.com/azure/architecture/patterns/deployment-stamp
+[Geode pattern]: https://docs.microsoft.com/azure/architecture/patterns/geodes
 [How to find Marketplace Image version]: https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties
 [Only allow certain image publishers from the Marketplace]: https://github.com/Azure/azure-policy/tree/master/samples/Compute/allowed-image-publishers
+[Overview of the reliability pillar]: https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/overview
+[Scaling for Azure Compute Gallery]: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#scaling
 [Store and share images in an Azure Compute Gallery]: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries
 [Store and share images in an Azure Compute Gallery - Limits]: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#limits
 [What is an Azure landing zone?]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/
