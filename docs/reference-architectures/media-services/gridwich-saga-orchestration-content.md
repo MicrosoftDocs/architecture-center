@@ -1,6 +1,5 @@
 
 
-
 In the example implementation, the external system is a large media company's media asset management (MAM) and workflow orchestration system. The external system operates as a [saga orchestrator](https://microservices.io/patterns/data/saga.html) that chains a series of activities to build Gridwich workflows.
 
 Saga activities might or might not include user interactions or approvals. Gridwich assumes that the external system tracks the failure or success of each operation it initiates.
@@ -50,4 +49,3 @@ The operator reviews the asset contents, extracts metadata for the MAM system, a
  1. Receives the blob created for the copy, and completes the publication flow by updating the MAM system.
 
 ![Diagram showing an asset publication saga.](media/publication-saga.png)
-

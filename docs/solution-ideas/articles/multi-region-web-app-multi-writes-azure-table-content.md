@@ -18,7 +18,7 @@ Since replication is a custom implementation, the consistency level can be whate
 
 The possible difficulty of implementing custom replication and the time required to do it are important considerations with this architecture.
 
->[!Note]
+> [!Note]
 > Your application may require multiple storage accounts under some circumstances. See [Considerations](#considerations) for more information.
 
 ## Potential use cases

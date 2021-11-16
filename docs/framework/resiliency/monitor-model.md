@@ -76,8 +76,8 @@ Check functions can run processes to ensure that they produce valid results, mea
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Best practices](./monitor-best-practices.md)
+> [!div class="nextstepaction"]
+> [Best practices](./monitor-best-practices.md)
 
 ## Related links
 

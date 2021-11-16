@@ -1,6 +1,5 @@
 
 
-
 Gridwich uses two types of Azure Key Vault keys, storage keys and third-party keys, which are controlled by two Azure Logic Apps. The Key Roller Logic App rotates the Azure Storage Account keys, and the Secret Changed Handler Logic App rotates or adds third-party keys.
 
 ## Run admin scripts

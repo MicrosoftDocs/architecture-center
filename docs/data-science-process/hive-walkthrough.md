@@ -1,5 +1,5 @@
 ---
-title: Explore data in a Hadoop cluster - Team Data Science Process
+title: Explore data in a Hadoop cluster
 description: Using the Team Data Science Process for an end-to-end scenario, employing an HDInsight Hadoop cluster to build and deploy a model.
 services: machine-learning
 author: marktab
@@ -18,7 +18,7 @@ products:
 categories:
   - ai-machine-learning
 ---
-# The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
+# Explore data in a Hadoop cluster
 In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. To handle binary and multiclass classification and regression predictive tasks, we build models of the data with Machine Learning Studio (classic).
 
 For a walkthrough that shows how to handle a larger dataset, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1-TB dataset](hive-criteo-walkthrough.md).
@@ -565,7 +565,6 @@ From the Hive directory prompt, run:
 ```console
 hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 ```
-
 
 ### Exploration: Class distributions in the multiclass setting
 > [!NOTE]

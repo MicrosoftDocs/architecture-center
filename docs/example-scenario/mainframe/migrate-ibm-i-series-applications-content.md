@@ -25,7 +25,7 @@ The numbers in the diagram correspond to the following data flow.
 
 1.  A user on-premises uses a web browser to connect to Azure through a private Azure ExpressRoute connection. This web-based app provides a modern interface for the services that run on the IBM i instances running in Skytap on Azure.
 
-2.  An FTP proxy and Azure Data Box Gateway are deployed on-premises next to the datacenter’s existing IBM i infrastructure. Before migration, either GoSave or Backup, Recovery, and Media Services (BRMS) are used to back up the IBM i systems.
+2.  An FTP proxy and Azure Data Box Gateway are deployed on-premises next to the datacenter's existing IBM i infrastructure. Before migration, either GoSave or Backup, Recovery, and Media Services (BRMS) are used to back up the IBM i systems.
 
 3.  Data Box Gateway sends the data from the IBM i system through an Azure Private Link endpoint to an Azure Blob Storage account.
 
@@ -59,13 +59,13 @@ The architecture uses these components:
 
 -   You can use BRMS to back up your system before migration, and then use BRMS restore for incremental backups.
 
--   In a high availability scenario, you can replicate journal data over your organization’s ExpressRoute or VPN connection in near real-time. In case of a failure, you can perform a role swap for a near immediate failover.
+-   In a high availability scenario, you can replicate journal data over your organization's ExpressRoute or VPN connection in near real-time. In case of a failure, you can perform a role swap for a near immediate failover.
 
 ## Considerations
 
 ### Availability
 
-Skytap on Azure has high reliability built on IBM Power9 Systems backed by SSD RAID 6+1 storage and 10 Gb/sec backplane networking.
+Skytap on Azure has high reliability built on IBM Power9 Systems backed by SSD RAID 6+1 storage and 10 Gb/sec backplane networking.
 
 ### Performance
 
@@ -88,7 +88,7 @@ To get started running iSeries applications on Azure, check out the [Skytap on A
 
 ## Pricing
 
-Running IBM i series workloads in Skytap on Azure helps optimize costs compared to on-premises deployments. The consumption-based usage plans let you deploy LPARs only as needed and scale them on demand to meet the needs of your workloads.
+Running IBM i series workloads in Skytap on Azure helps optimize costs compared to on-premises deployments. The consumption-based usage plans let you deploy LPARs only as needed and scale them on demand to meet the needs of your workloads.
 
 See more pricing information on the [Plans + Pricing](https://azuremarketplace.microsoft.com/marketplace/apps/skytapinc.skytap-on-azure-main1?tab=PlansAndPrice) tab of Skytap on Azure in Azure Marketplace.
 

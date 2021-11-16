@@ -50,7 +50,6 @@ JBoss EAP is suitable for these uses:
 - [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. Kubernetes is at the core of Red Hat OpenShift. OpenShift brings added-value features to complement Kubernetes, making it a turnkey container platform as a service (PaaS) with a significantly improved developer and operator experience.
 - [Red Hat JBoss Enterprise Application Platform (JBoss EAP)](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.jboss-eap-rhel) is an application platform that delivers enterprise-grade security, performance, and scalability. It can run on-premises, virtual, or in private, public, or hybrid clouds.
 
-
 ## Next steps
 
 ### Red Hat on Azure

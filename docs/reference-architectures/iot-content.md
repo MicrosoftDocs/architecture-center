@@ -34,10 +34,10 @@ You can use the insights gathered about your data to manage and control your env
 - **Azure Web Apps** enables you to deploy web applications that scale with your organization.
 - **Mobile Apps** allows you to build cross platform and native apps for iOs, Android, Windows, or Mac.
 - **Dynamics 365** combines CRM (customer relationship management) and ERP (enterprise resource planning) in the cloud.
-- **Microsoft Flow** is an SaaS offering for automating workflows across applications and other SaaS services.
+- **Microsoft Flow** is a SaaS offering for automating workflows across applications and other SaaS services.
 - **Azure Logic Apps** is a cloud-based PaaS offering used to create and automate workflows that integrate your apps, data, services, and systems.
 
-There are also several services provided by Azure to help you monitor your entire IoT solution and keep it secure. Diagnostic services include **Azure Monitor**. Security services such as **Azure Active Directory** and **Azure Defender for IoT** help you control, view, and manage your security settings, threat detection and response.
+There are also several services provided by Azure to help you monitor your entire IoT solution and keep it secure. Diagnostic services include **Azure Monitor**. Security services such as **Azure Active Directory** and **Microsoft Defender for IoT** help you control, view, and manage your security settings, threat detection and response.
 
 ## Digital Twins
 
@@ -108,15 +108,15 @@ For additional security considerations, see [Internet of Things (IoT) security a
 
 ## Reliability and performance
 
-A key area of consideration for resilient IoT solutions is business continuity and disaster recovery. Designing for High Availability (HA) and Disaster Recovery (DR) can help you define and achieve required uptime goals for your solution.
+A key area of consideration for resilient IoT solutions is business continuity and disaster recovery. Designing for High Availability (HA) and Disaster Recovery (DR) can help you define and achieve required uptime goals for your solution.
 
-Different Azure services offer different options for redundancy and failover to help you achieve the uptime goals that best suit your business objectives. Incorporating any of these HA/DR alternatives into your IoT solution requires a careful evaluation of the trade-offs between the:
+Different Azure services offer different options for redundancy and failover to help you achieve the uptime goals that best suit your business objectives. Incorporating any of these HA/DR alternatives into your IoT solution requires a careful evaluation of the trade-offs between the:
 
 - Level of resiliency you require
 - Implementation and maintenance complexity
 - Cost of Goods Sold (COGS) impact
 
-The article [Azure Business Continuity Technical Guidance](/azure/architecture/resiliency) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery) paper provides architecture design guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
+The article [Azure Business Continuity Technical Guidance](/azure/architecture/resiliency) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery) paper provides architecture design guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
 
 You can also find service-specific performance information in the documentation for each Azure IoT service.
 

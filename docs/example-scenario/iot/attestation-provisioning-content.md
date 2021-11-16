@@ -1,6 +1,5 @@
 
 
-
 Connecting IoT devices to the IoT platform involves the three processes of *attestation*, *authentication*, and *provisioning*.
 
 - The [attestation mechanism](/azure/iot-dps/concepts-security#attestation-mechanism) represents the method chosen for a device to confirm its identity when it connects to an IoT platform service like Azure IoT Hub. IoT Hub supports [symmetric key, X.509 thumbprint, and X.509 CA](https://azure.microsoft.com/blog/iot-device-authentication-options/) attestation methods.

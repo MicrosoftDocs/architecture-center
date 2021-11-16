@@ -56,8 +56,8 @@ To learn more, see [Use Azure Stack HCI switchless interconnect and lightweight 
 
 Monitoring in a hybrid environment can be a challenge. However, with tools like Azure Arc as you bring Azure services on-premises, you can easily enroll in additional Azure services such as monitoring, security, and update by simply turning them on.
 
-- Across products: Integrate with Azure Sentinel, Azure Defender
-- Bring Azure Security Center to your on-prem data and servers with Arc
+- Across products: Integrate with Microsoft Sentinel, Microsoft Defender for Cloud
+- Bring Microsoft Defender for Cloud to your on-prem data and servers with Arc
 - Set security policies, resource boundaries, and RBAC for workloads across the hybrid infra
 - Proper admin roles for read, modify, re-onboard, and delete a machine
 
@@ -73,9 +73,9 @@ Enable Azure Monitor for containers for one or more existing deployments of Kube
 
 Automatically enroll in additional Azure Arc enabled resources and services. Simply turn them on when needed:
 
-- Strengthen your security posture and protect against threats by turning on Azure Defender.
+- Strengthen your security posture and protect against threats by turning on Microsoft Defender for Cloud.
 - Get actionable alerts from Azure Monitor.
-- Detect, investigate, and mitigate security incidents with the power of a cloud-native SIEM, by turning on Azure Sentinel.
+- Detect, investigate, and mitigate security incidents with the power of a cloud-native SIEM, by turning on Microsoft Sentinel.
 
 ## Deploy and manage containerized applications
 
@@ -83,5 +83,5 @@ Deploy and manage containerized applications with GitHub and Azure Policy. Ensur
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Reliability](./hybrid-reliability.md)
+> [!div class="nextstepaction"]
+> [Reliability](./hybrid-reliability.md)

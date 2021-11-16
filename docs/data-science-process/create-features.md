@@ -1,5 +1,5 @@
 ---
-title: Feature engineering in machine learning - Team Data Science Process
+title: Feature engineering in machine learning
 description: Learn about feature engineering and its role in the data enhancement process of machine learning.
 services: machine-learning
 author: marktab

@@ -31,7 +31,7 @@ The Azure IoT client SDKs provide varying levels of support for SAS token authen
 
 The token evaluation frequency depends on the chosen transport protocol—MQTT, AMQP, or HTTPS. The variation depends on the capability of the protocol to support proactive renewal of tokens and session time-outs. Only AMQP implements proactive renewal support. This means the other transports will close the connection on SAS token authentication failure, and then need to perform a new connection operation. This is a potentially expensive connectivity operation for the client.
 
-If SAS authentication fails, an error is raised by the transport implementation that can be handled within the device application by a “Connection Status Changed” event handler. Failure to implement such a handler will typically see the device application halt due to the error. With the correct implementation of the event handler and token renewal functionality, the transports can re-attempt the connection.
+If SAS authentication fails, an error is raised by the transport implementation that can be handled within the device application by a "Connection Status Changed" event handler. Failure to implement such a handler will typically see the device application halt due to the error. With the correct implementation of the event handler and token renewal functionality, the transports can re-attempt the connection.
 
 The following figure illustrates the third-party token-server pattern:
 
@@ -69,7 +69,7 @@ The following sections offer examples that you can use for different programming
 
 ### Azure IoT Hub device SDK for C and Azure IoT Hub device SDK for Embedded C
 
-The following approach can be utilized in device applications built using the Azure IoT C SDK or the Azure IoT Embedded C SDK. Neither SDK provides SAS token lifetime management, therefore you’ll need to implement a SAS token lifetime manager capability.
+The following approach can be utilized in device applications built using the Azure IoT C SDK or the Azure IoT Embedded C SDK. Neither SDK provides SAS token lifetime management, therefore you'll need to implement a SAS token lifetime manager capability.
 
 SAS tokens can be used via the *IOTHUB\_CLIENT\_CONFIG* structure by setting the
 *deviceSasToken* member to the token and making the *deviceKey* null. Other unused values, such as *protocolGatewayHostName*, must also be set to null.
@@ -90,9 +90,7 @@ CONFIG-\>DEVICEKEY = 0;
 CONFIG-\>DEVICESASTOKEN = TOKEN;
 
 CONFIG-\>PROTOCOLGATEWAYHOSTNAME = 0;
-```
-The created IOTHUB\_CLIENT\_CONFIG can then be provided to the IoTHubDeviceClient\_Create function to establish a DeviceClient instance.
-```
+`The created IOTHUB\_CLIENT\_CONFIG can then be provided to the IoTHubDeviceClient\_Create function to establish a DeviceClient instance.`
 IF ((IOTHUBCLIENTHANDLE = IOTHUBDEVICECLIENT\_CREATE(CONFIG)) == NULL)
 
 {
@@ -100,15 +98,13 @@ IF ((IOTHUBCLIENTHANDLE = IOTHUBDEVICECLIENT\_CREATE(CONFIG)) == NULL)
 (VOID)PRINTF("ERROR: IOTHUBCLIENTHANDLE IS NULL!\\R\\N");
 
 }
-```
-To capture SAS token authentication failures, a handler needs to be implemented for the IoTHubDeviceClient\_SetConnectionStatusCallback.
-```
+`To capture SAS token authentication failures, a handler needs to be implemented for the IoTHubDeviceClient\_SetConnectionStatusCallback.`
 (VOID)IOTHUBDEVICECLIENT\_SETCONNECTIONSTATUSCALLBACK(IOTHUBCLIENTHANDLE,
 CONNECTION\_STATUS\_CALLBACK, NULL);
 ```
 
 The connection\_status\_callback can catch the IOTHUB\_CLIENT\_CONNECTION\_STATUS\_REASON of IOTHUB\_CLIENT\_CONNECTION\_EXPIRED\_SAS\_TOKEN to trigger a renewal of the SAS token via the third-party token service. This is required for all transports to capture connection issues but is specifically required by transports which do not support proactive SAS token renewal. Proactive SAS token lifetime management can be implemented as a function repeatedly run during the device applications
-“operational” loop. Ensuring the lifetime of the token is frequently evaluated, and token renewal can be proactively executed when required.
+"operational" loop. Ensuring the lifetime of the token is frequently evaluated, and token renewal can be proactively executed when required.
 
 SAS token authentication implementation summary for C SDKs:
 
@@ -116,7 +112,7 @@ SAS token authentication implementation summary for C SDKs:
 
 2.  Use an IOTHUB\_CLIENT\_CONFIG to provide the device SAS token to IoTHubDeviceClient\_Create.
 
-3.  Implement proactive SAS token lifetime management as part of the device application’s operation loop.
+3.  Implement proactive SAS token lifetime management as part of the device application's operation loop.
 
 **References:**
 

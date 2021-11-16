@@ -12,14 +12,13 @@ ms.custom:
 
 # Capture cost requirements
 
-Start your planning with a careful enumeration of requirements. Make sure the needs of the stakeholders are addressed. For strong alignment with business goals, those areas must be defined by the stakeholders and shouldn’t be collected from a vendor.
+Start your planning with a careful enumeration of requirements. Make sure the needs of the stakeholders are addressed. For strong alignment with business goals, those areas must be defined by the stakeholders and shouldn't be collected from a vendor.
 
  Capture requirements at these levels:
 - Business workflow
 - Compliance and regulatory
 - Security
 - Availability
-
 
 **What do you aim to achieve by building your architecture in the cloud?** 
 ***
@@ -51,7 +50,6 @@ For security considerations, see the [Security Pillar](../security/overview.md).
 
 ## Business continuity
 
-
 **Does the application have a Service Level Agreement that it must meet?** 
 ***
 
@@ -66,7 +64,6 @@ In general, if the cost of high availability exceeds the cost of application dow
 Suppose the downtime costs are relatively low, you can save by using recovery from your backup and disaster recovery processes. If the downtime is likely to cost a significant amount per hour, then invest more in the high availability and disaster recovery of the service. It's a three-way tradeoff between cost of service provision, the availability requirements, and the organization's response to risk.
 
 ## Application lifespan
-
 
 **Does your service run seasonally or follow long-term patterns?**
 ***

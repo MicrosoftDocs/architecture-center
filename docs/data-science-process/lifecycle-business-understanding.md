@@ -32,7 +32,6 @@ Here is a visual representation of the TDSP lifecycle:
 
 ![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
-
 ## Goals
 * Specify the key variables that are to serve as the model targets and whose related metrics are used determine the success of the project.
 * Identify the relevant data sources that the business has access to or needs to obtain.

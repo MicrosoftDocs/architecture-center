@@ -59,7 +59,7 @@ Chaos engineering requires specialized expertise, technology, and practices. As 
 
 If you plan to practice the simulated handling of potentially catastrophic scenarios under controlled conditions, here's a simplified way to organize your teams:
 
-|Attacker| Defender|
+|Attacker| Defender for Cloud|
 |---|---|
 |Inject faults| Assess|
 |Provide hints|Analyze|

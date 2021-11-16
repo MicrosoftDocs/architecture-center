@@ -14,8 +14,6 @@ ms.custom:
   - guide
 ---
 
-<!-- markdownlint-disable MD026 -->
-
 # Compare the machine learning products and technologies from Microsoft
 
 Learn about the machine learning products and technologies from Microsoft. Compare options to help you choose how to most effectively build, deploy, and manage your machine learning solutions.
@@ -61,8 +59,6 @@ The following development platforms and tools are available for machine learning
 Use Python SDK, Jupyter notebooks, R, and the CLI for machine learning at cloud scale. For a low-code or no-code option, use Azure Machine Learning's interactive [designer](/azure/machine-learning/service/concept-designer) in the studio to easily and quickly build, test, and deploy models using pre-built machine learning algorithms.
 
 [Try Azure Machine Learning for free](https://aka.ms/AMLFree).
-
-<!-- markdownlint-disable MD033 -->
 
 |||
 |-|-|

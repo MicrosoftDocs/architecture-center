@@ -10,7 +10,6 @@ ms.custom:
   - article
 ---
 
-
 # Provisioning cloud resources to optimize cost
 
 Deployment of cloud resources of a workload is known as _provisioning_.
