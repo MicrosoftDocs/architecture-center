@@ -29,8 +29,8 @@ A quantum computing application is in fact always a hybrid application consistin
 
 DevOps can be defined as ["the union of people, process, and products to enable continuous delivery of value to our end users"](https://azure.microsoft.com/overview/what-is-devops/). This definition gives a great structure for discussing requirements of hybrid quantum applications and their specifics.
 
-* **People** - Designing, developing, and operating quantum algorithms requires skills that are different from those for classical components. Designers and developers typically include quantum information scientists and similar roles. Operations staff must be familiar with specialized target systems (optimization solvers, quantum hardware).
-* **Process** - The clear separation of classical and quantum components on one side, and need for integration of these on the other requires an alignment of the quantum and the classical DevOps activities.
+* **People** - Designing, developing, and operating quantum algorithms requires skills that are different from those skills required for classical components. Designers and developers typically include quantum information scientists and similar roles. Operations staff must be familiar with specialized target systems (optimization solvers, quantum hardware).
+* **Process** - The clear separation of classical and quantum components on one side, and need for integration of these components on the other requires an alignment of the quantum and the classical DevOps activities.
 * **Products** - Lifecycle of the different execution environments must be considered as well. Specialized quantum computers are scarce resources, in general operated as central resources and accessed by various classical clients.
 
 These pillars must be brought together to form a unified approach that allows designing, developing, operating, and managing hybrid quantum software systems in a repeatable, reliable way. DevOps influences the application lifecycle throughout its plan, develop, deliver, and operate phases of quantum components.
@@ -56,7 +56,7 @@ The outer loop involves activities typically associated with a full DevOps-cycle
 
 The inner loop is the iterative process a (quantum or classical) developer performs when writing, building, testing code. The inner loop mostly takes place on IT systems that an individual developer owns or holds responsibility for (for example the developer machine).
 
-For quantum components, the inner loop involves following [activities enabled by the Quantum Development Kit](/azure/quantum/overview-azure-quantum#workflow-of-the-quantum-software-development):
+For quantum components, the inner loop involves following [activities enabled by the Quantum Development Kit](/azure/quantum/overview-azure-quantum#workflow-of-the-quantum-software-development). They are typically performed by team members specialized for quantum computing algorithm development (quantum engineers, architects etc.):
 
 1. Write quantum code
 1. Use libraries to keep code high level
@@ -67,7 +67,7 @@ For quantum components, the inner loop involves following [activities enabled by
 
 The last step is a specialty of quantum computing. Because quantum hardware is a scarce resource, developers typically don't own their own hardware or have exclusive access. Instead, they use centrally operated hardware - in most cases they access production hardware to test their development artifacts.  
 
-The inner loop for classical components includes typical development steps for building, running and debugging code in a development environment. In context of hybrid quantum applications there is an additional step of integrating the quantum components into the classical components. Complexity of this step depends on whether the quantum components are [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job-content.yml) or [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job-content.yml) with the classical ones.
+The inner loop for classical components includes typical development steps for building, running, and debugging code in a development environment. In context of hybrid quantum applications, there is an extra step of integrating the quantum components into the classical components. Complexity of this step depends on whether the quantum components are [tightly coupled](../../example-scenario/quantum/tightly-coupled-quantum-computing-job-content.yml) or [loosely coupled](../../example-scenario/quantum/loosely-coupled-quantum-computing-job-content.yml) with the classical ones. Developers don't need special quantum computing skills. The integration can typically be implemented with classical programming skills.
 
 ## Infrastructure as Code (IaC)
 
@@ -78,22 +78,39 @@ Like any other Azure environment, quantum workspaces and the classical environme
 
 :::image type="content" source="media/iac-in-quantum-devops.png" alt-text="Infrastructure as code in DevOps for quantum applications":::
 
-If the [loosely coupled integration model](../../example-scenario/quantum/loosely-coupled-quantum-computing-job-content.md) is chosen, the classical environment comprises all resources needed for exposing the quantum functionality via API.
+If the [loosely coupled integration model](../../example-scenario/quantum/loosely-coupled-quantum-computing-job-content.md) is chosen, the classical environment comprises all resources needed for exposing the quantum functionality via API. If the [tightly coupled approach](../../example-scenario/quantum/tightly-coupled-quantum-computing-job-content.md) is chosen, its components depend on the chosen [compute model](../technology-choices/compute-decision-tree.md).
 
 ## Continuous Integration (CI) and Automated Testing
 
+Continuous Integration remains an important part of DevOps also with hybrid quantum applications. As soon as code is ready and committed to the repository, it needs to be automatically tested and integrated into other parts of the software. For the pure classical parts of the application, [best practices for testing](../../checklist/dev-ops.md#testing) remain in place.
+
+The quantum components require special treatment. On the one hand the components themselves, on the other hand the integration point where these quantum components are used by classical components for orchestration purposes.
+
+Testing of quantum components includes following activities:
+
+* Unit tests implemented via [test projects](/azure/quantum/user-guide/testing-debugging) and executed on a quantum simulator.
+* [Estimation of required resources](/azure/quantum/user-guide/machines/resources-estimator) on quantum hardware.
+* Tests being executed on quantum hardware - potentially the target production environment.
+
+During integration step the quantum component is bundled with the classical components. The classical components represent the deployment artifact that gets installed on the classical environment during subsequent steps.
+
 ## Continuous Delivery (CD)
 
-## Release Management
+* Provisioning of target environments
+  * quantum components stay (only reprovisioned with full deployment)
+  * classical components reprovisioned
+* Configure target environments
+  * Define managed identities
+  * Grant the classical components access to the quantum components
+* Ship the application artifacts to the target environments
 
 ## Application Monitoring
 
+Once the classical component submitted a quantum job, it must [monitor the status](/azure/quantum/how-to-work-with-jobs#monitoring-jobs) of the job. The quantum workspace provides an API to query the status. The classical component can log the quantum status via [custom events in application insights](/azure/azure-monitor/app/api-custom-events-metrics) along with all the other application logging to be analyzed and visualized with [Azure Monitor](/azure/azure-monitor/).
+
 ## Next steps
 
-* Bulleted list of third-party and other Docs and Microsoft links.
-* Links shouldn't include en-us locale unless they don't work without it.
-* Docs links should be site-relative, for example (/azure/feature/article-name).
-* Don't include trailing slash in any links.
+%%%missing%%%
 
 ## Related resources
 
