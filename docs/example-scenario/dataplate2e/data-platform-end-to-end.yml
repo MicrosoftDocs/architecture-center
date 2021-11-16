@@ -4,6 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: Learn how to use Azure Data Services to build a modern analytics platform capable of handling the most common data challenges in an organization.
   author: fabragaMS
+  ms.author: fabraga
   ms.date: 04/23/2021
   ms.topic: conceptual
   ms.service: architecture-center
