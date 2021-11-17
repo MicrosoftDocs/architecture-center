@@ -9,6 +9,10 @@ ms.subservice: well-architected
 ms.custom:
   - How are you handling DR (Backup & Restore) for this workload?
   - article
+products:
+  - azure
+categories:
+  - management-and-governance
 ---
 
 # Backup and disaster recovery for Azure applications
