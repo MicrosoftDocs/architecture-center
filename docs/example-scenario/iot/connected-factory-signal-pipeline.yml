@@ -18,6 +18,7 @@ products:
   - azure-event-hubs
   - azure-iot-edge
 name: Connected factory signal pipeline
+summary: The connected factory signal pipeline architecture provides a common configuration interface to connect brownfield IoT devices through an OPC Unified Architecture (UA) gateway using custom APIs, and KEPServerEX IoT Gateway.
 thumbnailUrl: /azure/architecture/browse/thumbs/connected-factory-signal-pipeline-01.png
 content: |
   [!include[](connected-factory-signal-pipeline-content.md)]
