@@ -1,14 +1,19 @@
 This article demonstrates how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after deployment of Azure Kubernetes Service. The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The repo provides for steps for deploying the architecture.
 
- This is just one type of reference architecture. You can deploy it on any Kubernetes cluster, not just Azure Kubernetes Service. After you review this article, you'll have a good understanding of how to deploy a typical application that's made up mostly of CNCF projects.
+ This is just one type of reference architecture. You can deploy it on any Kubernetes cluster, not just Azure Kubernetes Service (AKS). This architecture provides one example of the flexibility of the AKS platform. AKS makes it simple to deploy a managed Kubernetes cluster in Azure.
+ 
+After you review this article, you'll have a good understanding of how to deploy a typical application that's made up mostly of CNCF projects.
 
 ## Potential use cases
+These other uses cases have similar design patterns:
+- Creating a CI/CD pipeline for container-based workloads
+- Using GitOps for Azure Kubernetes Service
 
 ## Architecture
 
 ![Diagram that shows the reference architecture for building a CNCF project.](./media/cncf-architecture.png)
 
-link to visio
+Download a [Visio](https://arch-center.azureedge.net/cncf-architecture.vsdx) file of this architecture.
 
 The workload is a simple web application that allows employees to submit and view expense reports. When an expense report is submitted, an email is sent to the employee's manager. 
 
@@ -18,7 +23,7 @@ The workload is a simple web application that allows employees to submit and vie
 
 **2.** The web app calls an API app to retrieve the employee's manager.
 
-**3.** The web app pushes a message generated to create the expense report to a Neural Autonomic Transport System (NATS) queue.
+**3.** The web app pushes a message generated to create the expense report to a NATS queue.
 
 **4.** The expense report is saved in MySOL.
 
@@ -40,7 +45,7 @@ The workload is a simple web application that allows employees to submit and vie
 
 **e.** Tekton deploys the web app, API app, and Email Dispatcher applications.
 
-**f.** Application metrics are captured by Promethius.
+**f.** Prometheus captures application metrics.
 
 **g.** Metrics can be viewed on a Grafana Dashboard.
 
@@ -48,7 +53,7 @@ The workload is a simple web application that allows employees to submit and vie
 
 ### Infrastructure components
 
-**i.** Azure Kubernetes Service (AKS) cluster that's based on the infrastructure presented in the [AKS baseline](../../reference-architectures/containers/aks/secure-baseline-aks).
+**i.** Azure Kubernetes Service (AKS) cluster that's based on the infrastructure presented in the [AKS baseline](../../reference-architectures/containers/aks/secure-baseline-aks.md).
 
 **ii.** Rook Ceph that's used for cluster storage.
 
@@ -58,63 +63,84 @@ The workload is a simple web application that allows employees to submit and vie
 
 ### Cluster operations components
 
-It's often beneficial to manage clusters and cluster bootstrapping by using GitOps management. Flux is a popular GitOps operator and is often paired with GitHub Actions to perform validation on updated manifests and Helm charts.
+It's often beneficial to manage clusters and cluster bootstrapping by using GitOps management. [Flux](https://fluxcd.io) is a popular GitOps operator and is often paired with GitHub Actions to perform validation on updated manifests and Helm charts.
 
-### Open-source software components
-- [Kubernetes](https://kubernetes.io) - Container Orchestration Cluster (CNCF)
-- [Rook](https://rook.io) - Storage Management (CNCF)
-- [Harbor](https://goharbor.io) - Container Registry (CNCF)
-- [NATS](https://nats.io) - Pub/Sub Messaging (CNCF)
-- [Linkerd](https://linkerd.io) - Service Mesh (CNCF)
-- [Prometheus](https://prometheus.io) - Monitoring (CNCF)
-- [Jaeger](https://www.jaegertracing.io) - Observability/Tracing (CNCF)
-- [OpenFaaS](https://www.openfaas.com) - Functions
-- [MySQL](https://www.mysql.com) - Database
-- [NGINX](https://www.nginx.com) - Kubernetes Ingress Controller
-- [Tekton](https://tekton.dev) CI/CD (CD Foundation)
-- [Grafana](https://grafana.com) - Metrics Dashboard
-- [SendGrid](https://sendgrid.com) - External Email Service
-- [GitHub](https://github.com) - Code Repository and infrastructure deployment pipelines
-- [Flux](https://fluxcd.io) – GitOps operator
-- Web Front-End & Web API - [.NET Core](/dotnet/core/about)
+### Open-source software (OSS) components
+
+#### CNCF components
+- [Kubernetes](https://kubernetes.io). Used to automate deployment, scaling, and management of containerized applications.
+- [Rook](https://rook.io). Provides storage management for the clusters. 
+- [Harbor](https://goharbor.io). Container registry for the images.
+- [NATS](https://nats.io). Provides pulish/subscribe messaging for messages generated to create the expense report. 
+- [Linkerd](https://linkerd.io). Service mesh that integrates with OpenFaaS, NGINX, Prometheus, and Jaeger. 
+- [Prometheus](https://prometheus.io). Captures application metrics.
+- [Jaeger](https://www.jaegertracing.io). Provides overall application tracking on the Kubernetes cluster. 
+
+#### Other components 
+- [OpenFaaS](https://www.openfaas.com). Used to deploy the Email Dispatcher function.
+- [MySQL](https://www.mysql.com). Database that stores the expense reports. 
+- [NGINX](https://www.nginx.com). Kubernetes ingress controller that employees use to access the web app to submit expense reports. 
+- [Tekton](https://tekton.dev). Continous Delivery Foundation project used for continous integration / continuous deployment (CI/CD). Deploys the web app, API app, and Email Dispatcher applications.
+- [Grafana](https://grafana.com). Dashboard for application metrics. 
+- [SendGrid](https://sendgrid.com). External email service that sends mail to the manager for expense report review. 
+- [GitHub](https://github.com). Code repository. Tekton pipelines use GitHub code.
+- [.NET Core](/dotnet/core/about). Used for the web front end and the web API.
 
 ### Alternatives
-This project uses CNCF Graduated and Incubated projects and there could be multiple alternatives for the services used. Please refer **[CNCF](https://www.cncf.io) Projects** for other alternatives. Few of the considerations are below.
+This project uses CNCF graduated and incubated projects. There could be multiple alternatives for the services used. See the [CNCF](https://www.cncf.io) website for alternatives. Here are some resources that describe some of them:
 
-* [Service mesh references](https://www.cncf.io/blog/2021/07/15/networking-with-a-service-mesh-use-cases-best-practices-and-comparison-of-top-mesh-options)
-* [Function as a Service (Serverless)](https://landscape.cncf.io/serverless)
+* [Coparison of service mesh options](https://www.cncf.io/blog/2021/07/15/networking-with-a-service-mesh-use-cases-best-practices-and-comparison-of-top-mesh-options)
+* [Function as a service (serverless) alternatives](https://landscape.cncf.io/serverless)
 * [Vitess: sharded MySQL on Kubernetes](https://www.cncf.io/online-programs/vitess-sharded-mysql-on-kubernetes)
-* [Tracing your microservices](https://www.cncf.io/blog/2018/03/19/trace-your-microservices-application-with-zipkin-and-opentracing)
-* [Gitops with Developer centric Experience](https://www.cncf.io/blog/2020/12/22/argocd-kubevela-gitops-with-developer-centric-experience)
+* [Monitoring your microservices by using Zipkin and OpenTracing](https://www.cncf.io/blog/2018/03/19/trace-your-microservices-application-with-zipkin-and-opentracing)
+* [GitOps with a developer-centric experience](https://www.cncf.io/blog/2020/12/22/argocd-kubevela-gitops-with-developer-centric-experience)
 
-There are first party Azure services (eg. AGIC, ACR, Monitor) and Microsoft supported OSS projects (eg. Open Service Mesh) which can be considered as alternatives. 
+You can consider various Microsoft Azure services as alternatives. For example, Application Gateway Ingress Controller (AGIC), Azure Container Registry, and Azure Monitor.
+
+Microsoft also supports OSS projects, including Open Service Mesh.
 
 ## Considerations
 
-* A minimum of 3 node user node pool with VM SKU DS2_v2 or larger is required
-* Volumes using Azure Managed Disks cannot be attached across zones and must be co-located in the same zone.
-* Rook Installation could take ~20 to ~25 mins. Ensure that the Ceph cluster is completely provisioned before moving on to the next step.
-* Jaeger could take ~5 mins to complete setup
-* Linkerd takes approximately ~12 mins to show up on dashboard
+* For the Kubernetes cluster, you need at least a 3-node user-node pool with virtual machine (VM) SKU DS2_v2 or larger.
+* Volumes that use Azure managed disks can't be attached across zones. They must be located in the same zone.
+* Rook installation could take between 20 and 25 minutes. Be sure that the Ceph cluster is completely provisioned before you move on to the next step.
+* The Jaeger setup could take about minutes. 
+* It takes about 12 minutes for Linkerd to apprear in the dashboard.
 
 ## Deploy this scenario
-Deploy this scenario from the GitHub repo at [Azure/cloud-native-app]. Follow the instructions [here] in sequence to deploy the CNCF Projects App in your environment. Please do note that this repo is a community project accepting and approving PRs for enhancements and modifications from the community
+Deploy this scenario from the [Azure/cloud-native-app](https://github.com/Azure/cloud-native-app) GitHub repo. Follow the [setup instructions](https://github.com/Azure/cloud-native-app/blob/main/notes.md) in the provided sequence to deploy the CNCF Projects App in your environment. 
+
+This repo is a community project. It accepts and approves pull requests (PRs) for enhancements and modifications from the community.
 
 ## Pricing
-In general, use the [Azure pricing calculator](https://azure.microsoft.com/ pricing/calculator) to estimate costs. Below are some considerations for running this project in
-Azure. Additionally, there is almost negligible bandwidth cost.
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. Following are some pricing considerations for running this project in
+Azure. There is a negligible bandwidth cost.
 
-### VM Scale Sets
-* There will be cost associated with VMs used in VMSSs for the AKS cluster. Please refer to [VM Scale Set pricing](https://azure.microsoft.com/ pricing/details/virtual-machine-scale-sets/linux) for more information.
+### Virtual Macnine Scale Sets
+* A cost is associated with VMs used in Azure Virtual Macnine Scale Sets for the AKS cluster. See [Virtual Machine Scale Sets pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux) for more information.
 
 ### Storage
-* There will be storage costs associated with each data disk required by Rook Installation. For this 3 Node AKS cluster, the Rook configuration used utilizes two data disks per node, 1 GB and 200 GB. Please refer to [Storage Cost Pricing](https://azure.microsoft.com/pricing/details/managed-disks) for more information.
+* Storage costs are associated with each data disk required by the Rook installation. For this 3-node AKS cluster, the Rook configuration uses two data disks per node, 1 GB and 200 GB. See [Storage cost pricing](https://azure.microsoft.com/pricing/details/managed-disks) for more information.
 
-### Load Balancer
-* There is cost for the Load Balance associated with this AKS Cluster. Please refer to [Load Balancer Prining](https://azure.microsoft.com/pricing/details/load-balancer/) for more information.
+### Load balancer
+* A cost is incurred for the load balancer associated with this AKS cluster. See [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) for more information.
 
-### Virtual Network
-* There will be a charge for the Virtual Network used by the AKS cluster. Please refer to [Virtual Network Pricing](https://azure.microsoft.com/ 
+### Virtual network
+* A charge is incurred for the virtual network used by the AKS cluster. See [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network) for more information. 
 
 ## Next steps
+
+[Azure Kubernetes Service architecture design](/azure/architecture/reference-architectures/containers/aks-start-here)
+
+[Baseline architecture for an Azure Kubernetes Service cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+
+[CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks) 
+
+[Basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app)
+
+
 ## Related resources 
+
+[Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster by using the Azure portal](/azure/aks/kubernetes-walkthrough-portal)
+
+[Introduction to Azure Kubernetes Service](/learn/modules/intro-to-azure-kubernetes-service/)
