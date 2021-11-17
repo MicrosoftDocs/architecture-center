@@ -369,4 +369,4 @@ It's important to note that the backup solution described here focuses exclusive
 [azure-stack-hub-expressroute]: /azure-stack/operator/azure-stack-connect-expressroute
 [system-center-initial-replication]: /system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019#initial-replication-over-the-network
 [system-center-protection-groups]: /system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019#figure-out-how-much-storage-space-you-need
-[system-center-recovery-process]: https://docs.microsoft.com/system-center/dpm/how-dpm-protects-data?view=sc-dpm-2019#recovery-process
+[system-center-recovery-process]: /system-center/dpm/how-dpm-protects-data?view=sc-dpm-2019#recovery-process

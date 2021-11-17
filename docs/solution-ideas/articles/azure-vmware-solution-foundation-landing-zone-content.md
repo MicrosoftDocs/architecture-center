@@ -5,7 +5,7 @@ Azure VMware Solution can be deployed as part of either a new landing zone or an
 This article covers considerations for deploying and running Azure VMware Solution as part of a landing zone environment.
 
 > [!NOTE]
-> [Enterprise-scale for Microsoft Azure VMware Solution](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) provides further details. We recommend that you use the latest landing zone guidance available in it.
+> [Enterprise-scale for Microsoft Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) provides further details. We recommend that you use the latest landing zone guidance available in it.
 
 ## Potential use cases
 
