@@ -2,7 +2,7 @@
 title: Azure SQL Database and operational excellence
 description: Focuses on the Azure SQL Database service used in the Data solution to provide best-practice, configuration recommendations, and design considerations related to Operational Excellence.
 author: v-stacywray
-ms.date: 11/16/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -76,4 +76,4 @@ Explore the following table of recommendations to optimize your Azure SQL Databa
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Azure SQL Managed Instance and reliability](/framework/services/data/azure-sql-managed-instance/reliability.md)
+> [Azure SQL Managed Instance and reliability](../azure-sql-managed-instance/reliability.md)
