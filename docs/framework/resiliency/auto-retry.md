@@ -227,4 +227,4 @@ Register-AzAutomationScheduledRunbook -AutomationAccountName $automationAccountN
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Error handling](app-design-error-handling.md)
+>[Error handling](./app-design-error-handling.md)

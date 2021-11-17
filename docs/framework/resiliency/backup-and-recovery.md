@@ -2,7 +2,7 @@
 title: Backup and disaster recovery for apps
 description: Explore backup and disaster recovery approaches in Azure. Disaster recovery is the process of restoring application functionality after a catastrophic loss.
 author: v-aangie
-ms.date: 02/17/2021
+ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
@@ -98,7 +98,7 @@ Under rare circumstances, it is possible that facilities in an entire availabili
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Error handling](./app-design-error-handling.md)
+> [Automatic retry of failed backup jobs](./auto-retry.md)
 
 ## Related links
 
