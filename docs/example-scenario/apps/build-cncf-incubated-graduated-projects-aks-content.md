@@ -53,7 +53,7 @@ The workload is a simple web application that allows employees to submit and vie
 
 ### Infrastructure components
 
-**i.** Azure Kubernetes Service (AKS) cluster that's based on the infrastructure presented in the [AKS baseline](../../reference-architectures/containers/aks/secure-baseline-aks.md).
+**i.** Azure Kubernetes Service (AKS) cluster that's based on the infrastructure presented in the [AKS baseline](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
 
 **ii.** Rook Ceph that's used for cluster storage.
 
@@ -71,7 +71,7 @@ It's often beneficial to manage clusters and cluster bootstrapping by using GitO
 - [Kubernetes](https://kubernetes.io). Used to automate deployment, scaling, and management of containerized applications.
 - [Rook](https://rook.io). Provides storage management for the clusters. 
 - [Harbor](https://goharbor.io). Container registry for the images.
-- [NATS](https://nats.io). Provides pulish/subscribe messaging for messages generated to create the expense report. 
+- [NATS](https://nats.io). Provides publish/subscribe messaging for messages generated to create the expense report. 
 - [Linkerd](https://linkerd.io). Service mesh that integrates with OpenFaaS, NGINX, Prometheus, and Jaeger. 
 - [Prometheus](https://prometheus.io). Captures application metrics.
 - [Jaeger](https://www.jaegertracing.io). Provides overall application tracking on the Kubernetes cluster. 
@@ -80,7 +80,7 @@ It's often beneficial to manage clusters and cluster bootstrapping by using GitO
 - [OpenFaaS](https://www.openfaas.com). Used to deploy the Email Dispatcher function.
 - [MySQL](https://www.mysql.com). Database that stores the expense reports. 
 - [NGINX](https://www.nginx.com). Kubernetes ingress controller that employees use to access the web app to submit expense reports. 
-- [Tekton](https://tekton.dev). Continous Delivery Foundation project used for continous integration / continuous deployment (CI/CD). Deploys the web app, API app, and Email Dispatcher applications.
+- [Tekton](https://tekton.dev). Continuous Delivery Foundation project used for continuous integration / continuous deployment (CI/CD). Deploys the web app, API app, and Email Dispatcher applications.
 - [Grafana](https://grafana.com). Dashboard for application metrics. 
 - [SendGrid](https://sendgrid.com). External email service that sends mail to the manager for expense report review. 
 - [GitHub](https://github.com). Code repository. Tekton pipelines use GitHub code.
@@ -105,7 +105,7 @@ Microsoft also supports OSS projects, including Open Service Mesh.
 * Volumes that use Azure managed disks can't be attached across zones. They must be located in the same zone.
 * Rook installation could take between 20 and 25 minutes. Be sure that the Ceph cluster is completely provisioned before you move on to the next step.
 * The Jaeger setup could take about minutes. 
-* It takes about 12 minutes for Linkerd to apprear in the dashboard.
+* It takes about 12 minutes for Linkerd to appear in the dashboard.
 
 ## Deploy this scenario
 Deploy this scenario from the [Azure/cloud-native-app](https://github.com/Azure/cloud-native-app) GitHub repo. Follow the [setup instructions](https://github.com/Azure/cloud-native-app/blob/main/notes.md) in the provided sequence to deploy the CNCF Projects App in your environment. 
@@ -117,7 +117,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 Azure. There is a negligible bandwidth cost.
 
 ### Virtual Macnine Scale Sets
-* A cost is associated with VMs used in Azure Virtual Macnine Scale Sets for the AKS cluster. See [Virtual Machine Scale Sets pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux) for more information.
+* A cost is associated with VMs used in Azure Virtual Machine Scale Sets for the AKS cluster. See [Virtual Machine Scale Sets pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux) for more information.
 
 ### Storage
 * Storage costs are associated with each data disk required by the Rook installation. For this 3-node AKS cluster, the Rook configuration uses two data disks per node, 1 GB and 200 GB. See [Storage cost pricing](https://azure.microsoft.com/pricing/details/managed-disks) for more information.
@@ -130,13 +130,13 @@ Azure. There is a negligible bandwidth cost.
 
 ## Next steps
 
-[Azure Kubernetes Service architecture design](/azure/architecture/reference-architectures/containers/aks-start-here)
+[Azure Kubernetes Service architecture design](../../reference-architectures/containers/aks-start-here.md)
 
-[Baseline architecture for an Azure Kubernetes Service cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+[Baseline architecture for an Azure Kubernetes Service cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
 
-[CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks) 
+[CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml) 
 
-[Basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app)
+[Basic web application](../../reference-architectures/app-service-web-app/basic-web-app.yml)
 
 
 ## Related resources 
