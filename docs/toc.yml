@@ -368,7 +368,11 @@ items:
                   - name: Resiliency testing
                     href: framework/resiliency/testing.md
                   - name: Backup & recovery
-                    href: framework/resiliency/backup-and-recovery.md
+                    items:
+                      - name: Backup and recovery
+                        href: framework/resiliency/backup-and-recovery.md
+                      - name: Automatic retry of failed backup jobs
+                        href: framework/resiliency/auto-retry.md
                   - name: Error handling
                     href: framework/resiliency/app-design-error-handling.md
                   - name: Chaos engineering
