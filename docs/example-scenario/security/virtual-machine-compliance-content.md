@@ -4,52 +4,52 @@ Complying with differing standards can be more challenging in dynamically scalin
 
 By using Azure Policy and role-based access control assignments, enterprises can enforce standards on Azure resources. But with VMs, these mechanisms only affect the control plane, or the route to the VM. The system images that run on a VM still pose a security threat. Some companies prevent developers from accessing VMs. This approach impairs agility, making it difficult follow DevOps practices.
 
-This article presents a solution for managing the compliance of VMs that run on Azure. Besides tracking compliance, the solution also minimizes the risk from system images that run on VMs. At the same time, the solution is compatible with DevOps practices. Core components include Azure Image Builder, Azure Compute Gallery, and Azure Policy.
+This article presents a solution for managing the compliance of VMs that run on Azure. Besides tracking compliance, the solution also minimizes the risk from system images that run on VMs. At the same time, the solution is compatible with DevOps practices. Core components include Azure VM Image Builder, Azure Compute Gallery, and Azure Policy.
 
 ## Potential use cases
 
-This solution applies to organizations with Azure [landing zones][What is an Azure landing zone?] that face these tasks:
+This solution applies to organizations with Azure [landing zones][What is an Azure landing zone?] that complete these tasks:
 
-- Supply *golden images* to DevOps teams. A golden image is the published version of a marketplace image.
-- Test and validate images before making them available to DevOps teams.
-- Track which image each DevOps team is using.
-- Enforce company standards without degrading productivity.
-- Ensure that DevOps teams use the latest image versions.
-- Manage the compliance of *pet* servers, which are maintenance intensive, and *cattle* servers, which are easily replaceable.
+- Supplying *golden images* to DevOps teams. A golden image is the published version of a marketplace image.
+- Testing and validating images before making them available to DevOps teams.
+- Tracking which image each DevOps team is using.
+- Enforcing company standards without degrading productivity.
+- Ensuring that DevOps teams use the latest image versions.
+- Managing the compliance of *pet* servers, which are maintenance intensive, and *cattle* servers, which are easily replaceable.
 
 ## Architecture
 
 The solution consists of two processes:
 
 - The golden image publishing process
-- The process of tracking virtual machine compliance
+- The process of tracking VM compliance
 
-:::image type="content" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Architecture diagram showing the flow of security log data. Key components include Sentinel for short-term data and Azure Data Explorer for long-term storage." border="false":::
+:::image type="content" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Architecture diagram showing how the solution takes Azure Marketplace images and then customizes, tracks, tests, and publishes them." border="false":::
 
-The golden image publishing process contains these steps:
+The golden image publishing process runs monthly and contains these steps:
 
 1. The process captures a base image from Azure Marketplace.
-1. Azure Image Builder customizes the image.
+1. VM Image Builder customizes the image.
 1. The image tattooing process tracks image version information like the source and publish date.
 1. Automated tests validate the image.
 1. If the image fails any tests, it returns to the customization step for repairs.
 1. The process publishes the finalized image.
-1. Azure Compute Gallery makes the image available to DevOps teams.
+1. Compute Gallery makes the image available to DevOps teams.
 
-:::image type="content" source="./media/virtual-machine-compliance-track-compliance-architecture.svg" alt-text="Architecture diagram showing the flow of security log data. Key components include Sentinel for short-term data and Azure Data Explorer for long-term storage." border="false":::
+:::image type="content" source="./media/virtual-machine-compliance-track-compliance-architecture.svg" alt-text="Architecture diagram showing how the solution manages compliance by assigning policy definitions, evaluating machines, and displaying data in a dashboard." border="false":::
 
-The process of tracking virtual machine compliance contains these steps:
+The process of tracking VM compliance contains these steps:
 
 1. Azure Policy assigns policy definitions to VMs and evaluates the VMs for compliance.
 1. Azure Policy publishes compliance data for the VMs and other Azure resources to the Azure Policy dashboard.
 
 ### Components
 
-- [Azure Image Builder][Azure Image Builder] is a managed service that you can use to customize the system images that DevOps teams use.
+- [VM Image Builder][Azure VM Image Builder] is a managed service that you can use to customize the system images that DevOps teams use.
 
-- [Azure Compute Gallery][Azure Compute Gallery] helps you structure and organize custom images. By storing images in repositories, this service provides a way for people within and outside your organization to use the images.
+- [Compute Gallery][Azure Compute Gallery] helps you structure and organize custom images. By storing images in repositories, this service provides a way for people within and outside your organization to use the images.
 
-- [Azure Policy][Azure Policy and Policy Dashboard] offers policy definitions that you can use to enforce organizational standards and assess compliance at scale. The Azure Policy dashboard displays results from Azure Policy evaluations. This data keeps you informed about the compliance status of your resources.
+- [Azure Policy][Azure Policy and the policy dashboard] offers policy definitions that you can use to enforce organizational standards and assess compliance at scale. The Azure Policy dashboard displays results from Azure Policy evaluations. This data keeps you informed about the compliance status of your resources.
 
 - The [guest configuration feature of Azure Policy][Azure Policy guest configuration feature] provides a way to dynamically audit or assign configurations to machines through code. The configurations generally include environment or operating system settings.
 
@@ -57,17 +57,17 @@ The process of tracking virtual machine compliance contains these steps:
 
 - You can use a third-party tool to manage compliance. But with this type of tool, you usually need to install an agent on the target VM. You also may have to pay a licensing fee for the third-party tool.
 
-- You can use [Custom Script Extensions][Custom Script Extensions] for installing software on VMs or configuring VMs after deployment. But each VM or virtual machine scale set can only have one custom script extension. And if you use custom script extensions, you may prevent DevOps teams from performing customizations that their applications need.
+- You can use [custom script extensions][Custom Script Extensions] for installing software on VMs or configuring VMs after deployment. But each VM or virtual machine scale set can only have one custom script extension. And if you use custom script extensions, you may prevent DevOps teams from performing customizations that their applications need.
 
 ## Approach
 
-Add intro sentence to avoid stacked headings.
+The following sections provide a detailed description of the solution's approach.
 
 ### Identify pets and cattle
 
-DevOps teams use an analogy called pets and cattle to define service models. To track a VM's compliance, first determine whether it's a pet or cattle server.
+DevOps teams use an analogy called pets and cattle to define service models. To track a VM's compliance, first determine whether it's a pet or cattle server:
 
-- Pets require significant attention. They're not easy to dispense. You need to invest a considerable amount of time and financial resources to recover them. For example, a server that runs SAP might be a pet. Besides the software that runs on the server, other considerations can also determine the service model. If you have a low failure tolerance, production servers that run on real-time and near realtime systems can also be pets.
+- Pets require significant attention. They're not easy to dispense. You need to invest a considerable amount of time and financial resources to recover pet servers. For example, a server that runs SAP might be a pet. Besides the software that runs on the server, other considerations can also determine the service model. If you have a low failure tolerance, production servers in real-time and near realtime systems can also be pets.
 - Cattle servers are part of an identical group. You can replace them easily. For example, VMs that run in a virtual machine scale set are cattle. If there are enough VMs in the virtual machine scale set, your system keeps running, and you don't need to know each VM's name. Another example of cattle might be your testing environment. You use an automated procedure to create the servers in that environment from scratch. After you finish running the tests, you decommission the servers.
 
 An environment might only contain pet servers, or it might only contain cattle servers. In contrast, a set of VMs in an environment might be pets. In the same environment, a different set of VMs might be cattle.
@@ -79,36 +79,36 @@ To manage compliance:
 
 ### Restrict images
 
-Don't allow DevOps teams to use Azure Marketplace VM images. Only allow VMs images that the Azure Compute Gallery publishes. This restriction is critical for ensuring VM compliance. You can use a custom policy in Azure Policy to enforce this restriction. For a sample, see [Allow image publishers][Only allow certain image publishers from the Marketplace]. 
+Don't allow DevOps teams to use Azure Marketplace VM images. Only allow VMs images that Compute Gallery publishes. This restriction is critical for ensuring VM compliance. You can use a custom policy in Azure Policy to enforce this restriction. For a sample, see [Allow image publishers][Only allow certain image publishers from the Marketplace].
 
-As a part of this solution, Azure Image Builder should use an Azure Marketplace image. It's essential to use the latest image that's available in Azure Marketplace. Apply any customizations on top of that image. Azure Marketplace images are refreshed often, and each image has certain preset configurations, ensuring your images are secure by default.
+As part of this solution, VM Image Builder should use an Azure Marketplace image. It's essential to use the latest image that's available in Azure Marketplace. Apply any customizations on top of that image. Azure Marketplace images are refreshed often, and each image has certain preset configurations, ensuring your images are secure by default.
 
 ### Customize images
 
-A golden image is the version of a marketplace image that's published to Azure Compute Gallery. Golden images are available for consumption by DevOps teams. Before the image is published, customization takes place. Customization activities are unique to each enterprise. Common activities include:
+A golden image is the version of a marketplace image that's published to Compute Gallery. Golden images are available for consumption by DevOps teams. Before the image is published, customization takes place. Customization activities are unique to each enterprise. Common activities include:
 
-- Operating system hardening
-- Deploying custom agents for third-party software
+- Operating system hardening.
+- Deploying custom agents for third-party software.
 - Installing enterprise certificate authority (CA) root certificates.
 
-You can use Azure Image Builder to customize images by adjusting operating system settings and by running custom scripts and commands. Image Builder supports Windows and Linux images. For more information on customizing images, see [Azure Policy Regulatory Compliance controls for Azure Virtual Machines][Azure Policy Regulatory Compliance controls for Azure Virtual Machines].
+You can use VM Image Builder to customize images by adjusting operating system settings and by running custom scripts and commands. VM Image Builder supports Windows and Linux images. For more information on customizing images, see [Azure Policy Regulatory Compliance controls for Azure Virtual Machines][Azure Policy Regulatory Compliance controls for Azure Virtual Machines].
 
 ### Track image tattoos
 
-Image tattooing is the process of keeping track of all image version information that a VM uses. This information is invaluable during troubleshooting and can include:
+Image tattooing is the process of keeping track of all image versioning information that a VM uses. This information is invaluable during troubleshooting and can include:
 
 - The original source of the image, such as the version and the name of the publisher.
-- The operating system version string, which is needed if there's an in-place upgrade.
+- The operating system version string, which you need if there's an in-place upgrade.
 - The version of your custom image.
 - Your publish date.
 
-The amount and type of information that you track varies depends on your organization's compliance level.
+The amount and type of information that you track depends on your organization's compliance level.
 
 For image tattooing on Windows VMs, set up a custom registry. Add all required information to this registry path as key-value pairs. On Linux VMs, enter image tattooing data into environment variables or a file. Put the file in the `/etc/` folder, where it doesn't conflict with developer work or applications. If you'd like to use Azure Policy to track the tattooing data or report on it, store each piece of data as a unique key-value pair. For information on determining the version of a Marketplace image, see [How to find Marketplace Image version][How to find Marketplace Image version].
 
 ### Validate golden images with automated tests
 
-Generally, you should refresh golden images monthly to stay current with the latest updates and changes in Azure Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM and run tests on it before the beginning of each month. The tests should confirm pared images before publishing them for consumption. Automate tests by using a test automation solution or by running commands or batches on the VM.
+Generally, you should refresh golden images monthly to stay current with the latest updates and changes in Azure Marketplace images. Use a recurrent testing procedure for this purpose. As part of the image creation process, use an Azure pipeline or other automated workflow for testing. Set up the pipeline to deploy a new VM for running tests before the beginning of each month. The tests should confirm pared images before publishing them for consumption. Automate tests by using a test automation solution or by running commands or batches on the VM.
 
 Common test scenarios include:
 
@@ -119,19 +119,19 @@ A failed test should interrupt the process. Repeat the test after addressing the
 
 ### Publish golden images
 
-Publish final images on Azure Compute Gallery as a managed image or as a VHD that DevOps teams can use. Mark any earlier images as aged. If you haven't set an end of life date for an image version in Azure Compute Gallery, you might prefer to discontinue the oldest image. This decision depends on your company's policies.
+Publish final images on Compute Gallery as a managed image or as a virtual hard disk (VHD) that DevOps teams can use. Mark any earlier images as aged. If you haven't set an end-of-life date for an image version in Compute Gallery, you might prefer to discontinue the oldest image. This decision depends on your company's policies.
 
 For information on limits that apply when you use Azure Compute Galleries, see [Store and share images in an Azure Compute Gallery][Store and share images in an Azure Compute Gallery - Limits].
 
-Another good practice is to publish the latest images across different regions. With Azure Compute Gallery, you can manage the lifecycle and replication of your images across different Azure regions.
+Another good practice is to publish the latest images across different regions. With Compute Gallery, you can manage the lifecycle and replication of your images across different Azure regions.
 
-For more information on Azure Compute Gallery, see [Store and share images in an Azure Compute Gallery][Store and share images in an Azure Compute Gallery].
+For more information on Compute Gallery, see [Store and share images in an Azure Compute Gallery][Store and share images in an Azure Compute Gallery].
 
 ### Refresh golden images
 
 When an image is used for an application, it can be hard to update the underlying operating system image with recent compliance changes. Strict business requirements can complicate the process of refreshing the underlying VM. Refreshing can also be complex when the VM is critical to the business.
 
-Since cattle servers are dispensible, you can coordinate with DevOps teams to refresh these servers in a planned maintenance window as a business-as-usual activity.
+Since cattle servers are dispensable, you can coordinate with DevOps teams to refresh these servers in a planned maintenance window as a business-as-usual activity.
 
 It's more challenging to refresh pet servers. Discontinuing an image can put applications at risk. In scale-out scenarios, Azure can't find the respective images, resulting in failures.
 
@@ -144,7 +144,7 @@ Consider these guidelines when refreshing pet servers:
   - [Geode pattern][Geode pattern]
   - [Bulkhead pattern][Bulkhead pattern]
 
-- Tag each pet server with a "pet" label. Configure a policy in Azure Policy to take this tag into account when refreshing. 
+- Tag each pet server with a label that marks the server as a pet. Configure a policy in Azure Policy to take this tag into account during refreshes.
 
 ### Improve visibility
 
@@ -157,11 +157,11 @@ Generally, you should use Azure Policy to manage any control-plane compliance ac
 
 Use the guest configuration feature of Azure Policy to audit the configuration changes that you make during image customization. When drift occurs, the Azure Policy dashboard lists the affected VM as non-compliant. By using image tattooing information, Azure Policy can track when you use outdated images or operating systems.
 
-Audit pet servers for each application. By using Azure Policies with audit effect, you can improve the visibility of these servers. Adjust the audit process according to your company's risk appetite and internal risk management processes.
+Audit pet servers for each application. By using Azure Policies with an audit effect, you can improve the visibility of these servers. Adjust the audit process according to your company's risk appetite and internal risk management processes.
 
-Each DevOps team can track its applications' compliance levels in the Azure Policy dashboard and take appropriate corrective actions. When you assign these policies to a management group or a subscription, give the assignment description a URL that leads to a company-wide wiki. You can also use a short URL like aka.ms/policy-21. In the wiki, list the steps that DevOps teams should take to make their VMs compliant.
+Each DevOps team can track its applications' compliance levels in the Azure Policy dashboard and take appropriate corrective actions. When you assign these policies to a management group or a subscription, give the assignment description a URL that leads to a company-wide wiki. You can also use a short URL like `aka.ms/policy-21`. In the wiki, list the steps that DevOps teams should take to make their VMs compliant.
 
-IT risk managers and security officers can also use the Azure Policy dashboard to manage company risks according to their company's risk appetite
+IT risk managers and security officers can also use the Azure Policy dashboard to manage company risks according to their company's risk appetite.
 
 By using the guest configuration feature of Azure Policy with remediation options, you can apply corrective actions automatically. But interrogating a VM frequently or making changes on a VM that you use for a business-critical application could degrade performance. Plan remediation actions carefully for production workloads. Give a DevOps team ownership of application compliance in all environments. This approach is essential for pet servers and environments, which are long-term Azure components.
 
@@ -171,49 +171,60 @@ Keep the following points in mind when you implement this solution.
 
 ### Scalability considerations
 
-You can configure the number of replicas that Azure Compute Gallery stores of each image. A higher number of replicas minimizes the risk of throttling when you provision multiple VMs simultaneously. For general guidance on scaling and configuring an appropriate number of replicas, see [Scaling for Azure Compute Gallery][Scaling for Azure Compute Gallery].
+You can configure the number of replicas that Compute Gallery stores of each image. A higher number of replicas minimizes the risk of throttling when you provision multiple VMs simultaneously. For general guidance on scaling and configuring an appropriate number of replicas, see [Scaling for Azure Compute Gallery][Scaling for Azure Compute Gallery].
 
+### Resiliency considerations
 
-
-
-
-### Performance considerations
-
-
-## Deploy this scenario
-
+This solution uses managed components that are automatically resilient at a regional level. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][Designing resilient applications for Azure].
 
 ## Pricing
 
+Unless you use a third-party service such as Ansible or Terraform, this approach is nearly free of charge. Storage and egress costs might apply. Other potential charges involve these components:
 
-To explore the cost of running this solution in your environment, use the [Azure pricing calculator][Azure pricing calculator].
+- Azure Policy and [Azure Policy guest configuration][Azure Policy guest configuration] are free of charge for Azure resources. If your company uses a hybrid approach, there are extra charges for Azure Arc resources.
+- During the public preview period, [VM Image Builder][Azure VM Image Builder - pricing] is using a single compute instance type with 1 vCPU and 3.5 GB of RAM. Charges might apply for data storage and transfer.
+- [Azure Shared Image Galleries][Azure Shared Image Galleries] has no charges except for:
+
+  - The cost of storing replicas.
+  - Network egress charges for replicating images.
 
 ## Next steps
 
+- [Azure landing zone][Azure landing zone]
+- [Control and audit your resources by using Azure Policy][Control and audit your resources by using Azure Policy]
+- [Azure VM Image Builder][Azure VM Image Builder]
+- [Azure Compute Gallery][Azure Compute Gallery]
+- [Azure Policy and the policy dashboard][Azure Policy and the policy dashboard]
+- [Azure Policy guest configuration feature][Azure Policy guest configuration feature]
 
 ## Related resources
 
+- [DevTest and DevOps for IaaS solutions][DevTest and DevOps for IaaS solutions]
+- [DevSecOps in Azure][DevSecOps in Azure]
+- [A computer-aided engineering service][A computer-aided engineering service]
 
-
-
-
-
-
-
-
-[Azure Compute Gallery]: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries
-[Azure Image Builder]: https://docs.microsoft.com/azure/virtual-machines/image-builder-overview
-[Azure Policy guest configuration feature]: https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration
-[Azure Policy and Policy Dashboard]: https://docs.microsoft.com/azure/governance/policy/overview
-[Azure Policy Regulatory Compliance controls for Azure Virtual Machines]: https://docs.microsoft.com/azure/virtual-machines/security-controls-policy
-[Bulkhead pattern]: https://docs.microsoft.com/azure/architecture/patterns/bulkhead
-[Custom Script Extensions]: https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-windows
-[Deployment Stamps pattern]: https://docs.microsoft.com/azure/architecture/patterns/deployment-stamp
-[Geode pattern]: https://docs.microsoft.com/azure/architecture/patterns/geodes
-[How to find Marketplace Image version]: https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties
+[Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries
+[Azure VM Image Builder]: /azure/virtual-machines/image-builder-overview
+[Azure landing zone]: /azure/cloud-adoption-framework/ready/landing-zone
+[Azure Policy guest configuration feature]: /azure/governance/policy/concepts/guest-configuration
+[Azure Policy guest configuration]: https://azure.microsoft.com/pricing/details/azure-policy
+[Azure Policy and the policy dashboard]: /azure/governance/policy/overview
+[Azure Policy Regulatory Compliance controls for Azure Virtual Machines]: /azure/virtual-machines/security-controls-policy
+[Azure Shared Image Galleries]: /azure/virtual-machines/shared-image-galleries#billing
+[Azure VM Image Builder - pricing]: https://azure.microsoft.com/pricing/details/image-builder
+[Bulkhead pattern]: ../../patterns/bulkhead.md
+[A computer-aided engineering service]: ../apps/hpc-saas.yml#considerations
+[Control and audit your resources by using Azure Policy]: /learn/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
+[Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
+[Deployment Stamps pattern]: ../../patterns/deployment-stamp.md
+[Designing resilient applications for Azure]: ../../framework/resiliency/principles.md
+[DevSecOps in Azure]: ../../solution-ideas/articles/devsecops-in-azure.yml
+[DevTest and DevOps for IaaS solutions]: ../../solution-ideas/articles/dev-test-iaas.yml
+[Geode pattern]: ../../patterns/geodes.md
+[How to find Marketplace Image version]: /azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties
 [Only allow certain image publishers from the Marketplace]: https://github.com/Azure/azure-policy/tree/master/samples/Compute/allowed-image-publishers
-[Overview of the reliability pillar]: https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/overview
-[Scaling for Azure Compute Gallery]: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#scaling
-[Store and share images in an Azure Compute Gallery]: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries
-[Store and share images in an Azure Compute Gallery - Limits]: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#limits
-[What is an Azure landing zone?]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/
+[Overview of the reliability pillar]: ../../framework/resiliency/overview.md
+[Scaling for Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries#scaling
+[Store and share images in an Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries
+[Store and share images in an Azure Compute Gallery - Limits]: /azure/virtual-machines/shared-image-galleries#limits
+[What is an Azure landing zone?]: /azure/cloud-adoption-framework/ready/landing-zone
