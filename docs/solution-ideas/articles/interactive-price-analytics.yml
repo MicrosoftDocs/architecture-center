@@ -32,7 +32,6 @@ products:
   - azure-data-factory
   - azure-machine-learning
   - office-excel
-  - power-bi
   - azure-blob-storage
   - azure-sql-database
 thumbnailUrl: /azure/architecture/browse/thumbs/interactive-price-analytics.png

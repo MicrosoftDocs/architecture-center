@@ -1,6 +1,5 @@
 
 
-
 Applications use two primary mechanisms to send commands to IoT devices, *cloud-to-device messaging* and *direct methods*.
 
 - Applications send [cloud-to-device messages](/azure/iot-hub/iot-hub-csharp-csharp-c2d) to device-specific message queues on the IoT platform for devices to read when they're connected. The devices decide when to read the messages.

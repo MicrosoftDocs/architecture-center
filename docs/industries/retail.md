@@ -6,7 +6,7 @@ author: dsk-2015
 ms.date: 09/14/2021
 ms.topic: article
 ms.service: architecture-center
-ms.subservice: 
+ms.subservice: azure-guide
 keywords:
   - Azure
 products:
@@ -35,7 +35,11 @@ Using Azure services, retailers can easily achieve these goals. For use cases an
 
 <br>
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/Vn5x7VM7UwQ]
+
+<!-- markdownlint-enable MD034 -->
 
 <br>
 

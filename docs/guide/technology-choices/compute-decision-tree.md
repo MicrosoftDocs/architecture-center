@@ -1,12 +1,12 @@
 ---
-title: Choosing an Azure compute service
+title: Choose an Azure compute service
 description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
 author: EdPrice-MSFT
 ms.author: pnp
 ms.date: 03/29/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 categories:
   - compute
 products:
@@ -70,8 +70,6 @@ Cloud services, including Azure services, generally fall into three categories: 
 There is a spectrum from IaaS to pure PaaS. For example, Azure VMs can autoscale by using virtual machine scale sets. This automatic scaling capability isn't strictly PaaS, but it's the type of management feature found in PaaS services.
 
 In general, there is a tradeoff between control and ease of management. IaaS gives the most control, flexibility, and portability, but you have to provision, configure and manage the VMs and network components you create. FaaS services automatically manage nearly all aspects of running an application. PaaS services fall somewhere in between.
-
-<!-- markdownlint-disable MD033 -->
 
 | Criteria | Virtual Machines | App Service | Azure Spring Cloud| Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|

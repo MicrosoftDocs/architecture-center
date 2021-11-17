@@ -1,5 +1,5 @@
 ---
-title: Build and deploy a model in a SQL Server VM - Team Data Science Process
+title: Build and deploy a model in a SQL Server VM 
 description: Build and deploy a machine learning model using SQL Server on an Azure VM with a publicly available dataset.
 services: machine-learning
 author: marktab
@@ -18,7 +18,7 @@ products:
 categories:
   - ai-machine-learning
 ---
-# The Team Data Science Process in action: using SQL Server
+# Build and deploy a model in a SQL Server virtual machine 
 
 In this tutorial, you walk through the process of building and deploying a machine learning model using SQL Server and a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The procedure follows a standard data science workflow: ingest and explore the data, engineer features to facilitate learning, then build and deploy a model.
 
@@ -751,7 +751,6 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [16]: ./media/sql-walkthrough/bulk-import.png
 [17]: ./media/sql-walkthrough/aml-reader.png
 [18]: ./media/sql-walkthrough/aml-scoring.png
-
 
 <!-- Module References -->
 [edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata

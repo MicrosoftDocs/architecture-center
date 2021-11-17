@@ -126,5 +126,5 @@ Each service documents its autoscale capabilities. Review [Autoscale overview](/
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Plan for capacity](./design-capacity.md)
+> [!div class="nextstepaction"]
+> [Plan for capacity](./design-capacity.md)

@@ -2,7 +2,7 @@
 title: No Caching antipattern
 titleSuffix: Performance antipatterns for cloud apps
 description: Learn about ways to mitigate the No Caching antipattern, the common design flaw of repeatedly fetching the same data.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -224,7 +224,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 [circuit-breaker]: ../../patterns/circuit-breaker.md
 [api-implementation]: ../../best-practices/api-implementation.md#optimizing-client-side-data-access
 [NewRelic]: https://newrelic.com/partner/azure
-[NewRelic-server-requests]: _images/New-Relic.jpg
-[Performance-Load-Test-Results-Uncached]:_images/InitialLoadTestResults.jpg
-[Dynamic-Management-Views]: _images/SQLServerManagementStudio.jpg
-[Performance-Load-Test-Results-Cached]: _images/CachedLoadTestResults.jpg
+[NewRelic-server-requests]: ./_images/New-Relic.jpg
+[Performance-Load-Test-Results-Uncached]: ./_images/InitialLoadTestResults.jpg
+[Dynamic-Management-Views]: ./_images/SQLServerManagementStudio.jpg
+[Performance-Load-Test-Results-Cached]: ./_images/CachedLoadTestResults.jpg

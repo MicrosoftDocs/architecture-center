@@ -1,9 +1,8 @@
 
 
-
 This article compares two ways to connect virtual networks in Azure: virtual network peering and VPN gateways.
 
-A virtual network is a virtual, isolated portion of the Azure public network. By default, traffic cannot be routed between two virtual networks. However, it's possible to connect virtual networks, either within a single region or across two regions, so that traffic can be routed between them. 
+A virtual network is a virtual, isolated portion of the Azure public network. By default, traffic cannot be routed between two virtual networks. However, it's possible to connect virtual networks, either within a single region or across two regions, so that traffic can be routed between them.
 
 ## Virtual network connection types
 
@@ -11,7 +10,7 @@ A virtual network is a virtual, isolated portion of the Azure public network. By
 
 **VPN gateways**. A VPN gateway is a specific type of virtual network gateway that is used to send traffic between an Azure virtual network and an on-premises location over the public internet. You can also use a VPN gateway to send traffic between Azure virtual networks. Each virtual network can have at most one VPN gateway.
 
-Virtual network peering provides a low-latency, high-bandwidth connection. There is no gateway in the path, so there are no extra hops, ensuring low latency connections. It's useful in scenarios such as cross-region data replication and database failover. Because traffic is private and remains on the Microsoft backbone, also consider virtual network peering if you have strict data policies and want to avoid sending any traffic over the internet. 
+Virtual network peering provides a low-latency, high-bandwidth connection. There is no gateway in the path, so there are no extra hops, ensuring low latency connections. It's useful in scenarios such as cross-region data replication and database failover. Because traffic is private and remains on the Microsoft backbone, also consider virtual network peering if you have strict data policies and want to avoid sending any traffic over the internet.
 
 VPN gateways provide a limited bandwidth connection and are useful in scenarios where you need encryption but can tolerate bandwidth restrictions. In these scenarios, customers are also not as latency-sensitive.
 
@@ -40,7 +39,6 @@ For more information, see the following articles:
 - [Connect virtual networks from different deployment models using the portal](/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal)
 - [VPN Gateway FAQ](/azure/vpn-gateway/vpn-gateway-vpn-faq)
 
-
 ## Comparison of virtual network peering and VPN Gateway
 
 | Item | Virtual network peering | VPN Gateway |
@@ -51,7 +49,7 @@ For more information, see the following articles:
 | Bandwidth limitations | No bandwidth limitations. | Varies based on SKU. See [Gateway SKUs by tunnel, connection, and throughput](/azure/vpn-gateway/vpn-gateway-about-vpngateways#benchmark). |
 | Private? | Yes. Routed through Microsoft backbone and private. No public internet involved. | Public IP involved. |
 | Transitive relationship | Peering connections are non-transitive. Transitive networking can be achieved using NVAs or gateways in the hub virtual network. See [Hub-spoke network topology](./hub-spoke.yml) for an example. | If virtual networks are connected via VPN gateways and BGP is enabled in the virtual network connections, transitivity works. |
-| Initial setup time | Fast | ~30 minutes | 
+| Initial setup time | Fast | ~30 minutes |
 | Typical scenarios | Data replication, database failover, and other scenarios needing frequent backups of large data. | Encryption-specific scenarios that are not latency sensitive and do not need high throughout. |
 
 ## Next steps

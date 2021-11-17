@@ -1,6 +1,5 @@
 
 
-
 The code in this project is organized as a clean-architecture [monolith](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/monolithic-applications), with the following typical conceptual components:
 
 - API adapters
@@ -64,4 +63,3 @@ You could easily refactor the app into microservices, each a Function App hostin
 The advantage of such a microservices approach is the ability to scale differently for each type of request. If there were thousands of one request type per second, but only hundreds of another request type per day, the overall solution would benefit from having smaller, easy-to-instantiate, and quick-to-execute functions for the high-volume requests.
 
 The drawback of microservices is that any shared models require synchronized rollout of the microservices, or request pool draining and switchover if there's a data schema change. This requirement would complicate future development, continuous deployment, and operations. Since the business problem didn't demonstrate a need for microservices, Gridwich architecture uses a clean monolith approach.
-

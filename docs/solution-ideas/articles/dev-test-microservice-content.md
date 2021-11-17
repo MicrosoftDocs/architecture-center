@@ -6,7 +6,7 @@ Microservices introduce complexities in the development cycle compared to tradit
 
 *Development testing (DevTest)* is a software development approach that integrates testing early in the development phase to speed development. *DevOps* is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous delivery. [Kubernetes](https://kubernetes.io/) is an open-source container orchestration system for automating application deployments.
 
-This solution architecture models a development and deployment environment that uses DevOps in DevTest for rapid iterative development of an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) microservice application. 
+This solution architecture models a development and deployment environment that uses DevOps in DevTest for rapid iterative development of an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) microservice application.
 
 ## Architecture
 
@@ -62,7 +62,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 - [Azure Cosmos DB](/azure/cosmos-db/optimize-dev-test) is a fully managed, widely distributed database-as-a-service that supports high availability, multi-region applications, and both SQL and NoSQL APIs. Azure Cosmos DB includes DevTest features like a local Cosmos DB emulator that integrates with Azure DevOps, and low-cost tiers for managing costs in DevTest sandboxes.
 
-- [Azure Monitor](/azure/devtest-labs/security-baseline) can monitor both Production and DevTest environments. Azure Monitor collects log data from VM operating systems and crash dump files, and aggregates them for viewing in [Azure Security Center](/azure/security-center/security-center-enable-data-collection).
+- [Azure Monitor](/azure/devtest-labs/security-baseline) can monitor both Production and DevTest environments. Azure Monitor collects log data from VM operating systems and crash dump files, and aggregates them for viewing in [Microsoft Defender for Cloud](/azure/security-center/security-center-enable-data-collection).
 
 ### Alternatives
 

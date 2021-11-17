@@ -9,6 +9,7 @@ products:
 categories:
   - identity
 ms.service: architecture-center
+ms.subservice: azure-guide
 ms.topic: conceptual
 ms.date: 04/22/2021
 ms.author: baselden

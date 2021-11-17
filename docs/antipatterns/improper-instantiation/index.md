@@ -2,7 +2,7 @@
 title: Improper Instantiation antipattern
 titleSuffix: Azure Architecture Center
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
-author: dragon119
+author: EdPrice-MSFT
 ms.date: 06/05/2017
 ms.topic: conceptual
 ms.service: architecture-center
@@ -182,10 +182,10 @@ The next graph shows a similar load test using a shared instance of the `Expensi
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ImproperInstantiation
 [service-bus-messaging]: /azure/service-bus-messaging/service-bus-performance-improvements
 [new-relic]: https://newrelic.com/products/application-monitoring
-[throughput-new-HTTPClient-instance]: _images/HttpClientInstancePerRequest.jpg
-[dashboard-new-HTTPClient-instance]: _images/HttpClientInstancePerRequestWebTransactions.jpg
-[thread-profiler-new-HTTPClient-instance]: _images/HttpClientInstancePerRequestThreadProfile.jpg
-[throughput-new-ExpensiveToCreateService-instance]: _images/ServiceInstancePerRequest.jpg
-[throughput-single-HTTPClient-instance]: _images/SingleHttpClientInstance.jpg
-[throughput-single-ExpensiveToCreateService-instance]: _images/SingleServiceInstance.jpg
-[thread-profiler-single-HTTPClient-instance]: _images/SingleHttpClientInstanceThreadProfile.jpg
+[throughput-new-HTTPClient-instance]: ./_images/HttpClientInstancePerRequest.jpg
+[dashboard-new-HTTPClient-instance]: ./_images/HttpClientInstancePerRequestWebTransactions.jpg
+[thread-profiler-new-HTTPClient-instance]: ./_images/HttpClientInstancePerRequestThreadProfile.jpg
+[throughput-new-ExpensiveToCreateService-instance]: ./_images/ServiceInstancePerRequest.jpg
+[throughput-single-HTTPClient-instance]: ./_images/SingleHttpClientInstance.jpg
+[throughput-single-ExpensiveToCreateService-instance]: ./_images/SingleServiceInstance.jpg
+[thread-profiler-single-HTTPClient-instance]: ./_images/SingleHttpClientInstanceThreadProfile.jpg

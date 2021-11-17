@@ -190,7 +190,6 @@ As with Virtual WAN, you might need to modify the routing when you use Route Ser
 - [Hub-spoke network topology in Azure][Hub-spoke network topology in Azure]
 - [Hub-spoke network topology with Azure Virtual WAN][Hub-spoke network topology with Azure Virtual WAN]
 
-
 [Application Gateway limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits
 [Azure Firewall DNS settings]: /azure/firewall/dns-settings
 [Azure Firewall limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits

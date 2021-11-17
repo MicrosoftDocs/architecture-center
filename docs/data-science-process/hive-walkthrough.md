@@ -1,5 +1,5 @@
 ---
-title: Explore data in a Hadoop cluster - Team Data Science Process
+title: Explore data in a Hadoop cluster
 description: Using the Team Data Science Process for an end-to-end scenario, employing an HDInsight Hadoop cluster to build and deploy a model.
 services: machine-learning
 author: marktab
@@ -18,7 +18,7 @@ products:
 categories:
   - ai-machine-learning
 ---
-# The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
+# Explore data in a Hadoop cluster
 In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. To handle binary and multiclass classification and regression predictive tasks, we build models of the data with Machine Learning Studio (classic).
 
 For a walkthrough that shows how to handle a larger dataset, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1-TB dataset](hive-criteo-walkthrough.md).
@@ -146,7 +146,7 @@ The data should now be in Blob storage, and ready to be consumed within the HDIn
 
 To access the head node of the cluster for exploratory data analysis and down-sampling of the data, follow the procedure outlined in [Access the head node of Hadoop Cluster](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql).
 
-In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in '.hql' files. We then down-sample this data to be used within Machine Learning for building models.
+In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in `.hql` files. We then down-sample this data to be used within Machine Learning for building models.
 
 To prepare the cluster for exploratory data analysis, download the '.hql' files containing the relevant Hive scripts from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) to a local directory (C:\temp) on the head node. Open the command prompt from within the head node of the cluster, and run the following two commands:
 
@@ -156,13 +156,12 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-These two commands download all '.hql' files needed in this walkthrough to the local directory ***C:\temp&#92;*** in the head node.
+These two commands download all `.hql` files needed in this walkthrough to the local directory `C:\temp\` in the head node.
 
 ## <a name="#hive-db-tables"></a>Create Hive database and tables partitioned by month
+
 > [!NOTE]
-> This task is typically for an admin.
->
->
+> This task is typically performed by an administrator.
 
 You are now ready to create Hive tables for the NYC taxi dataset. In the head node of the Hadoop cluster, open the Hadoop command line on the desktop of the head node. Enter the Hive directory by running the following command:
 
@@ -566,7 +565,6 @@ From the Hive directory prompt, run:
 ```console
 hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 ```
-
 
 ### Exploration: Class distributions in the multiclass setting
 > [!NOTE]

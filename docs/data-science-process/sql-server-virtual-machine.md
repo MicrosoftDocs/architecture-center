@@ -1,5 +1,5 @@
 ---
-title: Explore data in a SQL Server virtual machine - Team Data Science Process
+title: Process data in a SQL Server virtual machine on Azure
 description: Explore + process data and generate features using Python or SQL in a SQL Server virtual machine on Azure.
 services: machine-learning
 author: marktab
@@ -18,7 +18,7 @@ products:
 categories:
   - ai-machine-learning
 ---
-# <a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
+# Process data in a SQL Server virtual machine on Azure
 
 This document covers how to explore data and generate features for data stored in a SQL Server VM on Azure. This goal may be completed by data wrangling using SQL or by using a programming language like Python.
 
@@ -160,7 +160,6 @@ Now you can work with the Pandas data frame as covered in the article [Process A
 For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](sql-walkthrough.md).
 
 [1]: ./media/sql-server-virtual-machine/reader-db-featurized-input.png
-
 
 <!-- Module References -->
 [import-data]: /azure/machine-learning/studio-module-reference/import-data

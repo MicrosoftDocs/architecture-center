@@ -1,7 +1,8 @@
 ---
 title: Extract, transform, and load (ETL)
 description: Learn about extract-transform-load (ETL) and extract-load-transform (ELT) data transformation pipelines, and how to use control flows and data flows.
-author: zoinerTejada
+author: EdPrice-MSFT
+ms.author: pnp
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: architecture-center

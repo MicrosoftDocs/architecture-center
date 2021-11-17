@@ -1,5 +1,5 @@
 ---
-title: Load data into Azure Storage environments - Team Data Science Process
+title: Load data into Azure Storage environments
 description: Learn about how to ingest data into various target environments where the data is stored and processed.
 services: machine-learning
 author: marktab

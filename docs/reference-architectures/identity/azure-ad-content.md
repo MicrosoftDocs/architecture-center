@@ -1,7 +1,5 @@
 <!-- cSpell:ignore writeback MSOL -->
 
-
-
 Azure Active Directory (Azure AD) is a cloud-based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication.
 
 ![Cloud identity architecture using Azure Active Directory](./images/azure-ad.png)
@@ -211,7 +209,7 @@ For cost information about these resources, see [Run VMs for an N-tier architect
 
 ## Pricing
 
-Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs. 
+Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 
 - Other considerations are described in the Cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
 - For pricing information about the editions of Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing].
@@ -223,7 +221,7 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 - Learn about using conditional access to protect access to your applications, with [Plan a Conditional Access deployment][aad-ca-plan].
 - For more information on providing AD DS in Azure as infrastructure, review [Integrating on-premises AD with Azure][adds-azure-design].
 - Review [Azure AD Application Proxy][aad-application-proxy] if you intend on providing Azure AD integrations with on-premises or cloud IaaS applications.
-- Because identity is the new control plane for security, review [Identity Management Best Practices][identity-best-practices]. 
+- Because identity is the new control plane for security, review [Identity Management Best Practices][identity-best-practices].
 - Furthermore, as deplying this solution requires highly privileged accounts, review [Securing privileged access][security-compass-paw], to understand security controls for privileged accounts.
 
 ## Related resources
@@ -231,7 +229,6 @@ Use the [Azure pricing calculator][azure-pricing-calculator] to estimate costs.
 * [Manage identity in multitenant applications](../../multitenant-identity/index.md)
 * [Integrate on-premises AD with Azure](./index.yml)
 * [Extend on-premises AD FS to Azure](./adfs.yml)
-
 
 <!-- links -->
 

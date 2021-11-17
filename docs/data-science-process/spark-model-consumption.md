@@ -1,5 +1,5 @@
 ---
-title: Operationalize Spark-built machine learning models - Team Data Science Process
+title: Operationalize Spark-built machine learning models
 description: How to load and score learning models stored in Azure Blob Storage (WASB) with Python.
 services: machine-learning
 author: marktab
@@ -30,7 +30,6 @@ The [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https:
 
 ### Notebook for Spark 2.0
 To modify the Jupyter notebook for Spark 1.6 to use with an HDInsight Spark 2.0 cluster, replace the Python code file with [this file](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). This code shows how to consume the models created in Spark 2.0.
-
 
 ## Prerequisites
 
@@ -112,7 +111,7 @@ The PySpark kernels that are provided with Jupyter notebooks have a preset conte
 * sc - for Spark
 * sqlContext - for Hive
 
-The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
+The PySpark kernel provides some predefined "magics", which are special commands that you can call with %%. There are two such commands that are used in these code samples.
 
 * **%%local** Specified that the code in subsequent lines is executed locally. Code must be valid Python code.
 * **%%sql -o \<variable name>**
@@ -362,7 +361,6 @@ logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp + ".txt"
 dirfilename = scoredResultDir + logisticregressionfilename;
 predictions.saveAsTextFile(dirfilename)
 
-
 # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 timeend = datetime.datetime.now()
 timedelta = round((timeend-timestart).total_seconds(), 2) 
@@ -385,7 +383,7 @@ The code in this section shows how to load a Linear Regression Model from Azure 
 # RECORD START TIME
 timestart = datetime.datetime.now()
 
-#LOAD LIBRARIES​
+#LOAD LIBRARIES
 from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 
 # LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
@@ -398,7 +396,7 @@ linearregressionfilename = "LinearRegressionWithSGD_" + datestamp;
 dirfilename = scoredResultDir + linearregressionfilename;
 predictions.saveAsTextFile(dirfilename)
 
-# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL​
+# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 timeend = datetime.datetime.now()
 timedelta = round((timeend-timestart).total_seconds(), 2) 
 print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
@@ -424,7 +422,6 @@ timestart = datetime.datetime.now()
 #IMPORT MLLIB LIBRARIES    
 from pyspark.mllib.tree import RandomForest, RandomForestModel
 
-
 # CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 savedModel = RandomForestModel.load(sc, randomForestClassificationFileLoc)
 predictions = savedModel.predict(indexedTESTbinary)
@@ -434,7 +431,6 @@ datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
 rfclassificationfilename = "RandomForestClassification_" + datestamp + ".txt";
 dirfilename = scoredResultDir + rfclassificationfilename;
 predictions.saveAsTextFile(dirfilename)
-
 
 # REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 savedModel = RandomForestModel.load(sc, randomForestRegFileLoc)
@@ -484,7 +480,6 @@ btclassificationfilename = "GradientBoostingTreeClassification_" + datestamp + "
 dirfilename = scoredResultDir + btclassificationfilename;
 predictions.saveAsTextFile(dirfilename)
 
-
 # REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 
 # LOAD AND SCORE MODEL 
@@ -496,7 +491,6 @@ datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
 btregressionfilename = "GradientBoostingTreeRegression_" + datestamp + ".txt";
 dirfilename = scoredResultDir + btregressionfilename;
 predictions.saveAsTextFile(dirfilename)
-
 
 # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 timeend = datetime.datetime.now()
@@ -518,7 +512,6 @@ oneHotTESTbinary.unpersist();
 indexedTESTreg.unpersist();
 oneHotTESTreg.unpersist();
 oneHotTESTregScaled.unpersist();
-
 
 # PRINT OUT PATH TO SCORED OUTPUT FILES
 print "logisticRegFileLoc: " + logisticregressionfilename;

@@ -47,8 +47,8 @@ Regular testing should be performed as part of each major change and if possible
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Resiliency testing](./testing.md)
+> [!div class="nextstepaction"]
+> [Resiliency testing](./testing.md)
 
 ## Related links
 

@@ -323,7 +323,6 @@ The following information may be relevant when implementing this pattern:
 - [Azure Logic Apps - Perform long-running tasks with the polling action pattern](/azure/logic-apps/logic-apps-create-api-app#perform-long-running-tasks-with-the-polling-action-pattern).
 - For general best practices when designing a web API, see [Web API design](../best-practices/api-design.md).
 
-
 ## Related guidance
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)

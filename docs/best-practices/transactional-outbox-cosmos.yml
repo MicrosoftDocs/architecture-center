@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Transactional Outbox pattern with Azure Cosmos DB
+  description: How to use Azure Cosmos DB, change feed, and Azure Service Bus for reliable messaging and guaranteed delivery of domain events in distributed applications.
+  author: cdennig
+  ms.author: dechrist
+  ms.date: 11/12/2021
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide  
+azureCategories:
+  - databases
+  - integration
+  - web
+products:
+  - azure-cosmos-db
+  - azure-service-bus
+  - azure-functions
+name: Transactional Outbox pattern with Azure Cosmos DB
+summary: How to use Azure Cosmos DB, change feed, and Azure Service Bus for reliable messaging and guaranteed delivery of domain events in distributed applications.
+thumbnailUrl: /azure/architecture/browse/thumbs/components.jpg
+content: |
+  [!include[](transactional-outbox-cosmos-content.md)]

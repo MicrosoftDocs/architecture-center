@@ -20,13 +20,10 @@ azureCategories:
   - compute
 summary: Learn about VM security, encryption, NSGs, DMZs, access control, and other security considerations for highly sensitive IaaS and hybrid apps.
 products:
-  - azure-bastion
-  - azure-dedicated-host
   - azure-disk-encryption
   - azure-firewall
   - azure-key-vault
   - azure-security-center
-  - azure-virtual-machines
   - azure-virtual-network
 thumbnailUrl: /azure/architecture/browse/thumbs/dedicated-hosts.png
 content: |

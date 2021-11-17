@@ -41,7 +41,6 @@ Structured format in a well-known schema can help expediate parsing and analyzin
 
 Also, application events should be captured as a structured data type with machine-readable data points rather than unstructured string types.
 
-
 ## Application instrumentation
 
 **Do you have detailed instrumentation in the application code?**
@@ -80,7 +79,6 @@ If you are using Application Insights to collect instrumentation data, there are
 ## Next
 > [!div class="nextstepaction"]
 > [Monitor infrastructure](monitor-infrastructure.md)
-
 
 ## Related links
 - [Distributed tracing](../../microservices/logging-monitoring.md#distributed-tracing)

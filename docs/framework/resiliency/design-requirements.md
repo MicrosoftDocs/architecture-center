@@ -109,9 +109,9 @@ Data types should be categorized by data consistency requirements. Data consiste
 
 CAP theorem proves that it is impossible for a distributed data store to simultaneously provide more than two guarantees across:
 
-- **Consistency -** Every read receives the most recent write or an error.
-- **Availability -** Every request receives a non-error response, without the guarantee that it contains the most recent write.
-- **Partition tolerance -** A system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes.
+- **Consistency:** Every read receives the most recent write or an error.
+- **Availability:** Every request receives a non-error response, without the guarantee that it contains the most recent write.
+- **Partition tolerance:** A system continues to operate despite an arbitrary number of transactions being dropped or delayed by the network between nodes.
 
 Determining which of these guarantees are most important in the context of application requirements is critical.
 
@@ -154,8 +154,8 @@ Consider these guidelines to ensure connection availability and improve reliabil
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Application design](./app-design.md)
+> [!div class="nextstepaction"]
+> [Application design](./app-design.md)
 
 ## Related links
 

@@ -87,7 +87,7 @@ Decide on deployment technology, and organize scheduled releases. For more infor
 Functions in a Functions app share resources, including connections to HTTPS, databases, and services such as Azure Storage. When many Functions are running concurrently, it's possible to run out of available connections. For more information, see [Manage connections in Azure Functions](/azure/azure-functions/manage-connections).
 
 ### Configure logging, alerting, and application monitoring
-Application Insights in Azure Monitor collects log, performance, and error data. Application Insights automatically detects performance anomalies, and includes powerful analytics tools to help diagnose issues and understand function usage. 
+Application Insights in Azure Monitor collects log, performance, and error data. Application Insights automatically detects performance anomalies, and includes powerful analytics tools to help diagnose issues and understand function usage.
 
 For more information about application monitoring and logging, see:
 - [Monitor Azure Functions](/azure/azure-functions/functions-monitoring)
@@ -100,7 +100,7 @@ Learn how to effectively use diagnostics for troubleshooting in proactive and pr
 - [Troubleshoot error: "Azure Functions Runtime is unreachable"](/azure/azure-functions/functions-recover-storage-account)
 
 ### Deploy applications using an automated pipeline and DevOps
-Full automation of all steps from code commit to production deployment lets teams focus on building code, and removes the overhead and potential human error of manual steps. Deploying new code is quicker and less risky, helping teams become more agile, more productive, and more confident about their code. 
+Full automation of all steps from code commit to production deployment lets teams focus on building code, and removes the overhead and potential human error of manual steps. Deploying new code is quicker and less risky, helping teams become more agile, more productive, and more confident about their code.
 
 For more information about DevOps and continuous deployment (CD), see:
 - [Continuous deployment for Azure Functions](/azure/azure-functions/functions-continuous-deployment)

@@ -1,6 +1,5 @@
 
 
-
 Magento is an open-source e-commerce platform written in PHP. This example scenario shows Magento deployed to Azure Kubernetes Service (AKS), and describes common best practices for hosting Magento on Azure.
 
 ## Architecture
@@ -34,7 +33,7 @@ Kubernetes and Azure both have mechanisms for *role-based access control (RBAC)*
 
 - Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that Kubernetes RBAC can authorize to users.
 
-AKS integrates the Azure and Kubernetes RBAC mechanisms. To assign AKS permissions to users, create *roles* and *role bindings*:
+AKS integrates the Azure and Kubernetes RBAC mechanisms. To assign AKS permissions to users, create *roles* and *role bindings*:
 
 - A role is a set of permissions that apply within a namespace. Permissions are defined as verbs like get, update, create, or delete, on resources like pods or deployments.
 
@@ -44,7 +43,7 @@ AKS integrates the Azure and Kubernetes RBAC mechanisms. To assign AKS permissio
 
 When you create the AKS cluster, you can configure it to use Azure AD for user authentication.
 
-- For details on how to set up Azure AD integration, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
+- For details on how to set up Azure AD integration, see [AKS-managed Azure Active Directory integration](/azure/aks/managed-aad).
 
 - For more information about controlling access to cluster resources using Kubernetes RBAC and Azure AD identities, see [Use Kubernetes RBAC with Azure AD](/azure/aks/azure-ad-rbac).
 
@@ -124,7 +123,7 @@ AKS clusters can be deployed across multiple Availability Zones, to provide a hi
 
 - Do capacity planning based on performance testing.
 
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
+- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
 - See other cost considerations in [Principles of cost optimization](../../framework/cost/overview.md) in the Microsoft Azure Well-Architected Framework.
 

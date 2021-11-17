@@ -7,7 +7,7 @@ ms.author: prkau
 ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: azure-guide
 ms.category:
   - containers
 products:
@@ -48,19 +48,19 @@ After reading this document, you'll be in a better position to identify which op
 
 ## Bare-metal Kubernetes
 
-Ground-up configuration of Kubernetes using tools like [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/) on any underlying infrastructure.
+Ground-up configuration of Kubernetes using tools like [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/) on any underlying infrastructure.
 
 The biggest constraints for bare-metal Kubernetes are around the specific needs and requirements of the organization. The opportunity to use any distribution, networking interface, and plugin means higher complexity and operational cost. But this offers the most flexible option for customizing your cluster.
 
 ### Scenario
 
-Often, *edge* locations have specific requirements for running Kubernetes clusters that aren't met with the other Azure solutions described in this document. Meaning this option is typically best for those unable to use managed services due to unsupported existing infrastructure, or those who seek to have maximum control of their clusters.
+Often, *edge* locations have specific requirements for running Kubernetes clusters that aren't met with the other Azure solutions described in this document. Meaning this option is typically best for those unable to use managed services due to unsupported existing infrastructure, or those who seek to have maximum control of their clusters.
 
-- This option can be especially difficult for those who are new to Kubernetes. This isn't uncommon for organizations looking to run edge clusters. Options like [MicroK8s](https://microk8s.io/docs) or [k3s](https://k3s.io/) aim to flatten that learning curve.
+- This option can be especially difficult for those who are new to Kubernetes. This isn't uncommon for organizations looking to run edge clusters. Options like [MicroK8s](https://microk8s.io/docs) or [k3s](https://k3s.io/) aim to flatten that learning curve.
 
 - It's important to understand any underlying infrastructure and any integration that is expected to take place up front. This will help to narrow down viable options and to identify any gaps with the open-source tooling and/or plugins.
 
-- Enabling clusters with [Azure Arc](/azure/azure-arc/) presents a simple way to manage your cluster from Azure alongside other resources. This also brings other Azure capabilities to your cluster, including [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), [Azure Defender](/azure/security-center/azure-defender), and other services.
+- Enabling clusters with [Azure Arc](/azure/azure-arc/) presents a simple way to manage your cluster from Azure alongside other resources. This also brings other Azure capabilities to your cluster, including [Azure Policy](/azure/governance/policy/), [Azure Monitor](/azure/azure-monitor/), [Microsoft Defender for Cloud](/azure/security-center/azure-defender), and other services.
 
 - Because cluster configuration isn't trivial, it's especially important to be mindful of CI/CD. Tracking and acting on upstream changes of various plugins, and making sure those changes don't affect the health of your cluster, becomes a direct responsibility. It's important for you to have a strong CI/CD solution, strong testing, and monitoring in place.
 
@@ -70,17 +70,17 @@ Cluster bootstrap:
 
 - [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm): Kubernetes tool for creating ground-up Kubernetes clusters. Good for standard compute resources (Linux/Windows).
 
-- [MicroK8s](https://microk8s.io/docs): Simplified administration and configuration (“*LowOps*”), conformant Kubernetes by Canonical.
+- [MicroK8s](https://microk8s.io/docs): Simplified administration and configuration ("*LowOps*"), conformant Kubernetes by Canonical.
 
 - [k3s](https://k3s.io/): Certified Kubernetes distribution built for Internet of Things (IoT) and edge computing.
 
 Storage:
 
-- Explore available [CSI drivers](https://kubernetes-csi.github.io/docs/drivers.html): Many options are available to fit your requirements from cloud to local file shares.
+- Explore available [CSI drivers](https://kubernetes-csi.github.io/docs/drivers.html): Many options are available to fit your requirements from cloud to local file shares.
 
 Networking:
 
-- A full list of available add-ons can be found here: [Networking add-ons](https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model). Some popular options include [Flannel](https://github.com/coreos/flannel#flannel), a simple overlay network, and [Calico](https://docs.projectcalico.org/), which provides a full networking stack.
+- A full list of available add-ons can be found here: [Networking add-ons](https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model). Some popular options include [Flannel](https://github.com/coreos/flannel#flannel), a simple overlay network, and [Calico](https://docs.projectcalico.org/), which provides a full networking stack.
 
 ### Considerations
 
@@ -100,7 +100,7 @@ Flexibility:
 
 Kubernetes cluster (a master VM and a worker VM) configured and deployed for you on your Azure Stack Edge Pro device.
 
-[Azure Stack Edge Pro](/azure/databox-online/) devices deliver Azure capabilities like compute, storage, networking, and hardware-accelerated machine learning (ML) to any edge location. Kubernetes clusters can be created once the compute role is enabled on any of the Pro-GPU, Pro-R, and Mini-R devices. Managing upgrades of the Kubernetes cluster can be done using standard updates available for the device.
+[Azure Stack Edge Pro](/azure/databox-online/) devices deliver Azure capabilities like compute, storage, networking, and hardware-accelerated machine learning (ML) to any edge location. Kubernetes clusters can be created once the compute role is enabled on any of the Pro-GPU, Pro-R, and Mini-R devices. Managing upgrades of the Kubernetes cluster can be done using standard updates available for the device.
 
 ### Scenario
 
@@ -108,11 +108,11 @@ Ideal for those with existing (Linux) IoT workloads or upgrading their compute f
 
 - Admin permissions aren't granted by default. Although you can work with the product group to make certain exceptions, this makes it difficult to have finer control of your cluster.
 
-- There is an extra [cost](https://azure.microsoft.com/pricing/details/azure-stack/edge/) if there isn't already an Azure Stack Edge device. Explore [Azure Stack Edge devices](https://azure.microsoft.com/products/azure-stack/edge/#devices) and see if any fit your compute requirements.
+- There is an extra [cost](https://azure.microsoft.com/pricing/details/azure-stack/edge/) if there isn't already an Azure Stack Edge device. Explore [Azure Stack Edge devices](https://azure.microsoft.com/products/azure-stack/edge/#devices) and see if any fit your compute requirements.
 
 - [Calico](https://docs.projectcalico.org/), [MetalLB](https://metallb.org/), and [CoreDNS](https://coredns.io/) are installed for Kubernetes networking on the device.
 
-- Only **Linux** workloads are supported at this time.
+- Only **Linux** workloads are supported at this time.
 
 - In addition to Kubernetes, Azure Stack Edge also comes with the IoT runtime, which means that workloads may also be deployed to your Azure Stack Edge clusters via IoT Edge.
 
@@ -134,7 +134,7 @@ Flexibility:
 
 ## AKS on HCI
 
-Note: This option is currently in **preview**.
+Note: This option is currently in **preview**.
 
 AKS-HCI is a set of predefined settings and configurations that is used to deploy one or more Kubernetes clusters (with Windows Admin Center or PowerShell modules) on a multi-node cluster running either Windows Server 2019 Datacenter or Azure Stack HCI 20H2.
 

@@ -1,7 +1,5 @@
 <!-- cSpell:ignore fabraga -->
 
-
-
 This example scenario demonstrates how to use the extensive family of Azure Data Services to build a modern data platform capable of handling the most common data challenges in an organization.
 
 The solution described in this article combines a range of Azure services that will ingest, store, process, enrich, and serve data and insights from different sources (structured, semi-structured, unstructured, and streaming).
@@ -19,10 +17,12 @@ This approach can also be used to:
 
 [![Architecture for a modern data platform using Azure data services](./media/azure-analytics-end-to-end.png)](./media/azure-analytics-end-to-end.png#lightbox)
 
+*Download a [Visio file](https://arch-center.azureedge.net/Analytics-with-AzureSynapse.vsdx) of this architecture*.
+
 > [!NOTE]
 >
->- The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features that are not covered by this design.
->- Specific business requirements for your analytics use case may also ask for the use of different services or features that are not considered in this design.
+> - The services covered by this architecture are only a subset of a much larger family of Azure services. Similar outcomes can be achieved by using other services or features that are not covered by this design.
+> - Specific business requirements for your analytics use case may also ask for the use of different services or features that are not considered in this design.
 
 ## Analytics Use Cases
 
@@ -141,7 +141,7 @@ Following these recommendations, the services below should be considered as part
 1. [Azure Cost Management](https://azure.microsoft.com/services/cost-management/): financial governance over your Azure workloads.
 1. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): secure credential and certificate management. For example, [Azure Synapse Pipelines](/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities), [Azure Synapse Spark Pools](/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary) and [Azure ML](/azure/machine-learning/how-to-use-secrets-in-runs) can retrieve credentials and certificates from Azure Key Vault used to securely access data stores.
 1. [Azure Monitor](https://azure.microsoft.com/services/monitor/): collect, analyze, and act on telemetry information of your Azure resources to proactively identify problems and maximize performance and reliability.
-1. [Azure Security Center](https://azure.microsoft.com/services/security-center/): strengthen and monitor the security posture of your Azure workloads.
+1. [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/): strengthen and monitor the security posture of your Azure workloads.
 1. [Azure DevOps](https://azure.microsoft.com/solutions/devops/) & [GitHub](https://azure.microsoft.com/products/github/): implement DevOps practices to enforce automation and compliance to your workload development and deployment pipelines for Azure Synapse and Azure ML.
 1. [Azure Policy](/azure/governance/policy/): implement organizational standards and governance for resource consistency, regulatory compliance, security, cost, and management.
 
@@ -164,7 +164,7 @@ The following Azure services have been used in the architecture:
 - Azure Cost Management
 - Azure Key Vault
 - Azure Monitor
-- Azure Security Center
+- Microsoft Defender for Cloud
 - Azure DevOps
 - Azure Policy
 - GitHub

@@ -53,6 +53,10 @@ Consider the [Noisy Neighbor antipattern](../../antipatterns/noisy-neighbor/inde
 
 While the entirety of the [Azure Well-Architected Framework](../../framework/index.md) is important for all solutions, pay special attention to the [Resiliency pillar](../../framework/resiliency/reliability-patterns.md#resiliency). The nature of cloud hosting leads to  applications that are often multitenant, use shared platform services, compete for resources and bandwidth, communicate over the internet, and run on commodity hardware. This increases the likelihood that both transient and more permanent faults will arise.
 
+## Multitenant architectural guidance
+
+* [Accelerate and De-Risk Your Journey to SaaS](https://myignite.microsoft.com/sessions/99bb894b-4b43-4831-ae63-4cf74b711630) (video): This video provides guidance for transitioning to the "software as a service" (SaaS) delivery model - whether you're starting by lifting-and-shifting an existing solution from on-premises to Azure, considering a multitenant architecture, or looking to modernize an existing SaaS web application.
+
 ## Resources for Azure services
 
 ### Governance and compliance
@@ -96,7 +100,6 @@ While the entirety of the [Azure Well-Architected Framework](../../framework/ind
 ### Analytics
 
 * [Multitenancy solutions with Power BI embedded analytics](/power-bi/developer/embedded/embed-multi-tenancy): When designing a multitenant application that contains Power BI Embedded, you must carefully choose the tenancy model that best fits your needs.
-
 
 ### IoT
 

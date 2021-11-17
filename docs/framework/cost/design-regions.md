@@ -35,7 +35,6 @@ Azure also offers differentiated cloud regions for specific security and complia
 **Does your solution need specific levels of security and compliance?**
 ***
 
-
 If your solution needs to follow certain government regulations, the cost will be higher. Otherwise you can meet less rigid compliance, through [Azure Policy](/azure/governance/policy/overview), which is free.
 
 Certain Azure regions are built specifically for high compliance and security needs. For example, with [Azure Government (USA)](/azure/azure-government/) you're given an isolated instance of Azure. [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/) has datacenters that meet privacy certifications. These specialized regions have higher cost.
@@ -44,7 +43,6 @@ Regulatory requirements can dictate restrictions on data residency. These requir
 
 ## Traffic across billing zones and regions
 Cross-regional traffic and cross-zonal traffic incur additional costs.
-
 
 **Is the application critical enough to have the footprint of the resources cross zones and,or cross regions?**
 ***
@@ -55,4 +53,4 @@ Suppose, you want to build a cost-effective solution by provisioning resources i
 - The cross-regional and cross-zone additional costs do not apply to global services, such as Azure Active Directory.
 - Not all Azure services support zones and not all regions in Azure support zones.
 
->![Task](../../_images/i-best-practices.svg) Before choosing a location, consider how important is the application to justify the cost of having resources cross zones and/or cross regions. For non-mission critical applications such as, developer or test, consider keeping the solution and its dependencies in a single region or single zone to leverage the advantages of choosing the lower-cost region.
+> ![Task](../../_images/i-best-practices.svg) Before choosing a location, consider how important is the application to justify the cost of having resources cross zones and/or cross regions. For non-mission critical applications such as, developer or test, consider keeping the solution and its dependencies in a single region or single zone to leverage the advantages of choosing the lower-cost region.

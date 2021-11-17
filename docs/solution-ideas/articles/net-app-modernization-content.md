@@ -31,12 +31,12 @@ For the data tier of the app, this company chose Azure SQL Database for its dyna
 By following this process, customers can connect to the online retail catalog via the web app. The load balancer automatically scales during periods of increased traffic to improve application uptime. Product inventory and pricing are queried and pulled from Azure SQL Database, as follows:
 
 1. Customers connect to the online catalog via the front end web app
-2. Azure App Service provides security and automated management.  DevOps capabilities are also possible such as continuous deployment from Azure DevOps.  
+2. Azure App Service provides security and automated management.  DevOps capabilities are also possible such as continuous deployment from Azure DevOps.
 3. Product inventory and pricing are queried and pulled from Azure SQL Database.
 
 ## Next Steps
 
-- [Learn more](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) about the migration process used in this example. 
+- [Learn more](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) about the migration process used in this example.
 - Learn how [Stackify](https://customers.microsoft.com/story/726302-stackify) uses Azure SQL Database and Azure App Service to power their .NET applications.
 - [Learn how](/learn/paths/migrate-sql-workloads-azure/) to migrate your on-premises SQL workloads to Azure.
 - Explore [learning paths](/learn/browse/?products=azure-app-service&roles=developer) and training modules for developers using Azure App Service

@@ -4,7 +4,7 @@ There are many reasons to look for alternatives to the COBOL-based mainframe app
 - The applications weren't designed for modern IT, resulting in difficult integrations and limited flexibility.
 - IBM mainframe hardware and software are expensive, and licensing and maintenance fees for ancillary mainframe applications and databases are rising.
 
-Advanced’s Automated COBOL Refactoring solution refactors COBOL applications to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
+Advanced's Automated COBOL Refactoring solution refactors COBOL applications to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
 
 The refactored applications:
 
@@ -72,7 +72,7 @@ This is the architecture of the example system shown above when refactored for A
    - Databases on VMs, such as Oracle and Db2.
    - Big data repositories such as Azure Databricks and Azure Data Lake.
    - Streaming data services such as Kafka and Azure Stream Analytics.
-1. The application servers host various application programs based on the language’s capability, such as Java classes or COBOL programs.
+1. The application servers host various application programs based on the language's capability, such as Java classes or COBOL programs.
 1. Data services use a combination of:
    1. **High-performance storage:** Azure Premium SSD and Azure Ultra Disk Storage.
    1. **File storage:** Azure NetApp Files and Azure Files.
@@ -120,7 +120,7 @@ Incorporate the following pillars of the [Microsoft Azure Well-Architected Frame
 
 ### Availability
 
-- The architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) to mirror Azure VMs to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter fails.
+- The architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) to mirror Azure VMs to a secondary Azure region for quick failover and disaster recovery if an Azure datacenter fails.
 - [Azure auto-failover group replication](/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell) manages the database replication and failover to the secondary region.
 
 ### Operations
@@ -129,9 +129,9 @@ Refactoring not only supports faster cloud adoption, but also promotes adoption 
 
 ### Security
 
-This solution uses an Azure network security group to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
+This solution uses an Azure network security group to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 
-Private Link for Azure SQL Database provides a private, direct connection that's isolated to the Azure networking backbone from the Azure VMs to Azure SQL Database.
+Private Link for Azure SQL Database provides a private, direct connection that's isolated to the Azure networking backbone from the Azure VMs to Azure SQL Database.
 
 [Azure Bastion](/azure/bastion/bastion-overview) maximizes admin access security by minimizing open ports. Bastion provides secure and seamless RDP/SSH connectivity to virtual network VMs directly from the Azure portal over TLS.
 
@@ -152,7 +152,7 @@ Azure avoids unnecessary costs by identifying the correct number of resource typ
 
 - For more information, please contact legacy2azure@microsoft.com.
 - [Modernization Platform as a Service (ModPaaS)](https://azuremarketplace.microsoft.com/marketplace/apps/modern-systems.modpaas?tab=Overview)
-- [Advanced’s Automated COBOL Refactoring solution](https://modernsystems.oneadvanced.com/services/cobol)
+- [Advanced's Automated COBOL Refactoring solution](https://modernsystems.oneadvanced.com/services/cobol)
 - [Case study: Modernizing to the Cloud While Racing the Clock](https://modernsystems.oneadvanced.com/case-studies/uk-government-agency/?utm_medium=CampaignPage&utm_source=Website&utm_campaign=UKGOVCaseStudy).
 
 ## Related resources

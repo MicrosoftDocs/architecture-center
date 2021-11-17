@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure Private Link in hub-and-spoke network
+  title: Azure Private Link in a hub-and-spoke network
   titleSuffix: Azure Architecture Center
   description: Use Azure Private Link to access PaaS services from a hub-and-spoke network. Connect to these services by using a private IP address from your virtual network.
   author: jangelfdez
@@ -19,7 +19,7 @@ products:
   - azure-expressroute
   - azure-private-link
   - azure-virtual-network
-name: Azure Private Link in hub-and-spoke network
+name: Azure Private Link in a hub-and-spoke network
 summary: Use Azure Private Link to access PaaS services from a hub-and-spoke network. Connect to these services by using a private IP address from your virtual network.
 thumbnailUrl: /azure/architecture/browse/thumbs/private-link-hub-spoke-network-private-link-thumbnail.png
 content: |

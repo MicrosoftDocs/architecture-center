@@ -1,7 +1,7 @@
 ---
 title: Build solutions with Availability Zones
 titleSuffix: High Availability
-description: Learn about the Azure Availability Zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.
+description: Learn about the Azure Availability Zones construct, a software and networking solution for high availability (HA) that protects against datacenter failures.
 author: EdPrice-MSFT
 ms.date: 04/07/2020
 ms.topic: conceptual
@@ -22,7 +22,7 @@ ms.custom:
 
 Microsoft Azure global infrastructure is designed and constructed at every layer to deliver the highest levels of redundancy and resiliency to its customers. Azure infrastructure is composed of geographies, regions, and Availability Zones, which limit the blast radius of a failure and therefore limit potential impact to customer applications and data. The Azure Availability Zones construct was developed to provide a software and networking solution to protect against datacenter failures and to provide increased high availability (HA) to our customers.
 
-Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of Availability Zones within a region limits the impact to applications and data from zone failures, such as large-scale flooding, major storms and superstorms, and other events that could disrupt site access, safe passage, extended utilities uptime, and the availability of resources. Availability Zones and their associated datacenters are designed such that if one zone is compromised, the services, capacity, and availability are supported by the other Availability Zones in the region.
+Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of Availability Zones within a region limits the impact to applications and data from zone failures, such as large-scale flooding, major storms and superstorms, and other events that could disrupt site access, safe passage, extended utilities uptime, and the availability of resources. Availability Zones and their associated datacenters are designed such that if one zone is compromised, the services, capacity, and availability are supported by the other Availability Zones in the region.
 
 Availability Zones can be used to spread a solution across multiple zones within a region, allowing for an application to continue functioning when one zone fails. With Availability Zones, Azure offers industry best 99.99% [Virtual Machine (VM) uptime service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/). Zone-redundant services replicate your services and data across Availability Zones to protect from single points of failure.
 
@@ -65,7 +65,6 @@ Designing solutions that continue to function in spite of failure is key to impr
 When architecting for resilience, all three layers-foundation, services, and applications-should be considered to achieve the highest level of reliability. Since a solution can be made up of many components, each component should be designed for reliability.
 
 ## Zonal vs. zone-redundant architecture
-
 
 An Availability Zone in an Azure region is a combination of a fault domain and an update domain. For example, if you create three or more VMs across three zones in an Azure region, your VMs are effectively distributed across three fault domains and three update domains. The Azure platform recognizes this distribution across update domains to take care that VMs in different zones are not updated at the same time.
 

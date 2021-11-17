@@ -32,7 +32,6 @@ Here is a visual representation of the TDSP lifecycle:
 
 ![TDSP lifecycle](./media/lifecycle/tdsp-lifecycle2.png)
 
-
 ## Goal
 Deploy models with a data pipeline to a production or production-like environment for final user acceptance.
 
@@ -57,7 +56,6 @@ For examples of model operationalization with an Machine Learning Studio (classi
 * A status dashboard that displays the system health and key metrics
 * A final modeling report with deployment details
 * A final solution architecture document
-
 
 ## Next steps
 

@@ -63,5 +63,4 @@ Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is a
 
 - [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
 
-
 [paired-regions]: /azure/best-practices-availability-paired-regions
