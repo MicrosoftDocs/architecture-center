@@ -1,77 +1,85 @@
-This article demonstrates how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects/) after deployment of Azure Kubernetes Service. The article references the repo the [CNCF Projects App](https://www.cncf.io/), that walks you through the steps in deploying such an architecture. This is just one type of a reference architecture, and it can be deployed on any Kubernetes cluster, not just Azure Kubernetes Service. After reviewing this article, you will have a good understanding of deploying a typical application that comprises mostly of CNCF projects.
+This article demonstrates how to conceptualize, architect, build, and deploy an application that uses projects from the [Cloud Native Computing Foundation](https://www.cncf.io/projects) (CNCF) after deployment of Azure Kubernetes Service. The architecture describes the [CNCF Projects App](https://github.com/Azure/cloud-native-app) on GitHub. The repo provides for steps for deploying the architecture.
+
+ This is just one type of reference architecture. You can deploy it on any Kubernetes cluster, not just Azure Kubernetes Service. After you review this article, you'll have a good understanding of how to deploy a typical application that's made up mostly of CNCF projects.
 
 ## Potential use cases
 
 ## Architecture
 
-![Diagram that shows...](./media/cncf-architecture.png)
+![Diagram that shows the reference architecture for building a CNCF project.](./media/cncf-architecture.png)
 
 link to visio
 
-The workload is a simple expense manager web application which allows users to view/submit expenses. Upon submission of the expense an email will be sent to the manager. Step-by-step detail below:
+The workload is a simple web application that allows employees to submit and view expense reports. When an expense report is submitted, an email is sent to the employee's manager. 
 
-Application flow
+### Application flow
 
-1. Employee access Web App through NGINX Ingress to submit expenses
-2. Web App calls the API App to retrieve the employees’ manager
-3. Web App pushes the message generated for expense creation to NATS queue
-4. Expenses Saved in MySOL
-5. NATS-Connector invokes the Email Dispatcher OpenFaaS function with the expense message as the payload
-6. Email dispatcher creates a SendGrid Message
-7 SendGrid sends email to retrieved Manager for review
+**1.** The employee accesses a web app via NGINX Ingress to submit expenses.
 
-DevOps flow
+**2.** The web app calls an API app to retrieve the employee's manager.
 
-a. Engineers develop/update code in Visual Studio Code
+**3.** The web app pushes a message generated to create the expense report to a Neural Autonomic Transport System (NATS) queue.
 
-b. Pushes the code to GitHub, from their local workspace in Visual Studio Code
+**4.** The expense report is saved in MySOL.
 
-c. GitHub code is used by Tekton pipelines
+**5.** NATS Connector invokes the Email Dispatcher OpenFaaS function with the expense message as the payload.
 
-d. Pipelines push and pull container image from Harbor registry
+**6.** Email Dispatcher creates a SendGrid message.
 
-e. Tekton deploys Web App, API App, and Email Dispatcher applications
+**7.** SendGrid sends an email to the retrieved manager for review.
 
-f. Application metrics are captured by Promethius
+### DevOps flow
 
-g. Metrics can be viewed at Grafana Dashboard
+**a.** Developers write/update the code in Visual Studio Code.
 
-h. DevOps Engineers monitor Grafana Dashboard
+**b.** Developers push the code to GitHub from their local workspace in Visual Studio Code.
 
-Infrastructure components
+**c.** Tekton pipelines use the GitHub code.
 
-i. AKS cluster based on infrastructure presented in the AKS Baseline
+**d.** Pipelines push and a pull container image from a Harbor registry.
 
-ii. ROOKS Ceph used for Cluster Storage needs
+**e.** Tekton deploys the web app, API app, and Email Dispatcher applications.
 
-iii. Linkerd’s Service mesh enabling reliable and secured services
+**f.** Application metrics are captured by Promethius.
 
-iv. Jæger’s tracing capability for overall Application tracing on the K8s cluster
+**g.** Metrics can be viewed on a Grafana Dashboard.
 
-Cluster operations components
+**h.** DevOps engineers monitor the Grafana Dashboard.
 
-Clusters often benefit from being placed under GitOps management as a controlled and observable mechanism to manage cluster bootstrapping and managing those foundational components. Flux is a popular GitOps operator, and is often paired with GitHub Actions to perform validation on updated manifests and Helm charts.
+### Infrastructure components
 
-### OSS components
-- [Kubernetes] - Container Orchestration Cluster (CNCF)
-- [Rook] - Storage Management (CNCF)
-- [Harbor] - Container Registry (CNCF)
-- [NATS] - Pub/Sub Messaging (CNCF)
-- Linkerd] - Service Mesh (CNCF)
-- Prometheus] - Monitoring (CNCF)
-- [Jaeger] - Observability/Tracing (CNCF)
-- [OpenFaaS] - Functions
-- [MySQL] - Database
-- [Nginx] - Kubernetes Ingress Controller
-- [Tekton] CI/CD (CD Foundation)
-- [Grafana] - Metrics Dashboard
-- [SendGrid] - External Email Service
-- [GitHub] - Code Repository and infrastructure deployment pipelines
-- [Flux] – GitOps operator
-- Web Front-End & Web API - [.NET Core]
+**i.** Azure Kubernetes Service (AKS) cluster that's based on the infrastructure presented in the [AKS baseline](../../reference-architectures/containers/aks/secure-baseline-aks).
+
+**ii.** Rook Ceph that's used for cluster storage.
+
+**iii.** Linkerd service mesh.
+
+**iv.** Jaeger for overall application tracing on the Kubernetes cluster.
+
+### Cluster operations components
+
+It's often beneficial to manage clusters and cluster bootstrapping by using GitOps management. Flux is a popular GitOps operator and is often paired with GitHub Actions to perform validation on updated manifests and Helm charts.
+
+### Open-source software components
+- [Kubernetes](https://kubernetes.io) - Container Orchestration Cluster (CNCF)
+- [Rook](https://rook.io) - Storage Management (CNCF)
+- [Harbor](https://goharbor.io) - Container Registry (CNCF)
+- [NATS](https://nats.io) - Pub/Sub Messaging (CNCF)
+- [Linkerd](https://linkerd.io) - Service Mesh (CNCF)
+- [Prometheus](https://prometheus.io) - Monitoring (CNCF)
+- [Jaeger](https://www.jaegertracing.io) - Observability/Tracing (CNCF)
+- [OpenFaaS](https://www.openfaas.com) - Functions
+- [MySQL](https://www.mysql.com) - Database
+- [NGINX](https://www.nginx.com) - Kubernetes Ingress Controller
+- [Tekton](https://tekton.dev) CI/CD (CD Foundation)
+- [Grafana](https://grafana.com) - Metrics Dashboard
+- [SendGrid](https://sendgrid.com) - External Email Service
+- [GitHub](https://github.com) - Code Repository and infrastructure deployment pipelines
+- [Flux](https://fluxcd.io) – GitOps operator
+- Web Front-End & Web API - [.NET Core](/dotnet/core/about)
 
 ### Alternatives
-This project uses CNCF Graduated and Incubated projects and there could be multiple alternatives for the services used. Please refer **[CNCF](https://www.cncf.io/) Projects** for other alternatives. Few of the considerations are below.
+This project uses CNCF Graduated and Incubated projects and there could be multiple alternatives for the services used. Please refer **[CNCF](https://www.cncf.io) Projects** for other alternatives. Few of the considerations are below.
 
 * [Service mesh references](https://www.cncf.io/blog/2021/07/15/networking-with-a-service-mesh-use-cases-best-practices-and-comparison-of-top-mesh-options)
 * [Function as a Service (Serverless)](https://landscape.cncf.io/serverless)
@@ -90,7 +98,7 @@ There are first party Azure services (eg. AGIC, ACR, Monitor) and Microsoft supp
 * Linkerd takes approximately ~12 mins to show up on dashboard
 
 ## Deploy this scenario
-Deploy this scenario from the GitHub repo at Azure/cloud-native-app. Follow the instructions here in sequence to deploy the CNCF Projects App in your environment. Please do note that this repo is a community project accepting and approving PRs for enhancements and modifications from the community
+Deploy this scenario from the GitHub repo at [Azure/cloud-native-app]. Follow the instructions [here] in sequence to deploy the CNCF Projects App in your environment. Please do note that this repo is a community project accepting and approving PRs for enhancements and modifications from the community
 
 ## Pricing
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/ pricing/calculator) to estimate costs. Below are some considerations for running this project in
