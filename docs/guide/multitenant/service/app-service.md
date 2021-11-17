@@ -1,0 +1,111 @@
+---
+title: Azure App Service and Azure Functions considerations for multitenancy
+titleSuffix: Azure Architecture Center
+description: This article describes the features of Azure App Service and Azure Functions that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure App Service and Azure Functions in a multitenant solution.
+author: johndowns
+ms.author: jodowns
+ms.date: 11/16/2021
+ms.topic: conceptual
+ms.service: architecture-center
+products:
+ - azure
+categories:
+ - management-and-governance
+ - security
+ms.category:
+  - fcp
+ms.custom:
+  - guide
+  - fcp
+---
+
+# Multitenancy and Azure App Service and Azure Functions
+
+Azure App Service is a powerful web application hosting platform. Azure Functions, built on top of the App Service infrastructure, enables you to easily build serverless and event-driven compute workloads. Both services are frequently used in multitenant solutions.
+
+## Features of Azure App Service and Azure Functions that support multitenancy
+
+Azure App Service and Azure Functions include many features that support multitenancy.
+
+### Custom domain names
+
+Azure App Service enables you to use [wildcard DNS](/azure/app-service/app-service-web-tutorial-custom-domain?tabs=wildcard) and to add your own [wildcard TLS certificates](/azure/app-service/configure-ssl-certificate). When you use [tenant-specific subdomains](../considerations/domain-names.md#subdomains), wildcard DNS and TLS certificates enable you to easily scale your solution to large numbers of tenants without manual reconfiguration for each new tenant.
+
+When you use [tenant-specific custom domain names](../considerations/domain-names.md#custom-domain-names), you might have large numbers of custom domain names that need to be added to your app. It can become cumbersome to manage large numbers of custom domain names, especially when they require individual TLS certificates. Additionally, there are [limits to consider](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as how many custom domains can be applied to a single app.
+
+You can instead consider deploying a reverse proxy, like [Azure Front Door](/azure/frontdoor/front-door-overview), to act as the internet-facing component of your solution. Azure Front Door enables you to add a web application firewall (WAF) and edge caching, and provides other performance optimizations. You can easily reconfigure your traffic flows to direct traffic to different backends based on changing business or technical requirements. When you use Azure Front Door, you can use it to manage your custom domain names and to terminate your TLS connections. Your App Service application is then configured with a single hostname, and all traffic flows through to that, avoiding you managing custom domain names in multiple places:
+
+![Diagram showing requests coming into Front Door using a variety of host names, and being passed to the App Service app using a single host name.](media/app-service/front-door.png)
+
+> [!TIP]
+> If your application sends cookies or redirection responses, you need to take special care. Changes in the request's `Host` headers might invalidate these responses.
+
+### Authentication and authorization
+
+Azure App Service can [inspect authentication tokens on behalf of your app](/azure/app-service/overview-authentication-authorization). If a request doesn't contain a token, the token is invalid, or the request isn't authorized, App Service blocks the request.
+
+If your tenants use Azure Active Directory (Azure AD) as their identity system, you can configure Azure App Service to use [the /common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) to validate user tokens. This ensures that, regardless of the user's Azure AD tenant, their tokens are validated and accepted.
+
+You can also integrate Azure App Service with Azure AD B2C for authentication of consumers.
+
+More information:
+- [App Service authorization](/azure/app-service/overview-authentication-authorization)
+- [Configure authentication in a sample web app by using Azure AD B2C](/azure/active-directory-b2c/configure-authentication-sample-web-app)
+
+### Access restrictions
+
+You can restrict the traffic to your app by using [access restrictions](/azure/app-service/app-service-ip-restrictions). These can be used to specify the IP address ranges or virtual networks that are allowed to connect to the app.
+
+When you work with a multitenant solution, be aware of the maximum number of access restriction rules. For example, if you need to create an access restriction rule for every tenant, you might exceed the maximum allowed number of rules. If you need a larger number of rules, consider deploying a reverse proxy like [Azure Front Door](/azure/frontdoor/front-door-overview).
+
+## Isolation models
+
+When working with a multitenant system using Azure App Service or Azure Functions, you need to make a decision about the level of isolation you want to use.
+
+- In Azure App Service, an [plan](/azure/app-service/overview-hosting-plans) represents your hosting infrastructure. An app represents a single application running on that infrastructure. You can deploy multiple apps to a single plan.
+- In Azure Functions, your hosting and application are also separated, but you have additional hosting options available. For simplicity, we refer to the hosting infrastructure as a *plan* throughout this section, because the principles described here apply to both App Service and Azure Functions regardless of the hosting model you use.
+
+### Plans per tenant
+
+The strongest level of isolation is to deploy a dedicated plan for a tenant. This ensures that the tenant has full use of all of the server resources allocated to that plan.
+
+This approach enables you to scale your solution to provide performance isolation for each tenant and to avoid the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/index.md). However, it also has a higher cost because the resources aren't shared with multiple tenants. Also, you need to consider the [maximum number of plans](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that can be deployed into a single Azure resource group or subscription.
+
+### Apps per tenant with shared plans
+
+You can also choose to share your plan between multiple tenants, but deploy separate apps for each tenant. This provides you with logical isolation between each tenant, and gives you several advantages including:
+
+- **Cost efficiency:** By sharing your hosting infrastructure, you can generally reduce your overall costs per tenant.
+- **Separation of configuration:** Each tenant's app can have its own domain name, TLS certificate, access restrictions, and token authorization policies applied.
+- **Separation of upgrades:** Each tenant's app can be upgraded independently of other apps on the same plan.
+
+However, because the plan's compute resources are shared, the apps may be subject to the [Noisy Neighbor problem](../../patterns/noisy-neigbhor.md). Additionally, there are [limits to how many apps can be put onto a single plan](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits).
+
+### Shared apps
+
+You can also consider deploying a shared application on a single plan. This tends to be the most cost-efficient option, and it requires the least operational overhead because there are fewer resources to manage. You can scale the overall plan based on load or demand, and all tenants sharing the plan will benefit from the increased capacity.
+
+It's important to be aware of the [App Service quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits), such as the maximum number of custom domains that can be added to a single app.
+
+To be able to use this model, your application code must be multitenancy-aware.
+
+> [!NOTE]
+> Don't use [deployment slots](/azure/app-service/deploy-staging-slots) for different tenants. Slots don't provide resource isolation. They are designed for deployment scenarios when you need to have multiple versions of your app running for a short time, such as blue-green deployments and a canary rollout strategy.
+
+## Networking and multitenancy
+
+### IP addressing
+
+Many multitenant applications need to connect to tenants' on-premises networks to send data.
+
+If you need to send outbound traffic from a known static IP address, consider using [NAT Gateway](/azure/app-service/overview-inbound-outbound-ips#get-a-static-outbound-ip). App Service provides [guidance on how to integrate with a NAT Gateway](/azure/app-service/networking/nat-gateway-integration).
+
+If you don't need a static IP address, but instead need to occasionally check the IP address that your application uses, you can [query the current IP addresses of the App Service deployment](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
+
+### Quotas
+
+Because App Service is itself a multitenant service, you need to take care about how you use shared resources. Networking is an area that you need to pay particular attention to, because there are [limits](h/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) that affect how your application can work with both inbound and outbound network connections, including IP addressing, source network address translation (SNAT), and TCP port limits.
+
+If your application connects to large numbers of databases or external services, it might be at risk of [SNAT port exhaustion](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). In general, SNAT port exhaustion indicates that your code isn't correctly reusing TCP connections, and even in a multitenant solution you should ensure you follow recommended practices for reusing connections.
+
+However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion even if you follow good coding practices. In these scenarios, [consider deploying NAT Gateway](/azure/app-service/networking/nat-gateway-integration) to increase the number of SNAT ports available for your application to use, or use Azure service endpoints when connecting to Azure services to bypass load balancer limits. Even with these controls in place, you may approach limits with a large number of tenants, should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.md).
