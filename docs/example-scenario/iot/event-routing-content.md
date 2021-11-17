@@ -33,6 +33,5 @@ When to use this pattern:
 This pattern is not recommended for:
 -   Routing based on complex real-time data analysis of time series data. For example, when comparing the 15-minute average telemetry data. If real-time data analysis is required, use a real-time analytics service for the hot path data.
 
-
 ## See also
 [Azure IoT Hub message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c)

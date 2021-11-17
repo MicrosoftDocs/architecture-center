@@ -1,5 +1,5 @@
 ---
-title: Move data to a SQL Server virtual machine - Team Data Science Process
+title: Move data to a SQL Server virtual machine
 description: Move data from flat files or from on-premises SQL Server to SQL Server on Azure VM.
 services: machine-learning
 author: marktab
@@ -115,14 +115,12 @@ $ScriptBlock = {
     #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
 }
 
-
 # Background processing of all partitions
 for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
 {
     Write-Debug "Submit loading partition # $i"
     Start-Job $ScriptBlock -Arg $i      
 }
-
 
 # Wait for it all to complete
 While (Get-Job -State "Running")

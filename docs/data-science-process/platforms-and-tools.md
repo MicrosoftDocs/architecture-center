@@ -1,5 +1,5 @@
 ---
-title: Platforms and tools for data science projects - Team Data Science Process
+title: Platforms and tools for data science projects
 description: Itemizes and discusses the data and analytics resources available to enterprises standardizing on the Team Data Science Process.
 author: marktab
 manager: marktab
@@ -17,7 +17,6 @@ products:
 categories:
   - ai-machine-learning
 ---
-
 
 # Platforms and tools for data science projects
 
@@ -55,7 +54,6 @@ For more information on Windows edition of DSVM, see [Microsoft Data Science Vir
 
 To learn how to execute some of the common data science tasks on the DSVM efficiently, see [10 things you can do on the Data science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/vm-do-ten-things)
 
-
 ## Azure HDInsight Spark clusters
 
 Apache Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. The Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and for graph computations. Spark is also compatible with Azure Blob storage (WASB), so your existing data stored in Azure can easily be processed using Spark.
@@ -64,20 +62,17 @@ When you create a Spark cluster in HDInsight, you create Azure compute resources
 
 TDSP team from Microsoft has published two end-to-end walkthroughs on how to use Azure HDInsight Spark Clusters to build data science solutions, one using Python and the other Scala. For more information on Azure HDInsight **Spark Clusters**, see [Overview: Apache Spark on HDInsight Linux](/azure/hdinsight/spark/apache-spark-overview). To learn how to build a data science solution using **Python** on an Azure HDInsight Spark Cluster, see [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md). To learn how to build a data science solution using **Scala** on an Azure HDInsight Spark Cluster, see [Data Science using Scala and Spark on Azure](scala-walkthrough.md).
 
-
 ## Azure Synapse Analytics
 
 Azure Synapse Analytics allows you to scale compute resources easily and in seconds, without over-provisioning or over-paying. It also offers the unique option to pause the use of compute resources, giving you the freedom to better manage your cloud costs. The ability to deploy scalable compute resources makes it possible to bring all your data into Azure Synapse Analytics. Storage costs are minimal and you can run compute only on the parts of datasets that you want to analyze.
 
 For more information on Azure Synapse Analytics, see the [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse) website. To learn how to build end-to-end advanced analytics solutions with Azure Synapse Analytics, see [The Team Data Science Process in action: using Azure Synapse Analytics](sqldw-walkthrough.md).
 
-
 ## Azure Data Lake
 
 Azure Data Lake is as an enterprise-wide repository of every type of data collected in a single location, prior to any formal requirements, or schema being imposed. This flexibility allows every type of data to be kept in a data lake, regardless of its size or structure or how fast it is ingested. Organizations can then use Hadoop or advanced analytics to find patterns in these data lakes. Data lakes can also serve as a repository for lower-cost data preparation before curating the data and moving it into a data warehouse.
 
 For more information on Azure Data Lake, see [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). To learn how to build a scalable end-to-end data science solution with Azure Data Lake, see [Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough](data-lake-walkthrough.md)
-
 
 ## Azure HDInsight Hive (Hadoop) clusters
 
@@ -89,13 +84,11 @@ For data scientists, Hive can run Python User-Defined Functions (UDFs) in Hive q
 
 For more information on Azure HDInsight Hive Clusters, see [Use Hive and HiveQL with Hadoop in HDInsight](/azure/hdinsight/hadoop/hdinsight-use-hive). To learn how to build a scalable end-to-end data science solution with Azure HDInsight Hive Clusters, see [The Team Data Science Process in action: using HDInsight Hadoop clusters](hive-walkthrough.md).
 
-
 ## Azure File Storage
 
 Azure File Storage is a service that offers file shares in the cloud using the standard Server Message Block (SMB) Protocol. Both SMB 2.1 and SMB 3.0 are supported. With Azure File storage, you can migrate legacy applications that rely on file shares to Azure quickly and without costly rewrites. Applications running in Azure virtual machines or cloud services or from on-premises clients can mount a file share in the cloud, just as a desktop application mounts a typical SMB share. Any number of application components can then mount and access the File storage share simultaneously.
 
 Especially useful for data science projects is the ability to create an Azure file store as the place to share project data with your project team members. Each of them then has access to the same copy of the data in the Azure file storage. They can also use this file storage to share feature sets generated during the execution of the project. If the project is a client engagement, your clients can create an Azure file storage under their own Azure subscription to share the project data and features with you. In this way, the client has full control of the project data assets. For more information on Azure File Storage, see [Get started with Azure File storage on Windows](/azure/storage/files/storage-dotnet-how-to-use-files) and [How to use Azure File Storage with Linux](/azure/storage/files/storage-how-to-use-files-linux).
-
 
 ## SQL Server 2019 R and Python Services
 
@@ -104,7 +97,6 @@ R Services (In-database) provides a platform for developing and deploying intell
 R Services (In-database) supports the open source R language with a comprehensive set of SQL Server tools and technologies. They offer superior performance, security, reliability, and manageability. You can deploy R solutions using convenient and familiar tools. Your production applications can call the R runtime and retrieve predictions and visuals using Transact-SQL. You also use the ScaleR libraries to improve the scale and performance of your R solutions. For more information, see [SQL Server R Services](/sql/advanced-analytics/r/sql-server-r-services).
 
 The TDSP team from Microsoft has published two end-to-end walkthroughs that show how to build data science solutions in SQL Server 2016 R Services: one for R programmers and one for SQL developers. For **R Programmers**, see [Data Science End-to-End Walkthrough](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). For **SQL Developers**, see [In-Database Advanced Analytics for SQL Developers (Tutorial)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
-
 
 ## <a name="appendix"></a>Appendix: Tools to set up data science projects
 
@@ -149,7 +141,6 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
    ![Click SSH public keys and then click +Add](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 1. Paste the ssh key copied into the text box and save.
-
 
 ## Next steps
 

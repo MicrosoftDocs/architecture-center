@@ -83,8 +83,6 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-<!-- markdownlint-disable MD033 -->
-
 | Capability | Azure Data Lake Analytics | Azure Synapse | HDInsight | Azure Databricks |
 | --- | --- | --- | --- | --- |
 | Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes |
@@ -108,8 +106,6 @@ The following tables summarize the key differences in capabilities.
 | Row-level security | No | Yes<sup>2</sup> | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
 | Supports firewalls | Yes | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> | No |
 | Dynamic data masking | No | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
-
-<!-- markdownlint-enable MD033 -->
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 

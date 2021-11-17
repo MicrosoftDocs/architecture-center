@@ -44,6 +44,6 @@ Create seamless conversational interfaces with all of your internet-accessible d
 - Learn about various methods you can use to send commands to an IoT device by using [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), including:
    * Sending [cloud-to-device commands](/azure/iot-hub/iot-hub-csharp-csharp-c2d)
    * Using [device twins](/azure/iot-hub/iot-hub-csharp-csharp-twin-getstarted)
-   * Using [direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods) 
+   * Using [direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods)
 - Learn how to [build an enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml) by using the [Azure Bot Service](/azure/bot-service/?view=azure-bot-service-4.0).
 - To learn more about developing solutions by using IoT Hub, see the [Azure Iot Hub developer guide](/azure/iot-hub/iot-hub-devguide).

@@ -28,7 +28,6 @@ Many traditional IT operating models aren't compatible with the cloud, and organ
 
 :::image type="content" source="./images/devops-model.png" alt-text="Conceptual art comparing traditional and DevOps models.":::
 
-
 ## Checklist
 
 **Have you adopted a secure DevOps approach to ensure security and feature enhancements can be quickly deployed?**
@@ -50,7 +49,6 @@ Follow these questions to assess the workload at a deeper level.
 |[**Are any resources provisioned or operationally configured with user tools such as the Azure portal or via Azure CLI?**](deploy-infrastructure.md)|Always use Infrastructure as code (IaC) to make even the smallest of changes. This approach makes it easy to track code because the provisioned infrastructure is reproducible and reversible.|
 |[**Can you roll back or forward code quickly through automated pipelines?**](deploy-code.md)|Automated deployment pipelines should allow for quick roll-forward and roll-back deployments to address critical bugs and code updates outside of the normal deployment lifecycle.|
 
-
 ## Azure security benchmark
 The Azure Security Benchmark includes a collection of high-impact security recommendations. Use them to secure the services and processes you use to run the workload in Azure:
 
@@ -66,7 +64,6 @@ We recommend monitoring activities that maintain the security posture. These act
 
 > [!div class="nextstepaction"]
 > [Security monitoring](./monitor.md)
-
 
 ## Related link
 > Go back to the main article: [Security](overview.md)

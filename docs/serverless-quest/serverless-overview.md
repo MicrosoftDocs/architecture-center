@@ -1,6 +1,6 @@
 ---
-title: Serverless Functions overview
-titleSuffix: Azure Example Scenarios
+title: Serverless Functions architecture
+titleSuffix: Azure Architecture Center
 description: Learn about serverless architecture with Azure Functions, and how to implement serverless Functions adoption.
 author: rogeriohc
 ms.date: 06/22/2020
@@ -19,7 +19,7 @@ ms.custom:
 
 Benefits of using serverless architectures with Functions applications include:
 
-- The Azure infrastructure automatically provides all the updated servers that applications need to keep running at scale. 
+- The Azure infrastructure automatically provides all the updated servers that applications need to keep running at scale.
 - Compute resources allocate dynamically, and instantly autoscale to meet elastic demands. Serverless doesn't mean "no server," but "less server," because servers run only as needed.
 - Micro-billing saves costs by charging only for the compute resources and duration the code uses to execute.
 - Function *bindings* streamline integration by providing declarative access to a wide variety of Azure and third-party services.

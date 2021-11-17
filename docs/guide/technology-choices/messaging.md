@@ -208,7 +208,6 @@ Event Hubs provides an endpoint for [Apache Kafka](https://kafka.apache.org/) cl
 
 For more information, see [Event Hubs for Apache Kafka](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview).
 
-
 ## Crossover scenarios
 In some cases, it's advantageous to combine two messaging services.
 
@@ -238,4 +237,4 @@ Consider these patterns when implementing asynchronous messaging:
 
 [Jonathon Oliver's blog post: Idempotency](https://blog.jonathanoliver.com/idempotency-patterns/)
 
-[Martin Fowler's blog post: What do you mean by “Event-Driven”?](https://martinfowler.com/articles/201701-event-driven.html)
+[Martin Fowler's blog post: What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html)

@@ -1,5 +1,5 @@
 ---
-title: Identify scenarios and plan the analytics process - Team Data Science Process | Azure Machine Learning
+title: Identify scenarios and plan the analytics process
 description: Identify scenarios and plan for advanced analytics data processing by considering a series of key questions.
 services: machine-learning
 author: marktab
@@ -19,7 +19,7 @@ categories:
   - ai-machine-learning
 ---
 
-# How to identify scenarios and plan for advanced analytics data processing
+# Identify scenarios and plan for advanced analytics data processing
 
 What resources are required for you to create an environment that can perform advanced analytics processing on a dataset? This article suggests a series of questions to ask that can help identify tasks and resources relevant your scenario.
 

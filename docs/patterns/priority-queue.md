@@ -62,7 +62,7 @@ If you need to guarantee that low priority messages will be processed, it's nece
 
 Using a separate queue for each message priority works best for systems that have a small number of well-defined priorities.
 
-Message priorities can be determined logically by the system. For example, rather than having explicit high and low priority messages, they could be designated as “fee paying customer,” or “non-fee paying customer.” Depending on your business model, your system can allocate more resources to processing messages from fee paying customers than non-fee paying ones.
+Message priorities can be determined logically by the system. For example, rather than having explicit high and low priority messages, they could be designated as "fee paying customer," or "non-fee paying customer." Depending on your business model, your system can allocate more resources to processing messages from fee paying customers than non-fee paying ones.
 
 There might be a financial and processing cost associated with checking a queue for a message (some commercial messaging systems charge a small fee each time a message is posted or retrieved, and each time a queue is queried for messages). This cost increases when checking multiple queues.
 
@@ -172,8 +172,8 @@ The following guidance might also be relevant when implementing this pattern:
 
 The following patterns might also be relevant when implementing this pattern:
 
-- [Competing Consumers pattern](./competing-consumers.md). To increase the throughput of the queues, it’s possible to have multiple consumers that listen on the same queue, and process the tasks in parallel. These consumers will compete for messages, but only one should be able to process each message. Provides more information on the benefits and tradeoffs of implementing this approach.
+- [Competing Consumers pattern](./competing-consumers.md). To increase the throughput of the queues, it's possible to have multiple consumers that listen on the same queue, and process the tasks in parallel. These consumers will compete for messages, but only one should be able to process each message. Provides more information on the benefits and tradeoffs of implementing this approach.
 
 - [Throttling pattern](./throttling.md). You can implement throttling by using queues. Priority messaging can be used to ensure that requests from critical applications, or applications being run by high-value customers, are given priority over requests from less important applications.
 
-- [Enterprise Integration patterns with Service Bus](https://abhishekrlal.com/2013/01/11/enterprise-integration-patterns-with-service-bus-part-2/) on Abhishek Lal’s blog.
+- [Enterprise Integration patterns with Service Bus](https://abhishekrlal.com/2013/01/11/enterprise-integration-patterns-with-service-bus-part-2/) on Abhishek Lal's blog.

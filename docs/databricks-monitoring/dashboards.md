@@ -96,7 +96,7 @@ Next, change the Grafana administrator password by following these steps:
 
 ## Create an Azure Monitor data source
 
-1. Create a service principal that allows Grafana to manage access to your Log Analytics workspace. For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+1. Create a service principal that allows Grafana to manage access to your Log Analytics workspace. For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 
     ```bash
     az ad sp create-for-rbac --name http://<service principal name> --role "Log Analytics Reader"

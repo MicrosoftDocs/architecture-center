@@ -46,7 +46,7 @@ For more information about hosting plans, see:
 
 ### Understand scaling
 
-The serverless Consumption and Premium hosting plans *scale* automatically, adding and removing Azure Functions host instances based on the number of incoming events. Scaling can vary on several dimensions, and behave differently based on plan, trigger, and code language. 
+The serverless Consumption and Premium hosting plans *scale* automatically, adding and removing Azure Functions host instances based on the number of incoming events. Scaling can vary on several dimensions, and behave differently based on plan, trigger, and code language.
 
 For more information about scaling, see:
 - [Understand scaling behaviors](/azure/azure-functions/functions-scale#understanding-scaling-behaviors)
@@ -54,7 +54,7 @@ For more information about scaling, see:
 
 ### Understand and address cold starts
 
-If the number of host instances scales down to zero, the next request has the added latency of restarting the Function app, called a *cold start*. [Cold start](/azure/azure-functions/functions-scale#cold-start) is a large discussion point for serverless architectures, and a point of ambiguity for Azure Functions. 
+If the number of host instances scales down to zero, the next request has the added latency of restarting the Function app, called a *cold start*. [Cold start](/azure/azure-functions/functions-scale#cold-start) is a large discussion point for serverless architectures, and a point of ambiguity for Azure Functions.
 
 The Premium hosting plan prevents cold starts by keeping some instances warm. Reducing dependencies and using asynchronous operations in the Functions app also minimizes the impact of cold starts. However, availability requirements may require running the app in a Dedicated hosting plan with *Always on* enabled. The Dedicated plan uses dedicated virtual machines (VMs), so is not serverless.
 

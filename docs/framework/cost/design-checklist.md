@@ -10,7 +10,6 @@ ms.custom:
   - article
 ---
 
-
 # Checklist - Design for cost
 
 Use this checklist when designing a cost-effective workload.

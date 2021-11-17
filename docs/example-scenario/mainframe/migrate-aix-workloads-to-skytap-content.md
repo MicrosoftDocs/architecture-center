@@ -3,7 +3,7 @@ Power Systems. This example illustrates a migration of AIX logical partitions (L
 
 Since its introduction in 1986, the AIX operating system has been a top choice for large, mission-critical applications. AIX was designed for virtualization from the ground up using multiple LPARs that run in isolation on a given IBM Power System server. Until now, your choice was to rearchitect applications to move them to the cloud or bear the expense of maintaining them on-premises or in a co-located facility.
 
-Skytap on Azure is dedicated hardware that provides a native IBM Power9 infrastructure with the AIX operating system. Full, cloud-based backup and recovery is provided with Azure Storage. You don’t need to refactor or rearchitect applications to run them in Skytap on Azure, and the way you manage existing IBM Power applications on-premises changes very little.
+Skytap on Azure is dedicated hardware that provides a native IBM Power9 infrastructure with the AIX operating system. Full, cloud-based backup and recovery is provided with Azure Storage. You don't need to refactor or rearchitect applications to run them in Skytap on Azure, and the way you manage existing IBM Power applications on-premises changes very little.
 
 After migration, you can start taking advantage of native Azure services to modernize applications, if desired, or continue to run systems on AIX. Either way, you immediately gain the resilience, flexibility, high availability, and scalability of Azure.
 
@@ -29,9 +29,9 @@ The numbers in the diagram correspond to the following data flow.
 
 1.  A user on-premises uses a web browser to connect to Azure through [Azure ExpressRoute](/azure/expressroute/expressroute-introduction), which creates a private connection. This web-based app provides a modern interface for the services that run on the AIX LPARs in Skytap on Azure.
 
-2.  Azure Data Box Gateway is deployed on-premises next to the datacenter’s existing AIX infrastructure, which includes an AIX Network Installation Management (NIM) server. Data Box Gateway loads the data and completes the system restoration on Azure. AIX backups run using the operating system’s native **mksyb** and **savevg** commands.
+2.  Azure Data Box Gateway is deployed on-premises next to the datacenter's existing AIX infrastructure, which includes an AIX Network Installation Management (NIM) server. Data Box Gateway loads the data and completes the system restoration on Azure. AIX backups run using the operating system's native **mksyb** and **savevg** commands.
 
-3.  Files that are backed up to Data Box Gateway are migrated to the organization’s Azure Blob Storage account through Azure Private Link, an endpoint for privately accessing Azure services.
+3.  Files that are backed up to Data Box Gateway are migrated to the organization's Azure Blob Storage account through Azure Private Link, an endpoint for privately accessing Azure services.
 
 4.  In the Skytap on Azure environment, the NIM server running Unix is used to restore the base AIX operating system to the LPARs in Skytap on Azure.
 
@@ -67,7 +67,7 @@ The architecture uses these components:
 
 ### Availability
 
-Skytap on Azure has high reliability built on IBM Power9 Systems backed by SSD RAID 6+1 storage and 10 Gb/sec backplane networking.
+Skytap on Azure has high reliability built on IBM Power9 Systems backed by SSD RAID 6+1 storage and 10 Gb/sec backplane networking.
 
 Skytap on Azure is supported by a service-level agreement (SLA) of 99.95 percent availability.
 

@@ -73,5 +73,5 @@ For a list of Azure metrics, see [Supported metrics with Azure Monitor](/azure/a
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Performance monitoring](./monitor.md)
+> [!div class="nextstepaction"]
+> [Performance monitoring](./monitor.md)

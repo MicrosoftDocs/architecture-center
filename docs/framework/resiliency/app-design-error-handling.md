@@ -70,8 +70,8 @@ Achieve levels of scale and performance needed for your solution by segregating 
 
 ## Next step
 
->[!div class="nextstepaction"]
->[Chaos engineering](./chaos-engineering.md)
+> [!div class="nextstepaction"]
+> [Chaos engineering](./chaos-engineering.md)
 
 ## Related links
 

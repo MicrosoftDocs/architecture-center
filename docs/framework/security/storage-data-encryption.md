@@ -14,7 +14,6 @@ ms.custom:
 
 # Storage, data, and encryption
 
-
 Protecting data at rest is required to maintain confidentiality, integrity, and availability assurances across all workloads. Storage in a cloud service like Azure is [architected and implemented](https://azure.microsoft.com/blog/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency/) quite differently than on premises solutions to enable massive scaling, modern access through REST APIs, and isolation between tenants.
 
 Granting access to Azure storage is possible through Azure Active Directory (Azure AD) as well as key based authentication mechanisms (Symmetric Shared Key Authentication, or Shared Access Signature (SAS))
@@ -49,7 +48,7 @@ An example of this is [Azure Active Directory Authentication to Azure blob and q
 
 ## Encrypt virtual disk files
 
-Virtual machines use virtual disk files as virtual storage volumes and exist in a cloud service provider’s blob storage system. These files can be moved from on-premises to cloud systems, from cloud systems to on-premises, or between cloud systems. Due to the mobility of these files, you need to make sure the files and their contents are not accessible to unauthorized users.
+Virtual machines use virtual disk files as virtual storage volumes and exist in a cloud service provider's blob storage system. These files can be moved from on-premises to cloud systems, from cloud systems to on-premises, or between cloud systems. Due to the mobility of these files, you need to make sure the files and their contents are not accessible to unauthorized users.
 
 Authentication-based access controls should be in place to prevent potential attackers from downloading the files to their own systems. In the event of a flaw in the authentication and authorization system or its configuration, you want to have a backup mechanism to secure the virtual disk files.
 
@@ -59,13 +58,11 @@ We recommend that you enable virtual disk encryption. For information about how 
 
 An example of virtual disk encryption is [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss).
 
-
-
 ## Enable platform encryption services
 
 All public cloud service providers enable encryption that is done automatically using provider-managed keys on their platform. In many cases, this is done for the customer and no user interaction is required. In other cases, the provider makes this an option that the customer can choose to use or not to use.
 
-There is almost no overhead in enabling this type of encryption as it’s managed by the cloud service provider.
+There is almost no overhead in enabling this type of encryption as it's managed by the cloud service provider.
 
 We recommend that for each service that supports service provider encryption that you enable that option.
 
@@ -73,9 +70,9 @@ An example of service-specific service provider encryption is [Azure Storage Ser
 
 ## Encrypt data in transit
 
-Protect data while it’s being transferred between components, locations or programs, such as over the network, across a service bus (from on-premises to cloud and vice-versa), or during an input/output process. Always use SSL/TLS when exchanging data across different locations. For more information, see [Protect data in transit](/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit).
+Protect data while it's being transferred between components, locations or programs, such as over the network, across a service bus (from on-premises to cloud and vice-versa), or during an input/output process. Always use SSL/TLS when exchanging data across different locations. For more information, see [Protect data in transit](/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit).
 
-Sometimes you need to isolate your entire communication channel between your on-premises and cloud infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute/). For more information, see  these articles:
+Sometimes you need to isolate your entire communication channel between your on-premises and cloud infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute/). For more information, see  these articles:
 
 - [Extending on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md)
 - [Configure a Point-to-Site VPN connection to a VNet using native Azure certificate authentication: Azure portal](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#architecture)

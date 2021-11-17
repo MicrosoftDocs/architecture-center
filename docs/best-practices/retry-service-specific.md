@@ -44,7 +44,7 @@ The following table summarizes the retry features for the Azure services describ
 > [!NOTE]
 > For most of the Azure built-in retry mechanisms, there is currently no way apply a different retry policy for different types of error or exception. You should configure a policy that provides the optimum average performance and availability. One way to fine-tune the policy is to analyze log files to determine the type of transient faults that are occurring.
 
-<!-- markdownlint-disable MD024 MD033 -->
+<!-- markdownlint-disable MD024 -->
 
 ## Azure Active Directory
 
@@ -514,7 +514,6 @@ namespace RetryCodeSamples
                         maxBackoff: TimeSpan.FromSeconds(30),
                         maxRetryCount: 3);
 
-
                 // Policies cannot be specified on a per-operation basis.
                 var session = await messagingFactory.AcceptMessageSessionAsync();
             }
@@ -522,7 +521,6 @@ namespace RetryCodeSamples
             {
                 var client = messagingFactory.CreateQueueClient(QueueName);
                 // The client inherits the policy from the factory that created it.
-
 
                 // Set different values for the retry policy on the client.
                 client.RetryPolicy =
@@ -866,7 +864,6 @@ Azure Storage services include blob storage, files, and storage queues.
 
 The ClientOptions Class is the base type for all client option types and exposes various common client options like Diagnostics, Retry, Transport. To provide the client configuration options for connecting to Azure Queue, Blob, and File Storage you must use the corresponding derived type. In the next example, you use the QueueClientOptions class (derived from ClientOptions) to configure a client to connect to Azure Queue Service. The Retry property is the set of options that can be specified to influence how retry attempts are made, and how a failure is eligible to be retried.
 
-
 ```csharp
 using System;
 using System.Threading;
@@ -900,7 +897,6 @@ namespace RetryCodeSamples
                     // Otherwise, subsequent retries will alternate back and forth between primary and secondary Uri.
                 };
 
-
                 Uri queueServiceUri = new Uri("https://storageaccount.queue.core.windows.net/");
                 string accountName = "Storage account name";
                 string accountKey = "storage account key";
@@ -914,7 +910,6 @@ namespace RetryCodeSamples
                 // Return an async collection of queues in the storage account.
                 var queues = serviceClient.GetQueuesAsync(QueueTraits.None, null, cancellationToken);
 ```
-
 
 ### Table Support
 

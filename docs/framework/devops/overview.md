@@ -23,7 +23,11 @@ To assess your workload using the tenets found in the [Microsoft Azure Well-Arch
 
 We recommend the following video to help you achieve operational excellence with the Azure Well-Architected Framework:
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/Achieve-Operational-Excellence-With-Azure-Well-Architected-Framework/player]
+
+<!-- markdownlint-enable MD034 -->
 
 ## Topics
 
